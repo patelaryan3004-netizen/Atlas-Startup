@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+coverage/
+*.xlsx
+dev-server.log
+.claude/scheduled_tasks.lock

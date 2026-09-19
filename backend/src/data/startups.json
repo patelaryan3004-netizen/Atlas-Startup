@@ -1,0 +1,4797 @@
+[
+  {
+    "name": "Canva",
+    "sector": "SaaS",
+    "sectorFull": "SaaS / Design Tech",
+    "city": "Sydney",
+    "lat": -33.88485,
+    "lng": 151.20982,
+    "investors": [
+      "Blackbird",
+      "AirTree",
+      "Square Peg"
+    ],
+    "stage": "Series D+",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.canva.com",
+    "blurb": "Online graphic design platform for everyone",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "110 Kippax Street, Surry Hills, Sydney NSW 2010",
+    "founders": [
+      "Melanie Perkins",
+      "Cliff Obrecht",
+      "Cameron Adams"
+    ],
+    "foundedYear": 2012
+  },
+  {
+    "name": "Airwallex",
+    "sector": "Fintech",
+    "sectorFull": "Fintech",
+    "city": "Melbourne",
+    "lat": -37.81885,
+    "lng": 144.95946,
+    "investors": [
+      "Blackbird",
+      "AirTree",
+      "Square Peg"
+    ],
+    "stage": "Series C+",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.airwallex.com",
+    "blurb": "Global payments and financial infrastructure for businesses",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Jack Zhang",
+      "Max Li",
+      "Lucy Liu",
+      "Xijing Dai",
+      "Jacob Dai"
+    ],
+    "foundedYear": 2015,
+    "address": "Level 7, 15 William Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "SafetyCulture",
+    "sector": "Enterprise Software",
+    "sectorFull": "Enterprise Software",
+    "city": "Sydney",
+    "lat": -33.88421,
+    "lng": 151.2102,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Series C",
+    "hiring": true,
+    "verified": true,
+    "website": "https://safetyculture.com",
+    "blurb": "Workplace safety, inspections and operations platform Founded in Townsville QLD; HQ later moved to Sydney.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "72 Foveaux Street, Surry Hills, Sydney NSW 2010",
+    "founders": [
+      "Luke Anear"
+    ],
+    "foundedYear": 2004
+  },
+  {
+    "name": "Culture Amp",
+    "sector": "HR Tech",
+    "sectorFull": "HR Tech / SaaS",
+    "city": "Melbourne",
+    "lat": -37.82377,
+    "lng": 144.99056,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unicorn",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.cultureamp.com",
+    "blurb": "Employee engagement, performance and people analytics",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "founders": [
+      "Didier Elzinga",
+      "Jon Williamson",
+      "Doug English",
+      "Rod Hamilton"
+    ],
+    "foundedYear": 2011,
+    "address": "Level 2/29 Stewart St, Richmond VIC 3121"
+  },
+  {
+    "name": "Linktree",
+    "sector": "Consumer",
+    "sectorFull": "Consumer / Creator Tools",
+    "city": "Melbourne",
+    "lat": -37.79851,
+    "lng": 144.98502,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Series C",
+    "hiring": true,
+    "verified": true,
+    "website": "https://linktr.ee",
+    "blurb": "Link-in-bio and creator landing page platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Alex Zaccaria",
+      "Anthony Zaccaria",
+      "Nick Humphreys"
+    ],
+    "foundedYear": 2016,
+    "address": "1-9 Sackville Street, Collingwood VIC 3066"
+  },
+  {
+    "name": "Employment Hero",
+    "sector": "HR Tech",
+    "sectorFull": "HR Tech / SaaS",
+    "city": "Sydney",
+    "lat": -33.87193,
+    "lng": 151.20471,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Series C+",
+    "hiring": true,
+    "verified": true,
+    "website": "https://employmenthero.com",
+    "blurb": "HR, payroll and employment management platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 441 Kent Street, Sydney NSW 2000",
+    "founders": [
+      "Ben Thompson",
+      "Dave Tong"
+    ],
+    "foundedYear": 2014
+  },
+  {
+    "name": "Go1",
+    "sector": "EdTech",
+    "sectorFull": "EdTech / SaaS",
+    "city": "Brisbane",
+    "lat": -27.46569,
+    "lng": 153.02776,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Series B+",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.go1.com",
+    "blurb": "Corporate learning and upskilling content platform",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 7, 127 Creek Street, Brisbane QLD 4000",
+    "founders": [
+      "Andrew Barnes",
+      "Vu Tran",
+      "Chris Eigeland",
+      "Chris Hood"
+    ],
+    "foundedYear": 2015
+  },
+  {
+    "name": "Immutable",
+    "sector": "Web3",
+    "sectorFull": "Web3 / Gaming",
+    "city": "Sydney",
+    "lat": -33.86883,
+    "lng": 151.20675,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Series B+",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.immutable.com",
+    "blurb": "NFTs and digital asset ownership for games and digital worlds",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "77 King Street, Sydney NSW 2000",
+    "founders": [
+      "James Ferguson",
+      "Robbie Ferguson"
+    ],
+    "foundedYear": 2018
+  },
+  {
+    "name": "Rokt",
+    "sector": "MarTech",
+    "sectorFull": "MarTech / Ecommerce",
+    "city": "Sydney",
+    "lat": -33.88332,
+    "lng": 151.20886,
+    "investors": [
+      "Square Peg"
+    ],
+    "stage": "Unicorn",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.rokt.com",
+    "blurb": "Ecommerce transaction and marketing platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "300 Elizabeth Street, Surry Hills, Sydney NSW 2010 (Sydney office; global HQ New York)",
+    "founders": [
+      "Bruce Buchanan"
+    ],
+    "foundedYear": 2012
+  },
+  {
+    "name": "Deputy",
+    "sector": "HR Tech",
+    "sectorFull": "HR Tech / SaaS",
+    "city": "Sydney",
+    "lat": -33.87501,
+    "lng": 151.20706,
+    "investors": [
+      "Square Peg",
+      "AirTree"
+    ],
+    "stage": "Series B",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.deputy.com",
+    "blurb": "Workforce management and rostering software",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 13, 580 George Street, Sydney NSW 2000",
+    "founders": [
+      "Ashik Ahmed",
+      "Steve Shelley"
+    ],
+    "foundedYear": 2008
+  },
+  {
+    "name": "Prospa",
+    "sector": "Fintech",
+    "sectorFull": "Fintech",
+    "city": "Sydney",
+    "lat": -33.87091,
+    "lng": 151.20805,
+    "investors": [
+      "AirTree",
+      "Square Peg"
+    ],
+    "stage": "Series B",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.prospa.com",
+    "blurb": "Online lending platform for small and medium businesses",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 15-16, 55 Market Street, Sydney NSW 2000",
+    "founders": [
+      "Beau Bertoli",
+      "Greg Moshal"
+    ],
+    "foundedYear": 2011
+  },
+  {
+    "name": "Athena",
+    "sector": "Fintech",
+    "sectorFull": "Fintech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "AirTree",
+      "Square Peg"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.athena.com.au",
+    "blurb": "Home loan and mortgage platform for faster repayments",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Nathan Walsh",
+      "Michael Starkey"
+    ],
+    "foundedYear": 2017
+  },
+  {
+    "name": "Leonardo AI",
+    "sector": "AI",
+    "sectorFull": "AI / Generative",
+    "city": "Sydney",
+    "lat": -33.8488,
+    "lng": 151.2093,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Acquired",
+    "hiring": true,
+    "verified": true,
+    "website": "https://leonardo.ai",
+    "blurb": "Generative AI tools for creating visual assets and images. Acquired by Canva, 2024.",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Suite 1007, 120 High Street, North Sydney NSW 2060",
+    "founders": [
+      "Jachin Bhasme",
+      "JJ Fiasson"
+    ]
+  },
+  {
+    "name": "Gilmour Space Technologies",
+    "sector": "Space",
+    "sectorFull": "Space / Deep Tech",
+    "city": "Yatala",
+    "lat": -27.75138,
+    "lng": 153.22247,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://gspacetech.com",
+    "blurb": "Hybrid rocket launch vehicles and space access",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "77 Darlington Drive, Yatala QLD 4207",
+    "founders": [
+      "Adam Gilmour",
+      "James Gilmour"
+    ],
+    "foundedYear": 2012
+  },
+  {
+    "name": "Fleet Space Technologies",
+    "sector": "Space",
+    "sectorFull": "Space / Deep Tech",
+    "city": "Adelaide",
+    "lat": -34.93736,
+    "lng": 138.52528,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://fleetspace.com",
+    "blurb": "Satellite communications and space technologies",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Flavia Tata Nardini",
+      "Matt Pearson"
+    ],
+    "foundedYear": 2015,
+    "address": "28 Butler Boulevard, Adelaide Airport SA 5950"
+  },
+  {
+    "name": "Harrison.ai",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech / AI",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://harrison.ai",
+    "blurb": "Clinical AI solutions for healthcare diagnostics",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "founders": [
+      "Aengus Tran",
+      "Dimitry Tran"
+    ],
+    "foundedYear": 2018
+  },
+  {
+    "name": "Heidi Health",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech / AI",
+    "city": "Melbourne",
+    "lat": -37.8236,
+    "lng": 144.9531,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.heidihealth.com",
+    "blurb": "AI medical documentation and ambient clinical AI",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 30, 360 Elizabeth Street, Melbourne VIC 3000",
+    "founders": [
+      "Thomas Kelly",
+      "Waleed Mussa"
+    ]
+  },
+  {
+    "name": "Morse Micro",
+    "sector": "Hardware",
+    "sectorFull": "Hardware / IoT",
+    "city": "Sydney",
+    "lat": -33.88556,
+    "lng": 151.21118,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://morsemicro.com",
+    "blurb": "Wi-Fi HaLow chips for IoT connectivity",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 8, 10-14 Waterloo Street, Surry Hills NSW 2010",
+    "founders": [
+      "Michael De Nil",
+      "Andrew Terry"
+    ],
+    "foundedYear": 2016
+  },
+  {
+    "name": "Bugcrowd",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity",
+    "city": "Sydney",
+    "lat": -33.8588,
+    "lng": 151.2193,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.bugcrowd.com",
+    "blurb": "Crowdsourced security testing and bug bounty platform",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 5, 50 Carrington Street, Sydney NSW 2000 (Sydney office; co-HQ San Francisco)",
+    "founders": [
+      "Casey Ellis"
+    ]
+  },
+  {
+    "name": "Propeller Aero",
+    "sector": "Enterprise Software",
+    "sectorFull": "Enterprise Software / Drones",
+    "city": "Sydney",
+    "lat": -33.87905,
+    "lng": 151.21407,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.propelleraero.com",
+    "blurb": "Drone mapping and worksite analytics platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "251 Riley Street, Surry Hills, Sydney NSW 2010",
+    "founders": [
+      "Rory San Miguel",
+      "Francis Vierboom"
+    ]
+  },
+  {
+    "name": "Eucalyptus",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Blackbird",
+      "AirTree"
+    ],
+    "stage": "Series C",
+    "hiring": true,
+    "verified": true,
+    "website": "https://eucalyptus.vc",
+    "blurb": "Digital healthcare and telehealth brands",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Tim Doyle"
+    ],
+    "foundedYear": 2019
+  },
+  {
+    "name": "Marqo",
+    "sector": "AI",
+    "sectorFull": "AI / Search",
+    "city": "Melbourne",
+    "lat": -37.81795,
+    "lng": 144.9651,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.marqo.ai",
+    "blurb": "Vector search and AI search platform for applications",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "founders": [
+      "Tom Hamer",
+      "Jesse Clark"
+    ],
+    "address": "276 Flinders Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Lorikeet",
+    "sector": "AI",
+    "sectorFull": "AI / SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Series A",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.lorikeet.ai",
+    "blurb": "AI customer support and agent platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Steve Hind",
+      "Jamie Hall"
+    ]
+  },
+  {
+    "name": "Build Club",
+    "sector": "EdTech",
+    "sectorFull": "EdTech / AI",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Blackbird",
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://buildclub.ai",
+    "blurb": "Hands-on AI education and builder training",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Cuttable",
+    "sector": "AI",
+    "sectorFull": "AI / MarTech",
+    "city": "Richmond",
+    "lat": -37.80745,
+    "lng": 144.99072,
+    "investors": [
+      "Rampersand",
+      "AirTree",
+      "Square Peg"
+    ],
+    "stage": "Other Equity",
+    "hiring": true,
+    "verified": true,
+    "website": "https://cuttable.ai",
+    "blurb": "AI tools for creative teams and ad campaign building",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 1, 1-3 Stewart St, Richmond VIC 3121"
+  },
+  {
+    "name": "Restoke",
+    "sector": "Hospitality Tech",
+    "sectorFull": "Hospitality Tech / AI",
+    "city": "Carlton",
+    "lat": -37.7974,
+    "lng": 144.97098,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Operating system and AI for restaurants",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 114 Elgin St, Carlton VIC 3053"
+  },
+  {
+    "name": "Hatch",
+    "sector": "HR Tech",
+    "sectorFull": "HR Tech / Jobs",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "AI-native jobs marketplace focused on Gen Z",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Adam Jacobs",
+      "Chaz Heitner"
+    ]
+  },
+  {
+    "name": "JigSpace",
+    "sector": "Spatial Computing",
+    "sectorFull": "Spatial Computing / AR",
+    "city": "Melbourne",
+    "lat": -37.77682,
+    "lng": 144.96315,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://jig.space",
+    "blurb": "3D and spatial visualisation (incl. Apple Vision Pro)",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 1, 242 Victoria Street, Brunswick, Melbourne VIC 3065",
+    "founders": [
+      "Zac Duff",
+      "Numa Bertron"
+    ]
+  },
+  {
+    "name": "Quantum Brilliance",
+    "sector": "Quantum",
+    "sectorFull": "Quantum / Deep Tech",
+    "city": "Canberra",
+    "lat": -35.29759,
+    "lng": 149.10127,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://quantumbrilliance.com",
+    "blurb": "Room-temperature quantum computing using synthetic diamonds",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Andrew Horsley",
+      "Marcus Doherty"
+    ]
+  },
+  {
+    "name": "Sapia.ai",
+    "sector": "HR Tech",
+    "sectorFull": "HR Tech / AI",
+    "city": "Melbourne",
+    "lat": -37.81471,
+    "lng": 144.96591,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.sapia.ai",
+    "blurb": "AI for hiring, interviews and talent assessment",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Barb Hyman"
+    ],
+    "address": "Level 16, 530 Little Collins Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Advanced Navigation",
+    "sector": "Hardware",
+    "sectorFull": "Hardware / Autonomy",
+    "city": "Sydney",
+    "lat": -33.86372,
+    "lng": 151.20708,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Series C",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.advancednavigation.com",
+    "blurb": "Autonomous navigation and inertial systems",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 12, 255 George Street, Sydney NSW 2000",
+    "founders": [
+      "Xavier Orr",
+      "Chris Shaw"
+    ]
+  },
+  {
+    "name": "Buildkite",
+    "sector": "DevTools",
+    "sectorFull": "DevTools / SaaS",
+    "city": "Melbourne",
+    "lat": -37.81822,
+    "lng": 144.96178,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://buildkite.com",
+    "blurb": "CI/CD platform for software development teams",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Keith Pitt",
+      "Tim Lucas"
+    ],
+    "foundedYear": 2013,
+    "address": "Level 17, 31 Queen St, Melbourne VIC 3000"
+  },
+  {
+    "name": "Constantinople",
+    "sector": "Fintech",
+    "sectorFull": "Fintech / Banking Tech",
+    "city": "Sydney",
+    "lat": -33.88113,
+    "lng": 151.20438,
+    "investors": [
+      "Prosus Ventures",
+      "Square Peg",
+      "AirTree",
+      "Great Southern Bank"
+    ],
+    "stage": "Series A",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Banking-in-a-box software for bank operations. Series A A$50M (Apr 2024, led Prosus), after A$32M seed (May 2022, then Australia's largest venture seed).",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 727 George Street, Sydney NSW 2000",
+    "founders": [
+      "Macgregor Duncan",
+      "Dianne Challenor"
+    ]
+  },
+  {
+    "name": "Zeller",
+    "sector": "Fintech",
+    "sectorFull": "Fintech",
+    "city": "Melbourne",
+    "lat": -37.81329,
+    "lng": 144.96583,
+    "investors": [
+      "Square Peg"
+    ],
+    "stage": "Series B",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.myzeller.com",
+    "blurb": "Payments and business banking solutions for SMEs",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "founders": [
+      "Ben Pfisterer",
+      "Dominic Yap"
+    ],
+    "foundedYear": 2020,
+    "address": "Level 5, 246 Bourke Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Secure Code Warrior",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity / EdTech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.securecodewarrior.com",
+    "blurb": "Developer security training and secure coding platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Pieter Danhieux",
+      "Matias Madou"
+    ]
+  },
+  {
+    "name": "Pet Circle",
+    "sector": "Ecommerce",
+    "sectorFull": "Ecommerce / Consumer",
+    "city": "Sydney",
+    "lat": -33.86671,
+    "lng": 151.20986,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Series B",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.petcircle.com.au",
+    "blurb": "Pet products and care ecommerce platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 7, 9 Castlereagh Street, Sydney NSW 2000",
+    "founders": [
+      "Mike Frizell",
+      "Chris Sonego"
+    ]
+  },
+  {
+    "name": "me&u",
+    "sector": "Hospitality Tech",
+    "sectorFull": "Hospitality Tech",
+    "city": "Melbourne",
+    "lat": -37.80663,
+    "lng": 144.98866,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.meandu.com",
+    "blurb": "Digital menus and ordering for hospitality venues. Merged with Mr Yum (all-stock deal completed Nov 2023), combined entity retains the me&u name.",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 4, 108-112 Langridge Street, Collingwood, Melbourne VIC 3066",
+    "founders": [
+      "Stevan Premutico",
+      "Kim Teo"
+    ]
+  },
+  {
+    "name": "Archistar",
+    "sector": "PropTech",
+    "sectorFull": "PropTech / AI",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://archistar.ai",
+    "blurb": "AI for property planning, design and development",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Mezzanine, Levels 1–3, 388 George Street, Sydney NSW 2000",
+    "founders": [
+      "Robert Coorey",
+      "Benjamin Coorey"
+    ]
+  },
+  {
+    "name": "Askable",
+    "sector": "Research Tech",
+    "sectorFull": "Research Tech / SaaS",
+    "city": "Bowen Hills",
+    "lat": -27.45318,
+    "lng": 153.03404,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://askable.com",
+    "blurb": "On-demand consumer insights and research platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 2 King St, Bowen Hills QLD 4006"
+  },
+  {
+    "name": "Brighte",
+    "sector": "Fintech",
+    "sectorFull": "Fintech / Climate",
+    "city": "Sydney",
+    "lat": -33.86545,
+    "lng": 151.20456,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.brighte.com.au",
+    "blurb": "Green energy financing and sustainability solutions",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 15, 1 Margaret Street, Sydney NSW 2000",
+    "founders": [
+      "Katherine McConnell"
+    ]
+  },
+  {
+    "name": ":Different",
+    "sector": "PropTech",
+    "sectorFull": "PropTech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "AirTree"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.different.com.au",
+    "blurb": "Property management, rent and tenant automation platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Mina Radhakrishnan",
+      "Ruwin Perera"
+    ]
+  },
+  {
+    "name": "Karbon",
+    "sector": "SaaS",
+    "sectorFull": "SaaS / Productivity",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://karbonhq.com",
+    "blurb": "Practice management software for accounting firms",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Stuart McLeod",
+      "Ian Vacin"
+    ],
+    "foundedYear": 2014
+  },
+  {
+    "name": "Mindset Health",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech / Digital Therapeutics",
+    "city": "Melbourne",
+    "lat": -37.83131,
+    "lng": 144.99672,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.mindsethealth.com",
+    "blurb": "AI-powered digital therapeutics (e.g. IBS and mind-body)",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Level 2, 620 Church Street, Cremorne, Melbourne VIC 3121",
+    "founders": [
+      "Alex Naoumidis",
+      "Chris Naoumidis"
+    ]
+  },
+  {
+    "name": "Sonder (employee care)",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech / Wellness",
+    "city": "Sydney",
+    "address": "834 Elizabeth Street, Waterloo, Sydney NSW 2017",
+    "lat": -33.90051,
+    "lng": 151.20612,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://sonder.io",
+    "blurb": "Employee care and wellbeing platform for organisations",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Craig Cowdrey",
+      "Christopher Marr"
+    ]
+  },
+  {
+    "name": "Kwetta",
+    "sector": "Climate",
+    "sectorFull": "Climate / EV",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": false,
+    "website": "",
+    "blurb": "EV charging infrastructure and solutions HQ is Napier, New Zealand, not Australia (confirmed via press).",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Springboards",
+    "sector": "AI",
+    "sectorFull": "AI / MarTech",
+    "city": "Noosa",
+    "lat": -26.31824,
+    "lng": 152.9308,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "AI platform for advertising creative workflow and campaigns",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    }
+  },
+  {
+    "name": "Ivo",
+    "sector": "AI",
+    "sectorFull": "AI / Legal Tech",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": false,
+    "website": "",
+    "blurb": "Legal AI for document and workflow automation HQ is San Francisco, USA, not Australia (confirmed via official contact page).",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Baraja",
+    "sector": "Hardware",
+    "sectorFull": "Hardware / Autonomy",
+    "city": "Sydney",
+    "lat": -33.90587,
+    "lng": 151.20248,
+    "investors": [
+      "Blackbird"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Solid-state LiDAR for autonomous vehicles",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "60 O'Riordan Street, Alexandria, Sydney NSW 2015",
+    "founders": [
+      "Federico Collarte",
+      "Cibby Pulikkaseril"
+    ]
+  },
+  {
+    "name": "Nura",
+    "sector": "Hardware",
+    "sectorFull": "Hardware / Consumer",
+    "city": "Melbourne",
+    "lat": -37.76647,
+    "lng": 144.96131,
+    "investors": [],
+    "stage": "Seed",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Personalised sound headphones and audio tech",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "founders": [
+      "Luke Campbell",
+      "Kyle Slater"
+    ],
+    "address": "Brunswick, Melbourne VIC 3056"
+  },
+  {
+    "name": "Sendle",
+    "sector": "Logistics",
+    "sectorFull": "Logistics / Climate",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Rampersand (historical)"
+    ],
+    "stage": "Defunct (in liquidation)",
+    "hiring": false,
+    "verified": false,
+    "website": "https://www.sendle.com",
+    "blurb": "Carbon-neutral parcel delivery and logistics Entered creditors’ voluntary liquidation 25 Feb 2026; operations ceased 11 Jan 2026.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "161 Castlereagh Street, Sydney NSW 2000 (historical — company in liquidation)",
+    "founders": [
+      "James Chin Moody",
+      "Craig Davis"
+    ],
+    "foundedYear": 2014
+  },
+  {
+    "name": "PredictHQ",
+    "sector": "Data",
+    "sectorFull": "Data / AI",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": false,
+    "website": "",
+    "blurb": "Demand intelligence and events data platform Dual NZ/US HQ (Auckland/San Francisco) — not Australia.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Goterra",
+    "sector": "Climate",
+    "sectorFull": "Climate / Robotics",
+    "city": "Canberra",
+    "lat": -35.38538,
+    "lng": 149.16585,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://goterra.com.au",
+    "blurb": "Robotic insect farms turning food waste into protein",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "14 Arnott Street, Hume, Canberra ACT 2620",
+    "founders": [
+      "Olympia Yarger"
+    ]
+  },
+  {
+    "name": "Orkestra",
+    "sector": "Energy",
+    "sectorFull": "Energy / CleanTech",
+    "city": "Melbourne",
+    "lat": -37.80609,
+    "lng": 144.94708,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Feasibility and software for energy transition projects",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 3, 11 Miller St, Melbourne VIC 3000"
+  },
+  {
+    "name": "Mass Dynamics",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech / Deep Tech",
+    "city": "Melbourne",
+    "lat": -37.81822,
+    "lng": 144.96178,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Discovery tools in healthcare / proteomics related",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 3, 31 Queen Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Cake Equity",
+    "sector": "Fintech",
+    "sectorFull": "Fintech / Cap Table",
+    "city": "Gold Coast",
+    "lat": -28.122,
+    "lng": 153.46928,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Equity and cap table management for startups",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "5/2 Philippine Parade, Palm Beach QLD 4221",
+    "founders": [
+      "Jason Atkins"
+    ]
+  },
+  {
+    "name": "Expert360",
+    "sector": "Marketplace",
+    "sectorFull": "Marketplace / Professional Services",
+    "city": "Sydney",
+    "lat": -33.86736,
+    "lng": 151.20796,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://expert360.com",
+    "blurb": "Marketplace for independent experts and freelancers",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 8, 4 Martin Place, Sydney NSW 2000",
+    "founders": [
+      "Bridget Loudon",
+      "Emily Yue"
+    ]
+  },
+  {
+    "name": "Shippit",
+    "sector": "Logistics",
+    "sectorFull": "Logistics / SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OneVentures etc."
+    ],
+    "stage": "Series B",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.shippit.com",
+    "blurb": "Multi-carrier shipping and delivery platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "William On",
+      "Rob Hango-Zada"
+    ],
+    "foundedYear": 2014
+  },
+  {
+    "name": "Zoomo",
+    "sector": "Hardware",
+    "sectorFull": "Hardware / Mobility",
+    "city": "Sydney",
+    "lat": -33.88812,
+    "lng": 151.20731,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://zoomo.co",
+    "blurb": "Electric cargo bikes and last-mile delivery vehicles",
+    "taskGate": {
+      "enabled": true,
+      "type": "Coding task"
+    },
+    "address": "Suite 1, 11-17 Buckingham Street, Surry Hills NSW 2010",
+    "founders": [
+      "Mina Nada",
+      "Michael Johnson"
+    ]
+  },
+  {
+    "name": "Pathzero",
+    "sector": "ClimateTech",
+    "sectorFull": "ClimateTech",
+    "city": "Sydney",
+    "lat": -33.86526,
+    "lng": 151.2067,
+    "investors": [
+      "Antler / others"
+    ],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "",
+    "blurb": "Carbon accounting and management for financial institutions",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 11, 10 Carrington St, Sydney NSW 2000"
+  },
+  {
+    "name": "Q-CTRL",
+    "sector": "Quantum",
+    "sectorFull": "Quantum / Deep Tech",
+    "city": "Sydney",
+    "lat": -33.88719,
+    "lng": 151.1954,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": true,
+    "verified": true,
+    "website": "https://q-ctrl.com",
+    "blurb": "Quantum control engineering and software solutions",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Michael Biercuk"
+    ],
+    "foundedYear": 2017,
+    "address": "93 Shepherd St, Chippendale, Sydney NSW 2008"
+  },
+  {
+    "name": "Alloy",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.8725,
+    "lng": 151.20559,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 6, 283 Clarence St, Sydney NSW 2000"
+  },
+  {
+    "name": "Brumby (formerly GrazeMate)",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Care GP",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Adelaide",
+    "lat": -34.91915,
+    "lng": 138.61562,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.caregp.com.au",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 19 North Terrace, Adelaide SA 5000"
+  },
+  {
+    "name": "Edrolo",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.80857,
+    "lng": 144.96844,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "321 Exhibition Street, Melbourne VIC 3000",
+    "founders": [
+      "Jeremy Cox",
+      "Duncan Anderson",
+      "Ben Overington"
+    ]
+  },
+  {
+    "name": "Everlab",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.81969,
+    "lng": 144.95655,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Suite 203, Level 2, 517 Flinders Lane, Melbourne VIC 3000"
+  },
+  {
+    "name": "Fair Supply",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.86608,
+    "lng": 151.20825,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 5, 107 Pitt St, Sydney NSW 2000",
+    "founders": [
+      "Arne Geschke",
+      "Kim Randle"
+    ]
+  },
+  {
+    "name": "Fetch",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.8806,
+    "lng": 151.20885,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 12, 179 Elizabeth St, Sydney NSW 2000"
+  },
+  {
+    "name": "FrankieOne",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.81425,
+    "lng": 144.96317,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 6, 440 Collins Street, Melbourne VIC 3000 (registered); Sydney office Level 4, 11 York St",
+    "founders": [
+      "Simon Costello",
+      "Aaron Chipper"
+    ]
+  },
+  {
+    "name": "GreaseBoss",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Warana",
+    "lat": -26.72711,
+    "lng": 153.12643,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Unit 3, 17 Technology Dr, Warana QLD 4575"
+  },
+  {
+    "name": "HEO Robotics",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.88052,
+    "lng": 151.20632,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "477 Pitt Street, Haymarket, Sydney NSW 2000",
+    "founders": [
+      "William Crowe"
+    ]
+  },
+  {
+    "name": "HotDoc",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.81064,
+    "lng": 144.97038,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 222 Exhibition St, Melbourne VIC 3000",
+    "founders": [
+      "Ben Hurst"
+    ]
+  },
+  {
+    "name": "Joyn",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": false,
+    "website": "",
+    "blurb": "Name collision across several unrelated companies — could not confirm which one this dataset entry refers to.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Lyrebird Health",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.82788,
+    "lng": 144.99648,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "7-11 Hill Street, Cremorne, Melbourne VIC 3121",
+    "founders": [
+      "Kai Van Lieshout",
+      "Linus Talacko"
+    ]
+  },
+  {
+    "name": "Open",
+    "sector": "Insurtech",
+    "sectorFull": "Insurtech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "AirTree",
+      "Movac",
+      "Latitude",
+      "Hollard"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Embedded insurance platform (Open Insurance Pty Ltd). Founders: Jason Wilby, Jonathan Buck.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Jason Wilby",
+      "Jonathan Buck"
+    ]
+  },
+  {
+    "name": "Qwilr",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.88966,
+    "lng": 151.19948,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "7 Hudson Street, Redfern, Sydney NSW 2016",
+    "founders": [
+      "Dylan Baskind",
+      "Mark Tanner"
+    ]
+  },
+  {
+    "name": "Strong Compute",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Ben Sand"
+    ]
+  },
+  {
+    "name": "TrueState",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Who Gives a Crap",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.81787,
+    "lng": 144.95546,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Simon Griffiths",
+      "Danny Alexander",
+      "Jehan Ratnatunga"
+    ],
+    "address": "Suite 816, 585 Little Collins St, Melbourne VIC 3000"
+  },
+  {
+    "name": "XMO",
+    "sector": "Unknown",
+    "sectorFull": "Unknown",
+    "city": "Melbourne",
+    "lat": -37.81034,
+    "lng": 144.96767,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "150 Lonsdale St, Melbourne VIC 3000"
+  },
+  {
+    "name": "Diraq",
+    "sector": "Quantum computing",
+    "sectorFull": "Quantum computing",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Main Sequence",
+      "NRF Corp"
+    ],
+    "stage": "Series B",
+    "hiring": false,
+    "verified": true,
+    "website": "https://diraq.com",
+    "blurb": "UNSW spin-out building silicon CMOS quantum processors (A$20M NRFC strategic equity Feb 2026, part of ~A$75M round; total raised past US$150M)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "UNSW Sydney campus, Kensington NSW 2052",
+    "founders": [
+      "Andrew Dzurak"
+    ]
+  },
+  {
+    "name": "v2food",
+    "sector": "Alt-protein",
+    "sectorFull": "Alt-protein/food",
+    "city": "Sydney",
+    "lat": -33.86833,
+    "lng": 151.20852,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://v2food.com",
+    "blurb": "Plant-based meat using CSIRO food science",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 122 Pitt Street, Sydney NSW 2000",
+    "founders": [
+      "Nick Hazell",
+      "Duncan Ferguson"
+    ]
+  },
+  {
+    "name": "Myriota",
+    "sector": "Satellite IoT",
+    "sectorFull": "Satellite IoT",
+    "city": "Adelaide",
+    "lat": -34.92818,
+    "lng": 138.59993,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Series B",
+    "hiring": false,
+    "verified": true,
+    "website": "https://myriota.com",
+    "blurb": "Low-cost satellite connectivity for IoT devices",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, McEwin Building, Lot Fourteen, North Terrace, Adelaide SA 5000",
+    "founders": [
+      "Alex Grant",
+      "David Haley"
+    ]
+  },
+  {
+    "name": "Coviu",
+    "sector": "Telehealth",
+    "sectorFull": "Telehealth",
+    "city": "Sydney",
+    "lat": -33.86517,
+    "lng": 151.21018,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://coviu.com",
+    "blurb": "Video telehealth consultation platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 6–10 O’Connell Street, Sydney NSW 2000",
+    "founders": [
+      "Silvia Pfeiffer"
+    ]
+  },
+  {
+    "name": "Andromeda Robotics",
+    "sector": "Robotics",
+    "sectorFull": "Robotics",
+    "city": "Richmond",
+    "lat": -37.80745,
+    "lng": 144.99072,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Companion/empathetic consumer robots",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 7 Border St, Richmond VIC 3121"
+  },
+  {
+    "name": "ElectraLith",
+    "sector": "Climate",
+    "sectorFull": "Climate/lithium",
+    "city": "Melbourne",
+    "lat": -37.92943,
+    "lng": 145.13906,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Membrane-based direct lithium extraction",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Monash Innovation Labs, Clayton VIC 3168"
+  },
+  {
+    "name": "Jupiter Ionics",
+    "sector": "Green ammonia",
+    "sectorFull": "Green ammonia",
+    "city": "Melbourne",
+    "lat": -37.91392,
+    "lng": 145.132,
+    "investors": [
+      "Main Sequence",
+      "Tenacious"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Electrochemical ammonia synthesis",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Monash University, Clayton VIC 3800"
+  },
+  {
+    "name": "Seer Medical",
+    "sector": "Medtech",
+    "sectorFull": "Medtech",
+    "city": "Melbourne",
+    "lat": -37.80383,
+    "lng": 144.95914,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Home epilepsy diagnostics (wearable + AI). Entered voluntary administration Jan 2025, rescued via ~$40M deal (Cadwell, TrialCap, Breakthrough Victoria).",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "278-284 Queensberry Street, Melbourne VIC 3000",
+    "founders": [
+      "Mark Cook",
+      "Dean Freestone",
+      "George Kenley"
+    ]
+  },
+  {
+    "name": "Cortisonic",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech/diagnostics",
+    "city": "Carlton",
+    "lat": -37.80588,
+    "lng": 144.96566,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Diagnostics venture",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "33 Lygon St, Carlton VIC 3053"
+  },
+  {
+    "name": "Facet Amtech",
+    "sector": "Green ammonia",
+    "sectorFull": "Green ammonia/industrial",
+    "city": "Perth",
+    "lat": -31.95481,
+    "lng": 115.8509,
+    "investors": [
+      "Main Sequence"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Rethinking industrial ammonia production",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 28 Spring St, Perth WA 6000"
+  },
+  {
+    "name": "6clicks",
+    "sector": "GRC",
+    "sectorFull": "GRC/risk software",
+    "city": "Melbourne",
+    "lat": -37.82641,
+    "lng": 145.00102,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": true,
+    "verified": true,
+    "website": "https://6clicks.com",
+    "blurb": "AI-driven risk & compliance SaaS",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "2/255 Mary St, Richmond VIC 3121",
+    "founders": [
+      "Anthony Stevens",
+      "Louis Strauss",
+      "Andrew Robinson"
+    ]
+  },
+  {
+    "name": "AmazingCo",
+    "sector": "Experiences",
+    "sectorFull": "Experiences/marketplace",
+    "city": "Richmond",
+    "lat": -37.80745,
+    "lng": 144.99072,
+    "investors": [
+      "OneVentures",
+      "Rampersand"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://amazingco.me",
+    "blurb": "Curated experiences platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "1/5 Newton St, Richmond VIC 3121"
+  },
+  {
+    "name": "Biza.io",
+    "sector": "Open banking",
+    "sectorFull": "Open banking/CDR",
+    "city": "Brisbane",
+    "lat": -27.45221,
+    "lng": 153.03389,
+    "investors": [
+      "OneVentures",
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://biza.io",
+    "blurb": "Consumer Data Right compliance platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Stuart Low"
+    ],
+    "address": "Level 6, 25 King St, Brisbane QLD 4006"
+  },
+  {
+    "name": "Cascade",
+    "sector": "Strategy SaaS",
+    "sectorFull": "Strategy SaaS",
+    "city": "Brisbane",
+    "lat": -27.46663,
+    "lng": 153.02735,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://cascade.app",
+    "blurb": "Strategy execution platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 6, 200 Adelaide St, Brisbane QLD 4000"
+  },
+  {
+    "name": "Coassemble",
+    "sector": "EdTech",
+    "sectorFull": "EdTech",
+    "city": "Newcastle",
+    "lat": -32.92663,
+    "lng": 151.77946,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://coassemble.com",
+    "blurb": "Online course authoring platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 424 Hunter St, Newcastle NSW 2300"
+  },
+  {
+    "name": "Drawboard",
+    "sector": "Productivity SaaS",
+    "sectorFull": "Productivity SaaS",
+    "city": "Melbourne",
+    "lat": -37.81758,
+    "lng": 144.96998,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://drawboard.com",
+    "blurb": "PDF collaboration software",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 99 Queen Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "EatClub",
+    "sector": "Hospitality",
+    "sectorFull": "Hospitality/consumer",
+    "city": "Melbourne",
+    "lat": -37.81667,
+    "lng": 144.98963,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://eatclub.com.au",
+    "blurb": "Restaurant deals app",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "10 Wellington Parade, East Melbourne VIC 3002"
+  },
+  {
+    "name": "Flippa",
+    "sector": "Marketplace",
+    "sectorFull": "Marketplace",
+    "city": "Melbourne",
+    "lat": -37.83,
+    "lng": 144.99456,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://flippa.com",
+    "blurb": "Marketplace to buy/sell online businesses",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "71-73 Balmain Street, Cremorne, Melbourne VIC 3121"
+  },
+  {
+    "name": "Vaxxas",
+    "sector": "Biotech",
+    "sectorFull": "Biotech/vaccines",
+    "city": "Brisbane",
+    "lat": -27.44238,
+    "lng": 153.08206,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://vaxxas.com",
+    "blurb": "Needle-free vaccine delivery",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "240 Macarthur Avenue, Hamilton (Northshore), Brisbane QLD 4007",
+    "founders": [
+      "David Hoey"
+    ]
+  },
+  {
+    "name": "Phocas",
+    "sector": "Analytics",
+    "sectorFull": "Analytics/BI",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://phocassoftware.com",
+    "blurb": "Business intelligence software",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Suite 501, 35 Lime Street, King Street Wharf, Sydney NSW 2000"
+  },
+  {
+    "name": "etrainu",
+    "sector": "EdTech",
+    "sectorFull": "EdTech/LMS",
+    "city": "Milton",
+    "lat": -27.47392,
+    "lng": 153.0027,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://etrainu.com",
+    "blurb": "eLearning/LMS platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 19 Lang Parade, Milton QLD 4064"
+  },
+  {
+    "name": "BiVACOR",
+    "sector": "Medtech",
+    "sectorFull": "Medtech",
+    "city": "Gold Coast",
+    "lat": -27.96204,
+    "lng": 153.38604,
+    "investors": [
+      "OneVentures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://bivacor.com",
+    "blurb": "Total artificial heart — relocated substantially to Houston, founded Brisbane Global HQ now Houston, TX.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "16 Nexus Way, Southport QLD 4215",
+    "founders": [
+      "Daniel Timms"
+    ]
+  },
+  {
+    "name": "Assignar",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Series B",
+    "hiring": false,
+    "verified": false,
+    "website": "https://assignar.com",
+    "blurb": "Construction workforce/ops management (US$20M led by Fifth Wall, May 2021) — relocated to Denver, founded Sydney",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Sean McCreanor",
+      "Marko Tomic"
+    ]
+  },
+  {
+    "name": "Kasada",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity",
+    "city": "Sydney",
+    "lat": -33.88136,
+    "lng": 151.21221,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://kasada.io",
+    "blurb": "Bot-mitigation/anti-fraud (partially exited)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 52 Reservoir Street, Surry Hills, Sydney NSW 2010",
+    "founders": [
+      "Sam Crowther"
+    ]
+  },
+  {
+    "name": "Enboarder",
+    "sector": "HR tech",
+    "sectorFull": "HR tech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://enboarder.com",
+    "blurb": "Employee onboarding/engagement",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Brent Pearson"
+    ]
+  },
+  {
+    "name": "Eftsure",
+    "sector": "Fintech",
+    "sectorFull": "Fintech",
+    "city": "Sydney",
+    "lat": -33.83709,
+    "lng": 151.20623,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://eftsure.com",
+    "blurb": "Payment fraud prevention (exited)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 9, 177 Pacific Highway, North Sydney NSW 2060",
+    "founders": [
+      "Ian Mirels",
+      "Mike Kontorovich",
+      "Mark Chazan"
+    ]
+  },
+  {
+    "name": "Neara",
+    "sector": "Energy",
+    "sectorFull": "Energy/infrastructure SaaS",
+    "city": "Sydney",
+    "lat": -33.88966,
+    "lng": 151.19948,
+    "investors": [
+      "OIF",
+      "Skip",
+      "Square Peg",
+      "TCV",
+      "Partners Group",
+      "EQT",
+      "Prosus"
+    ],
+    "stage": "Series D",
+    "hiring": false,
+    "verified": true,
+    "website": "https://neara.com",
+    "blurb": "3D digital-twin modelling for utility networks — A$90M Series D Feb 2026 at ~A$1.1B valuation (Australia's newest unicorn); ~A$180M total",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "7 Hudson Street, Redfern, Sydney NSW 2016",
+    "founders": [
+      "Daniel Danilatos",
+      "Karamvir Singh",
+      "Jack Curtis"
+    ]
+  },
+  {
+    "name": "Mastt",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Sydney",
+    "lat": -33.88451,
+    "lng": 151.21003,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://mastt.com",
+    "blurb": "Capital project cost management",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Surry Hills, Sydney NSW 2010",
+    "founders": [
+      "Doug Vincent",
+      "Raman Nambiar",
+      "Jamie Cerexhe"
+    ]
+  },
+  {
+    "name": "Matrak",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Melbourne",
+    "lat": -37.81425,
+    "lng": 144.96317,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://matrak.com.au",
+    "blurb": "Construction materials tracking",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Shane Hodgkins",
+      "Brett Hodgkins"
+    ],
+    "address": "The Commons QV, 3 Albert Coates Ln, Melbourne VIC 3000"
+  },
+  {
+    "name": "Sitemate",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Sydney",
+    "lat": -33.88451,
+    "lng": 151.21003,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://sitemate.com",
+    "blurb": "Field/quality management for industrial",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Surry Hills, Sydney NSW 2010",
+    "founders": [
+      "Hartley Pike",
+      "Sam McDonnell"
+    ]
+  },
+  {
+    "name": "Mod.io",
+    "sector": "Gaming infrastructure",
+    "sectorFull": "Gaming infrastructure",
+    "city": "Melbourne",
+    "lat": -37.84894,
+    "lng": 145.00969,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://mod.io",
+    "blurb": "UGC/mod platform for games",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 3, 390 Malvern Road, Prahran, Melbourne VIC 3181",
+    "founders": [
+      "Scott Reismanis",
+      "Patrick Sotiriou"
+    ]
+  },
+  {
+    "name": "Atomi",
+    "sector": "EdTech",
+    "sectorFull": "EdTech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://getatomi.com",
+    "blurb": "Online learning for secondary students",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Rob Barakat",
+      "Tom O’Donahoo"
+    ]
+  },
+  {
+    "name": "Bridgit",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (property)",
+    "city": "Newcastle",
+    "lat": -32.9193,
+    "lng": 151.77953,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://bridgit.com.au",
+    "blurb": "Bridging loans for homeowners",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Aaron Bassin",
+      "Nick Jacobs"
+    ]
+  },
+  {
+    "name": "Clear Dynamics",
+    "sector": "Enterprise AI software",
+    "sectorFull": "Enterprise AI software",
+    "city": "Sydney",
+    "lat": -33.86484,
+    "lng": 151.21056,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://cleardynamics.com.au",
+    "blurb": "AI-driven enterprise application platform. HQ conflict: Sydney vs Melbourne/Bendigo — unconfirmed, needs resolution.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Suite 3.02, 1 Bligh Street, Sydney NSW 2000 (Sydney office; registered office: 3 Beehive Plaza, Bendigo VIC 3550)",
+    "founders": [
+      "Dan Beaty"
+    ]
+  },
+  {
+    "name": "Linkby",
+    "sector": "Adtech",
+    "sectorFull": "Adtech/media",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://linkby.com",
+    "blurb": "Pay-per-click PR/media marketplace",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Rosterfy",
+    "sector": "Workforce",
+    "sectorFull": "Workforce/volunteer SaaS",
+    "city": "Melbourne",
+    "lat": -37.8185,
+    "lng": 144.95594,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://rosterfy.com",
+    "blurb": "Volunteer/workforce management",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "L6/365 Collins St, Melbourne VIC 3000"
+  },
+  {
+    "name": "Zitcha",
+    "sector": "Retail media",
+    "sectorFull": "Retail media",
+    "city": "Melbourne",
+    "lat": -37.85408,
+    "lng": 144.99301,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://zitcha.com",
+    "blurb": "Retail media network platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "116 Chapel Street, Windsor, Melbourne VIC 3181",
+    "founders": [
+      "Troy Townsend",
+      "Jack Byrne"
+    ]
+  },
+  {
+    "name": "Visory",
+    "sector": "Fintech",
+    "sectorFull": "Fintech/AI",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://visory.com.au",
+    "blurb": "Remote bookkeeping/finance services",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Bookipi",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (SME)",
+    "city": "Sydney",
+    "lat": -33.86348,
+    "lng": 151.08885,
+    "investors": [
+      "OIF",
+      "TEN13"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://bookipi.com",
+    "blurb": "Invoicing/accounting app for SMEs",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 5 George Street, North Strathfield, Sydney NSW 2137"
+  },
+  {
+    "name": "Bare",
+    "sector": "Consumer",
+    "sectorFull": "Consumer/deathcare",
+    "city": "Melbourne",
+    "lat": -37.79394,
+    "lng": 144.93056,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://barecremation.com.au",
+    "blurb": "Digital-first cremation/funerals",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Kensington, Melbourne VIC 3031"
+  },
+  {
+    "name": "Apate AI",
+    "sector": "AI",
+    "sectorFull": "AI/cybersecurity",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://apate.ai",
+    "blurb": "AI scam-call disruption",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Macquarie University Cyber Hub, Sydney NSW 2109"
+  },
+  {
+    "name": "Factor House",
+    "sector": "Data infrastructure",
+    "sectorFull": "Data infrastructure",
+    "city": "Melbourne",
+    "lat": -37.81452,
+    "lng": 144.96353,
+    "investors": [
+      "OIF",
+      "Blackbird",
+      "Flying Fox"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://factorhouse.io",
+    "blurb": "Kafka/streaming data tooling",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 152 Elizabeth St, Melbourne VIC 3000"
+  },
+  {
+    "name": "Josef",
+    "sector": "Legal tech",
+    "sectorFull": "Legal tech",
+    "city": "Melbourne",
+    "lat": -37.81452,
+    "lng": 144.96353,
+    "investors": [
+      "OIF",
+      "Carthona",
+      "Flying Fox",
+      "Jelix"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://joseflegal.com",
+    "blurb": "No-code legal automation. Founders: Tom Dreyfus (CEO), Sam Flynn (COO), Kirill Kliavin.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Tom Dreyfus",
+      "Sam Flynn",
+      "Kirill Kliavin"
+    ],
+    "address": "Level 4, 152 Elizabeth Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Starboard",
+    "sector": "Maritime AI",
+    "sectorFull": "Maritime AI",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": false,
+    "website": "https://starboard.nz",
+    "blurb": "Maritime intelligence platform HQ is Wellington, New Zealand, not Australia (confirmed via NZ press).",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Payble",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (payments)",
+    "city": "Sydney",
+    "lat": -33.89551,
+    "lng": 151.19479,
+    "investors": [
+      "OIF",
+      "x15"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://payble.com.au",
+    "blurb": "Bill payment automation for billers",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "The Foundry, 1 Locomotive St, Eveleigh NSW 2015"
+  },
+  {
+    "name": "Mary Technology",
+    "sector": "Legal tech",
+    "sectorFull": "Legal tech",
+    "city": "Sydney",
+    "lat": -33.88043,
+    "lng": 151.20623,
+    "investors": [
+      "OIF"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.marytechnology.com",
+    "blurb": "Estate/will workflow automation",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "477 Pitt Street, Sydney NSW 2000"
+  },
+  {
+    "name": "mx51",
+    "sector": "Fintech",
+    "sectorFull": "Fintech/payments",
+    "city": "Sydney",
+    "lat": -33.86645,
+    "lng": 151.20828,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://mx51.io",
+    "blurb": "Merchant payments platform for banks",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 9, 115 Pitt St, Sydney NSW 2000"
+  },
+  {
+    "name": "Sherlok",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (mortgage)",
+    "city": "Adelaide",
+    "lat": -34.93586,
+    "lng": 138.64737,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://sherlok.com.au",
+    "blurb": "Mortgage retention/refinancing AI",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Adam Grocke"
+    ],
+    "address": "Tusmore, Adelaide SA 5065"
+  },
+  {
+    "name": "Mentorloop",
+    "sector": "HR",
+    "sectorFull": "HR/SaaS",
+    "city": "Melbourne",
+    "lat": -37.81452,
+    "lng": 144.96353,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://mentorloop.com",
+    "blurb": "Mentoring program platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 152 Elizabeth Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Cor (Cor AI)",
+    "sector": "Vertical AI",
+    "sectorFull": "Vertical AI",
+    "city": "Melbourne",
+    "lat": -37.8021,
+    "lng": 144.98814,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Voice AI agent for software onboarding",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Collingwood, Melbourne VIC 3066"
+  },
+  {
+    "name": "Parachute",
+    "sector": "Legal tech",
+    "sectorFull": "Legal tech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Legal OS for businesses/firms",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Keeyu",
+    "sector": "SaaS",
+    "sectorFull": "SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Notable Rampersand holding",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Fourday",
+    "sector": "AI",
+    "sectorFull": "AI/work software",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Rampersand"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Horizontal AI for how work gets done",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Asseti",
+    "sector": "PropTech",
+    "sectorFull": "PropTech/AI",
+    "city": "North Sydney",
+    "lat": -33.83825,
+    "lng": 151.20868,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://asseti.co",
+    "blurb": "AI asset/infrastructure monitoring (Late Seed)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 12, 100 Walker St, North Sydney NSW 2060"
+  },
+  {
+    "name": "Bonjoro",
+    "sector": "Martech",
+    "sectorFull": "Martech/SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://bonjoro.com",
+    "blurb": "Personalised video customer engagement",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Loopit",
+    "sector": "Automotive SaaS",
+    "sectorFull": "Automotive SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://loopit.co",
+    "blurb": "Car subscription management software (Late Seed)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "L24/T3, 300 Barangaroo Ave, Sydney NSW 2000"
+  },
+  {
+    "name": "Hone (HoneAg)",
+    "sector": "AgTech",
+    "sectorFull": "AgTech",
+    "city": "Newcastle",
+    "lat": -32.9193,
+    "lng": 151.77953,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Series B",
+    "hiring": false,
+    "verified": true,
+    "website": "https://honeag.com",
+    "blurb": "In-field chemical/soil testing",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Antony Martin",
+      "Will Palmer",
+      "Jamie Flynn"
+    ]
+  },
+  {
+    "name": "Renewtrak",
+    "sector": "SaaS",
+    "sectorFull": "SaaS",
+    "city": "North Sydney",
+    "lat": -33.83987,
+    "lng": 151.21155,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://renewtrak.com",
+    "blurb": "Renewals/retention revenue automation (Late Seed)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 14, 275 Alfred St, North Sydney NSW 2060"
+  },
+  {
+    "name": "Psyke",
+    "sector": "AI",
+    "sectorFull": "AI/marketing",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://psyke.co",
+    "blurb": "Brand visibility in AI search (Late Seed)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "SecurePII",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity",
+    "city": "Brisbane",
+    "lat": -27.46699,
+    "lng": 153.02915,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://securepii.cloud",
+    "blurb": "Payment/PII compliance for voice/AI",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 38, 345 Queen St, Brisbane City QLD 4000"
+  },
+  {
+    "name": "Socialsuite",
+    "sector": "ESG SaaS",
+    "sectorFull": "ESG SaaS",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": false,
+    "website": "https://socialsuitehq.com",
+    "blurb": "ESG/impact disclosure software Redomiciled to Austin, TX, USA in 2022 per its own About page; Melbourne is now secondary.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Tendl",
+    "sector": "B2B SaaS",
+    "sectorFull": "B2B SaaS/AI",
+    "city": "Brisbane",
+    "lat": -27.48713,
+    "lng": 152.99194,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://tendl.ai",
+    "blurb": "Tender/bid automation (Early Seed)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "96 Jephson St, Unit 1, Toowong QLD 4066"
+  },
+  {
+    "name": "Vinyl",
+    "sector": "Fintech",
+    "sectorFull": "Fintech/accounting AI",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": false,
+    "website": "https://usevinyl.com",
+    "blurb": "AI note-taking for accountants (Early Seed) Legal entity is UK-incorporated (Companies House); no confirmed Australian office despite AU-based founders.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Start My Tomorrow (TMRW)",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech",
+    "city": "Sydney",
+    "lat": -33.86468,
+    "lng": 151.20858,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://startmytomorrow.com",
+    "blurb": "Preventive/longevity health platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 10 Bond St, Sydney NSW 2000"
+  },
+  {
+    "name": "Sherpa (4You Innovation)",
+    "sector": "Logistics SaaS",
+    "sectorFull": "Logistics SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Series B",
+    "hiring": false,
+    "verified": true,
+    "website": "https://sherpa.net.au",
+    "blurb": "Local same-day delivery for retailers",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Minikai",
+    "sector": "Aged",
+    "sectorFull": "Aged/disability care AI",
+    "city": "Melbourne",
+    "lat": -37.81425,
+    "lng": 144.96317,
+    "investors": [
+      "Tidal"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://minikai.com",
+    "blurb": "Care-quality software",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 6/71 Langridge St, Collingwood VIC 3066"
+  },
+  {
+    "name": "Driva",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (lending)",
+    "city": "Sydney",
+    "lat": -33.86869,
+    "lng": 151.20443,
+    "investors": [
+      "Carthona"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://driva.com.au",
+    "blurb": "Auto/personal loan marketplace",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 347 Kent Street, Sydney NSW 2000",
+    "founders": [
+      "Scott Montarello",
+      "William Brown"
+    ]
+  },
+  {
+    "name": "BuildPass",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Melbourne",
+    "lat": -37.82378,
+    "lng": 144.99088,
+    "investors": [
+      "Carthona"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://buildpass.com.au",
+    "blurb": "Construction compliance/site management",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Unit 2, 33 Stewart Street, Richmond, Victoria 3121"
+  },
+  {
+    "name": "Zero Latency",
+    "sector": "VR",
+    "sectorFull": "VR/entertainment",
+    "city": "Melbourne",
+    "lat": -37.80436,
+    "lng": 144.99802,
+    "investors": [
+      "Carthona"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://zerolatencyvr.com",
+    "blurb": "Free-roam VR entertainment venues",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 5 Harper Street, Abbotsford, Melbourne VIC 3067"
+  },
+  {
+    "name": "Avarni",
+    "sector": "Climate",
+    "sectorFull": "Climate/carbon SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "TEN13"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://avarni.co",
+    "blurb": "Supply-chain decarbonisation analytics",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "180 George Street, Level 2, Greenhouse Tech Hub, Sydney NSW 2000"
+  },
+  {
+    "name": "Tiliter",
+    "sector": "Computer vision",
+    "sectorFull": "Computer vision/retail",
+    "city": "Sydney",
+    "lat": -33.88043,
+    "lng": 151.20623,
+    "investors": [
+      "TEN13"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://tiliter.com",
+    "blurb": "AI checkout/product recognition",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "477 Pitt Street, Sydney NSW 2000"
+  },
+  {
+    "name": "Vervoe",
+    "sector": "HR tech",
+    "sectorFull": "HR tech",
+    "city": "Melbourne",
+    "lat": -37.81435,
+    "lng": 144.96001,
+    "investors": [
+      "TEN13"
+    ],
+    "stage": "Growth",
+    "hiring": true,
+    "verified": true,
+    "website": "https://vervoe.com",
+    "blurb": "AI skills-based hiring assessments",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Suite 1015, 189 Queen Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "AutoGrab",
+    "sector": "Automotive data",
+    "sectorFull": "Automotive data",
+    "city": "Melbourne",
+    "lat": -37.8389,
+    "lng": 144.99778,
+    "investors": [
+      "TEN13"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://autograb.com.au",
+    "blurb": "Vehicle data/valuation platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "10 River Street, South Yarra VIC 3141"
+  },
+  {
+    "name": "Audience Republic",
+    "sector": "Martech",
+    "sectorFull": "Martech",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "TEN13"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": false,
+    "website": "https://audiencerepublic.com",
+    "blurb": "Event marketing/CRM platform Now Los Angeles-HQ’d after acquisition by AudienceView; Sydney is a secondary office only.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Vexev",
+    "sector": "Medtech",
+    "sectorFull": "Medtech/imaging",
+    "city": "Sydney",
+    "lat": -33.88485,
+    "lng": 151.20982,
+    "investors": [
+      "TEN13"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://vexev.com",
+    "blurb": "3D vascular ultrasound imaging",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 6, 78 Kippax Street, Surry Hills NSW 2010"
+  },
+  {
+    "name": "SignOnSite",
+    "sector": "Construction safety SaaS",
+    "sectorFull": "Construction safety SaaS",
+    "city": "Deakin",
+    "lat": -35.3176,
+    "lng": 149.09715,
+    "investors": [
+      "TEN13",
+      "Common Sense"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://signonsite.com.au",
+    "blurb": "Site safety/induction app (Seed/Series A)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Unit 4, 10 Geils Ct, Deakin ACT 2600"
+  },
+  {
+    "name": "OneMRI",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech",
+    "city": "Brisbane",
+    "lat": -27.46896,
+    "lng": 153.0235,
+    "investors": [
+      "TEN13",
+      "OIF"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://onemri.com.au",
+    "blurb": "Preventative MRI imaging at scale",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Kimia (Kimia.ai)",
+    "sector": "Industrial AI",
+    "sectorFull": "Industrial AI",
+    "city": "Sydney",
+    "lat": -33.87916,
+    "lng": 151.19645,
+    "investors": [
+      "Skip",
+      "Airtree",
+      "Blackbird"
+    ],
+    "stage": "Seed",
+    "hiring": true,
+    "verified": true,
+    "website": "https://kimia.ai",
+    "blurb": "AI for industrial/chemical processes (~A$7M)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Suite 41, 330 Wattle Street, Ultimo NSW 2007"
+  },
+  {
+    "name": "Visibuild",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Sydney",
+    "lat": -33.86649,
+    "lng": 151.20178,
+    "investors": [
+      "Skip"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://visibuild.com",
+    "blurb": "Construction QA/defect management (A$6.6M)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 13 Lime St, Sydney NSW 2000"
+  },
+  {
+    "name": "Human.health",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Skip"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://human.health",
+    "blurb": "Personal health data platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Pyn",
+    "sector": "HR tech",
+    "sectorFull": "HR tech",
+    "city": "Sydney",
+    "lat": -33.89613,
+    "lng": 151.18368,
+    "investors": [
+      "Skip"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.pynhq.com",
+    "blurb": "Personalised employee communications",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "2 Hennings Lane, Newtown NSW 2042"
+  },
+  {
+    "name": "Heaps Normal",
+    "sector": "Consumer",
+    "sectorFull": "Consumer/beverages",
+    "city": "Sydney",
+    "lat": -33.90524,
+    "lng": 151.16563,
+    "investors": [
+      "Flying Fox"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://heapsnormal.com",
+    "blurb": "Non-alcoholic beer. Registered Canberra ACT; brewing/ops also Marrickville, Sydney.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "2/10 Brompton Street, Marrickville NSW 2204 (operating HQ/brewery; registered office Canberra ACT)",
+    "founders": [
+      "Andy Miller",
+      "Ben Holdstock",
+      "Jordy Smith",
+      "Pete Brennan"
+    ]
+  },
+  {
+    "name": "Safewill",
+    "sector": "Legaltech",
+    "sectorFull": "Legaltech/estate",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Flying Fox",
+      "Carthona",
+      "King River",
+      "Reinventure"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://safewill.com",
+    "blurb": "Online wills/estate planning",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Adam Lubofsky",
+      "Dan Bennett"
+    ]
+  },
+  {
+    "name": "Contactile",
+    "sector": "Robotics",
+    "sectorFull": "Robotics/sensors",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Flying Fox"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://contactile.com",
+    "blurb": "Robotic tactile fingertip sensors",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "UNSW Innovation Hub, Kensington NSW 2052"
+  },
+  {
+    "name": "Mercu",
+    "sector": "HR",
+    "sectorFull": "HR/workforce SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Flying Fox",
+      "TEN13",
+      "500 Global"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://mercu.io",
+    "blurb": "Deskless workforce enablement",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Jascha Zittel",
+      "Elliott Gibb"
+    ]
+  },
+  {
+    "name": "Kismet",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech/NDIS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Flying Fox",
+      "Airtree",
+      "Prosus",
+      "MassMutual Ventures",
+      "Black Nova"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://kismet.com.au",
+    "blurb": "NDIS provider marketplace. Seed A$32.5M — largest seed round in Australian startup history (SmartCompany).",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "285a Crown Street, Suite 25 L1, Surry Hills NSW 2010",
+    "founders": [
+      "Mark Woodland",
+      "Stefan Cordiner",
+      "Lauren Grimes",
+      "Sam Armstrong",
+      "Mathew Ellis"
+    ]
+  },
+  {
+    "name": "InvestorHub",
+    "sector": "Fintech",
+    "sectorFull": "Fintech/IR",
+    "city": "Melbourne",
+    "lat": -37.81963,
+    "lng": 144.95862,
+    "investors": [
+      "Flying Fox",
+      "Archangel"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://investorhub.com",
+    "blurb": "Shareholder engagement for listed cos (Seed/Series A)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Ben Williamson",
+      "Rhys Davis"
+    ],
+    "address": "Level 16, 452 Flinders Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "Kite Therapy",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech/autism",
+    "city": "Melbourne",
+    "lat": -37.7985,
+    "lng": 144.96218,
+    "investors": [
+      "Flying Fox",
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Therapy support for families",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Wade Institute, University of Melbourne, Parkville VIC 3010"
+  },
+  {
+    "name": "Agscent",
+    "sector": "AgTech",
+    "sectorFull": "AgTech",
+    "city": "Carwoola",
+    "lat": -35.39222,
+    "lng": 149.367,
+    "investors": [
+      "Flying Fox"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Livestock sensor/preg-testing tech",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "1701 Captains Flat Road, Carwoola NSW 2620"
+  },
+  {
+    "name": "SwarmFarm Robotics",
+    "sector": "AgTech",
+    "sectorFull": "AgTech/robotics",
+    "city": "Gindie (nr Emerald)",
+    "lat": -23.83493,
+    "lng": 148.31878,
+    "investors": [
+      "Tenacious",
+      "Edaphon",
+      "CEFC",
+      "QIC"
+    ],
+    "stage": "Series B",
+    "hiring": false,
+    "verified": true,
+    "website": "https://swarmfarm.com",
+    "blurb": "Autonomous agricultural robots — A$30M Series B Oct 2025 (after US$8.3M Series A 2023)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "225 Glenorina Access Road, Gindie (near Emerald), QLD 4702",
+    "founders": [
+      "Andrew Bate",
+      "Jocie Bate"
+    ]
+  },
+  {
+    "name": "RapidAIM",
+    "sector": "AgTech",
+    "sectorFull": "AgTech",
+    "city": "Brisbane",
+    "lat": -27.47581,
+    "lng": 153.00801,
+    "investors": [
+      "Tenacious"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://rapidaim.io",
+    "blurb": "CSIRO spin-out; digital pest monitoring",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Nancy Schellhorn",
+      "Darren Moore",
+      "Laura Jones"
+    ],
+    "address": "Unit 1, 11 Donkin Street, West End QLD 4101"
+  },
+  {
+    "name": "Vow",
+    "sector": "Cellular agriculture",
+    "sectorFull": "Cellular agriculture/food",
+    "city": "Sydney",
+    "lat": -33.91522,
+    "lng": 151.19935,
+    "investors": [
+      "Tenacious",
+      "Blackbird",
+      "Prosperity7"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://vowfood.com",
+    "blurb": "Cultured/cultivated meat — A$73.5M (US$49.2M) Series A, 2022",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "6 Ralph Street, Alexandria NSW 2015",
+    "founders": [
+      "George Peppou",
+      "Tim Noakesmith"
+    ]
+  },
+  {
+    "name": "Nbryo",
+    "sector": "AgTech",
+    "sectorFull": "AgTech/livestock genetics",
+    "city": "Herston",
+    "lat": -27.44457,
+    "lng": 153.02984,
+    "investors": [
+      "Tenacious",
+      "AgriZero"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Cattle breeding/embryo tech (~A$10M) — QLD, exact city unconfirmed",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 10 Bowen Bridge Rd, Herston QLD 4006"
+  },
+  {
+    "name": "Earthodic",
+    "sector": "Packaging",
+    "sectorFull": "Packaging/materials",
+    "city": "Brisbane",
+    "lat": -27.46954,
+    "lng": 153.02595,
+    "investors": [
+      "Tenacious",
+      "QIC",
+      "FTW"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://earthodic.com",
+    "blurb": "Sustainable paper packaging coatings (~US$6M)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 155 Queen St, Brisbane QLD 4000"
+  },
+  {
+    "name": "Agovor",
+    "sector": "AgTech",
+    "sectorFull": "AgTech/robotics",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Tenacious"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": false,
+    "website": "",
+    "blurb": "Autonomous horticulture robotics (A$3M) NZ-headquartered; Sydney/AU presence not yet established.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Trace",
+    "sector": "Climate SaaS",
+    "sectorFull": "Climate SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Giant Leap"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://our-trace.com",
+    "blurb": "Carbon measurement/offset platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "MoreGoodDays",
+    "sector": "Healthtech",
+    "sectorFull": "Healthtech/mental health",
+    "city": "Melbourne",
+    "lat": -37.80455,
+    "lng": 144.96318,
+    "investors": [
+      "Giant Leap"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://moregooddays.com",
+    "blurb": "Digital chronic-pain management app",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1/700 Swanston Street, Carlton VIC 3053"
+  },
+  {
+    "name": "Hex",
+    "sector": "EdTech",
+    "sectorFull": "EdTech",
+    "city": "Cremorne",
+    "lat": -37.82856,
+    "lng": 144.99704,
+    "investors": [
+      "Giant Leap"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "",
+    "blurb": "Education platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 534 Church St, Cremorne VIC 3121"
+  },
+  {
+    "name": "ezyCollect",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (SME)",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Tank Stream"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://ezycollect.com.au",
+    "blurb": "Accounts-receivable automation",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "320 Pitt Street, WeWork, Sydney NSW 2000"
+  },
+  {
+    "name": "Equitise",
+    "sector": "Fintech",
+    "sectorFull": "Fintech/crowdfunding",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Tank Stream"
+    ],
+    "stage": "Defunct (in administration)",
+    "hiring": false,
+    "verified": false,
+    "website": "https://equitise.com",
+    "blurb": "Equity crowdfunding platform Entered voluntary administration Oct 2024; ASIC suspended its AFS licence May 2026.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 17-19 Bridge Street, Sydney NSW 2000 (historical)"
+  },
+  {
+    "name": "Biteable",
+    "sector": "Video software",
+    "sectorFull": "Video software",
+    "city": "Melbourne",
+    "lat": -37.81482,
+    "lng": 144.968,
+    "investors": [
+      "Tank Stream"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://biteable.com",
+    "blurb": "DIY online video creation",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 162 Collins St, Melbourne VIC 3000"
+  },
+  {
+    "name": "Unloan",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (home loans)",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "x15/CBA"
+    ],
+    "stage": "Subsidiary",
+    "hiring": false,
+    "verified": true,
+    "website": "https://unloan.com.au",
+    "blurb": "Digital home loan with growing discount. Wholly-owned CommBank (x15) subsidiary — not independently VC-backed.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Home-in",
+    "sector": "PropTech",
+    "sectorFull": "PropTech/fintech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "x15/CBA"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://home-in.com.au",
+    "blurb": "Digital conveyancing/settlement concierge (CBA-owned)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Doshii",
+    "sector": "Hospitality SaaS",
+    "sectorFull": "Hospitality SaaS",
+    "city": "Sydney",
+    "lat": -33.89551,
+    "lng": 151.19479,
+    "investors": [
+      "x15/CBA"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://doshii.com",
+    "blurb": "POS-to-delivery-app connector for venues (CBA-owned)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Upper Ground, The Foundry, 1 Locomotive Street, Eveleigh NSW 2015"
+  },
+  {
+    "name": "Kit",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (youth)",
+    "city": "Sydney",
+    "lat": -33.86929,
+    "lng": 151.21842,
+    "investors": [
+      "x15/CBA"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://heykit.com.au",
+    "blurb": "Pocket-money app + prepaid card for kids",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Commonwealth Bank Place South, Level 1, 11 Harbour St, Sydney NSW 2000"
+  },
+  {
+    "name": "Truyu",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity/identity",
+    "city": "Sydney",
+    "lat": -33.87915,
+    "lng": 151.20339,
+    "investors": [
+      "x15/CBA"
+    ],
+    "stage": "Early",
+    "hiring": false,
+    "verified": true,
+    "website": "https://truyu.com.au",
+    "blurb": "Digital identity-misuse alerts",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 11 Harbour St, Sydney NSW 2000"
+  },
+  {
+    "name": "OwnHome",
+    "sector": "PropTech",
+    "sectorFull": "PropTech/fintech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "x15",
+      "NAB Ventures"
+    ],
+    "stage": "Series A",
+    "hiring": true,
+    "verified": true,
+    "website": "https://ownhome.com",
+    "blurb": "Deposit-free pathway to home ownership",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "James Bowe",
+      "Tim Harley"
+    ]
+  },
+  {
+    "name": "Spriggy",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (family/youth)",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "NAB Ventures"
+    ],
+    "stage": "Series A",
+    "hiring": true,
+    "verified": true,
+    "website": "https://spriggy.com.au",
+    "blurb": "Family finance app + prepaid card",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Mario Hasanakos",
+      "Alex Badran"
+    ]
+  },
+  {
+    "name": "Slyp",
+    "sector": "Retail",
+    "sectorFull": "Retail/fintech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "NAB Ventures",
+      "CBA"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://slyp.com.au",
+    "blurb": "Smart digital receipts + loyalty",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 7, 2 Interface Lane, Sydney NSW 2000"
+  },
+  {
+    "name": "Edstart",
+    "sector": "Fintech",
+    "sectorFull": "Fintech/edtech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "NAB Ventures"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://edstart.com.au",
+    "blurb": "School/education fee financing",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 1 Launch Lane, Sydney NSW 2000"
+  },
+  {
+    "name": "DataMesh Group",
+    "sector": "Fintech",
+    "sectorFull": "Fintech (payments)",
+    "city": "Sydney",
+    "lat": -33.88895,
+    "lng": 151.15968,
+    "investors": [
+      "NAB Ventures"
+    ],
+    "stage": "Series A",
+    "hiring": false,
+    "verified": true,
+    "website": "https://datameshgroup.com",
+    "blurb": "Cloud-native payment processing",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 10, 60 Margaret St, Sydney NSW 2000"
+  },
+  {
+    "name": "Hometime",
+    "sector": "PropTech",
+    "sectorFull": "PropTech",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "NAB Ventures"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://hometime.io",
+    "blurb": "Short-term rental management platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "1 Sussex Street, Level 1, Sydney NSW 2000"
+  },
+  {
+    "name": "Samsara Eco",
+    "sector": "Climate",
+    "sectorFull": "Climate/recycling",
+    "city": "Queanbeyan/Jerrabomberra",
+    "lat": -35.38083,
+    "lng": 149.20014,
+    "investors": [
+      "Titanium",
+      "Temasek",
+      "Main Sequence",
+      "Wollemi Capital",
+      "Hitachi Ventures",
+      "DCVC",
+      "lululemon"
+    ],
+    "stage": "Series A",
+    "hiring": true,
+    "verified": true,
+    "website": "https://samsaraeco.com",
+    "blurb": "Enzymatic \"infinite\" plastic & textile recycling — A$100M Series A+ (builds on A$56M 2022 Series A)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Paul Riley"
+    ]
+  },
+  {
+    "name": "OpenSolar",
+    "sector": "Climate SaaS",
+    "sectorFull": "Climate SaaS",
+    "city": "Sydney (Chippendale)",
+    "lat": -33.88475,
+    "lng": 151.1974,
+    "investors": [
+      "Titanium/Telstra"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://opensolar.com",
+    "blurb": "Free end-to-end solar design/sales platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "25/12 Buckland Street, Chippendale, Sydney NSW 2008",
+    "founders": [
+      "Andrew Birch",
+      "Adam Pryor"
+    ]
+  },
+  {
+    "name": "ipSCAPE",
+    "sector": "Contact-centre SaaS",
+    "sectorFull": "Contact-centre SaaS",
+    "city": "North Sydney",
+    "lat": -33.83605,
+    "lng": 151.20785,
+    "investors": [
+      "Titanium/Telstra"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://ipscape.com",
+    "blurb": "AI omnichannel contact-centre platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 11, 213 Miller St, North Sydney NSW 2060"
+  },
+  {
+    "name": "HealthEngine",
+    "sector": "HealthTech",
+    "sectorFull": "HealthTech",
+    "city": "Perth",
+    "lat": -31.95006,
+    "lng": 115.85023,
+    "investors": [
+      "Titanium/Telstra"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://healthengine.com.au",
+    "blurb": "Consumer health booking marketplace",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 503 Murray Street, Perth WA 6000"
+  },
+  {
+    "name": "Chirp",
+    "sector": "Sales AI",
+    "sectorFull": "Sales AI",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://trychirp.com",
+    "blurb": "AI sales pipeline/CRM automation",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Circular Sourcing",
+    "sector": "Climate",
+    "sectorFull": "Climate/textiles",
+    "city": "Melbourne",
+    "lat": -37.81425,
+    "lng": 144.96317,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://circularsourcing.world",
+    "blurb": "Surplus textile marketplace",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Studio 6, 124 Whitehall St, Footscray VIC 3011"
+  },
+  {
+    "name": "Duohub",
+    "sector": "AI infrastructure",
+    "sectorFull": "AI infrastructure",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://duohub.ai",
+    "blurb": "Graph memory for AI voice agents",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Fluency",
+    "sector": "Enterprise AI",
+    "sectorFull": "Enterprise AI",
+    "city": "Melbourne",
+    "lat": -37.82768,
+    "lng": 144.99191,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://getfluency.com.au",
+    "blurb": "AI process-documentation automation",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 2, 65 Dover St, Cremorne VIC 3121, Australia"
+  },
+  {
+    "name": "Gloss Guide",
+    "sector": "Marketplace",
+    "sectorFull": "Marketplace/beauty",
+    "city": "Brisbane",
+    "lat": -27.45815,
+    "lng": 153.03423,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://glossguide.com.au",
+    "blurb": "Verified beauty-services directory",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "315 Brunswick St, Fortitude Valley QLD 4006"
+  },
+  {
+    "name": "Landid",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS",
+    "city": "Brisbane",
+    "lat": -27.46663,
+    "lng": 153.02735,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://heylandid.com",
+    "blurb": "AI quoting/estimation for tradies",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 4, 200 Adelaide St, Brisbane QLD 4000"
+  },
+  {
+    "name": "Puralink",
+    "sector": "Robotics",
+    "sectorFull": "Robotics",
+    "city": "Sydney",
+    "lat": -33.87589,
+    "lng": 151.21604,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://puralink.com.au",
+    "blurb": "Autonomous pipe inspection/repair robots",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "51 Stanley Street, Darlinghurst NSW 2010"
+  },
+  {
+    "name": "Vulnetix",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity",
+    "city": "Canberra",
+    "lat": -35.29759,
+    "lng": 149.10127,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://vulnetix.com",
+    "blurb": "Security detection orchestration/analytics",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "PentaCue AI",
+    "sector": "B2B SaaS",
+    "sectorFull": "B2B SaaS/AI",
+    "city": "Melbourne",
+    "lat": -37.81425,
+    "lng": 144.96317,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://pentacue.com",
+    "blurb": "AI lead discovery for electronics mfrs Remote-first — no physical office.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Edsemble",
+    "sector": "EdTech",
+    "sectorFull": "EdTech",
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
+    "investors": [
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": false,
+    "verified": false,
+    "website": "https://edsemble.com",
+    "blurb": "Early-childhood development subscriptions",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Andisor",
+    "sector": "Retail",
+    "sectorFull": "Retail/wholesale SaaS",
+    "city": "Melbourne",
+    "lat": -37.8182,
+    "lng": 144.95433,
+    "investors": [
+      "Antler"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://andisor.com",
+    "blurb": "AI B2B wholesale buying platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "120 Spencer Street, Melbourne VIC 3000"
+  },
+  {
+    "name": "CalcTree",
+    "sector": "Engineering SaaS",
+    "sectorFull": "Engineering SaaS",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Antler",
+      "Standards Australia",
+      "Foundamental"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://calctree.com",
+    "blurb": "Collaborative engineering-calculation platform (Pre-seed/Seed ~A$3.8M)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Vyro",
+    "sector": "Automotive",
+    "sectorFull": "Automotive/EV marketplace",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Antler",
+      "x15"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://vyro.com.au",
+    "blurb": "Online EV showroom (compare/buy/finance)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    }
+  },
+  {
+    "name": "Reach Alternative Investments",
+    "sector": "WealthTech",
+    "sectorFull": "WealthTech",
+    "city": "Sydney",
+    "lat": -33.86799,
+    "lng": 151.21016,
+    "investors": [
+      "Antler"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://reachalts.com.au",
+    "blurb": "Access to private-market funds (~A$3.6M)",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "Level 1, 39 Martin Place, Sydney NSW 2000"
+  },
+  {
+    "name": "Pairtree",
+    "sector": "AgTech",
+    "sectorFull": "AgTech",
+    "city": "Orange",
+    "lat": -33.28205,
+    "lng": 149.09716,
+    "investors": [
+      "Antler",
+      "x15"
+    ],
+    "stage": "Seed",
+    "hiring": false,
+    "verified": true,
+    "website": "https://pairtree.co",
+    "blurb": "Farm data integration dashboard",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "1 Redridge Rd, Orange NSW 2800"
+  }
+]

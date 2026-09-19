@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: au-startup-map-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
