@@ -5,3 +5,6 @@ coverage/
 *.xlsx
 dev-server.log
 .claude/scheduled_tasks.lock
+
+# Local Netlify folder
+.netlify

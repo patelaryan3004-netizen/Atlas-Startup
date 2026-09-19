@@ -7,6 +7,7 @@ vi.mock('../src/api.js', () => ({
   fetchMeta: vi.fn(),
   fetchNews: vi.fn(),
   submitStartup: vi.fn(),
+  DIRECTORY_URL: '/directory',
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({

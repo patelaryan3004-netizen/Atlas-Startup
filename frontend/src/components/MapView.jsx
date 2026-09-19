@@ -169,10 +169,18 @@ export default function MapView({ startups, sectorColors, onSuggestEdit }) {
 
   useEffect(() => {
     const map = L.map(mapElRef.current, { zoomControl: false }).setView([-33.0, 145.0], 5);
-    L.tileLayer(
-      'https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXJ5YW5pbnNwaXJlczEiLCJhIjoiY210OW5mYmxsMDY0djM0cG5zMGd3cXVmZSJ9.X9uUTj3qZRDUP-7SQnpM2Q',
-      { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18 }
-    ).addTo(map);
+    const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+    if (mapboxToken) {
+      L.tileLayer(
+        `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
+        { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18 }
+      ).addTo(map);
+    } else {
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19,
+      }).addTo(map);
+    }
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     const cluster = L.markerClusterGroup({
