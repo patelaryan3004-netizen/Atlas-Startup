@@ -626,8 +626,8 @@
     "sector": "AI",
     "sectorFull": "AI / MarTech",
     "city": "Richmond",
-    "lat": -37.80745,
-    "lng": 144.99072,
+    "lat": -37.8234708,
+    "lng": 144.9893719,
     "investors": [
       "Rampersand",
       "AirTree",
@@ -946,8 +946,8 @@
     "sector": "PropTech",
     "sectorFull": "PropTech / AI",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8684102,
+    "lng": 151.207378,
     "investors": [
       "AirTree"
     ],
@@ -1876,8 +1876,8 @@
     "sector": "Quantum computing",
     "sectorFull": "Quantum computing",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.9117191,
+    "lng": 151.2195058,
     "investors": [
       "Main Sequence",
       "NRF Corp"
@@ -1975,8 +1975,8 @@
     "sector": "Robotics",
     "sectorFull": "Robotics",
     "city": "Richmond",
-    "lat": -37.80745,
-    "lng": 144.99072,
+    "lat": -37.8229094,
+    "lng": 145.0040307,
     "investors": [
       "Main Sequence"
     ],
@@ -2133,8 +2133,8 @@
     "sector": "Experiences",
     "sectorFull": "Experiences/marketplace",
     "city": "Richmond",
-    "lat": -37.80745,
-    "lng": 144.99072,
+    "lat": -37.8229094,
+    "lng": 145.0040307,
     "investors": [
       "OneVentures",
       "Rampersand"
@@ -2309,8 +2309,8 @@
     "sector": "Analytics",
     "sectorFull": "Analytics/BI",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8664882,
+    "lng": 151.2017807,
     "investors": [
       "OneVentures"
     ],
@@ -2530,8 +2530,8 @@
     "sector": "Construction SaaS",
     "sectorFull": "Construction SaaS",
     "city": "Melbourne",
-    "lat": -37.81425,
-    "lng": 144.96317,
+    "lat": -37.8156137,
+    "lng": 144.9673044,
     "investors": [
       "OIF"
     ],
@@ -2806,8 +2806,8 @@
     "sector": "AI",
     "sectorFull": "AI/cybersecurity",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.7975472,
+    "lng": 151.127306,
     "investors": [
       "OIF"
     ],
@@ -2827,8 +2827,8 @@
     "sector": "Data infrastructure",
     "sectorFull": "Data infrastructure",
     "city": "Melbourne",
-    "lat": -37.81452,
-    "lng": 144.96353,
+    "lat": -37.7683447,
+    "lng": 144.9996916,
     "investors": [
       "OIF",
       "Blackbird",
@@ -2843,7 +2843,7 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 152 Elizabeth St, Melbourne VIC 3000"
+    "address": "13 Robbs Parade, Northcote VIC 3070"
   },
   {
     "name": "Josef",
@@ -3130,8 +3130,8 @@
     "sector": "Automotive SaaS",
     "sectorFull": "Automotive SaaS",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8651207,
+    "lng": 151.2020826,
     "investors": [
       "Tidal"
     ],
@@ -3340,8 +3340,8 @@
     "sector": "Aged",
     "sectorFull": "Aged/disability care AI",
     "city": "Melbourne",
-    "lat": -37.81425,
-    "lng": 144.96317,
+    "lat": -37.8065264,
+    "lng": 144.9844993,
     "investors": [
       "Tidal"
     ],
@@ -3428,8 +3428,8 @@
     "sector": "Climate",
     "sectorFull": "Climate/carbon SaaS",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8623951,
+    "lng": 151.2086594,
     "investors": [
       "TEN13"
     ],
@@ -3735,8 +3735,8 @@
     "sector": "Robotics",
     "sectorFull": "Robotics/sensors",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.9117191,
+    "lng": 151.2195058,
     "investors": [
       "Flying Fox"
     ],
@@ -3782,8 +3782,8 @@
     "sector": "Healthtech",
     "sectorFull": "Healthtech/NDIS",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.880972,
+    "lng": 151.2146642,
     "investors": [
       "Flying Fox",
       "Airtree",
@@ -4091,8 +4091,8 @@
     "sector": "Fintech",
     "sectorFull": "Fintech (SME)",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8756146,
+    "lng": 151.2082323,
     "investors": [
       "Tank Stream"
     ],
@@ -4306,8 +4306,8 @@
     "sector": "Retail",
     "sectorFull": "Retail/fintech",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8684509,
+    "lng": 151.2082149,
     "investors": [
       "NAB Ventures",
       "CBA"
@@ -4328,8 +4328,8 @@
     "sector": "Fintech",
     "sectorFull": "Fintech/edtech",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8684509,
+    "lng": 151.2082149,
     "investors": [
       "NAB Ventures"
     ],
@@ -4370,8 +4370,8 @@
     "sector": "PropTech",
     "sectorFull": "PropTech",
     "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "lat": -33.8639012,
+    "lng": 151.2027671,
     "investors": [
       "NAB Ventures"
     ],
@@ -4507,8 +4507,8 @@
     "sector": "Climate",
     "sectorFull": "Climate/textiles",
     "city": "Melbourne",
-    "lat": -37.81425,
-    "lng": 144.96317,
+    "lat": -37.8079281,
+    "lng": 144.9020516,
     "investors": [
       "Startmate"
     ],
