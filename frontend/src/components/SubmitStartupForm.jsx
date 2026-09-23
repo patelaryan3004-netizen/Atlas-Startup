@@ -37,13 +37,13 @@ export default function SubmitStartupForm({ onClose }) {
 
         {done ? (
           <div className="submit-done">
-            <h3>Thanks!</h3>
+            <h2>Thanks!</h2>
             <p>We review every submission before it goes live.</p>
             <button className="taskbtn" onClick={onClose}>Close</button>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h3>Submit a startup</h3>
+            <h2>Submit a startup</h2>
             <p className="modal-sub">
               Know an AU startup that should be on the map? Fill in what you know — only the name
               and a one-line description are required. We review every submission before it goes live.

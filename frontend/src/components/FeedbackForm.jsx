@@ -40,13 +40,13 @@ export default function FeedbackForm({ onClose }) {
 
         {done ? (
           <div className="submit-done">
-            <h3>Thanks!</h3>
+            <h2>Thanks!</h2>
             <p>We read every submission.</p>
             <button className="taskbtn" onClick={onClose}>Close</button>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h3>Feedback</h3>
+            <h2>Feedback</h2>
             <p className="modal-sub">
               Something about the site itself — not a specific company&rsquo;s listing.
               For that, use &ldquo;Suggest an edit&rdquo; on the company&rsquo;s pin instead.

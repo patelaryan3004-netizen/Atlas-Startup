@@ -5,7 +5,7 @@ export default function UnverifiedList({ startups, onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
-        <h3>Unconfirmed location ({unverified.length})</h3>
+        <h2>Unconfirmed location ({unverified.length})</h2>
         <p className="modal-sub">
           No pin on the map yet — city or address not confirmed. Listed here instead of guessed.
         </p>

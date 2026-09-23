@@ -87,7 +87,7 @@ export default function App() {
         <div>
           <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
           <div className="tag">
-            VC-backed companies · live hiring status · task-gated applications · public sources + submissions
+            VC-backed companies<span className="tag-sep">·</span>live hiring status<span className="tag-sep">·</span>task-gated applications<span className="tag-sep">·</span>public sources + submissions
           </div>
         </div>
         <div className="header-actions">

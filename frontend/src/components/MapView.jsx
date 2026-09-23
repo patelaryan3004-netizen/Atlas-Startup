@@ -168,17 +168,23 @@ export default function MapView({ startups, sectorColors, onSuggestEdit }) {
   const clusterRef = useRef(null);
 
   useEffect(() => {
-    const map = L.map(mapElRef.current, { zoomControl: false }).setView([-33.0, 145.0], 5);
+    const map = L.map(mapElRef.current, {
+      zoomControl: false,
+      minZoom: 3,
+      maxBounds: [[-85, -180], [85, 180]],
+      maxBoundsViscosity: 1.0,
+    }).setView([-33.0, 145.0], 5);
     const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
     if (mapboxToken) {
       L.tileLayer(
         `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
-        { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18 }
+        { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }
       ).addTo(map);
     } else {
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
         maxZoom: 19,
+        noWrap: true,
       }).addTo(map);
     }
     L.control.zoom({ position: 'bottomright' }).addTo(map);

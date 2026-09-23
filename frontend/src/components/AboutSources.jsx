@@ -5,7 +5,7 @@ export default function AboutSources({ onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
-        <h3>About &amp; sources</h3>
+        <h2>About &amp; sources</h2>
         <p className="modal-sub">
           AU Startup Map is an independent, unofficial directory of Australian startups. It is not
           affiliated with, endorsed by, or operated on behalf of any company listed.

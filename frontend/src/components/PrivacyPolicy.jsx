@@ -3,7 +3,7 @@ export default function PrivacyPolicy({ onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
-        <h3>Privacy</h3>
+        <h2>Privacy</h2>
 
         <div className="pc-section-label">What we collect</div>
         <p className="modal-sub">

@@ -7,7 +7,7 @@ export default function NotableStartups({ startups }) {
 
   return (
     <div id="notable">
-      <h3>Notable AU Startups</h3>
+      <h2>Notable AU Startups</h2>
       <ol id="notableList">
         {notable.map((s) => (
           <li key={s.name}>

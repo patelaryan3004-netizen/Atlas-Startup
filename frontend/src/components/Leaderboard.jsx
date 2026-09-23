@@ -11,7 +11,7 @@ export default function Leaderboard({ startups }) {
 
   return (
     <div id="leaderboard">
-      <h3>City Leaderboard</h3>
+      <h2>City Leaderboard</h2>
       <ol id="leaderboardList">
         {sorted.map(([city, n]) => (
           <li key={city}>

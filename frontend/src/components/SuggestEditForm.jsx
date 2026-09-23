@@ -33,13 +33,13 @@ export default function SuggestEditForm({ company, onClose }) {
 
         {done ? (
           <div className="submit-done">
-            <h3>Thanks!</h3>
+            <h2>Thanks!</h2>
             <p>We review every change before it goes live.</p>
             <button className="taskbtn" onClick={onClose}>Close</button>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <h3>Suggest an edit</h3>
+            <h2>Suggest an edit</h2>
             <p className="modal-sub">
               Something wrong with <b>{company}</b>&rsquo;s listing — address, logo, sector, anything?
               Tell us and we&rsquo;ll review before publishing. No auto-changes.
