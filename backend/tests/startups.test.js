@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+﻿import { describe, it, expect } from 'vitest';
 import request from 'supertest';
 import app from '../src/app.js';
 
@@ -6,9 +6,9 @@ describe('GET /api/startups', () => {
   it('returns all startups with no filters', async () => {
     const res = await request(app).get('/api/startups');
     expect(res.status).toBe(200);
-    expect(res.body.total).toBe(210);
-    expect(res.body.count).toBe(210);
-    expect(res.body.results).toHaveLength(210);
+    expect(res.body.total).toBe(213);
+    expect(res.body.count).toBe(213);
+    expect(res.body.results).toHaveLength(213);
   });
 
   it('filters by search (case-insensitive, partial match)', async () => {
@@ -70,7 +70,7 @@ describe('GET /api/startups', () => {
     expect(res.status).toBe(200);
     expect(res.body.count).toBe(0);
     expect(res.body.results).toEqual([]);
-    expect(res.body.total).toBe(210);
+    expect(res.body.total).toBe(213);
   });
 });
 
@@ -95,3 +95,4 @@ describe('GET /api/startups/meta', () => {
     expect(isUnique(res.body.investors)).toBe(true);
   });
 });
+

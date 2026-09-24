@@ -4793,5 +4793,83 @@
       "type": null
     },
     "address": "1 Redridge Rd, Orange NSW 2800"
+  },
+  {
+    "name": "Blinq",
+    "sector": "SaaS",
+    "sectorFull": "SaaS / Digital business cards",
+    "city": "Melbourne",
+    "lat": -37.8085736,
+    "lng": 144.9684366,
+    "investors": [
+      "Touring Capital",
+      "Blackbird",
+      "Square Peg",
+      "HubSpot Ventures"
+    ],
+    "stage": "Series A",
+    "hiring": true,
+    "verified": true,
+    "website": "https://blinq.me",
+    "blurb": "Digital business card and lead-capture platform",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Jarrod Webb"
+    ],
+    "address": "321 Exhibition St, Melbourne VIC 3000"
+  },
+  {
+    "name": "AgriDigital",
+    "sector": "AgTech",
+    "sectorFull": "AgTech / Grain management",
+    "city": "Sydney",
+    "lat": -33.8738194,
+    "lng": 151.2094914,
+    "investors": [
+      "Square Peg"
+    ],
+    "stage": "Growth",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.agridigital.io",
+    "blurb": "Commodity and grain management software for the grains industry",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Emma Weston",
+      "Bob McKay",
+      "Ben Reid"
+    ],
+    "address": "Level 3, 201 Elizabeth St, Sydney NSW 2000"
+  },
+  {
+    "name": "Amber Electric",
+    "sector": "Climate",
+    "sectorFull": "Climate / Energy retail",
+    "city": "Melbourne",
+    "lat": -37.8106867,
+    "lng": 144.9617665,
+    "investors": [
+      "Square Peg"
+    ],
+    "stage": "Series E",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.amber.com.au",
+    "blurb": "Wholesale electricity pricing and home battery automation for households",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Dan Adams",
+      "Chris Thompson"
+    ],
+    "address": "Level 44, 360 Elizabeth St, Melbourne VIC 3000"
   }
 ]
