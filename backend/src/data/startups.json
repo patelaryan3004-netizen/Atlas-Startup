@@ -309,7 +309,7 @@
       "AirTree",
       "Square Peg"
     ],
-    "stage": "Unknown",
+    "stage": "Series B",
     "hiring": true,
     "verified": true,
     "website": "https://www.athena.com.au",
@@ -359,7 +359,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Growth",
     "hiring": true,
     "verified": true,
     "website": "https://gspacetech.com",
@@ -385,7 +385,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Early",
     "hiring": true,
     "verified": true,
     "website": "https://fleetspace.com",
@@ -436,7 +436,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Seed",
     "hiring": true,
     "verified": true,
     "website": "https://www.heidihealth.com",
@@ -461,7 +461,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Early",
     "hiring": true,
     "verified": true,
     "website": "https://morsemicro.com",
@@ -561,7 +561,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Early",
     "hiring": true,
     "verified": true,
     "website": "https://www.marqo.ai",
@@ -611,7 +611,7 @@
       "Blackbird",
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Pre-seed",
     "hiring": true,
     "verified": true,
     "website": "https://buildclub.ai",
@@ -797,7 +797,7 @@
     "investors": [
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Series B",
     "hiring": true,
     "verified": true,
     "website": "https://buildkite.com",
@@ -877,7 +877,7 @@
     "investors": [
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Series A",
     "hiring": true,
     "verified": true,
     "website": "https://www.securecodewarrior.com",
@@ -926,7 +926,7 @@
     "investors": [
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Seed",
     "hiring": true,
     "verified": true,
     "website": "https://www.meandu.com",
@@ -951,7 +951,7 @@
     "investors": [
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Seed",
     "hiring": true,
     "verified": true,
     "website": "https://archistar.ai",
@@ -976,7 +976,7 @@
     "investors": [
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Series A",
     "hiring": true,
     "verified": true,
     "website": "https://askable.com",
@@ -997,7 +997,7 @@
     "investors": [
       "AirTree"
     ],
-    "stage": "Unknown",
+    "stage": "Series B",
     "hiring": true,
     "verified": true,
     "website": "https://www.brighte.com.au",
@@ -1045,7 +1045,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Early",
     "hiring": true,
     "verified": true,
     "website": "https://karbonhq.com",
@@ -1096,7 +1096,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Growth",
     "hiring": true,
     "verified": true,
     "website": "https://sonder.io",
@@ -1120,7 +1120,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Early",
     "hiring": true,
     "verified": false,
     "website": "",
@@ -1128,7 +1128,12 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "founders": [
+      "Dr. Robert Turner",
+      "Dustin Murdock",
+      "Mike Lazelle"
+    ]
   },
   {
     "name": "Springboards",
@@ -1140,7 +1145,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Seed",
     "hiring": true,
     "verified": true,
     "website": "",
@@ -1148,7 +1153,11 @@
     "taskGate": {
       "enabled": true,
       "type": "Coding task"
-    }
+    },
+    "founders": [
+      "Amy Tucker",
+      "Pip Bingemann"
+    ]
   },
   {
     "name": "Ivo",
@@ -1160,7 +1169,7 @@
     "investors": [
       "Blackbird"
     ],
-    "stage": "Unknown",
+    "stage": "Growth",
     "hiring": true,
     "verified": false,
     "website": "",
@@ -1168,7 +1177,11 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "founders": [
+      "Jacob Duligall",
+      "Min-Kyu Jung"
+    ]
   },
   {
     "name": "Baraja",
@@ -1362,7 +1375,7 @@
     "lat": -33.86736,
     "lng": 151.20796,
     "investors": [],
-    "stage": "Unknown",
+    "stage": "Series B",
     "hiring": true,
     "verified": true,
     "website": "https://expert360.com",
@@ -1535,7 +1548,7 @@
     "lat": -37.80857,
     "lng": 144.96844,
     "investors": [],
-    "stage": "Unknown",
+    "stage": "Growth",
     "hiring": false,
     "verified": true,
     "website": "",
@@ -1572,13 +1585,13 @@
   },
   {
     "name": "Fair Supply",
-    "sector": "Unknown",
-    "sectorFull": "Unknown",
+    "sector": "SaaS",
+    "sectorFull": "SaaS / Supply chain sustainability data",
     "city": "Sydney",
     "lat": -33.86608,
     "lng": 151.20825,
     "investors": [],
-    "stage": "Unknown",
+    "stage": "Series A",
     "hiring": false,
     "verified": true,
     "website": "",
@@ -1595,13 +1608,13 @@
   },
   {
     "name": "Fetch",
-    "sector": "Unknown",
-    "sectorFull": "Unknown",
+    "sector": "Fintech",
+    "sectorFull": "Fintech / Pet insurance",
     "city": "Sydney",
     "lat": -33.8806,
     "lng": 151.20885,
     "investors": [],
-    "stage": "Unknown",
+    "stage": "Seed",
     "hiring": false,
     "verified": true,
     "website": "",
@@ -1614,13 +1627,13 @@
   },
   {
     "name": "FrankieOne",
-    "sector": "Unknown",
-    "sectorFull": "Unknown",
+    "sector": "Fintech",
+    "sectorFull": "Fintech / Identity verification & onboarding",
     "city": "Melbourne",
     "lat": -37.81425,
     "lng": 144.96317,
     "investors": [],
-    "stage": "Unknown",
+    "stage": "Series A",
     "hiring": false,
     "verified": true,
     "website": "",
@@ -1791,13 +1804,13 @@
   },
   {
     "name": "Strong Compute",
-    "sector": "Unknown",
-    "sectorFull": "Unknown",
+    "sector": "Enterprise",
+    "sectorFull": "Enterprise / ML compute infrastructure",
     "city": "Sydney",
     "lat": -33.86984,
     "lng": 151.20828,
     "investors": [],
-    "stage": "Unknown",
+    "stage": "Seed",
     "hiring": false,
     "verified": true,
     "website": "",
