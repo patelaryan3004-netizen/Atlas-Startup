@@ -13,6 +13,7 @@ import PrivacyPolicy from './components/PrivacyPolicy.jsx';
 import UnverifiedList from './components/UnverifiedList.jsx';
 import BottomCapsule from './components/BottomCapsule.jsx';
 import StartupListView from './components/StartupListView.jsx';
+import JobsView from './components/JobsView.jsx';
 
 const PALETTE = [
   '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
@@ -45,6 +46,7 @@ export default function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [showJobs, setShowJobs] = useState(false);
   const [editingCompany, setEditingCompany] = useState(null);
 
   useEffect(() => {
@@ -81,6 +83,10 @@ export default function App() {
     });
   };
 
+  if (showJobs) {
+    return <JobsView sectorColors={sectorColors} onClose={() => setShowJobs(false)} />;
+  }
+
   return (
     <div id="app">
       <header>
@@ -92,6 +98,7 @@ export default function App() {
         </div>
         <div className="header-actions">
           <button className="hdrbtn" onClick={toggleNews}>{newsVisible ? 'Hide news' : 'Show news'}</button>
+          <button className="hdrbtn" onClick={() => setShowJobs(true)}>Jobs</button>
           <button className="hdrbtn" onClick={() => setShowUnverified(true)}>Unconfirmed ({unverifiedCount})</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
           <div className="tag" id="totalCount">{total} companies tracked</div>

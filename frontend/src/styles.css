@@ -300,6 +300,39 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 #newsTicker .nt-item .nt-headline{display:block;color:#efe8d4;margin-bottom:2px;}
 #newsTicker .nt-item .nt-meta{color:#7a7768;font-size:9px;}
 
+#jobsView{
+  position:absolute; inset:0; z-index:1000; background:var(--paper);
+  overflow-y:auto;
+}
+.jobs-header{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px; background:var(--paper); border-bottom:2px solid var(--ink);
+}
+.jobs-header h1{font-size:18px;margin:0;font-weight:700;display:flex;align-items:center;gap:8px;}
+.jobs-body{padding:24px 20px 60px;max-width:1100px;margin:0 auto;}
+.jobs-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px;
+}
+.job-card{
+  background:var(--panel); border:2px solid var(--ink); border-radius:8px;
+  box-shadow:4px 4px 0 var(--ink); padding:14px; display:flex; flex-direction:column; gap:10px;
+}
+.job-card-top{display:flex;align-items:center;gap:10px;}
+.job-card-top h2{margin:0;font-size:14px;}
+.job-card-meta{font-size:11px;color:#5a5648;margin-top:2px;}
+.job-card-logo, .job-card-logo-fallback{
+  width:36px;height:36px;flex:none;border-radius:50%;object-fit:contain;background:#fff;
+  border:1px solid var(--line);
+}
+.job-card-logo-fallback{
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  background:var(--ink);color:var(--paper);
+}
+.job-card .pc-badge{align-self:flex-start;}
+.job-card .pc-desc{margin:0;flex:1;}
+.job-card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.job-card-footer .taskbtn{width:auto;padding:6px 14px;}
+
 @media (max-width:640px){
   .fdrawer-content{width:180px;font-size:11px;}
   #leaderboard{display:none;}
@@ -307,4 +340,5 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   #newsTicker{width:190px;top:60px;}
   header h1{font-size:13px;}
   .bottom-capsule{font-size:11px;padding:6px 6px 6px 14px;}
+  .jobs-grid{grid-template-columns:1fr;}
 }

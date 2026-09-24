@@ -18,6 +18,14 @@ vi.mock('../src/components/MapView.jsx', () => ({
   ),
 }));
 
+vi.mock('../src/components/JobsView.jsx', () => ({
+  default: ({ onClose }) => (
+    <div data-testid="jobs-view">
+      <button onClick={onClose}>trigger-jobs-close</button>
+    </div>
+  ),
+}));
+
 import { fetchStartups, fetchMeta, fetchNews } from '../src/api.js';
 import App from '../src/App.jsx';
 
@@ -161,5 +169,18 @@ describe('App', () => {
     render(<App />);
     await userEvent.click(screen.getByText('Feedback'));
     expect(screen.getByLabelText('Type')).toBeInTheDocument();
+  });
+
+  it('swaps to the Jobs view (no map) when Jobs is clicked, and back again on close', async () => {
+    render(<App />);
+    expect(screen.getByTestId('map-view')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByText('Jobs'));
+    expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+    expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByText('trigger-jobs-close'));
+    expect(screen.getByTestId('map-view')).toBeInTheDocument();
+    expect(screen.queryByTestId('jobs-view')).not.toBeInTheDocument();
   });
 });
