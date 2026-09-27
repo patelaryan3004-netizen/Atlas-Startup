@@ -74,6 +74,7 @@ export default function JobsView({ sectorColors, onClose }) {
               <span className="pc-badge" style={{ background: sectorColors[s.sector] || '#444', color: '#fff' }}>
                 {s.sector}
               </span>
+              {!s.verified && <span className="badge-unverified">Unverified</span>}
 
               {s.blurb && <p className="pc-desc">{s.blurb}</p>}
 

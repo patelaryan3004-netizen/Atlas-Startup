@@ -14,6 +14,7 @@ import UnverifiedList from './components/UnverifiedList.jsx';
 import BottomCapsule from './components/BottomCapsule.jsx';
 import StartupListView from './components/StartupListView.jsx';
 import JobsView from './components/JobsView.jsx';
+import CuratedLists from './components/CuratedLists.jsx';
 
 const PALETTE = [
   '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
@@ -21,7 +22,7 @@ const PALETTE = [
   '#2a2a2a', '#3a7a8a', '#6a3a2a', '#3a6a5a',
 ];
 
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '' };
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' };
 const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [] };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 
@@ -34,9 +35,23 @@ function loadNewsVisible() {
   }
 }
 
+function loadFiltersFromUrl() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = {};
+    Object.keys(EMPTY_FILTERS).forEach((key) => {
+      const value = params.get(key);
+      if (value) fromUrl[key] = value;
+    });
+    return { ...EMPTY_FILTERS, ...fromUrl };
+  } catch (e) {
+    return EMPTY_FILTERS;
+  }
+}
+
 export default function App() {
   const [meta, setMeta] = useState(EMPTY_META);
-  const [filters, setFilters] = useState(EMPTY_FILTERS);
+  const [filters, setFilters] = useState(loadFiltersFromUrl);
   const [startups, setStartups] = useState([]);
   const [total, setTotal] = useState(0);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
@@ -47,6 +62,7 @@ export default function App() {
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [showJobs, setShowJobs] = useState(false);
+  const [showCuratedLists, setShowCuratedLists] = useState(false);
   const [editingCompany, setEditingCompany] = useState(null);
 
   useEffect(() => {
@@ -99,6 +115,7 @@ export default function App() {
         <div className="header-actions">
           <button className="hdrbtn" onClick={toggleNews}>{newsVisible ? 'Hide news' : 'Show news'}</button>
           <button className="hdrbtn" onClick={() => setShowJobs(true)}>Jobs</button>
+          <button className="hdrbtn" onClick={() => setShowCuratedLists(true)}>Curated lists</button>
           <button className="hdrbtn" onClick={() => setShowUnverified(true)}>Unconfirmed ({unverifiedCount})</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
           <div className="tag" id="totalCount">{total} companies tracked</div>
@@ -142,6 +159,13 @@ export default function App() {
       {showFeedback && <FeedbackForm onClose={() => setShowFeedback(false)} />}
       {showStartupList && (
         <StartupListView startups={startups} sectorColors={sectorColors} onClose={() => setShowStartupList(false)} />
+      )}
+      {showCuratedLists && (
+        <CuratedLists
+          currentFilters={filters}
+          onApply={(listFilters) => setFilters({ ...EMPTY_FILTERS, ...listFilters })}
+          onClose={() => setShowCuratedLists(false)}
+        />
       )}
     </div>
   );

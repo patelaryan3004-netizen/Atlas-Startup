@@ -10,7 +10,7 @@ export default function StartupListView({ startups, sectorColors, onClose }) {
             <li key={s.name}>
               <span className="uv-name">
                 <span className="dot" style={{ background: sectorColors[s.sector] || '#444', display: 'inline-block', marginRight: 6 }} />
-                {s.name}{!s.verified && <span className="taskgate-badge taskgate-locked" style={{ marginLeft: 6 }}>NO PIN</span>}
+                {s.name}{!s.verified && <span className="badge-unverified" style={{ marginLeft: 6 }}>Unverified</span>}
               </span>
               <span className="uv-meta">{s.city} · {s.stage}</span>
             </li>

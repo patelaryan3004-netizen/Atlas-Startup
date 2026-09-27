@@ -18,11 +18,11 @@ describe('StartupListView', () => {
     expect(screen.getByText('Melbourne · Series A')).toBeInTheDocument();
   });
 
-  it('flags unverified (unpinned) startups with a NO PIN badge', () => {
+  it('flags unverified (unpinned) startups with an Unverified badge', () => {
     const startups = [s('Pinned', { verified: true }), s('Unpinned', { verified: false })];
     render(<StartupListView startups={startups} sectorColors={{}} onClose={() => {}} />);
 
-    expect(screen.getByText('NO PIN')).toBeInTheDocument();
+    expect(screen.getByText('Unverified')).toBeInTheDocument();
   });
 
   it('calls onClose when the close button is clicked', async () => {

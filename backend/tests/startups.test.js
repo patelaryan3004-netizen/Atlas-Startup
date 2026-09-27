@@ -59,6 +59,20 @@ describe('GET /api/startups', () => {
     expect(res.body.count).toBeGreaterThan(0);
   });
 
+  it('filters taskGate=yes', async () => {
+    const res = await request(app).get('/api/startups?taskGate=yes');
+    expect(res.status).toBe(200);
+    expect(res.body.results.every((s) => s.taskGate.enabled === true)).toBe(true);
+    expect(res.body.count).toBeGreaterThan(0);
+  });
+
+  it('filters taskGate=no', async () => {
+    const res = await request(app).get('/api/startups?taskGate=no');
+    expect(res.status).toBe(200);
+    expect(res.body.results.every((s) => s.taskGate.enabled === false)).toBe(true);
+    expect(res.body.count).toBeGreaterThan(0);
+  });
+
   it('combines multiple filters', async () => {
     const res = await request(app).get('/api/startups?sector=Fintech&city=Sydney');
     expect(res.status).toBe(200);

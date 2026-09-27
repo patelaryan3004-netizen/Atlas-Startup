@@ -93,6 +93,27 @@ function foundersHtml(s) {
   `;
 }
 
+// A vouch is a named, on-the-record endorsement (name/role/note) - not an
+// anonymous rating. Rendered as a <details> so the expand/collapse needs no
+// JS wiring through the raw-HTML popup, matching how Leaflet renders this.
+function vouchesHtml(s) {
+  if (!s.vouches || !s.vouches.length) return '';
+  return `
+    <details class="pc-vouches">
+      <summary class="vouch-badge">Vouched by ${s.vouches.length}</summary>
+      <div class="vouch-list">
+        ${s.vouches.map((v) => `
+          <div class="vouch-item">
+            <span class="vouch-item-name">${escAttr(v.name)}</span>
+            ${v.role ? `<span class="vouch-item-role"> · ${escAttr(v.role)}</span>` : ''}
+            ${v.note ? `<p class="vouch-item-note">${escAttr(v.note)}</p>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </details>
+  `;
+}
+
 function popupHtml(s, color) {
   const domain = domainOf(s.website);
   const initial = (s.name || '?').trim().charAt(0).toUpperCase();
@@ -150,6 +171,7 @@ function popupHtml(s, color) {
         ${verifyHtml}
         ${foundersHtml(s)}
         ${investorsHtml}
+        ${vouchesHtml(s)}
         ${s.hiring ? `<button class="taskbtn">${s.taskGate.enabled ? 'Start task → Apply' : 'Apply now'}</button>` : ''}
         <button class="pc-suggest-edit" data-name="${escAttr(s.name)}" onclick="window.__auMapSuggestEdit && window.__auMapSuggestEdit(this.dataset.name)">✎ Suggest an edit</button>
       </div>

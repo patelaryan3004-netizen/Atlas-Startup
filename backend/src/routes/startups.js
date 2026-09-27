@@ -13,11 +13,11 @@ async function loadStartups() {
 
 const router = Router();
 
-// GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no
+// GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no
 router.get('/', async (req, res, next) => {
   try {
     const startups = await loadStartups();
-    const { search, sector, city, investor, stage, hiring } = req.query;
+    const { search, sector, city, investor, stage, hiring, taskGate } = req.query;
 
     const filtered = startups.filter((s) => {
       if (search && !s.name.toLowerCase().includes(String(search).toLowerCase())) return false;
@@ -27,6 +27,8 @@ router.get('/', async (req, res, next) => {
       if (stage && s.stage !== stage) return false;
       if (hiring === 'yes' && !s.hiring) return false;
       if (hiring === 'no' && s.hiring) return false;
+      if (taskGate === 'yes' && !s.taskGate?.enabled) return false;
+      if (taskGate === 'no' && s.taskGate?.enabled) return false;
       return true;
     });
 

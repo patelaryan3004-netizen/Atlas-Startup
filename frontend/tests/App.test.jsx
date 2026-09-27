@@ -26,6 +26,15 @@ vi.mock('../src/components/JobsView.jsx', () => ({
   ),
 }));
 
+vi.mock('../src/components/CuratedLists.jsx', () => ({
+  default: ({ currentFilters, onApply, onClose }) => (
+    <div data-testid="curated-lists" data-current={JSON.stringify(currentFilters)}>
+      <button onClick={() => { onApply({ city: 'Melbourne', sector: 'AI' }); onClose(); }}>trigger-apply-list</button>
+      <button onClick={onClose}>trigger-curated-close</button>
+    </div>
+  ),
+}));
+
 import { fetchStartups, fetchMeta, fetchNews } from '../src/api.js';
 import App from '../src/App.jsx';
 
@@ -57,7 +66,7 @@ describe('App', () => {
     render(<App />);
     await waitFor(() => expect(screen.getByText('2 companies tracked')).toBeInTheDocument());
     expect(fetchMeta).toHaveBeenCalledTimes(1);
-    expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '' });
+    expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' });
   });
 
   it('shows a pinned-count bottom capsule that opens the full startup list', async () => {
@@ -79,7 +88,7 @@ describe('App', () => {
     await userEvent.type(screen.getByPlaceholderText('Company name...'), 'x');
 
     await waitFor(() =>
-      expect(fetchStartups).toHaveBeenLastCalledWith({ search: 'x', sector: '', city: '', investor: '', stage: '', hiring: '' })
+      expect(fetchStartups).toHaveBeenLastCalledWith({ search: 'x', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
     );
   });
 
@@ -93,7 +102,7 @@ describe('App', () => {
 
     await userEvent.click(screen.getByText('Reset filters'));
     await waitFor(() =>
-      expect(fetchStartups).toHaveBeenLastCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '' })
+      expect(fetchStartups).toHaveBeenLastCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
     );
   });
 
@@ -182,5 +191,42 @@ describe('App', () => {
     await userEvent.click(screen.getByText('trigger-jobs-close'));
     expect(screen.getByTestId('map-view')).toBeInTheDocument();
     expect(screen.queryByTestId('jobs-view')).not.toBeInTheDocument();
+  });
+
+  it('opens Curated lists from the header and closes it again', async () => {
+    render(<App />);
+    await userEvent.click(screen.getByText('Curated lists'));
+    expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByText('trigger-curated-close'));
+    expect(screen.queryByTestId('curated-lists')).not.toBeInTheDocument();
+  });
+
+  it('applying a curated list replaces the active filters (not merging with whatever was set) and refetches', async () => {
+    render(<App />);
+    await openFilters();
+    await userEvent.type(screen.getByPlaceholderText('Company name...'), 'x');
+    await waitFor(() => expect(fetchStartups).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' })));
+
+    await userEvent.click(screen.getByText('Curated lists'));
+    await userEvent.click(screen.getByText('trigger-apply-list'));
+
+    expect(screen.queryByTestId('curated-lists')).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(fetchStartups).toHaveBeenLastCalledWith({
+        search: '', sector: 'AI', city: 'Melbourne', investor: '', stage: '', hiring: '', taskGate: '',
+      })
+    );
+  });
+
+  it('seeds filters from the URL query string on load and fetches with them applied', async () => {
+    window.history.pushState({}, '', '/?sector=Fintech&city=Sydney');
+    render(<App />);
+    await waitFor(() =>
+      expect(fetchStartups).toHaveBeenCalledWith({
+        search: '', sector: 'Fintech', city: 'Sydney', investor: '', stage: '', hiring: '', taskGate: '',
+      })
+    );
+    window.history.pushState({}, '', '/');
   });
 });

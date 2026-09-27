@@ -16,6 +16,7 @@ function job(overrides = {}) {
     city: 'Sydney',
     stage: 'Seed',
     hiring: true,
+    verified: true,
     website: 'https://example.com',
     blurb: 'Does things',
     taskGate: { enabled: true, type: 'Coding task' },
@@ -42,6 +43,15 @@ describe('JobsView', () => {
     expect(screen.getByText('AI')).toBeInTheDocument();
     expect(screen.getByText('Sydney · Seed')).toBeInTheDocument();
     expect(screen.getByText('Does things')).toBeInTheDocument();
+    expect(screen.queryByText('Unverified')).not.toBeInTheDocument();
+  });
+
+  it('shows an Unverified badge for companies with verified:false, without hiding the card', async () => {
+    fetchStartups.mockResolvedValue({ results: [job({ verified: false })] });
+    render(<JobsView sectorColors={{}} onClose={() => {}} />);
+
+    expect(await screen.findByText('Acme AI')).toBeInTheDocument();
+    expect(screen.getByText('Unverified')).toBeInTheDocument();
   });
 
   it('shows a task-gate badge and CTA copy when task-gated, plain Apply otherwise', async () => {

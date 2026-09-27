@@ -182,6 +182,47 @@ describe('MapView', () => {
     expect(html).not.toContain('pc-founders');
   });
 
+  it('omits the vouches section entirely when the vouches array is empty or missing', () => {
+    const startups = [startup({ vouches: [] })];
+    render(<MapView startups={startups} sectorColors={{}} />);
+    const markerResult = L.marker.mock.results.at(-1).value;
+    const [html] = markerResult.bindPopup.mock.calls[0];
+    expect(html).not.toContain('pc-vouches');
+    expect(html).not.toContain('Vouched by');
+  });
+
+  it('shows a Vouched by N badge that expands to name, role and note per vouch', () => {
+    const startups = [startup({
+      vouches: [
+        { name: 'Jane Smith', role: 'Ex-colleague', note: 'Worked with the team at their last startup.' },
+        { name: 'Sam Lee', role: 'Investor', note: 'Backed their seed round.' },
+      ],
+    })];
+    render(<MapView startups={startups} sectorColors={{}} />);
+    const markerResult = L.marker.mock.results.at(-1).value;
+    const [html] = markerResult.bindPopup.mock.calls[0];
+
+    expect(html).toContain('Vouched by 2');
+    expect(html).toContain('<details class="pc-vouches">');
+    expect(html).toContain('Jane Smith');
+    expect(html).toContain('Ex-colleague');
+    expect(html).toContain('Worked with the team at their last startup.');
+    expect(html).toContain('Sam Lee');
+  });
+
+  it('HTML-escapes vouch name, role and note', () => {
+    const startups = [startup({
+      vouches: [{ name: 'Tom & Jerry', role: '<b>CEO</b>', note: '"Great" team' }],
+    })];
+    render(<MapView startups={startups} sectorColors={{}} />);
+    const markerResult = L.marker.mock.results.at(-1).value;
+    const [html] = markerResult.bindPopup.mock.calls[0];
+
+    expect(html).toContain('Tom &amp; Jerry');
+    expect(html).toContain('&lt;b&gt;CEO&lt;/b&gt;');
+    expect(html).toContain('&quot;Great&quot; team');
+  });
+
   it('shows the approximate-location note in the popup when no address is on file', () => {
     const startups = [startup({ address: undefined })];
     render(<MapView startups={startups} sectorColors={{}} />);
