@@ -50,6 +50,14 @@ function loadFiltersFromUrl() {
   }
 }
 
+function loadInitialView() {
+  try {
+    return new URLSearchParams(window.location.search).get('view');
+  } catch (e) {
+    return null;
+  }
+}
+
 export default function App() {
   const [meta, setMeta] = useState(EMPTY_META);
   const [filters, setFilters] = useState(loadFiltersFromUrl);
@@ -62,8 +70,9 @@ export default function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
-  const [showJobs, setShowJobs] = useState(false);
-  const [showCuratedLists, setShowCuratedLists] = useState(false);
+  const initialView = loadInitialView();
+  const [showJobs, setShowJobs] = useState(initialView === 'jobs');
+  const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
   const [editingCompany, setEditingCompany] = useState(null);
 
   useEffect(() => {

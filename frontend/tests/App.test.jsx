@@ -229,4 +229,19 @@ describe('App', () => {
     );
     window.history.pushState({}, '', '/');
   });
+
+  it('opens Jobs directly when linked with ?view=jobs', async () => {
+    window.history.pushState({}, '', '/?view=jobs');
+    render(<App />);
+    expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
+    expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+    window.history.pushState({}, '', '/');
+  });
+
+  it('opens Curated lists directly when linked with ?view=lists', async () => {
+    window.history.pushState({}, '', '/?view=lists');
+    render(<App />);
+    expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
+    window.history.pushState({}, '', '/');
+  });
 });
