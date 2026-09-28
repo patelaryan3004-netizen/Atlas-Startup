@@ -4,6 +4,7 @@ import MapView from './components/MapView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
 import Leaderboard from './components/Leaderboard.jsx';
 import NotableStartups from './components/NotableStartups.jsx';
+import MostVouched from './components/MostVouched.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
 import SubmitStartupForm from './components/SubmitStartupForm.jsx';
 import SuggestEditForm from './components/SuggestEditForm.jsx';
@@ -138,6 +139,8 @@ export default function App() {
       <Leaderboard startups={startups} />
 
       <NotableStartups startups={startups} />
+
+      <MostVouched startups={startups} />
 
       <BottomCapsule pinnedCount={pinnedCount} onShowList={() => setShowStartupList(true)} />
 

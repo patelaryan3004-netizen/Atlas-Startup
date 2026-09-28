@@ -176,6 +176,17 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 #notable li{margin-bottom:3px;display:flex;justify-content:space-between;gap:6px;}
 #notable li b{color:var(--gold);}
 
+#mostVouched{
+  position:absolute; top:698px; right:16px; z-index:500;
+  background:var(--panel); border:2px solid var(--ink); border-radius:8px;
+  padding:12px; width:210px; box-shadow:4px 4px 0 var(--ink);
+  font-size:12px; max-height:150px; overflow-y:auto;
+}
+#mostVouched h2{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:4px;}
+#mostVouched ol{margin:0;padding-left:18px;}
+#mostVouched li{margin-bottom:3px;display:flex;justify-content:space-between;gap:6px;}
+#mostVouched li b{color:var(--gold);}
+
 .bottom-capsule{
   position:absolute; bottom:20px; left:50%; transform:translateX(-50%); z-index:500;
   background:var(--ink); color:var(--paper); border-radius:24px;
@@ -337,6 +348,7 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   .fdrawer-content{width:180px;font-size:11px;}
   #leaderboard{display:none;}
   #notable{display:none;}
+  #mostVouched{display:none;}
   #newsTicker{width:190px;top:60px;}
   header h1{font-size:13px;}
   .bottom-capsule{font-size:11px;padding:6px 6px 6px 14px;}
