@@ -87,4 +87,17 @@ describe('CuratedLists', () => {
     await userEvent.click(screen.getByLabelText('Close'));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  it('closes on Escape', async () => {
+    const onClose = vi.fn();
+    render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={onClose} />);
+    await userEvent.keyboard('{Escape}');
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('shows the real People to Follow list as empty rather than inventing names for it', async () => {
+    render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
+    const peopleCard = (await screen.findByText('AU Startup People to Follow')).closest('.curated-card-people');
+    expect(peopleCard).toHaveTextContent('No one listed yet');
+  });
 });

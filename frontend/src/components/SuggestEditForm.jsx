@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { submitEdit } from '../api.js';
+import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
 export default function SuggestEditForm({ company, onClose }) {
+  useEscapeClose(onClose);
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');

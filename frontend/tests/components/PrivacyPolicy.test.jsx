@@ -34,4 +34,11 @@ describe('PrivacyPolicy', () => {
     await userEvent.click(container.querySelector('.modal-overlay'));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  it('calls onClose on Escape', async () => {
+    const onClose = vi.fn();
+    render(<PrivacyPolicy onClose={onClose} />);
+    await userEvent.keyboard('{Escape}');
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
 });

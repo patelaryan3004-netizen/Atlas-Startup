@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { submitStartup } from '../api.js';
+import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
 const EMPTY = { name: '', website: '', description: '', stage: '', email: '', hiringUrl: '' };
 const STAGES = ['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series C+', 'Growth', 'Unknown'];
 
 export default function SubmitStartupForm({ onClose }) {
+  useEscapeClose(onClose);
   const [form, setForm] = useState(EMPTY);
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);

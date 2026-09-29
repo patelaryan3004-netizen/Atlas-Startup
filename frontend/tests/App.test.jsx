@@ -180,6 +180,17 @@ describe('App', () => {
     expect(screen.getByLabelText('Type')).toBeInTheDocument();
   });
 
+  it('opens the waitlist modal from the header', async () => {
+    render(<App />);
+    await userEvent.click(screen.getByText('Join waitlist'));
+    expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
+  });
+
+  it('credits the builder in the footer', async () => {
+    render(<App />);
+    expect(screen.getByText('Built by Aryan · Monash University')).toBeInTheDocument();
+  });
+
   it('swaps to the Jobs view (no map) when Jobs is clicked, and back again on close', async () => {
     render(<App />);
     expect(screen.getByTestId('map-view')).toBeInTheDocument();

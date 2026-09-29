@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { submitFeedback } from '../api.js';
+import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
 const TYPES = [
   { value: 'feedback', label: 'Feedback' },
@@ -8,6 +9,7 @@ const TYPES = [
 ];
 
 export default function FeedbackForm({ onClose }) {
+  useEscapeClose(onClose);
   const [type, setType] = useState('feedback');
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');

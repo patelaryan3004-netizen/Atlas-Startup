@@ -1,4 +1,7 @@
+import { useEscapeClose } from '../hooks/useEscapeClose.js';
+
 export default function UnverifiedList({ startups, onClose }) {
+  useEscapeClose(onClose);
   const unverified = startups.filter((s) => !s.verified);
 
   return (

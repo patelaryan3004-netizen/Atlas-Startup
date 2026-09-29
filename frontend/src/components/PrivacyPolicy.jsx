@@ -1,4 +1,7 @@
+import { useEscapeClose } from '../hooks/useEscapeClose.js';
+
 export default function PrivacyPolicy({ onClose }) {
+  useEscapeClose(onClose);
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>

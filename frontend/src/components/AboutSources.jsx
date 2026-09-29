@@ -1,6 +1,8 @@
 import { DIRECTORY_URL } from '../api.js';
+import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
 export default function AboutSources({ onClose }) {
+  useEscapeClose(onClose);
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>

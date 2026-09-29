@@ -59,10 +59,11 @@ export default function LandingPage() {
 
   const hiringCount = startups.filter((s) => s.hiring).length;
   const hiringSample = startups.filter((s) => s.hiring).slice(0, 4);
-  const listCounts = curatedLists.map((list) => ({
-    ...list,
-    count: startups.filter(list.match).length,
-  }));
+  // Only the startup-filtering lists fit this showcase; the static
+  // people-to-follow list has no company count and is not a live filter.
+  const listCounts = curatedLists
+    .filter((list) => list.type === 'filter')
+    .map((list) => ({ ...list, count: startups.filter(list.match).length }));
 
   return (
     <div className="landing">

@@ -299,6 +299,7 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 }
 #siteFooter .linkbtn{font-size:11px;}
 #siteFooter .tag-sep{margin:0 8px;}
+.footer-credit{font-size:11px;color:#8a8778;white-space:nowrap;}
 #newsTicker .nt-refresh{font-size:14px;}
 #newsTicker .nt-close:hover, #newsTicker .nt-refresh:hover:not(:disabled){color:#fff;}
 #newsTicker .nt-refresh:disabled{opacity:.4;cursor:default;}
@@ -365,6 +366,19 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 .curated-card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .curated-card-count{font-size:11px;color:#8a8778;}
 .curated-card-footer .taskbtn{width:auto;padding:6px 14px;}
+
+.curated-card-people summary{cursor:pointer;list-style:none;}
+.curated-card-people summary::-webkit-details-marker{display:none;}
+.curated-card-people summary .curated-card-count{display:block;margin-top:4px;}
+.people-list{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;}
+.people-item-head{display:flex;align-items:center;gap:6px;}
+.people-item-name{font-weight:700;font-size:12px;}
+.people-item-head a{font-size:11px;color:var(--accent2);text-decoration:none;}
+.people-item-head a:hover{text-decoration:underline;}
+.people-item-meta{font-size:10.5px;color:#8a8778;margin-top:1px;}
+.people-item-why{margin:3px 0 0;font-size:11px;color:#5a5648;line-height:1.4;}
+
+.waitlist-iframe{width:100%;height:480px;border:1px solid var(--line);border-radius:4px;max-width:100%;}
 
 .vouch-badge{
   display:inline-block;cursor:pointer;font-size:9px;font-weight:700;letter-spacing:.5px;

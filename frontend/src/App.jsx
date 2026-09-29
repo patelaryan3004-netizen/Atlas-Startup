@@ -16,6 +16,7 @@ import BottomCapsule from './components/BottomCapsule.jsx';
 import StartupListView from './components/StartupListView.jsx';
 import JobsView from './components/JobsView.jsx';
 import CuratedLists from './components/CuratedLists.jsx';
+import WaitlistForm from './components/WaitlistForm.jsx';
 
 const PALETTE = [
   '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
@@ -70,6 +71,7 @@ export default function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [showWaitlist, setShowWaitlist] = useState(false);
   const initialView = loadInitialView();
   const [showJobs, setShowJobs] = useState(initialView === 'jobs');
   const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
@@ -128,6 +130,7 @@ export default function App() {
           <button className="hdrbtn" onClick={() => setShowCuratedLists(true)}>Curated lists</button>
           <button className="hdrbtn" onClick={() => setShowUnverified(true)}>Unconfirmed ({unverifiedCount})</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
+          <button className="hdrbtn hdrbtn-accent" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
           <div className="tag" id="totalCount">{total} companies tracked</div>
         </div>
       </header>
@@ -161,6 +164,8 @@ export default function App() {
         <a className="linkbtn" href={DIRECTORY_URL}>Full list (no JS)</a>
         <span className="tag-sep">·</span>
         <button className="linkbtn" onClick={() => setShowFeedback(true)}>Feedback</button>
+        <span className="tag-sep">·</span>
+        <span className="footer-credit">Built by Aryan · Monash University</span>
       </footer>
 
       {showSubmitForm && <SubmitStartupForm onClose={() => setShowSubmitForm(false)} />}
@@ -169,6 +174,7 @@ export default function App() {
       {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
       {editingCompany && <SuggestEditForm company={editingCompany} onClose={() => setEditingCompany(null)} />}
       {showFeedback && <FeedbackForm onClose={() => setShowFeedback(false)} />}
+      {showWaitlist && <WaitlistForm onClose={() => setShowWaitlist(false)} />}
       {showStartupList && (
         <StartupListView startups={startups} sectorColors={sectorColors} onClose={() => setShowStartupList(false)} />
       )}
