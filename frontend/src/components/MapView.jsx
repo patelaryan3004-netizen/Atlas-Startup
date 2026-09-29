@@ -93,6 +93,22 @@ function foundersHtml(s) {
   `;
 }
 
+function detailsHtml(s, verifyHtml, investorsHtml) {
+  return `
+    <details class="pc-details">
+      <summary>Details</summary>
+      <div class="pc-details-body">
+        <div class="pc-details-row"><span>Sector</span><span>${s.sectorFull || s.sector}</span></div>
+        <div class="pc-details-row"><span>City</span><span>${s.city}</span></div>
+        <div class="pc-details-row"><span>Stage</span><span>${s.stage}</span></div>
+        ${verifyHtml}
+        ${investorsHtml}
+        ${foundersHtml(s)}
+      </div>
+    </details>
+  `;
+}
+
 // A vouch is a named, on-the-record endorsement (name/role/note) - not an
 // anonymous rating. Rendered as a <details> so the expand/collapse needs no
 // JS wiring through the raw-HTML popup, matching how Leaflet renders this.
@@ -122,22 +138,16 @@ function popupHtml(s, color) {
     ? `<span class="taskgate-badge">TASK-GATE · ${s.taskGate.type}</span>`
     : `<span class="taskgate-badge taskgate-locked">NO GATE</span>`;
 
+  const hiringHtml = s.hiring
+    ? `<span class="hiring-badge">● Hiring now</span>`
+    : `<span class="hiring-badge hiring-badge-off">Not hiring</span>`;
+
   const verifyHtml = s.address
-    ? `<div class="pc-verify is-address">✓ Address on file</div>`
-    : `<div class="pc-verify is-approx">◐ Location approximate — city level</div>`;
+    ? `<div class="pc-details-row"><span>Location</span><span>✓ Address on file</span></div>`
+    : `<div class="pc-details-row"><span>Location</span><span>◐ City-level only</span></div>`;
 
   const investorsHtml = s.investors.length
-    ? `
-      <div class="pc-section-label">Investors</div>
-      <div class="pc-investors">
-        ${s.investors.map((inv) => `
-          <div class="pc-inv">
-            <span class="pc-inv-avatar">${initialsOf(inv)}</span>
-            <span class="pc-inv-name">${inv}</span>
-          </div>
-        `).join('')}
-      </div>
-    `
+    ? `<div class="pc-details-row"><span>Investors</span><span>${s.investors.join(', ')}</span></div>`
     : '';
 
   const subLine = `${s.stage} · ${s.city}${s.foundedYear ? ` · Founded ${s.foundedYear}` : ''}`;
@@ -155,24 +165,14 @@ function popupHtml(s, color) {
             <div class="pc-sub">${subLine}</div>
           </div>
         </div>
-        <div class="pc-badges">
-          <span class="pc-badge">${s.sector}</span>
-          ${gateHtml}
-        </div>
       </div>
       <div class="pc-body">
         ${s.blurb ? `<p class="pc-desc">${s.blurb}</p>` : ''}
-        ${s.website ? `<a class="pc-link" href="${s.website}" target="_blank" rel="noopener">🌐 ${s.website.replace(/^https?:\/\//, '')} ↗</a>` : ''}
-        <div class="pc-facts">
-          <div><span class="pc-fact-label">Sector</span>${s.sectorFull || s.sector}</div>
-          <div><span class="pc-fact-label">Stage</span>${s.stage}</div>
-          <div><span class="pc-fact-label">Hiring</span><span class="${s.hiring ? 'hiring' : 'notHiring'}">${s.hiring ? 'Yes' : 'No'}</span></div>
-        </div>
-        ${verifyHtml}
-        ${foundersHtml(s)}
-        ${investorsHtml}
-        ${vouchesHtml(s)}
+        <div class="pc-badges-row">${hiringHtml}${gateHtml}</div>
+        ${s.website ? `<a class="pc-link" href="${s.website}" target="_blank" rel="noopener">${s.website.replace(/^https?:\/\//, '')} ↗</a>` : ''}
         ${s.hiring ? `<button class="taskbtn">${s.taskGate.enabled ? 'Start task → Apply' : 'Apply now'}</button>` : ''}
+        ${detailsHtml(s, verifyHtml, investorsHtml)}
+        ${vouchesHtml(s)}
         <button class="pc-suggest-edit" data-name="${escAttr(s.name)}" onclick="window.__auMapSuggestEdit && window.__auMapSuggestEdit(this.dataset.name)">✎ Suggest an edit</button>
       </div>
     </div>
@@ -199,10 +199,13 @@ export default function MapView({ startups, sectorColors, onSuggestEdit }) {
     const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
     if (mapboxToken) {
       L.tileLayer(
-        `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
+        `https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
         { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }
       ).addTo(map);
     } else {
+      // No Mapbox token: standard OSM tiles, inverted to dark via the
+      // .osm-inverted class below rather than a paid/key-gated dark provider.
+      mapElRef.current.classList.add('osm-inverted');
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
         maxZoom: 19,

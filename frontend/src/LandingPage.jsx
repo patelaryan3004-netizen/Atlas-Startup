@@ -34,8 +34,8 @@ function CompanyLogo({ website, name }) {
 }
 
 const PALETTE = [
-  '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
-  '#6a5a3a', '#2f7a3a', '#a0466a', '#3a5a8a', '#8a1f3a', '#5a5a3a', '#7a5a2f', '#4a4a6a',
+  '#5fb894', '#e08a5a', '#d4a24e', '#7a95b8', '#a878c4', '#6ac48a', '#d4726a', '#c4864e',
+  '#a89468', '#6ab87a', '#d47aa0', '#7a94c4', '#c4507a', '#9a9a7a', '#c4966a', '#8686b8',
 ];
 
 export default function LandingPage() {
@@ -59,6 +59,8 @@ export default function LandingPage() {
 
   const hiringCount = startups.filter((s) => s.hiring).length;
   const hiringSample = startups.filter((s) => s.hiring).slice(0, 4);
+  const cityCount = new Set(startups.map((s) => s.city)).size;
+  const taskGatedCount = startups.filter((s) => s.taskGate?.enabled).length;
   // Only the startup-filtering lists fit this showcase; the static
   // people-to-follow list has no company count and is not a live filter.
   const listCounts = curatedLists
@@ -76,11 +78,20 @@ export default function LandingPage() {
         <div className="landing-hero-text">
           <div className="landing-eyebrow">BETA · AUSTRALIA</div>
           <h1>Australia&rsquo;s startups, mapped and verified.</h1>
-          <p className="landing-lede">
-            {total == null
-              ? 'A living map of VC-backed Australian companies, checked against real sources.'
-              : `${total} VC-backed companies, checked against real sources, with live hiring status${hiringCount ? ` for ${hiringCount} of them` : ''} right now.`}
-          </p>
+          {total == null ? (
+            <p className="landing-lede">
+              A living map of VC-backed Australian companies, checked against real sources.
+            </p>
+          ) : (
+            <ul className="landing-stats">
+              <li><strong>{total}</strong> VC-backed companies tracked</li>
+              <li><strong>{hiringCount}</strong> hiring right now</li>
+              <li><strong>{cityCount}</strong> cities across Australia</li>
+              {taskGatedCount > 0 && (
+                <li><strong>{taskGatedCount}</strong> with a real work-sample task instead of a form</li>
+              )}
+            </ul>
+          )}
           <div className="landing-cta-row">
             <a className="landing-btn-primary" href="/">Explore the map</a>
             <a className="landing-btn-secondary" href={DIRECTORY_URL}>Browse the list</a>

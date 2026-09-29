@@ -62,9 +62,9 @@ describe('App', () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [] });
   });
 
-  it('loads metadata and startups on mount and shows the total count', async () => {
-    render(<App />);
-    await waitFor(() => expect(screen.getByText('2 companies tracked')).toBeInTheDocument());
+  it('loads metadata and startups on mount and shows live totals in the header stats', async () => {
+    const { container } = render(<App />);
+    await waitFor(() => expect(container.querySelector('#totalCount')).toHaveTextContent('Tracked2·Hiring2'));
     expect(fetchMeta).toHaveBeenCalledTimes(1);
     expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' });
   });

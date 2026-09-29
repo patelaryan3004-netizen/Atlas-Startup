@@ -33,15 +33,21 @@ describe('LandingPage', () => {
     });
   });
 
-  it('shows real, live totals in the hero rather than a hardcoded number', async () => {
-    render(<LandingPage />);
-    expect(await screen.findByText(/213 VC-backed companies/)).toBeInTheDocument();
-    expect(screen.getByText(/for 2 of them right now/)).toBeInTheDocument();
+  it('shows real, live stats in the hero rather than hardcoded numbers', async () => {
+    const { container } = render(<LandingPage />);
+    await screen.findByText(/VC-backed companies tracked/);
+
+    const items = container.querySelectorAll('.landing-stats li');
+    expect(items).toHaveLength(4);
+    expect(items[0]).toHaveTextContent('213 VC-backed companies tracked');
+    expect(items[1]).toHaveTextContent('2 hiring right now');
+    expect(items[2]).toHaveTextContent('2 cities across Australia');
+    expect(items[3]).toHaveTextContent('1 with a real work-sample task instead of a form');
   });
 
   it('both primary CTAs link to the real app, not a placeholder', async () => {
     render(<LandingPage />);
-    await screen.findByText(/213 VC-backed companies/);
+    await screen.findByText(/VC-backed companies tracked/);
     const ctas = screen.getAllByText('Explore the map');
     ctas.forEach((cta) => expect(cta.closest('a')).toHaveAttribute('href', '/'));
     expect(screen.getAllByText('Browse the list')[0].closest('a')).toHaveAttribute('href', '/directory');
@@ -64,14 +70,14 @@ describe('LandingPage', () => {
 
   it('deep-links into Jobs and Curated lists inside the real app', async () => {
     render(<LandingPage />);
-    await screen.findByText(/213 VC-backed companies/);
+    await screen.findByText(/VC-backed companies tracked/);
     expect(screen.getByText('See every open role →').closest('a')).toHaveAttribute('href', '/?view=jobs');
     expect(screen.getByText('Open curated lists →').closest('a')).toHaveAttribute('href', '/?view=lists');
   });
 
   it('flags business details as an unfilled draft rather than inventing them, in both Privacy and Terms', async () => {
     render(<LandingPage />);
-    await screen.findByText(/213 VC-backed companies/);
+    await screen.findByText(/VC-backed companies tracked/);
     expect(screen.getByText(/Placeholder: operator name, ABN/)).toBeInTheDocument();
     expect(screen.getByText(/Draft, for review before this site is public/)).toBeInTheDocument();
   });
