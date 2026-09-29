@@ -16,6 +16,7 @@ import StartupListView from './components/StartupListView.jsx';
 import JobsView from './components/JobsView.jsx';
 import CuratedLists from './components/CuratedLists.jsx';
 import WaitlistForm from './components/WaitlistForm.jsx';
+import { useTrackedStartups } from './hooks/useTrackedStartups.js';
 
 const PALETTE = [
   '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
@@ -67,6 +68,8 @@ export default function App() {
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
   const [showStartupList, setShowStartupList] = useState(false);
+  const [showTracked, setShowTracked] = useState(false);
+  const { tracked, toggleTracked, isTracked } = useTrackedStartups();
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -128,6 +131,7 @@ export default function App() {
           <button className="hdrbtn" onClick={() => setShowJobs(true)}>Jobs</button>
           <button className="hdrbtn" onClick={() => setShowCuratedLists(true)}>Curated lists</button>
           <button className="hdrbtn" onClick={() => setShowUnverified(true)}>Unconfirmed ({unverifiedCount})</button>
+          <button className="hdrbtn" onClick={() => setShowTracked(true)}>★ Tracked ({tracked.size})</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
           <div className="tag" id="totalCount">{total} companies tracked</div>
@@ -174,7 +178,28 @@ export default function App() {
       {showFeedback && <FeedbackForm onClose={() => setShowFeedback(false)} />}
       {showWaitlist && <WaitlistForm onClose={() => setShowWaitlist(false)} />}
       {showStartupList && (
-        <StartupListView startups={startups} sectorColors={sectorColors} onClose={() => setShowStartupList(false)} />
+        <StartupListView
+          startups={startups}
+          sectorColors={sectorColors}
+          onClose={() => setShowStartupList(false)}
+          isTracked={isTracked}
+          onToggleTracked={toggleTracked}
+        />
+      )}
+      {showTracked && (
+        <StartupListView
+          startups={startups.filter((s) => tracked.has(s.name))}
+          sectorColors={sectorColors}
+          onClose={() => setShowTracked(false)}
+          isTracked={isTracked}
+          onToggleTracked={toggleTracked}
+          title={`Tracked startups (${tracked.size})`}
+          subtitle={
+            startups.filter((s) => tracked.has(s.name)).length < tracked.size
+              ? `${startups.filter((s) => tracked.has(s.name)).length} of ${tracked.size} tracked companies match what's currently loaded. Reset filters to see the rest.`
+              : 'Companies you have starred, saved in this browser only.'
+          }
+        />
       )}
       {showCuratedLists && (
         <CuratedLists

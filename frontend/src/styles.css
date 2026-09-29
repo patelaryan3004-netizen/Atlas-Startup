@@ -126,6 +126,11 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   border-bottom:1px solid var(--line);font-size:12px;
 }
 .unverified-list .uv-name{font-weight:700;}
+.track-star{
+  background:none;border:none;cursor:pointer;font-size:14px;color:#8a8778;
+  padding:0;margin-right:6px;line-height:1;vertical-align:middle;
+}
+.track-star:hover{color:var(--gold);}
 .unverified-list .uv-meta{color:#5a5648;text-align:right;}
 
 #fToggle{

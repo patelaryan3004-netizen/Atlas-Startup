@@ -59,6 +59,8 @@ export default function LandingPage() {
 
   const hiringCount = startups.filter((s) => s.hiring).length;
   const hiringSample = startups.filter((s) => s.hiring).slice(0, 4);
+  const cityCount = new Set(startups.map((s) => s.city)).size;
+  const taskGatedCount = startups.filter((s) => s.taskGate?.enabled).length;
   // Only the startup-filtering lists fit this showcase; the static
   // people-to-follow list has no company count and is not a live filter.
   const listCounts = curatedLists
@@ -76,11 +78,20 @@ export default function LandingPage() {
         <div className="landing-hero-text">
           <div className="landing-eyebrow">BETA · AUSTRALIA</div>
           <h1>Australia&rsquo;s startups, mapped and verified.</h1>
-          <p className="landing-lede">
-            {total == null
-              ? 'A living map of VC-backed Australian companies, checked against real sources.'
-              : `${total} VC-backed companies, checked against real sources, with live hiring status${hiringCount ? ` for ${hiringCount} of them` : ''} right now.`}
-          </p>
+          {total == null ? (
+            <p className="landing-lede">
+              A living map of VC-backed Australian companies, checked against real sources.
+            </p>
+          ) : (
+            <ul className="landing-stats">
+              <li><strong>{total}</strong> VC-backed companies tracked</li>
+              <li><strong>{hiringCount}</strong> hiring right now</li>
+              <li><strong>{cityCount}</strong> cities across Australia</li>
+              {taskGatedCount > 0 && (
+                <li><strong>{taskGatedCount}</strong> with a real work-sample task instead of a form</li>
+              )}
+            </ul>
+          )}
           <div className="landing-cta-row">
             <a className="landing-btn-primary" href="/">Explore the map</a>
             <a className="landing-btn-secondary" href={DIRECTORY_URL}>Browse the list</a>
