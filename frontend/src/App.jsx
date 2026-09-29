@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { fetchStartups, fetchMeta, DIRECTORY_URL } from './api.js';
 import MapView from './components/MapView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
-import Leaderboard from './components/Leaderboard.jsx';
 import NotableStartups from './components/NotableStartups.jsx';
 import MostVouched from './components/MostVouched.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
@@ -144,11 +143,10 @@ export default function App() {
         meta={meta}
         resultCount={startups.length}
         total={total}
+        startups={startups}
       />
 
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
-
-      <Leaderboard startups={startups} />
 
       <NotableStartups startups={startups} />
 

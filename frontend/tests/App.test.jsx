@@ -50,7 +50,7 @@ const startup = (name, overrides = {}) => ({
 });
 
 async function openFilters() {
-  await userEvent.click(screen.getByText('Filter startups'));
+  await userEvent.click(screen.getByText('☰ Filters'));
 }
 
 describe('App', () => {

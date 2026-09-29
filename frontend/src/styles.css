@@ -128,22 +128,32 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 .unverified-list .uv-name{font-weight:700;}
 .unverified-list .uv-meta{color:#5a5648;text-align:right;}
 
-#filters{
-  position:absolute; top:76px; left:20px; z-index:500;
-  max-height:calc(100vh - 112px);
-  display:flex;flex-direction:column;
-}
 #fToggle{
-  font-family:inherit;font-size:11px;font-weight:700;background:var(--paper);color:var(--ink);
-  border:1px solid var(--ink);border-radius:2px;padding:7px 12px;cursor:pointer;
-  align-self:flex-start;
+  position:absolute; top:76px; left:20px; z-index:500;
 }
-#fToggle:hover{background:var(--ink);color:var(--paper);}
-.fdrawer-content{
-  margin-top:8px;background:var(--panel);border:2px solid var(--ink);border-radius:8px;
-  padding:12px;width:240px;box-shadow:4px 4px 0 var(--ink);
-  display:flex;flex-direction:column;gap:8px;overflow-y:auto;
+
+.fdrawer-overlay{
+  align-items:stretch; justify-content:flex-start; padding:0;
 }
+.fdrawer-panel{
+  position:relative; background:var(--panel); border-right:2px solid var(--ink);
+  width:300px; max-width:85vw; height:100%; max-height:none; overflow-y:auto;
+  padding:24px; font-family:'Courier New',monospace; box-shadow:6px 0 12px rgba(0,0,0,.2);
+  animation:fdrawer-slide-in .18s ease-out;
+}
+@keyframes fdrawer-slide-in{
+  from{transform:translateX(-100%);}
+  to{transform:translateX(0);}
+}
+.fdrawer-tabs{display:flex;gap:4px;margin:8px 0 18px;border-bottom:2px solid var(--ink);}
+.fdrawer-tab{
+  font-family:inherit;font-size:12px;font-weight:700;background:none;border:none;
+  padding:8px 6px;cursor:pointer;color:#8a8778;border-bottom:2px solid transparent;
+  margin-bottom:-2px;
+}
+.fdrawer-tab:hover{color:var(--ink);}
+.fdrawer-tab-active{color:var(--ink);border-bottom-color:var(--accent2);}
+.fdrawer-content{display:flex;flex-direction:column;gap:12px;}
 #filters input, #filters select{
   width:100%;padding:6px 8px;font-family:inherit;font-size:12px;
   border:1px solid var(--ink);border-radius:2px;background:var(--paper);color:var(--ink);
@@ -154,19 +164,12 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 #resetBtn{margin-top:4px;font-size:11px;background:var(--ink);color:var(--paper);border:none;padding:6px;cursor:pointer;border-radius:2px;}
 #resetBtn:hover{background:var(--accent2);}
 
-#leaderboard{
-  position:absolute; top:242px; right:16px; z-index:500;
-  background:var(--panel); border:2px solid var(--ink); border-radius:8px;
-  padding:12px; width:210px; box-shadow:4px 4px 0 var(--ink);
-  font-size:12px;
-}
-#leaderboard h2{margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--accent2);border-bottom:1px solid var(--line);padding-bottom:4px;}
-#leaderboard ol{margin:0;padding-left:18px;}
-#leaderboard li{margin-bottom:3px;display:flex;justify-content:space-between;gap:6px;}
-#leaderboard li b{color:var(--gold);}
+#leaderboardList{margin:0;padding-left:18px;font-size:12px;}
+#leaderboardList li{margin-bottom:6px;display:flex;justify-content:space-between;gap:6px;}
+#leaderboardList li b{color:var(--gold);}
 
 #notable{
-  position:absolute; top:470px; right:16px; z-index:500;
+  position:absolute; top:242px; right:16px; z-index:500;
   background:var(--panel); border:2px solid var(--ink); border-radius:8px;
   padding:12px; width:210px; box-shadow:4px 4px 0 var(--ink);
   font-size:12px; max-height:180px; overflow-y:auto;
@@ -177,7 +180,7 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 #notable li b{color:var(--gold);}
 
 #mostVouched{
-  position:absolute; top:698px; right:16px; z-index:500;
+  position:absolute; top:470px; right:16px; z-index:500;
   background:var(--panel); border:2px solid var(--ink); border-radius:8px;
   padding:12px; width:210px; box-shadow:4px 4px 0 var(--ink);
   font-size:12px; max-height:150px; overflow-y:auto;
@@ -346,8 +349,7 @@ header h1, header .tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 .job-card-footer .taskbtn{width:auto;padding:6px 14px;}
 
 @media (max-width:640px){
-  .fdrawer-content{width:180px;font-size:11px;}
-  #leaderboard{display:none;}
+  .fdrawer-panel{width:100%;max-width:100%;}
   #notable{display:none;}
   #mostVouched{display:none;}
   #newsTicker{width:190px;top:60px;}

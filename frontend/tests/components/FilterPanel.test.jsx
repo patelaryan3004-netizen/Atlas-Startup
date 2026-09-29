@@ -12,10 +12,14 @@ const meta = {
 
 const emptyFilters = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '' };
 
+function s(city) {
+  return { city };
+}
+
 function setup(overrides = {}) {
   const onChange = vi.fn();
   const onReset = vi.fn();
-  render(
+  const result = render(
     <FilterPanel
       filters={emptyFilters}
       onChange={onChange}
@@ -23,29 +27,30 @@ function setup(overrides = {}) {
       meta={meta}
       resultCount={2}
       total={4}
+      startups={[s('Sydney'), s('Melbourne'), s('Sydney')]}
       {...overrides}
     />
   );
-  return { onChange, onReset };
+  return { onChange, onReset, container: result.container };
 }
 
 async function open() {
-  await userEvent.click(screen.getByText('Filter startups'));
+  await userEvent.click(screen.getByText('☰ Filters'));
 }
 
 describe('FilterPanel', () => {
-  it('starts collapsed, with no filter fields in the document', () => {
+  it('starts collapsed, with no filter fields or drawer in the document', () => {
     setup();
-    expect(screen.getByText('Filter startups')).toBeInTheDocument();
+    expect(screen.getByText('☰ Filters')).toBeInTheDocument();
     expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
   });
 
   it('shows an active-filter count badge on the toggle when filters are set', () => {
     setup({ filters: { ...emptyFilters, sector: 'AI', hiring: 'yes' } });
-    expect(screen.getByText('Filter startups (2)')).toBeInTheDocument();
+    expect(screen.getByText('☰ Filters (2)')).toBeInTheDocument();
   });
 
-  it('expands to reveal all meta options in their selects', async () => {
+  it('opens on the Filters tab by default, revealing all meta options in their selects', async () => {
     setup();
     await open();
     expect(screen.getByRole('option', { name: 'AI' })).toBeInTheDocument();
@@ -54,11 +59,46 @@ describe('FilterPanel', () => {
     expect(screen.getByRole('option', { name: 'Series A' })).toBeInTheDocument();
   });
 
-  it('collapses again when the toggle is clicked a second time', async () => {
+  it('switches to the Leaderboard tab and shows city counts, without touching filter fields', async () => {
+    setup();
+    await open();
+    await userEvent.click(screen.getByText('Leaderboard'));
+
+    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    const items = screen.getAllByRole('listitem');
+    expect(items[0]).toHaveTextContent('Sydney');
+    expect(items[0]).toHaveTextContent('2');
+  });
+
+  it('closes when the toggle is clicked a second time', async () => {
     setup();
     await open();
     expect(screen.getByPlaceholderText('Company name...')).toBeInTheDocument();
-    await userEvent.click(screen.getByText('← Hide filters'));
+    await userEvent.click(screen.getByText('☰ Filters'));
+    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+  });
+
+  it('closes via the X button', async () => {
+    setup();
+    await open();
+    await userEvent.click(screen.getByLabelText('Close'));
+    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+  });
+
+  it('closes via Escape', async () => {
+    setup();
+    await open();
+    await userEvent.keyboard('{Escape}');
+    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+  });
+
+  it('closes when clicking outside the panel, but not when clicking inside it', async () => {
+    const { container } = setup();
+    await open();
+    await userEvent.click(container.querySelector('.fdrawer-panel'));
+    expect(screen.getByPlaceholderText('Company name...')).toBeInTheDocument();
+
+    await userEvent.click(container.querySelector('.fdrawer-overlay'));
     expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
   });
 

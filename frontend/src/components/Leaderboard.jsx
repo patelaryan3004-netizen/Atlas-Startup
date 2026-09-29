@@ -10,16 +10,13 @@ export default function Leaderboard({ startups }) {
     .slice(0, TOP_N);
 
   return (
-    <div id="leaderboard">
-      <h2>City Leaderboard</h2>
-      <ol id="leaderboardList">
-        {sorted.map(([city, n]) => (
-          <li key={city}>
-            <span>{city}</span>
-            <b>{n}</b>
-          </li>
-        ))}
-      </ol>
-    </div>
+    <ol id="leaderboardList">
+      {sorted.map(([city, n]) => (
+        <li key={city}>
+          <span>{city}</span>
+          <b>{n}</b>
+        </li>
+      ))}
+    </ol>
   );
 }
