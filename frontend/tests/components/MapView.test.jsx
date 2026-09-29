@@ -137,12 +137,11 @@ describe('MapView', () => {
     const [html, opts] = markerResult.bindPopup.mock.calls[0];
 
     expect(html).toContain('Acme AI');
-    expect(html).toContain('pc-badge');
-    expect(html).toContain('>AI<');
-    expect(html).toContain('pc-investors');
+    expect(html).toContain('hiring-badge');
+    expect(html).toContain('<span>Sector</span><span>AI / Testing</span>');
+    expect(html).toContain('<span>Investors</span>');
     expect(html).toContain('Blackbird');
     expect(html).toContain('AirTree');
-    expect(html).toContain('is-address');
     expect(html).toContain('Address on file');
     expect(opts).toMatchObject({ maxWidth: 280, className: 'pc-popup' });
   });
@@ -228,8 +227,8 @@ describe('MapView', () => {
     render(<MapView startups={startups} sectorColors={{}} />);
     const markerResult = L.marker.mock.results.at(-1).value;
     const [html] = markerResult.bindPopup.mock.calls[0];
-    expect(html).toContain('is-approx');
-    expect(html).toContain('Location approximate');
+    expect(html).toContain('<span>Location</span>');
+    expect(html).toContain('City-level only');
   });
 
   it('clears previous cluster layers before rendering a new set when startups change', () => {

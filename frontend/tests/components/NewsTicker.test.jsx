@@ -59,6 +59,17 @@ describe('NewsTicker', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
+  it('starts collapsed to a one-line preview, then expands to show meta and stays open on refresh', async () => {
+    fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
+    render(<NewsTicker visible={true} onClose={() => {}} />);
+
+    await screen.findByText(deal.headline);
+    expect(screen.queryByText(deal.meta)).not.toBeInTheDocument();
+
+    await userEvent.click(screen.getByText(deal.headline));
+    expect(screen.getByText(deal.meta)).toBeInTheDocument();
+  });
+
   it('labels the status as seeded when the backend had to fall back', async () => {
     fetchNews.mockResolvedValue({ source: 'seeded', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);

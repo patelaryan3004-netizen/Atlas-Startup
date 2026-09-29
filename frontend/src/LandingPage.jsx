@@ -34,8 +34,8 @@ function CompanyLogo({ website, name }) {
 }
 
 const PALETTE = [
-  '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
-  '#6a5a3a', '#2f7a3a', '#a0466a', '#3a5a8a', '#8a1f3a', '#5a5a3a', '#7a5a2f', '#4a4a6a',
+  '#5fb894', '#e08a5a', '#d4a24e', '#7a95b8', '#a878c4', '#6ac48a', '#d4726a', '#c4864e',
+  '#a89468', '#6ab87a', '#d47aa0', '#7a94c4', '#c4507a', '#9a9a7a', '#c4966a', '#8686b8',
 ];
 
 export default function LandingPage() {

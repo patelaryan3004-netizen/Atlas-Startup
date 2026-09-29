@@ -18,10 +18,12 @@ import CuratedLists from './components/CuratedLists.jsx';
 import WaitlistForm from './components/WaitlistForm.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
 
+// Desaturated relative to the single UI accent color, so sector dots read as
+// data encoding on the dark map rather than competing with it.
 const PALETTE = [
-  '#1f5f4f', '#c05a2e', '#b8862a', '#5a6f8c', '#7a3b8a', '#3a8a5a', '#a03a3a', '#8a4a1f',
-  '#6a5a3a', '#2f7a3a', '#a0466a', '#3a5a8a', '#8a1f3a', '#5a5a3a', '#7a5a2f', '#4a4a6a',
-  '#2a2a2a', '#3a7a8a', '#6a3a2a', '#3a6a5a',
+  '#5fb894', '#e08a5a', '#d4a24e', '#7a95b8', '#a878c4', '#6ac48a', '#d4726a', '#c4864e',
+  '#a89468', '#6ab87a', '#d47aa0', '#7a94c4', '#c4507a', '#9a9a7a', '#c4966a', '#8686b8',
+  '#8a8a8a', '#6ab8c4', '#c4785a', '#6aa898',
 ];
 
 const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' };
@@ -104,6 +106,7 @@ export default function App() {
 
   const unverifiedCount = useMemo(() => startups.filter((s) => !s.verified).length, [startups]);
   const pinnedCount = startups.length - unverifiedCount;
+  const hiringCount = useMemo(() => startups.filter((s) => s.hiring).length, [startups]);
 
   const toggleNews = () => {
     setNewsVisible((prev) => {
@@ -134,7 +137,11 @@ export default function App() {
           <button className="hdrbtn" onClick={() => setShowTracked(true)}>★ Tracked ({tracked.size})</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
           <button className="hdrbtn hdrbtn-accent" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
-          <div className="tag" id="totalCount">{total} companies tracked</div>
+          <div className="header-stats" id="totalCount">
+            <span className="hs-label">Tracked</span><b>{total}</b>
+            <span className="hs-sep">·</span>
+            <span className="hs-label">Hiring</span><b>{hiringCount}</b>
+          </div>
         </div>
       </header>
 
