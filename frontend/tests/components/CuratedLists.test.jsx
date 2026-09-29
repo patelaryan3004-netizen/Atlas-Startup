@@ -95,9 +95,14 @@ describe('CuratedLists', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('shows the real People to Follow list as empty rather than inventing names for it', async () => {
+  it('shows the real People to Follow list populated with sourced people, not invented ones', async () => {
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
-    const peopleCard = (await screen.findByText('AU Startup People to Follow')).closest('.curated-card-people');
-    expect(peopleCard).toHaveTextContent('No one listed yet');
+    const summary = await screen.findByText('AU Startup People to Follow');
+    const peopleCard = summary.closest('.curated-card-people');
+    expect(peopleCard).toHaveTextContent(/\d+ people/);
+
+    await userEvent.click(summary);
+    expect(screen.getByText('Melanie Perkins')).toBeInTheDocument();
+    expect(screen.getByText(/Co-founded Canva in 2012/)).toBeInTheDocument();
   });
 });
