@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { requireAdminKey } from '../middleware/requireAdminKey.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = path.join(__dirname, '..', 'data', 'feedback.json');
@@ -15,8 +16,9 @@ async function loadFeedback() {
 
 const router = Router();
 
-// GET /api/feedback — pending queue (for review)
-router.get('/', async (req, res, next) => {
+// GET /api/feedback — pending queue (for review). Contains submitter
+// emails, so it's gated behind ADMIN_KEY rather than left public.
+router.get('/', requireAdminKey, async (req, res, next) => {
   try {
     const items = await loadFeedback();
     res.json({ count: items.length, results: items });

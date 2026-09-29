@@ -12,7 +12,12 @@ async function reset() {
   await writeFile(DATA_PATH, '[]\n', 'utf-8');
 }
 
-beforeEach(reset);
+const ADMIN_KEY = 'test-admin-key';
+
+beforeEach(() => {
+  process.env.ADMIN_KEY = ADMIN_KEY;
+  return reset();
+});
 afterAll(reset);
 
 describe('POST /api/edits', () => {
@@ -54,11 +59,16 @@ describe('POST /api/edits', () => {
 });
 
 describe('GET /api/edits', () => {
-  it('lists submitted edit suggestions', async () => {
+  it('rejects a request with no admin key', async () => {
+    const res = await request(app).get('/api/edits');
+    expect(res.status).toBe(401);
+  });
+
+  it('lists submitted edit suggestions for a request with the right admin key', async () => {
     await request(app).post('/api/edits').send({ company: 'A', message: 'One' });
     await request(app).post('/api/edits').send({ company: 'B', message: 'Two' });
 
-    const res = await request(app).get('/api/edits');
+    const res = await request(app).get('/api/edits').set('x-admin-key', ADMIN_KEY);
     expect(res.status).toBe(200);
     expect(res.body.count).toBe(2);
     expect(res.body.results.map((e) => e.company)).toEqual(['A', 'B']);

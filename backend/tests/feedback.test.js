@@ -12,7 +12,12 @@ async function reset() {
   await writeFile(DATA_PATH, '[]\n', 'utf-8');
 }
 
-beforeEach(reset);
+const ADMIN_KEY = 'test-admin-key';
+
+beforeEach(() => {
+  process.env.ADMIN_KEY = ADMIN_KEY;
+  return reset();
+});
 afterAll(reset);
 
 describe('POST /api/feedback', () => {
@@ -48,11 +53,16 @@ describe('POST /api/feedback', () => {
 });
 
 describe('GET /api/feedback', () => {
-  it('lists submitted feedback', async () => {
+  it('rejects a request with no admin key', async () => {
+    const res = await request(app).get('/api/feedback');
+    expect(res.status).toBe(401);
+  });
+
+  it('lists submitted feedback for a request with the right admin key', async () => {
     await request(app).post('/api/feedback').send({ type: 'bug', message: 'One' });
     await request(app).post('/api/feedback').send({ type: 'feature', message: 'Two' });
 
-    const res = await request(app).get('/api/feedback');
+    const res = await request(app).get('/api/feedback').set('x-admin-key', ADMIN_KEY);
     expect(res.status).toBe(200);
     expect(res.body.count).toBe(2);
     expect(res.body.results.map((f) => f.message)).toEqual(['One', 'Two']);

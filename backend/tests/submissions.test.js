@@ -12,7 +12,12 @@ async function reset() {
   await writeFile(DATA_PATH, '[]\n', 'utf-8');
 }
 
-beforeEach(reset);
+const ADMIN_KEY = 'test-admin-key';
+
+beforeEach(() => {
+  process.env.ADMIN_KEY = ADMIN_KEY;
+  return reset();
+});
 afterAll(reset);
 
 describe('POST /api/submissions', () => {
@@ -61,11 +66,21 @@ describe('POST /api/submissions', () => {
 });
 
 describe('GET /api/submissions', () => {
-  it('lists submissions in insertion order', async () => {
+  it('rejects a request with no admin key', async () => {
+    const res = await request(app).get('/api/submissions');
+    expect(res.status).toBe(401);
+  });
+
+  it('rejects a request with the wrong admin key', async () => {
+    const res = await request(app).get('/api/submissions').set('x-admin-key', 'wrong');
+    expect(res.status).toBe(401);
+  });
+
+  it('lists submissions in insertion order for a request with the right admin key', async () => {
     await request(app).post('/api/submissions').send({ name: 'First', description: 'One' });
     await request(app).post('/api/submissions').send({ name: 'Second', description: 'Two' });
 
-    const res = await request(app).get('/api/submissions');
+    const res = await request(app).get('/api/submissions').set('x-admin-key', ADMIN_KEY);
     expect(res.status).toBe(200);
     expect(res.body.count).toBe(2);
     expect(res.body.results.map((s) => s.name)).toEqual(['First', 'Second']);
