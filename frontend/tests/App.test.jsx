@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../src/api.js', () => ({
@@ -54,7 +54,11 @@ async function openFilters() {
 }
 
 async function openMenu() {
-  await userEvent.click(screen.getByLabelText('More'));
+  await userEvent.click(screen.getByLabelText('Menu'));
+  // The mobile menu repeats some nav-center labels (Lists, News) verbatim for
+  // small screens; jsdom doesn't apply the CSS that hides one or the other by
+  // viewport, so scope queries to the open panel to disambiguate.
+  return within(document.querySelector('.hdr-menu-panel'));
 }
 
 describe('App', () => {
@@ -87,22 +91,22 @@ describe('App', () => {
     render(<App />);
     await waitFor(() => expect(fetchStartups).toHaveBeenCalledTimes(1));
 
-    await userEvent.type(screen.getByLabelText('Search startups'), 'x');
+    await userEvent.type(screen.getByLabelText(/Search startups/), 'x');
 
     await waitFor(() =>
       expect(fetchStartups).toHaveBeenLastCalledWith({ search: 'x', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
     );
   });
 
-  it('resets filters back to empty when Reset filters is clicked', async () => {
+  it('resets filters back to empty when Clear all is clicked', async () => {
     render(<App />);
     await waitFor(() => expect(fetchStartups).toHaveBeenCalledTimes(1));
 
-    await userEvent.type(screen.getByLabelText('Search startups'), 'x');
+    await userEvent.type(screen.getByLabelText(/Search startups/), 'x');
     await waitFor(() => expect(fetchStartups).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' })));
 
     await openFilters();
-    await userEvent.click(screen.getByText('Reset filters'));
+    await userEvent.click(screen.getByText('Clear all'));
     await waitFor(() =>
       expect(fetchStartups).toHaveBeenLastCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
     );
@@ -118,13 +122,13 @@ describe('App', () => {
     render(<App />);
     await waitFor(() => expect(document.getElementById('newsTicker')).toBeInTheDocument());
 
-    await openMenu();
-    await userEvent.click(screen.getByText('Hide news'));
+    let menu = await openMenu();
+    await userEvent.click(menu.getByText('Hide news'));
     expect(document.getElementById('newsTicker')).not.toBeInTheDocument();
     expect(localStorage.getItem('auStartupNewsVisible')).toBe('0');
 
-    await openMenu();
-    await userEvent.click(screen.getByText('Show news'));
+    menu = await openMenu();
+    await userEvent.click(menu.getByText('News'));
     expect(document.getElementById('newsTicker')).toBeInTheDocument();
     expect(localStorage.getItem('auStartupNewsVisible')).toBe('1');
   });
@@ -144,10 +148,9 @@ describe('App', () => {
     expect(screen.getByText('Mystery Co')).toBeInTheDocument();
   });
 
-  it('opens the submit-a-startup form via the More menu', async () => {
+  it('opens the submit-a-startup form from the top-level nav CTA', async () => {
     render(<App />);
-    await openMenu();
-    await userEvent.click(screen.getByText('Submit a startup'));
+    await userEvent.click(screen.getByText('Submit startup'));
     expect(screen.getByText('Know an AU startup that should be on the map?', { exact: false })).toBeInTheDocument();
   });
 
@@ -186,9 +189,8 @@ describe('App', () => {
     expect(screen.getByLabelText('Type')).toBeInTheDocument();
   });
 
-  it('opens the waitlist modal via the More menu', async () => {
+  it('opens the waitlist modal from the top-level nav CTA', async () => {
     render(<App />);
-    await openMenu();
     await userEvent.click(screen.getByText('Join waitlist'));
     expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
   });
@@ -213,8 +215,8 @@ describe('App', () => {
 
   it('opens Curated lists via the More menu and closes it again', async () => {
     render(<App />);
-    await openMenu();
-    await userEvent.click(screen.getByText('Curated lists'));
+    const menu = await openMenu();
+    await userEvent.click(menu.getByText('Lists'));
     expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
 
     await userEvent.click(screen.getByText('trigger-curated-close'));
@@ -223,11 +225,11 @@ describe('App', () => {
 
   it('applying a curated list replaces the active filters (not merging with whatever was set) and refetches', async () => {
     render(<App />);
-    await userEvent.type(screen.getByLabelText('Search startups'), 'x');
+    await userEvent.type(screen.getByLabelText(/Search startups/), 'x');
     await waitFor(() => expect(fetchStartups).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' })));
 
-    await openMenu();
-    await userEvent.click(screen.getByText('Curated lists'));
+    const menu = await openMenu();
+    await userEvent.click(menu.getByText('Lists'));
     await userEvent.click(screen.getByText('trigger-apply-list'));
 
     expect(screen.queryByTestId('curated-lists')).not.toBeInTheDocument();

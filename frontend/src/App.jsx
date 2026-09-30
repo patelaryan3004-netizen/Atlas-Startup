@@ -3,6 +3,7 @@ import { fetchStartups, fetchMeta, DIRECTORY_URL } from './api.js';
 import MapView from './components/MapView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
 import HeaderMenu from './components/HeaderMenu.jsx';
+import SearchBar from './components/SearchBar.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
 import SubmitStartupForm from './components/SubmitStartupForm.jsx';
 import SuggestEditForm from './components/SuggestEditForm.jsx';
@@ -64,7 +65,6 @@ export default function App() {
   const [meta, setMeta] = useState(EMPTY_META);
   const [filters, setFilters] = useState(loadFiltersFromUrl);
   const [startups, setStartups] = useState([]);
-  const [total, setTotal] = useState(0);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
@@ -86,9 +86,8 @@ export default function App() {
 
   useEffect(() => {
     fetchStartups(filters)
-      .then(({ results, total }) => {
+      .then(({ results }) => {
         setStartups(results);
-        setTotal(total);
       })
       .catch(() => {
         setStartups([]);
@@ -116,6 +115,8 @@ export default function App() {
     });
   };
 
+  const goExplore = () => setShowJobs(false);
+
   if (showJobs) {
     return <JobsView sectorColors={sectorColors} onClose={() => setShowJobs(false)} />;
   }
@@ -123,33 +124,42 @@ export default function App() {
   return (
     <div id="app">
       <header>
-        <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
-
-        <div className="nav-search">
-          <input
-            type="text"
-            placeholder="Search startups..."
-            value={filters.search}
-            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-            aria-label="Search startups"
-          />
+        <div className="nav-brand">
+          <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
+          <div className="nav-subtitle">Australia&rsquo;s startup ecosystem</div>
         </div>
 
-        <div className="header-actions">
-          <button className="hdrbtn" onClick={() => setShowJobs(true)}>Jobs</button>
+        <nav className="nav-center">
+          <button className="nav-link" onClick={goExplore}>Explore</button>
+          <button className="nav-link" onClick={() => setShowJobs(true)}>Jobs</button>
+          <button className="nav-link" onClick={() => setShowCuratedLists(true)}>Lists</button>
+          <button className="nav-link" onClick={toggleNews}>News</button>
+        </nav>
+
+        <div className="nav-right">
+          <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit startup</button>
+          <button className="hdrbtn hdrbtn-accent nav-cta-secondary" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
           <HeaderMenu
+            onExplore={goExplore}
+            onShowJobs={() => setShowJobs(true)}
+            onShowCuratedLists={() => setShowCuratedLists(true)}
             newsVisible={newsVisible}
             onToggleNews={toggleNews}
-            onShowCuratedLists={() => setShowCuratedLists(true)}
+            onShowWaitlist={() => setShowWaitlist(true)}
             onShowUnverified={() => setShowUnverified(true)}
             unverifiedCount={unverifiedCount}
             onShowTracked={() => setShowTracked(true)}
             trackedCount={tracked.size}
-            onShowSubmitForm={() => setShowSubmitForm(true)}
-            onShowWaitlist={() => setShowWaitlist(true)}
           />
         </div>
       </header>
+
+      <SearchBar
+        filters={filters}
+        onApplyFilters={(partial) => setFilters({ ...filters, ...partial })}
+        startups={startups}
+        meta={meta}
+      />
 
       <MapView startups={startups} sectorColors={sectorColors} onSuggestEdit={setEditingCompany} />
 
@@ -159,7 +169,6 @@ export default function App() {
         onReset={() => setFilters(EMPTY_FILTERS)}
         meta={meta}
         resultCount={startups.length}
-        total={total}
         startups={startups}
       />
 

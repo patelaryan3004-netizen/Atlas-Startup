@@ -26,7 +26,6 @@ function setup(overrides = {}) {
       onReset={onReset}
       meta={meta}
       resultCount={2}
-      total={4}
       startups={[s({ name: 'A', city: 'Sydney' }), s({ name: 'B', city: 'Melbourne' }), s({ name: 'C', city: 'Sydney' })]}
       {...overrides}
     />
@@ -140,10 +139,16 @@ describe('FilterPanel', () => {
     expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
   });
 
-  it('shows the result count out of total once expanded', async () => {
-    setup({ resultCount: 3, total: 60 });
+  it('shows the number of matching startups once expanded', async () => {
+    setup({ resultCount: 3 });
     await open();
-    expect(screen.getByText('3 of 60 shown')).toBeInTheDocument();
+    expect(screen.getByText('3 startups match your filters')).toBeInTheDocument();
+  });
+
+  it('uses singular phrasing for exactly one match', async () => {
+    setup({ resultCount: 1 });
+    await open();
+    expect(screen.getByText('1 startup matches your filters')).toBeInTheDocument();
   });
 
   it('calls onChange with the updated sector when selecting one', async () => {
@@ -156,7 +161,15 @@ describe('FilterPanel', () => {
   it('calls onReset when the reset button is clicked', async () => {
     const { onReset } = setup();
     await open();
-    await userEvent.click(screen.getByText('Reset filters'));
+    await userEvent.click(screen.getByText('Clear all'));
     expect(onReset).toHaveBeenCalledTimes(1);
+  });
+
+  it('closes the drawer when Apply filters is clicked, without changing filters', async () => {
+    const { onChange } = setup();
+    await open();
+    await userEvent.click(screen.getByText('Apply filters'));
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
+    expect(onChange).not.toHaveBeenCalled();
   });
 });
