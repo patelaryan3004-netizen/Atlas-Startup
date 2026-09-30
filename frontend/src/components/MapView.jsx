@@ -4,12 +4,6 @@ import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
-function escAttr(s) {
-  return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-  }[c]));
-}
-
 function domainOf(website) {
   if (!website) return null;
   try {
@@ -29,15 +23,19 @@ function logoImgHtml(domain, cssClass, size) {
   return `<img class="${cssClass}" src="${clearbit}" alt="" onerror="this.onerror=function(){this.style.display='none';};this.src='${favicon}';" />`;
 }
 
-function pinIcon(s, color) {
+function pinIcon(s, color, { selected, tracked } = {}) {
   const initial = (s.name || '?').trim().charAt(0).toUpperCase();
   const domain = domainOf(s.website);
+  const classes = ['custom-pin-badge'];
+  if (selected) classes.push('pin-selected');
   return L.divIcon({
     className: 'custom-leaflet-marker',
     html: `
-      <div class="custom-pin-badge" style="border-color:${color};">
+      <div class="${classes.join(' ')}" style="border-color:${color};">
         <span class="pin-fallback" style="background:${color};">${initial}</span>
         ${logoImgHtml(domain, 'pin-logo', 64)}
+        ${s.hiring ? '<span class="pin-hiring-dot" title="Hiring now"></span>' : ''}
+        ${tracked ? '<span class="pin-tracked-star">★</span>' : ''}
       </div>
     `,
     iconSize: [36, 36],
@@ -64,127 +62,7 @@ function tooltipHtml(s) {
   return `<b>${s.name}</b><br>${s.sectorFull || s.sector} · ${s.city}`;
 }
 
-function initialsOf(name) {
-  const words = (name || '').trim().split(/\s+/).filter(Boolean);
-  if (words.length >= 2) return (words[0][0] + words[1][0]).toUpperCase();
-  return (name || '?').slice(0, 2).toUpperCase();
-}
-
-// We only ever show a founder's real, sourced name. No photos (we have none,
-// and won't fabricate a picture of a real person) and no guessed LinkedIn
-// profile URL (a wrong guess would point at a stranger) — a LinkedIn people
-// search for "name + company" is real, functional, and honest about what it is.
-function foundersHtml(s) {
-  if (!s.founders || !s.founders.length) return '';
-  return `
-    <div class="pc-section-label">Founders</div>
-    <div class="pc-founders">
-      ${s.founders.map((f) => {
-        const search = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${f} ${s.name}`)}`;
-        return `
-          <div class="pc-founder">
-            <span class="pc-founder-avatar">${initialsOf(f)}</span>
-            <span class="pc-founder-name">${f}</span>
-            <a class="pc-founder-li" href="${search}" target="_blank" rel="noopener" title="Search LinkedIn for ${f}">in</a>
-          </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-}
-
-function detailsHtml(s, verifyHtml, investorsHtml) {
-  return `
-    <details class="pc-details">
-      <summary>Details</summary>
-      <div class="pc-details-body">
-        <div class="pc-details-row"><span>Sector</span><span>${s.sectorFull || s.sector}</span></div>
-        <div class="pc-details-row"><span>City</span><span>${s.city}</span></div>
-        <div class="pc-details-row"><span>Stage</span><span>${s.stage}</span></div>
-        ${verifyHtml}
-        ${investorsHtml}
-        ${foundersHtml(s)}
-      </div>
-    </details>
-  `;
-}
-
-// A vouch is a named, on-the-record endorsement (name/role/note) - not an
-// anonymous rating. Rendered as a <details> so the expand/collapse needs no
-// JS wiring through the raw-HTML popup, matching how Leaflet renders this.
-function vouchesHtml(s) {
-  if (!s.vouches || !s.vouches.length) return '';
-  return `
-    <details class="pc-vouches">
-      <summary class="vouch-badge">Vouched by ${s.vouches.length}</summary>
-      <div class="vouch-list">
-        ${s.vouches.map((v) => `
-          <div class="vouch-item">
-            <span class="vouch-item-name">${escAttr(v.name)}</span>
-            ${v.role ? `<span class="vouch-item-role"> · ${escAttr(v.role)}</span>` : ''}
-            ${v.note ? `<p class="vouch-item-note">${escAttr(v.note)}</p>` : ''}
-          </div>
-        `).join('')}
-      </div>
-    </details>
-  `;
-}
-
-function popupHtml(s, color) {
-  const domain = domainOf(s.website);
-  const initial = (s.name || '?').trim().charAt(0).toUpperCase();
-
-  const gateHtml = s.taskGate.enabled
-    ? `<span class="taskgate-badge">TASK-GATE · ${s.taskGate.type}</span>`
-    : `<span class="taskgate-badge taskgate-locked">NO GATE</span>`;
-
-  const hiringHtml = s.hiring
-    ? `<span class="hiring-badge">● Hiring now</span>`
-    : `<span class="hiring-badge hiring-badge-off">Not hiring</span>`;
-
-  const verifyHtml = s.address
-    ? `<div class="pc-details-row"><span>Location</span><span>✓ Address on file</span></div>`
-    : `<div class="pc-details-row"><span>Location</span><span>◐ City-level only</span></div>`;
-
-  const investorsHtml = s.investors.length
-    ? `<div class="pc-details-row"><span>Investors</span><span>${s.investors.join(', ')}</span></div>`
-    : '';
-
-  const subLine = `${s.stage} · ${s.city}${s.foundedYear ? ` · Founded ${s.foundedYear}` : ''}`;
-
-  return `
-    <div class="pc">
-      <div class="pc-hero" style="background:${color};">
-        <div class="pc-hero-top">
-          <div class="pc-avatar">
-            <span class="pc-avatar-fallback">${initial}</span>
-            ${logoImgHtml(domain, 'pc-avatar-logo', 96)}
-          </div>
-          <div class="pc-hero-text">
-            <h4>${s.name}</h4>
-            <div class="pc-sub">${subLine}</div>
-          </div>
-        </div>
-      </div>
-      <div class="pc-body">
-        ${s.blurb ? `<p class="pc-desc">${s.blurb}</p>` : ''}
-        <div class="pc-badges-row">${hiringHtml}${gateHtml}</div>
-        ${s.website ? `<a class="pc-link" href="${s.website}" target="_blank" rel="noopener">${s.website.replace(/^https?:\/\//, '')} ↗</a>` : ''}
-        ${s.hiring ? `<button class="taskbtn">${s.taskGate.enabled ? 'Start task → Apply' : 'Apply now'}</button>` : ''}
-        ${detailsHtml(s, verifyHtml, investorsHtml)}
-        ${vouchesHtml(s)}
-        <button class="pc-suggest-edit" data-name="${escAttr(s.name)}" onclick="window.__auMapSuggestEdit && window.__auMapSuggestEdit(this.dataset.name)">✎ Suggest an edit</button>
-      </div>
-    </div>
-  `;
-}
-
-export default function MapView({ startups, sectorColors, onSuggestEdit }) {
-  useEffect(() => {
-    window.__auMapSuggestEdit = onSuggestEdit;
-    return () => { delete window.__auMapSuggestEdit; };
-  }, [onSuggestEdit]);
-
+export default function MapView({ startups, sectorColors, onSelectStartup, selectedName, trackedNames }) {
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
   const clusterRef = useRef(null);
@@ -237,14 +115,16 @@ export default function MapView({ startups, sectorColors, onSuggestEdit }) {
       .filter((s) => s.verified)
       .map((s) => {
         const color = sectorColors[s.sector] || '#444';
-        const marker = L.marker([s.lat, s.lng], { icon: pinIcon(s, color) });
+        const selected = s.name === selectedName;
+        const tracked = trackedNames?.has(s.name) || false;
+        const marker = L.marker([s.lat, s.lng], { icon: pinIcon(s, color, { selected, tracked }) });
         marker.bindTooltip(tooltipHtml(s), { direction: 'top', offset: [0, -20], sticky: true });
-        marker.bindPopup(popupHtml(s, color), { maxWidth: 280, minWidth: 260, className: 'pc-popup' });
+        marker.on('click', () => onSelectStartup(s));
         return marker;
       });
 
     cluster.addLayers(markers);
-  }, [startups, sectorColors]);
+  }, [startups, sectorColors, selectedName, trackedNames, onSelectStartup]);
 
   return <div id="map" ref={mapElRef} />;
 }

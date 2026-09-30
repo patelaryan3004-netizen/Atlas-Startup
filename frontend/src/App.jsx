@@ -7,6 +7,7 @@ import SearchBar from './components/SearchBar.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
 import SubmitStartupForm from './components/SubmitStartupForm.jsx';
 import SuggestEditForm from './components/SuggestEditForm.jsx';
+import StartupDetailPanel from './components/StartupDetailPanel.jsx';
 import FeedbackForm from './components/FeedbackForm.jsx';
 import AboutSources from './components/AboutSources.jsx';
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
@@ -79,6 +80,7 @@ export default function App() {
   const [showJobs, setShowJobs] = useState(initialView === 'jobs');
   const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
   const [editingCompany, setEditingCompany] = useState(null);
+  const [selectedStartup, setSelectedStartup] = useState(null);
 
   useEffect(() => {
     fetchMeta().then(setMeta).catch(() => setMeta(EMPTY_META));
@@ -104,7 +106,6 @@ export default function App() {
 
   const unverifiedCount = useMemo(() => startups.filter((s) => !s.verified).length, [startups]);
   const pinnedCount = startups.length - unverifiedCount;
-  const hiringCount = useMemo(() => startups.filter((s) => s.hiring).length, [startups]);
   const trackedStartups = useMemo(() => startups.filter((s) => tracked.has(s.name)), [startups, tracked]);
 
   const toggleNews = () => {
@@ -161,7 +162,13 @@ export default function App() {
         meta={meta}
       />
 
-      <MapView startups={startups} sectorColors={sectorColors} onSuggestEdit={setEditingCompany} />
+      <MapView
+        startups={startups}
+        sectorColors={sectorColors}
+        onSelectStartup={setSelectedStartup}
+        selectedName={selectedStartup?.name}
+        trackedNames={tracked}
+      />
 
       <FilterPanel
         filters={filters}
@@ -174,7 +181,7 @@ export default function App() {
 
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
 
-      <BottomCapsule pinnedCount={pinnedCount} hiringCount={hiringCount} onShowList={() => setShowStartupList(true)} />
+      <BottomCapsule pinnedCount={pinnedCount} onShowList={() => setShowStartupList(true)} />
 
       <footer id="siteFooter">
         <button className="linkbtn" onClick={() => setShowAbout(true)}>About &amp; sources</button>
@@ -193,6 +200,16 @@ export default function App() {
       {showAbout && <AboutSources onClose={() => setShowAbout(false)} />}
       {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
       {editingCompany && <SuggestEditForm company={editingCompany} onClose={() => setEditingCompany(null)} />}
+      {selectedStartup && (
+        <StartupDetailPanel
+          startup={selectedStartup}
+          sectorColor={sectorColors[selectedStartup.sector] || '#444'}
+          isTracked={isTracked}
+          onToggleTracked={toggleTracked}
+          onSuggestEdit={setEditingCompany}
+          onClose={() => setSelectedStartup(null)}
+        />
+      )}
       {showFeedback && <FeedbackForm onClose={() => setShowFeedback(false)} />}
       {showWaitlist && <WaitlistForm onClose={() => setShowWaitlist(false)} />}
       {showStartupList && (

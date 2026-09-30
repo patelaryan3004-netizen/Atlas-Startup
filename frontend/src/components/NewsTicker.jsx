@@ -37,9 +37,6 @@ export default function NewsTicker({ visible, onClose }) {
           <button className="nt-close" title="Hide news" onClick={onClose}>✕</button>
         </div>
       </div>
-      {!expanded && deals[0] && (
-        <button className="nt-preview" onClick={() => setExpanded(true)}>{deals[0].headline}</button>
-      )}
       {expanded && (
         <div className="nt-body">
           {deals.map((d) => (

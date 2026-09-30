@@ -11,9 +11,19 @@ vi.mock('../src/api.js', () => ({
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ startups, sectorColors, onSuggestEdit }) => (
+  default: ({ startups, sectorColors, onSelectStartup }) => (
     <div data-testid="map-view" data-count={startups.length} data-colors={Object.keys(sectorColors).join(',')}>
-      <button onClick={() => onSuggestEdit('Canva')}>trigger-suggest-edit</button>
+      <button onClick={() => onSelectStartup({ name: 'Canva', sector: 'AI' })}>trigger-select</button>
+    </div>
+  ),
+}));
+
+vi.mock('../src/components/StartupDetailPanel.jsx', () => ({
+  default: ({ startup, onSuggestEdit, onClose }) => (
+    <div data-testid="startup-detail-panel">
+      <span>{startup.name}</span>
+      <button onClick={() => onSuggestEdit(startup.name)}>trigger-suggest-edit</button>
+      <button onClick={onClose}>trigger-detail-close</button>
     </div>
   ),
 }));
@@ -78,10 +88,9 @@ describe('App', () => {
 
   it('shows a pinned-count bottom capsule that opens the full startup list', async () => {
     render(<App />);
-    await screen.findByText('2', { selector: '.bc-pinned' });
-    expect(screen.getByText('pinned', { exact: false })).toBeInTheDocument();
+    await screen.findByText('(2)', { selector: '.bc-pinned' });
 
-    await userEvent.click(screen.getByText('Show list ↑'));
+    await userEvent.click(screen.getByText('Show list', { exact: false }));
     expect(screen.getByText('Startups in view (2)')).toBeInTheDocument();
     expect(screen.getByText('Canva')).toBeInTheDocument();
     expect(screen.getByText('Zeller')).toBeInTheDocument();
@@ -176,11 +185,22 @@ describe('App', () => {
     expect(screen.getByText(/No account, no tracking cookies/)).toBeInTheDocument();
   });
 
-  it('opens Suggest an edit for a specific company when triggered from the map', async () => {
+  it('opens the startup detail panel when a marker is selected on the map', async () => {
     render(<App />);
+    await userEvent.click(screen.getByText('trigger-select'));
+    expect(screen.getByTestId('startup-detail-panel')).toBeInTheDocument();
+    expect(screen.getByText('Canva')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByText('trigger-detail-close'));
+    expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument();
+  });
+
+  it('opens Suggest an edit for a specific company when triggered from the detail panel', async () => {
+    render(<App />);
+    await userEvent.click(screen.getByText('trigger-select'));
     await userEvent.click(screen.getByText('trigger-suggest-edit'));
     expect(screen.getByText('Suggest an edit')).toBeInTheDocument();
-    expect(screen.getByText('Canva')).toBeInTheDocument();
+    expect(screen.getAllByText('Canva').length).toBeGreaterThan(0);
   });
 
   it('opens the site-wide Feedback form from the footer', async () => {

@@ -15,31 +15,48 @@ const deal = {
   url: 'https://example.com/deal',
 };
 
+async function expand() {
+  await userEvent.click(screen.getByText(/AU Startup Deals/));
+}
+
 describe('NewsTicker', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('renders deals from a live fetch and labels the status as live', async () => {
+  it('stays a collapsed one-line status bar until expanded, with no headline shown yet', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
 
-    expect(await screen.findByText(deal.headline)).toBeInTheDocument();
-    expect(screen.getByText(/live/)).toBeInTheDocument();
+    await screen.findByText(/live/);
+    expect(screen.queryByText(deal.headline)).not.toBeInTheDocument();
+  });
+
+  it('expands to show the headline and meta for every deal, labeling the status as live', async () => {
+    fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
+    render(<NewsTicker visible={true} onClose={() => {}} />);
+    await screen.findByText(/live/);
+
+    await expand();
+    expect(screen.getByText(deal.headline)).toBeInTheDocument();
+    expect(screen.getByText(deal.meta)).toBeInTheDocument();
   });
 
   it('labels the status as cached when the backend served from cache', async () => {
     fetchNews.mockResolvedValue({ source: 'cache', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
+    expect(await screen.findByText(/cached/)).toBeInTheDocument();
+  });
 
-    await screen.findByText(deal.headline);
-    expect(screen.getByText(/cached/)).toBeInTheDocument();
+  it('labels the status as seeded when the backend had to fall back', async () => {
+    fetchNews.mockResolvedValue({ source: 'seeded', deals: [deal] });
+    render(<NewsTicker visible={true} onClose={() => {}} />);
+    expect(await screen.findByText(/seeded/)).toBeInTheDocument();
   });
 
   it('shows "unavailable" if the fetch fails', async () => {
     fetchNews.mockRejectedValue(new Error('network down'));
     render(<NewsTicker visible={true} onClose={() => {}} />);
-
     expect(await screen.findByText(/unavailable/)).toBeInTheDocument();
   });
 
@@ -53,41 +70,36 @@ describe('NewsTicker', () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
     const onClose = vi.fn();
     render(<NewsTicker visible={true} onClose={onClose} />);
-    await screen.findByText(deal.headline);
+    await screen.findByText(/live/);
 
     await userEvent.click(screen.getByTitle('Hide news'));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('starts collapsed to a one-line preview, then expands to show meta and stays open on refresh', async () => {
+  it('collapses again when the title is clicked a second time', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
+    await screen.findByText(/live/);
 
-    await screen.findByText(deal.headline);
-    expect(screen.queryByText(deal.meta)).not.toBeInTheDocument();
+    await expand();
+    expect(screen.getByText(deal.headline)).toBeInTheDocument();
 
-    await userEvent.click(screen.getByText(deal.headline));
-    expect(screen.getByText(deal.meta)).toBeInTheDocument();
+    await expand();
+    expect(screen.queryByText(deal.headline)).not.toBeInTheDocument();
   });
 
-  it('labels the status as seeded when the backend had to fall back', async () => {
-    fetchNews.mockResolvedValue({ source: 'seeded', deals: [deal] });
-    render(<NewsTicker visible={true} onClose={() => {}} />);
-    await screen.findByText(deal.headline);
-    expect(screen.getByText(/seeded/)).toBeInTheDocument();
-  });
-
-  it('refresh button forces a live re-fetch and shows the new deals', async () => {
+  it('refresh button forces a live re-fetch and shows the new deals once expanded', async () => {
     const secondDeal = { headline: 'Fresh headline', meta: 'Melbourne · Series A', url: 'https://example.com/fresh' };
     fetchNews.mockResolvedValueOnce({ source: 'cache', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
-    await screen.findByText(deal.headline);
+    await screen.findByText(/cached/);
 
     fetchNews.mockResolvedValueOnce({ source: 'live', deals: [secondDeal] });
     await userEvent.click(screen.getByTitle('Get the latest news'));
+    await screen.findByText(/live/);
 
-    expect(await screen.findByText('Fresh headline')).toBeInTheDocument();
+    await expand();
+    expect(screen.getByText('Fresh headline')).toBeInTheDocument();
     expect(fetchNews).toHaveBeenLastCalledWith(true);
-    expect(screen.getByText(/live/)).toBeInTheDocument();
   });
 });

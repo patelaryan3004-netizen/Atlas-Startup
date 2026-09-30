@@ -17,8 +17,8 @@ vi.mock('leaflet.markercluster', () => ({}));
 
 vi.mock('leaflet', () => {
   const marker = vi.fn(() => ({
-    bindPopup: vi.fn(),
     bindTooltip: vi.fn(),
+    on: vi.fn(),
     addTo: vi.fn(),
   }));
   return {
@@ -62,7 +62,7 @@ describe('MapView', () => {
   });
 
   it('initializes the map, tile layer and cluster group once on mount', () => {
-    render(<MapView startups={[]} sectorColors={{}} />);
+    render(<MapView startups={[]} sectorColors={{}} onSelectStartup={() => {}} />);
     expect(L.map).toHaveBeenCalledTimes(1);
     expect(L.tileLayer).toHaveBeenCalledTimes(1);
     expect(tileLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
@@ -72,7 +72,7 @@ describe('MapView', () => {
   });
 
   it('passes an iconCreateFunction that colors clusters by density', () => {
-    render(<MapView startups={[]} sectorColors={{}} />);
+    render(<MapView startups={[]} sectorColors={{}} onSelectStartup={() => {}} />);
     const { iconCreateFunction } = L.markerClusterGroup.mock.calls[0][0];
     expect(typeof iconCreateFunction).toBe('function');
 
@@ -89,7 +89,7 @@ describe('MapView', () => {
 
   it('creates a marker only for verified startups and adds them to the cluster group', () => {
     const startups = [startup({ name: 'A', verified: true }), startup({ name: 'B', verified: false })];
-    render(<MapView startups={startups} sectorColors={{ AI: '#123456' }} />);
+    render(<MapView startups={startups} sectorColors={{ AI: '#123456' }} onSelectStartup={() => {}} />);
     expect(L.marker).toHaveBeenCalledTimes(1);
     expect(L.marker).toHaveBeenCalledWith([startups[0].lat, startups[0].lng], expect.any(Object));
     expect(clusterInstance.addLayers).toHaveBeenCalledTimes(1);
@@ -98,21 +98,21 @@ describe('MapView', () => {
 
   it('uses the sector color from sectorColors for the pin border', () => {
     const startups = [startup({ sector: 'AI' })];
-    render(<MapView startups={startups} sectorColors={{ AI: '#abcdef' }} />);
+    render(<MapView startups={startups} sectorColors={{ AI: '#abcdef' }} onSelectStartup={() => {}} />);
     const iconOpts = L.divIcon.mock.calls.at(-1)[0];
     expect(iconOpts.html).toContain('#abcdef');
   });
 
   it('falls back to a default color when the sector has no mapped color', () => {
     const startups = [startup({ sector: 'Unmapped' })];
-    render(<MapView startups={startups} sectorColors={{}} />);
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={() => {}} />);
     const iconOpts = L.divIcon.mock.calls.at(-1)[0];
     expect(iconOpts.html).toContain('#444');
   });
 
   it('renders a Clearbit logo img with a Google-favicon fallback when the startup has a website', () => {
     const startups = [startup({ website: 'https://www.canva.com' })];
-    render(<MapView startups={startups} sectorColors={{}} />);
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={() => {}} />);
     const iconOpts = L.divIcon.mock.calls.at(-1)[0];
     expect(iconOpts.html).toContain('https://logo.clearbit.com/canva.com');
     expect(iconOpts.html).toContain('onerror=');
@@ -121,164 +121,78 @@ describe('MapView', () => {
 
   it('renders only the fallback initial when the startup has no website', () => {
     const startups = [startup({ name: 'Zeta', website: '' })];
-    render(<MapView startups={startups} sectorColors={{}} />);
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={() => {}} />);
     const iconOpts = L.divIcon.mock.calls.at(-1)[0];
     expect(iconOpts.html).not.toContain('logo.clearbit.com');
     expect(iconOpts.html).toContain('>Z<');
   });
 
-  it('builds a rich popup card with badges, facts, verify status and investor chips', () => {
-    const startups = [startup({
-      name: 'Acme AI', sector: 'AI', investors: ['Blackbird', 'AirTree'], address: '1 Test St, Sydney NSW 2000',
-    })];
-    render(<MapView startups={startups} sectorColors={{ AI: '#abcdef' }} />);
-
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html, opts] = markerResult.bindPopup.mock.calls[0];
-
-    expect(html).toContain('Acme AI');
-    expect(html).toContain('hiring-badge');
-    expect(html).toContain('<span>Sector</span><span>AI / Testing</span>');
-    expect(html).toContain('<span>Investors</span>');
-    expect(html).toContain('Blackbird');
-    expect(html).toContain('AirTree');
-    expect(html).toContain('Address on file');
-    expect(opts).toMatchObject({ maxWidth: 280, className: 'pc-popup' });
-  });
-
-  it('shows a founders section with a real name and a LinkedIn-search link, never a guessed profile URL', () => {
-    const startups = [startup({ name: 'Acme AI', founders: ['Jane Smith'] })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-
-    expect(html).toContain('pc-founders');
-    expect(html).toContain('Jane Smith');
-    expect(html).toContain('linkedin.com/search/results/people');
-    expect(html).toContain(encodeURIComponent('Jane Smith Acme AI'));
-    expect(html).not.toContain('linkedin.com/in/');
-  });
-
-  it('shows a founded-year line when foundedYear is present, omits it otherwise', () => {
-    const withYear = [startup({ name: 'Old Co', foundedYear: 2012 })];
-    const { unmount } = render(<MapView startups={withYear} sectorColors={{}} />);
-    let html = L.marker.mock.results.at(-1).value.bindPopup.mock.calls[0][0];
-    expect(html).toContain('Founded 2012');
+  it('marks a hiring startup with a hiring-dot badge, and omits it when not hiring', () => {
+    const hiring = [startup({ name: 'A', hiring: true })];
+    const { unmount } = render(<MapView startups={hiring} sectorColors={{}} onSelectStartup={() => {}} />);
+    expect(L.divIcon.mock.calls.at(-1)[0].html).toContain('pin-hiring-dot');
     unmount();
 
     vi.clearAllMocks();
-    const withoutYear = [startup({ name: 'New Co' })];
-    render(<MapView startups={withoutYear} sectorColors={{}} />);
-    html = L.marker.mock.results.at(-1).value.bindPopup.mock.calls[0][0];
-    expect(html).not.toContain('Founded');
+    const notHiring = [startup({ name: 'B', hiring: false })];
+    render(<MapView startups={notHiring} sectorColors={{}} onSelectStartup={() => {}} />);
+    expect(L.divIcon.mock.calls.at(-1)[0].html).not.toContain('pin-hiring-dot');
   });
 
-  it('omits the founders section entirely when no founders are on file (never invents one)', () => {
-    const startups = [startup({ founders: undefined })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-    expect(html).not.toContain('pc-founders');
+  it('marks the currently selected startup with a selected class, and no other', () => {
+    const startups = [startup({ name: 'A' }), startup({ name: 'B' })];
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={() => {}} selectedName="B" />);
+    const [aHtml, bHtml] = L.divIcon.mock.calls.map((c) => c[0].html);
+    expect(aHtml).not.toContain('pin-selected');
+    expect(bHtml).toContain('pin-selected');
   });
 
-  it('omits the vouches section entirely when the vouches array is empty or missing', () => {
-    const startups = [startup({ vouches: [] })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-    expect(html).not.toContain('pc-vouches');
-    expect(html).not.toContain('Vouched by');
+  it('marks a tracked startup with a tracked-star badge, and omits it for untracked startups', () => {
+    const startups = [startup({ name: 'A' }), startup({ name: 'B' })];
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={() => {}} trackedNames={new Set(['A'])} />);
+    const [aHtml, bHtml] = L.divIcon.mock.calls.map((c) => c[0].html);
+    expect(aHtml).toContain('pin-tracked-star');
+    expect(bHtml).not.toContain('pin-tracked-star');
   });
 
-  it('shows a Vouched by N badge that expands to name, role and note per vouch', () => {
-    const startups = [startup({
-      vouches: [
-        { name: 'Jane Smith', role: 'Ex-colleague', note: 'Worked with the team at their last startup.' },
-        { name: 'Sam Lee', role: 'Investor', note: 'Backed their seed round.' },
-      ],
-    })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
+  it('calls onSelectStartup with the full startup object when a marker is clicked', () => {
+    const startups = [startup({ name: 'Acme AI' })];
+    const onSelectStartup = vi.fn();
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={onSelectStartup} />);
 
-    expect(html).toContain('Vouched by 2');
-    expect(html).toContain('<details class="pc-vouches">');
-    expect(html).toContain('Jane Smith');
-    expect(html).toContain('Ex-colleague');
-    expect(html).toContain('Worked with the team at their last startup.');
-    expect(html).toContain('Sam Lee');
+    const markerResult = L.marker.mock.results.at(-1).value;
+    const [event, handler] = markerResult.on.mock.calls[0];
+    expect(event).toBe('click');
+    handler();
+    expect(onSelectStartup).toHaveBeenCalledWith(startups[0]);
   });
 
-  it('HTML-escapes vouch name, role and note', () => {
-    const startups = [startup({
-      vouches: [{ name: 'Tom & Jerry', role: '<b>CEO</b>', note: '"Great" team' }],
-    })];
-    render(<MapView startups={startups} sectorColors={{}} />);
+  it('binds a lightweight hover tooltip with name and sector/city, not a full popup', () => {
+    const startups = [startup({ name: 'Acme AI', sectorFull: 'AI / Testing', city: 'Sydney' })];
+    render(<MapView startups={startups} sectorColors={{}} onSelectStartup={() => {}} />);
     const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-
-    expect(html).toContain('Tom &amp; Jerry');
-    expect(html).toContain('&lt;b&gt;CEO&lt;/b&gt;');
-    expect(html).toContain('&quot;Great&quot; team');
-  });
-
-  it('shows the approximate-location note in the popup when no address is on file', () => {
-    const startups = [startup({ address: undefined })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-    expect(html).toContain('<span>Location</span>');
-    expect(html).toContain('City-level only');
+    const [html] = markerResult.bindTooltip.mock.calls[0];
+    expect(html).toContain('Acme AI');
+    expect(html).toContain('AI / Testing');
+    expect(html).toContain('Sydney');
+    expect(markerResult.bindPopup).toBeUndefined();
   });
 
   it('clears previous cluster layers before rendering a new set when startups change', () => {
     const first = [startup({ name: 'A' })];
     const second = [startup({ name: 'B' }), startup({ name: 'C' })];
-    const { rerender } = render(<MapView startups={first} sectorColors={{}} />);
+    const { rerender } = render(<MapView startups={first} sectorColors={{}} onSelectStartup={() => {}} />);
     expect(L.marker).toHaveBeenCalledTimes(1);
 
-    rerender(<MapView startups={second} sectorColors={{}} />);
+    rerender(<MapView startups={second} sectorColors={{}} onSelectStartup={() => {}} />);
     expect(clusterInstance.clearLayers).toHaveBeenCalledTimes(2);
     expect(L.marker).toHaveBeenCalledTimes(3);
     expect(clusterInstance.addLayers.mock.calls.at(-1)[0]).toHaveLength(2);
   });
 
   it('removes the map on unmount', () => {
-    const { unmount } = render(<MapView startups={[]} sectorColors={{}} />);
+    const { unmount } = render(<MapView startups={[]} sectorColors={{}} onSelectStartup={() => {}} />);
     unmount();
     expect(mapInstance.remove).toHaveBeenCalledTimes(1);
-  });
-
-  it('renders a Suggest an edit button carrying the company name in a data attribute, not inline JS', () => {
-    const startups = [startup({ name: 'Acme AI' })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-
-    expect(html).toContain('pc-suggest-edit');
-    expect(html).toContain('data-name="Acme AI"');
-    expect(html).toContain('this.dataset.name');
-    expect(html).not.toContain('__auMapSuggestEdit("Acme AI")');
-  });
-
-  it('HTML-escapes quotes and ampersands in the company name so the attribute cannot be broken out of', () => {
-    const startups = [startup({ name: 'Tom & Jerry "Co"' })];
-    render(<MapView startups={startups} sectorColors={{}} />);
-    const markerResult = L.marker.mock.results.at(-1).value;
-    const [html] = markerResult.bindPopup.mock.calls[0];
-
-    expect(html).toContain('data-name="Tom &amp; Jerry &quot;Co&quot;"');
-  });
-
-  it('wires window.__auMapSuggestEdit to the onSuggestEdit prop and cleans it up on unmount', () => {
-    const onSuggestEdit = vi.fn();
-    const { unmount } = render(<MapView startups={[]} sectorColors={{}} onSuggestEdit={onSuggestEdit} />);
-
-    expect(window.__auMapSuggestEdit).toBe(onSuggestEdit);
-    window.__auMapSuggestEdit('Acme AI');
-    expect(onSuggestEdit).toHaveBeenCalledWith('Acme AI');
-
-    unmount();
-    expect(window.__auMapSuggestEdit).toBeUndefined();
   });
 });
