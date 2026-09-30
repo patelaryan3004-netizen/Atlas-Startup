@@ -79,6 +79,13 @@ describe('GET /api/startups', () => {
     expect(res.body.results.every((s) => s.sector === 'Fintech' && s.city === 'Sydney')).toBe(true);
   });
 
+  it('filters by search matching a founder name, not just the company name', async () => {
+    const res = await request(app).get('/api/startups?search=Melanie Perkins');
+    expect(res.status).toBe(200);
+    expect(res.body.count).toBe(1);
+    expect(res.body.results[0].name).toBe('Canva');
+  });
+
   it('returns empty results for a search with no matches', async () => {
     const res = await request(app).get('/api/startups?search=zzzznotarealstartupzzzz');
     expect(res.status).toBe(200);

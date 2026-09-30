@@ -20,7 +20,12 @@ router.get('/', async (req, res, next) => {
     const { search, sector, city, investor, stage, hiring, taskGate } = req.query;
 
     const filtered = startups.filter((s) => {
-      if (search && !s.name.toLowerCase().includes(String(search).toLowerCase())) return false;
+      if (search) {
+        const q = String(search).toLowerCase();
+        const nameMatch = s.name.toLowerCase().includes(q);
+        const founderMatch = (s.founders || []).some((f) => f.toLowerCase().includes(q));
+        if (!nameMatch && !founderMatch) return false;
+      }
       if (sector && s.sector !== sector) return false;
       if (city && s.city !== city) return false;
       if (investor && !s.investors.includes(investor)) return false;
