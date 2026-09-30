@@ -25,7 +25,7 @@ function relatedNews(news, startupName) {
   return news.filter((d) => d.headline.toLowerCase().includes(q) || (d.meta || '').toLowerCase().includes(q));
 }
 
-export default function StartupDetailPanel({ startup: s, sectorColor, isTracked, onToggleTracked, onSuggestEdit, onClose }) {
+export default function StartupDetailPanel({ startup: s, sectorColor, isTracked, onToggleTracked, onSuggestEdit, onSelectPerson, onClose }) {
   useEscapeClose(onClose);
   const [news, setNews] = useState([]);
 
@@ -109,7 +109,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
                   return (
                     <div className="pc-founder" key={f}>
                       <span className="pc-founder-avatar">{initialsOf(f)}</span>
-                      <span className="pc-founder-name">{f}</span>
+                      <button className="pc-founder-name pc-founder-name-btn" onClick={() => onSelectPerson(f)}>{f}</button>
                       <a className="pc-founder-li" href={search} target="_blank" rel="noopener" title={`Search LinkedIn for ${f}`}>in</a>
                     </div>
                   );

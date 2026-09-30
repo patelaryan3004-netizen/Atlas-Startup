@@ -31,6 +31,7 @@ function setup(overrides = {}) {
   fetchNews.mockResolvedValue({ source: 'live', deals: [] });
   const onToggleTracked = vi.fn();
   const onSuggestEdit = vi.fn();
+  const onSelectPerson = vi.fn();
   const onClose = vi.fn();
   const result = render(
     <StartupDetailPanel
@@ -39,10 +40,11 @@ function setup(overrides = {}) {
       isTracked={overrides.isTracked || (() => false)}
       onToggleTracked={onToggleTracked}
       onSuggestEdit={onSuggestEdit}
+      onSelectPerson={onSelectPerson}
       onClose={onClose}
     />
   );
-  return { onToggleTracked, onSuggestEdit, onClose, container: result.container, unmount: result.unmount };
+  return { onToggleTracked, onSuggestEdit, onSelectPerson, onClose, container: result.container, unmount: result.unmount };
 }
 
 describe('StartupDetailPanel', () => {
@@ -88,6 +90,12 @@ describe('StartupDetailPanel', () => {
     const link = screen.getByTitle('Search LinkedIn for Jane Smith');
     expect(link).toHaveAttribute('href', expect.stringContaining('linkedin.com/search/results/people'));
     expect(link.getAttribute('href')).not.toContain('linkedin.com/in/');
+  });
+
+  it('calls onSelectPerson with the founder name when their name is clicked', async () => {
+    const { onSelectPerson } = setup({ startup: { founders: ['Jane Smith'] } });
+    await userEvent.click(screen.getByText('Jane Smith'));
+    expect(onSelectPerson).toHaveBeenCalledWith('Jane Smith');
   });
 
   it('omits the Founders section entirely when no founders are on file', () => {
