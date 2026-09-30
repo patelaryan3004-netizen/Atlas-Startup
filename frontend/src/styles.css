@@ -318,7 +318,9 @@ header h1 span{color:var(--accent);}
 .fdrawer-empty{font-size:12.5px;color:var(--muted);margin:0;}
 
 .bottom-capsule{
-  position:absolute; bottom:24px; left:50%; transform:translateX(-50%); z-index:500;
+  /* Clears the footer strip (bottom:20px, ~26px tall) at every width - the
+     two previously sat at almost the same offset and visually collided. */
+  position:absolute; bottom:60px; left:50%; transform:translateX(-50%); z-index:500;
   display:flex; gap:2px; background:var(--panel); border:1px solid var(--line); border-radius:20px;
   padding:4px; box-shadow:0 8px 24px rgba(0,0,0,.4);
 }
@@ -333,10 +335,13 @@ header h1 span{color:var(--accent);}
 .dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(10,14,15,.5);}
 
 .taskgate-badge{
+  /* Outlined, not solid-filled: this is an informational tag, not the
+     card's action - the Apply button next to it is. A second solid-amber
+     shape beside the CTA made the two compete for attention. */
   display:inline-block;font-family:'Courier New',ui-monospace,monospace;font-size:9px;font-weight:700;letter-spacing:.5px;
-  padding:3px 7px;border-radius:4px;background:var(--accent);color:#0a0e0f;margin-left:4px;
+  padding:2px 6px;border-radius:4px;background:none;border:1px solid var(--accent);color:var(--accent);margin-left:4px;
 }
-.taskgate-locked{background:#3a3f3d;color:var(--muted);}
+.taskgate-locked{background:none;border-color:var(--line);color:var(--muted);}
 
 .pc{font-family:inherit;font-size:13px;color:var(--ink);}
 .pc-hero{position:relative;padding:16px;color:#fff;}
@@ -364,8 +369,11 @@ header h1 span{color:var(--accent);}
 .pc-link:hover{text-decoration:underline;}
 .pc-badges-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
 .hiring-badge{
+  /* Green, not amber - matches the hiring-dot already used on map markers
+     for the same signal, and keeps amber free for the one real CTA on
+     each card (Apply) rather than competing with it. */
   display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-  padding:3px 8px;border-radius:10px;background:var(--accent);color:#0a0e0f;
+  padding:3px 8px;border-radius:10px;background:#4ade80;color:#052e1c;
 }
 .hiring-badge-off{background:var(--line);color:var(--muted);}
 .pc-section-label{font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;}
@@ -537,12 +545,20 @@ header h1 span{color:var(--accent);}
 
 @media (max-width:640px){
   .fdrawer-panel{width:100%;max-width:100%;}
-  #newsTicker{width:190px;top:110px;right:16px;}
+  /* Stacked below the search/filters row (not beside it) so it can never
+     collide with the Filters button regardless of label width at narrow
+     widths - the two floating cards fought for the same horizontal band
+     at 320-360px when the ticker sat level with Filters. */
+  #newsTicker{width:190px;top:158px;right:16px;}
   header{gap:10px;padding:10px 16px;}
   header h1{font-size:13px;}
   .nav-subtitle{display:none;}
   .nav-center{display:none;}
-  .nav-cta-secondary{display:none;}
+  /* Submit startup and Join waitlist both move into the hamburger menu on
+     mobile - the top bar is brand + Menu only, matching the mobile brief,
+     and stops the CTA label competing with the wordmark for space at
+     narrow widths (the two together genuinely didn't fit at 320px). */
+  .nav-cta{display:none;}
   .nav-mobile-toggle{display:block;}
   .hdr-menu-mobile-nav{display:flex;flex-direction:column;gap:2px;}
   .hdr-menu-panel{width:200px;}
@@ -552,7 +568,12 @@ header h1 span{color:var(--accent);}
   .search-dropdown{max-width:none;}
   #fToggle{top:114px;left:16px;}
 
-  .bottom-capsule{padding:3px;border-radius:16px;}
+  /* Wraps onto a second line instead of overflowing its own box - at
+     320-360px all five footer links plus the credit text don't fit on one
+     row. Bounded to the viewport with the same 16px gutter as the rest of
+     the mobile chrome. */
+  #siteFooter{left:16px;right:16px;flex-wrap:wrap;row-gap:4px;}
+  .bottom-capsule{bottom:84px;padding:3px;border-radius:16px;}
   .bc-tab{font-size:11px;padding:7px 12px;white-space:nowrap;}
   .jobs-grid{grid-template-columns:1fr;}
   .startup-grid{grid-template-columns:1fr;}
@@ -577,8 +598,11 @@ header h1 span{color:var(--accent);}
   box-shadow:0 4px 16px rgba(0,0,0,.3); padding:20px; display:flex; flex-direction:column;
 }
 .curated-card-category{
+  /* Muted, matching every other small uppercase label in the app
+     (pc-section-label etc.) - this was the one eyebrow left amber, adding
+     an orange word to all 13 cards in the grid for no functional reason. */
   align-self:flex-start; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.6px;
-  color:var(--accent); margin-bottom:8px;
+  color:var(--muted); margin-bottom:8px;
 }
 .curated-card h3{margin:0 0 4px;font-size:14px;font-weight:700;}
 .curated-card-desc{margin:0 0 10px;font-size:12px;color:var(--muted);line-height:1.4;flex:1;}

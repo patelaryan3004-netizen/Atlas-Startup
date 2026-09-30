@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
 export default function HeaderMenu({
-  onExplore, onShowJobs, hiringCount, onShowCuratedLists, newsVisible, onToggleNews, onShowWaitlist,
+  onExplore, onShowJobs, hiringCount, onShowCuratedLists, newsVisible, onToggleNews, onShowSubmitForm, onShowWaitlist,
   onShowUnverified, unverifiedCount, onShowTracked, trackedCount,
 }) {
   const [open, setOpen] = useState(false);
@@ -32,7 +32,8 @@ export default function HeaderMenu({
               </button>
               <button className="hdr-menu-item" onClick={go(onShowCuratedLists)}>Lists</button>
               <button className="hdr-menu-item" onClick={go(onToggleNews)}>{newsVisible ? 'Hide news' : 'News'}</button>
-              <button className="hdr-menu-item hdr-menu-item-accent" onClick={go(onShowWaitlist)}>Join waitlist</button>
+              <button className="hdr-menu-item hdr-menu-item-accent" onClick={go(onShowSubmitForm)}>Submit a startup</button>
+              <button className="hdr-menu-item" onClick={go(onShowWaitlist)}>Join waitlist</button>
               <div className="hdr-menu-sep" />
             </div>
             <button className="hdr-menu-item" onClick={go(onShowUnverified)}>Unconfirmed ({unverifiedCount})</button>

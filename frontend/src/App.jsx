@@ -152,8 +152,8 @@ export default function App() {
         </nav>
 
         <div className="nav-right">
-          <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit startup</button>
-          <button className="hdrbtn hdrbtn-accent nav-cta-secondary" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
+          <button className="hdrbtn hdrbtn-accent nav-cta" onClick={() => setShowSubmitForm(true)}>Submit startup</button>
+          <button className="hdrbtn nav-cta nav-cta-secondary" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
           <HeaderMenu
             onExplore={goExplore}
             onShowJobs={() => setShowJobs(true)}
@@ -161,6 +161,7 @@ export default function App() {
             onShowCuratedLists={() => setShowCuratedLists(true)}
             newsVisible={newsVisible}
             onToggleNews={toggleNews}
+            onShowSubmitForm={() => setShowSubmitForm(true)}
             onShowWaitlist={() => setShowWaitlist(true)}
             onShowUnverified={() => setShowUnverified(true)}
             unverifiedCount={unverifiedCount}
