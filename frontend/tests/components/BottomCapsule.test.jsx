@@ -4,16 +4,30 @@ import userEvent from '@testing-library/user-event';
 import BottomCapsule from '../../src/components/BottomCapsule.jsx';
 
 describe('BottomCapsule', () => {
-  it('shows the count folded into a single list-toggle control', () => {
-    render(<BottomCapsule pinnedCount={42} onShowList={() => {}} />);
-    expect(screen.getByText('42', { exact: false })).toBeInTheDocument();
-    expect(screen.getByText('Show list', { exact: false })).toBeInTheDocument();
+  it('shows Map and List tabs, with the count folded into the List tab', () => {
+    render(<BottomCapsule pinnedCount={42} viewMode="map" onSetViewMode={() => {}} />);
+    expect(screen.getByText('Map')).toBeInTheDocument();
+    expect(screen.getByText('List', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('(42)')).toBeInTheDocument();
   });
 
-  it('calls onShowList when clicked', async () => {
-    const onShowList = vi.fn();
-    render(<BottomCapsule pinnedCount={0} onShowList={onShowList} />);
-    await userEvent.click(screen.getByText('Show list', { exact: false }));
-    expect(onShowList).toHaveBeenCalledTimes(1);
+  it('marks the active view mode', () => {
+    render(<BottomCapsule pinnedCount={0} viewMode="list" onSetViewMode={() => {}} />);
+    expect(screen.getByText('Map')).not.toHaveClass('bc-tab-active');
+    expect(screen.getByText('List', { exact: false })).toHaveClass('bc-tab-active');
+  });
+
+  it('calls onSetViewMode with "list" when the List tab is clicked', async () => {
+    const onSetViewMode = vi.fn();
+    render(<BottomCapsule pinnedCount={0} viewMode="map" onSetViewMode={onSetViewMode} />);
+    await userEvent.click(screen.getByText('List', { exact: false }));
+    expect(onSetViewMode).toHaveBeenCalledWith('list');
+  });
+
+  it('calls onSetViewMode with "map" when the Map tab is clicked', async () => {
+    const onSetViewMode = vi.fn();
+    render(<BottomCapsule pinnedCount={0} viewMode="list" onSetViewMode={onSetViewMode} />);
+    await userEvent.click(screen.getByText('Map'));
+    expect(onSetViewMode).toHaveBeenCalledWith('map');
   });
 });

@@ -38,10 +38,10 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-panel curated-modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
         <h2>Curated lists</h2>
-        <p className="modal-sub">Preset views into the map. Pick one to apply its filters, or share your current view.</p>
+        <p className="modal-sub">Discover groups of Australian startups. Pick one to view the companies in it, or share your current view.</p>
 
         <button className="hdrbtn" onClick={handleShare}>
           {copied ? 'Copied!' : '🔗 Share current view'}
@@ -53,6 +53,7 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
               return (
                 <details className="curated-card curated-card-people" key={list.id}>
                   <summary>
+                    <span className="curated-card-category">{list.category}</span>
                     <h3>{list.name}</h3>
                     <p className="curated-card-desc">{list.description}</p>
                     <span className="curated-card-count">
@@ -82,6 +83,7 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
             const count = loading ? null : allStartups.filter(list.match).length;
             return (
               <div className="curated-card" key={list.id}>
+                <span className="curated-card-category">{list.category}</span>
                 <h3>{list.name}</h3>
                 <p className="curated-card-desc">{list.description}</p>
                 <div className="curated-card-footer">

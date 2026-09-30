@@ -13,6 +13,15 @@ async function loadStartups() {
 
 const router = Router();
 
+// A bare value matches exactly, same as before. A comma-separated value (only
+// ever sent by curated lists that roll up several real sector/city strings,
+// e.g. "HealthTech,Healthtech") matches any one of them - still an exact
+// membership check, just against a set instead of a single string.
+function matchesAny(value, param) {
+  if (!param) return true;
+  return String(param).split(',').includes(value);
+}
+
 // GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no
 router.get('/', async (req, res, next) => {
   try {
@@ -26,8 +35,8 @@ router.get('/', async (req, res, next) => {
         const founderMatch = (s.founders || []).some((f) => f.toLowerCase().includes(q));
         if (!nameMatch && !founderMatch) return false;
       }
-      if (sector && s.sector !== sector) return false;
-      if (city && s.city !== city) return false;
+      if (!matchesAny(s.sector, sector)) return false;
+      if (!matchesAny(s.city, city)) return false;
       if (investor && !s.investors.includes(investor)) return false;
       if (stage && s.stage !== stage) return false;
       if (hiring === 'yes' && !s.hiring) return false;

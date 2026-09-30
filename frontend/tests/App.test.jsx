@@ -86,19 +86,25 @@ describe('App', () => {
     expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' });
   });
 
-  it('shows a pinned-count bottom capsule that opens the full startup list', async () => {
+  it('shows a pinned-count on the List tab, and switches the main canvas from map to list view', async () => {
     render(<App />);
     await screen.findByText('(2)', { selector: '.bc-pinned' });
+    expect(screen.getByTestId('map-view')).toBeInTheDocument();
 
-    await userEvent.click(screen.getByText('Show list', { exact: false }));
-    expect(screen.getByText('Startups in view (2)')).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: 'List (2)' }));
+    expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
     expect(screen.getByText('Canva')).toBeInTheDocument();
     expect(screen.getByText('Zeller')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByText('Map'));
+    expect(screen.getByTestId('map-view')).toBeInTheDocument();
   });
 
   it('refetches startups when typing in the top-level search box', async () => {
     render(<App />);
-    await waitFor(() => expect(fetchStartups).toHaveBeenCalledTimes(1));
+    await waitFor(() =>
+      expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
+    );
 
     await userEvent.type(screen.getByLabelText(/Search startups/), 'x');
 
@@ -109,7 +115,9 @@ describe('App', () => {
 
   it('resets filters back to empty when Clear all is clicked', async () => {
     render(<App />);
-    await waitFor(() => expect(fetchStartups).toHaveBeenCalledTimes(1));
+    await waitFor(() =>
+      expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
+    );
 
     await userEvent.type(screen.getByLabelText(/Search startups/), 'x');
     await waitFor(() => expect(fetchStartups).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' })));

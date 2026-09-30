@@ -73,6 +73,20 @@ describe('GET /api/startups', () => {
     expect(res.body.count).toBeGreaterThan(0);
   });
 
+  it('filters by a comma-separated sector list, matching any one of them (curated lists use this to roll up real sector variants)', async () => {
+    const res = await request(app).get('/api/startups?sector=HealthTech,Healthtech');
+    expect(res.status).toBe(200);
+    expect(res.body.results.every((s) => s.sector === 'HealthTech' || s.sector === 'Healthtech')).toBe(true);
+    expect(res.body.count).toBeGreaterThan(0);
+  });
+
+  it('filters by a comma-separated city list, matching any one of them', async () => {
+    const res = await request(app).get('/api/startups?city=Sydney,Sydney (Chippendale)');
+    expect(res.status).toBe(200);
+    expect(res.body.results.every((s) => s.city === 'Sydney' || s.city === 'Sydney (Chippendale)')).toBe(true);
+    expect(res.body.count).toBeGreaterThan(0);
+  });
+
   it('combines multiple filters', async () => {
     const res = await request(app).get('/api/startups?sector=Fintech&city=Sydney');
     expect(res.status).toBe(200);

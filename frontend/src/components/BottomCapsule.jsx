@@ -1,7 +1,18 @@
-export default function BottomCapsule({ pinnedCount, onShowList }) {
+export default function BottomCapsule({ pinnedCount, viewMode, onSetViewMode }) {
   return (
-    <button className="bottom-capsule" onClick={onShowList}>
-      Show list <strong className="bc-pinned">({pinnedCount})</strong> ↑
-    </button>
+    <div className="bottom-capsule">
+      <button
+        className={viewMode === 'map' ? 'bc-tab bc-tab-active' : 'bc-tab'}
+        onClick={() => onSetViewMode('map')}
+      >
+        Map
+      </button>
+      <button
+        className={viewMode === 'list' ? 'bc-tab bc-tab-active' : 'bc-tab'}
+        onClick={() => onSetViewMode('list')}
+      >
+        List <strong className="bc-pinned">({pinnedCount})</strong>
+      </button>
+    </div>
   );
 }

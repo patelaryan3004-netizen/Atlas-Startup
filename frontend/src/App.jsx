@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { fetchStartups, fetchMeta, DIRECTORY_URL } from './api.js';
 import MapView from './components/MapView.jsx';
+import ListView from './components/ListView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
 import HeaderMenu from './components/HeaderMenu.jsx';
 import SearchBar from './components/SearchBar.jsx';
@@ -8,6 +9,8 @@ import NewsTicker from './components/NewsTicker.jsx';
 import SubmitStartupForm from './components/SubmitStartupForm.jsx';
 import SuggestEditForm from './components/SuggestEditForm.jsx';
 import StartupDetailPanel from './components/StartupDetailPanel.jsx';
+import PersonProfile from './components/PersonProfile.jsx';
+import { getPersonProfile } from './people.js';
 import FeedbackForm from './components/FeedbackForm.jsx';
 import AboutSources from './components/AboutSources.jsx';
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
@@ -69,7 +72,7 @@ export default function App() {
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
-  const [showStartupList, setShowStartupList] = useState(false);
+  const [viewMode, setViewMode] = useState('map');
   const [showTracked, setShowTracked] = useState(false);
   const { tracked, toggleTracked, isTracked } = useTrackedStartups();
   const [showAbout, setShowAbout] = useState(false);
@@ -81,9 +84,15 @@ export default function App() {
   const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
   const [editingCompany, setEditingCompany] = useState(null);
   const [selectedStartup, setSelectedStartup] = useState(null);
+  const [selectedPersonName, setSelectedPersonName] = useState(null);
+  const [allStartups, setAllStartups] = useState([]);
 
   useEffect(() => {
     fetchMeta().then(setMeta).catch(() => setMeta(EMPTY_META));
+    // Unfiltered, fetched once - person profiles cross-reference a founder's
+    // companies against the whole dataset, not just whatever the current
+    // filters happen to be showing.
+    fetchStartups({}).then(({ results }) => setAllStartups(results)).catch(() => setAllStartups([]));
   }, []);
 
   useEffect(() => {
@@ -162,13 +171,23 @@ export default function App() {
         meta={meta}
       />
 
-      <MapView
-        startups={startups}
-        sectorColors={sectorColors}
-        onSelectStartup={setSelectedStartup}
-        selectedName={selectedStartup?.name}
-        trackedNames={tracked}
-      />
+      {viewMode === 'map' ? (
+        <MapView
+          startups={startups}
+          sectorColors={sectorColors}
+          onSelectStartup={setSelectedStartup}
+          selectedName={selectedStartup?.name}
+          trackedNames={tracked}
+        />
+      ) : (
+        <ListView
+          startups={startups}
+          sectorColors={sectorColors}
+          onSelectStartup={setSelectedStartup}
+          selectedName={selectedStartup?.name}
+          trackedNames={tracked}
+        />
+      )}
 
       <FilterPanel
         filters={filters}
@@ -181,7 +200,7 @@ export default function App() {
 
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
 
-      <BottomCapsule pinnedCount={pinnedCount} onShowList={() => setShowStartupList(true)} />
+      <BottomCapsule pinnedCount={pinnedCount} viewMode={viewMode} onSetViewMode={setViewMode} />
 
       <footer id="siteFooter">
         <button className="linkbtn" onClick={() => setShowAbout(true)}>About &amp; sources</button>
@@ -207,20 +226,18 @@ export default function App() {
           isTracked={isTracked}
           onToggleTracked={toggleTracked}
           onSuggestEdit={setEditingCompany}
+          onSelectPerson={setSelectedPersonName}
           onClose={() => setSelectedStartup(null)}
+        />
+      )}
+      {selectedPersonName && (
+        <PersonProfile
+          person={getPersonProfile(selectedPersonName, allStartups)}
+          onClose={() => setSelectedPersonName(null)}
         />
       )}
       {showFeedback && <FeedbackForm onClose={() => setShowFeedback(false)} />}
       {showWaitlist && <WaitlistForm onClose={() => setShowWaitlist(false)} />}
-      {showStartupList && (
-        <StartupListView
-          startups={startups}
-          sectorColors={sectorColors}
-          onClose={() => setShowStartupList(false)}
-          isTracked={isTracked}
-          onToggleTracked={toggleTracked}
-        />
-      )}
       {showTracked && (
         <StartupListView
           startups={trackedStartups}
@@ -239,7 +256,10 @@ export default function App() {
       {showCuratedLists && (
         <CuratedLists
           currentFilters={filters}
-          onApply={(listFilters) => setFilters({ ...EMPTY_FILTERS, ...listFilters })}
+          onApply={(listFilters) => {
+            setFilters({ ...EMPTY_FILTERS, ...listFilters });
+            setViewMode('list');
+          }}
           onClose={() => setShowCuratedLists(false)}
         />
       )}

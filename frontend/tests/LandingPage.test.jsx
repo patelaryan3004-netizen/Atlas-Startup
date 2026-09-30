@@ -65,7 +65,7 @@ describe('LandingPage', () => {
     render(<LandingPage />);
     expect(await screen.findByText('Task-gated only')).toBeInTheDocument();
     expect(screen.getByText('Melbourne AI startups')).toBeInTheDocument();
-    expect(screen.getByText('Currently hiring')).toBeInTheDocument();
+    expect(screen.getByText('Startups Hiring Now')).toBeInTheDocument();
   });
 
   it('deep-links into Jobs and Curated lists inside the real app', async () => {
