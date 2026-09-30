@@ -2,8 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { fetchStartups, fetchMeta, DIRECTORY_URL } from './api.js';
 import MapView from './components/MapView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
-import NotableStartups from './components/NotableStartups.jsx';
-import MostVouched from './components/MostVouched.jsx';
+import HeaderMenu from './components/HeaderMenu.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
 import SubmitStartupForm from './components/SubmitStartupForm.jsx';
 import SuggestEditForm from './components/SuggestEditForm.jsx';
@@ -107,6 +106,7 @@ export default function App() {
   const unverifiedCount = useMemo(() => startups.filter((s) => !s.verified).length, [startups]);
   const pinnedCount = startups.length - unverifiedCount;
   const hiringCount = useMemo(() => startups.filter((s) => s.hiring).length, [startups]);
+  const trackedStartups = useMemo(() => startups.filter((s) => tracked.has(s.name)), [startups, tracked]);
 
   const toggleNews = () => {
     setNewsVisible((prev) => {
@@ -123,25 +123,31 @@ export default function App() {
   return (
     <div id="app">
       <header>
-        <div>
-          <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
-          <div className="tag">
-            VC-backed companies<span className="tag-sep">·</span>live hiring status<span className="tag-sep">·</span>task-gated applications<span className="tag-sep">·</span>public sources + submissions
-          </div>
+        <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
+
+        <div className="nav-search">
+          <input
+            type="text"
+            placeholder="Search startups..."
+            value={filters.search}
+            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+            aria-label="Search startups"
+          />
         </div>
+
         <div className="header-actions">
-          <button className="hdrbtn" onClick={toggleNews}>{newsVisible ? 'Hide news' : 'Show news'}</button>
           <button className="hdrbtn" onClick={() => setShowJobs(true)}>Jobs</button>
-          <button className="hdrbtn" onClick={() => setShowCuratedLists(true)}>Curated lists</button>
-          <button className="hdrbtn" onClick={() => setShowUnverified(true)}>Unconfirmed ({unverifiedCount})</button>
-          <button className="hdrbtn" onClick={() => setShowTracked(true)}>★ Tracked ({tracked.size})</button>
-          <button className="hdrbtn hdrbtn-accent" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
-          <button className="hdrbtn hdrbtn-accent" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
-          <div className="header-stats" id="totalCount">
-            <span className="hs-label">Tracked</span><b>{total}</b>
-            <span className="hs-sep">·</span>
-            <span className="hs-label">Hiring</span><b>{hiringCount}</b>
-          </div>
+          <HeaderMenu
+            newsVisible={newsVisible}
+            onToggleNews={toggleNews}
+            onShowCuratedLists={() => setShowCuratedLists(true)}
+            onShowUnverified={() => setShowUnverified(true)}
+            unverifiedCount={unverifiedCount}
+            onShowTracked={() => setShowTracked(true)}
+            trackedCount={tracked.size}
+            onShowSubmitForm={() => setShowSubmitForm(true)}
+            onShowWaitlist={() => setShowWaitlist(true)}
+          />
         </div>
       </header>
 
@@ -159,11 +165,7 @@ export default function App() {
 
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
 
-      <NotableStartups startups={startups} />
-
-      <MostVouched startups={startups} />
-
-      <BottomCapsule pinnedCount={pinnedCount} onShowList={() => setShowStartupList(true)} />
+      <BottomCapsule pinnedCount={pinnedCount} hiringCount={hiringCount} onShowList={() => setShowStartupList(true)} />
 
       <footer id="siteFooter">
         <button className="linkbtn" onClick={() => setShowAbout(true)}>About &amp; sources</button>
@@ -195,15 +197,15 @@ export default function App() {
       )}
       {showTracked && (
         <StartupListView
-          startups={startups.filter((s) => tracked.has(s.name))}
+          startups={trackedStartups}
           sectorColors={sectorColors}
           onClose={() => setShowTracked(false)}
           isTracked={isTracked}
           onToggleTracked={toggleTracked}
           title={`Tracked startups (${tracked.size})`}
           subtitle={
-            startups.filter((s) => tracked.has(s.name)).length < tracked.size
-              ? `${startups.filter((s) => tracked.has(s.name)).length} of ${tracked.size} tracked companies match what's currently loaded. Reset filters to see the rest.`
+            trackedStartups.length < tracked.size
+              ? `${trackedStartups.length} of ${tracked.size} tracked companies match what's currently loaded. Reset filters to see the rest.`
               : 'Companies you have starred, saved in this browser only.'
           }
         />

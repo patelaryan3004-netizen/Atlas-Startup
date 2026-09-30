@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import Leaderboard from './Leaderboard.jsx';
+import NotableStartups from './NotableStartups.jsx';
+import MostVouched from './MostVouched.jsx';
+
+const TABS = [
+  { id: 'filters', label: 'Filters' },
+  { id: 'leaderboard', label: 'Leaderboard' },
+  { id: 'notable', label: 'Notable' },
+  { id: 'vouched', label: 'Vouched' },
+];
 
 export default function FilterPanel({ filters, onChange, onReset, meta, resultCount, total, startups }) {
   const [open, setOpen] = useState(false);
@@ -9,6 +18,8 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
   const activeCount = Object.values(filters).filter(Boolean).length;
 
   useEscapeClose(() => setOpen(false));
+
+  const hasVouched = startups.some((s) => s.vouches?.length > 0);
 
   return (
     <>
@@ -22,32 +33,19 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
             <button className="modal-close" aria-label="Close" onClick={() => setOpen(false)}>&#10005;</button>
 
             <div className="fdrawer-tabs">
-              <button
-                className={tab === 'filters' ? 'fdrawer-tab fdrawer-tab-active' : 'fdrawer-tab'}
-                onClick={() => setTab('filters')}
-              >
-                Filters
-              </button>
-              <button
-                className={tab === 'leaderboard' ? 'fdrawer-tab fdrawer-tab-active' : 'fdrawer-tab'}
-                onClick={() => setTab('leaderboard')}
-              >
-                Leaderboard
-              </button>
+              {TABS.map((t) => (
+                <button
+                  key={t.id}
+                  className={tab === t.id ? 'fdrawer-tab fdrawer-tab-active' : 'fdrawer-tab'}
+                  onClick={() => setTab(t.id)}
+                >
+                  {t.label}
+                </button>
+              ))}
             </div>
 
             {tab === 'filters' && (
               <div className="fdrawer-content">
-                <div className="fgroup">
-                  <label htmlFor="fSearch">Search</label>
-                  <input
-                    id="fSearch"
-                    type="text"
-                    placeholder="Company name..."
-                    value={filters.search}
-                    onChange={set('search')}
-                  />
-                </div>
                 <div className="fgroup">
                   <label htmlFor="fSector">Sector</label>
                   <select id="fSector" value={filters.sector} onChange={set('sector')}>
@@ -100,6 +98,18 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
             {tab === 'leaderboard' && (
               <div className="fdrawer-content">
                 <Leaderboard startups={startups} />
+              </div>
+            )}
+
+            {tab === 'notable' && (
+              <div className="fdrawer-content">
+                <NotableStartups startups={startups} />
+              </div>
+            )}
+
+            {tab === 'vouched' && (
+              <div className="fdrawer-content">
+                {hasVouched ? <MostVouched startups={startups} /> : <p className="fdrawer-empty">No vouches yet.</p>}
               </div>
             )}
           </div>

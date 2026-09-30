@@ -50,7 +50,11 @@ const startup = (name, overrides = {}) => ({
 });
 
 async function openFilters() {
-  await userEvent.click(screen.getByText('☰ Filters'));
+  await userEvent.click(screen.getByText(/^☰ Filters/));
+}
+
+async function openMenu() {
+  await userEvent.click(screen.getByLabelText('More'));
 }
 
 describe('App', () => {
@@ -62,17 +66,16 @@ describe('App', () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [] });
   });
 
-  it('loads metadata and startups on mount and shows live totals in the header stats', async () => {
-    const { container } = render(<App />);
-    await waitFor(() => expect(container.querySelector('#totalCount')).toHaveTextContent('Tracked2·Hiring2'));
-    expect(fetchMeta).toHaveBeenCalledTimes(1);
+  it('loads metadata and startups on mount with empty filters', async () => {
+    render(<App />);
+    await waitFor(() => expect(fetchMeta).toHaveBeenCalledTimes(1));
     expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' });
   });
 
   it('shows a pinned-count bottom capsule that opens the full startup list', async () => {
     render(<App />);
-    await screen.findByText('2', { selector: '.bottom-capsule strong' });
-    expect(screen.getByText('startups pinned on map')).toBeInTheDocument();
+    await screen.findByText('2', { selector: '.bc-pinned' });
+    expect(screen.getByText('pinned', { exact: false })).toBeInTheDocument();
 
     await userEvent.click(screen.getByText('Show list ↑'));
     expect(screen.getByText('Startups in view (2)')).toBeInTheDocument();
@@ -80,12 +83,11 @@ describe('App', () => {
     expect(screen.getByText('Zeller')).toBeInTheDocument();
   });
 
-  it('refetches startups with updated filters when the search box changes', async () => {
+  it('refetches startups when typing in the top-level search box', async () => {
     render(<App />);
     await waitFor(() => expect(fetchStartups).toHaveBeenCalledTimes(1));
-    await openFilters();
 
-    await userEvent.type(screen.getByPlaceholderText('Company name...'), 'x');
+    await userEvent.type(screen.getByLabelText('Search startups'), 'x');
 
     await waitFor(() =>
       expect(fetchStartups).toHaveBeenLastCalledWith({ search: 'x', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
@@ -95,11 +97,11 @@ describe('App', () => {
   it('resets filters back to empty when Reset filters is clicked', async () => {
     render(<App />);
     await waitFor(() => expect(fetchStartups).toHaveBeenCalledTimes(1));
-    await openFilters();
 
-    await userEvent.type(screen.getByPlaceholderText('Company name...'), 'x');
+    await userEvent.type(screen.getByLabelText('Search startups'), 'x');
     await waitFor(() => expect(fetchStartups).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' })));
 
+    await openFilters();
     await userEvent.click(screen.getByText('Reset filters'));
     await waitFor(() =>
       expect(fetchStartups).toHaveBeenLastCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' })
@@ -112,44 +114,48 @@ describe('App', () => {
     await waitFor(() => expect(screen.getByTestId('map-view').dataset.count).toBe('0'));
   });
 
-  it('shows the news ticker by default and toggles it off/on, persisting the choice', async () => {
+  it('shows the news ticker by default and toggles it off/on via the More menu, persisting the choice', async () => {
     render(<App />);
-    await screen.findByText('Hide news');
-    expect(document.getElementById('newsTicker')).toBeInTheDocument();
+    await waitFor(() => expect(document.getElementById('newsTicker')).toBeInTheDocument());
 
+    await openMenu();
     await userEvent.click(screen.getByText('Hide news'));
-    expect(screen.getByText('Show news')).toBeInTheDocument();
     expect(document.getElementById('newsTicker')).not.toBeInTheDocument();
     expect(localStorage.getItem('auStartupNewsVisible')).toBe('0');
 
+    await openMenu();
     await userEvent.click(screen.getByText('Show news'));
-    expect(screen.getByText('Hide news')).toBeInTheDocument();
+    expect(document.getElementById('newsTicker')).toBeInTheDocument();
     expect(localStorage.getItem('auStartupNewsVisible')).toBe('1');
   });
 
-  it('opens the unconfirmed-location list showing only unverified startups', async () => {
+  it('opens the unconfirmed-location list showing only unverified startups, via the More menu', async () => {
     fetchStartups.mockResolvedValue({
       total: 2, count: 2,
       results: [startup('Canva'), startup('Mystery Co', { verified: false })],
     });
     render(<App />);
-    await screen.findByText('Unconfirmed (1)');
+    await waitFor(() => expect(fetchStartups).toHaveBeenCalled());
 
+    await openMenu();
+    expect(screen.getByText('Unconfirmed (1)')).toBeInTheDocument();
     await userEvent.click(screen.getByText('Unconfirmed (1)'));
     expect(screen.getByText('Unconfirmed location (1)')).toBeInTheDocument();
     expect(screen.getByText('Mystery Co')).toBeInTheDocument();
   });
 
-  it('opens the submit-a-startup form', async () => {
+  it('opens the submit-a-startup form via the More menu', async () => {
     render(<App />);
+    await openMenu();
     await userEvent.click(screen.getByText('Submit a startup'));
     expect(screen.getByText('Know an AU startup that should be on the map?', { exact: false })).toBeInTheDocument();
   });
 
-  it('shows a BETA tag next to the title and a sourcing-disclosure line', async () => {
+  it('shows a BETA tag next to the title, with the full sourcing disclosure one click away in About & sources', async () => {
     render(<App />);
     expect(screen.getByText('BETA')).toBeInTheDocument();
-    expect(screen.getByText(/public sources \+ submissions/)).toBeInTheDocument();
+    await userEvent.click(screen.getByText('About & sources'));
+    expect(screen.getByText(/public sources/)).toBeInTheDocument();
   });
 
   it('opens About & sources and Privacy from the footer, and links to the no-JS directory', async () => {
@@ -180,8 +186,9 @@ describe('App', () => {
     expect(screen.getByLabelText('Type')).toBeInTheDocument();
   });
 
-  it('opens the waitlist modal from the header', async () => {
+  it('opens the waitlist modal via the More menu', async () => {
     render(<App />);
+    await openMenu();
     await userEvent.click(screen.getByText('Join waitlist'));
     expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
   });
@@ -204,8 +211,9 @@ describe('App', () => {
     expect(screen.queryByTestId('jobs-view')).not.toBeInTheDocument();
   });
 
-  it('opens Curated lists from the header and closes it again', async () => {
+  it('opens Curated lists via the More menu and closes it again', async () => {
     render(<App />);
+    await openMenu();
     await userEvent.click(screen.getByText('Curated lists'));
     expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
 
@@ -215,10 +223,10 @@ describe('App', () => {
 
   it('applying a curated list replaces the active filters (not merging with whatever was set) and refetches', async () => {
     render(<App />);
-    await openFilters();
-    await userEvent.type(screen.getByPlaceholderText('Company name...'), 'x');
+    await userEvent.type(screen.getByLabelText('Search startups'), 'x');
     await waitFor(() => expect(fetchStartups).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' })));
 
+    await openMenu();
     await userEvent.click(screen.getByText('Curated lists'));
     await userEvent.click(screen.getByText('trigger-apply-list'));
 

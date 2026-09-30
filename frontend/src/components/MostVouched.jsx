@@ -6,16 +6,13 @@ export default function MostVouched({ startups }) {
   if (!vouched.length) return null;
 
   return (
-    <div id="mostVouched">
-      <h2>Most Vouched</h2>
-      <ol id="mostVouchedList">
-        {vouched.map((s) => (
-          <li key={s.name}>
-            <span>{s.name}</span>
-            <b>{s.vouches.length}</b>
-          </li>
-        ))}
-      </ol>
-    </div>
+    <ol id="mostVouchedList">
+      {vouched.map((s) => (
+        <li key={s.name}>
+          <span>{s.name}</span>
+          <b>{s.vouches.length}</b>
+        </li>
+      ))}
+    </ol>
   );
 }

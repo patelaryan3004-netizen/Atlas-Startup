@@ -12,8 +12,8 @@ const meta = {
 
 const emptyFilters = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '' };
 
-function s(city) {
-  return { city };
+function s(overrides = {}) {
+  return { name: 'Co', city: 'Sydney', foundedYear: null, vouches: [], ...overrides };
 }
 
 function setup(overrides = {}) {
@@ -27,7 +27,7 @@ function setup(overrides = {}) {
       meta={meta}
       resultCount={2}
       total={4}
-      startups={[s('Sydney'), s('Melbourne'), s('Sydney')]}
+      startups={[s({ name: 'A', city: 'Sydney' }), s({ name: 'B', city: 'Melbourne' }), s({ name: 'C', city: 'Sydney' })]}
       {...overrides}
     />
   );
@@ -39,10 +39,10 @@ async function open() {
 }
 
 describe('FilterPanel', () => {
-  it('starts collapsed, with no filter fields or drawer in the document', () => {
+  it('starts collapsed, with no drawer in the document', () => {
     setup();
     expect(screen.getByText('☰ Filters')).toBeInTheDocument();
-    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
   });
 
   it('shows an active-filter count badge on the toggle when filters are set', () => {
@@ -59,60 +59,91 @@ describe('FilterPanel', () => {
     expect(screen.getByRole('option', { name: 'Series A' })).toBeInTheDocument();
   });
 
+  it('has no search field - search lives in the top-level nav, not this drawer', async () => {
+    setup();
+    await open();
+    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+  });
+
   it('switches to the Leaderboard tab and shows city counts, without touching filter fields', async () => {
     setup();
     await open();
     await userEvent.click(screen.getByText('Leaderboard'));
 
-    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
     const items = screen.getAllByRole('listitem');
     expect(items[0]).toHaveTextContent('Sydney');
+    expect(items[0]).toHaveTextContent('2');
+  });
+
+  it('switches to the Notable tab and shows founded-year list', async () => {
+    setup({
+      startups: [s({ name: 'Old Co', foundedYear: 2004 }), s({ name: 'New Co', foundedYear: 2020 })],
+    });
+    await open();
+    await userEvent.click(screen.getByText('Notable'));
+
+    const items = screen.getAllByRole('listitem');
+    expect(items[0]).toHaveTextContent('Old Co');
+    expect(items[0]).toHaveTextContent('2004');
+  });
+
+  it('switches to the Vouched tab and shows an honest empty state when no startup has a vouch', async () => {
+    setup();
+    await open();
+    await userEvent.click(screen.getByText('Vouched'));
+    expect(screen.getByText('No vouches yet.')).toBeInTheDocument();
+  });
+
+  it('switches to the Vouched tab and shows real vouch counts once data exists', async () => {
+    setup({
+      startups: [s({ name: 'Vouched Co', vouches: [{ name: 'A' }, { name: 'B' }] })],
+    });
+    await open();
+    await userEvent.click(screen.getByText('Vouched'));
+
+    expect(screen.queryByText('No vouches yet.')).not.toBeInTheDocument();
+    const items = screen.getAllByRole('listitem');
+    expect(items[0]).toHaveTextContent('Vouched Co');
     expect(items[0]).toHaveTextContent('2');
   });
 
   it('closes when the toggle is clicked a second time', async () => {
     setup();
     await open();
-    expect(screen.getByPlaceholderText('Company name...')).toBeInTheDocument();
+    expect(screen.getByLabelText('Sector')).toBeInTheDocument();
     await userEvent.click(screen.getByText('☰ Filters'));
-    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
   });
 
   it('closes via the X button', async () => {
     setup();
     await open();
     await userEvent.click(screen.getByLabelText('Close'));
-    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
   });
 
   it('closes via Escape', async () => {
     setup();
     await open();
     await userEvent.keyboard('{Escape}');
-    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
   });
 
   it('closes when clicking outside the panel, but not when clicking inside it', async () => {
     const { container } = setup();
     await open();
     await userEvent.click(container.querySelector('.fdrawer-panel'));
-    expect(screen.getByPlaceholderText('Company name...')).toBeInTheDocument();
+    expect(screen.getByLabelText('Sector')).toBeInTheDocument();
 
     await userEvent.click(container.querySelector('.fdrawer-overlay'));
-    expect(screen.queryByPlaceholderText('Company name...')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Sector')).not.toBeInTheDocument();
   });
 
   it('shows the result count out of total once expanded', async () => {
     setup({ resultCount: 3, total: 60 });
     await open();
     expect(screen.getByText('3 of 60 shown')).toBeInTheDocument();
-  });
-
-  it('calls onChange with the updated search value when typing', async () => {
-    const { onChange } = setup();
-    await open();
-    await userEvent.type(screen.getByPlaceholderText('Company name...'), 'C');
-    expect(onChange).toHaveBeenCalledWith({ ...emptyFilters, search: 'C' });
   });
 
   it('calls onChange with the updated sector when selecting one', async () => {
