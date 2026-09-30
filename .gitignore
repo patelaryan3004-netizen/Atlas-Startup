@@ -5,6 +5,10 @@ coverage/
 *.xlsx
 dev-server.log
 .claude/scheduled_tasks.lock
+.claude/settings.local.json
 
 # Local Netlify folder
 .netlify
+
+# Platform-specific binary the impeccable skill downloads itself on first run
+.claude/skills/impeccable/scripts/bin/
