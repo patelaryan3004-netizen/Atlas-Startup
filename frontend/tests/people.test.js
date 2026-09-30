@@ -15,6 +15,7 @@ vi.mock('../src/curatedLists.js', () => ({
 }));
 
 import { getPersonProfile, PERSON_ROLES } from '../src/people.js';
+import { RELATIONSHIP_TYPES } from '../src/relationships.js';
 
 const startups = [
   { name: 'Canva', website: 'https://www.canva.com', founders: ['Melanie Perkins', 'Cliff Obrecht'] },
@@ -89,5 +90,18 @@ describe('getPersonProfile', () => {
     expect(p.role).toBe('Operator');
     expect(p.notableWork).toBeNull();
     expect(p.link).toBeNull();
+  });
+
+  it('populates relationships from real typed edges (COFOUNDED, since Canva has two founders on file)', () => {
+    const p = getPersonProfile('Melanie Perkins', startups);
+    expect(p.relationships).toEqual([
+      { type: 'COFOUNDED', from: { type: 'Person', id: 'Melanie Perkins' }, to: { type: 'Company', id: 'Canva' } },
+      { type: 'FOUNDED', from: { type: 'Person', id: 'Melanie Perkins' }, to: { type: 'Company', id: 'Second Co' } },
+    ]);
+  });
+
+  it('uses the same relationship-type vocabulary as relationships.js, not a separate ad-hoc list', () => {
+    expect(RELATIONSHIP_TYPES).toContain('FOUNDED');
+    expect(RELATIONSHIP_TYPES).toContain('COFOUNDED');
   });
 });
