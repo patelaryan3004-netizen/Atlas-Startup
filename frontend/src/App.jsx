@@ -116,6 +116,9 @@ export default function App() {
   const unverifiedCount = useMemo(() => startups.filter((s) => !s.verified).length, [startups]);
   const pinnedCount = startups.length - unverifiedCount;
   const trackedStartups = useMemo(() => startups.filter((s) => tracked.has(s.name)), [startups, tracked]);
+  // From the unfiltered set, so this reflects the whole directory - not
+  // whatever map/list filters happen to be active right now.
+  const hiringCount = useMemo(() => allStartups.filter((s) => s.hiring).length, [allStartups]);
 
   const toggleNews = () => {
     setNewsVisible((prev) => {
@@ -141,7 +144,9 @@ export default function App() {
 
         <nav className="nav-center">
           <button className="nav-link" onClick={goExplore}>Explore</button>
-          <button className="nav-link" onClick={() => setShowJobs(true)}>Jobs</button>
+          <button className="nav-link" onClick={() => setShowJobs(true)}>
+            Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
+          </button>
           <button className="nav-link" onClick={() => setShowCuratedLists(true)}>Lists</button>
           <button className="nav-link" onClick={toggleNews}>News</button>
         </nav>
@@ -152,6 +157,7 @@ export default function App() {
           <HeaderMenu
             onExplore={goExplore}
             onShowJobs={() => setShowJobs(true)}
+            hiringCount={hiringCount}
             onShowCuratedLists={() => setShowCuratedLists(true)}
             newsVisible={newsVisible}
             onToggleNews={toggleNews}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { fetchStartups } from '../api.js';
 
 function domainOf(website) {
@@ -32,10 +32,20 @@ function JobCardLogo({ website, name }) {
   );
 }
 
+const EMPTY_JOB_FILTERS = { sector: '', city: '', stage: '' };
+
+// Options are derived from the hiring-now set itself, not the site-wide
+// meta endpoint - every option shown here is guaranteed to match at least
+// one currently-open listing.
+function optionsFrom(jobs, field) {
+  return [...new Set(jobs.map((j) => j[field]).filter(Boolean))].sort();
+}
+
 export default function JobsView({ sectorColors, onClose }) {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [filters, setFilters] = useState(EMPTY_JOB_FILTERS);
 
   useEffect(() => {
     fetchStartups({ hiring: 'yes' })
@@ -44,24 +54,65 @@ export default function JobsView({ sectorColors, onClose }) {
       .finally(() => setLoading(false));
   }, []);
 
+  const sectorOptions = useMemo(() => optionsFrom(jobs, 'sector'), [jobs]);
+  const cityOptions = useMemo(() => optionsFrom(jobs, 'city'), [jobs]);
+  const stageOptions = useMemo(() => optionsFrom(jobs, 'stage'), [jobs]);
+
+  const filteredJobs = useMemo(
+    () => jobs.filter((j) =>
+      (!filters.sector || j.sector === filters.sector)
+      && (!filters.city || j.city === filters.city)
+      && (!filters.stage || j.stage === filters.stage)
+    ),
+    [jobs, filters]
+  );
+  const filtersActive = Object.values(filters).some(Boolean);
+  const set = (key) => (e) => setFilters((prev) => ({ ...prev, [key]: e.target.value }));
+
   return (
     <div id="jobsView">
       <header className="jobs-header">
-        <h1>
-          Jobs <span className="beta-tag">{jobs.length}</span>
-        </h1>
+        <div>
+          <h1>Startup jobs in Australia</h1>
+          {!loading && !error && <p className="jobs-subhead">{jobs.length} {jobs.length === 1 ? 'company is' : 'companies are'} hiring now</p>}
+        </div>
         <button className="hdrbtn" onClick={onClose}>← Back to map</button>
       </header>
 
       <div className="jobs-body">
         {loading && <p className="modal-sub">Loading…</p>}
         {error && <p className="form-error">{error}</p>}
+
+        {!loading && !error && jobs.length > 0 && (
+          <div className="jobs-filters">
+            <select value={filters.sector} onChange={set('sector')} aria-label="Filter by industry">
+              <option value="">All industries</option>
+              {sectorOptions.map((v) => <option key={v} value={v}>{v}</option>)}
+            </select>
+            <select value={filters.city} onChange={set('city')} aria-label="Filter by location">
+              <option value="">All locations</option>
+              {cityOptions.map((v) => <option key={v} value={v}>{v}</option>)}
+            </select>
+            <select value={filters.stage} onChange={set('stage')} aria-label="Filter by startup stage">
+              <option value="">All stages</option>
+              {stageOptions.map((v) => <option key={v} value={v}>{v}</option>)}
+            </select>
+            {filtersActive && (
+              <button className="linkbtn" onClick={() => setFilters(EMPTY_JOB_FILTERS)}>Clear filters</button>
+            )}
+            {filtersActive && <span className="jobs-filter-count">{filteredJobs.length} match your filters</span>}
+          </div>
+        )}
+
         {!loading && !error && jobs.length === 0 && (
           <p className="modal-sub">No companies are marked as hiring right now.</p>
         )}
+        {!loading && !error && jobs.length > 0 && filteredJobs.length === 0 && (
+          <p className="modal-sub">No open roles match those filters.</p>
+        )}
 
         <div className="jobs-grid">
-          {jobs.map((s) => (
+          {filteredJobs.map((s) => (
             <div className="job-card" key={s.name}>
               <div className="job-card-top">
                 <JobCardLogo website={s.website} name={s.name} />
@@ -84,7 +135,11 @@ export default function JobsView({ sectorColors, onClose }) {
                 ) : (
                   <span className="taskgate-badge taskgate-locked">NO GATE</span>
                 )}
-                <button className="taskbtn">{s.taskGate?.enabled ? 'Start task → Apply' : 'Apply now'}</button>
+                {s.website && (
+                  <a className="taskbtn" href={s.website} target="_blank" rel="noopener noreferrer">
+                    {s.taskGate?.enabled ? 'Start task → Apply' : 'Apply now'}
+                  </a>
+                )}
               </div>
             </div>
           ))}

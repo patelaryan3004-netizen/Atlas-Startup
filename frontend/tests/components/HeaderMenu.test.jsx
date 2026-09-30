@@ -18,7 +18,7 @@ function setup(overrides = {}) {
     ...overrides,
   };
   const result = render(<HeaderMenu {...props} />);
-  return { ...props, container: result.container };
+  return { ...props, container: result.container, unmount: result.unmount };
 }
 
 describe('HeaderMenu', () => {
@@ -39,6 +39,17 @@ describe('HeaderMenu', () => {
     expect(screen.getByText('Join waitlist')).toBeInTheDocument();
     expect(screen.getByText('Unconfirmed (3)')).toBeInTheDocument();
     expect(screen.getByText('★ Tracked (2)')).toBeInTheDocument();
+  });
+
+  it('shows a subtle hiring-count hint on the Jobs item when given one, omitting it otherwise', async () => {
+    const { unmount } = setup({ hiringCount: 5 });
+    await userEvent.click(screen.getByLabelText('Menu'));
+    expect(screen.getByText('Jobs', { exact: false })).toHaveTextContent('Jobs · 5 hiring now');
+    unmount();
+
+    setup({ hiringCount: 0 });
+    await userEvent.click(screen.getByLabelText('Menu'));
+    expect(screen.getByText('Jobs').textContent).toBe('Jobs');
   });
 
   it('shows "News" instead of "Hide news" when news is already hidden', async () => {

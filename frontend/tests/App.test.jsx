@@ -86,6 +86,20 @@ describe('App', () => {
     expect(fetchStartups).toHaveBeenCalledWith({ search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' });
   });
 
+  it('shows a subtle hiring-count hint on the Jobs nav link, reflecting the whole directory not just current filters', async () => {
+    render(<App />);
+    const jobsButton = await screen.findByRole('button', { name: /^Jobs/ });
+    expect(jobsButton).toHaveTextContent('Jobs · 2 hiring now');
+  });
+
+  it('omits the hiring hint entirely when nobody is hiring, rather than showing "0 hiring now"', async () => {
+    fetchStartups.mockResolvedValue({ total: 1, count: 1, results: [startup('Canva', { hiring: false })] });
+    render(<App />);
+    const jobsButton = await screen.findByRole('button', { name: /^Jobs/ });
+    expect(jobsButton).toHaveTextContent('Jobs');
+    expect(jobsButton.textContent).toBe('Jobs');
+  });
+
   it('shows a pinned-count on the List tab, and switches the main canvas from map to list view', async () => {
     render(<App />);
     await screen.findByText('(2)', { selector: '.bc-pinned' });
@@ -232,7 +246,7 @@ describe('App', () => {
     render(<App />);
     expect(screen.getByTestId('map-view')).toBeInTheDocument();
 
-    await userEvent.click(screen.getByText('Jobs'));
+    await userEvent.click(screen.getByRole('button', { name: /^Jobs/ }));
     expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
     expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
 
