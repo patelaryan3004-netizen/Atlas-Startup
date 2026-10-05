@@ -39,6 +39,7 @@ import {
   AU_STATES, COMPANY_STATUSES, HIRING_STATUSES, EMPLOYEE_RANGES,
   ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum, slugify,
 } from './company.js';
+import { sameAddress } from './identity.js';
 
 export const CONFIDENCE_LEVELS = ['high', 'medium', 'low'];
 export const EVIDENCE_STATUSES = ['active', 'rejected', 'superseded'];
@@ -98,7 +99,8 @@ function urlKey(v) {
 
 // Field-aware equality: URLs ignore scheme, www, query and a trailing slash;
 // text ignores case and spacing; money compares amounts, and currencies only
-// when both sides state one.
+// when both sides state one; addresses are the same place however the unit, level
+// and suburb are written (see sameAddress).
 export function valuesEqual(field, a, b) {
   if (a == null || b == null) return a == null && b == null;
   switch (EVIDENCE_FIELDS[field]?.type) {
@@ -106,7 +108,10 @@ export function valuesEqual(field, a, b) {
     case 'money': return a.amount === b.amount && (a.currency == null || b.currency == null || a.currency === b.currency);
     case 'year': return Number(a) === Number(b);
     case 'state': return String(a).toUpperCase() === String(b).toUpperCase();
-    default: return field === 'city' ? cityKey(a) === cityKey(b) : textKey(a) === textKey(b);
+    default:
+      if (field === 'city') return cityKey(a) === cityKey(b);
+      if (field === 'address') return sameAddress(a, b);
+      return textKey(a) === textKey(b);
   }
 }
 

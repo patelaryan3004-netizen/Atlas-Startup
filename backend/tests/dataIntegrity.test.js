@@ -9,6 +9,7 @@ import {
 import { ADDED_FIELDS, LEGACY_FIELDS } from '../src/models/company.js';
 import { detectConflicts, findWeakEvidence, flattenEvidence, EVIDENCE_FIELDS } from '../src/models/evidence.js';
 import { auditDataset, ATTRIBUTES } from '../src/models/audit.js';
+import { companyConfidence } from '../src/models/confidence.js';
 
 const DATA_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data');
 const deepFreeze = (o) => {
@@ -54,8 +55,13 @@ describe('shipped data files', () => {
     }
   });
 
-  it('records no confidence score until a verification pipeline exists to compute one', () => {
-    expect(ds.companies.every((c) => c.confidence_score === null)).toBe(true);
+  // The score is derived from evidence (confidence.js), so a company nobody has checked has none.
+  it('scores only companies that have evidence, and only as the evidence says', () => {
+    for (const c of ds.companies) {
+      const rows = ds.evidence.filter((e) => e.company_id === c.id && e.status === 'active');
+      if (rows.length === 0) expect(c.confidence_score, `${c.name} has no evidence`).toBeNull();
+      else expect(c.confidence_score, c.name).toBe(companyConfidence(c, rows));
+    }
   });
 
   it('only claims a verification date for records that cite sources', () => {

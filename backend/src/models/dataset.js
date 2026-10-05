@@ -23,6 +23,9 @@
 //                          posted_at, apply_url, status, source_id, retrieved_at }
 //   news.json            many-to-many, company_ids[]
 //                        { id, headline, url, publisher, published_at, company_ids[], source_id }
+//   audit_trail.json     append-only record of every decision made about the data (auditTrail.js)
+//   enrichment_queue.json  work waiting to read companies' own websites (enrichmentQueue.js)
+//   import_runs.json     one row per run of the discovery engine (importRuns.js)
 //
 // Each collection maps one-to-one onto a table, and every id is a stable string,
 // so a later move to a real database is a load step, not a redesign.
@@ -37,6 +40,10 @@ import {
 import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
 import { validateIdentifiers } from './identifiers.js';
 import { validateCandidates } from './candidate.js';
+import { validateAuditTrail } from './auditTrail.js';
+import { validateEnrichmentQueue } from './enrichmentQueue.js';
+import { validateImportRuns } from './importRuns.js';
+import { syncConfidence } from './confidence.js';
 
 export { SOURCE_KINDS };
 
@@ -51,6 +58,10 @@ export const COLLECTION_FILES = {
   funding_rounds: 'funding_rounds.json',
   jobs: 'jobs.json',
   news: 'news.json',
+  // Internal records of the pipeline's own work. No route serves any of them.
+  audit_trail: 'audit_trail.json',
+  enrichment_queue: 'enrichment_queue.json',
+  import_runs: 'import_runs.json',
 };
 
 export const JOB_STATUSES = ['open', 'closed'];
@@ -79,7 +90,7 @@ export function parseRaw(raw) {
   return ds;
 }
 
-export const serializeCollection = (rows) => `${JSON.stringify(rows, null, 2)}\n`;
+export const serializeCollection = (rows) => `${JSON.stringify(rows ?? [], null, 2)}\n`;
 
 export function serializeDataset(ds) {
   return Object.fromEntries(
@@ -231,8 +242,14 @@ export function migrateDataset(input) {
     }
   }
 
+  // Also derived from the evidence: how far the facts the record states are backed (confidence.js).
+  syncConfidence(companies, evidence);
+
   assertLegacyPreserved(legacy, companies);
-  return { ...input, companies, people, investors, evidence, identifiers, candidates };
+  return {
+    ...input, companies, people, investors, evidence, identifiers, candidates,
+    audit_trail: input.audit_trail ?? [], enrichment_queue: input.enrichment_queue ?? [], import_runs: input.import_runs ?? [],
+  };
 }
 
 // Qualifier/compound names and prefix near-duplicates, for a human to review.
@@ -385,7 +402,10 @@ export function validateDataset(ds) {
     if (n.source_id != null && !sources.has(n.source_id)) bad(at, `unknown source id "${n.source_id}"`);
   }
 
-  errors.push(...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds));
+  errors.push(
+    ...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds),
+    ...validateAuditTrail(ds), ...validateEnrichmentQueue(ds), ...validateImportRuns(ds),
+  );
   return errors;
 }
 

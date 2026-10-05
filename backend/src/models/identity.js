@@ -203,6 +203,34 @@ export function normalizeAddress(address) {
   return words.join(' ');
 }
 
+const STREET_TYPES = new Set(['street', 'road', 'avenue', 'lane', 'place', 'parade', 'drive', 'court', 'boulevard', 'highway', 'terrace', 'crescent', 'square', 'way', 'close', 'circuit', 'esplanade']);
+
+// Where an address is, as far as two writings of it can be compared: the street number and name, and the
+// postcode. Unit, level and suburb words are how people write the same place differently, so they are left
+// out: "Level 8, 10-14 Waterloo Street, Surry Hills NSW 2010", "10-14 Waterloo St, Surry Hills NSW 2010" and
+// "8/4 Martin Place" / "Level 8, 4 Martin Place" are each one place. { street, postcode } or null when no
+// street can be found.
+export function addressParts(address) {
+  const words = stripAccents(address ?? '').toLowerCase()
+    // "Level 8, " / "Suite 1.103/" / "Unit 12, ": a unit word and its number, when a street number follows
+    .replace(/\b(?:level|lvl|suite|ste|unit|floor|fl|shop)\s*[\w.-]+\s*[,/-]?\s*(?=\d)/g, ' ')
+    // "8/4 Martin Place" and "1.103/477": the number before the slash is a unit
+    .replace(/\b\d+(?:\.\d+)?[a-z]?\s*\/\s*(?=\d)/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean).map((w) => STREET_WORDS[w] ?? w);
+  const at = words.findIndex((w, i) => i >= 1 && STREET_TYPES.has(w));
+  if (at < 0) return null;
+  const postcode = [...words.slice(at + 1)].reverse().find((w) => /^\d{4}$/.test(w)) ?? null;
+  return { street: words.slice(0, at + 1).join(' '), postcode };
+}
+
+// The same place? Streets must agree, and postcodes too unless one side does not give one.
+export function sameAddress(a, b) {
+  const x = addressParts(a);
+  const y = addressParts(b);
+  if (!x || !y) return normalizeAddress(a) === normalizeAddress(b);
+  return x.street === y.street && (x.postcode == null || y.postcode == null || x.postcode === y.postcode);
+}
+
 export function cityKey(city) {
   const s = stripAccents(city ?? '').toLowerCase().replace(/\s*\([^)]*\)/g, '').replace(/[^a-z\s]/g, ' ').replace(/\s+/g, ' ').trim();
   return !s || s === 'unknown' ? null : s;

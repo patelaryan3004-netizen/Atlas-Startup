@@ -189,6 +189,61 @@ describe('a person deciding', () => {
   });
 });
 
+describe('the record of what was done', () => {
+  const trail = async () => JSON.parse(await readFile(path.join(dir, 'audit_trail.json'), 'utf-8'));
+  const runs = async () => JSON.parse(await readFile(path.join(dir, 'import_runs.json'), 'utf-8'));
+
+  it('leaves exactly one audit row for each decision, with who made it, through which door, and why', async () => {
+    await runWith([ZORBLY, lead({ key: 'x', name: 'Xylo Labs', website: 'xylo.com.au' })]);
+    const after = async (argv) => { const n = (await trail()).length; await cli(argv); const rows = await trail(); expect(rows.length, argv.join(' ')).toBe(n + 1); return rows[rows.length - 1]; };
+    expect(await after(['approve', 'cand-zorbly', '--by', 'Me', '--note', 'Real company.'])).toMatchObject({
+      actor: 'Me', role: 'cli', via: 'cli', action: 'candidate.approve', target: { type: 'candidate', id: 'cand-zorbly' }, reason: 'Real company.', summary: 'Approved Zorbly',
+    });
+    expect(await after(['publish', 'cand-zorbly', '--by', 'Me'])).toMatchObject({ action: 'candidate.publish', target: { id: 'cand-zorbly' } });
+    expect(await after(['reject', 'cand-xylo-labs', '--by', 'Me', '--reason', 'Not a startup.'])).toMatchObject({ action: 'candidate.reject', reason: 'Not a startup.' });
+    expect(await after(['reopen', 'cand-xylo-labs', '--by', 'Me'])).toMatchObject({ action: 'candidate.reopen' });
+    expect(await after(['rename', 'leonardo-ai', '--to', 'Leonardo Studio', '--by', 'Me', '--reason', 'Rebrand'])).toMatchObject({
+      action: 'company.rename', target: { type: 'company', id: 'leonardo-ai' }, changes: [{ field: 'name', from: 'Leonardo AI', to: 'Leonardo Studio' }],
+    });
+  });
+
+  it('writes no audit row for a decision that was refused', async () => {
+    await runWith([ZORBLY]);
+    const before = await trail();
+    await expect(cli(['publish', 'cand-zorbly', '--by', 'Me'])).rejects.toThrow();
+    expect(await trail()).toEqual(before);
+  });
+
+  it('records each run: when, what each source did, what it found, and who ran it', async () => {
+    await cli(['run', '--by', 'Me'], { sources: [fakeSource({ leads: [ZORBLY] }), fakeSource({ id: 'broken', fail: new Error('feed gone') })] });
+    const [row] = await runs();
+    expect(row).toMatchObject({
+      trigger: 'cli', by: 'Me', status: 'partial', dry_run: false, totals: { new: 1 },
+      sources: [{ id: 'test.feed', leads: 1, error: null }, { id: 'broken', leads: 0, error: 'feed gone' }],
+    });
+    expect((await trail()).at(-1)).toMatchObject({ action: 'import.run', actor: 'Me', target: { type: 'import_run', id: row.id } });
+    expect((await trail()).at(-1).summary).toMatch(/1 new candidate\(s\).*1 source\(s\) failed/);
+  });
+
+  it('records nothing for a dry run', async () => {
+    await runWith([ZORBLY], ['run', '--dry-run']);
+    expect(await runs()).toEqual([]);
+    expect(await trail()).toEqual([]);
+  });
+});
+
+describe('not writing over a change made while a command ran', () => {
+  it('refuses to save a run when the data files changed underneath it, and keeps the other change', async () => {
+    const changeMeanwhile = {
+      id: 'test.feed', kind: 'press', region: 'AU', licenseBasis: 'public_feed', license: { basis: 'public_feed' },
+      async discover() { await writeFiles(dir, { 'news.json': '[ ]\n' }); return [ZORBLY]; },
+    };
+    await expect(cli(['run'], { sources: [changeMeanwhile] })).rejects.toThrow(/changed while this was running \(news\.json\)/);
+    expect(await candidates()).toEqual([]);
+    expect(await readFile(path.join(dir, 'news.json'), 'utf-8')).toBe('[ ]\n');
+  });
+});
+
 describe('the plain-text views', () => {
   it('renders a run report, the queue and a candidate', async () => {
     const { fetcher } = fetcherFor(routes);

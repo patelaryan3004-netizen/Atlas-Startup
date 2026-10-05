@@ -143,20 +143,24 @@ export function createEngine({ work, fetcher, now = Date.now, fetchImpl, options
   // A website is read for a new company when enrichment is on, and for any candidate a
   // person asks about. Reading it can change the answer to "have we seen this
   // company?", so identity is checked again afterwards.
-  async function settle(candidate, { text = '', phones = 0, forceEnrich = false, allowReject = true } = {}) {
+  // prefetched: a website read done elsewhere (the enrichment queue reads outside a data transaction and
+  // applies the result inside one). keepApproved: an approved candidate stays approved while it is still a
+  // clean new company; if the read shows it is not, it goes back to review like any other.
+  async function settle(candidate, { text = '', phones = 0, forceEnrich = false, allowReject = true, prefetched = null, keepApproved = false } = {}) {
     let c = { ...candidate, ...resolveCandidate(candidate, index) };
     c = assess(c, { text, phones });
     const gated = (x) => allowReject && x.resolution === OUTCOMES.NEW && (x.australian?.verdict === 'no' || x.startup?.verdict === 'no');
     // The relevance gates come before enrichment: a company that already looks foreign or
     // not a startup is not worth reading the website of.
-    const wanted = forceEnrich || (opts.enrich && c.resolution === OUTCOMES.NEW && !enriched(c));
+    const wanted = prefetched || forceEnrich || (opts.enrich && c.resolution === OUTCOMES.NEW && !enriched(c));
     if (wanted && c.website && !gated(c)) {
-      const result = await enrichFromWebsite(c.website, { fetcher, now, candidateNames: [c.name, ...c.aliases] });
+      const result = prefetched ?? await enrichFromWebsite(c.website, { fetcher, now, candidateNames: [c.name, ...c.aliases] });
       c = mergeEnrichment(c, result);
       c = assess(c, { text, phones: result.signals.phones });
       c = { ...c, ...resolveCandidate(c, index) };
     }
     c = { ...c, confidence: scoreCandidate(c) };
+    if (keepApproved && c.status === 'approved' && c.resolution === OUTCOMES.NEW) return c;
     return route(c, { allowReject });
   }
 
@@ -257,7 +261,17 @@ export function createEngine({ work, fetcher, now = Date.now, fetchImpl, options
     return afterRoute(await settle(c, { forceEnrich: true, allowReject: false }), 'review');
   }
 
-  return { run, enrichCandidate, report, index };
+  // Applies a website read that was done elsewhere to a candidate: the same merge, identity check, scoring
+  // and routing as enrichCandidate, without the network. Allowed while the candidate is waiting for review
+  // or approved (a newly approved candidate is enriched before it is published, so the evidence goes with it).
+  async function enrichCandidateWith(id, result) {
+    const existing = work.candidates.find((c) => c.id === id);
+    if (!existing) throw new Error(`no candidate "${id}"`);
+    if (!['needs_review', 'matched', 'approved'].includes(existing.status)) throw new Error(`candidate ${id} is ${existing.status}: it can no longer be enriched`);
+    return afterRoute(await settle({ ...existing }, { prefetched: result, allowReject: false, keepApproved: true }), 'queue');
+  }
+
+  return { run, enrichCandidate, enrichCandidateWith, report, index };
 }
 
 export async function runDiscovery({ ds, sources, fetcher, now = Date.now, fetchImpl, options = {} }) {

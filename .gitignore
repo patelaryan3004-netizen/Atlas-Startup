@@ -12,3 +12,8 @@ dev-server.log
 
 # Platform-specific binary the impeccable skill downloads itself on first run
 .claude/skills/impeccable/scripts/bin/
+
+# The data-write lock (briefly present while something is writing the data files) and the Command Center's
+# local credentials and security log
+.data.lock
+backend/.admin/

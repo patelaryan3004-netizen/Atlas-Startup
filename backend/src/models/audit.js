@@ -139,7 +139,7 @@ export function websiteProblems(value) {
   return problems;
 }
 
-const inAustralia = (lat, lng) => lat >= AU_BBOX.latMin && lat <= AU_BBOX.latMax && lng >= AU_BBOX.lngMin && lng <= AU_BBOX.lngMax;
+export const inAustralia = (lat, lng) => lat >= AU_BBOX.latMin && lat <= AU_BBOX.latMax && lng >= AU_BBOX.lngMin && lng <= AU_BBOX.lngMax;
 const normLabel = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
 const nameKey = (name) => normLabel(String(name).replace(/\s*\([^)]*\)/g, ''));
 

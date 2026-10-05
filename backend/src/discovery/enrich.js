@@ -11,7 +11,7 @@
 // explanation than a company that has two names.
 import { AU_STATES, KNOWN_CITIES } from '../models/company.js';
 import {
-  canonicalDomain, registrableDomain, nameKey, looseNameKey, similarity, normalizeABN, normalizeACN,
+  canonicalDomain, registrableDomain, nameKey, looseNameKey, similarity, normalizeABN, normalizeACN, personKey,
 } from '../models/identity.js';
 import { FetchPolicyError } from './http.js';
 import { stripTags, metaContent, titleOf, jsonLd, typesOf, links } from './html.js';
@@ -58,9 +58,78 @@ export function legalNamesIn(text) {
 // A homepage title is a name only if it looks like one. "Trendspek | Home" names the
 // company; "Quality, online, social learning for Health Professionals" is a tagline.
 export const looksLikeName = (s) => typeof s === 'string' && s.trim().split(/\s+/).length <= 4 && !/[,:;]/.test(s) && /^[A-Z0-9]/.test(s.trim());
-const PAGE_PRIORITY = [/privacy/i, /terms|legal/i, /contact/i, /about|company|team/i];
+// The pages worth reading, and the fields each one tends to answer. A task that wants an address reads the
+// privacy policy, terms and contact page first; one that wants founders reads the about page. With no
+// wish stated, the original order is kept and the careers page is not read.
+const PAGES = [
+  { re: /privacy/i, serves: ['address', 'city', 'state'] },
+  { re: /terms|legal/i, serves: ['address', 'city', 'state'] },
+  { re: /contact/i, serves: ['address', 'city', 'state'] },
+  { re: /about|company|team|our-story/i, serves: ['founders', 'founded_year', 'investors', 'description'] },
+  { re: /careers?|jobs|join-?us|work-?with-?us|vacanc|we.?re-?hiring/i, serves: ['hiring_status', 'jobs'] },
+];
 
 const unique = (list) => [...new Set(list)];
+
+// What a page says when it is not showing its own content: a bot gate, an error, a parked domain. A site
+// that serves this to an automated reader is declining to be read, so nothing is taken from it, and it is
+// not worked around.
+const NOT_ITS_OWN_PAGE = /\b(?:unsupported (?:client|browser)|enable javascript|javascript is (?:disabled|required)|access denied|attention required|just a moment|checking your browser|request blocked|you have been blocked|page not found|404 not found|403 forbidden|under construction|coming soon|domain (?:is )?for sale|this domain (?:is|may be))\b/i;
+export const isGatePage = (s) => typeof s === 'string' && NOT_ITS_OWN_PAGE.test(s);
+
+// ---------- people, and job postings, as a page states them ----------
+
+// "founded by Jane Doe and John Roe": a sentence on the company's own page, so medium confidence at
+// best. A name is two or three capitalised words; "Jane Doe, CEO" gives Jane Doe and drops "CEO".
+const NAME_PART = "[A-Z](?:[a-z]+|['’][A-Z][a-z]+)(?:['’-][A-Z]?[a-z]+)*"; // Jane, Li, O'Neil, Smith-Jones
+const PERSON = `${NAME_PART}(?:\\s+${NAME_PART}){1,2}`;
+// A title may follow a name ("Jane Doe, CEO, and John Roe"). The verb is matched in either case by hand,
+// because the names must stay case-sensitive: "founded by two former engineers" names nobody.
+const TITLE = '(?:,?\\s*(?:CEO|CTO|COO|CFO|CPO|[Cc]o-?[Ff]ounder|[Ff]ounder))?';
+const SEPARATOR = '\\s*(?:,\\s*(?:and\\b|&)|,|\\band\\b|&)\\s*'; // ", " or " and " or ", and " or " & "
+const FOUNDED_BY = new RegExp(`\\b(?:[Cc]o-?[Ff]ounded|[Ff]ounded|[Ss]tarted|[Cc]reated)\\s+by\\s+(${PERSON}${TITLE}(?:${SEPARATOR}${PERSON}${TITLE})*)`, 'g');
+const NOT_A_PERSON = /\b(?:capital|ventures?|group|holdings|labs?|pty|ltd|limited|inc|university|institute|foundation|partners|studio|studios)\b/i;
+// Each name comes with the words it was read from, so a person can check it at a glance.
+export function foundersInText(text) {
+  const found = new Map();
+  for (const m of text.matchAll(FOUNDED_BY)) {
+    for (const part of m[1].split(/\s*(?:,|\band\b|&)\s*/)) {
+      const name = part.trim();
+      if (name && personKey(name) && !NOT_A_PERSON.test(name) && !found.has(name)) found.set(name, m[0].slice(0, 160));
+    }
+  }
+  return [...found].map(([name, fragment]) => ({ name, fragment }));
+}
+
+const asText = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
+const placeOf = (loc) => {
+  const a = [].concat(loc ?? []).find((x) => x && typeof x === 'object')?.address;
+  if (!a || typeof a !== 'object') return null;
+  const parts = [asText(a.addressLocality), asText(a.addressRegion)].filter(Boolean);
+  return parts.length ? parts.join(', ') : null;
+};
+
+// schema.org JobPosting nodes, as job rows. Only structured data counts: a page that merely says "we're
+// hiring" is not a posting. Needs a title; a posting for another organisation is left out.
+export function jobPostingsIn(nodes, pageUrl, companyNames = []) {
+  const out = [];
+  for (const n of nodes.filter((x) => typesOf(x).some((t) => /^JobPosting$/i.test(t)))) {
+    const title = asText(n.title);
+    if (!title) continue;
+    const org = asText(typeof n.hiringOrganization === 'string' ? n.hiringOrganization : n.hiringOrganization?.name);
+    if (org && companyNames.length && !companyNames.some((c) => { const a = nameKey(c); const b = nameKey(org); return a && b && (a === b || a.startsWith(b) || b.startsWith(a) || similarity(a, b) >= 0.8); })) continue;
+    const url = asText(n.url);
+    out.push({
+      title: title.slice(0, 120),
+      location: placeOf(n.jobLocation) ?? (/telecommute/i.test(String(n.jobLocationType ?? '')) ? 'Remote' : null),
+      employment_type: asText([].concat(n.employmentType ?? [])[0]),
+      remote: /telecommute/i.test(String(n.jobLocationType ?? '')) ? true : null,
+      posted_at: /^\d{4}-\d{2}-\d{2}/.test(String(n.datePosted ?? '')) ? String(n.datePosted).slice(0, 10) : null,
+      apply_url: url && /^https?:\/\//i.test(url) ? url : pageUrl,
+    });
+  }
+  return out;
+}
 const first = (...vals) => vals.find((v) => typeof v === 'string' && v.trim()) ?? null;
 
 function jsonLdFacts(nodes) {
@@ -100,7 +169,8 @@ export function extractFacts(html, { home = true } = {}) {
   // Visible text is the body: the title is not part of the sentence that follows it.
   const body = /<body\b[^>]*>([\s\S]*)<\/body>/i.exec(html)?.[1] ?? String(html ?? '').replace(/<head\b[\s\S]*?<\/head>/i, ' ');
   const text = stripTags(body);
-  const ld = jsonLdFacts(jsonLd(html));
+  const nodes = jsonLd(html);
+  const ld = jsonLdFacts(nodes);
   const title = titleOf(html);
   const siteName = metaContent(html, 'og:site_name');
   const description = first(ld.description, metaContent(html, 'description'), metaContent(html, 'og:description'));
@@ -129,6 +199,9 @@ export function extractFacts(html, { home = true } = {}) {
     phones: (text.match(AU_PHONE) ?? []).length,
     foundedYear: ld.foundingYear ?? (textYear ? Number(textYear[1]) : null), foundedFrom: ld.foundingYear ? 'structured' : 'text',
     founders: ld.founders,
+    // What a company's own page says in a sentence, not in structured data.
+    textFounders: foundersInText(text),
+    nodes, text,
   };
 }
 
@@ -157,15 +230,18 @@ export function pageMatchesName(candidateNames, facts, domain) {
   return false;
 }
 
-function pickPages(html, baseUrl, limit) {
+// The links on a homepage worth reading, up to limit, for the fields wanted. Same site only; never a file.
+export function pickPages(html, baseUrl, limit, wanted = null) {
   const base = canonicalDomain(baseUrl);
   const found = links(html, baseUrl).filter((l) => {
     const d = canonicalDomain(l.href);
     return d && !d.nonCompany && base && d.domain === base.domain && !/\.(?:pdf|png|jpe?g|gif|svg|zip|docx?)$/i.test(l.href);
   });
+  const serving = (p) => p.serves.filter((f) => wanted.includes(f)).length;
+  const order = wanted ? [...PAGES].sort((a, b) => serving(b) - serving(a)) : PAGES.slice(0, 4);
   const chosen = [];
-  for (const pattern of PAGE_PRIORITY) {
-    const hit = found.find((l) => (pattern.test(new URL(l.href).pathname) || pattern.test(l.text)) && !chosen.includes(l.href));
+  for (const { re } of order) {
+    const hit = found.find((l) => (re.test(new URL(l.href).pathname) || re.test(l.text)) && !chosen.includes(l.href));
     if (hit) chosen.push(hit.href);
     if (chosen.length >= limit) break;
   }
@@ -174,34 +250,69 @@ function pickPages(html, baseUrl, limit) {
 
 const isDocument = (url) => /privacy|terms|legal/i.test(new URL(url).pathname);
 
-// Reads up to maxPages of the candidate's site. Never throws for a refusal: it
-// records it in `errors` and returns what it could read.
-export async function enrichFromWebsite(website, { fetcher, now, candidateNames = [], maxPages = 3 }) {
-  const result = { pages: [], evidence: [], facts: null, aliases: [], legalNames: [], external_ids: { abn: null, acn: null }, signals: { phones: 0 }, warnings: [], errors: [] };
+// A page as the source of a claim, with when it was read.
+export function sourceOf(page, f, domain, retrieved, note = 'Read by the discovery engine.') {
+  return {
+    kind: isDocument(page.finalUrl) ? 'company_document' : 'company_website', url: page.finalUrl, title: f.title ?? page.finalUrl,
+    publisher: f.legalNames[0] ?? f.siteName ?? domain.host, retrieved_at: retrieved, note,
+  };
+}
+
+// The network step: reads the homepage and up to maxPages - 1 pages it links to, through the compliant
+// fetcher. Never throws for a refusal: it records it in `errors` and returns what it could read. `wanted`
+// (fields a task asks for) chooses which linked pages are worth reading. This is the only part that waits
+// on the network, so a caller can do it outside a data transaction and apply the result inside one.
+export async function readSite(website, { fetcher, now = Date.now, maxPages = 3, wanted = null }) {
+  const site = { domain: null, pages: [], errors: [], retrieved_at: null };
   const domain = canonicalDomain(website);
-  if (!domain || domain.nonCompany) { result.errors.push({ url: website, code: 'bad_url', message: 'not a company website' }); return result; }
+  if (!domain || domain.nonCompany) { site.errors.push({ url: website, code: 'bad_url', message: 'not a company website' }); return site; }
+  site.domain = domain;
 
   const read = async (url) => {
     try {
       const res = await fetcher.get(url);
-      result.pages.push({ url: res.finalUrl, status: res.status });
+      site.pages.push({ url: res.url, finalUrl: res.finalUrl, status: res.status, html: res.text });
       return res;
     } catch (err) {
       if (!(err instanceof FetchPolicyError)) throw err;
-      result.errors.push({ url, code: err.code, message: err.message });
+      site.errors.push({ url, code: err.code, message: err.message });
       return null;
     }
   };
 
   const home = await read(`https://${domain.host}/`);
-  if (!home) return result;
-  const pages = [{ res: home, html: home.text }];
-  for (const url of pickPages(home.text, home.finalUrl, maxPages - 1)) {
-    const res = await read(url);
-    if (res) pages.push({ res, html: res.text });
-  }
+  if (!home) return site;
+  for (const url of pickPages(home.text, home.finalUrl, maxPages - 1, wanted)) await read(url);
+  site.retrieved_at = new Date(now()).toISOString();
+  return site;
+}
 
-  const facts = pages.map(({ res, html }, i) => ({ res, facts: extractFacts(html, { home: i === 0 }), html }));
+// Reads up to maxPages of a candidate's site and says what it states. See readSite and analyzeSite.
+export async function enrichFromWebsite(website, { fetcher, now = Date.now, candidateNames = [], maxPages = 3, wanted = null }) {
+  return analyzeSite(await readSite(website, { fetcher, now, maxPages, wanted }), { candidateNames, now });
+}
+
+// The analysis step: pure. What a site that has been read says about the company, as evidence with its
+// source, or a warning and nothing else if it does not look like this company's site.
+export function analyzeSite(site, { candidateNames = [], now = Date.now } = {}) {
+  const result = {
+    pages: site.pages.map((p) => ({ url: p.finalUrl, status: p.status })), evidence: [], facts: null, aliases: [], legalNames: [],
+    external_ids: { abn: null, acn: null }, signals: { phones: 0 }, warnings: [], errors: [...site.errors], pageFacts: [],
+    retrieved_at: site.retrieved_at,
+  };
+  const { domain } = site;
+  if (!domain || site.pages.length === 0) return result;
+
+  const facts = site.pages.map((page, i) => ({ res: page, facts: extractFacts(page.html, { home: i === 0 }), html: page.html }));
+  const home = site.pages[0];
+  result.pageFacts = facts.map(({ res, facts: f }) => ({ page: res, facts: f }));
+  // The title decides: a real page with a poor meta description is still a real page.
+  const gate = [facts[0].facts.title].find(isGatePage);
+  if (gate) {
+    result.warnings.push(`the website at ${domain.host} served a page that is not its own content ("${gate.slice(0, 80)}"): it may be refusing automated readers, so nothing was recorded from it`);
+    result.blocked = true;
+    return result;
+  }
   const combined = {
     names: unique(facts.flatMap((f) => f.facts.names)), legalNames: unique(facts.flatMap((f) => f.facts.legalNames)), titleName: facts[0].facts.titleName,
   };
@@ -209,14 +320,12 @@ export async function enrichFromWebsite(website, { fetcher, now, candidateNames 
     const called = [...combined.names, ...(looksLikeName(combined.titleName) ? [combined.titleName] : [])];
     result.warnings.push(`the website at ${domain.host} does not appear to be ${candidateNames[0] ?? 'this company'}: it calls itself ${called.slice(0, 2).join(' / ') || 'nothing we could read'}`);
     result.facts = { names: combined.names };
+    result.mismatch = true;
     return result;
   }
 
-  const retrieved = new Date(now()).toISOString();
-  const sourceFor = (res, f) => ({
-    kind: isDocument(res.finalUrl) ? 'company_document' : 'company_website', url: res.finalUrl, title: f.title ?? res.finalUrl,
-    publisher: f.legalNames[0] ?? f.siteName ?? domain.host, retrieved_at: retrieved, note: 'Read by the discovery engine.',
-  });
+  const retrieved = site.retrieved_at ?? new Date(now()).toISOString();
+  const sourceFor = (res, f) => sourceOf(res, f, domain, retrieved);
   const add = (field, value, confidence, note, res, f) => result.evidence.push({
     field, value, confidence, verified_at: confidence === 'high' ? retrieved : null, note, source: sourceFor(res, f),
   });
@@ -225,7 +334,7 @@ export async function enrichFromWebsite(website, { fetcher, now, candidateNames 
   for (const [i, { res, facts: f }] of facts.entries()) {
     // A description is what the homepage says about the company; an inner page's is about the page.
     // A one-word placeholder ("Home", "Welcome") is not a description.
-    if (i === 0 && f.description && f.description.trim().split(/\s+/).length >= 3) add('description', f.description.slice(0, 400), 'medium', 'The page\'s own description.', res, f);
+    if (i === 0 && f.description && f.description.trim().split(/\s+/).length >= 3 && !isGatePage(f.description)) add('description', f.description.slice(0, 400), 'medium', 'The page\'s own description.', res, f);
     const au = f.addresses[0];
     if (au) {
       const conf = au.source === 'structured' ? 'high' : 'medium';
