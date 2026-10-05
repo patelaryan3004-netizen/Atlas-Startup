@@ -7,7 +7,7 @@ import {
   COLLECTION_FILES,
 } from '../src/models/dataset.js';
 import { ADDED_FIELDS, LEGACY_FIELDS } from '../src/models/company.js';
-import { detectConflicts, flattenEvidence, EVIDENCE_FIELDS } from '../src/models/evidence.js';
+import { detectConflicts, findWeakEvidence, flattenEvidence, EVIDENCE_FIELDS } from '../src/models/evidence.js';
 import { auditDataset, ATTRIBUTES } from '../src/models/audit.js';
 
 const DATA_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data');
@@ -229,12 +229,12 @@ describe('companies added from the owner-supplied research (2026-10-05)', () => 
 
   it('records Superstat with its sourced funding round and only corroborated claims', () => {
     const c = getCompanyWithRelations(ds, 'superstat');
-    expect(c.stage).toBe('Pre-seed');
+    expect(c.stage).toBe('Seed'); // the lead investor's label; the press says pre-seed (see the settled conflicts below)
     expect(c.founders.map((p) => p.name)).toEqual(['Cordelia King', 'Kai Bloomfield', 'Sam Hung']);
     expect(c.investors.map((i) => i.name)).toEqual(['Blackbird', 'Startmate']);
     expect(c.funding_total).toBe(3500000);
     expect(c.funding_rounds).toHaveLength(1);
-    expect(c.funding_rounds[0]).toMatchObject({ round: 'Pre-seed', amount: 3500000, currency: 'AUD', lead_investor_ids: ['blackbird'] });
+    expect(c.funding_rounds[0]).toMatchObject({ round: 'Seed', amount: 3500000, currency: 'AUD', lead_investor_ids: ['blackbird'] });
     expect(c.last_funding_date).toBeNull();
     expect(c.sources.length).toBeGreaterThan(3);
   });
@@ -272,5 +272,59 @@ describe('companies added from the owner-supplied research (2026-10-05)', () => 
     const airtree = ds.investors.filter((i) => i.name.toLowerCase() === 'airtree');
     expect(airtree).toHaveLength(1);
     expect(airtree[0].aliases).toContain('Airtree');
+  });
+});
+
+// Three disagreements the evidence model had reported and left open. Each was decided by a person, and the
+// reading that lost is kept as evidence with the reason, never deleted.
+describe('source conflicts settled on 2026-10-05', () => {
+  const company = (id) => ds.companies.find((c) => c.id === id);
+  const row = (id) => ds.evidence.find((e) => e.id === id);
+
+  it("settles Superstat on the lead investor's round label and on the founding date the press states", () => {
+    expect(company('superstat')).toMatchObject({ stage: 'Seed', last_funding_round: 'Seed', foundedYear: 2025 });
+    expect(ds.funding_rounds.find((r) => r.company_id === 'superstat').round).toBe('Seed');
+    for (const id of ['superstat.stage.startupdaily-superstat-pre-seed', 'superstat.last_funding_round.startupdaily-superstat-pre-seed']) {
+      expect(row(id), id).toMatchObject({ value: 'Pre-seed', status: 'rejected' });
+      expect(row(id).note, id).toMatch(/lead investor/);
+    }
+    expect(row('superstat.stage.blackbird-superstat-post')).toMatchObject({ value: 'Seed', status: 'active', confidence: 'high' });
+    // The owner's year is superseded, not deleted; the article that replaced it is a retrieved source.
+    expect(row('superstat.founded_year.owner-research-superstat')).toMatchObject({ value: 2026, status: 'superseded' });
+    expect(row('superstat.founded_year.startupdaily-superstat-pre-seed')).toMatchObject({ value: 2025, status: 'active', confidence: 'medium' });
+    expect(ds.sources.find((s) => s.id === 'startupdaily-superstat-pre-seed').retrieved_at).not.toBeNull();
+    expect(detectConflicts(ds).filter((x) => x.company_id === 'superstat')).toEqual([]);
+  });
+
+  it('lists Forward as Unconfirmed, as the site says it does when it cannot confirm an Australian HQ: no pin, state or country', () => {
+    expect(company('forward')).toMatchObject({ verified: false, verification_status: 'unverified', city: 'Unknown', lat: null, lng: null, state: null, country: null });
+    // The Sydney office is turned down as a headquarters. San Francisco stays active, so a later
+    // claim about the HQ is checked against it instead of looking uncontested.
+    expect(row('forward.city.forward-company-page')).toMatchObject({ value: 'Sydney', status: 'rejected' });
+    expect(row('forward.city.yc-forward-profile')).toMatchObject({ value: 'San Francisco', status: 'active', confidence: 'high' });
+    expect(detectConflicts(ds).filter((x) => x.company_id === 'forward')).toEqual([]);
+  });
+
+  it("lists only the backers a primary source names for Forward, and keeps the two that no source named as rejected claims", () => {
+    const forward = company('forward');
+    expect(forward.investors).toEqual(['Y Combinator', 'Startmate', 'NextGen Ventures', 'Latitude 37']);
+    expect(forward.investor_ids).toEqual(['y-combinator', 'startmate', 'nextgen-ventures', 'latitude-37']);
+    for (const id of ['forward.investors.airtree.owner-research-forward', 'forward.investors.lyra-capital.owner-research-forward']) {
+      expect(row(id), id).toMatchObject({ status: 'rejected' });
+      expect(row(id).note, id).toMatch(/until a primary source names it/);
+    }
+    // Lyra Capital was listed by Forward alone, so the entity went with the claim; AirTree is listed by others.
+    expect(ds.investors.map((i) => i.id)).not.toContain('lyra-capital');
+    expect(ds.investors.map((i) => i.id)).toContain('airtree');
+    // NextGen is confirmed by the fund's own page as well as by Forward's.
+    expect(row('forward.investors.nextgen-ventures.nextgen-ventures-portfolio')).toMatchObject({ status: 'active', confidence: 'high' });
+    expect(row('forward.investors.startmate.forward-company-page')).toMatchObject({ status: 'active', confidence: 'high' });
+  });
+
+  // An investor is a public claim about a real fund (and a filter on the map), so it needs a better
+  // source than an owner-supplied lead or a listing nobody opened. To list one on a lead anyway, say so
+  // to the owner and lower this in the same commit.
+  it('lists no investor on the strength of a low-confidence lead alone', () => {
+    expect(findWeakEvidence(ds).filter((w) => w.field === 'investors')).toEqual([]);
   });
 });

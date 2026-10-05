@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadRaw, writeFiles } from '../src/models/dataset.js';
 import { main, parseArgs } from '../scripts/discovery.js';
-import { renderRunReport, renderQueue, renderCandidate } from '../src/discovery/report.js';
+import { renderRunReport, renderQueue, renderCandidate, locationOf } from '../src/discovery/report.js';
 import { runDiscovery } from '../src/discovery/pipeline.js';
 import { NOW, dataset, lead, fakeSource, fetcherFor, auPage } from './helpers/discovery.js';
 
@@ -205,5 +205,17 @@ describe('the plain-text views', () => {
     const shown = renderCandidate(ds.candidates.find((c) => c.id === 'cand-zorbly'));
     expect(shown).toMatch(/Zorbly {2}\[cand-zorbly\]/);
     expect(shown).toMatch(/Evidence:/);
+  });
+
+  it('shows the location once: the city and state only when the address does not already say them', () => {
+    expect(locationOf({ address: '92 Pitt Street, Sydney NSW 2000', city: 'Sydney', state: 'NSW' })).toBe('92 Pitt Street, Sydney NSW 2000');
+    expect(locationOf({ address: '1.103/477 Pitt St, Haymarket NSW 2000', city: null, state: 'NSW' })).toBe('1.103/477 Pitt St, Haymarket NSW 2000');
+    expect(locationOf({ address: null, city: 'Perth', state: 'WA' })).toBe('Perth, WA');
+    // "WA" inside a word is not the state: in the middle ("Swan"), at the end ("Ottawa"), at the start ("Wallace").
+    for (const street of ['5 Swan Street', '10 Ottawa Road', '3 Wallace Avenue']) {
+      expect(locationOf({ address: `${street}, Richmond`, city: 'Melbourne', state: 'WA' }), street).toBe(`${street}, Richmond, Melbourne, WA`);
+    }
+    expect(locationOf({ address: '2 Smith St, Sydney (Chippendale) NSW 2008', city: 'Sydney (Chippendale)', state: 'NSW' })).toBe('2 Smith St, Sydney (Chippendale) NSW 2008');
+    expect(locationOf({ address: null, city: null, state: null })).toBe('(unknown)');
   });
 });

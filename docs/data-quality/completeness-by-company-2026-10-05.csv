@@ -212,6 +212,6 @@ pairtree,Pairtree,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing
 blinq,Blinq,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,107,generic_sectors; stale_hiring; stale_stage
 agridigital,AgriDigital,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
 amber-electric,Amber Electric,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,64,stale_hiring; stale_stage
-superstat,Superstat,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,9,P0,240,source_conflicts
+superstat,Superstat,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,9,P2,20,
 fastlane,Fastlane,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,empty,yes,yes,8,P2,92,
-forward,Forward,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,yes,yes,6,P0,186,stale_stage; source_conflicts
+forward,Forward,no,yes,yes,yes,unknown,null,null,yes,yes,yes,yes,yes,missing,yes,yes,yes,6,P1,110,unknown_values; null_values; unpinned_unconfirmed; stale_stage

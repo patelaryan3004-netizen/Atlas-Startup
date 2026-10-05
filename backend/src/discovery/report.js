@@ -49,12 +49,21 @@ export function renderQueue(candidates) {
 
 const signalLine = (a) => (a ? `${a.verdict} (${a.score.toFixed(2)}): ${a.signals.map((s) => `${s.code} ${s.weight > 0 ? '+' : ''}${s.weight}`).join(', ') || 'no signals'}` : 'not assessed');
 
+// The address, then the city and state only if the address does not already say them.
+export function locationOf(c) {
+  const address = c.address ?? '';
+  // Whole words only: "WA" is not in "Swan Street" and a city with brackets is not a pattern.
+  const says = (part) => new RegExp(`(?<![A-Za-z])${part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`, 'i').test(address);
+  const parts = [address, ...[c.city, c.state].filter((p) => p && !says(p))];
+  return parts.filter(Boolean).join(', ') || '(unknown)';
+}
+
 export function renderCandidate(c) {
   const out = [
     `${c.name}  [${c.id}]`,
     `  status      ${c.status}${c.review ? ` - ${c.review.by}, ${c.review.at}${c.review.note ? `: ${c.review.note}` : ''}` : ''}`,
     `  website     ${c.website ?? '(none)'}`,
-    `  location    ${[c.address, c.city, c.state].filter(Boolean).join(', ') || '(unknown)'}`,
+    `  location    ${locationOf(c)}`,
   ];
   if (c.aliases.length) out.push(`  names       ${c.aliases.join('; ')}`);
   if (c.founders.length) out.push(`  founders    ${c.founders.join(', ')}`);

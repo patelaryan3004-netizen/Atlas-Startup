@@ -150,8 +150,8 @@
     "source_id": "forward-company-page",
     "confidence": "medium",
     "verified_at": "2026-10-05T03:59:04.292Z",
-    "status": "active",
-    "note": "Lists San Francisco, CA and Sydney, NSW as locations, with no street addresses; does not say which is the headquarters."
+    "status": "rejected",
+    "note": "The page lists Sydney as an office next to San Francisco and does not say which is the headquarters; Y Combinator says San Francisco. An office is not a confirmed Australian HQ, so it cannot support a map pin: Forward is listed as Unconfirmed, as the site's accuracy note describes."
   },
   {
     "id": "forward.city.yc-forward-profile",
@@ -162,7 +162,7 @@
     "confidence": "high",
     "verified_at": "2026-10-05T03:59:04.292Z",
     "status": "active",
-    "note": "YC lists San Francisco."
+    "note": "YC lists San Francisco. This is why Forward is Unconfirmed: the directory's city is the Australian headquarters city (it feeds the map pin and the city filter), so this is deliberately not applied to the record."
   },
   {
     "id": "forward.company_status.forward-careers",
@@ -293,8 +293,8 @@
     "source_id": "owner-research-forward",
     "confidence": "low",
     "verified_at": null,
-    "status": "active",
-    "note": "Owner-supplied; no fetched page lists it."
+    "status": "rejected",
+    "note": "Owner-supplied. Forward's own company page names NextGen, Y Combinator and Startmate, not AirTree, and AirTree's portfolio page (fetched 2026-10-05) does not list Forward. Removed from the record until a primary source names it."
   },
   {
     "id": "forward.investors.latitude-37.smartcompany-latitude-37",
@@ -315,8 +315,30 @@
     "source_id": "owner-research-forward",
     "confidence": "low",
     "verified_at": null,
+    "status": "rejected",
+    "note": "Owner-supplied. Forward's own company page does not name Lyra Capital. The site at lyracap.vc (fetched 2026-10-05) shows 15 portfolio companies and a \"+View 72 more\" link, none of the 15 being Forward, so its full portfolio was not checked. Removed from the record until a primary source names it."
+  },
+  {
+    "id": "forward.investors.nextgen-ventures.forward-company-page",
+    "company_id": "forward",
+    "field": "investors",
+    "value": "NextGen Ventures",
+    "source_id": "forward-company-page",
+    "confidence": "high",
+    "verified_at": "2026-10-05T07:57:29.035Z",
     "status": "active",
-    "note": "Owner-supplied; no fetched page lists it."
+    "note": "The Backed by section shows a logo labelled \"NextGen\"; NextGen Ventures' own portfolio page lists Forward, which fixes which NextGen."
+  },
+  {
+    "id": "forward.investors.nextgen-ventures.nextgen-ventures-portfolio",
+    "company_id": "forward",
+    "field": "investors",
+    "value": "NextGen Ventures",
+    "source_id": "nextgen-ventures-portfolio",
+    "confidence": "high",
+    "verified_at": "2026-10-05T08:22:51.720Z",
+    "status": "active",
+    "note": "NextGen Ventures' own portfolio page (\"Founders we work for\") lists Forward."
   },
   {
     "id": "forward.investors.nextgen-ventures.owner-research-forward",
@@ -327,7 +349,18 @@
     "confidence": "low",
     "verified_at": null,
     "status": "active",
-    "note": "Owner-supplied; no fetched page lists it."
+    "note": "Owner-supplied. Confirmed on 2026-10-05 by NextGen Ventures' own portfolio page and by Forward's company page (see the high-confidence rows)."
+  },
+  {
+    "id": "forward.investors.startmate.forward-company-page",
+    "company_id": "forward",
+    "field": "investors",
+    "value": "Startmate",
+    "source_id": "forward-company-page",
+    "confidence": "high",
+    "verified_at": "2026-10-05T07:57:29.035Z",
+    "status": "active",
+    "note": "The Backed by section shows Startmate."
   },
   {
     "id": "forward.investors.startmate.startupdaily-startmate-winter-26",
@@ -425,8 +458,19 @@
     "source_id": "owner-research-superstat",
     "confidence": "low",
     "verified_at": null,
+    "status": "superseded",
+    "note": "Owner-supplied 2026, which matches the March 2026 product launch in the Blackbird post. Replaced by the founding date Startup Daily states (May 2025)."
+  },
+  {
+    "id": "superstat.founded_year.startupdaily-superstat-pre-seed",
+    "company_id": "superstat",
+    "field": "founded_year",
+    "value": 2025,
+    "source_id": "startupdaily-superstat-pre-seed",
+    "confidence": "medium",
+    "verified_at": "2026-10-05T07:56:04.850Z",
     "status": "active",
-    "note": "Owner-supplied. The Blackbird post says the product launched in March 2026."
+    "note": "Startup Daily (28 Jul 2026): \"Superstat was founded in May 2025\". The product launched in March 2026 (Blackbird post)."
   },
   {
     "id": "superstat.founders.cordelia-king.startupdaily-superstat-pre-seed",
@@ -435,9 +479,9 @@
     "value": "Cordelia King",
     "source_id": "startupdaily-superstat-pre-seed",
     "confidence": "medium",
-    "verified_at": null,
+    "verified_at": "2026-10-05T07:56:04.850Z",
     "status": "active",
-    "note": "Full name. Seen in search results; page not fetched."
+    "note": "Full name, as the article prints it."
   },
   {
     "id": "superstat.founders.kai-bloomfield.startupdaily-superstat-pre-seed",
@@ -446,9 +490,9 @@
     "value": "Kai Bloomfield",
     "source_id": "startupdaily-superstat-pre-seed",
     "confidence": "medium",
-    "verified_at": null,
+    "verified_at": "2026-10-05T07:56:04.850Z",
     "status": "active",
-    "note": "Full name. Seen in search results; page not fetched."
+    "note": "Full name, as the article prints it."
   },
   {
     "id": "superstat.founders.sam-hung.startupdaily-superstat-pre-seed",
@@ -457,9 +501,9 @@
     "value": "Sam Hung",
     "source_id": "startupdaily-superstat-pre-seed",
     "confidence": "medium",
-    "verified_at": null,
+    "verified_at": "2026-10-05T07:56:04.850Z",
     "status": "active",
-    "note": "Full name. Seen in search results; page not fetched."
+    "note": "Full name, as the article prints it."
   },
   {
     "id": "superstat.funding_total.owner-research-superstat",
@@ -499,9 +543,9 @@
     },
     "source_id": "startupdaily-superstat-pre-seed",
     "confidence": "medium",
-    "verified_at": null,
+    "verified_at": "2026-10-05T07:56:04.850Z",
     "status": "active",
-    "note": "Headline gives $3.5 million; currency assumed AUD. Seen in search results; page not fetched."
+    "note": "The headline gives $3.5 million; currency assumed AUD (Australian outlet)."
   },
   {
     "id": "superstat.hiring_status.superstat-careers",
@@ -565,9 +609,9 @@
     "value": "Pre-seed",
     "source_id": "startupdaily-superstat-pre-seed",
     "confidence": "medium",
-    "verified_at": null,
-    "status": "active",
-    "note": "Press label. Seen in search results; page not fetched."
+    "verified_at": "2026-10-05T07:56:04.850Z",
+    "status": "rejected",
+    "note": "Startup Daily (28 Jul 2026) headlines the round as pre-Seed. Blackbird, the lead investor, calls it seed in its own post, so the record follows the lead investor. Kept to show the disagreement."
   },
   {
     "id": "superstat.stage.blackbird-superstat-post",
@@ -587,9 +631,9 @@
     "value": "Pre-seed",
     "source_id": "startupdaily-superstat-pre-seed",
     "confidence": "medium",
-    "verified_at": null,
-    "status": "active",
-    "note": "Press label. Seen in search results; page not fetched."
+    "verified_at": "2026-10-05T07:56:04.850Z",
+    "status": "rejected",
+    "note": "Startup Daily (28 Jul 2026) headlines the round as pre-Seed. Blackbird, the lead investor, calls it seed in its own post, so the record follows the lead investor. Kept to show the disagreement."
   },
   {
     "id": "superstat.website.superstat-website",

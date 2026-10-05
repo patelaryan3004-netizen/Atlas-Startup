@@ -9924,7 +9924,7 @@
       "Blackbird",
       "Startmate"
     ],
-    "stage": "Pre-seed",
+    "stage": "Seed",
     "hiring": true,
     "verified": true,
     "website": "https://superstatsport.com",
@@ -9939,7 +9939,7 @@
       "Kai Bloomfield",
       "Sam Hung"
     ],
-    "foundedYear": 2026,
+    "foundedYear": 2025,
     "id": "superstat",
     "slug": "superstat",
     "logo": null,
@@ -9951,12 +9951,12 @@
     "employee_range": null,
     "funding_total": 3500000,
     "last_funding_date": null,
-    "last_funding_round": "Pre-seed",
+    "last_funding_round": "Seed",
     "verification_status": "location_verified",
     "confidence_score": null,
     "created_at": "2026-10-05T03:59:04.292Z",
-    "updated_at": "2026-10-05T03:59:04.292Z",
-    "last_verified_at": "2026-10-05T03:59:04.292Z",
+    "updated_at": "2026-10-05T08:28:49.954Z",
+    "last_verified_at": "2026-10-05T07:56:04.850Z",
     "founder_ids": [
       "cordelia-king",
       "kai-bloomfield",
@@ -10037,20 +10037,18 @@
     "name": "Forward",
     "sector": "Fintech",
     "sectorFull": "Fintech / Private credit",
-    "city": "Sydney",
-    "lat": -33.86984,
-    "lng": 151.20828,
+    "city": "Unknown",
+    "lat": null,
+    "lng": null,
     "investors": [
       "Y Combinator",
-      "AirTree",
       "Startmate",
       "NextGen Ventures",
-      "Lyra Capital",
       "Latitude 37"
     ],
     "stage": "Early",
     "hiring": true,
-    "verified": true,
+    "verified": false,
     "website": "https://www.useforward.co",
     "blurb": "AI platform that connects commercial debt advisors with private-credit funds, turning borrower documents into fund-ready deals. Y Combinator F26; headquartered in San Francisco with a Sydney office.",
     "taskGate": {
@@ -10067,19 +10065,19 @@
     "slug": "forward",
     "logo": null,
     "subsector": null,
-    "state": "NSW",
-    "country": "Australia",
+    "state": null,
+    "country": null,
     "company_status": "active",
     "hiring_status": "hiring",
     "employee_range": "1-10",
     "funding_total": null,
     "last_funding_date": null,
     "last_funding_round": null,
-    "verification_status": "location_verified",
+    "verification_status": "unverified",
     "confidence_score": null,
     "created_at": "2026-10-05T03:59:04.292Z",
-    "updated_at": "2026-10-05T03:59:04.292Z",
-    "last_verified_at": "2026-10-05T03:59:04.292Z",
+    "updated_at": "2026-10-05T08:28:49.954Z",
+    "last_verified_at": "2026-10-05T08:22:51.720Z",
     "founder_ids": [
       "daniel-yoon",
       "riley-janjis",
@@ -10087,10 +10085,8 @@
     ],
     "investor_ids": [
       "y-combinator",
-      "airtree",
       "startmate",
       "nextgen-ventures",
-      "lyra-capital",
       "latitude-37"
     ],
     "source_ids": [
@@ -10100,7 +10096,8 @@
       "yc-forward-profile",
       "forward-careers",
       "smartcompany-latitude-37",
-      "startupdaily-startmate-winter-26"
+      "startupdaily-startmate-winter-26",
+      "nextgen-ventures-portfolio"
     ]
   }
 ]

@@ -117,10 +117,13 @@
       }
     ],
     "name": "Kinoxis",
-    "aliases": [],
-    "website": null,
-    "domain": null,
-    "description": null,
+    "aliases": [
+      "Kinoxis Therapeutics Pty Ltd",
+      "Kinoxis Therapeutics"
+    ],
+    "website": "https://kinoxistherapeutics.com",
+    "domain": "kinoxistherapeutics.com",
+    "description": "Developing novel therapeutics for social dysfunction and substance use disorders.",
     "city": null,
     "state": null,
     "address": null,
@@ -143,15 +146,66 @@
     ],
     "first_discovered_at": "2026-10-05T06:44:05.515Z",
     "last_seen_at": "2026-10-05T06:44:05.515Z",
-    "evidence": [],
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://kinoxistherapeutics.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by Claude, for the owner (site checked against its own page).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "Claude, for the owner (site checked against its own page)",
+          "retrieved_at": "2026-10-05T08:12:58.801Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://kinoxistherapeutics.com",
+        "confidence": "high",
+        "verified_at": "2026-10-05T08:13:08.606Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://kinoxistherapeutics.com/",
+          "title": "Kinoxis Therapeutics - Social Neuroscience Guided Therapeutics",
+          "publisher": "Kinoxis Therapeutics Pty Ltd",
+          "retrieved_at": "2026-10-05T08:13:08.606Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Developing novel therapeutics for social dysfunction and substance use disorders.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://kinoxistherapeutics.com/",
+          "title": "Kinoxis Therapeutics - Social Neuroscience Guided Therapeutics",
+          "publisher": "Kinoxis Therapeutics Pty Ltd",
+          "retrieved_at": "2026-10-05T08:13:08.606Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
     "australian": {
-      "verdict": "unknown",
-      "score": 0.15,
+      "verdict": "likely",
+      "score": 0.35,
       "signals": [
         {
           "code": "au_source",
           "weight": 0.15,
           "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
         }
       ]
     },
@@ -173,16 +227,14 @@
       "same_as": null
     },
     "confidence": {
-      "score": 0.21,
+      "score": 0.46,
       "label": "low",
       "breakdown": {
-        "australian": 0.15,
+        "australian": 0.35,
         "startup": 0.35,
-        "evidence": 0.1,
+        "evidence": 0.8,
         "corroboration": 0,
-        "caps": [
-          "no website to check against"
-        ]
+        "caps": []
       }
     },
     "review": null,
@@ -207,17 +259,21 @@
       }
     ],
     "name": "Medcast",
-    "aliases": [],
-    "website": null,
-    "domain": null,
-    "description": null,
-    "city": null,
-    "state": null,
-    "address": null,
+    "aliases": [
+      "Medcast Pty Limited",
+      "Critical Care Education Services Pty Ltd",
+      "Medcast Pty Ltd"
+    ],
+    "website": "https://medcast.com.au",
+    "domain": "medcast.com.au",
+    "description": "Improving healthcare through education in Australia and around the world - CPD, General Practice Training, Exam Preparation, Mental Health and eLearning",
+    "city": "Sydney",
+    "state": "NSW",
+    "address": "92 Pitt Street, Sydney NSW 2000",
     "founders": [],
     "external_ids": {
-      "abn": null,
-      "acn": null
+      "abn": "34623420468",
+      "acn": "166955433"
     },
     "discoveries": [
       {
@@ -233,10 +289,101 @@
     ],
     "first_discovered_at": "2026-10-05T06:44:05.497Z",
     "last_seen_at": "2026-10-05T06:44:05.497Z",
-    "evidence": [],
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://medcast.com.au",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by Claude, for the owner (site checked against its own page).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "Claude, for the owner (site checked against its own page)",
+          "retrieved_at": "2026-10-05T08:12:30.912Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://medcast.com.au",
+        "confidence": "high",
+        "verified_at": "2026-10-05T08:12:51.590Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://medcast.com.au/",
+          "title": "Quality, online, social learning for Health Professionals",
+          "publisher": "medcast.com.au",
+          "retrieved_at": "2026-10-05T08:12:51.590Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Improving healthcare through education in Australia and around the world - CPD, General Practice Training, Exam Preparation, Mental Health and eLearning",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://medcast.com.au/",
+          "title": "Quality, online, social learning for Health Professionals",
+          "publisher": "medcast.com.au",
+          "retrieved_at": "2026-10-05T08:12:51.590Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "92 Pitt Street, Sydney NSW 2000",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://medcast.com.au/privacy-policy",
+          "title": "Privacy Policy | Medcast",
+          "publisher": "Medcast Pty Limited",
+          "retrieved_at": "2026-10-05T08:12:51.590Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://medcast.com.au/privacy-policy",
+          "title": "Privacy Policy | Medcast",
+          "publisher": "Medcast Pty Limited",
+          "retrieved_at": "2026-10-05T08:12:51.590Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "city",
+        "value": "Sydney",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://medcast.com.au/privacy-policy",
+          "title": "Privacy Policy | Medcast",
+          "publisher": "Medcast Pty Limited",
+          "retrieved_at": "2026-10-05T08:12:51.590Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
     "australian": {
-      "verdict": "likely",
-      "score": 0.35,
+      "verdict": "yes",
+      "score": 1,
       "signals": [
         {
           "code": "au_source",
@@ -247,6 +394,26 @@
           "code": "au_mention",
           "weight": 0.2,
           "detail": "Aussie"
+        },
+        {
+          "code": "au_domain",
+          "weight": 0.35,
+          "detail": "medcast.com.au"
+        },
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "92 Pitt Street, Sydney NSW 2000"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
         }
       ]
     },
@@ -273,21 +440,25 @@
       "same_as": null
     },
     "confidence": {
-      "score": 0.34,
-      "label": "low",
+      "score": 0.75,
+      "label": "high",
       "breakdown": {
-        "australian": 0.35,
+        "australian": 1,
         "startup": 0.5,
-        "evidence": 0.1,
+        "evidence": 0.68,
         "corroboration": 0,
-        "caps": [
-          "no website to check against"
-        ]
+        "caps": []
       }
     },
     "review": null,
     "published_company_id": null,
-    "notes": []
+    "notes": [
+      {
+        "at": "2026-10-05T08:18:17.692Z",
+        "by": "engine",
+        "text": "the site gives ABN 34623420468 and ACN 166955433, which do not belong to one company (a company's ABN ends with its ACN): they probably identify two legal entities, so check which is which before relying on either"
+      }
+    ]
   },
   {
     "id": "cand-r2crete",
@@ -308,9 +479,9 @@
     ],
     "name": "R2Crete",
     "aliases": [],
-    "website": null,
-    "domain": null,
-    "description": null,
+    "website": "https://r2crete.com.au",
+    "domain": "r2crete.com.au",
+    "description": "Transforming the Concrete Industry",
     "city": null,
     "state": null,
     "address": null,
@@ -348,16 +519,66 @@
           "retrieved_at": "2026-10-05T06:44:05.386Z",
           "note": "Source licence basis: public_feed."
         }
+      },
+      {
+        "field": "website",
+        "value": "https://r2crete.com.au",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by Claude, for the owner (site checked against its own page).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "Claude, for the owner (site checked against its own page)",
+          "retrieved_at": "2026-10-05T08:12:02.561Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://r2crete.com.au",
+        "confidence": "high",
+        "verified_at": "2026-10-05T08:12:05.092Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://r2crete.com.au/",
+          "title": "R2Crete",
+          "publisher": "r2crete.com.au",
+          "retrieved_at": "2026-10-05T08:12:05.092Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Transforming the Concrete Industry",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://r2crete.com.au/",
+          "title": "R2Crete",
+          "publisher": "r2crete.com.au",
+          "retrieved_at": "2026-10-05T08:12:05.092Z",
+          "note": "Read by the discovery engine."
+        }
       }
     ],
     "australian": {
-      "verdict": "unknown",
-      "score": 0.15,
+      "verdict": "likely",
+      "score": 0.5,
       "signals": [
         {
           "code": "au_source",
           "weight": 0.15,
           "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "au_domain",
+          "weight": 0.35,
+          "detail": "r2crete.com.au"
         }
       ]
     },
@@ -379,16 +600,14 @@
       "same_as": null
     },
     "confidence": {
-      "score": 0.33,
-      "label": "low",
+      "score": 0.51,
+      "label": "medium",
       "breakdown": {
-        "australian": 0.15,
+        "australian": 0.5,
         "startup": 0.35,
-        "evidence": 0.6,
+        "evidence": 0.73,
         "corroboration": 0,
-        "caps": [
-          "no website to check against"
-        ]
+        "caps": []
       }
     },
     "review": null,
@@ -413,16 +632,18 @@
       }
     ],
     "name": "RentBetter",
-    "aliases": [],
-    "website": null,
-    "domain": null,
-    "description": null,
+    "aliases": [
+      "Property Technology Group Pty Ltd"
+    ],
+    "website": "https://rentbetter.com.au",
+    "domain": "rentbetter.com.au",
+    "description": "Advertise your rental, find a tenant, collect rent and self-manage your property - all in one place, 100% online. Save money, gain control and RentBetter.",
     "city": null,
     "state": null,
     "address": null,
     "founders": [],
     "external_ids": {
-      "abn": null,
+      "abn": "29610194771",
       "acn": null
     },
     "discoveries": [
@@ -439,15 +660,76 @@
     ],
     "first_discovered_at": "2026-10-05T06:44:05.507Z",
     "last_seen_at": "2026-10-05T06:44:05.507Z",
-    "evidence": [],
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://rentbetter.com.au",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by Claude, for the owner (site checked against its own page).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "Claude, for the owner (site checked against its own page)",
+          "retrieved_at": "2026-10-05T08:12:52.962Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://rentbetter.com.au",
+        "confidence": "high",
+        "verified_at": "2026-10-05T08:12:57.424Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://rentbetter.com.au/",
+          "title": "Find a Tenant & Manage Your Rental Property | RentBetter",
+          "publisher": "Property Technology Group Pty Ltd",
+          "retrieved_at": "2026-10-05T08:12:57.424Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Advertise your rental, find a tenant, collect rent and self-manage your property - all in one place, 100% online. Save money, gain control and RentBetter.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://rentbetter.com.au/",
+          "title": "Find a Tenant & Manage Your Rental Property | RentBetter",
+          "publisher": "Property Technology Group Pty Ltd",
+          "retrieved_at": "2026-10-05T08:12:57.424Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
     "australian": {
-      "verdict": "unknown",
-      "score": 0.15,
+      "verdict": "yes",
+      "score": 1,
       "signals": [
         {
           "code": "au_source",
           "weight": 0.15,
           "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "au_domain",
+          "weight": 0.35,
+          "detail": "rentbetter.com.au"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
         }
       ]
     },
@@ -474,16 +756,14 @@
       "same_as": null
     },
     "confidence": {
-      "score": 0.26,
-      "label": "low",
+      "score": 0.77,
+      "label": "high",
       "breakdown": {
-        "australian": 0.15,
+        "australian": 1,
         "startup": 0.5,
-        "evidence": 0.1,
+        "evidence": 0.8,
         "corroboration": 0,
-        "caps": [
-          "no website to check against"
-        ]
+        "caps": []
       }
     },
     "review": null,
@@ -508,13 +788,16 @@
       }
     ],
     "name": "Trendspek",
-    "aliases": [],
-    "website": null,
-    "domain": null,
-    "description": null,
+    "aliases": [
+      "Trendspek Pty Ltd",
+      "Trendspek Operations Pty Ltd"
+    ],
+    "website": "https://trendspek.com",
+    "domain": "trendspek.com",
+    "description": "Trendspek is a Structural Lifecycle Management System (SLMS) that turns in-field inspections into defensible records for asset condition, risk and capital decisions. 65-70% risk reduction.",
     "city": null,
-    "state": null,
-    "address": null,
+    "state": "NSW",
+    "address": "1.103/477 Pitt St, Haymarket NSW 2000",
     "founders": [],
     "external_ids": {
       "abn": null,
@@ -534,15 +817,101 @@
     ],
     "first_discovered_at": "2026-10-05T06:44:05.486Z",
     "last_seen_at": "2026-10-05T06:44:05.486Z",
-    "evidence": [],
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://trendspek.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by Claude, for the owner (site checked against its own page).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "Claude, for the owner (site checked against its own page)",
+          "retrieved_at": "2026-10-05T08:12:06.433Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://trendspek.com",
+        "confidence": "high",
+        "verified_at": "2026-10-05T08:12:10.869Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://trendspek.com/",
+          "title": "Trendspek | Structural Lifecycle Management System (SLMS) | Asset Inspection & Risk",
+          "publisher": "Trendspek Pty Ltd",
+          "retrieved_at": "2026-10-05T08:12:10.869Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Trendspek is a Structural Lifecycle Management System (SLMS) that turns in-field inspections into defensible records for asset condition, risk and capital decisions. 65-70% risk reduction.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://trendspek.com/",
+          "title": "Trendspek | Structural Lifecycle Management System (SLMS) | Asset Inspection & Risk",
+          "publisher": "Trendspek Pty Ltd",
+          "retrieved_at": "2026-10-05T08:12:10.869Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "1.103/477 Pitt St, Haymarket NSW 2000",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://trendspek.com/policies/privacy-policy",
+          "title": "Privacy Policy",
+          "publisher": "Trendspek Operations Pty Ltd",
+          "retrieved_at": "2026-10-05T08:12:10.869Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://trendspek.com/policies/privacy-policy",
+          "title": "Privacy Policy",
+          "publisher": "Trendspek Operations Pty Ltd",
+          "retrieved_at": "2026-10-05T08:12:10.869Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
     "australian": {
-      "verdict": "unknown",
-      "score": 0.15,
+      "verdict": "yes",
+      "score": 0.7,
       "signals": [
         {
           "code": "au_source",
           "weight": 0.15,
           "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "1.103/477 Pitt St, Haymarket NSW 2000"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
         }
       ]
     },
@@ -569,16 +938,14 @@
       "same_as": null
     },
     "confidence": {
-      "score": 0.26,
-      "label": "low",
+      "score": 0.63,
+      "label": "medium",
       "breakdown": {
-        "australian": 0.15,
+        "australian": 0.7,
         "startup": 0.5,
-        "evidence": 0.1,
+        "evidence": 0.7,
         "corroboration": 0,
-        "caps": [
-          "no website to check against"
-        ]
+        "caps": []
       }
     },
     "review": null,

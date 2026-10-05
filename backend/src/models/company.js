@@ -118,6 +118,9 @@ const CITY_STATE = {
   'Bowen Hills': 'QLD', Herston: 'QLD', 'Gindie (nr Emerald)': 'QLD',
   Adelaide: 'SA', Perth: 'WA', Canberra: 'ACT',
 };
+// The cities whose state is unambiguous: the ones this directory uses as a `city`.
+// A suburb ("Haymarket", "Richmond") is not on this list.
+export const KNOWN_CITIES = Object.keys(CITY_STATE);
 const ADDRESS_STATE = /\b(NSW|VIC|QLD|SA|WA|TAS|NT|ACT)\s+\d{4}\b/;
 
 // state is only derived for records with a confirmed Australian location: an

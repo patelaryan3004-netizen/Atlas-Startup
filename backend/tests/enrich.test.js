@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractFacts, pageMatchesName, enrichFromWebsite } from '../src/discovery/enrich.js';
+import { extractFacts, pageMatchesName, enrichFromWebsite, legalNamesIn, looksLikeName } from '../src/discovery/enrich.js';
 import { createFetcher } from '../src/discovery/http.js';
 
 const NOW = Date.parse('2026-10-05T04:00:00.000Z');
@@ -43,6 +43,13 @@ describe('what a page says about itself', () => {
     expect(extractFacts('<p>Level 3, 10 George St, Sydney NSW 2000</p>').addresses[0]).toMatchObject({ text: '10 George St, Sydney NSW 2000', state: 'NSW' });
   });
 
+  it('keeps a dotted suite number whole instead of cutting it to a number the page did not give', () => {
+    expect(extractFacts('<p>Level 1 Suite 1.103/477 Pitt St, Haymarket NSW 2000, Australia.</p>').addresses)
+      .toEqual([{ text: '1.103/477 Pitt St, Haymarket NSW 2000', city: 'Haymarket', state: 'NSW', source: 'text' }]);
+    expect(extractFacts('<p>Level 12, 92 Pitt Street, Sydney NSW 2000</p>').addresses[0].text).toBe('92 Pitt Street, Sydney NSW 2000');
+    expect(extractFacts('<p>Suite 4/10 George St, Sydney NSW 2000</p>').addresses[0].text).toBe('4/10 George St, Sydney NSW 2000');
+  });
+
   it('ignores a registry number that fails its checksum, and an address outside Australia', () => {
     const f = extractFacts('<p>ABN 12 345 678 901. ACN 123 456 789. 500 Market Street, San Francisco CA 94105.</p>');
     expect(f.abns).toEqual([]);
@@ -61,10 +68,50 @@ describe('what a page says about itself', () => {
     expect(extractFacts('')).toMatchObject({ names: [], addresses: [] });
   });
 
-  it('takes the head of the homepage title as the name the page gives itself, but not an inner page\'s', () => {
-    expect(extractFacts('<title>Trendspek – Asset analysis</title>').names).toContain('Trendspek');
-    expect(extractFacts('<title>Trendspek | Home</title>').names).toContain('Trendspek');
-    expect(extractFacts('<title>Privacy | Trendspek</title>', { home: false }).names).toEqual([]);
+  it('takes the head of the homepage title as a possible name, but not an inner page\'s', () => {
+    expect(extractFacts('<title>Trendspek – Asset analysis</title>').titleName).toBe('Trendspek');
+    expect(extractFacts('<title>Trendspek | Home</title>').titleName).toBe('Trendspek');
+    expect(extractFacts('<title>Privacy | Trendspek</title>', { home: false }).titleName).toBeNull();
+    // What the page states about itself is kept apart from the title.
+    expect(extractFacts('<title>Trendspek | Home</title>').names).toEqual([]);
+  });
+});
+
+describe('legal names in running text, as real pages write them', () => {
+  it('stops at the label words that come before an entity in a contact block', () => {
+    // Trendspek's privacy policy: a person, a role, then the entity.
+    expect(legalNamesIn('Mitch Deam Privacy Officer Trendspek Operations Pty Ltd Address: Level 1 Suite 1.103/477 Pitt St, Haymarket NSW 2000 Email: compliance@trendspek.com'))
+      .toEqual(['Trendspek Operations Pty Ltd']);
+    expect(legalNamesIn('Attention: Privacy Officer Medcast Pty Ltd Level 12, 92 Pitt Street, Sydney NSW 2000')).toEqual(['Medcast Pty Ltd']);
+  });
+
+  it('finds two entities named in one sentence, keeping the legal form as written', () => {
+    expect(legalNamesIn('Who is Medcast? Medcast Pty Limited ACN 166 955 433 and Critical Care Education Services Pty Ltd ABN 34 623 420 468 (Medcast, we, us, our)'))
+      .toEqual(['Medcast Pty Limited', 'Critical Care Education Services Pty Ltd']);
+  });
+
+  it('finds an entity named in a footer sentence', () => {
+    expect(legalNamesIn('Copyright © RentBetter is a Property Technology Group Pty Ltd company | ABN 29610194771')).toEqual(['Property Technology Group Pty Ltd']);
+    expect(legalNamesIn('Fastlane is operated by Possibility Studios Pty Ltd.')).toEqual(['Possibility Studios Pty Ltd']);
+  });
+
+  it('normalises punctuation in the legal form but not the wording', () => {
+    expect(legalNamesIn('Acme Robotics Pty. Ltd. is based in Sydney')).toEqual(['Acme Robotics Pty Ltd']);
+    expect(legalNamesIn('Acme Robotics Pty Limited is based in Sydney')).toEqual(['Acme Robotics Pty Limited']);
+    expect(legalNamesIn('No company here, just Pty Ltd on its own')).toEqual([]);
+  });
+
+  it('tells a name from a tagline', () => {
+    for (const name of ['Trendspek', 'Acme Robotics', '6clicks', 'Who Gives a Crap']) expect(looksLikeName(name), name).toBe(true);
+    for (const tagline of ['Quality, online, social learning for Health Professionals', 'Find a Tenant & Manage Your Rental Property', 'robots for warehouses', '', null]) {
+      expect(looksLikeName(tagline), String(tagline)).toBe(false);
+    }
+  });
+
+  it('reads an ABN and an ACN that belong to two entities on the same page', () => {
+    const f = extractFacts('<p>Medcast Pty Limited ACN 166 955 433 and Critical Care Education Services Pty Ltd ABN 34 623 420 468</p>');
+    expect(f.acns).toEqual(['166955433']);
+    expect(f.abns).toEqual(['34623420468']);
   });
 });
 
@@ -77,6 +124,14 @@ describe('is this website the candidate', () => {
     expect(pageMatchesName(['Fastlane'], facts([], ['Possibility Studios Pty Ltd']), 'usefastlane.ai')).toBe(true); // by the domain's own word
     expect(pageMatchesName(['Acme Robotix'], facts(['Acme Robotics']), 'x.example')).toBe(true);
     expect(pageMatchesName(['Sherpa Delivery'], facts(['Sherpa']), 'sherpa.net.au')).toBe(true);
+  });
+
+  it('does not take a tagline for the page\'s name: with nothing else it falls back to the domain, as with no title', () => {
+    const tagline = 'Quality, online, social learning for Health Professionals';
+    expect(pageMatchesName(['Medcast'], { names: [], titleName: tagline, legalNames: [] }, 'medcast.com.au')).toBe(true);
+    expect(pageMatchesName(['Medcast'], { names: [], titleName: tagline, legalNames: [] }, 'unrelated.example')).toBe(false);
+    // A title that is a name counts as the page naming itself, so a matching domain cannot outvote it.
+    expect(pageMatchesName(['Medcast'], { names: [], titleName: 'Totally Different Co', legalNames: [] }, 'medcast.com.au')).toBe(false);
   });
 
   it('rejects a page that is plainly about someone else', () => {
@@ -174,6 +229,50 @@ describe('enriching a candidate from its own website', () => {
     expect(r.evidence).toEqual([]);
     expect(r.external_ids).toEqual({ abn: null, acn: null });
     expect(r.warnings).toEqual([expect.stringMatching(/does not appear to be Acme Robotics: it calls itself Totally Different Co/)]);
+  });
+
+  it('does not mistake a homepage tagline for the company\'s name, or an inner page for its description', async () => {
+    const home = `<html><head><title>Quality, online, social learning for Health Professionals</title>
+      <meta name="description" content="Improving healthcare through education in Australia and around the world"></head>
+      <body><a href="/privacy-policy">Privacy</a><p>Copyright © Medcast</p></body></html>`;
+    const privacy = `<html><head><title>Privacy Policy</title><meta name="description" content="Medcast Privacy Policy and how we handle your personal information in full"></head>
+      <body><p>Who is Medcast? Medcast Pty Limited ACN 166 955 433 and Critical Care Education Services Pty Ltd ABN 34 623 420 468.
+      Attention: Privacy Officer Medcast Pty Ltd Level 12, 92 Pitt Street, Sydney NSW 2000</p></body></html>`;
+    const { r } = await enrich({ 'https://medcast.com.au/': { body: home }, 'https://medcast.com.au/privacy-policy': { body: privacy } }, { website: 'https://medcast.com.au', candidateNames: ['Medcast'] });
+    // The page's ABN and ACN belong to two entities, so they are recorded but the pair is flagged.
+    expect(r.warnings).toEqual([expect.stringMatching(/ABN 34623420468 and ACN 166955433, which do not belong to one company.*two legal entities/)]);
+    expect(r.aliases).toEqual([]); // the tagline is not an alias
+    expect(r.legalNames).toEqual(['Medcast Pty Limited', 'Critical Care Education Services Pty Ltd', 'Medcast Pty Ltd']);
+    expect(r.external_ids).toEqual({ abn: '34623420468', acn: '166955433' });
+    const descriptions = r.evidence.filter((e) => e.field === 'description').map((e) => e.value);
+    expect(descriptions).toEqual(['Improving healthcare through education in Australia and around the world']);
+    expect(r.evidence.find((e) => e.field === 'city')).toMatchObject({ value: 'Sydney' });
+  });
+
+  it('does not flag an ABN and ACN that belong together, or a page that gives only one of them', async () => {
+    expect((await enrich(SITE)).r.warnings).toEqual([]); // 53 004 085 616 ends with 004 085 616
+    const only = (body) => enrich({ 'https://acme.com.au/': { body: `<html><head><title>Acme</title></head><body><p>${body}</p></body></html>` } }, { candidateNames: ['Acme'] }).then(({ r }) => r.warnings);
+    expect(await only('Acme Pty Ltd ABN 53 004 085 616')).toEqual([]);
+    expect(await only('Acme Pty Ltd ACN 004 085 616')).toEqual([]);
+  });
+
+  it('does not record a one-word placeholder as the description, but does record a short real one', async () => {
+    const site = (description) => ({ 'https://acme.com.au/': { body: `<html><head><title>Acme</title><meta name="description" content="${description}"></head><body><p>Acme</p></body></html>` } });
+    const descriptions = async (description) => (await enrich(site(description), { candidateNames: ['Acme'] })).r.evidence.filter((e) => e.field === 'description').map((e) => e.value);
+    expect(await descriptions('Home')).toEqual([]);
+    expect(await descriptions('Welcome')).toEqual([]);
+    expect(await descriptions('Acme makes things.')).toEqual(['Acme makes things.']);
+  });
+
+  it('records a suburb in the address but not as the city, so the city filter is not fragmented', async () => {
+    const privacy = '<html><head><title>Privacy</title></head><body><p>Trendspek Operations Pty Ltd, Level 1 Suite 1.103/477 Pitt St, Haymarket NSW 2000, Australia.</p></body></html>';
+    const home = '<html><head><title>Trendspek | Home</title></head><body><a href="/policies/privacy-policy">Privacy Policy</a></body></html>';
+    const { r } = await enrich({ 'https://trendspek.com/': { body: home }, 'https://trendspek.com/policies/privacy-policy': { body: privacy } }, { website: 'https://trendspek.com', candidateNames: ['Trendspek'] });
+    const by = (field) => r.evidence.filter((e) => e.field === field).map((e) => e.value);
+    expect(by('address')).toEqual(['1.103/477 Pitt St, Haymarket NSW 2000']); // the suite as the page gives it, not "103/477"
+    expect(by('state')).toEqual(['NSW']);
+    expect(by('city')).toEqual([]);
+    expect(r.legalNames).toEqual(['Trendspek Operations Pty Ltd']);
   });
 
   it('keeps a refusal on a linked page without losing the homepage', async () => {

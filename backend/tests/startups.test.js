@@ -87,7 +87,27 @@ describe('GET /api/startups', () => {
 
   it('lists the new investors in the filter metadata, keeping "Latitude 37" distinct from the existing "Latitude"', async () => {
     const res = await request(app).get('/api/startups/meta');
-    expect(res.body.investors).toEqual(expect.arrayContaining(['Y Combinator', 'NextGen Ventures', 'Lyra Capital', 'Latitude 37', 'Latitude']));
+    expect(res.body.investors).toEqual(expect.arrayContaining(['Y Combinator', 'NextGen Ventures', 'Latitude 37', 'Latitude']));
+  });
+
+  it('offers no investor whose only claim was an unconfirmed lead: Lyra Capital and AirTree came off Forward', async () => {
+    const meta = await request(app).get('/api/startups/meta');
+    expect(meta.body.investors).not.toContain('Lyra Capital');
+    expect(meta.body.investors).toContain('AirTree'); // other companies list it
+    const forward = (await request(app).get('/api/startups?search=Forward')).body.results.find((s) => s.name === 'Forward');
+    expect(forward.investors).toEqual(['Y Combinator', 'Startmate', 'NextGen Ventures', 'Latitude 37']);
+  });
+
+  it('lists Forward as Unconfirmed, not on the map, because its headquarters is in San Francisco', async () => {
+    const forward = (await request(app).get('/api/startups?search=Daniel Yoon')).body.results[0];
+    expect(forward).toMatchObject({ name: 'Forward', verified: false, city: 'Unknown', lat: null, lng: null, state: null });
+    const sydney = await request(app).get('/api/startups?city=Sydney');
+    expect(sydney.body.results.map((s) => s.name)).not.toContain('Forward');
+  });
+
+  it("serves Superstat with the lead investor's round label and the founding year the press states", async () => {
+    const superstat = (await request(app).get('/api/startups?search=Superstat')).body.results[0];
+    expect(superstat).toMatchObject({ stage: 'Seed', last_funding_round: 'Seed', foundedYear: 2025 });
   });
 
   it('filters by search (case-insensitive, partial match)', async () => {

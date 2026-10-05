@@ -9,7 +9,7 @@
 // If the site does not look like the candidate's (the page names a different
 // company) it contributes nothing but a warning: a wrong website is a more likely
 // explanation than a company that has two names.
-import { AU_STATES } from '../models/company.js';
+import { AU_STATES, KNOWN_CITIES } from '../models/company.js';
 import {
   canonicalDomain, registrableDomain, nameKey, looseNameKey, similarity, normalizeABN, normalizeACN,
 } from '../models/identity.js';
@@ -18,18 +18,25 @@ import { stripTags, metaContent, titleOf, jsonLd, typesOf, links } from './html.
 
 const STATE_RE = AU_STATES.join('|');
 const STREET = 'Street|St|Road|Rd|Avenue|Ave|Lane|Ln|Place|Pl|Parade|Pde|Drive|Dr|Court|Ct|Boulevard|Blvd|Highway|Hwy|Terrace|Tce|Crescent|Cres|Square|Sq|Way|Close|Circuit|Esplanade';
-// 1 street, 2 suburb or city (optional), 3 state, 4 postcode
-const ADDRESS_RE = new RegExp(`\\b(\\d{1,5}[A-Za-z]?(?:\\s?[-–/]\\s?\\d{1,5})?\\s+[A-Z][A-Za-z'’.-]*(?:\\s+[A-Za-z'’.-]+){0,3}?\\s+(?:${STREET})\\b)\\.?,?(\\s+[A-Za-z'’ .-]{2,40}?)?,?\\s+(${STATE_RE})\\s+(\\d{4})\\b`, 'g');
-const LEGAL_FORM_RE = /((?:[\w&'’.-]+\s+){0,6}?[\w&'’.-]+)\s+(?:Pty\.?\s+Ltd\.?|Pty\.?\s+Limited|Proprietary\s+Limited)(?![A-Za-z])/g;
+// 1 street, 2 suburb or city (optional), 3 state, 4 postcode. A unit may be dotted
+// ("Suite 1.103/477 Pitt St"): it is kept whole, never cut to a number the page did not give.
+const ADDRESS_RE = new RegExp(`\\b(\\d{1,5}[A-Za-z]?(?:\\.\\d{1,4})?(?:\\s?[-–/]\\s?\\d{1,5})?\\s+[A-Z][A-Za-z'’.-]*(?:\\s+[A-Za-z'’.-]+){0,3}?\\s+(?:${STREET})\\b)\\.?,?(\\s+[A-Za-z'’ .-]{2,40}?)?,?\\s+(${STATE_RE})\\s+(\\d{4})\\b`, 'g');
+const LEGAL_FORM_RE = /((?:[\w&'’.-]+\s+){0,6}?[\w&'’.-]+)\s+(Pty\.?\s+Ltd\.?|Pty\.?\s+Limited|Proprietary\s+Limited)(?![A-Za-z])/g;
+// Words that label a contact block rather than start a company name: in running text a
+// person and a role often sit right before the entity ("Mitch Deam Privacy Officer
+// Trendspek Operations Pty Ltd"), and the name starts after them.
+const LABEL_WORDS = new Set(['privacy', 'officer', 'contact', 'director', 'manager', 'email', 'phone', 'fax', 'attention', 'address', 'terms', 'policy', 'copyright', 'rights', 'reserved', 'registered', 'trading', 'operated', 'owned', 'welcome', 'about']);
 // +61 2 9999 1234, (02) 9999 1234, 02 9999 1234, 0412 345 678, +61 412 345 678
 const AU_PHONE = /\+61[\s-]?[2-378][\s-]?\d{4}[\s-]?\d{4}|\(0[2-378]\)[\s-]?\d{4}[\s-]?\d{4}|\b0[2-378][\s-]?\d{4}[\s-]?\d{4}\b|\+61[\s-]?4\d{2}[\s-]?\d{3}[\s-]?\d{3}|\b04\d{2}[\s-]?\d{3}[\s-]?\d{3}\b/g;
 const NAME_START = /^(?:[A-Z]|\d+[A-Za-z])/;
 const CONNECTOR = /^(?:of|and|the|for|&)$/;
 
 // "Acme Robotics Pty Ltd" from running text: the run of capitalised words just
-// before the legal form, stopping at a lowercase word or the end of a sentence.
-// "... 1234. Acme Robotics Pty Ltd" gives "Acme Robotics", and "Fastlane is operated
-// by Possibility Studios Pty Ltd" gives "Possibility Studios".
+// before the legal form, stopping at a lowercase word, a label word, or the end of a
+// sentence. "... 1234. Acme Robotics Pty Ltd" gives "Acme Robotics"; "Fastlane is
+// operated by Possibility Studios Pty Ltd" gives "Possibility Studios"; "Mitch Deam
+// Privacy Officer Trendspek Operations Pty Ltd" gives "Trendspek Operations". The
+// legal form keeps the wording the company uses ("Pty Limited" stays "Pty Limited").
 export function legalNamesIn(text) {
   const out = [];
   for (const m of text.matchAll(LEGAL_FORM_RE)) {
@@ -38,13 +45,19 @@ export function legalNamesIn(text) {
     for (let i = tokens.length - 1; i >= 0; i -= 1) {
       const t = tokens[i];
       if (i < tokens.length - 1 && /[.,;:!?)]$/.test(t)) break;
+      if (LABEL_WORDS.has(t.toLowerCase())) break;
       if (NAME_START.test(t) || CONNECTOR.test(t)) run.unshift(t); else break;
     }
     while (run.length && CONNECTOR.test(run[0])) run.shift();
-    if (run.length) out.push(`${run.join(' ')} Pty Ltd`);
+    const form = m[2].replace(/\s+/g, ' ').replace(/\.$/, '').replace(/^Pty\.\s*/, 'Pty ').replace(/\bLtd\.$/, 'Ltd');
+    if (run.length) out.push(`${run.join(' ')} ${form}`);
   }
   return out;
 }
+
+// A homepage title is a name only if it looks like one. "Trendspek | Home" names the
+// company; "Quality, online, social learning for Health Professionals" is a tagline.
+export const looksLikeName = (s) => typeof s === 'string' && s.trim().split(/\s+/).length <= 4 && !/[,:;]/.test(s) && /^[A-Z0-9]/.test(s.trim());
 const PAGE_PRIORITY = [/privacy/i, /terms|legal/i, /contact/i, /about|company|team/i];
 
 const unique = (list) => [...new Set(list)];
@@ -107,9 +120,12 @@ export function extractFacts(html, { home = true } = {}) {
   }
 
   const textYear = /\b(?:founded|established|since|est\.?)\s+(?:in\s+)?((?:19|20)\d{2})\b/i.exec(text);
-  const names = unique([...ld.names, siteName, home && title ? title.split(/\s[|–—·-]\s/)[0] : null].filter((n) => typeof n === 'string' && n.trim()).map((n) => n.trim()));
+  // names: what the page states about itself (structured data, og:site_name). titleName: the
+  // head of a homepage title, which is only sometimes a name (see looksLikeName).
+  const names = unique([...ld.names, siteName].filter((n) => typeof n === 'string' && n.trim()).map((n) => n.trim()));
+  const titleName = home && title ? title.split(/\s[|–—·-]\s/)[0].trim() || null : null;
   return {
-    title, siteName, description, names, legalNames, abns, acns, addresses,
+    title, siteName, description, names, titleName, legalNames, abns, acns, addresses,
     phones: (text.match(AU_PHONE) ?? []).length,
     foundedYear: ld.foundingYear ?? (textYear ? Number(textYear[1]) : null), foundedFrom: ld.foundingYear ? 'structured' : 'text',
     founders: ld.founders,
@@ -119,12 +135,14 @@ export function extractFacts(html, { home = true } = {}) {
 // Does the page appear to be about this company? Any of the names the page gives
 // itself being the candidate's name, a variant of it, or close to it. A legal name
 // counts for a match but not against one (a company's legal name differs from its
-// brand). The domain's own word is only used when the page names itself nothing,
-// so a matching domain cannot outvote a page that says it is someone else.
+// brand). A tagline for a title is not a name and is ignored. The domain's own word is
+// only used when the page names itself nothing, so a matching domain cannot outvote a
+// page that says it is someone else.
 export function pageMatchesName(candidateNames, facts, domain) {
   const candidates = candidateNames.map((n) => ({ key: nameKey(n), loose: looseNameKey(n) })).filter((c) => c.key);
-  const pageNames = [...facts.names, ...facts.legalNames];
-  if (facts.names.length === 0 && domain) pageNames.push(registrableDomain(domain).split('.')[0]);
+  const selfNames = [...facts.names, ...(looksLikeName(facts.titleName) ? [facts.titleName] : [])];
+  const pageNames = [...selfNames, ...facts.legalNames];
+  if (selfNames.length === 0 && domain) pageNames.push(registrableDomain(domain).split('.')[0]);
   for (const page of pageNames) {
     const pk = nameKey(page);
     const pl = looseNameKey(page);
@@ -185,10 +203,11 @@ export async function enrichFromWebsite(website, { fetcher, now, candidateNames 
 
   const facts = pages.map(({ res, html }, i) => ({ res, facts: extractFacts(html, { home: i === 0 }), html }));
   const combined = {
-    names: unique(facts.flatMap((f) => f.facts.names)), legalNames: unique(facts.flatMap((f) => f.facts.legalNames)),
+    names: unique(facts.flatMap((f) => f.facts.names)), legalNames: unique(facts.flatMap((f) => f.facts.legalNames)), titleName: facts[0].facts.titleName,
   };
   if (!pageMatchesName(candidateNames, combined, domain.domain)) {
-    result.warnings.push(`the website at ${domain.host} does not appear to be ${candidateNames[0] ?? 'this company'}: it calls itself ${combined.names.slice(0, 2).join(' / ') || 'nothing we could read'}`);
+    const called = [...combined.names, ...(looksLikeName(combined.titleName) ? [combined.titleName] : [])];
+    result.warnings.push(`the website at ${domain.host} does not appear to be ${candidateNames[0] ?? 'this company'}: it calls itself ${called.slice(0, 2).join(' / ') || 'nothing we could read'}`);
     result.facts = { names: combined.names };
     return result;
   }
@@ -203,14 +222,18 @@ export async function enrichFromWebsite(website, { fetcher, now, candidateNames 
   });
 
   add('website', `https://${domain.host}`, 'high', 'The site itself.', home, facts[0].facts);
-  for (const { res, facts: f } of facts) {
-    if (f.description) add('description', f.description.slice(0, 400), 'medium', 'The page\'s own description.', res, f);
+  for (const [i, { res, facts: f }] of facts.entries()) {
+    // A description is what the homepage says about the company; an inner page's is about the page.
+    // A one-word placeholder ("Home", "Welcome") is not a description.
+    if (i === 0 && f.description && f.description.trim().split(/\s+/).length >= 3) add('description', f.description.slice(0, 400), 'medium', 'The page\'s own description.', res, f);
     const au = f.addresses[0];
     if (au) {
       const conf = au.source === 'structured' ? 'high' : 'medium';
       add('address', au.text, conf, 'Australian address on the page.', res, f);
       add('state', au.state, conf, 'From the address on the page.', res, f);
-      if (au.city) add('city', au.city, conf, 'From the address on the page.', res, f);
+      // A suburb ("Haymarket") is not a city here; the address already holds it. city is
+      // recorded only when it is a city this directory uses, so the city filter is not fragmented.
+      if (au.city && KNOWN_CITIES.includes(au.city)) add('city', au.city, conf, 'From the address on the page.', res, f);
     }
     if (f.foundedYear) add('founded_year', f.foundedYear, f.foundedFrom === 'structured' ? 'high' : 'medium', 'Stated on the page.', res, f);
     for (const founder of f.founders) add('founders', founder, 'medium', 'Named as a founder in the page\'s structured data.', res, f);
@@ -227,8 +250,23 @@ export async function enrichFromWebsite(website, { fetcher, now, candidateNames 
   result.evidence = [...seen.values()];
 
   result.legalNames = unique(facts.flatMap((f) => f.facts.legalNames));
-  result.aliases = unique(facts.flatMap((f) => f.facts.names)).filter((n) => nameKey(n) && !candidateNames.some((c) => nameKey(c) === nameKey(n)));
+  // Other names: those the site states (structured data, og:site_name), plus the homepage
+  // title if it looks like a name that resembles the candidate's. A tagline is never an alias.
+  const resembles = (name) => candidateNames.some((c) => {
+    const a = nameKey(c);
+    const b = nameKey(name);
+    return a && b && (a === b || a.startsWith(b) || b.startsWith(a) || similarity(a, b) >= 0.8);
+  });
+  const titled = looksLikeName(combined.titleName) && resembles(combined.titleName) ? [combined.titleName] : [];
+  result.aliases = unique([...combined.names, ...titled]).filter((n) => nameKey(n) && !candidateNames.some((c) => nameKey(c) === nameKey(n)));
   result.external_ids = { abn: facts.flatMap((f) => f.facts.abns)[0] ?? null, acn: facts.flatMap((f) => f.facts.acns)[0] ?? null };
+  // Both numbers are recorded as the page gives them. But a company's ABN ends with its ACN,
+  // so a pair that does not line up names two legal entities (Medcast's page does), and the
+  // candidate must not look as if one entity holds both.
+  const { abn, acn } = result.external_ids;
+  if (abn && acn && !abn.endsWith(acn)) {
+    result.warnings.push(`the site gives ABN ${abn} and ACN ${acn}, which do not belong to one company (a company's ABN ends with its ACN): they probably identify two legal entities, so check which is which before relying on either`);
+  }
   result.facts = { names: combined.names, addresses: facts.flatMap((f) => f.facts.addresses) };
   return result;
 }
