@@ -26,7 +26,35 @@
       "Cliff Obrecht",
       "Cameron Adams"
     ],
-    "foundedYear": 2012
+    "foundedYear": 2012,
+    "id": "canva",
+    "slug": "canva",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "melanie-perkins",
+      "cliff-obrecht",
+      "cameron-adams"
+    ],
+    "investor_ids": [
+      "blackbird",
+      "airtree",
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Airwallex",
@@ -57,7 +85,37 @@
       "Jacob Dai"
     ],
     "foundedYear": 2015,
-    "address": "Level 7, 15 William Street, Melbourne VIC 3000"
+    "address": "Level 7, 15 William Street, Melbourne VIC 3000",
+    "id": "airwallex",
+    "slug": "airwallex",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jack-zhang",
+      "max-li",
+      "lucy-liu",
+      "xijing-dai",
+      "jacob-dai"
+    ],
+    "investor_ids": [
+      "blackbird",
+      "airtree",
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "SafetyCulture",
@@ -82,7 +140,31 @@
     "founders": [
       "Luke Anear"
     ],
-    "foundedYear": 2004
+    "foundedYear": 2004,
+    "id": "safetyculture",
+    "slug": "safetyculture",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "luke-anear"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Culture Amp",
@@ -110,7 +192,34 @@
       "Rod Hamilton"
     ],
     "foundedYear": 2011,
-    "address": "Level 2/29 Stewart St, Richmond VIC 3121"
+    "address": "Level 2/29 Stewart St, Richmond VIC 3121",
+    "id": "culture-amp",
+    "slug": "culture-amp",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "didier-elzinga",
+      "jon-williamson",
+      "doug-english",
+      "rod-hamilton"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Linktree",
@@ -137,7 +246,33 @@
       "Nick Humphreys"
     ],
     "foundedYear": 2016,
-    "address": "1-9 Sackville Street, Collingwood VIC 3066"
+    "address": "1-9 Sackville Street, Collingwood VIC 3066",
+    "id": "linktree",
+    "slug": "linktree",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "alex-zaccaria",
+      "anthony-zaccaria",
+      "nick-humphreys"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Employment Hero",
@@ -163,7 +298,32 @@
       "Ben Thompson",
       "Dave Tong"
     ],
-    "foundedYear": 2014
+    "foundedYear": 2014,
+    "id": "employment-hero",
+    "slug": "employment-hero",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ben-thompson",
+      "dave-tong"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Go1",
@@ -191,7 +351,34 @@
       "Chris Eigeland",
       "Chris Hood"
     ],
-    "foundedYear": 2015
+    "foundedYear": 2015,
+    "id": "go1",
+    "slug": "go1",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "andrew-barnes",
+      "vu-tran",
+      "chris-eigeland",
+      "chris-hood"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Immutable",
@@ -217,7 +404,32 @@
       "James Ferguson",
       "Robbie Ferguson"
     ],
-    "foundedYear": 2018
+    "foundedYear": 2018,
+    "id": "immutable",
+    "slug": "immutable",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "james-ferguson",
+      "robbie-ferguson"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Rokt",
@@ -242,7 +454,31 @@
     "founders": [
       "Bruce Buchanan"
     ],
-    "foundedYear": 2012
+    "foundedYear": 2012,
+    "id": "rokt",
+    "slug": "rokt",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "bruce-buchanan"
+    ],
+    "investor_ids": [
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Deputy",
@@ -269,7 +505,33 @@
       "Ashik Ahmed",
       "Steve Shelley"
     ],
-    "foundedYear": 2008
+    "foundedYear": 2008,
+    "id": "deputy",
+    "slug": "deputy",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ashik-ahmed",
+      "steve-shelley"
+    ],
+    "investor_ids": [
+      "square-peg",
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Prospa",
@@ -296,7 +558,33 @@
       "Beau Bertoli",
       "Greg Moshal"
     ],
-    "foundedYear": 2011
+    "foundedYear": 2011,
+    "id": "prospa",
+    "slug": "prospa",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "beau-bertoli",
+      "greg-moshal"
+    ],
+    "investor_ids": [
+      "airtree",
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Athena",
@@ -322,7 +610,33 @@
       "Nathan Walsh",
       "Michael Starkey"
     ],
-    "foundedYear": 2017
+    "foundedYear": 2017,
+    "id": "athena",
+    "slug": "athena",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "nathan-walsh",
+      "michael-starkey"
+    ],
+    "investor_ids": [
+      "airtree",
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Leonardo AI",
@@ -347,7 +661,32 @@
     "founders": [
       "Jachin Bhasme",
       "JJ Fiasson"
-    ]
+    ],
+    "id": "leonardo-ai",
+    "slug": "leonardo-ai",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": "acquired",
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jachin-bhasme",
+      "jj-fiasson"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Gilmour Space Technologies",
@@ -373,7 +712,32 @@
       "Adam Gilmour",
       "James Gilmour"
     ],
-    "foundedYear": 2012
+    "foundedYear": 2012,
+    "id": "gilmour-space-technologies",
+    "slug": "gilmour-space-technologies",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "adam-gilmour",
+      "james-gilmour"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Fleet Space Technologies",
@@ -399,7 +763,32 @@
       "Matt Pearson"
     ],
     "foundedYear": 2015,
-    "address": "28 Butler Boulevard, Adelaide Airport SA 5950"
+    "address": "28 Butler Boulevard, Adelaide Airport SA 5950",
+    "id": "fleet-space-technologies",
+    "slug": "fleet-space-technologies",
+    "logo": null,
+    "subsector": null,
+    "state": "SA",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "flavia-tata-nardini",
+      "matt-pearson"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Harrison.ai",
@@ -424,7 +813,32 @@
       "Aengus Tran",
       "Dimitry Tran"
     ],
-    "foundedYear": 2018
+    "foundedYear": 2018,
+    "id": "harrison-ai",
+    "slug": "harrison-ai",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "aengus-tran",
+      "dimitry-tran"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Heidi Health",
@@ -449,7 +863,32 @@
     "founders": [
       "Thomas Kelly",
       "Waleed Mussa"
-    ]
+    ],
+    "id": "heidi-health",
+    "slug": "heidi-health",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "thomas-kelly",
+      "waleed-mussa"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Morse Micro",
@@ -475,7 +914,32 @@
       "Michael De Nil",
       "Andrew Terry"
     ],
-    "foundedYear": 2016
+    "foundedYear": 2016,
+    "id": "morse-micro",
+    "slug": "morse-micro",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "michael-de-nil",
+      "andrew-terry"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Bugcrowd",
@@ -499,7 +963,31 @@
     "address": "Level 5, 50 Carrington Street, Sydney NSW 2000 (Sydney office; co-HQ San Francisco)",
     "founders": [
       "Casey Ellis"
-    ]
+    ],
+    "id": "bugcrowd",
+    "slug": "bugcrowd",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "casey-ellis"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Propeller Aero",
@@ -524,7 +1012,32 @@
     "founders": [
       "Rory San Miguel",
       "Francis Vierboom"
-    ]
+    ],
+    "id": "propeller-aero",
+    "slug": "propeller-aero",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "rory-san-miguel",
+      "francis-vierboom"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Eucalyptus",
@@ -549,7 +1062,32 @@
     "founders": [
       "Tim Doyle"
     ],
-    "foundedYear": 2019
+    "foundedYear": 2019,
+    "id": "eucalyptus",
+    "slug": "eucalyptus",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "tim-doyle"
+    ],
+    "investor_ids": [
+      "blackbird",
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Marqo",
@@ -574,7 +1112,32 @@
       "Tom Hamer",
       "Jesse Clark"
     ],
-    "address": "276 Flinders Street, Melbourne VIC 3000"
+    "address": "276 Flinders Street, Melbourne VIC 3000",
+    "id": "marqo",
+    "slug": "marqo",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "tom-hamer",
+      "jesse-clark"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Lorikeet",
@@ -598,7 +1161,32 @@
     "founders": [
       "Steve Hind",
       "Jamie Hall"
-    ]
+    ],
+    "id": "lorikeet",
+    "slug": "lorikeet",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "steve-hind",
+      "jamie-hall"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Build Club",
@@ -619,7 +1207,30 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "build-club",
+    "slug": "build-club",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "blackbird",
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Cuttable",
@@ -642,7 +1253,31 @@
       "enabled": true,
       "type": "Coding task"
     },
-    "address": "Level 1, 1-3 Stewart St, Richmond VIC 3121"
+    "address": "Level 1, 1-3 Stewart St, Richmond VIC 3121",
+    "id": "cuttable",
+    "slug": "cuttable",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand",
+      "airtree",
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Restoke",
@@ -663,7 +1298,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 2, 114 Elgin St, Carlton VIC 3053"
+    "address": "Level 2, 114 Elgin St, Carlton VIC 3053",
+    "id": "restoke",
+    "slug": "restoke",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Hatch",
@@ -687,7 +1344,32 @@
     "founders": [
       "Adam Jacobs",
       "Chaz Heitner"
-    ]
+    ],
+    "id": "hatch",
+    "slug": "hatch",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "adam-jacobs",
+      "chaz-heitner"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "JigSpace",
@@ -712,7 +1394,32 @@
     "founders": [
       "Zac Duff",
       "Numa Bertron"
-    ]
+    ],
+    "id": "jigspace",
+    "slug": "jigspace",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "zac-duff",
+      "numa-bertron"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Quantum Brilliance",
@@ -736,7 +1443,32 @@
     "founders": [
       "Andrew Horsley",
       "Marcus Doherty"
-    ]
+    ],
+    "id": "quantum-brilliance",
+    "slug": "quantum-brilliance",
+    "logo": null,
+    "subsector": null,
+    "state": "ACT",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "andrew-horsley",
+      "marcus-doherty"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Sapia.ai",
@@ -760,7 +1492,31 @@
     "founders": [
       "Barb Hyman"
     ],
-    "address": "Level 16, 530 Little Collins Street, Melbourne VIC 3000"
+    "address": "Level 16, 530 Little Collins Street, Melbourne VIC 3000",
+    "id": "sapia-ai",
+    "slug": "sapia-ai",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "barb-hyman"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Advanced Navigation",
@@ -785,7 +1541,32 @@
     "founders": [
       "Xavier Orr",
       "Chris Shaw"
-    ]
+    ],
+    "id": "advanced-navigation",
+    "slug": "advanced-navigation",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "xavier-orr",
+      "chris-shaw"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Buildkite",
@@ -811,7 +1592,32 @@
       "Tim Lucas"
     ],
     "foundedYear": 2013,
-    "address": "Level 17, 31 Queen St, Melbourne VIC 3000"
+    "address": "Level 17, 31 Queen St, Melbourne VIC 3000",
+    "id": "buildkite",
+    "slug": "buildkite",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "keith-pitt",
+      "tim-lucas"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Constantinople",
@@ -839,7 +1645,35 @@
     "founders": [
       "Macgregor Duncan",
       "Dianne Challenor"
-    ]
+    ],
+    "id": "constantinople",
+    "slug": "constantinople",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "macgregor-duncan",
+      "dianne-challenor"
+    ],
+    "investor_ids": [
+      "prosus-ventures",
+      "square-peg",
+      "airtree",
+      "great-southern-bank"
+    ],
+    "source_ids": []
   },
   {
     "name": "Zeller",
@@ -865,7 +1699,32 @@
       "Dominic Yap"
     ],
     "foundedYear": 2020,
-    "address": "Level 5, 246 Bourke Street, Melbourne VIC 3000"
+    "address": "Level 5, 246 Bourke Street, Melbourne VIC 3000",
+    "id": "zeller",
+    "slug": "zeller",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ben-pfisterer",
+      "dominic-yap"
+    ],
+    "investor_ids": [
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Secure Code Warrior",
@@ -889,7 +1748,32 @@
     "founders": [
       "Pieter Danhieux",
       "Matias Madou"
-    ]
+    ],
+    "id": "secure-code-warrior",
+    "slug": "secure-code-warrior",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "pieter-danhieux",
+      "matias-madou"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Pet Circle",
@@ -914,7 +1798,32 @@
     "founders": [
       "Mike Frizell",
       "Chris Sonego"
-    ]
+    ],
+    "id": "pet-circle",
+    "slug": "pet-circle",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "mike-frizell",
+      "chris-sonego"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "me&u",
@@ -939,7 +1848,32 @@
     "founders": [
       "Stevan Premutico",
       "Kim Teo"
-    ]
+    ],
+    "id": "me-and-u",
+    "slug": "me-and-u",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "stevan-premutico",
+      "kim-teo"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Archistar",
@@ -964,7 +1898,32 @@
     "founders": [
       "Robert Coorey",
       "Benjamin Coorey"
-    ]
+    ],
+    "id": "archistar",
+    "slug": "archistar",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "robert-coorey",
+      "benjamin-coorey"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Askable",
@@ -985,7 +1944,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 2 King St, Bowen Hills QLD 4006"
+    "address": "Level 1, 2 King St, Bowen Hills QLD 4006",
+    "id": "askable",
+    "slug": "askable",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Brighte",
@@ -1009,7 +1990,31 @@
     "address": "Level 15, 1 Margaret Street, Sydney NSW 2000",
     "founders": [
       "Katherine McConnell"
-    ]
+    ],
+    "id": "brighte",
+    "slug": "brighte",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "katherine-mcconnell"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": ":Different",
@@ -1033,7 +2038,32 @@
     "founders": [
       "Mina Radhakrishnan",
       "Ruwin Perera"
-    ]
+    ],
+    "id": "different",
+    "slug": "different",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "mina-radhakrishnan",
+      "ruwin-perera"
+    ],
+    "investor_ids": [
+      "airtree"
+    ],
+    "source_ids": []
   },
   {
     "name": "Karbon",
@@ -1058,7 +2088,32 @@
       "Stuart McLeod",
       "Ian Vacin"
     ],
-    "foundedYear": 2014
+    "foundedYear": 2014,
+    "id": "karbon",
+    "slug": "karbon",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "stuart-mcleod",
+      "ian-vacin"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mindset Health",
@@ -1083,7 +2138,32 @@
     "founders": [
       "Alex Naoumidis",
       "Chris Naoumidis"
-    ]
+    ],
+    "id": "mindset-health",
+    "slug": "mindset-health",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "alex-naoumidis",
+      "chris-naoumidis"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Sonder (employee care)",
@@ -1108,7 +2188,32 @@
     "founders": [
       "Craig Cowdrey",
       "Christopher Marr"
-    ]
+    ],
+    "id": "sonder",
+    "slug": "sonder",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "craig-cowdrey",
+      "christopher-marr"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Kwetta",
@@ -1133,7 +2238,33 @@
       "Dr. Robert Turner",
       "Dustin Murdock",
       "Mike Lazelle"
-    ]
+    ],
+    "id": "kwetta",
+    "slug": "kwetta",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "dr-robert-turner",
+      "dustin-murdock",
+      "mike-lazelle"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Springboards",
@@ -1157,7 +2288,32 @@
     "founders": [
       "Amy Tucker",
       "Pip Bingemann"
-    ]
+    ],
+    "id": "springboards",
+    "slug": "springboards",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "amy-tucker",
+      "pip-bingemann"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Ivo",
@@ -1181,7 +2337,32 @@
     "founders": [
       "Jacob Duligall",
       "Min-Kyu Jung"
-    ]
+    ],
+    "id": "ivo",
+    "slug": "ivo",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jacob-duligall",
+      "min-kyu-jung"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Baraja",
@@ -1206,7 +2387,32 @@
     "founders": [
       "Federico Collarte",
       "Cibby Pulikkaseril"
-    ]
+    ],
+    "id": "baraja",
+    "slug": "baraja",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "federico-collarte",
+      "cibby-pulikkaseril"
+    ],
+    "investor_ids": [
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Nura",
@@ -1229,7 +2435,30 @@
       "Luke Campbell",
       "Kyle Slater"
     ],
-    "address": "Brunswick, Melbourne VIC 3056"
+    "address": "Brunswick, Melbourne VIC 3056",
+    "id": "nura",
+    "slug": "nura",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "luke-campbell",
+      "kyle-slater"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Sendle",
@@ -1255,7 +2484,32 @@
       "James Chin Moody",
       "Craig Davis"
     ],
-    "foundedYear": 2014
+    "foundedYear": 2014,
+    "id": "sendle",
+    "slug": "sendle",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": "defunct",
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "james-chin-moody",
+      "craig-davis"
+    ],
+    "investor_ids": [
+      "rampersand-2"
+    ],
+    "source_ids": []
   },
   {
     "name": "PredictHQ",
@@ -1275,7 +2529,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "predicthq",
+    "slug": "predicthq",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Goterra",
@@ -1299,7 +2575,31 @@
     "address": "14 Arnott Street, Hume, Canberra ACT 2620",
     "founders": [
       "Olympia Yarger"
-    ]
+    ],
+    "id": "goterra",
+    "slug": "goterra",
+    "logo": null,
+    "subsector": null,
+    "state": "ACT",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "olympia-yarger"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Orkestra",
@@ -1320,7 +2620,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 3, 11 Miller St, Melbourne VIC 3000"
+    "address": "Level 3, 11 Miller St, Melbourne VIC 3000",
+    "id": "orkestra",
+    "slug": "orkestra",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mass Dynamics",
@@ -1341,7 +2663,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 3, 31 Queen Street, Melbourne VIC 3000"
+    "address": "Level 3, 31 Queen Street, Melbourne VIC 3000",
+    "id": "mass-dynamics",
+    "slug": "mass-dynamics",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Cake Equity",
@@ -1365,7 +2709,31 @@
     "address": "5/2 Philippine Parade, Palm Beach QLD 4221",
     "founders": [
       "Jason Atkins"
-    ]
+    ],
+    "id": "cake-equity",
+    "slug": "cake-equity",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jason-atkins"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Expert360",
@@ -1388,7 +2756,30 @@
     "founders": [
       "Bridget Loudon",
       "Emily Yue"
-    ]
+    ],
+    "id": "expert360",
+    "slug": "expert360",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "bridget-loudon",
+      "emily-yue"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Shippit",
@@ -1413,7 +2804,32 @@
       "William On",
       "Rob Hango-Zada"
     ],
-    "foundedYear": 2014
+    "foundedYear": 2014,
+    "id": "shippit",
+    "slug": "shippit",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "william-on",
+      "rob-hango-zada"
+    ],
+    "investor_ids": [
+      "oneventures-etc"
+    ],
+    "source_ids": []
   },
   {
     "name": "Zoomo",
@@ -1438,7 +2854,32 @@
     "founders": [
       "Mina Nada",
       "Michael Johnson"
-    ]
+    ],
+    "id": "zoomo",
+    "slug": "zoomo",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "mina-nada",
+      "michael-johnson"
+    ],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Pathzero",
@@ -1459,7 +2900,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 11, 10 Carrington St, Sydney NSW 2000"
+    "address": "Level 11, 10 Carrington St, Sydney NSW 2000",
+    "id": "pathzero",
+    "slug": "pathzero",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "antler-others"
+    ],
+    "source_ids": []
   },
   {
     "name": "Q-CTRL",
@@ -1482,7 +2945,29 @@
       "Michael Biercuk"
     ],
     "foundedYear": 2017,
-    "address": "93 Shepherd St, Chippendale, Sydney NSW 2008"
+    "address": "93 Shepherd St, Chippendale, Sydney NSW 2008",
+    "id": "q-ctrl",
+    "slug": "q-ctrl",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "michael-biercuk"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Alloy",
@@ -1501,7 +2986,27 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 6, 283 Clarence St, Sydney NSW 2000"
+    "address": "Level 6, 283 Clarence St, Sydney NSW 2000",
+    "id": "alloy",
+    "slug": "alloy",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Brumby (formerly GrazeMate)",
@@ -1519,7 +3024,27 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "brumby",
+    "slug": "brumby",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Care GP",
@@ -1538,7 +3063,27 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 19 North Terrace, Adelaide SA 5000"
+    "address": "Level 1, 19 North Terrace, Adelaide SA 5000",
+    "id": "care-gp",
+    "slug": "care-gp",
+    "logo": null,
+    "subsector": null,
+    "state": "SA",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Edrolo",
@@ -1562,7 +3107,31 @@
       "Jeremy Cox",
       "Duncan Anderson",
       "Ben Overington"
-    ]
+    ],
+    "id": "edrolo",
+    "slug": "edrolo",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jeremy-cox",
+      "duncan-anderson",
+      "ben-overington"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Everlab",
@@ -1581,7 +3150,27 @@
       "enabled": false,
       "type": null
     },
-    "address": "Suite 203, Level 2, 517 Flinders Lane, Melbourne VIC 3000"
+    "address": "Suite 203, Level 2, 517 Flinders Lane, Melbourne VIC 3000",
+    "id": "everlab",
+    "slug": "everlab",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Fair Supply",
@@ -1604,7 +3193,30 @@
     "founders": [
       "Arne Geschke",
       "Kim Randle"
-    ]
+    ],
+    "id": "fair-supply",
+    "slug": "fair-supply",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "arne-geschke",
+      "kim-randle"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Fetch",
@@ -1623,7 +3235,27 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 12, 179 Elizabeth St, Sydney NSW 2000"
+    "address": "Level 12, 179 Elizabeth St, Sydney NSW 2000",
+    "id": "fetch",
+    "slug": "fetch",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "FrankieOne",
@@ -1646,7 +3278,30 @@
     "founders": [
       "Simon Costello",
       "Aaron Chipper"
-    ]
+    ],
+    "id": "frankieone",
+    "slug": "frankieone",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "simon-costello",
+      "aaron-chipper"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "GreaseBoss",
@@ -1665,7 +3320,27 @@
       "enabled": false,
       "type": null
     },
-    "address": "Unit 3, 17 Technology Dr, Warana QLD 4575"
+    "address": "Unit 3, 17 Technology Dr, Warana QLD 4575",
+    "id": "greaseboss",
+    "slug": "greaseboss",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "HEO Robotics",
@@ -1687,7 +3362,29 @@
     "address": "477 Pitt Street, Haymarket, Sydney NSW 2000",
     "founders": [
       "William Crowe"
-    ]
+    ],
+    "id": "heo-robotics",
+    "slug": "heo-robotics",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "william-crowe"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "HotDoc",
@@ -1709,7 +3406,29 @@
     "address": "Level 2, 222 Exhibition St, Melbourne VIC 3000",
     "founders": [
       "Ben Hurst"
-    ]
+    ],
+    "id": "hotdoc",
+    "slug": "hotdoc",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ben-hurst"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Joyn",
@@ -1727,7 +3446,27 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "joyn",
+    "slug": "joyn",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Lyrebird Health",
@@ -1750,7 +3489,30 @@
     "founders": [
       "Kai Van Lieshout",
       "Linus Talacko"
-    ]
+    ],
+    "id": "lyrebird-health",
+    "slug": "lyrebird-health",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "kai-van-lieshout",
+      "linus-talacko"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Open",
@@ -1777,7 +3539,35 @@
     "founders": [
       "Jason Wilby",
       "Jonathan Buck"
-    ]
+    ],
+    "id": "open",
+    "slug": "open",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jason-wilby",
+      "jonathan-buck"
+    ],
+    "investor_ids": [
+      "airtree",
+      "movac",
+      "latitude",
+      "hollard"
+    ],
+    "source_ids": []
   },
   {
     "name": "Qwilr",
@@ -1800,7 +3590,30 @@
     "founders": [
       "Dylan Baskind",
       "Mark Tanner"
-    ]
+    ],
+    "id": "qwilr",
+    "slug": "qwilr",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "dylan-baskind",
+      "mark-tanner"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Strong Compute",
@@ -1821,7 +3634,29 @@
     },
     "founders": [
       "Ben Sand"
-    ]
+    ],
+    "id": "strong-compute",
+    "slug": "strong-compute",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ben-sand"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "TrueState",
@@ -1839,7 +3674,27 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "truestate",
+    "slug": "truestate",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Who Gives a Crap",
@@ -1863,7 +3718,31 @@
       "Danny Alexander",
       "Jehan Ratnatunga"
     ],
-    "address": "Suite 816, 585 Little Collins St, Melbourne VIC 3000"
+    "address": "Suite 816, 585 Little Collins St, Melbourne VIC 3000",
+    "id": "who-gives-a-crap",
+    "slug": "who-gives-a-crap",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "simon-griffiths",
+      "danny-alexander",
+      "jehan-ratnatunga"
+    ],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "XMO",
@@ -1882,7 +3761,27 @@
       "enabled": false,
       "type": null
     },
-    "address": "150 Lonsdale St, Melbourne VIC 3000"
+    "address": "150 Lonsdale St, Melbourne VIC 3000",
+    "id": "xmo",
+    "slug": "xmo",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [],
+    "source_ids": []
   },
   {
     "name": "Diraq",
@@ -1907,7 +3806,32 @@
     "address": "UNSW Sydney campus, Kensington NSW 2052",
     "founders": [
       "Andrew Dzurak"
-    ]
+    ],
+    "id": "diraq",
+    "slug": "diraq",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "andrew-dzurak"
+    ],
+    "investor_ids": [
+      "main-sequence",
+      "nrf-corp"
+    ],
+    "source_ids": []
   },
   {
     "name": "v2food",
@@ -1932,7 +3856,32 @@
     "founders": [
       "Nick Hazell",
       "Duncan Ferguson"
-    ]
+    ],
+    "id": "v2food",
+    "slug": "v2food",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "nick-hazell",
+      "duncan-ferguson"
+    ],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "Myriota",
@@ -1957,7 +3906,32 @@
     "founders": [
       "Alex Grant",
       "David Haley"
-    ]
+    ],
+    "id": "myriota",
+    "slug": "myriota",
+    "logo": null,
+    "subsector": null,
+    "state": "SA",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "alex-grant",
+      "david-haley"
+    ],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "Coviu",
@@ -1981,7 +3955,31 @@
     "address": "Level 1, 6–10 O’Connell Street, Sydney NSW 2000",
     "founders": [
       "Silvia Pfeiffer"
-    ]
+    ],
+    "id": "coviu",
+    "slug": "coviu",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "silvia-pfeiffer"
+    ],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "Andromeda Robotics",
@@ -2002,7 +4000,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 7 Border St, Richmond VIC 3121"
+    "address": "Level 1, 7 Border St, Richmond VIC 3121",
+    "id": "andromeda-robotics",
+    "slug": "andromeda-robotics",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "ElectraLith",
@@ -2023,7 +4043,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Monash Innovation Labs, Clayton VIC 3168"
+    "address": "Monash Innovation Labs, Clayton VIC 3168",
+    "id": "electralith",
+    "slug": "electralith",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "Jupiter Ionics",
@@ -2045,7 +4087,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "Monash University, Clayton VIC 3800"
+    "address": "Monash University, Clayton VIC 3800",
+    "id": "jupiter-ionics",
+    "slug": "jupiter-ionics",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "main-sequence",
+      "tenacious"
+    ],
+    "source_ids": []
   },
   {
     "name": "Seer Medical",
@@ -2071,7 +4136,33 @@
       "Mark Cook",
       "Dean Freestone",
       "George Kenley"
-    ]
+    ],
+    "id": "seer-medical",
+    "slug": "seer-medical",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "mark-cook",
+      "dean-freestone",
+      "george-kenley"
+    ],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "Cortisonic",
@@ -2092,7 +4183,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "33 Lygon St, Carlton VIC 3053"
+    "address": "33 Lygon St, Carlton VIC 3053",
+    "id": "cortisonic",
+    "slug": "cortisonic",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "Facet Amtech",
@@ -2113,7 +4226,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 28 Spring St, Perth WA 6000"
+    "address": "Level 1, 28 Spring St, Perth WA 6000",
+    "id": "facet-amtech",
+    "slug": "facet-amtech",
+    "logo": null,
+    "subsector": null,
+    "state": "WA",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "main-sequence"
+    ],
+    "source_ids": []
   },
   {
     "name": "6clicks",
@@ -2139,7 +4274,33 @@
       "Anthony Stevens",
       "Louis Strauss",
       "Andrew Robinson"
-    ]
+    ],
+    "id": "6clicks",
+    "slug": "6clicks",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "anthony-stevens",
+      "louis-strauss",
+      "andrew-robinson"
+    ],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "AmazingCo",
@@ -2161,7 +4322,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "1/5 Newton St, Richmond VIC 3121"
+    "address": "1/5 Newton St, Richmond VIC 3121",
+    "id": "amazingco",
+    "slug": "amazingco",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures",
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Biza.io",
@@ -2186,7 +4370,32 @@
     "founders": [
       "Stuart Low"
     ],
-    "address": "Level 6, 25 King St, Brisbane QLD 4006"
+    "address": "Level 6, 25 King St, Brisbane QLD 4006",
+    "id": "biza-io",
+    "slug": "biza-io",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "stuart-low"
+    ],
+    "investor_ids": [
+      "oneventures",
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Cascade",
@@ -2207,7 +4416,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 6, 200 Adelaide St, Brisbane QLD 4000"
+    "address": "Level 6, 200 Adelaide St, Brisbane QLD 4000",
+    "id": "cascade",
+    "slug": "cascade",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Coassemble",
@@ -2228,7 +4459,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 424 Hunter St, Newcastle NSW 2300"
+    "address": "Level 1, 424 Hunter St, Newcastle NSW 2300",
+    "id": "coassemble",
+    "slug": "coassemble",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Drawboard",
@@ -2249,7 +4502,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 99 Queen Street, Melbourne VIC 3000"
+    "address": "Level 4, 99 Queen Street, Melbourne VIC 3000",
+    "id": "drawboard",
+    "slug": "drawboard",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "EatClub",
@@ -2270,7 +4545,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "10 Wellington Parade, East Melbourne VIC 3002"
+    "address": "10 Wellington Parade, East Melbourne VIC 3002",
+    "id": "eatclub",
+    "slug": "eatclub",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Flippa",
@@ -2291,7 +4588,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "71-73 Balmain Street, Cremorne, Melbourne VIC 3121"
+    "address": "71-73 Balmain Street, Cremorne, Melbourne VIC 3121",
+    "id": "flippa",
+    "slug": "flippa",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vaxxas",
@@ -2315,7 +4634,31 @@
     "address": "240 Macarthur Avenue, Hamilton (Northshore), Brisbane QLD 4007",
     "founders": [
       "David Hoey"
-    ]
+    ],
+    "id": "vaxxas",
+    "slug": "vaxxas",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "david-hoey"
+    ],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Phocas",
@@ -2336,7 +4679,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Suite 501, 35 Lime Street, King Street Wharf, Sydney NSW 2000"
+    "address": "Suite 501, 35 Lime Street, King Street Wharf, Sydney NSW 2000",
+    "id": "phocas",
+    "slug": "phocas",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "etrainu",
@@ -2357,7 +4722,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 19 Lang Parade, Milton QLD 4064"
+    "address": "Level 1, 19 Lang Parade, Milton QLD 4064",
+    "id": "etrainu",
+    "slug": "etrainu",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "BiVACOR",
@@ -2381,7 +4768,31 @@
     "address": "16 Nexus Way, Southport QLD 4215",
     "founders": [
       "Daniel Timms"
-    ]
+    ],
+    "id": "bivacor",
+    "slug": "bivacor",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "daniel-timms"
+    ],
+    "investor_ids": [
+      "oneventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Assignar",
@@ -2405,7 +4816,32 @@
     "founders": [
       "Sean McCreanor",
       "Marko Tomic"
-    ]
+    ],
+    "id": "assignar",
+    "slug": "assignar",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "sean-mccreanor",
+      "marko-tomic"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Kasada",
@@ -2429,7 +4865,31 @@
     "address": "Level 1, 52 Reservoir Street, Surry Hills, Sydney NSW 2010",
     "founders": [
       "Sam Crowther"
-    ]
+    ],
+    "id": "kasada",
+    "slug": "kasada",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "sam-crowther"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Enboarder",
@@ -2452,7 +4912,31 @@
     },
     "founders": [
       "Brent Pearson"
-    ]
+    ],
+    "id": "enboarder",
+    "slug": "enboarder",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "brent-pearson"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Eftsure",
@@ -2478,7 +4962,33 @@
       "Ian Mirels",
       "Mike Kontorovich",
       "Mark Chazan"
-    ]
+    ],
+    "id": "eftsure",
+    "slug": "eftsure",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ian-mirels",
+      "mike-kontorovich",
+      "mark-chazan"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Neara",
@@ -2510,7 +5020,39 @@
       "Daniel Danilatos",
       "Karamvir Singh",
       "Jack Curtis"
-    ]
+    ],
+    "id": "neara",
+    "slug": "neara",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "daniel-danilatos",
+      "karamvir-singh",
+      "jack-curtis"
+    ],
+    "investor_ids": [
+      "oif",
+      "skip",
+      "square-peg",
+      "tcv",
+      "partners-group",
+      "eqt",
+      "prosus"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mastt",
@@ -2536,7 +5078,33 @@
       "Doug Vincent",
       "Raman Nambiar",
       "Jamie Cerexhe"
-    ]
+    ],
+    "id": "mastt",
+    "slug": "mastt",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "doug-vincent",
+      "raman-nambiar",
+      "jamie-cerexhe"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Matrak",
@@ -2561,7 +5129,32 @@
       "Shane Hodgkins",
       "Brett Hodgkins"
     ],
-    "address": "The Commons QV, 3 Albert Coates Ln, Melbourne VIC 3000"
+    "address": "The Commons QV, 3 Albert Coates Ln, Melbourne VIC 3000",
+    "id": "matrak",
+    "slug": "matrak",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "shane-hodgkins",
+      "brett-hodgkins"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Sitemate",
@@ -2586,7 +5179,32 @@
     "founders": [
       "Hartley Pike",
       "Sam McDonnell"
-    ]
+    ],
+    "id": "sitemate",
+    "slug": "sitemate",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "hartley-pike",
+      "sam-mcdonnell"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mod.io",
@@ -2611,7 +5229,32 @@
     "founders": [
       "Scott Reismanis",
       "Patrick Sotiriou"
-    ]
+    ],
+    "id": "mod-io",
+    "slug": "mod-io",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "scott-reismanis",
+      "patrick-sotiriou"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Atomi",
@@ -2635,7 +5278,32 @@
     "founders": [
       "Rob Barakat",
       "Tom O’Donahoo"
-    ]
+    ],
+    "id": "atomi",
+    "slug": "atomi",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "rob-barakat",
+      "tom-o-donahoo"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Bridgit",
@@ -2659,7 +5327,32 @@
     "founders": [
       "Aaron Bassin",
       "Nick Jacobs"
-    ]
+    ],
+    "id": "bridgit",
+    "slug": "bridgit",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "aaron-bassin",
+      "nick-jacobs"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Clear Dynamics",
@@ -2683,7 +5376,31 @@
     "address": "Suite 3.02, 1 Bligh Street, Sydney NSW 2000 (Sydney office; registered office: 3 Beehive Plaza, Bendigo VIC 3550)",
     "founders": [
       "Dan Beaty"
-    ]
+    ],
+    "id": "clear-dynamics",
+    "slug": "clear-dynamics",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "dan-beaty"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Linkby",
@@ -2703,7 +5420,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "linkby",
+    "slug": "linkby",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Rosterfy",
@@ -2724,7 +5463,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "L6/365 Collins St, Melbourne VIC 3000"
+    "address": "L6/365 Collins St, Melbourne VIC 3000",
+    "id": "rosterfy",
+    "slug": "rosterfy",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Zitcha",
@@ -2749,7 +5510,32 @@
     "founders": [
       "Troy Townsend",
       "Jack Byrne"
-    ]
+    ],
+    "id": "zitcha",
+    "slug": "zitcha",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "troy-townsend",
+      "jack-byrne"
+    ],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Visory",
@@ -2769,7 +5555,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "visory",
+    "slug": "visory",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Bookipi",
@@ -2791,7 +5599,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 5 George Street, North Strathfield, Sydney NSW 2137"
+    "address": "Level 1, 5 George Street, North Strathfield, Sydney NSW 2137",
+    "id": "bookipi",
+    "slug": "bookipi",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif",
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "Bare",
@@ -2812,7 +5643,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Kensington, Melbourne VIC 3031"
+    "address": "Kensington, Melbourne VIC 3031",
+    "id": "bare",
+    "slug": "bare",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Apate AI",
@@ -2833,7 +5686,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Macquarie University Cyber Hub, Sydney NSW 2109"
+    "address": "Macquarie University Cyber Hub, Sydney NSW 2109",
+    "id": "apate-ai",
+    "slug": "apate-ai",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Factor House",
@@ -2856,7 +5731,31 @@
       "enabled": false,
       "type": null
     },
-    "address": "13 Robbs Parade, Northcote VIC 3070"
+    "address": "13 Robbs Parade, Northcote VIC 3070",
+    "id": "factor-house",
+    "slug": "factor-house",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif",
+      "blackbird",
+      "flying-fox"
+    ],
+    "source_ids": []
   },
   {
     "name": "Josef",
@@ -2885,7 +5784,36 @@
       "Sam Flynn",
       "Kirill Kliavin"
     ],
-    "address": "Level 4, 152 Elizabeth Street, Melbourne VIC 3000"
+    "address": "Level 4, 152 Elizabeth Street, Melbourne VIC 3000",
+    "id": "josef",
+    "slug": "josef",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "tom-dreyfus",
+      "sam-flynn",
+      "kirill-kliavin"
+    ],
+    "investor_ids": [
+      "oif",
+      "carthona",
+      "flying-fox",
+      "jelix"
+    ],
+    "source_ids": []
   },
   {
     "name": "Starboard",
@@ -2905,7 +5833,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "starboard",
+    "slug": "starboard",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Payble",
@@ -2927,7 +5877,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "The Foundry, 1 Locomotive St, Eveleigh NSW 2015"
+    "address": "The Foundry, 1 Locomotive St, Eveleigh NSW 2015",
+    "id": "payble",
+    "slug": "payble",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif",
+      "x15"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mary Technology",
@@ -2948,7 +5921,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "477 Pitt Street, Sydney NSW 2000"
+    "address": "477 Pitt Street, Sydney NSW 2000",
+    "id": "mary-technology",
+    "slug": "mary-technology",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "mx51",
@@ -2969,7 +5964,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 9, 115 Pitt St, Sydney NSW 2000"
+    "address": "Level 9, 115 Pitt St, Sydney NSW 2000",
+    "id": "mx51",
+    "slug": "mx51",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Sherlok",
@@ -2993,7 +6010,31 @@
     "founders": [
       "Adam Grocke"
     ],
-    "address": "Tusmore, Adelaide SA 5065"
+    "address": "Tusmore, Adelaide SA 5065",
+    "id": "sherlok",
+    "slug": "sherlok",
+    "logo": null,
+    "subsector": null,
+    "state": "SA",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "adam-grocke"
+    ],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mentorloop",
@@ -3014,7 +6055,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 152 Elizabeth Street, Melbourne VIC 3000"
+    "address": "Level 4, 152 Elizabeth Street, Melbourne VIC 3000",
+    "id": "mentorloop",
+    "slug": "mentorloop",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Cor (Cor AI)",
@@ -3035,7 +6098,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Collingwood, Melbourne VIC 3066"
+    "address": "Collingwood, Melbourne VIC 3066",
+    "id": "cor",
+    "slug": "cor",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Parachute",
@@ -3055,7 +6140,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "parachute",
+    "slug": "parachute",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Keeyu",
@@ -3075,7 +6182,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "keeyu",
+    "slug": "keeyu",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Fourday",
@@ -3095,7 +6224,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "fourday",
+    "slug": "fourday",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "rampersand"
+    ],
+    "source_ids": []
   },
   {
     "name": "Asseti",
@@ -3116,7 +6267,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 12, 100 Walker St, North Sydney NSW 2060"
+    "address": "Level 12, 100 Walker St, North Sydney NSW 2060",
+    "id": "asseti",
+    "slug": "asseti",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Bonjoro",
@@ -3136,7 +6309,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "bonjoro",
+    "slug": "bonjoro",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Loopit",
@@ -3157,7 +6352,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "L24/T3, 300 Barangaroo Ave, Sydney NSW 2000"
+    "address": "L24/T3, 300 Barangaroo Ave, Sydney NSW 2000",
+    "id": "loopit",
+    "slug": "loopit",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Hone (HoneAg)",
@@ -3182,7 +6399,33 @@
       "Antony Martin",
       "Will Palmer",
       "Jamie Flynn"
-    ]
+    ],
+    "id": "hone",
+    "slug": "hone",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "antony-martin",
+      "will-palmer",
+      "jamie-flynn"
+    ],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Renewtrak",
@@ -3203,7 +6446,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 14, 275 Alfred St, North Sydney NSW 2060"
+    "address": "Level 14, 275 Alfred St, North Sydney NSW 2060",
+    "id": "renewtrak",
+    "slug": "renewtrak",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Psyke",
@@ -3223,7 +6488,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "psyke",
+    "slug": "psyke",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "SecurePII",
@@ -3244,7 +6531,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 38, 345 Queen St, Brisbane City QLD 4000"
+    "address": "Level 38, 345 Queen St, Brisbane City QLD 4000",
+    "id": "securepii",
+    "slug": "securepii",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Socialsuite",
@@ -3264,7 +6573,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "socialsuite",
+    "slug": "socialsuite",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Tendl",
@@ -3285,7 +6616,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "96 Jephson St, Unit 1, Toowong QLD 4066"
+    "address": "96 Jephson St, Unit 1, Toowong QLD 4066",
+    "id": "tendl",
+    "slug": "tendl",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vinyl",
@@ -3305,7 +6658,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "vinyl",
+    "slug": "vinyl",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Start My Tomorrow (TMRW)",
@@ -3326,7 +6701,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 10 Bond St, Sydney NSW 2000"
+    "address": "Level 4, 10 Bond St, Sydney NSW 2000",
+    "id": "start-my-tomorrow",
+    "slug": "start-my-tomorrow",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Sherpa (4You Innovation)",
@@ -3346,7 +6743,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "sherpa",
+    "slug": "sherpa",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Minikai",
@@ -3367,7 +6786,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 6/71 Langridge St, Collingwood VIC 3066"
+    "address": "Level 6/71 Langridge St, Collingwood VIC 3066",
+    "id": "minikai",
+    "slug": "minikai",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tidal"
+    ],
+    "source_ids": []
   },
   {
     "name": "Driva",
@@ -3392,7 +6833,32 @@
     "founders": [
       "Scott Montarello",
       "William Brown"
-    ]
+    ],
+    "id": "driva",
+    "slug": "driva",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "scott-montarello",
+      "william-brown"
+    ],
+    "investor_ids": [
+      "carthona"
+    ],
+    "source_ids": []
   },
   {
     "name": "BuildPass",
@@ -3413,7 +6879,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Unit 2, 33 Stewart Street, Richmond, Victoria 3121"
+    "address": "Unit 2, 33 Stewart Street, Richmond, Victoria 3121",
+    "id": "buildpass",
+    "slug": "buildpass",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "carthona"
+    ],
+    "source_ids": []
   },
   {
     "name": "Zero Latency",
@@ -3434,7 +6922,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 5 Harper Street, Abbotsford, Melbourne VIC 3067"
+    "address": "Level 1, 5 Harper Street, Abbotsford, Melbourne VIC 3067",
+    "id": "zero-latency",
+    "slug": "zero-latency",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "carthona"
+    ],
+    "source_ids": []
   },
   {
     "name": "Avarni",
@@ -3455,7 +6965,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "180 George Street, Level 2, Greenhouse Tech Hub, Sydney NSW 2000"
+    "address": "180 George Street, Level 2, Greenhouse Tech Hub, Sydney NSW 2000",
+    "id": "avarni",
+    "slug": "avarni",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "Tiliter",
@@ -3476,7 +7008,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "477 Pitt Street, Sydney NSW 2000"
+    "address": "477 Pitt Street, Sydney NSW 2000",
+    "id": "tiliter",
+    "slug": "tiliter",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vervoe",
@@ -3497,7 +7051,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Suite 1015, 189 Queen Street, Melbourne VIC 3000"
+    "address": "Suite 1015, 189 Queen Street, Melbourne VIC 3000",
+    "id": "vervoe",
+    "slug": "vervoe",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "AutoGrab",
@@ -3518,7 +7094,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "10 River Street, South Yarra VIC 3141"
+    "address": "10 River Street, South Yarra VIC 3141",
+    "id": "autograb",
+    "slug": "autograb",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "Audience Republic",
@@ -3538,7 +7136,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "audience-republic",
+    "slug": "audience-republic",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vexev",
@@ -3559,7 +7179,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 6, 78 Kippax Street, Surry Hills NSW 2010"
+    "address": "Level 6, 78 Kippax Street, Surry Hills NSW 2010",
+    "id": "vexev",
+    "slug": "vexev",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13"
+    ],
+    "source_ids": []
   },
   {
     "name": "SignOnSite",
@@ -3581,7 +7223,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "Unit 4, 10 Geils Ct, Deakin ACT 2600"
+    "address": "Unit 4, 10 Geils Ct, Deakin ACT 2600",
+    "id": "signonsite",
+    "slug": "signonsite",
+    "logo": null,
+    "subsector": null,
+    "state": "ACT",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13",
+      "common-sense"
+    ],
+    "source_ids": []
   },
   {
     "name": "OneMRI",
@@ -3602,7 +7267,30 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "onemri",
+    "slug": "onemri",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "ten13",
+      "oif"
+    ],
+    "source_ids": []
   },
   {
     "name": "Kimia (Kimia.ai)",
@@ -3625,7 +7313,31 @@
       "enabled": false,
       "type": null
     },
-    "address": "Suite 41, 330 Wattle Street, Ultimo NSW 2007"
+    "address": "Suite 41, 330 Wattle Street, Ultimo NSW 2007",
+    "id": "kimia",
+    "slug": "kimia",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "skip",
+      "airtree",
+      "blackbird"
+    ],
+    "source_ids": []
   },
   {
     "name": "Visibuild",
@@ -3646,7 +7358,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 2, 13 Lime St, Sydney NSW 2000"
+    "address": "Level 2, 13 Lime St, Sydney NSW 2000",
+    "id": "visibuild",
+    "slug": "visibuild",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "skip"
+    ],
+    "source_ids": []
   },
   {
     "name": "Human.health",
@@ -3666,7 +7400,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "human-health",
+    "slug": "human-health",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "skip"
+    ],
+    "source_ids": []
   },
   {
     "name": "Pyn",
@@ -3687,7 +7443,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "2 Hennings Lane, Newtown NSW 2042"
+    "address": "2 Hennings Lane, Newtown NSW 2042",
+    "id": "pyn",
+    "slug": "pyn",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "skip"
+    ],
+    "source_ids": []
   },
   {
     "name": "Heaps Normal",
@@ -3714,7 +7492,34 @@
       "Ben Holdstock",
       "Jordy Smith",
       "Pete Brennan"
-    ]
+    ],
+    "id": "heaps-normal",
+    "slug": "heaps-normal",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "andy-miller",
+      "ben-holdstock",
+      "jordy-smith",
+      "pete-brennan"
+    ],
+    "investor_ids": [
+      "flying-fox"
+    ],
+    "source_ids": []
   },
   {
     "name": "Safewill",
@@ -3741,7 +7546,35 @@
     "founders": [
       "Adam Lubofsky",
       "Dan Bennett"
-    ]
+    ],
+    "id": "safewill",
+    "slug": "safewill",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "adam-lubofsky",
+      "dan-bennett"
+    ],
+    "investor_ids": [
+      "flying-fox",
+      "carthona",
+      "king-river",
+      "reinventure"
+    ],
+    "source_ids": []
   },
   {
     "name": "Contactile",
@@ -3762,7 +7595,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "UNSW Innovation Hub, Kensington NSW 2052"
+    "address": "UNSW Innovation Hub, Kensington NSW 2052",
+    "id": "contactile",
+    "slug": "contactile",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "flying-fox"
+    ],
+    "source_ids": []
   },
   {
     "name": "Mercu",
@@ -3788,7 +7643,34 @@
     "founders": [
       "Jascha Zittel",
       "Elliott Gibb"
-    ]
+    ],
+    "id": "mercu",
+    "slug": "mercu",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jascha-zittel",
+      "elliott-gibb"
+    ],
+    "investor_ids": [
+      "flying-fox",
+      "ten13",
+      "500-global"
+    ],
+    "source_ids": []
   },
   {
     "name": "Kismet",
@@ -3820,7 +7702,39 @@
       "Lauren Grimes",
       "Sam Armstrong",
       "Mathew Ellis"
-    ]
+    ],
+    "id": "kismet",
+    "slug": "kismet",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "mark-woodland",
+      "stefan-cordiner",
+      "lauren-grimes",
+      "sam-armstrong",
+      "mathew-ellis"
+    ],
+    "investor_ids": [
+      "flying-fox",
+      "airtree",
+      "prosus",
+      "massmutual-ventures",
+      "black-nova"
+    ],
+    "source_ids": []
   },
   {
     "name": "InvestorHub",
@@ -3846,7 +7760,33 @@
       "Ben Williamson",
       "Rhys Davis"
     ],
-    "address": "Level 16, 452 Flinders Street, Melbourne VIC 3000"
+    "address": "Level 16, 452 Flinders Street, Melbourne VIC 3000",
+    "id": "investorhub",
+    "slug": "investorhub",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "ben-williamson",
+      "rhys-davis"
+    ],
+    "investor_ids": [
+      "flying-fox",
+      "archangel"
+    ],
+    "source_ids": []
   },
   {
     "name": "Kite Therapy",
@@ -3868,7 +7808,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "Wade Institute, University of Melbourne, Parkville VIC 3010"
+    "address": "Wade Institute, University of Melbourne, Parkville VIC 3010",
+    "id": "kite-therapy",
+    "slug": "kite-therapy",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "flying-fox",
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Agscent",
@@ -3889,7 +7852,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "1701 Captains Flat Road, Carwoola NSW 2620"
+    "address": "1701 Captains Flat Road, Carwoola NSW 2620",
+    "id": "agscent",
+    "slug": "agscent",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "flying-fox"
+    ],
+    "source_ids": []
   },
   {
     "name": "SwarmFarm Robotics",
@@ -3917,7 +7902,35 @@
     "founders": [
       "Andrew Bate",
       "Jocie Bate"
-    ]
+    ],
+    "id": "swarmfarm-robotics",
+    "slug": "swarmfarm-robotics",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "andrew-bate",
+      "jocie-bate"
+    ],
+    "investor_ids": [
+      "tenacious",
+      "edaphon",
+      "cefc",
+      "qic"
+    ],
+    "source_ids": []
   },
   {
     "name": "RapidAIM",
@@ -3943,7 +7956,33 @@
       "Darren Moore",
       "Laura Jones"
     ],
-    "address": "Unit 1, 11 Donkin Street, West End QLD 4101"
+    "address": "Unit 1, 11 Donkin Street, West End QLD 4101",
+    "id": "rapidaim",
+    "slug": "rapidaim",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "nancy-schellhorn",
+      "darren-moore",
+      "laura-jones"
+    ],
+    "investor_ids": [
+      "tenacious"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vow",
@@ -3970,7 +8009,34 @@
     "founders": [
       "George Peppou",
       "Tim Noakesmith"
-    ]
+    ],
+    "id": "vow",
+    "slug": "vow",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "george-peppou",
+      "tim-noakesmith"
+    ],
+    "investor_ids": [
+      "tenacious",
+      "blackbird",
+      "prosperity7"
+    ],
+    "source_ids": []
   },
   {
     "name": "Nbryo",
@@ -3992,7 +8058,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 10 Bowen Bridge Rd, Herston QLD 4006"
+    "address": "Level 1, 10 Bowen Bridge Rd, Herston QLD 4006",
+    "id": "nbryo",
+    "slug": "nbryo",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tenacious",
+      "agrizero"
+    ],
+    "source_ids": []
   },
   {
     "name": "Earthodic",
@@ -4015,7 +8104,31 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 2, 155 Queen St, Brisbane QLD 4000"
+    "address": "Level 2, 155 Queen St, Brisbane QLD 4000",
+    "id": "earthodic",
+    "slug": "earthodic",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tenacious",
+      "qic",
+      "ftw"
+    ],
+    "source_ids": []
   },
   {
     "name": "Agovor",
@@ -4035,7 +8148,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "agovor",
+    "slug": "agovor",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tenacious"
+    ],
+    "source_ids": []
   },
   {
     "name": "Trace",
@@ -4055,7 +8190,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "trace",
+    "slug": "trace",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "giant-leap"
+    ],
+    "source_ids": []
   },
   {
     "name": "MoreGoodDays",
@@ -4076,7 +8233,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1/700 Swanston Street, Carlton VIC 3053"
+    "address": "Level 1/700 Swanston Street, Carlton VIC 3053",
+    "id": "moregooddays",
+    "slug": "moregooddays",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "giant-leap"
+    ],
+    "source_ids": []
   },
   {
     "name": "Hex",
@@ -4097,7 +8276,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 2, 534 Church St, Cremorne VIC 3121"
+    "address": "Level 2, 534 Church St, Cremorne VIC 3121",
+    "id": "hex",
+    "slug": "hex",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "giant-leap"
+    ],
+    "source_ids": []
   },
   {
     "name": "ezyCollect",
@@ -4118,7 +8319,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "320 Pitt Street, WeWork, Sydney NSW 2000"
+    "address": "320 Pitt Street, WeWork, Sydney NSW 2000",
+    "id": "ezycollect",
+    "slug": "ezycollect",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tank-stream"
+    ],
+    "source_ids": []
   },
   {
     "name": "Equitise",
@@ -4139,7 +8362,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 17-19 Bridge Street, Sydney NSW 2000 (historical)"
+    "address": "Level 4, 17-19 Bridge Street, Sydney NSW 2000 (historical)",
+    "id": "equitise",
+    "slug": "equitise",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": "defunct",
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tank-stream"
+    ],
+    "source_ids": []
   },
   {
     "name": "Biteable",
@@ -4160,7 +8405,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 2, 162 Collins St, Melbourne VIC 3000"
+    "address": "Level 2, 162 Collins St, Melbourne VIC 3000",
+    "id": "biteable",
+    "slug": "biteable",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "tank-stream"
+    ],
+    "source_ids": []
   },
   {
     "name": "Unloan",
@@ -4180,7 +8447,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "unloan",
+    "slug": "unloan",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": "subsidiary",
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "x15-cba"
+    ],
+    "source_ids": []
   },
   {
     "name": "Home-in",
@@ -4200,7 +8489,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "home-in",
+    "slug": "home-in",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "x15-cba"
+    ],
+    "source_ids": []
   },
   {
     "name": "Doshii",
@@ -4221,7 +8532,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Upper Ground, The Foundry, 1 Locomotive Street, Eveleigh NSW 2015"
+    "address": "Upper Ground, The Foundry, 1 Locomotive Street, Eveleigh NSW 2015",
+    "id": "doshii",
+    "slug": "doshii",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "x15-cba"
+    ],
+    "source_ids": []
   },
   {
     "name": "Kit",
@@ -4242,7 +8575,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Commonwealth Bank Place South, Level 1, 11 Harbour St, Sydney NSW 2000"
+    "address": "Commonwealth Bank Place South, Level 1, 11 Harbour St, Sydney NSW 2000",
+    "id": "kit",
+    "slug": "kit",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "x15-cba"
+    ],
+    "source_ids": []
   },
   {
     "name": "Truyu",
@@ -4263,7 +8618,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 11 Harbour St, Sydney NSW 2000"
+    "address": "Level 1, 11 Harbour St, Sydney NSW 2000",
+    "id": "truyu",
+    "slug": "truyu",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "x15-cba"
+    ],
+    "source_ids": []
   },
   {
     "name": "OwnHome",
@@ -4288,7 +8665,33 @@
     "founders": [
       "James Bowe",
       "Tim Harley"
-    ]
+    ],
+    "id": "ownhome",
+    "slug": "ownhome",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "james-bowe",
+      "tim-harley"
+    ],
+    "investor_ids": [
+      "x15",
+      "nab-ventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Spriggy",
@@ -4312,7 +8715,32 @@
     "founders": [
       "Mario Hasanakos",
       "Alex Badran"
-    ]
+    ],
+    "id": "spriggy",
+    "slug": "spriggy",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "mario-hasanakos",
+      "alex-badran"
+    ],
+    "investor_ids": [
+      "nab-ventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Slyp",
@@ -4334,7 +8762,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 7, 2 Interface Lane, Sydney NSW 2000"
+    "address": "Level 7, 2 Interface Lane, Sydney NSW 2000",
+    "id": "slyp",
+    "slug": "slyp",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "nab-ventures",
+      "cba"
+    ],
+    "source_ids": []
   },
   {
     "name": "Edstart",
@@ -4355,7 +8806,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 1 Launch Lane, Sydney NSW 2000"
+    "address": "Level 4, 1 Launch Lane, Sydney NSW 2000",
+    "id": "edstart",
+    "slug": "edstart",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "nab-ventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "DataMesh Group",
@@ -4376,7 +8849,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 10, 60 Margaret St, Sydney NSW 2000"
+    "address": "Level 10, 60 Margaret St, Sydney NSW 2000",
+    "id": "datamesh-group",
+    "slug": "datamesh-group",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "nab-ventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Hometime",
@@ -4397,7 +8892,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "1 Sussex Street, Level 1, Sydney NSW 2000"
+    "address": "1 Sussex Street, Level 1, Sydney NSW 2000",
+    "id": "hometime",
+    "slug": "hometime",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "nab-ventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "Samsara Eco",
@@ -4426,7 +8943,37 @@
     },
     "founders": [
       "Paul Riley"
-    ]
+    ],
+    "id": "samsara-eco",
+    "slug": "samsara-eco",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "paul-riley"
+    ],
+    "investor_ids": [
+      "titanium",
+      "temasek",
+      "main-sequence",
+      "wollemi-capital",
+      "hitachi-ventures",
+      "dcvc",
+      "lululemon"
+    ],
+    "source_ids": []
   },
   {
     "name": "OpenSolar",
@@ -4451,7 +8998,32 @@
     "founders": [
       "Andrew Birch",
       "Adam Pryor"
-    ]
+    ],
+    "id": "opensolar",
+    "slug": "opensolar",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "andrew-birch",
+      "adam-pryor"
+    ],
+    "investor_ids": [
+      "titanium-telstra"
+    ],
+    "source_ids": []
   },
   {
     "name": "ipSCAPE",
@@ -4472,7 +9044,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 11, 213 Miller St, North Sydney NSW 2060"
+    "address": "Level 11, 213 Miller St, North Sydney NSW 2060",
+    "id": "ipscape",
+    "slug": "ipscape",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "titanium-telstra"
+    ],
+    "source_ids": []
   },
   {
     "name": "HealthEngine",
@@ -4493,7 +9087,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 503 Murray Street, Perth WA 6000"
+    "address": "Level 4, 503 Murray Street, Perth WA 6000",
+    "id": "healthengine",
+    "slug": "healthengine",
+    "logo": null,
+    "subsector": null,
+    "state": "WA",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "titanium-telstra"
+    ],
+    "source_ids": []
   },
   {
     "name": "Chirp",
@@ -4513,7 +9129,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "chirp",
+    "slug": "chirp",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Circular Sourcing",
@@ -4534,7 +9172,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Studio 6, 124 Whitehall St, Footscray VIC 3011"
+    "address": "Studio 6, 124 Whitehall St, Footscray VIC 3011",
+    "id": "circular-sourcing",
+    "slug": "circular-sourcing",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Duohub",
@@ -4554,7 +9214,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "duohub",
+    "slug": "duohub",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Fluency",
@@ -4575,7 +9257,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 2, 65 Dover St, Cremorne VIC 3121, Australia"
+    "address": "Level 2, 65 Dover St, Cremorne VIC 3121, Australia",
+    "id": "fluency",
+    "slug": "fluency",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Gloss Guide",
@@ -4596,7 +9300,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "315 Brunswick St, Fortitude Valley QLD 4006"
+    "address": "315 Brunswick St, Fortitude Valley QLD 4006",
+    "id": "gloss-guide",
+    "slug": "gloss-guide",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Landid",
@@ -4617,7 +9343,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 4, 200 Adelaide St, Brisbane QLD 4000"
+    "address": "Level 4, 200 Adelaide St, Brisbane QLD 4000",
+    "id": "landid",
+    "slug": "landid",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Puralink",
@@ -4638,7 +9386,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "51 Stanley Street, Darlinghurst NSW 2010"
+    "address": "51 Stanley Street, Darlinghurst NSW 2010",
+    "id": "puralink",
+    "slug": "puralink",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vulnetix",
@@ -4658,7 +9428,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "vulnetix",
+    "slug": "vulnetix",
+    "logo": null,
+    "subsector": null,
+    "state": "ACT",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "PentaCue AI",
@@ -4678,7 +9470,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "pentacue-ai",
+    "slug": "pentacue-ai",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Edsemble",
@@ -4698,7 +9512,29 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "edsemble",
+    "slug": "edsemble",
+    "logo": null,
+    "subsector": null,
+    "state": null,
+    "country": null,
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "unverified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "startmate"
+    ],
+    "source_ids": []
   },
   {
     "name": "Andisor",
@@ -4719,7 +9555,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "120 Spencer Street, Melbourne VIC 3000"
+    "address": "120 Spencer Street, Melbourne VIC 3000",
+    "id": "andisor",
+    "slug": "andisor",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "antler"
+    ],
+    "source_ids": []
   },
   {
     "name": "CalcTree",
@@ -4741,7 +9599,31 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "calctree",
+    "slug": "calctree",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "antler",
+      "standards-australia",
+      "foundamental"
+    ],
+    "source_ids": []
   },
   {
     "name": "Vyro",
@@ -4762,7 +9644,30 @@
     "taskGate": {
       "enabled": false,
       "type": null
-    }
+    },
+    "id": "vyro",
+    "slug": "vyro",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "antler",
+      "x15"
+    ],
+    "source_ids": []
   },
   {
     "name": "Reach Alternative Investments",
@@ -4783,7 +9688,29 @@
       "enabled": false,
       "type": null
     },
-    "address": "Level 1, 39 Martin Place, Sydney NSW 2000"
+    "address": "Level 1, 39 Martin Place, Sydney NSW 2000",
+    "id": "reach-alternative-investments",
+    "slug": "reach-alternative-investments",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "antler"
+    ],
+    "source_ids": []
   },
   {
     "name": "Pairtree",
@@ -4805,7 +9732,30 @@
       "enabled": false,
       "type": null
     },
-    "address": "1 Redridge Rd, Orange NSW 2800"
+    "address": "1 Redridge Rd, Orange NSW 2800",
+    "id": "pairtree",
+    "slug": "pairtree",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [],
+    "investor_ids": [
+      "antler",
+      "x15"
+    ],
+    "source_ids": []
   },
   {
     "name": "Blinq",
@@ -4832,7 +9782,34 @@
     "founders": [
       "Jarrod Webb"
     ],
-    "address": "321 Exhibition St, Melbourne VIC 3000"
+    "address": "321 Exhibition St, Melbourne VIC 3000",
+    "id": "blinq",
+    "slug": "blinq",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "jarrod-webb"
+    ],
+    "investor_ids": [
+      "touring-capital",
+      "blackbird",
+      "square-peg",
+      "hubspot-ventures"
+    ],
+    "source_ids": []
   },
   {
     "name": "AgriDigital",
@@ -4858,7 +9835,33 @@
       "Bob McKay",
       "Ben Reid"
     ],
-    "address": "Level 3, 201 Elizabeth St, Sydney NSW 2000"
+    "address": "Level 3, 201 Elizabeth St, Sydney NSW 2000",
+    "id": "agridigital",
+    "slug": "agridigital",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "emma-weston",
+      "bob-mckay",
+      "ben-reid"
+    ],
+    "investor_ids": [
+      "square-peg"
+    ],
+    "source_ids": []
   },
   {
     "name": "Amber Electric",
@@ -4883,6 +9886,221 @@
       "Dan Adams",
       "Chris Thompson"
     ],
-    "address": "Level 44, 360 Elizabeth St, Melbourne VIC 3000"
+    "address": "Level 44, 360 Elizabeth St, Melbourne VIC 3000",
+    "id": "amber-electric",
+    "slug": "amber-electric",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": null,
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": null,
+    "updated_at": null,
+    "last_verified_at": null,
+    "founder_ids": [
+      "dan-adams",
+      "chris-thompson"
+    ],
+    "investor_ids": [
+      "square-peg"
+    ],
+    "source_ids": []
+  },
+  {
+    "name": "Superstat",
+    "sector": "AI",
+    "sectorFull": "AI / Sports Tech",
+    "city": "Melbourne",
+    "lat": -37.8235205,
+    "lng": 144.992432,
+    "investors": [
+      "Blackbird",
+      "Startmate"
+    ],
+    "stage": "Pre-seed",
+    "hiring": true,
+    "verified": true,
+    "website": "https://superstatsport.com",
+    "blurb": "AI that turns game footage into box scores, shot charts and highlights for basketball teams. Melbourne-founded; the team is relocating to the US.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "18 Wangaratta Street, Richmond VIC 3121",
+    "founders": [
+      "Cordelia King",
+      "Kai Bloomfield",
+      "Sam Hung"
+    ],
+    "foundedYear": 2026,
+    "id": "superstat",
+    "slug": "superstat",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "company_status": "active",
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": 3500000,
+    "last_funding_date": null,
+    "last_funding_round": "Pre-seed",
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": "2026-10-05T03:59:04.292Z",
+    "updated_at": "2026-10-05T03:59:04.292Z",
+    "last_verified_at": "2026-10-05T03:59:04.292Z",
+    "founder_ids": [
+      "cordelia-king",
+      "kai-bloomfield",
+      "sam-hung"
+    ],
+    "investor_ids": [
+      "blackbird",
+      "startmate"
+    ],
+    "source_ids": [
+      "owner-research-superstat",
+      "superstat-website",
+      "superstat-careers",
+      "superstat-privacy-policy",
+      "blackbird-superstat-post",
+      "startupdaily-superstat-pre-seed",
+      "startupdaily-startmate-winter-26",
+      "superstat-address-listings"
+    ]
+  },
+  {
+    "name": "Fastlane",
+    "sector": "AI",
+    "sectorFull": "AI / MarTech",
+    "city": "Sydney",
+    "lat": -33.8639115,
+    "lng": 151.2085013,
+    "investors": [],
+    "stage": "Early",
+    "hiring": true,
+    "verified": true,
+    "website": "https://usefastlane.ai",
+    "blurb": "AI platform that turns a website or product into short-form social video for TikTok, Instagram Reels and YouTube Shorts. Sydney legal entity and hiring in Sydney; took part in Founders, Inc.'s San Francisco Canopy program in 2026.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "address": "17-19 Bridge Street, Sydney NSW 2000",
+    "founders": [
+      "Jock Ferguson",
+      "Gaurav Thapa",
+      "Anish Sharma"
+    ],
+    "foundedYear": 2025,
+    "id": "fastlane",
+    "slug": "fastlane",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": "active",
+    "hiring_status": "hiring",
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": "2026-10-05T03:59:04.292Z",
+    "updated_at": "2026-10-05T03:59:04.292Z",
+    "last_verified_at": "2026-10-05T03:59:04.292Z",
+    "founder_ids": [
+      "jock-ferguson",
+      "gaurav-thapa",
+      "anish-sharma"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "owner-research-fastlane",
+      "fastlane-website",
+      "fastlane-privacy-policy",
+      "fastlane-careers",
+      "almanac-fastlane",
+      "linkedin-anish-sharma-fastlane"
+    ]
+  },
+  {
+    "name": "Forward",
+    "sector": "Fintech",
+    "sectorFull": "Fintech / Private credit",
+    "city": "Sydney",
+    "lat": -33.86984,
+    "lng": 151.20828,
+    "investors": [
+      "Y Combinator",
+      "AirTree",
+      "Startmate",
+      "NextGen Ventures",
+      "Lyra Capital",
+      "Latitude 37"
+    ],
+    "stage": "Early",
+    "hiring": true,
+    "verified": true,
+    "website": "https://www.useforward.co",
+    "blurb": "AI platform that connects commercial debt advisors with private-credit funds, turning borrower documents into fund-ready deals. Y Combinator F26; headquartered in San Francisco with a Sydney office.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Daniel Yoon",
+      "Riley Janjis",
+      "Darryl Luo"
+    ],
+    "foundedYear": 2026,
+    "id": "forward",
+    "slug": "forward",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "company_status": "active",
+    "hiring_status": "hiring",
+    "employee_range": "1-10",
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": null,
+    "created_at": "2026-10-05T03:59:04.292Z",
+    "updated_at": "2026-10-05T03:59:04.292Z",
+    "last_verified_at": "2026-10-05T03:59:04.292Z",
+    "founder_ids": [
+      "daniel-yoon",
+      "riley-janjis",
+      "darryl-luo"
+    ],
+    "investor_ids": [
+      "y-combinator",
+      "airtree",
+      "startmate",
+      "nextgen-ventures",
+      "lyra-capital",
+      "latitude-37"
+    ],
+    "source_ids": [
+      "owner-research-forward",
+      "forward-website",
+      "forward-company-page",
+      "yc-forward-profile",
+      "forward-careers",
+      "smartcompany-latitude-37",
+      "startupdaily-startmate-winter-26"
+    ]
   }
 ]

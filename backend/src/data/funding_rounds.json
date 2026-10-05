@@ -1,0 +1,22 @@
+[
+  {
+    "id": "superstat-pre-seed-2026",
+    "company_id": "superstat",
+    "round": "Pre-seed",
+    "amount": 3500000,
+    "currency": "AUD",
+    "announced_on": null,
+    "lead_investor_ids": [
+      "blackbird"
+    ],
+    "investor_ids": [
+      "blackbird",
+      "startmate"
+    ],
+    "source_ids": [
+      "blackbird-superstat-post",
+      "startupdaily-superstat-pre-seed",
+      "startupdaily-startmate-winter-26"
+    ]
+  }
+]

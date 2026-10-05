@@ -1,14 +1,57 @@
 ﻿import { describe, it, expect } from 'vitest';
 import request from 'supertest';
 import app from '../src/app.js';
+import startups from '../src/data/startups.json' with { type: 'json' };
+
+// Derived from the data file so adding a company never breaks these tests; the
+// "don't silently lose companies" floor lives in dataIntegrity.test.js.
+const TOTAL = startups.length;
 
 describe('GET /api/startups', () => {
   it('returns all startups with no filters', async () => {
     const res = await request(app).get('/api/startups');
     expect(res.status).toBe(200);
-    expect(res.body.total).toBe(213);
-    expect(res.body.count).toBe(213);
-    expect(res.body.results).toHaveLength(213);
+    expect(res.body.total).toBe(TOTAL);
+    expect(res.body.count).toBe(TOTAL);
+    expect(res.body.results).toHaveLength(TOTAL);
+  });
+
+  it('keeps every legacy field the frontend reads, with the same types, on every record (schema v2 is additive)', async () => {
+    const res = await request(app).get('/api/startups');
+    for (const s of res.body.results) {
+      expect(typeof s.name).toBe('string');
+      for (const key of ['sector', 'sectorFull', 'city', 'stage', 'website', 'blurb']) expect(typeof s[key]).toBe('string');
+      expect(Array.isArray(s.investors)).toBe(true);
+      expect(typeof s.hiring).toBe('boolean');
+      expect(typeof s.verified).toBe('boolean');
+      expect(typeof s.taskGate.enabled).toBe('boolean');
+      if (s.verified) expect(typeof s.lat).toBe('number');
+    }
+  });
+
+  it('exposes a unique id and slug on every record', async () => {
+    const res = await request(app).get('/api/startups');
+    const ids = res.body.results.map((s) => s.id);
+    expect(ids.every((id) => typeof id === 'string' && id.length > 0)).toBe(true);
+    expect(new Set(ids).size).toBe(TOTAL);
+    expect(new Set(res.body.results.map((s) => s.slug)).size).toBe(TOTAL);
+  });
+
+  it('includes the three companies added from the owner-supplied research, findable by name and by founder', async () => {
+    const byName = await request(app).get('/api/startups?search=Superstat');
+    expect(byName.body.count).toBe(1);
+    expect(byName.body.results[0].founders).toEqual(['Cordelia King', 'Kai Bloomfield', 'Sam Hung']);
+
+    const byFounder = await request(app).get('/api/startups?search=Daniel Yoon');
+    expect(byFounder.body.results.map((s) => s.name)).toEqual(['Forward']);
+
+    const sydneyHiring = await request(app).get('/api/startups?city=Sydney&hiring=yes');
+    expect(sydneyHiring.body.results.map((s) => s.name)).toContain('Fastlane');
+  });
+
+  it('lists the new investors in the filter metadata, keeping "Latitude 37" distinct from the existing "Latitude"', async () => {
+    const res = await request(app).get('/api/startups/meta');
+    expect(res.body.investors).toEqual(expect.arrayContaining(['Y Combinator', 'NextGen Ventures', 'Lyra Capital', 'Latitude 37', 'Latitude']));
   });
 
   it('filters by search (case-insensitive, partial match)', async () => {
@@ -105,7 +148,7 @@ describe('GET /api/startups', () => {
     expect(res.status).toBe(200);
     expect(res.body.count).toBe(0);
     expect(res.body.results).toEqual([]);
-    expect(res.body.total).toBe(213);
+    expect(res.body.total).toBe(TOTAL);
   });
 });
 

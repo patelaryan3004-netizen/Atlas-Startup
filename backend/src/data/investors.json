@@ -1,0 +1,382 @@
+[
+  {
+    "id": "blackbird",
+    "name": "Blackbird",
+    "slug": "blackbird",
+    "aliases": []
+  },
+  {
+    "id": "airtree",
+    "name": "AirTree",
+    "slug": "airtree",
+    "aliases": [
+      "Airtree"
+    ]
+  },
+  {
+    "id": "square-peg",
+    "name": "Square Peg",
+    "slug": "square-peg",
+    "aliases": []
+  },
+  {
+    "id": "rampersand",
+    "name": "Rampersand",
+    "slug": "rampersand",
+    "aliases": []
+  },
+  {
+    "id": "prosus-ventures",
+    "name": "Prosus Ventures",
+    "slug": "prosus-ventures",
+    "aliases": []
+  },
+  {
+    "id": "great-southern-bank",
+    "name": "Great Southern Bank",
+    "slug": "great-southern-bank",
+    "aliases": []
+  },
+  {
+    "id": "rampersand-2",
+    "name": "Rampersand (historical)",
+    "slug": "rampersand-2",
+    "aliases": []
+  },
+  {
+    "id": "oneventures-etc",
+    "name": "OneVentures etc.",
+    "slug": "oneventures-etc",
+    "aliases": []
+  },
+  {
+    "id": "oneventures",
+    "name": "OneVentures",
+    "slug": "oneventures",
+    "aliases": []
+  },
+  {
+    "id": "antler-others",
+    "name": "Antler / others",
+    "slug": "antler-others",
+    "aliases": []
+  },
+  {
+    "id": "movac",
+    "name": "Movac",
+    "slug": "movac",
+    "aliases": []
+  },
+  {
+    "id": "latitude",
+    "name": "Latitude",
+    "slug": "latitude",
+    "aliases": []
+  },
+  {
+    "id": "hollard",
+    "name": "Hollard",
+    "slug": "hollard",
+    "aliases": []
+  },
+  {
+    "id": "main-sequence",
+    "name": "Main Sequence",
+    "slug": "main-sequence",
+    "aliases": []
+  },
+  {
+    "id": "nrf-corp",
+    "name": "NRF Corp",
+    "slug": "nrf-corp",
+    "aliases": []
+  },
+  {
+    "id": "tenacious",
+    "name": "Tenacious",
+    "slug": "tenacious",
+    "aliases": []
+  },
+  {
+    "id": "oif",
+    "name": "OIF",
+    "slug": "oif",
+    "aliases": []
+  },
+  {
+    "id": "skip",
+    "name": "Skip",
+    "slug": "skip",
+    "aliases": []
+  },
+  {
+    "id": "tcv",
+    "name": "TCV",
+    "slug": "tcv",
+    "aliases": []
+  },
+  {
+    "id": "partners-group",
+    "name": "Partners Group",
+    "slug": "partners-group",
+    "aliases": []
+  },
+  {
+    "id": "eqt",
+    "name": "EQT",
+    "slug": "eqt",
+    "aliases": []
+  },
+  {
+    "id": "prosus",
+    "name": "Prosus",
+    "slug": "prosus",
+    "aliases": []
+  },
+  {
+    "id": "ten13",
+    "name": "TEN13",
+    "slug": "ten13",
+    "aliases": []
+  },
+  {
+    "id": "flying-fox",
+    "name": "Flying Fox",
+    "slug": "flying-fox",
+    "aliases": []
+  },
+  {
+    "id": "carthona",
+    "name": "Carthona",
+    "slug": "carthona",
+    "aliases": []
+  },
+  {
+    "id": "jelix",
+    "name": "Jelix",
+    "slug": "jelix",
+    "aliases": []
+  },
+  {
+    "id": "x15",
+    "name": "x15",
+    "slug": "x15",
+    "aliases": []
+  },
+  {
+    "id": "tidal",
+    "name": "Tidal",
+    "slug": "tidal",
+    "aliases": []
+  },
+  {
+    "id": "common-sense",
+    "name": "Common Sense",
+    "slug": "common-sense",
+    "aliases": []
+  },
+  {
+    "id": "king-river",
+    "name": "King River",
+    "slug": "king-river",
+    "aliases": []
+  },
+  {
+    "id": "reinventure",
+    "name": "Reinventure",
+    "slug": "reinventure",
+    "aliases": []
+  },
+  {
+    "id": "500-global",
+    "name": "500 Global",
+    "slug": "500-global",
+    "aliases": []
+  },
+  {
+    "id": "massmutual-ventures",
+    "name": "MassMutual Ventures",
+    "slug": "massmutual-ventures",
+    "aliases": []
+  },
+  {
+    "id": "black-nova",
+    "name": "Black Nova",
+    "slug": "black-nova",
+    "aliases": []
+  },
+  {
+    "id": "archangel",
+    "name": "Archangel",
+    "slug": "archangel",
+    "aliases": []
+  },
+  {
+    "id": "startmate",
+    "name": "Startmate",
+    "slug": "startmate",
+    "aliases": []
+  },
+  {
+    "id": "edaphon",
+    "name": "Edaphon",
+    "slug": "edaphon",
+    "aliases": []
+  },
+  {
+    "id": "cefc",
+    "name": "CEFC",
+    "slug": "cefc",
+    "aliases": []
+  },
+  {
+    "id": "qic",
+    "name": "QIC",
+    "slug": "qic",
+    "aliases": []
+  },
+  {
+    "id": "prosperity7",
+    "name": "Prosperity7",
+    "slug": "prosperity7",
+    "aliases": []
+  },
+  {
+    "id": "agrizero",
+    "name": "AgriZero",
+    "slug": "agrizero",
+    "aliases": []
+  },
+  {
+    "id": "ftw",
+    "name": "FTW",
+    "slug": "ftw",
+    "aliases": []
+  },
+  {
+    "id": "giant-leap",
+    "name": "Giant Leap",
+    "slug": "giant-leap",
+    "aliases": []
+  },
+  {
+    "id": "tank-stream",
+    "name": "Tank Stream",
+    "slug": "tank-stream",
+    "aliases": []
+  },
+  {
+    "id": "x15-cba",
+    "name": "x15/CBA",
+    "slug": "x15-cba",
+    "aliases": []
+  },
+  {
+    "id": "nab-ventures",
+    "name": "NAB Ventures",
+    "slug": "nab-ventures",
+    "aliases": []
+  },
+  {
+    "id": "cba",
+    "name": "CBA",
+    "slug": "cba",
+    "aliases": []
+  },
+  {
+    "id": "titanium",
+    "name": "Titanium",
+    "slug": "titanium",
+    "aliases": []
+  },
+  {
+    "id": "temasek",
+    "name": "Temasek",
+    "slug": "temasek",
+    "aliases": []
+  },
+  {
+    "id": "wollemi-capital",
+    "name": "Wollemi Capital",
+    "slug": "wollemi-capital",
+    "aliases": []
+  },
+  {
+    "id": "hitachi-ventures",
+    "name": "Hitachi Ventures",
+    "slug": "hitachi-ventures",
+    "aliases": []
+  },
+  {
+    "id": "dcvc",
+    "name": "DCVC",
+    "slug": "dcvc",
+    "aliases": []
+  },
+  {
+    "id": "lululemon",
+    "name": "lululemon",
+    "slug": "lululemon",
+    "aliases": []
+  },
+  {
+    "id": "titanium-telstra",
+    "name": "Titanium/Telstra",
+    "slug": "titanium-telstra",
+    "aliases": []
+  },
+  {
+    "id": "antler",
+    "name": "Antler",
+    "slug": "antler",
+    "aliases": []
+  },
+  {
+    "id": "standards-australia",
+    "name": "Standards Australia",
+    "slug": "standards-australia",
+    "aliases": []
+  },
+  {
+    "id": "foundamental",
+    "name": "Foundamental",
+    "slug": "foundamental",
+    "aliases": []
+  },
+  {
+    "id": "touring-capital",
+    "name": "Touring Capital",
+    "slug": "touring-capital",
+    "aliases": []
+  },
+  {
+    "id": "hubspot-ventures",
+    "name": "HubSpot Ventures",
+    "slug": "hubspot-ventures",
+    "aliases": []
+  },
+  {
+    "id": "y-combinator",
+    "name": "Y Combinator",
+    "slug": "y-combinator",
+    "aliases": []
+  },
+  {
+    "id": "nextgen-ventures",
+    "name": "NextGen Ventures",
+    "slug": "nextgen-ventures",
+    "aliases": []
+  },
+  {
+    "id": "lyra-capital",
+    "name": "Lyra Capital",
+    "slug": "lyra-capital",
+    "aliases": []
+  },
+  {
+    "id": "latitude-37",
+    "name": "Latitude 37",
+    "slug": "latitude-37",
+    "aliases": []
+  }
+]
