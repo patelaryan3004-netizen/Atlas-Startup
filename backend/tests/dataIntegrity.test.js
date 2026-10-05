@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import path from 'node:path';
+import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import {
   loadRaw, parseRaw, serializeDataset, migrateDataset, validateDataset, getCompanyWithRelations,
@@ -119,6 +120,52 @@ describe('provenance in the shipped data', () => {
     for (const row of flat) {
       expect(row.source_name, row.evidence_id).toEqual(expect.any(String));
       expect(row.source_type, row.evidence_id).toEqual(expect.any(String));
+    }
+  });
+});
+
+describe('discovery data in the shipped files', () => {
+  const SRC = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src');
+
+  it('is read by no route and no middleware, so it cannot reach the public API', async () => {
+    const dirs = [path.join(SRC, 'routes'), path.join(SRC, 'middleware')];
+    const files = [path.join(SRC, 'app.js'), path.join(SRC, 'server.js')];
+    for (const d of dirs) for (const f of await readdir(d)) files.push(path.join(d, f));
+    for (const file of files) {
+      const text = await readFile(file, 'utf-8');
+      expect(text, `${path.basename(file)} must not touch discovery data`).not.toMatch(/candidates|identifiers|discovery|evidence\.json|sources\.json/i);
+    }
+  });
+
+  it('shows every candidate entered as "candidate" and none approved or published without a person', () => {
+    for (const c of ds.candidates) {
+      expect(c.status_history[0].status, c.id).toBe('candidate');
+      if (['approved', 'published'].includes(c.status)) {
+        expect(c.review?.by, `${c.id} needs a named reviewer`).toBeTruthy();
+        expect(c.review.by.startsWith('engine'), `${c.id} was ${c.status} by the engine`).toBe(false);
+      }
+      if (c.status === 'merged') expect(c.decisions.same_as, c.id).toBeTruthy();
+    }
+  });
+
+  it('holds no email addresses or other submitter details', () => {
+    const text = JSON.stringify(ds.candidates) + JSON.stringify(ds.identifiers);
+    expect(text).not.toMatch(/[\w.+-]+@[\w-]+\.[\w.-]+/);
+  });
+
+  it('gives every identifier a source, and every source it names exists', () => {
+    const sources = new Set(ds.sources.map((s) => s.id));
+    for (const i of ds.identifiers) {
+      expect(i.source_id, `${i.id} needs a source`).toBeTruthy();
+      expect(sources.has(i.source_id), `${i.id} names an unknown source`).toBe(true);
+    }
+  });
+
+  it('records what was found only as evidence of a stated confidence, from a stated source, with a date', () => {
+    for (const c of ds.candidates) {
+      expect(c.discoveries.length, c.id).toBeGreaterThan(0);
+      for (const d of c.discoveries) { expect(d.source_id).toBeTruthy(); expect(d.observed_at).toMatch(/^\d{4}-\d{2}-\d{2}T/); }
+      for (const e of c.evidence) { expect(['high', 'medium', 'low']).toContain(e.confidence); expect(e.source.kind).toBeTruthy(); }
     }
   });
 });

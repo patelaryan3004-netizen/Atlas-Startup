@@ -18,6 +18,7 @@
 import {
   activeEvidence, detectConflicts, findUnappliedEvidence, findWeakEvidence, evidenceCoverage,
 } from './evidence.js';
+import { lifecycleOf } from './company.js';
 
 export const AUDIT_DEFAULTS = { hiringStaleDays: 30, stageStaleDays: 180 };
 
@@ -143,13 +144,6 @@ const normLabel = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
 const nameKey = (name) => normLabel(String(name).replace(/\s*\([^)]*\)/g, ''));
 
 export const isGenericSector = (sector) => GENERIC_SECTORS.some((g) => normLabel(g) === normLabel(sector));
-
-function lifecycleOf(c) {
-  if (c.company_status === 'defunct' || /^defunct/i.test(c.stage || '')) return 'defunct';
-  if (c.company_status === 'acquired' || /^acquired/i.test(c.stage || '')) return 'acquired';
-  if (c.company_status === 'subsidiary' || /^subsidiary/i.test(c.stage || '')) return 'subsidiary';
-  return null;
-}
 
 // ---------- dataset-level checks ----------
 

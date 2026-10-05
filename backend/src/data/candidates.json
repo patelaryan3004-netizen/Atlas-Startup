@@ -1,0 +1,588 @@
+[
+  {
+    "id": "cand-eastend-ventures",
+    "status": "rejected",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-05T06:44:05.471Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "rejected",
+        "at": "2026-10-05T06:44:05.479Z",
+        "by": "engine",
+        "note": "auto-rejected - not a startup: fund_or_investor (Ventures)"
+      }
+    ],
+    "name": "Eastend Ventures",
+    "aliases": [],
+    "website": null,
+    "domain": null,
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "rss.startupdaily-funding",
+        "source_kind": "press",
+        "license_basis": "public_feed",
+        "region": "AU",
+        "key": "https://www.startupdaily.net/?p=140578",
+        "url": "https://www.startupdaily.net/topic/venture-capital/eastend-ventures-nails-30-million-debut-fund-to-back-sa-wa-and-queensland-startups/",
+        "title": "Eastend Ventures nails $30 million debut fund to back SA, WA and Queensland startups",
+        "observed_at": "2026-09-30T05:38:00.000Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-05T06:44:05.471Z",
+    "last_seen_at": "2026-10-05T06:44:05.471Z",
+    "evidence": [],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "no",
+      "score": -0.3,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "nails $3"
+        },
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "startups"
+        },
+        {
+          "code": "fund_or_investor",
+          "weight": -0.8,
+          "detail": "Ventures"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.09,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.15,
+        "startup": 0,
+        "evidence": 0.1,
+        "corroboration": 0,
+        "caps": [
+          "no website to check against"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-kinoxis",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-05T06:44:05.515Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-05T06:44:05.519Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "Kinoxis",
+    "aliases": [],
+    "website": null,
+    "domain": null,
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "rss.startupdaily-funding",
+        "source_kind": "press",
+        "license_basis": "public_feed",
+        "region": "AU",
+        "key": "https://www.startupdaily.net/?p=140378",
+        "url": "https://www.startupdaily.net/topic/funding/dementia-biotech-kinoxis-raises-6-75-million-with-a-2-5m-grant-as-cherry-on-top/",
+        "title": "Dementia biotech Kinoxis raises $6.75 million with a $2.5m grant as cherry on top",
+        "observed_at": "2026-09-23T02:44:01.000Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-05T06:44:05.515Z",
+    "last_seen_at": "2026-10-05T06:44:05.515Z",
+    "evidence": [],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "likely",
+      "score": 0.35,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "raises $6"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.21,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.15,
+        "startup": 0.35,
+        "evidence": 0.1,
+        "corroboration": 0,
+        "caps": [
+          "no website to check against"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-medcast",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-05T06:44:05.497Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-05T06:44:05.503Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "Medcast",
+    "aliases": [],
+    "website": null,
+    "domain": null,
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "rss.startupdaily-funding",
+        "source_kind": "press",
+        "license_basis": "public_feed",
+        "region": "AU",
+        "key": "https://www.startupdaily.net/?p=140437",
+        "url": "https://www.startupdaily.net/topic/funding/medical-edtech-medcast-diagnoses-5-4-million-for-clinical-ai-platform/",
+        "title": "Medical edtech Medcast diagnoses $5.4 million for clinical AI platform",
+        "observed_at": "2026-09-25T00:28:09.000Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-05T06:44:05.497Z",
+    "last_seen_at": "2026-10-05T06:44:05.497Z",
+    "evidence": [],
+    "australian": {
+      "verdict": "likely",
+      "score": 0.35,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "au_mention",
+          "weight": 0.2,
+          "detail": "Aussie"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "yes",
+      "score": 0.5,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "grabs $5"
+        },
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "edtech"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.34,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.35,
+        "startup": 0.5,
+        "evidence": 0.1,
+        "corroboration": 0,
+        "caps": [
+          "no website to check against"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-r2crete",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-05T06:44:05.426Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-05T06:44:05.452Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "R2Crete",
+    "aliases": [],
+    "website": null,
+    "domain": null,
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "rss.startupdaily-funding",
+        "source_kind": "press",
+        "license_basis": "public_feed",
+        "region": "AU",
+        "key": "https://www.startupdaily.net/?p=140577",
+        "url": "https://www.startupdaily.net/topic/funding/melbourne-uni-concrete-recycling-spinout-cements-750000-pre-seed/",
+        "title": "Melbourne Uni concrete recycling spinout cements $750,000 pre-Seed",
+        "observed_at": "2026-10-01T01:24:48.000Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-05T06:44:05.426Z",
+    "last_seen_at": "2026-10-05T06:44:05.426Z",
+    "evidence": [
+      {
+        "field": "last_funding_round",
+        "value": "Pre-seed",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Melbourne Uni concrete recycling spinout cements $750,000 pre-Seed",
+        "source": {
+          "kind": "press",
+          "url": "https://www.startupdaily.net/topic/funding/melbourne-uni-concrete-recycling-spinout-cements-750000-pre-seed/",
+          "title": "Melbourne Uni concrete recycling spinout cements $750,000 pre-Seed",
+          "publisher": "Startup Daily",
+          "retrieved_at": "2026-10-05T06:44:05.386Z",
+          "note": "Source licence basis: public_feed."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "likely",
+      "score": 0.35,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "cements $7"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.33,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.15,
+        "startup": 0.35,
+        "evidence": 0.6,
+        "corroboration": 0,
+        "caps": [
+          "no website to check against"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-rentbetter",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-05T06:44:05.507Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-05T06:44:05.512Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "RentBetter",
+    "aliases": [],
+    "website": null,
+    "domain": null,
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "rss.startupdaily-funding",
+        "source_kind": "press",
+        "license_basis": "public_feed",
+        "region": "AU",
+        "key": "https://www.startupdaily.net/?p=140434",
+        "url": "https://www.startupdaily.net/topic/funding/proptech-play-rentbetter-moves-in-on-5-million/",
+        "title": "Proptech play RentBetter moves in on $5 million",
+        "observed_at": "2026-09-25T00:12:39.000Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-05T06:44:05.507Z",
+    "last_seen_at": "2026-10-05T06:44:05.507Z",
+    "evidence": [],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "yes",
+      "score": 0.5,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "bags $5"
+        },
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.26,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.15,
+        "startup": 0.5,
+        "evidence": 0.1,
+        "corroboration": 0,
+        "caps": [
+          "no website to check against"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-trendspek",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-05T06:44:05.486Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-05T06:44:05.492Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "Trendspek",
+    "aliases": [],
+    "website": null,
+    "domain": null,
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "rss.startupdaily-funding",
+        "source_kind": "press",
+        "license_basis": "public_feed",
+        "region": "AU",
+        "key": "https://www.startupdaily.net/?p=140481",
+        "url": "https://www.startupdaily.net/topic/funding/asset-analysis-platform-trendspek-bans-6-million-to-keep-critical-infrastructure-upright/",
+        "title": "Asset analysis platform Trendspek banks $6 million to keep critical infrastructure upright",
+        "observed_at": "2026-09-29T05:49:10.000Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-05T06:44:05.486Z",
+    "last_seen_at": "2026-10-05T06:44:05.486Z",
+    "evidence": [],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "yes",
+      "score": 0.5,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "banks $6"
+        },
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.26,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.15,
+        "startup": 0.5,
+        "evidence": 0.1,
+        "corroboration": 0,
+        "caps": [
+          "no website to check against"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  }
+]

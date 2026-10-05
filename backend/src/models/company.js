@@ -28,6 +28,13 @@ export const HIRING_STATUSES = ['hiring', 'not_hiring'];
 export const EMPLOYEE_RANGES = ['1-10', '11-50', '51-200', '201-500', '501-1000', '1001-5000', '5001+'];
 export const AU_STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
 
+// What kind of document a source is. licensed_dataset and open_dataset are
+// structured data we hold a licence for, or that is published for reuse.
+export const SOURCE_KINDS = [
+  'company_website', 'company_document', 'press', 'investor_post', 'accelerator_profile',
+  'directory_listing', 'aggregator', 'user_supplied', 'licensed_dataset', 'open_dataset',
+];
+
 // Shared by the dataset and evidence validators.
 export const ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 export const PARTIAL_DATE_RE = /^\d{4}(?:-\d{2}(?:-\d{2})?)?$/;
@@ -59,6 +66,16 @@ const ID_LIST_FIELDS = new Set(['founder_ids', 'investor_ids', 'source_ids']);
 
 export const emptyAddedFields = () =>
   Object.fromEntries(ADDED_FIELDS.map((k) => [k, ID_LIST_FIELDS.has(k) ? [] : null]));
+
+// 'defunct', 'acquired' or 'subsidiary' when the record says so, from company_status
+// or, for records not migrated yet, from the stage text.
+export function lifecycleOf(c) {
+  const stage = c.stage || '';
+  if (c.company_status === 'defunct' || /^defunct/i.test(stage)) return 'defunct';
+  if (c.company_status === 'acquired' || /^acquired/i.test(stage)) return 'acquired';
+  if (c.company_status === 'subsidiary' || /^subsidiary/i.test(stage)) return 'subsidiary';
+  return null;
+}
 
 // Concepts the long-term model names differently but which already exist under
 // a legacy key. Deliberately NOT duplicated in storage: two copies of one fact

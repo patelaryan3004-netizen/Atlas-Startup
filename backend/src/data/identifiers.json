@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fastlane.acn.690900497",
+    "company_id": "fastlane",
+    "scheme": "acn",
+    "value": "690900497",
+    "source_id": "fastlane-privacy-policy",
+    "note": null
+  },
+  {
+    "id": "fastlane.legal_name.possibility-studios-pty-ltd",
+    "company_id": "fastlane",
+    "scheme": "legal_name",
+    "value": "Possibility Studios Pty Ltd",
+    "source_id": "fastlane-privacy-policy",
+    "note": null
+  },
+  {
+    "id": "forward.legal_name.forward-flow-pty-ltd",
+    "company_id": "forward",
+    "scheme": "legal_name",
+    "value": "Forward Flow Pty Ltd",
+    "source_id": "forward-website",
+    "note": null
+  },
+  {
+    "id": "superstat.domain.superstat-com-au",
+    "company_id": "superstat",
+    "scheme": "domain",
+    "value": "superstat.com.au",
+    "source_id": "superstat-website",
+    "note": null
+  },
+  {
+    "id": "superstat.legal_name.superstat-pty-ltd",
+    "company_id": "superstat",
+    "scheme": "legal_name",
+    "value": "Superstat Pty Ltd",
+    "source_id": "superstat-privacy-policy",
+    "note": null
+  }
+]

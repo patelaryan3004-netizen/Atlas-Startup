@@ -295,7 +295,8 @@ export function makeEvidenceRow(input, taken = new Set()) {
 
 const EVIDENCE_ID_RE = /^[a-z0-9][a-z0-9._-]*$/;
 
-function checkValue(spec, value) {
+// Why a value is not acceptable for a field of this type, or null if it is.
+export function checkValue(spec, value) {
   switch (spec.type) {
     case 'url': return isStr(value) && URL_RE.test(value) ? null : 'must be an http(s) URL';
     case 'string': return isStr(value) ? null : 'must be a non-empty string';

@@ -10,6 +10,11 @@
 //                        a source makes about one field (see evidence.js)
 //                        { id, company_id, field, value, source_id, confidence,
 //                          verified_at, status, note }
+//   identifiers.json     owned by a company, FK company_id: other names, former
+//                        names, legal names, other domains, ABN/ACN (see identifiers.js)
+//                        { id, company_id, scheme, value, source_id, note }
+//   candidates.json      discovery staging, not companies: see candidate.js. FKs
+//                        into companies (matches, decisions, published_company_id)
 //   funding_rounds.json  owned by a company, FK company_id
 //                        { id, company_id, round, amount, currency, announced_on,
 //                          lead_investor_ids[], investor_ids[], source_ids[] }
@@ -26,10 +31,14 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import {
   ADDED_FIELDS, LEGACY_FIELDS, AU_STATES, COMPANY_STATUSES, VERIFICATION_STATUSES,
-  HIRING_STATUSES, EMPLOYEE_RANGES, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
+  HIRING_STATUSES, EMPLOYEE_RANGES, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
   slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
 } from './company.js';
 import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
+import { validateIdentifiers } from './identifiers.js';
+import { validateCandidates } from './candidate.js';
+
+export { SOURCE_KINDS };
 
 export const COLLECTION_FILES = {
   companies: 'startups.json',
@@ -37,15 +46,13 @@ export const COLLECTION_FILES = {
   investors: 'investors.json',
   sources: 'sources.json',
   evidence: 'evidence.json',
+  identifiers: 'identifiers.json',
+  candidates: 'candidates.json',
   funding_rounds: 'funding_rounds.json',
   jobs: 'jobs.json',
   news: 'news.json',
 };
 
-export const SOURCE_KINDS = [
-  'company_website', 'company_document', 'press', 'investor_post',
-  'accelerator_profile', 'directory_listing', 'aggregator', 'user_supplied',
-];
 export const JOB_STATUSES = ['open', 'closed'];
 
 // ---------- file I/O ----------
@@ -210,10 +217,13 @@ export function migrateDataset(input) {
   // in a stable order, and each company's summary is kept level with the claims
   // beneath it (every cited source listed, last_verified_at the latest check).
   // Both only ever grow; no stored company value is touched.
-  const evidence = [...(input.evidence ?? [])].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  const byId = new Map(companies.map((c) => [c.id, c]));
+  const byId = (a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  const evidence = [...(input.evidence ?? [])].sort(byId);
+  const identifiers = [...(input.identifiers ?? [])].sort(byId);
+  const candidates = [...(input.candidates ?? [])].sort(byId);
+  const companyById = new Map(companies.map((c) => [c.id, c]));
   for (const e of evidence) {
-    const c = byId.get(e.company_id);
+    const c = companyById.get(e.company_id);
     if (!c) continue;
     if (!c.source_ids.includes(e.source_id)) c.source_ids = [...c.source_ids, e.source_id];
     if (e.verified_at != null && (c.last_verified_at == null || Date.parse(e.verified_at) > Date.parse(c.last_verified_at))) {
@@ -222,7 +232,7 @@ export function migrateDataset(input) {
   }
 
   assertLegacyPreserved(legacy, companies);
-  return { ...input, companies, people, investors, evidence };
+  return { ...input, companies, people, investors, evidence, identifiers, candidates };
 }
 
 // Qualifier/compound names and prefix near-duplicates, for a human to review.
@@ -375,7 +385,7 @@ export function validateDataset(ds) {
     if (n.source_id != null && !sources.has(n.source_id)) bad(at, `unknown source id "${n.source_id}"`);
   }
 
-  errors.push(...validateEvidence(ds));
+  errors.push(...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds));
   return errors;
 }
 
@@ -399,5 +409,6 @@ export function getCompanyWithRelations(ds, idOrSlug) {
     sources: pick(ds.sources, company.source_ids),
     evidence: flattenEvidence(ds, { companyId: company.id }),
     conflicts: detectConflicts(ds).filter((c) => c.company_id === company.id),
+    identifiers: (ds.identifiers ?? []).filter((i) => i.company_id === company.id),
   };
 }

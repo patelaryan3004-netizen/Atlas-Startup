@@ -3,6 +3,8 @@ import request from 'supertest';
 import app from '../src/app.js';
 import startups from '../src/data/startups.json' with { type: 'json' };
 import sources from '../src/data/sources.json' with { type: 'json' };
+import candidates from '../src/data/candidates.json' with { type: 'json' };
+import identifiers from '../src/data/identifiers.json' with { type: 'json' };
 import { INTERNAL_FIELDS } from '../src/models/company.js';
 
 // Derived from the data file so adding a company never breaks these tests; the
@@ -52,6 +54,23 @@ describe('GET /api/startups', () => {
     const superstat = res.body.results.find((s) => s.name === 'Superstat');
     expect(superstat).toMatchObject({ id: 'superstat', state: 'VIC', hiring: true, hiring_status: 'hiring' });
     expect(superstat.founders).toEqual(['Cordelia King', 'Kai Bloomfield', 'Sam Hung']);
+  });
+
+  it('never serves a discovery candidate or an identifier: staging and internal data are not public', async () => {
+    for (const p of ['/api/candidates', '/api/discovery', '/api/identifiers', '/api/review', '/api/startups/candidates', '/candidates.json', '/identifiers.json']) {
+      expect((await request(app).get(p)).status, p).toBe(404);
+    }
+    const res = await request(app).get('/api/startups');
+    const payload = JSON.stringify(res.body);
+    const companyNames = new Set(startups.map((s) => s.name));
+    for (const c of candidates) {
+      expect(payload, `candidate id ${c.id} leaked`).not.toContain(c.id);
+      if (!companyNames.has(c.name)) expect(payload, `candidate "${c.name}" is in the public list`).not.toContain(`"${c.name}"`);
+      expect((await request(app).get(`/api/startups?search=${encodeURIComponent(c.name)}`)).body.results.map((s) => s.name), c.name).not.toContain(c.name);
+    }
+    for (const i of identifiers) expect(res.body.results.every((s) => !('identifiers' in s)), `identifier ${i.id}`).toBe(true);
+    const directory = (await request(app).get('/directory')).text;
+    for (const c of candidates) if (!companyNames.has(c.name)) expect(directory, `candidate "${c.name}" is in /directory`).not.toContain(c.name);
   });
 
   it('includes the three companies added from the owner-supplied research, findable by name and by founder', async () => {

@@ -79,6 +79,16 @@ npm run data:audit -- --out ../docs/data-quality   # also write the report and t
 
 Read-only: it never changes a data file and never proposes a value. It reports coverage for 14 attributes (website, sector, city, state, coordinates, stage, hiring, description, founders, founded year, funding, investors, source, last verified), flags unknown, missing, null, invalid-URL, generic-sector, stale, defunct and acquired records, and builds a prioritized enrichment queue (P0 integrity, P1 core identity, P2 freshness and confidence, P3 depth). The report's "Method and definitions" section states every rule. Dated snapshots are kept in `docs/data-quality/`.
 
+### Discovery engine
+
+```bash
+npm run discovery -- run --dry-run     # find candidate companies from the configured sources, writing nothing
+npm run discovery -- list              # the review queue
+npm run discovery -- resolve --name "Leonardo.Ai" --website https://leonardo.ai   # have we seen this?
+```
+
+Finds candidate Australian startups from licensed or public sources, checks each against the companies already here (by website, ABN/ACN and name, including aliases and former names), checks it is Australian and a startup, reads the company's own website, scores it, and queues it for a person. Candidates are staging data: they enter as `candidate`, no route serves them, and only a named person can approve, merge or publish one. It never reads LinkedIn or a proprietary database, obeys `robots.txt` and refuses access-controlled pages. See [docs/discovery.md](docs/discovery.md).
+
 ## Testing
 
 Both apps use [Vitest](https://vitest.dev) with the `v8` coverage provider.
@@ -88,7 +98,7 @@ npm test              # run backend + frontend test suites
 npm run test:coverage # same, with a coverage report for each
 ```
 
-- `backend/tests/` — supertest hitting the Express `app` directly: filtering logic for every query param on `/api/startups`, `/api/startups/meta`, and the `/api/news` live/cache behavior; model tests (`companyModel`, `evidence`, `audit`) on small synthetic datasets; `dataIntegrity` on the shipped data files
+- `backend/tests/` — supertest hitting the Express `app` directly: filtering logic for every query param on `/api/startups`, `/api/startups/meta`, and the `/api/news` live/cache behavior; model tests (`companyModel`, `evidence`, `audit`) on small synthetic datasets; discovery tests (`identity`, `resolve`, `fetch`, `sources`, `enrich`, `relevance`, `pipeline`, `review`, `candidates`, `cli`) against a scripted web, never the real one; `dataIntegrity` on the shipped data files
 - `frontend/tests/` — React Testing Library for each component (`leaflet` is mocked in `MapView.test.jsx` so tests don't need a real map), plus `api.js` and top-level `App.jsx` wiring
 
 Coverage reports are written to `backend/coverage/` and `frontend/coverage/` (open `coverage/index.html` for the interactive view); both are gitignored.
