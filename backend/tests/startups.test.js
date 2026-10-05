@@ -2,6 +2,8 @@
 import request from 'supertest';
 import app from '../src/app.js';
 import startups from '../src/data/startups.json' with { type: 'json' };
+import sources from '../src/data/sources.json' with { type: 'json' };
+import { INTERNAL_FIELDS } from '../src/models/company.js';
 
 // Derived from the data file so adding a company never breaks these tests; the
 // "don't silently lose companies" floor lives in dataIntegrity.test.js.
@@ -35,6 +37,21 @@ describe('GET /api/startups', () => {
     expect(ids.every((id) => typeof id === 'string' && id.length > 0)).toBe(true);
     expect(new Set(ids).size).toBe(TOTAL);
     expect(new Set(res.body.results.map((s) => s.slug)).size).toBe(TOTAL);
+  });
+
+  it('does not serve record-keeping or provenance, but keeps the facts and still filters on the full record', async () => {
+    const res = await request(app).get('/api/startups');
+    for (const s of res.body.results) {
+      for (const key of INTERNAL_FIELDS) expect(s, `${s.name} exposes ${key}`).not.toHaveProperty(key);
+      expect(typeof s.id).toBe('string');
+    }
+    // No source id appears anywhere in the payload.
+    const payload = JSON.stringify(res.body);
+    for (const { id } of sources) expect(payload, `source "${id}" leaked`).not.toContain(id);
+    // A company that has sources still comes back with its public facts.
+    const superstat = res.body.results.find((s) => s.name === 'Superstat');
+    expect(superstat).toMatchObject({ id: 'superstat', state: 'VIC', hiring: true, hiring_status: 'hiring' });
+    expect(superstat.founders).toEqual(['Cordelia King', 'Kai Bloomfield', 'Sam Hung']);
   });
 
   it('includes the three companies added from the owner-supplied research, findable by name and by founder', async () => {

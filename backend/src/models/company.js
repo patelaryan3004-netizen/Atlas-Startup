@@ -28,6 +28,13 @@ export const HIRING_STATUSES = ['hiring', 'not_hiring'];
 export const EMPLOYEE_RANGES = ['1-10', '11-50', '51-200', '201-500', '501-1000', '1001-5000', '5001+'];
 export const AU_STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
 
+// Shared by the dataset and evidence validators.
+export const ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
+export const PARTIAL_DATE_RE = /^\d{4}(?:-\d{2}(?:-\d{2})?)?$/;
+export const URL_RE = /^https?:\/\/\S+$/;
+export const isStr = (v) => typeof v === 'string' && v.trim() !== '';
+export const isNum = (v) => typeof v === 'number' && Number.isFinite(v);
+
 // Keys that existed before v2. Never renamed, retyped or removed.
 export const LEGACY_FIELDS = [
   'name', 'sector', 'sectorFull', 'city', 'lat', 'lng', 'investors', 'stage',
@@ -131,6 +138,19 @@ export function migrateCompanyRecord(record, ids) {
   const out = {};
   for (const k of Object.keys(merged)) if (!ADDED_FIELDS.includes(k)) out[k] = merged[k];
   for (const k of ADDED_FIELDS) out[k] = merged[k];
+  return out;
+}
+
+// Record-keeping the public API has no reason to serve: which sources back a
+// record, when it was last checked, how far it is trusted. The facts themselves
+// stay public. The detail behind them (sources.json, evidence.json) is not
+// served by any route. To expose one of these later, remove it here and update
+// the test that pins this list.
+export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'last_verified_at', 'created_at', 'updated_at'];
+
+export function toPublic(company) {
+  const out = { ...company };
+  for (const key of INTERNAL_FIELDS) delete out[key];
   return out;
 }
 

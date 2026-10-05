@@ -1,0 +1,217 @@
+﻿company_id,name,on_map,hiring_flag,website,sector,city,state,coordinates,stage,hiring,description,founders,founded_year,funding,investors,source,last_verified,evidence_backed_attributes,priority,score,findings
+canva,Canva,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P1,91,generic_sectors; stale_hiring; stale_stage
+airwallex,Airwallex,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,56,stale_hiring; stale_stage
+safetyculture,SafetyCulture,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P1,91,generic_sectors; stale_hiring; stale_stage
+culture-amp,Culture Amp,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,56,stale_hiring; stale_stage
+linktree,Linktree,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P1,91,generic_sectors; stale_hiring; stale_stage
+employment-hero,Employment Hero,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,56,stale_hiring; stale_stage
+go1,Go1,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+immutable,Immutable,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+rokt,Rokt,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,56,stale_hiring; stale_stage
+deputy,Deputy,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+prospa,Prospa,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+athena,Athena,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,66,stale_hiring; stale_stage
+leonardo-ai,Leonardo AI,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,99,stale_hiring; acquired
+gilmour-space-technologies,Gilmour Space Technologies,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+fleet-space-technologies,Fleet Space Technologies,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,81,stale_hiring; stale_stage
+harrison-ai,Harrison.ai,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,yes,missing,yes,empty,null,0,P1,107,unknown_values; stale_hiring
+heidi-health,Heidi Health,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,72,stale_hiring; stale_stage
+morse-micro,Morse Micro,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P1,116,generic_sectors; stale_hiring; stale_stage
+bugcrowd,Bugcrowd,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,109,unknown_values; stale_hiring
+propeller-aero,Propeller Aero,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,144,unknown_values; generic_sectors; stale_hiring
+eucalyptus,Eucalyptus,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,62,stale_hiring; stale_stage
+marqo,Marqo,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,72,stale_hiring; stale_stage
+lorikeet,Lorikeet,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,78,stale_hiring; stale_stage
+build-club,Build Club,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P2,90,stale_hiring; stale_stage
+cuttable,Cuttable,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P2,80,stale_hiring; stale_stage
+restoke,Restoke,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,missing,missing,missing,yes,empty,null,0,P1,191,unknown_values; missing_values; stale_hiring
+hatch,Hatch,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,185,unknown_values; missing_values; stale_hiring
+jigspace,JigSpace,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,109,unknown_values; stale_hiring
+quantum-brilliance,Quantum Brilliance,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,115,unknown_values; stale_hiring
+sapia-ai,Sapia.ai,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,109,unknown_values; stale_hiring
+advanced-navigation,Advanced Navigation,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,99,generic_sectors; stale_hiring; stale_stage
+buildkite,Buildkite,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+constantinople,Constantinople,yes,yes,empty,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,142,missing_values; stale_hiring; stale_stage
+zeller,Zeller,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,60,stale_hiring; stale_stage
+secure-code-warrior,Secure Code Warrior,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,78,stale_hiring; stale_stage
+pet-circle,Pet Circle,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,68,stale_hiring; stale_stage
+me-and-u,me&u,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,72,stale_hiring; stale_stage
+archistar,Archistar,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,72,stale_hiring; stale_stage
+askable,Askable,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P2,84,stale_hiring; stale_stage
+brighte,Brighte,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,68,stale_hiring; stale_stage
+different,:Different,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,115,unknown_values; stale_hiring
+karbon,Karbon,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P1,122,generic_sectors; stale_hiring; stale_stage
+mindset-health,Mindset Health,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,109,unknown_values; stale_hiring
+sonder,Sonder (employee care),yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,68,stale_hiring; stale_stage
+kwetta,Kwetta,no,yes,empty,yes,unknown,null,null,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,207,unknown_values; missing_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+springboards,Springboards,yes,yes,empty,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,148,missing_values; stale_hiring; stale_stage
+ivo,Ivo,no,yes,empty,yes,unknown,null,null,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,203,unknown_values; missing_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+baraja,Baraja,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,214,unknown_values; missing_values; generic_sectors; stale_hiring
+nura,Nura,yes,yes,empty,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,empty,empty,null,0,P1,187,missing_values; generic_sectors; stale_hiring; stale_stage
+sendle,Sendle,no,no,yes,yes,unknown,null,null,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P1,116,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; defunct
+predicthq,PredictHQ,no,yes,empty,yes,unknown,null,null,unknown,yes,yes,missing,missing,missing,yes,empty,null,0,P1,291,unknown_values; missing_values; null_values; unpinned_unconfirmed; generic_sectors; stale_hiring
+goterra,Goterra,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,109,unknown_values; stale_hiring
+orkestra,Orkestra,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,missing,missing,missing,yes,empty,null,0,P1,191,unknown_values; missing_values; stale_hiring
+mass-dynamics,Mass Dynamics,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,missing,missing,missing,yes,empty,null,0,P1,191,unknown_values; missing_values; stale_hiring
+cake-equity,Cake Equity,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,179,unknown_values; missing_values; stale_hiring
+expert360,Expert360,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,empty,empty,null,0,P1,113,generic_sectors; stale_hiring; stale_stage
+shippit,Shippit,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,empty,null,0,P2,66,stale_hiring; stale_stage
+zoomo,Zoomo,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,missing,missing,yes,empty,null,0,P1,144,unknown_values; generic_sectors; stale_hiring
+pathzero,Pathzero,yes,yes,empty,yes,yes,yes,yes,unknown,yes,yes,missing,missing,missing,yes,empty,null,0,P1,191,unknown_values; missing_values; stale_hiring
+q-ctrl,Q-CTRL,yes,yes,yes,yes,yes,yes,yes,unknown,yes,yes,yes,yes,missing,empty,empty,null,0,P1,111,unknown_values; stale_hiring
+alloy,Alloy,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,271,unknown_values; missing_values; stale_hiring
+brumby,Brumby (formerly GrazeMate),yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,277,unknown_values; missing_values; stale_hiring
+care-gp,Care GP,yes,no,yes,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,201,unknown_values; missing_values; stale_hiring
+edrolo,Edrolo,yes,no,empty,unknown,yes,yes,yes,yes,yes,empty,yes,missing,missing,empty,empty,null,0,P1,218,unknown_values; missing_values; stale_hiring; stale_stage
+everlab,Everlab,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,271,unknown_values; missing_values; stale_hiring
+fair-supply,Fair Supply,yes,no,empty,yes,yes,yes,yes,yes,yes,empty,yes,missing,missing,empty,empty,null,0,P1,197,missing_values; generic_sectors; stale_hiring; stale_stage
+fetch,Fetch,yes,no,empty,yes,yes,yes,yes,yes,yes,empty,missing,missing,missing,empty,empty,null,0,P1,174,missing_values; stale_hiring; stale_stage
+frankieone,FrankieOne,yes,no,empty,yes,yes,yes,yes,yes,yes,empty,yes,missing,missing,empty,empty,null,0,P1,162,missing_values; stale_hiring; stale_stage
+greaseboss,GreaseBoss,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,271,unknown_values; missing_values; stale_hiring
+heo-robotics,HEO Robotics,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,yes,missing,missing,empty,empty,null,0,P1,259,unknown_values; missing_values; stale_hiring
+hotdoc,HotDoc,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,yes,missing,missing,empty,empty,null,0,P1,259,unknown_values; missing_values; stale_hiring
+joyn,Joyn,no,no,empty,unknown,unknown,null,null,unknown,yes,yes,missing,missing,missing,empty,empty,null,0,P1,286,unknown_values; missing_values; null_values; unpinned_unconfirmed; stale_hiring
+lyrebird-health,Lyrebird Health,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,yes,missing,missing,empty,empty,null,0,P1,259,unknown_values; missing_values; stale_hiring
+open,Open,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,104,missing_values; stale_hiring; stale_stage
+qwilr,Qwilr,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,yes,missing,missing,empty,empty,null,0,P1,259,unknown_values; missing_values; stale_hiring
+strong-compute,Strong Compute,yes,no,empty,yes,yes,yes,yes,yes,yes,empty,yes,missing,missing,empty,empty,null,0,P1,203,missing_values; generic_sectors; stale_hiring; stale_stage
+truestate,TrueState,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,277,unknown_values; missing_values; stale_hiring
+who-gives-a-crap,Who Gives a Crap,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,yes,missing,missing,empty,empty,null,0,P1,259,unknown_values; missing_values; stale_hiring
+xmo,XMO,yes,no,empty,unknown,yes,yes,yes,unknown,yes,empty,missing,missing,missing,empty,empty,null,0,P1,271,unknown_values; missing_values; stale_hiring
+diraq,Diraq,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+v2food,v2food,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+myriota,Myriota,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+coviu,Coviu,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+andromeda-robotics,Andromeda Robotics,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+electralith,ElectraLith,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+jupiter-ionics,Jupiter Ionics,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+seer-medical,Seer Medical,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,102,missing_values; stale_hiring; stale_stage
+cortisonic,Cortisonic,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+facet-amtech,Facet Amtech,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+6clicks,6clicks,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,68,stale_hiring; stale_stage
+amazingco,AmazingCo,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+biza-io,Biza.io,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+cascade,Cascade,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+coassemble,Coassemble,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+drawboard,Drawboard,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+eatclub,EatClub,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+flippa,Flippa,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,75,generic_sectors; stale_hiring; stale_stage
+vaxxas,Vaxxas,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+phocas,Phocas,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,75,generic_sectors; stale_hiring; stale_stage
+etrainu,etrainu,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+bivacor,BiVACOR,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+assignar,Assignar,no,no,yes,yes,unknown,null,null,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,93,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+kasada,Kasada,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+enboarder,Enboarder,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,34,stale_hiring; stale_stage
+eftsure,Eftsure,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+neara,Neara,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,24,stale_hiring; stale_stage
+mastt,Mastt,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+matrak,Matrak,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+sitemate,Sitemate,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+mod-io,Mod.io,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+atomi,Atomi,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,34,stale_hiring; stale_stage
+bridgit,Bridgit,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,38,stale_hiring; stale_stage
+clear-dynamics,Clear Dynamics,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+linkby,Linkby,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+rosterfy,Rosterfy,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+zitcha,Zitcha,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+visory,Visory,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,46,stale_hiring; stale_stage
+bookipi,Bookipi,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+bare,Bare,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,79,generic_sectors; stale_hiring; stale_stage
+apate-ai,Apate AI,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+factor-house,Factor House,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+josef,Josef,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+starboard,Starboard,no,no,yes,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,109,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+payble,Payble,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+mary-technology,Mary Technology,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+mx51,mx51,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+sherlok,Sherlok,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+mentorloop,Mentorloop,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+cor,Cor (Cor AI),yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+parachute,Parachute,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,120,missing_values; stale_hiring; stale_stage
+keeyu,Keeyu,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,155,missing_values; generic_sectors; stale_hiring; stale_stage
+fourday,Fourday,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,120,missing_values; stale_hiring; stale_stage
+asseti,Asseti,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+bonjoro,Bonjoro,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+loopit,Loopit,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+hone,Hone (HoneAg),yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,34,stale_hiring; stale_stage
+renewtrak,Renewtrak,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,79,generic_sectors; stale_hiring; stale_stage
+psyke,Psyke,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+securepii,SecurePII,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+socialsuite,Socialsuite,no,no,yes,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,109,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+tendl,Tendl,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,79,generic_sectors; stale_hiring; stale_stage
+vinyl,Vinyl,no,no,yes,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,109,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+start-my-tomorrow,Start My Tomorrow (TMRW),yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+sherpa,Sherpa (4You Innovation),yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,46,stale_hiring; stale_stage
+minikai,Minikai,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+driva,Driva,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+buildpass,BuildPass,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+zero-latency,Zero Latency,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+avarni,Avarni,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+tiliter,Tiliter,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+vervoe,Vervoe,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P2,80,stale_hiring; stale_stage
+autograb,AutoGrab,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+audience-republic,Audience Republic,no,no,yes,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,109,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+vexev,Vexev,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+signonsite,SignOnSite,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+onemri,OneMRI,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+kimia,Kimia (Kimia.ai),yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P2,84,stale_hiring; stale_stage
+visibuild,Visibuild,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+human-health,Human.health,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+pyn,Pyn,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+heaps-normal,Heaps Normal,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,63,generic_sectors; stale_hiring; stale_stage
+safewill,Safewill,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,38,stale_hiring; stale_stage
+contactile,Contactile,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+mercu,Mercu,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,38,stale_hiring; stale_stage
+kismet,Kismet,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+investorhub,InvestorHub,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+kite-therapy,Kite Therapy,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+agscent,Agscent,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+swarmfarm-robotics,SwarmFarm Robotics,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+rapidaim,RapidAIM,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+vow,Vow,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,32,stale_hiring; stale_stage
+nbryo,Nbryo,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+earthodic,Earthodic,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+agovor,Agovor,no,no,empty,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,179,unknown_values; missing_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+trace,Trace,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+moregooddays,MoreGoodDays,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+hex,Hex,yes,no,empty,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,114,missing_values; stale_hiring; stale_stage
+ezycollect,ezyCollect,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+equitise,Equitise,no,no,yes,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,136,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; defunct
+biteable,Biteable,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+unloan,Unloan,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P2,77,stale_hiring; acquired
+home-in,Home-in,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,46,stale_hiring; stale_stage
+doshii,Doshii,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+kit,Kit,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+truyu,Truyu,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+ownhome,OwnHome,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,78,stale_hiring; stale_stage
+spriggy,Spriggy,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,78,stale_hiring; stale_stage
+slyp,Slyp,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+edstart,Edstart,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+datamesh-group,DataMesh Group,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+hometime,Hometime,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+samsara-eco,Samsara Eco,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,78,stale_hiring; stale_stage
+opensolar,OpenSolar,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+ipscape,ipSCAPE,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+healthengine,HealthEngine,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,40,stale_hiring; stale_stage
+chirp,Chirp,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+circular-sourcing,Circular Sourcing,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+duohub,Duohub,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+fluency,Fluency,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+gloss-guide,Gloss Guide,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,79,generic_sectors; stale_hiring; stale_stage
+landid,Landid,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+puralink,Puralink,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+vulnetix,Vulnetix,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+pentacue-ai,PentaCue AI,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,85,generic_sectors; stale_hiring; stale_stage
+edsemble,Edsemble,no,no,yes,yes,unknown,null,null,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P1,109,unknown_values; null_values; unpinned_unconfirmed; stale_hiring; stale_stage
+andisor,Andisor,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+calctree,CalcTree,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+vyro,Vyro,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,50,stale_hiring; stale_stage
+reach-alternative-investments,Reach Alternative Investments,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+pairtree,Pairtree,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,missing,yes,empty,null,0,P3,44,stale_hiring; stale_stage
+blinq,Blinq,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P1,107,generic_sectors; stale_hiring; stale_stage
+agridigital,AgriDigital,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P3,28,stale_hiring; stale_stage
+amber-electric,Amber Electric,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,missing,yes,empty,null,0,P2,64,stale_hiring; stale_stage
+superstat,Superstat,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,9,P0,240,source_conflicts
+fastlane,Fastlane,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,empty,yes,yes,8,P2,92,
+forward,Forward,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,missing,yes,yes,yes,6,P0,186,stale_stage; source_conflicts

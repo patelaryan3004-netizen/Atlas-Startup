@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { toPublic } from '../models/company.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = path.join(__dirname, '..', 'data', 'startups.json');
@@ -46,7 +47,8 @@ router.get('/', async (req, res, next) => {
       return true;
     });
 
-    res.json({ total: startups.length, count: filtered.length, results: filtered });
+    // Filtering uses the full record; the response drops the record-keeping fields.
+    res.json({ total: startups.length, count: filtered.length, results: filtered.map(toPublic) });
   } catch (err) {
     next(err);
   }

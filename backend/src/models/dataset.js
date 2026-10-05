@@ -6,6 +6,10 @@
 //   people.json          founders        { id, name, slug }
 //   investors.json       backers         { id, name, slug, aliases[] }
 //   sources.json         provenance      { id, kind, url, title, publisher, retrieved_at, note }
+//   evidence.json        owned by a company, FK company_id and source_id: one claim
+//                        a source makes about one field (see evidence.js)
+//                        { id, company_id, field, value, source_id, confidence,
+//                          verified_at, status, note }
 //   funding_rounds.json  owned by a company, FK company_id
 //                        { id, company_id, round, amount, currency, announced_on,
 //                          lead_investor_ids[], investor_ids[], source_ids[] }
@@ -22,14 +26,17 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import {
   ADDED_FIELDS, LEGACY_FIELDS, AU_STATES, COMPANY_STATUSES, VERIFICATION_STATUSES,
-  HIRING_STATUSES, EMPLOYEE_RANGES, slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
+  HIRING_STATUSES, EMPLOYEE_RANGES, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
+  slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
 } from './company.js';
+import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
 
 export const COLLECTION_FILES = {
   companies: 'startups.json',
   people: 'people.json',
   investors: 'investors.json',
   sources: 'sources.json',
+  evidence: 'evidence.json',
   funding_rounds: 'funding_rounds.json',
   jobs: 'jobs.json',
   news: 'news.json',
@@ -199,8 +206,23 @@ export function migrateDataset(input) {
     c.investor_ids = [...new Set((c.investors || []).map(linkInvestor))];
   }
 
+  // Evidence is written by hand, never derived, so it is only normalised: kept
+  // in a stable order, and each company's summary is kept level with the claims
+  // beneath it (every cited source listed, last_verified_at the latest check).
+  // Both only ever grow; no stored company value is touched.
+  const evidence = [...(input.evidence ?? [])].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  const byId = new Map(companies.map((c) => [c.id, c]));
+  for (const e of evidence) {
+    const c = byId.get(e.company_id);
+    if (!c) continue;
+    if (!c.source_ids.includes(e.source_id)) c.source_ids = [...c.source_ids, e.source_id];
+    if (e.verified_at != null && (c.last_verified_at == null || Date.parse(e.verified_at) > Date.parse(c.last_verified_at))) {
+      c.last_verified_at = e.verified_at;
+    }
+  }
+
   assertLegacyPreserved(legacy, companies);
-  return { ...input, companies, people, investors };
+  return { ...input, companies, people, investors, evidence };
 }
 
 // Qualifier/compound names and prefix near-duplicates, for a human to review.
@@ -226,11 +248,6 @@ export function investorReviewNotes(investors) {
 // ---------- validation ----------
 
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
-const PARTIAL_DATE_RE = /^\d{4}(?:-\d{2}(?:-\d{2})?)?$/;
-const URL_RE = /^https?:\/\/\S+$/;
-const isStr = (v) => typeof v === 'string' && v.trim() !== '';
-const isNum = (v) => typeof v === 'number' && Number.isFinite(v);
 
 export function validateDataset(ds) {
   const errors = [];
@@ -358,6 +375,7 @@ export function validateDataset(ds) {
     if (n.source_id != null && !sources.has(n.source_id)) bad(at, `unknown source id "${n.source_id}"`);
   }
 
+  errors.push(...validateEvidence(ds));
   return errors;
 }
 
@@ -365,7 +383,8 @@ export function validateDataset(ds) {
 
 // One company with everything it points at resolved. The read path an API,
 // profile page or recommender would use; nothing is inferred - an unlinked
-// relationship is simply an empty list.
+// relationship is simply an empty list. Includes the internal provenance
+// (evidence and open conflicts), so it is for internal tooling, not a public route.
 export function getCompanyWithRelations(ds, idOrSlug) {
   const company = ds.companies.find((c) => c.id === idOrSlug || c.slug === idOrSlug);
   if (!company) return null;
@@ -378,5 +397,7 @@ export function getCompanyWithRelations(ds, idOrSlug) {
     jobs: ds.jobs.filter((j) => j.company_id === company.id),
     news: ds.news.filter((n) => n.company_ids.includes(company.id)),
     sources: pick(ds.sources, company.source_ids),
+    evidence: flattenEvidence(ds, { companyId: company.id }),
+    conflicts: detectConflicts(ds).filter((c) => c.company_id === company.id),
   };
 }
