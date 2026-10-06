@@ -10,7 +10,9 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       include: ['src/**/*.js'],
-      exclude: ['src/server.js', 'src/data/**'],
+      // The Command Center's page (src/admin/ui) is browser code served as static files; Node never runs it. Its
+      // structure is checked by adminUi.test.js and its behaviour by looking at it in a browser, so it is not counted.
+      exclude: ['src/server.js', 'src/data/**', 'src/admin/ui/**'],
     },
   },
 });

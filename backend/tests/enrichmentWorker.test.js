@@ -169,8 +169,15 @@ describe('working through the queue', () => {
       let max = 0;
       const { fetcher } = webFor({ 'https://acme.com.au/': html(ACME_HOME) }, {
         onRequest: (u) => { if (!u.endsWith('robots.txt')) { inFlight += 1; max = Math.max(max, inFlight); } },
-        // A read takes far longer than claiming the next task, as a real one does.
-        gate: async (u) => { if (!u.endsWith('robots.txt')) { await new Promise((r) => setTimeout(r, 200)); inFlight -= 1; } },
+        // A read takes far longer than claiming the next task, as a real one does. With several at once it stays open
+        // until a second read has started (so a slow disk or a busy machine cannot make two reads miss each other), or
+        // for 5 seconds if none ever does; one at a time, a read is just a short wait.
+        gate: async (u) => {
+          if (u.endsWith('robots.txt')) return;
+          const until = Date.now() + (concurrency > 1 ? 5000 : 100);
+          while (Date.now() < until && !(concurrency > 1 && inFlight >= 2)) await new Promise((r) => setTimeout(r, 10));
+          inFlight -= 1;
+        },
       });
       await runQueue({ dir, fetcher, now, concurrency });
       return max;
