@@ -74,7 +74,7 @@ The clocks are learned from the queue, not kept by whoever did the reading. The 
 
 ## Being polite
 
-- **One request per host every few seconds**, robots.txt and its Crawl-delay first, an honest user agent that names the site (`AUStartupMapBot/1.0 (+https://au-startup-map.netlify.app/; scheduled refresh)`), a timeout, a size cap, a redirect limit.
+- **One request per host every few seconds**, robots.txt and its Crawl-delay first, an honest user agent that names the site (`AUStartupMapBot/1.0 (+https://au-startup-map.vercel.app/; scheduled refresh)`), a timeout, a size cap, a redirect limit.
 - **A budget per run:** 40 companies, 300 requests, 20 minutes, 2 sites at a time (flags `--max-sites`, `--max-requests`, `--max-minutes`, `--concurrency`). When a limit is reached it stops *starting* work, finishes what is in flight, says which limit in the run log, and the rest stays due for the next run. Nothing is lost and nothing is skipped silently.
 - **Slow-down requests are remembered.** A host that answers 429 or 503 is written to `refresh_state.json` with how long it asked for (`Retry-After`, in seconds or as a date, capped at a week), or 6 hours the first time and then a day, three days, a week and a fortnight on repeat. The next run does not read its companies and the fetcher refuses the host before sending a request; a host that is used again after its wait and is fine starts again from nothing.
 - **Existing work first.** The queue is shared with the Command Center: a task a person queued goes ahead of a refresh, and a company already waiting is widened rather than queued twice.

@@ -23,7 +23,7 @@
 import { lookup } from 'node:dns/promises';
 import { parseRobots, isAllowed, crawlDelay } from './robots.js';
 
-export const DEFAULT_USER_AGENT = 'AUStartupMapBot/1.0 (+https://au-startup-map.netlify.app/; discovery)';
+export const DEFAULT_USER_AGENT = 'AUStartupMapBot/1.0 (+https://au-startup-map.vercel.app/; discovery)';
 
 const PROPRIETARY = 'a proprietary startup database: use a licensed API adapter, never scrape it';
 const SEARCH = 'search and aggregator results are not scraped: use the publisher\'s own feed';

@@ -37,6 +37,11 @@ cd backend && npm install && npm run dev
 cd frontend && npm install && npm run dev
 ```
 
+## Hosting
+
+- **The site (`frontend/`)** is on Vercel: project `au-startup-map`, https://au-startup-map.vercel.app. `frontend/vercel.json` holds its settings (the `/welcome` page, and long caching for the hashed files in `/assets`). The one environment variable the build needs, `VITE_API_BASE` (the API's address), is set on the Vercel project for Production and Preview, because Vercel builds the site. Deploy by hand with `vercel deploy --prod --cwd frontend` (needs `npm install -g vercel` and `vercel login`).
+- **The API (`backend/`)** is on Render (`render.yaml`), https://atlas-startup.onrender.com, and deploys on every push to `main`. It stays there: it is an always-on Express server that reads the JSON data files, and Vercel Functions run on a read-only disk. On Render's free plan it goes to sleep when nobody has asked for a while, so the first visit after a quiet spell can wait many seconds (about 15 the last time it was timed) for it to wake.
+
 ## API
 
 - `GET /api/startups` — list startups, supports `search`, `sector`, `city`, `investor`, `stage`, `hiring` (`yes`/`no`) query params. With none of the paging parameters below it answers as it always did, `{ total, count, results }` with every match, so anything built on it keeps working

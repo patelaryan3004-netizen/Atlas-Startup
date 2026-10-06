@@ -38,7 +38,7 @@ import { runQuality, qualitySummary } from './jobs/quality.js';
 
 export { JOBS };
 export const SITE_JOBS = ['hiring', 'status', 'enrichment'];
-export const DEFAULT_USER_AGENT = 'AUStartupMapBot/1.0 (+https://au-startup-map.netlify.app/; scheduled refresh)';
+export const DEFAULT_USER_AGENT = 'AUStartupMapBot/1.0 (+https://au-startup-map.vercel.app/; scheduled refresh)';
 const SYSTEM = (by) => ({ name: by, role: 'system' });
 const iso = (ms) => new Date(ms).toISOString();
 const facetsOf = (job) => COMPANY_FACETS.filter((f) => CADENCE.company[f].job === job);

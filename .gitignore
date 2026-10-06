@@ -7,8 +7,9 @@ dev-server.log
 .claude/scheduled_tasks.lock
 .claude/settings.local.json
 
-# Local Netlify folder
+# Local Netlify and Vercel link folders
 .netlify
+.vercel
 
 # Platform-specific binary the impeccable skill downloads itself on first run
 .claude/skills/impeccable/scripts/bin/

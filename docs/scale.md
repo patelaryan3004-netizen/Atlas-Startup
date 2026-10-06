@@ -2,7 +2,7 @@
 
 The directory has about 213 public companies. This is what was done to make sure it still works, and still feels quick, at 500, 1,000, 2,500, 5,000 and 10,000: how it was tested, what was slow, what changed, what it now costs, and what is still not solved.
 
-**Every company used in a test is synthetic and exists only in a temporary folder.** `backend/scripts/scale/fixtures.js` writes them and refuses to write anywhere near `backend/src/data`. Nothing synthetic is in the repository's data, on Render or on Netlify; the raw results in `docs/scale/` contain numbers, not companies.
+**Every company used in a test is synthetic and exists only in a temporary folder.** `backend/scripts/scale/fixtures.js` writes them and refuses to write anywhere near `backend/src/data`. Nothing synthetic is in the repository's data, on Render or on Vercel; the raw results in `docs/scale/` contain numbers, not companies.
 
 ## The short version
 

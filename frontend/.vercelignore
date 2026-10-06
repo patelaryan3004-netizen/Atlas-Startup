@@ -1,0 +1,6 @@
+# What `vercel deploy` uploads from the command line: the site's source, nothing that is built or only for tests.
+node_modules
+dist
+coverage
+tests
+.env
