@@ -121,7 +121,7 @@ One number from 0 to 1 for ordering the review queue; it never publishes anythin
 
 ## Limits to know about
 
-- **State lives in git, not on the server.** The review queue is `candidates.json`; run the engine on your machine (or a scheduled job that commits: `.github/workflows/scheduled-refresh.yml`, see [scheduler.md](scheduler.md)), not on Render, whose disk is not kept. A database is the next step before running it at a larger scale.
+- **State lives in git, not on the server.** The review queue is `candidates.json`; run the engine on your machine (or a scheduled job that commits: the workflow in [scheduler.md](scheduler.md), once installed), not on Render, whose disk is not kept. A database is the next step before running it at a larger scale.
 - **News extraction favours precision over recall.** It reads the headline and excerpt, skips roundups ("3 startups pocket $18.75 million") and headlines that do not name the company, and finds a handful of companies per feed read.
 - **No website discovery.** The engine does not search for a company's site; a reviewer supplies it.
 - **ABN/ACN are checksum-validated, not looked up.** The ABN Lookup web service would confirm them against the register.

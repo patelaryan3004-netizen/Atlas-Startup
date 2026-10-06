@@ -1,0 +1,95 @@
+# Keeps the directory current: runs the scheduler (backend/scripts/scheduler.js) on a timer and commits what it wrote.
+# See docs/scheduler.md.
+#
+# TO USE IT: this copy lives in docs/ because GitHub refuses a push that adds a workflow file unless the credential has
+# the "workflow" scope. Add it as .github/workflows/scheduled-refresh.yml: either create that file in GitHub's web
+# editor and paste this in, or `git mv` it there and push with a credential that has the scope. It has not been run.
+#
+# It does nothing until the repository VARIABLE SCHEDULER_ENABLED is set to "true" (Settings > Secrets and variables >
+# Actions > Variables), so adding this file starts nothing. Turn it off the same way.
+#
+# What a run does: reads feeds and company websites politely (robots.txt, pacing, a request budget), and writes
+# evidence, clocks and a run log into backend/src/data. It never changes a company unless started by hand in "fill"
+# mode, and even then only what the enrichment policy allows. It is not run on Render: Render's disk is wiped on every
+# deploy, so the data is kept in git, and this is the thing that updates it there.
+name: Scheduled data refresh
+
+on:
+  schedule:
+    - cron: '17 */6 * * *' # four times a day, off the hour so it does not queue with everyone else's
+  workflow_dispatch:
+    inputs:
+      jobs:
+        description: 'Jobs to run, comma separated (discovery, funding, hiring, status, enrichment, quality). Empty runs all of them.'
+        required: false
+        default: ''
+      mode:
+        description: 'suggest records evidence and changes no company; fill also fills what the policy allows'
+        required: false
+        default: suggest
+        type: choice
+        options:
+          - suggest
+          - fill
+
+# One run at a time, and never cut one short half way through writing.
+concurrency:
+  group: scheduled-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: ${{ vars.SCHEDULER_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install
+        working-directory: backend
+        run: npm ci
+
+      - name: Run the scheduler
+        working-directory: backend
+        env:
+          JOBS: ${{ inputs.jobs }}
+          SCHEDULER_MODE: ${{ inputs.mode || 'suggest' }}
+        run: |
+          args=(tick --by github-actions --trigger ci --max-minutes 25)
+          if [ -n "$JOBS" ]; then
+            if ! [[ "$JOBS" =~ ^[a-z,]+$ ]]; then echo "jobs must be lower-case names separated by commas"; exit 1; fi
+            args+=(--job "$JOBS")
+          fi
+          node scripts/scheduler.js "${args[@]}"
+
+      - name: Commit what it wrote
+        run: |
+          git config user.name 'AU Startup Map scheduler'
+          git config user.email 'actions@users.noreply.github.com'
+          git add backend/src/data
+          if git diff --cached --quiet; then echo 'Nothing changed.'; exit 0; fi
+          # The public site reads only startups.json. A run that left it alone changed nothing the public can see,
+          # so Render is told not to redeploy for it.
+          if git diff --cached --name-only | grep -qx 'backend/src/data/startups.json'; then
+            message='data: scheduled refresh'
+          else
+            message='data: scheduled refresh [skip render]'
+          fi
+          git commit -m "$message"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            echo "push failed (attempt $attempt); trying again"; sleep $((attempt * 5))
+          done
+          echo 'Could not push: someone changed the same data files meanwhile. Run it again.'
+          exit 1
