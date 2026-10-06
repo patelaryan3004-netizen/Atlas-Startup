@@ -640,3 +640,20 @@ header h1 span{color:var(--accent);}
   display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;
   padding:3px 7px;border-radius:10px;background:var(--line);color:var(--muted);
 }
+
+/* The panel opens with what the map or list knew; the rest follows. */
+.sdp-loading{margin:10px 0 0;font-size:12px;color:var(--muted);}
+
+/* "Show more" under a long list or the jobs grid. */
+.startup-list-more,.jobs-more{display:flex;justify-content:center;padding:22px 0 10px;grid-column:1 / -1;}
+.startup-list-more .hdrbtn,.jobs-more .hdrbtn{min-width:200px;}
+
+/* Companies at one place on the map (they cannot be told apart), listed to pick from. */
+.stack-popup .leaflet-popup-content-wrapper{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.stack-popup .leaflet-popup-tip{background:var(--panel);}
+.stack-popup .leaflet-popup-content{margin:8px 10px;font-family:inherit;}
+.stack-popup a.leaflet-popup-close-button{color:var(--muted);}
+.stack-list{list-style:none;margin:0;padding:0;min-width:170px;max-height:220px;overflow:auto;}
+.stack-item{display:block;width:100%;text-align:left;background:none;border:0;border-radius:4px;padding:7px 6px;color:var(--ink);font:inherit;font-size:13px;cursor:pointer;}
+.stack-item:hover,.stack-item:focus-visible{background:rgba(245,166,35,.14);outline:none;}
+.stack-more{padding:6px;font-size:12px;color:var(--muted);}

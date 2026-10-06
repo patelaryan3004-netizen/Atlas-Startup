@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchStartups, fetchMeta, DIRECTORY_URL } from './api.js';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { fetchMeta, fetchSummary, fetchMarkers, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
 import MapView from './components/MapView.jsx';
 import ListView from './components/ListView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
@@ -33,6 +33,7 @@ const PALETTE = [
 const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' };
 const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [] };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
+const SEARCH_DEBOUNCE_MS = 250;
 
 function loadNewsVisible() {
   try {
@@ -65,16 +66,38 @@ function loadInitialView() {
   }
 }
 
+// The filters the data is fetched with. A dropdown applies at once; text being typed waits for a short pause, so
+// a word is one request and not one request per letter.
+function useAppliedFilters(filters) {
+  const [applied, setApplied] = useState(filters);
+  useEffect(() => {
+    if (filters === applied) return undefined;
+    const typing = filters.search !== applied.search;
+    const timer = setTimeout(() => setApplied(filters), typing ? SEARCH_DEBOUNCE_MS : 0);
+    return () => clearTimeout(timer);
+  }, [filters, applied]);
+  return applied;
+}
+
+const aborted = (err) => err?.name === 'AbortError';
+
+// The page holds what is being looked at: the map's compact pins, one page of the list, counts, the one company
+// that is open. Everything else is asked of the server when it is needed, so the page is as fast at five
+// thousand companies as at two hundred.
 export default function App() {
   const [meta, setMeta] = useState(EMPTY_META);
   const [filters, setFilters] = useState(loadFiltersFromUrl);
-  const [startups, setStartups] = useState([]);
+  const applied = useAppliedFilters(filters);
+  const [summary, setSummary] = useState(null);
+  const [stats, setStats] = useState(null);
+  const [markers, setMarkers] = useState([]);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
   const [viewMode, setViewMode] = useState('map');
   const [showTracked, setShowTracked] = useState(false);
   const { tracked, toggleTracked, isTracked } = useTrackedStartups();
+  const [trackedStartups, setTrackedStartups] = useState([]);
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -85,25 +108,43 @@ export default function App() {
   const [editingCompany, setEditingCompany] = useState(null);
   const [selectedStartup, setSelectedStartup] = useState(null);
   const [selectedPersonName, setSelectedPersonName] = useState(null);
-  const [allStartups, setAllStartups] = useState([]);
+  const [personCompanies, setPersonCompanies] = useState([]);
 
   useEffect(() => {
     fetchMeta().then(setMeta).catch(() => setMeta(EMPTY_META));
-    // Unfiltered, fetched once - person profiles cross-reference a founder's
-    // companies against the whole dataset, not just whatever the current
-    // filters happen to be showing.
-    fetchStartups({}).then(({ results }) => setAllStartups(results)).catch(() => setAllStartups([]));
+    // The whole directory's counts, once: the Jobs link says how many are hiring however the map is filtered.
+    fetchSummary({}).then(setStats).catch(() => setStats(null));
   }, []);
 
   useEffect(() => {
-    fetchStartups(filters)
-      .then(({ results }) => {
-        setStartups(results);
-      })
-      .catch(() => {
-        setStartups([]);
-      });
-  }, [filters]);
+    const ctrl = new AbortController();
+    fetchSummary(applied, { signal: ctrl.signal })
+      .then((found) => { if (!ctrl.signal.aborted) setSummary(found); })
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setSummary(null); });
+    return () => ctrl.abort();
+  }, [applied]);
+
+  // The map's pins, only while the map is showing.
+  useEffect(() => {
+    if (viewMode !== 'map') return undefined;
+    const ctrl = new AbortController();
+    fetchMarkers(applied, { signal: ctrl.signal })
+      .then(({ items }) => { if (!ctrl.signal.aborted) setMarkers(items); })
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setMarkers([]); });
+    return () => ctrl.abort();
+  }, [applied, viewMode]);
+
+  // The companies a visitor tracks are looked up by name when the list is opened.
+  useEffect(() => {
+    if (!showTracked) return undefined;
+    const names = [...tracked];
+    if (!names.length) { setTrackedStartups([]); return undefined; }
+    const ctrl = new AbortController();
+    fetchStartupsByName(names, { signal: ctrl.signal })
+      .then(({ results }) => { if (!ctrl.signal.aborted) setTrackedStartups(results); })
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setTrackedStartups([]); });
+    return () => ctrl.abort();
+  }, [showTracked, tracked]);
 
   const sectorColors = useMemo(() => {
     const colors = {};
@@ -113,12 +154,33 @@ export default function App() {
     return colors;
   }, [meta.sectors]);
 
-  const unverifiedCount = useMemo(() => startups.filter((s) => !s.verified).length, [startups]);
-  const pinnedCount = startups.length - unverifiedCount;
-  const trackedStartups = useMemo(() => startups.filter((s) => tracked.has(s.name)), [startups, tracked]);
-  // From the unfiltered set, so this reflects the whole directory - not
-  // whatever map/list filters happen to be active right now.
-  const hiringCount = useMemo(() => allStartups.filter((s) => s.hiring).length, [allStartups]);
+  const resultCount = summary?.count ?? 0;
+  const unverifiedCount = summary?.unverified ?? 0;
+  const pinnedCount = summary?.pinned ?? 0;
+  // From the whole directory, so this reflects all of it - not whatever filters are active right now.
+  const hiringCount = stats?.hiring ?? 0;
+
+  // A company opens at once with what the map or list already knows, then fills in as the full record arrives.
+  const openStartup = useCallback((startup) => {
+    setSelectedStartup(startup?.slug ? { ...startup, partial: true } : startup);
+    if (!startup?.slug) return;
+    fetchStartup(startup.slug)
+      .then((full) => setSelectedStartup((current) => (current && current.slug === full.slug ? full : current)))
+      .catch(() => {});
+  }, []);
+
+  // A person's profile opens at once; the companies they founded arrive a moment later (an answer to a person
+  // who has since been replaced by another is dropped).
+  const personTicket = useRef(0);
+  const openPerson = useCallback((name) => {
+    personTicket.current += 1;
+    const ticket = personTicket.current;
+    setSelectedPersonName(name);
+    setPersonCompanies([]);
+    fetchPerson(name)
+      .then(({ companies }) => { if (ticket === personTicket.current) setPersonCompanies(companies); })
+      .catch(() => {});
+  }, []);
 
   const toggleNews = () => {
     setNewsVisible((prev) => {
@@ -174,23 +236,21 @@ export default function App() {
       <SearchBar
         filters={filters}
         onApplyFilters={(partial) => setFilters({ ...filters, ...partial })}
-        startups={startups}
-        meta={meta}
       />
 
       {viewMode === 'map' ? (
         <MapView
-          startups={startups}
+          markers={markers}
           sectorColors={sectorColors}
-          onSelectStartup={setSelectedStartup}
+          onSelectStartup={openStartup}
           selectedName={selectedStartup?.name}
           trackedNames={tracked}
         />
       ) : (
         <ListView
-          startups={startups}
+          filters={applied}
           sectorColors={sectorColors}
-          onSelectStartup={setSelectedStartup}
+          onSelectStartup={openStartup}
           selectedName={selectedStartup?.name}
           trackedNames={tracked}
         />
@@ -201,8 +261,8 @@ export default function App() {
         onChange={setFilters}
         onReset={() => setFilters(EMPTY_FILTERS)}
         meta={meta}
-        resultCount={startups.length}
-        startups={startups}
+        resultCount={resultCount}
+        summary={summary}
       />
 
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
@@ -222,7 +282,7 @@ export default function App() {
       </footer>
 
       {showSubmitForm && <SubmitStartupForm onClose={() => setShowSubmitForm(false)} />}
-      {showUnverified && <UnverifiedList startups={startups} onClose={() => setShowUnverified(false)} />}
+      {showUnverified && <UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} />}
       {showAbout && <AboutSources onClose={() => setShowAbout(false)} />}
       {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
       {editingCompany && <SuggestEditForm company={editingCompany} onClose={() => setEditingCompany(null)} />}
@@ -233,13 +293,13 @@ export default function App() {
           isTracked={isTracked}
           onToggleTracked={toggleTracked}
           onSuggestEdit={setEditingCompany}
-          onSelectPerson={setSelectedPersonName}
+          onSelectPerson={openPerson}
           onClose={() => setSelectedStartup(null)}
         />
       )}
       {selectedPersonName && (
         <PersonProfile
-          person={getPersonProfile(selectedPersonName, allStartups)}
+          person={getPersonProfile(selectedPersonName, personCompanies)}
           onClose={() => setSelectedPersonName(null)}
         />
       )}
@@ -255,7 +315,7 @@ export default function App() {
           title={`Tracked startups (${tracked.size})`}
           subtitle={
             trackedStartups.length < tracked.size
-              ? `${trackedStartups.length} of ${tracked.size} tracked companies match what's currently loaded. Reset filters to see the rest.`
+              ? `${trackedStartups.length} of ${tracked.size} tracked companies are still in the directory.`
               : 'Companies you have starred, saved in this browser only.'
           }
         />

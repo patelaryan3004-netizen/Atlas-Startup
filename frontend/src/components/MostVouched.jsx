@@ -1,18 +1,19 @@
-export default function MostVouched({ startups }) {
-  const vouched = startups
-    .filter((s) => s.vouches?.length > 0)
-    .sort((a, b) => b.vouches.length - a.vouches.length);
-
-  if (!vouched.length) return null;
+// The most vouched-for companies among the current results: { total, items: [{ name, vouches }] }, most first.
+export default function MostVouched({ vouched }) {
+  const items = vouched?.items ?? [];
+  if (!items.length) return null;
 
   return (
-    <ol id="mostVouchedList">
-      {vouched.map((s) => (
-        <li key={s.name}>
-          <span>{s.name}</span>
-          <b>{s.vouches.length}</b>
-        </li>
-      ))}
-    </ol>
+    <>
+      <ol id="mostVouchedList">
+        {items.map((s) => (
+          <li key={s.slug || s.name}>
+            <span>{s.name}</span>
+            <b>{s.vouches}</b>
+          </li>
+        ))}
+      </ol>
+      {vouched.total > items.length && <p className="fdrawer-empty">The {items.length} most vouched of {vouched.total}.</p>}
+    </>
   );
 }

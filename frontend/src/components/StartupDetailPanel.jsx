@@ -17,6 +17,18 @@ function initialsOf(name) {
   return (name || '?').slice(0, 2).toUpperCase();
 }
 
+// Clearbit's logo, then Google's favicon, then nothing (the initial rendered underneath shows). Each failure moves
+// one step on. A handler that only swapped `src` would be called again by every failure of the new address -
+// React keeps its own error listener on an <img>, whatever `onerror` is set to - and for a visitor whose browser
+// blocks both addresses (an ad blocker, no network) it never stopped: the panel redrew its logo thousands of
+// times a second for as long as it was open.
+function PanelLogo({ domain }) {
+  const [step, setStep] = useState(0);
+  if (step > 1) return null;
+  const src = step === 0 ? `https://logo.clearbit.com/${domain}?size=96` : `https://www.google.com/s2/favicons?domain=${domain}&sz=96`;
+  return <img className="pc-avatar-logo" src={src} alt="" onError={() => setStep((s) => s + 1)} />;
+}
+
 // News items are free-text headlines with no company field to join on, so a
 // startup's name appearing in the headline/meta text is the only honest
 // signal of relevance - anything weaker would risk mismatches we can't verify.
@@ -33,6 +45,8 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
     fetchNews().then(({ deals }) => setNews(deals || [])).catch(() => setNews([]));
   }, []);
 
+  // The map and the list know a company's name, place and sector; the rest arrives a moment after it opens.
+  const loading = Boolean(s.partial);
   const domain = domainOf(s.website);
   const initial = (s.name || '?').trim().charAt(0).toUpperCase();
   const tracked = isTracked(s.name);
@@ -47,17 +61,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
           <div className="pc-hero-top">
             <div className="pc-avatar">
               <span className="pc-avatar-fallback">{initial}</span>
-              {domain && (
-                <img
-                  className="pc-avatar-logo"
-                  src={`https://logo.clearbit.com/${domain}?size=96`}
-                  alt=""
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=96`;
-                  }}
-                />
-              )}
+              {domain && <PanelLogo key={domain} domain={domain} />}
             </div>
             <div className="pc-hero-text">
               <h4>{s.name}</h4>
@@ -81,7 +85,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Location</div>
               <div className="sdp-meta-value">{s.city}</div>
-              <div className="sdp-meta-note">{s.address ? '✓ Address on file' : '◐ City-level only'}</div>
+              {!loading && <div className="sdp-meta-note">{s.address ? '✓ Address on file' : '◐ City-level only'}</div>}
             </div>
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Stage</div>
@@ -92,6 +96,8 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
               <div className="sdp-meta-value">{s.hiring ? 'Hiring now' : 'Not currently hiring'}</div>
             </div>
           </div>
+
+          {loading && <p className="pc-desc sdp-loading" role="status">Loading details…</p>}
 
           {s.blurb && (
             <div className="sdp-section">

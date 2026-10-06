@@ -1,5 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchStartups } from '../api.js';
+import { useEffect, useRef, useState } from 'react';
+import { fetchStartupPage } from '../api.js';
+
+const PAGE = 24;
 
 function domainOf(website) {
   if (!website) return null;
@@ -27,93 +29,120 @@ function JobCardLogo({ website, name }) {
       className="job-card-logo"
       src={src}
       alt=""
+      loading="lazy"
+      decoding="async"
       onError={() => (triedFallback ? setFailed(true) : setTriedFallback(true))}
     />
   );
 }
 
 const EMPTY_JOB_FILTERS = { sector: '', city: '', stage: '' };
+const NO_OPTIONS = { sector: [], city: [], stage: [] };
 
-// Options are derived from the hiring-now set itself, not the site-wide
-// meta endpoint - every option shown here is guaranteed to match at least
-// one currently-open listing.
-function optionsFrom(jobs, field) {
-  return [...new Set(jobs.map((j) => j[field]).filter(Boolean))].sort();
-}
-
+// The companies that are hiring, a page at a time. The filter options come from the whole hiring set (asked for
+// with the first page, before any filter is chosen), not from the site-wide meta endpoint and not from the page
+// on screen: every option shown is guaranteed to match at least one currently-open listing.
 export default function JobsView({ sectorColors, onClose }) {
   const [jobs, setJobs] = useState([]);
+  const [matches, setMatches] = useState(0);
+  const [hiringTotal, setHiringTotal] = useState(0);
+  const [options, setOptions] = useState(NO_OPTIONS);
+  const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState('');
   const [filters, setFilters] = useState(EMPTY_JOB_FILTERS);
+  const haveOptions = useRef(false);
+  const generation = useRef(0);
 
   useEffect(() => {
-    fetchStartups({ hiring: 'yes' })
-      .then(({ results }) => setJobs(results))
-      .catch(() => setError('Could not load jobs right now.'))
-      .finally(() => setLoading(false));
-  }, []);
+    const ctrl = new AbortController();
+    generation.current += 1;
+    setLoading(true);
+    setError('');
+    fetchStartupPage({ hiring: 'yes', ...filters }, { limit: PAGE, offset: 0, sort: 'name', facets: haveOptions.current ? undefined : 'sector,city,stage', signal: ctrl.signal })
+      .then((page) => {
+        if (ctrl.signal.aborted) return;
+        setJobs(page.results);
+        setMatches(page.count);
+        setHasMore(page.hasMore);
+        if (page.facets && !haveOptions.current) {
+          haveOptions.current = true;
+          setHiringTotal(page.count);
+          setOptions({ sector: page.facets.sector.values.map((v) => v.value).sort(), city: page.facets.city.values.map((v) => v.value).sort(), stage: page.facets.stage.values.map((v) => v.value).sort() });
+        }
+      })
+      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') setError('Could not load jobs right now.'); })
+      .finally(() => { if (!ctrl.signal.aborted) setLoading(false); });
+    return () => ctrl.abort();
+  }, [filters]);
 
-  const sectorOptions = useMemo(() => optionsFrom(jobs, 'sector'), [jobs]);
-  const cityOptions = useMemo(() => optionsFrom(jobs, 'city'), [jobs]);
-  const stageOptions = useMemo(() => optionsFrom(jobs, 'stage'), [jobs]);
+  const showMore = async () => {
+    const mine = generation.current;
+    setLoadingMore(true);
+    try {
+      const page = await fetchStartupPage({ hiring: 'yes', ...filters }, { limit: PAGE, offset: jobs.length, sort: 'name' });
+      if (mine === generation.current) {
+        setJobs((prev) => [...prev, ...page.results]);
+        setHasMore(page.hasMore);
+        setMatches(page.count);
+      }
+    } catch (e) {
+      if (mine === generation.current) setError('Could not load more jobs right now.');
+    } finally {
+      setLoadingMore(false);
+    }
+  };
 
-  const filteredJobs = useMemo(
-    () => jobs.filter((j) =>
-      (!filters.sector || j.sector === filters.sector)
-      && (!filters.city || j.city === filters.city)
-      && (!filters.stage || j.stage === filters.stage)
-    ),
-    [jobs, filters]
-  );
   const filtersActive = Object.values(filters).some(Boolean);
   const set = (key) => (e) => setFilters((prev) => ({ ...prev, [key]: e.target.value }));
+  const shownFirstLoad = loading && jobs.length === 0;
 
   return (
     <div id="jobsView">
       <header className="jobs-header">
         <div>
           <h1>Startup jobs in Australia</h1>
-          {!loading && !error && <p className="jobs-subhead">{jobs.length} {jobs.length === 1 ? 'company is' : 'companies are'} hiring now</p>}
+          {haveOptions.current && !error && <p className="jobs-subhead">{hiringTotal} {hiringTotal === 1 ? 'company is' : 'companies are'} hiring now</p>}
         </div>
         <button className="hdrbtn" onClick={onClose}>← Back to map</button>
       </header>
 
       <div className="jobs-body">
-        {loading && <p className="modal-sub">Loading…</p>}
+        {shownFirstLoad && <p className="modal-sub">Loading…</p>}
         {error && <p className="form-error">{error}</p>}
 
-        {!loading && !error && jobs.length > 0 && (
+        {!error && hiringTotal > 0 && (
           <div className="jobs-filters">
             <select value={filters.sector} onChange={set('sector')} aria-label="Filter by industry">
               <option value="">All industries</option>
-              {sectorOptions.map((v) => <option key={v} value={v}>{v}</option>)}
+              {options.sector.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
             <select value={filters.city} onChange={set('city')} aria-label="Filter by location">
               <option value="">All locations</option>
-              {cityOptions.map((v) => <option key={v} value={v}>{v}</option>)}
+              {options.city.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
             <select value={filters.stage} onChange={set('stage')} aria-label="Filter by startup stage">
               <option value="">All stages</option>
-              {stageOptions.map((v) => <option key={v} value={v}>{v}</option>)}
+              {options.stage.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
             {filtersActive && (
               <button className="linkbtn" onClick={() => setFilters(EMPTY_JOB_FILTERS)}>Clear filters</button>
             )}
-            {filtersActive && <span className="jobs-filter-count">{filteredJobs.length} match your filters</span>}
+            {filtersActive && !loading && <span className="jobs-filter-count">{matches} match your filters</span>}
           </div>
         )}
 
-        {!loading && !error && jobs.length === 0 && (
+        {!loading && !error && haveOptions.current && hiringTotal === 0 && (
           <p className="modal-sub">No companies are marked as hiring right now.</p>
         )}
-        {!loading && !error && jobs.length > 0 && filteredJobs.length === 0 && (
+        {!loading && !error && hiringTotal > 0 && jobs.length === 0 && (
           <p className="modal-sub">No open roles match those filters.</p>
         )}
 
         <div className="jobs-grid">
-          {filteredJobs.map((s) => (
-            <div className="job-card" key={s.name}>
+          {jobs.map((s) => (
+            <div className="job-card" key={s.slug || s.name}>
               <div className="job-card-top">
                 <JobCardLogo website={s.website} name={s.name} />
                 <div>
@@ -144,6 +173,14 @@ export default function JobsView({ sectorColors, onClose }) {
             </div>
           ))}
         </div>
+
+        {hasMore && !error && (
+          <div className="jobs-more">
+            <button className="hdrbtn" onClick={showMore} disabled={loadingMore}>
+              {loadingMore ? 'Loading…' : `Show more (${matches - jobs.length} left)`}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

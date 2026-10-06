@@ -1,11 +1,11 @@
 // Two list shapes share this config, told apart by `type`:
 //
-// type: 'filter' — filters (applied through the same sector/city/stage/hiring/
-// taskGate params the filter panel and share-URL already use) plus match (the
-// same rule, as a predicate) so the card can show a live count without a
-// server round-trip. Clicking the card applies those filters and switches to
-// list view. `category` is a short editorial grouping label shown on the
-// card (Industry/Location/Status) - not sent to the API.
+// type: 'filter' — filters, applied through the same sector/city/stage/hiring/
+// taskGate params the filter panel and share-URL already use. The card's live
+// count is the server's own count for exactly these filters (`/api/startups/count`),
+// so it can never disagree with the list a click opens. Clicking the card applies
+// those filters and switches to list view. `category` is a short editorial
+// grouping label shown on the card (Industry/Location/Status) - not sent to the API.
 //
 // Several cards below roll up more than one real sector/city string from
 // startups.json (e.g. the dataset has both "HealthTech" and "Healthtech").
@@ -37,7 +37,6 @@ export const curatedLists = [
     description: 'Companies with open roles right now.',
     category: 'Status',
     filters: { hiring: 'yes' },
-    match: (s) => s.hiring === true,
   },
   {
     id: 'au-ai',
@@ -46,7 +45,6 @@ export const curatedLists = [
     description: 'Companies building in AI - from applied AI products to AI infrastructure.',
     category: 'Industry',
     filters: { sector: 'AI,AI infrastructure,Enterprise AI,Enterprise AI software,Industrial AI,Maritime AI,Sales AI,Vertical AI' },
-    match: (s) => s.sector.toLowerCase().includes('ai'),
   },
   {
     id: 'au-fintech',
@@ -55,7 +53,6 @@ export const curatedLists = [
     description: 'Companies building financial products and infrastructure.',
     category: 'Industry',
     filters: { sector: 'Fintech' },
-    match: (s) => s.sector === 'Fintech',
   },
   {
     id: 'au-healthtech',
@@ -64,7 +61,6 @@ export const curatedLists = [
     description: 'Digital health, medtech and telehealth companies.',
     category: 'Industry',
     filters: { sector: 'HealthTech,Healthtech,Medtech,Telehealth' },
-    match: (s) => ['healthtech', 'medtech', 'telehealth'].includes(s.sector.toLowerCase()),
   },
   {
     id: 'au-climate',
@@ -73,7 +69,6 @@ export const curatedLists = [
     description: 'Companies working on climate and the energy transition.',
     category: 'Industry',
     filters: { sector: 'Climate,Climate SaaS,ClimateTech' },
-    match: (s) => s.sector.toLowerCase().includes('climate'),
   },
   {
     id: 'au-deeptech',
@@ -82,7 +77,6 @@ export const curatedLists = [
     description: 'Quantum, robotics, space and other hard-science-led companies.',
     category: 'Industry',
     filters: { sector: 'Quantum,Quantum computing,Robotics,Space,Satellite IoT,Computer vision,Industrial AI' },
-    match: (s) => ['quantum', 'quantum computing', 'robotics', 'space', 'satellite iot', 'computer vision', 'industrial ai'].includes(s.sector.toLowerCase()),
   },
   {
     id: 'au-ecommerce',
@@ -91,7 +85,6 @@ export const curatedLists = [
     description: 'Companies selling direct to consumers or powering online retail.',
     category: 'Industry',
     filters: { sector: 'Ecommerce' },
-    match: (s) => s.sector === 'Ecommerce',
   },
   {
     id: 'au-saas',
@@ -100,7 +93,6 @@ export const curatedLists = [
     description: 'Subscription software companies, across every industry they serve.',
     category: 'Industry',
     filters: { sector: 'SaaS,B2B SaaS,Climate SaaS,Construction SaaS,Contact-centre SaaS,Engineering SaaS,Hospitality SaaS,Logistics SaaS,Productivity SaaS,Strategy SaaS,ESG SaaS,Automotive SaaS' },
-    match: (s) => s.sector.toLowerCase().includes('saas'),
   },
   {
     id: 'melbourne',
@@ -109,7 +101,6 @@ export const curatedLists = [
     description: 'Companies based in Melbourne.',
     category: 'Location',
     filters: { city: 'Melbourne' },
-    match: (s) => s.city === 'Melbourne',
   },
   {
     id: 'sydney',
@@ -118,7 +109,6 @@ export const curatedLists = [
     description: 'Companies based in Sydney.',
     category: 'Location',
     filters: { city: 'Sydney,Sydney (Chippendale)' },
-    match: (s) => s.city.startsWith('Sydney'),
   },
   {
     id: 'task-gated',
@@ -127,7 +117,6 @@ export const curatedLists = [
     description: 'Companies where applying means completing a real work-sample task first.',
     category: 'Status',
     filters: { taskGate: 'yes' },
-    match: (s) => s.taskGate?.enabled === true,
   },
   {
     id: 'melbourne-ai',
@@ -136,7 +125,6 @@ export const curatedLists = [
     description: 'AI-sector companies based in Melbourne.',
     category: 'Location',
     filters: { city: 'Melbourne', sector: 'AI' },
-    match: (s) => s.city === 'Melbourne' && s.sector === 'AI',
   },
   {
     id: 'people-to-follow',

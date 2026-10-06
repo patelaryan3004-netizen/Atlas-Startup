@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchStartups } from '../api.js';
+import { fetchCount } from '../api.js';
 import { curatedLists } from '../curatedLists.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
@@ -14,15 +14,20 @@ function buildShareUrl(filters) {
 
 export default function CuratedLists({ currentFilters, onApply, onClose }) {
   useEscapeClose(onClose);
-  const [allStartups, setAllStartups] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // How many companies each list picks, counted by the server with the same filters "View this list" applies,
+  // so the badge and the list it opens cannot disagree (and no company is downloaded to count them). Each count
+  // appears as it arrives; one that could not be had is null, shown as "?".
+  const [counts, setCounts] = useState({});
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    fetchStartups({})
-      .then(({ results }) => setAllStartups(results))
-      .catch(() => setAllStartups([]))
-      .finally(() => setLoading(false));
+    let live = true;
+    curatedLists.filter((list) => list.type === 'filter').forEach((list) => {
+      fetchCount(list.filters)
+        .then(({ count }) => count, () => null)
+        .then((count) => { if (live) setCounts((prev) => ({ ...prev, [list.id]: count })); });
+    });
+    return () => { live = false; };
   }, []);
 
   const handleShare = async () => {
@@ -80,14 +85,14 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
               );
             }
 
-            const count = loading ? null : allStartups.filter(list.match).length;
+            const count = counts[list.id];
             return (
               <div className="curated-card" key={list.id}>
                 <span className="curated-card-category">{list.category}</span>
                 <h3>{list.name}</h3>
                 <p className="curated-card-desc">{list.description}</p>
                 <div className="curated-card-footer">
-                  <span className="curated-card-count">{loading ? '…' : count} companies</span>
+                  <span className="curated-card-count">{count === undefined ? '…' : count ?? '?'} companies</span>
                   <button
                     className="taskbtn"
                     onClick={() => {

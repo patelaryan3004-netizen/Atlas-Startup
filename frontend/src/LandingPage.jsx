@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchStartups, fetchMeta, DIRECTORY_URL } from './api.js';
+import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount, fetchMeta, DIRECTORY_URL } from './api.js';
 import MapView from './components/MapView.jsx';
 import { curatedLists } from './curatedLists.js';
 import './landing.css';
@@ -38,17 +38,26 @@ const PALETTE = [
   '#a89468', '#6ab87a', '#d47aa0', '#7a94c4', '#c4507a', '#9a9a7a', '#c4966a', '#8686b8',
 ];
 
+// Only the startup-filtering lists fit this showcase; the static people-to-follow list has no company count and
+// is not a live filter.
+const FILTER_LISTS = curatedLists.filter((list) => list.type === 'filter');
+
+// The page asks for what it shows (counts, four companies that are hiring, the map's pins), never for every company.
 export default function LandingPage() {
-  const [startups, setStartups] = useState([]);
+  const [stats, setStats] = useState(null);
+  const [hiringSample, setHiringSample] = useState([]);
+  const [markers, setMarkers] = useState([]);
+  const [counts, setCounts] = useState({});
   const [meta, setMeta] = useState({ sectors: [] });
-  const [total, setTotal] = useState(null);
 
   useEffect(() => {
     fetchMeta().then(setMeta).catch(() => {});
-    fetchStartups({}).then(({ results, total }) => {
-      setStartups(results);
-      setTotal(total);
-    }).catch(() => {});
+    fetchSummary({}).then(setStats).catch(() => {});
+    fetchStartupPage({ hiring: 'yes' }, { limit: 4, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
+    fetchMarkers({}).then(({ items }) => setMarkers(items)).catch(() => {});
+    Promise.all(FILTER_LISTS.map(async (list) => {
+      try { return [list.id, (await fetchCount(list.filters)).count]; } catch (e) { return [list.id, 0]; }
+    })).then((pairs) => setCounts(Object.fromEntries(pairs)));
   }, []);
 
   const sectorColors = useMemo(() => {
@@ -57,15 +66,11 @@ export default function LandingPage() {
     return colors;
   }, [meta.sectors]);
 
-  const hiringCount = startups.filter((s) => s.hiring).length;
-  const hiringSample = startups.filter((s) => s.hiring).slice(0, 4);
-  const cityCount = new Set(startups.map((s) => s.city)).size;
-  const taskGatedCount = startups.filter((s) => s.taskGate?.enabled).length;
-  // Only the startup-filtering lists fit this showcase; the static
-  // people-to-follow list has no company count and is not a live filter.
-  const listCounts = curatedLists
-    .filter((list) => list.type === 'filter')
-    .map((list) => ({ ...list, count: startups.filter(list.match).length }));
+  const total = stats ? stats.count : null;
+  const hiringCount = stats?.hiring ?? 0;
+  const cityCount = stats?.cities ?? 0;
+  const taskGatedCount = stats?.taskGated ?? 0;
+  const listCounts = FILTER_LISTS.map((list) => ({ ...list, count: counts[list.id] ?? 0 }));
 
   return (
     <div className="landing">
@@ -98,7 +103,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="landing-hero-visual">
-          <MapView startups={startups} sectorColors={sectorColors} />
+          <MapView markers={markers} sectorColors={sectorColors} />
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
@@ -46,6 +46,25 @@ function setup(overrides = {}) {
   );
   return { onToggleTracked, onSuggestEdit, onSelectPerson, onClose, container: result.container, unmount: result.unmount };
 }
+
+describe('StartupDetailPanel, while the full record is still arriving', () => {
+  beforeEach(() => { vi.clearAllMocks(); });
+
+  it('shows what the map or list already knew, says the rest is loading, and does not claim the address is missing', () => {
+    setup({ startup: { partial: true, address: undefined, founders: undefined, investors: undefined, blurb: undefined } });
+    expect(screen.getByText('Canva')).toBeInTheDocument();
+    expect(screen.getByText('SaaS / Design Tech')).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent('Loading details…');
+    expect(screen.queryByText('◐ City-level only')).not.toBeInTheDocument();
+    expect(screen.queryByText('✓ Address on file')).not.toBeInTheDocument();
+  });
+
+  it('shows the address note and no loading line once the full record is there', () => {
+    setup({ startup: { address: '110 Kippax Street, Surry Hills NSW 2010' } });
+    expect(screen.queryByText('Loading details…')).not.toBeInTheDocument();
+    expect(screen.getByText('✓ Address on file')).toBeInTheDocument();
+  });
+});
 
 describe('StartupDetailPanel', () => {
   beforeEach(() => {
@@ -233,5 +252,55 @@ describe('StartupDetailPanel', () => {
     const { onClose, container } = setup();
     await userEvent.click(container.querySelector('.sdp-overlay'));
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('StartupDetailPanel, the company logo', () => {
+  beforeEach(() => { vi.clearAllMocks(); });
+
+  const logo = (container) => container.querySelector('.pc-avatar-logo');
+  // The panel also asks for the news when it opens; let that answer land inside act().
+  const settle = () => act(async () => {});
+
+  it('tries Clearbit, then Google\'s favicon, then gives up and leaves the initial', async () => {
+    const { container } = setup();
+    await settle();
+    expect(logo(container).getAttribute('src')).toBe('https://logo.clearbit.com/canva.com?size=96');
+
+    fireEvent.error(logo(container));
+    expect(logo(container).getAttribute('src')).toBe('https://www.google.com/s2/favicons?domain=canva.com&sz=96');
+
+    fireEvent.error(logo(container));
+    expect(logo(container)).toBeNull();
+    expect(container.querySelector('.pc-avatar-fallback')).toHaveTextContent('C');
+  });
+
+  // The panel used to answer every failure by pointing the image at the favicon again. For a visitor whose
+  // browser blocks both addresses that failed again at once, thousands of times a second, while the panel was open.
+  it('stops after the second address, however many more failures are reported', async () => {
+    const { container } = setup();
+    await settle();
+    for (let i = 0; i < 5; i += 1) { const current = logo(container); if (current) fireEvent.error(current); }
+    expect(logo(container)).toBeNull();
+  });
+
+  it('starts again from Clearbit for the next company', async () => {
+    fetchNews.mockResolvedValue({ source: 'live', deals: [] });
+    const props = { sectorColor: '#abcdef', isTracked: () => false, onToggleTracked: vi.fn(), onSuggestEdit: vi.fn(), onSelectPerson: vi.fn(), onClose: vi.fn() };
+    const { container, rerender } = render(<StartupDetailPanel startup={startup()} {...props} />);
+    await settle();
+    fireEvent.error(logo(container));
+    fireEvent.error(logo(container));
+    expect(logo(container)).toBeNull();
+
+    rerender(<StartupDetailPanel startup={startup({ name: 'Atlassian', website: 'https://www.atlassian.com' })} {...props} />);
+    expect(logo(container).getAttribute('src')).toBe('https://logo.clearbit.com/atlassian.com?size=96');
+  });
+
+  it('shows no logo, and no broken image, for a company with no website', async () => {
+    const { container } = setup({ startup: { website: '' } });
+    await settle();
+    expect(logo(container)).toBeNull();
+    expect(container.querySelector('.pc-avatar-fallback')).toHaveTextContent('C');
   });
 });

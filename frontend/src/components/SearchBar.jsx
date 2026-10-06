@@ -1,40 +1,29 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { fetchSuggestions } from '../api.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
-const MAX_PER_GROUP = 5;
+const SUGGEST_DELAY_MS = 200;
 
-export default function SearchBar({ filters, onApplyFilters, startups, meta }) {
+// The search box. What it suggests is asked of the server (companies, people, investors, industries and
+// locations that match, five of each at most), a moment after typing stops, and an answer to text that has since
+// changed is dropped: the page never holds the companies in order to search them.
+export default function SearchBar({ filters, onApplyFilters }) {
   const [open, setOpen] = useState(false);
+  const [groups, setGroups] = useState(null);
   useEscapeClose(() => setOpen(false));
 
-  const q = filters.search.trim().toLowerCase();
+  const q = filters.search.trim();
 
-  const groups = useMemo(() => {
-    if (!q) return null;
-
-    const companies = startups
-      .filter((s) => s.name.toLowerCase().includes(q))
-      .slice(0, MAX_PER_GROUP);
-
-    const people = [];
-    const seenPeople = new Set();
-    for (const s of startups) {
-      for (const f of s.founders || []) {
-        if (people.length >= MAX_PER_GROUP) break;
-        if (!seenPeople.has(f) && f.toLowerCase().includes(q)) {
-          seenPeople.add(f);
-          people.push({ name: f, company: s.name });
-        }
-      }
-      if (people.length >= MAX_PER_GROUP) break;
-    }
-
-    const investors = (meta.investors || []).filter((i) => i.toLowerCase().includes(q)).slice(0, MAX_PER_GROUP);
-    const industries = (meta.sectors || []).filter((s) => s.toLowerCase().includes(q)).slice(0, MAX_PER_GROUP);
-    const locations = (meta.cities || []).filter((c) => c.toLowerCase().includes(q)).slice(0, MAX_PER_GROUP);
-
-    return { companies, people, investors, industries, locations };
-  }, [q, startups, meta]);
+  useEffect(() => {
+    if (!q) { setGroups(null); return undefined; }
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => {
+      fetchSuggestions(q, { signal: ctrl.signal })
+        .then((found) => { if (!ctrl.signal.aborted) setGroups(found); })
+        .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') setGroups(null); });
+    }, SUGGEST_DELAY_MS);
+    return () => { clearTimeout(timer); ctrl.abort(); };
+  }, [q]);
 
   const hasResults = !!groups && (
     groups.companies.length || groups.people.length || groups.investors.length
@@ -65,20 +54,20 @@ export default function SearchBar({ filters, onApplyFilters, startups, meta }) {
         <>
           <div className="search-scrim" onClick={() => setOpen(false)} />
           <div className="search-dropdown">
-            {!hasResults && <div className="search-empty">No matches for &ldquo;{filters.search}&rdquo;.</div>}
+            {groups && !hasResults && <div className="search-empty">No matches for &ldquo;{filters.search}&rdquo;.</div>}
 
-            {groups.companies.length > 0 && (
+            {groups?.companies.length > 0 && (
               <div className="search-group">
                 <div className="search-group-label">Companies</div>
                 {groups.companies.map((s) => (
-                  <button key={s.name} className="search-result" onClick={() => selectText(s.name)}>
+                  <button key={s.slug || s.name} className="search-result" onClick={() => selectText(s.name)}>
                     {s.name}
                   </button>
                 ))}
               </div>
             )}
 
-            {groups.people.length > 0 && (
+            {groups?.people.length > 0 && (
               <div className="search-group">
                 <div className="search-group-label">People</div>
                 {groups.people.map((p) => (
@@ -89,7 +78,7 @@ export default function SearchBar({ filters, onApplyFilters, startups, meta }) {
               </div>
             )}
 
-            {groups.investors.length > 0 && (
+            {groups?.investors.length > 0 && (
               <div className="search-group">
                 <div className="search-group-label">Investors</div>
                 {groups.investors.map((i) => (
@@ -98,7 +87,7 @@ export default function SearchBar({ filters, onApplyFilters, startups, meta }) {
               </div>
             )}
 
-            {groups.industries.length > 0 && (
+            {groups?.industries.length > 0 && (
               <div className="search-group">
                 <div className="search-group-label">Industries</div>
                 {groups.industries.map((s) => (
@@ -107,7 +96,7 @@ export default function SearchBar({ filters, onApplyFilters, startups, meta }) {
               </div>
             )}
 
-            {groups.locations.length > 0 && (
+            {groups?.locations.length > 0 && (
               <div className="search-group">
                 <div className="search-group-label">Locations</div>
                 {groups.locations.map((c) => (

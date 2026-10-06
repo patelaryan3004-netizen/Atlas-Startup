@@ -1,4 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { fetchStartupPage } from '../api.js';
+
+const PAGE = 48;
 
 function domainOf(website) {
   if (!website) return null;
@@ -26,50 +29,92 @@ function CardLogo({ website, name }) {
       className="startup-card-logo"
       src={src}
       alt=""
+      loading="lazy"
+      decoding="async"
       onError={() => (triedFallback ? setFailed(true) : setTriedFallback(true))}
     />
   );
 }
 
-// Only sorts backed by a real field on the startup record. "Recently added"
-// and "Recently funded" would need a date field that doesn't exist in the
+// Only sorts backed by a real field on the startup record. The server sorts, because the browser only ever has
+// one page of the list. "Recently added" and "Recently funded" would need a date field that doesn't exist in the
 // dataset, so they're left out rather than faked with a stand-in.
 const SORTS = {
-  name: { label: 'Name (A–Z)', compare: (a, b) => a.name.localeCompare(b.name) },
-  hiring: { label: 'Hiring now', compare: (a, b) => (b.hiring === true) - (a.hiring === true) || a.name.localeCompare(b.name) },
-  location: { label: 'Location (A–Z)', compare: (a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name) },
-  industry: { label: 'Industry (A–Z)', compare: (a, b) => (a.sectorFull || a.sector).localeCompare(b.sectorFull || b.sector) || a.name.localeCompare(b.name) },
+  name: 'Name (A–Z)',
+  hiring: 'Hiring now',
+  location: 'Location (A–Z)',
+  industry: 'Industry (A–Z)',
 };
 
-export default function ListView({ startups, sectorColors, onSelectStartup, selectedName, trackedNames }) {
+// The list for the current filters, a page at a time: the next page loads when the end of the list nears the
+// screen (or when "Show more" is pressed), so the page holds the companies being looked at and not all of them.
+export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames }) {
   const [sort, setSort] = useState('name');
+  const [state, setState] = useState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
+  const latest = useRef(state);
+  latest.current = state;
+  const generation = useRef(0);
+  const busy = useRef(false);
+  const sentinel = useRef(null);
 
-  const sorted = useMemo(
-    () => [...startups].sort(SORTS[sort].compare),
-    [startups, sort]
-  );
+  useEffect(() => {
+    const ctrl = new AbortController();
+    generation.current += 1;
+    busy.current = false;
+    setState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
+    fetchStartupPage(filters, { limit: PAGE, offset: 0, sort, signal: ctrl.signal })
+      .then((page) => { if (!ctrl.signal.aborted) setState({ items: page.results, count: page.count, hasMore: page.hasMore, status: 'ready', moreFailed: false }); })
+      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') setState({ items: [], count: 0, hasMore: false, status: 'error', moreFailed: false }); });
+    return () => ctrl.abort();
+  }, [filters, sort]);
+
+  const loadMore = useCallback(async () => {
+    const now = latest.current;
+    if (busy.current || !now.hasMore) return;
+    busy.current = true;
+    const mine = generation.current;
+    try {
+      const page = await fetchStartupPage(filters, { limit: PAGE, offset: now.items.length, sort });
+      if (mine === generation.current) setState((s) => ({ ...s, items: [...s.items, ...page.results], count: page.count, hasMore: page.hasMore, moreFailed: false }));
+    } catch (e) {
+      if (mine === generation.current) setState((s) => ({ ...s, moreFailed: true }));
+    } finally {
+      if (mine === generation.current) busy.current = false;
+    }
+  }, [filters, sort]);
+
+  useEffect(() => {
+    if (!state.hasMore || state.moreFailed || typeof IntersectionObserver === 'undefined' || !sentinel.current) return undefined;
+    const observer = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) loadMore(); }, { rootMargin: '600px' });
+    observer.observe(sentinel.current);
+    return () => observer.disconnect();
+  }, [state.hasMore, state.moreFailed, state.items.length, loadMore]);
+
+  const { items, count, hasMore, status, moreFailed } = state;
 
   return (
     <div id="startupListView">
       <div className="startup-list-toolbar">
-        <span className="startup-list-count">{startups.length} {startups.length === 1 ? 'startup' : 'startups'}</span>
+        <span className="startup-list-count">{status === 'ready' ? `${count} ${count === 1 ? 'startup' : 'startups'}` : ''}</span>
         <label className="startup-list-sort">
           Sort by
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
-            {Object.entries(SORTS).map(([key, { label }]) => (
+            {Object.entries(SORTS).map(([key, label]) => (
               <option key={key} value={key}>{label}</option>
             ))}
           </select>
         </label>
       </div>
 
-      {startups.length === 0 ? (
-        <p className="modal-sub startup-list-empty">No startups match your filters.</p>
-      ) : (
+      {status === 'loading' && <p className="modal-sub startup-list-empty">Loading…</p>}
+      {status === 'error' && <p className="form-error startup-list-empty">Could not load the list right now.</p>}
+      {status === 'ready' && items.length === 0 && <p className="modal-sub startup-list-empty">No startups match your filters.</p>}
+
+      {items.length > 0 && (
         <div className="startup-grid">
-          {sorted.map((s) => (
+          {items.map((s) => (
             <button
-              key={s.name}
+              key={s.slug || s.name}
               className={s.name === selectedName ? 'startup-card startup-card-selected' : 'startup-card'}
               onClick={() => onSelectStartup(s)}
             >
@@ -97,6 +142,14 @@ export default function ListView({ startups, sectorColors, onSelectStartup, sele
               </div>
             </button>
           ))}
+        </div>
+      )}
+
+      {hasMore && (
+        <div className="startup-list-more" ref={sentinel}>
+          <button className="hdrbtn" onClick={loadMore}>
+            {moreFailed ? 'Could not load more: try again' : `Show more (${count - items.length} left)`}
+          </button>
         </div>
       )}
     </div>

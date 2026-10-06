@@ -12,8 +12,15 @@ const meta = {
 
 const emptyFilters = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '' };
 
-function s(overrides = {}) {
-  return { name: 'Co', city: 'Sydney', foundedYear: null, vouches: [], ...overrides };
+// What the server says about the current results (see fetchSummary): the panel's tabs read this, not the companies.
+function summaryOf(overrides = {}) {
+  return {
+    count: 3, pinned: 3, unverified: 0, hiring: 0,
+    topCities: [{ city: 'Sydney', count: 2 }, { city: 'Melbourne', count: 1 }],
+    notable: { total: 0, items: [] },
+    vouched: { total: 0, items: [] },
+    ...overrides,
+  };
 }
 
 function setup(overrides = {}) {
@@ -26,7 +33,7 @@ function setup(overrides = {}) {
       onReset={onReset}
       meta={meta}
       resultCount={2}
-      startups={[s({ name: 'A', city: 'Sydney' }), s({ name: 'B', city: 'Melbourne' }), s({ name: 'C', city: 'Sydney' })]}
+      summary={summaryOf()}
       {...overrides}
     />
   );
@@ -75,9 +82,18 @@ describe('FilterPanel', () => {
     expect(items[0]).toHaveTextContent('2');
   });
 
+  it('still opens before the first counts have arrived, with empty tabs rather than an error', async () => {
+    setup({ summary: null });
+    await open();
+    await userEvent.click(screen.getByText('Leaderboard'));
+    expect(screen.queryAllByRole('listitem')).toHaveLength(0);
+    await userEvent.click(screen.getByText('Vouched'));
+    expect(screen.getByText('No vouches yet.')).toBeInTheDocument();
+  });
+
   it('switches to the Notable tab and shows founded-year list', async () => {
     setup({
-      startups: [s({ name: 'Old Co', foundedYear: 2004 }), s({ name: 'New Co', foundedYear: 2020 })],
+      summary: summaryOf({ notable: { total: 2, items: [{ name: 'Old Co', foundedYear: 2004 }, { name: 'New Co', foundedYear: 2020 }] } }),
     });
     await open();
     await userEvent.click(screen.getByText('Notable'));
@@ -96,7 +112,7 @@ describe('FilterPanel', () => {
 
   it('switches to the Vouched tab and shows real vouch counts once data exists', async () => {
     setup({
-      startups: [s({ name: 'Vouched Co', vouches: [{ name: 'A' }, { name: 'B' }] })],
+      summary: summaryOf({ vouched: { total: 1, items: [{ name: 'Vouched Co', vouches: 2 }] } }),
     });
     await open();
     await userEvent.click(screen.getByText('Vouched'));

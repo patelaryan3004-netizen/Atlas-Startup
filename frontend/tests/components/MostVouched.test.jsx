@@ -2,19 +2,9 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import MostVouched from '../../src/components/MostVouched.jsx';
 
-function s(name, vouches) {
-  return { name, vouches };
-}
-
 describe('MostVouched', () => {
-  it('lists only startups with at least one vouch, most-vouched first', () => {
-    const startups = [
-      s('One Vouch Co', [{ name: 'A', role: '', note: '' }]),
-      s('No Vouch Co', []),
-      s('Three Vouch Co', [{ name: 'A' }, { name: 'B' }, { name: 'C' }]),
-      s('Undefined Vouch Co', undefined),
-    ];
-    render(<MostVouched startups={startups} />);
+  it('lists the most-vouched companies the server found, most first, with their vouch counts', () => {
+    render(<MostVouched vouched={{ total: 2, items: [{ name: 'Three Vouch Co', vouches: 3 }, { name: 'One Vouch Co', vouches: 1 }] }} />);
 
     const items = screen.getAllByRole('listitem');
     expect(items).toHaveLength(2);
@@ -22,12 +12,18 @@ describe('MostVouched', () => {
     expect(items[0]).toHaveTextContent('3');
     expect(items[1]).toHaveTextContent('One Vouch Co');
     expect(items[1]).toHaveTextContent('1');
-    expect(screen.queryByText('No Vouch Co')).not.toBeInTheDocument();
-    expect(screen.queryByText('Undefined Vouch Co')).not.toBeInTheDocument();
+    expect(screen.queryByText(/most vouched of/)).not.toBeInTheDocument();
   });
 
-  it('renders nothing when no startup has any vouches (the current real-data state)', () => {
-    const { container } = render(<MostVouched startups={[s('A', []), s('B', undefined)]} />);
+  it('says how many there are in all when it shows only the top of them', () => {
+    render(<MostVouched vouched={{ total: 80, items: [{ name: 'A', vouches: 9 }] }} />);
+    expect(screen.getByText('The 1 most vouched of 80.')).toBeInTheDocument();
+  });
+
+  it('renders nothing when no company has any vouches (the current real-data state), or nothing was given', () => {
+    const { container, rerender } = render(<MostVouched vouched={{ total: 0, items: [] }} />);
+    expect(container.firstChild).toBeNull();
+    rerender(<MostVouched />);
     expect(container.firstChild).toBeNull();
   });
 });

@@ -11,7 +11,9 @@ const TABS = [
   { id: 'vouched', label: 'Vouched' },
 ];
 
-export default function FilterPanel({ filters, onChange, onReset, meta, resultCount, startups }) {
+// `summary` is what the server says about the current results (see fetchSummary): the leaderboard, the oldest
+// and the most vouched come from it, so this panel never needs the companies themselves.
+export default function FilterPanel({ filters, onChange, onReset, meta, resultCount, summary }) {
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState('filters');
   const set = (key) => (e) => onChange({ ...filters, [key]: e.target.value });
@@ -19,7 +21,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
 
   useEscapeClose(() => setOpen(false));
 
-  const hasVouched = startups.some((s) => s.vouches?.length > 0);
+  const hasVouched = (summary?.vouched?.total ?? 0) > 0;
 
   return (
     <>
@@ -121,19 +123,19 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
 
             {tab === 'leaderboard' && (
               <div className="fdrawer-content">
-                <Leaderboard startups={startups} />
+                <Leaderboard cities={summary?.topCities ?? []} />
               </div>
             )}
 
             {tab === 'notable' && (
               <div className="fdrawer-content">
-                <NotableStartups startups={startups} />
+                <NotableStartups notable={summary?.notable} />
               </div>
             )}
 
             {tab === 'vouched' && (
               <div className="fdrawer-content">
-                {hasVouched ? <MostVouched startups={startups} /> : <p className="fdrawer-empty">No vouches yet.</p>}
+                {hasVouched ? <MostVouched vouched={summary.vouched} /> : <p className="fdrawer-empty">No vouches yet.</p>}
               </div>
             )}
           </div>
