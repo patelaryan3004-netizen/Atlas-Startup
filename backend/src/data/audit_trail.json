@@ -1,1 +1,2117 @@
-[]
+[
+  {
+    "id": "aud-20261005150234936-1",
+    "at": "2026-10-05T15:02:34.936Z",
+    "actor": "Claude (for the owner)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.seed",
+    "target": {
+      "type": "queue",
+      "id": "enrichment"
+    },
+    "summary": "Queued 167 companies for enrichment (46 without a website, 3 checked recently)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150252300-1",
+    "at": "2026-10-05T15:02:52.300Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "morse-micro"
+    },
+    "summary": "Read morsemicro.com: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150252388-1",
+    "at": "2026-10-05T15:02:52.388Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "care-gp"
+    },
+    "summary": "Read caregp.com.au: 3 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150252604-1",
+    "at": "2026-10-05T15:02:52.604Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "karbon"
+    },
+    "summary": "Read karbonhq.com: 3 evidence added; jobs +15/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150252633-1",
+    "at": "2026-10-05T15:02:52.633Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "sendle"
+    },
+    "summary": "Read sendle.com: 3 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150255815-1",
+    "at": "2026-10-05T15:02:55.815Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "propeller-aero"
+    },
+    "summary": "Read propelleraero.com: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150257116-1",
+    "at": "2026-10-05T15:02:57.116Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "expert360"
+    },
+    "summary": "Read expert360.com: 6 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150259046-1",
+    "at": "2026-10-05T15:02:59.046Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "different"
+    },
+    "summary": "Read different.com.au: 4 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150259083-1",
+    "at": "2026-10-05T15:02:59.083Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "quantum-brilliance"
+    },
+    "summary": "Read quantumbrilliance.com: 5 evidence added; 1 suggestion(s); 2 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150302134-1",
+    "at": "2026-10-05T15:03:02.134Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "q-ctrl"
+    },
+    "summary": "Read q-ctrl.com: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150303347-1",
+    "at": "2026-10-05T15:03:03.347Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "audience-republic"
+    },
+    "summary": "Read audiencerepublic.com: 4 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150306220-1",
+    "at": "2026-10-05T15:03:06.220Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "edsemble"
+    },
+    "summary": "Read edsemble.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150317122-1",
+    "at": "2026-10-05T15:03:17.122Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "bugcrowd"
+    },
+    "summary": "Read bugcrowd.com: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150318960-1",
+    "at": "2026-10-05T15:03:18.960Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "jigspace"
+    },
+    "summary": "Read jig.space: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150324211-1",
+    "at": "2026-10-05T15:03:24.211Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "socialsuite"
+    },
+    "summary": "Read socialsuitehq.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150334282-1",
+    "at": "2026-10-05T15:03:34.282Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "sapia-ai"
+    },
+    "summary": "Read sapia.ai: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150335668-1",
+    "at": "2026-10-05T15:03:35.668Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mindset-health"
+    },
+    "summary": "Read mindsethealth.com: 7 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150335783-1",
+    "at": "2026-10-05T15:03:35.783Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "starboard"
+    },
+    "summary": "Read starboard.nz: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150340326-1",
+    "at": "2026-10-05T15:03:40.326Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "vinyl"
+    },
+    "summary": "Read usevinyl.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150340626-1",
+    "at": "2026-10-05T15:03:40.626Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "blinq"
+    },
+    "summary": "Read blinq.me: 3 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150354324-1",
+    "at": "2026-10-05T15:03:54.324Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "harrison-ai"
+    },
+    "summary": "Read harrison.ai: 6 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150357746-1",
+    "at": "2026-10-05T15:03:57.746Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "assignar"
+    },
+    "summary": "Read assignar.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150401466-1",
+    "at": "2026-10-05T15:04:01.466Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "bare"
+    },
+    "summary": "Read barecremation.com.au: 8 evidence added; 2 suggestion(s); 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150412804-1",
+    "at": "2026-10-05T15:04:12.804Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "advanced-navigation"
+    },
+    "summary": "Read advancednavigation.com: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150416821-1",
+    "at": "2026-10-05T15:04:16.821Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "flippa"
+    },
+    "summary": "Read flippa.com: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150417209-1",
+    "at": "2026-10-05T15:04:17.209Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "tendl"
+    },
+    "summary": "Read tendl.ai: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150419825-1",
+    "at": "2026-10-05T15:04:19.825Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "phocas"
+    },
+    "summary": "Read phocassoftware.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150420121-1",
+    "at": "2026-10-05T15:04:20.121Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "heaps-normal"
+    },
+    "summary": "Read heapsnormal.com: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150421584-1",
+    "at": "2026-10-05T15:04:21.584Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "build-club"
+    },
+    "summary": "Read buildclub.ai: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150433054-1",
+    "at": "2026-10-05T15:04:33.054Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "askable"
+    },
+    "summary": "Read askable.com: 6 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150434950-1",
+    "at": "2026-10-05T15:04:34.950Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "fleet-space-technologies"
+    },
+    "summary": "Read fleetspace.com: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150435452-1",
+    "at": "2026-10-05T15:04:35.452Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "kimia"
+    },
+    "summary": "Read kimia.ai: 5 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150437521-1",
+    "at": "2026-10-05T15:04:37.521Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "lorikeet"
+    },
+    "summary": "Read lorikeet.ai: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150439403-1",
+    "at": "2026-10-05T15:04:39.403Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "vervoe"
+    },
+    "summary": "Read vervoe.com: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150439710-1",
+    "at": "2026-10-05T15:04:39.710Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "ownhome"
+    },
+    "summary": "Read ownhome.com: 6 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150452812-1",
+    "at": "2026-10-05T15:04:52.812Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "samsara-eco"
+    },
+    "summary": "Read samsaraeco.com: 6 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150455528-1",
+    "at": "2026-10-05T15:04:55.528Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "cuttable"
+    },
+    "summary": "Read cuttable.ai: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150455782-1",
+    "at": "2026-10-05T15:04:55.782Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "unloan"
+    },
+    "summary": "Read unloan.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150456543-1",
+    "at": "2026-10-05T15:04:56.543Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "spriggy"
+    },
+    "summary": "Read spriggy.com.au: 6 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150457382-1",
+    "at": "2026-10-05T15:04:57.382Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "secure-code-warrior"
+    },
+    "summary": "Read securecodewarrior.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150513155-1",
+    "at": "2026-10-05T15:05:13.155Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "marqo"
+    },
+    "summary": "Read marqo.ai: 7 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150523470-1",
+    "at": "2026-10-05T15:05:23.470Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "me-and-u"
+    },
+    "summary": "Read meandu.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150527767-1",
+    "at": "2026-10-05T15:05:27.767Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "archistar"
+    },
+    "summary": "Read archistar.ai: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150530139-1",
+    "at": "2026-10-05T15:05:30.139Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "6clicks"
+    },
+    "summary": "Read 6clicks.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150535044-1",
+    "at": "2026-10-05T15:05:35.044Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "heidi-health"
+    },
+    "summary": "Read heidihealth.com: 5 evidence added; 1 suggestion(s); 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150543626-1",
+    "at": "2026-10-05T15:05:43.626Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "brighte"
+    },
+    "summary": "Read brighte.com.au: 7 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150547917-1",
+    "at": "2026-10-05T15:05:47.917Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "athena"
+    },
+    "summary": "Read athena.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150548284-1",
+    "at": "2026-10-05T15:05:48.284Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "shippit"
+    },
+    "summary": "Read shippit.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150559263-1",
+    "at": "2026-10-05T15:05:59.263Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "amber-electric"
+    },
+    "summary": "Read amber.com.au: 3 evidence added; jobs +2/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150600461-1",
+    "at": "2026-10-05T15:06:00.461Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "buildkite"
+    },
+    "summary": "Read buildkite.com: 6 evidence added; jobs +1/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150604123-1",
+    "at": "2026-10-05T15:06:04.123Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "eucalyptus"
+    },
+    "summary": "Read eucalyptus.vc: 6 evidence added; 1 suggestion(s); 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150607448-1",
+    "at": "2026-10-05T15:06:07.448Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "gilmour-space-technologies"
+    },
+    "summary": "Read gspacetech.com: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150608832-1",
+    "at": "2026-10-05T15:06:08.832Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "deputy"
+    },
+    "summary": "Read deputy.com: 6 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150610844-1",
+    "at": "2026-10-05T15:06:10.844Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "go1"
+    },
+    "summary": "Read go1.com: 9 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150618857-1",
+    "at": "2026-10-05T15:06:18.857Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "immutable"
+    },
+    "summary": "Read immutable.com: 3 evidence added; jobs +6/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150626541-1",
+    "at": "2026-10-05T15:06:26.541Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "prospa"
+    },
+    "summary": "Read prospa.com: 5 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150630551-1",
+    "at": "2026-10-05T15:06:30.551Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "airwallex"
+    },
+    "summary": "Read airwallex.com: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150631443-1",
+    "at": "2026-10-05T15:06:31.443Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "zeller"
+    },
+    "summary": "Read myzeller.com: 3 evidence added; jobs +20/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150644335-1",
+    "at": "2026-10-05T15:06:44.335Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "culture-amp"
+    },
+    "summary": "Read cultureamp.com: 4 evidence added; jobs +30/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150644817-1",
+    "at": "2026-10-05T15:06:44.817Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "employment-hero"
+    },
+    "summary": "Read employmenthero.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150649875-1",
+    "at": "2026-10-05T15:06:49.875Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "rokt"
+    },
+    "summary": "Read rokt.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150700948-1",
+    "at": "2026-10-05T15:07:00.948Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "chirp"
+    },
+    "summary": "Read trychirp.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150701697-1",
+    "at": "2026-10-05T15:07:01.697Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "calctree"
+    },
+    "summary": "Read calctree.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150701909-1",
+    "at": "2026-10-05T15:07:01.909Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "sonder"
+    },
+    "summary": "Read sonder.io: 6 evidence added; 1 suggestion(s); jobs +30/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150706511-1",
+    "at": "2026-10-05T15:07:06.511Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "psyke"
+    },
+    "summary": "Read psyke.co: 6 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150708973-1",
+    "at": "2026-10-05T15:07:08.973Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "onemri"
+    },
+    "summary": "Read onemri.com.au: 5 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150720086-1",
+    "at": "2026-10-05T15:07:20.086Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "human-health"
+    },
+    "summary": "Read human.health: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150721926-1",
+    "at": "2026-10-05T15:07:21.926Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "trace"
+    },
+    "summary": "Read our-trace.com: 6 evidence added; 2 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150736800-1",
+    "at": "2026-10-05T15:07:36.800Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "visory"
+    },
+    "summary": "Read visory.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150736864-1",
+    "at": "2026-10-05T15:07:36.864Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "home-in"
+    },
+    "summary": "Read home-in.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150739119-1",
+    "at": "2026-10-05T15:07:39.119Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "vyro"
+    },
+    "summary": "Read vyro.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150742828-1",
+    "at": "2026-10-05T15:07:42.828Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "sherpa"
+    },
+    "summary": "Read sherpa.net.au: 4 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150743927-1",
+    "at": "2026-10-05T15:07:43.927Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "asseti"
+    },
+    "summary": "Read asseti.co: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150745283-1",
+    "at": "2026-10-05T15:07:45.283Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "apate-ai"
+    },
+    "summary": "Read apate.ai: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150753463-1",
+    "at": "2026-10-05T15:07:53.463Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "biteable"
+    },
+    "summary": "Read biteable.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150753538-1",
+    "at": "2026-10-05T15:07:53.538Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "avarni"
+    },
+    "summary": "Read avarni.co: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150753567-1",
+    "at": "2026-10-05T15:07:53.567Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "andisor"
+    },
+    "summary": "Read andisor.com: 6 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150801192-1",
+    "at": "2026-10-05T15:08:01.192Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "bookipi"
+    },
+    "summary": "Read bookipi.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150801756-1",
+    "at": "2026-10-05T15:08:01.756Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "circular-sourcing"
+    },
+    "summary": "Read circularsourcing.world: 6 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150801976-1",
+    "at": "2026-10-05T15:08:01.976Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "coassemble"
+    },
+    "summary": "Read coassemble.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150802204-1",
+    "at": "2026-10-05T15:08:02.204Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "buildpass"
+    },
+    "summary": "Read buildpass.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150808743-1",
+    "at": "2026-10-05T15:08:08.743Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "factor-house"
+    },
+    "summary": "Read factorhouse.io: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150819058-1",
+    "at": "2026-10-05T15:08:19.058Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "hometime"
+    },
+    "summary": "Read hometime.io: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150819626-1",
+    "at": "2026-10-05T15:08:19.626Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "earthodic"
+    },
+    "summary": "Read earthodic.com: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150823259-1",
+    "at": "2026-10-05T15:08:23.259Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "kit"
+    },
+    "summary": "Read heykit.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150834930-1",
+    "at": "2026-10-05T15:08:34.930Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mentorloop"
+    },
+    "summary": "Read mentorloop.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150837360-1",
+    "at": "2026-10-05T15:08:37.360Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mary-technology"
+    },
+    "summary": "Read marytechnology.com: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150839262-1",
+    "at": "2026-10-05T15:08:39.262Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "loopit"
+    },
+    "summary": "Read loopit.co: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150840754-1",
+    "at": "2026-10-05T15:08:40.754Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "minikai"
+    },
+    "summary": "Read minikai.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150842009-1",
+    "at": "2026-10-05T15:08:42.009Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "moregooddays"
+    },
+    "summary": "Read moregooddays.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150852969-1",
+    "at": "2026-10-05T15:08:52.969Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mx51"
+    },
+    "summary": "Read mx51.io: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150853228-1",
+    "at": "2026-10-05T15:08:53.228Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "pairtree"
+    },
+    "summary": "Read pairtree.co: 5 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150855210-1",
+    "at": "2026-10-05T15:08:55.210Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "puralink"
+    },
+    "summary": "Read puralink.com.au: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150858185-1",
+    "at": "2026-10-05T15:08:58.185Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "payble"
+    },
+    "summary": "Read payble.com.au: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150859392-1",
+    "at": "2026-10-05T15:08:59.392Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "pyn"
+    },
+    "summary": "Read pynhq.com: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150900569-1",
+    "at": "2026-10-05T15:09:00.569Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "reach-alternative-investments"
+    },
+    "summary": "Read reachalts.com.au: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150914657-1",
+    "at": "2026-10-05T15:09:14.657Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "signonsite"
+    },
+    "summary": "Read signonsite.com.au: 5 evidence added; 2 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150915793-1",
+    "at": "2026-10-05T15:09:15.793Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "slyp"
+    },
+    "summary": "Read slyp.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150916442-1",
+    "at": "2026-10-05T15:09:16.442Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "start-my-tomorrow"
+    },
+    "summary": "Read startmytomorrow.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150921896-1",
+    "at": "2026-10-05T15:09:21.896Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "tiliter"
+    },
+    "summary": "Read tiliter.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150932500-1",
+    "at": "2026-10-05T15:09:32.500Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "truyu"
+    },
+    "summary": "Read truyu.com.au: 5 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150932987-1",
+    "at": "2026-10-05T15:09:32.987Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "vexev"
+    },
+    "summary": "Read vexev.com: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150939337-1",
+    "at": "2026-10-05T15:09:39.337Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "doshii"
+    },
+    "summary": "Read doshii.com: 6 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150949657-1",
+    "at": "2026-10-05T15:09:49.657Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "cascade"
+    },
+    "summary": "Read cascade.app: 4 evidence added; 2 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150951281-1",
+    "at": "2026-10-05T15:09:51.281Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "amazingco"
+    },
+    "summary": "Read amazingco.me: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150954046-1",
+    "at": "2026-10-05T15:09:54.046Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "eatclub"
+    },
+    "summary": "Read eatclub.com.au: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150957110-1",
+    "at": "2026-10-05T15:09:57.110Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "drawboard"
+    },
+    "summary": "Read drawboard.com: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005150957929-1",
+    "at": "2026-10-05T15:09:57.929Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "edstart"
+    },
+    "summary": "Read edstart.com.au: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151010498-1",
+    "at": "2026-10-05T15:10:10.498Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "etrainu"
+    },
+    "summary": "Read etrainu.com: 6 evidence added; 2 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151012073-1",
+    "at": "2026-10-05T15:10:12.073Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "zero-latency"
+    },
+    "summary": "Read zerolatencyvr.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151017324-1",
+    "at": "2026-10-05T15:10:17.324Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "ipscape"
+    },
+    "summary": "Read ipscape.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151028672-1",
+    "at": "2026-10-05T15:10:28.672Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "securepii"
+    },
+    "summary": "Read securepii.cloud: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151028737-1",
+    "at": "2026-10-05T15:10:28.737Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "bridgit"
+    },
+    "summary": "Read bridgit.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151030691-1",
+    "at": "2026-10-05T15:10:30.691Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mercu"
+    },
+    "summary": "Read mercu.io: 1 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151035146-1",
+    "at": "2026-10-05T15:10:35.146Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "safewill"
+    },
+    "summary": "Read safewill.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151045438-1",
+    "at": "2026-10-05T15:10:45.438Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "rosterfy"
+    },
+    "summary": "Read rosterfy.com: 5 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151045480-1",
+    "at": "2026-10-05T15:10:45.480Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "atomi"
+    },
+    "summary": "Read getatomi.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151050131-1",
+    "at": "2026-10-05T15:10:50.131Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "biza-io"
+    },
+    "summary": "Read biza.io: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151052623-1",
+    "at": "2026-10-05T15:10:52.623Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "clear-dynamics"
+    },
+    "summary": "Read cleardynamics.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151102878-1",
+    "at": "2026-10-05T15:11:02.878Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "enboarder"
+    },
+    "summary": "Read enboarder.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151104204-1",
+    "at": "2026-10-05T15:11:04.204Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "hone"
+    },
+    "summary": "Read honeag.com: 5 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151104650-1",
+    "at": "2026-10-05T15:11:04.650Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "driva"
+    },
+    "summary": "Read driva.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151109129-1",
+    "at": "2026-10-05T15:11:09.129Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "investorhub"
+    },
+    "summary": "Read investorhub.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151110106-1",
+    "at": "2026-10-05T15:11:10.106Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "josef"
+    },
+    "summary": "Read joseflegal.com: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151120441-1",
+    "at": "2026-10-05T15:11:20.441Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mod-io"
+    },
+    "summary": "Read mod.io: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151121429-1",
+    "at": "2026-10-05T15:11:21.429Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "mastt"
+    },
+    "summary": "Read mastt.com: 6 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151123695-1",
+    "at": "2026-10-05T15:11:23.695Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "vow"
+    },
+    "summary": "Read vowfood.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151127296-1",
+    "at": "2026-10-05T15:11:27.296Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "matrak"
+    },
+    "summary": "Read matrak.com.au: 4 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151137331-1",
+    "at": "2026-10-05T15:11:37.331Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "sherlok"
+    },
+    "summary": "Read sherlok.com.au: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151139212-1",
+    "at": "2026-10-05T15:11:39.212Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "agridigital"
+    },
+    "summary": "Read agridigital.io: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151140735-1",
+    "at": "2026-10-05T15:11:40.735Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "bivacor"
+    },
+    "summary": "Read bivacor.com: 5 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151141730-1",
+    "at": "2026-10-05T15:11:41.730Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "zitcha"
+    },
+    "summary": "Read zitcha.com: 3 evidence added; 1 suggestion(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151155297-1",
+    "at": "2026-10-05T15:11:55.297Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "kasada"
+    },
+    "summary": "Read kasada.io: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151156533-1",
+    "at": "2026-10-05T15:11:56.533Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "diraq"
+    },
+    "summary": "Read diraq.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151157713-1",
+    "at": "2026-10-05T15:11:57.713Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "myriota"
+    },
+    "summary": "Read myriota.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151158140-1",
+    "at": "2026-10-05T15:11:58.140Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "eftsure"
+    },
+    "summary": "Read eftsure.com: 5 evidence added; 1 conflict(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151213713-1",
+    "at": "2026-10-05T15:12:13.713Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "neara"
+    },
+    "summary": "Read neara.com: 4 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151213949-1",
+    "at": "2026-10-05T15:12:13.949Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "v2food"
+    },
+    "summary": "Read v2food.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151214031-1",
+    "at": "2026-10-05T15:12:14.031Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "opensolar"
+    },
+    "summary": "Read opensolar.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151214359-1",
+    "at": "2026-10-05T15:12:14.359Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "swarmfarm-robotics"
+    },
+    "summary": "Read swarmfarm.com: 2 evidence added",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261005151214418-1",
+    "at": "2026-10-05T15:12:14.418Z",
+    "actor": "Claude (for the owner)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.run",
+    "target": {
+      "type": "queue",
+      "id": "enrichment"
+    },
+    "summary": "Ran the enrichment queue in suggest mode: 141 read, 15 skipped, 0 failed, 11 to retry; 500 evidence added",
+    "reason": null,
+    "changes": []
+  }
+]
