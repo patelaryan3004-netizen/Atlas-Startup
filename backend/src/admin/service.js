@@ -35,6 +35,23 @@ const text = (v, { max = 500, required = false, what = 'text' } = {}) => {
 };
 const object = (v, what) => { if (!v || typeof v !== 'object' || Array.isArray(v)) throw new BadRequestError(`${what} must be an object`); return v; };
 
+// A place a person confirms, as the form sends it: a city (or only a state), an address and/or suburb, coordinates
+// when it is a point, and optionally how precise it is (otherwise worked out from what is given).
+function locationFromBody(l) {
+  const num = (v, what) => { if (v == null || v === '') return null; const n = Number(v); if (!Number.isFinite(n)) throw new BadRequestError(`${what} must be a number`); return n; };
+  const lat = num(l.lat, 'the latitude');
+  const lng = num(l.lng, 'the longitude');
+  if ((lat == null) !== (lng == null)) throw new BadRequestError('give both a latitude and a longitude, or neither');
+  const precision = l.precision == null || l.precision === '' ? null : String(l.precision).toUpperCase();
+  if (precision != null && !['EXACT', 'SUBURB', 'CITY', 'STATE'].includes(precision)) throw new BadRequestError('precision must be EXACT, SUBURB, CITY or STATE');
+  const state = text(l.state, { max: 3, what: 'the state' });
+  if (precision !== 'STATE' && !text(l.city, { max: 80 })) throw new BadRequestError('the city is required');
+  return {
+    city: text(l.city, { max: 80, what: 'the city' }) ?? undefined, address: text(l.address, { max: 200 }) ?? undefined, suburb: text(l.suburb, { max: 80 }) ?? undefined,
+    state: state ?? undefined, postcode: text(l.postcode, { max: 4 }) ?? undefined, lat, lng, precision,
+  };
+}
+
 // A refusal the person should read (a rule said no) is a 400; something that is our bug is left to surface as a 500.
 function translate(err) {
   if (err instanceof HttpError) return err;
@@ -133,12 +150,7 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
     }),
 
     publish: (actor, id, body = {}) => write(actor, 'candidate.publish', (work, { at }) => {
-      let location = null;
-      if (body.location) {
-        const l = object(body.location, 'location');
-        location = { city: text(l.city, { max: 80, required: true, what: 'the city' }), lat: Number(l.lat), lng: Number(l.lng), address: text(l.address, { max: 200 }) ?? undefined };
-        if (!Number.isFinite(location.lat) || !Number.isFinite(location.lng)) throw new BadRequestError('a location needs coordinates (latitude and longitude)');
-      }
+      const location = body.location ? locationFromBody(object(body.location, 'location')) : null;
       const { company } = publishCandidate(work, idOf(id), { by: actor.name, at, location });
       const queued = enqueueForPublished(work, company, { by: actor.name, at });
       return { result: { id, company_id: company.id, on_map: company.verified, enrichment_queued: Boolean(queued) }, audit: [entry(actor, 'candidate.publish', { type: 'candidate', id }, `Published ${company.name} as ${company.id}${company.verified ? ' (on the map)' : ' (unconfirmed location: listed, not on the map)'}${queued ? '; queued for enrichment' : ''}`, { changes: [{ field: 'status', from: 'approved', to: 'published' }] })] };

@@ -43,6 +43,8 @@ console.log('verification_status:', JSON.stringify(count(after.companies, (c) =>
 console.log('hiring_status:', JSON.stringify(count(after.companies, (c) => c.hiring_status)));
 console.log('company_status:', JSON.stringify(count(after.companies, (c) => c.company_status)));
 console.log('state:', JSON.stringify(count(after.companies, (c) => c.state)));
+console.log('location_precision:', JSON.stringify(count(after.companies, (c) => c.location_precision)));
+console.log('company_locations:', after.company_locations.length, JSON.stringify(count(after.company_locations, (l) => l.kind)));
 const noState = after.companies.filter((c) => c.verified && c.state == null).map((c) => c.name);
 if (noState.length) console.log(`verified but state not derivable (left null): ${noState.join(', ')}`);
 

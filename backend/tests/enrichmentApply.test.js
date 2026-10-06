@@ -326,20 +326,74 @@ describe('putting a value on a record', () => {
     expect(() => setField(c, 'confidence_score', 1)).toThrow(/not a field that can be applied/);
   });
 
-  it('puts a company on the map only with a city, coordinates inside Australia and a state', () => {
-    const c = { name: 'Acme', city: 'Unknown', lat: null, lng: null, verified: false, verification_status: 'unverified', address: null, state: null };
-    expect(() => confirmLocation({ ...c }, { city: 'Sydney', lat: null, lng: null })).toThrow(/coordinates are needed/);
-    expect(() => confirmLocation({ ...c }, { city: 'San Francisco', lat: 37.77, lng: -122.41, state: 'NSW' })).toThrow(/not in Australia/);
-    expect(() => confirmLocation({ ...c }, { city: 'Ballarat', lat: -37.56, lng: 143.85 })).toThrow(/say the state/);
-    const changes = confirmLocation(c, { city: 'Sydney', address: '1 George Street, Sydney NSW 2000', lat: -33.86, lng: 151.2 });
-    expect(c).toMatchObject({ city: 'Sydney', state: 'NSW', country: 'Australia', verified: true, verification_status: 'location_verified', lat: -33.86, address: '1 George Street, Sydney NSW 2000' });
-    expect(changes.map((x) => x.field)).toEqual(['city', 'lat', 'lng', 'address', 'state', 'verified']);
+  const AT = '2026-10-07T00:00:00.000Z';
+  const blank = () => ({ name: 'Acme', city: 'Unknown', lat: null, lng: null, verified: false, verification_status: 'unverified', address: null, state: null });
+
+  it('refuses a place it cannot support: outside Australia, a point with nothing to make it a pin, no state', () => {
+    expect(() => confirmLocation(blank(), { city: 'San Francisco', lat: 37.77, lng: -122.41, state: 'NSW' })).toThrow(/not in Australia/);
+    // Coordinates alone are not a pin: they need an address (exact) or a suburb (suburb-level).
+    expect(() => confirmLocation(blank(), { city: 'Sydney', lat: -33.86, lng: 151.2 })).toThrow(/need an address .* or a suburb/);
+    expect(() => confirmLocation(blank(), { city: 'Ballarat' })).toThrow(/say the state/);
+    expect(() => confirmLocation(blank(), { city: 'Sydney', state: 'NSW', precision: 'EXACT', lat: -33.86, lng: 151.2 })).toThrow(/needs the address/);
+    expect(() => confirmLocation(blank(), { city: 'Sydney', state: 'NSW', precision: 'EXACT', address: '1 George Street, Sydney NSW 2000' })).toThrow(/needs coordinates/);
+    expect(() => confirmLocation(blank(), { city: 'Sydney', state: 'NSW', precision: 'SUBURB', lat: -33.86, lng: 151.2 })).toThrow(/needs the suburb/);
+    expect(() => confirmLocation(blank(), { city: 'Sydney', state: 'NSW', precision: 'UNKNOWN' })).toThrow(/take the company off the map/);
+    expect(() => confirmLocation(blank(), { city: 'Sydney', state: 'NSW', precision: 'ROUGHLY' })).toThrow(/precision must be one of/);
+  });
+
+  it('records an address and a point as EXACT, with where it came from', () => {
+    const c = blank();
+    const changes = confirmLocation(c, { city: 'Sydney', address: '110 Kippax Street, Surry Hills, Sydney NSW 2010', lat: -33.8848, lng: 151.2098 }, { at: AT });
+    expect(c).toMatchObject({
+      city: 'Sydney', state: 'NSW', country: 'Australia', verified: true, verification_status: 'location_verified', lat: -33.8848, lng: 151.2098,
+      address: '110 Kippax Street, Surry Hills, Sydney NSW 2010', suburb: 'Surry Hills', postcode: '2010',
+      location_precision: 'EXACT', location_source: 'manual', location_source_url: null, location_verified_at: AT, location_confidence: 'medium',
+    });
+    expect(changes.map((x) => x.field)).toEqual(['city', 'suburb', 'postcode', 'lat', 'lng', 'address', 'state', 'verified', 'location_precision', 'location_source', 'location_verified_at', 'location_confidence']);
+  });
+
+  it('is high confidence when the company\'s own page states the place and it was read', () => {
+    const c = blank();
+    confirmLocation(c, { city: 'Melbourne', address: 'Level 7, 15 William Street, Melbourne VIC 3000', lat: -37.8185, lng: 144.9606, source: 'company_website', sourceUrl: 'https://airwallex.com/au/privacy', verifiedAt: AT, geocodeAgrees: true });
+    expect(c).toMatchObject({ location_precision: 'EXACT', location_source: 'company_website', location_source_url: 'https://airwallex.com/au/privacy', location_verified_at: AT, location_confidence: 'high' });
+  });
+
+  it('records a suburb and a point as SUBURB, and keeps the address it already had', () => {
+    const c = { ...blank(), address: 'Surry Hills, Sydney NSW 2010' };
+    confirmLocation(c, { city: 'Sydney', suburb: 'Surry Hills', lat: -33.884, lng: 151.21 }, { at: AT });
+    expect(c).toMatchObject({ location_precision: 'SUBURB', suburb: 'Surry Hills', postcode: '2010', lat: -33.884, lng: 151.21, address: 'Surry Hills, Sydney NSW 2010', state: 'NSW' });
+  });
+
+  it('records a city alone as CITY with no coordinates: a city centre is not where a company is', () => {
+    const c = blank();
+    confirmLocation(c, { city: 'Sydney', state: 'NSW' }, { at: AT });
+    expect(c).toMatchObject({ verified: true, verification_status: 'location_verified', city: 'Sydney', state: 'NSW', location_precision: 'CITY', lat: null, lng: null, suburb: null, postcode: null });
+    // Coordinates given with an explicit CITY are not kept.
+    const d = blank();
+    confirmLocation(d, { city: 'Sydney', state: 'NSW', precision: 'CITY', lat: -33.8688, lng: 151.2093 }, { at: AT });
+    expect(d).toMatchObject({ location_precision: 'CITY', lat: null, lng: null });
+  });
+
+  it('records only a state as STATE, with the city left unknown', () => {
+    const c = blank();
+    confirmLocation(c, { state: 'VIC', precision: 'STATE' }, { at: AT });
+    expect(c).toMatchObject({ verified: true, city: 'Unknown', state: 'VIC', location_precision: 'STATE', lat: null, lng: null });
+  });
+
+  it('refuses a source that says where a person is, not where the company is', () => {
+    const args = { city: 'Sydney', address: '1 George Street, Sydney NSW 2000', lat: -33.86, lng: 151.2 };
+    expect(() => confirmLocation(blank(), { ...args, source: 'company_website', sourceUrl: 'https://www.linkedin.com/in/someone' })).toThrow(/says where a person is/);
+    expect(() => confirmLocation(blank(), { ...args, source: 'founders_home' })).toThrow(/not a kind of location source/);
+    expect(() => confirmLocation(blank(), { ...args, source: 'company_website', sourceUrl: 'ftp://example.test/x' })).toThrow(/http\(s\) link/);
   });
 
   it('takes a company off the map, keeping its address', () => {
-    const c = { city: 'Sydney', lat: -33.8, lng: 151.2, state: 'NSW', country: 'Australia', verified: true, verification_status: 'location_verified', address: '1 George Street' };
+    const c = { city: 'Sydney', lat: -33.8, lng: 151.2, state: 'NSW', country: 'Australia', verified: true, verification_status: 'location_verified', address: '1 George Street', location_precision: 'EXACT', location_source: 'manual', location_verified_at: AT, location_confidence: 'medium', suburb: 'Sydney', postcode: '2000' };
     const changes = unconfirmLocation(c);
-    expect(c).toMatchObject({ city: 'Unknown', lat: null, lng: null, state: null, country: null, verified: false, verification_status: 'unverified', address: '1 George Street' });
-    expect(changes.map((x) => x.field).sort()).toEqual(['city', 'country', 'lat', 'lng', 'state', 'verified']);
+    expect(c).toMatchObject({
+      city: 'Unknown', lat: null, lng: null, state: null, country: null, verified: false, verification_status: 'unverified', address: '1 George Street',
+      location_precision: 'UNKNOWN', location_source: null, location_verified_at: null, location_confidence: null, suburb: null, postcode: null,
+    });
+    expect(changes.map((x) => x.field).sort()).toEqual(['city', 'country', 'lat', 'lng', 'location_confidence', 'location_precision', 'location_source', 'location_verified_at', 'postcode', 'state', 'suburb', 'verified']);
   });
 });

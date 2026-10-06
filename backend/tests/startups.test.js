@@ -29,7 +29,10 @@ describe('GET /api/startups', () => {
       expect(typeof s.hiring).toBe('boolean');
       expect(typeof s.verified).toBe('boolean');
       expect(typeof s.taskGate.enabled).toBe('boolean');
-      if (s.verified) expect(typeof s.lat).toBe('number');
+      // A pin is only served for a location that is a point; a company known to its city or state has none to show.
+      if (['EXACT', 'SUBURB'].includes(s.location_precision)) { expect(typeof s.lat, s.name).toBe('number'); expect(typeof s.lng, s.name).toBe('number'); } else expect([s.lat, s.lng], s.name).toEqual([null, null]);
+      expect(['EXACT', 'SUBURB', 'CITY', 'STATE', 'UNKNOWN']).toContain(s.location_precision);
+      expect(s.verified, s.name).toBe(s.location_precision !== 'UNKNOWN');
     }
   });
 

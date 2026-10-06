@@ -13,6 +13,7 @@
 // place (coordinates inside Australia) or taking it off the map ("Unconfirmed"), and nothing less.
 import { activeEvidence, detectConflicts, findUnappliedEvidence, valuesEqual, storedValue, EVIDENCE_FIELDS } from '../models/evidence.js';
 import { setField, isUnknown, confirmLocation, unconfirmLocation, FILLABLE } from '../enrichment/fill.js';
+import { SOURCE_RANK, locationSourceFor } from '../models/location.js';
 import { BadRequestError, NotFoundError } from './errors.js';
 
 export const LOCATION_FIELDS = ['city', 'state', 'address'];
@@ -27,10 +28,27 @@ export function reasonOf(reason) {
 const companyOf = (work, id) => work.companies.find((c) => c.id === id) ?? (() => { throw new NotFoundError(`no company "${id}"`); })();
 const rowsFor = (work, companyId, field) => activeEvidence(work).filter((e) => e.company_id === companyId && e.field === field);
 
-// The location a person confirms: a city and coordinates, with an address and a state if they have them.
-function locationFrom(input) {
+// The location a person confirms: a city, and a point when it is one (an address with coordinates, or a suburb with
+// coordinates); a city alone is a city-level location. `precision` is optional: it is worked out from what is given.
+// `from` says where the place came from when something other than the person is behind it (an evidence row's page).
+const numberOrNull = (v) => (v == null || v === '' ? null : Number(v));
+function locationFrom(input, from = {}) {
   const loc = input ?? {};
-  return { city: loc.city, address: loc.address ?? null, state: loc.state ?? null, lat: Number(loc.lat), lng: Number(loc.lng) };
+  return {
+    city: loc.city, address: loc.address ?? null, suburb: loc.suburb ?? null, state: loc.state ?? null, postcode: loc.postcode ?? null,
+    lat: numberOrNull(loc.lat), lng: numberOrNull(loc.lng), precision: loc.precision ?? null,
+    ...(loc.source ?? from.source ? { source: loc.source ?? from.source, sourceUrl: loc.source_url ?? from.sourceUrl ?? null } : {}),
+    ...(from.verifiedAt !== undefined && loc.source == null ? { verifiedAt: from.verifiedAt } : {}),
+  };
+}
+
+// Where the best of the evidence rows behind a suggestion came from, as a location source: a company's own page
+// beats a profile, and the time its page was read is when the address was checked.
+function backing(work, rows) {
+  const ranked = rows.map((r) => ({ row: r, source: work.sources.find((s) => s.id === r.source_id) })).filter((x) => x.source)
+    .sort((a, b) => SOURCE_RANK[locationSourceFor(a.source.kind)] - SOURCE_RANK[locationSourceFor(b.source.kind)] || String(b.row.verified_at ?? '').localeCompare(String(a.row.verified_at ?? '')));
+  const best = ranked[0];
+  return best ? { source: locationSourceFor(best.source.kind), sourceUrl: best.source.url ?? null, verifiedAt: best.row.verified_at ?? null } : {};
 }
 
 // input: { company_id, field, winner: 'stored' | { value }, record?, reason }
@@ -60,7 +78,7 @@ export function resolveConflict(work, input, { by, at }) {
   const differs = stored == null || !valuesEqual(field, stored, winner);
   if (LOCATION_FIELDS.includes(field)) {
     const record = input.record ?? { type: 'keep' };
-    if (record.type === 'confirm') changes.push(...confirmLocation(company, locationFrom(record.location)));
+    if (record.type === 'confirm') changes.push(...confirmLocation(company, locationFrom(record.location, field === 'address' ? backing(work, rows.filter((r) => valuesEqual(field, r.value, winner))) : {}), { at }));
     else if (record.type === 'unconfirm') changes.push(...unconfirmLocation(company));
     else if (record.type !== 'keep') throw new BadRequestError('record must be keep, confirm or unconfirm');
     else if (differs && stored != null) {
@@ -98,7 +116,7 @@ export function applySuggestion(work, input, { by, at }) {
       const before = company.address ?? null;
       company.address = String(value).trim();
       if (before !== company.address) changes.push({ field: 'address', from: before, to: company.address });
-    } else if (record?.type === 'confirm') changes.push(...confirmLocation(company, locationFrom(record.location)));
+    } else if (record?.type === 'confirm') changes.push(...confirmLocation(company, locationFrom(record.location, field === 'address' ? backing(work, support) : {}), { at }));
     else throw new BadRequestError('a location needs coordinates: confirm a place, or record the address text only');
   } else if (spec.cardinality === 'multi') {
     const have = storedValue(company, field) ?? [];

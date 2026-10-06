@@ -52,6 +52,16 @@ const SECTORS = [['Fintech', 27], ['HealthTech', 14], ['AI', 11], ['AgTech', 8],
 const STAGES = [['Seed', 44], ['Growth', 34], ['Early', 33], ['Unknown', 32], ['Series A', 25], ['Series B', 15], ['Pre-seed', 15], ['Series C', 4], ['Series C+', 2], ['Series B+', 2], ['Unicorn', 2], ['Series D', 1], ['Series E', 1], ['Other Equity', 1]];
 const INVESTOR_COUNT = [[0, 22], [1, 154], [2, 21], [3, 9], [4, 7], [5, 1], [7, 2]];
 const SIDE = ['Platform', 'Marketplace', 'SaaS', 'Deep Tech', 'Analytics'];
+// How well the real directory knows where its located companies are: an exact office, a suburb, only the city.
+const PRECISIONS = [['EXACT', 73], ['SUBURB', 5.5], ['CITY', 21.5]];
+// Suburb names for the dense cities (place names only: no real address, company or person comes with them).
+const SUBURBS = {
+  Sydney: ['Surry Hills', 'Pyrmont', 'Redfern', 'Chippendale', 'Barangaroo', 'Ultimo', 'Darlinghurst', 'Newtown', 'North Sydney'],
+  Melbourne: ['Richmond', 'Collingwood', 'Southbank', 'Fitzroy', 'Docklands', 'Carlton', 'Cremorne', 'South Yarra'],
+  Brisbane: ['Fortitude Valley', 'South Brisbane', 'Milton', 'Newstead', 'Spring Hill'],
+};
+const POSTCODE_BASE = { NSW: 2000, VIC: 3000, QLD: 4000, SA: 5000, WA: 6000, TAS: 7000, NT: 800, ACT: 2600 };
+const CHECKED_AT = '2026-10-05T04:00:00.000Z';
 
 const A = ['Cobalt', 'Nimbus', 'Quill', 'Zephyr', 'Lumen', 'Atlas', 'Ember', 'Sable', 'Juniper', 'Harbour', 'Tidal', 'Marlin', 'Wattle', 'Kestrel', 'Indigo', 'Saffron', 'Basalt', 'Meridian', 'Lantern', 'Orchid',
   'Pebble', 'Cinder', 'Thistle', 'Willow', 'Quartz', 'Ripple', 'Summit', 'Beacon', 'Mallee', 'Coral', 'Fable', 'Gossamer', 'Halcyon', 'Ivory', 'Jasper', 'Kindle', 'Larch', 'Mosaic', 'Nectar', 'Opal',
@@ -96,9 +106,12 @@ export function generateCompanies(count, { seed = 1 } = {}) {
     const id = slugify(name);
     const [city, state, clat, clng, , spread, hot] = weighted(rand, CITIES.map((c) => [c, c[4]]));
     const verified = city !== 'Unknown';
+    // A company known only to its city has no point: a city centre is not where it is.
+    const precision = verified ? weighted(rand, PRECISIONS) : 'UNKNOWN';
+    const pinned = precision === 'EXACT' || precision === 'SUBURB';
     let lat = null;
     let lng = null;
-    if (verified) {
+    if (pinned) {
       const spot = hot.find((h) => rand() < h[3]);
       const [centreLat, centreLng, s] = spot ? [spot[0], spot[1], spot[2]] : [clat, clng, spread];
       lat = Math.round((centreLat + gauss(rand) * s) * 1e5) / 1e5;
@@ -109,15 +122,23 @@ export function generateCompanies(count, { seed = 1 } = {}) {
     const founders = rand() < 0.49 ? Array.from({ length: weighted(rand, [[1, 5], [2, 4], [3, 1]]) }, () => `${pick(rand, FIRST)} ${pick(rand, LAST)}`) : undefined;
     const investors = pickMany(rand, INVESTOR_WEIGHTS, weighted(rand, INVESTOR_COUNT));
     const compact = id.replace(/-/g, '');
+    const suburb = pinned ? pick(rand, SUBURBS[city] ?? [city]) : null;
+    const postcode = pinned ? String(POSTCODE_BASE[state] + Math.floor(rand() * 90)).padStart(4, '0') : null;
+    // About a fifth of the exact addresses have been checked against the company's own page, as in the real directory.
+    const checked = precision === 'EXACT' && rand() < 0.22;
     out.push({
       name, sector, sectorFull: rand() < 0.4 && sector !== 'Unknown' ? `${sector} / ${pick(rand, SIDE)}` : sector, city, lat, lng, investors,
       stage: weighted(rand, STAGES), hiring, verified, website: rand() < 0.79 ? `https://www.${compact}.test` : '',
       blurb: `${pick(rand, ['Smart', 'Modern', 'Simple', 'Open', 'Fast', 'Secure', 'Local', 'Automated'])} ${pick(rand, KIND)} for ${pick(rand, FOR)}.`,
       taskGate: { enabled: hiring && rand() < 0.28, type: null },
-      ...(verified && rand() < 0.74 ? { address: `${1 + Math.floor(rand() * 400)} ${pick(rand, STREETS)} ${pick(rand, SUFFIX)}, ${city} ${state}` } : {}),
+      ...(precision === 'EXACT' ? { address: `${1 + Math.floor(rand() * 400)} ${pick(rand, STREETS)} ${pick(rand, SUFFIX)}, ${suburb}, ${city} ${state} ${postcode}` } : {}),
+      ...(precision === 'SUBURB' ? { address: `${suburb}, ${city} ${state} ${postcode}` } : {}),
       ...(founders ? { founders } : {}),
       ...(rand() < 0.12 ? { foundedYear: 2008 + Math.floor(rand() * 18) } : {}),
-      id, slug: id, logo: null, subsector: null, state, country: verified ? 'Australia' : null, company_status: null,
+      id, slug: id, logo: null, subsector: null, state, country: verified ? 'Australia' : null, suburb, postcode, company_status: null,
+      location_precision: precision, location_source: verified ? (checked ? 'company_website' : 'directory_record') : null,
+      location_source_url: checked ? `https://www.${compact}.test/contact` : null, location_verified_at: checked ? CHECKED_AT : null,
+      location_confidence: verified ? (checked ? 'medium' : 'low') : null,
       hiring_status: hiring ? 'hiring' : null, employee_range: null, funding_total: null, last_funding_date: null, last_funding_round: null,
       verification_status: verified ? 'location_verified' : 'unverified', confidence_score: null, created_at: null, updated_at: null, last_verified_at: null,
       founder_ids: (founders ?? []).map(slugify), investor_ids: investors.map(slugify), source_ids: [],

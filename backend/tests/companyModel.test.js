@@ -127,7 +127,8 @@ describe('toCanonical', () => {
   it('exposes exactly the long-term model fields plus the three id lists', () => {
     expect(Object.keys(toCanonical(migrateCompanyRecord(legacy(), { id: 'acme', slug: 'acme' })))).toEqual([
       'id', 'name', 'slug', 'website', 'description', 'logo', 'sector', 'subsector', 'city', 'state', 'country',
-      'latitude', 'longitude', 'founded_year', 'stage', 'company_status', 'hiring_status', 'employee_range',
+      'suburb', 'postcode', 'latitude', 'longitude', 'location_precision', 'location_source', 'location_source_url',
+      'location_verified_at', 'location_confidence', 'founded_year', 'stage', 'company_status', 'hiring_status', 'employee_range',
       'funding_total', 'last_funding_date', 'last_funding_round', 'verification_status', 'confidence_score',
       'created_at', 'updated_at', 'last_verified_at', 'founder_ids', 'investor_ids', 'source_ids',
     ]);

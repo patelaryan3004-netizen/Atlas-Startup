@@ -21,8 +21,9 @@ import { schedulerStatus } from '../scheduler/status.js';
 
 const DAY = 86400000;
 export const OPEN = ['candidate', 'needs_review', 'matched', 'approved'];
-// The core facts a company is "missing data" without. A location is two audit attributes (a city and a pin).
-export const MISSING_KEYS = { website: ['website'], sector: ['sector'], location: ['city', 'coordinates'], stage: ['stage'], description: ['description'] };
+// The core facts a company is "missing data" without. A location is missing when the company is not located at least
+// to its city (a pin for a point, a group for a city), which the audit works out as `located`.
+export const MISSING_KEYS = { website: ['website'], sector: ['sector'], location: ['located'], stage: ['stage'], description: ['description'] };
 const iso = (ms) => new Date(ms).toISOString();
 const pct = (n, total) => (total ? Math.round((n / total) * 1000) / 10 : 0);
 

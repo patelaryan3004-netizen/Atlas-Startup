@@ -12,6 +12,8 @@
 // ways ('' / 'Unknown' / missing key / null / []); those are left as-is in
 // storage and normalised to null only in the toCanonical() projection.
 
+import { deriveBlock } from './location.js';
+
 export const SCHEMA_VERSION = 2;
 
 export const COMPANY_STATUSES = ['active', 'acquired', 'defunct', 'subsidiary'];
@@ -53,11 +55,15 @@ export const LEGACY_FIELDS = [
 //   slug          URL form of the name; may change later, id may not
 //   funding_total number, AUD; the sum of recorded rounds (a lower bound)
 //   *_ids         references into people.json / investors.json / sources.json
+//   suburb, postcode, location_*   how well the company's location is known and where that came from
+//                 (see location.js): the headquarters, which the map uses. city, state, country, address, lat
+//                 and lng are the rest of it. Other offices are rows in company_locations.json.
 // Funding rounds and jobs hold a company_id foreign key instead of a list on
 // the company, and news holds company_ids, so volatile rows never force a
 // rewrite of this file.
 export const ADDED_FIELDS = [
-  'id', 'slug', 'logo', 'subsector', 'state', 'country', 'company_status', 'hiring_status',
+  'id', 'slug', 'logo', 'subsector', 'state', 'country', 'suburb', 'postcode', 'location_precision', 'location_source',
+  'location_source_url', 'location_verified_at', 'location_confidence', 'company_status', 'hiring_status',
   'employee_range', 'funding_total', 'last_funding_date', 'last_funding_round',
   'verification_status', 'confidence_score', 'created_at', 'updated_at', 'last_verified_at',
   'founder_ids', 'investor_ids', 'source_ids',
@@ -142,13 +148,18 @@ const STATUS_FROM_STAGE = {
 
 // Fills only keys that are missing or null, from legacy fields already on the
 // record. Never overwrites a value, never touches a legacy key.
-export function migrateCompanyRecord(record, ids) {
+// evidenceFor(id): the active address and city evidence about a company, each row with its `source`, so a
+// location that a company's own page backs is recorded as backed (location.js, deriveBlock).
+export function migrateCompanyRecord(record, ids, { evidenceFor = () => [] } = {}) {
   const merged = { ...emptyAddedFields(), ...record };
   if (merged.id == null) merged.id = ids.id;
   if (merged.slug == null) merged.slug = ids.slug;
 
   if (merged.state == null) merged.state = deriveState(record);
   if (merged.country == null && merged.state != null) merged.country = 'Australia';
+  // A record that predates the location fields gets them from what it already holds. One that has them is not touched:
+  // from then on they are written by whatever changes the location, never re-derived.
+  if (merged.location_precision == null) Object.assign(merged, deriveBlock(merged, { evidence: evidenceFor(merged.id) }));
   if (merged.company_status == null) merged.company_status = STATUS_FROM_STAGE[record.stage] ?? null;
   if (merged.hiring_status == null && record.hiring === true) merged.hiring_status = 'hiring';
   if (merged.verification_status == null) {
@@ -166,11 +177,19 @@ export function migrateCompanyRecord(record, ids) {
 // stay public. The detail behind them (sources.json, evidence.json) is not
 // served by any route. To expose one of these later, remove it here and update
 // the test that pins this list.
-export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'last_verified_at', 'created_at', 'updated_at'];
+export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'last_verified_at', 'created_at', 'updated_at',
+  'location_source', 'location_source_url', 'location_verified_at', 'location_confidence'];
 
+// The public form of a company. What is public about where it is: the level it is known at (location_precision), the
+// suburb and postcode, whether the address was checked against a source (location_verified), and coordinates ONLY when
+// they are the company's own: a company known only to its city, state or not at all has no coordinates here, so nothing
+// that reads a public record can draw it as if it were at a point. (A record that predates the location fields is
+// left as it was.)
 export function toPublic(company) {
   const out = { ...company };
   for (const key of INTERNAL_FIELDS) delete out[key];
+  if (['CITY', 'STATE', 'UNKNOWN'].includes(company.location_precision)) { out.lat = null; out.lng = null; }
+  if (company.location_precision != null) out.location_verified = company.location_verified_at != null;
   return out;
 }
 
@@ -191,8 +210,15 @@ export function toCanonical(c) {
     city: unknownToNull(c.city),
     state: c.state ?? null,
     country: c.country ?? null,
+    suburb: c.suburb ?? null,
+    postcode: c.postcode ?? null,
     latitude: c.lat ?? null,
     longitude: c.lng ?? null,
+    location_precision: c.location_precision ?? null,
+    location_source: c.location_source ?? null,
+    location_source_url: c.location_source_url ?? null,
+    location_verified_at: c.location_verified_at ?? null,
+    location_confidence: c.location_confidence ?? null,
     founded_year: c.foundedYear ?? null,
     stage: unknownToNull(c.stage),
     company_status: c.company_status ?? null,

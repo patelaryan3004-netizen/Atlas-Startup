@@ -52,8 +52,34 @@ describe('synthetic companies for scale tests', () => {
     expect(share((r) => !r.verified)).toBeGreaterThan(0.04);
     expect(share((r) => !r.verified)).toBeLessThan(0.09);
     for (const r of rows) {
-      if (r.verified) { expect(r.lat).toBeGreaterThan(-44); expect(r.lat).toBeLessThan(-10); expect(r.lng).toBeGreaterThan(112); expect(r.lng).toBeLessThan(154); } else expect([r.lat, r.lng]).toEqual([null, null]);
+      if (['EXACT', 'SUBURB'].includes(r.location_precision)) { expect(r.lat).toBeGreaterThan(-44); expect(r.lat).toBeLessThan(-10); expect(r.lng).toBeGreaterThan(112); expect(r.lng).toBeLessThan(154); } else expect([r.lat, r.lng]).toEqual([null, null]);
     }
+  });
+
+  it('know where they are as well as the real directory does: mostly an exact office, some a suburb, a fifth only the city, and a city has no point', () => {
+    const rows = generateCompanies(5000);
+    const share = (pred) => rows.filter(pred).length / rows.length;
+    const at = (precision) => share((r) => r.location_precision === precision);
+    expect(at('EXACT')).toBeGreaterThan(0.64);
+    expect(at('EXACT')).toBeLessThan(0.72);
+    expect(at('SUBURB')).toBeGreaterThan(0.03);
+    expect(at('SUBURB')).toBeLessThan(0.07);
+    expect(at('CITY')).toBeGreaterThan(0.17);
+    expect(at('CITY')).toBeLessThan(0.23);
+    expect(at('UNKNOWN')).toBeCloseTo(share((r) => !r.verified), 10);
+    for (const r of rows) {
+      if (r.location_precision === 'EXACT') expect(r.address, r.name).toMatch(/^\d+ .+, .+, .+ [A-Z]+ \d{4}$/);
+      if (r.location_precision === 'SUBURB') expect(r.address, r.name).toMatch(/^.+, .+ [A-Z]+ \d{4}$/);
+      if (r.location_precision === 'CITY') expect(r.address, r.name).toBeUndefined();
+      if (r.location_precision === 'UNKNOWN') expect([r.state, r.suburb, r.postcode, r.location_source], r.name).toEqual([null, null, null, null]);
+    }
+  });
+
+  it('are valid companies once migrated: every location obeys the rules, whatever its precision', async () => {
+    const { migrateDataset, validateDataset } = await import('../src/models/dataset.js');
+    const ds = migrateDataset({ companies: generateCompanies(400), people: [], investors: [], sources: [], evidence: [], funding_rounds: [], jobs: [], news: [] });
+    expect(validateDataset(ds)).toEqual([]);
+    expect(ds.company_locations).toHaveLength(400);
   });
 
   it('are never written into the real data folder, or any src/data folder, whatever path is given', async () => {

@@ -208,7 +208,9 @@ describe('the completeness audit of the shipped data', () => {
     expect(headline.founded_year).toBe(n((c) => typeof c.foundedYear === 'number'));
     expect(headline.source).toBe(n((c) => c.source_ids.length > 0));
     expect(headline.last_verified).toBe(n((c) => c.last_verified_at != null));
-    expect(headline.location).toBe(n((c) => present(c.city) && c.state != null && typeof c.lat === 'number' && typeof c.lng === 'number'));
+    // located: the city (at least) is known, and a company at a point has the point
+    const pointed = (c) => ['EXACT', 'SUBURB'].includes(c.location_precision);
+    expect(headline.location).toBe(n((c) => c.verified === true && c.location_precision !== 'UNKNOWN' && present(c.city) && c.state != null && (!pointed(c) || (typeof c.lat === 'number' && typeof c.lng === 'number'))));
     const rounds = new Set(ds.funding_rounds.map((r) => r.company_id));
     expect(headline.funding).toBe(n((c) => c.funding_total != null || c.last_funding_round != null || c.last_funding_date != null || rounds.has(c.id)));
   });

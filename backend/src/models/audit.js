@@ -19,6 +19,7 @@ import {
   activeEvidence, detectConflicts, findUnappliedEvidence, findWeakEvidence, evidenceCoverage,
 } from './evidence.js';
 import { lifecycleOf } from './company.js';
+import { isPointPrecision, parseAddress } from './location.js';
 
 export const AUDIT_DEFAULTS = { hiringStaleDays: 30, stageStaleDays: 180 };
 
@@ -94,7 +95,7 @@ export const TASKS = {
   missing_founders: { tier: 3, weight: 12, issue: 'No founders listed', action: "Check the company's About or team page." },
   missing_investors: { tier: 3, weight: 10, issue: 'No investors listed', action: "Check the company's About page or investor portfolio pages." },
   missing_founded_year: { tier: 3, weight: 8, issue: 'Founded year unknown', action: "Check the company's About page." },
-  approximate_pin: { tier: 3, weight: 6, issue: 'Pin is approximate (no street address)', action: 'Find the registered address (privacy policy, terms or contact page) for an exact pin.' },
+  approximate_pin: { tier: 3, weight: 6, issue: 'Location is not exact (only the suburb, city or state is known)', action: 'Find the registered address (privacy policy, terms or contact page), then geocode it for an exact pin.' },
   no_source: { tier: 3, weight: 4, issue: 'No source on record', action: 'Record where the core facts were checked (usually the company site) as evidence.' },
 };
 
@@ -233,12 +234,22 @@ function auditCompany(c, ctx) {
   const website = classify(c.website, 'string');
   const websiteIssues = website === 'present' ? websiteProblems(c.website) : [];
   const hasPin = typeof c.lat === 'number' && typeof c.lng === 'number';
+  // How well the location is known (location.js). A record that predates it (no precision) is judged as it always was:
+  // a confirmed location is a pin. One that has it needs a point only when it claims to be one.
+  const precision = c.location_precision ?? null;
+  const needsPoint = precision == null ? verified : isPointPrecision(precision);
+  // A street address on record with no point to go with it is a location that could be exact and is not yet.
+  const addressNotPlotted = precision != null && !needsPoint && !hasPin && parseAddress(c.address).streetLevel;
   const year = classify(c.foundedYear, 'number');
   const yearOk = year !== 'present' || (Number.isInteger(c.foundedYear) && c.foundedYear >= 1800 && c.foundedYear <= asOf.getUTCFullYear());
   const hasFunding = c.funding_total != null || c.last_funding_round != null || c.last_funding_date != null || roundsFor.has(id);
+  // Coordinates are a fact about a company only when its location is a point; a city-level company has none by design.
   let coordinates = 'null';
-  if (hasPin) coordinates = inAustralia(c.lat, c.lng) ? 'present' : 'invalid';
-  else if (c.lat === undefined || c.lng === undefined) coordinates = 'missing';
+  if (hasPin && (precision == null || needsPoint)) coordinates = inAustralia(c.lat, c.lng) ? 'present' : 'invalid';
+  else if (!hasPin && (c.lat === undefined || c.lng === undefined)) coordinates = 'missing';
+  // Located at least to its city (the map shows it, as a pin or as a group), whatever the precision.
+  const located = verified && precision !== 'UNKNOWN' && classify(c.city, 'string') === 'present' && classify(c.state, 'string') === 'present'
+    && (!needsPoint || coordinates === 'present');
   const states = {
     website: websiteIssues.length ? 'invalid' : website,
     sector: classify(c.sector, 'string'),
@@ -254,6 +265,7 @@ function auditCompany(c, ctx) {
     investors: classify(c.investors, 'array'),
     source: classify(c.source_ids ?? [], 'array'),
     last_verified: classify(c.last_verified_at, 'string'),
+    located: located ? 'present' : 'missing',
   };
   const backed = Object.fromEntries(ATTRIBUTES.map((a) => [a.key, a.evidence.some((f) => evidenceFields.get(id)?.has(f))]));
 
@@ -274,12 +286,12 @@ function auditCompany(c, ctx) {
   if (websiteIssues.length) { note('invalid_urls', websiteIssues.join('; ')); gap('invalid_website', websiteIssues.join('; ')); }
   if (website !== 'present' && !websiteIssues.length) gap('missing_website');
 
-  if (verified && !hasPin) { note('missing_coordinates', 'verified location without coordinates'); gap('missing_coordinates'); }
+  if (verified && !hasPin && (needsPoint || addressNotPlotted)) { note('missing_coordinates', needsPoint ? 'verified location without coordinates' : 'an address is on record but has not been geocoded'); gap('missing_coordinates'); }
   if (!verified) { gap('unconfirmed_location'); if (!hasPin) note('unpinned_unconfirmed', 'no coordinates (expected while unconfirmed)'); }
   if (coordinates === 'invalid') { note('outside_australia', `${c.lat}, ${c.lng}`); gap('coordinates_outside_australia', `${c.lat}, ${c.lng}`); }
   if (verified && states.city !== 'present') gap('unknown_city');
   if (verified && states.state !== 'present') gap('missing_state');
-  if (verified && hasPin && classify(c.address, 'string') !== 'present') gap('approximate_pin');
+  if (precision == null ? verified && hasPin && classify(c.address, 'string') !== 'present' : ['SUBURB', 'CITY', 'STATE'].includes(precision)) gap('approximate_pin');
 
   if (states.sector !== 'present') gap('unknown_sector');
   else if (isGenericSector(c.sector)) { note('generic_sectors', c.sector); gap('generic_sector', c.sector); }
@@ -380,7 +392,7 @@ export function auditDataset(ds, options = {}) {
   });
   const attr = Object.fromEntries(attributes.map((a) => [a.key, a]));
   const count = (pred) => companies.filter(pred).length;
-  const located = count((c) => c.states.city === 'present' && c.states.state === 'present' && c.states.coordinates === 'present');
+  const located = count((c) => c.states.located === 'present');
   const specificSector = count((c) => c.states.sector === 'present' && !c.genericSector);
   const headline = {
     total, website: attr.website.present, sector: attr.sector.present, specificSector, location: located, stage: attr.stage.present,

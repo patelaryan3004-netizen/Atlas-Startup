@@ -94,12 +94,21 @@ describe('settling a conflict about where a company is', () => {
     expect(valid(work)).toEqual([]);
   });
 
-  it('refuses a location with no coordinates, or outside Australia', () => {
-    for (const location of [{ city: 'Sydney' }, { city: 'Sydney', lat: 37.77, lng: -122.4, state: 'NSW' }]) {
+  it('refuses a point that is not an address or a suburb, or is outside Australia', () => {
+    for (const location of [{ city: 'Sydney', lat: -33.87, lng: 151.2 }, { city: 'Sydney', lat: 37.77, lng: -122.4, state: 'NSW' }]) {
       const work = quantum();
-      expect(() => resolve(work, { company_id: 'quantum-brilliance', field: 'city', winner: { value: 'Sydney' }, record: { type: 'confirm', location } })).toThrow(/coordinates|not in Australia/);
+      expect(() => resolve(work, { company_id: 'quantum-brilliance', field: 'city', winner: { value: 'Sydney' }, record: { type: 'confirm', location } })).toThrow(/need an address|not in Australia/);
       expect(work.companies[0].city).toBe('Canberra');
     }
+  });
+
+  it('accepts the city alone: the company is then located to its city, with no pin, and says so', () => {
+    const work = quantum();
+    resolve(work, { company_id: 'quantum-brilliance', field: 'city', winner: { value: 'Sydney' }, record: { type: 'confirm', location: { city: 'Sydney', state: 'NSW' } } });
+    expect(work.companies[0]).toMatchObject({ city: 'Sydney', state: 'NSW', verified: true, lat: null, lng: null, location_precision: 'CITY', location_source: 'manual' });
+    expect(work.companies[0].location_verified_at).toBe(AT);
+    expect(detectConflicts(migrateDataset(work))).toEqual([]);
+    expect(valid(work)).toEqual([]);
   });
 
   it('takes a company off the map when its headquarters is not in Australia, keeping the true claim and turning down the one that was wrong (Forward)', () => {
@@ -182,6 +191,14 @@ describe('applying and turning down a suggestion', () => {
     expect(work.companies[0]).toMatchObject({ address: '1 George Street, Sydney NSW 2000', verified: false, lat: null });
     apply(work, { field: 'address', value: '1 George Street, Sydney NSW 2000', record: { type: 'confirm', location: { city: 'Sydney', lat: -33.86, lng: 151.2, address: '1 George Street, Sydney NSW 2000' } } });
     expect(work.companies[0]).toMatchObject({ verified: true, city: 'Sydney', state: 'NSW', lat: -33.86 });
+    expect(valid(work)).toEqual([]);
+  });
+
+  it('records the page an address came from, and when it was read, as where the location came from', () => {
+    const work = suggested();
+    apply(work, { field: 'address', value: '1 George Street, Sydney NSW 2000', record: { type: 'confirm', location: { city: 'Sydney', lat: -33.86, lng: 151.2, address: '1 George Street, Sydney NSW 2000' } } });
+    // The evidence is a company page (source "site"), read at T: medium, because the point has not been checked against a geocoder.
+    expect(work.companies[0]).toMatchObject({ location_precision: 'EXACT', location_source: 'company_website', location_source_url: 'https://site.example/', location_verified_at: T, location_confidence: 'medium' });
     expect(valid(work)).toEqual([]);
   });
 

@@ -154,9 +154,33 @@ describe('publishing', () => {
     const final = migrateDataset(work);
     expect(final.companies.find((c) => c.id === 'zorbly')).toMatchObject({ state: 'VIC', country: 'Australia', verification_status: 'location_verified' });
     expect(validateDataset(final)).toEqual([]);
-    const partial = await discover([ZORBLY], ZORBLY_SITE);
-    approveCandidate(partial, 'cand-zorbly', { by: BY, at: AT });
-    expect(publishCandidate(partial, 'cand-zorbly', { by: BY, at: AT, location: { city: 'Melbourne' } }).company.verified).toBe(false);
+    // With no location confirmed it is listed but not on the map.
+    const unplaced = await discover([ZORBLY], ZORBLY_SITE);
+    approveCandidate(unplaced, 'cand-zorbly', { by: BY, at: AT });
+    expect(publishCandidate(unplaced, 'cand-zorbly', { by: BY, at: AT }).company).toMatchObject({ verified: false, lat: null });
+    expect(migrateDataset(unplaced).companies.find((c) => c.id === 'zorbly')).toMatchObject({ location_precision: 'UNKNOWN' });
+  });
+
+  it('records a place at the precision the reviewer gave it: an address and a point is exact, a city alone is city-level with no pin', async () => {
+    const exact = await discover([ZORBLY], ZORBLY_SITE);
+    approveCandidate(exact, 'cand-zorbly', { by: BY, at: AT });
+    publishCandidate(exact, 'cand-zorbly', { by: BY, at: AT, location: { city: 'Melbourne', lat: -37.8136, lng: 144.9631, address: '5 Collins Street, Melbourne VIC 3000' } });
+    expect(migrateDataset(exact).companies.find((c) => c.id === 'zorbly')).toMatchObject({ location_precision: 'EXACT', location_source: 'manual', location_verified_at: AT, suburb: 'Melbourne', postcode: '3000' });
+
+    const city = await discover([ZORBLY], ZORBLY_SITE);
+    approveCandidate(city, 'cand-zorbly', { by: BY, at: AT });
+    const { company } = publishCandidate(city, 'cand-zorbly', { by: BY, at: AT, location: { city: 'Melbourne' } });
+    expect(company).toMatchObject({ verified: true, city: 'Melbourne', lat: null, lng: null, location_precision: 'CITY', state: 'VIC' });
+    expect(valid(city)).toEqual([]);
+  });
+
+  it('publishes nothing at all when the place it was given cannot be recorded', async () => {
+    const work = await discover([ZORBLY], ZORBLY_SITE);
+    approveCandidate(work, 'cand-zorbly', { by: BY, at: AT });
+    // Coordinates outside Australia: refused, and the candidate is neither published nor half-published.
+    expect(() => publishCandidate(work, 'cand-zorbly', { by: BY, at: AT, location: { city: 'Melbourne', state: 'VIC', lat: 37.77, lng: -122.41 } })).toThrow(/not in Australia/);
+    expect(work.companies.some((c) => c.id === 'zorbly')).toBe(false);
+    expect(work.candidates.find((c) => c.id === 'cand-zorbly').status).toBe('approved');
   });
 
   it('gives a colliding name a distinct id, and leaves what is already there alone', async () => {

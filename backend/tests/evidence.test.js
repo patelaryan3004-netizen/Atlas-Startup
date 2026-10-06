@@ -389,6 +389,9 @@ describe('public projection', () => {
   });
 
   it('pins the list of internal fields, so exposing one is a deliberate change', () => {
-    expect([...INTERNAL_FIELDS].sort()).toEqual(['confidence_score', 'created_at', 'last_verified_at', 'source_ids', 'updated_at']);
+    expect([...INTERNAL_FIELDS].sort()).toEqual([
+      'confidence_score', 'created_at', 'last_verified_at', 'location_confidence', 'location_source', 'location_source_url',
+      'location_verified_at', 'source_ids', 'updated_at',
+    ]);
   });
 });

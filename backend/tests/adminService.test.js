@@ -186,12 +186,24 @@ describe('what an action does beyond the one thing', () => {
     await service.seedQueue(admin, {});
     const approved = await service.approve(reviewer, id('Xylo'));
     expect(approved).toMatchObject({ status: 'approved' });
-    const published = await service.publish(admin, id('Quill'), { location: { city: 'Melbourne', lat: -37.8, lng: 144.96 } });
+    const published = await service.publish(admin, id('Quill'), { location: { city: 'Melbourne', address: '5 Collins Street, Melbourne VIC 3000', lat: -37.8, lng: 144.96 } });
     expect(published).toMatchObject({ on_map: true, company_id: 'quill' });
     const queue = (await readDataDir(dir)).enrichment_queue;
     const quill = queue.find((t) => t.target_id === 'quill');
     expect(quill).toMatchObject({ kind: 'company', reason: 'published' });
     expect(quill.priority).toBe(Math.max(...queue.map((t) => t.priority)));
+  });
+
+  it('publishes a company confirmed to its city alone as a city-level location, and refuses a point that is neither an address nor a suburb', async () => {
+    const { dir, id, service } = await build();
+    await expect(service.publish(admin, id('Quill'), { location: { city: 'Melbourne', lat: -37.8, lng: 144.96 } })).rejects.toThrow(/need an address/);
+    expect((await readDataDir(dir)).companies.some((c) => c.id === 'quill')).toBe(false); // refused: nothing was written
+    await expect(service.publish(admin, id('Quill'), { location: { city: 'Melbourne', lat: -37.8 } })).rejects.toThrow(/both a latitude and a longitude/);
+    await expect(service.publish(admin, id('Quill'), { location: { city: 'Melbourne', precision: 'ROUGHLY' } })).rejects.toThrow(/precision must be/);
+    const published = await service.publish(admin, id('Quill'), { location: { city: 'Melbourne' } });
+    expect(published).toMatchObject({ on_map: true, company_id: 'quill' });
+    expect((await readDataDir(dir)).companies.find((c) => c.id === 'quill')).toMatchObject({ verified: true, city: 'Melbourne', state: 'VIC', lat: null, lng: null, location_precision: 'CITY', location_source: 'manual' });
+    expect((await trail(dir)).at(-1).summary).toMatch(/on the map/);
   });
 
   it('a conflict settled for the Forward case takes the company off the map and keeps the true claim', async () => {

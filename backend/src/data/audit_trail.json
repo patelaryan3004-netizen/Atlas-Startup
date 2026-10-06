@@ -2113,5 +2113,2163 @@
     "summary": "Ran the enrichment queue in suggest mode: 141 read, 15 skipped, 0 failed, 11 to retry; 500 evidence added",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261006162004010-1",
+    "at": "2026-10-06T16:20:04.010Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 149 address(es), 7 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261006162647949-1",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "athena"
+    },
+    "summary": "Cleared the coordinates of Athena: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-2",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "harrison-ai"
+    },
+    "summary": "Cleared the coordinates of Harrison.ai: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-3",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "eucalyptus"
+    },
+    "summary": "Cleared the coordinates of Eucalyptus: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-4",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "lorikeet"
+    },
+    "summary": "Cleared the coordinates of Lorikeet: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-5",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "build-club"
+    },
+    "summary": "Cleared the coordinates of Build Club: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-6",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "hatch"
+    },
+    "summary": "Cleared the coordinates of Hatch: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-7",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "quantum-brilliance"
+    },
+    "summary": "Cleared the coordinates of Quantum Brilliance: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -35.29759,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 149.10127,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-8",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "secure-code-warrior"
+    },
+    "summary": "Cleared the coordinates of Secure Code Warrior: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-9",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "different"
+    },
+    "summary": "Cleared the coordinates of :Different: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-10",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "karbon"
+    },
+    "summary": "Cleared the coordinates of Karbon: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-11",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "springboards"
+    },
+    "summary": "Cleared the coordinates of Springboards: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -26.31824,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 152.9308,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-12",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "shippit"
+    },
+    "summary": "Cleared the coordinates of Shippit: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-13",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "brumby"
+    },
+    "summary": "Cleared the coordinates of Brumby (formerly GrazeMate): it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-14",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "open"
+    },
+    "summary": "Cleared the coordinates of Open: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-15",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "strong-compute"
+    },
+    "summary": "Cleared the coordinates of Strong Compute: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-16",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "truestate"
+    },
+    "summary": "Cleared the coordinates of TrueState: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-17",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "myriota"
+    },
+    "summary": "Cleared the coordinates of Myriota: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -34.92818,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 138.59993,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-18",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "enboarder"
+    },
+    "summary": "Cleared the coordinates of Enboarder: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-19",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "atomi"
+    },
+    "summary": "Cleared the coordinates of Atomi: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-20",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "bridgit"
+    },
+    "summary": "Cleared the coordinates of Bridgit: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -32.9193,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.77953,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-21",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "linkby"
+    },
+    "summary": "Cleared the coordinates of Linkby: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-22",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "visory"
+    },
+    "summary": "Cleared the coordinates of Visory: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-23",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "apate-ai"
+    },
+    "summary": "Cleared the coordinates of Apate AI: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.7975472,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.127306,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-24",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "parachute"
+    },
+    "summary": "Cleared the coordinates of Parachute: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-25",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "keeyu"
+    },
+    "summary": "Cleared the coordinates of Keeyu: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-26",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "fourday"
+    },
+    "summary": "Cleared the coordinates of Fourday: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-27",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "bonjoro"
+    },
+    "summary": "Cleared the coordinates of Bonjoro: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-28",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "hone"
+    },
+    "summary": "Cleared the coordinates of Hone (HoneAg): it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -32.9193,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.77953,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-29",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "psyke"
+    },
+    "summary": "Cleared the coordinates of Psyke: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-30",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "sherpa"
+    },
+    "summary": "Cleared the coordinates of Sherpa (4You Innovation): it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-31",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "onemri"
+    },
+    "summary": "Cleared the coordinates of OneMRI: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -27.46896,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 153.0235,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-32",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "human-health"
+    },
+    "summary": "Cleared the coordinates of Human.health: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-33",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "safewill"
+    },
+    "summary": "Cleared the coordinates of Safewill: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-34",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "mercu"
+    },
+    "summary": "Cleared the coordinates of Mercu: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-35",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "trace"
+    },
+    "summary": "Cleared the coordinates of Trace: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-36",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "unloan"
+    },
+    "summary": "Cleared the coordinates of Unloan: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-37",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "home-in"
+    },
+    "summary": "Cleared the coordinates of Home-in: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-38",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "ownhome"
+    },
+    "summary": "Cleared the coordinates of OwnHome: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-39",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "spriggy"
+    },
+    "summary": "Cleared the coordinates of Spriggy: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-40",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "samsara-eco"
+    },
+    "summary": "Cleared the coordinates of Samsara Eco: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -35.38083,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 149.20014,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-41",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "chirp"
+    },
+    "summary": "Cleared the coordinates of Chirp: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-42",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "duohub"
+    },
+    "summary": "Cleared the coordinates of Duohub: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-43",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "vulnetix"
+    },
+    "summary": "Cleared the coordinates of Vulnetix: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -35.29759,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 149.10127,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-44",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "pentacue-ai"
+    },
+    "summary": "Cleared the coordinates of PentaCue AI: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -37.81425,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 144.96317,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-45",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "calctree"
+    },
+    "summary": "Cleared the coordinates of CalcTree: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162647949-46",
+    "at": "2026-10-06T16:26:47.949Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.normalize",
+    "target": {
+      "type": "company",
+      "id": "vyro"
+    },
+    "summary": "Cleared the coordinates of Vyro: it is only known to its city or state, and a city centre is not where it is",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86984,
+        "to": null
+      },
+      {
+        "field": "lng",
+        "from": 151.20828,
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-1",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "airwallex"
+    },
+    "summary": "Put the geocoder's point on Airwallex (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-2",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "deputy"
+    },
+    "summary": "Put the geocoder's point on Deputy (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-3",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "morse-micro"
+    },
+    "summary": "Put the geocoder's point on Morse Micro (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-4",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "marqo"
+    },
+    "summary": "Put the geocoder's point on Marqo (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-5",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "advanced-navigation"
+    },
+    "summary": "Put the geocoder's point on Advanced Navigation (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-6",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "buildkite"
+    },
+    "summary": "Put the geocoder's point on Buildkite (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-7",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "archistar"
+    },
+    "summary": "Put the geocoder's point on Archistar (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-8",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "askable"
+    },
+    "summary": "Put the geocoder's point on Askable (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-9",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "brighte"
+    },
+    "summary": "Put the geocoder's point on Brighte (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-10",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "mindset-health"
+    },
+    "summary": "Put the geocoder's point on Mindset Health (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-11",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "cake-equity"
+    },
+    "summary": "Put the geocoder's point on Cake Equity (address, 435 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -28.122,
+        "to": -28.1257695
+      },
+      {
+        "field": "lng",
+        "from": 153.46928,
+        "to": 153.4704836
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-12",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "expert360"
+    },
+    "summary": "Put the geocoder's point on Expert360 (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-13",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "q-ctrl"
+    },
+    "summary": "Put the geocoder's point on Q-CTRL (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-14",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "frankieone"
+    },
+    "summary": "Put the geocoder's point on FrankieOne (address, new)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -37.81425,
+        "to": -37.8169997
+      },
+      {
+        "field": "lng",
+        "from": 144.96317,
+        "to": 144.9597713
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-15",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "v2food"
+    },
+    "summary": "Put the geocoder's point on v2food (address, new)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86833,
+        "to": -33.8683321
+      },
+      {
+        "field": "lng",
+        "from": 151.20852,
+        "to": 151.2085236
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-16",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "6clicks"
+    },
+    "summary": "Put the geocoder's point on 6clicks (address, 29 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -37.82641,
+        "to": -37.826432
+      },
+      {
+        "field": "lng",
+        "from": 145.00102,
+        "to": 145.001354
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-17",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "eftsure"
+    },
+    "summary": "Put the geocoder's point on Eftsure (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-18",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "neara"
+    },
+    "summary": "Put the geocoder's point on Neara (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-19",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "bookipi"
+    },
+    "summary": "Put the geocoder's point on Bookipi (address, 96 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -33.86348,
+        "to": -33.8626608
+      },
+      {
+        "field": "lng",
+        "from": 151.08885,
+        "to": 151.0885186
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-20",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "factor-house"
+    },
+    "summary": "Put the geocoder's point on Factor House (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-21",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "josef"
+    },
+    "summary": "Put the geocoder's point on Josef (address, new)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -37.81452,
+        "to": -37.8145214
+      },
+      {
+        "field": "lng",
+        "from": 144.96353,
+        "to": 144.9635266
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-22",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "mary-technology"
+    },
+    "summary": "Put the geocoder's point on Mary Technology (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-23",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "mentorloop"
+    },
+    "summary": "Put the geocoder's point on Mentorloop (address, new)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -37.81452,
+        "to": -37.8145214
+      },
+      {
+        "field": "lng",
+        "from": 144.96353,
+        "to": 144.9635266
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-24",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "loopit"
+    },
+    "summary": "Put the geocoder's point on Loopit (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-25",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "tendl"
+    },
+    "summary": "Put the geocoder's point on Tendl (address, 153 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -27.48713,
+        "to": -27.4872225
+      },
+      {
+        "field": "lng",
+        "from": 152.99194,
+        "to": 152.9903875
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-26",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "minikai"
+    },
+    "summary": "Put the geocoder's point on Minikai (address, 242 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -37.8065264,
+        "to": -37.8069337
+      },
+      {
+        "field": "lng",
+        "from": 144.9844993,
+        "to": 144.9872049
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-27",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "avarni"
+    },
+    "summary": "Put the geocoder's point on Avarni (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-28",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "kimia"
+    },
+    "summary": "Put the geocoder's point on Kimia (Kimia.ai) (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-29",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "earthodic"
+    },
+    "summary": "Put the geocoder's point on Earthodic (address, new)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "lat",
+        "from": -27.46954,
+        "to": -27.4695425
+      },
+      {
+        "field": "lng",
+        "from": 153.02595,
+        "to": 153.0259467
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-30",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "hometime"
+    },
+    "summary": "Put the geocoder's point on Hometime (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-31",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "circular-sourcing"
+    },
+    "summary": "Put the geocoder's point on Circular Sourcing (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-32",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "andisor"
+    },
+    "summary": "Put the geocoder's point on Andisor (address, 1 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-33",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "reach-alternative-investments"
+    },
+    "summary": "Put the geocoder's point on Reach Alternative Investments (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006162648428-34",
+    "at": "2026-10-06T16:26:48.428Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "company",
+      "id": "fastlane"
+    },
+    "summary": "Put the geocoder's point on Fastlane (address, 0 m from the old one)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006163409964-1",
+    "at": "2026-10-06T16:34:09.964Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 9 address(es), 157 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261006163429995-1",
+    "at": "2026-10-06T16:34:29.995Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "eucalyptus"
+    },
+    "summary": "Gave Eucalyptus the address its own document states (155 Clarence Street, Sydney NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8679967
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2048458
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "155 Clarence Street, Sydney NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006163429995-2",
+    "at": "2026-10-06T16:34:29.995Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "different"
+    },
+    "summary": "Gave :Different the address its own document states (23 Hickson Rd, Millers Point NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Millers Point"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8559351
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2036661
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "23 Hickson Rd, Millers Point NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_document"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://different.com.au/privacy-policy/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:02:59.000Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261006163429995-3",
+    "at": "2026-10-06T16:34:29.995Z",
+    "actor": "Claude (location fix)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "spriggy"
+    },
+    "summary": "Gave Spriggy the address its own website states (80 Clarence St, Sydney NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8671154
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2051804
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "80 Clarence St, Sydney NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
   }
 ]

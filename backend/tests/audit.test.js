@@ -144,11 +144,12 @@ describe('auditDataset: coverage', () => {
     }
   });
 
-  it('reports the headline numbers, with location needing city, state and an in-Australia pin', () => {
+  it('reports the headline numbers, with location needing a city and state, and an in-Australia pin where the location claims to be one', () => {
     const { headline } = run();
     expect(headline).toMatchObject({ total: 13, website: 11, sector: 12, specificSector: 11, stage: 12, founder: 13, funding: 0, hiring: 13, source: 0 });
-    // Unconfirmed has no pin or state, NoPin has no pin, Offshore's pin is outside Australia.
-    expect(headline.location).toBe(10);
+    // Unconfirmed has no city or state, and Offshore's exact pin is outside Australia. NoPin has an address but no
+    // point, so it is only located to its city: it counts as located, and shows up as a missing pin instead.
+    expect(headline.location).toBe(11);
   });
 
   it('lists all fourteen attributes the audit was specified with', () => {

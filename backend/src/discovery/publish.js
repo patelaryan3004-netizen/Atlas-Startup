@@ -13,8 +13,10 @@
 //   - Publishing needs an approved candidate, and creates the record with exactly
 //     what is known: sector and stage stay "Unknown" unless the evidence says, the
 //     description is left for a person to write, and the location is unconfirmed
-//     (no pin) unless the reviewer supplies and confirms one.
+//     (no pin) unless the reviewer supplies and confirms one, at the precision it is
+//     known (an address, a suburb or only the city: enrichment/fill.js, confirmLocation).
 import { slugify, uniqueSlug } from '../models/company.js';
+import { confirmLocation } from '../enrichment/fill.js';
 import { makeEvidenceRow, valuesEqual } from '../models/evidence.js';
 import { makeIdentifierRow } from '../models/identifiers.js';
 import { moveTo } from '../models/candidate.js';
@@ -166,26 +168,29 @@ export function publishCandidate(work, candidateId, { by, at, location = null })
   const known = (field) => candidate.evidence.filter((e) => e.field === field && mediumUp(e)).map((e) => e.value);
   const only = (field) => { const v = unique(known(field)); return v.length === 1 ? v[0] : null; };
 
-  const confirmed = Boolean(location && location.city && Number.isFinite(location.lat) && Number.isFinite(location.lng));
-  const address = location?.address ?? candidate.address ?? null;
+  const address = candidate.address ?? null;
   const founders = unique(known('founders'));
   const year = only('founded_year');
   const round = only('last_funding_round');
   // A sector is only ever a reviewer's choice (no source states it), so it is there only if one was made.
   const sector = only('sector') ?? 'Unknown';
+  // Not located until a person confirms a place (below): what the candidate claims about where it is, is a claim.
   const record = {
     name: candidate.name,
     sector, sectorFull: sector,
-    city: location?.city ?? candidate.city ?? 'Unknown',
-    lat: confirmed ? location.lat : null, lng: confirmed ? location.lng : null,
+    city: candidate.city ?? 'Unknown',
+    lat: null, lng: null,
     investors: unique(known('investors')),
     stage: only('stage') ?? round ?? 'Unknown',
-    hiring: false, verified: confirmed,
+    hiring: false, verified: false,
     website: candidate.website ?? '', blurb: '',
     taskGate: { enabled: false, type: null },
     ...(address ? { address } : {}), ...(founders.length ? { founders } : {}), ...(year ? { foundedYear: year } : {}),
     id, slug, ...(round ? { last_funding_round: round } : {}), created_at: at, updated_at: at,
   };
+  // A place a person confirmed: how precisely it is known (an address and a point, a suburb and a point, or the
+  // city alone) is recorded with it, and a company confirmed to its city alone goes on the map as a city-level group.
+  if (location) confirmLocation(record, location, { at });
   work.companies.push(record);
   promoteEvidence(work, id, candidate.evidence);
 

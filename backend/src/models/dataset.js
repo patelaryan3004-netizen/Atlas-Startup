@@ -23,11 +23,18 @@
 //                          posted_at, apply_url, status, source_id, retrieved_at }
 //   news.json            many-to-many, company_ids[]
 //                        { id, headline, url, publisher, published_at, company_ids[], source_id }
+//   company_locations.json  owned by a company, FK company_id: where it is, one row per office (location.js)
+//                        { id, company_id, kind HEADQUARTERS|OFFICE|OTHER, label, address, suburb, city, state,
+//                          country, postcode, latitude, longitude, location_precision, location_source,
+//                          location_source_url, location_verified_at, location_confidence }
+//                        The HEADQUARTERS row is the company's own location fields as a row, derived by the
+//                        migration so they cannot disagree; the other rows are written directly.
 //   audit_trail.json     append-only record of every decision made about the data (auditTrail.js)
 //   enrichment_queue.json  work waiting to read companies' own websites (enrichmentQueue.js)
 //   import_runs.json     one row per run of the discovery engine (importRuns.js)
 //   refresh_state.json   when each company's facets, and each feed, were last checked and are next due (refreshState.js)
 //   job_runs.json        one row per run of every scheduled job (jobRuns.js)
+//   geocode_cache.json   what a geocoder answered, so an address is never asked twice (geocodeCache.js)
 //
 // Each collection maps one-to-one onto a table, and every id is a stable string,
 // so a later move to a real database is a load step, not a redesign.
@@ -47,6 +54,8 @@ import { validateEnrichmentQueue } from './enrichmentQueue.js';
 import { validateImportRuns } from './importRuns.js';
 import { validateRefreshState } from './refreshState.js';
 import { validateJobRuns } from './jobRuns.js';
+import { validateGeocodeCache } from './geocodeCache.js';
+import { companyLocationProblems, validateLocationRows, hqRowFor, locationEvidenceIndex } from './location.js';
 import { syncConfidence } from './confidence.js';
 
 export { SOURCE_KINDS };
@@ -62,12 +71,14 @@ export const COLLECTION_FILES = {
   funding_rounds: 'funding_rounds.json',
   jobs: 'jobs.json',
   news: 'news.json',
+  company_locations: 'company_locations.json',
   // Internal records of the pipeline's own work. No route serves any of them.
   audit_trail: 'audit_trail.json',
   enrichment_queue: 'enrichment_queue.json',
   import_runs: 'import_runs.json',
   refresh_state: 'refresh_state.json',
   job_runs: 'job_runs.json',
+  geocode_cache: 'geocode_cache.json',
 };
 
 export const JOB_STATUSES = ['open', 'closed'];
@@ -206,6 +217,11 @@ function assertLegacyPreserved(before, after) {
 export function migrateDataset(input) {
   const legacy = input.companies;
 
+  // The address and city evidence behind each company, with the source each row cites: what lets a location a
+  // company's own page states be recorded as backed by that page (location.js).
+  const locationEvidence = locationEvidenceIndex(input);
+  const evidenceFor = (id) => locationEvidence.get(id) ?? [];
+
   const takenIds = new Set(legacy.filter((c) => c.id != null).map((c) => c.id));
   const takenSlugs = new Set(legacy.filter((c) => c.slug != null).map((c) => c.slug));
   const companies = legacy.map((c) => {
@@ -218,7 +234,7 @@ export function migrateDataset(input) {
       slug = uniqueSlug(slugify(c.name), takenSlugs);
       takenSlugs.add(slug);
     }
-    return migrateCompanyRecord(c, { id, slug });
+    return migrateCompanyRecord(c, { id, slug }, { evidenceFor });
   });
 
   // founders[] and investors[] (names) stay the hand-edited source; the id
@@ -251,11 +267,18 @@ export function migrateDataset(input) {
   // Also derived from the evidence: how far the facts the record states are backed (confidence.js).
   syncConfidence(companies, evidence);
 
+  // Where each company is: its headquarters row is its own location fields as a row, derived here so the two cannot
+  // disagree; the rows for its other offices are kept as they are.
+  const company_locations = [
+    ...companies.map(hqRowFor),
+    ...(input.company_locations ?? []).filter((r) => r.kind !== 'HEADQUARTERS').sort(byId),
+  ];
+
   assertLegacyPreserved(legacy, companies);
   return {
-    ...input, companies, people, investors, evidence, identifiers, candidates,
+    ...input, companies, people, investors, evidence, identifiers, candidates, company_locations,
     audit_trail: input.audit_trail ?? [], enrichment_queue: input.enrichment_queue ?? [], import_runs: input.import_runs ?? [],
-    refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [],
+    refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [], geocode_cache: input.geocode_cache ?? [],
   };
 }
 
@@ -350,6 +373,9 @@ export function validateDataset(ds) {
     if ((c.hiring === true) !== (c.hiring_status === 'hiring')) bad(at, 'hiring and hiring_status disagree');
     if ((c.verified === true) !== (c.verification_status !== 'unverified')) bad(at, 'verified and verification_status disagree');
 
+    // Where it is, and how well that is known (location.js).
+    for (const m of companyLocationProblems(c)) bad(at, m);
+
     // A record may only claim verification if it cites something.
     if (c.last_verified_at != null && c.source_ids.length === 0) bad(at, 'last_verified_at is set but source_ids is empty');
 
@@ -412,7 +438,7 @@ export function validateDataset(ds) {
   errors.push(
     ...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds),
     ...validateAuditTrail(ds), ...validateEnrichmentQueue(ds), ...validateImportRuns(ds),
-    ...validateRefreshState(ds), ...validateJobRuns(ds),
+    ...validateRefreshState(ds), ...validateJobRuns(ds), ...validateLocationRows(ds), ...validateGeocodeCache(ds),
   );
   return errors;
 }
@@ -438,5 +464,6 @@ export function getCompanyWithRelations(ds, idOrSlug) {
     evidence: flattenEvidence(ds, { companyId: company.id }),
     conflicts: detectConflicts(ds).filter((c) => c.company_id === company.id),
     identifiers: (ds.identifiers ?? []).filter((i) => i.company_id === company.id),
+    locations: (ds.company_locations ?? []).filter((l) => l.company_id === company.id),
   };
 }

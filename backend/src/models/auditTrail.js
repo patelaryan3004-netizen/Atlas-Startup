@@ -30,6 +30,7 @@ export const AUDIT_ACTIONS = [
   'enrichment.seed', 'enrichment.enqueue', 'enrichment.task', 'enrichment.retry', 'enrichment.cancel', 'enrichment.run',
   'import.run', 'import.dismiss',
   'scheduler.run',
+  'location.geocode', 'location.normalize', 'location.verify', 'location.promote', 'location.set',
 ];
 
 const CLOCK_TOLERANCE_MS = 10 * 60000;

@@ -91,7 +91,7 @@ export function renderConsole(audit) {
     line('Website coverage', h.website),
     line('Sector coverage', h.sector),
     line('  ...with a specific sector', h.specificSector),
-    line('Location coverage (city+state+pin)', h.location),
+    line('Location coverage (city and state)', h.location),
     line('Stage coverage', h.stage),
     line('Hiring flag recorded', h.hiring),
     line('Description coverage', h.description),
@@ -130,7 +130,7 @@ export function renderMarkdown(audit, context = {}) {
   add('## Coverage', '',
     `- Website coverage: **${pct(h.website, h.total)}** (${h.website}/${h.total})`,
     `- Sector coverage: **${pct(h.sector, h.total)}** (${h.sector}/${h.total}); ${pct(h.specificSector, h.total)} with a specific sector`,
-    `- Location coverage (city, state and a pin): **${pct(h.location, h.total)}** (${h.location}/${h.total})`,
+    `- Location coverage (a confirmed city and state; how precisely is in the location review): **${pct(h.location, h.total)}** (${h.location}/${h.total})`,
     `- Stage coverage: **${pct(h.stage, h.total)}** (${h.stage}/${h.total})`,
     `- Founder coverage: **${pct(h.founder, h.total)}** (${h.founder}/${h.total})`,
     `- Funding coverage: **${pct(h.funding, h.total)}** (${h.funding}/${h.total})`,
@@ -154,7 +154,7 @@ export function renderMarkdown(audit, context = {}) {
     }
     const big = audit.pins.largest[0];
     if (big) {
-      add(`- ${audit.pins.companiesOnSharedPoints} of ${audit.pins.pinned} pins share a point with another company (${audit.pins.distinctPoints} distinct points for ${audit.pins.pinned} pins). The largest stack is ${big.companies} companies at ${big.point}; ${big.withoutAddress} of them have no street address, so ${big.withoutAddress === big.companies ? 'it is' : 'much of it is'} a city-level fallback and not a street location.`);
+      add(`- ${audit.pins.companiesOnSharedPoints} of ${audit.pins.pinned} pins share a point with another company (${audit.pins.distinctPoints} distinct points for ${audit.pins.pinned} pins). The largest stack is ${big.companies} companies at ${big.point}; ${big.withoutAddress} of them have no street address${big.withoutAddress === big.companies ? ', so it is a city-level fallback and not a street location (a city-level company should carry no coordinates: see docs/locations.md)' : ''}.`);
     }
     add(`- Possible duplicates by website domain or name: ${audit.duplicates.length}.`, '');
   }
@@ -188,11 +188,11 @@ export function renderMarkdown(audit, context = {}) {
 
   add('## Method and definitions', '',
     `- **Present** means a real value. \`Unknown\`/\`N/A\`/\`TBD\`, empty strings and empty lists are not present, and the five ways the legacy data says "unknown" (literal Unknown, empty, absent key, null, empty list) are counted separately.`,
-    '- **Location** needs city, state and coordinates inside Australia. **Funding** is any funding total, round or date, or a funding-round row. **Source** is at least one source on the record.',
+    '- **Location** needs a confirmed city and state, and coordinates inside Australia where the location claims to be a point (exact address or suburb). **Funding** is any funding total, round or date, or a funding-round row. **Source** is at least one source on the record.',
     `- **Invalid URL** is checked for syntax only (parseable, http or https, a public host, not a social or aggregator site). Whether a site still loads is not checked.`,
     `- **Generic sector** is a business-model or product-type label: ${GENERIC_SECTORS.join(', ')}. Extend \`GENERIC_SECTORS\` in \`audit.js\` to change it.`,
     `- **Potentially stale** means no dated check on record, or one older than ${audit.params.hiringStaleDays} days for hiring and ${audit.params.stageStaleDays} days for stage. The legacy data has no observation dates, so every legacy record qualifies; risk tiers say which matter. Hiring is high risk when the flag is true (a public "hiring now" claim). Stage volatility: ${Object.entries(STAGE_VOLATILITY).map(([k, v]) => `${k} ${v}`).join(', ')}. An undated stage is queued as unverified (P3); it is queued as stale (P2) only when a known check is old or an early-stage label sits on a company founded six or more years ago.`,
-    '- **Pin precision** is approximated by whether the record has a street address; companies without one are pinned at a postcode or city centre.',
+    '- **Pin precision** is the record\'s `location_precision`: EXACT, SUBURB, CITY, STATE or UNKNOWN (see `docs/locations.md`). Only EXACT and SUBURB are pins; a record without the field is judged by whether it has a street address.',
     '- **Score** is the sum of the open tasks\' weights (see `TASKS` in `audit.js`). Companies are ordered by their most severe tier, then score, then prominence (later stage and hiring first), then name.');
   if (context.commitDates?.length) {
     add(`- **Data age.** startups.json was committed on ${context.commitDates.join(', ')} (git history). That bounds when a value was entered, not when it was last true.`);
