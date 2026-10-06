@@ -134,6 +134,37 @@ describe('is this website the candidate', () => {
     expect(pageMatchesName(['Medcast'], { names: [], titleName: 'Totally Different Co', legalNames: [] }, 'medcast.com.au')).toBe(false);
   });
 
+  // Real cases from reading the websites already on file for existing companies.
+  it('reads a verb before the brand in a domain as part of the domain, not the brand: getatomi.com, heykit.com.au, acmehq.com', () => {
+    expect(pageMatchesName(['Atomi'], { names: [], titleName: null, legalNames: [] }, 'getatomi.com')).toBe(true);
+    expect(pageMatchesName(['Kit'], { names: [], titleName: null, legalNames: [] }, 'heykit.com.au')).toBe(true);
+    expect(pageMatchesName(['Acme'], { names: [], titleName: null, legalNames: [] }, 'acmehq.com')).toBe(true);
+    expect(pageMatchesName(['Kit'], { names: [], titleName: null, legalNames: [] }, 'kitchen.com')).toBe(false); // not a verb in front of it
+  });
+
+  it('does not take "Home" or "Welcome" for the name a page gives itself', () => {
+    expect(looksLikeName('Home')).toBe(false);
+    expect(looksLikeName('Welcome to Acme')).toBe(false);
+    expect(looksLikeName('Sign in')).toBe(false);
+    expect(looksLikeName('Homestead')).toBe(true);
+    // So a page titled "Home" falls back to its domain, as a page with no title does.
+    expect(pageMatchesName(['Biza.io'], { names: [], titleName: 'Home', legalNames: [] }, 'biza.io')).toBe(true);
+  });
+
+  it('accepts, for a website a person chose, a page that shares a distinctive word with the company: "Reach Alts" is Reach Alternative Investments', () => {
+    const facts = { names: ['Reach Alts'], titleName: null, legalNames: [] };
+    expect(pageMatchesName(['Reach Alternative Investments'], facts, 'reachalts.com.au')).toBe(false); // a new candidate's website must prove itself
+    expect(pageMatchesName(['Reach Alternative Investments'], facts, 'reachalts.com.au', { lenient: true })).toBe(true);
+  });
+
+  it('still refuses, even then, a page that shares nothing, or only words too common to mean anything', () => {
+    const lenient = { lenient: true };
+    expect(pageMatchesName(['Equitise'], { names: ['SLOT QRIS'], titleName: null, legalNames: [] }, 'equitise.com', lenient)).toBe(false); // a domain now used by a spam site
+    expect(pageMatchesName(['Acme Group'], { names: ['Zed Group'], titleName: null, legalNames: [] }, 'zed.example', lenient)).toBe(false);
+    expect(pageMatchesName(['Acme Cloud'], { names: ['Zed Cloud'], titleName: null, legalNames: [] }, 'zed.example', lenient)).toBe(false);
+    expect(pageMatchesName(['Hex'], { names: ['Hexagon Labs'], titleName: null, legalNames: [] }, 'hexagon.example', lenient)).toBe(false); // too short a word to go on
+  });
+
   it('rejects a page that is plainly about someone else', () => {
     expect(pageMatchesName(['Acme Robotics'], facts(['Totally Different Co']), 'different.example')).toBe(false);
     expect(pageMatchesName(['Zorbly'], facts([]), 'unrelated.example')).toBe(false);

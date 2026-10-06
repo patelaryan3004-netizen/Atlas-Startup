@@ -27,7 +27,8 @@ export function upsertSource(work, companyId, src) {
     if (src.retrieved_at && (!hit.retrieved_at || Date.parse(src.retrieved_at) > Date.parse(hit.retrieved_at))) hit.retrieved_at = src.retrieved_at;
     return hit.id;
   }
-  const id = uniqueSlug(slugify(`${companyId}-${pageSlug(src.url)}`).slice(0, 64), new Set(work.sources.map((s) => s.id)));
+  // The id reads as what it is: "acme-privacy-policy", or "acme-lever-jobs" for a board (the caller names it).
+  const id = uniqueSlug(slugify(`${companyId}-${src.slug ?? pageSlug(src.url)}`).slice(0, 64), new Set(work.sources.map((s) => s.id)));
   work.sources.push({ id, kind: src.kind, url: src.url, title: src.title ?? null, publisher: src.publisher ?? null, retrieved_at: src.retrieved_at, note: src.note ?? '' });
   return id;
 }

@@ -31,6 +31,7 @@ export const AUDIT_ACTIONS = [
   'import.run', 'import.dismiss',
 ];
 
+const CLOCK_TOLERANCE_MS = 10 * 60000;
 const MAX_TEXT = 300;
 const clip = (v) => (typeof v === 'string' && v.length > MAX_TEXT ? `${v.slice(0, MAX_TEXT - 3)}...` : v);
 // A change value is kept small: a long description is clipped, a long list is cut.
@@ -85,7 +86,10 @@ export function validateAuditTrail(ds) {
     seen.add(r.id);
     if (!ISO_RE.test(r.at ?? '')) bad(at, 'at must be an ISO-8601 UTC timestamp');
     else {
-      if (previous != null && Date.parse(r.at) < Date.parse(previous)) bad(at, 'is earlier than the entry before it: the trail is in time order');
+      // Position, not the clock, is what puts the trail in order (it is append-only), so a clock that stepped back
+      // a little (an NTP adjustment, two machines writing to one repository) must not stop every later write. Only
+      // an entry far earlier than the one before it is wrong: rows spliced in from somewhere else.
+      if (previous != null && Date.parse(r.at) < Date.parse(previous) - CLOCK_TOLERANCE_MS) bad(at, 'is much earlier than the entry before it: the trail is in time order');
       previous = r.at;
     }
     if (!isStr(r.actor) || r.actor.length > 80) bad(at, 'actor must be a name');

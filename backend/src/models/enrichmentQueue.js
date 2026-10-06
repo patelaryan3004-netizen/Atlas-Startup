@@ -203,6 +203,17 @@ export function enqueueForPublished(work, company, { by, at }) {
   return enqueueTask(work, { kind: 'company', targetId: company.id, priority: PRIORITY.published, reason: 'published', wanted: WANTABLE, by, at }).task;
 }
 
+// The most recent task for each company or candidate: what is true of it now. Older tasks are history.
+export function latestTasks(tasks) {
+  const latest = new Map();
+  for (const t of tasks) {
+    const key = `${t.kind}:${t.target_id}`;
+    const prior = latest.get(key);
+    if (!prior || Date.parse(t.created_at) >= Date.parse(prior.created_at)) latest.set(key, t);
+  }
+  return [...latest.values()];
+}
+
 export function queueSummary(tasks, at = new Date().toISOString()) {
   const counts = Object.fromEntries(QUEUE_STATUSES.map((s) => [s, 0]));
   for (const t of tasks) counts[t.status] += 1;

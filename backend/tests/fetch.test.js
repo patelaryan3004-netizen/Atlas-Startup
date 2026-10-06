@@ -96,6 +96,27 @@ const make = (routes, extra = {}) => {
 const refusal = async (promise) => { try { await promise; } catch (e) { return e; } throw new Error('expected a refusal'); };
 const OPEN_ROBOTS = { 'https://acme.example/robots.txt': { body: 'User-agent: *\nDisallow: /wp-admin/\n', headers: { 'content-type': 'text/plain' } } };
 
+describe('a response that fails while it is still arriving', () => {
+  // Real sites do this: the headers arrive, then the connection drops or the time runs out mid-body.
+  const failingBody = (error) => ({
+    body: new ReadableStream({ pull(controller) { controller.enqueue(new TextEncoder().encode('<html>')); controller.error(error); } }),
+    headers: { 'content-type': 'text/html' },
+  });
+  const timeout = () => Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+
+  it('is a timeout, a refusal the caller can retry, not an unexplained crash', async () => {
+    const { fetcher } = make({ ...OPEN_ROBOTS, 'https://acme.example/': failingBody(timeout()) });
+    const err = await refusal(fetcher.get('https://acme.example/'));
+    expect(err).toMatchObject({ name: 'FetchPolicyError', code: 'timeout', message: expect.stringMatching(/aborted due to timeout/) });
+    expect(fetcher.log.refused).toEqual([{ url: 'https://acme.example/', code: 'timeout', message: expect.any(String) }]);
+  });
+
+  it('is a network error when the connection simply drops', async () => {
+    const { fetcher } = make({ ...OPEN_ROBOTS, 'https://acme.example/': failingBody(new TypeError('terminated')) });
+    expect(await refusal(fetcher.get('https://acme.example/'))).toMatchObject({ name: 'FetchPolicyError', code: 'network_error' });
+  });
+});
+
 describe('fetching', () => {
   it('identifies itself honestly and sends no cookies or credentials', async () => {
     const { w, fetcher } = make({ ...OPEN_ROBOTS, 'https://acme.example/': { body: '<html>hi</html>' } });

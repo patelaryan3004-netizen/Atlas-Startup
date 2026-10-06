@@ -60,7 +60,8 @@ function strongest(rows) {
 // what the site confirms when it is the same site (a stored "https://acme.com/au" is not contradicted by
 // the homepage at https://acme.com).
 export function analyzeCompanySite(site, { names, knownInvestors = [], website = null, now = Date.now }) {
-  const base = analyzeSite(site, { candidateNames: names, now });
+  // lenient: the website is one a person chose for this company, so a shared distinctive word is enough.
+  const base = analyzeSite(site, { candidateNames: names, now, lenient: true });
   const out = { ...base, jobs: [] };
   if (base.mismatch || base.blocked || site.pages.length === 0) return out;
 
@@ -77,10 +78,27 @@ export function analyzeCompanySite(site, { names, knownInvestors = [], website =
     for (const { name, fragment } of f.textFounders) add('founders', name, 'medium', `The page says: "${fragment}".`, page, f);
     for (const { name, sentence } of investorsIn(f.text, knownInvestors)) add('investors', name, 'medium', `The page says: "${sentence}".`, page, f);
   }
+  const fromPages = out.jobs.length;
+  // The job boards the company's own careers page points at (boards.js): a different source for the same claim.
+  const boardSources = [];
+  for (const b of site.boards ?? []) {
+    const source = {
+      kind: 'company_website', url: b.page_url, title: `${b.name} job board`, publisher: site.domain.host, retrieved_at: b.retrieved_at, slug: `${b.provider}-jobs`,
+      note: `The company's ${b.name} job board, which its careers page links to, read through the board's public feed.`,
+    };
+    for (const j of b.jobs) out.jobs.push({ ...j, apply_url: j.apply_url ?? b.page_url, source });
+    if (b.jobs.length) boardSources.push({ source, board: b });
+  }
   out.jobs = out.jobs.slice(0, MAX_JOBS);
-  if (out.jobs.length) {
+  out.pages = [...out.pages, ...(site.boards ?? []).map((b) => ({ url: b.page_url, status: 200 }))];
+  out.errors = [...out.errors, ...(site.board_errors ?? [])];
+  const when = (n) => `${n} open role${n === 1 ? '' : 's'}`;
+  if (fromPages) {
     const { page, f } = firstPostingPage;
-    add('hiring_status', 'hiring', 'high', `${out.jobs.length} open role${out.jobs.length === 1 ? '' : 's'} in the page's structured data, such as "${out.jobs[0].title}".`, page, f);
+    add('hiring_status', 'hiring', 'high', `${when(fromPages)} in the page's structured data, such as "${out.jobs[0].title}".`, page, f);
+  }
+  for (const { source, board } of boardSources) {
+    rows.push({ field: 'hiring_status', value: 'hiring', confidence: 'high', verified_at: retrieved, source, note: `${when(board.jobs.length)} on the company's ${board.name} job board, which its careers page links to, such as "${board.jobs[0].title}".` });
   }
 
   // A claim read from a page we retrieved is checked against it on the day it was read, unless it is a

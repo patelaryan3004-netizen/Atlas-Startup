@@ -199,7 +199,14 @@ export function createFetcher({
     const declared = Number(res.headers.get('content-length'));
     if (declared > maxBytes) refuse('too_large', `response is ${declared} bytes, over the ${maxBytes} limit`, finalUrl);
     let text;
-    try { text = await readCapped(res, maxBytes, finalUrl); } catch (err) { if (err instanceof FetchPolicyError) { log.refused.push({ url: finalUrl, code: err.code, message: err.message }); } throw err; }
+    try {
+      text = await readCapped(res, maxBytes, finalUrl);
+    } catch (err) {
+      if (err instanceof FetchPolicyError) { log.refused.push({ url: finalUrl, code: err.code, message: err.message }); throw err; }
+      // The connection dropped, or the time ran out, while the body was still arriving: the same kinds of
+      // failure as before the headers, and handled the same way.
+      return refuse(err.name === 'TimeoutError' || err.name === 'AbortError' ? 'timeout' : 'network_error', err.message, finalUrl);
+    }
     return { url: original, finalUrl, status: res.status, contentType: type, text };
   }
 

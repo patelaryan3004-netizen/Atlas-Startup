@@ -62,10 +62,12 @@ describe('checking the audit trail', () => {
     expect(errors({ at: 'yesterday' })).toMatch(/ISO-8601/);
   });
 
-  it('refuses a duplicate id and an entry that is earlier than the one before it', () => {
+  it('refuses a duplicate id, and an entry far earlier than the one before it, but not a clock that stepped back a little', () => {
     const [a, b] = good();
     expect(validateAuditTrail(trail([a, { ...b, id: a.id }])).join(' ')).toMatch(/duplicate id/);
-    expect(validateAuditTrail(trail([{ ...a, at: '2026-10-07T00:00:00.000Z' }, b])).join(' ')).toMatch(/time order/);
+    expect(validateAuditTrail(trail([{ ...a, at: '2026-10-07T00:00:00.000Z' }, b])).join(' ')).toMatch(/much earlier than the entry before it/);
+    // A few minutes' skew (NTP, two machines) is clock noise: it must not stop every later write.
+    expect(validateAuditTrail(trail([{ ...a, at: '2026-10-06T03:20:00.000Z' }, b]))).toEqual([]);
   });
 
   it('registers every action the Command Center and the worker will write', () => {

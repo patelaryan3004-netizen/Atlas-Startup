@@ -18,6 +18,7 @@ import { claimNext, finishTask, failTask } from '../models/enrichmentQueue.js';
 import { readSite, enrichFromWebsite } from '../discovery/enrich.js';
 import { createEngine, knownInvestorNames } from '../discovery/pipeline.js';
 import { analyzeCompanySite, namesOf } from './analyze.js';
+import { readBoards } from './boards.js';
 import { applyCompanyEnrichment } from './apply.js';
 
 // A network failure may pass, and so may a site telling us to slow down (a 429 or a server error, even on its
@@ -26,7 +27,7 @@ import { applyCompanyEnrichment } from './apply.js';
 const TRANSIENT = new Set(['timeout', 'network_error', 'rate_limited', 'dns_failed']);
 const isTransient = (e) => TRANSIENT.has(e.code)
   || (e.code === 'http_error' && /HTTP (?:429|5\d\d)/.test(e.message ?? ''))
-  || (e.code === 'robots_unavailable' && !/access-controlled|HTTP (?:401|403|404|410)/.test(e.message ?? ''));
+  || (e.code === 'robots_unavailable' && !/access-controlled|HTTP (?:401|403|404|410)|larger than/.test(e.message ?? ''));
 
 export const SYSTEM = (by) => ({ name: by, role: 'system' });
 
@@ -69,6 +70,12 @@ export async function runQueue({ dir, fetcher, now = Date.now, limit = Infinity,
     if (!company.website) return skip(task, 'no website on record', { outcome: 'no_website' });
     const site = await readSite(company.website, { fetcher, now, maxPages, wanted: task.wanted });
     if (site.pages.length === 0) return unreadable(task, site.errors[0]);
+    // Open roles are on the job board the careers page points at, when it points at one.
+    if (task.wanted.some((w) => w === 'hiring_status' || w === 'jobs')) {
+      const read = await readBoards(site, { fetcher, now });
+      site.boards = read.boards;
+      site.board_errors = read.errors;
+    }
     const analysis = analyzeCompanySite(site, { names: namesOf(company, ds.identifiers), knownInvestors: knownInvestorNames(ds), website: company.website, now });
     let summary = null;
     await transact(dir, (work, { at }) => {

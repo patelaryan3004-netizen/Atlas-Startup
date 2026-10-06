@@ -11,7 +11,7 @@
 // explanation than a company that has two names.
 import { AU_STATES, KNOWN_CITIES } from '../models/company.js';
 import {
-  canonicalDomain, registrableDomain, nameKey, looseNameKey, similarity, normalizeABN, normalizeACN, personKey,
+  canonicalDomain, registrableDomain, nameKey, looseNameKey, nameTokens, similarity, normalizeABN, normalizeACN, personKey,
 } from '../models/identity.js';
 import { FetchPolicyError } from './http.js';
 import { stripTags, metaContent, titleOf, jsonLd, typesOf, links } from './html.js';
@@ -57,7 +57,27 @@ export function legalNamesIn(text) {
 
 // A homepage title is a name only if it looks like one. "Trendspek | Home" names the
 // company; "Quality, online, social learning for Health Professionals" is a tagline.
-export const looksLikeName = (s) => typeof s === 'string' && s.trim().split(/\s+/).length <= 4 && !/[,:;]/.test(s) && /^[A-Z0-9]/.test(s.trim());
+// Page titles that are a kind of page, not a name: "Home", "Welcome", "Sign in".
+const GENERIC_TITLE = /^(?:home|homepage|welcome|index|untitled|official (?:web)?site|main page|log ?in|sign ?in|dashboard)\b/i;
+export const looksLikeName = (s) => typeof s === 'string' && s.trim().split(/\s+/).length <= 4 && !/[,:;]/.test(s) && /^[A-Z0-9]/.test(s.trim()) && !GENERIC_TITLE.test(s.trim());
+
+// "getatomi.com" is Atomi's and "heykit.com.au" is Kit's: a verb in front of the brand is a common way for a
+// startup to name its domain, and "acmehq.com" for Acme. The brand may be the label as it is or without that.
+const DOMAIN_VERB = /^(?:hey|get|try|use|go|my|join|meet|hello|with|the)(?=[a-z0-9]{3,})/;
+export function brandsOfDomain(domain) {
+  const label = registrableDomain(domain).split('.')[0];
+  return unique([label, label.replace(DOMAIN_VERB, ''), label.replace(/hq$/, '')]).filter((s) => s.length >= 3);
+}
+
+// Words too common to say two names are the same company's.
+const COMMON_WORDS = new Set(['group', 'holdings', 'labs', 'lab', 'technologies', 'technology', 'tech', 'software', 'systems', 'solutions', 'ventures', 'global', 'international',
+  'australia', 'australian', 'aus', 'digital', 'studio', 'studios', 'capital', 'partners', 'services', 'company', 'the', 'and', 'data', 'cloud', 'online', 'health', 'finance']);
+// Do two sets of names share a distinctive word ("Reach" in "Reach Alternative Investments" and "Reach Alts")?
+function sharesDistinctiveWord(namesA, namesB) {
+  const words = (names) => new Set(names.flatMap((n) => nameTokens(n)).filter((t) => t.length >= 4 && !COMMON_WORDS.has(t)));
+  const b = words(namesB);
+  return [...words(namesA)].some((t) => b.has(t));
+}
 // The pages worth reading, and the fields each one tends to answer. A task that wants an address reads the
 // privacy policy, terms and contact page first; one that wants founders reads the about page. With no
 // wish stated, the original order is kept and the careers page is not read.
@@ -82,19 +102,29 @@ export const isGatePage = (s) => typeof s === 'string' && NOT_ITS_OWN_PAGE.test(
 // "founded by Jane Doe and John Roe": a sentence on the company's own page, so medium confidence at
 // best. A name is two or three capitalised words; "Jane Doe, CEO" gives Jane Doe and drops "CEO".
 const NAME_PART = "[A-Z](?:[a-z]+|['’][A-Z][a-z]+)(?:['’-][A-Z]?[a-z]+)*"; // Jane, Li, O'Neil, Smith-Jones
-const PERSON = `${NAME_PART}(?:\\s+${NAME_PART}){1,2}`;
+const PERSON = `(?:(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor|Sir|Dame)\\.?\\s+)?${NAME_PART}(?:\\s+${NAME_PART}){1,2}`;
 // A title may follow a name ("Jane Doe, CEO, and John Roe"). The verb is matched in either case by hand,
 // because the names must stay case-sensitive: "founded by two former engineers" names nobody.
 const TITLE = '(?:,?\\s*(?:CEO|CTO|COO|CFO|CPO|[Cc]o-?[Ff]ounder|[Ff]ounder))?';
 const SEPARATOR = '\\s*(?:,\\s*(?:and\\b|&)|,|\\band\\b|&)\\s*'; // ", " or " and " or ", and " or " & "
-const FOUNDED_BY = new RegExp(`\\b(?:[Cc]o-?[Ff]ounded|[Ff]ounded|[Ss]tarted|[Cc]reated)\\s+by\\s+(${PERSON}${TITLE}(?:${SEPARATOR}${PERSON}${TITLE})*)`, 'g');
-const NOT_A_PERSON = /\b(?:capital|ventures?|group|holdings|labs?|pty|ltd|limited|inc|university|institute|foundation|partners|studio|studios)\b/i;
+// Only founding verbs: "created by" says who made a page or a product ("created by Wix"), not who founded a company.
+const FOUNDED_BY = new RegExp(`\\b(?:[Cc]o-?[Ff]ounded|[Ff]ounded|[Ss]tarted)\\s+by\\s+(${PERSON}${TITLE}(?:${SEPARATOR}${PERSON}${TITLE})*)`, 'g');
+const NOT_A_PERSON = /\b(?:capital|ventures?|group|holdings|labs?|pty|ltd|limited|inc|university|institute|foundation|partners|studio|studios|sourcing)\b/i;
+const HONORIFIC = /^(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor|Sir|Dame)\.?\s+/;
+// A run of capital letters can run on into the next sentence ("Andrew Barnes One MRI is ..."): a third word that is
+// plainly not a surname is dropped.
+const NOT_A_SURNAME = new Set(['One', 'The', 'This', 'Our', 'We', 'They', 'He', 'She', 'It', 'In', 'At', 'On', 'Since', 'After', 'And', 'But', 'With', 'As', 'From', 'Who', 'Is', 'Was', 'To', 'For', 'Of', 'By', 'An', 'Today', 'Now', 'Co']);
+const cleanPerson = (part) => {
+  const tokens = part.trim().replace(HONORIFIC, '').split(/\s+/);
+  while (tokens.length >= 3 && NOT_A_SURNAME.has(tokens[tokens.length - 1])) tokens.pop();
+  return tokens.join(' ');
+};
 // Each name comes with the words it was read from, so a person can check it at a glance.
 export function foundersInText(text) {
   const found = new Map();
   for (const m of text.matchAll(FOUNDED_BY)) {
     for (const part of m[1].split(/\s*(?:,|\band\b|&)\s*/)) {
-      const name = part.trim();
+      const name = cleanPerson(part);
       if (name && personKey(name) && !NOT_A_PERSON.test(name) && !found.has(name)) found.set(name, m[0].slice(0, 160));
     }
   }
@@ -189,7 +219,8 @@ export function extractFacts(html, { home = true } = {}) {
     addresses.push({ text: `${m[1].replace(/\s+/g, ' ')}${city ? `, ${city}` : ''} ${m[3]} ${m[4]}`, city, state: m[3], source: 'text' });
   }
 
-  const textYear = /\b(?:founded|established|since|est\.?)\s+(?:in\s+)?((?:19|20)\d{2})\b/i.exec(text);
+  // "Since 2019" is not a founding date ("trusted by customers since 2019", "hiring since 2021"), so it is not read as one.
+  const textYear = /\b(?:founded|established|est\.?)\s+(?:in\s+)?((?:19|20)\d{2})\b/i.exec(text);
   // names: what the page states about itself (structured data, og:site_name). titleName: the
   // head of a homepage title, which is only sometimes a name (see looksLikeName).
   const names = unique([...ld.names, siteName].filter((n) => typeof n === 'string' && n.trim()).map((n) => n.trim()));
@@ -211,11 +242,11 @@ export function extractFacts(html, { home = true } = {}) {
 // brand). A tagline for a title is not a name and is ignored. The domain's own word is
 // only used when the page names itself nothing, so a matching domain cannot outvote a
 // page that says it is someone else.
-export function pageMatchesName(candidateNames, facts, domain) {
+export function pageMatchesName(candidateNames, facts, domain, { lenient = false } = {}) {
   const candidates = candidateNames.map((n) => ({ key: nameKey(n), loose: looseNameKey(n) })).filter((c) => c.key);
   const selfNames = [...facts.names, ...(looksLikeName(facts.titleName) ? [facts.titleName] : [])];
   const pageNames = [...selfNames, ...facts.legalNames];
-  if (selfNames.length === 0 && domain) pageNames.push(registrableDomain(domain).split('.')[0]);
+  if (selfNames.length === 0 && domain) pageNames.push(...brandsOfDomain(domain));
   for (const page of pageNames) {
     const pk = nameKey(page);
     const pl = looseNameKey(page);
@@ -227,7 +258,9 @@ export function pageMatchesName(candidateNames, facts, domain) {
       if (short.length >= 5 && similarity(pk, c.key) >= 0.8) return true;
     }
   }
-  return false;
+  // For a company whose website a person already chose, a shared distinctive word is enough ("Reach Alts" on
+  // reachalts.com.au is Reach Alternative Investments). A new candidate's website does not get that benefit.
+  return lenient && sharesDistinctiveWord(candidateNames, [...selfNames, ...facts.legalNames]);
 }
 
 // The links on a homepage worth reading, up to limit, for the fields wanted. Same site only; never a file.
@@ -294,7 +327,7 @@ export async function enrichFromWebsite(website, { fetcher, now = Date.now, cand
 
 // The analysis step: pure. What a site that has been read says about the company, as evidence with its
 // source, or a warning and nothing else if it does not look like this company's site.
-export function analyzeSite(site, { candidateNames = [], now = Date.now } = {}) {
+export function analyzeSite(site, { candidateNames = [], now = Date.now, lenient = false } = {}) {
   const result = {
     pages: site.pages.map((p) => ({ url: p.finalUrl, status: p.status })), evidence: [], facts: null, aliases: [], legalNames: [],
     external_ids: { abn: null, acn: null }, signals: { phones: 0 }, warnings: [], errors: [...site.errors], pageFacts: [],
@@ -316,7 +349,7 @@ export function analyzeSite(site, { candidateNames = [], now = Date.now } = {}) 
   const combined = {
     names: unique(facts.flatMap((f) => f.facts.names)), legalNames: unique(facts.flatMap((f) => f.facts.legalNames)), titleName: facts[0].facts.titleName,
   };
-  if (!pageMatchesName(candidateNames, combined, domain.domain)) {
+  if (!pageMatchesName(candidateNames, combined, domain.domain, { lenient })) {
     const called = [...combined.names, ...(looksLikeName(combined.titleName) ? [combined.titleName] : [])];
     result.warnings.push(`the website at ${domain.host} does not appear to be ${candidateNames[0] ?? 'this company'}: it calls itself ${called.slice(0, 2).join(' / ') || 'nothing we could read'}`);
     result.facts = { names: combined.names };

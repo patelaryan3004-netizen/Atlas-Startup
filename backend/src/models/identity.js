@@ -205,30 +205,46 @@ export function normalizeAddress(address) {
 
 const STREET_TYPES = new Set(['street', 'road', 'avenue', 'lane', 'place', 'parade', 'drive', 'court', 'boulevard', 'highway', 'terrace', 'crescent', 'square', 'way', 'close', 'circuit', 'esplanade']);
 
-// Where an address is, as far as two writings of it can be compared: the street number and name, and the
-// postcode. Unit, level and suburb words are how people write the same place differently, so they are left
-// out: "Level 8, 10-14 Waterloo Street, Surry Hills NSW 2010", "10-14 Waterloo St, Surry Hills NSW 2010" and
-// "8/4 Martin Place" / "Level 8, 4 Martin Place" are each one place. { street, postcode } or null when no
-// street can be found.
-export function addressParts(address) {
-  const words = stripAccents(address ?? '').toLowerCase()
-    // "Level 8, " / "Suite 1.103/" / "Unit 12, ": a unit word and its number, when a street number follows
-    .replace(/\b(?:level|lvl|suite|ste|unit|floor|fl|shop)\s*[\w.-]+\s*[,/-]?\s*(?=\d)/g, ' ')
-    // "8/4 Martin Place" and "1.103/477": the number before the slash is a unit
-    .replace(/\b\d+(?:\.\d+)?[a-z]?\s*\/\s*(?=\d)/g, '')
-    .replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean).map((w) => STREET_WORDS[w] ?? w);
-  const at = words.findIndex((w, i) => i >= 1 && STREET_TYPES.has(w));
-  if (at < 0) return null;
-  const postcode = [...words.slice(at + 1)].reverse().find((w) => /^\d{4}$/.test(w)) ?? null;
-  return { street: words.slice(0, at + 1).join(' '), postcode };
+// The street piece of an address ("388 George Street") with the unit, level and building left out. People
+// write the same place with all sorts in front of the street: "Level 8,", "Suite 1.103/", "L6/", "8/",
+// "Studio 6,", "Mezzanine, Levels 1-3,", "The Foundry,". So the street is the comma-separated piece that has a
+// number and then a street word, and a unit written into that piece ("L6/365 Collins St") is dropped.
+const UNIT_IN_PIECE = [
+  /^(?:level|lvl|suite|ste|unit|floor|fl|shop|studio|l)\s*[\w.]+\s*[/,-]\s*/, // "Suite 1.103/477", "L6/365", "Unit 4-10"
+  /^(?:level|lvl|suite|ste|unit|floor|fl|shop|studio)\s+\w+\s+(?=\d)/, // "Level 7 127 Creek Street"
+  /^\d+(?:\.\d+)?[a-z]?\s*\/\s*(?=\d)/, // "8/4 Martin Place", "1.103/477"
+];
+function streetPiece(address) {
+  const pieces = stripAccents(address ?? '').toLowerCase().replace(/[–—]/g, '-').split(/[,;\n]+/).map((p) => p.trim()).filter(Boolean);
+  for (const piece of pieces) {
+    let p = piece;
+    for (const re of UNIT_IN_PIECE) p = p.replace(re, '');
+    const words = p.replace(/[^a-z0-9\s-]/g, ' ').replace(/-/g, ' ').split(/\s+/).filter(Boolean).map((w) => STREET_WORDS[w] ?? w);
+    const at = words.findIndex((w, i) => i >= 1 && STREET_TYPES.has(w));
+    if (at >= 1 && words.slice(0, at).some((w) => /\d/.test(w))) return words.slice(0, at + 1).join(' ');
+  }
+  return null;
 }
 
-// The same place? Streets must agree, and postcodes too unless one side does not give one.
+const postcodeOf = (address) => [...String(address ?? '').matchAll(/\b(\d{4})\b/g)].map((m) => m[1]).pop() ?? null;
+
+// Where an address is, as far as two writings of it can be compared: { street, postcode }. The street is null
+// when the address does not give one ("Yatala QLD 4207", "Macquarie University Cyber Hub").
+export function addressParts(address) {
+  const street = streetPiece(address);
+  return street == null && postcodeOf(address) == null ? null : { street, postcode: postcodeOf(address) };
+}
+
+// The same place? When both give a street, the streets must agree (and the postcodes, unless one does not give
+// one). An address with no street ("Yatala QLD 4207") is less specific than one with ("77 Darlington Drive,
+// Yatala QLD 4207"), not a contradiction of it: they agree when the postcodes do.
 export function sameAddress(a, b) {
   const x = addressParts(a);
   const y = addressParts(b);
   if (!x || !y) return normalizeAddress(a) === normalizeAddress(b);
-  return x.street === y.street && (x.postcode == null || y.postcode == null || x.postcode === y.postcode);
+  if (x.street && y.street) return x.street === y.street && (x.postcode == null || y.postcode == null || x.postcode === y.postcode);
+  if (x.postcode && y.postcode && (!x.street || !y.street) && x.postcode === y.postcode) return true;
+  return normalizeAddress(a) === normalizeAddress(b);
 }
 
 export function cityKey(city) {

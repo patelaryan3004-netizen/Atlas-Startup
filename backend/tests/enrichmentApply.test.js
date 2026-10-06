@@ -4,7 +4,7 @@ import { analyzeCompanySite, investorsIn, namesOf } from '../src/enrichment/anal
 import { applyCompanyEnrichment, upsertSource } from '../src/enrichment/apply.js';
 import { decide, FIELD_POLICY, atLeast } from '../src/enrichment/policy.js';
 import { setField, isUnknown, confirmLocation, unconfirmLocation } from '../src/enrichment/fill.js';
-import { foundersInText } from '../src/discovery/enrich.js';
+import { foundersInText, extractFacts } from '../src/discovery/enrich.js';
 import { migrateDataset, validateDataset } from '../src/models/dataset.js';
 import { detectConflicts, findUnappliedEvidence } from '../src/models/evidence.js';
 import { NOW, dataset, co, fetcherFor } from './helpers/discovery.js';
@@ -74,6 +74,19 @@ describe('what a company site says that the directory cares about', () => {
     const founders = (await analyse()).evidence.filter((e) => e.field === 'founders');
     expect(founders).toHaveLength(2);
     expect(founders[0].note).toMatch(/structured data/);
+  });
+
+  it('reads a name as it is, without the honorific or the next sentence\'s first word, and not "created by"', () => {
+    expect(foundersInText('Founded by Gopi Sara, Dr Vu Tran and Andrew Barnes One MRI is the first').map((f) => f.name)).toEqual(['Gopi Sara', 'Vu Tran', 'Andrew Barnes']);
+    expect(foundersInText('Our platform was created by Circular Sourcing. Created by Wix.')).toEqual([]); // who made a page is not who founded a company
+    expect(foundersInText('Co-founded by Prof. Jane Doe.').map((f) => f.name)).toEqual(['Jane Doe']);
+    expect(foundersInText('Founded by Mary Jane Watson in 2014').map((f) => f.name)).toEqual(['Mary Jane Watson']); // a real three-part name stays
+  });
+
+  it('does not read "since 2019" as a founding year, but does read "founded" and "established"', () => {
+    for (const [text, year] of [['Trusted by customers since 2019.', null], ['Hiring since 2021', null], ['Founded in 2021 in Melbourne.', 2021], ['Established 1998', 1998], ['Est. 2010', 2010]]) {
+      expect(extractFacts(`<p>${text}</p>`).foundedYear, text).toBe(year);
+    }
   });
 
   it('keeps what is not a person out of the founders', () => {
