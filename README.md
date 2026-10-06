@@ -7,11 +7,15 @@ Interactive map of VC-backed Australian startups, split into a backend API and a
 ```
 backend/            Express API
   src/server.js      entry point
-  src/routes/         /api/startups, /api/news
-  src/data/            startups.json (source of truth), seedDeals.json
+  src/routes/         /api/startups, /api/search, /api/news, /directory
+  src/catalog/        the public read model: indexes built once, answers cached (see docs/scale.md)
+  src/data/            startups.json (source of truth) and the collections beside it
+  src/scheduler/       the scheduled refresh jobs (run by `npm run scheduler`, never by the server)
+  scripts/             command lines: discovery, admin, scheduler, scale test tools
 frontend/            React (Vite) app
   src/App.jsx          top-level layout/state
-  src/components/      MapView, FilterPanel, Legend, Leaderboard, NewsTicker
+  src/components/      MapView, ListView, FilterPanel, JobsView, Leaderboard, NewsTicker
+  src/mapPins.js       groups pins for the map (only what is in view is drawn)
 ```
 
 ## Running locally
@@ -35,9 +39,17 @@ cd frontend && npm install && npm run dev
 
 ## API
 
-- `GET /api/startups` — list startups, supports `search`, `sector`, `city`, `investor`, `stage`, `hiring` (`yes`/`no`) query params
+- `GET /api/startups` — list startups, supports `search`, `sector`, `city`, `investor`, `stage`, `hiring` (`yes`/`no`) query params. With none of the paging parameters below it answers as it always did, `{ total, count, results }` with every match, so anything built on it keeps working
+  - `limit` (1–200), `offset`, `sort` (`name`, `hiring`, `location`, `industry`), `view=card` (the few fields a card shows) or `view=full`, and `facets=sector,city,stage` (the counts for those filters, for the matches) turn it into a page: `{ total, count, offset, limit, results, facets? }`
+- `GET /api/startups/markers` — every match with a confirmed location as one compact array per company, for the map (same filters)
+- `GET /api/startups/summary` and `GET /api/startups/count` — counts for the filters in force, without any companies
 - `GET /api/startups/meta` — distinct sector/city/investor/stage values for populating filter dropdowns
+- `GET /api/startups/:slug` — one company in full; `GET /api/people/:name` — the companies a person founded
+- `GET /api/search?q=` — name suggestions for the search box
+- `GET /directory?page=n` — the no-JavaScript list, 250 companies a page
 - `GET /api/news` — recent AU startup deal headlines, cached server-side for 6h, backed by `src/data/seedDeals.json` until a real source is wired up in `fetchLiveDeals()` (`backend/src/routes/news.js`)
+
+Every read is answered from an in-memory index built once and rebuilt only when `startups.json` changes, carries an `ETag` (a repeat visit is a `304` with no work), and is gzipped. At 10,000 companies the whole map's pins are 214 KB over the wire and answer in under a millisecond from cache. See [docs/scale.md](docs/scale.md).
 
 ## Adding startups
 
@@ -97,7 +109,22 @@ npm run admin -- init --name "Your name"   # once: shows your access token a sin
 npm run admin                              # http://127.0.0.1:4010
 ```
 
-A private page, never part of the public site, for working the data: the eight counts (companies, candidates, needs review, duplicates, updated this week, missing data, failed imports), new startups discovered (approve, reject, edit, merge, publish), data quality, conflicts a person settles, suggested fills, the enrichment queue and the audit trail of every action. Local only, with roles. See [docs/admin.md](docs/admin.md).
+A private page, never part of the public site, for working the data: the eight counts (companies, candidates, needs review, duplicates, updated this week, missing data, failed imports), new startups discovered (approve, reject, edit, merge, publish), data quality, conflicts a person settles, suggested fills, the enrichment queue, the scheduled refresh and the audit trail of every action. Local only, with roles. See [docs/admin.md](docs/admin.md).
+
+### Keeping it current (the scheduler)
+
+```bash
+cd backend
+npm run scheduler -- status        # the six jobs, when each last ran, what is due, what is wrong
+npm run scheduler -- plan          # exactly what a run would do (reads and writes nothing)
+npm run scheduler -- tick          # one run of every job that is due
+```
+
+Six jobs keep the directory current, each looking at its own kind of fact at its own pace: **discovery** (new candidates, never public until a person publishes), **funding** (stories about companies we have, as evidence), **hiring** (open roles, from the careers page and the job board it links to), **company status** (acquired, closed, renamed), **enrichment** (description, address, founders, investors) and **data quality** (what is stale or in conflict). Roles change within days, a founding year never moves, so a role is looked at every 3 days and a founding year every 365. Every fact has four clocks (`last_checked_at`, `last_verified_at`, `last_changed_at`, `next_check_at`), every run is logged including the ones that found nothing, and running it twice gives the same answer. It reads other people's websites politely (robots.txt, pacing, a request budget, `Retry-After`), writes evidence rather than editing companies, and is a separate process the public server never loads. It runs from a terminal or a timer on your machine, and a GitHub Actions workflow for it is kept in `docs/scheduled-refresh.workflow.yml` until it can be installed (GitHub wants a credential with the `workflow` scope for that; the workflow does nothing until you set `SCHEDULER_ENABLED`). It has not yet been run against the real directory. See [docs/scheduler.md](docs/scheduler.md).
+
+### Scale
+
+Tested at 213, 500, 1,000, 2,500, 5,000 and 10,000 companies, on synthetic fixtures that exist only in temp folders (`backend/scripts/scale/fixtures.js` refuses to write near the real data): the API and server, and the app in a headless browser on a desktop and on a throttled phone. At 5,000 companies the map's pins arrive in 3 seconds on a slow phone instead of 40; the List tab no longer freezes that phone for 18 seconds (0.3 s now); the page holds 500 elements instead of 46,000; and the server's memory stays under 130 MB instead of 390. Not everything got better (zooming to street level on a slow phone is about as smooth as before, not smoother), and the measurements were taken on a busy shared laptop. What changed, how it was measured and what is still not solved are in [docs/scale.md](docs/scale.md); the raw results and the tables made from them are in `docs/scale/`.
 
 ## Testing
 
@@ -108,9 +135,9 @@ npm test              # run backend + frontend test suites
 npm run test:coverage # same, with a coverage report for each
 ```
 
-- `backend/tests/` — supertest hitting the Express `app` directly: filtering logic for every query param on `/api/startups`, `/api/startups/meta`, and the `/api/news` live/cache behavior; model tests (`companyModel`, `evidence`, `audit`) on small synthetic datasets; discovery tests (`identity`, `resolve`, `fetch`, `sources`, `enrich`, `relevance`, `pipeline`, `review`, `candidates`, `cli`) against a scripted web, never the real one; `dataIntegrity` on the shipped data files
+- `backend/tests/` — supertest hitting the Express `app` directly: filtering logic for every query param on `/api/startups`, `/api/startups/meta`, and the `/api/news` live/cache behavior; model tests (`companyModel`, `evidence`, `audit`) on small synthetic datasets; discovery tests (`identity`, `resolve`, `fetch`, `sources`, `enrich`, `relevance`, `pipeline`, `review`, `candidates`, `cli`) against a scripted web, never the real one; the public read model (`catalog` proves its answers equal the old filter's on 400 random queries; `startupsApi`; `scaleFixtures`); the scheduler (`schedulerTick`, `schedulerState`, `schedulerFeeds`, `schedulerQuality`, `schedulerCli`, `statusSignals`, `fetchCooldown`), including that a second run at the same moment changes nothing; `dataIntegrity` on the shipped data files
 - `frontend/tests/` — React Testing Library for each component (`leaflet` is mocked in `MapView.test.jsx` so tests don't need a real map), plus `api.js` and top-level `App.jsx` wiring
 
 Coverage reports are written to `backend/coverage/` and `frontend/coverage/` (open `coverage/index.html` for the interactive view); both are gitignored.
 
-Current coverage: ~93% (backend), ~99% (frontend) statements.
+Current coverage (statements): ~99% (backend), ~99% (frontend). Not counted, and said so in each `vitest.config.js`/`vite.config.js`: the Command Center's page (`backend/src/admin/ui`, browser code that Node never runs; counted it would take the backend to 84%) and the generated shadcn/AI Elements components that nothing imports yet (counted, they would take the frontend to 76%).

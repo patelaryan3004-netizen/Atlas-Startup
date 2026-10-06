@@ -1,0 +1,6032 @@
+{
+  "meta": {
+    "profile": "desktop",
+    "node": "v24.19.0",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "cores": 8,
+    "at": "2026-10-06T12:02:15.259Z",
+    "profileSettings": {
+      "width": 1280,
+      "height": 800,
+      "dsf": 1,
+      "mobile": false,
+      "cpu": 1,
+      "network": null
+    },
+    "repeat": 3,
+    "heavyOnce": true,
+    "complete": true
+  },
+  "runs": [
+    {
+      "arch": "baseline",
+      "size": 213,
+      "rep": 1,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:02:18.405Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 915,
+        "pinsLastChangedMs": 915,
+        "lastApiResponseEndMs": 837,
+        "lastLongTaskEndMs": 798,
+        "loadEventMs": 448,
+        "requests": 4,
+        "wireKB": 308,
+        "bodyKB": 307,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 344,
+          "longestMs": 184
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 43,
+        "quietMs": 53,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 111,
+        "worstGapMs": 121,
+        "pinsOnScreen": 62,
+        "heapMb": 5,
+        "domNodes": 344
+      },
+      "zoomOut": {
+        "reactedMs": 17,
+        "quietMs": 17,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 38,
+        "pinsOnScreen": 69,
+        "heapMb": 6,
+        "domNodes": 360
+      },
+      "list": {
+        "reactedMs": 41,
+        "quietMs": 48,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 191,
+        "worstGapMs": 201,
+        "cards": 213,
+        "heapMb": 8,
+        "domNodes": 2018
+      },
+      "profile": {
+        "reactedMs": 11,
+        "quietMs": 17,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 43,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 7,
+        "domNodes": 2079
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 39,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 37,
+        "pinsOnScreen": 8,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 5,
+        "quietMs": 57,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 63,
+        "worstGapMs": 73,
+        "cards": 73,
+        "heapMb": 8,
+        "domNodes": 864
+      },
+      "search": {
+        "reactedMs": 6,
+        "quietMs": 229,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 23,
+        "pinsOnScreen": 2,
+        "heapMb": 11,
+        "domNodes": 127,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 90,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 85,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 85,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 85,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 33,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 24,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 17,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 24,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 27,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 458,
+      "chrome": {
+        "heapUsedMb": 10,
+        "nodes": 8061,
+        "layouts": 33,
+        "styleRecalcs": 94,
+        "mainThreadSeconds": 1.66,
+        "scriptSeconds": 0.42,
+        "layoutSeconds": 0.4
+      },
+      "machineBusyPct": 89
+    },
+    {
+      "arch": "baseline",
+      "size": 213,
+      "rep": 2,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:02:26.018Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 983,
+        "pinsLastChangedMs": 983,
+        "lastApiResponseEndMs": 934,
+        "lastLongTaskEndMs": 831,
+        "loadEventMs": 564,
+        "requests": 4,
+        "wireKB": 308,
+        "bodyKB": 307,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 313,
+          "longestMs": 164
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 40,
+        "quietMs": 45,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 69,
+        "worstGapMs": 79,
+        "pinsOnScreen": 62,
+        "heapMb": 5,
+        "domNodes": 344
+      },
+      "zoomOut": {
+        "reactedMs": 11,
+        "quietMs": 14,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 15,
+        "pinsOnScreen": 69,
+        "heapMb": 6,
+        "domNodes": 360
+      },
+      "list": {
+        "reactedMs": 38,
+        "quietMs": 38,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 167,
+        "worstGapMs": 177,
+        "cards": 213,
+        "heapMb": 8,
+        "domNodes": 2018
+      },
+      "profile": {
+        "reactedMs": 7,
+        "quietMs": 15,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 33,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 7,
+        "domNodes": 2079
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 31,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 0,
+        "worstGapMs": 42,
+        "pinsOnScreen": 8,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 4,
+        "quietMs": 34,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 50,
+        "cards": 73,
+        "heapMb": 8,
+        "domNodes": 864
+      },
+      "search": {
+        "reactedMs": 4,
+        "quietMs": 209,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 17,
+        "pinsOnScreen": 2,
+        "heapMb": 11,
+        "domNodes": 127,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/startups/meta",
+          "ms": 85,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 90,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 106,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 109,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 26,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 69,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 13,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 572,
+      "chrome": {
+        "heapUsedMb": 10,
+        "nodes": 8061,
+        "layouts": 34,
+        "styleRecalcs": 99,
+        "mainThreadSeconds": 1.3,
+        "scriptSeconds": 0.4,
+        "layoutSeconds": 0.31
+      },
+      "machineBusyPct": 80
+    },
+    {
+      "arch": "baseline",
+      "size": 213,
+      "rep": 3,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:02:32.226Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 483,
+        "pinsLastChangedMs": 483,
+        "lastApiResponseEndMs": 439,
+        "lastLongTaskEndMs": 348,
+        "loadEventMs": 221,
+        "requests": 4,
+        "wireKB": 308,
+        "bodyKB": 307,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 167,
+          "longestMs": 107
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 19,
+        "quietMs": 26,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 50,
+        "worstGapMs": 60,
+        "pinsOnScreen": 62,
+        "heapMb": 5,
+        "domNodes": 344
+      },
+      "zoomOut": {
+        "reactedMs": 10,
+        "quietMs": 16,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "pinsOnScreen": 69,
+        "heapMb": 6,
+        "domNodes": 360
+      },
+      "list": {
+        "reactedMs": 41,
+        "quietMs": 51,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 208,
+        "worstGapMs": 218,
+        "cards": 213,
+        "heapMb": 8,
+        "domNodes": 2018
+      },
+      "profile": {
+        "reactedMs": 9,
+        "quietMs": 25,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 38,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 7,
+        "domNodes": 2079
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 25,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 23,
+        "pinsOnScreen": 8,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 4,
+        "quietMs": 43,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 56,
+        "worstGapMs": 66,
+        "cards": 73,
+        "heapMb": 8,
+        "domNodes": 864
+      },
+      "search": {
+        "reactedMs": 10,
+        "quietMs": 212,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 29,
+        "pinsOnScreen": 2,
+        "heapMb": 11,
+        "domNodes": 127,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 31,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 42,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 49,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 202,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 22,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 14,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 12,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 230,
+      "chrome": {
+        "heapUsedMb": 10,
+        "nodes": 8061,
+        "layouts": 33,
+        "styleRecalcs": 106,
+        "mainThreadSeconds": 1.22,
+        "scriptSeconds": 0.34,
+        "layoutSeconds": 0.3
+      },
+      "machineBusyPct": 77
+    },
+    {
+      "arch": "current",
+      "size": 213,
+      "rep": 1,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:02:39.145Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 458,
+        "pinsLastChangedMs": 458,
+        "lastApiResponseEndMs": 426,
+        "lastLongTaskEndMs": 342,
+        "loadEventMs": 215,
+        "requests": 5,
+        "wireKB": 12,
+        "bodyKB": 27,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 165,
+          "longestMs": 99
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 3,
+        "domNodes": 127
+      },
+      "zoomIn": {
+        "reactedMs": 7,
+        "quietMs": 27,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 43,
+        "pinsOnScreen": 36,
+        "heapMb": 4,
+        "domNodes": 243
+      },
+      "zoomOut": {
+        "reactedMs": 6,
+        "quietMs": 9,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 13,
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 127
+      },
+      "list": {
+        "reactedMs": 8,
+        "quietMs": 39,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 58,
+        "cards": 48,
+        "heapMb": 4,
+        "domNodes": 508
+      },
+      "profile": {
+        "reactedMs": 10,
+        "quietMs": 56,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 36,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 569
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 62,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 33,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 127
+      },
+      "jobs": {
+        "reactedMs": 6,
+        "quietMs": 48,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 53,
+        "cards": 24,
+        "heapMb": 6,
+        "domNodes": 336
+      },
+      "search": {
+        "reactedMs": 3,
+        "quietMs": 606,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 296,
+        "worstGapMs": 215,
+        "pinsOnScreen": 2,
+        "heapMb": 6,
+        "domNodes": 125,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 45,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 42,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 43,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 43,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 43,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 27,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 22,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 27,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 33,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 226,
+      "chrome": {
+        "heapUsedMb": 5,
+        "nodes": 3403,
+        "layouts": 33,
+        "styleRecalcs": 104,
+        "mainThreadSeconds": 1.05,
+        "scriptSeconds": 0.32,
+        "layoutSeconds": 0.22
+      },
+      "machineBusyPct": 81
+    },
+    {
+      "arch": "current",
+      "size": 213,
+      "rep": 2,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:02:46.694Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 781,
+        "pinsLastChangedMs": 781,
+        "lastApiResponseEndMs": 686,
+        "lastLongTaskEndMs": 675,
+        "loadEventMs": 332,
+        "requests": 5,
+        "wireKB": 12,
+        "bodyKB": 27,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 400,
+          "longestMs": 154
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 127
+      },
+      "zoomIn": {
+        "reactedMs": 12,
+        "quietMs": 28,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 52,
+        "worstGapMs": 62,
+        "pinsOnScreen": 36,
+        "heapMb": 4,
+        "domNodes": 243
+      },
+      "zoomOut": {
+        "reactedMs": 7,
+        "quietMs": 15,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 14,
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 127
+      },
+      "list": {
+        "reactedMs": 13,
+        "quietMs": 51,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 90,
+        "worstGapMs": 100,
+        "cards": 48,
+        "heapMb": 4,
+        "domNodes": 508
+      },
+      "profile": {
+        "reactedMs": 11,
+        "quietMs": 82,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 56,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 569
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 79,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 167,
+        "worstGapMs": 177,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 127
+      },
+      "jobs": {
+        "reactedMs": 15,
+        "quietMs": 83,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 87,
+        "worstGapMs": 97,
+        "cards": 24,
+        "heapMb": 5,
+        "domNodes": 336
+      },
+      "search": {
+        "reactedMs": 9,
+        "quietMs": 705,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 46,
+        "pinsOnScreen": 2,
+        "heapMb": 6,
+        "domNodes": 125,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 111,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 102,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 97,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 82,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 89,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 25,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 55,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 37,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 39,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 26,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 275,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 224,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 223,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 348,
+      "chrome": {
+        "heapUsedMb": 5,
+        "nodes": 3403,
+        "layouts": 35,
+        "styleRecalcs": 89,
+        "mainThreadSeconds": 1.58,
+        "scriptSeconds": 0.52,
+        "layoutSeconds": 0.37
+      },
+      "machineBusyPct": 90
+    },
+    {
+      "arch": "current",
+      "size": 213,
+      "rep": 3,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:02:53.972Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 439,
+        "pinsLastChangedMs": 439,
+        "lastApiResponseEndMs": 413,
+        "lastLongTaskEndMs": 327,
+        "loadEventMs": 182,
+        "requests": 5,
+        "wireKB": 12,
+        "bodyKB": 27,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 183,
+          "longestMs": 123
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 127
+      },
+      "zoomIn": {
+        "reactedMs": 13,
+        "quietMs": 29,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 53,
+        "pinsOnScreen": 36,
+        "heapMb": 4,
+        "domNodes": 243
+      },
+      "zoomOut": {
+        "reactedMs": 31,
+        "quietMs": 46,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 43,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 127
+      },
+      "list": {
+        "reactedMs": 15,
+        "quietMs": 69,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 104,
+        "worstGapMs": 114,
+        "cards": 48,
+        "heapMb": 4,
+        "domNodes": 508
+      },
+      "profile": {
+        "reactedMs": 11,
+        "quietMs": 79,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 53,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 4,
+        "domNodes": 569
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 48,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 27,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 127
+      },
+      "jobs": {
+        "reactedMs": 5,
+        "quietMs": 35,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 50,
+        "cards": 24,
+        "heapMb": 6,
+        "domNodes": 336
+      },
+      "search": {
+        "reactedMs": 3,
+        "quietMs": 466,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 12,
+        "pinsOnScreen": 2,
+        "heapMb": 5,
+        "domNodes": 125,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 39,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 38,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 39,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 26,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 52,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 43,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 23,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 9,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 20,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 9,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 8,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 9,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 188,
+      "chrome": {
+        "heapUsedMb": 5,
+        "nodes": 3403,
+        "layouts": 36,
+        "styleRecalcs": 101,
+        "mainThreadSeconds": 1.15,
+        "scriptSeconds": 0.3,
+        "layoutSeconds": 0.29
+      },
+      "machineBusyPct": 86
+    },
+    {
+      "arch": "baseline",
+      "size": 500,
+      "rep": 1,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:00.822Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 797,
+        "pinsLastChangedMs": 797,
+        "lastApiResponseEndMs": 725,
+        "lastLongTaskEndMs": 796,
+        "loadEventMs": 386,
+        "requests": 4,
+        "wireKB": 705,
+        "bodyKB": 704,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 270,
+          "longestMs": 149
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 7,
+        "domNodes": 124
+      },
+      "zoomIn": {
+        "reactedMs": 50,
+        "quietMs": 58,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 145,
+        "worstGapMs": 155,
+        "pinsOnScreen": 121,
+        "heapMb": 7,
+        "domNodes": 538
+      },
+      "zoomOut": {
+        "reactedMs": 25,
+        "quietMs": 27,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 36,
+        "pinsOnScreen": 128,
+        "heapMb": 8,
+        "domNodes": 552
+      },
+      "list": {
+        "reactedMs": 186,
+        "quietMs": 447,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 737,
+        "worstGapMs": 747,
+        "cards": 500,
+        "heapMb": 9,
+        "domNodes": 4658
+      },
+      "profile": {
+        "reactedMs": 25,
+        "quietMs": 36,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 101,
+        "worstGapMs": 111,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 10,
+        "domNodes": 4711
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 70,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 61,
+        "worstGapMs": 71,
+        "pinsOnScreen": 8,
+        "heapMb": 12,
+        "domNodes": 124
+      },
+      "jobs": {
+        "reactedMs": 5,
+        "quietMs": 68,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 75,
+        "worstGapMs": 85,
+        "cards": 171,
+        "heapMb": 13,
+        "domNodes": 1943
+      },
+      "search": {
+        "reactedMs": 8,
+        "quietMs": 211,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 31,
+        "pinsOnScreen": 3,
+        "heapMb": 9,
+        "domNodes": 136,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 51,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 92,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 92,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 114,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 88,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 19,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 14,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 22,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 20,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 21,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 395,
+      "chrome": {
+        "heapUsedMb": 9,
+        "nodes": 4332,
+        "layouts": 34,
+        "styleRecalcs": 86,
+        "mainThreadSeconds": 2.22,
+        "scriptSeconds": 0.64,
+        "layoutSeconds": 0.54
+      },
+      "machineBusyPct": 93
+    },
+    {
+      "arch": "baseline",
+      "size": 500,
+      "rep": 2,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:07.890Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 667,
+        "pinsLastChangedMs": 667,
+        "lastApiResponseEndMs": 586,
+        "lastLongTaskEndMs": 666,
+        "loadEventMs": 220,
+        "requests": 4,
+        "wireKB": 705,
+        "bodyKB": 704,
+        "longTasks": {
+          "count": 4,
+          "totalMs": 364,
+          "longestMs": 150
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 7,
+        "domNodes": 124
+      },
+      "zoomIn": {
+        "reactedMs": 45,
+        "quietMs": 48,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 138,
+        "worstGapMs": 148,
+        "pinsOnScreen": 121,
+        "heapMb": 7,
+        "domNodes": 538
+      },
+      "zoomOut": {
+        "reactedMs": 22,
+        "quietMs": 385,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 124,
+        "worstGapMs": 134,
+        "pinsOnScreen": 8,
+        "heapMb": 8,
+        "domNodes": 124
+      },
+      "list": {
+        "reactedMs": 70,
+        "quietMs": 335,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 625,
+        "worstGapMs": 635,
+        "cards": 500,
+        "heapMb": 9,
+        "domNodes": 4658
+      },
+      "profile": {
+        "reactedMs": 114,
+        "quietMs": 115,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 289,
+        "worstGapMs": 299,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 10,
+        "domNodes": 4711
+      },
+      "map": {
+        "reactedMs": 2,
+        "quietMs": 67,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 61,
+        "worstGapMs": 71,
+        "pinsOnScreen": 8,
+        "heapMb": 12,
+        "domNodes": 124
+      },
+      "jobs": {
+        "reactedMs": 7,
+        "quietMs": 85,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 130,
+        "worstGapMs": 140,
+        "cards": 171,
+        "heapMb": 13,
+        "domNodes": 1943
+      },
+      "search": {
+        "reactedMs": 5,
+        "quietMs": 200,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 19,
+        "pinsOnScreen": 3,
+        "heapMb": 9,
+        "domNodes": 136,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 76,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 71,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 71,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 83,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 187,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 23,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 14,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 18,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 20,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 15,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 226,
+      "chrome": {
+        "heapUsedMb": 9,
+        "nodes": 4332,
+        "layouts": 33,
+        "styleRecalcs": 88,
+        "mainThreadSeconds": 2.39,
+        "scriptSeconds": 0.66,
+        "layoutSeconds": 0.56
+      },
+      "machineBusyPct": 83
+    },
+    {
+      "arch": "baseline",
+      "size": 500,
+      "rep": 3,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:15.171Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 520,
+        "pinsLastChangedMs": 520,
+        "lastApiResponseEndMs": 491,
+        "lastLongTaskEndMs": 519,
+        "loadEventMs": 213,
+        "requests": 4,
+        "wireKB": 705,
+        "bodyKB": 704,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 223,
+          "longestMs": 113
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 6,
+        "domNodes": 124
+      },
+      "zoomIn": {
+        "reactedMs": 34,
+        "quietMs": 43,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 109,
+        "worstGapMs": 119,
+        "pinsOnScreen": 121,
+        "heapMb": 7,
+        "domNodes": 538
+      },
+      "zoomOut": {
+        "reactedMs": 15,
+        "quietMs": 27,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 37,
+        "pinsOnScreen": 128,
+        "heapMb": 8,
+        "domNodes": 552
+      },
+      "list": {
+        "reactedMs": 91,
+        "quietMs": 235,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 524,
+        "worstGapMs": 534,
+        "cards": 500,
+        "heapMb": 9,
+        "domNodes": 4658
+      },
+      "profile": {
+        "reactedMs": 26,
+        "quietMs": 34,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 78,
+        "worstGapMs": 88,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 10,
+        "domNodes": 4711
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 35,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 41,
+        "pinsOnScreen": 8,
+        "heapMb": 12,
+        "domNodes": 124
+      },
+      "jobs": {
+        "reactedMs": 10,
+        "quietMs": 85,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 108,
+        "worstGapMs": 118,
+        "cards": 171,
+        "heapMb": 13,
+        "domNodes": 1943
+      },
+      "search": {
+        "reactedMs": 9,
+        "quietMs": 224,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 29,
+        "pinsOnScreen": 3,
+        "heapMb": 9,
+        "domNodes": 136,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 38,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 56,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 133,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 63,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 27,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 26,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 27,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 20,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 32,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 221,
+      "chrome": {
+        "heapUsedMb": 9,
+        "nodes": 4332,
+        "layouts": 34,
+        "styleRecalcs": 96,
+        "mainThreadSeconds": 1.9,
+        "scriptSeconds": 0.51,
+        "layoutSeconds": 0.47
+      },
+      "machineBusyPct": 83
+    },
+    {
+      "arch": "current",
+      "size": 500,
+      "rep": 1,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:22.451Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 723,
+        "pinsLastChangedMs": 723,
+        "lastApiResponseEndMs": 696,
+        "lastLongTaskEndMs": 571,
+        "loadEventMs": 387,
+        "requests": 5,
+        "wireKB": 19,
+        "bodyKB": 54,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 221,
+          "longestMs": 156
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 14,
+        "quietMs": 63,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 39,
+        "pinsOnScreen": 81,
+        "heapMb": 4,
+        "domNodes": 359
+      },
+      "zoomOut": {
+        "reactedMs": 16,
+        "quietMs": 30,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 26,
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 10,
+        "quietMs": 199,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 94,
+        "worstGapMs": 104,
+        "cards": 48,
+        "heapMb": 5,
+        "domNodes": 508
+      },
+      "profile": {
+        "reactedMs": 13,
+        "quietMs": 66,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 48,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 561
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 66,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 34,
+        "pinsOnScreen": 9,
+        "heapMb": 6,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 8,
+        "quietMs": 84,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 48,
+        "cards": 24,
+        "heapMb": 6,
+        "domNodes": 346
+      },
+      "search": {
+        "reactedMs": 2,
+        "quietMs": 468,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 16,
+        "pinsOnScreen": 3,
+        "heapMb": 6,
+        "domNodes": 134,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 51,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 48,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 66,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 164,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 25,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 35,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 9,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 9,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 10,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 395,
+      "chrome": {
+        "heapUsedMb": 6,
+        "nodes": 3791,
+        "layouts": 33,
+        "styleRecalcs": 99,
+        "mainThreadSeconds": 1.2,
+        "scriptSeconds": 0.35,
+        "layoutSeconds": 0.33
+      },
+      "machineBusyPct": 92
+    },
+    {
+      "arch": "current",
+      "size": 500,
+      "rep": 2,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:29.089Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 476,
+        "pinsLastChangedMs": 476,
+        "lastApiResponseEndMs": 437,
+        "lastLongTaskEndMs": 361,
+        "loadEventMs": 194,
+        "requests": 5,
+        "wireKB": 19,
+        "bodyKB": 54,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 208,
+          "longestMs": 144
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 6,
+        "quietMs": 29,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 22,
+        "pinsOnScreen": 81,
+        "heapMb": 4,
+        "domNodes": 359
+      },
+      "zoomOut": {
+        "reactedMs": 6,
+        "quietMs": 20,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 21,
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 6,
+        "quietMs": 39,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 40,
+        "cards": 48,
+        "heapMb": 4,
+        "domNodes": 508
+      },
+      "profile": {
+        "reactedMs": 6,
+        "quietMs": 43,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 561
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 30,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 16,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 4,
+        "quietMs": 32,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 39,
+        "cards": 24,
+        "heapMb": 6,
+        "domNodes": 346
+      },
+      "search": {
+        "reactedMs": 3,
+        "quietMs": 592,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 22,
+        "pinsOnScreen": 3,
+        "heapMb": 6,
+        "domNodes": 134,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 24,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 19,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 7,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 134,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 113,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 113,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 201,
+      "chrome": {
+        "heapUsedMb": 6,
+        "nodes": 3791,
+        "layouts": 34,
+        "styleRecalcs": 102,
+        "mainThreadSeconds": 0.94,
+        "scriptSeconds": 0.29,
+        "layoutSeconds": 0.25
+      },
+      "machineBusyPct": 73
+    },
+    {
+      "arch": "current",
+      "size": 500,
+      "rep": 3,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:35.970Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 600,
+        "pinsLastChangedMs": 600,
+        "lastApiResponseEndMs": 559,
+        "lastLongTaskEndMs": 489,
+        "loadEventMs": 355,
+        "requests": 5,
+        "wireKB": 19,
+        "bodyKB": 54,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 179,
+          "longestMs": 114
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 7,
+        "quietMs": 42,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 26,
+        "pinsOnScreen": 81,
+        "heapMb": 4,
+        "domNodes": 359
+      },
+      "zoomOut": {
+        "reactedMs": 9,
+        "quietMs": 15,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 16,
+        "pinsOnScreen": 9,
+        "heapMb": 4,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 11,
+        "quietMs": 41,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 49,
+        "cards": 48,
+        "heapMb": 4,
+        "domNodes": 508
+      },
+      "profile": {
+        "reactedMs": 9,
+        "quietMs": 58,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 42,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 561
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 32,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 16,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 6,
+        "quietMs": 37,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 34,
+        "cards": 24,
+        "heapMb": 6,
+        "domNodes": 346
+      },
+      "search": {
+        "reactedMs": 5,
+        "quietMs": 468,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 13,
+        "pinsOnScreen": 3,
+        "heapMb": 6,
+        "domNodes": 134,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 42,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 38,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 37,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 32,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 8,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 8,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 19,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 9,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 12,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 361,
+      "chrome": {
+        "heapUsedMb": 6,
+        "nodes": 3791,
+        "layouts": 34,
+        "styleRecalcs": 103,
+        "mainThreadSeconds": 0.91,
+        "scriptSeconds": 0.28,
+        "layoutSeconds": 0.22
+      },
+      "machineBusyPct": 71
+    },
+    {
+      "arch": "baseline",
+      "size": 1000,
+      "rep": 1,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:42.274Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 608,
+        "pinsLastChangedMs": 608,
+        "lastApiResponseEndMs": 525,
+        "lastLongTaskEndMs": 608,
+        "loadEventMs": 188,
+        "requests": 4,
+        "wireKB": 1405,
+        "bodyKB": 1404,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 238,
+          "longestMs": 106
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 9,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 46,
+        "quietMs": 46,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 149,
+        "worstGapMs": 159,
+        "pinsOnScreen": 214,
+        "heapMb": 11,
+        "domNodes": 850
+      },
+      "zoomOut": {
+        "reactedMs": 21,
+        "quietMs": 30,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 52,
+        "pinsOnScreen": 222,
+        "heapMb": 13,
+        "domNodes": 866
+      },
+      "list": {
+        "reactedMs": 115,
+        "quietMs": 658,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 948,
+        "worstGapMs": 958,
+        "cards": 1000,
+        "heapMb": 15,
+        "domNodes": 9213
+      },
+      "profile": {
+        "reactedMs": 82,
+        "quietMs": 88,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 236,
+        "worstGapMs": 246,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 15,
+        "domNodes": 9257
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 93,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 92,
+        "worstGapMs": 102,
+        "pinsOnScreen": 9,
+        "heapMb": 24,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 5,
+        "quietMs": 94,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 145,
+        "worstGapMs": 155,
+        "cards": 293,
+        "heapMb": 26,
+        "domNodes": 3269
+      },
+      "search": {
+        "reactedMs": 7,
+        "quietMs": 234,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 32,
+        "pinsOnScreen": 4,
+        "heapMb": 27,
+        "domNodes": 137,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 35,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 48,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 118,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 166,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 167,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 42,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 37,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 30,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 194,
+      "chrome": {
+        "heapUsedMb": 26,
+        "nodes": 24625,
+        "layouts": 35,
+        "styleRecalcs": 85,
+        "mainThreadSeconds": 2.53,
+        "scriptSeconds": 0.71,
+        "layoutSeconds": 0.66
+      },
+      "machineBusyPct": 78
+    },
+    {
+      "arch": "baseline",
+      "size": 1000,
+      "rep": 2,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:03:49.998Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 641,
+        "pinsLastChangedMs": 641,
+        "lastApiResponseEndMs": 544,
+        "lastLongTaskEndMs": 640,
+        "loadEventMs": 196,
+        "requests": 4,
+        "wireKB": 1405,
+        "bodyKB": 1404,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 292,
+          "longestMs": 140
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 9,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 56,
+        "quietMs": 57,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 173,
+        "worstGapMs": 183,
+        "pinsOnScreen": 214,
+        "heapMb": 11,
+        "domNodes": 850
+      },
+      "zoomOut": {
+        "reactedMs": 23,
+        "quietMs": 346,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 47,
+        "pinsOnScreen": 9,
+        "heapMb": 13,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 179,
+        "quietMs": 1130,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 1419,
+        "worstGapMs": 1429,
+        "cards": 1000,
+        "heapMb": 14,
+        "domNodes": 9213
+      },
+      "profile": {
+        "reactedMs": 43,
+        "quietMs": 239,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 445,
+        "worstGapMs": 295,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 10,
+        "domNodes": 9257
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 129,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 128,
+        "worstGapMs": 138,
+        "pinsOnScreen": 9,
+        "heapMb": 19,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 7,
+        "quietMs": 153,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 195,
+        "worstGapMs": 205,
+        "cards": 293,
+        "heapMb": 21,
+        "domNodes": 3269
+      },
+      "search": {
+        "reactedMs": 17,
+        "quietMs": 248,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 38,
+        "pinsOnScreen": 4,
+        "heapMb": 24,
+        "domNodes": 137,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 42,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 79,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 120,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 129,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 67,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 340,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 41,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 51,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 41,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 204,
+      "chrome": {
+        "heapUsedMb": 23,
+        "nodes": 24605,
+        "layouts": 33,
+        "styleRecalcs": 70,
+        "mainThreadSeconds": 3.23,
+        "scriptSeconds": 0.89,
+        "layoutSeconds": 0.65
+      },
+      "machineBusyPct": 93
+    },
+    {
+      "arch": "baseline",
+      "size": 1000,
+      "rep": 3,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:03.554Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 5067,
+        "pinsLastChangedMs": 5067,
+        "lastApiResponseEndMs": 4317,
+        "lastLongTaskEndMs": 5066,
+        "loadEventMs": 3799,
+        "requests": 4,
+        "wireKB": 1405,
+        "bodyKB": 1404,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 377,
+          "longestMs": 219
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 9,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 90,
+        "quietMs": 92,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 220,
+        "worstGapMs": 230,
+        "pinsOnScreen": 214,
+        "heapMb": 11,
+        "domNodes": 850
+      },
+      "zoomOut": {
+        "reactedMs": 34,
+        "quietMs": 35,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 48,
+        "pinsOnScreen": 222,
+        "heapMb": 13,
+        "domNodes": 866
+      },
+      "list": {
+        "reactedMs": 176,
+        "quietMs": 806,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 1096,
+        "worstGapMs": 1106,
+        "cards": 1000,
+        "heapMb": 14,
+        "domNodes": 9213
+      },
+      "profile": {
+        "reactedMs": 52,
+        "quietMs": 59,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 223,
+        "worstGapMs": 233,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 10,
+        "domNodes": 9257
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 115,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 110,
+        "worstGapMs": 120,
+        "pinsOnScreen": 9,
+        "heapMb": 19,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 9,
+        "quietMs": 143,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 185,
+        "worstGapMs": 195,
+        "cards": 293,
+        "heapMb": 21,
+        "domNodes": 3269
+      },
+      "search": {
+        "reactedMs": 10,
+        "quietMs": 219,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 36,
+        "pinsOnScreen": 4,
+        "heapMb": 24,
+        "domNodes": 137,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 637,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 634,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 638,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 640,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 183,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 50,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 31,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 48,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 38,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 27,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 3808,
+      "chrome": {
+        "heapUsedMb": 23,
+        "nodes": 24605,
+        "layouts": 33,
+        "styleRecalcs": 69,
+        "mainThreadSeconds": 3.54,
+        "scriptSeconds": 0.87,
+        "layoutSeconds": 0.82
+      },
+      "machineBusyPct": 100
+    },
+    {
+      "arch": "current",
+      "size": 1000,
+      "rep": 1,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:14.009Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 1654,
+        "pinsLastChangedMs": 1654,
+        "lastApiResponseEndMs": 1517,
+        "lastLongTaskEndMs": 1482,
+        "loadEventMs": 1022,
+        "requests": 5,
+        "wireKB": 31,
+        "bodyKB": 100,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 360,
+          "longestMs": 192
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 16,
+        "quietMs": 89,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 50,
+        "worstGapMs": 60,
+        "pinsOnScreen": 136,
+        "heapMb": 5,
+        "domNodes": 511
+      },
+      "zoomOut": {
+        "reactedMs": 14,
+        "quietMs": 21,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 68,
+        "worstGapMs": 78,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 68,
+        "quietMs": 227,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 2,
+        "blockedMs": 328,
+        "worstGapMs": 201,
+        "cards": 48,
+        "heapMb": 5,
+        "domNodes": 507
+      },
+      "profile": {
+        "reactedMs": 42,
+        "quietMs": 77,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 166,
+        "worstGapMs": 176,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 6,
+        "domNodes": 551
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 160,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 97,
+        "worstGapMs": 107,
+        "pinsOnScreen": 9,
+        "heapMb": 8,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 9,
+        "quietMs": 63,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 54,
+        "cards": 24,
+        "heapMb": 8,
+        "domNodes": 352
+      },
+      "search": {
+        "reactedMs": 8,
+        "quietMs": 482,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 21,
+        "pinsOnScreen": 4,
+        "heapMb": 8,
+        "domNodes": 135,
+        "wireKB": 3
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 143,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 122,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 127,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 128,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 119,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 91,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 60,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 46,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 62,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 25,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 20,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 23,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 23,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 1033,
+      "chrome": {
+        "heapUsedMb": 7,
+        "nodes": 4161,
+        "layouts": 31,
+        "styleRecalcs": 88,
+        "mainThreadSeconds": 2.53,
+        "scriptSeconds": 0.8,
+        "layoutSeconds": 0.55
+      },
+      "machineBusyPct": 97
+    },
+    {
+      "arch": "current",
+      "size": 1000,
+      "rep": 2,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:22.791Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 641,
+        "pinsLastChangedMs": 641,
+        "lastApiResponseEndMs": 607,
+        "lastLongTaskEndMs": 490,
+        "loadEventMs": 316,
+        "requests": 5,
+        "wireKB": 31,
+        "bodyKB": 100,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 223,
+          "longestMs": 147
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 15,
+        "quietMs": 80,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 39,
+        "pinsOnScreen": 136,
+        "heapMb": 5,
+        "domNodes": 511
+      },
+      "zoomOut": {
+        "reactedMs": 16,
+        "quietMs": 23,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 86,
+        "worstGapMs": 96,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 11,
+        "quietMs": 44,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 95,
+        "worstGapMs": 105,
+        "cards": 48,
+        "heapMb": 5,
+        "domNodes": 507
+      },
+      "profile": {
+        "reactedMs": 10,
+        "quietMs": 81,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 60,
+        "worstGapMs": 70,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 551
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 44,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "pinsOnScreen": 9,
+        "heapMb": 6,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 7,
+        "quietMs": 39,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 56,
+        "worstGapMs": 66,
+        "cards": 24,
+        "heapMb": 7,
+        "domNodes": 352
+      },
+      "search": {
+        "reactedMs": 2,
+        "quietMs": 473,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 18,
+        "pinsOnScreen": 4,
+        "heapMb": 7,
+        "domNodes": 135,
+        "wireKB": 3
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 44,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 60,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 62,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 61,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 17,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 69,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 61,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 52,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 16,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 324,
+      "chrome": {
+        "heapUsedMb": 6,
+        "nodes": 4161,
+        "layouts": 37,
+        "styleRecalcs": 97,
+        "mainThreadSeconds": 1.33,
+        "scriptSeconds": 0.39,
+        "layoutSeconds": 0.35
+      },
+      "machineBusyPct": 95
+    },
+    {
+      "arch": "current",
+      "size": 1000,
+      "rep": 3,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:29.879Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 626,
+        "pinsLastChangedMs": 626,
+        "lastApiResponseEndMs": 583,
+        "lastLongTaskEndMs": 484,
+        "loadEventMs": 318,
+        "requests": 5,
+        "wireKB": 31,
+        "bodyKB": 100,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 212,
+          "longestMs": 142
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 11,
+        "quietMs": 51,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 28,
+        "pinsOnScreen": 136,
+        "heapMb": 5,
+        "domNodes": 511
+      },
+      "zoomOut": {
+        "reactedMs": 10,
+        "quietMs": 16,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 15,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 5,
+        "quietMs": 22,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 45,
+        "cards": 48,
+        "heapMb": 5,
+        "domNodes": 507
+      },
+      "profile": {
+        "reactedMs": 10,
+        "quietMs": 61,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 46,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 5,
+        "domNodes": 551
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 53,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 22,
+        "pinsOnScreen": 9,
+        "heapMb": 6,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 4,
+        "quietMs": 32,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 46,
+        "cards": 24,
+        "heapMb": 7,
+        "domNodes": 352
+      },
+      "search": {
+        "reactedMs": 4,
+        "quietMs": 479,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 13,
+        "pinsOnScreen": 4,
+        "heapMb": 7,
+        "domNodes": 135,
+        "wireKB": 3
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 45,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 39,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 39,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 38,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 37,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 44,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 9,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 20,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 12,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 329,
+      "chrome": {
+        "heapUsedMb": 6,
+        "nodes": 4161,
+        "layouts": 35,
+        "styleRecalcs": 101,
+        "mainThreadSeconds": 1.01,
+        "scriptSeconds": 0.32,
+        "layoutSeconds": 0.27
+      },
+      "machineBusyPct": 69
+    },
+    {
+      "arch": "baseline",
+      "size": 2500,
+      "rep": 1,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:36.401Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 986,
+        "pinsLastChangedMs": 986,
+        "lastApiResponseEndMs": 797,
+        "lastLongTaskEndMs": 986,
+        "loadEventMs": 242,
+        "requests": 4,
+        "wireKB": 3521,
+        "bodyKB": 3520,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 368,
+          "longestMs": 160
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 17,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 115,
+        "quietMs": 422,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 379,
+        "worstGapMs": 246,
+        "pinsOnScreen": 400,
+        "heapMb": 20,
+        "domNodes": 1466
+      },
+      "zoomOut": {
+        "reactedMs": 49,
+        "quietMs": 54,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 94,
+        "worstGapMs": 104,
+        "pinsOnScreen": 409,
+        "heapMb": 22,
+        "domNodes": 1484
+      },
+      "list": {
+        "reactedMs": 429,
+        "quietMs": 2313,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 2601,
+        "worstGapMs": 2611,
+        "cards": 2500,
+        "heapMb": 23,
+        "domNodes": 22971
+      },
+      "profile": {
+        "reactedMs": 99,
+        "quietMs": 849,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 3,
+        "blockedMs": 1089,
+        "worstGapMs": 1099,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 32,
+        "domNodes": 23026
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 214,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 218,
+        "worstGapMs": 228,
+        "pinsOnScreen": 9,
+        "heapMb": 52,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 9,
+        "quietMs": 239,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 430,
+        "worstGapMs": 440,
+        "cards": 804,
+        "heapMb": 57,
+        "domNodes": 8817
+      },
+      "search": {
+        "reactedMs": 7,
+        "quietMs": 293,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 1,
+        "blockedMs": 57,
+        "worstGapMs": 67,
+        "pinsOnScreen": 4,
+        "heapMb": 57,
+        "domNodes": 136,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 43,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 70,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 202,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 314,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 1039,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 67,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 59,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 62,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 55,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 55,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 249,
+      "chrome": {
+        "heapUsedMb": 55,
+        "nodes": 64036,
+        "layouts": 39,
+        "styleRecalcs": 76,
+        "mainThreadSeconds": 6.07,
+        "scriptSeconds": 1.62,
+        "layoutSeconds": 1.46
+      },
+      "machineBusyPct": 93
+    },
+    {
+      "arch": "baseline",
+      "size": 2500,
+      "rep": 2,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:47.515Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 907,
+        "pinsLastChangedMs": 907,
+        "lastApiResponseEndMs": 737,
+        "lastLongTaskEndMs": 908,
+        "loadEventMs": 257,
+        "requests": 4,
+        "wireKB": 3521,
+        "bodyKB": 3520,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 351,
+          "longestMs": 150
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 17,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 111,
+        "quietMs": 413,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 357,
+        "worstGapMs": 367,
+        "pinsOnScreen": 400,
+        "heapMb": 20,
+        "domNodes": 1466
+      },
+      "zoomOut": {
+        "reactedMs": 46,
+        "quietMs": 73,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 98,
+        "worstGapMs": 108,
+        "pinsOnScreen": 409,
+        "heapMb": 22,
+        "domNodes": 1484
+      },
+      "list": {
+        "reactedMs": 349,
+        "quietMs": 2914,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 3204,
+        "worstGapMs": 3214,
+        "cards": 2500,
+        "heapMb": 23,
+        "domNodes": 22971
+      },
+      "profile": {
+        "reactedMs": 110,
+        "quietMs": 175,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 432,
+        "worstGapMs": 442,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 32,
+        "domNodes": 23026
+      },
+      "map": {
+        "reactedMs": 7,
+        "quietMs": 235,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 251,
+        "worstGapMs": 261,
+        "pinsOnScreen": 9,
+        "heapMb": 52,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 9,
+        "quietMs": 386,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 506,
+        "worstGapMs": 516,
+        "cards": 804,
+        "heapMb": 57,
+        "domNodes": 8817
+      },
+      "search": {
+        "reactedMs": 32,
+        "quietMs": 432,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 2,
+        "blockedMs": 178,
+        "worstGapMs": 129,
+        "pinsOnScreen": 4,
+        "heapMb": 56,
+        "domNodes": 136,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 41,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 58,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 128,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 228,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 338,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 147,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 96,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 162,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 219,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 116,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 268,
+      "chrome": {
+        "heapUsedMb": 54,
+        "nodes": 63974,
+        "layouts": 36,
+        "styleRecalcs": 78,
+        "mainThreadSeconds": 6.31,
+        "scriptSeconds": 1.78,
+        "layoutSeconds": 1.46
+      },
+      "machineBusyPct": 96
+    },
+    {
+      "arch": "baseline",
+      "size": 2500,
+      "rep": 3,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:04:59.401Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 855,
+        "pinsLastChangedMs": 855,
+        "lastApiResponseEndMs": 697,
+        "lastLongTaskEndMs": 855,
+        "loadEventMs": 187,
+        "requests": 4,
+        "wireKB": 3521,
+        "bodyKB": 3520,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 340,
+          "longestMs": 153
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 17,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 98,
+        "quietMs": 103,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 354,
+        "worstGapMs": 364,
+        "pinsOnScreen": 401,
+        "heapMb": 19,
+        "domNodes": 1468
+      },
+      "zoomOut": {
+        "reactedMs": 53,
+        "quietMs": 57,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 133,
+        "worstGapMs": 88,
+        "pinsOnScreen": 409,
+        "heapMb": 22,
+        "domNodes": 1484
+      },
+      "list": {
+        "reactedMs": 359,
+        "quietMs": 2341,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 3,
+        "blockedMs": 2631,
+        "worstGapMs": 2641,
+        "cards": 2500,
+        "heapMb": 23,
+        "domNodes": 22971
+      },
+      "profile": {
+        "reactedMs": 122,
+        "quietMs": 778,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 2,
+        "blockedMs": 977,
+        "worstGapMs": 586,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 32,
+        "domNodes": 23026
+      },
+      "map": {
+        "reactedMs": 2,
+        "quietMs": 230,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 217,
+        "worstGapMs": 227,
+        "pinsOnScreen": 9,
+        "heapMb": 52,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 6,
+        "quietMs": 218,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 328,
+        "worstGapMs": 338,
+        "cards": 804,
+        "heapMb": 44,
+        "domNodes": 8817
+      },
+      "search": {
+        "reactedMs": 7,
+        "quietMs": 272,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 49,
+        "pinsOnScreen": 4,
+        "heapMb": 63,
+        "domNodes": 136,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 45,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 90,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 164,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 253,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 954,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 71,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 60,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 35,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 37,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 195,
+      "chrome": {
+        "heapUsedMb": 61,
+        "nodes": 64036,
+        "layouts": 39,
+        "styleRecalcs": 72,
+        "mainThreadSeconds": 5.63,
+        "scriptSeconds": 1.44,
+        "layoutSeconds": 1.37
+      },
+      "machineBusyPct": 90
+    },
+    {
+      "arch": "current",
+      "size": 2500,
+      "rep": 1,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:05:10.664Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 949,
+        "pinsLastChangedMs": 949,
+        "lastApiResponseEndMs": 890,
+        "lastLongTaskEndMs": 759,
+        "loadEventMs": 582,
+        "requests": 5,
+        "wireKB": 62,
+        "bodyKB": 220,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 214,
+          "longestMs": 155
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 21,
+        "quietMs": 163,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 57,
+        "pinsOnScreen": 238,
+        "heapMb": 5,
+        "domNodes": 746
+      },
+      "zoomOut": {
+        "reactedMs": 19,
+        "quietMs": 32,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 30,
+        "pinsOnScreen": 9,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 12,
+        "quietMs": 60,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 88,
+        "worstGapMs": 98,
+        "cards": 48,
+        "heapMb": 8,
+        "domNodes": 503
+      },
+      "profile": {
+        "reactedMs": 10,
+        "quietMs": 80,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 53,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 8,
+        "domNodes": 558
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 90,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 50,
+        "pinsOnScreen": 9,
+        "heapMb": 10,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 6,
+        "quietMs": 115,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 51,
+        "worstGapMs": 61,
+        "cards": 24,
+        "heapMb": 10,
+        "domNodes": 354
+      },
+      "search": {
+        "reactedMs": 3,
+        "quietMs": 471,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 11,
+        "pinsOnScreen": 4,
+        "heapMb": 12,
+        "domNodes": 134,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 56,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 52,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 51,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 51,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 62,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 25,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 52,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 44,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 28,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 79,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 80,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 16,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 593,
+      "chrome": {
+        "heapUsedMb": 11,
+        "nodes": 4626,
+        "layouts": 40,
+        "styleRecalcs": 95,
+        "mainThreadSeconds": 1.31,
+        "scriptSeconds": 0.43,
+        "layoutSeconds": 0.33
+      },
+      "machineBusyPct": 94
+    },
+    {
+      "arch": "current",
+      "size": 2500,
+      "rep": 2,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:05:18.629Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 691,
+        "pinsLastChangedMs": 691,
+        "lastApiResponseEndMs": 619,
+        "lastLongTaskEndMs": 691,
+        "loadEventMs": 273,
+        "requests": 5,
+        "wireKB": 62,
+        "bodyKB": 220,
+        "longTasks": {
+          "count": 4,
+          "totalMs": 342,
+          "longestMs": 157
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 12,
+        "quietMs": 94,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 46,
+        "pinsOnScreen": 238,
+        "heapMb": 6,
+        "domNodes": 746
+      },
+      "zoomOut": {
+        "reactedMs": 17,
+        "quietMs": 20,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 29,
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 8,
+        "quietMs": 38,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 47,
+        "cards": 48,
+        "heapMb": 6,
+        "domNodes": 503
+      },
+      "profile": {
+        "reactedMs": 11,
+        "quietMs": 91,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 58,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 6,
+        "domNodes": 558
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 139,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 53,
+        "pinsOnScreen": 9,
+        "heapMb": 9,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 19,
+        "quietMs": 121,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 97,
+        "worstGapMs": 107,
+        "cards": 24,
+        "heapMb": 9,
+        "domNodes": 354
+      },
+      "search": {
+        "reactedMs": 5,
+        "quietMs": 625,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 16,
+        "pinsOnScreen": 4,
+        "heapMb": 13,
+        "domNodes": 134,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/startups/meta",
+          "ms": 45,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 53,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 84,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 86,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 84,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 68,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 60,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 79,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 63,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 124,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 18,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 162,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 165,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 284,
+      "chrome": {
+        "heapUsedMb": 12,
+        "nodes": 4626,
+        "layouts": 39,
+        "styleRecalcs": 94,
+        "mainThreadSeconds": 1.44,
+        "scriptSeconds": 0.48,
+        "layoutSeconds": 0.34
+      },
+      "machineBusyPct": 92
+    },
+    {
+      "arch": "current",
+      "size": 2500,
+      "rep": 3,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:05:27.242Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 1087,
+        "pinsLastChangedMs": 1087,
+        "lastApiResponseEndMs": 968,
+        "lastLongTaskEndMs": 1086,
+        "loadEventMs": 567,
+        "requests": 5,
+        "wireKB": 62,
+        "bodyKB": 220,
+        "longTasks": {
+          "count": 5,
+          "totalMs": 571,
+          "longestMs": 191
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 5,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 20,
+        "quietMs": 256,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 57,
+        "worstGapMs": 67,
+        "pinsOnScreen": 238,
+        "heapMb": 5,
+        "domNodes": 746
+      },
+      "zoomOut": {
+        "reactedMs": 22,
+        "quietMs": 28,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 42,
+        "pinsOnScreen": 9,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 27,
+        "quietMs": 123,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 109,
+        "worstGapMs": 119,
+        "cards": 48,
+        "heapMb": 8,
+        "domNodes": 503
+      },
+      "profile": {
+        "reactedMs": 46,
+        "quietMs": 237,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 153,
+        "worstGapMs": 163,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 8,
+        "domNodes": 558
+      },
+      "map": {
+        "reactedMs": 1,
+        "quietMs": 140,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 82,
+        "worstGapMs": 92,
+        "pinsOnScreen": 9,
+        "heapMb": 10,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 7,
+        "quietMs": 126,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 68,
+        "worstGapMs": 78,
+        "cards": 24,
+        "heapMb": 10,
+        "domNodes": 354
+      },
+      "search": {
+        "reactedMs": 11,
+        "quietMs": 473,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 96,
+        "worstGapMs": 106,
+        "pinsOnScreen": 4,
+        "heapMb": 12,
+        "domNodes": 134,
+        "wireKB": 2
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 84,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 76,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 74,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 82,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 76,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 63,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 164,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 124,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 31,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 17,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 18,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 579,
+      "chrome": {
+        "heapUsedMb": 11,
+        "nodes": 4626,
+        "layouts": 36,
+        "styleRecalcs": 91,
+        "mainThreadSeconds": 2.36,
+        "scriptSeconds": 0.78,
+        "layoutSeconds": 0.44
+      },
+      "machineBusyPct": 95
+    },
+    {
+      "arch": "baseline",
+      "size": 5000,
+      "rep": 1,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:05:35.982Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 1832,
+        "pinsLastChangedMs": 1832,
+        "lastApiResponseEndMs": 1444,
+        "lastLongTaskEndMs": 1832,
+        "loadEventMs": 568,
+        "requests": 4,
+        "wireKB": 7034,
+        "bodyKB": 7032,
+        "longTasks": {
+          "count": 5,
+          "totalMs": 650,
+          "longestMs": 240
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 24,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 152,
+        "quietMs": 204,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 491,
+        "worstGapMs": 501,
+        "pinsOnScreen": 601,
+        "heapMb": 30,
+        "domNodes": 2073
+      },
+      "zoomOut": {
+        "reactedMs": 93,
+        "quietMs": 429,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 355,
+        "worstGapMs": 308,
+        "pinsOnScreen": 9,
+        "heapMb": 35,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 519,
+        "quietMs": 3685,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 3974,
+        "worstGapMs": 3984,
+        "cards": 5000,
+        "heapMb": 42,
+        "domNodes": 45843
+      },
+      "profile": {
+        "reactedMs": 194,
+        "quietMs": 1226,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 2,
+        "blockedMs": 1506,
+        "worstGapMs": 1457,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 60,
+        "domNodes": 45894
+      },
+      "map": {
+        "reactedMs": 2,
+        "quietMs": 289,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 324,
+        "worstGapMs": 334,
+        "pinsOnScreen": 9,
+        "heapMb": 79,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 4,
+        "quietMs": 368,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 557,
+        "worstGapMs": 567,
+        "cards": 1609,
+        "heapMb": 83,
+        "domNodes": 17554
+      },
+      "search": {
+        "reactedMs": 11,
+        "quietMs": 420,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 1,
+        "blockedMs": 121,
+        "worstGapMs": 131,
+        "pinsOnScreen": 4,
+        "heapMb": 107,
+        "domNodes": 132,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 89,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 169,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 356,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 550,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 1322,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 83,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 165,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 263,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 163,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 576,
+      "chrome": {
+        "heapUsedMb": 103,
+        "nodes": 121815,
+        "layouts": 39,
+        "styleRecalcs": 73,
+        "mainThreadSeconds": 8.59,
+        "scriptSeconds": 2.3,
+        "layoutSeconds": 1.87
+      },
+      "machineBusyPct": 88
+    },
+    {
+      "arch": "current",
+      "size": 5000,
+      "rep": 1,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:05:50.143Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 538,
+        "pinsLastChangedMs": 538,
+        "lastApiResponseEndMs": 473,
+        "lastLongTaskEndMs": 537,
+        "loadEventMs": 245,
+        "requests": 5,
+        "wireKB": 115,
+        "bodyKB": 425,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 222,
+          "longestMs": 104
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 8,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 13,
+        "quietMs": 116,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 34,
+        "pinsOnScreen": 358,
+        "heapMb": 8,
+        "domNodes": 1032
+      },
+      "zoomOut": {
+        "reactedMs": 15,
+        "quietMs": 20,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "pinsOnScreen": 9,
+        "heapMb": 8,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 5,
+        "quietMs": 36,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 52,
+        "cards": 48,
+        "heapMb": 8,
+        "domNodes": 504
+      },
+      "profile": {
+        "reactedMs": 6,
+        "quietMs": 54,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 37,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 9,
+        "domNodes": 555
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 87,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 33,
+        "pinsOnScreen": 9,
+        "heapMb": 18,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 6,
+        "quietMs": 37,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 38,
+        "cards": 24,
+        "heapMb": 12,
+        "domNodes": 354
+      },
+      "search": {
+        "reactedMs": 2,
+        "quietMs": 457,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 13,
+        "pinsOnScreen": 5,
+        "heapMb": 19,
+        "domNodes": 135,
+        "wireKB": 3
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 46,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 46,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 48,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 52,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 19,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 17,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 16,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 252,
+      "chrome": {
+        "heapUsedMb": 18,
+        "nodes": 5211,
+        "layouts": 38,
+        "styleRecalcs": 94,
+        "mainThreadSeconds": 1.04,
+        "scriptSeconds": 0.37,
+        "layoutSeconds": 0.24
+      },
+      "machineBusyPct": 69
+    },
+    {
+      "arch": "current",
+      "size": 5000,
+      "rep": 2,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:05:56.697Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 473,
+        "pinsLastChangedMs": 473,
+        "lastApiResponseEndMs": 392,
+        "lastLongTaskEndMs": 473,
+        "loadEventMs": 194,
+        "requests": 5,
+        "wireKB": 115,
+        "bodyKB": 425,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 229,
+          "longestMs": 106
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 8,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 8,
+        "quietMs": 81,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 22,
+        "pinsOnScreen": 358,
+        "heapMb": 8,
+        "domNodes": 1032
+      },
+      "zoomOut": {
+        "reactedMs": 14,
+        "quietMs": 22,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "pinsOnScreen": 9,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 5,
+        "quietMs": 33,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 49,
+        "cards": 48,
+        "heapMb": 8,
+        "domNodes": 504
+      },
+      "profile": {
+        "reactedMs": 8,
+        "quietMs": 44,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 38,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 8,
+        "domNodes": 555
+      },
+      "map": {
+        "reactedMs": 2,
+        "quietMs": 66,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 38,
+        "pinsOnScreen": 9,
+        "heapMb": 17,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 4,
+        "quietMs": 34,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 49,
+        "cards": 24,
+        "heapMb": 18,
+        "domNodes": 354
+      },
+      "search": {
+        "reactedMs": 1,
+        "quietMs": 462,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 16,
+        "pinsOnScreen": 5,
+        "heapMb": 18,
+        "domNodes": 135,
+        "wireKB": 3
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 39,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 36,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 35,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 35,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 35,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 37,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 10,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 16,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 206,
+      "chrome": {
+        "heapUsedMb": 17,
+        "nodes": 5211,
+        "layouts": 38,
+        "styleRecalcs": 95,
+        "mainThreadSeconds": 0.99,
+        "scriptSeconds": 0.35,
+        "layoutSeconds": 0.24
+      },
+      "machineBusyPct": 71
+    },
+    {
+      "arch": "current",
+      "size": 5000,
+      "rep": 3,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:06:03.653Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 666,
+        "pinsLastChangedMs": 666,
+        "lastApiResponseEndMs": 481,
+        "lastLongTaskEndMs": 666,
+        "loadEventMs": 225,
+        "requests": 5,
+        "wireKB": 115,
+        "bodyKB": 425,
+        "longTasks": {
+          "count": 4,
+          "totalMs": 408,
+          "longestMs": 142
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 7,
+        "quietMs": 114,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 36,
+        "pinsOnScreen": 358,
+        "heapMb": 7,
+        "domNodes": 1032
+      },
+      "zoomOut": {
+        "reactedMs": 17,
+        "quietMs": 31,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "pinsOnScreen": 9,
+        "heapMb": 7,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 12,
+        "quietMs": 52,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 52,
+        "worstGapMs": 62,
+        "cards": 48,
+        "heapMb": 8,
+        "domNodes": 504
+      },
+      "profile": {
+        "reactedMs": 12,
+        "quietMs": 61,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 50,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 8,
+        "domNodes": 555
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 83,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 40,
+        "pinsOnScreen": 9,
+        "heapMb": 17,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 5,
+        "quietMs": 33,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 44,
+        "cards": 24,
+        "heapMb": 18,
+        "domNodes": 354
+      },
+      "search": {
+        "reactedMs": 2,
+        "quietMs": 423,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 23,
+        "pinsOnScreen": 9,
+        "heapMb": 18,
+        "domNodes": 128,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 58,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 56,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 56,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 55,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 51,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 16,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 49,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 40,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 22,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 8,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 11,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 233,
+      "chrome": {
+        "heapUsedMb": 16,
+        "nodes": 5164,
+        "layouts": 34,
+        "styleRecalcs": 87,
+        "mainThreadSeconds": 1.28,
+        "scriptSeconds": 0.51,
+        "layoutSeconds": 0.25
+      },
+      "machineBusyPct": 74
+    },
+    {
+      "arch": "baseline",
+      "size": 10000,
+      "rep": 1,
+      "url": "http://localhost:4173/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:06:10.730Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 2072,
+        "pinsLastChangedMs": 2072,
+        "lastApiResponseEndMs": 1448,
+        "lastLongTaskEndMs": 2071,
+        "loadEventMs": 197,
+        "requests": 4,
+        "wireKB": 14064,
+        "bodyKB": 14063,
+        "longTasks": {
+          "count": 5,
+          "totalMs": 888,
+          "longestMs": 531
+        },
+        "pinsOnScreen": 8,
+        "heapMb": 44,
+        "domNodes": 124
+      },
+      "zoomIn": {
+        "reactedMs": 123,
+        "quietMs": 341,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 630,
+        "worstGapMs": 640,
+        "pinsOnScreen": 885,
+        "heapMb": 51,
+        "domNodes": 2809
+      },
+      "zoomOut": {
+        "reactedMs": 129,
+        "quietMs": 135,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 2,
+        "blockedMs": 382,
+        "worstGapMs": 392,
+        "pinsOnScreen": 893,
+        "heapMb": 55,
+        "domNodes": 2825
+      },
+      "list": {
+        "reactedMs": 1507,
+        "quietMs": 12212,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 3,
+        "blockedMs": 12305,
+        "worstGapMs": 12315,
+        "cards": 10000,
+        "heapMb": 80,
+        "domNodes": 91620
+      },
+      "profile": {
+        "reactedMs": 332,
+        "quietMs": 610,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 870,
+        "worstGapMs": 880,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 114,
+        "domNodes": 91673
+      },
+      "map": {
+        "reactedMs": 6,
+        "quietMs": 1211,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 1,
+        "blockedMs": 1329,
+        "worstGapMs": 1260,
+        "pinsOnScreen": 8,
+        "heapMb": 143,
+        "domNodes": 124
+      },
+      "jobs": {
+        "reactedMs": 10,
+        "quietMs": 3429,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 3297,
+        "worstGapMs": 3307,
+        "cards": 3172,
+        "heapMb": 163,
+        "domNodes": 34578
+      },
+      "search": {
+        "reactedMs": 65,
+        "quietMs": 835,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 2,
+        "blockedMs": 238,
+        "worstGapMs": 185,
+        "pinsOnScreen": 8,
+        "heapMb": 191,
+        "domNodes": 140,
+        "wireKB": 0
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 61,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 187,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 453,
+          "status": 200
+        },
+        {
+          "url": "/api/startups",
+          "ms": 982,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 553,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes",
+          "ms": 262,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 3514,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=c",
+          "ms": 565,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=co",
+          "ms": 920,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?search=cob",
+          "ms": 773,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 207,
+      "chrome": {
+        "heapUsedMb": 190,
+        "nodes": 243523,
+        "layouts": 44,
+        "styleRecalcs": 62,
+        "mainThreadSeconds": 22.45,
+        "scriptSeconds": 7.14,
+        "layoutSeconds": 4.73
+      },
+      "machineBusyPct": 92
+    },
+    {
+      "arch": "current",
+      "size": 10000,
+      "rep": 1,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:06:45.911Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 1632,
+        "pinsLastChangedMs": 1632,
+        "lastApiResponseEndMs": 1504,
+        "lastLongTaskEndMs": 1632,
+        "loadEventMs": 1192,
+        "requests": 5,
+        "wireKB": 220,
+        "bodyKB": 826,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 276,
+          "longestMs": 119
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 10,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 10,
+        "quietMs": 301,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 49,
+        "pinsOnScreen": 526,
+        "heapMb": 11,
+        "domNodes": 1463
+      },
+      "zoomOut": {
+        "reactedMs": 27,
+        "quietMs": 41,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 40,
+        "pinsOnScreen": 9,
+        "heapMb": 12,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 11,
+        "quietMs": 53,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 58,
+        "worstGapMs": 68,
+        "cards": 48,
+        "heapMb": 13,
+        "domNodes": 503
+      },
+      "profile": {
+        "reactedMs": 9,
+        "quietMs": 65,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 57,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 13,
+        "domNodes": 556
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 162,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 61,
+        "worstGapMs": 71,
+        "pinsOnScreen": 9,
+        "heapMb": 22,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 8,
+        "quietMs": 55,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 58,
+        "cards": 24,
+        "heapMb": 22,
+        "domNodes": 352
+      },
+      "search": {
+        "reactedMs": 3,
+        "quietMs": 466,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 12,
+        "pinsOnScreen": 8,
+        "heapMb": 16,
+        "domNodes": 146,
+        "wireKB": 4
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 99,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 100,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 99,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 100,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 104,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 23,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 54,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 47,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 21,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 21,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 8,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 12,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 1204,
+      "chrome": {
+        "heapUsedMb": 15,
+        "nodes": 1399,
+        "layouts": 39,
+        "styleRecalcs": 89,
+        "mainThreadSeconds": 1.42,
+        "scriptSeconds": 0.56,
+        "layoutSeconds": 0.28
+      },
+      "machineBusyPct": 81
+    },
+    {
+      "arch": "current",
+      "size": 10000,
+      "rep": 2,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:06:53.284Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 600,
+        "pinsLastChangedMs": 600,
+        "lastApiResponseEndMs": 500,
+        "lastLongTaskEndMs": 599,
+        "loadEventMs": 261,
+        "requests": 5,
+        "wireKB": 220,
+        "bodyKB": 826,
+        "longTasks": {
+          "count": 3,
+          "totalMs": 249,
+          "longestMs": 120
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 9,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 8,
+        "quietMs": 200,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 41,
+        "pinsOnScreen": 526,
+        "heapMb": 11,
+        "domNodes": 1463
+      },
+      "zoomOut": {
+        "reactedMs": 16,
+        "quietMs": 30,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 25,
+        "pinsOnScreen": 9,
+        "heapMb": 12,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 8,
+        "quietMs": 38,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 54,
+        "cards": 48,
+        "heapMb": 12,
+        "domNodes": 503
+      },
+      "profile": {
+        "reactedMs": 8,
+        "quietMs": 66,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 52,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 13,
+        "domNodes": 556
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 138,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 1,
+        "blockedMs": 51,
+        "worstGapMs": 61,
+        "pinsOnScreen": 9,
+        "heapMb": 21,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 8,
+        "quietMs": 35,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 57,
+        "cards": 24,
+        "heapMb": 21,
+        "domNodes": 352
+      },
+      "search": {
+        "reactedMs": 1,
+        "quietMs": 468,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 12,
+        "pinsOnScreen": 8,
+        "heapMb": 16,
+        "domNodes": 146,
+        "wireKB": 4
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 31,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 31,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 29,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 13,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 50,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 44,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 17,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 11,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 6,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 7,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 8,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 269,
+      "chrome": {
+        "heapUsedMb": 15,
+        "nodes": 1399,
+        "layouts": 42,
+        "styleRecalcs": 95,
+        "mainThreadSeconds": 1.2,
+        "scriptSeconds": 0.46,
+        "layoutSeconds": 0.26
+      },
+      "machineBusyPct": 64
+    },
+    {
+      "arch": "current",
+      "size": 10000,
+      "rep": 3,
+      "url": "http://localhost:4174/",
+      "viewport": "1280x800",
+      "dpr": 1,
+      "at": "2026-10-06T12:07:00.154Z",
+      "longTaskSupported": true,
+      "load": {
+        "pinsFirstSeenMs": 471,
+        "pinsLastChangedMs": 471,
+        "lastApiResponseEndMs": 371,
+        "lastLongTaskEndMs": 471,
+        "loadEventMs": 168,
+        "requests": 5,
+        "wireKB": 220,
+        "bodyKB": 826,
+        "longTasks": {
+          "count": 2,
+          "totalMs": 164,
+          "longestMs": 87
+        },
+        "pinsOnScreen": 9,
+        "heapMb": 12,
+        "domNodes": 126
+      },
+      "zoomIn": {
+        "reactedMs": 9,
+        "quietMs": 247,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 40,
+        "pinsOnScreen": 526,
+        "heapMb": 10,
+        "domNodes": 1463
+      },
+      "zoomOut": {
+        "reactedMs": 21,
+        "quietMs": 31,
+        "settled": true,
+        "requests": 0,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 28,
+        "pinsOnScreen": 9,
+        "heapMb": 11,
+        "domNodes": 126
+      },
+      "list": {
+        "reactedMs": 6,
+        "quietMs": 34,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 41,
+        "cards": 48,
+        "heapMb": 12,
+        "domNodes": 503
+      },
+      "profile": {
+        "reactedMs": 11,
+        "quietMs": 182,
+        "settled": true,
+        "requests": 2,
+        "longTasks": 1,
+        "blockedMs": 229,
+        "worstGapMs": 168,
+        "panelShown": true,
+        "loadingNote": false,
+        "heapMb": 12,
+        "domNodes": 556
+      },
+      "map": {
+        "reactedMs": 0,
+        "quietMs": 372,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 2,
+        "blockedMs": 133,
+        "worstGapMs": 143,
+        "pinsOnScreen": 9,
+        "heapMb": 20,
+        "domNodes": 126
+      },
+      "jobs": {
+        "reactedMs": 10,
+        "quietMs": 52,
+        "settled": true,
+        "requests": 1,
+        "longTasks": 0,
+        "blockedMs": 62,
+        "worstGapMs": 72,
+        "cards": 24,
+        "heapMb": 20,
+        "domNodes": 352
+      },
+      "search": {
+        "reactedMs": 3,
+        "quietMs": 481,
+        "settled": true,
+        "requests": 3,
+        "longTasks": 0,
+        "blockedMs": 0,
+        "worstGapMs": 11,
+        "pinsOnScreen": 8,
+        "heapMb": 32,
+        "domNodes": 146,
+        "wireKB": 4
+      },
+      "requests": [
+        {
+          "url": "/api/news",
+          "ms": 34,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/meta",
+          "ms": 31,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 30,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 29,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary",
+          "ms": 46,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?limit=48&offset=0&sort=name&view=card",
+          "ms": 12,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/:slug",
+          "ms": 158,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 157,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers",
+          "ms": 164,
+          "status": 200
+        },
+        {
+          "url": "/api/startups?hiring=yes&limit=24&offset=0&sort=name&view=card&facets=sector%2Ccity%2Cstage",
+          "ms": 17,
+          "status": 200
+        },
+        {
+          "url": "/api/news",
+          "ms": 38,
+          "status": 200
+        },
+        {
+          "url": "/api/search?q=cob",
+          "ms": 7,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/summary?search=cob",
+          "ms": 15,
+          "status": 200
+        },
+        {
+          "url": "/api/startups/markers?search=cob",
+          "ms": 14,
+          "status": 200
+        }
+      ],
+      "navigationLoadEventMs": 177,
+      "chrome": {
+        "heapUsedMb": 29,
+        "nodes": 6207,
+        "layouts": 42,
+        "styleRecalcs": 92,
+        "mainThreadSeconds": 1.61,
+        "scriptSeconds": 0.59,
+        "layoutSeconds": 0.28
+      },
+      "machineBusyPct": 75
+    }
+  ]
+}
