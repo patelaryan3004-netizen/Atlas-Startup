@@ -16,6 +16,8 @@ import { failedImports } from '../models/importRuns.js';
 import { queueSummary, latestTasks } from '../models/enrichmentQueue.js';
 import { suggestionsOf, LOCATION_FIELDS } from './decisions.js';
 import { locationOf } from '../discovery/report.js';
+import { buildSourceConfig } from '../discovery/config.js';
+import { schedulerStatus } from '../scheduler/status.js';
 
 const DAY = 86400000;
 export const OPEN = ['candidate', 'needs_review', 'matched', 'approved'];
@@ -217,6 +219,20 @@ export function importsPanel(ds) {
   return {
     failures: failedImports(ds.import_runs ?? []),
     runs: runs.slice(0, 10).map((r) => ({ id: r.id, finished_at: r.finished_at, by: r.by, trigger: r.trigger, status: r.status, totals: r.totals, failed_sources: r.sources.filter((s) => s.error).map((s) => s.id), declined_pages: r.refused.length })),
+  };
+}
+
+// What the scheduler is doing: the jobs and when they next run, the facets and their pace, what is on the status
+// watch (with the companies' names), and the latest runs. Read only: the scheduler is run from a terminal or a schedule.
+export function schedulerPanel(ds, nowMs, env = process.env) {
+  const configured = buildSourceConfig(env).filter((c) => c.enabled !== false);
+  const status = schedulerStatus(ds, { at: iso(nowMs), sourceIds: configured.map((c) => c.id), fundingIds: configured.filter((c) => c.adapter === 'rss').map((c) => c.id) });
+  const names = new Map(ds.companies.map((c) => [c.id, c.name]));
+  const named = (id) => names.get(id) ?? id;
+  return {
+    ...status,
+    watch: status.watch.map((w) => ({ ...w, name: named(w.company_id) })),
+    recent: status.recent.map((r) => ({ ...r })),
   };
 }
 

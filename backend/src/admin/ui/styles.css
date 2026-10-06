@@ -130,17 +130,24 @@ time { white-space: nowrap; }
 .who__name { font-weight: 600; }
 
 @media (min-width: 640px) { .topbar { position: sticky; top: 0; z-index: 30; } }
-@media (min-width: 1200px) {
+/* One row, with the title, the nine links and the person on it, once there is room for all of them; below that the
+   links get a row of their own (and scroll sideways if even that is too narrow). */
+@media (min-width: 1360px) {
   .topbar__row { flex-wrap: nowrap; }
   .nav { order: 0; width: auto; padding-bottom: 0; }
+  .who { flex: none; flex-wrap: nowrap; }
 }
-/* Labels that earn their room only on a wide bar: below it the icon (with its accessible name) carries the control. */
-@media (max-width: 1599px) {
-  .btn--quiet .btn__label { display: none; }
-  .btn--quiet { padding: 0 9px; }
-  .wide-only {
-    position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
-  }
+/* A little short of the room the full bar needs: the product name after the title goes and the links sit closer. */
+@media (min-width: 1360px) and (max-width: 1479px) {
+  .brand__sub { display: none; }
+  .nav a { padding: 6px 8px; }
+}
+/* The icon (with its accessible name and tooltip) carries the controls on the bar: spelled-out labels would leave the
+   nine links no room at any width, because the bar never grows past the page's own width. */
+.btn--quiet .btn__label { display: none; }
+.btn--quiet { padding: 0 9px; }
+.wide-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
 
 /* ---------- page and bands ---------- */
@@ -149,7 +156,7 @@ time { white-space: nowrap; }
 .page:focus { outline: none; }
 
 .band { padding-top: 40px; scroll-margin-top: 72px; }
-@media (max-width: 1199px) { .band { scroll-margin-top: 112px; } }
+@media (max-width: 1359px) { .band { scroll-margin-top: 112px; } }
 @media (max-width: 639px) { .band { scroll-margin-top: 12px; } }
 .band + .band { margin-top: 40px; border-top: 1px solid var(--line); }
 .band--first { padding-top: 20px; }
@@ -173,9 +180,17 @@ time { white-space: nowrap; }
 @media (min-width: 1200px) { .tiles { grid-template-columns: repeat(8, minmax(0, 1fr)); } }
 
 .tile {
-  display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 112px;
+  display: flex; flex-direction: column; gap: 10px; min-height: 112px;
   padding: 12px 14px 12px; background: var(--surface); color: inherit; text-decoration: none;
   transition: background-color 0.15s ease;
+}
+/* Each tile shares its label, number and note rows with the tiles beside it, so the numbers sit on one line even where
+   a label or a note wraps (a browser without subgrid keeps the plain stack above). */
+@supports (grid-template-rows: subgrid) {
+  .tile { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; min-height: 0; }
+  .tile__main { display: contents; }
+  .tile__value { margin-top: 10px; }
+  .tile__note { margin-top: 3px; }
 }
 .tile:hover { background: var(--surface-2); }
 .tile:focus-visible { outline-offset: -3px; }
@@ -338,6 +353,9 @@ legend { padding: 0; margin-bottom: 6px; font-weight: 550; font-size: var(--fs-s
   .grid--stack td.cell-first { padding-bottom: 6px; }
   .grid--stack td.cell-actions { padding-top: 8px; }
   .grid--stack .actions { justify-content: flex-start; min-width: 0; }
+  /* On a card the quiet "Review" has no column to sit in, so it gets an outline like the buttons beside it. */
+  .grid--stack .actions .btn { height: 34px; }
+  .grid--stack .actions .btn--ghost { border-color: var(--line-strong); }
   .grid--stack .company { max-width: none; min-width: 0; }
   .grid--stack .cell-source { max-width: none; min-width: 0; }
   .grid--wide { min-width: 0; }

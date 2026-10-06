@@ -24,7 +24,7 @@ import { applyCompanyEnrichment } from './apply.js';
 // A network failure may pass, and so may a site telling us to slow down (a 429 or a server error, even on its
 // robots.txt, or a robots.txt we could not fetch at all); anything else the fetcher refused is a result, not a
 // failure: robots.txt says no, access is controlled, there is nothing at that address.
-const TRANSIENT = new Set(['timeout', 'network_error', 'rate_limited', 'dns_failed']);
+const TRANSIENT = new Set(['timeout', 'network_error', 'rate_limited', 'dns_failed', 'budget_exhausted']);
 const isTransient = (e) => TRANSIENT.has(e.code)
   || (e.code === 'http_error' && /HTTP (?:429|5\d\d)/.test(e.message ?? ''))
   || (e.code === 'robots_unavailable' && !/access-controlled|HTTP (?:401|403|404|410)|larger than/.test(e.message ?? ''));
@@ -34,6 +34,7 @@ export const SYSTEM = (by) => ({ name: by, role: 'system' });
 // What a finished task keeps: small, and enough to see what happened without opening the evidence.
 const brief = (s) => ({
   outcome: s.outcome, pages: s.pages.length, evidence_added: s.evidence_added, evidence_refreshed: s.evidence_refreshed,
+  added_fields: s.added_fields, refreshed_fields: s.refreshed_fields, confirmed_fields: s.confirmed.map((c) => c.field), status_signals: s.status_signals,
   applied: s.applied.map((a) => a.field), suggested: s.suggested.map((a) => a.field), conflicts: s.conflicts.map((c) => c.field),
   held: s.held.slice(0, 10), jobs: s.jobs, warnings: s.warnings.slice(0, 5), refused: s.refused.slice(0, 5).map(({ url, code }) => ({ url, code })),
 });
@@ -48,11 +49,12 @@ function describe(host, s) {
   return `Read ${host}: ${bits.join('; ')}`;
 }
 
-export async function runQueue({ dir, fetcher, now = Date.now, limit = Infinity, mode = 'suggest', concurrency = 3, by = 'enrichment', kinds = null, maxPages = 4, onEvent = () => {}, shouldStop = () => false }) {
+// eligible(task, work): a reason to leave a queued task for later (the scheduler leaves a site that asked to be left alone).
+export async function runQueue({ dir, fetcher, now = Date.now, limit = Infinity, mode = 'suggest', concurrency = 3, by = 'enrichment', kinds = null, maxPages = 4, eligible = null, onEvent = () => {}, shouldStop = () => false }) {
   const stats = { claimed: 0, done: 0, skipped: 0, failed: 0, retried: 0, evidence_added: 0, applied: 0 };
   const lock = { now };
 
-  const claim = async () => (await transact(dir, (work, { at }) => ({ result: claimNext(work, { at, kinds }) }), lock)).result;
+  const claim = async () => (await transact(dir, (work, { at }) => ({ result: claimNext(work, { at, kinds, eligible: eligible ? (t) => eligible(t, work) : null }) }), lock)).result;
   const skip = async (task, error, result) => {
     await transact(dir, (work, { at }) => { finishTask(work, task.id, { at, status: 'skipped', error, result }); }, lock);
     return { status: 'skipped', summary: null };
@@ -68,7 +70,7 @@ export async function runQueue({ dir, fetcher, now = Date.now, limit = Infinity,
     const company = ds.companies.find((c) => c.id === task.target_id);
     if (!company) return skip(task, 'the company no longer exists', { outcome: 'gone' });
     if (!company.website) return skip(task, 'no website on record', { outcome: 'no_website' });
-    const site = await readSite(company.website, { fetcher, now, maxPages, wanted: task.wanted });
+    const site = await readSite(company.website, { fetcher, now, maxPages: task.max_pages ?? maxPages, wanted: task.wanted });
     if (site.pages.length === 0) return unreadable(task, site.errors[0]);
     // Open roles are on the job board the careers page points at, when it points at one.
     if (task.wanted.some((w) => w === 'hiring_status' || w === 'jobs')) {

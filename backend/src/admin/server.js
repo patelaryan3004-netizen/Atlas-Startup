@@ -109,6 +109,7 @@ export function createAdminApp({ service, authenticator, limiter, securityLog, u
   get('/api/suggestions', (actor) => service.suggestions(actor));
   get('/api/queue', (actor) => service.queue(actor));
   get('/api/imports', (actor) => service.imports(actor));
+  get('/api/scheduler', (actor) => service.scheduler(actor));
   get('/api/job', (actor) => service.job(actor));
   get('/api/audit', (actor, req) => service.audit(actor, {
     limit: intOr(req.query.limit, 100), actor: req.query.actor ? String(req.query.actor) : null,

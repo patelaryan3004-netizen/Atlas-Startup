@@ -133,6 +133,7 @@ const ACTION_LABEL = {
   'suggestion.dismiss': 'Dismissed a suggestion', 'enrichment.seed': 'Seeded the queue', 'enrichment.enqueue': 'Queued a website',
   'enrichment.task': 'Read a website', 'enrichment.retry': 'Retried a task', 'enrichment.cancel': 'Cancelled a task',
   'enrichment.run': 'Ran the queue', 'import.run': 'Ran an import', 'import.dismiss': 'Acknowledged a failed import',
+  'scheduler.run': 'A scheduled job found something',
 };
 const SECTION_NOTE = 'Changes made here are written to the data files on this machine. They reach the public site when you commit and push them.';
 
@@ -222,6 +223,7 @@ const LOADERS = {
   duplicates: () => api.get('/api/duplicates'),
   queue: () => api.get('/api/queue'),
   imports: () => api.get('/api/imports'),
+  scheduler: () => api.get('/api/scheduler'),
   audit: () => api.get(`/api/audit?limit=${S.ui.auditLimit}&action=${enc(S.ui.auditAction)}&target=${enc(S.ui.auditTarget)}`),
   job: () => api.get('/api/job'),
 };
@@ -243,7 +245,7 @@ async function load(name, { quiet = false } = {}) {
   render(name);
 }
 const refresh = (...names) => Promise.all(names.map((name) => load(name, { quiet: true })));
-const refreshAll = () => refresh('overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'duplicates', 'queue', 'imports', 'audit');
+const refreshAll = () => refresh('overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'duplicates', 'queue', 'imports', 'scheduler', 'audit');
 const slotOf = (name) => S.data[name]?.value ?? null;
 
 // ======================================================================= the page frame
@@ -256,6 +258,7 @@ const SECTIONS = [
   { id: 'suggestions', nav: 'Suggestions', title: 'Suggested fills', def: 'Facts found on company websites that the record does not have yet. Applying one changes the record; dismissing one turns the evidence down for good.' },
   { id: 'queue', nav: 'Enrichment', title: 'Enrichment queue', def: 'Company websites waiting to be read, one at a time. Reading obeys robots.txt and each site’s terms, and never goes near LinkedIn.' },
   { id: 'imports', nav: 'Imports', title: 'Failed imports', def: 'Sources that failed the last time discovery ran, and enrichment tasks that failed. Acknowledge a failure once someone has looked.' },
+  { id: 'scheduler', nav: 'Scheduler', title: 'Scheduled refresh', def: 'What keeps the directory current. Six jobs each look at their own kind of fact at their own pace, politely, and write down every run, including the ones that found nothing. This page only shows them.' },
   { id: 'audit', nav: 'Audit', title: 'Audit trail', def: 'Every action taken here, newest first, with who did it and why. Rows cannot be edited or deleted.' },
 ];
 
@@ -347,6 +350,7 @@ function renderNav() {
     conflicts: [overview?.attention.open_conflicts, true],
     suggestions: [overview?.attention.suggestions, false],
     imports: [overview?.tiles.failed_imports, true],
+    scheduler: [slotOf('scheduler')?.watch?.length, true],
   };
   for (const a of document.querySelectorAll('#nav a')) {
     const badge = a.querySelector('.nav__count');
@@ -1302,9 +1306,98 @@ function acknowledgeDialog(f) {
   });
 }
 
+// ======================================================================= scheduled refresh
+
+const JOB_LABEL = { discovery: 'Discovery', funding: 'Funding', hiring: 'Hiring', status: 'Company status', enrichment: 'Enrichment', quality: 'Data quality' };
+const JOB_WHAT = {
+  discovery: 'Finds companies we do not have, into candidates for review', funding: 'Funding stories about companies we have, as evidence',
+  hiring: 'Open roles and the hiring flag', status: 'Acquired, closed or renamed', enrichment: 'Description, address, founders, investors, founded year',
+  quality: 'Stale and conflicting records, brought forward to be looked at again',
+};
+const RUN_TONE = { ok: 'ok', partial: 'warn', failed: 'bad', idle: 'muted', skipped: 'muted', running: 'info' };
+const SIGNAL = {
+  acquired_notice: 'Says it was acquired', subsidiary_notice: 'Says it is a subsidiary', closed_notice: 'Says it has closed',
+  moved_domain: 'Website moved to another domain', site_mismatch: 'Website is now someone else’s', parked_domain: 'Domain looks parked or for sale',
+  renamed_notice: 'Says it was renamed', unreachable: 'Website has gone quiet',
+};
+const whenCell = (iso) => (valid(iso) ? h('time', { datetime: iso, title: fmtDateTime(iso) }, relative(iso)) : h('span', { class: 'muted' }, '—'));
+const dueCell = (iso, dueNow) => (dueNow > 0 || (valid(iso) && Date.parse(iso) <= Date.now()) ? h('span', {}, 'now') : whenCell(iso));
+
+function renderScheduler() {
+  const body = $('#body-scheduler');
+  if (!body) return;
+  keepFocus(body, () => body.replaceChildren(view('scheduler', (s) => h('div', {},
+    schedulerJobs(s), schedulerFacets(s), schedulerWatch(s), schedulerSources(s), schedulerRuns(s),
+    h('p', { class: 'fold__note' }, 'Run it with ', h('code', {}, 'npm run scheduler -- tick'), ' in ', h('code', {}, 'backend/'), ', or let a schedule do it (docs/scheduler.md). It never runs inside the public site.')))));
+}
+
+function schedulerJobs(s) {
+  return grid({
+    caption: 'Scheduled jobs', wide: true,
+    columns: [{ label: 'Job' }, { label: 'Last run' }, { label: 'What it did' }, { label: 'Due now', cls: 'num' }, { label: 'Next due' }],
+    rows: s.jobs.map((j) => [
+      h('div', {}, h('b', {}, JOB_LABEL[j.job] ?? j.job), h('div', { class: 'sub' }, JOB_WHAT[j.job] ?? '')),
+      j.last_run ? h('div', {}, chip(j.last_run.status, RUN_TONE[j.last_run.status] ?? 'muted'), ' ', whenCell(j.last_run.started_at)) : h('span', { class: 'muted' }, 'Never run'),
+      h('span', { class: 'clamp2', title: j.last_run?.summary ?? '' }, j.last_run ? (j.last_run.error ?? j.last_run.summary ?? '—') || '—' : '—'),
+      h('span', { class: 'num' }, n(j.due_now)),
+      dueCell(j.next_due, j.due_now),
+    ]),
+  });
+}
+
+function schedulerFacets(s) {
+  return h('div', {},
+    h('div', { class: 'subhead' }, h('h3', {}, 'Company facts, each on its own clock'), h('p', {}, 'A fact that changes fast is looked at often, one that hardly ever changes rarely. A check that finds nothing new makes the next wait longer.')),
+    grid({
+      caption: 'Company facts and how often they are looked at', wide: true,
+      columns: [{ label: 'Fact' }, { label: 'Looked at' }, { label: 'Checked', cls: 'num' }, { label: 'Never checked', cls: 'num' }, { label: 'Due now', cls: 'num' }, { label: 'Failing', cls: 'num' }, { label: 'Last check' }],
+      rows: Object.values(s.facets).map((f) => [h('b', {}, f.label), `${f.pace}: about every ${plural(f.every_days, 'day')}`, h('span', { class: 'num' }, n(f.checked)), h('span', { class: 'num' }, n(f.never_checked)), h('span', { class: 'num' }, n(f.due_now)), h('span', { class: 'num' }, f.failing ? chip(n(f.failing), 'bad', true) : '0'), whenCell(f.last_checked)]),
+    }));
+}
+
+function schedulerWatch(s) {
+  if (!s.watch.length) return h('div', { class: 'panel' }, h('p', {}, h('b', {}, 'Nothing is on the status watch. '), 'A company whose website moves to another domain, says it was acquired or has closed, calls itself something else, or has gone quiet appears here.'));
+  return h('div', {},
+    h('div', { class: 'subhead' }, h('h3', {}, `Status watch (${s.watch.length})`), h('p', {}, 'These are signals, not decisions: nothing about the company was changed. Where a site says in so many words that it was acquired or has closed, the sentence is also evidence under Conflicts or Suggested fills.')),
+    grid({
+      caption: 'Companies on the status watch', wide: true,
+      columns: [{ label: 'Company' }, { label: 'What changed' }, { label: 'Since' }],
+      rows: s.watch.map((w) => [h('b', {}, w.name),
+        h('div', {}, w.signals.map((x) => h('div', {}, chip(SIGNAL[x.code] ?? x.code, 'warn', true), ' ', h('span', { class: 'sub' }, clip(x.detail, 140))))),
+        whenCell(w.signals.map((x) => x.since).filter(Boolean).sort()[0])]),
+    }));
+}
+
+function schedulerSources(s) {
+  const hosts = s.hosts.length ? h('p', { class: 'fold__note' }, `Websites that asked us to slow down, and are being left alone for now: ${s.hosts.map((x) => `${x.host} (until ${fmtDateTime(x.until)})`).join(', ')}.`) : null;
+  if (!s.sources.length && !hosts) return null;
+  return h('details', { class: 'fold' },
+    h('summary', {}, `Sources and websites that asked for time (${s.sources.length + s.hosts.length})`),
+    h('div', { class: 'fold__body' },
+      s.sources.length > 0 && grid({
+        caption: 'Sources the discovery and funding jobs read', columns: [{ label: 'Source' }, { label: 'Discovery last read' }, { label: 'Next' }, { label: 'Funding last read' }, { label: 'Problem' }],
+        rows: s.sources.map((src) => [h('b', { class: 'mono' }, src.id), whenCell(src.discovery?.last_checked_at), whenCell(src.discovery?.next_check_at), src.is_funding_feed ? whenCell(src.funding?.last_checked_at) : h('span', { class: 'muted' }, 'not a funding feed'),
+          (src.discovery?.failures || src.funding?.failures) ? chip(clip(src.discovery?.last_error ?? src.funding?.last_error ?? 'failing', 80), 'bad', true) : h('span', { class: 'muted' }, '—')]),
+      }),
+      hosts));
+}
+
+function schedulerRuns(s) {
+  if (!s.recent.length) return emptyBox('No runs logged yet.', 'Every run of every job is written down here, including the ones that found nothing due. Start one with ', h('code', {}, 'npm run scheduler -- tick'), '.');
+  return h('details', { class: 'fold', open: true },
+    h('summary', {}, `Recent runs (${s.recent.length})`),
+    h('div', { class: 'fold__body' }, grid({
+      caption: 'Recent scheduler runs', wide: true,
+      columns: [{ label: 'When' }, { label: 'Job' }, { label: 'Result' }, { label: 'Due', cls: 'num' }, { label: 'Read', cls: 'num' }, { label: 'New', cls: 'num' }, { label: 'Failed', cls: 'num' }, { label: 'Requests', cls: 'num' }, { label: 'Summary' }],
+      rows: s.recent.map((r) => [whenCell(r.started_at), h('b', {}, JOB_LABEL[r.job] ?? r.job), h('div', {}, chip(r.status, RUN_TONE[r.status] ?? 'muted'), r.stopped_for ? h('div', { class: 'sub' }, `stopped: ${r.stopped_for} limit`) : null),
+        h('span', { class: 'num' }, n(r.due)), h('span', { class: 'num' }, n(r.processed)), h('span', { class: 'num' }, n(r.changed)), h('span', { class: 'num' }, n(r.failed)), h('span', { class: 'num' }, n(r.requests)),
+        h('span', { class: 'clamp2', title: r.error ?? r.summary }, r.error ?? (r.summary || '—'))]),
+    })));
+}
+
 // ======================================================================= audit trail
 
-const AUDIT_GROUPS = [['', 'Everything'], ['candidate', 'Candidates'], ['conflict', 'Conflicts'], ['suggestion', 'Suggestions'], ['enrichment', 'Enrichment'], ['import', 'Imports'], ['company', 'Companies']];
+const AUDIT_GROUPS = [['', 'Everything'], ['candidate', 'Candidates'], ['conflict', 'Conflicts'], ['suggestion', 'Suggestions'], ['enrichment', 'Enrichment'], ['import', 'Imports'], ['scheduler', 'Scheduled jobs'], ['company', 'Companies']];
 
 function auditFrame(body) {
   const group = h('select', { class: 'select', id: 'audit-action', 'aria-label': 'Show actions', 'data-fk': 'audit-action', on: { change: () => { S.ui.auditAction = group.value; S.ui.auditLimit = 50; load('audit', { quiet: true }); } } }, AUDIT_GROUPS.map(([v, text]) => h('option', { value: v, selected: v === S.ui.auditAction }, text)));
@@ -1346,7 +1439,7 @@ const RENDER = {
   overview: () => { renderTiles(); renderNav(); renderQuality(); },
   candidates: () => { renderDiscovered(); renderNav(); },
   conflicts: renderConflicts, suggestions: renderSuggestions, missing: renderQuality, duplicates: renderQuality,
-  queue: renderQueue, job: renderQueue, imports: renderImports, audit: renderAudit,
+  queue: renderQueue, job: renderQueue, imports: renderImports, scheduler: () => { renderScheduler(); renderNav(); }, audit: renderAudit,
 };
 function render(name) { if (S.me && !S.signedOut) RENDER[name]?.(); }
 
@@ -1395,7 +1488,7 @@ function signOut(notice) {
 let watching = false;
 function start() {
   buildShell();
-  for (const name of ['overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'duplicates', 'queue', 'imports', 'audit', 'job']) load(name);
+  for (const name of ['overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'duplicates', 'queue', 'imports', 'scheduler', 'audit', 'job']) load(name);
   if (!watching) {
     watching = true; // coming back to the tab after a while shows what changed meanwhile
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.me && !S.signedOut && Date.now() - (S.refreshedAt ?? 0) > 120000) refreshAll(); });

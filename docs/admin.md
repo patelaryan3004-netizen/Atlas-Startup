@@ -43,13 +43,13 @@ Eight counts at the top, each a link to where it is worked:
 | Missing data | companies lacking a website, sector, location, stage or description (the list behind it is under Data quality) |
 | Failed imports | sources whose latest import failed and nobody has looked, plus enrichment tasks that failed |
 
-Then, in order: **New startups discovered** (Approve, Reject, Edit, Merge, Publish, and a review drawer with the evidence), **Data quality** (coverage for website, sector, location, stage, founders, funding and investors, and who is missing what), **Conflicts** (two sources disagree, or one disagrees with our record: a person says which is right, with a reason), **Suggested fills** (facts found on websites that the record lacks: apply or dismiss), **Enrichment queue** (seed, run in suggest or fill mode, watch it, retry), **Failed imports**, and the **Audit trail**.
+Then, in order: **New startups discovered** (Approve, Reject, Edit, Merge, Publish, and a review drawer with the evidence), **Data quality** (coverage for website, sector, location, stage, founders, funding and investors, and who is missing what), **Conflicts** (two sources disagree, or one disagrees with our record: a person says which is right, with a reason), **Suggested fills** (facts found on websites that the record lacks: apply or dismiss), **Enrichment queue** (seed, run in suggest or fill mode, watch it, retry), **Failed imports**, **Scheduled refresh** (read only: the six jobs and when each last ran and runs next, how far each company fact is behind its clock, the status watch of companies whose website moved, was renamed or says it was acquired or closed, the sources and the websites being left alone, and the recent runs; the scheduler itself is run from a terminal, a timer or CI: see [scheduler.md](scheduler.md)), and the **Audit trail**.
 
 A location is the careful case. A pin on the map is public, so settling a conflict about where a company is, or applying a suggested address, needs a confirmed place (a city and coordinates inside Australia) or taking the company off the map. The page never guesses coordinates; it links to OpenStreetMap so you can read them off a map.
 
 ## The audit trail
 
-Every action writes exactly one row, in the same write as the change: who (from the sign-in, never from the request), what, to what, why, and each field's before and after. A refused action writes nothing. The trail is append-only: a change that would alter or remove an earlier row is refused. The enrichment worker writes its own rows as `enrichment`, the CLI as `cli`.
+Every action writes exactly one row, in the same write as the change: who (from the sign-in, never from the request), what, to what, why, and each field's before and after. A refused action writes nothing. The trail is append-only: a change that would alter or remove an earlier row is refused. The enrichment worker writes its own rows as `enrichment`, the CLI as `cli`, and a scheduled job that found something leaves one row (`scheduler.run`, by `scheduler`).
 
 ## How it is protected
 

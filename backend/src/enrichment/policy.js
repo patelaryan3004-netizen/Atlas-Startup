@@ -22,6 +22,8 @@
 //                  does not show a company is not hiring.
 //   founders, investors   a sentence on a page can name the wrong people, so a person decides.
 //   address, city, state  a pin on the map needs coordinates, which a website does not give.
+//   company_status  "we have been acquired" or "we have closed" on a homepage is a sentence, not a fact a record
+//                   should change on: it is evidence for a person, and a conflict if the record says otherwise.
 //   sector, subsector, stage, funding   not here: a company's own site is not a legitimate source for them.
 
 export const MODES = ['suggest', 'fill'];
@@ -36,6 +38,7 @@ export const FIELD_POLICY = {
   address: { mode: 'suggest' },
   city: { mode: 'suggest' },
   state: { mode: 'suggest' },
+  company_status: { mode: 'suggest' },
 };
 
 const RANK = { low: 1, medium: 2, high: 3 };

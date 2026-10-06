@@ -114,11 +114,19 @@ export function createFetcher({
   resolveHost = defaultResolveHost,
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   now = () => Date.now(),
+  // Hosts that asked us to slow down in an earlier run: left alone from the first request, as if they had just asked.
+  coolDownHosts = [],
 } = {}) {
   const productToken = userAgent.split('/')[0].trim().toLowerCase();
   const robotsByOrigin = new Map();
   const lastRequestAt = new Map();
-  const coolingDown = new Set();
+  const coolingDown = new Set(coolDownHosts);
+  const askedToWait = new Map(); // the hosts that said so during this run, with how long they asked for (seconds, or null)
+  const noteWait = (host, res) => {
+    const asked = res.headers.get('retry-after');
+    const seconds = asked == null ? null : /^\d+$/.test(asked.trim()) ? Number(asked) : Math.max(0, Math.round((Date.parse(asked) - now()) / 1000));
+    askedToWait.set(host, Number.isFinite(seconds) ? Math.min(seconds, 7 * 86400) : null);
+  };
   const log = { requests: [], refused: [] };
 
   const refuse = (code, message, url) => {
@@ -174,7 +182,7 @@ export function createFetcher({
       if (res.status === 200) entry = { robots: parseRobots(await readCapped(res, 500000, url)) };
       else if (res.status === 401 || res.status === 403) entry = { deny: 'robots.txt is access-controlled' };
       else if (res.status === 429 || res.status >= 500) {
-        if (res.status === 429) coolingDown.add(new URL(origin).hostname);
+        if (res.status === 429) { coolingDown.add(new URL(origin).hostname); noteWait(new URL(origin).hostname, res); }
         entry = { deny: `robots.txt is unavailable (HTTP ${res.status})` };
       } else entry = { robots: parseRobots('') }; // 404 and the like: the site states no rules
     } catch (err) {
@@ -189,7 +197,7 @@ export function createFetcher({
   async function finish(res, original, finalUrl, allow) {
     const host = new URL(finalUrl).hostname;
     if (res.status === 401 || res.status === 403) refuse('access_controlled', `HTTP ${res.status}: access-controlled, so not retried or worked around`, finalUrl);
-    if (res.status === 429 || res.status === 503) { coolingDown.add(host); refuse('rate_limited', `HTTP ${res.status}: ${host} asked us to slow down`, finalUrl); }
+    if (res.status === 429 || res.status === 503) { coolingDown.add(host); noteWait(host, res); refuse('rate_limited', `HTTP ${res.status}: ${host} asked us to slow down`, finalUrl); }
     if (res.status >= 400) refuse('http_error', `HTTP ${res.status}`, finalUrl);
     if (finalUrl !== original && LOGIN_PATH.test(new URL(finalUrl).pathname) && !LOGIN_PATH.test(new URL(original).pathname)) {
       refuse('access_controlled', 'redirected to a login page', finalUrl);
@@ -238,7 +246,7 @@ export function createFetcher({
     return refuse('too_many_redirects', `more than ${maxRedirects} redirects`, url);
   }
 
-  return { get, log, userAgent };
+  return { get, log, userAgent, askedToWait: () => [...askedToWait].map(([host, retryAfterSeconds]) => ({ host, retryAfterSeconds })) };
 }
 
 export const FEED_TYPES = ['application/rss+xml', 'application/atom+xml', 'application/xml', 'text/xml'];

@@ -26,6 +26,8 @@
 //   audit_trail.json     append-only record of every decision made about the data (auditTrail.js)
 //   enrichment_queue.json  work waiting to read companies' own websites (enrichmentQueue.js)
 //   import_runs.json     one row per run of the discovery engine (importRuns.js)
+//   refresh_state.json   when each company's facets, and each feed, were last checked and are next due (refreshState.js)
+//   job_runs.json        one row per run of every scheduled job (jobRuns.js)
 //
 // Each collection maps one-to-one onto a table, and every id is a stable string,
 // so a later move to a real database is a load step, not a redesign.
@@ -43,6 +45,8 @@ import { validateCandidates } from './candidate.js';
 import { validateAuditTrail } from './auditTrail.js';
 import { validateEnrichmentQueue } from './enrichmentQueue.js';
 import { validateImportRuns } from './importRuns.js';
+import { validateRefreshState } from './refreshState.js';
+import { validateJobRuns } from './jobRuns.js';
 import { syncConfidence } from './confidence.js';
 
 export { SOURCE_KINDS };
@@ -62,6 +66,8 @@ export const COLLECTION_FILES = {
   audit_trail: 'audit_trail.json',
   enrichment_queue: 'enrichment_queue.json',
   import_runs: 'import_runs.json',
+  refresh_state: 'refresh_state.json',
+  job_runs: 'job_runs.json',
 };
 
 export const JOB_STATUSES = ['open', 'closed'];
@@ -249,6 +255,7 @@ export function migrateDataset(input) {
   return {
     ...input, companies, people, investors, evidence, identifiers, candidates,
     audit_trail: input.audit_trail ?? [], enrichment_queue: input.enrichment_queue ?? [], import_runs: input.import_runs ?? [],
+    refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [],
   };
 }
 
@@ -405,6 +412,7 @@ export function validateDataset(ds) {
   errors.push(
     ...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds),
     ...validateAuditTrail(ds), ...validateEnrichmentQueue(ds), ...validateImportRuns(ds),
+    ...validateRefreshState(ds), ...validateJobRuns(ds),
   );
   return errors;
 }

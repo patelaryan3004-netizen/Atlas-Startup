@@ -18,7 +18,7 @@ import { createFetcher, DEFAULT_USER_AGENT } from '../discovery/http.js';
 import { runQueue } from '../enrichment/worker.js';
 import { MODES } from '../enrichment/policy.js';
 import { resolveConflict, applySuggestion, dismissSuggestion, reasonOf } from './decisions.js';
-import { buildOverview, listCandidates, candidateDetail, searchCompanies, missingData, companyDuplicates, listConflicts, listSuggestions, queuePanel, importsPanel, auditPage } from './overview.js';
+import { buildOverview, listCandidates, candidateDetail, searchCompanies, missingData, companyDuplicates, listConflicts, listSuggestions, queuePanel, importsPanel, schedulerPanel, auditPage } from './overview.js';
 import { requireRole } from './roles.js';
 import { createJobRunner } from './jobs.js';
 import { HttpError, BadRequestError, NotFoundError, ConflictError } from './errors.js';
@@ -76,6 +76,7 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
     suggestions: (actor) => read(actor, (ds) => listSuggestions(ds)),
     queue: (actor) => read(actor, (ds) => queuePanel(ds, now())),
     imports: (actor) => read(actor, (ds) => importsPanel(ds)),
+    scheduler: (actor) => read(actor, (ds) => schedulerPanel(ds, now())),
     audit: (actor, filters) => read(actor, (ds) => auditPage(ds, filters)),
     job: (actor) => { requireRole(actor, 'read'); return jobs.current(); },
 

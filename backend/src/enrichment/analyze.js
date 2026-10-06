@@ -12,6 +12,7 @@
 // a sentence medium).
 import { analyzeSite, sourceOf, jobPostingsIn } from '../discovery/enrich.js';
 import { nameKey, parseNameVariants, canonicalDomain } from '../models/identity.js';
+import { statusSignals, claimsOf } from './status.js';
 
 const MAX_JOBS = 30;
 const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -63,11 +64,23 @@ export function analyzeCompanySite(site, { names, knownInvestors = [], website =
   // lenient: the website is one a person chose for this company, so a shared distinctive word is enough.
   const base = analyzeSite(site, { candidateNames: names, now, lenient: true });
   const out = { ...base, jobs: [] };
+  // What the homepage says about the company's own status (status.js). Worked out before the early returns below,
+  // because a site that has moved, or is now someone else's, is exactly what it is there to notice. A site that is
+  // someone else's says nothing about this company, so only the watches survive there, never a claim.
+  const homePage = base.pageFacts?.[0] ?? null;
+  const signals = statusSignals(site, { facts: homePage?.facts ?? null, names });
+  if (base.mismatch) {
+    const called = (base.facts?.names ?? []).slice(0, 2).join(' / ');
+    out.status = { signals: [...signals.filter((s) => !s.claim && s.code !== 'renamed_notice'), { code: 'site_mismatch', detail: `the website calls itself ${called || 'something else'}`, claim: null, value: null, other: null }] };
+  } else {
+    out.status = { signals };
+  }
   if (base.mismatch || base.blocked || site.pages.length === 0) return out;
 
   const retrieved = site.retrieved_at ?? new Date(now()).toISOString();
   const rows = base.evidence.map((r) => (r.field === 'website' && website && canonicalDomain(website)?.domain === site.domain.domain ? { ...r, value: website } : r));
   const add = (field, value, confidence, note, page, f) => rows.push({ field, value, confidence, verified_at: retrieved, note, source: sourceOf(page, f, site.domain, retrieved) });
+  for (const claim of claimsOf(signals)) add(claim.field, claim.value, 'medium', claim.note, homePage.page, homePage.facts);
 
   let firstPostingPage = null;
   for (const { page, facts: f } of base.pageFacts) {
@@ -99,6 +112,19 @@ export function analyzeCompanySite(site, { names, knownInvestors = [], website =
   }
   for (const { source, board } of boardSources) {
     rows.push({ field: 'hiring_status', value: 'hiring', confidence: 'high', verified_at: retrieved, source, note: `${when(board.jobs.length)} on the company's ${board.name} job board, which its careers page links to, such as "${board.jobs[0].title}".` });
+  }
+  // A job board the careers page points at, read without trouble, that lists nothing, with no role found anywhere
+  // else this time: a positive observation that the board is empty today, which is how a company that has stopped
+  // hiring shows up. Medium, because it says nothing about a role advertised somewhere we did not look. It never
+  // changes the record: against a record that says "hiring" it is a conflict for a person to settle.
+  if (out.jobs.length === 0) {
+    for (const b of site.boards ?? []) {
+      const source = {
+        kind: 'company_website', url: b.page_url, title: `${b.name} job board`, publisher: site.domain.host, retrieved_at: b.retrieved_at, slug: `${b.provider}-jobs`,
+        note: `The company's ${b.name} job board, which its careers page links to, read through the board's public feed.`,
+      };
+      rows.push({ field: 'hiring_status', value: 'not_hiring', confidence: 'medium', verified_at: retrieved, source, note: `The company's ${b.name} job board, which its careers page links to, listed no open roles when it was read.` });
+    }
   }
 
   // A claim read from a page we retrieved is checked against it on the day it was read, unless it is a

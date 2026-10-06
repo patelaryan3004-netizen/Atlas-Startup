@@ -17,3 +17,4 @@ dev-server.log
 # local credentials and security log
 .data.lock
 backend/.admin/
+.scheduler.lock

@@ -16,6 +16,7 @@ export function buildSourceConfig(env = process.env) {
       id: 'rss.startupdaily-funding', adapter: 'rss', enabled: true, region: 'AU', publisher: 'Startup Daily',
       feed_url: 'https://www.startupdaily.net/topic/funding/feed/',
       license: { basis: 'public_feed' },
+      refresh_days: 2, // how often the scheduler reads it: a feed holds a few days of stories (see scheduler/cadence.js)
     },
     {
       // Founder and company submissions. Set DISCOVERY_SUBMISSIONS_URL to the deployed
@@ -24,6 +25,7 @@ export function buildSourceConfig(env = process.env) {
       id: 'submissions', adapter: 'submissions', enabled: true, region: 'AU',
       url: env.DISCOVERY_SUBMISSIONS_URL || undefined,
       license: { basis: 'user_submission' },
+      refresh_days: 0.25, // our own queue, one cheap read: picked up within hours
     },
   ];
 }

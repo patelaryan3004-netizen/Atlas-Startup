@@ -8,6 +8,7 @@
 //     id, kind ('company' | 'candidate'), target_id,
 //     status, priority (higher first), reason,
 //     wanted[]                      the fields that are unknown or unchecked: they choose which pages to read
+//     max_pages                     how many pages of the site to read, or null for the worker's usual number
 //     created_at, created_by, not_before   not_before: a retry's back-off, or a scheduled start
 //     attempts, started_at, finished_at, lease_until, last_error,
 //     result                        what the last attempt found, applied, suggested and flagged
@@ -42,22 +43,32 @@ const iso = (ms) => new Date(ms).toISOString();
 // Priorities: a person's own request or a newly approved company goes first.
 export const PRIORITY = { published: 5000, approved: 4500, manual: 3000, retry: 3000, refresh: 200 };
 
+// Always one past the highest number used for this target, never the first gap: a task that was pruned must not
+// have its id handed to a later one (the refresh clocks and the audit trail refer to tasks by id).
 function nextId(tasks, targetId) {
-  const taken = new Set(tasks.map((t) => t.id));
-  for (let n = 1; ; n += 1) { const id = `enq-${targetId}-${n}`; if (!taken.has(id)) return id; }
+  const prefix = `enq-${targetId}-`;
+  let highest = 0;
+  for (const t of tasks) {
+    if (!t.id.startsWith(prefix)) continue;
+    const n = Number(t.id.slice(prefix.length));
+    if (Number.isInteger(n) && n > highest) highest = n;
+  }
+  return `${prefix}${highest + 1}`;
 }
 
-export function enqueueTask(work, { kind, targetId, priority = PRIORITY.manual, reason = 'manual', wanted = [], by, at, notBefore = null, status = 'queued', lastError = null, result = null }) {
+export function enqueueTask(work, { kind, targetId, priority = PRIORITY.manual, reason = 'manual', wanted = [], maxPages = null, by, at, notBefore = null, status = 'queued', lastError = null, result = null }) {
   work.enrichment_queue ??= [];
   const existing = work.enrichment_queue.find((t) => t.kind === kind && t.target_id === targetId && isActive(t));
   if (existing && status === 'queued') {
-    // One active task per target: a second request raises its priority and widens what it wants.
+    // One active task per target: a second request raises its priority and widens what it wants (and how much
+    // of the site it may read: the usual number, null, is the widest).
     existing.priority = Math.max(existing.priority, priority);
     existing.wanted = unique([...existing.wanted, ...wanted]);
+    existing.max_pages = existing.max_pages == null || maxPages == null ? null : Math.max(existing.max_pages, maxPages);
     return { task: existing, created: false };
   }
   const task = {
-    id: nextId(work.enrichment_queue, targetId), kind, target_id: targetId, status, priority, reason, wanted: unique(wanted),
+    id: nextId(work.enrichment_queue, targetId), kind, target_id: targetId, status, priority, reason, wanted: unique(wanted), max_pages: maxPages,
     created_at: at, created_by: by, not_before: notBefore, attempts: 0,
     started_at: null, finished_at: status === 'queued' ? null : at, lease_until: null, last_error: lastError, result,
   };
@@ -83,11 +94,12 @@ export function recoverExpired(work, at) {
   return recovered;
 }
 
-export function claimNext(work, { at, leaseMs = LEASE_MS, kinds = null }) {
+// eligible(task): a caller's own reason to leave a task waiting (the scheduler leaves a site that asked us to slow down).
+export function claimNext(work, { at, leaseMs = LEASE_MS, kinds = null, eligible = null }) {
   recoverExpired(work, at);
   const now = Date.parse(at);
   const ready = (work.enrichment_queue ?? [])
-    .filter((t) => t.status === 'queued' && (!t.not_before || Date.parse(t.not_before) <= now) && (!kinds || kinds.includes(t.kind)))
+    .filter((t) => t.status === 'queued' && (!t.not_before || Date.parse(t.not_before) <= now) && (!kinds || kinds.includes(t.kind)) && (!eligible || eligible(t)))
     .sort((a, b) => b.priority - a.priority || Date.parse(a.created_at) - Date.parse(b.created_at) || a.id.localeCompare(b.id));
   const task = ready[0];
   if (!task) return null;
@@ -214,6 +226,19 @@ export function latestTasks(tasks) {
   return [...latest.values()];
 }
 
+// A scheduler that refreshes every company every few days adds a task each time. Finished tasks older than
+// keepDays go, except the latest for each company or candidate (what is true of it now, and what the seeding and
+// the refresh clocks read). What a task did is in the audit trail and the evidence, which are kept.
+export function pruneFinished(work, { at, keepDays = 30 }) {
+  const tasks = work.enrichment_queue ?? [];
+  const latest = new Set(latestTasks(tasks).map((t) => t.id));
+  const cutoff = Date.parse(at) - keepDays * 86400000;
+  const kept = tasks.filter((t) => isActive(t) || latest.has(t.id) || !t.finished_at || Date.parse(t.finished_at) >= cutoff);
+  const dropped = tasks.length - kept.length;
+  if (dropped) work.enrichment_queue = kept;
+  return dropped;
+}
+
 export function queueSummary(tasks, at = new Date().toISOString()) {
   const counts = Object.fromEntries(QUEUE_STATUSES.map((s) => [s, 0]));
   for (const t of tasks) counts[t.status] += 1;
@@ -246,6 +271,7 @@ export function validateEnrichmentQueue(ds) {
     if (!QUEUE_REASONS.includes(t.reason)) bad(at, `invalid reason "${t.reason}"`);
     if (typeof t.priority !== 'number' || !Number.isFinite(t.priority)) bad(at, 'priority must be a number');
     if (!Array.isArray(t.wanted) || t.wanted.some((w) => !WANTABLE.includes(w))) bad(at, `wanted must be a list of ${WANTABLE.join(', ')}`);
+    if (t.max_pages != null && !(Number.isInteger(t.max_pages) && t.max_pages >= 1 && t.max_pages <= 6)) bad(at, 'max_pages must be a whole number from 1 to 6, or null');
     if (!ISO_RE.test(t.created_at ?? '') || !isStr(t.created_by)) bad(at, 'needs an ISO created_at and a created_by');
     for (const k of ['not_before', 'started_at', 'finished_at', 'lease_until']) if (!isoOrNull(t[k])) bad(at, `${k} must be ISO-8601 UTC or null`);
     if (!Number.isInteger(t.attempts) || t.attempts < 0) bad(at, 'attempts must be a whole number');

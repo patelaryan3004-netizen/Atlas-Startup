@@ -21,7 +21,7 @@ import { ISO_RE, isStr } from './company.js';
 
 export const AUDIT_ROLES = ['viewer', 'reviewer', 'admin', 'system', 'cli'];
 export const AUDIT_VIA = ['admin-ui', 'cli', 'worker'];
-export const AUDIT_TARGET_TYPES = ['candidate', 'company', 'evidence', 'queue', 'import_run', 'system'];
+export const AUDIT_TARGET_TYPES = ['candidate', 'company', 'evidence', 'queue', 'import_run', 'job_run', 'system'];
 export const AUDIT_ACTIONS = [
   'candidate.approve', 'candidate.reject', 'candidate.reopen', 'candidate.edit', 'candidate.note',
   'candidate.distinct', 'candidate.merge', 'candidate.publish', 'candidate.enrich',
@@ -29,6 +29,7 @@ export const AUDIT_ACTIONS = [
   'conflict.resolve', 'suggestion.apply', 'suggestion.dismiss',
   'enrichment.seed', 'enrichment.enqueue', 'enrichment.task', 'enrichment.retry', 'enrichment.cancel', 'enrichment.run',
   'import.run', 'import.dismiss',
+  'scheduler.run',
 ];
 
 const CLOCK_TOLERANCE_MS = 10 * 60000;

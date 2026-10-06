@@ -225,6 +225,18 @@ describe('the actions and what they answer', () => {
     for (const p of ['/api/missing', '/api/duplicates']) expect((await request(app).get(p)).status, `${p} without a token`).toBe(401);
   });
 
+  it('shows the scheduler read only: its jobs, facets and runs for anyone who may look, and nothing to change', async () => {
+    const { app, tokens } = await boot();
+    const res = await request(app).get('/api/scheduler').set(as(tokens.viewer));
+    expect(res.status).toBe(200);
+    expect(res.body.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality']);
+    expect(res.body.facets.hiring).toMatchObject({ every_days: 3, job: 'hiring' });
+    expect(res.body).toMatchObject({ watch: [], hosts: [], recent: [], totals: { companies: 4 } });
+    expect(res.body.sources.map((s) => s.id)).toEqual(['rss.startupdaily-funding', 'submissions']);
+    expect((await request(app).get('/api/scheduler')).status).toBe(401);
+    expect((await request(app).post('/api/scheduler').set(as(tokens.admin)).set(JSON_HEADERS).send({})).status).toBe(404); // there is no way to run it from here
+  });
+
   it('queues the companies, runs the queue in the background, refuses a second run, and reports the job', async () => {
     const { app, tokens, service } = await boot();
     const post = (route, body = {}) => request(app).post(route).set(as(tokens.admin)).set(JSON_HEADERS).send(body);

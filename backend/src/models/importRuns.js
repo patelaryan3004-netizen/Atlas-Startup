@@ -4,7 +4,7 @@
 //
 //   import_runs.json
 //   {
-//     id, started_at, finished_at, trigger ('cli' | 'admin'), by, dry_run,
+//     id, started_at, finished_at, trigger ('cli' | 'admin' | 'scheduler'), by, dry_run,
 //     status,                     ok (every source answered), partial (some failed), failed (all failed)
 //     sources[{ id, leads, error }],
 //     totals { new, attached, seen, skipped, applied, requests },
@@ -17,7 +17,7 @@
 import { ISO_RE, isStr } from './company.js';
 
 export const IMPORT_STATUSES = ['ok', 'partial', 'failed'];
-export const IMPORT_TRIGGERS = ['cli', 'admin'];
+export const IMPORT_TRIGGERS = ['cli', 'admin', 'scheduler'];
 
 export function importRunId(runs, at) {
   const prefix = `run-${at.replace(/\D/g, '')}`;

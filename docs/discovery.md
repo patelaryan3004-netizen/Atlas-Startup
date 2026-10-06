@@ -113,6 +113,7 @@ The same queue is worked from the [Data Command Center](admin.md). Approving a c
 - **What it never fills.** Sector, stage and funding: no company's own website is a legitimate source for them. They come from news (discovery) or a person.
 - **Failing politely.** A timeout, a network error, or a 429/5xx is retried after 10 minutes, 1 hour, then 6 hours, three attempts at most. A robots.txt disallow, an access-controlled page or an oversized page is not retried.
 - **Each task** writes its evidence and its result in one transaction against fresh data, so a decision a person made while the site was being read is never overwritten, and an audit row (`enrichment.task`) for each task that changed anything.
+- **On a schedule.** The [scheduler](scheduler.md) puts tasks on this same queue (`reason: refresh`, behind anything a person queued, one task per company) when a company's facts come due, works the queue within a request budget, and learns each company's clocks from the tasks that finish, whoever queued them. It also runs this engine over the feeds and records funding stories about companies we have as evidence.
 
 ## Confidence
 
@@ -120,7 +121,7 @@ One number from 0 to 1 for ordering the review queue; it never publishes anythin
 
 ## Limits to know about
 
-- **State lives in git, not on the server.** The review queue is `candidates.json`; run the engine on your machine (or a scheduled job that commits), not on Render, whose disk is not kept. A database is the next step before scheduling it anywhere.
+- **State lives in git, not on the server.** The review queue is `candidates.json`; run the engine on your machine (or a scheduled job that commits: `.github/workflows/scheduled-refresh.yml`, see [scheduler.md](scheduler.md)), not on Render, whose disk is not kept. A database is the next step before running it at a larger scale.
 - **News extraction favours precision over recall.** It reads the headline and excerpt, skips roundups ("3 startups pocket $18.75 million") and headlines that do not name the company, and finds a handful of companies per feed read.
 - **No website discovery.** The engine does not search for a company's site; a reviewer supplies it.
 - **ABN/ACN are checksum-validated, not looked up.** The ABN Lookup web service would confirm them against the register.

@@ -265,6 +265,7 @@ export function pageMatchesName(candidateNames, facts, domain, { lenient = false
 
 // The links on a homepage worth reading, up to limit, for the fields wanted. Same site only; never a file.
 export function pickPages(html, baseUrl, limit, wanted = null) {
+  if (!(limit > 0)) return []; // a task that wants only the homepage reads only the homepage
   const base = canonicalDomain(baseUrl);
   const found = links(html, baseUrl).filter((l) => {
     const d = canonicalDomain(l.href);

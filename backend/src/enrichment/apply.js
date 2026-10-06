@@ -15,6 +15,7 @@ import { slugify, uniqueSlug } from '../models/company.js';
 import { makeEvidenceRow, valuesEqual, storedValue, activeEvidence, bestConfidence, detectConflicts, EVIDENCE_FIELDS } from '../models/evidence.js';
 import { decide } from './policy.js';
 import { setField, isUnknown } from './fill.js';
+import { briefSignals } from './status.js';
 
 const pageSlug = (url) => { try { return slugify(new URL(url).pathname) || 'website'; } catch { return 'page'; } };
 
@@ -80,6 +81,8 @@ export function applyCompanyEnrichment(work, { companyId, analysis, at, mode = '
   if (!company) throw new Error(`no company "${companyId}"`);
   const s = {
     outcome: 'read', pages: analysis.pages, evidence_added: 0, evidence_refreshed: 0,
+    // Which fields gained a claim, and which had a claim read again: what the scheduler's clocks are kept from.
+    added_fields: [], refreshed_fields: [], status_signals: briefSignals(analysis.status?.signals ?? []),
     applied: [], suggested: [], confirmed: [], conflicts: [], held: [], jobs: { added: 0, updated: 0, closed: 0 },
     warnings: [...analysis.warnings], refused: analysis.errors.map(({ url, code, message }) => ({ url, code, message })), changes: [],
   };
@@ -90,6 +93,8 @@ export function applyCompanyEnrichment(work, { companyId, analysis, at, mode = '
   work.evidence ??= [];
   const retrieved = analysis.retrieved_at ?? at;
   const touched = new Set();
+  const addedFields = new Set();
+  const refreshedFields = new Set();
   const taken = new Set(work.evidence.map((e) => e.id));
 
   for (const row of analysis.evidence) {
@@ -103,13 +108,17 @@ export function applyCompanyEnrichment(work, { companyId, analysis, at, mode = '
       // The same page says the same thing again: it was checked again, and that is what is recorded.
       if (row.verified_at && (!existing.verified_at || Date.parse(row.verified_at) > Date.parse(existing.verified_at))) existing.verified_at = row.verified_at;
       s.evidence_refreshed += 1;
+      refreshedFields.add(row.field);
       continue;
     }
     const made = makeEvidenceRow({ company_id: company.id, field: row.field, value: row.value, source_id: sourceId, confidence: row.confidence, verified_at: row.verified_at, note: row.note }, taken);
     taken.add(made.id);
     work.evidence.push(made);
     s.evidence_added += 1;
+    addedFields.add(row.field);
   }
+  s.added_fields = [...addedFields];
+  s.refreshed_fields = [...refreshedFields];
 
   for (const field of touched) {
     const rows = activeEvidence(work).filter((e) => e.company_id === company.id && e.field === field);
