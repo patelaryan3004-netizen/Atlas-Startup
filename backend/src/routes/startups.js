@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { HttpError } from '../catalog/respond.js';
-import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, recordFor } from '../catalog/catalog.js';
+import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, areas, recordFor, precisionOf } from '../catalog/catalog.js';
+import { describeLocation } from '../models/location.js';
 
 const DEFAULT_LIMIT = 48;
 const MAX_LIMIT = 200;
@@ -13,6 +14,7 @@ function whole(value, name, { min, max, fallback }) {
 }
 
 // GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no&verified=yes|no&name=
+//                   &precision=EXACT,SUBURB,CITY,STATE,UNKNOWN&state=NSW,VIC
 //
 // With none of the paging parameters the answer is what it always was: { total, count, results } with every match
 // in full, in file order. That is kept so nothing that already calls it breaks, but it is the expensive way to
@@ -57,18 +59,23 @@ export function createStartupsRouter({ respond }) {
   // Counts and short lists about a result, so the page need not hold the result to show them.
   router.get('/summary', send((snap, req) => ({ total: snap.count, ...summary(snap, select(snap, readFilters(req.query))) })));
 
-  // The map: one compact tuple per company with a confirmed location, never the full records.
+  // The map: one compact tuple per company whose location is a point (an exact office or a suburb), never the full
+  // records; and one group per city or state for the companies known only to that much. A group is `areas`
+  // ({ kind, label, city, state, lat, lng, count, sample }), drawn as a group and never as a company's own pin;
+  // `unplaced` counts the group members whose city has no centre on file. A company whose location is not known has
+  // neither: it is in the list and the search.
   router.get('/markers', send((snap, req) => {
     const matched = select(snap, readFilters(req.query));
     const items = markers(snap, matched);
-    return { total: snap.count, count: matched.length, pinned: items.length, fields: MARKER_FIELDS, items };
+    const found = areas(snap, matched);
+    return { total: snap.count, count: matched.length, pinned: items.length, areas: found.items, unplaced: found.unplaced, fields: MARKER_FIELDS, items };
   }));
 
-  // One company in full, by slug (or id).
+  // One company in full, by slug (or id), with how well its place is known in the words the page shows.
   router.get('/:slug', send((snap, req) => {
     const record = recordFor(snap, req.params.slug);
     if (!record) throw new HttpError(404, 'Startup not found');
-    return record;
+    return { ...record, location: describeLocation({ ...record, location_precision: precisionOf(record) }) };
   }));
 
   return router;

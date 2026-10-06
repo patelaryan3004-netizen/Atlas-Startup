@@ -108,10 +108,10 @@ describe('what the page needs besides a page', () => {
     expect(JSON.stringify(res.body).length).toBeLessThan(20000);
   });
 
-  it('gives the map compact pins, only for companies with a confirmed location, narrowed by the same filters', async () => {
+  it('gives the map compact pins, only for companies whose location is a point, narrowed by the same filters', async () => {
     const f = await fixture(300);
     const res = await request(f.app).get('/api/startups/markers?hiring=yes');
-    const pinned = f.rows.filter((r) => r.hiring && r.verified);
+    const pinned = f.rows.filter((r) => r.hiring && ['EXACT', 'SUBURB'].includes(r.location_precision));
     expect(res.body).toMatchObject({ total: 300, count: f.rows.filter((r) => r.hiring).length, pinned: pinned.length, fields: MARKER_FIELDS });
     expect(res.body.items).toHaveLength(pinned.length);
     expect(res.body.items.every((m) => m.length === MARKER_FIELDS.length)).toBe(true);

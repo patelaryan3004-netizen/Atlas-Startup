@@ -299,7 +299,7 @@ export function validateLocationRows(ds) {
 // server and the tests agree on it. place: the line naming where; quality: how well it is known.
 export function describeLocation(c) {
   const precision = c.location_precision ?? 'UNKNOWN';
-  const verified = c.location_verified_at != null;
+  const verified = c.location_verified === true || c.location_verified_at != null; // the public record says it as a flag, the stored one as a date
   const city = known(c.city) ? c.city : null;
   const state = c.state ?? null;
   const where = [city, state].filter(Boolean).join(', ');

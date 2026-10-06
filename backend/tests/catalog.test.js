@@ -154,29 +154,34 @@ describe('facets, summary, markers', () => {
     expect(s.vouched.total).toBe(rows.filter((r) => r.vouches?.length).length);
   });
 
-  it('gives the map one compact tuple per company with a confirmed location, and none for the rest', async () => {
+  it('gives the map one compact tuple per company whose location is a point, and none for the rest', async () => {
     const f = await fixture(500);
     const snap = await f.catalog.snapshot();
     const items = markers(snap, select(snap, {}));
-    const pinned = f.rows.filter((r) => r.verified);
+    const pinned = f.rows.filter((r) => ['EXACT', 'SUBURB'].includes(r.location_precision));
     expect(items).toHaveLength(pinned.length);
-    const [slug, name, lat, lng, sector, city, hiring, domain] = items[0];
-    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain']);
+    expect(pinned.length).toBeLessThan(f.rows.filter((r) => r.verified).length); // some are known only to their city
+    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked']);
     expect(items[0]).toHaveLength(MARKER_FIELDS.length);
     const first = pinned[0];
+    const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked] = items[0];
     expect([slug, name, lat, lng, sector, city, hiring]).toEqual([first.slug, first.name, first.lat, first.lng, first.sector, first.city, first.hiring ? 1 : 0]);
     expect(domain).toBe(first.website ? first.website.replace(/^https:\/\/www\./, '') : '');
+    expect(precision).toBe(first.location_precision);
+    expect(place).toContain(first.suburb);
+    expect(checked).toBe(first.location_verified_at ? 1 : 0);
     expect(items.every((m) => Number.isFinite(m[2]) && Number.isFinite(m[3]))).toBe(true);
     // narrowed by the same filters as the list
     expect(markers(snap, select(snap, readFilters({ hiring: 'yes' }))).length).toBe(pinned.filter((r) => r.hiring).length);
   });
 
-  it('leaves a company off the map unless it is verified and has usable coordinates: either alone is not enough', async () => {
+  it('leaves a company off the map unless it is a confirmed point: a confirmation without coordinates, or coordinates without one, is not a pin', async () => {
     const f = await fixture(10);
-    const rows = f.rows.map((r) => ({ ...r, verified: false, lat: null, lng: null }));
-    rows[0] = { ...rows[0], verified: true, lat: null, lng: null }; // verified, but nowhere to put it
+    const rows = f.rows.map((r) => ({ ...r, verified: false, location_precision: 'UNKNOWN', lat: null, lng: null }));
+    rows[0] = { ...rows[0], verified: true, location_precision: 'EXACT', lat: null, lng: null }; // an office, but nowhere to put it
     rows[1] = { ...rows[1], verified: false, lat: -33.8, lng: 151.2 }; // a place, but not confirmed
-    rows[2] = { ...rows[2], verified: true, lat: -33.9, lng: 151.1 };
+    rows[2] = { ...rows[2], verified: true, location_precision: 'EXACT', lat: -33.9, lng: 151.1 };
+    rows[3] = { ...rows[3], verified: true, location_precision: 'CITY', lat: -33.9, lng: 151.1 }; // known to its city: whatever coordinates it carries, it is not a pin
     await f.rewrite(rows);
     const snap = await f.catalog.refresh();
     expect(markers(snap, select(snap, {})).map((m) => m[0])).toEqual([rows[2].slug]);
