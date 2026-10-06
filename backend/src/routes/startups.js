@@ -1,73 +1,75 @@
 import { Router } from 'express';
-import { readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-import { toPublic } from '../models/company.js';
+import { HttpError } from '../catalog/respond.js';
+import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, recordFor } from '../catalog/catalog.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_PATH = path.join(__dirname, '..', 'data', 'startups.json');
+const DEFAULT_LIMIT = 48;
+const MAX_LIMIT = 200;
 
-async function loadStartups() {
-  const raw = await readFile(DATA_PATH, 'utf-8');
-  return JSON.parse(raw);
+function whole(value, name, { min, max, fallback }) {
+  if (value === undefined) return fallback;
+  const n = Number(value);
+  if (!Number.isInteger(n) || n < min || n > max) throw new HttpError(400, `${name} must be a whole number from ${min} to ${max}`);
+  return n;
 }
 
-const router = Router();
+// GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no&verified=yes|no&name=
+//
+// With none of the paging parameters the answer is what it always was: { total, count, results } with every match
+// in full, in file order. That is kept so nothing that already calls it breaks, but it is the expensive way to
+// ask, and nothing in the app does any more. With `limit` (1 to 200) or `offset` it is one page:
+//   sort=file|name|hiring|location|industry   view=card|full   facets=sector,city,stage,investor
+// and the answer also carries offset, limit, hasMore and the facet counts of the matches.
+function list(snap, query) {
+  const filters = readFilters(query);
+  const matched = select(snap, filters);
+  const paged = query.limit !== undefined || query.offset !== undefined;
+  const sort = query.sort === undefined ? 'file' : String(query.sort);
+  if (!SORTS.includes(sort)) throw new HttpError(400, `sort must be one of ${SORTS.join(', ')}`);
+  const view = query.view === undefined ? 'full' : String(query.view);
+  if (!['card', 'full'].includes(view)) throw new HttpError(400, 'view must be card or full');
+  const wanted = query.facets === undefined ? [] : String(query.facets).split(',').filter(Boolean);
+  const unknown = wanted.filter((f) => !FACETS.includes(f));
+  if (unknown.length) throw new HttpError(400, `facets must be from ${FACETS.join(', ')}`);
 
-// A bare value matches exactly, same as before. A comma-separated value (only
-// ever sent by curated lists that roll up several real sector/city strings,
-// e.g. "HealthTech,Healthtech") matches any one of them - still an exact
-// membership check, just against a set instead of a single string.
-function matchesAny(value, param) {
-  if (!param) return true;
-  return String(param).split(',').includes(value);
+  const limit = paged ? whole(query.limit, 'limit', { min: 1, max: MAX_LIMIT, fallback: DEFAULT_LIMIT }) : matched.length;
+  const offset = paged ? whole(query.offset, 'offset', { min: 0, max: 1e7, fallback: 0 }) : 0;
+  const rows = pageOf(snap, matched, { sort, offset, limit });
+  const source = view === 'card' ? snap.cards : snap.records;
+  const results = Array.from(rows, (i) => source[i]);
+  const body = { total: snap.count, count: matched.length, results };
+  if (paged) Object.assign(body, { offset, limit, hasMore: offset + rows.length < matched.length });
+  if (wanted.length) body.facets = facets(snap, matched, wanted);
+  return body;
 }
 
-// GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no
-router.get('/', async (req, res, next) => {
-  try {
-    const startups = await loadStartups();
-    const { search, sector, city, investor, stage, hiring, taskGate } = req.query;
+export function createStartupsRouter({ respond }) {
+  const router = Router();
+  const send = (build, options) => (req, res, next) => respond(req, res, (snap) => build(snap, req), options).catch(next);
 
-    const filtered = startups.filter((s) => {
-      if (search) {
-        const q = String(search).toLowerCase();
-        const nameMatch = s.name.toLowerCase().includes(q);
-        const founderMatch = (s.founders || []).some((f) => f.toLowerCase().includes(q));
-        if (!nameMatch && !founderMatch) return false;
-      }
-      if (!matchesAny(s.sector, sector)) return false;
-      if (!matchesAny(s.city, city)) return false;
-      if (investor && !s.investors.includes(investor)) return false;
-      if (stage && s.stage !== stage) return false;
-      if (hiring === 'yes' && !s.hiring) return false;
-      if (hiring === 'no' && s.hiring) return false;
-      if (taskGate === 'yes' && !s.taskGate?.enabled) return false;
-      if (taskGate === 'no' && s.taskGate?.enabled) return false;
-      return true;
-    });
+  router.get('/', send((snap, req) => list(snap, req.query)));
 
-    // Filtering uses the full record; the response drops the record-keeping fields.
-    res.json({ total: startups.length, count: filtered.length, results: filtered.map(toPublic) });
-  } catch (err) {
-    next(err);
-  }
-});
+  // Distinct filter option values, for the dropdowns.
+  router.get('/meta', send((snap) => snap.meta));
 
-// GET /api/startups/meta — distinct filter option values, for populating dropdowns
-router.get('/meta', async (req, res, next) => {
-  try {
-    const startups = await loadStartups();
-    const uniqueSorted = (arr) => [...new Set(arr)].sort();
-    res.json({
-      sectors: uniqueSorted(startups.map((s) => s.sector)),
-      cities: uniqueSorted(startups.map((s) => s.city)),
-      investors: uniqueSorted(startups.flatMap((s) => s.investors)),
-      stages: uniqueSorted(startups.map((s) => s.stage)),
-    });
-  } catch (err) {
-    next(err);
-  }
-});
+  // How many companies a set of filters picks: for a badge on a curated list, without the list.
+  router.get('/count', send((snap, req) => ({ total: snap.count, count: select(snap, readFilters(req.query)).length })));
 
-export default router;
+  // Counts and short lists about a result, so the page need not hold the result to show them.
+  router.get('/summary', send((snap, req) => ({ total: snap.count, ...summary(snap, select(snap, readFilters(req.query))) })));
+
+  // The map: one compact tuple per company with a confirmed location, never the full records.
+  router.get('/markers', send((snap, req) => {
+    const matched = select(snap, readFilters(req.query));
+    const items = markers(snap, matched);
+    return { total: snap.count, count: matched.length, pinned: items.length, fields: MARKER_FIELDS, items };
+  }));
+
+  // One company in full, by slug (or id).
+  router.get('/:slug', send((snap, req) => {
+    const record = recordFor(snap, req.params.slug);
+    if (!record) throw new HttpError(404, 'Startup not found');
+    return record;
+  }));
+
+  return router;
+}
