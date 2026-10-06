@@ -15,10 +15,10 @@ let realBefore;
 beforeEach(async () => {
   dir = await mkdtemp(path.join(os.tmpdir(), 'discovery-'));
   realBefore = await loadRaw(REAL_DIR);
-  // The real companies, evidence and identifiers, but an empty review queue: these tests
-  // must not depend on whatever has been discovered so far.
+  // The real companies, evidence and identifiers, but an empty review queue, audit trail and import
+  // history: these tests must not depend on whatever has been discovered or done so far.
   const copy = Object.fromEntries(Object.entries(realBefore).filter(([, text]) => text != null));
-  await writeFiles(dir, { ...copy, 'candidates.json': '[]\n' });
+  await writeFiles(dir, { ...copy, 'candidates.json': '[]\n', 'audit_trail.json': '[]\n', 'enrichment_queue.json': '[]\n', 'import_runs.json': '[]\n' });
 });
 afterEach(async () => {
   expect(await loadRaw(REAL_DIR), 'the real data files must never be touched by these tests').toEqual(realBefore);

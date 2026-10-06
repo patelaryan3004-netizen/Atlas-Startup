@@ -140,6 +140,8 @@ describe('discovery data in the shipped files', () => {
     for (const file of files) {
       const text = await readFile(file, 'utf-8');
       expect(text, `${path.basename(file)} must not touch discovery data`).not.toMatch(/candidates|identifiers|discovery|evidence\.json|sources\.json/i);
+      // ...nor the pipeline's own records, nor the Command Center
+      expect(text, `${path.basename(file)} must not touch the audit trail, the queue, the import history or the admin`).not.toMatch(/audit_trail|enrichment_queue|import_runs|\/admin\/|\/enrichment\/|scripts\/admin|models\/store/i);
     }
   });
 

@@ -171,9 +171,11 @@ export function publishCandidate(work, candidateId, { by, at, location = null })
   const founders = unique(known('founders'));
   const year = only('founded_year');
   const round = only('last_funding_round');
+  // A sector is only ever a reviewer's choice (no source states it), so it is there only if one was made.
+  const sector = only('sector') ?? 'Unknown';
   const record = {
     name: candidate.name,
-    sector: 'Unknown', sectorFull: 'Unknown',
+    sector, sectorFull: sector,
     city: location?.city ?? candidate.city ?? 'Unknown',
     lat: confirmed ? location.lat : null, lng: confirmed ? location.lng : null,
     investors: unique(known('investors')),

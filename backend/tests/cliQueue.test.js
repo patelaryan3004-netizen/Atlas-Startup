@@ -74,6 +74,20 @@ describe('running the queue', () => {
     await expect(cliIn(dir, ['queue', 'run', '--by', 'Me', '--mode', 'yolo'])).rejects.toThrow(/--mode must be one of suggest, fill/);
   });
 
+  it('puts chosen companies back on the queue, and refuses one that does not exist or has no website', async () => {
+    const dir = await makeDataDir(base());
+    await cliIn(dir, ['queue', 'seed', '--by', 'Me']);
+    const fetcher = web({ 'https://acme.com.au/': html(auPage('Acme Robotics')) });
+    await cliIn(dir, ['queue', 'run', '--by', 'Me', '--concurrency', '1'], { fetcher });
+    expect((await cliIn(dir, ['queue', 'add', 'acme-robotics', '--by', 'Me'])).text).toMatch(/queued acme-robotics/);
+    const ds = await readDataDir(dir);
+    expect(ds.enrichment_queue.filter((t) => t.target_id === 'acme-robotics').map((t) => t.status)).toEqual(['done', 'queued']);
+    expect(ds.audit_trail.at(-1)).toMatchObject({ action: 'enrichment.enqueue', actor: 'Me' });
+    await expect(cliIn(dir, ['queue', 'add', 'nobody', '--by', 'Me'])).rejects.toThrow(/no company "nobody"/);
+    await expect(cliIn(dir, ['queue', 'add', 'gamma', '--by', 'Me'])).rejects.toThrow(/has no website to read/);
+    await expect(cliIn(dir, ['queue', 'add', '--by', 'Me'])).rejects.toThrow(/needs one or more company ids/);
+  });
+
   it('retries and cancels a task, and says when it cannot', async () => {
     const dir = await makeDataDir(base());
     await cliIn(dir, ['queue', 'seed', '--by', 'Me']);

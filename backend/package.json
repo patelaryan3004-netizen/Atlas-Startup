@@ -12,7 +12,8 @@
     "data:migrate": "node scripts/migrate-company-model.js",
     "data:check": "node scripts/migrate-company-model.js --check",
     "data:audit": "node scripts/data-audit.js",
-    "discovery": "node scripts/discovery.js"
+    "discovery": "node scripts/discovery.js",
+    "admin": "node scripts/admin.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

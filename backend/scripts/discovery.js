@@ -15,6 +15,7 @@
 //   npm run discovery -- queue status
 //   npm run discovery -- queue seed --by name [--limit n] [--force]
 //   npm run discovery -- queue run --by name [--limit n] [--mode suggest|fill] [--concurrency n]
+//   npm run discovery -- queue add <company> [<company> ...] --by name
 //   npm run discovery -- queue retry <task> --by name
 //   npm run discovery -- queue cancel <task> --by name
 //
@@ -28,7 +29,7 @@ import { withLock, commit } from '../src/models/store.js';
 import { appendAudit } from '../src/models/auditTrail.js';
 import { buildImportRun } from '../src/models/importRuns.js';
 import { auditDataset } from '../src/models/audit.js';
-import { seedFromAudit, queueSummary, requeueTask, cancelTask, enqueueForApproved, enqueueForPublished } from '../src/models/enrichmentQueue.js';
+import { seedFromAudit, queueSummary, latestTasks, requeueTask, cancelTask, enqueueTask, enqueueForApproved, enqueueForPublished, WANTABLE, PRIORITY } from '../src/models/enrichmentQueue.js';
 import { runQueue } from '../src/enrichment/worker.js';
 import { MODES } from '../src/enrichment/policy.js';
 import { transact } from '../src/models/store.js';
@@ -203,8 +204,8 @@ async function queueCommand([sub, ...rest], { work, flags, at, save, trail, by, 
     case 'status': {
       const s = queueSummary(work.enrichment_queue ?? [], at);
       out([`${s.total} task(s): ${Object.entries(s.counts).filter(([, n]) => n).map(([k, n]) => `${n} ${k}`).join(', ') || 'none'}`, `${s.ready} ready now, ${s.backing_off} backing off`].join('\n'));
-      const attention = (work.enrichment_queue ?? []).filter((t) => t.status === 'failed' || t.result?.outcome === 'mismatch');
-      if (attention.length) out(`\nNeeds a look:\n${attention.map((t) => `  ${line(t)}${t.result?.outcome === 'mismatch' ? '  - the website does not look like this company' : ''}`).join('\n')}`);
+      const attention = latestTasks(work.enrichment_queue ?? []).filter((t) => t.status === 'failed' || ['mismatch', 'blocked'].includes(t.result?.outcome));
+      if (attention.length) out(`\nNeeds a look:\n${attention.map((t) => `  ${line(t)}${t.result?.outcome === 'mismatch' ? '  - the website does not look like this company' : t.result?.outcome === 'blocked' ? '  - the site served a page that was not its own content' : ''}`).join('\n')}`);
       return 0;
     }
     case 'seed': {
@@ -230,9 +231,21 @@ async function queueCommand([sub, ...rest], { work, flags, at, save, trail, by, 
       out(`\n${stats.claimed} task(s): ${stats.done} read, ${stats.skipped} skipped, ${stats.failed} failed, ${stats.retried} to retry. ${stats.evidence_added} evidence added${stats.applied ? `, ${stats.applied} field(s) filled` : ''}.`);
       return stats.failed ? 2 : 0;
     }
+    case 'add': {
+      if (!rest.length) throw new Error('queue add needs one or more company ids');
+      const added = rest.map((id) => {
+        const company = work.companies.find((c) => c.id === id);
+        if (!company) throw new Error(`no company "${id}"`);
+        if (!company.website) throw new Error(`${company.name} has no website to read`);
+        return enqueueTask(work, { kind: 'company', targetId: id, priority: PRIORITY.manual, reason: 'manual', wanted: WANTABLE, by: by(), at }).task;
+      });
+      out(`queued ${added.map((t) => t.target_id).join(', ')}`);
+      await save(added.map((t) => trail('enrichment.enqueue', { type: 'queue', id: t.id }, `Queued ${t.target_id} to have its website read`)));
+      return 0;
+    }
     case 'retry': { const t = requeueTask(work, rest[0], { at }); out(`${t.id} queued again`); await save([trail('enrichment.retry', { type: 'queue', id: t.id }, `Retried ${t.kind} ${t.target_id}`)]); return 0; }
     case 'cancel': { const t = cancelTask(work, rest[0], { at }); out(`${t.id} cancelled`); await save([trail('enrichment.cancel', { type: 'queue', id: t.id }, `Cancelled ${t.kind} ${t.target_id}`)]); return 0; }
-    default: throw new Error('queue needs one of: status, seed, run, retry, cancel');
+    default: throw new Error('queue needs one of: status, seed, add, run, retry, cancel');
   }
 }
 

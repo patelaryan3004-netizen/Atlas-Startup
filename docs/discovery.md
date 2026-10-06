@@ -93,6 +93,27 @@ A candidate found in a news story has a name and little else, so its confidence 
 
 `publish` creates the company with exactly what is known: sector and stage stay `Unknown` unless the evidence says, the description is left for a person to write, and the location is unconfirmed (so it is listed under Unconfirmed, not on the map) unless you supply and confirm one. A candidate with a possible duplicate cannot be approved until each is settled: `distinct --from <id>` if it is a different company, `merge --into <company>` if it is the same.
 
+## Enrichment
+
+Existing companies and newly approved candidates go through one pipeline: a queue of "read this company's own website" tasks, worked a task at a time so it can run asynchronously and be stopped between tasks.
+
+```bash
+npm run discovery -- queue status                          # what is waiting, running, done, failed
+npm run discovery -- queue seed --by "Your Name"           # queue every company, in the order the completeness audit ranks them
+npm run discovery -- queue run --by "Your Name" --concurrency 3 [--mode fill] [--limit 20]
+npm run discovery -- queue add acme --by "Your Name"       # one company (by id), ahead of the backlog
+npm run discovery -- queue retry enq-acme-1 --by "Your Name"   # a failed, cancelled or skipped task; `queue cancel <id>` for a waiting one
+```
+
+The same queue is worked from the [Data Command Center](admin.md). Approving a candidate or publishing a company queues its website ahead of the backlog.
+
+- **Rules.** Never fabricate; keep the evidence and its source; keep higher-confidence information that is already there; flag conflicts instead of overwriting; leave a field unknown when the evidence is thin; record `last_verified_at` and a confidence; obey the source's terms. A task is `queued`, `running` (with a lease, so a crashed run is recovered), `done`, `failed`, `skipped` (no website, or the site refused automated readers) or `cancelled`.
+- **What a read finds.** The homepage and up to two linked pages: description, an Australian address (and its state and city), founding year, founders named after a founding verb ("founded by"), investors named in a "backed by" sentence, and registry numbers. For hiring: JSON-LD job postings, and the public feed of the job board the company links to from its own careers page (Greenhouse, Lever, Ashby, Workable, Recruitee, SmartRecruiters), with robots.txt respected like any other read. A site whose title says it is someone else's, or that serves a bot-check page, is recorded as `mismatch` or `blocked` and nothing is taken from it.
+- **What it does with it.** The default mode, `suggest`, records evidence and changes no company: a person applies what they trust. Mode `fill` writes only fields the record leaves unknown, and only the safest: a description from the page's own text, a founding year from structured data, hiring status from a job board. Founders, investors and addresses are always suggestions; a website is only confirmed. A value the record already has is never replaced: if the evidence differs it is a conflict. A claim a person turned down is never added again.
+- **What it never fills.** Sector, stage and funding: no company's own website is a legitimate source for them. They come from news (discovery) or a person.
+- **Failing politely.** A timeout, a network error, or a 429/5xx is retried after 10 minutes, 1 hour, then 6 hours, three attempts at most. A robots.txt disallow, an access-controlled page or an oversized page is not retried.
+- **Each task** writes its evidence and its result in one transaction against fresh data, so a decision a person made while the site was being read is never overwritten, and an audit row (`enrichment.task`) for each task that changed anything.
+
 ## Confidence
 
 One number from 0 to 1 for ordering the review queue; it never publishes anything. 40% how Australian it looks, 35% how much like a startup, 25% how good the evidence is (a little more when independent sources found it separately). Capped at 0.5 while a possible duplicate is unresolved and at 0.6 with no website. The breakdown is stored with the candidate.

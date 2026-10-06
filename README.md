@@ -89,6 +89,16 @@ npm run discovery -- resolve --name "Leonardo.Ai" --website https://leonardo.ai 
 
 Finds candidate Australian startups from licensed or public sources, checks each against the companies already here (by website, ABN/ACN and name, including aliases and former names), checks it is Australian and a startup, reads the company's own website, scores it, and queues it for a person. Candidates are staging data: they enter as `candidate`, no route serves them, and only a named person can approve, merge or publish one. It never reads LinkedIn or a proprietary database, obeys `robots.txt` and refuses access-controlled pages. See [docs/discovery.md](docs/discovery.md).
 
+### Data Command Center
+
+```bash
+cd backend
+npm run admin -- init --name "Your name"   # once: shows your access token a single time
+npm run admin                              # http://127.0.0.1:4010
+```
+
+A private page, never part of the public site, for working the data: the eight counts (companies, candidates, needs review, duplicates, updated this week, missing data, failed imports), new startups discovered (approve, reject, edit, merge, publish), data quality, conflicts a person settles, suggested fills, the enrichment queue and the audit trail of every action. Local only, with roles. See [docs/admin.md](docs/admin.md).
+
 ## Testing
 
 Both apps use [Vitest](https://vitest.dev) with the `v8` coverage provider.
