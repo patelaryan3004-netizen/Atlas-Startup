@@ -187,8 +187,10 @@ The script copies each size's fixture over the file a backend reads (`baseline/b
 
 ```bash
 node scripts/scale/cdp-bench.js --profile desktop --sizes 213,500,1000,2500,5000,10000 --repeat 3 --heavy-once --budget 90000 --out ../docs/scale/browser-desktop.json
-node scripts/scale/cdp-bench.js --profile mobile  --sizes 213,500,1000,2500,5000,10000 --repeat 3 --heavy-once --budget 240000 --out ../docs/scale/browser-mobile.json
+node scripts/scale/cdp-bench.js --profile mobile  --sizes 213,500,1000,2500,5000,10000 --repeat 3 --heavy-once --budget 420000 --out ../docs/scale/browser-mobile.json
 node scripts/scale/report.js --out ../docs/scale/results.md
 ```
+
+The desktop sweep takes about five minutes and the phone sweep about twelve (the old app at 10,000 companies takes minutes on its own). The result file is written after every run, so a sweep that is cut short keeps what it measured (`meta.complete` says whether it reached the end). `node scripts/scale/report.js --headline` prints the two summary tables at the top of this page.
 
 `scripts/scale/serve.js` starts the current app over any file of fixtures. `npm test` includes the fixture generator's guard (it must refuse to write near the real data) and the proof that the catalog answers exactly what the old filter did. Close other programs first, or read the "how busy was the machine" table in `results.md` before trusting a small difference.
