@@ -671,7 +671,8 @@ header h1 span{color:var(--accent);}
 .people-item-meta{font-size:10.5px;color:var(--muted);margin-top:1px;}
 .people-item-why{margin:3px 0 0;font-size:11.5px;color:var(--muted);line-height:1.4;}
 
-.waitlist-iframe{width:100%;height:480px;border:1px solid var(--line);border-radius:6px;max-width:100%;}
+/* Tall enough for the form, and never taller than the panel can hold under its heading, so a short screen does not scroll twice. */
+.waitlist-iframe{width:100%;height:min(480px,calc(85vh - 140px));border:1px solid var(--line);border-radius:6px;max-width:100%;}
 
 .vouch-badge{
   display:inline-block;cursor:pointer;font-size:9px;font-weight:700;letter-spacing:.5px;

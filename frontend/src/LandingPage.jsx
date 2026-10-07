@@ -155,6 +155,9 @@ export default function LandingPage() {
             edit&rdquo; forms send whatever you type, including your email if you choose to give one,
             to our review queue. We use it only to follow up on that submission and to consider it for
             the map. We do not sell it, and we do not use it for marketing.</p>
+          <p><strong>The waitlist.</strong> &ldquo;Join waitlist&rdquo; opens a form hosted by Tally
+            (tally.so), and loads it only when you open it. What you enter there goes to Tally, and
+            Tally&rsquo;s own privacy policy applies to the form.</p>
           <p><strong>What we do not collect.</strong> No account, no tracking cookies, no analytics
             pixel. Your browser may cache map data locally purely to remember interface preferences.</p>
           <p><strong>Business details.</strong> Placeholder: operator name, ABN, and contact details go

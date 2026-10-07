@@ -1,11 +1,11 @@
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
-// Not filled in yet - no real Tally form has been created for this. Shown as
-// an honest placeholder rather than pointing the iframe at a guessed or
-// broken URL. Set this once a real form exists.
-const TALLY_URL = '';
+// The waitlist is a Tally form (its share link is https://tally.so/r/kdVrGo). This is its embed address, which Tally lets
+// a page show in a frame; hideTitle leaves the heading to this panel, and the form brings its own dark background.
+const TALLY_URL = 'https://tally.so/embed/kdVrGo?hideTitle=1&alignLeft=1';
 
-export default function WaitlistForm({ onClose }) {
+// `formUrl` is for tests and for pointing the panel at another form; with none it says so rather than showing a broken frame.
+export default function WaitlistForm({ onClose, formUrl = TALLY_URL }) {
   useEscapeClose(onClose);
 
   return (
@@ -15,10 +15,10 @@ export default function WaitlistForm({ onClose }) {
         <h2>Join the waitlist</h2>
         <p className="modal-sub">Get early access to task-gated startup applications.</p>
 
-        {TALLY_URL ? (
+        {formUrl ? (
           <iframe
             className="waitlist-iframe"
-            src={TALLY_URL}
+            src={formUrl}
             title="Waitlist signup"
             loading="lazy"
           />

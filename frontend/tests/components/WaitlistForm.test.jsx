@@ -9,10 +9,23 @@ describe('WaitlistForm', () => {
     expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
   });
 
-  it('shows an honest placeholder instead of an iframe, since no real Tally link exists yet', () => {
+  it('shows the Tally form in a frame, from Tally\'s embed address, and no placeholder', () => {
     render(<WaitlistForm onClose={() => {}} />);
+    const frame = screen.getByTitle('Waitlist signup');
+    expect(frame.tagName).toBe('IFRAME');
+    expect(frame).toHaveAttribute('src', 'https://tally.so/embed/kdVrGo?hideTitle=1&alignLeft=1');
+    expect(screen.queryByText(/not set up yet/)).not.toBeInTheDocument();
+  });
+
+  it('shows an honest placeholder instead of a broken frame when there is no form address', () => {
+    render(<WaitlistForm onClose={() => {}} formUrl="" />);
     expect(screen.queryByTitle('Waitlist signup')).not.toBeInTheDocument();
     expect(screen.getByText(/no Tally form has been created for this/)).toBeInTheDocument();
+  });
+
+  it('can be pointed at another form', () => {
+    render(<WaitlistForm onClose={() => {}} formUrl="https://tally.so/embed/other" />);
+    expect(screen.getByTitle('Waitlist signup')).toHaveAttribute('src', 'https://tally.so/embed/other');
   });
 
   it('closes on the X button', async () => {

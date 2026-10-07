@@ -132,6 +132,12 @@ describe('LandingPage', () => {
     expect(screen.getByText('Full list (no JS)').closest('a')).toHaveAttribute('href', '/directory');
   });
 
+  it('says in its privacy text that the waitlist form is hosted by Tally', async () => {
+    render(<LandingPage />);
+    expect(screen.getByText('The waitlist.')).toBeInTheDocument();
+    expect(screen.getByText(/opens a form hosted by Tally/)).toBeInTheDocument();
+  });
+
   it('still says what it is, without the live numbers, if the counts cannot be fetched', async () => {
     fetchSummary.mockRejectedValue(new Error('network error'));
     const { container } = render(<LandingPage />);

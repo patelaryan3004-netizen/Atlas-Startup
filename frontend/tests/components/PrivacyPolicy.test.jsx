@@ -11,6 +11,13 @@ describe('PrivacyPolicy', () => {
     expect(screen.getByText(/review queue/)).toBeInTheDocument();
   });
 
+  it('says the waitlist form is hosted by Tally, so a visitor knows where what they type goes', () => {
+    render(<PrivacyPolicy onClose={() => {}} />);
+    expect(screen.getByText('The waitlist')).toBeInTheDocument();
+    expect(screen.getByText(/opens a form hosted by Tally \(tally\.so\)/)).toBeInTheDocument();
+    expect(screen.getByText(/Tally.s own privacy policy applies to the form/)).toBeInTheDocument();
+  });
+
   it('states no accounts, tracking cookies, or analytics are used', () => {
     render(<PrivacyPolicy onClose={() => {}} />);
     expect(screen.getByText(/No account, no tracking cookies, no analytics pixel/)).toBeInTheDocument();

@@ -16,6 +16,12 @@ export default function PrivacyPolicy({ onClose }) {
           it, and we don&rsquo;t use it for marketing.
         </p>
 
+        <div className="pc-section-label">The waitlist</div>
+        <p className="modal-sub">
+          &ldquo;Join waitlist&rdquo; opens a form hosted by Tally (tally.so), and loads it only when you open
+          it. What you enter there goes to Tally, and Tally&rsquo;s own privacy policy applies to the form.
+        </p>
+
         <div className="pc-section-label">What we don&rsquo;t collect</div>
         <p className="modal-sub">
           No account, no tracking cookies, no analytics pixel. Your browser may cache map data locally
