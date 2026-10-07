@@ -66,6 +66,57 @@ describe('StartupDetailPanel, while the full record is still arriving', () => {
   });
 });
 
+describe('StartupDetailPanel, how well the place is known', () => {
+  beforeEach(() => { vi.clearAllMocks(); });
+  const where = (precision, place, quality) => ({ startup: { location: { precision, place, quality } } });
+
+  it('shows an office a source has checked as such, with its address', () => {
+    setup(where('EXACT', '110 Kippax Street, Surry Hills, Sydney', 'Verified office'));
+    expect(screen.getByText('110 Kippax Street, Surry Hills, Sydney')).toBeInTheDocument();
+    expect(screen.getByText('✓ Verified office')).toBeInTheDocument();
+  });
+
+  it('says an address that is only on file is only on file', () => {
+    setup(where('EXACT', '1 George Street, Sydney', 'Office address on file'));
+    expect(screen.getByText('✓ Office address on file')).toBeInTheDocument();
+    expect(screen.queryByText(/Verified office/)).not.toBeInTheDocument();
+  });
+
+  it('calls a suburb approximate: the pin is at the suburb, not the office', () => {
+    setup(where('SUBURB', 'Surry Hills, Sydney', 'Location: suburb-level'));
+    expect(screen.getByText('◐ Location: suburb-level')).toBeInTheDocument();
+    expect(screen.getByText('Approximate: the pin is at the suburb, not the office.')).toBeInTheDocument();
+  });
+
+  it('says a company known only to its city has no pin, and where it is shown instead', () => {
+    setup(where('CITY', 'Sydney, NSW', 'Location: city-level'));
+    expect(screen.getByText('Sydney, NSW')).toBeInTheDocument();
+    expect(screen.getByText('◐ Location: city-level')).toBeInTheDocument();
+    expect(screen.getByText('No pin: shown as a group in Sydney on the map.')).toBeInTheDocument();
+  });
+
+  it('says a state-level company has no pin either, and an unknown place is not shown at all', () => {
+    const { unmount } = setup(where('STATE', 'VIC', 'Location: state-level'));
+    expect(screen.getByText('No pin: shown as a group in its state on the map.')).toBeInTheDocument();
+    unmount();
+    setup(where('UNKNOWN', null, 'Location unknown'));
+    expect(screen.getByText('○ Location unknown')).toBeInTheDocument();
+    expect(screen.getByText('Not shown on the map.')).toBeInTheDocument();
+  });
+
+  it('says it at once for a company opened from a pin, while the rest of the record is still loading', () => {
+    setup({ startup: { partial: true, location: { precision: 'EXACT', place: '15 William Street, Melbourne', quality: 'Verified office' } } });
+    expect(screen.getByRole('status')).toHaveTextContent('Loading details…');
+    expect(screen.getByText('15 William Street, Melbourne')).toBeInTheDocument();
+    expect(screen.getByText('✓ Verified office')).toBeInTheDocument();
+  });
+
+  it('describes a record that does not say how well its place is known as it always did', () => {
+    setup({ startup: { address: '123 Test St', location: undefined } });
+    expect(screen.getByText('✓ Address on file')).toBeInTheDocument();
+  });
+});
+
 describe('StartupDetailPanel', () => {
   beforeEach(() => {
     vi.clearAllMocks();

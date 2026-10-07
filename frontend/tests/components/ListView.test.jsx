@@ -42,6 +42,21 @@ describe('ListView', () => {
     expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ limit: 48, offset: 0, sort: 'name' }));
   });
 
+  it('says what the list is narrowed to when a group on the map was opened as a list, and widens it again on request', async () => {
+    const onClearScope = vi.fn();
+    mount({ filters: { ...FILTERS, city: 'Sydney', precision: 'CITY' }, scope: 'City-level locations in Sydney', onClearScope });
+    expect(await screen.findByText('City-level locations in Sydney')).toBeInTheDocument();
+    await userEvent.click(screen.getByText('Show every location'));
+    expect(onClearScope).toHaveBeenCalledTimes(1);
+    expect(fetchStartupPage).toHaveBeenCalledWith(expect.objectContaining({ city: 'Sydney', precision: 'CITY' }), expect.anything());
+  });
+
+  it('says nothing about scope when the list is not narrowed that way', async () => {
+    mount();
+    await screen.findByText('1 startup');
+    expect(screen.queryByText('Show every location')).not.toBeInTheDocument();
+  });
+
   it('shows the count of everything that matches, not just the page on screen', async () => {
     fetchStartupPage.mockResolvedValue(page([startup()], { count: 1234, hasMore: true }));
     mount();

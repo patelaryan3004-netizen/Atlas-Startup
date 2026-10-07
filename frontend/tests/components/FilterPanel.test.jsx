@@ -65,6 +65,24 @@ describe('FilterPanel', () => {
     expect(screen.getByRole('option', { name: 'Series A' })).toBeInTheDocument();
   });
 
+  it('lets a visitor pick a state and how exactly the place is known, and says what each kind means for the map', async () => {
+    const { onChange } = setup();
+    await open();
+    await userEvent.selectOptions(screen.getByLabelText('State'), 'VIC');
+    expect(onChange).toHaveBeenLastCalledWith({ ...emptyFilters, state: 'VIC' });
+    expect(screen.getAllByRole('option').map((o) => o.textContent)).toEqual(expect.arrayContaining(['Exact office', 'Suburb only (approximate)', 'City only (no pin)', 'State only (no pin)']));
+    await userEvent.selectOptions(screen.getByLabelText('How exactly the place is known'), 'CITY');
+    expect(onChange).toHaveBeenLastCalledWith({ ...emptyFilters, precision: 'CITY' });
+  });
+
+  it('shows the state and the kind of location it is filtered by, counts them as filters, and copes with filters from before they existed', async () => {
+    setup({ filters: { ...emptyFilters, state: 'NSW', precision: 'SUBURB' } });
+    expect(screen.getByText('☰ Filters (2)')).toBeInTheDocument();
+    await userEvent.click(screen.getByText(/^☰ Filters/));
+    expect(screen.getByLabelText('State')).toHaveValue('NSW');
+    expect(screen.getByLabelText('How exactly the place is known')).toHaveValue('SUBURB');
+  });
+
   it('has no search field - search lives in the top-level nav, not this drawer', async () => {
     setup();
     await open();

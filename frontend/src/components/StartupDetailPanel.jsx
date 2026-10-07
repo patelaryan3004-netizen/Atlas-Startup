@@ -29,6 +29,38 @@ function PanelLogo({ domain }) {
   return <img className="pc-avatar-logo" src={src} alt="" onError={() => setStep((s) => s + 1)} />;
 }
 
+const APPROXIMATE_NOTE = {
+  SUBURB: () => 'Approximate: the pin is at the suburb, not the office.',
+  CITY: (s) => `No pin: shown as a group in ${s.city || 'its city'} on the map.`,
+  STATE: () => 'No pin: shown as a group in its state on the map.',
+  UNKNOWN: () => 'Not shown on the map.',
+};
+
+// Where the company is, and how well that is known, in the words the site uses everywhere: "Verified office",
+// "Location: suburb-level", "Location: city-level". `s.location` comes from the server (or from the pin the panel was
+// opened from); a record without it is described as it always was, by whether it has an address.
+function LocationCell({ s, loading }) {
+  const where = s.location;
+  if (!where) {
+    return (
+      <>
+        <div className="sdp-meta-value">{s.city}</div>
+        {!loading && <div className="sdp-meta-note">{s.address ? '✓ Address on file' : '◐ City-level only'}</div>}
+      </>
+    );
+  }
+  const precision = where.precision;
+  const mark = precision === 'EXACT' ? '✓' : precision === 'UNKNOWN' ? '○' : '◐';
+  const note = APPROXIMATE_NOTE[precision]?.(s);
+  return (
+    <>
+      <div className="sdp-meta-value">{where.place || s.city}</div>
+      <div className={`sdp-meta-note sdp-loc sdp-loc-${precision.toLowerCase()}`}>{mark} {where.quality}</div>
+      {note && <div className="sdp-meta-note">{note}</div>}
+    </>
+  );
+}
+
 // News items are free-text headlines with no company field to join on, so a
 // startup's name appearing in the headline/meta text is the only honest
 // signal of relevance - anything weaker would risk mismatches we can't verify.
@@ -84,8 +116,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             </div>
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Location</div>
-              <div className="sdp-meta-value">{s.city}</div>
-              {!loading && <div className="sdp-meta-note">{s.address ? '✓ Address on file' : '◐ City-level only'}</div>}
+              <LocationCell s={s} loading={loading} />
             </div>
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Stage</div>

@@ -9,9 +9,12 @@ const mapInstance = {
   on: vi.fn((event, fn) => { handlers[event] = fn; }),
   getZoom: vi.fn(() => 17),
   getBounds: vi.fn(() => bounds),
+  createPane: vi.fn(() => ({ style: {} })),
 };
 const tileLayerInstance = { addTo: vi.fn() };
 const zoomControlInstance = { addTo: vi.fn() };
+// Two layer groups are made each time the map is: the groups (cities and states) first, the pins second.
+const areaLayerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
 const layerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
 
 vi.mock('leaflet', () => {
@@ -20,12 +23,13 @@ vi.mock('leaflet', () => {
     const p = { setLatLng: vi.fn(() => p), setContent: vi.fn(() => p), openOn: vi.fn(() => p) };
     return p;
   });
+  const layerGroup = vi.fn(() => (layerGroup.mock.calls.length % 2 === 1 ? areaLayerInstance : layerInstance));
   return {
     default: {
       map: vi.fn(() => mapInstance),
       tileLayer: vi.fn(() => tileLayerInstance),
       control: { zoom: vi.fn(() => zoomControlInstance) },
-      layerGroup: vi.fn(() => layerInstance),
+      layerGroup,
       marker,
       popup,
       divIcon: vi.fn((opts) => ({ opts })),
@@ -36,8 +40,10 @@ vi.mock('leaflet', () => {
 import L from 'leaflet';
 import MapView from '../../src/components/MapView.jsx';
 
-// [slug, name, lat, lng, sector, city, hiring, domain]
-const pin = (slug, name, lat = -33.87, lng = 151.21, extra = {}) => [slug, name, lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? ''];
+// [slug, name, lat, lng, sector, city, hiring, domain] and, from a server that says how well a place is known, [precision, place, checked]
+const pin = (slug, name, lat = -33.87, lng = 151.21, extra = {}) => [slug, name, lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? '',
+  ...(extra.precision ? [extra.precision, extra.place ?? '', extra.checked ?? 0] : [])];
+const SYDNEY_GROUP = { kind: 'CITY', key: 'CITY|Sydney|NSW', label: 'Sydney', city: 'Sydney', state: 'NSW', lat: -33.8688, lng: 151.2093, count: 42, sample: [{ slug: 'trace', name: 'Trace' }, { slug: 'truestate', name: 'TrueState' }] };
 const noop = () => {};
 const colourOf = (hex) => { const probe = document.createElement('div'); probe.style.borderColor = hex; return probe.style.borderColor; };
 const icons = () => L.divIcon.mock.calls.map((c) => c[0]);
@@ -69,14 +75,16 @@ describe('MapView', () => {
   });
   afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
-  it('initializes the map, tile layer, zoom control and a layer for pins once on mount', () => {
+  it('initializes the map, tile layer, zoom control, a layer for pins and a pane and layer for groups once on mount', () => {
     render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
     expect(L.map).toHaveBeenCalledTimes(1);
     expect(L.tileLayer).toHaveBeenCalledTimes(1);
     expect(tileLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
     expect(zoomControlInstance.addTo).toHaveBeenCalledWith(mapInstance);
-    expect(L.layerGroup).toHaveBeenCalledTimes(1);
+    expect(L.layerGroup).toHaveBeenCalledTimes(2); // the groups of cities, and the pins
     expect(layerInstance.addTo).toHaveBeenCalledWith(mapInstance);
+    expect(areaLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
+    expect(mapInstance.createPane).toHaveBeenCalledWith('areas');
     expect(mapInstance.on).toHaveBeenCalledWith('moveend', expect.any(Function));
   });
 
@@ -336,5 +344,134 @@ describe('MapView', () => {
     const { unmount } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
     unmount();
     expect(mapInstance.remove).toHaveBeenCalledTimes(1);
+  });
+
+  describe('how well a place is known', () => {
+    it('draws a suburb\'s pin as approximate, and an office\'s as it always was', () => {
+      render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' }), pin('b', 'B', -37.81, 144.96, { precision: 'EXACT', place: '1 William Street, Melbourne', checked: 1 })]} sectorColors={{}} onSelectStartup={noop} />);
+      const [suburb, office] = icons().map((i) => i.html);
+      expect(suburb.classList.contains('pin-approx')).toBe(true);
+      expect(office.classList.contains('pin-approx')).toBe(false);
+    });
+
+    it('says in the tooltip the name, where, and how well that is known', () => {
+      render(<MapView markers={[pin('a', 'Example Startup', -37.81, 144.96, { precision: 'EXACT', place: '123 Example Street, Melbourne', checked: 1 })]} sectorColors={{}} onSelectStartup={noop} />);
+      const [content] = lastMarker().bindTooltip.mock.calls[0];
+      expect([...content.children].map((c) => c.textContent)).toEqual(['Example Startup', '123 Example Street, Melbourne', 'Verified office']);
+      expect(content.querySelector('.tip-quality').className).toContain('tip-exact');
+    });
+
+    it('does not call an address that was only on file verified, and calls a suburb suburb-level', () => {
+      render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'EXACT', place: '1 George Street, Sydney', checked: 0 }), pin('b', 'B', -37.81, 144.96, { precision: 'SUBURB', place: 'Richmond, Melbourne' })]} sectorColors={{}} onSelectStartup={noop} />);
+      const words = L.marker.mock.results.map((r) => r.value.bindTooltip.mock.calls[0][0].querySelector('.tip-quality').textContent);
+      expect(words).toEqual(['Office address on file', 'Location: suburb-level']);
+    });
+
+    it('builds the tooltip as text, whatever the company or the place is called', () => {
+      const evil = '<img src=x onerror=alert(1)>';
+      render(<MapView markers={[pin('a', evil, -37.81, 144.96, { precision: 'EXACT', place: evil })]} sectorColors={{}} onSelectStartup={noop} />);
+      const [content] = lastMarker().bindTooltip.mock.calls[0];
+      expect(content.querySelector('img')).toBeNull();
+      expect(content.textContent).toContain(evil);
+    });
+
+    it('opens a company from its pin with how well its place is known already in hand', () => {
+      const onSelectStartup = vi.fn();
+      render(<MapView markers={[pin('acme', 'Acme', -33.88, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' })]} sectorColors={{}} onSelectStartup={onSelectStartup} />);
+      lastMarker().on.mock.calls[0][1]();
+      expect(onSelectStartup).toHaveBeenCalledWith(expect.objectContaining({ slug: 'acme', location_precision: 'SUBURB', location: { precision: 'SUBURB', place: 'Surry Hills, Sydney', quality: 'Location: suburb-level' } }));
+    });
+  });
+
+  describe('companies known only to a city or a state', () => {
+    const groupMarker = () => L.marker.mock.results.map((r) => r.value).find((m) => m.opts.pane === 'areas');
+
+    it('draws a group as a ring and a label in a pane under the pins, never as a pin, and says what it is', () => {
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(1);
+      expect(L.marker).toHaveBeenCalledWith([-33.8688, 151.2093], expect.objectContaining({ pane: 'areas', title: 'Sydney — 42 startups with city-level locations', keyboard: false }));
+      const { html, className } = icons().at(-1);
+      expect(className).toBe('area-marker-icon');
+      expect(html.className).toContain('area-city');
+      expect(html.querySelector('.area-ring')).not.toBeNull();
+      expect(html.querySelector('.area-chip').textContent).toBe('Sydney42city-level');
+      expect(html.querySelector('.area-chip').getAttribute('aria-label')).toBe('Sydney — 42 startups with city-level locations');
+      expect(groupMarker().addTo).toHaveBeenCalledWith(areaLayerInstance);
+      expect(groupMarker().bindTooltip).toHaveBeenCalledWith('Sydney — 42 startups with city-level locations', expect.any(Object));
+    });
+
+    it('draws a state\'s group as state-level, and says "1 startup" for one', () => {
+      render(<MapView markers={[]} areas={[{ kind: 'STATE', label: 'Victoria', city: null, state: 'VIC', lat: -36.9, lng: 144.3, count: 1, sample: [] }]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(icons().at(-1).html.className).toContain('area-state');
+      expect(groupMarker().opts.title).toBe('Victoria — 1 startup with a state-level location');
+    });
+
+    it('is drawn alongside the pins without disturbing them', () => {
+      render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(3);
+      expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(1);
+      expect(layerInstance.clearLayers).toHaveBeenCalledTimes(1); // the pins' own start-from-nothing, and only that
+    });
+
+    it('builds the label as text, whatever the place is called', () => {
+      const evil = '<img src=x onerror=alert(1)>';
+      render(<MapView markers={[]} areas={[{ ...SYDNEY_GROUP, label: evil }]} sectorColors={{}} onSelectStartup={noop} />);
+      const { html } = icons().at(-1);
+      expect(html.querySelector('img')).toBeNull();
+      expect(html.querySelector('b').textContent).toBe(evil);
+    });
+
+    it('lists a few of its companies when it is clicked, and opens the one that is picked', () => {
+      const onSelectStartup = vi.fn();
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={onSelectStartup} onViewArea={vi.fn()} />);
+      groupMarker().on.mock.calls[0][1]();
+      expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ className: expect.stringContaining('stack-popup') }));
+      const popup = L.popup.mock.results.at(-1).value;
+      expect(popup.setLatLng).toHaveBeenCalledWith([-33.8688, 151.2093]);
+      expect(popup.openOn).toHaveBeenCalledWith(mapInstance);
+      const box = popup.setContent.mock.calls[0][0];
+      expect(box.querySelector('.area-pop-title').textContent).toBe('Sydney — 42 startups with city-level locations');
+      expect(box.querySelector('.area-pop-note').textContent).toMatch(/no pin of their own/);
+      const names = [...box.querySelectorAll('.stack-item')];
+      expect(names.map((b) => b.textContent)).toEqual(['Trace', 'TrueState']);
+      names[1].click();
+      expect(onSelectStartup).toHaveBeenCalledWith({
+        slug: 'truestate', name: 'TrueState', city: 'Sydney', verified: true, location_precision: 'CITY',
+        location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'Location: city-level' },
+      });
+    });
+
+    it('opens all of them as a list from "View all", with the group', () => {
+      const onViewArea = vi.fn();
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} onViewArea={onViewArea} />);
+      groupMarker().on.mock.calls[0][1]();
+      const box = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      const all = box.querySelector('.area-viewall');
+      expect(all.textContent).toBe('View all 42 in the list');
+      all.click();
+      expect(onViewArea).toHaveBeenCalledWith(SYDNEY_GROUP);
+    });
+
+    it('does nothing when clicked on a page that listens to nothing (the landing page map): it is a label to hover', () => {
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} />);
+      expect(() => groupMarker().on.mock.calls[0][1]()).not.toThrow();
+      expect(L.popup).not.toHaveBeenCalled();
+    });
+
+    it('is drawn again only when the groups change, not when the pins do', () => {
+      const groups = [SYDNEY_GROUP]; // the page holds its groups in state: the same array until the server sends others
+      const { rerender } = render(<MapView markers={[pin('a', 'A')]} areas={groups} sectorColors={{}} onSelectStartup={noop} />);
+      areaLayerInstance.clearLayers.mockClear();
+      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} areas={groups} sectorColors={{}} onSelectStartup={noop} />);
+      expect(areaLayerInstance.clearLayers).not.toHaveBeenCalled();
+      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} areas={[{ ...SYDNEY_GROUP, count: 5 }]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(areaLayerInstance.clearLayers).toHaveBeenCalledTimes(1);
+      expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(2);
+    });
+
+    it('draws no group when there are none', () => {
+      render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(0);
+    });
   });
 });

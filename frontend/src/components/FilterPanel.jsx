@@ -4,6 +4,15 @@ import Leaderboard from './Leaderboard.jsx';
 import NotableStartups from './NotableStartups.jsx';
 import MostVouched from './MostVouched.jsx';
 
+const STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
+// How well a company's place is known. A pin is only drawn for the first two; a city or a state alone is a group on the map.
+const PRECISIONS = [
+  ['EXACT', 'Exact office'],
+  ['SUBURB', 'Suburb only (approximate)'],
+  ['CITY', 'City only (no pin)'],
+  ['STATE', 'State only (no pin)'],
+];
+
 const TABS = [
   { id: 'filters', label: 'Filters' },
   { id: 'leaderboard', label: 'Leaderboard' },
@@ -56,6 +65,24 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
                       <option value="">All cities</option>
                       {meta.cities.map((v) => (
                         <option key={v} value={v}>{v}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="fgroup">
+                    <label htmlFor="fState">State</label>
+                    <select id="fState" value={filters.state ?? ''} onChange={set('state')}>
+                      <option value="">All states</option>
+                      {STATES.map((v) => (
+                        <option key={v} value={v}>{v}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="fgroup">
+                    <label htmlFor="fPrecision">How exactly the place is known</label>
+                    <select id="fPrecision" value={filters.precision ?? ''} onChange={set('precision')}>
+                      <option value="">Any</option>
+                      {PRECISIONS.map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
                       ))}
                     </select>
                   </div>

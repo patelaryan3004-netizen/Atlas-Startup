@@ -9,13 +9,14 @@ backend/            Express API
   src/server.js      entry point
   src/routes/         /api/startups, /api/search, /api/news, /directory
   src/catalog/        the public read model: indexes built once, answers cached (see docs/scale.md)
+  src/geo/             where things are: city and state reference points, the geocoder, and the location tools (see docs/locations.md)
   src/data/            startups.json (source of truth) and the collections beside it
   src/scheduler/       the scheduled refresh jobs (run by `npm run scheduler`, never by the server)
   scripts/             command lines: discovery, admin, scheduler, scale test tools
 frontend/            React (Vite) app
   src/App.jsx          top-level layout/state
   src/components/      MapView, ListView, FilterPanel, JobsView, Leaderboard, NewsTicker
-  src/mapPins.js       groups pins for the map (only what is in view is drawn)
+  src/mapPins.js       groups pins for the map (only what is in view is drawn), and the words for how well a place is known
 ```
 
 ## Running locally
@@ -44,9 +45,9 @@ cd frontend && npm install && npm run dev
 
 ## API
 
-- `GET /api/startups` — list startups, supports `search`, `sector`, `city`, `investor`, `stage`, `hiring` (`yes`/`no`) query params. With none of the paging parameters below it answers as it always did, `{ total, count, results }` with every match, so anything built on it keeps working
+- `GET /api/startups` — list startups, supports `search`, `sector`, `city`, `investor`, `stage`, `hiring` (`yes`/`no`), `state` (`NSW,VIC`) and `precision` (`EXACT,SUBURB,CITY,STATE,UNKNOWN`: how well the place is known) query params. With none of the paging parameters below it answers as it always did, `{ total, count, results }` with every match, so anything built on it keeps working
   - `limit` (1–200), `offset`, `sort` (`name`, `hiring`, `location`, `industry`), `view=card` (the few fields a card shows) or `view=full`, and `facets=sector,city,stage` (the counts for those filters, for the matches) turn it into a page: `{ total, count, offset, limit, results, facets? }`
-- `GET /api/startups/markers` — every match with a confirmed location as one compact array per company, for the map (same filters)
+- `GET /api/startups/markers` — for the map (same filters): one compact array per company whose place is a point (an exact office or a suburb), and one group per city or state (`areas`) for the companies known only to that much, which are drawn as a group and never as a pin. See [docs/locations.md](docs/locations.md)
 - `GET /api/startups/summary` and `GET /api/startups/count` — counts for the filters in force, without any companies
 - `GET /api/startups/meta` — distinct sector/city/investor/stage values for populating filter dropdowns
 - `GET /api/startups/:slug` — one company in full; `GET /api/people/:name` — the companies a person founded
@@ -69,7 +70,7 @@ The migration only fills fields that are missing, never overwrites a value, and 
 
 ### Data model (schema v2)
 
-Companies keep their original fields (`name, sector, sectorFull, city, lat, lng, investors, stage, hiring, verified, website, blurb, taskGate, address, founders, foundedYear`) and gain `id, slug, logo, subsector, state, country, company_status, hiring_status, employee_range, funding_total, last_funding_date, last_funding_round, verification_status, confidence_score, created_at, updated_at, last_verified_at, founder_ids, investor_ids, source_ids`. Concepts the long-term model names differently but that already exist (`description` = `blurb`, `latitude`/`longitude` = `lat`/`lng`, `founded_year` = `foundedYear`) are not duplicated in storage; `toCanonical()` projects them. Definitions and enums are in `backend/src/models/company.js`; the related collections (`people`, `investors`, `sources`, `evidence`, `funding_rounds`, `jobs`, `news`) are described in `backend/src/models/dataset.js`.
+Companies keep their original fields (`name, sector, sectorFull, city, lat, lng, investors, stage, hiring, verified, website, blurb, taskGate, address, founders, foundedYear`) and gain `id, slug, logo, subsector, state, country, suburb, postcode, location_precision, location_source, location_source_url, location_verified_at, location_confidence, company_status, hiring_status, employee_range, funding_total, last_funding_date, last_funding_round, verification_status, confidence_score, created_at, updated_at, last_verified_at, founder_ids, investor_ids, source_ids`. Concepts the long-term model names differently but that already exist (`description` = `blurb`, `latitude`/`longitude` = `lat`/`lng`, `founded_year` = `foundedYear`) are not duplicated in storage; `toCanonical()` projects them. Definitions and enums are in `backend/src/models/company.js`; the related collections (`people`, `investors`, `sources`, `evidence`, `funding_rounds`, `jobs`, `news`, `company_locations`) are described in `backend/src/models/dataset.js`.
 
 ### Data provenance
 
@@ -96,6 +97,20 @@ npm run data:audit -- --out ../docs/data-quality   # also write the report and t
 
 Read-only: it never changes a data file and never proposes a value. It reports coverage for 14 attributes (website, sector, city, state, coordinates, stage, hiring, description, founders, founded year, funding, investors, source, last verified), flags unknown, missing, null, invalid-URL, generic-sector, stale, defunct and acquired records, and builds a prioritized enrichment queue (P0 integrity, P1 core identity, P2 freshness and confidence, P3 depth). The report's "Method and definitions" section states every rule. Dated snapshots are kept in `docs/data-quality/`.
 
+### Where companies are
+
+A pin must mean what it looks like. Every company has a `location_precision`: `EXACT` (the office: a pin), `SUBURB` (a pin drawn as approximate), `CITY` or `STATE` (no coordinates at all: the company is counted in a group at its city or state, never given a pin), or `UNKNOWN` (listed, not drawn). A city centre is not a company's address, so nothing is placed on one and nothing is spread out to look better.
+
+```bash
+cd backend
+npm run locations -- status                # how well locations are known, and what to look at
+npm run locations -- review                # the review queue, worst first
+npm run locations -- geocode [--apply]     # OpenStreetMap Nominatim: one request a second, answers kept; a disagreement is reported, never overwritten
+npm run locations -- promote [--apply]     # give a city-only company the address its own website states
+```
+
+Of the 216 companies today: 148 exact, 11 suburb, 43 city only, 14 unknown; 112 of the exact addresses are the directory's own record and have not yet been checked against a source, and 9 companies' pins disagree with the geocoder and are waiting for a person. The design, the sources that are and are not allowed (never LinkedIn, never a home address), how the geocoder is judged, what was done to the real data and what is still open: [docs/locations.md](docs/locations.md).
+
 ### Discovery engine
 
 ```bash
@@ -114,7 +129,7 @@ npm run admin -- init --name "Your name"   # once: shows your access token a sin
 npm run admin                              # http://127.0.0.1:4010
 ```
 
-A private page, never part of the public site, for working the data: the eight counts (companies, candidates, needs review, duplicates, updated this week, missing data, failed imports), new startups discovered (approve, reject, edit, merge, publish), data quality, conflicts a person settles, suggested fills, the enrichment queue, the scheduled refresh and the audit trail of every action. Local only, with roles. See [docs/admin.md](docs/admin.md).
+A private page, never part of the public site, for working the data: the eight counts (companies, candidates, needs review, duplicates, updated this week, missing data, failed imports), new startups discovered (approve, reject, edit, merge, publish), data quality, locations (how well each place is known, and a review queue), conflicts a person settles, suggested fills, the enrichment queue, the scheduled refresh and the audit trail of every action. Local only, with roles. See [docs/admin.md](docs/admin.md).
 
 ### Keeping it current (the scheduler)
 

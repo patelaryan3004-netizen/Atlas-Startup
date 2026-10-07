@@ -11,6 +11,7 @@ import SuggestEditForm from './components/SuggestEditForm.jsx';
 import StartupDetailPanel from './components/StartupDetailPanel.jsx';
 import PersonProfile from './components/PersonProfile.jsx';
 import { getPersonProfile } from './people.js';
+import { areaFilters, scopeText } from './mapPins.js';
 import FeedbackForm from './components/FeedbackForm.jsx';
 import AboutSources from './components/AboutSources.jsx';
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
@@ -30,7 +31,9 @@ const PALETTE = [
   '#8a8a8a', '#6ab8c4', '#c4785a', '#6aa898',
 ];
 
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' };
+// precision (EXACT, SUBURB, CITY, STATE) is how well a company's place is known, and state its state: a group on the
+// map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', precision: '', state: '' };
 const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [] };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
@@ -91,6 +94,7 @@ export default function App() {
   const [summary, setSummary] = useState(null);
   const [stats, setStats] = useState(null);
   const [markers, setMarkers] = useState([]);
+  const [areas, setAreas] = useState([]);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
@@ -124,13 +128,13 @@ export default function App() {
     return () => ctrl.abort();
   }, [applied]);
 
-  // The map's pins, only while the map is showing.
+  // The map's pins, and the groups for companies known only to their city or state, only while the map is showing.
   useEffect(() => {
     if (viewMode !== 'map') return undefined;
     const ctrl = new AbortController();
     fetchMarkers(applied, { signal: ctrl.signal })
-      .then(({ items }) => { if (!ctrl.signal.aborted) setMarkers(items); })
-      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setMarkers([]); });
+      .then(({ items, areas: groups }) => { if (!ctrl.signal.aborted) { setMarkers(items); setAreas(groups ?? []); } })
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) { setMarkers([]); setAreas([]); } });
     return () => ctrl.abort();
   }, [applied, viewMode]);
 
@@ -180,6 +184,13 @@ export default function App() {
     fetchPerson(name)
       .then(({ companies }) => { if (ticket === personTicket.current) setPersonCompanies(companies); })
       .catch(() => {});
+  }, []);
+
+  // A group on the map (the companies known only to a city) opens as a list of exactly those companies, inside the
+  // filters already chosen.
+  const viewArea = useCallback((area) => {
+    setFilters((current) => ({ ...current, ...areaFilters(area) }));
+    setViewMode('list');
   }, []);
 
   const toggleNews = () => {
@@ -241,8 +252,10 @@ export default function App() {
       {viewMode === 'map' ? (
         <MapView
           markers={markers}
+          areas={areas}
           sectorColors={sectorColors}
           onSelectStartup={openStartup}
+          onViewArea={viewArea}
           selectedName={selectedStartup?.name}
           trackedNames={tracked}
         />
@@ -253,6 +266,8 @@ export default function App() {
           onSelectStartup={openStartup}
           selectedName={selectedStartup?.name}
           trackedNames={tracked}
+          scope={scopeText(applied)}
+          onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
         />
       )}
 

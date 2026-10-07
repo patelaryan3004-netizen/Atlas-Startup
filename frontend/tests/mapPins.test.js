@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS } from '../src/mapPins.js';
+import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS } from '../src/mapPins.js';
 
 // [slug, name, lat, lng, sector, city, hiring, domain]
 const pin = (slug, lat, lng, extra = {}) => [slug, extra.name ?? slug.toUpperCase(), lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? ''];
@@ -98,6 +98,70 @@ describe('what a pin looks like', () => {
     expect(showLogos(LOGO_ZOOM, MAX_LOGOS)).toBe(true);
     expect(showLogos(LOGO_ZOOM, MAX_LOGOS + 1)).toBe(false);
     expect(showLogos(LOGO_ZOOM - 1, 3)).toBe(false);
+  });
+});
+
+describe('how well a place is known', () => {
+  it('is said in the words the site uses everywhere, and an address that was only on file is not called verified', () => {
+    expect(locationQuality('EXACT', true)).toBe('Verified office');
+    expect(locationQuality('EXACT', false)).toBe('Office address on file');
+    expect(locationQuality('EXACT')).toBe('Office address on file');
+    expect(locationQuality('SUBURB')).toBe('Location: suburb-level');
+    expect(locationQuality('CITY')).toBe('Location: city-level');
+    expect(locationQuality('STATE')).toBe('Location: state-level');
+    expect(locationQuality('UNKNOWN')).toBe('Location unknown');
+    expect(locationQuality(undefined)).toBe('Location unknown');
+  });
+
+  it('goes with a company opened from its pin, so the panel can say it before the full record arrives', () => {
+    const tuple = ['acme', 'Acme', -33.88, 151.21, 'AI', 'Sydney', 0, 'acme.test', 'EXACT', '110 Kippax Street, Surry Hills, Sydney', 1];
+    expect(pinPayload(tuple)).toEqual({
+      slug: 'acme', name: 'Acme', lat: -33.88, lng: 151.21, sector: 'AI', city: 'Sydney', hiring: false, verified: true, website: 'https://acme.test',
+      location_precision: 'EXACT', location: { precision: 'EXACT', place: '110 Kippax Street, Surry Hills, Sydney', quality: 'Verified office' },
+    });
+    expect(pinPayload(['a', 'A', 1, 2, 'AI', 'Perth', 0, '', 'SUBURB', '', 0]).location).toEqual({ precision: 'SUBURB', place: 'Perth', quality: 'Location: suburb-level' }); // no place: the city
+  });
+
+  it('is left out of a pin from a server that does not say it, rather than guessed', () => {
+    expect(pinPayload(pin('a', 1, 2))).not.toHaveProperty('location');
+    expect(pinPayload(pin('a', 1, 2))).not.toHaveProperty('location_precision');
+  });
+});
+
+describe('companies known only to a city or a state', () => {
+  const sydney = { kind: 'CITY', label: 'Sydney', city: 'Sydney', state: 'NSW', count: 42, sample: [] };
+  const victoria = { kind: 'STATE', label: 'Victoria', city: null, state: 'VIC', count: 3, sample: [] };
+
+  it('is labelled by its place, how many are in it and how they are known', () => {
+    expect(areaLabel(sydney)).toBe('Sydney — 42 startups with city-level locations');
+    expect(areaLabel(victoria)).toBe('Victoria — 3 startups with state-level locations');
+    expect(areaLabel({ ...sydney, count: 1 })).toBe('Sydney — 1 startup with a city-level location');
+  });
+
+  it('is opened as a list by the filters that name exactly its companies', () => {
+    expect(areaFilters(sydney)).toEqual({ precision: 'CITY', city: 'Sydney' });
+    expect(areaFilters(victoria)).toEqual({ precision: 'STATE', state: 'VIC' });
+  });
+
+  it('names a company in it as much as the group knows of it', () => {
+    expect(areaMember(sydney, { slug: 'trace', name: 'Trace' })).toEqual({
+      slug: 'trace', name: 'Trace', city: 'Sydney', verified: true, location_precision: 'CITY',
+      location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'Location: city-level' },
+    });
+    expect(areaMember(victoria, { slug: 'x', name: 'X' })).toMatchObject({ city: '', location: { precision: 'STATE', place: 'VIC', quality: 'Location: state-level' } });
+  });
+
+  it('says what a list is narrowed to, and nothing when it is not', () => {
+    expect(scopeText({ precision: 'CITY', city: 'Sydney' })).toBe('City-level locations in Sydney');
+    expect(scopeText({ precision: 'STATE', state: 'VIC' })).toBe('State-level locations in VIC');
+    expect(scopeText({ precision: 'STATE', city: 'Sydney', state: 'VIC' })).toBe('State-level locations in VIC');
+    expect(scopeText({ precision: 'SUBURB' })).toBe('Suburb-level locations');
+    expect(scopeText({ precision: 'EXACT', city: 'Perth' })).toBe('Exact office locations in Perth');
+    expect(scopeText({ state: 'WA' })).toBe('Companies in WA');
+    expect(scopeText({ precision: 'city', city: 'Perth' })).toBe('City-level locations in Perth');
+    expect(scopeText({ city: 'Perth', sector: 'AI' })).toBe('');
+    expect(scopeText({})).toBe('');
+    expect(scopeText()).toBe('');
   });
 });
 

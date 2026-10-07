@@ -34,12 +34,16 @@ export function fetchStartupPage(filters = {}, { limit = 48, offset = 0, sort = 
   return getJson(`${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view: 'card', facets })}`, { signal, failure: 'Failed to fetch startups' });
 }
 
-// The map's pins for a set of filters: { total, count, pinned, fields, items }, each item a compact array in the order of `fields`.
+// The map's pins for a set of filters: { total, count, pinned, fields, items, areas, unplaced }. Each item is a compact array in
+// the order of `fields`, for a company whose place is a point (an exact office or a suburb). `areas` are the companies known
+// only to a city or a state, one group per place ({ kind, label, city, state, lat, lng, count, sample }), drawn as a group and
+// never as a pin; `unplaced` counts those whose city has no centre on file (they are in the list, not on the map).
 export function fetchMarkers(filters = {}, { signal } = {}) {
   return getJson(`${BASE}/startups/markers${toQuery(filters)}`, { signal, failure: 'Failed to fetch map pins' });
 }
 
-// Counts and short lists about a set of filters: { count, pinned, unverified, hiring, taskGated, cities, topCities, notable, vouched }.
+// Counts and short lists about a set of filters: { count, pinned, onMap, byPrecision, unverified, hiring, taskGated, cities, topCities,
+// notable, vouched }. `pinned` is the companies with a confirmed location; `onMap` those drawn as a pin of their own.
 export function fetchSummary(filters = {}, { signal } = {}) {
   return getJson(`${BASE}/startups/summary${toQuery(filters)}`, { signal, failure: 'Failed to fetch counts' });
 }

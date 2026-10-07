@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { render, screen, waitFor, within, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../src/api.js', () => ({
@@ -17,10 +17,12 @@ vi.mock('../src/api.js', () => ({
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ markers, sectorColors, onSelectStartup }) => (
-    <div data-testid="map-view" data-count={markers.length} data-colors={Object.keys(sectorColors).join(',')}>
+  default: ({ markers, areas = [], sectorColors, onSelectStartup, onViewArea }) => (
+    <div data-testid="map-view" data-count={markers.length} data-areas={areas.map((a) => `${a.label}:${a.count}`).join(',')} data-colors={Object.keys(sectorColors).join(',')}>
       <button onClick={() => onSelectStartup({ slug: 'canva', name: 'Canva', sector: 'AI', hiring: true })}>trigger-select</button>
       <button onClick={() => onSelectStartup({ name: 'Bare Co', sector: 'AI' })}>trigger-select-bare</button>
+      <button onClick={() => onViewArea({ kind: 'CITY', label: 'Sydney', city: 'Sydney', state: 'NSW', count: 3 })}>trigger-view-area</button>
+      <button onClick={() => onViewArea({ kind: 'STATE', label: 'Victoria', city: null, state: 'VIC', count: 2 })}>trigger-view-state</button>
     </div>
   ),
 }));
@@ -66,7 +68,7 @@ const meta = {
   stages: ['Seed'],
 };
 
-const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '' };
+const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', precision: '', state: '' };
 const card = (name, overrides = {}) => ({
   name, slug: name.toLowerCase().replace(/\s+/g, '-'), sector: 'AI', sectorFull: 'AI', city: 'Sydney', stage: 'Seed', hiring: true, verified: true, ...overrides,
 });
@@ -195,6 +197,58 @@ describe('App', () => {
       render(<App />);
       await waitFor(() => expect(screen.getByTestId('map-view').dataset.count).toBe('0'));
       expect(screen.getByRole('button', { name: /^Jobs/ }).textContent).toBe('Jobs');
+    });
+  });
+
+  describe('companies known only to a city or a state', () => {
+    const groups = [{ kind: 'CITY', label: 'Sydney', city: 'Sydney', state: 'NSW', lat: -33.87, lng: 151.21, count: 3, sample: [] }];
+
+    it('hands the map the groups the server sent with the pins, and none when the server sends none', async () => {
+      fetchMarkers.mockResolvedValue({ total: 2, count: 2, pinned: 2, items: [pin('canva', 'Canva')], areas: groups, unplaced: 0 });
+      render(<App />);
+      await waitFor(() => expect(screen.getByTestId('map-view').dataset.areas).toBe('Sydney:3'));
+      cleanup();
+      fetchMarkers.mockResolvedValue({ total: 2, count: 2, pinned: 2, items: [pin('canva', 'Canva')] }); // a server from before groups
+      render(<App />);
+      await waitFor(() => expect(screen.getByTestId('map-view').dataset.count).toBe('1'));
+      expect(screen.getByTestId('map-view').dataset.areas).toBe('');
+    });
+
+    it('opens a group as a list of exactly those companies, and says what the list is narrowed to', async () => {
+      render(<App />);
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+      await userEvent.click(screen.getByText('trigger-view-area'));
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, city: 'Sydney', precision: 'CITY' }, expect.objectContaining({ offset: 0 })));
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      expect(await screen.findByText('City-level locations in Sydney')).toBeInTheDocument();
+    });
+
+    it('opens a state group the same way, by the state', async () => {
+      render(<App />);
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+      await userEvent.click(screen.getByText('trigger-view-state'));
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, state: 'VIC', precision: 'STATE' }, expect.objectContaining({ offset: 0 })));
+      expect(await screen.findByText('State-level locations in VIC')).toBeInTheDocument();
+    });
+
+    it('keeps the filters already chosen when a group is opened, and widens the list again with "Show every location"', async () => {
+      render(<App />);
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+      await openFilters();
+      await userEvent.selectOptions(screen.getByLabelText('Sector'), 'Fintech');
+      await userEvent.click(screen.getByText('Apply filters'));
+      await userEvent.click(screen.getByText('trigger-view-area'));
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'Fintech', city: 'Sydney', precision: 'CITY' }, expect.objectContaining({ offset: 0 })));
+      await userEvent.click(await screen.findByText('Show every location'));
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'Fintech' }, expect.objectContaining({ offset: 0 })));
+      expect(screen.queryByText('Show every location')).not.toBeInTheDocument();
+    });
+
+    it('takes the kind of location and the state from the address bar, so a list of one group can be shared', async () => {
+      window.history.pushState({}, '', '/?precision=CITY&city=Sydney');
+      render(<App />);
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Sydney', precision: 'CITY' }, expect.anything()));
+      window.history.pushState({}, '', '/');
     });
   });
 

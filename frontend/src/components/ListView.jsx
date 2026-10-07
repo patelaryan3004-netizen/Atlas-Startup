@@ -48,7 +48,9 @@ const SORTS = {
 
 // The list for the current filters, a page at a time: the next page loads when the end of the list nears the
 // screen (or when "Show more" is pressed), so the page holds the companies being looked at and not all of them.
-export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames }) {
+// scope: what the list is narrowed to when a group on the map was opened as a list ("City-level locations in Sydney"), with
+// onClearScope to widen it again.
+export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames, scope = '', onClearScope }) {
   const [sort, setSort] = useState('name');
   const [state, setState] = useState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
   const latest = useRef(state);
@@ -96,6 +98,12 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
     <div id="startupListView">
       <div className="startup-list-toolbar">
         <span className="startup-list-count">{status === 'ready' ? `${count} ${count === 1 ? 'startup' : 'startups'}` : ''}</span>
+        {scope && (
+          <span className="startup-list-scope">
+            {scope}
+            {onClearScope && <button type="button" className="startup-list-scope-clear" onClick={onClearScope}>Show every location</button>}
+          </span>
+        )}
         <label className="startup-list-sort">
           Sort by
           <select value={sort} onChange={(e) => setSort(e.target.value)}>

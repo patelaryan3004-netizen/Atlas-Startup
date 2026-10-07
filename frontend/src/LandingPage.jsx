@@ -47,6 +47,7 @@ export default function LandingPage() {
   const [stats, setStats] = useState(null);
   const [hiringSample, setHiringSample] = useState([]);
   const [markers, setMarkers] = useState([]);
+  const [areas, setAreas] = useState([]);
   const [counts, setCounts] = useState({});
   const [meta, setMeta] = useState({ sectors: [] });
 
@@ -54,7 +55,7 @@ export default function LandingPage() {
     fetchMeta().then(setMeta).catch(() => {});
     fetchSummary({}).then(setStats).catch(() => {});
     fetchStartupPage({ hiring: 'yes' }, { limit: 4, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
-    fetchMarkers({}).then(({ items }) => setMarkers(items)).catch(() => {});
+    fetchMarkers({}).then(({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); }).catch(() => {});
     Promise.all(FILTER_LISTS.map(async (list) => {
       try { return [list.id, (await fetchCount(list.filters)).count]; } catch (e) { return [list.id, 0]; }
     })).then((pairs) => setCounts(Object.fromEntries(pairs)));
@@ -103,7 +104,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="landing-hero-visual">
-          <MapView markers={markers} sectorColors={sectorColors} />
+          <MapView markers={markers} areas={areas} sectorColors={sectorColors} />
         </div>
       </section>
 

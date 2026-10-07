@@ -12,10 +12,53 @@ const STACK_PLACES = 4; // at the deepest zoom, pins within about 10 metres are 
 
 export const clusterSize = (count) => (count < 10 ? 'small' : count < 50 ? 'medium' : 'large');
 
-// A pin's tuple as the object the rest of the page reads.
+// How well a company's place is known, in the words the site uses for it. The server says the same (models/location.js):
+// a pin carries only the precision and whether the address was checked, and the words are made here.
+export function locationQuality(precision, checked = false) {
+  switch (precision) {
+    case 'EXACT': return checked ? 'Verified office' : 'Office address on file';
+    case 'SUBURB': return 'Location: suburb-level';
+    case 'CITY': return 'Location: city-level';
+    case 'STATE': return 'Location: state-level';
+    default: return 'Location unknown';
+  }
+}
+
+// A pin's tuple as the object the rest of the page reads. The tuple is
+// [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked]; a tuple from a server that does not
+// yet say how well the place is known stops after the domain, and the company then carries no `location`.
 export function pinPayload(tuple) {
-  const [slug, name, lat, lng, sector, city, hiring, domain] = tuple;
-  return { slug, name, lat, lng, sector, city, hiring: hiring === 1 || hiring === true, verified: true, website: domain ? `https://${domain}` : '' };
+  const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked] = tuple;
+  const company = { slug, name, lat, lng, sector, city, hiring: hiring === 1 || hiring === true, verified: true, website: domain ? `https://${domain}` : '' };
+  if (!precision) return company;
+  return { ...company, location_precision: precision, location: { precision, place: place || city, quality: locationQuality(precision, checked === 1 || checked === true) } };
+}
+
+// ---------- groups: companies known only to a city or a state ----------
+
+// What a group says it is, e.g. "Sydney — 42 startups with city-level locations". A group is never a company's own place.
+export function areaLabel(area) {
+  const level = area.kind === 'STATE' ? 'state' : 'city';
+  return `${area.label} — ${area.count} ${area.count === 1 ? `startup with a ${level}-level location` : `startups with ${level}-level locations`}`;
+}
+
+// The filters that list a group's companies, on top of whatever the visitor already filtered by.
+export const areaFilters = (area) => (area.kind === 'STATE' ? { precision: 'STATE', state: area.state } : { precision: 'CITY', city: area.city });
+
+// What the list is narrowed to, when it is narrowed by how well a place is known or by state (a group opened as a list);
+// '' when it is not.
+export function scopeText({ precision, city, state } = {}) {
+  const level = { EXACT: 'Exact office locations', SUBURB: 'Suburb-level locations', CITY: 'City-level locations', STATE: 'State-level locations' }[String(precision ?? '').toUpperCase()];
+  if (!level && !state) return '';
+  const where = precision === 'STATE' || !city ? state : city;
+  if (!level) return `Companies in ${state}`;
+  return where ? `${level} in ${where}` : level;
+}
+
+// A company named in a group, as much as the group knows of it, for the panel to open at once (the full record follows).
+export function areaMember(area, member) {
+  const place = [area.city, area.state].filter(Boolean).join(', ') || area.label;
+  return { slug: member.slug, name: member.name, city: area.city ?? '', verified: true, location_precision: area.kind, location: { precision: area.kind, place, quality: locationQuality(area.kind) } };
 }
 
 export function createPinIndex(tuples) {
