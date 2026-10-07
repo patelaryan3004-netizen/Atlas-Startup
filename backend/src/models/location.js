@@ -295,6 +295,12 @@ export function validateLocationRows(ds) {
   return errors;
 }
 
+// How a company's place reads in a sentence about publishing it ("Published Acme as acme (on the map)").
+export const PUBLISHED_AS = {
+  EXACT: 'on the map', SUBURB: 'on the map, at its suburb', CITY: 'city-level: a group in its city, not a pin', STATE: 'state-level: a group in its state, not a pin',
+  UNKNOWN: 'unconfirmed location: listed, not on the map',
+};
+
 // What a visitor is told about where a company is: the words on the map's tooltip and the company panel. Pure, so the
 // server and the tests agree on it. place: the line naming where; quality: how well it is known.
 export function describeLocation(c) {

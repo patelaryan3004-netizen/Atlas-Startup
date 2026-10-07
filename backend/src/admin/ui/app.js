@@ -134,7 +134,15 @@ const ACTION_LABEL = {
   'enrichment.task': 'Read a website', 'enrichment.retry': 'Retried a task', 'enrichment.cancel': 'Cancelled a task',
   'enrichment.run': 'Ran the queue', 'import.run': 'Ran an import', 'import.dismiss': 'Acknowledged a failed import',
   'scheduler.run': 'A scheduled job found something',
+  'location.set': 'Set where a company is', 'location.geocode': 'Looked an address up on the map', 'location.verify': 'Recorded where an address was found',
+  'location.promote': 'Gave a company the address its own website states', 'location.normalize': 'Cleared a city centre that was not a company’s place',
 };
+const PRECISION = { EXACT: ['Exact', 'ok'], SUBURB: ['Suburb', 'info'], CITY: ['City only', 'warn'], STATE: ['State only', 'warn'], UNKNOWN: ['Unknown', 'bad'] };
+const LOCATION_SOURCE = {
+  company_website: 'Company website', company_document: 'Company document', credible_profile: 'Credible profile', ecosystem_source: 'Ecosystem source',
+  manual: 'Set by a person', directory_record: 'Directory record, no source',
+};
+const SEVERITY_TONE = { high: 'bad', medium: 'warn', low: 'muted' };
 const SECTION_NOTE = 'Changes made here are written to the data files on this machine. They reach the public site when you commit and push them.';
 
 function fmtValue(v) {
@@ -185,6 +193,7 @@ const S = {
   ui: {
     filter: 'open', query: '', conflictField: 'all', conflictShown: 8, suggestionField: 'all', suggestionShown: 10,
     missingField: 'all', missingShown: 12, auditAction: '', auditTarget: '', auditLimit: 50, runMode: 'suggest',
+    locationFilter: '', locationShown: 12,
   },
 };
 const can = (permission) => S.me?.permissions?.includes(permission) ?? false;
@@ -220,6 +229,7 @@ const LOADERS = {
   conflicts: () => api.get('/api/conflicts'),
   suggestions: () => api.get('/api/suggestions'),
   missing: () => api.get('/api/missing'),
+  locations: () => api.get(`/api/locations?filter=${enc(S.ui.locationFilter)}&limit=500`),
   duplicates: () => api.get('/api/duplicates'),
   queue: () => api.get('/api/queue'),
   imports: () => api.get('/api/imports'),
@@ -245,7 +255,7 @@ async function load(name, { quiet = false } = {}) {
   render(name);
 }
 const refresh = (...names) => Promise.all(names.map((name) => load(name, { quiet: true })));
-const refreshAll = () => refresh('overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'duplicates', 'queue', 'imports', 'scheduler', 'audit');
+const refreshAll = () => refresh('overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'locations', 'duplicates', 'queue', 'imports', 'scheduler', 'audit');
 const slotOf = (name) => S.data[name]?.value ?? null;
 
 // ======================================================================= the page frame
@@ -254,6 +264,7 @@ const SECTIONS = [
   { id: 'overview', nav: 'Overview', title: null },
   { id: 'discovered', nav: 'Discovered', title: 'New startups discovered', def: 'Companies discovery found that nobody has decided on yet. They are staging data: hidden from the public site until an admin publishes them.' },
   { id: 'quality', nav: 'Quality', title: 'Data quality', def: 'How much of the directory has each fact. A fact counts only when the record holds a real value, never “Unknown”.' },
+  { id: 'locations', nav: 'Locations', title: 'Locations', def: 'How well the directory knows where each company is. A pin is drawn only for an exact office or a suburb; a company known only to its city is a group there, and one with no known place is listed but not drawn. Accuracy matters more than a full map.' },
   { id: 'conflicts', nav: 'Conflicts', title: 'Conflicts', def: 'Two sources disagree, or a source disagrees with our record. Nothing is changed until a person says which one is right.' },
   { id: 'suggestions', nav: 'Suggestions', title: 'Suggested fills', def: 'Facts found on company websites that the record does not have yet. Applying one changes the record; dismissing one turns the evidence down for good.' },
   { id: 'queue', nav: 'Enrichment', title: 'Enrichment queue', def: 'Company websites waiting to be read, one at a time. Reading obeys robots.txt and each site’s terms, and never goes near LinkedIn.' },
@@ -348,6 +359,7 @@ function renderNav() {
   const counts = {
     discovered: [candidates?.counts?.needs_review ?? overview?.tiles.needs_review, true],
     conflicts: [overview?.attention.open_conflicts, true],
+    locations: [overview?.locations?.attention, true],
     suggestions: [overview?.attention.suggestions, false],
     imports: [overview?.tiles.failed_imports, true],
     scheduler: [slotOf('scheduler')?.watch?.length, true],
@@ -501,27 +513,105 @@ function needReason(textarea, what = 'Say why, in a few words.') {
   return reason;
 }
 
-// A place on the map: a city and coordinates. Nothing here is guessed; the person reads them off a map.
-function locationFields(init = {}) {
+// How exactly a place is known. Only the first two are a point; a city or a state is a group, never a pin.
+const PRECISION_CHOICES = [
+  ['EXACT', 'Exact office', 'The office address, and the point on the map where it is.'],
+  ['SUBURB', 'Suburb only', 'The suburb is known, not the office. The pin is drawn as approximate.'],
+  ['CITY', 'City only', 'No pin: the company is listed in a group at its city.'],
+  ['STATE', 'State only', 'No pin: the company is listed in a group at its state.'],
+  ['UNKNOWN', 'Not known', 'Takes the company off the map. It stays in the list and the search.'],
+];
+const QUALITY_WORDS = { house: 'the building', street: 'only the street', suburb: 'the suburb', city: 'only the city', region: 'only a region' };
+
+// What the geocoder answered, in a few lines a person can judge. `onUse` fills the coordinates in.
+function lookupAnswer(r, onUse) {
+  if (r.status === 'error') return [h('p', {}, `Could not ask the geocoder: ${r.error ?? 'it did not answer'}.`), h('p', { class: 'sub' }, 'Read the coordinates off a map instead, or try again in a moment.')];
+  if (r.status === 'none' || !r.found) return [h('p', {}, 'The geocoder knows nothing of that address.'), h('p', { class: 'sub' }, 'Check how it is written, or read the coordinates off a map.')];
+  const where = `${r.found.lat.toFixed(5)}, ${r.found.lng.toFixed(5)}`;
+  const verdict = {
+    place: 'Nothing is on file to compare it with: this would put the company here.', agrees: 'This is where the record already puts it.',
+    confirm: `This is ${n(r.away)} m from the point on file: the same place.`, conflict: `The geocoder disagrees: ${r.reason}.`, skip: `${r.reason ?? 'It does not settle the question'}.`,
+  }[r.verdict] ?? '';
+  const usable = ['place', 'agrees', 'confirm'].includes(r.verdict) || (r.verdict === 'conflict' && r.found);
+  return [
+    h('p', {}, h('b', { class: 'num' }, where), ` — found ${QUALITY_WORDS[r.quality] ?? 'a place'}${r.from_cache ? ', from an earlier look-up' : ''}`),
+    r.found.display_name && h('p', { class: 'sub' }, clip(r.found.display_name, 170)),
+    h('p', { class: r.verdict === 'conflict' ? 'lookup__warn' : '' }, verdict),
+    usable && btn('Use these coordinates', { small: true, onClick: () => onUse(r.found) }),
+  ];
+}
+
+// A place on the map. Nothing here is guessed: how exactly it is known decides what is asked for and what is kept, a
+// point is a latitude and a longitude (read off a map, or from the geocoder with "Find on the map"), and a city or a
+// state alone has none. read() returns what the API takes; `companyId` lets the look-up compare with the point on file.
+function locationFields(init = {}, { companyId = null, allowUnknown = false } = {}) {
+  const hasPoint = init.lat != null && init.lat !== '' && init.lng != null && init.lng !== '';
+  const first = init.precision ?? (hasPoint ? (init.address ? 'EXACT' : 'SUBURB') : init.address ? 'EXACT' : init.city ? 'CITY' : 'STATE');
+  const precision = selectInput(PRECISION_CHOICES.filter(([k]) => allowUnknown || k !== 'UNKNOWN').map(([k, label]) => [k, label]), first);
+  const note = h('p', { class: 'field__hint' });
   const city = textInput({ value: init.city ?? '', maxlength: 80 });
   const state = selectInput([['', 'No state'], ...AU_STATES.map((s) => [s, s])], init.state ?? '');
   const address = textInput({ value: init.address ?? '', maxlength: 200 });
-  const lat = textInput({ inputmode: 'decimal', placeholder: 'e.g. -33.8688' });
-  const lng = textInput({ inputmode: 'decimal', placeholder: 'e.g. 151.2093' });
+  const suburb = textInput({ value: init.suburb ?? '', maxlength: 80 });
+  const postcode = textInput({ value: init.postcode ?? '', maxlength: 4, inputmode: 'numeric' });
+  const lat = textInput({ inputmode: 'decimal', placeholder: 'e.g. -33.8688', value: hasPoint ? init.lat : '' });
+  const lng = textInput({ inputmode: 'decimal', placeholder: 'e.g. 151.2093', value: hasPoint ? init.lng : '' });
+  const answer = h('div', { class: 'lookup', hidden: true, role: 'status' });
+  const groups = {
+    city: rowOf(fieldOf('City', city), fieldOf('State', state, { optional: true })),
+    address: fieldOf('Address', address, { optional: true }),
+    suburb: rowOf(fieldOf('Suburb', suburb, { optional: true }), fieldOf('Postcode', postcode, { optional: true })),
+    point: h('div', {},
+      rowOf(fieldOf('Latitude', lat), fieldOf('Longitude', lng)),
+      h('p', { class: 'toolbar' }, btn('Find on the map', { small: true, variant: 'primary', onClick: lookup, fk: 'loc:find' }),
+        h('span', { class: 'field__hint' }, 'Asks OpenStreetMap, one question a second, and keeps the answer. Or read the coordinates off a map yourself; they must be inside Australia.')),
+      answer),
+  };
+  const sync = () => {
+    const p = precision.value;
+    const point = p === 'EXACT' || p === 'SUBURB';
+    groups.city.hidden = p === 'UNKNOWN';
+    city.closest('.field').hidden = p === 'STATE'; // a state alone has no city to ask for, but still needs its state
+    for (const key of ['address', 'suburb', 'point']) groups[key].hidden = !point;
+    note.textContent = PRECISION_CHOICES.find(([k]) => k === p)?.[2] ?? '';
+  };
+  async function lookup() {
+    answer.hidden = false;
+    answer.replaceChildren(h('p', { class: 'sub' }, 'Asking the geocoder…'));
+    try {
+      const r = await api.post('/api/locations/lookup', {
+        company_id: companyId ?? undefined, precision: precision.value, address: norm(address.value) || undefined, suburb: norm(suburb.value) || undefined,
+        city: norm(city.value) || undefined, state: state.value || undefined, postcode: norm(postcode.value) || undefined,
+      });
+      answer.replaceChildren(...lookupAnswer(r, (found) => { lat.value = String(found.lat); lng.value = String(found.lng); toast('Coordinates filled in. Check them, then save.'); }).filter(Boolean));
+    } catch (err) { answer.replaceChildren(h('p', { class: 'lookup__warn' }, err.message || 'The look-up did not work.')); }
+  }
+  precision.addEventListener('change', sync);
+  sync();
   const query = init.address || (init.city ? [init.city, init.state, 'Australia'].filter(Boolean).join(' ') : '');
   return {
     node: h('div', {},
-      rowOf(fieldOf('City', city), fieldOf('State', state, { optional: true })),
-      fieldOf('Address', address, { optional: true }),
-      rowOf(fieldOf('Latitude', lat), fieldOf('Longitude', lng)),
-      query && h('p', { class: 'field__hint' }, extLink(`https://www.openstreetmap.org/search?query=${enc(query)}`, 'Find it on OpenStreetMap'), ' and copy the coordinates from the place it shows. They must be inside Australia.')),
+      fieldOf('How exactly is it known?', precision), note,
+      groups.city, groups.address, groups.suburb, groups.point,
+      query && h('p', { class: 'field__hint' }, extLink(`https://www.openstreetmap.org/search?query=${enc(query)}`, 'See it on OpenStreetMap'))),
     read() {
-      const place = norm(city.value);
-      const la = Number(lat.value);
-      const lo = Number(lng.value);
-      if (!place) { city.focus(); throw new Error('Say which city.'); }
-      if (!lat.value.trim() || !lng.value.trim() || !Number.isFinite(la) || !Number.isFinite(lo)) { lat.focus(); throw new Error('A place on the map needs a latitude and a longitude.'); }
-      return { city: place, state: state.value || undefined, address: norm(address.value) || undefined, lat: la, lng: lo };
+      const p = precision.value;
+      if (p === 'UNKNOWN') return { precision: p };
+      const out = { precision: p };
+      if (p !== 'STATE') { out.city = norm(city.value); if (!out.city) { city.focus(); throw new Error('Say which city.'); } }
+      if (state.value) out.state = state.value; else if (p === 'STATE') { state.focus(); throw new Error('Say which state.'); }
+      if (p === 'EXACT' || p === 'SUBURB') {
+        out.address = norm(address.value) || undefined;
+        out.suburb = norm(suburb.value) || undefined;
+        out.postcode = norm(postcode.value) || undefined;
+        if (p === 'EXACT' && !out.address) { address.focus(); throw new Error('An exact office needs its address.'); }
+        if (p === 'SUBURB' && !out.suburb) { suburb.focus(); throw new Error('A suburb-level place needs the suburb.'); }
+        const la = Number(lat.value);
+        const lo = Number(lng.value);
+        if (!lat.value.trim() || !lng.value.trim() || !Number.isFinite(la) || !Number.isFinite(lo)) { lat.focus(); throw new Error('A pin needs a latitude and a longitude: use “Find on the map”, or read them off a map.'); }
+        out.lat = la; out.lng = lo;
+      }
+      return out;
     },
   };
 }
@@ -530,7 +620,7 @@ function locationFields(init = {}) {
 
 const TILES = [
   { key: 'total_companies', label: 'Total companies', note: () => 'in the directory', to: 'quality' },
-  { key: 'published', label: 'Published', note: (o) => `${n(o.detail.published.on_map)} on the map · ${n(o.detail.published.unconfirmed)} unconfirmed`, to: 'quality' },
+  { key: 'published', label: 'Published', note: (o) => `${n(o.detail.published.on_map)} pins · ${n(o.detail.published.city_level)} city-level · ${n(o.detail.published.unconfirmed)} unconfirmed`, to: 'locations' },
   { key: 'new_candidates', label: 'New candidates', note: (o) => `found in the last 7 days · ${n(o.detail.new_candidates.open_in_total)} open in all`, to: 'discovered', filter: 'new' },
   { key: 'needs_review', label: 'Needs review', note: () => 'waiting for a person to decide', to: 'discovered', filter: 'needs_review', flag: 'warn' },
   { key: 'potential_duplicates', label: 'Potential duplicates', note: (o) => `${plural(o.detail.potential_duplicates.candidates, 'candidate')} · ${plural(o.detail.potential_duplicates.company_pairs, 'company pair')}`, to: 'discovered', filter: 'duplicates', flag: 'warn' },
@@ -825,8 +915,8 @@ async function publishDialog(row) {
   const pin = h('div', { class: 'nested', hidden: true }, where.node);
   const sector = d.sector ?? evidenceValue(d, 'sector');
   const stage = evidenceValue(d, 'stage');
-  const off = choice({ name: 'where', value: 'unconfirmed', checked: true, title: 'List it without a map pin', text: 'It appears in the directory with an unconfirmed location and is not on the map. Confirm a place later from Suggested fills or Conflicts.', onChange: () => { mode = 'unconfirmed'; pin.hidden = true; } });
-  const on = choice({ name: 'where', value: 'pin', title: 'Put it on the map now', text: 'You confirm the place: a city and coordinates inside Australia.', onChange: () => { mode = 'pin'; pin.hidden = false; }, nested: pin });
+  const off = choice({ name: 'where', value: 'unconfirmed', checked: true, title: 'List it without a place', text: 'It appears in the directory with an unconfirmed location and is not on the map. Confirm a place later from Locations, Suggested fills or Conflicts.', onChange: () => { mode = 'unconfirmed'; pin.hidden = true; } });
+  const on = choice({ name: 'where', value: 'pin', title: 'Confirm a place now', text: 'You say how exactly it is known. An exact office or a suburb is a pin; a city or a state alone is a group on the map, never a pin.', onChange: () => { mode = 'pin'; pin.hidden = false; }, nested: pin });
   modal({
     title: `Publish ${d.name}`, size: 'lg',
     lead: 'Adds the company to the directory with what is known, and nothing more.',
@@ -843,7 +933,8 @@ async function publishDialog(row) {
     submitLabel: 'Publish company',
     onSubmit: async () => {
       const r = await api.post(`/api/candidates/${row.id}/publish`, mode === 'pin' ? { location: where.read() } : {});
-      toast(`Published ${d.name}${r.on_map ? ' on the map' : ' with an unconfirmed location'}.${r.enrichment_queued ? ' Queued for enrichment.' : ''} Commit the data files to make it live.`);
+      const placed = { EXACT: ' on the map', SUBURB: ' on the map, at its suburb', CITY: ' as a group in its city (no pin)', STATE: ' as a group in its state (no pin)' }[r.precision] ?? ' with an unconfirmed location';
+      toast(`Published ${d.name}${placed}.${r.enrichment_queued ? ' Queued for enrichment.' : ''} Commit the data files to make it live.`);
       await afterCandidateChange(row.id);
     },
   });
@@ -966,7 +1057,7 @@ function missingBlock() {
           rows: shown.map((r) => [
             h('b', {}, r.name),
             h('div', { class: 'chips' }, r.missing.map((k) => chip(MISSING_LABEL[k] ?? k, 'warn', true))),
-            r.city && r.city !== 'Unknown' ? [r.city, r.on_map ? '' : ' (not on the map)'] : unknown(),
+            r.city && r.city !== 'Unknown' ? [r.city, r.on_map ? '' : ['CITY', 'STATE'].includes(r.precision) ? ' (city-level, no pin)' : ' (not on the map)'] : unknown(),
             r.website ? extLink(r.website, hostOf(r.website)) : unknown(),
             r.website
               ? (r.enrichment && ['queued', 'running'].includes(r.enrichment.status) ? chip('Waiting to be read', 'info') : can('enrichment.enqueue') ? btn('Read website', { small: true, fk: `missing:${r.id}`, attrs: { 'aria-label': `Read ${r.name}’s website` }, onClick: async () => { await api.post(`/api/companies/${r.id}/enrich`, {}); toast(`Queued ${r.name} to have its website read.`); await refresh('missing', 'queue', 'audit'); } }) : null)
@@ -985,6 +1076,110 @@ function duplicatesBlock() {
     grid({ caption: 'Companies that look alike', columns: [{ label: 'Why they look alike' }, { label: 'Companies' }], rows: slot.value.map((g) => [capitalise(g.reason), g.names.join(' · ')]) }));
 }
 const capitalise = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+
+// ======================================================================= locations
+
+const PRECISION_TILES = [
+  ['EXACT', 'Exact locations', 'a pin at the office address'],
+  ['SUBURB', 'Suburb locations', 'a pin, drawn as approximate'],
+  ['CITY', 'City-only locations', 'a group in its city, no pin'],
+  ['STATE', 'State-only locations', 'a group in its state, no pin'],
+  ['UNKNOWN', 'Unknown locations', 'listed, not drawn'],
+];
+const LOCATION_SOURCES = [
+  ['manual', 'I checked it myself'], ['company_website', 'The company’s own website'], ['company_document', 'A company document (privacy policy, terms)'],
+  ['credible_profile', 'A credible profile (accelerator, press)'], ['ecosystem_source', 'Another ecosystem source'],
+];
+const coordCell = (v) => (v == null ? h('span', { class: 'muted' }, '—') : h('span', { class: 'num' }, Number(v).toFixed(5)));
+
+function renderLocations() {
+  const body = $('#body-locations');
+  if (!body) return;
+  keepFocus(body, () => body.replaceChildren(h('div', {},
+    view('overview', (o) => {
+      const where = o.locations;
+      return h('div', { class: 'tiles tiles--five' }, PRECISION_TILES.map(([key, label, note]) => h('div', { class: 'tile' },
+        h('span', { class: 'tile__label' }, label),
+        h('span', { class: 'tile__main' }, h('span', { class: 'tile__value' }, n(where.precision[key])), h('span', { class: 'tile__note' }, `${where.total ? Math.round((where.precision[key] / where.total) * 100) : 0}% · ${note}`)))));
+    }, { skeleton: () => skeletonRows(2) }),
+    locationQueue())));
+}
+
+function locationQueue() {
+  return h('div', {},
+    h('div', { class: 'subhead' }, h('h3', {}, 'Location review queue'), h('p', {}, 'The companies whose place a person should look at, worst first. Nothing is moved for you: saying where a company is writes it to the data files with your name and your reason.')),
+    view('locations', (L) => {
+      const f = S.ui.locationFilter;
+      const isFlag = L.flags.some((x) => x.key === f);
+      const pick = (key) => { S.ui.locationFilter = key; S.ui.locationShown = 12; load('locations', { quiet: true }); };
+      const problem = selectInput([['', 'Any problem'], ...L.issues.map((i) => [i.code, `${i.label} (${n(i.count)})`])], isFlag ? '' : f);
+      problem.setAttribute('aria-label', 'Show one kind of problem');
+      problem.dataset.fk = 'loc:problem';
+      problem.addEventListener('change', () => pick(problem.value));
+      const shown = L.results.slice(0, S.ui.locationShown);
+      return h('div', {},
+        h('div', { class: 'toolbar' },
+          seg([{ key: '', text: 'All', count: L.queue }, ...L.flags.map((x) => ({ key: x.key, text: x.label, count: x.count }))], isFlag ? f : (f ? null : ''), pick, 'Location flags', 'loc-flag'),
+          problem,
+          !can('location.set') && h('p', { class: 'toolbar__note' }, 'Setting a location needs the admin role.')),
+        L.flags.some((x) => x.key === f) && h('p', { class: 'stamp' }, L.flags.find((x) => x.key === f).note.replace(/^./, (c) => c.toUpperCase()) + '.'),
+        L.total === 0 ? emptyBox('Nothing to review here.', 'Every company in this view is located as well as it can be from what is on file.') : h('div', {},
+          grid({
+            caption: 'Location review queue', wide: true,
+            columns: [{ label: 'Company' }, { label: 'City' }, { label: 'Lat', cls: 'r' }, { label: 'Lng', cls: 'r' }, { label: 'Precision' }, { label: 'Source', cls: 'cell-source' }, { label: 'Issue' }, { label: 'Actions', cls: 'cell-actions' }],
+            rows: shown.map((r) => {
+              const [label, tone] = PRECISION[r.precision] ?? [r.precision, 'muted'];
+              const worst = r.issues[0];
+              return [
+                h('div', { class: 'company' }, h('b', {}, r.name), r.address && h('span', { class: 'sub clamp2', title: r.address }, r.address)),
+                [r.city && r.city !== 'Unknown' ? r.city : null, r.state].filter(Boolean).join(', ') || unknown(),
+                coordCell(r.lat), coordCell(r.lng),
+                chip(label, tone, true),
+                h('div', {}, LOCATION_SOURCE[r.source] ?? h('span', { class: 'muted' }, '—'), h('div', { class: 'sub' }, r.verified_at ? `checked ${fmtDate(r.verified_at)}` : 'not checked'), r.source_url && h('div', { class: 'sub' }, extLink(r.source_url, hostOf(r.source_url)))),
+                h('div', { class: 'issue' },
+                  h('div', { class: 'chips' }, chip(worst.label, SEVERITY_TONE[worst.severity] ?? 'muted', true), r.issues.length > 1 && chip(`+${r.issues.length - 1} more`, 'muted', true)),
+                  worst.detail && h('span', { class: 'sub clamp2', title: worst.detail }, worst.detail)),
+                h('div', { class: 'actions' }, can('location.set') && btn('Set location', { small: true, fk: `loc:${r.company_id}`, attrs: { 'aria-label': `Set where ${r.name} is` }, onClick: () => setLocationDialog(r) })),
+              ];
+            }),
+          }),
+          pager(shown.length, L.results.length, () => { S.ui.locationShown += 10; renderLocations(); }, 'locations')),
+        h('p', { class: 'stamp' }, 'From a terminal: ', h('code', {}, 'npm run locations -- review'), ', ', h('code', {}, 'geocode'), ', ', h('code', {}, 'promote'), ' and ', h('code', {}, 'normalize'), ' do the same work in bulk, and write the same audit trail.'));
+    }, { skeleton: () => skeletonRows(5) }));
+}
+
+function setLocationDialog(row) {
+  const pinned = ['EXACT', 'SUBURB'].includes(row.precision);
+  const where = locationFields({
+    precision: pinned ? row.precision : undefined, city: row.city && row.city !== 'Unknown' ? row.city : '', state: row.state ?? '', address: row.address ?? '',
+    suburb: row.suburb ?? '', lat: pinned ? row.lat : null, lng: pinned ? row.lng : null,
+  }, { companyId: row.company_id, allowUnknown: true });
+  const source = selectInput(LOCATION_SOURCES, 'manual');
+  const page = textInput({ placeholder: 'https://…', maxlength: 500 });
+  const reason = textArea({ rows: 2, maxlength: 300, placeholder: 'For example: the contact page lists this office; the geocoder found the building.' });
+  modal({
+    title: `Set where ${row.name} is`, size: 'lg',
+    lead: 'Say how exactly its place is known. A pin needs an address (or a suburb) and a point; a city or a state alone is a group on the map, never a pin. Nothing is guessed.',
+    body: [
+      h('div', { class: 'block' }, h('p', { class: 'field__label' }, 'What is wrong now'),
+        h('div', { class: 'list' }, row.issues.map((i) => h('div', {}, h('div', { class: 'list__title' }, i.label, i.detail ? ` — ${i.detail}` : ''), h('div', { class: 'sub' }, i.action))))),
+      where.node,
+      fieldOf('Where did you find it?', source),
+      fieldOf('The page that states it', page, { optional: true, hint: 'Required for a company’s own website or document, so anyone can check it. Never LinkedIn or another personal profile: they say where a person is, not where the company is.' }),
+      fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Save location',
+    onSubmit: async () => {
+      const location = where.read();
+      const why = needReason(reason);
+      const payload = { location, reason: why };
+      if (location.precision !== 'UNKNOWN') { payload.source = source.value; if (norm(page.value)) payload.source_url = norm(page.value); }
+      const r = await api.post(`/api/locations/${row.company_id}`, payload);
+      toast(`${row.name} is now ${(PRECISION[r.precision]?.[0] ?? r.precision).toLowerCase()}. Commit the data files to make it live.`);
+      await refresh('overview', 'locations', 'missing', 'suggestions', 'conflicts', 'audit');
+    },
+  });
+}
 
 // ======================================================================= conflicts
 
@@ -1036,7 +1231,7 @@ function resolveDialog(c, start) {
   let winner = start === 'stored' ? 'stored' : start.index;
   let record = null;
   const group = uid('winner');
-  const where = locationFields({ city: c.city ?? '' });
+  const where = locationFields({ city: c.city ?? '' }, { companyId: c.company_id });
   const confirmBox = h('div', { class: 'nested', hidden: true }, where.node);
   const recordGroup = h('fieldset', { hidden: true });
   const reason = textArea({ rows: 2, maxlength: 500, placeholder: 'For example: the privacy policy lists the registered office, not the HQ.' });
@@ -1061,7 +1256,7 @@ function resolveDialog(c, start) {
   };
   const keepChoice = choice({ name: uid('record'), value: 'keep', title: 'Leave the record as it is', text: '', onChange: () => { record = 'keep'; confirmBox.hidden = true; } });
   const recordName = keepChoice.input.name;
-  const confirmChoice = choice({ name: recordName, value: 'confirm', title: 'Confirm a place on the map', text: 'A city and coordinates inside Australia.', nested: confirmBox, onChange: () => { record = 'confirm'; confirmBox.hidden = false; } });
+  const confirmChoice = choice({ name: recordName, value: 'confirm', title: 'Confirm a place', text: 'Say how exactly it is known: an office, a suburb, only the city or the state.', nested: confirmBox, onChange: () => { record = 'confirm'; confirmBox.hidden = false; } });
   const offChoice = choice({ name: recordName, value: 'unconfirm', title: 'Take the company off the map', text: 'Its location becomes “Unconfirmed”: still listed, not pinned.', onChange: () => { record = 'unconfirm'; confirmBox.hidden = true; } });
   recordGroup.append(h('legend', {}, 'What should the record do?'), h('p', { class: 'field__hint' }, 'A pin on the map is public, so moving a company needs a confirmed place, or taking it off the map.'), keepChoice.node, confirmChoice.node, offChoice.node);
 
@@ -1131,13 +1326,13 @@ function evidenceList(evidence) {
 
 function applyDialog(s) {
   let mode = s.location ? (s.field === 'address' ? 'address_only' : 'confirm') : 'plain';
-  const where = locationFields({ city: s.field === 'city' ? String(s.value) : '', state: s.field === 'state' ? String(s.value) : '', address: s.field === 'address' ? String(s.value) : '' });
+  const where = locationFields({ city: s.field === 'city' ? String(s.value) : '', state: s.field === 'state' ? String(s.value) : '', address: s.field === 'address' ? String(s.value) : '' }, { companyId: s.company_id });
   const confirmBox = h('div', { class: 'nested', hidden: mode !== 'confirm' }, where.node);
   const parts = [];
   if (s.location) {
     const group = uid('apply');
     const only = s.field === 'address' ? choice({ name: group, value: 'address_only', checked: true, title: 'Record the address text only', text: 'The map pin does not move.', onChange: () => { mode = 'address_only'; confirmBox.hidden = true; } }) : null;
-    const confirm = choice({ name: group, value: 'confirm', checked: !only, title: 'Confirm a place on the map', text: 'A city and coordinates inside Australia.', nested: confirmBox, onChange: () => { mode = 'confirm'; confirmBox.hidden = false; } });
+    const confirm = choice({ name: group, value: 'confirm', checked: !only, title: 'Confirm a place', text: 'Say how exactly it is known: an office, a suburb, only the city or the state.', nested: confirmBox, onChange: () => { mode = 'confirm'; confirmBox.hidden = false; } });
     parts.push(h('fieldset', {}, h('legend', {}, 'How should the record take it?'), only?.node, confirm.node));
   }
   modal({
@@ -1436,9 +1631,9 @@ function renderAudit() {
 // ======================================================================= wiring it together
 
 const RENDER = {
-  overview: () => { renderTiles(); renderNav(); renderQuality(); },
+  overview: () => { renderTiles(); renderNav(); renderQuality(); renderLocations(); },
   candidates: () => { renderDiscovered(); renderNav(); },
-  conflicts: renderConflicts, suggestions: renderSuggestions, missing: renderQuality, duplicates: renderQuality,
+  conflicts: renderConflicts, suggestions: renderSuggestions, missing: renderQuality, duplicates: renderQuality, locations: renderLocations,
   queue: renderQueue, job: renderQueue, imports: renderImports, scheduler: () => { renderScheduler(); renderNav(); }, audit: renderAudit,
 };
 function render(name) { if (S.me && !S.signedOut) RENDER[name]?.(); }
@@ -1488,7 +1683,7 @@ function signOut(notice) {
 let watching = false;
 function start() {
   buildShell();
-  for (const name of ['overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'duplicates', 'queue', 'imports', 'scheduler', 'audit', 'job']) load(name);
+  for (const name of ['overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'locations', 'duplicates', 'queue', 'imports', 'scheduler', 'audit', 'job']) load(name);
   if (!watching) {
     watching = true; // coming back to the tab after a while shows what changed meanwhile
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.me && !S.signedOut && Date.now() - (S.refreshedAt ?? 0) > 120000) refreshAll(); });

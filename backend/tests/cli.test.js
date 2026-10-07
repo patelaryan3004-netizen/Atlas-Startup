@@ -141,9 +141,27 @@ describe('a person deciding', () => {
   it('publishes without a confirmed location as unconfirmed, off the map', async () => {
     await runWith([ZORBLY]);
     await cli(['approve', 'cand-zorbly', '--by', 'Me']);
-    expect((await cli(['publish', 'cand-zorbly', '--by', 'Me'])).text).toMatch(/location unconfirmed: not on the map; listed under Unconfirmed/);
+    expect((await cli(['publish', 'cand-zorbly', '--by', 'Me'])).text).toMatch(/published as zorbly \(unconfirmed location: listed, not on the map\)/);
     const companies = JSON.parse(await readFile(path.join(dir, 'startups.json'), 'utf-8'));
-    expect(companies.find((c) => c.id === 'zorbly')).toMatchObject({ verified: false, lat: null });
+    expect(companies.find((c) => c.id === 'zorbly')).toMatchObject({ verified: false, lat: null, location_precision: 'UNKNOWN' });
+  });
+
+  it('publishes a company confirmed only to its city as a group in that city, with no point', async () => {
+    await runWith([ZORBLY]);
+    await cli(['approve', 'cand-zorbly', '--by', 'Me']);
+    const done = await cli(['publish', 'cand-zorbly', '--by', 'Me', '--city', 'Melbourne', '--precision', 'city']);
+    expect(done.text).toMatch(/published as zorbly \(city-level: a group in its city, not a pin\)/);
+    const companies = JSON.parse(await readFile(path.join(dir, 'startups.json'), 'utf-8'));
+    expect(companies.find((c) => c.id === 'zorbly')).toMatchObject({ verified: true, city: 'Melbourne', state: 'VIC', lat: null, lng: null, location_precision: 'CITY' });
+  });
+
+  it('publishes a company at its suburb as an approximate pin', async () => {
+    await runWith([ZORBLY]);
+    await cli(['approve', 'cand-zorbly', '--by', 'Me']);
+    const done = await cli(['publish', 'cand-zorbly', '--by', 'Me', '--city', 'Melbourne', '--suburb', 'Richmond', '--lat', '-37.8183', '--lng', '144.9981', '--precision', 'suburb']);
+    expect(done.text).toMatch(/published as zorbly \(on the map, at its suburb\)/);
+    const companies = JSON.parse(await readFile(path.join(dir, 'startups.json'), 'utf-8'));
+    expect(companies.find((c) => c.id === 'zorbly')).toMatchObject({ location_precision: 'SUBURB', suburb: 'Richmond', lat: -37.8183 });
   });
 
   it('settles a possible duplicate either way', async () => {

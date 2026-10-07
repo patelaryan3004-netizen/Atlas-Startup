@@ -104,6 +104,7 @@ export function createAdminApp({ service, authenticator, limiter, securityLog, u
   get('/api/candidates/:id', (actor, req) => service.candidate(actor, req.params.id));
   get('/api/companies', (actor, req) => service.companies(actor, String(req.query.q ?? '')));
   get('/api/missing', (actor) => service.missing(actor));
+  get('/api/locations', (actor, req) => service.locations(actor, { filter: String(req.query.filter ?? ''), limit: intOr(req.query.limit, 100) }));
   get('/api/duplicates', (actor) => service.duplicates(actor));
   get('/api/conflicts', (actor) => service.conflicts(actor));
   get('/api/suggestions', (actor) => service.suggestions(actor));
@@ -128,6 +129,8 @@ export function createAdminApp({ service, authenticator, limiter, securityLog, u
     return run(actor, req.params.id, req.body ?? {});
   });
   post('/api/companies/:id/enrich', (actor, req) => service.enqueue(actor, { kind: 'company', id: req.params.id }));
+  post('/api/locations/lookup', (actor, req) => service.lookupLocation(actor, req.body ?? {}));
+  post('/api/locations/:id', (actor, req) => service.setLocation(actor, req.params.id, req.body ?? {}));
   post('/api/conflicts/resolve', (actor, req) => service.resolveConflict(actor, req.body));
   post('/api/suggestions/apply', (actor, req) => service.applySuggestion(actor, req.body));
   post('/api/suggestions/dismiss', (actor, req) => service.dismissSuggestion(actor, req.body));

@@ -82,6 +82,9 @@ code { background: var(--surface-3); padding: 1px 5px; border-radius: 4px; overf
 b, strong { font-weight: 600; }
 time { white-space: nowrap; }
 
+/* A hidden control stays hidden whatever display its class gives it (a .row is a grid, a .field a flex column). */
+[hidden] { display: none !important; }
+
 .sr {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
@@ -281,6 +284,7 @@ time { white-space: nowrap; }
 .field__hint { color: var(--text-2); font-size: var(--fs-xs); }
 .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
 .row + .row { margin-top: 14px; }
+.row > .field { margin-top: 0; } /* the grid's gap spaces them: a neighbour's margin would push the second field of a row down */
 .check { display: flex; align-items: flex-start; gap: 8px; margin-top: 14px; font-size: var(--fs-sm); }
 .check input { margin-top: 2px; width: 16px; height: 16px; flex: none; }
 
@@ -358,6 +362,7 @@ legend { padding: 0; margin-bottom: 6px; font-weight: 550; font-size: var(--fs-s
   .grid--stack .actions .btn--ghost { border-color: var(--line-strong); }
   .grid--stack .company { max-width: none; min-width: 0; }
   .grid--stack .cell-source { max-width: none; min-width: 0; }
+  .grid--stack .r { text-align: left; }
   .grid--wide { min-width: 0; }
 }
 
@@ -380,6 +385,20 @@ legend { padding: 0; margin-bottom: 6px; font-weight: 550; font-size: var(--fs-s
 .subhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin: 28px 0 10px; }
 .subhead h3 { font-size: var(--fs-md); font-weight: 650; }
 .subhead p { color: var(--text-2); font-size: var(--fs-sm); }
+
+/* ---------- locations ---------- */
+
+/* Five counts instead of eight: one row once there is room, two columns before. */
+.tiles--five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 640px) { .tiles--five { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.toolbar .select { width: auto; min-width: 230px; max-width: 100%; }
+.issue { display: flex; flex-direction: column; gap: 3px; min-width: 200px; max-width: 320px; }
+@media (max-width: 759px) { .grid--stack .issue { max-width: none; min-width: 0; } }
+/* What the geocoder answered, under the coordinates it would fill in. */
+.lookup { margin-top: 10px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--surface-2); font-size: var(--fs-sm); }
+.lookup p + p { margin-top: 4px; }
+.lookup .btn { margin-top: 8px; }
+.lookup__warn { color: var(--bad); }
 
 /* ---------- conflicts and suggestions ---------- */
 

@@ -46,6 +46,19 @@ export const LOCATION_ISSUES = {
   no_state: { severity: 'low', label: 'The state is not known', action: 'Set the state from the address.' },
 };
 
+// The six counts the Command Center shows beside the precision counts, and the review problems each one is made of.
+export const LOCATION_FLAGS = {
+  duplicate_coordinates: { label: 'Duplicate coordinates', note: 'a pin shared with a company at a different address', issues: ['shared_coordinates'] },
+  city_centroid_coordinates: { label: 'City-centroid coordinates', note: 'coordinates that are a city centre, not a company', issues: ['coordinates_on_area_location', 'city_centre_coordinates'] },
+  location_conflicts: { label: 'Location conflicts', note: 'the point is not where the record, or a geocoder, says', issues: ['coordinates_conflict', 'geocode_disagrees'] },
+  missing_coordinates: { label: 'Missing coordinates', note: 'a point is expected and there is none', issues: ['missing_coordinates', 'address_not_geocoded'] },
+  potentially_stale: { label: 'Potentially stale locations', note: 'last checked over a year ago, or the company has closed or been acquired', issues: ['stale_location', 'historical_location'] },
+  unverified_addresses: { label: 'Addresses not checked', note: 'an address no source has been checked for', issues: ['address_unverified'] },
+};
+
+// The review problems a filter names: a flag (several problems) or one problem. null for something that is neither.
+export const locationFilterCodes = (filter) => LOCATION_FLAGS[filter]?.issues ?? (LOCATION_ISSUES[filter] ? [filter] : null);
+
 const SEVERITY = { high: 0, medium: 1, low: 2 };
 const same = (a, b) => String(a ?? '').trim().toLowerCase() === String(b ?? '').trim().toLowerCase();
 

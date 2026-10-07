@@ -24,8 +24,8 @@ Only a hash of each token is stored (`backend/.admin/users.json`, gitignored). A
 | Role | Can |
 |---|---|
 | `viewer` | look at everything: the dashboard, candidates, evidence, the audit trail |
-| `reviewer` | decide about candidates (approve, reject, edit, reopen, note, "not a duplicate"), dismiss a suggestion, queue a website, retry or cancel a task, acknowledge a failed import |
-| `admin` | everything that changes what the **public** sees: merge a candidate into a company, publish one, settle a conflict, apply a suggestion, seed and run the enrichment queue |
+| `reviewer` | decide about candidates (approve, reject, edit, reopen, note, "not a duplicate"), dismiss a suggestion, queue a website, retry or cancel a task, acknowledge a failed import, look an address up on the map (that changes nothing) |
+| `admin` | everything that changes what the **public** sees: merge a candidate into a company, publish one, settle a conflict, apply a suggestion, set where a company is on the map, seed and run the enrichment queue |
 
 The line is drawn at the public record: until something reaches a company, a mistake costs a reviewer's time. The check is made in the service, not only in a route, so no door into it can skip it.
 
@@ -35,7 +35,7 @@ Eight counts at the top, each a link to where it is worked:
 
 | Count | Means |
 |---|---|
-| Total companies, Published | every company in the directory (all are listed), split into on the map and unconfirmed |
+| Total companies, Published | every company in the directory (all are listed), split into pins on the map, city-level (a group at its city, no pin) and unconfirmed |
 | New candidates | found in the last 7 days and still open |
 | Needs review | waiting for a person: new companies and possible duplicates |
 | Potential duplicates | open candidates that look like a company we have, plus pairs of published companies that look alike |
@@ -43,9 +43,13 @@ Eight counts at the top, each a link to where it is worked:
 | Missing data | companies lacking a website, sector, location, stage or description (the list behind it is under Data quality) |
 | Failed imports | sources whose latest import failed and nobody has looked, plus enrichment tasks that failed |
 
-Then, in order: **New startups discovered** (Approve, Reject, Edit, Merge, Publish, and a review drawer with the evidence), **Data quality** (coverage for website, sector, location, stage, founders, funding and investors, and who is missing what), **Conflicts** (two sources disagree, or one disagrees with our record: a person says which is right, with a reason), **Suggested fills** (facts found on websites that the record lacks: apply or dismiss), **Enrichment queue** (seed, run in suggest or fill mode, watch it, retry), **Failed imports**, **Scheduled refresh** (read only: the six jobs and when each last ran and runs next, how far each company fact is behind its clock, the status watch of companies whose website moved, was renamed or says it was acquired or closed, the sources and the websites being left alone, and the recent runs; the scheduler itself is run from a terminal, a timer or CI: see [scheduler.md](scheduler.md)), and the **Audit trail**.
+Then, in order: **New startups discovered** (Approve, Reject, Edit, Merge, Publish, and a review drawer with the evidence), **Data quality** (coverage for website, sector, location, stage, founders, funding and investors, and who is missing what), **Locations** (how well each company's place is known, and the review queue: see below), **Conflicts** (two sources disagree, or one disagrees with our record: a person says which is right, with a reason), **Suggested fills** (facts found on websites that the record lacks: apply or dismiss), **Enrichment queue** (seed, run in suggest or fill mode, watch it, retry), **Failed imports**, **Scheduled refresh** (read only: the six jobs and when each last ran and runs next, how far each company fact is behind its clock, the status watch of companies whose website moved, was renamed or says it was acquired or closed, the sources and the websites being left alone, and the recent runs; the scheduler itself is run from a terminal, a timer or CI: see [scheduler.md](scheduler.md)), and the **Audit trail**.
 
-A location is the careful case. A pin on the map is public, so settling a conflict about where a company is, or applying a suggested address, needs a confirmed place (a city and coordinates inside Australia) or taking the company off the map. The page never guesses coordinates; it links to OpenStreetMap so you can read them off a map.
+### Locations
+
+A location is the careful case, because a pin on the map is public and a pin says "here". The **Locations** section shows five counts, as the directory knows them today (exact, suburb, city-only, state-only and unknown locations), six flags (duplicate coordinates, city-centroid coordinates, location conflicts, missing coordinates, potentially stale locations, addresses not checked), and the **review queue**: every company whose place a person should look at, worst first, with its city, its latitude and longitude, how exactly it is known, where that came from, and what is wrong with it. Pick a flag or one kind of problem to narrow it.
+
+An admin presses **Set location** on a row to say where the company is, and how exactly they know: an exact office (an address and a point), a suburb (a suburb and a point, drawn as approximate), only the city or only the state (no point at all: the company is a group on the map, never a pin), or not known (takes it off the map). **Find on the map** asks OpenStreetMap about the address (one question a second, the answer kept so the same address is never asked twice), says how exactly it found it and whether it agrees with the point on file, and fills the coordinates in for you to check; you can also read them off a map yourself. Where you found it is part of the record (the company's own page needs its link; LinkedIn and other personal profiles are refused: they say where a person is, not where the company is), and so is why. Publishing a candidate, settling an address conflict and applying a suggested address use the same form. The page never guesses coordinates. The same work can be done in bulk from a terminal (`npm run locations`); see [locations.md](locations.md).
 
 ## The audit trail
 

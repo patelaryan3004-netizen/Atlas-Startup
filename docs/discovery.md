@@ -84,14 +84,14 @@ npm run discovery -- list --status needs_review
 npm run discovery -- show cand-trendspek
 npm run discovery -- enrich cand-trendspek --website https://example.com --by "Your Name"
 npm run discovery -- approve cand-trendspek --by "Your Name"
-npm run discovery -- publish cand-trendspek --by "Your Name" [--city Melbourne --lat -37.81 --lng 144.96 --address "..."]
+npm run discovery -- publish cand-trendspek --by "Your Name" [--city Melbourne [--address "..." --suburb Richmond --state VIC --postcode 3121 --lat -37.81 --lng 144.96 --precision exact|suburb|city|state]]
 ```
 
 A candidate found in a news story has a name and little else, so its confidence is low until it has a website: `enrich --website` reads the site, checks identity again (a website can reveal that it is a company we already have) and rescores.
 
 `enrich` reads the homepage and up to two pages it links to (privacy, terms, contact, about) and records what they say as evidence with the page as its source: the homepage's own description, an Australian street address and its state, a founding year, founders named in structured data, registry numbers and legal names. It will not record a tagline as the company's name, an inner page's description (that describes the page), or a suburb as the city (`Haymarket` stays in the address; `city` is set only when it is a city the directory uses, so the city filter is not fragmented). A unit number is kept as the site writes it. When a page gives an ABN and an ACN that cannot belong to one company (a company's ABN ends with its ACN), both are recorded as found and the candidate gets a note, because the site is probably naming two legal entities.
 
-`publish` creates the company with exactly what is known: sector and stage stay `Unknown` unless the evidence says, the description is left for a person to write, and the location is unconfirmed (so it is listed under Unconfirmed, not on the map) unless you supply and confirm one. A candidate with a possible duplicate cannot be approved until each is settled: `distinct --from <id>` if it is a different company, `merge --into <company>` if it is the same.
+`publish` creates the company with exactly what is known: sector and stage stay `Unknown` unless the evidence says, the description is left for a person to write, and the location is unconfirmed (so it is listed under Unconfirmed, not on the map) unless you supply and confirm one. How exactly you know it decides what the map shows: an address (or a suburb) with a point is a pin, a city or a state alone is a group in that city or state and never a pin, and coordinates without an address or a suburb are refused (a pin must mean what it looks like: see [locations.md](locations.md)). A candidate with a possible duplicate cannot be approved until each is settled: `distinct --from <id>` if it is a different company, `merge --into <company>` if it is the same.
 
 ## Enrichment
 

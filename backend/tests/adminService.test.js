@@ -5,10 +5,12 @@ import { createAdminService } from '../src/admin/service.js';
 import { runDiscovery } from '../src/discovery/pipeline.js';
 import { approveCandidate, rejectCandidate } from '../src/discovery/review.js';
 import { createFetcher } from '../src/discovery/http.js';
+import { createGeocoder } from '../src/geo/geocode.js';
 import { loadRaw } from '../src/models/dataset.js';
 import { PERMISSIONS } from '../src/admin/roles.js';
 import { ForbiddenError, BadRequestError, NotFoundError, ConflictError } from '../src/admin/errors.js';
 import { NOW, dataset, lead, fakeSource, fetcherFor, auPage, co } from './helpers/discovery.js';
+import { nominatim } from './helpers/locations.js';
 import { makeDataDir, readDataDir, removeMadeDirs } from './helpers/store.js';
 
 afterEach(removeMadeDirs);
@@ -47,7 +49,9 @@ async function build() {
     sources: [{ id: 'rss.a', leads: 3, error: null }, { id: 'rss.b', leads: 0, error: 'HTTP 503' }], totals: { new: 1, attached: 0, seen: 0, skipped: 0, applied: 0, requests: 5 }, refused: [], acknowledged: [],
   }];
   const dir = await makeDataDir(work);
-  return { dir, id, service: createAdminService({ dir, now: () => AT }) };
+  // The geocoder is scripted and knows nothing: no test here reaches the real one.
+  const geocoderFactory = () => createGeocoder({ fetchImpl: nominatim().fetchImpl, now: () => AT, sleep: async () => {} });
+  return { dir, id, service: createAdminService({ dir, now: () => AT, geocoderFactory }) };
 }
 const trail = async (dir) => (await readDataDir(dir)).audit_trail;
 const files = async (dir) => loadRaw(dir);
@@ -66,6 +70,8 @@ describe('who may do what, in the service itself', () => {
     ['conflict.resolve', (a) => s.resolveConflict(a, { company_id: 'acme-robotics', field: 'founded_year', winner: { value: 2019 }, reason: 'Its own site.' })],
     ['suggestion.apply', (a) => s.applySuggestion(a, { company_id: 'hex', field: 'description', value: 'Hex makes hexes.' })],
     ['suggestion.dismiss', (a) => s.dismissSuggestion(a, { company_id: 'hex', field: 'description', value: 'Hex makes hexes.', reason: 'Not accurate.' })],
+    ['location.lookup', (a) => s.lookupLocation(a, { address: '110 Kippax Street, Surry Hills, Sydney NSW 2010' })],
+    ['location.set', (a) => s.setLocation(a, 'hex', { reason: 'Their contact page.', location: { city: 'Sydney', address: '110 Kippax Street, Surry Hills, Sydney NSW 2010', lat: -33.8844, lng: 151.2096 } })],
     ['enrichment.seed', (a) => s.seedQueue(a, {})],
     ['enrichment.enqueue', (a) => s.enqueue(a, { kind: 'company', id: 'acme-robotics' })],
     ['import.dismiss', (a) => s.dismissImport(a, { run_id: 'run-20261005040000000', source_id: 'rss.b', note: 'Their outage.' })],
@@ -187,7 +193,7 @@ describe('what an action does beyond the one thing', () => {
     const approved = await service.approve(reviewer, id('Xylo'));
     expect(approved).toMatchObject({ status: 'approved' });
     const published = await service.publish(admin, id('Quill'), { location: { city: 'Melbourne', address: '5 Collins Street, Melbourne VIC 3000', lat: -37.8, lng: 144.96 } });
-    expect(published).toMatchObject({ on_map: true, company_id: 'quill' });
+    expect(published).toMatchObject({ on_map: true, precision: 'EXACT', company_id: 'quill' });
     const queue = (await readDataDir(dir)).enrichment_queue;
     const quill = queue.find((t) => t.target_id === 'quill');
     expect(quill).toMatchObject({ kind: 'company', reason: 'published' });
@@ -201,9 +207,9 @@ describe('what an action does beyond the one thing', () => {
     await expect(service.publish(admin, id('Quill'), { location: { city: 'Melbourne', lat: -37.8 } })).rejects.toThrow(/both a latitude and a longitude/);
     await expect(service.publish(admin, id('Quill'), { location: { city: 'Melbourne', precision: 'ROUGHLY' } })).rejects.toThrow(/precision must be/);
     const published = await service.publish(admin, id('Quill'), { location: { city: 'Melbourne' } });
-    expect(published).toMatchObject({ on_map: true, company_id: 'quill' });
+    expect(published).toMatchObject({ on_map: false, precision: 'CITY', company_id: 'quill' }); // a group in its city, not a pin
     expect((await readDataDir(dir)).companies.find((c) => c.id === 'quill')).toMatchObject({ verified: true, city: 'Melbourne', state: 'VIC', lat: null, lng: null, location_precision: 'CITY', location_source: 'manual' });
-    expect((await trail(dir)).at(-1).summary).toMatch(/on the map/);
+    expect((await trail(dir)).at(-1).summary).toMatch(/city-level: a group in its city, not a pin/);
   });
 
   it('a conflict settled for the Forward case takes the company off the map and keeps the true claim', async () => {
@@ -245,7 +251,8 @@ describe('what the dashboard shows', () => {
       failed_imports: 1, updated_this_week: 2, // the two companies that have just had evidence checked
     });
     expect(o.tiles.potential_duplicates).toBeGreaterThanOrEqual(2); // the likely duplicate and the exact match
-    expect(o.detail).toMatchObject({ published: { on_map: 4, unconfirmed: 0 }, failed_imports: { sources: 1, enrichment_tasks: 0 } });
+    // none has a street address, so each is known to its city: a group on the map, not a pin
+    expect(o.detail).toMatchObject({ published: { on_map: 0, city_level: 4, unconfirmed: 0 }, failed_imports: { sources: 1, enrichment_tasks: 0 } });
     expect(o.quality.map((q) => q.key)).toEqual(['website', 'sector', 'location', 'stage', 'founders', 'funding', 'investors']);
     expect(o.quality.find((q) => q.key === 'website')).toMatchObject({ total: 4, present: expect.any(Number), pct: expect.any(Number) });
     expect(o.attention).toMatchObject({ open_conflicts: 1, suggestions: 1 });

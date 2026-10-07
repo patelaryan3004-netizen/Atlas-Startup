@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { AU_STATES, STATES, CITIES, cityCentre, stateCentre, distanceMetres, statesAt, conflictsWithState, centreAt, kmFromCity } from '../src/geo/places.js';
+import { AU_STATES, STATES, CITIES, CENTRE_METRES, MAX_KM_FROM_CITY, cityCentre, stateCentre, distanceMetres, statesAt, conflictsWithState, centreAt, kmFromCity } from '../src/geo/places.js';
 
 describe('the states and the cities', () => {
   it('knows the eight states and territories, each with a name, a centre inside its own box and a box', () => {
@@ -53,11 +53,19 @@ describe('distance and place', () => {
 
   it('recognises a point that sits on a city centre, within a tolerance, and the directory\'s own alternative points', () => {
     expect(centreAt(-33.8688, 151.2093)).toMatchObject({ city: 'Sydney', state: 'NSW', distance: 0 });
-    expect(centreAt(-33.86984, 151.20828)).toMatchObject({ city: 'Sydney' }); // the point 36 companies share today
+    expect(centreAt(-33.86984, 151.20828)).toMatchObject({ city: 'Sydney', distance: 0 }); // the point the directory's city-only companies shared: a centre in its own right
+    expect(centreAt(-33.86984, 151.20828, CENTRE_METRES)).toMatchObject({ city: 'Sydney' }); // so the unbacked-pin check, which is stricter, finds it too
     expect(centreAt(-33.8848, 151.2098)).toBeNull(); // Surry Hills, about 2 km away
     expect(centreAt(-35.29759, 149.10127)).toMatchObject({ city: 'Canberra' }); // an alternative point for Canberra
     expect(centreAt(-33.8688, 151.2103, 50)).toBeNull(); // 100 m away is outside a 50 m tolerance
     expect(centreAt(-33.8688, 151.2103, 250)).toMatchObject({ city: 'Sydney' });
+  });
+
+  it('treats a missing point as no centre, and has the two limits the checks use', () => {
+    expect(centreAt(null, null)).toBeNull();
+    expect(centreAt(undefined, 151.2)).toBeNull();
+    expect(CENTRE_METRES).toBe(120);
+    expect(MAX_KM_FROM_CITY).toBe(100);
   });
 
   it('says how far a point is from the city a record names, or nothing when the city is not on file', () => {

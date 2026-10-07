@@ -40,6 +40,7 @@ import { createEngine } from '../src/discovery/pipeline.js';
 import { buildIndex, identityOfLead, resolveLead, describeMatch } from '../src/discovery/resolve.js';
 import { approveCandidate, rejectCandidate, reopenCandidate, markDistinct, mergeCandidate, renameCompany } from '../src/discovery/review.js';
 import { publishCandidate } from '../src/discovery/publish.js';
+import { PUBLISHED_AS } from '../src/models/location.js';
 import { renderRunReport, renderQueue, renderCandidate } from '../src/discovery/report.js';
 
 const DEFAULT_DATA_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data');
@@ -177,12 +178,16 @@ export async function main(argv, deps = {}) {
       return 0;
     }
     case 'publish': {
-      const location = flags.lat !== undefined || flags.lng !== undefined || flags.city !== undefined
-        ? { city: flags.city, lat: num(flags, 'lat'), lng: num(flags, 'lng'), address: typeof flags.address === 'string' ? flags.address : undefined } : null;
+      // A place is a city (alone: a group at the city), or an address or suburb with a point (a pin); --precision says which.
+      const word = (name) => (typeof flags[name] === 'string' ? flags[name] : undefined);
+      const located = ['lat', 'lng', 'city', 'precision'].some((k) => flags[k] !== undefined);
+      const location = located
+        ? { city: flags.city, lat: num(flags, 'lat'), lng: num(flags, 'lng'), address: word('address'), suburb: word('suburb'), state: word('state'), postcode: word('postcode'), precision: word('precision')?.toUpperCase() ?? null } : null;
       const { company } = publishCandidate(work, args[0], { by: by(), at, location });
       const queued = enqueueForPublished(work, company, { by: by(), at });
-      out(`published as ${company.id}${company.verified ? ' (on the map)' : ' (location unconfirmed: not on the map; listed under Unconfirmed)'}${queued ? '; queued for enrichment' : ''}`);
-      await save([trail('candidate.publish', { type: 'candidate', id: args[0] }, `Published ${company.name} as ${company.id}${company.verified ? ' (on the map)' : ' (unconfirmed location)'}${queued ? '; queued for enrichment' : ''}`)]);
+      const placed = PUBLISHED_AS[company.location_precision ?? (company.verified ? 'EXACT' : 'UNKNOWN')];
+      out(`published as ${company.id} (${placed})${queued ? '; queued for enrichment' : ''}`);
+      await save([trail('candidate.publish', { type: 'candidate', id: args[0] }, `Published ${company.name} as ${company.id} (${placed})${queued ? '; queued for enrichment' : ''}`)]);
       return 0;
     }
     case 'rename': {

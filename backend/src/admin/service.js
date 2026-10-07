@@ -17,8 +17,12 @@ import { publishCandidate } from '../discovery/publish.js';
 import { createFetcher, DEFAULT_USER_AGENT } from '../discovery/http.js';
 import { runQueue } from '../enrichment/worker.js';
 import { MODES } from '../enrichment/policy.js';
+import { confirmLocation, unconfirmLocation } from '../enrichment/fill.js';
+import { createGeocoder, geocodeCached, mergeCache, decide, questionFor } from '../geo/geocode.js';
+import { LOCATION_SOURCES, PUBLISHED_AS, isOfficialSource } from '../models/location.js';
+import { locationFilterCodes } from '../models/locationAudit.js';
 import { resolveConflict, applySuggestion, dismissSuggestion, reasonOf } from './decisions.js';
-import { buildOverview, listCandidates, candidateDetail, searchCompanies, missingData, companyDuplicates, listConflicts, listSuggestions, queuePanel, importsPanel, schedulerPanel, auditPage } from './overview.js';
+import { buildOverview, listCandidates, candidateDetail, searchCompanies, missingData, companyDuplicates, listConflicts, listSuggestions, queuePanel, importsPanel, schedulerPanel, auditPage, locationsPanel } from './overview.js';
 import { requireRole } from './roles.js';
 import { createJobRunner } from './jobs.js';
 import { HttpError, BadRequestError, NotFoundError, ConflictError } from './errors.js';
@@ -62,9 +66,12 @@ function translate(err) {
   return new BadRequestError(err.message);
 }
 
-export function createAdminService({ dir, now = Date.now, fetcherFactory = () => createFetcher({ userAgent: DEFAULT_USER_AGENT }) }) {
+export function createAdminService({ dir, now = Date.now, fetcherFactory = () => createFetcher({ userAgent: DEFAULT_USER_AGENT }), geocoderFactory = () => createGeocoder({ now }) }) {
   const jobs = createJobRunner({ now });
   const read = async (actor, fn) => { requireRole(actor, 'read'); const { ds } = await snapshot(dir, { now }); return fn(ds); };
+  // One geocoder for the life of the server, so the pause between its requests holds however many lookups a person makes.
+  let geocoder = null;
+  const theGeocoder = () => (geocoder ??= geocoderFactory());
 
   // The one way anything changes: permission, then a transaction that writes the change with its audit row.
   async function write(actor, permission, mutate) {
@@ -88,6 +95,10 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
     candidate: (actor, id) => read(actor, (ds) => candidateDetail(ds, idOf(id)) ?? (() => { throw new NotFoundError(`no candidate "${id}"`); })()),
     companies: (actor, q) => read(actor, (ds) => searchCompanies(ds, q)),
     missing: (actor) => read(actor, (ds) => missingData(ds, now())),
+    locations: (actor, { filter = '', limit = 100 } = {}) => read(actor, (ds) => {
+      if (filter && !locationFilterCodes(filter)) throw new BadRequestError(`"${filter}" is not a kind of location problem`);
+      return locationsPanel(ds, now(), { filter, limit });
+    }),
     duplicates: (actor) => read(actor, (ds) => companyDuplicates(ds)),
     conflicts: (actor) => read(actor, (ds) => listConflicts(ds)),
     suggestions: (actor) => read(actor, (ds) => listSuggestions(ds)),
@@ -153,7 +164,8 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
       const location = body.location ? locationFromBody(object(body.location, 'location')) : null;
       const { company } = publishCandidate(work, idOf(id), { by: actor.name, at, location });
       const queued = enqueueForPublished(work, company, { by: actor.name, at });
-      return { result: { id, company_id: company.id, on_map: company.verified, enrichment_queued: Boolean(queued) }, audit: [entry(actor, 'candidate.publish', { type: 'candidate', id }, `Published ${company.name} as ${company.id}${company.verified ? ' (on the map)' : ' (unconfirmed location: listed, not on the map)'}${queued ? '; queued for enrichment' : ''}`, { changes: [{ field: 'status', from: 'approved', to: 'published' }] })] };
+      const precision = company.location_precision ?? (company.verified ? 'EXACT' : 'UNKNOWN');
+      return { result: { id, company_id: company.id, on_map: precision === 'EXACT' || precision === 'SUBURB', precision, enrichment_queued: Boolean(queued) }, audit: [entry(actor, 'candidate.publish', { type: 'candidate', id }, `Published ${company.name} as ${company.id} (${PUBLISHED_AS[precision]})${queued ? '; queued for enrichment' : ''}`, { changes: [{ field: 'status', from: 'approved', to: 'published' }] })] };
     }),
 
     // ---------- evidence ----------
@@ -174,6 +186,64 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
     dismissSuggestion: (actor, body = {}) => write(actor, 'suggestion.dismiss', (work, { at }) => {
       const r = dismissSuggestion(work, object(body, 'the request'), { by: actor.name, at });
       return { result: { company_id: r.company.id, field: body.field, rejected: r.evidence_ids.length }, audit: [entry(actor, 'suggestion.dismiss', { type: 'company', id: r.company.id }, `Turned down ${body.field} ${JSON.stringify(body.value)} for ${r.company.name}`, { reason: r.reason })] };
+    }),
+
+    // ---------- where a company is ----------
+    // What the geocoder says about an address a person is looking at, before they save it: where it puts it, how exactly,
+    // and whether that agrees with the address (and with the point on file, if the company has one). Changes no company.
+    // The answer is kept (geocode_cache), so the same address is never asked of the geocoder twice.
+    async lookupLocation(actor, body = {}) {
+      requireRole(actor, 'location.lookup');
+      const l = object(body, 'the request');
+      const precision = l.precision == null || l.precision === '' ? null : String(l.precision).toUpperCase();
+      const asked = {
+        address: text(l.address, { max: 200, what: 'the address' }), suburb: text(l.suburb, { max: 80, what: 'the suburb' }), city: text(l.city, { max: 80, what: 'the city' }),
+        state: text(l.state, { max: 3, what: 'the state' }), postcode: text(l.postcode, { max: 4, what: 'the postcode' }), location_precision: precision,
+      };
+      const question = questionFor(asked);
+      if (!question || question.kind === 'city') throw new BadRequestError('give a street address, or a suburb, to look up: a city alone is not a place to look for');
+      const { ds } = await snapshot(dir, { now });
+      const company = l.company_id ? ds.companies.find((c) => c.id === idOf(l.company_id, 'the company')) : null;
+      if (l.company_id && !company) throw new NotFoundError(`no company "${l.company_id}"`);
+      const rows = structuredClone(ds.geocode_cache ?? []);
+      const { row, fromCache } = await geocodeCached(theGeocoder(), rows, question.query, now());
+      if (!fromCache && row.status !== 'error') {
+        await write(actor, 'location.lookup', (work) => {
+          work.geocode_cache = mergeCache(work.geocode_cache ?? [], rows);
+          return { audit: [entry(actor, 'location.geocode', { type: 'system', id: 'geocoder' }, 'Asked the geocoder about 1 address')] };
+        });
+      }
+      // Judged as the record would be: the point on file (if any) is what the answer is compared with.
+      const verdict = decide({ ...asked, lat: company?.lat ?? null, lng: company?.lng ?? null, location_verified_at: company?.location_verified_at ?? null }, question, row);
+      return {
+        query: question.query, kind: question.kind, status: row.status, quality: row.quality ?? null, from_cache: fromCache, error: row.error ?? null,
+        found: row.result ? { lat: row.result.lat, lng: row.result.lng, display_name: row.result.display_name ?? null } : null,
+        verdict: verdict.action, reason: verdict.reason ?? null, away: verdict.away ?? null,
+      };
+    },
+
+    // A person says where a company is. How exactly they know it (precision) decides what is kept: a point for an exact
+    // office or a suburb, none for a city or a state; `unknown` takes the company off the map. A source that states the
+    // address is named (a company's own page needs its link); LinkedIn and the like are refused as places for a person.
+    setLocation: (actor, id, body = {}) => write(actor, 'location.set', (work, { at }) => {
+      const company = work.companies.find((c) => c.id === idOf(id, 'the company'));
+      if (!company) throw new NotFoundError(`no company "${id}"`);
+      const reason = text(body.reason, { required: true, max: 300, what: 'the reason' });
+      const l = object(body.location, 'the location');
+      let changes;
+      if (String(l.precision ?? '').toUpperCase() === 'UNKNOWN') changes = unconfirmLocation(company);
+      else {
+        const source = body.source == null || body.source === '' ? 'manual' : String(body.source);
+        if (!LOCATION_SOURCES.includes(source) || source === 'directory_record') throw new BadRequestError(`the source must be one of ${LOCATION_SOURCES.filter((s) => s !== 'directory_record').join(', ')}`);
+        const sourceUrl = text(body.source_url, { max: 500, what: 'the page' });
+        if (isOfficialSource(source) && !sourceUrl) throw new BadRequestError('name the page that states it: a company\'s own page is only a source if it can be read');
+        changes = confirmLocation(company, { ...locationFromBody(l), source, sourceUrl }, { at });
+      }
+      if (changes.length) company.updated_at = at;
+      return {
+        result: { company_id: company.id, precision: company.location_precision, changed: changes.map((c) => c.field) },
+        audit: [entry(actor, 'location.set', { type: 'company', id: company.id }, `Set ${company.name}'s location (${company.location_precision})`, { reason, changes })],
+      };
     }),
 
     // ---------- the enrichment queue ----------

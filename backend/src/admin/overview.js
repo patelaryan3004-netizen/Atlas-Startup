@@ -11,6 +11,7 @@
 //   MISSING DATA         companies missing a core fact: website, sector, location, stage or description
 //   FAILED IMPORTS       sources whose latest import failed and nobody has looked, plus enrichment tasks that failed
 import { auditDataset, findPossibleDuplicates } from '../models/audit.js';
+import { reviewLocations, locationFilterCodes, LOCATION_FLAGS } from '../models/locationAudit.js';
 import { detectConflicts } from '../models/evidence.js';
 import { failedImports } from '../models/importRuns.js';
 import { queueSummary, latestTasks } from '../models/enrichmentQueue.js';
@@ -47,7 +48,10 @@ export function buildOverview(ds, nowMs) {
   const audit = auditDataset(ds, { asOf: iso(nowMs).slice(0, 10) });
   const weekAgo = nowMs - 7 * DAY;
   const open = ds.candidates.filter((c) => OPEN.includes(c.status));
-  const onMap = ds.companies.filter((c) => c.verified === true).length;
+  const where = reviewLocations(ds, { asOf: iso(nowMs) });
+  // A company is a pin on the map only when its place is a point; one known to its city or state is a group there.
+  const onMap = where.precision.EXACT + where.precision.SUBURB;
+  const cityLevel = where.precision.CITY + where.precision.STATE;
   const failedSources = failedImports(ds.import_runs ?? []);
   const failedTasks = (ds.enrichment_queue ?? []).filter((t) => t.status === 'failed');
   const fresh = ds.companies.filter((c) => [c.updated_at, c.last_verified_at].some((t) => t && Date.parse(t) >= weekAgo)).length;
@@ -57,7 +61,8 @@ export function buildOverview(ds, nowMs) {
   const h = audit.headline;
   const attr = Object.fromEntries(audit.attributes.map((a) => [a.key, a]));
   const bar = (key, label, present, backedKey = key, note = null) => ({ key, label, present, total: h.total, pct: pct(present, h.total), backed: attr[backedKey]?.evidenceBacked ?? 0, note });
-  const unknownLocation = ds.companies.filter((c) => c.verified !== true).length;
+  const unknownLocation = where.precision.UNKNOWN;
+  const p = where.precision;
 
   return {
     generated_at: iso(nowMs),
@@ -72,7 +77,7 @@ export function buildOverview(ds, nowMs) {
       failed_imports: failedSources.length + failedTasks.length,
     },
     detail: {
-      published: { on_map: onMap, unconfirmed: ds.companies.length - onMap },
+      published: { on_map: onMap, city_level: cityLevel, unconfirmed: unknownLocation },
       new_candidates: { open_in_total: open.length, all_candidates: ds.candidates.length },
       potential_duplicates: { candidates: lookAlikes, company_pairs: audit.duplicates.length },
       failed_imports: { sources: failedSources.length, enrichment_tasks: failedTasks.length },
@@ -81,15 +86,41 @@ export function buildOverview(ds, nowMs) {
     quality: [
       bar('website', 'Website coverage', h.website),
       bar('sector', 'Sector coverage', h.sector, 'sector', `${h.specificSector} are a specific industry`),
-      bar('location', 'Location coverage', h.location, 'coordinates', `${unknownLocation} unconfirmed, so not on the map`),
+      bar('location', 'Location coverage', h.location, 'coordinates', `${p.EXACT} exact, ${p.SUBURB} suburb, ${cityLevel} known only to a city or state, ${unknownLocation} unknown`),
       bar('stage', 'Stage coverage', h.stage),
       bar('founders', 'Founder coverage', h.founder, 'founders'),
       bar('funding', 'Funding coverage', h.funding),
       bar('investors', 'Investor coverage', h.investors),
     ],
+    locations: locationsSummary(where),
     provenance: { companies_with_sources: audit.cohorts.withSources, companies_without_sources: audit.cohorts.withoutSources, evidence_rows: ds.evidence.length, sources: ds.sources.length },
     attention: { open_conflicts: detectConflicts(ds).length, suggestions: suggestionsOf(ds).length, priority: audit.tierCounts },
     vocab: { sectors: vocabulary(ds.companies.map((c) => c.sector)).slice(0, 40), stages: vocabulary(ds.companies.map((c) => c.stage)) },
+  };
+}
+
+// ---------- locations ----------
+
+// How well the directory knows where its companies are: a count per precision, the six flags, and how many companies
+// are in the review queue (and how many of those have a problem that is wrong, not just unfinished).
+function locationsSummary(review) {
+  return {
+    total: review.total, precision: review.precision,
+    flags: Object.entries(LOCATION_FLAGS).map(([key, spec]) => ({ key, label: spec.label, note: spec.note, count: review.flags[key] })),
+    queue: review.rows.length, attention: review.rows.filter((r) => r.worst === 'high').length,
+  };
+}
+
+// The location review queue: the companies a person should look at, worst first, each with what is wrong and what to do.
+// `filter` is a flag (duplicate_coordinates ...) or one problem (city_level_only ...); `limit` caps the rows, not the counts.
+export function locationsPanel(ds, nowMs, { filter = '', limit = 100 } = {}) {
+  const review = reviewLocations(ds, { asOf: iso(nowMs) });
+  const codes = filter ? locationFilterCodes(filter) : null;
+  const rows = codes ? review.rows.filter((r) => r.issues.some((i) => codes.includes(i.code))) : review.rows;
+  return {
+    ...locationsSummary(review), filter: filter || null,
+    issues: Object.entries(review.issues).map(([code, spec]) => ({ code, ...spec })).filter((i) => i.count > 0),
+    total: rows.length, results: rows.slice(0, Math.min(Math.max(limit, 1), 500)),
   };
 }
 
@@ -149,11 +180,15 @@ export function candidateDetail(ds, id) {
     notes: c.notes, status_history: c.status_history, decisions: c.decisions, review: c.review, published_company_id: c.published_company_id };
 }
 
+// Is the company a pin on the public map: its place is a point (an exact office or a suburb)? One known only to its city or
+// state is a group there, not a pin; one with no confirmed place is not drawn at all.
+const isPin = (c) => (c.location_precision == null ? c.verified === true && Number.isFinite(c.lat) && Number.isFinite(c.lng) : ['EXACT', 'SUBURB'].includes(c.location_precision));
+
 export function searchCompanies(ds, q, limit = 8) {
   const needle = String(q ?? '').toLowerCase().trim();
   if (needle.length < 2) return [];
   return ds.companies.filter((c) => c.name.toLowerCase().includes(needle) || c.slug?.includes(needle) || String(c.website ?? '').toLowerCase().includes(needle))
-    .slice(0, limit).map((c) => ({ id: c.id, name: c.name, city: c.city, website: c.website || null, on_map: c.verified === true }));
+    .slice(0, limit).map((c) => ({ id: c.id, name: c.name, city: c.city, website: c.website || null, on_map: isPin(c) }));
 }
 
 // ---------- what the tiles lead to ----------
@@ -162,8 +197,9 @@ export function searchCompanies(ds, q, limit = 8) {
 export function missingData(ds, nowMs) {
   const audit = auditDataset(ds, { asOf: iso(nowMs).slice(0, 10) });
   const task = new Map(latestTasks(ds.enrichment_queue ?? []).filter((t) => t.kind === 'company').map((t) => [t.target_id, t]));
+  const record = new Map(ds.companies.map((c) => [c.id, c]));
   const rows = missingOf(audit).map(({ company: c, missing }) => ({
-    id: c.id, name: c.name, website: c.website, city: c.city, on_map: c.verified, missing,
+    id: c.id, name: c.name, website: c.website, city: c.city, on_map: isPin(record.get(c.id) ?? c), precision: record.get(c.id)?.location_precision ?? null, missing,
     enrichment: task.has(c.id) ? { status: task.get(c.id).status, outcome: task.get(c.id).result?.outcome ?? null } : null,
   })).sort((a, b) => b.missing.length - a.missing.length || a.name.localeCompare(b.name));
   return { total: rows.length, counts: Object.fromEntries(Object.keys(MISSING_KEYS).map((k) => [k, rows.filter((r) => r.missing.includes(k)).length])), results: rows };

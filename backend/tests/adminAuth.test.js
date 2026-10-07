@@ -15,7 +15,7 @@ afterEach(async () => { await Promise.all(dirs.splice(0).map((d) => rm(d, { recu
 describe('roles: who may do what', () => {
   const expected = {
     viewer: ['read'],
-    reviewer: ['read', 'candidate.approve', 'candidate.reject', 'candidate.reopen', 'candidate.edit', 'candidate.note', 'candidate.distinct', 'candidate.enrich', 'suggestion.dismiss', 'enrichment.enqueue', 'enrichment.retry', 'enrichment.cancel', 'import.dismiss'],
+    reviewer: ['read', 'candidate.approve', 'candidate.reject', 'candidate.reopen', 'candidate.edit', 'candidate.note', 'candidate.distinct', 'candidate.enrich', 'suggestion.dismiss', 'enrichment.enqueue', 'enrichment.retry', 'enrichment.cancel', 'import.dismiss', 'location.lookup'],
     admin: Object.keys(PERMISSIONS),
   };
 
@@ -24,7 +24,7 @@ describe('roles: who may do what', () => {
   });
 
   it('reserves for the admin whatever changes what the public sees', () => {
-    for (const p of ['candidate.merge', 'candidate.publish', 'conflict.resolve', 'suggestion.apply', 'enrichment.seed', 'enrichment.run']) {
+    for (const p of ['candidate.merge', 'candidate.publish', 'conflict.resolve', 'suggestion.apply', 'location.set', 'enrichment.seed', 'enrichment.run']) {
       expect(can('admin', p), p).toBe(true);
       expect(can('reviewer', p), p).toBe(false);
       expect(can('viewer', p), p).toBe(false);

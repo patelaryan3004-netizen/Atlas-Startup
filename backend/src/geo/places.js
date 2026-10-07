@@ -36,7 +36,7 @@ export const STATES = {
 // Gold Coast and Sunshine Coast (2-3 km: they are regions, with no single centre) and Noosa (18 km: the geocoder
 // answers with the whole shire; the point here is Noosa Heads, which is where the businesses are).
 const CITY_ROWS = [
-  ['Sydney', 'NSW', -33.8688, 151.2093, []],
+  ['Sydney', 'NSW', -33.8688, 151.2093, [[-33.86984, 151.20828]]], // the point 46 city-only companies shared before they were cleared
   ['Melbourne', 'VIC', -37.8136, 144.9631, []],
   ['Brisbane', 'QLD', -27.4698, 153.0251, []],
   ['Perth', 'WA', -31.9523, 115.8613, []],

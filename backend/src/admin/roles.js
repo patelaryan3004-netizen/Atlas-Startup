@@ -2,9 +2,11 @@
 //
 //   viewer    sees everything: the dashboard, the candidates, the evidence, the audit trail
 //   reviewer  decides about candidates (still staging data, never public): approve, reject, edit,
-//             reopen, add a note, settle a duplicate, queue a read of a website, turn down a suggestion
+//             reopen, add a note, settle a duplicate, queue a read of a website, turn down a suggestion,
+//             look an address up on the map (which changes nothing)
 //   admin     does what changes what the PUBLIC sees: merge a candidate into a company, publish one,
-//             settle a conflict, apply a suggestion to a record, seed and run the enrichment queue
+//             settle a conflict, apply a suggestion to a record, set where a company is on the map,
+//             seed and run the enrichment queue
 //
 // The line is drawn at the public record: until something reaches a company, a mistake costs a reviewer's
 // time; once it does, it is on the live site. The check is made in the service, not only in a route, so
@@ -21,6 +23,7 @@ export const PERMISSIONS = {
   'candidate.note': 'reviewer', 'candidate.distinct': 'reviewer', 'candidate.enrich': 'reviewer',
   'candidate.merge': 'admin', 'candidate.publish': 'admin',
   'conflict.resolve': 'admin', 'suggestion.apply': 'admin', 'suggestion.dismiss': 'reviewer',
+  'location.lookup': 'reviewer', 'location.set': 'admin',
   'enrichment.seed': 'admin', 'enrichment.run': 'admin', 'enrichment.enqueue': 'reviewer', 'enrichment.retry': 'reviewer', 'enrichment.cancel': 'reviewer',
   'import.dismiss': 'reviewer',
 };
