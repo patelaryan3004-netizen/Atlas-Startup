@@ -27,7 +27,7 @@ describe('the groups for companies known only to their city or state', () => {
     ...['Aa', 'Bb', 'Cc'].map((n) => company(`Mel ${n}`, 'CITY', { city: 'Melbourne', state: 'VIC' })),
     ...['Aa', 'Bb'].map((n) => company(`Vic ${n}`, 'STATE', { city: 'Unknown', state: 'VIC' })),
     company('Lost One', 'CITY', { city: 'Narnia', state: 'NSW' }),
-    company('Lost Two', 'CITY', { city: 'Queanbeyan/Jerrabomberra', state: 'NSW' }),
+    company('Lost Two', 'CITY', { city: 'Springfield/Shelbyville', state: 'NSW' }),
     company('Exact One', 'EXACT'), company('Suburb One', 'SUBURB'), company('Nowhere', 'UNKNOWN', { city: 'Unknown', state: null }),
   ];
 
@@ -44,6 +44,13 @@ describe('the groups for companies known only to their city or state', () => {
   it('counts, without drawing, the companies whose city has no centre on file', () => {
     const snap = snapOf(rows());
     expect(areas(snap, select(snap, {})).unplaced).toBe(2);
+  });
+
+  it('puts a place written as two at the one of them that is known', () => {
+    const snap = snapOf([company('Samsara', 'CITY', { city: 'Queanbeyan/Jerrabomberra', state: 'NSW' })]);
+    const out = areas(snap, select(snap, {}));
+    expect(out.unplaced).toBe(0);
+    expect(out.items.map((a) => [a.label, a.count])).toEqual([['Queanbeyan', 1]]);
   });
 
   it('is never made of a company that is a pin, or is not known at all', () => {

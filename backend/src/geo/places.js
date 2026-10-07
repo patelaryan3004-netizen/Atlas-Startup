@@ -71,7 +71,13 @@ const BY_KEY = new Map(CITIES.map((c) => [c.key, c]));
 // The reference point for a city in a state, or null when this file does not know the city. A state is needed because
 // the same name is in more than one place (Richmond is in four states).
 export function cityCentre(city, state) {
-  return BY_KEY.get(keyOf(city, state)) ?? null;
+  const found = BY_KEY.get(keyOf(city, state));
+  if (found) return found;
+  // A place written as two ("Queanbeyan/Jerrabomberra") is at the one of them this file knows, when it knows exactly one.
+  const parts = String(city ?? '').split('/');
+  if (parts.length < 2) return null;
+  const known = [...new Set(parts.map((part) => BY_KEY.get(keyOf(part, state))).filter(Boolean))];
+  return known.length === 1 ? known[0] : null;
 }
 
 export function stateCentre(state) {

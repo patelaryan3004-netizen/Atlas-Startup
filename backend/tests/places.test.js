@@ -22,6 +22,11 @@ describe('the states and the cities', () => {
     expect(cityCentre('Sydney', 'VIC')).toBeNull(); // the state is part of the key
     expect(cityCentre('Richmond', 'VIC')).toBeNull(); // a suburb, not a city centre
     expect(cityCentre('Unknown', null)).toBeNull();
+    // a place written as two is at the one of them that is known, and nowhere when none or both are
+    expect(cityCentre('Queanbeyan/Jerrabomberra', 'NSW')?.name).toBe('Queanbeyan');
+    expect(cityCentre('Jerrabomberra / Queanbeyan', 'NSW')?.name).toBe('Queanbeyan');
+    expect(cityCentre('Springfield/Shelbyville', 'NSW')).toBeNull();
+    expect(cityCentre('Sydney/Newcastle', 'NSW')).toBeNull();
     expect(stateCentre('VIC')).toMatchObject({ name: 'Victoria' });
     expect(stateCentre('XX')).toBeNull();
   });
