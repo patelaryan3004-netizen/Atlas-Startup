@@ -89,6 +89,7 @@ Of 216 companies: **148 exact, 11 suburb, 43 city only (none with coordinates), 
 ## Limits
 
 - OpenStreetMap does not know every building. Where it finds only the street, the address is not plotted and stays as the directory had it. Where the directory's point and OpenStreetMap's disagree by more than 500 m, which is right is a person's decision; the queue says what each side is.
+- Nothing can tell by itself whether an address is somebody's home. The code only takes an address from a business page or from the directory's own record, refuses the sources that say where a person is (LinkedIn and the like), and sends nothing but the address to the geocoder; a small business that publishes its founder's home as its office would still be on the map at that address. The review queue shows every address with where it came from, and "Set location" can drop one to the suburb or the city. A scan of the 216 stored addresses for words like home, residence, apartment or PO box found none (the one hit was Captains Flat Road).
 - A company with several offices has one place drawn (its headquarters). Other offices can be stored in `company_locations` but are not drawn.
 - Nothing here checks that an address is *current*. A location older than a year, or of a company that has closed or been acquired, is flagged; it is not fixed.
 - A suburb's point is wherever the geocoder (or a person) puts it: that is what "approximate" means.
