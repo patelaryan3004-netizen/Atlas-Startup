@@ -13,7 +13,13 @@
         "rule": "overused-font",
         "value": "arial",
         "createdAt": "2026-09-30T06:15:37.342Z",
-        "reason": "18px LinkedIn-badge glyph (.pc-founder-li) styled to mimic LinkedIn's own brand mark, not a body-text choice - narrow, domain-appropriate exception"
+        "reason": "18px LinkedIn-badge glyph (.pc-founder-li) styled to mimic LinkedIn's own brand mark, not a body-text choice - narrow, domain-appropriate exception. Kept as is, user confirmed 2026-10-07 ('go with arial')."
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-10-07T00:58:14.239Z",
+        "reason": "user confirmed: go with Geist for the /welcome landing (already a dependency, bundled by @fontsource-variable/geist)"
       }
     ]
   }

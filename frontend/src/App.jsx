@@ -88,6 +88,8 @@ const aborted = (err) => err?.name === 'AbortError';
 // that is open. Everything else is asked of the server when it is needed, so the page is as fast at five
 // thousand companies as at two hundred.
 export default function App() {
+  // Where a link into the app lands: ?view=jobs, lists, list (the list of startups) or waitlist (the waitlist form).
+  const initialView = loadInitialView();
   const [meta, setMeta] = useState(EMPTY_META);
   const [filters, setFilters] = useState(loadFiltersFromUrl);
   const applied = useAppliedFilters(filters);
@@ -98,15 +100,14 @@ export default function App() {
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
-  const [viewMode, setViewMode] = useState('map');
+  const [viewMode, setViewMode] = useState(initialView === 'list' ? 'list' : 'map');
   const [showTracked, setShowTracked] = useState(false);
   const { tracked, toggleTracked, isTracked } = useTrackedStartups();
   const [trackedStartups, setTrackedStartups] = useState([]);
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
-  const [showWaitlist, setShowWaitlist] = useState(false);
-  const initialView = loadInitialView();
+  const [showWaitlist, setShowWaitlist] = useState(initialView === 'waitlist');
   const [showJobs, setShowJobs] = useState(initialView === 'jobs');
   const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
   const [editingCompany, setEditingCompany] = useState(null);

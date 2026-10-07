@@ -1,20 +1,15 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 
 vi.mock('../src/api.js', () => ({
   fetchStartupPage: vi.fn(),
   fetchSummary: vi.fn(),
   fetchMarkers: vi.fn(),
   fetchCount: vi.fn(),
-  fetchMeta: vi.fn(),
   DIRECTORY_URL: '/directory',
 }));
 
-vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ markers }) => <div data-testid="map-view" data-count={markers.length} />,
-}));
-
-import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount, fetchMeta } from '../src/api.js';
+import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount } from '../src/api.js';
 import { curatedLists } from '../src/curatedLists.js';
 import LandingPage from '../src/LandingPage.jsx';
 
@@ -23,55 +18,94 @@ const startup = (name, overrides = {}) => ({
   website: 'https://example.com', taskGate: { enabled: false, type: null }, ...overrides,
 });
 
+const hero = () => screen.getByRole('region', { name: /startup ecosystem, mapped/ });
+
 describe('LandingPage', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    fetchMeta.mockResolvedValue({ sectors: ['AI', 'Fintech'] });
     fetchSummary.mockResolvedValue({ count: 213, pinned: 200, unverified: 13, hiring: 2, taskGated: 1, cities: 2 });
     fetchStartupPage.mockResolvedValue({
-      results: [startup('Canva', { taskGate: { enabled: true, type: 'Design task' } }), startup('Airwallex', { sector: 'Fintech', city: 'Melbourne' })],
+      results: [
+        startup('Canva', { taskGate: { enabled: true, type: 'Design task' } }),
+        startup('Airwallex', { sector: 'Fintech', city: 'Melbourne' }),
+        startup('SafetyCulture'),
+        startup('Culture Amp', { city: 'Melbourne' }),
+        startup('Linktree', { city: 'Melbourne' }),
+      ],
     });
-    fetchMarkers.mockResolvedValue({ items: [['canva', 'Canva', -33.9, 151.2, 'SaaS', 'Sydney', 1, 'canva.com'], ['airwallex', 'Airwallex', -37.8, 144.9, 'Fintech', 'Melbourne', 1, '']] });
+    fetchMarkers.mockResolvedValue({
+      items: [['canva', 'Canva', -33.9, 151.2, 'SaaS', 'Sydney', 1, 'canva.com'], ['airwallex', 'Airwallex', -37.8, 144.9, 'Fintech', 'Melbourne', 1, '']],
+      areas: [{ kind: 'CITY', label: 'Sydney', city: 'Sydney', lat: -33.87, lng: 151.21, count: 34 }],
+    });
     fetchCount.mockImplementation(async (filters) => ({ total: 213, count: filters.hiring === 'yes' ? 2 : 7 }));
   });
 
-  it('shows real, live stats in the hero rather than hardcoded numbers, worked out by the server', async () => {
-    const { container } = render(<LandingPage />);
-    await screen.findByText(/VC-backed companies tracked/);
+  describe('the hero', () => {
+    it('says what the product is: the headline and the line under it', async () => {
+      render(<LandingPage />);
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Australia’s startup ecosystem, mapped.');
+      expect(hero()).toHaveTextContent('Discover startups, founders, investors and jobs across Australia — all in one place.');
+    });
 
-    const items = container.querySelectorAll('.landing-stats li');
-    expect(items).toHaveLength(4);
-    expect(items[0]).toHaveTextContent('213 VC-backed companies tracked');
-    expect(items[1]).toHaveTextContent('2 hiring right now');
-    expect(items[2]).toHaveTextContent('2 cities across Australia');
-    expect(items[3]).toHaveTextContent('1 with a real work-sample task instead of a form');
-    expect(fetchSummary).toHaveBeenCalledWith({});
+    it('has two calls to action, both going to the real app', async () => {
+      render(<LandingPage />);
+      expect(within(hero()).getByRole('link', { name: 'Explore the map' })).toHaveAttribute('href', '/');
+      expect(within(hero()).getByRole('link', { name: 'Browse startups' })).toHaveAttribute('href', '/?view=list');
+      // the closing call to action says the same
+      screen.getAllByRole('link', { name: 'Explore the map' }).forEach((link) => expect(link).toHaveAttribute('href', '/'));
+      screen.getAllByRole('link', { name: 'Browse startups' }).forEach((link) => expect(link).toHaveAttribute('href', '/?view=list'));
+    });
+
+    it('has a minimal navigation with a way into the app for each name, and no sign-in because there are no accounts', async () => {
+      render(<LandingPage />);
+      const nav = screen.getByRole('navigation', { name: 'Main' });
+      expect(within(nav).getByRole('link', { name: 'Discover' })).toHaveAttribute('href', '/');
+      expect(within(nav).getByRole('link', { name: 'Lists' })).toHaveAttribute('href', '/?view=lists');
+      expect(within(nav).getByRole('link', { name: 'Jobs' })).toHaveAttribute('href', '/?view=jobs');
+      expect(screen.getByRole('link', { name: 'Join waitlist' })).toHaveAttribute('href', '/?view=waitlist');
+      expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument();
+      expect(screen.getByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#main');
+      expect(document.getElementById('main').tagName).toBe('MAIN');
+    });
+
+    it('shows real, live counts under the buttons, worked out by the server', async () => {
+      const { container } = render(<LandingPage />);
+      await screen.findByText('213 startups');
+      expect(container.querySelector('.hero-facts')).toHaveTextContent('213 startups');
+      expect(container.querySelector('.hero-facts')).toHaveTextContent('2 hiring now');
+      expect(fetchSummary).toHaveBeenCalledWith({});
+    });
+
+    it('leaves out a count the server did not send, rather than showing a zero', async () => {
+      fetchSummary.mockResolvedValue({ count: 213 });
+      const { container } = render(<LandingPage />);
+      await screen.findByText('213 startups');
+      expect(container.querySelector('.hero-facts')).not.toHaveTextContent('hiring');
+      expect(container.querySelector('.hero-facts-hiring')).toBeNull();
+    });
+
+    it('draws the picture from the pins and groups the server sent, and names the companies it sent', async () => {
+      const { container } = render(<LandingPage />);
+      expect(await screen.findByRole('link', { name: 'Canva, Sydney, hiring now' })).toHaveAttribute('href', '/?view=list&search=Canva');
+      expect(screen.getByRole('link', { name: 'Airwallex, Melbourne, hiring now' })).toBeInTheDocument();
+      const labels = [...container.querySelectorAll('.eco-city')].map((li) => li.textContent.replace(/\s+/g, ' ').trim());
+      expect(labels).toEqual(['Sydney 35 startups', 'Melbourne 1 startup']); // one pin and the city-level group of 34 in Sydney, one pin in Melbourne
+      expect(container.querySelectorAll('.eco-dot')).toHaveLength(2);
+    });
   });
 
-  it('does not ask for the whole list: it asks for four hiring companies, pins and counts', async () => {
+  it('does not ask for the whole list: it asks for the companies that are hiring, the pins and counts', async () => {
     render(<LandingPage />);
-    await screen.findByText(/VC-backed companies tracked/);
-    expect(fetchStartupPage).toHaveBeenCalledWith({ hiring: 'yes' }, { limit: 4, sort: 'file' });
+    await screen.findByText('213 startups');
+    expect(fetchStartupPage).toHaveBeenCalledWith({ hiring: 'yes' }, { limit: 80, sort: 'file' });
     expect(fetchMarkers).toHaveBeenCalledWith({});
   });
 
-  it('draws the hero map from the pins the server sent', async () => {
-    render(<LandingPage />);
-    await waitFor(() => expect(screen.getByTestId('map-view')).toHaveAttribute('data-count', '2'));
-  });
-
-  it('both primary CTAs link to the real app, not a placeholder', async () => {
-    render(<LandingPage />);
-    await screen.findByText(/VC-backed companies tracked/);
-    const ctas = screen.getAllByText('Explore the map');
-    ctas.forEach((cta) => expect(cta.closest('a')).toHaveAttribute('href', '/'));
-    expect(screen.getAllByText('Browse the list')[0].closest('a')).toHaveAttribute('href', '/directory');
-  });
-
-  it('shows the hiring companies the server sent as job cards, with a working task-gated tag', async () => {
-    render(<LandingPage />);
-    expect(await screen.findByText('Canva')).toBeInTheDocument();
-    expect(screen.getByText('Airwallex')).toBeInTheDocument();
+  it('shows the first four hiring companies the server sent as job cards, with a working task-gated tag', async () => {
+    const { container } = render(<LandingPage />);
+    await waitFor(() => expect(container.querySelectorAll('.landing-job-card')).toHaveLength(4));
+    const cards = [...container.querySelectorAll('.landing-job-card')].map((card) => card.querySelector('.landing-job-name').textContent);
+    expect(cards).toEqual(['Canva', 'Airwallex', 'SafetyCulture', 'Culture Amp']);
     expect(screen.getAllByText('Task-gated')).toHaveLength(1);
   });
 
@@ -87,29 +121,33 @@ describe('LandingPage', () => {
 
   it('deep-links into Jobs and Curated lists inside the real app', async () => {
     render(<LandingPage />);
-    await screen.findByText(/VC-backed companies tracked/);
     expect(screen.getByText('See every open role →').closest('a')).toHaveAttribute('href', '/?view=jobs');
     expect(screen.getByText('Open curated lists →').closest('a')).toHaveAttribute('href', '/?view=lists');
   });
 
   it('flags business details as an unfilled draft rather than inventing them, in both Privacy and Terms', async () => {
     render(<LandingPage />);
-    await screen.findByText(/VC-backed companies tracked/);
     expect(screen.getByText(/Placeholder: operator name, ABN/)).toBeInTheDocument();
     expect(screen.getByText(/Draft, for review before this site is public/)).toBeInTheDocument();
+    expect(screen.getByText('Full list (no JS)').closest('a')).toHaveAttribute('href', '/directory');
   });
 
-  it('degrades gracefully to a non-live-number lede if the counts cannot be fetched', async () => {
+  it('still says what it is, without the live numbers, if the counts cannot be fetched', async () => {
     fetchSummary.mockRejectedValue(new Error('network error'));
-    render(<LandingPage />);
-    expect(await screen.findByText(/A living map of VC-backed Australian companies/)).toBeInTheDocument();
+    const { container } = render(<LandingPage />);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Australia’s startup ecosystem, mapped.');
+    expect(await screen.findByText(/Companies on the map show live hiring status/)).toBeInTheDocument();
+    expect(container.querySelector('.hero-facts')).toBeNull();
   });
 
-  it('still shows the rest of the page when a count or the pins cannot be fetched', async () => {
+  it('still shows the rest of the page, and draws no startup it was not told about, when the pins or a count cannot be fetched', async () => {
     fetchMarkers.mockRejectedValue(new Error('down'));
     fetchCount.mockRejectedValue(new Error('down'));
-    render(<LandingPage />);
-    expect(await screen.findByText(/VC-backed companies tracked/)).toBeInTheDocument();
-    expect(screen.getByTestId('map-view')).toHaveAttribute('data-count', '0');
+    const { container } = render(<LandingPage />);
+    expect(await screen.findByText('213 startups')).toBeInTheDocument();
+    expect(container.querySelectorAll('.eco-dot, .eco-city, .eco-chip')).toHaveLength(0);
+    expect(screen.queryByText(/Each dot/)).not.toBeInTheDocument();
+    expect(container.querySelector('.eco-grid')).not.toBeNull(); // the country in dots is only a drawing
+    expect(screen.getByText('Start exploring.')).toBeInTheDocument();
   });
 });

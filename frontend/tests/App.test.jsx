@@ -495,5 +495,30 @@ describe('App', () => {
       expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
       window.history.pushState({}, '', '/');
     });
+
+    it('opens the list of startups, not the map, when linked with ?view=list, and filters it as the link says', async () => {
+      window.history.pushState({}, '', '/?view=list&search=Canva');
+      render(<App />);
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenCalledWith({ ...EMPTY, search: 'Canva' }, expect.objectContaining({ offset: 0 })));
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      expect(fetchMarkers).not.toHaveBeenCalled(); // the pins are asked for only while the map is showing
+      window.history.pushState({}, '', '/');
+    });
+
+    it('opens the waitlist form directly when linked with ?view=waitlist, over the map', async () => {
+      window.history.pushState({}, '', '/?view=waitlist');
+      render(<App />);
+      expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
+      expect(screen.getByTestId('map-view')).toBeInTheDocument();
+      window.history.pushState({}, '', '/');
+    });
+
+    it('opens the map, and no form, for a view it does not know', async () => {
+      window.history.pushState({}, '', '/?view=nonsense');
+      render(<App />);
+      expect(screen.getByTestId('map-view')).toBeInTheDocument();
+      expect(screen.queryByText('Get early access to task-gated startup applications.')).not.toBeInTheDocument();
+      window.history.pushState({}, '', '/');
+    });
   });
 });

@@ -15,6 +15,7 @@ backend/            Express API
   scripts/             command lines: discovery, admin, scheduler, scale test tools
 frontend/            React (Vite) app
   src/App.jsx          top-level layout/state
+  src/LandingPage.jsx  the /welcome page; its navigation, headline and dot picture of Australia are in src/components/landing/ (see docs/landing.md)
   src/components/      MapView, ListView, FilterPanel, JobsView, Leaderboard, NewsTicker
   src/mapPins.js       groups pins for the map (only what is in view is drawn), and the words for how well a place is known
 ```

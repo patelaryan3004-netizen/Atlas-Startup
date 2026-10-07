@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount, fetchMeta, DIRECTORY_URL } from './api.js';
-import MapView from './components/MapView.jsx';
+import { useEffect, useState } from 'react';
+import '@fontsource-variable/geist';
+import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount, DIRECTORY_URL } from './api.js';
+import LandingNav from './components/landing/LandingNav.jsx';
+import LandingHero from './components/landing/LandingHero.jsx';
 import { curatedLists } from './curatedLists.js';
 import './landing.css';
+import './landing-hero.css';
 
 function domainOf(website) {
   if (!website) return null;
@@ -33,149 +36,111 @@ function CompanyLogo({ website, name }) {
   );
 }
 
-const PALETTE = [
-  '#5fb894', '#e08a5a', '#d4a24e', '#7a95b8', '#a878c4', '#6ac48a', '#d4726a', '#c4864e',
-  '#a89468', '#6ab87a', '#d47aa0', '#7a94c4', '#c4507a', '#9a9a7a', '#c4966a', '#8686b8',
-];
-
 // Only the startup-filtering lists fit this showcase; the static people-to-follow list has no company count and
 // is not a live filter.
 const FILTER_LISTS = curatedLists.filter((list) => list.type === 'filter');
 
-// The page asks for what it shows (counts, four companies that are hiring, the map's pins), never for every company.
+// Companies that are hiring: enough to name one in most capitals in the hero's picture. The job cards show the first few.
+const HIRING_SAMPLE = 80;
+const JOB_CARDS = 4;
+
+// The page asks for what it shows (counts, the companies that are hiring, the map's pins), never for every company.
 export default function LandingPage() {
   const [stats, setStats] = useState(null);
   const [hiringSample, setHiringSample] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [areas, setAreas] = useState([]);
   const [counts, setCounts] = useState({});
-  const [meta, setMeta] = useState({ sectors: [] });
 
   useEffect(() => {
-    fetchMeta().then(setMeta).catch(() => {});
     fetchSummary({}).then(setStats).catch(() => {});
-    fetchStartupPage({ hiring: 'yes' }, { limit: 4, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
+    fetchStartupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
     fetchMarkers({}).then(({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); }).catch(() => {});
     Promise.all(FILTER_LISTS.map(async (list) => {
       try { return [list.id, (await fetchCount(list.filters)).count]; } catch (e) { return [list.id, 0]; }
     })).then((pairs) => setCounts(Object.fromEntries(pairs)));
   }, []);
 
-  const sectorColors = useMemo(() => {
-    const colors = {};
-    [...meta.sectors].sort().forEach((s, i) => { colors[s] = PALETTE[i % PALETTE.length]; });
-    return colors;
-  }, [meta.sectors]);
-
-  const total = stats ? stats.count : null;
   const hiringCount = stats?.hiring ?? 0;
-  const cityCount = stats?.cities ?? 0;
-  const taskGatedCount = stats?.taskGated ?? 0;
   const listCounts = FILTER_LISTS.map((list) => ({ ...list, count: counts[list.id] ?? 0 }));
 
   return (
     <div className="landing">
-      <header className="landing-nav">
-        <span className="landing-wordmark">AU <span>Startup</span> Map</span>
-        <a className="landing-navlink" href="/">Open the map</a>
-      </header>
+      <a className="landing-skip" href="#main">Skip to content</a>
+      <LandingNav />
 
-      <section className="landing-hero">
-        <div className="landing-hero-text">
-          <div className="landing-eyebrow">BETA · AUSTRALIA</div>
-          <h1>Australia&rsquo;s startups, mapped and verified.</h1>
-          {total == null ? (
-            <p className="landing-lede">
-              A living map of VC-backed Australian companies, checked against real sources.
+      <main id="main">
+        <LandingHero stats={stats} pins={markers} areas={areas} companies={hiringSample} />
+
+        <section className="landing-section">
+          <div className="landing-section-head">
+            <h2>See who&rsquo;s hiring, right now.</h2>
+            <p>
+              {hiringCount
+                ? `${hiringCount} companies on the map are hiring today. Some gate applications behind a real work-sample task instead of a form.`
+                : 'Companies on the map show live hiring status, pulled from the same data as their pin.'}
             </p>
-          ) : (
-            <ul className="landing-stats">
-              <li><strong>{total}</strong> VC-backed companies tracked</li>
-              <li><strong>{hiringCount}</strong> hiring right now</li>
-              <li><strong>{cityCount}</strong> cities across Australia</li>
-              {taskGatedCount > 0 && (
-                <li><strong>{taskGatedCount}</strong> with a real work-sample task instead of a form</li>
-              )}
-            </ul>
-          )}
-          <div className="landing-cta-row">
-            <a className="landing-btn-primary" href="/">Explore the map</a>
-            <a className="landing-btn-secondary" href={DIRECTORY_URL}>Browse the list</a>
           </div>
-        </div>
-        <div className="landing-hero-visual">
-          <MapView markers={markers} areas={areas} sectorColors={sectorColors} />
-        </div>
-      </section>
-
-      <section className="landing-section">
-        <div className="landing-section-head">
-          <h2>See who&rsquo;s hiring, right now.</h2>
-          <p>
-            {hiringCount
-              ? `${hiringCount} companies on the map are hiring today. Some gate applications behind a real work-sample task instead of a form.`
-              : 'Companies on the map show live hiring status, pulled from the same data as their pin.'}
-          </p>
-        </div>
-        {hiringSample.length > 0 && (
-          <div className="landing-job-grid">
-            {hiringSample.map((s) => (
-              <div className="landing-job-card" key={s.name}>
-                <CompanyLogo website={s.website} name={s.name} />
-                <div>
-                  <div className="landing-job-name">{s.name}</div>
-                  <div className="landing-job-meta">{s.city} · {s.sector}</div>
+          {hiringSample.length > 0 && (
+            <div className="landing-job-grid">
+              {hiringSample.slice(0, JOB_CARDS).map((s) => (
+                <div className="landing-job-card" key={s.name}>
+                  <CompanyLogo website={s.website} name={s.name} />
+                  <div>
+                    <div className="landing-job-name">{s.name}</div>
+                    <div className="landing-job-meta">{s.city} · {s.sector}</div>
+                  </div>
+                  {s.taskGate?.enabled && <span className="landing-tag">Task-gated</span>}
                 </div>
-                {s.taskGate?.enabled && <span className="landing-tag">Task-gated</span>}
+              ))}
+            </div>
+          )}
+          <a className="landing-inline-link" href="/?view=jobs">See every open role →</a>
+        </section>
+
+        <section className="landing-section">
+          <div className="landing-section-head">
+            <h2>Curated, shareable views.</h2>
+            <p>Preset filters for common questions, so you do not have to rebuild them yourself.</p>
+          </div>
+          <div className="landing-list-grid">
+            {listCounts.map((list) => (
+              <div className="landing-list-card" key={list.id}>
+                <div className="landing-list-name">{list.name}</div>
+                <div className="landing-list-desc">{list.description}</div>
+                <div className="landing-list-count">{list.count} companies</div>
               </div>
             ))}
           </div>
-        )}
-        <a className="landing-inline-link" href="/?view=jobs">See every open role →</a>
-      </section>
+          <a className="landing-inline-link" href="/?view=lists">Open curated lists →</a>
+        </section>
 
-      <section className="landing-section">
-        <div className="landing-section-head">
-          <h2>Curated, shareable views.</h2>
-          <p>Preset filters for common questions, so you do not have to rebuild them yourself.</p>
-        </div>
-        <div className="landing-list-grid">
-          {listCounts.map((list) => (
-            <div className="landing-list-card" key={list.id}>
-              <div className="landing-list-name">{list.name}</div>
-              <div className="landing-list-desc">{list.description}</div>
-              <div className="landing-list-count">{list.count} companies</div>
-            </div>
-          ))}
-        </div>
-        <a className="landing-inline-link" href="/?view=lists">Open curated lists →</a>
-      </section>
+        <section className="landing-section landing-trust">
+          <div className="landing-section-head">
+            <h2>Reviewed before it is published.</h2>
+            <p>
+              Built from public sources — company websites, LinkedIn, press coverage, and VC or
+              accelerator portfolio pages — plus direct submissions from founders and the public.
+              Every submission is reviewed by a person before it changes the map; nothing is
+              auto-published. Where only a city is confirmed rather than a street address, the pin
+              says so rather than guessing.
+            </p>
+            <p>
+              This is a beta, independent project. It is not affiliated with, endorsed by, or
+              operated on behalf of any company listed. Company names and logos are used for
+              identification only, under fair use.
+            </p>
+          </div>
+        </section>
 
-      <section className="landing-section landing-trust">
-        <div className="landing-section-head">
-          <h2>Reviewed before it is published.</h2>
-          <p>
-            Built from public sources — company websites, LinkedIn, press coverage, and VC or
-            accelerator portfolio pages — plus direct submissions from founders and the public.
-            Every submission is reviewed by a person before it changes the map; nothing is
-            auto-published. Where only a city is confirmed rather than a street address, the pin
-            says so rather than guessing.
-          </p>
-          <p>
-            This is a beta, independent project. It is not affiliated with, endorsed by, or
-            operated on behalf of any company listed. Company names and logos are used for
-            identification only, under fair use.
-          </p>
-        </div>
-      </section>
-
-      <section className="landing-final-cta">
-        <h2>Start exploring.</h2>
-        <div className="landing-cta-row">
-          <a className="landing-btn-primary" href="/">Explore the map</a>
-          <a className="landing-btn-secondary" href={DIRECTORY_URL}>Browse the list</a>
-        </div>
-      </section>
+        <section className="landing-final-cta">
+          <h2>Start exploring.</h2>
+          <div className="landing-cta-row">
+            <a className="landing-btn-primary" href="/">Explore the map</a>
+            <a className="landing-btn-secondary" href="/?view=list">Browse startups</a>
+          </div>
+        </section>
+      </main>
 
       <footer className="landing-footer">
         <div className="landing-footer-links">
