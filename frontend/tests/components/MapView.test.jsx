@@ -97,19 +97,19 @@ describe('MapView', () => {
     expect(lastMarker().addTo).toHaveBeenCalledWith(layerInstance);
   });
 
-  it('builds each pin as elements, with the sector colour on its border and its initial inside', () => {
+  it('builds each pin as elements, a white ring with the company\'s initial on its sector colour inside', () => {
     render(<MapView markers={[pin('a', 'Acme', -33.87, 151.21, { sector: 'AI' })]} sectorColors={{ AI: '#abcdef' }} onSelectStartup={noop} />);
     const { html, className } = icons().at(-1);
     expect(className).toBe('custom-leaflet-marker');
     expect(html).toBeInstanceOf(HTMLElement);
-    expect(html.style.borderColor).toBe(colourOf('#abcdef'));
+    expect(html.style.borderColor).toBe(''); // the ring is white for every pin (styles.css); only the circle inside takes the sector's colour
     expect(html.querySelector('.pin-fallback').textContent).toBe('A');
     expect(html.querySelector('.pin-fallback').style.background).toBe(colourOf('#abcdef'));
   });
 
   it('falls back to a default colour when the sector has no mapped colour', () => {
     render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { sector: 'Unmapped' })]} sectorColors={{}} onSelectStartup={noop} />);
-    expect(icons().at(-1).html.style.borderColor).toBe(colourOf('#444'));
+    expect(icons().at(-1).html.querySelector('.pin-fallback').style.background).toBe(colourOf('#444'));
   });
 
   it('renders a Clearbit logo with a Google-favicon fallback, and hides it if that fails too, when the company has a website and the map is zoomed in', () => {
@@ -120,6 +120,25 @@ describe('MapView', () => {
     expect(img.src).toContain('www.google.com/s2/favicons?domain=canva.com');
     img.onerror();
     expect(img.style.display).toBe('none');
+  });
+
+  it('shows the logo only once it has loaded and is a real logo: too small a picture counts as no answer', () => {
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
+    const img = icons().at(-1).html.querySelector('img');
+    expect(img.classList.contains('pin-logo-ready')).toBe(false); // the letter shows until a picture has arrived
+    Object.defineProperty(img, 'naturalWidth', { value: 96, configurable: true });
+    img.onload();
+    expect(img.classList.contains('pin-logo-ready')).toBe(true);
+
+    render(<MapView markers={[pin('b', 'B', -37.81, 144.96, { domain: 'tiny.example' })]} sectorColors={{}} onSelectStartup={noop} />);
+    const small = icons().at(-1).html.querySelector('img');
+    Object.defineProperty(small, 'naturalWidth', { value: 16, configurable: true });
+    small.onload(); // the first address answered with a stand-in: try the next
+    expect(small.src).toContain('www.google.com/s2/favicons?domain=tiny.example');
+    expect(small.classList.contains('pin-logo-ready')).toBe(false);
+    small.onload(); // and a stand-in again: none
+    expect(small.style.display).toBe('none');
+    expect(small.classList.contains('pin-logo-ready')).toBe(false);
   });
 
   it('draws no logo when the company has no website', () => {
@@ -479,7 +498,7 @@ describe('MapView', () => {
   // degree is 20 pixels, so two pins 0.015 degree of longitude apart are 30 pixels apart.
   describe('the name under a pin', () => {
     const namesOn = () => icons().map((i) => i.html).filter(Boolean).filter((h) => h.querySelector?.('.pin-label')).map((h) => [h.querySelector('.pin-label').textContent, h.querySelector('.pin-label').classList.contains('pin-label-on')]);
-    const close = (a = {}, b = {}) => [pin('a', 'Alpha', -33.0, 150.0, a), pin('b', 'Beta', -33.0, 150.015, b)]; // 30px apart: their names would run together
+    const close = (a = {}, b = {}) => [pin('a', 'Alpha', -33.0, 150.0, a), pin('b', 'Beta', -33.0, 150.028, b)]; // 56px apart: the pins clear each other, their names would run together
     const mapEl = (container) => container.querySelector('#map');
 
     it('is built as text, with the name only, hidden from screen readers', () => {

@@ -15,7 +15,7 @@ function Row({ mark, children }) {
 
 function Pin({ extra = '', children }) {
   return (
-    <span className={`custom-pin-badge ${extra}`.trim()} style={{ borderColor: 'var(--muted)' }}>
+    <span className={`custom-pin-badge ${extra}`.trim()}>
       <span className="pin-fallback" style={{ background: 'var(--muted)' }}>A</span>
       {children}
     </span>
@@ -47,7 +47,7 @@ function KeyPanel({ sectorColors, onClose }) {
 
       <div className="mk-group">
         <h3 className="mk-label">A company</h3>
-        <Row mark={<Pin />}>A company. The edge of its pin takes the colour of its sector.</Row>
+        <Row mark={<Pin />}>A company, in a white ring. With no logo it shows its first letter on its sector’s colour.</Row>
         <Row mark={<Pin extra="pin-approx" />}>A dashed edge: placed at the suburb, not the office.</Row>
         <Row mark={<Pin><span className="pin-hiring-dot" /></Pin>}>A green dot: hiring now (an open role was checked).</Row>
         <Row mark={<Pin><span className="pin-tracked-star">&#9733;</span></Pin>}>A gold star: a company you track (kept in this browser).</Row>

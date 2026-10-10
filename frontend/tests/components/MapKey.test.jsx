@@ -47,7 +47,7 @@ describe('MapKey', () => {
   it('says what every mark on the map means', async () => {
     await open();
     const key = screen.getByRole('region', { name: 'Map key' });
-    for (const words of [/The edge of its pin takes the colour of its sector/, /dashed edge/i, /green dot: hiring now/i, /gold star: a company you track/i, /numbered circle/i, /dashed ring/i, /Names appear under the pins/]) {
+    for (const words of [/first letter on its sector.s colour/, /dashed edge/i, /green dot: hiring now/i, /gold star: a company you track/i, /numbered circle/i, /dashed ring/i, /Names appear under the pins/]) {
       expect(within(key).getByText(words)).toBeInTheDocument();
     }
   });

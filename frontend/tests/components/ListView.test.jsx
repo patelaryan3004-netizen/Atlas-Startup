@@ -145,12 +145,30 @@ describe('ListView', () => {
     mount();
     await screen.findByText('Canva');
     const select = screen.getByLabelText('Sort by');
-    expect([...select.querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Name (A–Z)', 'Hiring now', 'Location (A–Z)', 'Industry (A–Z)']);
+    expect([...select.querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Name (A–Z)', 'Stage (earliest first)', 'Recently verified', 'Hiring now', 'Location (A–Z)', 'Industry (A–Z)']);
 
     fetchStartupPage.mockResolvedValue(page([startup({ name: 'Zeller', slug: 'zeller' }), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
     await userEvent.selectOptions(select, 'hiring');
     await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith(FILTERS, expect.objectContaining({ sort: 'hiring', offset: 0 })));
     await waitFor(() => expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual(['Zeller', 'Airwallex']));
+  });
+
+  it('asks the server for the stage order and for the most recently verified, which it sorts', async () => {
+    mount();
+    await screen.findByText('Canva');
+    const select = screen.getByLabelText('Sort by');
+    for (const sort of ['stage', 'verified']) {
+      await userEvent.selectOptions(select, sort);
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith(FILTERS, expect.objectContaining({ sort, offset: 0 })));
+    }
+  });
+
+  it('shows the chips it is given in a row of their own above the toolbar, and no row when there are none', async () => {
+    const view = mount();
+    await screen.findByText('Canva');
+    expect(document.querySelector('.startup-list-chips')).toBeNull();
+    view.rerender(<ListView filters={FILTERS} sectorColors={{}} onSelectStartup={noop} chips={<span>chips here</span>} />);
+    expect(document.querySelector('.startup-list-chips')).toHaveTextContent('chips here');
   });
 
   it('starts again from the first page when the filters change, replacing the list', async () => {

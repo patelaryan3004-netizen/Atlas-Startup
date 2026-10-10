@@ -37,7 +37,8 @@ describe('HeaderMenu', () => {
     expect(screen.getByText('Jobs')).toBeInTheDocument();
     expect(screen.getByText('Investors')).toBeInTheDocument();
     expect(screen.getByText('Lists')).toBeInTheDocument();
-    expect(screen.getByText('Hide news')).toBeInTheDocument();
+    expect(screen.getByText('News')).toBeInTheDocument();
+    expect(screen.getByText('Hide news ticker')).toBeInTheDocument();
     expect(screen.getByText('Join waitlist')).toBeInTheDocument();
     expect(screen.getByText('Unconfirmed (3)')).toBeInTheDocument();
     expect(screen.getByText('★ Tracked (2)')).toBeInTheDocument();
@@ -54,10 +55,18 @@ describe('HeaderMenu', () => {
     expect(screen.getByText('Jobs').textContent).toBe('Jobs');
   });
 
-  it('shows "News" instead of "Hide news" when news is already hidden', async () => {
+  it('offers the news ticker as "Show news ticker" when it is hidden, and News as the page either way', async () => {
     setup({ newsVisible: false });
     await userEvent.click(screen.getByLabelText('Menu'));
+    expect(screen.getByText('Show news ticker')).toBeInTheDocument();
     expect(screen.getByText('News')).toBeInTheDocument();
+  });
+
+  it('opens the News page from its item', async () => {
+    const { onShowNews } = setup({ onShowNews: vi.fn() });
+    await userEvent.click(screen.getByLabelText('Menu'));
+    await userEvent.click(screen.getByText('News'));
+    expect(onShowNews).toHaveBeenCalledTimes(1);
   });
 
   it('calls the matching handler and closes itself when an item is clicked', async () => {

@@ -38,6 +38,16 @@ function JobCardLogo({ website, name }) {
 }
 
 const EMPTY_JOB_FILTERS = { sector: '', city: '', stage: '' };
+
+// The filters the address opens the board with (/jobs?sector=AI&city=Sydney), so a filtered board is a link.
+function filtersFromAddress() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    return Object.fromEntries(Object.keys(EMPTY_JOB_FILTERS).map((key) => [key, params.get(key) ?? '']));
+  } catch (e) {
+    return EMPTY_JOB_FILTERS;
+  }
+}
 const NO_OPTIONS = { sector: [], city: [], stage: [] };
 
 // The companies that are hiring, a page at a time. The filter options come from the whole hiring set (asked for
@@ -52,7 +62,7 @@ export default function JobsView({ sectorColors, onClose }) {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState('');
-  const [filters, setFilters] = useState(EMPTY_JOB_FILTERS);
+  const [filters, setFilters] = useState(filtersFromAddress);
   const haveOptions = useRef(false);
   const generation = useRef(0);
 
@@ -94,6 +104,17 @@ export default function JobsView({ sectorColors, onClose }) {
       setLoadingMore(false);
     }
   };
+
+  // The address follows the filters (replacing, not adding a step per choice).
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams();
+      for (const [key, value] of Object.entries(filters)) if (value) params.set(key, value);
+      const query = params.toString();
+      const url = `${window.location.pathname}${query ? `?${query}` : ''}`;
+      if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
+    } catch (e) { /* ignore */ }
+  }, [filters]);
 
   const filtersActive = Object.values(filters).some(Boolean);
   const set = (key) => (e) => setFilters((prev) => ({ ...prev, [key]: e.target.value }));
@@ -162,8 +183,8 @@ export default function JobsView({ sectorColors, onClose }) {
 
               <div className="job-card-footer">
                 <ConceptPreview company={s} />
-                {s.website && (
-                  <a className="taskbtn" href={s.website} target="_blank" rel="noopener noreferrer">Apply now</a>
+                {(s.hiring_source_url || s.website) && (
+                  <a className="taskbtn" href={s.hiring_source_url || s.website} target="_blank" rel="noopener noreferrer">{s.hiring_source_url ? 'View open roles' : 'Apply now'}</a>
                 )}
               </div>
             </div>

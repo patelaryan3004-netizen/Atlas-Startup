@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react';
 import { fetchCount } from '../api.js';
 import { curatedLists } from '../curatedLists.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
+import { appUrl } from '../appRoute.js';
 
+// The address of the list view with these filters: the same address the map shows once they are on, so what is shared is what is seen.
 function buildShareUrl(filters) {
-  const url = new URL(window.location.href);
-  url.search = '';
-  Object.entries(filters).forEach(([k, v]) => {
-    if (v) url.searchParams.set(k, v);
-  });
-  return url.toString();
+  return new URL(appUrl({ kind: 'explore' }, { filters, viewMode: 'list' }), window.location.origin).href;
 }
 
 export default function CuratedLists({ currentFilters, onApply, onClose }) {
@@ -93,13 +90,7 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
                 <p className="curated-card-desc">{list.description}</p>
                 <div className="curated-card-footer">
                   <span className="curated-card-count">{count === undefined ? '…' : count ?? '?'} companies</span>
-                  <button
-                    className="taskbtn"
-                    onClick={() => {
-                      onApply(list.filters);
-                      onClose();
-                    }}
-                  >
+                  <button className="taskbtn" onClick={() => onApply(list)}>
                     View this list
                   </button>
                 </div>

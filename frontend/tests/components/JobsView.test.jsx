@@ -44,6 +44,22 @@ function fakeServer(all) {
 describe('JobsView', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    window.history.replaceState(null, '', '/jobs'); // the board writes its filters in the address
+  });
+
+  it('opens with the filters the address names, and writes the filters it is given into the address', async () => {
+    window.history.replaceState(null, '', '/jobs?sector=AI&city=Sydney');
+    fakeServer([job({ name: 'A', slug: 'a' }), job({ name: 'B', slug: 'b', sector: 'Fintech' })]);
+    render(<JobsView sectorColors={{}} onClose={() => {}} />);
+    await screen.findByText('A');
+    expect(fetchStartupPage.mock.calls[0][0]).toEqual({ hiring: 'yes', sector: 'AI', city: 'Sydney', stage: '' });
+    expect(screen.queryByText('B')).not.toBeInTheDocument();
+
+    await userEvent.selectOptions(screen.getByLabelText('Filter by startup stage'), 'Seed');
+    await waitFor(() => expect(window.location.search).toBe('?sector=AI&city=Sydney&stage=Seed'));
+    await userEvent.click(screen.getByRole('button', { name: 'Clear filters' }));
+    await waitFor(() => expect(window.location.search).toBe(''));
+    expect(window.location.pathname).toBe('/jobs');
   });
 
   it('requests only hiring companies, a page at a time in name order, with the options for its filters, regardless of map filters', async () => {
@@ -52,6 +68,18 @@ describe('JobsView', () => {
     await screen.findByText('No company has open roles checked against its own pages right now.');
     expect(fetchStartupPage.mock.calls[0][0]).toMatchObject({ hiring: 'yes' });
     expect(fetchStartupPage.mock.calls[0][1]).toMatchObject({ limit: 24, offset: 0, sort: 'name', facets: 'sector,city,stage' });
+  });
+
+  it('sends a card to the page that backs the company\'s hiring, its own job board, and to the company site when none is known', async () => {
+    fakeServer([
+      job({ name: 'Board Co', slug: 'board-co', website: 'https://board.example', hiring_source_url: 'https://boards.greenhouse.io/board' }),
+      job({ name: 'Site Co', slug: 'site-co', website: 'https://site.example' }),
+    ]);
+    render(<JobsView sectorColors={{}} onClose={() => {}} />);
+    const roles = await screen.findByText('View open roles');
+    expect(roles).toHaveAttribute('href', 'https://boards.greenhouse.io/board');
+    expect(roles).toHaveAttribute('target', '_blank');
+    expect(screen.getByText('Apply now')).toHaveAttribute('href', 'https://site.example');
   });
 
   it('shows a strong header with a live count of companies hiring now', async () => {

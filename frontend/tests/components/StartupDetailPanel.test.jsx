@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
@@ -417,6 +417,66 @@ describe('StartupDetailPanel, the company logo', () => {
 
     rerender(<StartupDetailPanel startup={startup({ name: 'Atlassian', website: 'https://www.atlassian.com' })} {...props} />);
     expect(logo(container).getAttribute('src')).toBe('https://logo.clearbit.com/atlassian.com?size=96');
+  });
+
+  describe('where its facts came from', () => {
+    const sources = [
+      { title: 'Culture Amp: employee experience', url: 'https://www.cultureamp.com/', publisher: 'Culture Amp Pty Ltd', kind: 'company_website', checked_at: '2026-10-05T12:00:00.000Z', backs: ['description', 'founders', 'website'] },
+      { title: 'Greenhouse job board', url: 'https://boards.greenhouse.io/cultureamp', publisher: 'cultureamp.com', kind: 'company_website', checked_at: '2026-10-05T12:00:00.000Z', backs: ['hiring_status'] },
+    ];
+
+    it('says in its summary when the facts were last checked, and lists the pages behind them, with what each backs, as links that open in a new tab', async () => {
+      setup({ startup: { sources, checked_at: '2026-10-05T12:00:00.000Z' } });
+      const summary = screen.getByText(/Where this comes from/);
+      expect(summary).toHaveTextContent('Where this comes from · checked 5 Oct 2026');
+      await userEvent.click(summary);
+      const link = screen.getByRole('link', { name: 'Culture Amp: employee experience' });
+      expect(link).toHaveAttribute('href', 'https://www.cultureamp.com/');
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
+      expect(screen.getByText('cultureamp.com · backs what it does, its founders, its website')).toBeInTheDocument();
+      expect(screen.getByText('boards.greenhouse.io · backs whether it is hiring')).toBeInTheDocument();
+    });
+
+    it('says honestly that no public page has been checked for a company none backs', () => {
+      setup({ startup: { sources: [], checked_at: null } });
+      expect(screen.getByText(/Where this comes from/)).not.toHaveTextContent('checked');
+      expect(screen.getByText(/No public page has been checked for this company yet, so its details are unconfirmed/)).toBeInTheDocument();
+    });
+
+    it('shows nothing about sources while the rest of the record is still arriving', () => {
+      setup({ startup: { partial: true } });
+      expect(screen.queryByText(/Where this comes from/)).not.toBeInTheDocument();
+    });
+
+    it('writes a source\'s title as text, never as markup', () => {
+      setup({ startup: { sources: [{ ...sources[0], title: '<img src=x onerror=alert(1)>' }], checked_at: '2026-10-05T12:00:00.000Z' } });
+      expect(screen.getByRole('link', { name: '<img src=x onerror=alert(1)>' })).toBeInTheDocument();
+      expect(document.querySelector('.sdp-sources img')).toBeNull();
+    });
+
+    it('names the page that backs hiring as the company\'s own job board, and sends "View open roles" there', () => {
+      setup({ startup: { hiring: true, hiring_verified_at: '2026-10-05T12:00:00.000Z', hiring_source: { url: 'https://boards.greenhouse.io/cultureamp', checked_at: '2026-10-05T12:00:00.000Z' } } });
+      const note = screen.getByText(/Verified from the company.s own job board/);
+      expect(note).toHaveTextContent('Verified from the company’s own job board, boards.greenhouse.io, on 5 Oct 2026.');
+      expect(within(note).getByRole('link', { name: 'boards.greenhouse.io' })).toHaveAttribute('href', 'https://boards.greenhouse.io/cultureamp');
+      const roles = screen.getByText('View open roles');
+      expect(roles).toHaveAttribute('href', 'https://boards.greenhouse.io/cultureamp');
+      expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
+      expect(screen.queryByText('Open roles checked on 5 Oct 2026.')).not.toBeInTheDocument();
+    });
+
+    it('takes the board from the card when the full record has not arrived', () => {
+      setup({ startup: { hiring: true, hiring_source_url: 'https://jobs.lever.co/zeller', partial: true } });
+      expect(screen.getByText('View open roles')).toHaveAttribute('href', 'https://jobs.lever.co/zeller');
+    });
+
+    it('offers a LinkedIn search for the company (a search, not a claimed profile), beside its website', () => {
+      setup();
+      const link = screen.getByRole('link', { name: 'Find on LinkedIn ↗' });
+      expect(link.getAttribute('href')).toBe('https://www.linkedin.com/search/results/companies/?keywords=Canva');
+      expect(link).toHaveAttribute('target', '_blank');
+    });
   });
 
   it('shows no logo, and no broken image, for a company with no website', async () => {

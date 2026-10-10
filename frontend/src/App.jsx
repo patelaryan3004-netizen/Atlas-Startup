@@ -22,6 +22,14 @@ import StartupListView from './components/StartupListView.jsx';
 import JobsView from './components/JobsView.jsx';
 import InvestorsView from './components/investors/InvestorsView.jsx';
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
+import { readAppRoute, appUrl, appPath } from './appRoute.js';
+import { usePageMeta } from './hooks/usePageMeta.js';
+import { startupDescription, startupJsonLd } from './seo.js';
+import { curatedLists } from './curatedLists.js';
+import NewsPage from './components/NewsPage.jsx';
+import ListBanner from './components/ListBanner.jsx';
+import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
+import PageNotFound from './components/PageNotFound.jsx';
 import CuratedLists from './components/CuratedLists.jsx';
 import WaitlistForm from './components/WaitlistForm.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
@@ -64,6 +72,17 @@ function loadFiltersFromUrl() {
   }
 }
 
+// The curated list a /lists/<slug> address names (a list of companies, not one of the lists of people).
+const filterList = (id) => curatedLists.find((list) => list.type === 'filter' && list.id === id) ?? null;
+const sameFilters = (a, b) => Object.keys(EMPTY_FILTERS).every((key) => (a[key] || '') === (b[key] || ''));
+const listFilters = (list) => ({ ...EMPTY_FILTERS, ...list.filters });
+
+// The filters a page opens with: a curated list's own, or what the address says.
+function initialFilters(route) {
+  const list = route.kind === 'list' ? filterList(route.slug) : null;
+  return list ? listFilters(list) : loadFiltersFromUrl();
+}
+
 function loadInitialView() {
   try {
     return new URLSearchParams(window.location.search).get('view');
@@ -95,8 +114,10 @@ export default function App() {
   // investor pages by their own addresses: /investors, /investors/<slug> and /investors/people/<slug> (the first version's
   // ?view=investors addresses still work).
   const initialView = loadInitialView();
+  // The page is in the address bar (appRoute.js): a link opens it, Back leaves it.
+  const [route, setRoute] = useState(readAppRoute);
   const [meta, setMeta] = useState(EMPTY_META);
-  const [filters, setFilters] = useState(loadFiltersFromUrl);
+  const [filters, setFilters] = useState(() => initialFilters(route));
   const applied = useAppliedFilters(filters);
   const [summary, setSummary] = useState(null);
   const [stats, setStats] = useState(null);
@@ -105,7 +126,7 @@ export default function App() {
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [showUnverified, setShowUnverified] = useState(false);
-  const [viewMode, setViewMode] = useState(initialView === 'list' ? 'list' : 'map');
+  const [viewMode, setViewMode] = useState(initialView === 'list' || route.kind === 'list' ? 'list' : 'map');
   const [showTracked, setShowTracked] = useState(false);
   const { tracked, toggleTracked, isTracked } = useTrackedStartups();
   const [trackedStartups, setTrackedStartups] = useState([]);
@@ -113,16 +134,87 @@ export default function App() {
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [showWaitlist, setShowWaitlist] = useState(initialView === 'waitlist');
-  const [showJobs, setShowJobs] = useState(initialView === 'jobs');
-  const [showInvestors, setShowInvestors] = useState(() => readInvestorsRoute() !== null);
+  const showJobs = route.kind === 'jobs';
+  const showInvestors = route.kind === 'investors';
+  const showCuratedLists = route.kind === 'lists';
   const [investorsStart, setInvestorsStart] = useState(() => readInvestorsRoute() ?? { kind: 'list' });
   // Opened from a link, the page is already in the history; opened from the map it is a step of its own, so Back returns to the map.
   const [investorsFromLink, setInvestorsFromLink] = useState(() => readInvestorsRoute() !== null);
-  const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
+  const [missing, setMissing] = useState(null); // a link to a company or a list the directory does not have
   const [editingCompany, setEditingCompany] = useState(null);
   const [selectedStartup, setSelectedStartup] = useState(null);
   const [selectedPersonName, setSelectedPersonName] = useState(null);
   const [personCompanies, setPersonCompanies] = useState([]);
+
+  // A page that is opened from another is a step of its own in the history (marked, so closing it can go Back and land where the
+  // visitor was); one opened from a link is not, and closing it puts the map at the root.
+  const ui = useRef({});
+  ui.current = { applied, viewMode, route };
+  const goTo = useCallback((next, { replace = false } = {}) => {
+    const url = appUrl(next, ui.current);
+    try {
+      if (replace) window.history.replaceState(window.history.state, '', url);
+      else window.history.pushState({ app: 'step' }, '', url);
+    } catch (e) { /* a locked-down browser: the page still moves */ }
+    setRoute(next);
+  }, []);
+  const leave = useCallback(() => {
+    setSelectedStartup(null);
+    setMissing(null);
+    setRoute({ kind: 'explore' });
+    if (window.history.state?.app === 'step') { window.history.back(); return; }
+    try { window.history.replaceState(null, '', appUrl({ kind: 'explore' }, ui.current)); } catch (e) { /* ignore */ }
+  }, []);
+
+  // Back and forward: the page and, on the pages that carry them, the filters come from the address again.
+  useEffect(() => {
+    const onPop = () => {
+      const next = readAppRoute();
+      setRoute((now) => (now.kind === next.kind && now.slug === next.slug ? now : next));
+      if (next.kind !== 'startup') setSelectedStartup(null);
+      setMissing(null);
+      if (next.kind === 'explore' || next.kind === 'startup') {
+        const from = loadFiltersFromUrl();
+        setFilters((now) => (sameFilters(now, from) ? now : from));
+        setViewMode(new URLSearchParams(window.location.search).get('view') === 'list' ? 'list' : 'map');
+      } else if (next.kind === 'list') {
+        const list = filterList(next.slug);
+        if (list) { setFilters(listFilters(list)); setViewMode('list'); }
+      }
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  // The address follows the filters and the view (so any view can be shared), and an old ?view= address is written as the page.
+  useEffect(() => {
+    try {
+      if (route.kind === 'explore' || route.kind === 'startup') {
+        const url = appUrl(route, { filters: applied, viewMode });
+        if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
+      } else if (route.kind !== 'investors' && window.location.pathname !== appPath(route)) {
+        window.history.replaceState(window.history.state, '', appPath(route));
+      }
+    } catch (e) { /* ignore */ }
+  }, [route, applied, viewMode]);
+
+  // A /startup/<slug> address (a link, or Forward) opens that company; one the directory does not have says so.
+  useEffect(() => {
+    if (route.kind !== 'startup' || selectedStartup?.slug === route.slug) return undefined;
+    const ctrl = new AbortController();
+    fetchStartup(route.slug, { signal: ctrl.signal })
+      .then((full) => { if (!ctrl.signal.aborted) setSelectedStartup(full); })
+      .catch((err) => { if (!ctrl.signal.aborted && err?.status === 404) setMissing({ kind: 'startup' }); });
+    return () => ctrl.abort();
+  }, [route, selectedStartup?.slug]);
+
+  // A /lists/<slug> address is a list of companies, and it stays that list only while the filters are its own.
+  const activeList = route.kind === 'list' ? filterList(route.slug) : null;
+  useEffect(() => {
+    if (route.kind !== 'list') return;
+    if (!activeList) setMissing({ kind: 'list' });
+    else if (!sameFilters(filters, listFilters(activeList))) goTo({ kind: 'explore' }, { replace: true });
+  }, [route, activeList, filters, goTo]);
 
   useEffect(() => {
     fetchMeta().then(setMeta).catch(() => setMeta(EMPTY_META));
@@ -168,6 +260,10 @@ export default function App() {
     return colors;
   }, [meta.sectors]);
 
+  // The filters that are on, as chips that take them off one at a time. A curated list's own filters are the list: no chips for them.
+  const chipsShown = !activeList && activeChips(filters).length > 0;
+  const chips = chipsShown ? <ActiveFilters filters={filters} onChange={setFilters} onClear={() => setFilters(EMPTY_FILTERS)} /> : null;
+
   const resultCount = summary?.count ?? 0;
   const unverifiedCount = summary?.unverified ?? 0;
   const pinnedCount = summary?.pinned ?? 0;
@@ -178,10 +274,12 @@ export default function App() {
   const openStartup = useCallback((startup) => {
     setSelectedStartup(startup?.slug ? { ...startup, partial: true } : startup);
     if (!startup?.slug) return;
+    const now = ui.current.route;
+    if (!(now.kind === 'startup' && now.slug === startup.slug)) goTo({ kind: 'startup', slug: startup.slug }, { replace: now.kind === 'startup' });
     fetchStartup(startup.slug)
       .then((full) => setSelectedStartup((current) => (current && current.slug === full.slug ? full : current)))
       .catch(() => {});
-  }, []);
+  }, [goTo]);
 
   // A person's profile opens at once; the companies they founded arrive a moment later (an answer to a person
   // who has since been replaced by another is dropped).
@@ -211,18 +309,48 @@ export default function App() {
     });
   };
 
-  const goExplore = () => setShowJobs(false);
+  const goExplore = () => { if (route.kind !== 'explore') leave(); };
+  const showNews = () => goTo({ kind: 'news' });
+  const showJobsPage = () => goTo({ kind: 'jobs' });
+  const showLists = () => goTo({ kind: 'lists' });
+  // A list is chosen: its filters apply, the list view shows them, and the address is the list's own.
+  const openList = (list) => {
+    setFilters(listFilters(list));
+    setViewMode('list');
+    goTo({ kind: 'list', slug: list.id }, { replace: route.kind === 'lists' });
+  };
+
+  // What a page says about itself to the tab and to search engines (hooks/usePageMeta.js).
+  const loaded = selectedStartup && !selectedStartup.partial ? selectedStartup : null;
+  const pageMeta = useMemo(() => {
+    switch (route.kind) {
+      case 'startup':
+        return loaded && loaded.slug === route.slug
+          ? { title: `${loaded.name} · Australian Startup Map`, description: startupDescription(loaded), path: appPath(route), jsonLd: startupJsonLd(loaded) }
+          : { path: appPath(route) };
+      case 'jobs': return { title: 'Australian startups hiring now · AU Startup Map', description: 'Companies hiring now, each with open roles checked against its own pages.', path: '/jobs' };
+      case 'lists': return { title: 'Curated lists of Australian startups · AU Startup Map', description: 'Lists of Australian startups by industry, city and what they are doing now.', path: '/lists' };
+      case 'list': return activeList ? { title: `${activeList.name} · AU Startup Map`, description: activeList.description, path: appPath(route) } : null;
+      case 'explore': return { path: '/' };
+      default: return null;
+    }
+  }, [route, loaded, activeList]);
+  usePageMeta(pageMeta);
 
   // The investor directory, or one investor or person in it. A company's panel is closed first: it was a step along the way.
   const openInvestors = useCallback((route = { kind: 'list' }) => {
     setSelectedStartup(null);
     setInvestorsStart(route);
     setInvestorsFromLink(false);
-    setShowInvestors(true);
+    setRoute({ kind: 'investors' });
   }, []);
 
   if (showJobs) {
-    return <JobsView sectorColors={sectorColors} onClose={() => setShowJobs(false)} />;
+    return <JobsView sectorColors={sectorColors} onClose={leave} />;
+  }
+
+  if (route.kind === 'news') {
+    return <NewsPage onClose={leave} />;
   }
 
   if (showInvestors) {
@@ -230,14 +358,14 @@ export default function App() {
       <InvestorsView
         initialRoute={investorsStart}
         fromLink={investorsFromLink}
-        onClose={() => setShowInvestors(false)}
-        onOpenCompany={(company) => { setShowInvestors(false); openStartup(company); }}
+        onClose={() => setRoute({ kind: 'explore' })}
+        onOpenCompany={(company) => openStartup(company)}
       />
     );
   }
 
   return (
-    <div id="app">
+    <div id="app" className={activeList ? 'has-list-banner' : undefined}>
       <header>
         <div className="nav-brand">
           <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
@@ -246,12 +374,12 @@ export default function App() {
 
         <nav className="nav-center">
           <button className="nav-link" onClick={goExplore}>Explore</button>
-          <button className="nav-link" onClick={() => setShowJobs(true)}>
+          <button className="nav-link" onClick={showJobsPage}>
             Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
           </button>
           <button className="nav-link" onClick={() => openInvestors()}>Investors</button>
-          <button className="nav-link" onClick={() => setShowCuratedLists(true)}>Lists</button>
-          <button className="nav-link" onClick={toggleNews}>News</button>
+          <button className="nav-link" onClick={showLists}>Lists</button>
+          <button className="nav-link" onClick={showNews}>News</button>
         </nav>
 
         <div className="nav-right">
@@ -259,10 +387,11 @@ export default function App() {
           <button className="hdrbtn nav-cta nav-cta-secondary" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
           <HeaderMenu
             onExplore={goExplore}
-            onShowJobs={() => setShowJobs(true)}
+            onShowJobs={showJobsPage}
             hiringCount={hiringCount}
             onShowInvestors={() => openInvestors()}
-            onShowCuratedLists={() => setShowCuratedLists(true)}
+            onShowCuratedLists={showLists}
+            onShowNews={showNews}
             newsVisible={newsVisible}
             onToggleNews={toggleNews}
             onShowSubmitForm={() => setShowSubmitForm(true)}
@@ -279,6 +408,15 @@ export default function App() {
         filters={filters}
         onApplyFilters={(partial) => setFilters({ ...filters, ...partial })}
       />
+
+      {activeList && (
+        <ListBanner
+          list={activeList}
+          count={summary?.count ?? null}
+          url={new URL(appPath(route), window.location.origin).href}
+          onAllLists={showLists}
+        />
+      )}
 
       {viewMode === 'map' ? (
         <MapView
@@ -299,8 +437,10 @@ export default function App() {
           trackedNames={tracked}
           scope={scopeText(applied)}
           onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
+          chips={chips}
         />
       )}
+      {viewMode === 'map' && chips && <div className="chips-float">{chips}</div>}
 
       <FilterPanel
         filters={filters}
@@ -343,7 +483,7 @@ export default function App() {
           onSuggestEdit={setEditingCompany}
           onSelectPerson={openPerson}
           onOpenInvestor={(slug) => openInvestors({ kind: 'investor', slug })}
-          onClose={() => setSelectedStartup(null)}
+          onClose={leave}
         />
       )}
       {selectedPersonName && (
@@ -372,12 +512,19 @@ export default function App() {
       {showCuratedLists && (
         <CuratedLists
           currentFilters={filters}
-          onApply={(listFilters) => {
-            setFilters({ ...EMPTY_FILTERS, ...listFilters });
-            setViewMode('list');
-          }}
-          onClose={() => setShowCuratedLists(false)}
+          onApply={openList}
+          onClose={leave}
         />
+      )}
+      {missing?.kind === 'startup' && (
+        <PageNotFound title="This company is not in the directory." onClose={leave}>
+          The link may be mistyped, or the company may not have been added yet. You can add it with Submit startup.
+        </PageNotFound>
+      )}
+      {missing?.kind === 'list' && (
+        <PageNotFound title="This list does not exist." onClose={leave}>
+          The link may be mistyped. The lists we have are under Lists.
+        </PageNotFound>
       )}
     </div>
   );

@@ -191,7 +191,7 @@ describe('the name under a pin', () => {
 
   it('is as wide as the name, up to a limit', () => {
     expect(labelWidth('Ab')).toBeLessThan(labelWidth('Abcdefghij'));
-    expect(labelWidth('x'.repeat(200))).toBe(160);
+    expect(labelWidth('x'.repeat(200))).toBe(170);
   });
 
   it('names every pin that has room', () => {
@@ -200,13 +200,13 @@ describe('the name under a pin', () => {
   });
 
   it('names the more important of two pins whose names would run into each other, and leaves the other bare', () => {
-    expect([...chooseLabels([pin('plain', 100, 100), pin('hiring', 130, 100, { rank: 1 })])]).toEqual(['hiring']);
-    expect([...chooseLabels([pin('hiring', 100, 100, { rank: 1 }), pin('plain', 130, 100)])]).toEqual(['hiring']);
+    expect([...chooseLabels([pin('plain', 100, 100), pin('hiring', 156, 100, { rank: 1 })])]).toEqual(['hiring']);
+    expect([...chooseLabels([pin('hiring', 100, 100, { rank: 1 }), pin('plain', 156, 100)])]).toEqual(['hiring']);
   });
 
   it('takes pins of one rank in the order given', () => {
-    expect([...chooseLabels([pin('first', 100, 100), pin('second', 130, 100)])]).toEqual(['first']);
-    expect([...chooseLabels([pin('second', 130, 100), pin('first', 100, 100)])]).toEqual(['second']);
+    expect([...chooseLabels([pin('first', 100, 100), pin('second', 156, 100)])]).toEqual(['first']);
+    expect([...chooseLabels([pin('second', 156, 100), pin('first', 100, 100)])]).toEqual(['second']);
   });
 
   it('writes no name over another pin: a pin close under another takes the name above it away, and not its own', () => {
@@ -233,7 +233,7 @@ describe('the name under a pin', () => {
   });
 
   it('is the same every time, and leaves the pins it was given as they were', () => {
-    const pins = [pin('a', 100, 100), pin('b', 130, 100, { rank: 1 }), pin('c', 400, 400)];
+    const pins = [pin('a', 100, 100), pin('b', 156, 100, { rank: 1 }), pin('c', 400, 400)];
     const copy = structuredClone(pins);
     expect([...chooseLabels(pins)]).toEqual([...chooseLabels(pins)]);
     expect(pins).toEqual(copy);

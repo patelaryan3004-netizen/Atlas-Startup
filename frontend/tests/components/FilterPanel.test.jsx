@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import FilterPanel from '../../src/components/FilterPanel.jsx';
 
@@ -56,11 +56,11 @@ describe('FilterPanel', () => {
     expect(screen.getByText('☰ Filters (2)')).toBeInTheDocument();
   });
 
-  it('opens on the Filters tab by default, revealing all meta options in their selects', async () => {
+  it('opens on the Filters tab by default, offering every option of the filters from the meta', async () => {
     setup();
     await open();
-    expect(screen.getByRole('option', { name: 'AI' })).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'Sydney' })).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { name: 'AI' })).toBeInTheDocument(); // sector and city take several values: boxes to tick
+    expect(screen.getByRole('checkbox', { name: 'Sydney' })).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Blackbird' })).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Series A' })).toBeInTheDocument();
   });
@@ -188,7 +188,9 @@ describe('FilterPanel', () => {
   it('calls onChange with the updated sector when selecting one', async () => {
     const { onChange } = setup();
     await open();
-    await userEvent.selectOptions(screen.getByLabelText('Sector'), 'Fintech');
+    const group = screen.getByRole('group', { name: 'Sector' });
+    await userEvent.click(group.querySelector('summary'));
+    await userEvent.click(within(group).getByRole('checkbox', { name: 'Fintech' }));
     expect(onChange).toHaveBeenCalledWith({ ...emptyFilters, sector: 'Fintech' });
   });
 

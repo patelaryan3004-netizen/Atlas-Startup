@@ -56,7 +56,7 @@ describe('CuratedLists', () => {
     await waitFor(() => expect(hiring).toHaveTextContent('70 companies'));
   });
 
-  it('applies the list filters and closes when "View this list" is clicked', async () => {
+  it('hands over the list when "View this list" is clicked: the page opens it at its own address and closes this', async () => {
     const onApply = vi.fn();
     const onClose = vi.fn();
     render(<CuratedLists currentFilters={{}} onApply={onApply} onClose={onClose} />);
@@ -65,8 +65,9 @@ describe('CuratedLists', () => {
     const card = screen.getByText('Startups Hiring Now').closest('.curated-card');
     await userEvent.click(within(card).getByText('View this list'));
 
-    expect(onApply).toHaveBeenCalledWith({ hiring: 'yes' });
-    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(onApply).toHaveBeenCalledTimes(1);
+    expect(onApply.mock.calls[0][0]).toMatchObject({ id: 'currently-hiring', filters: { hiring: 'yes' } });
+    expect(onClose).not.toHaveBeenCalled(); // the page moves on to the list: it does not also step back
   });
 
   it('never uses ranking language like "best" or "top" - discovery only, no unsupported quality claims', async () => {

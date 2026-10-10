@@ -4,11 +4,17 @@ import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locat
 
 // Clearbit has near-zero coverage of small/seed-stage companies. Cascade to Google's favicon service (much
 // higher hit-rate) before falling back to the plain initial-letter badge rendered underneath this <img>.
+// The logo is drawn big, so it appears only once it has loaded and is a real logo: until then (and if it never is) the first letter
+// shows. A picture too small to be a logo is the favicon service's stand-in for a site it does not know.
 function logoImg(domain, size) {
   const img = document.createElement('img');
   img.className = 'pin-logo';
   img.alt = '';
   img.decoding = 'async';
+  img.onload = () => {
+    if (img.naturalWidth >= 24) img.classList.add('pin-logo-ready');
+    else img.onerror();
+  };
   img.src = `https://logo.clearbit.com/${domain}?size=${size}`;
   img.onerror = () => {
     img.onerror = () => { img.style.display = 'none'; };
@@ -23,13 +29,12 @@ function pinElement(tuple, { color, logos, selected, tracked }) {
   const root = document.createElement('div');
   // A suburb is not an office: its pin is drawn as approximate (a dashed edge), so it is never read as an address.
   root.className = `custom-pin-badge${selected ? ' pin-selected' : ''}${precision === 'SUBURB' ? ' pin-approx' : ''}`;
-  root.style.borderColor = color;
   const fallback = document.createElement('span');
   fallback.className = 'pin-fallback';
   fallback.style.background = color;
   fallback.textContent = (name || '?').trim().charAt(0).toUpperCase();
   root.append(fallback);
-  if (logos && domain) root.append(logoImg(domain, 64));
+  if (logos && domain) root.append(logoImg(domain, 96));
   // The name under the pin. It starts hidden: the map shows it (placeLabels) once zoomed in and only where it fits. The hover
   // tooltip and the company's panel carry the name for everyone else, so the label is for looking, not for reading out.
   const label = document.createElement('span');
@@ -263,7 +268,7 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
       } else {
         const t = tuples[f.i];
         const html = pinElement(t, { color: colors[t[4]] || '#444', logos, selected: t[1] === selected, tracked: tracked?.has(t[1]) || false });
-        marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ className: 'custom-leaflet-marker', html, iconSize: [36, 36], iconAnchor: [18, 18] }) });
+        marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ className: 'custom-leaflet-marker', html, iconSize: [44, 44], iconAnchor: [22, 22] }) });
         marker.bindTooltip(tooltipContent(t), { direction: 'top', offset: [0, -20], sticky: true });
         marker.on('click', () => onSelect?.(pinPayload(t)));
         const el = html.querySelector('.pin-label');

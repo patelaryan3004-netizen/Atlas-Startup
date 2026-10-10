@@ -35,6 +35,14 @@ function PanelLogo({ domain }) {
   return <img className="pc-avatar-logo" src={src} alt="" onError={() => setStep((s) => s + 1)} />;
 }
 
+// What a source backs, in the words a visitor uses (a field the list does not know is shown as it is named).
+const BACKS = {
+  description: 'what it does', website: 'its website', address: 'its address', city: 'its city', state: 'its state', founded_year: 'the year it started',
+  hiring_status: 'whether it is hiring', founders: 'its founders', investors: 'its investors', stage: 'its stage', company_status: 'whether it is operating',
+  last_funding_date: 'its funding', last_funding_round: 'its funding', funding_total: 'its funding', employee_range: 'its team size',
+};
+const backsText = (fields) => [...new Set(fields.map((f) => BACKS[f] ?? f))].join(', ');
+
 const APPROXIMATE_NOTE = {
   SUBURB: () => 'Approximate: the pin is at the suburb, not the office.',
   CITY: (s) => `No pin: shown as a group in ${s.city || 'its city'} on the map.`,
@@ -109,6 +117,9 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
   const tracked = isTracked(s.name);
   const matchingNews = relatedNews(news, s.name);
   const investorCount = s.investors?.length || 0;
+  // The page that backs "hiring now": the company's own job board when a page was read, the company's site otherwise.
+  const board = s.hiring_source?.url ?? s.hiring_source_url ?? null;
+  const rolesLink = board ?? s.website;
 
   return (
     <div className="sdp-overlay" onClick={onClose}>
@@ -214,7 +225,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
               {s.hiring ? (
                 <>
                   <span className="hiring-badge">● Hiring now</span>
-                  {s.website && <a className="taskbtn sdp-apply-btn" href={s.website} target="_blank" rel="noopener noreferrer">Apply now</a>}
+                  {rolesLink && <a className="taskbtn sdp-apply-btn" href={rolesLink} target="_blank" rel="noopener noreferrer">{board ? 'View open roles' : 'Apply now'}</a>}
                 </>
               ) : s.rolesUnverified ? (
                 <span className="hiring-badge hiring-badge-off">Roles unverified</span>
@@ -223,7 +234,13 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
               )}
               <ConceptPreview company={s} />
             </div>
-            {s.hiring && checkedOn(s.hiring_verified_at) && <p className="sdp-hiring-note">Open roles checked on {checkedOn(s.hiring_verified_at)}.</p>}
+            {s.hiring && s.hiring_source && (
+              <p className="sdp-hiring-note">
+                Verified from the company&rsquo;s own job board, <a href={s.hiring_source.url} target="_blank" rel="noopener noreferrer">{domainOf(s.hiring_source.url) ?? s.hiring_source.url}</a>
+                {checkedOn(s.hiring_source.checked_at) ? `, on ${checkedOn(s.hiring_source.checked_at)}` : ''}.
+              </p>
+            )}
+            {s.hiring && !s.hiring_source && checkedOn(s.hiring_verified_at) && <p className="sdp-hiring-note">Open roles checked on {checkedOn(s.hiring_verified_at)}.</p>}
             {s.rolesUnverified && <p className="sdp-hiring-note">Marked as hiring, but no open role has been checked against the company&rsquo;s own pages, so it is not counted as hiring.</p>}
           </div>
 
@@ -255,11 +272,36 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             </details>
           )}
 
-          {s.website && (
-            <a className="pc-link sdp-website-link" href={s.website} target="_blank" rel="noopener noreferrer">
-              {s.website.replace(/^https?:\/\//, '')} ↗
-            </a>
+          {!loading && (
+            <details className="sdp-sources sdp-section">
+              <summary className="pc-section-label">
+                Where this comes from{checkedOn(s.checked_at) ? ` · checked ${checkedOn(s.checked_at)}` : ''}
+              </summary>
+              {s.sources?.length > 0 ? (
+                <ul className="sdp-sources-list">
+                  {s.sources.map((src) => (
+                    <li key={src.url}>
+                      <a href={src.url} target="_blank" rel="noopener noreferrer">{src.title || domainOf(src.url) || src.url}</a>
+                      <span className="sdp-source-meta">{domainOf(src.url)}{src.backs?.length ? ` · backs ${backsText(src.backs)}` : ''}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="sdp-sources-none">No public page has been checked for this company yet, so its details are unconfirmed.</p>
+              )}
+            </details>
           )}
+
+          <div className="sdp-links">
+            {s.website && (
+              <a className="pc-link sdp-website-link" href={s.website} target="_blank" rel="noopener noreferrer">
+                {s.website.replace(/^https?:\/\//, '')} ↗
+              </a>
+            )}
+            <a className="pc-link sdp-linkedin-link" href={`https://www.linkedin.com/search/results/companies/?keywords=${encodeURIComponent(s.name)}`} target="_blank" rel="noopener noreferrer" title={`Search LinkedIn for ${s.name}`}>
+              Find on LinkedIn ↗
+            </a>
+          </div>
           <button className="pc-suggest-edit" onClick={() => onSuggestEdit(s.name)}>✎ Suggest an edit</button>
         </div>
       </div>

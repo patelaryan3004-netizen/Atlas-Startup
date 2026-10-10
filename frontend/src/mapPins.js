@@ -120,14 +120,14 @@ export const labelsVisible = (zoom, narrow = false) => zoom >= (narrow ? LABEL_Z
 
 // The room a label takes, in pixels, from the centre of its pin. (The styles set a 24px-tall chip, at most 160px wide, that
 // hangs 20px under the centre: the page works out where labels fit without measuring a single element.)
-const PIN_RADIUS = 18;
-const LABEL_TOP = 20;
-const LABEL_HEIGHT = 24;
-const LABEL_MAX_WIDTH = 160;
+const PIN_RADIUS = 22; // the pin is 44px across
+const LABEL_TOP = 16; // the name card starts a little way up under the ring (styles.css .pin-label)
+const LABEL_HEIGHT = 26;
+const LABEL_MAX_WIDTH = 170;
 const CLUSTER_RADIUS = 20; // a cluster's circle is 40px across
 const LABEL_GAP = 2; // clear air between a label and whatever is beside it
 export const MAX_LABELS = 150; // however many pins are on screen, the page names at most this many
-export const labelWidth = (text) => Math.min(LABEL_MAX_WIDTH, Math.round(String(text).length * 6.8) + 20);
+export const labelWidth = (text) => Math.min(LABEL_MAX_WIDTH, Math.round(String(text).length * 7.2) + 22);
 
 const overlaps = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
 

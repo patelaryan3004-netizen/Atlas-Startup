@@ -3,6 +3,7 @@ import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import Leaderboard from './Leaderboard.jsx';
 import NotableStartups from './NotableStartups.jsx';
 import MostVouched from './MostVouched.jsx';
+import MultiSelect from './MultiSelect.jsx';
 
 const STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
 // How well a company's place is known. A pin is only drawn for the first two; a city or a state alone is a group on the map.
@@ -59,15 +60,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
               <div className="fdrawer-content">
                 <div className="fsection">
                   <div className="fsection-label">Location</div>
-                  <div className="fgroup">
-                    <label htmlFor="fCity">City</label>
-                    <select id="fCity" value={filters.city} onChange={set('city')}>
-                      <option value="">All cities</option>
-                      {meta.cities.map((v) => (
-                        <option key={v} value={v}>{v}</option>
-                      ))}
-                    </select>
-                  </div>
+                  <MultiSelect id="fCity" label="City" noun="cities" all="All cities" options={meta.cities} value={filters.city} onChange={(city) => onChange({ ...filters, city })} />
                   <div className="fgroup">
                     <label htmlFor="fState">State</label>
                     <select id="fState" value={filters.state ?? ''} onChange={set('state')}>
@@ -90,15 +83,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
 
                 <div className="fsection">
                   <div className="fsection-label">Industry</div>
-                  <div className="fgroup">
-                    <label htmlFor="fSector">Sector</label>
-                    <select id="fSector" value={filters.sector} onChange={set('sector')}>
-                      <option value="">All sectors</option>
-                      {meta.sectors.map((v) => (
-                        <option key={v} value={v}>{v}</option>
-                      ))}
-                    </select>
-                  </div>
+                  <MultiSelect id="fSector" label="Sector" noun="sectors" all="All sectors" options={meta.sectors} value={filters.sector} onChange={(sector) => onChange({ ...filters, sector })} />
                 </div>
 
                 <div className="fsection">

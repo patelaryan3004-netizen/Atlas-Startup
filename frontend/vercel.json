@@ -5,7 +5,12 @@
     { "source": "/welcome", "destination": "/index.html" },
     { "source": "/welcome/", "destination": "/index.html" },
     { "source": "/investors", "destination": "/index.html" },
-    { "source": "/investors/:path*", "destination": "/index.html" }
+    { "source": "/investors/:path*", "destination": "/index.html" },
+    { "source": "/startup/:path*", "destination": "/index.html" },
+    { "source": "/jobs", "destination": "/index.html" },
+    { "source": "/lists", "destination": "/index.html" },
+    { "source": "/lists/:path*", "destination": "/index.html" },
+    { "source": "/news", "destination": "/index.html" }
   ],
   "headers": [
     {
