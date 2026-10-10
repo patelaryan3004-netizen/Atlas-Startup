@@ -48,7 +48,7 @@ html,body,#root{margin:0;height:100%;font-family:'Inter',-apple-system,BlinkMacS
   display:flex;align-items:center;justify-content:center;
   transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;
 }
-.custom-pin-badge:hover{transform:scale(1.18);box-shadow:0 4px 16px rgba(0,0,0,.6), 0 0 0 2px rgba(245,166,35,.35);z-index:1000;}
+.custom-pin-badge:hover{transform:scale(1.1);box-shadow:0 4px 16px rgba(0,0,0,.6), 0 0 0 2px rgba(245,166,35,.35);z-index:1000;}
 .pin-fallback{
   position:absolute;inset:0;border-radius:50%;color:#fff;
   display:flex;align-items:center;justify-content:center;
@@ -70,6 +70,16 @@ html,body,#root{margin:0;height:100%;font-family:'Inter',-apple-system,BlinkMacS
   background:var(--accent);color:#3d2a04;border:2px solid var(--paper);
   display:flex;align-items:center;justify-content:center;font-size:9px;line-height:1;
 }
+
+/* A company's name under its pin: from zoom 7 (9 on a phone), and only where it fits (MapView.placeLabels): no two names and
+   no name and another pin overlap. A dark chip like the panels, not a white one: the map is dark. */
+.pin-label{
+  display:none;position:absolute;left:50%;top:calc(100% + 5px);transform:translateX(-50%);
+  max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none;
+  padding:2px 9px;border-radius:10px;background:var(--panel);border:1px solid var(--line);
+  box-shadow:0 2px 8px rgba(0,0,0,.45);font-size:12px;font-weight:650;line-height:1.5;color:var(--ink);
+}
+.show-pin-labels .pin-label.pin-label-on{display:block;}
 
 /* A suburb is not an office: its pin has a dashed edge and a softer face, so it is never read as an address. */
 .custom-pin-badge.pin-approx{border-style:dashed;}
@@ -373,14 +383,13 @@ header h1 span{color:var(--accent);}
 
 .dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(10,14,15,.5);}
 
-.taskgate-badge{
-  /* Outlined, not solid-filled: this is an informational tag, not the
-     card's action - the Apply button next to it is. A second solid-amber
-     shape beside the CTA made the two compete for attention. */
-  display:inline-block;font-family:'Courier New',ui-monospace,monospace;font-size:9px;font-weight:700;letter-spacing:.5px;
-  padding:2px 6px;border-radius:4px;background:none;border:1px solid var(--accent);color:var(--accent);margin-left:4px;
+/* A company that opted in to task-gated applications: a concept, not a product, so the label is muted and dashed, never an offer. */
+.concept-label{
+  display:inline-block;padding:2px 8px;border-radius:999px;border:1px dashed var(--line);
+  font-size:10.5px;font-weight:600;letter-spacing:.2px;color:var(--muted);margin-left:4px;
 }
-.taskgate-locked{background:none;border-color:var(--line);color:var(--muted);}
+/* One line under the hiring badge in a company's panel: when its roles were checked, or why it is not counted. */
+.sdp-hiring-note{margin:8px 0 0;font-size:11.5px;line-height:1.45;color:var(--muted);}
 
 .pc{font-family:inherit;font-size:13px;color:var(--ink);}
 .pc-hero{position:relative;padding:16px;color:#fff;}
@@ -423,6 +432,9 @@ header h1 span{color:var(--accent);}
   font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;
 }
 .pc-inv-name{font-size:11.5px;color:var(--ink);}
+/* An investor with a page in the investor directory: the name opens it. */
+.pc-inv-link{padding:0;font-family:inherit;background:none;border:none;cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:#747c7e;text-underline-offset:3px;transition:text-decoration-color .15s ease;}
+.pc-inv-link:hover{text-decoration-color:var(--accent);}
 .pc-founders{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
 .pc-founder{display:flex;align-items:center;gap:8px;}
 .pc-founder-avatar{
@@ -568,7 +580,7 @@ header h1 span{color:var(--accent);}
 .startup-card{
   background:var(--panel); border:1px solid var(--line); border-radius:10px;
   box-shadow:0 8px 24px rgba(0,0,0,.35); padding:18px; display:flex; flex-direction:column; gap:10px;
-  font-family:inherit; text-align:left; cursor:pointer; transition:border-color .15s ease, transform .15s ease;
+  font-family:inherit; color:var(--ink); text-align:left; cursor:pointer; transition:border-color .15s ease, transform .15s ease;
 }
 .startup-card:hover{border-color:var(--accent);transform:translateY(-2px);}
 .startup-card-selected{border-color:var(--accent);box-shadow:0 8px 24px rgba(0,0,0,.35), 0 0 0 1px var(--accent);}
@@ -719,3 +731,51 @@ header h1 span{color:var(--accent);}
   background:rgba(245,166,35,.12);color:var(--ink);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
 }
 .area-viewall:hover,.area-viewall:focus-visible{background:rgba(245,166,35,.24);outline:none;}
+
+/* The map's key: a button above the footer, and a card that opens above the button. The marks in the card are the map's own
+   (the same classes, shrunk below), so what the key shows is what the map draws. */
+#mapKeyToggle{position:absolute;bottom:60px;left:24px;z-index:480;}
+#mapKeyToggle[aria-expanded="true"]{border-color:var(--accent);}
+#mapKey{
+  position:absolute;bottom:104px;left:24px;z-index:490;width:300px;max-height:calc(100vh - 300px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:#3a4144 transparent;
+  background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);padding:12px 16px 14px;font-size:12px;line-height:1.4;
+}
+.mk-head{display:flex;align-items:center;justify-content:space-between;}
+.mk-title{margin:0;font-size:12.5px;font-weight:700;}
+.mk-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:13px;line-height:1;padding:4px;}
+.mk-close:hover{color:var(--ink);}
+.mk-group{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);}
+.mk-head + .mk-group{border-top:none;padding-top:0;margin-top:6px;}
+.mk-label{margin:0 0 8px;font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+.mk-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.mk-row:last-child{margin-bottom:0;}
+.mk-mark{flex:none;width:34px;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.mk-text{flex:1;min-width:0;margin:0;color:var(--ink);}
+.mk-colours summary{cursor:pointer;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+.mk-colours summary:hover,.mk-colours[open] summary{color:var(--ink);}
+.mk-note-inline{margin:8px 0 0;color:var(--muted);font-size:11px;}
+.mk-sectors{display:flex;flex-direction:column;gap:7px;margin:10px 0 0;padding:0;list-style:none;}
+.mk-sectors li{display:flex;align-items:flex-start;gap:9px;min-width:0;}
+.mk-sectors span{min-width:0;overflow-wrap:anywhere;}
+.mk-sector-dot{flex:none;width:10px;height:10px;margin-top:3px;border-radius:50%;}
+.mk-sizes{display:flex;flex-wrap:wrap;gap:4px 10px;margin:-3px 0 9px 46px;color:var(--muted);font-size:11px;}
+.mk-sizes span{display:inline-flex;align-items:center;gap:5px;}
+.mk-dot{flex:none;width:9px;height:9px;border-radius:50%;}
+.mk-ring{
+  width:28px;height:28px;border-radius:50%;border:2px dashed rgba(232,230,222,.5);
+  background:radial-gradient(circle,rgba(232,230,222,.07),rgba(232,230,222,.03) 70%,transparent 72%);
+}
+.mk-note{margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;}
+#mapKey .custom-pin-badge{width:26px;height:26px;border-width:2px;cursor:default;}
+#mapKey .pin-fallback{font-size:11px;}
+#mapKey .pin-hiring-dot{top:-3px;right:-3px;width:9px;height:9px;}
+#mapKey .pin-tracked-star{bottom:-4px;left:-4px;width:13px;height:13px;font-size:8px;}
+#mapKey .marker-cluster-inner{width:28px;height:28px;border-width:1.5px;font-size:11px;cursor:default;}
+
+/* On a phone the key sits level with the Map / List switch, to its left, and opens as a card as wide as the screen allows.
+   (After the rules above, which it overrides.) */
+@media (max-width:640px){
+  #mapKeyToggle{bottom:84px;left:16px;padding:7px 12px;}
+  #mapKey{left:16px;right:16px;bottom:128px;width:auto;max-height:calc(100vh - 330px);} /* stays below the news pill at the top right */
+}

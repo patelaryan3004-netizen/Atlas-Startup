@@ -28,12 +28,13 @@ vi.mock('../src/components/MapView.jsx', () => ({
 }));
 
 vi.mock('../src/components/StartupDetailPanel.jsx', () => ({
-  default: ({ startup, onSuggestEdit, onSelectPerson, onClose }) => (
+  default: ({ startup, onSuggestEdit, onSelectPerson, onOpenInvestor, onClose }) => (
     <div data-testid="startup-detail-panel" data-partial={String(Boolean(startup.partial))}>
       <span>{startup.name}</span>
       {startup.founders && <span data-testid="founders">{startup.founders.join(',')}</span>}
       <button onClick={() => onSuggestEdit(startup.name)}>trigger-suggest-edit</button>
       <button onClick={() => onSelectPerson('Melanie Perkins')}>trigger-person</button>
+      <button onClick={() => onOpenInvestor('blackbird')}>trigger-open-investor</button>
       <button onClick={onClose}>trigger-detail-close</button>
     </div>
   ),
@@ -43,6 +44,15 @@ vi.mock('../src/components/JobsView.jsx', () => ({
   default: ({ onClose }) => (
     <div data-testid="jobs-view">
       <button onClick={onClose}>trigger-jobs-close</button>
+    </div>
+  ),
+}));
+
+vi.mock('../src/components/investors/InvestorsView.jsx', () => ({
+  default: ({ initialRoute, fromLink, onClose, onOpenCompany }) => (
+    <div data-testid="investors-view" data-route={JSON.stringify(initialRoute)} data-from-link={String(Boolean(fromLink))}>
+      <button onClick={onClose}>trigger-investors-close</button>
+      <button onClick={() => onOpenCompany({ slug: 'canva', name: 'Canva', sector: 'AI' })}>trigger-investors-company</button>
     </div>
   ),
 }));
@@ -284,6 +294,21 @@ describe('App', () => {
       expect(screen.getByTestId('map-view')).toBeInTheDocument();
     });
 
+    it('offers the map\'s key over the map, listing the sectors the map colours, and not over the list', async () => {
+      render(<App />);
+      await screen.findByText('(2)', { selector: '.bc-pinned' });
+      await userEvent.click(screen.getByRole('button', { name: 'Key' }));
+      const key = screen.getByRole('region', { name: 'Map key' });
+      expect([...key.querySelectorAll('.mk-sectors li')].map((li) => li.textContent)).toEqual(['AI', 'Fintech']);
+
+      await userEvent.click(screen.getByRole('button', { name: 'List (2)' }));
+      expect(screen.queryByRole('button', { name: 'Key' })).not.toBeInTheDocument();
+      expect(screen.queryByRole('region', { name: 'Map key' })).not.toBeInTheDocument();
+
+      await userEvent.click(screen.getByText('Map'));
+      expect(screen.getByRole('button', { name: 'Key' })).toHaveAttribute('aria-expanded', 'false'); // shut again, as on a first visit
+    });
+
     it('gives the filter drawer the number of matches, and its Leaderboard tab the cities the server counted', async () => {
       fetchSummary.mockResolvedValue(summaryOf({ count: 41, topCities: [{ city: 'Sydney', count: 30 }, { city: 'Melbourne', count: 11 }] }));
       render(<App />);
@@ -469,6 +494,83 @@ describe('App', () => {
       await userEvent.click(screen.getByText('trigger-jobs-close'));
       expect(screen.getByTestId('map-view')).toBeInTheDocument();
       expect(screen.queryByTestId('jobs-view')).not.toBeInTheDocument();
+    });
+
+    it('swaps to the investor directory (no map) when Investors is clicked, and back to the map on close', async () => {
+      render(<App />);
+      await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'list' }));
+
+      await userEvent.click(screen.getByText('trigger-investors-close'));
+      expect(screen.getByTestId('map-view')).toBeInTheDocument();
+      expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
+    });
+
+    it('offers Investors in the menu too, for a phone', async () => {
+      render(<App />);
+      const menu = await openMenu();
+      await userEvent.click(menu.getByText('Investors'));
+      expect(screen.getByTestId('investors-view')).toBeInTheDocument();
+    });
+
+    it('opens the directory, or one investor or person, when linked by their own addresses', async () => {
+      for (const [address, route] of [['/investors', { kind: 'list' }], ['/investors/blackbird', { kind: 'investor', slug: 'blackbird' }], ['/investors/people/sam', { kind: 'person', slug: 'sam' }]]) {
+        window.history.pushState({}, '', address);
+        const view = render(<App />);
+        expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify(route));
+        expect(screen.getByTestId('investors-view').dataset.fromLink).toBe('true'); // it is in the history already
+        expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+        view.unmount();
+      }
+      window.history.pushState({}, '', '/');
+    });
+
+    it('opened from the nav the pages are not "from a link": the address gets a step of its own', async () => {
+      render(<App />);
+      await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+      expect(screen.getByTestId('investors-view').dataset.fromLink).toBe('false');
+    });
+
+    it('opens the directory, or one investor or person, when linked the way the first version did, with ?view=investors', async () => {
+      window.history.pushState({}, '', '/?view=investors');
+      const first = render(<App />);
+      expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'list' }));
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      first.unmount();
+
+      window.history.pushState({}, '', '/?view=investors&investor=blackbird');
+      const second = render(<App />);
+      expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'investor', slug: 'blackbird' }));
+      second.unmount();
+
+      window.history.pushState({}, '', '/?view=investors&investorPerson=sam');
+      render(<App />);
+      expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'person', slug: 'sam' }));
+      window.history.pushState({}, '', '/');
+    });
+
+    it('opens an investor from a company\'s panel, and the panel is closed behind it', async () => {
+      render(<App />);
+      await userEvent.click(await screen.findByText('trigger-select'));
+      expect(screen.getByTestId('startup-detail-panel')).toBeInTheDocument();
+      await userEvent.click(screen.getByText('trigger-open-investor'));
+      expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'investor', slug: 'blackbird' }));
+      expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument();
+
+      await userEvent.click(screen.getByText('trigger-investors-close'));
+      expect(screen.getByTestId('map-view')).toBeInTheDocument();
+      expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument();
+    });
+
+    it('opens a company an investor backed over the map, and leaves the directory', async () => {
+      render(<App />);
+      await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+      await userEvent.click(screen.getByText('trigger-investors-company'));
+      expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
+      expect(screen.getByTestId('map-view')).toBeInTheDocument();
+      expect(await screen.findByTestId('startup-detail-panel')).toHaveTextContent('Canva');
+      await waitFor(() => expect(fetchStartup).toHaveBeenCalledWith('canva'));
     });
 
     it('opens Curated lists via the More menu and closes it again', async () => {

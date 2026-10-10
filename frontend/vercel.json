@@ -3,7 +3,9 @@
   "installCommand": "npm ci",
   "rewrites": [
     { "source": "/welcome", "destination": "/index.html" },
-    { "source": "/welcome/", "destination": "/index.html" }
+    { "source": "/welcome/", "destination": "/index.html" },
+    { "source": "/investors", "destination": "/index.html" },
+    { "source": "/investors/:path*", "destination": "/index.html" }
   ],
   "headers": [
     {

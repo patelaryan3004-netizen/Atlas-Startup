@@ -49,7 +49,7 @@ describe('JobsView', () => {
   it('requests only hiring companies, a page at a time in name order, with the options for its filters, regardless of map filters', async () => {
     fakeServer([]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
-    await screen.findByText('No companies are marked as hiring right now.');
+    await screen.findByText('No company has open roles checked against its own pages right now.');
     expect(fetchStartupPage.mock.calls[0][0]).toMatchObject({ hiring: 'yes' });
     expect(fetchStartupPage.mock.calls[0][1]).toMatchObject({ limit: 24, offset: 0, sort: 'name', facets: 'sector,city,stage' });
   });
@@ -86,7 +86,7 @@ describe('JobsView', () => {
     expect(screen.getByText('Unverified')).toBeInTheDocument();
   });
 
-  it('shows a task-gate badge and CTA copy when task-gated, plain Apply otherwise', async () => {
+  it('shows no task-gate badge and no "Start task" button, even for a company flagged as task-gated: the same plain Apply for every card', async () => {
     fakeServer([
       job({ name: 'Gated Co', slug: 'gated', taskGate: { enabled: true, type: 'Design task' } }),
       job({ name: 'Open Co', slug: 'open', taskGate: { enabled: false, type: null } }),
@@ -94,16 +94,31 @@ describe('JobsView', () => {
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
 
     await screen.findByText('Gated Co');
-    expect(screen.getByText('TASK-GATE · Design task')).toBeInTheDocument();
-    expect(screen.getByText('Start task → Apply')).toBeInTheDocument();
-    expect(screen.getByText('NO GATE')).toBeInTheDocument();
-    expect(screen.getByText('Apply now')).toBeInTheDocument();
+    expect(screen.queryByText(/TASK-GATE/i)).not.toBeInTheDocument();
+    expect(screen.queryByText('NO GATE')).not.toBeInTheDocument();
+    expect(screen.queryByText('Start task → Apply')).not.toBeInTheDocument();
+    expect(screen.getAllByText('Apply now')).toHaveLength(2);
+  });
+
+  it('labels a company that opted in to task-gated applications as a concept preview, and no other', async () => {
+    fakeServer([job({ name: 'Opted Co', slug: 'opted', taskGate: { enabled: true, optedIn: true } }), job({ name: 'Plain Co', slug: 'plain' })]);
+    render(<JobsView sectorColors={{}} onClose={() => {}} />);
+    await screen.findByText('Opted Co');
+    const labels = screen.getAllByText('Concept preview');
+    expect(labels).toHaveLength(1);
+    expect(labels[0].closest('.job-card')).toHaveTextContent('Opted Co');
+  });
+
+  it('says which companies are listed: only those whose open roles were read from a page', async () => {
+    fakeServer([job()]);
+    render(<JobsView sectorColors={{}} onClose={() => {}} />);
+    expect(await screen.findByText(/Only companies whose open roles were read from a page are listed/)).toBeInTheDocument();
   });
 
   it('makes the apply CTA a real link to the company website, not a dead button', async () => {
     fakeServer([job({ website: 'https://acme.example' })]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
-    const cta = await screen.findByText('Start task → Apply');
+    const cta = await screen.findByText('Apply now');
     expect(cta.tagName).toBe('A');
     expect(cta).toHaveAttribute('href', 'https://acme.example');
     expect(cta).toHaveAttribute('target', '_blank');
@@ -113,13 +128,13 @@ describe('JobsView', () => {
     fakeServer([job({ website: null })]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
     await screen.findByText('Acme AI');
-    expect(screen.queryByText('Start task → Apply')).not.toBeInTheDocument();
+    expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
   });
 
   it('shows an empty state when nobody is hiring', async () => {
     fakeServer([]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
-    expect(await screen.findByText('No companies are marked as hiring right now.')).toBeInTheDocument();
+    expect(await screen.findByText('No company has open roles checked against its own pages right now.')).toBeInTheDocument();
   });
 
   it('shows an error message when the fetch fails', async () => {

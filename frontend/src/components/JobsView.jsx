@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
+import ConceptPreview from './ConceptPreview.jsx';
 
 const PAGE = 24;
 
@@ -104,6 +105,7 @@ export default function JobsView({ sectorColors, onClose }) {
         <div>
           <h1>Startup jobs in Australia</h1>
           {haveOptions.current && !error && <p className="jobs-subhead">{hiringTotal} {hiringTotal === 1 ? 'company is' : 'companies are'} hiring now</p>}
+          {haveOptions.current && !error && <p className="jobs-subhead">Only companies whose open roles were read from a page are listed. A company marked as hiring that no page backs is not.</p>}
         </div>
         <button className="hdrbtn" onClick={onClose}>← Back to map</button>
       </header>
@@ -134,7 +136,7 @@ export default function JobsView({ sectorColors, onClose }) {
         )}
 
         {!loading && !error && haveOptions.current && hiringTotal === 0 && (
-          <p className="modal-sub">No companies are marked as hiring right now.</p>
+          <p className="modal-sub">No company has open roles checked against its own pages right now.</p>
         )}
         {!loading && !error && hiringTotal > 0 && jobs.length === 0 && (
           <p className="modal-sub">No open roles match those filters.</p>
@@ -159,15 +161,9 @@ export default function JobsView({ sectorColors, onClose }) {
               {s.blurb && <p className="pc-desc">{s.blurb}</p>}
 
               <div className="job-card-footer">
-                {s.taskGate?.enabled ? (
-                  <span className="taskgate-badge">TASK-GATE · {s.taskGate.type}</span>
-                ) : (
-                  <span className="taskgate-badge taskgate-locked">NO GATE</span>
-                )}
+                <ConceptPreview company={s} />
                 {s.website && (
-                  <a className="taskbtn" href={s.website} target="_blank" rel="noopener noreferrer">
-                    {s.taskGate?.enabled ? 'Start task → Apply' : 'Apply now'}
-                  </a>
+                  <a className="taskbtn" href={s.website} target="_blank" rel="noopener noreferrer">Apply now</a>
                 )}
               </div>
             </div>

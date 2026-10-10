@@ -6,6 +6,7 @@ import FilterPanel from './components/FilterPanel.jsx';
 import HeaderMenu from './components/HeaderMenu.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
+import MapKey from './components/MapKey.jsx';
 import SubmitStartupForm from './components/SubmitStartupForm.jsx';
 import SuggestEditForm from './components/SuggestEditForm.jsx';
 import StartupDetailPanel from './components/StartupDetailPanel.jsx';
@@ -19,6 +20,8 @@ import UnverifiedList from './components/UnverifiedList.jsx';
 import BottomCapsule from './components/BottomCapsule.jsx';
 import StartupListView from './components/StartupListView.jsx';
 import JobsView from './components/JobsView.jsx';
+import InvestorsView from './components/investors/InvestorsView.jsx';
+import { readRoute as readInvestorsRoute } from './components/investors/route.js';
 import CuratedLists from './components/CuratedLists.jsx';
 import WaitlistForm from './components/WaitlistForm.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
@@ -88,7 +91,9 @@ const aborted = (err) => err?.name === 'AbortError';
 // that is open. Everything else is asked of the server when it is needed, so the page is as fast at five
 // thousand companies as at two hundred.
 export default function App() {
-  // Where a link into the app lands: ?view=jobs, lists, list (the list of startups) or waitlist (the waitlist form).
+  // Where a link into the app lands: ?view=jobs, lists, list (the list of startups) or waitlist (the waitlist form); and the
+  // investor pages by their own addresses: /investors, /investors/<slug> and /investors/people/<slug> (the first version's
+  // ?view=investors addresses still work).
   const initialView = loadInitialView();
   const [meta, setMeta] = useState(EMPTY_META);
   const [filters, setFilters] = useState(loadFiltersFromUrl);
@@ -109,6 +114,10 @@ export default function App() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [showWaitlist, setShowWaitlist] = useState(initialView === 'waitlist');
   const [showJobs, setShowJobs] = useState(initialView === 'jobs');
+  const [showInvestors, setShowInvestors] = useState(() => readInvestorsRoute() !== null);
+  const [investorsStart, setInvestorsStart] = useState(() => readInvestorsRoute() ?? { kind: 'list' });
+  // Opened from a link, the page is already in the history; opened from the map it is a step of its own, so Back returns to the map.
+  const [investorsFromLink, setInvestorsFromLink] = useState(() => readInvestorsRoute() !== null);
   const [showCuratedLists, setShowCuratedLists] = useState(initialView === 'lists');
   const [editingCompany, setEditingCompany] = useState(null);
   const [selectedStartup, setSelectedStartup] = useState(null);
@@ -204,8 +213,27 @@ export default function App() {
 
   const goExplore = () => setShowJobs(false);
 
+  // The investor directory, or one investor or person in it. A company's panel is closed first: it was a step along the way.
+  const openInvestors = useCallback((route = { kind: 'list' }) => {
+    setSelectedStartup(null);
+    setInvestorsStart(route);
+    setInvestorsFromLink(false);
+    setShowInvestors(true);
+  }, []);
+
   if (showJobs) {
     return <JobsView sectorColors={sectorColors} onClose={() => setShowJobs(false)} />;
+  }
+
+  if (showInvestors) {
+    return (
+      <InvestorsView
+        initialRoute={investorsStart}
+        fromLink={investorsFromLink}
+        onClose={() => setShowInvestors(false)}
+        onOpenCompany={(company) => { setShowInvestors(false); openStartup(company); }}
+      />
+    );
   }
 
   return (
@@ -221,6 +249,7 @@ export default function App() {
           <button className="nav-link" onClick={() => setShowJobs(true)}>
             Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
           </button>
+          <button className="nav-link" onClick={() => openInvestors()}>Investors</button>
           <button className="nav-link" onClick={() => setShowCuratedLists(true)}>Lists</button>
           <button className="nav-link" onClick={toggleNews}>News</button>
         </nav>
@@ -232,6 +261,7 @@ export default function App() {
             onExplore={goExplore}
             onShowJobs={() => setShowJobs(true)}
             hiringCount={hiringCount}
+            onShowInvestors={() => openInvestors()}
             onShowCuratedLists={() => setShowCuratedLists(true)}
             newsVisible={newsVisible}
             onToggleNews={toggleNews}
@@ -281,6 +311,8 @@ export default function App() {
         summary={summary}
       />
 
+      {viewMode === 'map' && <MapKey sectorColors={sectorColors} />}
+
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
 
       <BottomCapsule pinnedCount={pinnedCount} viewMode={viewMode} onSetViewMode={setViewMode} />
@@ -310,6 +342,7 @@ export default function App() {
           onToggleTracked={toggleTracked}
           onSuggestEdit={setEditingCompany}
           onSelectPerson={openPerson}
+          onOpenInvestor={(slug) => openInvestors({ kind: 'investor', slug })}
           onClose={() => setSelectedStartup(null)}
         />
       )}

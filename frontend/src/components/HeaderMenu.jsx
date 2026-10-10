@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 
 export default function HeaderMenu({
-  onExplore, onShowJobs, hiringCount, onShowCuratedLists, newsVisible, onToggleNews, onShowSubmitForm, onShowWaitlist,
+  onExplore, onShowJobs, hiringCount, onShowInvestors, onShowCuratedLists, newsVisible, onToggleNews, onShowSubmitForm, onShowWaitlist,
   onShowUnverified, unverifiedCount, onShowTracked, trackedCount,
 }) {
   const [open, setOpen] = useState(false);
@@ -30,6 +30,7 @@ export default function HeaderMenu({
               <button className="hdr-menu-item" onClick={go(onShowJobs)}>
                 Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
               </button>
+              <button className="hdr-menu-item" onClick={go(onShowInvestors)}>Investors</button>
               <button className="hdr-menu-item" onClick={go(onShowCuratedLists)}>Lists</button>
               <button className="hdr-menu-item" onClick={go(onToggleNews)}>{newsVisible ? 'Hide news' : 'News'}</button>
               <button className="hdr-menu-item hdr-menu-item-accent" onClick={go(onShowSubmitForm)}>Submit a startup</button>

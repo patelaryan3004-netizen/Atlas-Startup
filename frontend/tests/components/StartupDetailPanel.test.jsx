@@ -4,9 +4,10 @@ import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
   fetchNews: vi.fn(),
+  fetchInvestorsByName: vi.fn(),
 }));
 
-import { fetchNews } from '../../src/api.js';
+import { fetchNews, fetchInvestorsByName } from '../../src/api.js';
 import StartupDetailPanel from '../../src/components/StartupDetailPanel.jsx';
 
 function startup(overrides = {}) {
@@ -32,6 +33,7 @@ function setup(overrides = {}) {
   const onToggleTracked = vi.fn();
   const onSuggestEdit = vi.fn();
   const onSelectPerson = vi.fn();
+  const onOpenInvestor = overrides.withInvestors ? vi.fn() : undefined;
   const onClose = vi.fn();
   const result = render(
     <StartupDetailPanel
@@ -41,10 +43,11 @@ function setup(overrides = {}) {
       onToggleTracked={onToggleTracked}
       onSuggestEdit={onSuggestEdit}
       onSelectPerson={onSelectPerson}
+      onOpenInvestor={onOpenInvestor}
       onClose={onClose}
     />
   );
-  return { onToggleTracked, onSuggestEdit, onSelectPerson, onClose, container: result.container, unmount: result.unmount };
+  return { onToggleTracked, onSuggestEdit, onSelectPerson, onOpenInvestor, onClose, container: result.container, unmount: result.unmount };
 }
 
 describe('StartupDetailPanel, while the full record is still arriving', () => {
@@ -189,22 +192,90 @@ describe('StartupDetailPanel', () => {
     expect(screen.queryByText('Investors')).not.toBeInTheDocument();
   });
 
-  it('shows a hiring badge and a task-gate-aware apply button when hiring', () => {
-    setup({ startup: { hiring: true, taskGate: { enabled: true, type: 'Coding task' } } });
-    expect(screen.getByText('● Hiring now')).toBeInTheDocument();
-    expect(screen.getByText('Start task → Apply')).toBeInTheDocument();
+  // An investor with a page in the directory becomes a link to it; one without stays a name.
+  describe('investors that have a page in the investor directory', () => {
+    const card = (slug, name, aliases = []) => ({ slug, name, aliases });
+
+    it('asks for the investors a company names, by their exact names, and links only those the directory has', async () => {
+      fetchInvestorsByName.mockResolvedValue({ results: [card('blackbird-ventures', 'Blackbird Ventures', ['Blackbird'])] });
+      const { onOpenInvestor } = setup({ withInvestors: true, startup: { investors: ['Blackbird', 'AirTree'] } });
+      const link = await screen.findByRole('button', { name: 'Blackbird' });
+      expect(fetchInvestorsByName).toHaveBeenCalledWith(['Blackbird', 'AirTree'], expect.objectContaining({ signal: expect.any(AbortSignal) }));
+      expect(screen.queryByRole('button', { name: 'AirTree' })).not.toBeInTheDocument();
+      expect(screen.getByText('AirTree')).toBeInTheDocument();
+      await userEvent.click(link);
+      expect(onOpenInvestor).toHaveBeenCalledWith('blackbird-ventures');
+    });
+
+    it('matches a company\'s name for an investor however it is cased or punctuated', async () => {
+      fetchInvestorsByName.mockResolvedValue({ results: [card('smith-co', 'Smith and Co.')] });
+      setup({ withInvestors: true, startup: { investors: ['smith & co'] } });
+      expect(await screen.findByRole('button', { name: 'smith & co' })).toBeInTheDocument();
+    });
+
+    it('leaves every name as text when the directory has none of them, or cannot be reached', async () => {
+      fetchInvestorsByName.mockResolvedValueOnce({ results: [] });
+      const first = setup({ withInvestors: true });
+      await vi.waitFor(() => expect(fetchInvestorsByName).toHaveBeenCalled());
+      expect(screen.queryByRole('button', { name: 'Blackbird' })).not.toBeInTheDocument();
+      first.unmount();
+      fetchInvestorsByName.mockRejectedValueOnce(new Error('down'));
+      setup({ withInvestors: true });
+      await vi.waitFor(() => expect(fetchInvestorsByName).toHaveBeenCalledTimes(2));
+      expect(screen.getByText('Blackbird')).toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: 'Blackbird' })).not.toBeInTheDocument();
+    });
+
+    it('asks nothing, and links nothing, where the panel cannot open an investor, or the company names none', () => {
+      setup({ startup: { investors: ['Blackbird'] } });
+      expect(fetchInvestorsByName).not.toHaveBeenCalled();
+      expect(screen.queryByRole('button', { name: 'Blackbird' })).not.toBeInTheDocument();
+      setup({ withInvestors: true, startup: { investors: [] } });
+      expect(fetchInvestorsByName).not.toHaveBeenCalled();
+    });
   });
 
-  it('shows a plain apply button when hiring without a task gate', () => {
-    setup({ startup: { hiring: true, taskGate: { enabled: false, type: null } } });
-    expect(screen.getByText('Apply now')).toBeInTheDocument();
+  it('shows a hiring badge and an apply link to the company site when hiring, and never a "Start task" button', () => {
+    setup({ startup: { hiring: true, taskGate: { enabled: true, type: 'Coding task' } } });
+    expect(screen.getByText('● Hiring now')).toBeInTheDocument();
+    const apply = screen.getByText('Apply now');
+    expect(apply.tagName).toBe('A');
+    expect(apply).toHaveAttribute('href', 'https://www.canva.com');
+    expect(apply).toHaveAttribute('target', '_blank');
+    expect(screen.queryByText('Start task → Apply')).not.toBeInTheDocument();
+    expect(screen.queryByText(/task-gate/i)).not.toBeInTheDocument();
+  });
+
+  it('shows no apply link when it is hiring but has no website, rather than a button that goes nowhere', () => {
+    setup({ startup: { hiring: true, website: '' } });
+    expect(screen.getByText('● Hiring now')).toBeInTheDocument();
+    expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
+  });
+
+  it('says when the open roles were checked, for a company whose roles a page showed', () => {
+    setup({ startup: { hiring: true, hiring_verified_at: '2026-10-05T12:00:00.000Z' } });
+    expect(screen.getByText('Open roles checked on 5 Oct 2026.')).toBeInTheDocument();
+  });
+
+  it('says "Roles unverified", with why, for a company flagged as hiring that no page backs: not hiring now, and not "not hiring" either', () => {
+    setup({ startup: { hiring: false, rolesUnverified: true } });
+    expect(screen.getAllByText('Roles unverified')).toHaveLength(2);
+    expect(screen.getByText(/no open role has been checked against the company.s own pages, so it is not counted as hiring/)).toBeInTheDocument();
+    expect(screen.queryByText('● Hiring now')).not.toBeInTheDocument();
+    expect(screen.queryByText('Not hiring right now')).not.toBeInTheDocument();
+    expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
   });
 
   it('shows a not-hiring badge and no apply button when not hiring', () => {
     setup({ startup: { hiring: false } });
     expect(screen.getByText('Not hiring right now')).toBeInTheDocument();
     expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
-    expect(screen.queryByText('Start task → Apply')).not.toBeInTheDocument();
+    expect(screen.queryByText('Roles unverified')).not.toBeInTheDocument();
+  });
+
+  it('labels a company that opted in to task-gated applications as a concept preview, and no other', () => {
+    setup({ startup: { hiring: true, taskGate: { enabled: true, optedIn: true } } });
+    expect(screen.getByText('Concept preview')).toBeInTheDocument();
   });
 
   it('shows only news whose headline or meta genuinely mentions the startup, never fabricated relevance', async () => {

@@ -3,6 +3,7 @@ import '@fontsource-variable/geist';
 import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount, DIRECTORY_URL } from './api.js';
 import LandingNav from './components/landing/LandingNav.jsx';
 import LandingHero from './components/landing/LandingHero.jsx';
+import ConceptPreview from './components/ConceptPreview.jsx';
 import { curatedLists } from './curatedLists.js';
 import './landing.css';
 import './landing-hero.css';
@@ -77,8 +78,8 @@ export default function LandingPage() {
             <h2>See who&rsquo;s hiring, right now.</h2>
             <p>
               {hiringCount
-                ? `${hiringCount} companies on the map are hiring today. Some gate applications behind a real work-sample task instead of a form.`
-                : 'Companies on the map show live hiring status, pulled from the same data as their pin.'}
+                ? `${hiringCount} ${hiringCount === 1 ? 'company has' : 'companies have'} open roles we have checked on ${hiringCount === 1 ? 'its' : 'their'} own pages.`
+                : 'A company is listed as hiring once its open roles have been checked against its own pages.'}
             </p>
           </div>
           {hiringSample.length > 0 && (
@@ -90,7 +91,7 @@ export default function LandingPage() {
                     <div className="landing-job-name">{s.name}</div>
                     <div className="landing-job-meta">{s.city} · {s.sector}</div>
                   </div>
-                  {s.taskGate?.enabled && <span className="landing-tag">Task-gated</span>}
+                  <ConceptPreview company={s} />
                 </div>
               ))}
             </div>

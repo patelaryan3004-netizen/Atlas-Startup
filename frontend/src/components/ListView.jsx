@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
+import ConceptPreview from './ConceptPreview.jsx';
 
 const PAGE = 48;
 
@@ -142,10 +143,12 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
               <div className="startup-card-tags">
                 {s.hiring ? (
                   <span className="hiring-badge">● Hiring now</span>
+                ) : s.rolesUnverified ? (
+                  <span className="hiring-badge hiring-badge-off" title="Marked as hiring, but no open role has been checked against the company's own pages">Roles unverified</span>
                 ) : (
                   <span className="hiring-badge hiring-badge-off">Not hiring</span>
                 )}
-                {s.taskGate?.enabled && <span className="taskgate-badge">TASK-GATE</span>}
+                <ConceptPreview company={s} />
                 {!s.verified && <span className="badge-unverified">Unverified</span>}
               </div>
             </button>

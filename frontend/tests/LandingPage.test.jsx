@@ -101,17 +101,19 @@ describe('LandingPage', () => {
     expect(fetchMarkers).toHaveBeenCalledWith({});
   });
 
-  it('shows the first four hiring companies the server sent as job cards, with a working task-gated tag', async () => {
+  it('shows the first four hiring companies the server sent as job cards, and no task-gated tag: that is not a thing a company has opted in to', async () => {
     const { container } = render(<LandingPage />);
     await waitFor(() => expect(container.querySelectorAll('.landing-job-card')).toHaveLength(4));
     const cards = [...container.querySelectorAll('.landing-job-card')].map((card) => card.querySelector('.landing-job-name').textContent);
     expect(cards).toEqual(['Canva', 'Airwallex', 'SafetyCulture', 'Culture Amp']);
-    expect(screen.getAllByText('Task-gated')).toHaveLength(1);
+    expect(screen.queryByText('Task-gated')).not.toBeInTheDocument();
+    expect(container.querySelector('.landing-tag')).toBeNull();
   });
 
   it('takes curated list counts from the server, counted with each list\'s own filters, not a hardcoded number', async () => {
     render(<LandingPage />);
-    expect(await screen.findByText('Task-gated only')).toBeInTheDocument();
+    expect(await screen.findByText('Sydney Startups')).toBeInTheDocument();
+    expect(screen.queryByText('Task-gated only')).not.toBeInTheDocument();
     expect(screen.getByText('Melbourne AI startups')).toBeInTheDocument();
     expect(screen.getByText('Startups Hiring Now')).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText('Startups Hiring Now').closest('.landing-list-card')).toHaveTextContent('2 companies'));
@@ -142,7 +144,7 @@ describe('LandingPage', () => {
     fetchSummary.mockRejectedValue(new Error('network error'));
     const { container } = render(<LandingPage />);
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Australia’s startup ecosystem, mapped.');
-    expect(await screen.findByText(/Companies on the map show live hiring status/)).toBeInTheDocument();
+    expect(await screen.findByText(/A company is listed as hiring once its open roles have been checked against its own pages/)).toBeInTheDocument();
     expect(container.querySelector('.hero-facts')).toBeNull();
   });
 

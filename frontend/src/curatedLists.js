@@ -110,14 +110,7 @@ export const curatedLists = [
     category: 'Location',
     filters: { city: 'Sydney,Sydney (Chippendale)' },
   },
-  {
-    id: 'task-gated',
-    type: 'filter',
-    name: 'Task-gated only',
-    description: 'Companies where applying means completing a real work-sample task first.',
-    category: 'Status',
-    filters: { taskGate: 'yes' },
-  },
+
   {
     id: 'melbourne-ai',
     type: 'filter',

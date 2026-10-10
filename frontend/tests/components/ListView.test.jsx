@@ -94,16 +94,26 @@ describe('ListView', () => {
     expect(await screen.findByText('Not hiring')).toBeInTheDocument();
   });
 
-  it('shows a task-gate tag only when the task gate is enabled', async () => {
-    fetchStartupPage.mockResolvedValue(page([startup({ taskGate: { enabled: true } })]));
+  it('says "Roles unverified", not "Hiring now" and not "Not hiring", for a company flagged as hiring that no page backs', async () => {
+    fetchStartupPage.mockResolvedValue(page([startup({ hiring: false, rolesUnverified: true })]));
+    mount();
+    const badge = await screen.findByText('Roles unverified');
+    expect(badge).toHaveClass('hiring-badge-off');
+    expect(screen.queryByText('● Hiring now')).not.toBeInTheDocument();
+    expect(screen.queryByText('Not hiring')).not.toBeInTheDocument();
+  });
+
+  it('shows no task-gate tag, even for a company flagged as task-gated, and a concept-preview label only for one that opted in', async () => {
+    fetchStartupPage.mockResolvedValue(page([startup({ taskGate: { enabled: true, type: 'Coding task' } })]));
     const { unmount } = mount();
-    expect(await screen.findByText('TASK-GATE')).toBeInTheDocument();
+    await screen.findByText('Canva');
+    expect(screen.queryByText(/TASK-GATE/i)).not.toBeInTheDocument();
+    expect(screen.queryByText('Concept preview')).not.toBeInTheDocument();
     unmount();
 
-    fetchStartupPage.mockResolvedValue(page([startup({ taskGate: { enabled: false } })]));
+    fetchStartupPage.mockResolvedValue(page([startup({ taskGate: { enabled: true, optedIn: true } })]));
     mount();
-    await screen.findByText('Canva');
-    expect(screen.queryByText('TASK-GATE')).not.toBeInTheDocument();
+    expect(await screen.findByText('Concept preview')).toBeInTheDocument();
   });
 
   it('shows an unverified tag only for unverified startups', async () => {

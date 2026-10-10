@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS } from '../src/mapPins.js';
+import {
+  createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS,
+  labelsVisible, labelWidth, chooseLabels, LABEL_ZOOM, LABEL_ZOOM_NARROW, MAX_LABELS,
+} from '../src/mapPins.js';
 
 // [slug, name, lat, lng, sector, city, hiring, domain]
 const pin = (slug, lat, lng, extra = {}) => [slug, extra.name ?? slug.toUpperCase(), lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? ''];
@@ -174,5 +177,66 @@ describe('the window', () => {
 
   it('stays inside the world', () => {
     expect(paddedWindow(bounds(-179, -84, 179, 84))).toEqual({ west: -180, south: -85, east: 180, north: 85 });
+  });
+});
+
+describe('the name under a pin', () => {
+  const pin = (id, x, y, over = {}) => ({ id, x, y, text: id, rank: 3, ...over });
+
+  it('appears from zoom 7, from zoom 9 on a phone, and not below: the map is circles only until then', () => {
+    expect([LABEL_ZOOM, LABEL_ZOOM_NARROW]).toEqual([7, 9]);
+    expect([labelsVisible(5), labelsVisible(6.9), labelsVisible(7), labelsVisible(12)]).toEqual([false, false, true, true]);
+    expect([labelsVisible(7, true), labelsVisible(8.9, true), labelsVisible(9, true), labelsVisible(14, true)]).toEqual([false, false, true, true]);
+  });
+
+  it('is as wide as the name, up to a limit', () => {
+    expect(labelWidth('Ab')).toBeLessThan(labelWidth('Abcdefghij'));
+    expect(labelWidth('x'.repeat(200))).toBe(160);
+  });
+
+  it('names every pin that has room', () => {
+    const named = chooseLabels([pin('a', 100, 100), pin('b', 500, 100), pin('c', 100, 400)]);
+    expect([...named].sort()).toEqual(['a', 'b', 'c']);
+  });
+
+  it('names the more important of two pins whose names would run into each other, and leaves the other bare', () => {
+    expect([...chooseLabels([pin('plain', 100, 100), pin('hiring', 130, 100, { rank: 1 })])]).toEqual(['hiring']);
+    expect([...chooseLabels([pin('hiring', 100, 100, { rank: 1 }), pin('plain', 130, 100)])]).toEqual(['hiring']);
+  });
+
+  it('takes pins of one rank in the order given', () => {
+    expect([...chooseLabels([pin('first', 100, 100), pin('second', 130, 100)])]).toEqual(['first']);
+    expect([...chooseLabels([pin('second', 130, 100), pin('first', 100, 100)])]).toEqual(['second']);
+  });
+
+  it('writes no name over another pin: a pin close under another takes the name above it away, and not its own', () => {
+    expect([...chooseLabels([pin('above', 100, 100), pin('below', 100, 130)])]).toEqual(['below']);
+  });
+
+  it('lets a name stand beside a pin that is clear of it, and clear of other names', () => {
+    expect([...chooseLabels([pin('left', 100, 100), pin('right', 300, 100)])].sort()).toEqual(['left', 'right']);
+  });
+
+  it('writes no name over a cluster either, and names the pin again once the cluster is clear of it', () => {
+    // the name sits 20-44px under the pin; a cluster is a 40px circle
+    expect([...chooseLabels([pin('a', 100, 100)], { blockers: [{ x: 100, y: 150 }] })]).toEqual([]);
+    expect([...chooseLabels([pin('a', 100, 100)], { blockers: [{ x: 100, y: 220 }] })]).toEqual(['a']);
+    expect([...chooseLabels([pin('a', 100, 100)], { blockers: [] })]).toEqual(['a']);
+  });
+
+  it('names at most the limit, the most important first, whatever is on screen', () => {
+    const many = Array.from({ length: 400 }, (_, i) => pin(`p${i}`, 200 * (i % 20), 100 * Math.floor(i / 20), { rank: i % 2 === 0 ? 1 : 3 }));
+    const named = chooseLabels(many);
+    expect(named.size).toBe(MAX_LABELS);
+    expect(chooseLabels(many, { limit: 5 }).size).toBe(5);
+    expect([...chooseLabels(many, { limit: 5 })].every((id) => Number(id.slice(1)) % 2 === 0)).toBe(true);
+  });
+
+  it('is the same every time, and leaves the pins it was given as they were', () => {
+    const pins = [pin('a', 100, 100), pin('b', 130, 100, { rank: 1 }), pin('c', 400, 400)];
+    const copy = structuredClone(pins);
+    expect([...chooseLabels(pins)]).toEqual([...chooseLabels(pins)]);
+    expect(pins).toEqual(copy);
+    expect(chooseLabels([]).size).toBe(0);
   });
 });

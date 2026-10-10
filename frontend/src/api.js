@@ -15,7 +15,7 @@ function toQuery(params) {
 
 async function getJson(url, { signal, failure }) {
   const res = await fetch(url, signal ? { signal } : undefined);
-  if (!res.ok) throw new Error(failure);
+  if (!res.ok) throw Object.assign(new Error(failure), { status: res.status });
   return res.json();
 }
 
@@ -70,6 +70,48 @@ export function fetchSuggestions(q, { signal } = {}) {
 // The companies a founder is named on: { name, companies }.
 export function fetchPerson(name, { signal } = {}) {
   return getJson(`${BASE}/people/${encodeURIComponent(name)}`, { signal, failure: 'Failed to fetch the person' });
+}
+
+// ---------- the investor directory ----------
+
+// One page of published investors as cards, in the order asked for (name, portfolio, location). Resolves to
+// { total, count, results, offset, limit, hasMore, facets? }; `facets` is a list like 'type,stage,sector'. Filters are
+// search, type, stage, sector, location, lead, active, chequeMin, chequeMax, and name (a list of exact names).
+export function fetchInvestors(filters = {}, { limit = 24, offset = 0, sort = 'name', facets, signal } = {}) {
+  return getJson(`${BASE}/investors${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, facets })}`, { signal, failure: 'Failed to fetch investors' });
+}
+
+// What the whole directory offers to filter by, with how many investors have each: { total, types, stages, sectors,
+// locations, lead, active, cheque }. `cheque` is null until some investor states a cheque size in Australian dollars.
+export function fetchInvestorMeta({ signal } = {}) {
+  return getJson(`${BASE}/investors/meta`, { signal, failure: 'Failed to fetch the investor filters' });
+}
+
+// One published investor in full, by slug.
+export function fetchInvestor(slug, { signal } = {}) {
+  return getJson(`${BASE}/investors/${encodeURIComponent(slug)}`, { signal, failure: 'Failed to fetch the investor' });
+}
+
+// One published person who invests, by slug.
+export function fetchInvestorPerson(slug, { signal } = {}) {
+  return getJson(`${BASE}/investor-people/${encodeURIComponent(slug)}`, { signal, failure: 'Failed to fetch the person' });
+}
+
+// The published investors a company's own record names, by exact name or other name: only those with a page to open.
+export function fetchInvestorsByName(names, { signal } = {}) {
+  return fetchInvestors({ name: names.slice(0, 100) }, { limit: 100, signal });
+}
+
+// A correction a visitor suggests for an investor's page. It is staged for a person to check against a page, never applied.
+export async function submitInvestorCorrection(slug, data) {
+  const res = await fetch(`${BASE}/investors/${encodeURIComponent(slug)}/corrections`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body.error || 'Failed to send the correction');
+  return body;
 }
 
 export async function fetchMeta() {

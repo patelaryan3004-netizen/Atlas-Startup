@@ -10,7 +10,9 @@ export const MAX_LOGOS = 60; // ...but only while few pins are on screen, so the
 
 const STACK_PLACES = 4; // at the deepest zoom, pins within about 10 metres are one stack: their points cannot be told apart
 
-export const clusterSize = (count) => (count < 10 ? 'small' : count < 50 ? 'medium' : 'large');
+export const CLUSTER_MEDIUM = 10; // a cluster of this many companies is drawn amber...
+export const CLUSTER_LARGE = 50; // ...and of this many orange (the map's key says so)
+export const clusterSize = (count) => (count < CLUSTER_MEDIUM ? 'small' : count < CLUSTER_LARGE ? 'medium' : 'large');
 
 // How well a company's place is known, in the words the site uses for it. The server says the same (models/location.js):
 // a pin carries only the precision and whether the address was checked, and the words are made here.
@@ -107,3 +109,49 @@ export function paddedWindow(bounds, by = 0.15) {
 
 // Whether pins in this view may carry logos.
 export const showLogos = (zoom, pinCount) => zoom >= LOGO_ZOOM && pinCount <= MAX_LOGOS;
+
+// ---------- the name under a pin ----------
+
+// A company's name is written under its pin once the map is close enough that pins stand apart: from zoom 7, and from zoom 9
+// on a phone, where a label is a larger part of the screen. Below that the map is circles only.
+export const LABEL_ZOOM = 7;
+export const LABEL_ZOOM_NARROW = 9;
+export const labelsVisible = (zoom, narrow = false) => zoom >= (narrow ? LABEL_ZOOM_NARROW : LABEL_ZOOM);
+
+// The room a label takes, in pixels, from the centre of its pin. (The styles set a 24px-tall chip, at most 160px wide, that
+// hangs 20px under the centre: the page works out where labels fit without measuring a single element.)
+const PIN_RADIUS = 18;
+const LABEL_TOP = 20;
+const LABEL_HEIGHT = 24;
+const LABEL_MAX_WIDTH = 160;
+const CLUSTER_RADIUS = 20; // a cluster's circle is 40px across
+const LABEL_GAP = 2; // clear air between a label and whatever is beside it
+export const MAX_LABELS = 150; // however many pins are on screen, the page names at most this many
+export const labelWidth = (text) => Math.min(LABEL_MAX_WIDTH, Math.round(String(text).length * 6.8) + 20);
+
+const overlaps = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+
+// Which pins get their name written. pins: [{ id, x, y, text, rank }] with x and y the pin's centre on screen and a lower
+// rank worth naming first (the one that is open, then those hiring, then the rest, each in the order given). A label is
+// written only where it covers no label already written and no other pin, so a crowded place shows a few names clearly and
+// not all of them on top of each other; zoom in and more of them fit. blockers: [{ x, y }] the centres of the clusters on
+// screen, which a name must not cover either. Returns the set of ids that are named.
+export function chooseLabels(pins, { limit = MAX_LABELS, blockers = [] } = {}) {
+  const circles = pins.map((p) => ({ id: p.id, left: p.x - PIN_RADIUS, right: p.x + PIN_RADIUS, top: p.y - PIN_RADIUS, bottom: p.y + PIN_RADIUS }));
+  for (const b of blockers) circles.push({ id: null, left: b.x - CLUSTER_RADIUS, right: b.x + CLUSTER_RADIUS, top: b.y - CLUSTER_RADIUS, bottom: b.y + CLUSTER_RADIUS });
+  const order = pins.map((p, n) => n).sort((a, b) => pins[a].rank - pins[b].rank || a - b);
+  const written = []; // the room each name takes, with clear air round it
+  const named = new Set();
+  for (const n of order) {
+    if (named.size >= limit) break;
+    const p = pins[n];
+    const half = labelWidth(p.text) / 2;
+    const box = { left: p.x - half, right: p.x + half, top: p.y + LABEL_TOP, bottom: p.y + LABEL_TOP + LABEL_HEIGHT };
+    const roomy = { left: box.left - LABEL_GAP, right: box.right + LABEL_GAP, top: box.top - LABEL_GAP, bottom: box.bottom + LABEL_GAP };
+    if (written.some((w) => overlaps(roomy, w))) continue;
+    if (circles.some((c) => c.id !== p.id && overlaps(box, c))) continue;
+    written.push(roomy);
+    named.add(p.id);
+  }
+  return named;
+}

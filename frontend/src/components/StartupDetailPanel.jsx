@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
-import { fetchNews } from '../api.js';
+import { fetchNews, fetchInvestorsByName } from '../api.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
+import { nameKey } from './investors/common.jsx';
+import ConceptPreview from './ConceptPreview.jsx';
+
+const CHECKED = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+// "Roles checked 5 Oct 2026": when a page last showed this company had open roles (the full record carries it).
+const checkedOn = (iso) => { const t = Date.parse(iso); return Number.isNaN(t) ? null : CHECKED.format(new Date(t)); };
 
 function domainOf(website) {
   if (!website) return null;
@@ -69,13 +75,32 @@ function relatedNews(news, startupName) {
   return news.filter((d) => d.headline.toLowerCase().includes(q) || (d.meta || '').toLowerCase().includes(q));
 }
 
-export default function StartupDetailPanel({ startup: s, sectorColor, isTracked, onToggleTracked, onSuggestEdit, onSelectPerson, onClose }) {
+export default function StartupDetailPanel({ startup: s, sectorColor, isTracked, onToggleTracked, onSuggestEdit, onSelectPerson, onOpenInvestor, onClose }) {
   useEscapeClose(onClose);
   const [news, setNews] = useState([]);
+  // The investors in the directory among this company's: by name, so only one with a page of its own becomes a link.
+  const [investorSlugs, setInvestorSlugs] = useState({});
+  const investorKey = (s.investors ?? []).join('\n');
+  const canOpenInvestor = Boolean(onOpenInvestor);
 
   useEffect(() => {
     fetchNews().then(({ deals }) => setNews(deals || [])).catch(() => setNews([]));
   }, []);
+
+  useEffect(() => {
+    const names = investorKey ? investorKey.split('\n') : [];
+    if (!canOpenInvestor || !names.length) { setInvestorSlugs({}); return undefined; }
+    const ctrl = new AbortController();
+    fetchInvestorsByName(names, { signal: ctrl.signal })
+      .then(({ results }) => {
+        if (ctrl.signal.aborted) return;
+        const found = {};
+        for (const card of results) for (const n of [card.name, ...(card.aliases ?? [])]) found[nameKey(n)] = card.slug;
+        setInvestorSlugs(found);
+      })
+      .catch(() => {});
+    return () => ctrl.abort();
+  }, [investorKey, canOpenInvestor]);
 
   // The map and the list know a company's name, place and sector; the rest arrives a moment after it opens.
   const loading = Boolean(s.partial);
@@ -124,7 +149,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             </div>
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Hiring</div>
-              <div className="sdp-meta-value">{s.hiring ? 'Hiring now' : 'Not currently hiring'}</div>
+              <div className="sdp-meta-value">{s.hiring ? 'Hiring now' : s.rolesUnverified ? 'Roles unverified' : 'Not currently hiring'}</div>
             </div>
           </div>
 
@@ -168,12 +193,17 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             <div className="sdp-section">
               <div className="pc-section-label">Investors</div>
               <div className="pc-investors">
-                {s.investors.map((i) => (
-                  <div className="pc-inv" key={i}>
-                    <span className="pc-inv-avatar">{initialsOf(i)}</span>
-                    <span className="pc-inv-name">{i}</span>
-                  </div>
-                ))}
+                {s.investors.map((i) => {
+                  const slug = investorSlugs[nameKey(i)];
+                  return (
+                    <div className="pc-inv" key={i}>
+                      <span className="pc-inv-avatar">{initialsOf(i)}</span>
+                      {slug
+                        ? <button type="button" className="pc-inv-name pc-inv-link" onClick={() => onOpenInvestor(slug)}>{i}</button>
+                        : <span className="pc-inv-name">{i}</span>}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -184,12 +214,17 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
               {s.hiring ? (
                 <>
                   <span className="hiring-badge">● Hiring now</span>
-                  <button className="taskbtn sdp-apply-btn">{s.taskGate?.enabled ? 'Start task → Apply' : 'Apply now'}</button>
+                  {s.website && <a className="taskbtn sdp-apply-btn" href={s.website} target="_blank" rel="noopener noreferrer">Apply now</a>}
                 </>
+              ) : s.rolesUnverified ? (
+                <span className="hiring-badge hiring-badge-off">Roles unverified</span>
               ) : (
                 <span className="hiring-badge hiring-badge-off">Not hiring right now</span>
               )}
+              <ConceptPreview company={s} />
             </div>
+            {s.hiring && checkedOn(s.hiring_verified_at) && <p className="sdp-hiring-note">Open roles checked on {checkedOn(s.hiring_verified_at)}.</p>}
+            {s.rolesUnverified && <p className="sdp-hiring-note">Marked as hiring, but no open role has been checked against the company&rsquo;s own pages, so it is not counted as hiring.</p>}
           </div>
 
           {matchingNews.length > 0 && (

@@ -89,11 +89,7 @@
 }
 .landing-job-name{ font-weight: 600; font-size: 14px; }
 .landing-job-meta{ font-size: 12.5px; color: var(--muted); margin-top: 1px; }
-.landing-tag{
-  margin-left: auto; font-family: var(--l-mono); font-size: 10px; font-weight: 700;
-  letter-spacing: .4px; color: var(--accent2); border: 1px solid var(--accent2);
-  border-radius: 10px; padding: 2px 7px; white-space: nowrap;
-}
+.landing-job-card .concept-label{ margin-left: auto; white-space: nowrap; }
 
 .landing-list-grid{
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--l-space-2);

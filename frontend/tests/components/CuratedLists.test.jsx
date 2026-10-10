@@ -42,12 +42,12 @@ describe('CuratedLists', () => {
     let release;
     fetchCount.mockImplementation((filters) => {
       if (filters.hiring === 'yes') return new Promise((resolve) => { release = () => resolve({ count: 70 }); });
-      if (filters.taskGate === 'yes') return Promise.reject(new Error('down'));
+      if (filters.city === 'Sydney,Sydney (Chippendale)') return Promise.reject(new Error('down'));
       return Promise.resolve({ count: countFor(filters) });
     });
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
     const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
-    const gated = screen.getByText('Task-gated only').closest('.curated-card');
+    const gated = screen.getByText('Sydney Startups').closest('.curated-card');
     const melbourne = screen.getByText('Melbourne AI startups').closest('.curated-card');
     await waitFor(() => expect(melbourne).toHaveTextContent('4 companies')); // the others are not held up by the slow one
     expect(hiring).toHaveTextContent('… companies');

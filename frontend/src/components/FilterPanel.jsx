@@ -134,7 +134,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
                     <select id="fHiring" value={filters.hiring} onChange={set('hiring')}>
                       <option value="">All</option>
                       <option value="yes">Hiring now</option>
-                      <option value="no">Not currently hiring</option>
+                      <option value="no">Not verified as hiring</option>
                     </select>
                   </div>
                 </div>

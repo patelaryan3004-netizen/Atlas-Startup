@@ -7,6 +7,7 @@ function setup(overrides = {}) {
   const props = {
     onExplore: vi.fn(),
     onShowJobs: vi.fn(),
+    onShowInvestors: vi.fn(),
     onShowCuratedLists: vi.fn(),
     newsVisible: true,
     onToggleNews: vi.fn(),
@@ -34,6 +35,7 @@ describe('HeaderMenu', () => {
 
     expect(screen.getByText('Explore')).toBeInTheDocument();
     expect(screen.getByText('Jobs')).toBeInTheDocument();
+    expect(screen.getByText('Investors')).toBeInTheDocument();
     expect(screen.getByText('Lists')).toBeInTheDocument();
     expect(screen.getByText('Hide news')).toBeInTheDocument();
     expect(screen.getByText('Join waitlist')).toBeInTheDocument();
@@ -65,6 +67,15 @@ describe('HeaderMenu', () => {
 
     expect(onShowCuratedLists).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Lists')).not.toBeInTheDocument();
+  });
+
+  it('opens the investor directory, and closes itself, when Investors is clicked', async () => {
+    const { onShowInvestors } = setup();
+    await userEvent.click(screen.getByLabelText('Menu'));
+    await userEvent.click(screen.getByText('Investors'));
+
+    expect(onShowInvestors).toHaveBeenCalledTimes(1);
+    expect(screen.queryByText('Investors')).not.toBeInTheDocument();
   });
 
   it('calls onShowTracked and closes when the Tracked item is clicked', async () => {

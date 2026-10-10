@@ -9,6 +9,7 @@ const mapInstance = {
   on: vi.fn((event, fn) => { handlers[event] = fn; }),
   getZoom: vi.fn(() => 17),
   getBounds: vi.fn(() => bounds),
+  latLngToContainerPoint: vi.fn(([lat, lng]) => ({ x: (lng - 150) * 2000, y: (-33 - lat) * 2000 })),
   createPane: vi.fn(() => ({ style: {} })),
 };
 const tileLayerInstance = { addTo: vi.fn() };
@@ -472,6 +473,87 @@ describe('MapView', () => {
     it('draws no group when there are none', () => {
       render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} onSelectStartup={noop} />);
       expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(0);
+    });
+  });
+  // The name under a pin: from zoom 7 (9 on a phone), and only where it fits. latLngToContainerPoint is the test's own: 0.01
+  // degree is 20 pixels, so two pins 0.015 degree of longitude apart are 30 pixels apart.
+  describe('the name under a pin', () => {
+    const namesOn = () => icons().map((i) => i.html).filter(Boolean).filter((h) => h.querySelector?.('.pin-label')).map((h) => [h.querySelector('.pin-label').textContent, h.querySelector('.pin-label').classList.contains('pin-label-on')]);
+    const close = (a = {}, b = {}) => [pin('a', 'Alpha', -33.0, 150.0, a), pin('b', 'Beta', -33.0, 150.015, b)]; // 30px apart: their names would run together
+    const mapEl = (container) => container.querySelector('#map');
+
+    it('is built as text, with the name only, hidden from screen readers', () => {
+      render(<MapView markers={[pin('a', '<img src=x onerror=alert(1)>')]} sectorColors={{}} onSelectStartup={noop} />);
+      const html = icons().at(-1).html;
+      const label = html.querySelector('.pin-label');
+      expect(label.textContent).toBe('<img src=x onerror=alert(1)>');
+      expect(label.querySelector('img')).toBeNull();
+      expect(label.getAttribute('aria-hidden')).toBe('true');
+    });
+
+    it('is written under a pin from zoom 7, and the map is circles only below it', () => {
+      mapInstance.getZoom.mockReturnValue(7);
+      const { container } = render(<MapView markers={[pin('a', 'Alpha')]} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(mapEl(container)).toHaveClass('show-pin-labels');
+      expect(namesOn()).toEqual([['Alpha', true]]);
+      mapInstance.getZoom.mockReturnValue(6);
+      handlers.moveend();
+      flushFrames();
+      expect(mapEl(container)).not.toHaveClass('show-pin-labels');
+    });
+
+    it('waits for zoom 9 on a phone', () => {
+      vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: true })));
+      mapInstance.getZoom.mockReturnValue(8);
+      const { container } = render(<MapView markers={[pin('a', 'Alpha')]} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(mapEl(container)).not.toHaveClass('show-pin-labels');
+      mapInstance.getZoom.mockReturnValue(9);
+      handlers.moveend();
+      flushFrames();
+      expect(mapEl(container)).toHaveClass('show-pin-labels');
+      expect(window.matchMedia).toHaveBeenCalledWith('(max-width: 639px)');
+    });
+
+    it('names the company that is hiring, and not the one beside it that would run into it', () => {
+      render(<MapView markers={close({}, { hiring: 1 })} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(namesOn()).toEqual([['Alpha', false], ['Beta', true]]);
+    });
+
+    it('names the open company before one that is hiring', () => {
+      render(<MapView markers={close({}, { hiring: 1 })} sectorColors={{}} onSelectStartup={noop} selectedName="Alpha" />);
+      flushFrames();
+      expect(namesOn().filter(([, on]) => on).map(([name]) => name)).toEqual(['Alpha']);
+    });
+
+    it('names every company that has room', () => {
+      render(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), pin('b', 'Beta', -33.0, 150.2)]} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(namesOn()).toEqual([['Alpha', true], ['Beta', true]]);
+    });
+
+    it('writes no name where a cluster is, and writes it once the cluster is clear of the pin', () => {
+      const stackAt = (lat) => [pin('s1', 'S1', lat, 150.0), pin('s2', 'S2', lat, 150.0)]; // two companies at one place: drawn as a "2"
+      // 20px under the pin, where its name would go
+      const { rerender } = render(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), ...stackAt(-33.01)]} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(namesOn()).toEqual([['Alpha', false]]);
+      // 100px under it: room for the name
+      rerender(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), ...stackAt(-33.05)]} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(namesOn().at(-1)).toEqual(['Alpha', true]);
+    });
+
+    it('works out again which names fit when the map moves, and when the companies change', () => {
+      const { rerender } = render(<MapView markers={close({}, { hiring: 1 })} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(namesOn()).toEqual([['Alpha', false], ['Beta', true]]);
+      // a filter leaves only Alpha: a new set of pins, and now it has room
+      rerender(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0)]} sectorColors={{}} onSelectStartup={noop} />);
+      flushFrames();
+      expect(namesOn().at(-1)).toEqual(['Alpha', true]);
     });
   });
 });

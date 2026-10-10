@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 import L from 'leaflet';
-import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaMember, CLUSTER_MAX_ZOOM } from '../mapPins.js';
+import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM } from '../mapPins.js';
 
 // Clearbit has near-zero coverage of small/seed-stage companies. Cascade to Google's favicon service (much
 // higher hit-rate) before falling back to the plain initial-letter badge rendered underneath this <img>.
@@ -30,6 +30,13 @@ function pinElement(tuple, { color, logos, selected, tracked }) {
   fallback.textContent = (name || '?').trim().charAt(0).toUpperCase();
   root.append(fallback);
   if (logos && domain) root.append(logoImg(domain, 64));
+  // The name under the pin. It starts hidden: the map shows it (placeLabels) once zoomed in and only where it fits. The hover
+  // tooltip and the company's panel carry the name for everyone else, so the label is for looking, not for reading out.
+  const label = document.createElement('span');
+  label.className = 'pin-label';
+  label.setAttribute('aria-hidden', 'true');
+  label.textContent = name || '';
+  root.append(label);
   if (hiring) {
     const dot = document.createElement('span');
     dot.className = 'pin-hiring-dot';
@@ -166,6 +173,8 @@ const NO_COLORS = {};
 // phone's screen at once. Making them all in one go held a slow phone for most of a second, so a draw makes a few at a
 // time and leaves the rest to the next frames: the page keeps answering touches while the pins fill in. A batch that
 // took long makes the next one smaller and a quick one makes it bigger, so a fast computer still draws them all at once.
+// Below this width (a phone) names appear from a deeper zoom, because a name is a bigger part of a small screen.
+const NARROW = '(max-width: 639px)';
 const FIRST_BATCH = 12;
 const SLOW_BATCH_MS = 24;
 const QUICK_BATCH_MS = 8;
@@ -183,9 +192,33 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
   const areaLayerRef = useRef(null);
   const indexRef = useRef(null);
   const shownRef = useRef(new Map());
+  const labelsRef = useRef(new Map()); // for each pin on the map: where it is, its name, and the element that says it
+  const clustersRef = useRef(new Map()); // for each cluster on the map: where it is (a name is kept clear of it)
   const frameRef = useRef(0);
   const latest = useRef({});
   latest.current = { markers, sectorColors, onSelectStartup, onViewArea, selectedName, trackedNames };
+
+  // Writes the names under the pins that have room for one. From zoom 7 (9 on a phone) the pins on screen are looked at in the
+  // order worth naming (the open one, then those hiring, then the rest): a name is written only where it covers no other name
+  // and no other pin. Below that zoom the map shows circles only.
+  const placeLabels = useCallback(() => {
+    const map = mapRef.current;
+    const root = mapElRef.current;
+    if (!map || !root) return;
+    const narrow = typeof window.matchMedia === 'function' && window.matchMedia(NARROW).matches;
+    const on = labelsVisible(map.getZoom(), narrow);
+    root.classList.toggle('show-pin-labels', on);
+    if (!on) return;
+    const pins = [];
+    for (const [id, p] of labelsRef.current) {
+      const at = map.latLngToContainerPoint([p.lat, p.lng]);
+      pins.push({ id, x: at.x, y: at.y, text: p.text, rank: p.rank });
+    }
+    const blockers = [];
+    for (const c of clustersRef.current.values()) blockers.push(map.latLngToContainerPoint([c.lat, c.lng]));
+    const named = chooseLabels(pins, { blockers });
+    for (const [id, p] of labelsRef.current) p.el.classList.toggle('pin-label-on', named.has(id));
+  }, []);
 
   const draw = useCallback(() => {
     const map = mapRef.current;
@@ -214,7 +247,7 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     }
     // What left the view goes at once (it is cheap and it is what a nudge of the map mostly does)...
     for (const [key, marker] of shown) {
-      if (!keep.has(key)) { layer.removeLayer(marker); shown.delete(key); }
+      if (!keep.has(key)) { layer.removeLayer(marker); shown.delete(key); labelsRef.current.delete(key); clustersRef.current.delete(key); }
     }
 
     const make = ([key, f]) => {
@@ -222,15 +255,19 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
       if (f.type === 'cluster') {
         marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ html: clusterElement(f.count), className: 'marker-cluster-custom', iconSize: [40, 40] }) });
         marker.on('click', () => map.setView([f.lat, f.lng], Math.min(index.expansionZoom(f.id), CLUSTER_MAX_ZOOM + 1)));
+        clustersRef.current.set(key, { lat: f.lat, lng: f.lng });
       } else if (f.type === 'stack') {
         marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ html: clusterElement(f.members.length), className: 'marker-cluster-custom', iconSize: [40, 40] }) });
         marker.on('click', () => L.popup({ className: 'stack-popup', maxHeight: 240 }).setLatLng([f.lat, f.lng]).setContent(stackList(f.members, tuples, (p) => onSelect?.(p))).openOn(map));
+        clustersRef.current.set(key, { lat: f.lat, lng: f.lng });
       } else {
         const t = tuples[f.i];
         const html = pinElement(t, { color: colors[t[4]] || '#444', logos, selected: t[1] === selected, tracked: tracked?.has(t[1]) || false });
         marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ className: 'custom-leaflet-marker', html, iconSize: [36, 36], iconAnchor: [18, 18] }) });
         marker.bindTooltip(tooltipContent(t), { direction: 'top', offset: [0, -20], sticky: true });
         marker.on('click', () => onSelect?.(pinPayload(t)));
+        const el = html.querySelector('.pin-label');
+        if (el) labelsRef.current.set(key, { el, lat: f.lat, lng: f.lng, text: t[1] || '', rank: t[1] === selected ? 0 : t[6] ? 1 : tracked?.has(t[1]) ? 2 : 3 });
       }
       marker.addTo(layer);
       shown.set(key, marker);
@@ -244,9 +281,10 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
       const took = performance.now() - started;
       if (took > SLOW_BATCH_MS) batch = Math.max(4, batch >> 1); else if (took < QUICK_BATCH_MS) batch = Math.min(96, batch * 2);
       if (todo.length) frameRef.current = requestAnimationFrame(step);
+      else placeLabels(); // every pin of this view is on the map: now see which have room for their name
     };
     step();
-  }, []);
+  }, [placeLabels]);
 
   useEffect(() => {
     const map = L.map(mapElRef.current, {
@@ -282,7 +320,7 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     layerRef.current = layer;
     areaLayerRef.current = areaLayer;
     draw();
-    return () => { cancelAnimationFrame(frameRef.current); map.remove(); mapRef.current = null; layerRef.current = null; areaLayerRef.current = null; shownRef.current = new Map(); };
+    return () => { cancelAnimationFrame(frameRef.current); map.remove(); mapRef.current = null; layerRef.current = null; areaLayerRef.current = null; shownRef.current = new Map(); labelsRef.current = new Map(); clustersRef.current = new Map(); };
   }, [draw]);
 
   // The groups (a filter changed): they are few and do not depend on the window or the zoom, so all are drawn each time.
@@ -314,6 +352,8 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     indexRef.current = createPinIndex(markers);
     layerRef.current?.clearLayers();
     shownRef.current = new Map();
+    labelsRef.current = new Map();
+    clustersRef.current = new Map();
     draw();
   }, [markers, draw]);
 

@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   fetchStartups, fetchMeta, fetchNews, submitStartup, submitEdit, submitFeedback,
   fetchStartupPage, fetchMarkers, fetchSummary, fetchCount, fetchStartup, fetchStartupsByName, fetchSuggestions, fetchPerson,
+  fetchInvestors, fetchInvestorMeta, fetchInvestor, fetchInvestorPerson, fetchInvestorsByName, submitInvestorCorrection,
 } from '../src/api.js';
 
 function mockFetchOnce(body, ok = true) {
@@ -190,5 +191,75 @@ describe('api.js, asking for only what is needed', () => {
     await expect(fetchPerson('x')).rejects.toThrow('Failed to fetch the person');
     mockFetchOnce({}, false);
     await expect(fetchSuggestions('x')).rejects.toThrow('Failed to search');
+  });
+});
+
+// The investor directory's calls.
+describe('api.js, the investor directory', () => {
+  beforeEach(() => { vi.restoreAllMocks(); });
+  const urlOf = () => new URL(global.fetch.mock.calls[0][0], 'http://x');
+
+  it('fetchInvestors asks for one page, alphabetical by default, with the filters that are set and none that are not', async () => {
+    mockFetchOnce({ total: 5, count: 5, results: [], offset: 0, limit: 24, hasMore: false });
+    await fetchInvestors({ type: 'angel_network', stage: '', chequeMin: '100000' });
+    expect(urlOf().pathname).toBe('/api/investors');
+    expect(Object.fromEntries(urlOf().searchParams)).toEqual({ type: 'angel_network', chequeMin: '100000', limit: '24', offset: '0', sort: 'name' });
+  });
+
+  it('fetchInvestors takes a page size, an offset, facets and an abort signal', async () => {
+    mockFetchOnce({ results: [] });
+    const ctrl = new AbortController();
+    await fetchInvestors({}, { limit: 10, offset: 20, facets: 'type,stage', signal: ctrl.signal });
+    expect(Object.fromEntries(urlOf().searchParams)).toEqual({ limit: '10', offset: '20', sort: 'name', facets: 'type,stage' });
+    expect(global.fetch.mock.calls[0][1]).toEqual({ signal: ctrl.signal });
+  });
+
+  it('fetchInvestorsByName repeats name for each, up to 100, and asks for them all', async () => {
+    mockFetchOnce({ results: [] });
+    await fetchInvestorsByName(['Blackbird Ventures', 'Smith, Jones & Co']);
+    expect(urlOf().searchParams.getAll('name')).toEqual(['Blackbird Ventures', 'Smith, Jones & Co']);
+    expect(urlOf().searchParams.get('limit')).toBe('100');
+    mockFetchOnce({ results: [] });
+    await fetchInvestorsByName(Array.from({ length: 150 }, (_, i) => `Fund ${i}`));
+    expect(urlOf().searchParams.getAll('name')).toHaveLength(100);
+  });
+
+  it('fetchInvestorMeta, fetchInvestor and fetchInvestorPerson ask their own addresses, encode the slug, and say what failed', async () => {
+    mockFetchOnce({ total: 2 });
+    expect(await fetchInvestorMeta()).toEqual({ total: 2 });
+    expect(global.fetch.mock.calls[0][0]).toBe('/api/investors/meta');
+    mockFetchOnce({ name: 'Blackbird' });
+    await fetchInvestor('a b/c');
+    expect(global.fetch.mock.calls[0][0]).toBe('/api/investors/a%20b%2Fc');
+    mockFetchOnce({ name: 'Sam' });
+    await fetchInvestorPerson('sam');
+    expect(global.fetch.mock.calls[0][0]).toBe('/api/investor-people/sam');
+    mockFetchOnce({}, false);
+    await expect(fetchInvestorMeta()).rejects.toThrow('Failed to fetch the investor filters');
+    mockFetchOnce({}, false);
+    await expect(fetchInvestor('x')).rejects.toThrow('Failed to fetch the investor');
+    mockFetchOnce({}, false);
+    await expect(fetchInvestorPerson('x')).rejects.toThrow('Failed to fetch the person');
+  });
+
+  it('carries the status of a refused request, so a page that is not there is told from a server that is down', async () => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: false, status: 404, json: () => Promise.resolve({}) });
+    await expect(fetchInvestor('nobody')).rejects.toMatchObject({ status: 404 });
+    global.fetch = vi.fn().mockResolvedValue({ ok: false, status: 503, json: () => Promise.resolve({}) });
+    await expect(fetchInvestor('nobody')).rejects.toMatchObject({ status: 503 });
+  });
+
+  it('submitInvestorCorrection POSTs the suggestion to that investor, and shows the server\'s reason when it is refused', async () => {
+    mockFetchOnce({ id: '1', status: 'pending' });
+    expect(await submitInvestorCorrection('a b', { message: 'Wrong.', source_url: '', email: '' })).toEqual({ id: '1', status: 'pending' });
+    expect(global.fetch).toHaveBeenCalledWith('/api/investors/a%20b/corrections', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'Wrong.', source_url: '', email: '' }),
+    });
+    mockFetchOnce({ error: 'message is required: say what is wrong' }, false);
+    await expect(submitInvestorCorrection('x', {})).rejects.toThrow('message is required: say what is wrong');
+    global.fetch = vi.fn().mockResolvedValue({ ok: false, json: () => Promise.reject(new Error('not json')) });
+    await expect(submitInvestorCorrection('x', {})).rejects.toThrow('Failed to send the correction');
   });
 });
