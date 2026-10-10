@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { HttpError } from '../catalog/respond.js';
-import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, areas, recordFor, precisionOf } from '../catalog/catalog.js';
+import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, areas, recordFor, sourcesFor, precisionOf } from '../catalog/catalog.js';
 import { describeLocation } from '../models/location.js';
 
 const DEFAULT_LIMIT = 48;
@@ -71,11 +71,12 @@ export function createStartupsRouter({ respond }) {
     return { total: snap.count, count: matched.length, pinned: items.length, areas: found.items, unplaced: found.unplaced, fields: MARKER_FIELDS, items };
   }));
 
-  // One company in full, by slug (or id), with how well its place is known in the words the page shows.
+  // One company in full, by slug (or id), with how well its place is known in the words the page shows, and where its facts came from
+  // (sources, checked_at, hiring_source: the public pages only, never a note an owner or a visitor wrote).
   router.get('/:slug', send((snap, req) => {
     const record = recordFor(snap, req.params.slug);
     if (!record) throw new HttpError(404, 'Startup not found');
-    return { ...record, location: describeLocation({ ...record, location_precision: precisionOf(record) }) };
+    return { ...record, location: describeLocation({ ...record, location_precision: precisionOf(record) }), ...sourcesFor(snap, record) };
   }));
 
   return router;

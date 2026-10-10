@@ -4271,5 +4271,3272 @@
         "to": "high"
       }
     ]
+  },
+  {
+    "id": "aud-20261010162624529-1",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "blackbird"
+    },
+    "summary": "Applied 17 claim(s) from the research file to Blackbird; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.blackbird.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "An Australasian investment firm that invests in founders from the very beginning, with a portfolio of more than 100 companies in Australia and New Zealand."
+      },
+      {
+        "field": "investment_thesis",
+        "from": null,
+        "to": "Invests in founders rather than in particular sectors or stages."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "Sydney",
+          "Melbourne",
+          "Auckland",
+          "Brisbane",
+          "Orange"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Technology"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.blackbird.vc/contact-us"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-2",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "airtree"
+    },
+    "summary": "Applied 15 claim(s) from the research file to AirTree; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.airtree.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "An early-stage venture capital firm backing Australian and New Zealand technology founders."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Seed",
+          "Growth"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Technology"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.airtree.vc/get-in-touch"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-3",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "square-peg"
+    },
+    "summary": "Applied 14 claim(s) from the research file to Square Peg; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.squarepeg.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A venture capital firm founded in Australia in 2012 that backs founders early and repeatedly across Asia-Pacific technology markets."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "Sydney",
+          "Melbourne",
+          "Singapore",
+          "Tel Aviv"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Technology"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Asia-Pacific"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "jobs_url",
+        "from": null,
+        "to": "https://squarepeg.getro.com/jobs"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-4",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "rampersand"
+    },
+    "summary": "Applied 20 claim(s) from the research file to Rampersand; merged rampersand-2; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "Rampersand (historical)"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://rampersand.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "Backs ambitious Australian and New Zealand founders from day zero, wherever they are building."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "Sydney",
+          "San Francisco"
+        ]
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Pre-seed",
+          "Seed"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "AI",
+          "Deep tech",
+          "Climate",
+          "Life sciences"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://rampersand.vc/pitch.html"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-5",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "oneventures"
+    },
+    "summary": "Applied 14 claim(s) from the research file to OneVentures; merged oneventures-etc; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "OneVentures etc."
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://one-ventures.com.au/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "An Australian later-stage venture capital firm with more than $1 billion under management across growth equity, growth credit and healthcare investments."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "Melbourne"
+        ]
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Growth"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Technology",
+          "Healthcare"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://one-ventures.com.au/contact/"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-6",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "main-sequence"
+    },
+    "summary": "Applied 15 claim(s) from the research file to Main Sequence; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.mseq.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A venture capital firm for deeptech, founded by CSIRO in 2017 to bridge the valley of death for research commercialisation in Australia."
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Pre-seed",
+          "Seed",
+          "Series A",
+          "Series B"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Deep tech"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.mseq.vc/pitch"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-7",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "tenacious"
+    },
+    "summary": "Applied 11 claim(s) from the research file to Tenacious Ventures; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "name",
+        "from": "Tenacious",
+        "to": "Tenacious Ventures"
+      },
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "Tenacious"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://tenacious.ventures/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "An early-stage venture capital firm funding agtech and climate startups."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Agtech",
+          "Climate"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-8",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "oif"
+    },
+    "summary": "Applied 12 claim(s) from the research file to OIF Ventures; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "name",
+        "from": "OIF",
+        "to": "OIF Ventures"
+      },
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "OIF"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.oifventures.com.au/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "Backs early-stage technology founders and gives them the tools to succeed."
+      },
+      {
+        "field": "investment_thesis",
+        "from": null,
+        "to": "Describes itself as patient capital here to build generational companies."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Seed",
+          "Series A",
+          "Series B"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Technology"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-9",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "ten13"
+    },
+    "summary": "Applied 14 claim(s) from the research file to TEN13; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.ten13.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A Brisbane-based Australian venture capital syndicate that invests globally, from pre-seed to Series A and beyond."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Brisbane"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "QLD"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Pre-seed",
+          "Seed",
+          "Series A"
+        ]
+      },
+      {
+        "field": "typical_cheque_min",
+        "from": null,
+        "to": 300000
+      },
+      {
+        "field": "typical_cheque_max",
+        "from": null,
+        "to": 2000000
+      },
+      {
+        "field": "cheque_currency",
+        "from": null,
+        "to": "AUD"
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.ten13.vc/submit-your-pitch"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-10",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "flying-fox"
+    },
+    "summary": "Applied 9 claim(s) from the research file to Flying Fox Ventures; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "name",
+        "from": "Flying Fox",
+        "to": "Flying Fox Ventures"
+      },
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "Flying Fox"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.flyingfox.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "Provides early-stage capital to Australian and New Zealand companies."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "invests_in_australian_startups"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-11",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "carthona"
+    },
+    "summary": "Applied 13 claim(s) from the research file to Carthona Capital; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "name",
+        "from": "Carthona",
+        "to": "Carthona Capital"
+      },
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "Carthona"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.carthonacapital.com/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A hands-on, thematic venture capital investor based in Sydney that invests globally."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Pre-seed",
+          "Seed",
+          "Series A"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Global"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-12",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "tidal"
+    },
+    "summary": "Applied 19 claim(s) from the research file to Tidal Ventures; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "name",
+        "from": "Tidal",
+        "to": "Tidal Ventures"
+      },
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "Tidal"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.tidalvc.com/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "An Australian venture capital firm investing in early-stage AI companies across Australia and the US."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "San Francisco",
+          "Seattle",
+          "Brisbane",
+          "Melbourne"
+        ]
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Pre-seed",
+          "Seed"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "AI"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "United States"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.tidalvc.com/contact"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-13",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "king-river"
+    },
+    "summary": "Applied 14 claim(s) from the research file to King River Capital; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "name",
+        "from": "King River",
+        "to": "King River Capital"
+      },
+      {
+        "field": "aliases",
+        "from": [],
+        "to": [
+          "King River"
+        ]
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://kingriver.co/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "Invests in high-growth technology businesses working to solve critical problems within large markets."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "Sydney",
+          "Denver",
+          "New York"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Technology"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": [],
+        "to": [
+          "Australia",
+          "United States"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://kingriver.co/contact/"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-14",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "reinventure"
+    },
+    "summary": "Applied 11 claim(s) from the research file to Reinventure; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://reinventure.com.au/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "corporate_vc"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A founder-first corporate venture capital fund with $150m to invest in FinTech and adjacent areas; Westpac is its largest investor."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "sectors",
+        "from": [],
+        "to": [
+          "Fintech"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://reinventure.com.au/pitch/"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-15",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "antler"
+    },
+    "summary": "Applied 14 claim(s) from the research file to Antler; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.antler.co/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A global early-stage investor, headquartered in Singapore, that runs pre-seed programs in Sydney, Melbourne and Brisbane."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Singapore"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Singapore"
+      },
+      {
+        "field": "other_offices",
+        "from": [],
+        "to": [
+          "Sydney",
+          "Melbourne",
+          "Brisbane"
+        ]
+      },
+      {
+        "field": "stages",
+        "from": [],
+        "to": [
+          "Pre-seed",
+          "Series A"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.antler.co/pitch"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "invests_in_australian_startups"
+      },
+      {
+        "field": "verification_status",
+        "from": "candidate",
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-16",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "folklore"
+    },
+    "summary": "Applied 15 claim(s) from the research file to Folklore Ventures; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "folklore"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "Folklore Ventures"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "folklore"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.folklore.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A venture capital firm based in Australia that backs Australian and New Zealand tech founders from the first cheque."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Redfern"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": [
+          "Software",
+          "Healthcare"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "lead_or_follow",
+        "from": null,
+        "to": "lead"
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "application_url",
+        "from": null,
+        "to": "https://www.folklore.vc/get-funding"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-17",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "artesian"
+    },
+    "summary": "Applied 16 claim(s) from the research file to Artesian; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "artesian"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "Artesian"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "artesian"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.artesianinvest.com/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A global alternative asset manager specialising in debt and venture capital, with a venture business that is one of Australia’s largest early-stage managers."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": [
+          "Sydney",
+          "Melbourne"
+        ]
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": [
+          "Deep tech",
+          "Hardware",
+          "Agrifood",
+          "Climate",
+          "Health",
+          "Defence",
+          "AI"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-18",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "brandon-capital"
+    },
+    "summary": "Applied 13 claim(s) from the research file to Brandon Capital; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "brandon-capital"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "Brandon Capital"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "brandon-capital"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://brandoncapital.vc/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A life science venture capital firm that invests from early-stage seed through to expansion capital."
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": [
+          "Melbourne",
+          "Sydney"
+        ]
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": [
+          "Seed",
+          "Growth"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": [
+          "Life sciences",
+          "Biomedical"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-19",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "southern-cross-venture-partners"
+    },
+    "summary": "Applied 0 claim(s) from the research file to southern-cross-venture-partners",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "southern-cross-venture-partners"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "southern-cross-venture-partners"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "southern-cross-venture-partners"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-20",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "investible"
+    },
+    "summary": "Applied 0 claim(s) from the research file to investible",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "investible"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "investible"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "investible"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-21",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "evp"
+    },
+    "summary": "Applied 13 claim(s) from the research file to EVP; verified",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "evp"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "EVP"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "evp"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "website",
+        "from": null,
+        "to": "https://www.evp.com.au/"
+      },
+      {
+        "field": "investor_type",
+        "from": null,
+        "to": "venture_capital"
+      },
+      {
+        "field": "description",
+        "from": null,
+        "to": "A venture firm focused on early-stage B2B software companies in Australia and New Zealand."
+      },
+      {
+        "field": "headquarters_city",
+        "from": null,
+        "to": "Bondi Junction"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "country",
+        "from": null,
+        "to": "Australia"
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": [
+          "Series A"
+        ]
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": [
+          "B2B software"
+        ]
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": [
+          "Australia",
+          "New Zealand"
+        ]
+      },
+      {
+        "field": "active_status",
+        "from": null,
+        "to": "active"
+      },
+      {
+        "field": "inclusion_basis",
+        "from": null,
+        "to": "based_in_australia"
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "verified"
+      },
+      {
+        "field": "last_verified_at",
+        "from": null,
+        "to": "2026-10-10T16:26:24.529Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-22",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "right-click-capital"
+    },
+    "summary": "Applied 0 claim(s) from the research file to right-click-capital",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "right-click-capital"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "right-click-capital"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "right-click-capital"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-23",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "uniseed"
+    },
+    "summary": "Applied 0 claim(s) from the research file to uniseed",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "uniseed"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "uniseed"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "uniseed"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-24",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "breakthrough-victoria"
+    },
+    "summary": "Applied 0 claim(s) from the research file to breakthrough-victoria",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "breakthrough-victoria"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "breakthrough-victoria"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "breakthrough-victoria"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-25",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "mrcf"
+    },
+    "summary": "Applied 0 claim(s) from the research file to mrcf",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "mrcf"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "mrcf"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "mrcf"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-26",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "sydney-angels"
+    },
+    "summary": "Applied 0 claim(s) from the research file to sydney-angels",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "sydney-angels"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "sydney-angels"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "sydney-angels"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-27",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "melbourne-angels"
+    },
+    "summary": "Applied 0 claim(s) from the research file to melbourne-angels",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "melbourne-angels"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "melbourne-angels"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "melbourne-angels"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-28",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "brisbane-angels"
+    },
+    "summary": "Applied 0 claim(s) from the research file to brisbane-angels",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "brisbane-angels"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "brisbane-angels"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "brisbane-angels"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-29",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "scale-investors"
+    },
+    "summary": "Applied 0 claim(s) from the research file to scale-investors",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "scale-investors"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "scale-investors"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "scale-investors"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-30",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "telstra-ventures"
+    },
+    "summary": "Applied 0 claim(s) from the research file to telstra-ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "telstra-ventures"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "telstra-ventures"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "telstra-ventures"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-31",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "atlassian-ventures"
+    },
+    "summary": "Applied 0 claim(s) from the research file to atlassian-ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "atlassian-ventures"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "atlassian-ventures"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "atlassian-ventures"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-32",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "birchal"
+    },
+    "summary": "Applied 0 claim(s) from the research file to birchal",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "birchal"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "birchal"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "birchal"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-33",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "equitise"
+    },
+    "summary": "Applied 0 claim(s) from the research file to equitise",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "equitise"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "equitise"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "equitise"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-34",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "h2-ventures"
+    },
+    "summary": "Applied 0 claim(s) from the research file to h2-ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "h2-ventures"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "h2-ventures"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "h2-ventures"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162624529-35",
+    "at": "2026-10-10T16:26:24.529Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "bluechilli"
+    },
+    "summary": "Applied 0 claim(s) from the research file to bluechilli",
+    "reason": null,
+    "changes": [
+      {
+        "field": "id",
+        "from": null,
+        "to": "bluechilli"
+      },
+      {
+        "field": "name",
+        "from": null,
+        "to": "bluechilli"
+      },
+      {
+        "field": "slug",
+        "from": null,
+        "to": "bluechilli"
+      },
+      {
+        "field": "aliases",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "other_offices",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "stages",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "sectors",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "geographies",
+        "from": null,
+        "to": []
+      },
+      {
+        "field": "verification_status",
+        "from": null,
+        "to": "candidate"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010162742084-1",
+    "at": "2026-10-10T16:27:42.084Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investment.add",
+    "target": {
+      "type": "investor",
+      "id": "blackbird"
+    },
+    "summary": "Recorded 24 investment(s) of Blackbird from its portfolio page: Canva, Airwallex, Culture Amp, Leonardo AI, Gilmour Space Technologies, Fleet Space Technologies, ...",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261010162742084-2",
+    "at": "2026-10-10T16:27:42.084Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investment.add",
+    "target": {
+      "type": "investor",
+      "id": "square-peg"
+    },
+    "summary": "Recorded 15 investment(s) of Square Peg from its portfolio page: Canva, Airwallex, Rokt, Deputy, Prospa, Bugcrowd, ...",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261010162742084-3",
+    "at": "2026-10-10T16:27:42.084Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investment.add",
+    "target": {
+      "type": "investor",
+      "id": "tidal"
+    },
+    "summary": "Recorded 16 investment(s) of Tidal Ventures from its portfolio page: Secure Code Warrior, Sonder (employee care), Shippit, Asseti, Bonjoro, Loopit, ...",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261010162742084-4",
+    "at": "2026-10-10T16:27:42.084Z",
+    "actor": "investors",
+    "role": "cli",
+    "via": "cli",
+    "action": "investment.add",
+    "target": {
+      "type": "investor",
+      "id": "king-river"
+    },
+    "summary": "Recorded 3 investment(s) of King River Capital from its portfolio page: Immutable, Mindset Health, Safewill",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261010205910556-1",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "blackbird"
+    },
+    "summary": "Published Blackbird",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-2",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "airtree"
+    },
+    "summary": "Published AirTree",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-3",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "square-peg"
+    },
+    "summary": "Published Square Peg",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-4",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "rampersand"
+    },
+    "summary": "Published Rampersand",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-5",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "oneventures"
+    },
+    "summary": "Published OneVentures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-6",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "main-sequence"
+    },
+    "summary": "Published Main Sequence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-7",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "tenacious"
+    },
+    "summary": "Published Tenacious Ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-8",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "oif"
+    },
+    "summary": "Published OIF Ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-9",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "ten13"
+    },
+    "summary": "Published TEN13",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-10",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "flying-fox"
+    },
+    "summary": "Published Flying Fox Ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-11",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "carthona"
+    },
+    "summary": "Published Carthona Capital",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-12",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "tidal"
+    },
+    "summary": "Published Tidal Ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-13",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "king-river"
+    },
+    "summary": "Published King River Capital",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-14",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "reinventure"
+    },
+    "summary": "Published Reinventure",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-15",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "antler"
+    },
+    "summary": "Published Antler",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-16",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "folklore"
+    },
+    "summary": "Published Folklore Ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-17",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "artesian"
+    },
+    "summary": "Published Artesian",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-18",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "brandon-capital"
+    },
+    "summary": "Published Brandon Capital",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261010205910556-19",
+    "at": "2026-10-10T20:59:10.556Z",
+    "actor": "Aryan",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.publish",
+    "target": {
+      "type": "investor",
+      "id": "evp"
+    },
+    "summary": "Published EVP",
+    "reason": null,
+    "changes": [
+      {
+        "field": "verification_status",
+        "from": "verified",
+        "to": "published"
+      }
+    ]
   }
 ]

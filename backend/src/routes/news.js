@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SEED_PATH = path.join(__dirname, '..', 'data', 'seedDeals.json');
 
 const CACHE_MS = 6 * 60 * 60 * 1000; // 6 hours
-let cache = { ts: 0, deals: null };
+let cache = { ts: 0, deals: null, live: false }; // live: the kept headlines were read from the feed (not the short list kept with the site)
 
 const RSS_URL = `https://news.google.com/rss/search?q=${encodeURIComponent('Australian startup funding')}&hl=en-AU&gl=AU&ceid=AU:en`;
 
@@ -57,7 +57,7 @@ async function fetchLiveDeals() {
   const res = await fetch(RSS_URL, { headers: { 'User-Agent': 'au-startup-map/1.0' } });
   if (!res.ok) throw new Error(`news fetch failed: ${res.status}`);
   const xml = await res.text();
-  const items = parseRssItems(xml, 6);
+  const items = parseRssItems(xml, 20);
   if (!items.length) throw new Error('no news items parsed');
   return items.map(toDeal);
 }
@@ -69,23 +69,25 @@ async function loadSeedDeals() {
 
 const router = Router();
 
-// GET /api/news — recent AU startup deal headlines, cached server-side for 6h.
+// GET /api/news — recent AU startup deal headlines, cached server-side for 6h. "source" says where they came from: live (just read
+// from the feed), cache (read from the feed within the last 6 hours) or seeded (the short list kept with the site: the feed could not
+// be read, and it stays "seeded" for as long as that list is what is kept).
 // ?refresh=1 bypasses the cache and forces a fresh fetch.
 router.get('/', async (req, res, next) => {
   try {
     const force = req.query.refresh === '1' || req.query.force === 'true';
     const now = Date.now();
     if (!force && cache.deals && now - cache.ts < CACHE_MS) {
-      return res.json({ source: 'cache', deals: cache.deals });
+      return res.json({ source: cache.live ? 'cache' : 'seeded', deals: cache.deals });
     }
 
     try {
       const deals = await fetchLiveDeals();
-      cache = { ts: now, deals };
+      cache = { ts: now, deals, live: true };
       res.json({ source: 'live', deals });
     } catch (liveErr) {
       const deals = await loadSeedDeals();
-      cache = { ts: now, deals };
+      cache = { ts: now, deals, live: false };
       res.json({ source: 'seeded', deals });
     }
   } catch (err) {

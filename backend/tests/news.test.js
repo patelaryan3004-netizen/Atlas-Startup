@@ -81,6 +81,25 @@ describe('GET /api/news', () => {
     expect(global.fetch).not.toHaveBeenCalled();
   });
 
+  it('keeps saying "seeded", not "cache", while what is kept is the short list: it was never read from the feed', async () => {
+    mockFetchFail();
+    const first = await request(app).get('/api/news?refresh=1');
+    expect(first.body.source).toBe('seeded');
+
+    vi.stubGlobal('fetch', vi.fn());
+    const second = await request(app).get('/api/news');
+    expect(second.body.source).toBe('seeded');
+    expect(second.body.deals).toEqual(seedDeals);
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it('returns up to twenty headlines from the feed', async () => {
+    mockFetchOk(rssXml(Array.from({ length: 30 }, (_, i) => ({ title: `Headline ${i}`, link: `https://example.com/${i}`, pubDate: '', source: 'Feed' }))));
+    const res = await request(app).get('/api/news?refresh=1');
+    expect(res.body.source).toBe('live');
+    expect(res.body.deals).toHaveLength(20);
+  });
+
   it('?refresh=1 bypasses the cache and fetches again', async () => {
     mockFetchOk(rssXml([{ title: 'First headline', link: 'https://example.com/1', pubDate: '', source: 'A' }]));
     const first = await request(app).get('/api/news?refresh=1');

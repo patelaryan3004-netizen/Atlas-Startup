@@ -13,20 +13,36 @@
 //   areaOf    for companies known only to their city or state: the area they belong to, drawn as a group, never a pin
 //   search    lowercase text per record (name and founders): the legacy substring search runs over it
 //   names     lowercase company names in order, for prefix lookup (search suggestions)
+//   provenance  for each company, the public pages behind its facts and the page that backs "hiring" (provenance.js), read from the
+//             pipeline's own records beside the file (sources.json, evidence.json, jobs.json) when they are there
 //
 // Filters mean exactly what they always meant (the legacy tests and a randomised equivalence test pin it).
 // Data changes on a deploy, not at run time, so the file is checked for change at most once a second
 // (size and modified time) and rebuilt, without blocking requests, when it differs.
 import { readFile, stat } from 'node:fs/promises';
+import path from 'node:path';
+import { buildProvenance } from './provenance.js';
 import { toPublic, deriveState } from '../models/company.js';
 import { describeLocation, PRECISIONS } from '../models/location.js';
 import { cityCentre, stateCentre } from '../geo/places.js';
 
-export const SORTS = ['file', 'name', 'hiring', 'location', 'industry'];
+export const SORTS = ['file', 'name', 'hiring', 'location', 'industry', 'stage', 'verified'];
+
+// The order a company moves through its stages, earliest first: what a "by stage" list is in. A stage this list does not know (a new
+// one) sorts after the ones it does, and "Unknown" last, so nothing is placed by a guess.
+export const STAGE_ORDER = [
+  'Pre-seed', 'Seed', 'Early', 'Series A', 'Series B', 'Series B+', 'Series C', 'Series C+', 'Series D', 'Series D+', 'Series E', 'Growth', 'Unicorn',
+  'Acquired', 'Subsidiary', 'Other Equity',
+];
+export const stageRank = (stage) => {
+  if (stage === 'Unknown' || stage == null) return STAGE_ORDER.length + 2;
+  const at = STAGE_ORDER.indexOf(stage);
+  return at === -1 ? STAGE_ORDER.length + 1 : at;
+};
 export const FACETS = ['sector', 'city', 'stage', 'investor'];
 // `hiring` is true only for a company whose open roles were read from a page; `rolesUnverified` is true for one flagged as hiring
 // that no page backs (toPublic).
-export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'rolesUnverified', 'verified', 'website', 'blurb', 'taskGate'];
+export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'rolesUnverified', 'hiring_source_url', 'verified', 'website', 'blurb', 'taskGate'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
@@ -62,10 +78,16 @@ function postings(list, keyOf) {
 // function is several times slower in V8, and this runs on every start.
 const sortedNumbers = (count, compare) => Uint32Array.from(Array.from({ length: count }, (_, i) => i).sort(compare));
 
-export function buildSnapshot(raw, version, { lap = () => {} } = {}) {
+export function buildSnapshot(raw, version, { lap = () => {}, provenance = new Map() } = {}) {
   const source = JSON.parse(raw);
   lap('parse');
   const records = source.map(toPublic);
+  // The page that says a company is hiring is served with a company that is (hiring is public only where a page backs it): it is
+  // where the Jobs board sends a visitor.
+  for (const r of records) {
+    const hiringPage = r.hiring === true ? provenance.get(r.id)?.hiring : null;
+    if (hiringPage) r.hiring_source_url = hiringPage.url;
+  }
   lap('public form');
   const count = records.length;
   const all = Uint32Array.from({ length: count }, (_, i) => i);
@@ -74,6 +96,10 @@ export function buildSnapshot(raw, version, { lap = () => {} } = {}) {
   // A key per record, so a sort compares two strings and not two objects' fields through a collator each time.
   const keys = {
     name: records.map((r) => r.name), city: records.map((r) => r.city), industry: records.map((r) => r.sectorFull || r.sector),
+    stage: records.map((r) => stageRank(r.stage)),
+    // When the company's facts were last checked against a page (last_verified_at is internal, so it is read from the stored record
+    // and never served): a company never checked has no date and goes last.
+    verified: source.map((c) => { const t = Date.parse(c.last_verified_at); return Number.isNaN(t) ? 0 : t; }),
   };
   const byKey = (list) => (a, b) => collator.compare(list[a], list[b]) || a - b;
   const compares = {
@@ -81,6 +107,8 @@ export function buildSnapshot(raw, version, { lap = () => {} } = {}) {
     hiring: (a, b) => (records[b].hiring === true) - (records[a].hiring === true) || collator.compare(keys.name[a], keys.name[b]) || a - b,
     location: (a, b) => collator.compare(keys.city[a], keys.city[b]) || collator.compare(keys.name[a], keys.name[b]) || a - b,
     industry: (a, b) => collator.compare(keys.industry[a], keys.industry[b]) || collator.compare(keys.name[a], keys.name[b]) || a - b,
+    stage: (a, b) => keys.stage[a] - keys.stage[b] || collator.compare(keys.name[a], keys.name[b]) || a - b,
+    verified: (a, b) => keys.verified[b] - keys.verified[a] || collator.compare(keys.name[a], keys.name[b]) || a - b,
   };
   for (const [name, compare] of Object.entries(compares)) {
     // The company's own number breaks any remaining tie, so an order never depends on the sort's stability.
@@ -117,7 +145,7 @@ export function buildSnapshot(raw, version, { lap = () => {} } = {}) {
 
   lap('names');
   const snap = {
-    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo,
+    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance,
     flags: { hiring: flag((r) => r.hiring), verified: flag((r) => r.verified), taskGate: flag((r) => r.taskGate?.enabled) },
     idx: {
       sector: postings(records, (r) => [r.sector]), city: postings(records, (r) => [r.city]), stage: postings(records, (r) => [r.stage]),
@@ -150,12 +178,23 @@ export function createCatalog({ file, reloadMs = 1000, now = Date.now } = {}) {
   let checkedAt = 0;
   let signature = null;
 
+  // The records beside the file that say where its facts came from. A folder without them (a test's, a scale run's) has none: the
+  // companies are served as they were, with no sources to show.
+  const beside = ['sources.json', 'evidence.json', 'jobs.json'].map((name) => path.join(path.dirname(file), name));
+  const statOf = async (f) => {
+    try { const i = await stat(f); return `${Math.round(i.mtimeMs)}-${i.size}`; } catch (err) { if (err.code === 'ENOENT') return 'none'; throw err; }
+  };
+  const rowsOf = async (f) => {
+    try { return JSON.parse(await readFile(f, 'utf8')); } catch (err) { if (err.code === 'ENOENT') return []; throw err; }
+  };
+
   async function load() {
     const info = await stat(file);
-    const sig = `${Math.round(info.mtimeMs)}-${info.size}`;
+    const sig = [`${Math.round(info.mtimeMs)}-${info.size}`, ...(await Promise.all(beside.map(statOf)))].join('/');
     if (snap && sig === signature) return snap;
     const raw = await readFile(file, 'utf8');
-    snap = buildSnapshot(raw, sig);
+    const [sources, evidence, jobs] = await Promise.all(beside.map(rowsOf));
+    snap = buildSnapshot(raw, sig, { provenance: buildProvenance({ sources, evidence, jobs }) });
     signature = sig;
     return snap;
   }
@@ -385,6 +424,15 @@ export function suggest(snap, text, { limit = 5 } = {}) {
     people, investors: within(snap.meta.investors), industries: within(snap.meta.sectors), locations: within(snap.meta.cities),
   };
 }
+
+// Where a company's facts came from: the public pages behind them (what each backs and when it was read), when the newest was read,
+// and the page that backs "hiring". A company with no public source has none, and says so.
+export const sourcesFor = (snap, record) => {
+  const found = snap.provenance?.get(record.id);
+  const sources = found?.sources ?? [];
+  const times = sources.map((s) => Date.parse(s.checked_at)).filter((t) => !Number.isNaN(t));
+  return { sources, checked_at: times.length ? new Date(Math.max(...times)).toISOString() : null, hiring_source: record.hiring === true ? found?.hiring ?? null : null };
+};
 
 export const recordFor = (snap, key) => {
   const i = snap.bySlug.get(key) ?? snap.byId.get(key);

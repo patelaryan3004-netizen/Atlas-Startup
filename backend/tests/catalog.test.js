@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { createCatalog, readFilters, select, pageOf, facets, summary, markers, suggest, recordFor, MARKER_FIELDS, CARD_FIELDS, buildSnapshot } from '../src/catalog/catalog.js';
+import { createCatalog, readFilters, select, pageOf, facets, summary, markers, suggest, recordFor, MARKER_FIELDS, CARD_FIELDS, buildSnapshot, SORTS, STAGE_ORDER, stageRank } from '../src/catalog/catalog.js';
 import { generateCompanies } from '../scripts/scale/fixtures.js';
 import { fixture, tempDir, removeTempDirs } from './helpers/catalog.js';
 import { INTERNAL_FIELDS } from '../src/models/company.js';
@@ -324,5 +324,49 @@ describe('hiring is counted only where a page backs it', () => {
     expect(order.slice(3).some(Boolean)).toBe(false);
     expect(recordFor(snap, rows[0].slug)).toMatchObject({ hiring: true, hiring_verified_at: CHECKED });
     expect(recordFor(snap, rows[4].slug)).toMatchObject({ hiring: false, rolesUnverified: true, hiring_status: null });
+  });
+});
+
+// Two more orders: by the stage a company has reached, and by when a page last checked its facts.
+describe('ordering by stage and by when a company was last checked', () => {
+  const named = (name, over) => ({ ...generateCompanies(1)[0], name, id: name.toLowerCase().replace(/\s+/g, '-'), slug: name.toLowerCase().replace(/\s+/g, '-'), ...over });
+  const rows = [
+    named('Zed', { stage: 'Series B', last_verified_at: '2026-10-01T00:00:00.000Z' }),
+    named('Amy', { stage: 'Unknown', last_verified_at: '2026-10-09T00:00:00.000Z' }),
+    named('Bob', { stage: 'Seed', last_verified_at: null }),
+    named('Cat', { stage: 'Pre-seed', last_verified_at: '2026-10-05T00:00:00.000Z' }),
+    named('Dan', { stage: 'Unicorn', last_verified_at: '2026-10-05T00:00:00.000Z' }),
+    named('Eve', { stage: 'A Brand New Stage', last_verified_at: undefined }),
+    named('Fay', { stage: 'Seed', last_verified_at: 'not a date' }),
+    named('Gus', { stage: 'Series A', last_verified_at: '2026-10-09T00:00:00.000Z' }),
+  ];
+  const snap = buildSnapshot(JSON.stringify(rows), 'v1');
+  const all = select(snap, {});
+  const names = (sort) => Array.from(pageOf(snap, all, { sort }), (n) => snap.records[n].name);
+
+  it('is one of the orders the API accepts', () => {
+    expect(SORTS).toEqual(expect.arrayContaining(['stage', 'verified']));
+  });
+
+  it('puts the earliest stage first, a stage it does not know after the ones it does, and "Unknown" last; a tie is broken by name', () => {
+    expect(names('stage')).toEqual(['Cat', 'Bob', 'Fay', 'Gus', 'Zed', 'Dan', 'Eve', 'Amy']);
+  });
+
+  it('ranks every stage the directory has in the order a company moves through them', () => {
+    const ranks = ['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series C', 'Growth', 'Unicorn'].map(stageRank);
+    expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
+    expect(new Set(STAGE_ORDER).size).toBe(STAGE_ORDER.length);
+    expect(stageRank('Something New')).toBeGreaterThan(stageRank('Other Equity'));
+    expect(stageRank('Unknown')).toBeGreaterThan(stageRank('Something New'));
+    expect(stageRank(undefined)).toBe(stageRank('Unknown'));
+  });
+
+  it('puts the most recently checked first, and a company never checked (or with a date that is not one) last, by name', () => {
+    expect(names('verified')).toEqual(['Amy', 'Gus', 'Cat', 'Dan', 'Zed', 'Bob', 'Eve', 'Fay']);
+  });
+
+  it('never serves the date it sorts by: it is internal', () => {
+    expect(Array.from(all, (n) => snap.records[n]).every((r) => !('last_verified_at' in r))).toBe(true);
+    expect(snap.cards.every((c) => !('last_verified_at' in c))).toBe(true);
   });
 });

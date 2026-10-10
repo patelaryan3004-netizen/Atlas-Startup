@@ -2023,5 +2023,536 @@
     "publisher": "SwarmFarm Robotics",
     "retrieved_at": "2026-10-05T15:12:14.342Z",
     "note": "Read by the discovery engine."
+  },
+  {
+    "id": "blackbird-vc-fb9e1fc1",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/",
+    "title": "Home Hub",
+    "publisher": "blackbird.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "blackbird-vc-9c4714c2",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/about-blackbird",
+    "title": "About Blackbird",
+    "publisher": "blackbird.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "blackbird-vc-2104dbb8",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/contact-us",
+    "title": "Contact Us | Blackbird",
+    "publisher": "blackbird.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "blackbird-vc-b770282c",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio",
+    "title": "Portfolio | Blackbird",
+    "publisher": "blackbird.vc",
+    "retrieved_at": "2026-10-10T16:27:42.084Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "airtree-vc-e652d3e5",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/",
+    "title": "Home | Airtree",
+    "publisher": "airtree.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "airtree-vc-c89494ad",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/get-in-touch",
+    "title": "Contact | Airtree Ventures",
+    "publisher": "airtree.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "airtree-vc-7c080ce9",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/about",
+    "title": "About | Airtree Ventures",
+    "publisher": "airtree.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "squarepeg-vc-5730f409",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/our-story",
+    "title": "Our story",
+    "publisher": "squarepeg.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "squarepeg-vc-3a9dc9cd",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/",
+    "title": "Square Peg: Helping founders from our corner of the world shape the future",
+    "publisher": "squarepeg.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "squarepeg-vc-1f9d958f",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/contact",
+    "title": "Contact",
+    "publisher": "squarepeg.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "rampersand-vc-7afef80f",
+    "kind": "investor_website",
+    "url": "https://rampersand.vc/",
+    "title": "Rampersand – First to believe. First to invest.",
+    "publisher": "rampersand.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "rampersand-vc-7d498991",
+    "kind": "investor_website",
+    "url": "https://rampersand.vc/team.html",
+    "title": "Team – Rampersand",
+    "publisher": "rampersand.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "rampersand-vc-26ea189e",
+    "kind": "investor_website",
+    "url": "https://rampersand.vc/pitch.html",
+    "title": "Pitch us – Rampersand",
+    "publisher": "rampersand.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "one-ventures-com-au-c80a6232",
+    "kind": "investor_website",
+    "url": "https://one-ventures.com.au/",
+    "title": "OneVentures - Australia’s later-stage venture capital firm",
+    "publisher": "one-ventures.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "one-ventures-com-au-1aa3de15",
+    "kind": "investor_website",
+    "url": "https://one-ventures.com.au/contact/",
+    "title": "Contact - OneVentures",
+    "publisher": "one-ventures.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "mseq-vc-cbf1e406",
+    "kind": "investor_website",
+    "url": "https://www.mseq.vc/",
+    "title": "Main Sequence - a venture capital firm designed for deeptech",
+    "publisher": "mseq.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "mseq-vc-a3709c2e",
+    "kind": "investor_website",
+    "url": "https://www.mseq.vc/about",
+    "title": "Introducing Main Sequence",
+    "publisher": "mseq.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "mseq-vc-44b22dd0",
+    "kind": "investor_website",
+    "url": "https://www.mseq.vc/contact-us",
+    "title": "Contact Main Sequence",
+    "publisher": "mseq.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "mseq-vc-3590e554",
+    "kind": "investor_website",
+    "url": "https://www.mseq.vc/pitch",
+    "title": "Pitch to Main Sequence",
+    "publisher": "mseq.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tenacious-ventures-0c2adb75",
+    "kind": "investor_website",
+    "url": "https://tenacious.ventures/",
+    "title": "Tenacious Ventures",
+    "publisher": "tenacious.ventures",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tenacious-ventures-a1a8708c",
+    "kind": "investor_website",
+    "url": "https://tenacious.ventures/investments",
+    "title": "Investment",
+    "publisher": "tenacious.ventures",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tenacious-ventures-5b82765d",
+    "kind": "investor_website",
+    "url": "https://tenacious.ventures/contact",
+    "title": "Contact",
+    "publisher": "tenacious.ventures",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "oifventures-com-au-de0bf2a8",
+    "kind": "investor_website",
+    "url": "https://www.oifventures.com.au/",
+    "title": "Home | OIF Ventures",
+    "publisher": "oifventures.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "oifventures-com-au-ef24e3d3",
+    "kind": "investor_website",
+    "url": "https://www.oifventures.com.au/approach",
+    "title": "Our Approach | OIF Ventures",
+    "publisher": "oifventures.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "ten13-vc-acf2f3b0",
+    "kind": "investor_website",
+    "url": "https://www.ten13.vc/",
+    "title": "TEN13 | Australian Venture Capital Syndicate, Brisbane",
+    "publisher": "ten13.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "ten13-vc-0c937115",
+    "kind": "investor_website",
+    "url": "https://www.ten13.vc/get-in-touch",
+    "title": "Contact TEN13 | Australian Venture Capital, Brisbane",
+    "publisher": "ten13.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "flyingfox-vc-c48f718a",
+    "kind": "investor_website",
+    "url": "https://www.flyingfox.vc/",
+    "title": "Home | Flying Fox Ventures",
+    "publisher": "flyingfox.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "flyingfox-vc-160ef5a4",
+    "kind": "investor_website",
+    "url": "https://www.flyingfox.vc/contact-us",
+    "title": "Contact Us | Flying Fox Ventures",
+    "publisher": "flyingfox.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "carthonacapital-com-3b206479",
+    "kind": "investor_website",
+    "url": "https://www.carthonacapital.com/",
+    "title": "Carthona Capital | Venture Capital Australia and Start-up Funding",
+    "publisher": "carthonacapital.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tidalvc-com-4dedd90a",
+    "kind": "investor_website",
+    "url": "https://www.tidalvc.com/",
+    "title": "AI venture capital Australia | Early-stage VC | Tidal Ventures",
+    "publisher": "tidalvc.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tidalvc-com-b264807d",
+    "kind": "investor_website",
+    "url": "https://www.tidalvc.com/contact",
+    "title": "AI venture capital Australia | Early-stage VC | Tidal Ventures",
+    "publisher": "tidalvc.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tidalvc-com-06854d39",
+    "kind": "investor_website",
+    "url": "https://www.tidalvc.com/approach",
+    "title": "What we invest in | Tidal Ventures | Early-stage AI across Australia and the US",
+    "publisher": "tidalvc.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "kingriver-co-5542753e",
+    "kind": "investor_website",
+    "url": "https://kingriver.co/",
+    "title": "King River Capital - personal, attentive, accessible - and smart",
+    "publisher": "kingriver.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "kingriver-co-aadd1160",
+    "kind": "investor_website",
+    "url": "https://kingriver.co/contact/",
+    "title": "Contact - King River",
+    "publisher": "kingriver.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "kingriver-co-f9d92a22",
+    "kind": "investor_website",
+    "url": "https://kingriver.co/approach/",
+    "title": "Approach - King River",
+    "publisher": "kingriver.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "reinventure-com-au-bb8563f2",
+    "kind": "investor_website",
+    "url": "https://reinventure.com.au/approach/",
+    "title": "Our Approach - Reinventure",
+    "publisher": "reinventure.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "reinventure-com-au-f1e9f593",
+    "kind": "investor_website",
+    "url": "https://reinventure.com.au/",
+    "title": "Home - Reinventure",
+    "publisher": "reinventure.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "reinventure-com-au-cfd1aa77",
+    "kind": "investor_website",
+    "url": "https://reinventure.com.au/contact/",
+    "title": "Contact - Reinventure",
+    "publisher": "reinventure.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "reinventure-com-au-c0d0d970",
+    "kind": "investor_website",
+    "url": "https://reinventure.com.au/pitch/",
+    "title": "Pitch - Reinventure",
+    "publisher": "reinventure.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "antler-co-1bb14093",
+    "kind": "investor_website",
+    "url": "https://www.antler.co/",
+    "title": "Antler | Where Founders Go Further, Faster",
+    "publisher": "antler.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "antler-co-c424309e",
+    "kind": "investor_website",
+    "url": "https://www.antler.co/locations",
+    "title": "Our Locations | Antler",
+    "publisher": "antler.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "antler-co-ec5526a6",
+    "kind": "investor_website",
+    "url": "https://www.antler.co/about",
+    "title": "About | Antler",
+    "publisher": "antler.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "antler-co-07873204",
+    "kind": "investor_website",
+    "url": "https://www.antler.co/pitch",
+    "title": "Apply to Antler | Further, Faster",
+    "publisher": "antler.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "antler-co-f363d88b",
+    "kind": "investor_website",
+    "url": "https://www.antler.co/careers",
+    "title": "Work With Us | Careers In Early-Stage VC | Antler",
+    "publisher": "antler.co",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "folklore-vc-648aed26",
+    "kind": "investor_website",
+    "url": "https://www.folklore.vc/about",
+    "title": "Folklore | About",
+    "publisher": "folklore.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "folklore-vc-1b887682",
+    "kind": "investor_website",
+    "url": "https://www.folklore.vc/",
+    "title": "Folklore | From First Cheque to Forever",
+    "publisher": "folklore.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "folklore-vc-6359cf42",
+    "kind": "investor_website",
+    "url": "https://www.folklore.vc/get-funding",
+    "title": "Folklore | Get Funding",
+    "publisher": "folklore.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "artesianinvest-com-ee67aa6d",
+    "kind": "investor_website",
+    "url": "https://www.artesianinvest.com/",
+    "title": "Artesian | Alternative Investment Management",
+    "publisher": "artesianinvest.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "artesianinvest-com-e60b46bb",
+    "kind": "investor_website",
+    "url": "https://www.artesianinvest.com/team/jeremy-colless",
+    "title": "Jeremy Colless | Artesian",
+    "publisher": "artesianinvest.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "artesianinvest-com-61be0e59",
+    "kind": "investor_website",
+    "url": "https://www.artesianinvest.com/ventures/builders",
+    "title": "Builders | Deep Tech & Hardware Venture Capital | Artesian",
+    "publisher": "artesianinvest.com",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "brandoncapital-vc-799cf0c3",
+    "kind": "investor_website",
+    "url": "https://brandoncapital.vc/who-we-are/",
+    "title": "Who We Are - Brandon Capital",
+    "publisher": "brandoncapital.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "brandoncapital-vc-ab587e8d",
+    "kind": "investor_website",
+    "url": "https://brandoncapital.vc/",
+    "title": "Brandon Capital Partners - Seed and Venture Capital Investments",
+    "publisher": "brandoncapital.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "brandoncapital-vc-5e89b1b6",
+    "kind": "investor_website",
+    "url": "https://brandoncapital.vc/contact-us/",
+    "title": "Contact Us - Brandon Capital",
+    "publisher": "brandoncapital.vc",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "evp-com-au-edf9ac33",
+    "kind": "investor_website",
+    "url": "https://www.evp.com.au/",
+    "title": "EVP | Early-Stage Venture Capital",
+    "publisher": "evp.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "evp-com-au-405ad95d",
+    "kind": "investor_website",
+    "url": "https://www.evp.com.au/team",
+    "title": "Meet the EVP Team",
+    "publisher": "evp.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "evp-com-au-f5521205",
+    "kind": "investor_website",
+    "url": "https://www.evp.com.au/approach",
+    "title": "Our Approach",
+    "publisher": "evp.com.au",
+    "retrieved_at": "2026-10-10T16:26:24.529Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "squarepeg-vc-f8e53498",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/portfolio",
+    "title": "Portfolio",
+    "publisher": "squarepeg.vc",
+    "retrieved_at": "2026-10-10T16:27:42.084Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "tidalvc-com-2667b0bf",
+    "kind": "investor_website",
+    "url": "https://www.tidalvc.com/portfolio",
+    "title": "Portfolio | Tidal Ventures | AI venture capital Australia",
+    "publisher": "tidalvc.com",
+    "retrieved_at": "2026-10-10T16:27:42.084Z",
+    "note": "Read by a person."
+  },
+  {
+    "id": "kingriver-co-1fca4324",
+    "kind": "investor_website",
+    "url": "https://kingriver.co/portfolio/",
+    "title": "Portfolio - King River",
+    "publisher": "kingriver.co",
+    "retrieved_at": "2026-10-10T16:27:42.084Z",
+    "note": "Read by a person."
   }
 ]
