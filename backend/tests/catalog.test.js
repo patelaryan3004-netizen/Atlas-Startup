@@ -288,3 +288,41 @@ describe('loading the file', () => {
     expect(ms).toBeLessThan(2500); // measured near 330 ms; the margin is for a loaded machine, and the old typed-array sort took 4.9 s
   });
 });
+
+// "Hiring" is public only for a company whose open roles a page showed; a flag no page backs is never counted, drawn or sorted as hiring.
+describe('hiring is counted only where a page backs it', () => {
+  const CHECKED = '2026-10-05T15:00:00.000Z';
+  // Twelve companies: the first three are flagged as hiring with a check behind it, the next three are flagged and no page backs it.
+  const rows = generateCompanies(12).map((r, i) => ({
+    ...r, hiring: i < 6, hiring_status: i < 6 ? 'hiring' : null, hiring_verified_at: i < 3 ? CHECKED : null, verified: true,
+    location_precision: 'EXACT', lat: -33.87 + i / 100, lng: 151.2,
+  }));
+  const snap = buildSnapshot(JSON.stringify(rows), 'v1');
+  const all = select(snap, {});
+
+  it('filters hiring=yes to the checked ones, and hiring=no to everyone else, the flagged-but-unchecked included', () => {
+    expect(select(snap, readFilters({ hiring: 'yes' }))).toHaveLength(3);
+    expect(select(snap, readFilters({ hiring: 'no' }))).toHaveLength(9);
+  });
+
+  it('counts only the checked ones as hiring in a summary, and draws only them with the hiring mark on the map', () => {
+    expect(summary(snap, all).hiring).toBe(3);
+    const marks = markers(snap, all).map((m) => m[6]);
+    expect(marks.reduce((a, b) => a + b, 0)).toBe(3);
+  });
+
+  it('says on a card which kind it is: hiring, flagged but unchecked, or neither', () => {
+    const cards = snap.cards;
+    expect(cards.slice(0, 3).every((c) => c.hiring === true && !('rolesUnverified' in c))).toBe(true);
+    expect(cards.slice(3, 6).every((c) => c.hiring === false && c.rolesUnverified === true)).toBe(true);
+    expect(cards.slice(6).every((c) => c.hiring === false && !('rolesUnverified' in c))).toBe(true);
+  });
+
+  it('puts the checked ones first when sorted by hiring, and says when it was checked on the full record', () => {
+    const order = Array.from(pageOf(snap, all, { sort: 'hiring', limit: 12 }), (n) => snap.records[n].hiring);
+    expect(order.slice(0, 3)).toEqual([true, true, true]);
+    expect(order.slice(3).some(Boolean)).toBe(false);
+    expect(recordFor(snap, rows[0].slug)).toMatchObject({ hiring: true, hiring_verified_at: CHECKED });
+    expect(recordFor(snap, rows[4].slug)).toMatchObject({ hiring: false, rolesUnverified: true, hiring_status: null });
+  });
+});

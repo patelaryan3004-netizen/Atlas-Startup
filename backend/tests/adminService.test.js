@@ -95,7 +95,8 @@ describe('who may do what, in the service itself', () => {
 
   it('has a case here for every permission that changes anything, so a new action cannot be added without being checked', () => {
     const covered = new Set(table({}, () => '').map(([p]) => p));
-    const needed = Object.keys(PERMISSIONS).filter((p) => p !== 'read' && p !== 'enrichment.run' && p !== 'enrichment.retry' && p !== 'enrichment.cancel' && p !== 'candidate.enrich');
+    // (The investor layer's permissions have their own table, and their own guard, in adminInvestors.test.js.)
+    const needed = Object.keys(PERMISSIONS).filter((p) => p !== 'read' && p !== 'enrichment.run' && p !== 'enrichment.retry' && p !== 'enrichment.cancel' && p !== 'candidate.enrich' && !/^(investor|investment|person)\./.test(p));
     expect(needed.filter((p) => !covered.has(p))).toEqual([]);
   });
 

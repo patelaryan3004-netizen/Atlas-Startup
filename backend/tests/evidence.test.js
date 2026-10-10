@@ -20,8 +20,8 @@ const SOURCES = [
 ];
 // Always goes through the migration, as real data does, so source_ids and
 // last_verified_at are in step with the evidence.
-function dataset({ companies = [company()], evidence = [] } = {}) {
-  return migrateDataset({ companies, people: [], investors: [], sources: SOURCES, evidence, funding_rounds: [], jobs: [], news: [] });
+function dataset({ companies = [company()], evidence = [], jobs = [] } = {}) {
+  return migrateDataset({ companies, people: [], investors: [], sources: SOURCES, evidence, funding_rounds: [], jobs, news: [] });
 }
 let n = 0;
 const ev = (over = {}) => makeEvidenceRow({
@@ -363,6 +363,69 @@ describe('migrateDataset with evidence', () => {
   });
 });
 
+// "Hiring" is said to a visitor only for a company whose open roles a page showed. When that was is derived from the evidence and
+// the open jobs on record, like last_verified_at, so it can never record a check that nothing records.
+describe('when a company\'s open roles were last checked', () => {
+  const hiring = (over = {}) => ev({ field: 'hiring_status', value: 'hiring', ...over });
+  const job = (over = {}) => ({
+    id: 'acme-developer', company_id: 'acme', title: 'Developer', location: 'Sydney', employment_type: null, remote: false, posted_at: null,
+    apply_url: 'https://acme.example/jobs/1', status: 'open', source_id: 'acme-site', retrieved_at: T, ...over,
+  });
+  const checkedOf = (ds) => ds.companies[0].hiring_verified_at;
+
+  it('is the latest check of the active evidence that the company is hiring, and the record stays valid', () => {
+    const ds = dataset({
+      companies: [company({ hiring: true })],
+      evidence: [hiring({ verified_at: '2026-10-01T00:00:00.000Z' }), hiring({ source_id: 'press-1', verified_at: '2026-10-04T00:00:00.000Z' })],
+    });
+    expect(checkedOf(ds)).toBe('2026-10-04T00:00:00.000Z');
+    expect(validateDataset(ds)).toEqual([]);
+  });
+
+  it('is not set by the hiring flag a record carries from before, however it is flagged', () => {
+    expect(checkedOf(dataset({ companies: [company({ hiring: true })] }))).toBeNull();
+    expect(checkedOf(dataset({ companies: [company({ hiring: true, hiring_status: 'hiring' })] }))).toBeNull();
+    expect(checkedOf(dataset({ companies: [company({ hiring: false })] }))).toBeNull();
+  });
+
+  it('ignores evidence that is low-confidence, turned down, replaced, says it is not hiring, or is about something else', () => {
+    const ds = dataset({
+      companies: [company({ hiring: true })],
+      evidence: [
+        hiring({ confidence: 'low', source_id: 'press-1' }), hiring({ status: 'rejected', source_id: 'press-2' }), hiring({ status: 'superseded', source_id: 'owner-notes' }),
+        hiring({ value: 'not_hiring', source_id: 'unfetched' }), ev({ field: 'stage', value: 'Seed' }),
+      ],
+    });
+    expect(checkedOf(ds)).toBeNull();
+  });
+
+  it('counts an open job as a check, by when it was read, and a closed one as none', () => {
+    const open = dataset({ jobs: [job({ retrieved_at: '2026-10-03T00:00:00.000Z' }), job({ id: 'acme-designer', retrieved_at: '2026-10-05T00:00:00.000Z' })] });
+    expect(checkedOf(open)).toBe('2026-10-05T00:00:00.000Z');
+    expect(checkedOf(dataset({ jobs: [job({ status: 'closed' })] }))).toBeNull();
+    expect(checkedOf(dataset({ jobs: [job({ company_id: 'someone-else' })] }))).toBeNull();
+  });
+
+  it('takes the later of the evidence and the jobs', () => {
+    const ds = dataset({ evidence: [hiring({ verified_at: '2026-10-02T00:00:00.000Z' })], jobs: [job({ retrieved_at: '2026-10-04T00:00:00.000Z' })] });
+    expect(checkedOf(ds)).toBe('2026-10-04T00:00:00.000Z');
+  });
+
+  it('follows the evidence: a claim turned down takes its date away, and migrating again changes nothing', () => {
+    const ds = dataset({ companies: [company({ hiring: true })], evidence: [hiring({ verified_at: '2026-10-04T00:00:00.000Z' })] });
+    expect(checkedOf(ds)).toBe('2026-10-04T00:00:00.000Z');
+    expect(migrateDataset(ds)).toEqual(ds);
+    const turnedDown = migrateDataset({ ...ds, evidence: ds.evidence.map((e) => ({ ...e, status: 'rejected' })) });
+    expect(checkedOf(turnedDown)).toBeNull();
+  });
+
+  it('is refused if it is not a timestamp', () => {
+    const ds = dataset();
+    ds.companies[0].hiring_verified_at = 'last Tuesday';
+    expect(validateDataset(ds).join('\n')).toMatch(/hiring_verified_at must be an ISO-8601 UTC timestamp or null/);
+  });
+});
+
 describe('getCompanyWithRelations (internal read path)', () => {
   it('includes the evidence and the open conflicts for the company', () => {
     const ds = dataset({ evidence: [ev(), ev({ value: 'Pre-seed', source_id: 'press-1', confidence: 'medium', verified_at: null })] });
@@ -380,6 +443,17 @@ describe('public projection', () => {
     const out = toPublic(record);
     for (const key of INTERNAL_FIELDS) expect(out).not.toHaveProperty(key);
     expect(out).toEqual({ id: 'acme', name: 'Acme', stage: 'Seed', hiring_status: 'hiring' });
+  });
+
+  it('says a company is hiring only if its roles were checked, and says "no page backs it" for a flag that no page backs', () => {
+    const checked = toPublic({ ...record, hiring: true, hiring_status: 'hiring', hiring_verified_at: T });
+    expect(checked).toMatchObject({ hiring: true, hiring_status: 'hiring', hiring_verified_at: T });
+    expect(checked).not.toHaveProperty('rolesUnverified');
+    const flagged = toPublic({ ...record, hiring: true, hiring_status: 'hiring', hiring_verified_at: null });
+    expect(flagged).toMatchObject({ hiring: false, rolesUnverified: true, hiring_status: null });
+    const quiet = toPublic({ ...record, hiring: false, hiring_verified_at: null });
+    expect(quiet.hiring).toBe(false);
+    expect(quiet).not.toHaveProperty('rolesUnverified');
   });
 
   it('does not mutate the record it is given', () => {

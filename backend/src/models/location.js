@@ -42,7 +42,8 @@ export const isOfficialSource = (source) => OFFICIAL.has(source);
 const SOURCE_FOR_KIND = {
   company_website: 'company_website', company_document: 'company_document',
   accelerator_profile: 'credible_profile', directory_listing: 'credible_profile', press: 'credible_profile',
-  investor_post: 'ecosystem_source', aggregator: 'ecosystem_source', open_dataset: 'ecosystem_source', licensed_dataset: 'ecosystem_source',
+  investor_post: 'ecosystem_source', investor_website: 'ecosystem_source', investor_document: 'ecosystem_source',
+  aggregator: 'ecosystem_source', open_dataset: 'ecosystem_source', licensed_dataset: 'ecosystem_source',
   user_supplied: 'manual',
 };
 export const locationSourceFor = (sourceKind) => SOURCE_FOR_KIND[sourceKind] ?? 'ecosystem_source';

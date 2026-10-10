@@ -21,7 +21,7 @@ function pageHtml(snap, page) {
         <td>${esc(s.sectorFull || s.sector)}</td>
         <td>${esc(s.city)}</td>
         <td>${esc(s.stage)}</td>
-        <td>${s.hiring ? 'Yes' : 'No'}</td>
+        <td>${s.hiring ? 'Yes' : s.rolesUnverified ? 'Unverified' : 'No'}</td>
         <td>${s.website ? `<a href="${esc(s.website)}">${esc(s.website.replace(/^https?:\/\//, ''))}</a>` : ''}</td>
       </tr>`;
   }).join('');

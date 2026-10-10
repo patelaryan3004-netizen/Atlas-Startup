@@ -22,7 +22,12 @@ import { createGeocoder, geocodeCached, mergeCache, decide, questionFor } from '
 import { LOCATION_SOURCES, PUBLISHED_AS, isOfficialSource } from '../models/location.js';
 import { locationFilterCodes } from '../models/locationAudit.js';
 import { resolveConflict, applySuggestion, dismissSuggestion, reasonOf } from './decisions.js';
-import { buildOverview, listCandidates, candidateDetail, searchCompanies, missingData, companyDuplicates, listConflicts, listSuggestions, queuePanel, importsPanel, schedulerPanel, auditPage, locationsPanel } from './overview.js';
+import { buildOverview, listCandidates, candidateDetail, searchCompanies, missingData, companyDuplicates, listConflicts, listSuggestions, queuePanel, importsPanel, schedulerPanel, auditPage, locationsPanel, listInvestors, investorDetail } from './overview.js';
+import {
+  approveInvestor, rejectInvestor, reopenInvestor, flagInvestor, publishInvestor, unpublishInvestor, editInvestor, markInactive, mergeInvestors,
+  addInvestment, rejectInvestment, resolveInvestorConflict, approvePerson, rejectPerson, publishPerson, unpublishPerson, investorOf,
+} from '../models/investorActions.js';
+import { INVESTOR_ISSUES } from '../models/investorReview.js';
 import { requireRole } from './roles.js';
 import { createJobRunner } from './jobs.js';
 import { HttpError, BadRequestError, NotFoundError, ConflictError } from './errors.js';
@@ -38,6 +43,7 @@ const text = (v, { max = 500, required = false, what = 'text' } = {}) => {
   return s || null;
 };
 const object = (v, what) => { if (!v || typeof v !== 'object' || Array.isArray(v)) throw new BadRequestError(`${what} must be an object`); return v; };
+const plural = (count, one, many = `${one}s`) => `${count} ${count === 1 ? one : many}`;
 
 // A place a person confirms, as the form sends it: a city (or only a state), an address and/or suburb, coordinates
 // when it is a point, and optionally how precise it is (otherwise worked out from what is given).
@@ -54,6 +60,15 @@ function locationFromBody(l) {
     city: text(l.city, { max: 80, what: 'the city' }) ?? undefined, address: text(l.address, { max: 200 }) ?? undefined, suburb: text(l.suburb, { max: 80 }) ?? undefined,
     state: state ?? undefined, postcode: text(l.postcode, { max: 4 }) ?? undefined, lat, lng, precision,
   };
+}
+
+// The page a person says states a claim, as the form sends it: its address, what kind of page it is, and what it says.
+const PAGE_KINDS = ['investor_website', 'investor_document', 'investor_post', 'press', 'company_website', 'accelerator_profile'];
+function pageFromBody(p) {
+  if (p == null) return null;
+  const s = object(p, 'the source');
+  if (s.kind != null && s.kind !== '' && !PAGE_KINDS.includes(s.kind)) throw new BadRequestError(`the kind of page must be one of ${PAGE_KINDS.join(', ')}`);
+  return { url: text(s.url, { max: 500, what: 'the page' }), kind: s.kind || 'investor_website', title: text(s.title, { max: 200, what: 'the page title' }), quote: text(s.quote, { max: 600, what: 'what the page says' }) };
 }
 
 // A refusal the person should read (a rule said no) is a 400; something that is our bug is left to surface as a 500.
@@ -99,6 +114,11 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
       if (filter && !locationFilterCodes(filter)) throw new BadRequestError(`"${filter}" is not a kind of location problem`);
       return locationsPanel(ds, now(), { filter, limit });
     }),
+    investors: (actor, filters = {}) => read(actor, (ds) => {
+      if (filters.issue && !INVESTOR_ISSUES[filters.issue]) throw new BadRequestError(`"${filters.issue}" is not a kind of investor problem`);
+      return listInvestors(ds, now(), filters);
+    }),
+    investor: (actor, id) => read(actor, (ds) => investorDetail(ds, idOf(id), now()) ?? (() => { throw new NotFoundError(`no investor "${id}"`); })()),
     duplicates: (actor) => read(actor, (ds) => companyDuplicates(ds)),
     conflicts: (actor) => read(actor, (ds) => listConflicts(ds)),
     suggestions: (actor) => read(actor, (ds) => listSuggestions(ds)),
@@ -244,6 +264,109 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
         result: { company_id: company.id, precision: company.location_precision, changed: changes.map((c) => c.field) },
         audit: [entry(actor, 'location.set', { type: 'company', id: company.id }, `Set ${company.name}'s location (${company.location_precision})`, { reason, changes })],
       };
+    }),
+
+    // ---------- investors ----------
+    // A reviewer checks an investor (staging data, never public); an admin publishes, unpublishes, merges, marks inactive and settles
+    // what two sources disagree about. Every claim an edit sets names the page that states it and what the page says.
+    investorApprove: (actor, id, body = {}) => write(actor, 'investor.approve', (work, { at }) => {
+      const note = text(body.note, { what: 'the note' });
+      const before = investorOf(work, idOf(id)).verification_status;
+      const org = approveInvestor(work, id, { at });
+      return { result: { id: org.id, status: org.verification_status }, audit: [entry(actor, 'investor.approve', { type: 'investor', id: org.id }, `Approved ${org.name}: checked against its sources, not public yet`, { reason: note, changes: [{ field: 'verification_status', from: before, to: 'verified' }] })] };
+    }),
+
+    investorReject: (actor, id, body = {}) => write(actor, 'investor.reject', (work, { at }) => {
+      const reason = reasonOf(body.reason);
+      const before = investorOf(work, idOf(id)).verification_status;
+      const org = rejectInvestor(work, id, { at });
+      return { result: { id: org.id, status: org.verification_status }, audit: [entry(actor, 'investor.reject', { type: 'investor', id: org.id }, `Rejected ${org.name}`, { reason, changes: [{ field: 'verification_status', from: before, to: 'rejected' }] })] };
+    }),
+
+    investorReopen: (actor, id) => write(actor, 'investor.reopen', (work, { at }) => {
+      const org = reopenInvestor(work, idOf(id), { at });
+      return { result: { id: org.id, status: org.verification_status }, audit: [entry(actor, 'investor.reopen', { type: 'investor', id: org.id }, `Reopened ${org.name} for review`, { changes: [{ field: 'verification_status', from: 'rejected', to: 'needs_review' }] })] };
+    }),
+
+    investorFlag: (actor, id, body = {}) => write(actor, 'investor.flag', (work, { at }) => {
+      const reason = reasonOf(body.reason);
+      const before = investorOf(work, idOf(id)).verification_status;
+      const org = flagInvestor(work, id, { at });
+      return { result: { id: org.id, status: org.verification_status }, audit: [entry(actor, 'investor.note', { type: 'investor', id: org.id }, `Sent ${org.name} for review`, { reason, changes: [{ field: 'verification_status', from: before, to: 'needs_review' }] })] };
+    }),
+
+    investorPublish: (actor, id) => write(actor, 'investor.publish', (work, { at }) => {
+      const org = publishInvestor(work, idOf(id), { at });
+      return { result: { id: org.id, status: org.verification_status }, audit: [entry(actor, 'investor.publish', { type: 'investor', id: org.id }, `Published ${org.name}${org.verification_status === 'inactive' ? ' as inactive' : ''}`, { changes: [{ field: 'verification_status', from: 'verified', to: org.verification_status }] })] };
+    }),
+
+    investorUnpublish: (actor, id, body = {}) => write(actor, 'investor.unpublish', (work, { at }) => {
+      const reason = text(body.reason, { what: 'the reason' });
+      const before = investorOf(work, idOf(id)).verification_status;
+      const org = unpublishInvestor(work, id, { at });
+      return { result: { id: org.id, status: org.verification_status }, audit: [entry(actor, 'investor.unpublish', { type: 'investor', id: org.id }, `Took ${org.name} off the public directory`, { reason, changes: [{ field: 'verification_status', from: before, to: 'verified' }] })] };
+    }),
+
+    investorInactive: (actor, id, body = {}) => write(actor, 'investor.inactive', (work, { at }) => {
+      const reason = reasonOf(body.reason);
+      const { org, changes } = markInactive(work, idOf(id), { at, by: actor.name, source: pageFromBody(body.source) });
+      return { result: { id: org.id, status: org.verification_status, active_status: org.active_status }, audit: [entry(actor, 'investor.inactive', { type: 'investor', id: org.id }, `Marked ${org.name} as no longer investing`, { reason, changes })] };
+    }),
+
+    investorEdit: (actor, id, body = {}) => write(actor, 'investor.edit', (work, { at }) => {
+      const patch = object(body.patch, 'patch');
+      const page = pageFromBody(body.source);
+      const { org, changes, recorded } = editInvestor(work, idOf(id), patch, { at, by: actor.name, source: page });
+      if (!changes.length && !recorded.length) throw new BadRequestError('nothing changed');
+      // A value the record already held, given the page that states it, changes nothing on the record but is a change all the same.
+      const fieldsOf = changes.length ? changes.map((c) => c.field) : recorded;
+      const summary = changes.length ? `Edited ${org.name}: ${fieldsOf.join(', ')}` : `Recorded the page that states ${org.name}'s ${fieldsOf.map((f) => f.replace(/_/g, ' ')).join(', ')}`;
+      return { result: { id: org.id, status: org.verification_status, changed: fieldsOf, recorded }, audit: [entry(actor, 'investor.edit', { type: 'investor', id: org.id }, summary, { reason: text(body.reason, { what: 'the reason' }), changes })] };
+    }),
+
+    investorMerge: (actor, id, body = {}) => write(actor, 'investor.merge', (work, { at }) => {
+      const name = investorOf(work, idOf(id)).name;
+      const { into, moved } = mergeInvestors(work, id, idOf(body.into, 'the investor to keep'), { at });
+      const parts = [`${plural(moved.investments, 'investment')} moved`, moved.dropped ? `${plural(moved.dropped, 'duplicate investment')} dropped` : null, moved.funds ? `${plural(moved.funds, 'fund')}` : null, moved.team ? `${plural(moved.team, 'team record')}` : null, `${plural(moved.records, 'verification record')}`].filter(Boolean);
+      return { result: { id, into: into.id, moved }, audit: [entry(actor, 'investor.merge', { type: 'investor', id }, `Merged ${name} into ${into.name}: ${parts.join(', ')}`, { reason: text(body.reason, { what: 'the reason' }) })] };
+    }),
+
+    investorResolve: (actor, body = {}) => write(actor, 'investor.resolve', (work, { at }) => {
+      const r = resolveInvestorConflict(work, object(body, 'the request'), { at, by: actor.name });
+      return { result: { id: r.org.id, field: body.field, winner: r.winner, turned_down: r.turnedDown.length }, audit: [entry(actor, 'investor.resolve', { type: 'investor', id: r.org.id }, `Settled ${r.org.name}'s ${String(body.field).replace(/_/g, ' ')}: ${JSON.stringify(r.winner)} is right${r.turnedDown.length ? `; turned down ${r.turnedDown.length} claim(s)` : ''}`, { reason: r.reason, changes: r.changes })] };
+    }),
+
+    investmentAdd: (actor, body = {}) => write(actor, 'investment.add', (work, { at }) => {
+      const b = object(body, 'the request');
+      const { investment, org, company } = addInvestment(work, {
+        investor_id: idOf(b.investor_id, 'the investor'), company_id: idOf(b.company_id, 'the company'), round: b.round, investment_date: b.investment_date, amount: b.amount,
+        currency: b.currency, lead_status: b.lead_status, source: pageFromBody(b.source),
+      }, { at });
+      return { result: { id: investment.id }, audit: [entry(actor, 'investment.add', { type: 'investment', id: investment.id }, `Recorded that ${org.name} backed ${company.name}${investment.round ? ` (${investment.round})` : ''}, with its page`, { reason: text(b.reason, { what: 'the reason' }) })] };
+    }),
+
+    investmentReject: (actor, id, body = {}) => write(actor, 'investment.reject', (work, { at }) => {
+      const reason = reasonOf(body.reason);
+      const row = rejectInvestment(work, idOf(id, 'the investment'), { at });
+      return { result: { id: row.id, status: row.verification_status }, audit: [entry(actor, 'investment.reject', { type: 'investment', id: row.id }, `Turned down the investment ${row.id}`, { reason })] };
+    }),
+
+    personApprove: (actor, id) => write(actor, 'person.approve', (work, { at }) => {
+      const p = approvePerson(work, idOf(id), { at });
+      return { result: { id: p.id, status: p.verification_status }, audit: [entry(actor, 'person.approve', { type: 'investor_person', id: p.id }, `Approved ${p.name}: checked against their sources, not public yet`)] };
+    }),
+    personReject: (actor, id, body = {}) => write(actor, 'person.reject', (work, { at }) => {
+      const reason = reasonOf(body.reason);
+      const p = rejectPerson(work, idOf(id), { at });
+      return { result: { id: p.id, status: p.verification_status }, audit: [entry(actor, 'person.reject', { type: 'investor_person', id: p.id }, `Rejected ${p.name}`, { reason })] };
+    }),
+    personPublish: (actor, id) => write(actor, 'person.publish', (work, { at }) => {
+      const p = publishPerson(work, idOf(id), { at });
+      return { result: { id: p.id, status: p.verification_status }, audit: [entry(actor, 'person.publish', { type: 'investor_person', id: p.id }, `Published ${p.name}`)] };
+    }),
+    personUnpublish: (actor, id) => write(actor, 'person.unpublish', (work, { at }) => {
+      const p = unpublishPerson(work, idOf(id), { at });
+      return { result: { id: p.id, status: p.verification_status }, audit: [entry(actor, 'person.unpublish', { type: 'investor_person', id: p.id }, `Took ${p.name} off the public directory`)] };
     }),
 
     // ---------- the enrichment queue ----------

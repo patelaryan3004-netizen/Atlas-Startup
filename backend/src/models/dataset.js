@@ -29,6 +29,11 @@
 //                          location_source_url, location_verified_at, location_confidence }
 //                        The HEADQUARTERS row is the company's own location fields as a row, derived by the
 //                        migration so they cannot disagree; the other rows are written directly.
+//   investors.json       is also the investor_organisations table: the same record, with what a directory of investors
+//                        needs beyond a name (investor.js). Companies' investor_ids point at it.
+//   investor_people.json, funds.json, investments.json, investor_people_organisations.json, fund_portfolio_companies.json,
+//   verification_records.json   the rest of the investor layer: people, funds, who backed which company (each with its
+//                        source), team roles, and the page behind each claim (investorGraph.js, investorEvidence.js)
 //   audit_trail.json     append-only record of every decision made about the data (auditTrail.js)
 //   enrichment_queue.json  work waiting to read companies' own websites (enrichmentQueue.js)
 //   import_runs.json     one row per run of the discovery engine (importRuns.js)
@@ -57,6 +62,9 @@ import { validateJobRuns } from './jobRuns.js';
 import { validateGeocodeCache } from './geocodeCache.js';
 import { companyLocationProblems, validateLocationRows, hqRowFor, locationEvidenceIndex } from './location.js';
 import { syncConfidence } from './confidence.js';
+import { migrateInvestorRecord, validateInvestorOrganisations } from './investor.js';
+import { migratePerson, migrateFund, validateInvestorGraph } from './investorGraph.js';
+import { validateVerificationRecords, syncLastVerified } from './investorEvidence.js';
 
 export { SOURCE_KINDS };
 
@@ -72,6 +80,13 @@ export const COLLECTION_FILES = {
   jobs: 'jobs.json',
   news: 'news.json',
   company_locations: 'company_locations.json',
+  // The investor layer. A route serves only what a person has published (catalog/investors.js); the files hold the staging too.
+  investor_people: 'investor_people.json',
+  funds: 'funds.json',
+  investments: 'investments.json',
+  investor_people_organisations: 'investor_people_organisations.json',
+  fund_portfolio_companies: 'fund_portfolio_companies.json',
+  verification_records: 'verification_records.json',
   // Internal records of the pipeline's own work. No route serves any of them.
   audit_trail: 'audit_trail.json',
   enrichment_queue: 'enrichment_queue.json',
@@ -240,7 +255,9 @@ export function migrateDataset(input) {
   // founders[] and investors[] (names) stay the hand-edited source; the id
   // lists are regenerated from them so the two can never disagree.
   const { people, link: linkPerson } = createPersonLinker(input.people);
-  const { investors, link: linkInvestor } = createInvestorLinker(companies, input.investors);
+  const { investors: linked, link: linkInvestor } = createInvestorLinker(companies, input.investors);
+  // Each investor is also an investor organisation (investor.js): what is missing is filled in, and what is there is not touched.
+  const investors = linked.map(migrateInvestorRecord);
   for (const c of companies) {
     c.founder_ids = (c.founders || []).map(linkPerson);
     c.investor_ids = [...new Set((c.investors || []).map(linkInvestor))];
@@ -264,6 +281,20 @@ export function migrateDataset(input) {
     }
   }
 
+  // When a page last showed that a company has open roles: the latest check behind active evidence that says it is hiring (not a
+  // low-confidence one), or behind an open job on record. Derived here, like last_verified_at, so it can never say a check was made
+  // that nothing records, and it follows the evidence: a claim that is turned down or replaced takes its date with it. The
+  // `hiring` flag a record carries from before is not a check, and does not set it.
+  const hiringChecked = new Map();
+  const checkedAt = (id, iso) => {
+    if (iso == null || Number.isNaN(Date.parse(iso))) return;
+    const have = hiringChecked.get(id);
+    if (have == null || Date.parse(iso) > Date.parse(have)) hiringChecked.set(id, iso);
+  };
+  for (const e of evidence) if (e.field === 'hiring_status' && e.value === 'hiring' && e.status === 'active' && e.confidence !== 'low') checkedAt(e.company_id, e.verified_at);
+  for (const j of input.jobs ?? []) if (j.status === 'open') checkedAt(j.company_id, j.retrieved_at);
+  for (const c of companies) c.hiring_verified_at = hiringChecked.get(c.id) ?? null;
+
   // Also derived from the evidence: how far the facts the record states are backed (confidence.js).
   syncConfidence(companies, evidence);
 
@@ -274,9 +305,21 @@ export function migrateDataset(input) {
     ...(input.company_locations ?? []).filter((r) => r.kind !== 'HEADQUARTERS').sort(byId),
   ];
 
+  // The rest of the investor layer: copies in a stable order, with what is missing filled in. last_verified_at is kept level
+  // with the verification records beneath it, as a company's is with its evidence.
+  const copy = (rows) => (rows ?? []).map((r) => ({ ...r })).sort(byId);
+  const investor_people = copy(input.investor_people).map(migratePerson);
+  const funds = copy(input.funds).map(migrateFund);
+  const investments = copy(input.investments);
+  const investor_people_organisations = copy(input.investor_people_organisations);
+  const fund_portfolio_companies = copy(input.fund_portfolio_companies);
+  const verification_records = copy(input.verification_records);
+  syncLastVerified({ investors, investor_people, funds, verification_records });
+
   assertLegacyPreserved(legacy, companies);
   return {
     ...input, companies, people, investors, evidence, identifiers, candidates, company_locations,
+    investor_people, funds, investments, investor_people_organisations, fund_portfolio_companies, verification_records,
     audit_trail: input.audit_trail ?? [], enrichment_queue: input.enrichment_queue ?? [], import_runs: input.import_runs ?? [],
     refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [], geocode_cache: input.geocode_cache ?? [],
   };
@@ -365,7 +408,7 @@ export function validateDataset(ds) {
     if (c.funding_total != null && (!isNum(c.funding_total) || c.funding_total < 0)) bad(at, 'funding_total must be a number >= 0 or null');
     if (c.last_funding_date != null && !PARTIAL_DATE_RE.test(c.last_funding_date)) bad(at, 'last_funding_date must be YYYY, YYYY-MM or YYYY-MM-DD');
     if (c.confidence_score != null && (!isNum(c.confidence_score) || c.confidence_score < 0 || c.confidence_score > 1)) bad(at, 'confidence_score must be 0..1 or null');
-    for (const key of ['created_at', 'updated_at', 'last_verified_at']) {
+    for (const key of ['created_at', 'updated_at', 'last_verified_at', 'hiring_verified_at']) {
       if (c[key] != null && !ISO_RE.test(c[key])) bad(at, `${key} must be an ISO-8601 UTC timestamp or null`);
     }
 
@@ -439,6 +482,7 @@ export function validateDataset(ds) {
     ...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds),
     ...validateAuditTrail(ds), ...validateEnrichmentQueue(ds), ...validateImportRuns(ds),
     ...validateRefreshState(ds), ...validateJobRuns(ds), ...validateLocationRows(ds), ...validateGeocodeCache(ds),
+    ...validateInvestorOrganisations(ds), ...validateInvestorGraph(ds), ...validateVerificationRecords(ds),
   );
   return errors;
 }

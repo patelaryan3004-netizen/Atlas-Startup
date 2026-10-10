@@ -105,6 +105,10 @@ export function createAdminApp({ service, authenticator, limiter, securityLog, u
   get('/api/companies', (actor, req) => service.companies(actor, String(req.query.q ?? '')));
   get('/api/missing', (actor) => service.missing(actor));
   get('/api/locations', (actor, req) => service.locations(actor, { filter: String(req.query.filter ?? ''), limit: intOr(req.query.limit, 100) }));
+  get('/api/investors', (actor, req) => service.investors(actor, {
+    status: String(req.query.status ?? 'open'), issue: String(req.query.issue ?? ''), q: String(req.query.q ?? ''), limit: intOr(req.query.limit, 200),
+  }));
+  get('/api/investors/:id', (actor, req) => service.investor(actor, req.params.id));
   get('/api/duplicates', (actor) => service.duplicates(actor));
   get('/api/conflicts', (actor) => service.conflicts(actor));
   get('/api/suggestions', (actor) => service.suggestions(actor));
@@ -125,6 +129,27 @@ export function createAdminApp({ service, authenticator, limiter, securityLog, u
   };
   post('/api/candidates/:id/:action', (actor, req) => {
     const run = Object.hasOwn(CANDIDATE_ACTIONS, req.params.action) ? CANDIDATE_ACTIONS[req.params.action] : null;
+    if (!run) throw new NotFoundError(`there is no action "${req.params.action}"`);
+    return run(actor, req.params.id, req.body ?? {});
+  });
+  const INVESTOR_ACTIONS = {
+    approve: (a, id, b) => service.investorApprove(a, id, b), reject: (a, id, b) => service.investorReject(a, id, b), reopen: (a, id) => service.investorReopen(a, id),
+    flag: (a, id, b) => service.investorFlag(a, id, b), publish: (a, id) => service.investorPublish(a, id), unpublish: (a, id, b) => service.investorUnpublish(a, id, b),
+    inactive: (a, id, b) => service.investorInactive(a, id, b), edit: (a, id, b) => service.investorEdit(a, id, b), merge: (a, id, b) => service.investorMerge(a, id, b),
+  };
+  post('/api/investors/resolve', (actor, req) => service.investorResolve(actor, req.body));
+  post('/api/investors/:id/:action', (actor, req) => {
+    const run = Object.hasOwn(INVESTOR_ACTIONS, req.params.action) ? INVESTOR_ACTIONS[req.params.action] : null;
+    if (!run) throw new NotFoundError(`there is no action "${req.params.action}"`);
+    return run(actor, req.params.id, req.body ?? {});
+  });
+  post('/api/investments', (actor, req) => service.investmentAdd(actor, req.body ?? {}));
+  post('/api/investments/:id/reject', (actor, req) => service.investmentReject(actor, req.params.id, req.body ?? {}));
+  const PERSON_ACTIONS = {
+    approve: (a, id) => service.personApprove(a, id), reject: (a, id, b) => service.personReject(a, id, b), publish: (a, id) => service.personPublish(a, id), unpublish: (a, id) => service.personUnpublish(a, id),
+  };
+  post('/api/investor-people/:id/:action', (actor, req) => {
+    const run = Object.hasOwn(PERSON_ACTIONS, req.params.action) ? PERSON_ACTIONS[req.params.action] : null;
     if (!run) throw new NotFoundError(`there is no action "${req.params.action}"`);
     return run(actor, req.params.id, req.body ?? {});
   });

@@ -110,6 +110,7 @@ function extLink(url, label, props = {}) {
 const STATUS = {
   candidate: ['New', 'info'], needs_review: ['Needs review', 'warn'], matched: ['Exact match', 'info'], approved: ['Approved', 'ok'],
   rejected: ['Rejected', 'muted'], merged: ['Merged', 'muted'], published: ['Published', 'ok'],
+  verified: ['Verified', 'ok'], inactive: ['Inactive', 'muted'], unverified: ['Not yet verified', 'warn'],
 };
 const MATCH = { EXACT_MATCH: 'Same as', LIKELY_MATCH: 'Likely the same as', POSSIBLE_MATCH: 'May be' };
 const CONFIDENCE = { high: ['High', 'ok'], medium: ['Medium', 'info'], low: ['Low', 'warn'] };
@@ -117,11 +118,15 @@ const FIELD = {
   website: 'Website', sector: 'Sector', city: 'City', state: 'State', address: 'Address', description: 'Description', founders: 'Founders',
   founded_year: 'Founded year', investors: 'Investors', hiring_status: 'Hiring', stage: 'Stage', last_funding_round: 'Last round',
   last_funding_date: 'Last round date', funding_total: 'Funding total', abn: 'ABN', acn: 'ACN',
+  name: 'Name', aliases: 'Other names', investor_type: 'Type', inclusion_basis: 'Why it is listed', headquarters_city: 'Headquarters', country: 'Country',
+  other_offices: 'Other offices', stages: 'Stages', sectors: 'Sectors', geographies: 'Geographies', typical_cheque: 'Cheque size', typical_cheque_min: 'Cheque, from',
+  typical_cheque_max: 'Cheque, to', cheque_currency: 'Cheque currency', lead_or_follow: 'Lead or follow', active_status: 'Investing', application_url: 'How to apply',
+  jobs_url: 'Portfolio jobs board', investment_thesis: 'Investment thesis', verification_status: 'Status',
 };
 const KIND = {
   company_website: 'Company website', company_document: 'Company document', press: 'Press', investor_post: 'Investor post',
   accelerator_profile: 'Accelerator profile', directory_listing: 'Directory listing', aggregator: 'Aggregator', user_supplied: 'Supplied by a person',
-  licensed_dataset: 'Licensed dataset', open_dataset: 'Open dataset',
+  licensed_dataset: 'Licensed dataset', open_dataset: 'Open dataset', investor_website: 'Investor website', investor_document: 'Investor document',
 };
 const kindLabel = (k) => KIND[k] ?? (k ? String(k).replace(/_/g, ' ') : 'Source');
 const fieldLabel = (f) => FIELD[f] ?? String(f).replace(/_/g, ' ');
@@ -136,6 +141,11 @@ const ACTION_LABEL = {
   'scheduler.run': 'A scheduled job found something',
   'location.set': 'Set where a company is', 'location.geocode': 'Looked an address up on the map', 'location.verify': 'Recorded where an address was found',
   'location.promote': 'Gave a company the address its own website states', 'location.normalize': 'Cleared a city centre that was not a company’s place',
+  'investor.import': 'Imported an investor', 'investor.approve': 'Approved an investor', 'investor.reject': 'Rejected an investor', 'investor.reopen': 'Reopened an investor',
+  'investor.edit': 'Edited an investor', 'investor.merge': 'Merged two investors', 'investor.publish': 'Published an investor', 'investor.unpublish': 'Took an investor off the site',
+  'investor.inactive': 'Marked an investor as no longer investing', 'investor.resolve': 'Settled an investor conflict', 'investor.link': 'Linked an investor to a company',
+  'investor.note': 'Sent an investor for review', 'investment.add': 'Recorded an investment', 'investment.reject': 'Turned down an investment',
+  'person.approve': 'Approved a person', 'person.reject': 'Rejected a person', 'person.publish': 'Published a person', 'person.unpublish': 'Took a person off the site',
 };
 const PRECISION = { EXACT: ['Exact', 'ok'], SUBURB: ['Suburb', 'info'], CITY: ['City only', 'warn'], STATE: ['State only', 'warn'], UNKNOWN: ['Unknown', 'bad'] };
 const LOCATION_SOURCE = {
@@ -194,6 +204,7 @@ const S = {
     filter: 'open', query: '', conflictField: 'all', conflictShown: 8, suggestionField: 'all', suggestionShown: 10,
     missingField: 'all', missingShown: 12, auditAction: '', auditTarget: '', auditLimit: 50, runMode: 'suggest',
     locationFilter: '', locationShown: 12,
+    investorStatus: 'open', investorIssue: '', investorQuery: '', investorShown: 12, investorConflictShown: 6,
   },
 };
 const can = (permission) => S.me?.permissions?.includes(permission) ?? false;
@@ -230,6 +241,7 @@ const LOADERS = {
   suggestions: () => api.get('/api/suggestions'),
   missing: () => api.get('/api/missing'),
   locations: () => api.get(`/api/locations?filter=${enc(S.ui.locationFilter)}&limit=500`),
+  investors: () => api.get(`/api/investors?status=${enc(S.ui.investorStatus)}&issue=${enc(S.ui.investorIssue)}&q=${enc(S.ui.investorQuery)}&limit=500`),
   duplicates: () => api.get('/api/duplicates'),
   queue: () => api.get('/api/queue'),
   imports: () => api.get('/api/imports'),
@@ -255,7 +267,7 @@ async function load(name, { quiet = false } = {}) {
   render(name);
 }
 const refresh = (...names) => Promise.all(names.map((name) => load(name, { quiet: true })));
-const refreshAll = () => refresh('overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'locations', 'duplicates', 'queue', 'imports', 'scheduler', 'audit');
+const refreshAll = () => refresh('overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'locations', 'investors', 'duplicates', 'queue', 'imports', 'scheduler', 'audit');
 const slotOf = (name) => S.data[name]?.value ?? null;
 
 // ======================================================================= the page frame
@@ -265,6 +277,7 @@ const SECTIONS = [
   { id: 'discovered', nav: 'Discovered', title: 'New startups discovered', def: 'Companies discovery found that nobody has decided on yet. They are staging data: hidden from the public site until an admin publishes them.' },
   { id: 'quality', nav: 'Quality', title: 'Data quality', def: 'How much of the directory has each fact. A fact counts only when the record holds a real value, never “Unknown”.' },
   { id: 'locations', nav: 'Locations', title: 'Locations', def: 'How well the directory knows where each company is. A pin is drawn only for an exact office or a suburb; a company known only to its city is a group there, and one with no known place is listed but not drawn. Accuracy matters more than a full map.' },
+  { id: 'investors', nav: 'Investors', title: 'Investors', def: 'The investor directory’s staging area. A record starts as a candidate and is checked against the pages that state each claim; only a person publishes it. Nothing here reaches the public site until then, and a stage, sector, location or cheque size no page backs is left blank, never guessed.' },
   { id: 'conflicts', nav: 'Conflicts', title: 'Conflicts', def: 'Two sources disagree, or a source disagrees with our record. Nothing is changed until a person says which one is right.' },
   { id: 'suggestions', nav: 'Suggestions', title: 'Suggested fills', def: 'Facts found on company websites that the record does not have yet. Applying one changes the record; dismissing one turns the evidence down for good.' },
   { id: 'queue', nav: 'Enrichment', title: 'Enrichment queue', def: 'Company websites waiting to be read, one at a time. Reading obeys robots.txt and each site’s terms, and never goes near LinkedIn.' },
@@ -360,6 +373,7 @@ function renderNav() {
     discovered: [candidates?.counts?.needs_review ?? overview?.tiles.needs_review, true],
     conflicts: [overview?.attention.open_conflicts, true],
     locations: [overview?.locations?.attention, true],
+    investors: [overview?.investors?.by_status?.needs_review, true],
     suggestions: [overview?.attention.suggestions, false],
     imports: [overview?.tiles.failed_imports, true],
     scheduler: [slotOf('scheduler')?.watch?.length, true],
@@ -1181,6 +1195,824 @@ function setLocationDialog(row) {
   });
 }
 
+// ======================================================================= investors
+
+// A record's life: new -> checked against its pages (verified) -> published, by a person, on purpose. The buttons follow it.
+const INVESTOR_FILTERS = [
+  ['open', 'Waiting'], ['candidate', 'New'], ['needs_review', 'Needs review'], ['verified', 'Verified'], ['published', 'Published'], ['inactive', 'Inactive'], ['rejected', 'Rejected'], ['all', 'All'],
+];
+const BASIS = {
+  based_in_australia: 'Based in Australia', invests_in_australian_startups: 'Invests in Australian-founded startups', australian_startup_network: 'Runs a recognised Australian startup network',
+};
+const PAGE_CHOICES = [
+  ['investor_website', 'The investor’s own website'], ['investor_document', 'An investor document (a report or a PDF)'], ['investor_post', 'An investor’s announcement or post'],
+  ['press', 'Press'], ['company_website', 'A company’s website'], ['accelerator_profile', 'An accelerator or programme profile'],
+];
+const typeName = (key) => (slotOf('investors')?.vocab.types.find(([k]) => k === key)?.[1]) ?? (key ? String(key).replace(/_/g, ' ') : null);
+const issueNote = (code) => slotOf('investors')?.summary.issues.find((i) => i.code === code)?.note ?? '';
+const audMoney = (v, currency = 'AUD') => { try { return new Intl.NumberFormat('en-AU', { style: 'currency', currency, maximumFractionDigits: 0 }).format(v); } catch { return `${currency} ${n(v)}`; } };
+
+// A claim's value the way a person reads it (the cheque is one claim of three fields).
+function fmtClaim(field, v) {
+  if (v == null || v === '' || (Array.isArray(v) && !v.length)) return 'Unknown';
+  if (field === 'typical_cheque' && typeof v === 'object') {
+    const cur = v.currency ?? 'AUD';
+    if (v.min != null && v.max != null) return `${audMoney(v.min, cur)} to ${audMoney(v.max, cur)}`;
+    return v.min != null ? `from ${audMoney(v.min, cur)}` : `up to ${audMoney(v.max, cur)}`;
+  }
+  if (field === 'investor_type') return typeName(v) ?? String(v);
+  if (field === 'inclusion_basis') return BASIS[v] ?? String(v);
+  if (field === 'active_status') return v === 'inactive' ? 'No longer investing' : 'Investing';
+  if (field === 'lead_or_follow') return capitalise(String(v));
+  return fmtValue(v);
+}
+
+function setInvestorView({ status = S.ui.investorStatus, issue = '' } = {}) {
+  Object.assign(S.ui, { investorStatus: status, investorIssue: issue, investorQuery: '', investorShown: 12 });
+  load('investors', { quiet: true });
+}
+
+function investorsFrame(body) {
+  const search = textInput({ type: 'search', id: 'inv-q', placeholder: 'Search name, other name or website', 'aria-label': 'Search investors by name or website', value: S.ui.investorQuery, 'data-fk': 'search:inv' });
+  search.addEventListener('input', debounce(() => { S.ui.investorQuery = norm(search.value); S.ui.investorShown = 12; load('investors', { quiet: true }); }, 250));
+  const issue = h('select', { class: 'select', id: 'inv-issue', 'aria-label': 'Show one kind of problem', 'data-fk': 'inv:issue' });
+  issue.addEventListener('change', () => { S.ui.investorIssue = issue.value; S.ui.investorShown = 12; load('investors', { quiet: true }); });
+  body.append(
+    h('div', { id: 'inv-tiles' }),
+    h('div', { class: 'toolbar' },
+      h('div', { class: 'seg', role: 'group', 'aria-label': 'Show', id: 'inv-seg' }, INVESTOR_FILTERS.map(([key, text]) => h('button', { type: 'button', 'data-filter': key, 'data-fk': `inv-filter:${key}`, 'aria-pressed': 'false', on: { click: () => setInvestorView({ status: key, issue: S.ui.investorIssue }) } }, text, h('span', { class: 'n' })))),
+      issue,
+      h('div', { class: 'search' }, icon('search', 16), search),
+      h('p', { class: 'toolbar__note', id: 'inv-note' })),
+    h('div', { id: 'inv-results' }),
+    h('div', { id: 'inv-blocks' }));
+}
+
+function paintInvestorToolbar() {
+  const data = slotOf('investors');
+  const counts = data?.counts ?? {};
+  for (const button of document.querySelectorAll('#inv-seg button')) {
+    button.setAttribute('aria-pressed', String(button.dataset.filter === S.ui.investorStatus));
+    button.querySelector('.n').textContent = counts[button.dataset.filter] != null ? n(counts[button.dataset.filter]) : '';
+  }
+  const issue = $('#inv-issue');
+  if (issue && data) {
+    issue.replaceChildren(h('option', { value: '' }, 'Any problem'), ...data.summary.issues.filter((i) => i.count > 0).map((i) => h('option', { value: i.code, selected: i.code === S.ui.investorIssue }, `${i.label} (${n(i.count)})`)));
+    issue.value = S.ui.investorIssue;
+  }
+  const search = $('#inv-q');
+  if (search && document.activeElement !== search && search.value !== S.ui.investorQuery) search.value = S.ui.investorQuery;
+  const note = $('#inv-note');
+  if (note) note.textContent = data ? `${n(data.results.length)} shown${data.total > data.results.length ? ` of ${n(data.total)}` : ''}` : '';
+}
+
+function renderInvestors() {
+  const body = $('#body-investors');
+  if (!body) return;
+  if (!body.firstChild) investorsFrame(body);
+  paintInvestorToolbar();
+  // The list says if it could not load; the counts above it and the lists below it stay quiet instead of saying it three times.
+  const slot = S.data.investors;
+  const settled = slot?.state === 'ready';
+  const put = (el, node) => el.replaceChildren(...(node ? [node] : []));
+  put($('#inv-tiles'), settled ? investorTiles(slot.value)
+    : slot?.state === 'error' ? null : h('div', { class: 'tiles', 'aria-hidden': 'true' }, Array.from({ length: 8 }, () => h('div', { class: 'tile' }, h('span', { class: 'skel' }), h('span', { class: 'skel' })))));
+  const results = $('#inv-results');
+  keepFocus(results, () => results.replaceChildren(view('investors', (L) => (L.results.length ? investorsTable(L) : emptyInvestors()))));
+  const blocks = $('#inv-blocks');
+  keepFocus(blocks, () => put(blocks, settled ? h('div', {}, investorConflicts(slot.value), duplicateFirms(slot.value), staleTeam(slot.value), investorsFooter()) : null));
+}
+
+function investorTiles(L) {
+  const s = L.summary;
+  const gap = (code) => s.issues.find((i) => i.code === code)?.count ?? 0;
+  const tiles = [
+    { label: 'In the directory', value: s.public, note: `${n(s.by_status.published)} published · ${n(s.by_status.inactive)} inactive`, status: 'published' },
+    { label: 'Verified, not published', value: s.by_status.verified, note: 'checked against pages; a person publishes', status: 'verified' },
+    { label: 'New candidates', value: s.by_status.candidate, note: 'not yet checked against a page', status: 'candidate' },
+    { label: 'Needs review', value: s.by_status.needs_review, note: 'flagged for a person to look at', status: 'needs_review', flag: 'warn' },
+    { label: 'Sources disagree', value: s.conflicts, note: 'a person settles which page is right', issue: 'evidence_conflict', flag: 'bad' },
+    { label: 'Possible duplicates', value: s.duplicates.firms + s.duplicates.people, note: `${plural(s.duplicates.firms, 'firm')} · ${plural(s.duplicates.people, 'person', 'people')}`, issue: 'possible_duplicate_firm', flag: 'warn' },
+    { label: 'Backs, no page', value: s.relationships.unsourced, note: `of ${plural(s.relationships.links, 'company link')}, ${n(s.relationships.sourced)} have a page`, issue: 'unverified_relationships', flag: 'warn' },
+    { label: 'Team not checked in a year', value: s.team.stale, note: `of ${plural(s.team.records, 'team record')}`, anchor: 'inv-stale', flag: 'warn' },
+  ];
+  const missing = [['missing_stages', 'No stages'], ['missing_sectors', 'No sectors'], ['missing_location', 'No location'], ['missing_type', 'No type'], ['missing_website', 'No website']];
+  const tile = (t) => {
+    const flagged = t.flag && t.value > 0;
+    const inside = [
+      h('span', { class: 'tile__label' }, flagged && h('span', { class: `tile__dot${t.flag === 'bad' ? ' tile__dot--bad' : ''}`, 'aria-hidden': 'true' }), t.label, flagged && h('span', { class: 'sr' }, ' (needs attention)')),
+      h('span', { class: 'tile__main' }, h('span', { class: 'tile__value' }, n(t.value)), h('span', { class: 'tile__note' }, t.note)),
+    ];
+    return h('a', { class: 'tile', href: '#investors', on: { click: (e) => { e.preventDefault(); if (t.anchor) { document.getElementById(t.anchor)?.scrollIntoView(); return; } setInvestorView({ status: t.status ?? 'all', issue: t.issue ?? '' }); } } }, inside);
+  };
+  return h('div', {},
+    h('div', { class: 'tiles' }, tiles.map(tile)),
+    h('div', { class: 'subhead' }, h('h3', {}, 'What the records are missing'), h('p', {}, 'A blank stays blank until a page states it. Nothing is guessed to fill a gap.')),
+    h('div', { class: 'tiles tiles--five' }, missing.map(([code, label]) => tile({ label, value: gap(code), note: `of ${plural(s.total, 'record')}`, issue: code }))));
+}
+
+function emptyInvestors() {
+  if (S.ui.investorQuery) return emptyBox(`No investor matches “${S.ui.investorQuery}”.`, 'Search covers names, other names and websites. Try fewer letters, or choose All.');
+  if (S.ui.investorIssue) return emptyBox('No record has this problem here.', 'Choose another kind of problem, or Any problem.');
+  return emptyBox('Nothing is waiting here.', 'New investors are staged by ', h('code', {}, 'npm run investors -- import'), ' in ', h('code', {}, 'backend/'), '. Choose All to see the decided ones.');
+}
+
+const INVESTOR_ACTION_ORDER = ['approve', 'publish', 'edit', 'flag', 'unpublish', 'inactive', 'merge', 'reject', 'reopen'];
+const INVESTOR_ACTIONS = {
+  approve: { label: 'Approve', perm: 'investor.approve', run: (r) => approveInvestorDialog(r) },
+  publish: { label: 'Publish', perm: 'investor.publish', run: (r) => publishInvestorDialog(r) },
+  edit: { label: 'Edit', perm: 'investor.edit', run: (r) => editInvestorDialog(r) },
+  flag: { label: 'Send for review', perm: 'investor.flag', run: (r) => flagInvestorDialog(r) },
+  unpublish: { label: 'Unpublish', perm: 'investor.unpublish', run: (r) => unpublishInvestorDialog(r) },
+  inactive: { label: 'Mark inactive', perm: 'investor.inactive', run: (r) => inactiveInvestorDialog(r) },
+  merge: { label: 'Merge', perm: 'investor.merge', run: (r) => mergeInvestorDialog(r) },
+  reject: { label: 'Reject', perm: 'investor.reject', run: (r) => rejectInvestorDialog(r) },
+  reopen: { label: 'Reopen', perm: 'investor.reopen', run: (r) => reopenInvestor(r) },
+};
+
+// A row shows the one step that moves it along; the full set is in its drawer.
+function investorButtons(row, { drawer = false } = {}) {
+  let wanted = INVESTOR_ACTION_ORDER.filter((a) => row.actions.includes(a) && can(INVESTOR_ACTIONS[a].perm));
+  if (!drawer) wanted = wanted.filter((a) => ['approve', 'publish', 'unpublish', 'reopen'].includes(a)).slice(0, 1);
+  const primary = wanted.find((a) => a === 'approve' || a === 'publish');
+  return wanted.map((a) => btn(INVESTOR_ACTIONS[a].label, {
+    small: !drawer, variant: a === primary ? 'primary' : '', fk: `inv:${row.id}:${a}${drawer ? ':d' : ''}`,
+    attrs: { 'aria-label': `${INVESTOR_ACTIONS[a].label} ${row.name}` }, onClick: () => INVESTOR_ACTIONS[a].run(row),
+  }));
+}
+
+const portfolioCell = (p) => h('div', {},
+  p.verified > 0 ? h('b', {}, `${plural(p.verified, 'company', 'companies')} backed`) : h('span', { class: 'muted' }, 'None with a page'),
+  p.unverified > 0 && h('div', { class: 'sub' }, `${n(p.unverified)} not yet verified`),
+  p.unsourced > 0 && h('div', { class: 'sub' }, `${plural(p.unsourced, 'company', 'companies')} name it, no page`));
+
+function investorsTable(L) {
+  const shown = L.results.slice(0, S.ui.investorShown);
+  return h('div', {},
+    grid({
+      caption: 'Investors', wide: true,
+      columns: [{ label: 'Investor' }, { label: 'Type' }, { label: 'Where' }, { label: 'Stages and sectors' }, { label: 'Portfolio' }, { label: 'Needs attention' }, { label: 'Actions', cls: 'cell-actions' }],
+      rows: shown.map((r) => {
+        const worst = r.issues[0];
+        return [
+          h('div', { class: 'company' },
+            h('button', { type: 'button', class: 'linkbtn', 'data-fk': `inv:${r.id}:open`, on: { click: guard(() => openInvestor(r.id)) } }, r.name),
+            r.website && h('div', { class: 'sub' }, extLink(r.website, hostOf(r.website))),
+            h('div', { class: 'chips' }, statusChip(r.status), r.active_status === 'inactive' && r.status !== 'inactive' && chip('No longer investing', 'muted'))),
+          r.type_label ?? unknown(),
+          r.location ?? unknown(),
+          r.stages || r.sectors ? `${plural(r.stages, 'stage')} · ${plural(r.sectors, 'sector')}` : h('span', { class: 'muted' }, 'None recorded'),
+          portfolioCell(r.portfolio),
+          worst
+            ? h('div', { class: 'issue' }, h('div', { class: 'chips' }, chip(worst.label, SEVERITY_TONE[worst.severity] ?? 'muted', true), r.issues.length > 1 && chip(`+${r.issues.length - 1} more`, 'muted', true)), worst.detail && h('span', { class: 'sub clamp2', title: worst.detail }, worst.detail))
+            : h('span', { class: 'muted' }, 'Nothing'),
+          h('div', { class: 'actions' }, btn('Review', { small: true, variant: 'ghost', fk: `inv:${r.id}:review`, attrs: { 'aria-label': `Review ${r.name}` }, onClick: () => openInvestor(r.id) }), investorButtons(r)),
+        ];
+      }),
+    }),
+    pager(shown.length, L.results.length, () => { S.ui.investorShown += 10; renderInvestors(); }, 'investors'));
+}
+
+// ---------- what is to be settled across the whole list ----------
+
+function investorConflicts(L) {
+  if (!L.conflicts.length) return null;
+  const shown = L.conflicts.slice(0, S.ui.investorConflictShown);
+  return h('div', {},
+    h('div', { class: 'subhead' }, h('h3', {}, `Sources disagree (${L.conflicts.length})`), h('p', {}, 'Two pages give different answers for one investor. Nothing changes until a person says which page is right.')),
+    shown.map((c) => investorConflict(c)),
+    pager(shown.length, L.conflicts.length, () => { S.ui.investorConflictShown += 10; renderInvestors(); }, 'investor-conflicts'));
+}
+
+function evidenceLines(evidence) {
+  return evidence.slice(0, 3).map((e) => h('p', { class: 'side__meta' },
+    e.source && safeHref(e.source.url) ? extLink(e.source.url, e.source.title || hostOf(e.source.url)) : (e.source?.title ?? 'A page'),
+    e.source ? ` · ${kindLabel(e.source.kind).toLowerCase()}${e.verified_at ? ` · read ${fmtDate(e.verified_at)}` : ''}` : '',
+    e.note ? h('span', { class: 'sub' }, ` “${clip(e.note, 200)}”`) : null));
+}
+
+function investorConflict(c, { inDrawer = false } = {}) {
+  const settle = (i) => (can('investor.resolve')
+    ? btn('This one is right', { small: true, fk: `invc:${c.subject_id}:${c.field}:${i}`, attrs: { 'aria-label': `Source ${String.fromCharCode(65 + i)} is right for ${c.name}’s ${fieldLabel(c.field).toLowerCase()}` }, onClick: () => resolveInvestorConflictDialog(c, i) })
+    : null);
+  return h('article', { class: 'conflict', 'aria-label': `${c.name}: ${fieldLabel(c.field)}` },
+    h('div', { class: 'conflict__head' },
+      inDrawer ? h('span', { class: 'conflict__title' }, fieldLabel(c.field))
+        : h('button', { type: 'button', class: 'linkbtn conflict__title', 'data-fk': `invc:${c.subject_id}:open`, on: { click: guard(() => openInvestor(c.subject_id)) } }, c.name),
+      !inDrawer && chip(fieldLabel(c.field), 'muted', true),
+      chip(c.kind === 'sources_disagree' ? 'Pages disagree' : 'A page disagrees with our record', 'warn')),
+    h('div', { class: 'sides' },
+      c.stored != null && !c.values.some((v) => v.matches_stored) && h('div', { class: 'side' }, h('span', { class: 'side__label' }, 'Our record'), h('span', { class: 'side__value' }, fmtClaim(c.field, c.stored)),
+        h('p', { class: 'side__meta' }, 'To keep this, edit the record with the page that states it; then both pages agree.')),
+      c.values.map((v, i) => h('div', { class: 'side' },
+        h('span', { class: 'side__label' }, `Source ${String.fromCharCode(65 + i)}`),
+        h('span', { class: 'side__value' }, fmtClaim(c.field, v.value)),
+        v.matches_stored && h('div', { class: 'chips' }, chip('Matches our record', 'ok')),
+        evidenceLines(v.evidence),
+        h('div', { class: 'side__act' }, settle(i))))));
+}
+
+function duplicateFirms(L) {
+  const groups = L.duplicates.firms;
+  if (!groups.length && !L.duplicates.people.length) return null;
+  return h('div', {},
+    groups.length > 0 && h('div', {},
+      h('div', { class: 'subhead' }, h('h3', {}, `Records that look like one firm (${groups.length})`), h('p', {}, 'The same name, the same website, or a name that starts the way another does. Merge two that are one firm; leave two that are not.')),
+      grid({
+        caption: 'Possible duplicate firms',
+        columns: [{ label: 'Why they look alike' }, { label: 'Records' }, { label: 'Actions', cls: 'cell-actions' }],
+        rows: groups.map((g) => [
+          capitalise(g.reason),
+          h('div', { class: 'chips' }, g.members.map((m) => h('span', { class: 'chips' }, h('button', { type: 'button', class: 'linkbtn', 'data-fk': `invd:${m.id}:open`, on: { click: guard(() => openInvestor(m.id)) } }, m.name), statusChip(m.status)))),
+          can('investor.merge') ? btn('Merge…', { small: true, fk: `invd:${g.ids.join('|')}`, attrs: { 'aria-label': `Merge ${g.names.join(' and ')}` }, onClick: () => mergeGroupDialog(g) }) : null,
+        ]),
+      })),
+    L.duplicates.people.length > 0 && h('div', {},
+      h('div', { class: 'subhead' }, h('h3', {}, `People who look like one person (${L.duplicates.people.length})`), h('p', {}, 'The same name or the same public page. Merging two people is done in the data files; nothing is merged for you.')),
+      grid({ caption: 'Possible duplicate people', columns: [{ label: 'Why they look alike' }, { label: 'People' }], rows: L.duplicates.people.map((g) => [capitalise(g.reason), g.names.join(' · ')]) })));
+}
+
+function staleTeam(L) {
+  if (!L.stale_team.length) return h('span', { id: 'inv-stale' });
+  return h('div', { id: 'inv-stale' },
+    h('div', { class: 'subhead' }, h('h3', {}, `Team records not checked in a year (${L.stale_team.length})`), h('p', {}, 'People move firms. A role nobody has looked at for a year is shown with its last check, never silently kept.')),
+    grid({
+      caption: 'Team records not checked in a year', columns: [{ label: 'Person' }, { label: 'Firm' }, { label: 'Role' }, { label: 'Last checked' }],
+      rows: L.stale_team.map((t) => [h('b', {}, t.person), t.organisation, t.role, t.verified_at ? fmtDate(t.verified_at) : h('span', { class: 'muted' }, 'Never')]),
+    }));
+}
+
+// ---------- the page that states a claim ----------
+
+// The address of a page, what kind of page it is, and the words on it that say the thing. A reader checks the claim
+// against those words, so they are required wherever a claim is set.
+function pageFields({ optional = false, title = 'The page that states it' } = {}) {
+  const url = textInput({ placeholder: 'https://…', maxlength: 500 });
+  const kind = selectInput(PAGE_CHOICES, 'investor_website');
+  const quote = textArea({ rows: 3, maxlength: 600, placeholder: 'For example: “We invest in pre-seed and seed Australian startups.”' });
+  return {
+    node: h('div', { class: 'block' },
+      fieldOf(title, url, { optional, hint: 'The page itself, not a search result. Never LinkedIn or another personal profile.' }),
+      fieldOf('What kind of page it is', kind),
+      fieldOf('What the page says', quote, { optional, hint: 'Its own words, copied. This is what anyone checking the claim reads.' })),
+    read({ required = false } = {}) {
+      const address = norm(url.value);
+      const words = norm(quote.value);
+      if (!address && !words) { if (required) { url.focus(); throw new Error('Name the page that says it.'); } return null; }
+      if (!address) { url.focus(); throw new Error('Name the page that says it.'); }
+      if (words.length < 8) { quote.focus(); throw new Error('Copy what the page says, in its own words.'); }
+      return { url: address, kind: kind.value, quote: words };
+    },
+  };
+}
+
+async function afterInvestorChange(id, { gone = false } = {}) {
+  await refreshAll();
+  if (S.drawer?.kind === 'investor' && S.drawer.id === id) { if (gone) S.drawer.dlg.close(); else await S.drawer.reload(); }
+}
+
+// ---------- the steps a record takes ----------
+
+function approveInvestorDialog(row) {
+  const note = textArea({ rows: 2, maxlength: 500 });
+  modal({
+    title: `Approve ${row.name}?`,
+    body: [
+      callout(h('b', {}, 'Approving does not publish. '), 'It says every claim on the record has a page behind it, and moves it to Verified. It is refused if one does not. It stays hidden from the public site until a person publishes it.'),
+      fieldOf('Note', note, { optional: true, hint: 'Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Approve',
+    onSubmit: async () => {
+      await api.post(`/api/investors/${row.id}/approve`, { note: note.value });
+      toast(`Approved ${row.name}. It is not public until it is published.`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+function rejectInvestorDialog(row) {
+  const reason = textArea({ rows: 3, maxlength: 500, placeholder: 'For example: it invests in listed shares, not startups.' });
+  modal({
+    title: `Reject ${row.name}?`,
+    body: [
+      callout('It is kept, with your reason, so the same name is not proposed again. You can reopen it later.'),
+      fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Reject', tone: 'danger',
+    onSubmit: async () => {
+      await api.post(`/api/investors/${row.id}/reject`, { reason: needReason(reason) });
+      toast(`Rejected ${row.name}.`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+function flagInvestorDialog(row) {
+  const reason = textArea({ rows: 3, maxlength: 500, placeholder: 'For example: its website now says it has stopped investing.' });
+  modal({
+    title: `Send ${row.name} for review?`,
+    body: [callout('It moves to “Needs review” so a person looks at it again. Nothing about the public site changes.'), fieldOf('What looks wrong', reason, { hint: 'Required. Kept with your name in the audit trail.' })],
+    submitLabel: 'Send for review',
+    onSubmit: async () => {
+      await api.post(`/api/investors/${row.id}/flag`, { reason: needReason(reason) });
+      toast(`${row.name} is waiting for review.`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+async function reopenInvestor(row) {
+  await api.post(`/api/investors/${row.id}/reopen`, {});
+  toast(`Reopened ${row.name} for review.`);
+  await afterInvestorChange(row.id);
+}
+
+async function publishInvestorDialog(row) {
+  const d = await api.get(`/api/investors/${row.id}`);
+  const lines$ = [
+    ['Name', d.name], ['Type', d.type_label], ['Where', d.location], ['Stages', d.stages.length ? d.stages.join(', ') : null], ['Sectors', d.sectors.length ? d.sectors.join(', ') : null],
+    ['Cheque size', fmtClaim('typical_cheque', d.typical_cheque_min == null && d.typical_cheque_max == null ? null : { min: d.typical_cheque_min, max: d.typical_cheque_max, currency: d.cheque_currency })],
+  ];
+  modal({
+    title: `Publish ${d.name}`, size: 'lg',
+    lead: d.active_status === 'inactive' ? 'It says it has stopped investing, so it is published as inactive: listed, and labelled, never shown as active.' : 'Adds the investor to the public directory with what is on this record.',
+    body: [
+      callout(h('b', {}, 'This is the public record. '), 'It reaches the live site when you commit and push the data files. Only what a page backs is shown: a blank stays blank.'),
+      h('dl', { class: 'kv' }, lines$.map(([label, value]) => kv(label, value ? (value === 'Unknown' ? unknown() : value) : unknown()))),
+      h('p', { class: 'sub' }, `${plural(d.portfolio.verified, 'portfolio company', 'portfolio companies')} with a page that says so · ${plural(d.team.length, 'team record')} · ${plural(d.funds.length, 'fund')}`),
+    ],
+    submitLabel: 'Publish investor',
+    onSubmit: async () => {
+      const r = await api.post(`/api/investors/${row.id}/publish`, {});
+      toast(`Published ${d.name}${r.status === 'inactive' ? ' as inactive' : ''}. Commit the data files to make it live.`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+function unpublishInvestorDialog(row) {
+  const reason = textArea({ rows: 3, maxlength: 500, placeholder: 'For example: the fund has closed and its page is gone.' });
+  modal({
+    title: `Take ${row.name} off the public directory?`,
+    body: [callout('It goes back to Verified: kept, checked, and hidden from the public site until it is published again. The live site drops it when you commit and push the data files.'), fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' })],
+    submitLabel: 'Unpublish', tone: 'danger',
+    onSubmit: async () => {
+      await api.post(`/api/investors/${row.id}/unpublish`, { reason: needReason(reason) });
+      toast(`${row.name} is off the public directory. Commit the data files to make it so on the live site.`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+function inactiveInvestorDialog(row) {
+  const checked = ['verified', 'published', 'inactive'].includes(row.status);
+  const page = pageFields({ optional: !checked, title: 'The page that says it has stopped investing' });
+  const reason = textArea({ rows: 2, maxlength: 500, placeholder: 'For example: its website says the fund is closed to new investments.' });
+  modal({
+    title: `Mark ${row.name} as no longer investing`, size: 'lg',
+    body: [
+      callout(row.status === 'published' ? 'It stays in the directory, labelled as inactive: a fund that has stopped is still part of the record, and is never shown as active.' : 'It is recorded as no longer investing, and is never published as active.'),
+      page.node,
+      fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Mark inactive', tone: 'danger',
+    onSubmit: async () => {
+      const source = page.read({ required: checked });
+      await api.post(`/api/investors/${row.id}/inactive`, { reason: needReason(reason), source });
+      toast(`${row.name} is marked as no longer investing.`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+// ---------- edit ----------
+
+async function editInvestorDialog(row) {
+  const d = await api.get(`/api/investors/${row.id}`);
+  const vocab = slotOf('investors')?.vocab ?? { types: [], stages: [], bases: [], lead_or_follow: [] };
+  const stageBoxes = vocab.stages.map((s) => { const input = h('input', { type: 'checkbox', id: uid('stage'), value: s, checked: d.stages.includes(s) }); return { s, input, node: h('div', { class: 'check' }, input, h('label', { for: input.id }, s)) }; });
+  const cheque = { min: d.typical_cheque_min, max: d.typical_cheque_max };
+  const f = {
+    name: textInput({ value: d.name, maxlength: 120 }),
+    website: textInput({ value: d.website ?? '', placeholder: 'https://…' }),
+    investor_type: selectInput([['', 'Not known'], ...vocab.types], d.investor_type ?? ''),
+    inclusion_basis: selectInput([['', 'Not known'], ...vocab.bases.map((b) => [b, BASIS[b] ?? b])], d.inclusion_basis ?? ''),
+    headquarters_city: textInput({ value: d.headquarters_city ?? '', maxlength: 120 }),
+    state: selectInput([['', 'No state'], ...AU_STATES.map((s) => [s, s])], d.state ?? ''),
+    country: textInput({ value: d.country ?? '', maxlength: 120, placeholder: 'For example: Australia' }),
+    other_offices: textArea({ value: d.other_offices.join('\n'), rows: 2 }),
+    sectors: textArea({ value: d.sectors.join('\n'), rows: 2 }),
+    geographies: textArea({ value: d.geographies.join('\n'), rows: 2 }),
+    cheque_min: textInput({ inputmode: 'numeric', value: cheque.min ?? '', placeholder: 'For example: 250000' }),
+    cheque_max: textInput({ inputmode: 'numeric', value: cheque.max ?? '', placeholder: 'For example: 1000000' }),
+    cheque_currency: textInput({ value: d.cheque_currency ?? '', maxlength: 3, placeholder: 'AUD' }),
+    lead_or_follow: selectInput([['', 'Not known'], ...vocab.lead_or_follow.map((v) => [v, capitalise(v)])], d.lead_or_follow ?? ''),
+    active_status: selectInput([['', 'Not known'], ['active', 'Investing'], ['inactive', 'No longer investing']], d.active_status ?? ''),
+    application_url: textInput({ value: d.application_url ?? '', placeholder: 'https://…' }),
+    jobs_url: textInput({ value: d.jobs_url ?? '', placeholder: 'https://…' }),
+    description: textArea({ value: d.description ?? '', rows: 3, maxlength: 1200 }),
+    investment_thesis: textArea({ value: d.investment_thesis ?? '', rows: 3, maxlength: 1200 }),
+    reason: textArea({ rows: 2, maxlength: 500 }),
+  };
+  const page = pageFields({ optional: true });
+  modal({
+    title: `Edit ${d.name}`, size: 'lg',
+    lead: 'Each claim you set or change needs the page that states it, and the words on that page. Clearing one needs none. Leave a field empty when no page says it: nothing is guessed.',
+    body: [
+      h('div', { class: 'block' }, fieldOf('Name', f.name, { hint: 'A new name keeps the old one as another name, so companies that use it still find this record.' }), fieldOf('Website', f.website, { hint: 'Its own site. Leave empty to remove it.' })),
+      rowOf(fieldOf('Type of investor', f.investor_type), fieldOf('Why it is listed', f.inclusion_basis)),
+      rowOf(fieldOf('Headquarters city', f.headquarters_city), fieldOf('State', f.state), fieldOf('Country', f.country)),
+      fieldOf('Other offices', f.other_offices, { hint: 'One per line.' }),
+      h('fieldset', {}, h('legend', {}, 'Stages it invests at'), h('div', { class: 'checks' }, stageBoxes.map((b) => b.node))),
+      rowOf(fieldOf('Sectors', f.sectors, { hint: 'One per line, as the page words them.' }), fieldOf('Where it invests', f.geographies, { hint: 'One per line.' })),
+      h('div', { class: 'block' }, h('p', { class: 'field__label' }, 'Cheque size'), h('p', { class: 'field__hint' }, 'Only an amount a page states. It is shown on the site only for a stated Australian-dollar range.'),
+        rowOf(fieldOf('From', f.cheque_min, { optional: true }), fieldOf('To', f.cheque_max, { optional: true }), fieldOf('Currency', f.cheque_currency, { optional: true }))),
+      rowOf(fieldOf('Leads or follows', f.lead_or_follow), fieldOf('Investing now', f.active_status)),
+      rowOf(fieldOf('How to apply', f.application_url, { optional: true }), fieldOf('Its jobs page', f.jobs_url, { optional: true })),
+      fieldOf('About', f.description),
+      fieldOf('Investment thesis', f.investment_thesis, { hint: 'What it says it looks for, in its own words.' }),
+      page.node,
+      fieldOf('Why', f.reason, { optional: true }),
+    ],
+    submitLabel: 'Save changes',
+    onSubmit: async () => {
+      const patch = {};
+      const text = (key, current) => { const next = norm(f[key].value); if (next !== norm(current ?? '')) patch[key] = next || null; };
+      const pick = (key, current) => { if (f[key].value !== (current ?? '')) patch[key] = f[key].value || null; };
+      const list = (key, current) => { if (JSON.stringify(lines(f[key].value)) !== JSON.stringify(current)) patch[key] = lines(f[key].value); };
+      const amount = (key, current) => {
+        const raw = norm(f[key].value);
+        const next = raw === '' ? null : Number(raw.replace(/[, ]/g, ''));
+        if (next != null && (!Number.isFinite(next) || next < 0)) { f[key].focus(); throw new Error('A cheque size is a number of dollars: 250000, not “250k”.'); }
+        if (next !== (current ?? null)) patch[key === 'cheque_min' ? 'typical_cheque_min' : 'typical_cheque_max'] = next;
+      };
+      if (!norm(f.name.value)) { f.name.focus(); throw new Error('The name cannot be empty.'); }
+      text('name', d.name); text('website', d.website); pick('investor_type', d.investor_type); pick('inclusion_basis', d.inclusion_basis);
+      text('headquarters_city', d.headquarters_city); pick('state', d.state); text('country', d.country);
+      list('other_offices', d.other_offices); list('sectors', d.sectors); list('geographies', d.geographies);
+      const chosen = stageBoxes.filter((b) => b.input.checked).map((b) => b.s);
+      if (JSON.stringify(chosen) !== JSON.stringify(vocab.stages.filter((s) => d.stages.includes(s)))) patch.stages = chosen;
+      amount('cheque_min', cheque.min); amount('cheque_max', cheque.max);
+      const currency = norm(f.cheque_currency.value).toUpperCase();
+      if (currency !== (d.cheque_currency ?? '')) patch.cheque_currency = currency || null;
+      pick('lead_or_follow', d.lead_or_follow); pick('active_status', d.active_status);
+      text('application_url', d.application_url); text('jobs_url', d.jobs_url); text('description', d.description); text('investment_thesis', d.investment_thesis);
+      if (!Object.keys(patch).length) throw new Error('Nothing was changed.');
+      const r = await api.post(`/api/investors/${row.id}/edit`, { patch, source: page.read(), reason: norm(f.reason.value) });
+      toast(`Saved ${r.changed.map((c) => fieldLabel(c).toLowerCase()).join(', ')}.${r.status !== d.status ? ` It is now “${(STATUS[r.status] ?? [r.status])[0]}”.` : ''}`);
+      await afterInvestorChange(row.id);
+    },
+  });
+}
+
+// A value the record holds that no page backs: say which page states it. The value stays as it is; the page, and the words copied
+// from it, are recorded as its source, so the record can be checked and published.
+function backClaimDialog(d, fields) {
+  const page = pageFields({ title: 'The page that states it' });
+  const reason = textArea({ rows: 2, maxlength: 500 });
+  const names = fields.map(([f]) => fieldLabel(f).toLowerCase()).join(', ');
+  modal({
+    title: `Add the page that states ${d.name}’s ${names}`, size: 'lg',
+    lead: 'The record keeps what it says. The page is recorded as what backs it, with the words you copy from it, so anyone can check it.',
+    body: [
+      h('dl', { class: 'kv' }, fields.map(([f, v]) => kv(fieldLabel(f), fmtClaim(f, v)))),
+      page.node,
+      fieldOf('Why', reason, { optional: true }),
+    ],
+    submitLabel: 'Record the page',
+    onSubmit: async () => {
+      const source = page.read({ required: true });
+      await api.post(`/api/investors/${d.id}/edit`, { patch: Object.fromEntries(fields), source, reason: norm(reason.value) });
+      toast(`Recorded the page that states ${names}.`);
+      await afterInvestorChange(d.id);
+    },
+  });
+}
+
+// ---------- merge ----------
+
+const STATUS_RANK = { published: 0, inactive: 1, verified: 2, needs_review: 3, candidate: 4, rejected: 5 };
+
+function mergeInvestorDialog(row) {
+  let chosen = null;
+  const q = textInput({ type: 'search', placeholder: 'Search investors by name or website', maxlength: 80 });
+  const list = h('div', { role: 'radiogroup', 'aria-label': 'Investors' });
+  const heard = h('p', { class: 'field__hint' }, 'Type at least two letters.');
+  const reason = textArea({ rows: 2, maxlength: 500, placeholder: 'For example: the same firm; one record is its legal name.' });
+  const paint = (found) => {
+    list.replaceChildren(...found.map((c) => choice({
+      name: 'merge-investor-into', value: c.id, checked: chosen?.id === c.id, title: c.name,
+      text: [c.type_label, c.location, c.website && hostOf(c.website), (STATUS[c.status] ?? [c.status])[0]].filter(Boolean).join(' · '), onChange: () => { chosen = { id: c.id, name: c.name }; },
+    }).node));
+  };
+  const search = debounce(async () => {
+    const term = norm(q.value);
+    heard.textContent = term.length < 2 ? 'Type at least two letters.' : '';
+    if (term.length < 2) { paint([]); return; }
+    try {
+      const r = await api.get(`/api/investors?status=all&q=${enc(term)}&limit=8`);
+      paint(r.results.filter((c) => c.id !== row.id && c.status !== 'rejected'));
+      if (!list.children.length) heard.textContent = 'No other investor matches.';
+    } catch (err) { heard.textContent = err.message; }
+  }, 250);
+  q.addEventListener('input', search);
+  modal({
+    title: `Merge ${row.name} into another investor`,
+    lead: 'Say two records are one firm. The one you pick is kept.',
+    body: [
+      callout(h('b', {}, 'This changes the record. '), `${row.name} is deleted: its name and other names become other names of the one you keep, and its funds, investments, team records and the pages behind its claims move across. What the kept record says stays; a disagreement shows up as a conflict for a person to settle.`),
+      fieldOf('Keep this investor', q), heard, list,
+      fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Merge',
+    onSubmit: async () => {
+      if (!chosen) throw new Error('Choose the investor to keep.');
+      const r = await api.post(`/api/investors/${row.id}/merge`, { into: chosen.id, reason: needReason(reason) });
+      toast(`Merged ${row.name} into ${chosen.name}: ${plural(r.moved.investments, 'investment')}, ${plural(r.moved.team, 'team record')} and ${plural(r.moved.records, 'page record')} moved.`);
+      await afterInvestorChange(row.id, { gone: true });
+    },
+  });
+}
+
+// Several records that look like one firm: pick the one to keep, and the others are merged into it, one after the other.
+function mergeGroupDialog(group) {
+  const rank = (m) => STATUS_RANK[m.status] ?? 9;
+  let keep = [...group.members].sort((a, b) => rank(a) - rank(b))[0].id;
+  const name = uid('keep');
+  const reason = textArea({ rows: 2, maxlength: 500, placeholder: 'For example: the same firm under two names.' });
+  const options = group.members.map((m) => choice({ name, value: m.id, checked: m.id === keep, title: m.name, text: [(STATUS[m.status] ?? [m.status])[0], m.website && hostOf(m.website)].filter(Boolean).join(' · '), onChange: () => { keep = m.id; } }));
+  modal({
+    title: `Merge ${group.names.join(' and ')}`,
+    lead: `They look alike: ${group.reason}.`,
+    body: [
+      callout(h('b', {}, 'This changes the record. '), 'The records you do not keep are deleted. Their names become other names of the one you keep, and their funds, investments, team records and the pages behind their claims move across.'),
+      h('fieldset', {}, h('legend', {}, 'Keep'), options.map((o) => o.node)),
+      fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Merge',
+    onSubmit: async () => {
+      const why = needReason(reason);
+      const kept = group.members.find((m) => m.id === keep);
+      if (kept.status === 'rejected') throw new Error('Keep a record that is not rejected.');
+      let merged = 0;
+      try {
+        for (const m of group.members.filter((x) => x.id !== keep)) {
+          await api.post(`/api/investors/${m.id}/merge`, { into: keep, reason: why });
+          merged += 1;
+        }
+      } finally { if (merged) await refreshAll(); }
+      toast(`Merged ${plural(merged, 'record')} into ${kept.name}.`);
+    },
+  });
+}
+
+// ---------- what two pages disagree about ----------
+
+function resolveInvestorConflictDialog(c, start) {
+  let picked = start;
+  const group = uid('winner');
+  const reason = textArea({ rows: 2, maxlength: 500, placeholder: 'For example: the fund’s own site is newer than the press piece.' });
+  const options = c.values.map((v, i) => choice({
+    name: group, value: String(i), checked: i === picked, title: `Source ${String.fromCharCode(65 + i)}: ${fmtClaim(c.field, v.value)}`,
+    text: v.evidence.map((e) => `${e.source?.title ?? 'A page'}${e.note ? ` — “${clip(e.note, 120)}”` : ''}`).join(' · ') || 'A page on record', onChange: () => { picked = i; },
+  }));
+  modal({
+    title: `${c.name}: ${fieldLabel(c.field).toLowerCase()}`, size: 'lg',
+    lead: c.kind === 'sources_disagree' ? 'Two pages give different answers.' : 'A page disagrees with what the record says.',
+    body: [
+      h('fieldset', {}, h('legend', {}, 'Which is right?'), options.map((o) => o.node)),
+      callout('The other claims are turned down and kept with your reason, so they are not added again. The record then says what the page you chose says.'),
+      fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' }),
+    ],
+    submitLabel: 'Settle conflict',
+    onSubmit: async () => {
+      const why = needReason(reason);
+      const r = await api.post('/api/investors/resolve', { subject_id: c.subject_id, field: c.field, value: c.values[picked].value, reason: why });
+      toast(`Settled ${c.name}’s ${fieldLabel(c.field).toLowerCase()}.${r.turned_down ? ` ${plural(r.turned_down, 'claim')} turned down.` : ''}`);
+      await afterInvestorChange(c.subject_id);
+    },
+  });
+}
+
+// ---------- who it backed ----------
+
+// A company the investor backed, with the page that says so. Every such link has one; none is added without.
+function addInvestmentDialog(d, company = null) {
+  let chosen = company;
+  const q = textInput({ type: 'search', placeholder: 'Search companies by name or website', value: company?.name ?? '' });
+  const list = h('div', { role: 'radiogroup', 'aria-label': 'Companies' });
+  const heard = h('p', { class: 'field__hint' }, company ? '' : 'Type at least two letters.');
+  const round = textInput({ maxlength: 80, placeholder: 'For example: Seed' });
+  const when = textInput({ maxlength: 10, placeholder: 'YYYY, YYYY-MM or YYYY-MM-DD' });
+  const amount = textInput({ inputmode: 'numeric', placeholder: 'Only if the page states it' });
+  const currency = textInput({ maxlength: 3, placeholder: 'AUD' });
+  const lead = selectInput([['', 'Not stated'], ...(slotOf('investors')?.vocab.lead_status ?? []).map((v) => [v, capitalise(v)])], '');
+  const page = pageFields({ title: 'The page that says it backed the company' });
+  const reason = textArea({ rows: 2, maxlength: 500 });
+  const paint = (found) => {
+    list.replaceChildren(...found.map((c) => choice({ name: 'invest-company', value: c.id, checked: chosen?.id === c.id, title: c.name, text: [c.city, c.website && hostOf(c.website)].filter(Boolean).join(' · ') || 'Company', onChange: () => { chosen = { id: c.id, name: c.name }; } }).node));
+  };
+  const search = debounce(async () => {
+    const term = norm(q.value);
+    heard.textContent = term.length < 2 ? 'Type at least two letters.' : '';
+    if (term.length < 2) { paint([]); return; }
+    try { paint(await api.get(`/api/companies?q=${enc(term)}`)); if (!list.children.length) heard.textContent = 'No company matches.'; } catch (err) { heard.textContent = err.message; }
+  }, 250);
+  q.addEventListener('input', search);
+  if (company) search();
+  modal({
+    title: `Record a company ${d.name} backed`, size: 'lg',
+    lead: 'The company must already be in the directory: the existing duplicate checks decide that, not this form.',
+    body: [
+      fieldOf('Company', q), heard, list,
+      rowOf(fieldOf('Round', round, { optional: true }), fieldOf('When', when, { optional: true })),
+      rowOf(fieldOf('Amount', amount, { optional: true }), fieldOf('Currency', currency, { optional: true }), fieldOf('Led or joined', lead, { optional: true })),
+      page.node,
+      fieldOf('Why', reason, { optional: true }),
+    ],
+    submitLabel: 'Record investment',
+    onSubmit: async () => {
+      if (!chosen) throw new Error('Choose the company.');
+      const source = page.read({ required: true });
+      const r = await api.post('/api/investments', {
+        investor_id: d.id, company_id: chosen.id, round: norm(round.value) || null, investment_date: norm(when.value) || null,
+        amount: norm(amount.value) ? Number(norm(amount.value).replace(/[, ]/g, '')) : null, currency: norm(currency.value).toUpperCase() || null,
+        lead_status: lead.value || null, source, reason: norm(reason.value),
+      });
+      toast(`Recorded that ${d.name} backed ${chosen.name}.`);
+      await afterInvestorChange(d.id);
+      return r;
+    },
+  });
+}
+
+function rejectInvestmentDialog(d, inv) {
+  const reason = textArea({ rows: 3, maxlength: 500, placeholder: 'For example: the page names a different company with the same name.' });
+  modal({
+    title: `Turn down ${d.name} → ${inv.company}?`,
+    body: [callout('It is kept, with your reason, and is no longer shown as portfolio. A page that is later found can record it again.'), fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' })],
+    submitLabel: 'Turn down', tone: 'danger',
+    onSubmit: async () => {
+      await api.post(`/api/investments/${inv.id}/reject`, { reason: needReason(reason) });
+      toast(`Turned down the link to ${inv.company}.`);
+      await afterInvestorChange(d.id);
+    },
+  });
+}
+
+// ---------- people ----------
+
+function personRejectDialog(d, m) {
+  const reason = textArea({ rows: 3, maxlength: 500, placeholder: 'For example: not at this firm.' });
+  modal({
+    title: `Reject ${m.person}?`,
+    body: [callout('The person is kept, with your reason, and is not published.'), fieldOf('Why', reason, { hint: 'Required. Kept with your name in the audit trail.' })],
+    submitLabel: 'Reject', tone: 'danger',
+    onSubmit: async () => {
+      await api.post(`/api/investor-people/${m.person_id}/reject`, { reason: needReason(reason) });
+      toast(`Rejected ${m.person}.`);
+      await afterInvestorChange(d.id);
+    },
+  });
+}
+
+async function personStep(d, m, action) {
+  await api.post(`/api/investor-people/${m.person_id}/${action}`, {});
+  toast({ approve: `Approved ${m.person}. Not public until published.`, publish: `Published ${m.person}. Commit the data files to make it live.`, unpublish: `${m.person} is off the public directory.` }[action]);
+  await afterInvestorChange(d.id);
+}
+
+// ---------- one investor in full ----------
+
+async function openInvestor(id) {
+  if (S.drawer) S.drawer.dlg.close();
+  const opener = document.activeElement;
+  const fk = opener?.dataset?.fk ?? null;
+  const title = h('h2', { class: 'dlg__title', id: 'drawer-title' }, 'Loading…');
+  const chips = h('div', { class: 'chips' });
+  const body = h('div', { class: 'dlg__body' }, skeletonRows(6));
+  const foot = h('footer', { class: 'dlg__foot' });
+  const dlg = h('dialog', { class: 'dlg dlg--drawer', 'aria-labelledby': 'drawer-title' },
+    h('div', { class: 'dlg__form' },
+      h('header', { class: 'dlg__head' }, h('div', {}, title, chips), h('button', { type: 'button', class: 'btn btn--ghost btn--sm', 'aria-label': 'Close', on: { click: () => dlg.close() } }, icon('x', 16))),
+      body, foot));
+  const drawer = { id, kind: 'investor', dlg, section: 'investors', async reload() { await fill(); } };
+  async function fill() {
+    const d = await api.get(`/api/investors/${id}`);
+    title.textContent = d.name;
+    chips.replaceChildren(...[statusChip(d.status), d.type_label && chip(d.type_label, 'muted', true), d.active_status === 'inactive' && d.status !== 'inactive' && chip('No longer investing', 'muted')].filter(Boolean));
+    body.replaceChildren(investorDrawerContent(d));
+    foot.replaceChildren(...investorButtons(d, { drawer: true }), btn('Close', { onClick: () => dlg.close() }));
+  }
+  dlg.addEventListener('close', () => { dlg.remove(); if (S.drawer === drawer) S.drawer = null; restoreFocus(fk, 'investors'); });
+  document.body.append(dlg);
+  S.drawer = drawer;
+  dlg.showModal();
+  try { await fill(); } catch (err) { dlg.close(); throw err; }
+}
+
+function investorDrawerContent(d) {
+  const backed = new Set(d.records.filter((r) => r.status === 'active').map((r) => r.field));
+  const cheque = d.typical_cheque_min == null && d.typical_cheque_max == null ? null : { min: d.typical_cheque_min, max: d.typical_cheque_max, currency: d.cheque_currency };
+  // A claim's row: what it says, or Unknown. When no page backs it, a plain warning and a way to say which page does (the value
+  // stays as it is: the page is recorded as its source). `patch` is the fields that make the claim, as the edit form sends them.
+  const claimOf = (f) => (['typical_cheque_min', 'typical_cheque_max', 'cheque_currency'].includes(f) ? 'typical_cheque' : f);
+  const claim = (field, value, node = null, patch = [[field, value]], label = fieldLabel(field)) => {
+    const has = value != null && value !== '' && !(Array.isArray(value) && !value.length);
+    if (!has) return kv(label, unknown());
+    const lacking = patch.filter(([f]) => !backed.has(claimOf(f)));
+    return kv(label, [node ?? fmtClaim(field, value), lacking.length > 0 && [' ', chip('No page backs this', 'warn', true),
+      can('investor.edit') && [' ', btn('Add the page', { small: true, variant: 'ghost', fk: `inv:${d.id}:back:${field}`, attrs: { 'aria-label': `Add the page that states ${label.toLowerCase()}` }, onClick: () => backClaimDialog(d, lacking) })]]]);
+  };
+  const link = (url) => (url ? extLink(url, hostOf(url)) : null);
+  const placed = [['headquarters_city', d.headquarters_city], ['state', d.state], ['country', d.country]].filter(([, v]) => v);
+  const place = placed.map(([, v]) => v).join(', ');
+  const records = d.records.filter((r) => r.status === 'active');
+  const earlier = d.records.filter((r) => r.status !== 'active');
+  const recordsTable = (rows, caption) => h('div', { class: 'mini-wrap' }, h('table', { class: 'mini', role: 'table' },
+    h('caption', { class: 'sr' }, caption),
+    h('thead', { role: 'rowgroup' }, h('tr', { role: 'row' }, ['Claim', 'Says', 'Page', 'Checked'].map((c) => h('th', { scope: 'col', role: 'columnheader' }, c)))),
+    h('tbody', { role: 'rowgroup' }, rows.map((r) => h('tr', { role: 'row' },
+      h('td', { role: 'cell' }, fieldLabel(r.field), r.status !== 'active' && h('div', { class: 'sub' }, r.status === 'superseded' ? 'Replaced' : 'Turned down')),
+      h('td', { role: 'cell' }, clip(fmtClaim(r.field, r.value), 160)),
+      h('td', { role: 'cell' }, r.source && safeHref(r.source.url) ? extLink(r.source.url, r.source.title || hostOf(r.source.url)) : (r.source?.title ?? 'A page'),
+        h('div', { class: 'sub' }, [kindLabel(r.source?.kind), r.confidence && `${r.confidence} confidence`].filter(Boolean).join(' · ')),
+        r.note && h('div', { class: 'sub' }, `“${clip(r.note, 220)}”`)),
+      h('td', { role: 'cell', class: 'nowrap' }, r.verified_at ? fmtDate(r.verified_at) : '—'))))));
+  const live = d.investments.filter((i) => i.status !== 'rejected');
+  const turnedDown = d.investments.filter((i) => i.status === 'rejected');
+  return h('div', {},
+    d.check_problems.length > 0 && callout(h('b', {}, 'It says things no page backs. '), d.check_problems.join('; '), '. It cannot stay verified or published until each has a page.'),
+    block('What the record says', h('dl', { class: 'kv' },
+      claim('name', d.name),
+      claim('website', d.website, d.website ? extLink(d.website, hostOf(d.website)) : null),
+      claim('investor_type', d.investor_type),
+      claim('inclusion_basis', d.inclusion_basis),
+      claim('headquarters_city', place || null, place, placed, 'Headquarters'),
+      claim('other_offices', d.other_offices),
+      claim('stages', d.stages),
+      claim('sectors', d.sectors),
+      claim('geographies', d.geographies),
+      claim('typical_cheque', cheque, null, [['typical_cheque_min', d.typical_cheque_min], ['typical_cheque_max', d.typical_cheque_max], ['cheque_currency', d.cheque_currency]].filter(([, v]) => v != null)),
+      claim('lead_or_follow', d.lead_or_follow),
+      claim('active_status', d.active_status),
+      claim('application_url', d.application_url, link(d.application_url)),
+      claim('jobs_url', d.jobs_url, link(d.jobs_url)),
+      claim('description', d.description),
+      claim('investment_thesis', d.investment_thesis),
+      kv('Other names', d.aliases.length ? d.aliases.join(' · ') : unknown()),
+      kv('Last checked', d.last_verified_at ? `${fmtDate(d.last_verified_at)} (${relative(d.last_verified_at)})` : h('span', { class: 'muted' }, 'Never')))),
+    d.issues.length > 0 && block('What needs a person', h('div', { class: 'list' }, d.issues.map((i) => h('div', {},
+      h('div', { class: 'list__title' }, chip(i.label, SEVERITY_TONE[i.severity] ?? 'muted', true), i.detail ? ` ${i.detail}` : ''),
+      h('div', { class: 'sub' }, issueNote(i.code)))))),
+    d.conflicts.length > 0 && block(`Sources disagree (${d.conflicts.length})`, d.conflicts.map((c) => investorConflict(c, { inDrawer: true }))),
+    d.duplicates.length > 0 && block('Looks like another record', h('div', { class: 'list' }, d.duplicates.map((g) => h('div', {}, h('div', { class: 'list__title' }, capitalise(g.reason)), h('div', { class: 'sub' }, g.names.join(' · ')))))),
+    block(`What the pages say (${records.length})`, records.length ? recordsTable(records, 'Claims and the pages that state them') : h('p', { class: 'muted' }, 'No page is on record for any claim yet. Add one by editing the record, naming the page and what it says.'),
+      earlier.length > 0 && h('details', { class: 'fold' }, h('summary', {}, `Replaced and turned-down claims (${earlier.length})`), h('div', { class: 'fold__body' }, recordsTable(earlier, 'Replaced and turned-down claims')))),
+    block(`Companies it backed (${live.length})`,
+      live.length ? h('div', { class: 'mini-wrap' }, h('table', { class: 'mini', role: 'table' },
+        h('caption', { class: 'sr' }, 'Companies backed'),
+        h('thead', { role: 'rowgroup' }, h('tr', { role: 'row' }, ['Company', 'Round', 'When', 'Page', 'Status', ''].map((c) => h('th', { scope: 'col', role: 'columnheader' }, c)))),
+        h('tbody', { role: 'rowgroup' }, live.map((i) => h('tr', { role: 'row' },
+          h('td', { role: 'cell' }, h('b', {}, i.company), i.lead_status && h('div', { class: 'sub' }, capitalise(i.lead_status)), i.amount != null && h('div', { class: 'sub' }, audMoney(i.amount, i.currency ?? 'AUD'))),
+          h('td', { role: 'cell' }, i.round ?? '—'), h('td', { role: 'cell', class: 'nowrap' }, i.investment_date ?? '—'),
+          h('td', { role: 'cell' }, i.source && safeHref(i.source.url) ? extLink(i.source.url, i.source.title || hostOf(i.source.url)) : (i.source?.title ?? 'A page'), i.note && h('div', { class: 'sub' }, `“${clip(i.note, 200)}”`)),
+          h('td', { role: 'cell' }, statusChip(i.status)),
+          h('td', { role: 'cell' }, can('investment.reject') && btn('Turn down', { small: true, variant: 'ghost', fk: `inv:${d.id}:rej:${i.id}`, attrs: { 'aria-label': `Turn down the link to ${i.company}` }, onClick: () => rejectInvestmentDialog(d, i) })))))))
+      : h('p', { class: 'muted' }, 'No company is linked to it with a page that says so.'),
+      turnedDown.length > 0 && h('p', { class: 'sub' }, `${plural(turnedDown.length, 'link')} turned down: ${turnedDown.map((i) => i.company).join(', ')}.`),
+      can('investment.add') && h('p', {}, btn('Record a company it backed', { small: true, icon: 'plus', fk: `inv:${d.id}:addinv`, onClick: () => addInvestmentDialog(d) }))),
+    d.unsourced_companies.length > 0 && block(`Companies that name it, with no page (${d.unsourced_companies.length})`,
+      h('p', { class: 'sub' }, 'These company records list it as an investor, and no page that states it is on record. They are not shown as its portfolio until one is.'),
+      h('div', { class: 'list' }, d.unsourced_companies.map((u) => h('div', {}, h('div', { class: 'list__title' }, u.name),
+        can('investment.add') && h('div', {}, btn('Add the page', { small: true, fk: `inv:${d.id}:src:${u.company_id}`, attrs: { 'aria-label': `Add the page that says ${d.name} backed ${u.name}` }, onClick: () => addInvestmentDialog(d, { id: u.company_id, name: u.name }) })))))),
+    d.team.length > 0 && block(`Team (${d.team.length})`, h('div', { class: 'mini-wrap' }, h('table', { class: 'mini', role: 'table' },
+      h('caption', { class: 'sr' }, 'Team'),
+      h('thead', { role: 'rowgroup' }, h('tr', { role: 'row' }, ['Person', 'Role', 'Page', 'Status', ''].map((c) => h('th', { scope: 'col', role: 'columnheader' }, c)))),
+      h('tbody', { role: 'rowgroup' }, d.team.map((m) => h('tr', { role: 'row' },
+        h('td', { role: 'cell' }, h('b', {}, m.person)), h('td', { role: 'cell' }, m.role, m.is_current === false && h('div', { class: 'sub' }, 'Former')),
+        h('td', { role: 'cell' }, m.source && safeHref(m.source.url) ? extLink(m.source.url, m.source.title || hostOf(m.source.url)) : (m.source?.title ?? '—'), m.verified_at && h('div', { class: 'sub' }, `checked ${fmtDate(m.verified_at)}`)),
+        h('td', { role: 'cell' }, statusChip(m.person_status ?? m.status)),
+        h('td', { role: 'cell' }, h('div', { class: 'actions' }, personButtons(d, m))))))))),
+    d.funds.length > 0 && block(`Funds (${d.funds.length})`, h('div', { class: 'list' }, d.funds.map((f) => h('div', {}, h('div', { class: 'list__title' }, f.name, f.vintage_year ? ` · ${f.vintage_year}` : ''), h('div', { class: 'sub' }, (STATUS[f.status] ?? [f.status])[0]))))));
+}
+
+function personButtons(d, m) {
+  const steps = {
+    candidate: ['approve', 'reject'], needs_review: ['approve', 'reject'], verified: ['publish', 'reject'], published: ['unpublish'], inactive: ['unpublish'],
+  }[m.person_status] ?? [];
+  const perm = { approve: 'person.approve', reject: 'person.reject', publish: 'person.publish', unpublish: 'person.unpublish' };
+  return steps.filter((a) => can(perm[a])).map((a) => btn(capitalise(a), {
+    small: true, variant: a === 'approve' || a === 'publish' ? 'primary' : 'ghost', fk: `inv:${d.id}:p:${m.person_id}:${a}`, attrs: { 'aria-label': `${capitalise(a)} ${m.person}` },
+    onClick: () => (a === 'reject' ? personRejectDialog(d, m) : personStep(d, m, a)),
+  }));
+}
+
+function investorsFooter() {
+  return h('p', { class: 'stamp' }, 'From a terminal: ', h('code', {}, 'npm run investors -- status'), ', ', h('code', {}, 'review'), ', ', h('code', {}, 'import'), ' and ', h('code', {}, 'publish'),
+    ' do the same work, under the same rules and the same audit trail. Corrections visitors suggest are listed by ', h('code', {}, 'GET /api/investors/corrections'), ' on the live API, with the admin key.');
+}
+
 // ======================================================================= conflicts
 
 function renderConflicts() {
@@ -1592,7 +2424,7 @@ function schedulerRuns(s) {
 
 // ======================================================================= audit trail
 
-const AUDIT_GROUPS = [['', 'Everything'], ['candidate', 'Candidates'], ['conflict', 'Conflicts'], ['suggestion', 'Suggestions'], ['enrichment', 'Enrichment'], ['import', 'Imports'], ['scheduler', 'Scheduled jobs'], ['company', 'Companies']];
+const AUDIT_GROUPS = [['', 'Everything'], ['candidate', 'Candidates'], ['conflict', 'Conflicts'], ['suggestion', 'Suggestions'], ['enrichment', 'Enrichment'], ['import', 'Imports'], ['scheduler', 'Scheduled jobs'], ['company', 'Companies'], ['investor', 'Investors'], ['investment', 'Investments'], ['person', 'People']];
 
 function auditFrame(body) {
   const group = h('select', { class: 'select', id: 'audit-action', 'aria-label': 'Show actions', 'data-fk': 'audit-action', on: { change: () => { S.ui.auditAction = group.value; S.ui.auditLimit = 50; load('audit', { quiet: true }); } } }, AUDIT_GROUPS.map(([v, text]) => h('option', { value: v, selected: v === S.ui.auditAction }, text)));
@@ -1633,7 +2465,7 @@ function renderAudit() {
 const RENDER = {
   overview: () => { renderTiles(); renderNav(); renderQuality(); renderLocations(); },
   candidates: () => { renderDiscovered(); renderNav(); },
-  conflicts: renderConflicts, suggestions: renderSuggestions, missing: renderQuality, duplicates: renderQuality, locations: renderLocations,
+  conflicts: renderConflicts, suggestions: renderSuggestions, missing: renderQuality, duplicates: renderQuality, locations: renderLocations, investors: renderInvestors,
   queue: renderQueue, job: renderQueue, imports: renderImports, scheduler: () => { renderScheduler(); renderNav(); }, audit: renderAudit,
 };
 function render(name) { if (S.me && !S.signedOut) RENDER[name]?.(); }
@@ -1683,7 +2515,7 @@ function signOut(notice) {
 let watching = false;
 function start() {
   buildShell();
-  for (const name of ['overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'locations', 'duplicates', 'queue', 'imports', 'scheduler', 'audit', 'job']) load(name);
+  for (const name of ['overview', 'candidates', 'conflicts', 'suggestions', 'missing', 'locations', 'investors', 'duplicates', 'queue', 'imports', 'scheduler', 'audit', 'job']) load(name);
   if (!watching) {
     watching = true; // coming back to the tab after a while shows what changed meanwhile
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.me && !S.signedOut && Date.now() - (S.refreshedAt ?? 0) > 120000) refreshAll(); });

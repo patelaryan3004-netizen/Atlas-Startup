@@ -1,3 +1,6 @@
 node_modules/
 .env
 coverage/
+
+# The pages the investor research read, kept so the quote check can be repeated (scripts/investors.js)
+.investor-cache/

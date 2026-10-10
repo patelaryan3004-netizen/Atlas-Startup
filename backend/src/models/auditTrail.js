@@ -21,7 +21,7 @@ import { ISO_RE, isStr } from './company.js';
 
 export const AUDIT_ROLES = ['viewer', 'reviewer', 'admin', 'system', 'cli'];
 export const AUDIT_VIA = ['admin-ui', 'cli', 'worker'];
-export const AUDIT_TARGET_TYPES = ['candidate', 'company', 'evidence', 'queue', 'import_run', 'job_run', 'system'];
+export const AUDIT_TARGET_TYPES = ['candidate', 'company', 'evidence', 'queue', 'import_run', 'job_run', 'system', 'investor', 'investor_person', 'investment'];
 export const AUDIT_ACTIONS = [
   'candidate.approve', 'candidate.reject', 'candidate.reopen', 'candidate.edit', 'candidate.note',
   'candidate.distinct', 'candidate.merge', 'candidate.publish', 'candidate.enrich',
@@ -31,6 +31,9 @@ export const AUDIT_ACTIONS = [
   'import.run', 'import.dismiss',
   'scheduler.run',
   'location.geocode', 'location.normalize', 'location.verify', 'location.promote', 'location.set',
+  'investor.import', 'investor.approve', 'investor.reject', 'investor.reopen', 'investor.edit', 'investor.merge', 'investor.publish',
+  'investor.unpublish', 'investor.inactive', 'investor.resolve', 'investor.link', 'investor.note',
+  'investment.add', 'investment.reject', 'person.approve', 'person.reject', 'person.publish', 'person.unpublish',
 ];
 
 const CLOCK_TOLERANCE_MS = 10 * 60000;

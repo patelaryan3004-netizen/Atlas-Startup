@@ -62,6 +62,9 @@ const SUBURBS = {
 };
 const POSTCODE_BASE = { NSW: 2000, VIC: 3000, QLD: 4000, SA: 5000, WA: 6000, TAS: 7000, NT: 800, ACT: 2600 };
 const CHECKED_AT = '2026-10-05T04:00:00.000Z';
+// Every synthetic company that is hiring has had its open roles read from a page, so `hiring` means in the fixtures what it means
+// to a visitor (toPublic): a flag no page backs is not counted.
+const HIRING_CHECKED_AT = '2026-10-05T15:00:00.000Z';
 
 const A = ['Cobalt', 'Nimbus', 'Quill', 'Zephyr', 'Lumen', 'Atlas', 'Ember', 'Sable', 'Juniper', 'Harbour', 'Tidal', 'Marlin', 'Wattle', 'Kestrel', 'Indigo', 'Saffron', 'Basalt', 'Meridian', 'Lantern', 'Orchid',
   'Pebble', 'Cinder', 'Thistle', 'Willow', 'Quartz', 'Ripple', 'Summit', 'Beacon', 'Mallee', 'Coral', 'Fable', 'Gossamer', 'Halcyon', 'Ivory', 'Jasper', 'Kindle', 'Larch', 'Mosaic', 'Nectar', 'Opal',
@@ -139,7 +142,8 @@ export function generateCompanies(count, { seed = 1 } = {}) {
       location_precision: precision, location_source: verified ? (checked ? 'company_website' : 'directory_record') : null,
       location_source_url: checked ? `https://www.${compact}.test/contact` : null, location_verified_at: checked ? CHECKED_AT : null,
       location_confidence: verified ? (checked ? 'medium' : 'low') : null,
-      hiring_status: hiring ? 'hiring' : null, employee_range: null, funding_total: null, last_funding_date: null, last_funding_round: null,
+      hiring_status: hiring ? 'hiring' : null, hiring_verified_at: hiring ? HIRING_CHECKED_AT : null,
+      employee_range: null, funding_total: null, last_funding_date: null, last_funding_round: null,
       verification_status: verified ? 'location_verified' : 'unverified', confidence_score: null, created_at: null, updated_at: null, last_verified_at: null,
       founder_ids: (founders ?? []).map(slugify), investor_ids: investors.map(slugify), source_ids: [],
     });

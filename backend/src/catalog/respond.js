@@ -21,7 +21,10 @@ export class HttpError extends Error {
 // the API ignores is not part of the question, so adding junk to a URL can neither dodge the kept answer nor
 // fill the cache with copies of it.
 // (Both `search` and `q` are questions; `page` is the directory's.)
-const KNOWN = new Set(['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'precision', 'state', 'name', 'limit', 'offset', 'sort', 'view', 'facets', 'q', 'page']);
+// (The investor directory's: type, location, lead, active, chequeMin and chequeMax. A parameter missing here is dropped from the
+// question, so a filtered answer would be served for the unfiltered question: add every new filter.)
+const KNOWN = new Set(['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'precision', 'state', 'name', 'limit', 'offset', 'sort', 'view', 'facets', 'q', 'page',
+  'type', 'location', 'lead', 'active', 'chequeMin', 'chequeMax']);
 export function questionKey(req) {
   const parts = [];
   for (const [key, value] of Object.entries(req.query ?? {})) {

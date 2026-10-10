@@ -133,20 +133,17 @@ time { white-space: nowrap; }
 .who__name { font-weight: 600; }
 
 @media (min-width: 640px) { .topbar { position: sticky; top: 0; z-index: 30; } }
-/* One row, with the title, the nine links and the person on it, once there is room for all of them; below that the
-   links get a row of their own (and scroll sideways if even that is too narrow). */
-@media (min-width: 1360px) {
+/* One row, with the title, the eleven links and the person on it, once there is room for all of them (the bar never grows
+   past the page's own width, and a count on a link can grow it); below that the links get a row of their own, and scroll
+   sideways if even that is too narrow. The product name after the title does not fit on the one row. */
+@media (min-width: 1480px) {
   .topbar__row { flex-wrap: nowrap; }
   .nav { order: 0; width: auto; padding-bottom: 0; }
+  .brand__sub { display: none; }
   .who { flex: none; flex-wrap: nowrap; }
 }
-/* A little short of the room the full bar needs: the product name after the title goes and the links sit closer. */
-@media (min-width: 1360px) and (max-width: 1479px) {
-  .brand__sub { display: none; }
-  .nav a { padding: 6px 8px; }
-}
 /* The icon (with its accessible name and tooltip) carries the controls on the bar: spelled-out labels would leave the
-   nine links no room at any width, because the bar never grows past the page's own width. */
+   eleven links no room at any width, because the bar never grows past the page's own width. */
 .btn--quiet .btn__label { display: none; }
 .btn--quiet { padding: 0 9px; }
 .wide-only {
@@ -278,7 +275,7 @@ time { white-space: nowrap; }
 .search .input { padding-left: 32px; }
 
 .field { display: flex; flex-direction: column; gap: 5px; }
-.field + .field, .field + .row, .row + .field, .block + .field { margin-top: 14px; }
+.field + .field, .field + .row, .row + .field, .block + .field, .block + .row { margin-top: 14px; }
 .field__label { font-weight: 550; font-size: var(--fs-sm); }
 .field__opt { color: var(--text-3); font-weight: 400; }
 .field__hint { color: var(--text-2); font-size: var(--fs-xs); }
@@ -287,8 +284,11 @@ time { white-space: nowrap; }
 .row > .field { margin-top: 0; } /* the grid's gap spaces them: a neighbour's margin would push the second field of a row down */
 .check { display: flex; align-items: flex-start; gap: 8px; margin-top: 14px; font-size: var(--fs-sm); }
 .check input { margin-top: 2px; width: 16px; height: 16px; flex: none; }
+/* A short list of tick boxes (the stages an investor invests at), side by side instead of one under another. */
+.checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0 12px; }
 
 fieldset { margin: 14px 0 0; padding: 0; border: 0; min-width: 0; }
+fieldset + .field, fieldset + .row, fieldset + .block { margin-top: 14px; }
 legend { padding: 0; margin-bottom: 6px; font-weight: 550; font-size: var(--fs-sm); }
 .choice {
   display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: var(--r-sm);
@@ -492,7 +492,7 @@ details.fold .tablewrap { border: 0; border-top: 1px solid var(--line); border-r
 .dlg__title { font-size: var(--fs-lg); font-weight: 650; letter-spacing: -0.01em; overflow-wrap: anywhere; }
 .dlg__lead { margin-top: 4px; color: var(--text-2); font-size: var(--fs-sm); }
 .dlg__body { padding: 12px 20px 8px; overflow-y: auto; }
-.dlg__foot { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 20px 16px; border-top: 1px solid var(--line); background: var(--surface); }
+.dlg__foot { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding: 12px 20px 16px; border-top: 1px solid var(--line); background: var(--surface); }
 .dlg__body p + p { margin-top: 8px; }
 .dlg__body .callout { margin: 0 0 14px; }
 

@@ -32,9 +32,13 @@ export const AU_STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
 
 // What kind of document a source is. licensed_dataset and open_dataset are
 // structured data we hold a licence for, or that is published for reuse.
+// investor_website is an investor's own site (its about, portfolio or team page) and investor_document one it publishes
+// (a fund announcement, a report): the primary source for a claim about that investor. investor_post stays for an
+// announcement about a company.
 export const SOURCE_KINDS = [
   'company_website', 'company_document', 'press', 'investor_post', 'accelerator_profile',
   'directory_listing', 'aggregator', 'user_supplied', 'licensed_dataset', 'open_dataset',
+  'investor_website', 'investor_document',
 ];
 
 // Shared by the dataset and evidence validators.
@@ -55,6 +59,8 @@ export const LEGACY_FIELDS = [
 //   slug          URL form of the name; may change later, id may not
 //   funding_total number, AUD; the sum of recorded rounds (a lower bound)
 //   *_ids         references into people.json / investors.json / sources.json
+//   hiring_verified_at   when a page last showed the company has open roles (derived from the evidence and the open jobs on
+//                 record, never typed: see migrateDataset). `hiring: true` without it is a flag no page backs.
 //   suburb, postcode, location_*   how well the company's location is known and where that came from
 //                 (see location.js): the headquarters, which the map uses. city, state, country, address, lat
 //                 and lng are the rest of it. Other offices are rows in company_locations.json.
@@ -63,7 +69,7 @@ export const LEGACY_FIELDS = [
 // rewrite of this file.
 export const ADDED_FIELDS = [
   'id', 'slug', 'logo', 'subsector', 'state', 'country', 'suburb', 'postcode', 'location_precision', 'location_source',
-  'location_source_url', 'location_verified_at', 'location_confidence', 'company_status', 'hiring_status',
+  'location_source_url', 'location_verified_at', 'location_confidence', 'company_status', 'hiring_status', 'hiring_verified_at',
   'employee_range', 'funding_total', 'last_funding_date', 'last_funding_round',
   'verification_status', 'confidence_score', 'created_at', 'updated_at', 'last_verified_at',
   'founder_ids', 'investor_ids', 'source_ids',
@@ -185,9 +191,19 @@ export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'last_verified
 // they are the company's own: a company known only to its city, state or not at all has no coordinates here, so nothing
 // that reads a public record can draw it as if it were at a point. (A record that predates the location fields is
 // left as it was.)
+//
+// "Hiring" is a claim a visitor acts on, so it is made only for a company whose open roles were read from a page
+// (hiring_verified_at). A record flagged as hiring that no page backs is public as hiring:false and rolesUnverified:true: it
+// is never counted or drawn as hiring, and never said to be not hiring either. (hiring_status comes from the same flag, so it
+// is withheld for the same reason.)
 export function toPublic(company) {
   const out = { ...company };
   for (const key of INTERNAL_FIELDS) delete out[key];
+  if (company.hiring === true && company.hiring_verified_at == null) {
+    out.hiring = false;
+    out.rolesUnverified = true;
+    if ('hiring_status' in out) out.hiring_status = null;
+  }
   if (['CITY', 'STATE', 'UNKNOWN'].includes(company.location_precision)) { out.lat = null; out.lng = null; }
   if (company.location_precision != null) out.location_verified = company.location_verified_at != null;
   return out;
@@ -223,6 +239,7 @@ export function toCanonical(c) {
     stage: unknownToNull(c.stage),
     company_status: c.company_status ?? null,
     hiring_status: c.hiring_status ?? null,
+    hiring_verified_at: c.hiring_verified_at ?? null,
     employee_range: c.employee_range ?? null,
     funding_total: c.funding_total ?? null,
     last_funding_date: c.last_funding_date ?? null,

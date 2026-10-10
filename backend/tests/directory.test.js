@@ -24,3 +24,13 @@ describe('GET /directory', () => {
     expect(res.text).not.toMatch(/<script>|<\/table><table>/);
   });
 });
+
+describe('GET /directory, who is hiring', () => {
+  it('says Yes only for a company whose open roles were checked, and Unverified for one flagged as hiring that no page backs', async () => {
+    const res = await request(app).get('/directory');
+    const checked = startups.filter((c) => c.hiring === true && c.hiring_verified_at != null).length;
+    const flagged = startups.filter((c) => c.hiring === true && c.hiring_verified_at == null).length;
+    expect(res.text.split('<td>Yes</td>').length - 1).toBe(checked);
+    expect(res.text.split('<td>Unverified</td>').length - 1).toBe(flagged);
+  });
+});

@@ -24,7 +24,9 @@ import { cityCentre, stateCentre } from '../geo/places.js';
 
 export const SORTS = ['file', 'name', 'hiring', 'location', 'industry'];
 export const FACETS = ['sector', 'city', 'stage', 'investor'];
-export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'verified', 'website', 'blurb', 'taskGate'];
+// `hiring` is true only for a company whose open roles were read from a page; `rolesUnverified` is true for one flagged as hiring
+// that no page backs (toPublic).
+export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'rolesUnverified', 'verified', 'website', 'blurb', 'taskGate'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).

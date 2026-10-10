@@ -6,7 +6,8 @@
 //             look an address up on the map (which changes nothing)
 //   admin     does what changes what the PUBLIC sees: merge a candidate into a company, publish one,
 //             settle a conflict, apply a suggestion to a record, set where a company is on the map,
-//             seed and run the enrichment queue
+//             seed and run the enrichment queue, and publish, unpublish, merge or mark inactive an investor
+//             (a reviewer checks investors, edits them with a source for each claim, and records who backed whom)
 //
 // The line is drawn at the public record: until something reaches a company, a mistake costs a reviewer's
 // time; once it does, it is on the live site. The check is made in the service, not only in a route, so
@@ -24,6 +25,11 @@ export const PERMISSIONS = {
   'candidate.merge': 'admin', 'candidate.publish': 'admin',
   'conflict.resolve': 'admin', 'suggestion.apply': 'admin', 'suggestion.dismiss': 'reviewer',
   'location.lookup': 'reviewer', 'location.set': 'admin',
+  // Investors: a reviewer checks them (staging data, never public); what reaches the public directory is the admin's.
+  'investor.approve': 'reviewer', 'investor.reject': 'reviewer', 'investor.reopen': 'reviewer', 'investor.flag': 'reviewer', 'investor.edit': 'reviewer',
+  'investor.merge': 'admin', 'investor.publish': 'admin', 'investor.unpublish': 'admin', 'investor.inactive': 'admin', 'investor.resolve': 'admin',
+  'investment.add': 'reviewer', 'investment.reject': 'reviewer',
+  'person.approve': 'reviewer', 'person.reject': 'reviewer', 'person.publish': 'admin', 'person.unpublish': 'admin',
   'enrichment.seed': 'admin', 'enrichment.run': 'admin', 'enrichment.enqueue': 'reviewer', 'enrichment.retry': 'reviewer', 'enrichment.cancel': 'reviewer',
   'import.dismiss': 'reviewer',
 };

@@ -12,6 +12,9 @@
 //   FAILED IMPORTS       sources whose latest import failed and nobody has looked, plus enrichment tasks that failed
 import { auditDataset, findPossibleDuplicates } from '../models/audit.js';
 import { reviewLocations, locationFilterCodes, LOCATION_FLAGS } from '../models/locationAudit.js';
+import { reviewInvestors } from '../models/investorReview.js';
+import { INVESTOR_STATUSES, INVESTOR_TYPES, INVESTOR_STAGES, INCLUSION_BASES, LEAD_OR_FOLLOW, typeLabel } from '../models/investor.js';
+import { LEAD_STATUSES } from '../models/investorGraph.js';
 import { detectConflicts } from '../models/evidence.js';
 import { failedImports } from '../models/importRuns.js';
 import { queueSummary, latestTasks } from '../models/enrichmentQueue.js';
@@ -93,6 +96,7 @@ export function buildOverview(ds, nowMs) {
       bar('investors', 'Investor coverage', h.investors),
     ],
     locations: locationsSummary(where),
+    investors: investorsSummary(reviewInvestors(ds, { asOf: iso(nowMs) })),
     provenance: { companies_with_sources: audit.cohorts.withSources, companies_without_sources: audit.cohorts.withoutSources, evidence_rows: ds.evidence.length, sources: ds.sources.length },
     attention: { open_conflicts: detectConflicts(ds).length, suggestions: suggestionsOf(ds).length, priority: audit.tierCounts },
     vocab: { sectors: vocabulary(ds.companies.map((c) => c.sector)).slice(0, 40), stages: vocabulary(ds.companies.map((c) => c.stage)) },
@@ -121,6 +125,126 @@ export function locationsPanel(ds, nowMs, { filter = '', limit = 100 } = {}) {
     ...locationsSummary(review), filter: filter || null,
     issues: Object.entries(review.issues).map(([code, spec]) => ({ code, ...spec })).filter((i) => i.count > 0),
     total: rows.length, results: rows.slice(0, Math.min(Math.max(limit, 1), 500)),
+  };
+}
+
+// ---------- investors ----------
+
+// What a person can do to an investor in each status (the buttons the page shows; the service checks the rules again).
+export const INVESTOR_ACTIONS_FOR = {
+  candidate: ['edit', 'approve', 'flag', 'reject', 'merge'],
+  needs_review: ['edit', 'approve', 'reject', 'merge'],
+  verified: ['edit', 'publish', 'flag', 'inactive', 'reject', 'merge'],
+  published: ['edit', 'unpublish', 'inactive', 'merge'],
+  inactive: ['edit', 'unpublish', 'merge'],
+  rejected: ['reopen'],
+};
+
+const INVESTOR_FILTERS = {
+  open: (o) => ['candidate', 'needs_review'].includes(o.verification_status),
+  all: () => true,
+};
+const investorMatches = (status, o) => (INVESTOR_FILTERS[status] ?? ((x) => x.verification_status === status))(o);
+
+// The investors page's summary, for the overview: how many in each status, and how many of each thing to look at.
+export function investorsSummary(review) {
+  return {
+    total: review.total, by_status: review.byStatus, public: review.public, people: review.people, funds: review.funds, investments: review.investments,
+    issues: Object.entries(review.issues).map(([code, spec]) => ({ code, label: spec.label, note: spec.note, severity: spec.severity, count: review.counts[code] })),
+    relationships: { links: review.relationships.links, sourced: review.relationships.sourced, unsourced: review.relationships.unsourced, unverified_investments: review.relationships.unverified_investments },
+    duplicates: { firms: review.duplicates.firms.length, people: review.duplicates.people.length },
+    team: { records: review.team.records, stale: review.team.stale }, conflicts: review.conflicts.count,
+    attention: review.rows.filter((r) => r.worst === 'high').length,
+  };
+}
+
+const locationLabel = (o) => [o.headquarters_city, o.state ?? o.country].filter(Boolean).join(', ') || null;
+
+// The words the investor forms offer, so the page never keeps a second copy of them.
+export const INVESTOR_VOCAB = {
+  types: Object.entries(INVESTOR_TYPES), stages: INVESTOR_STAGES, bases: INCLUSION_BASES, lead_or_follow: LEAD_OR_FOLLOW, lead_status: LEAD_STATUSES,
+};
+
+// A claim two pages disagree about, with the page behind each side (what it says and where).
+function conflictView(ds, c) {
+  const sources = new Map((ds.sources ?? []).map((s) => [s.id, s]));
+  const records = new Map((ds.verification_records ?? []).map((r) => [r.id, r]));
+  const page = (s) => (s ? { id: s.id, kind: s.kind, url: s.url, title: s.title, publisher: s.publisher, retrieved_at: s.retrieved_at } : null);
+  return {
+    ...c,
+    values: c.values.map((v) => ({
+      ...v,
+      evidence: v.record_ids.map((id) => records.get(id)).filter(Boolean).map((r) => ({ id: r.id, note: r.note, confidence: r.confidence, verified_at: r.verified_at, source: page(sources.get(r.source_id)) })),
+    })),
+  };
+}
+
+export function investorRow(o, review, ds) {
+  const issues = review.rows.find((r) => r.id === o.id)?.issues ?? [];
+  const mine = (ds.investments ?? []).filter((i) => i.investor_organisation_id === o.id);
+  const gap = review.relationships.by_investor.find((g) => g.id === o.id);
+  return {
+    id: o.id, slug: o.slug, name: o.name, aliases: o.aliases, status: o.verification_status, active_status: o.active_status,
+    type: o.investor_type, type_label: typeLabel(o.investor_type), website: o.website, location: locationLabel(o),
+    stages: o.stages.length, sectors: o.sectors.length, last_verified_at: o.last_verified_at,
+    portfolio: { verified: mine.filter((i) => i.verification_status === 'verified').length, unverified: mine.filter((i) => i.verification_status === 'unverified').length, unsourced: gap?.count ?? 0 },
+    issues: issues.map(({ code, label, severity, detail }) => ({ code, label, severity, detail })), worst: issues[0]?.severity ?? null,
+    actions: INVESTOR_ACTIONS_FOR[o.verification_status] ?? [],
+  };
+}
+
+// The investor records a person is to look at: filtered by status ('open' is candidates and records needing review), by one
+// kind of problem, or by a word in the name, an alias or the website.
+export function listInvestors(ds, nowMs, { status = 'open', issue = '', q = '', limit = 200 } = {}) {
+  const review = reviewInvestors(ds, { asOf: iso(nowMs) });
+  const needle = String(q).toLowerCase().trim();
+  const rank = { high: 0, medium: 1, low: 2, null: 3 };
+  const rows = ds.investors
+    .filter((o) => investorMatches(status, o) && (!needle || [o.name, o.website, ...o.aliases].some((s) => String(s ?? '').toLowerCase().includes(needle))))
+    .map((o) => investorRow(o, review, ds))
+    .filter((r) => !issue || r.issues.some((i) => i.code === issue))
+    .sort((a, b) => rank[a.worst] - rank[b.worst] || a.name.localeCompare(b.name));
+  const counts = Object.fromEntries([...Object.keys(INVESTOR_FILTERS), ...INVESTOR_STATUSES].map((k) => [k, ds.investors.filter((o) => investorMatches(k, o)).length]));
+  const byId = new Map(ds.investors.map((o) => [o.id, o]));
+  const group = (g) => ({ ...g, members: g.ids.map((id) => ({ id, name: byId.get(id)?.name ?? id, status: byId.get(id)?.verification_status ?? null, website: byId.get(id)?.website ?? null })) });
+  return {
+    total: rows.length, counts, summary: investorsSummary(review), vocab: INVESTOR_VOCAB, results: rows.slice(0, Math.min(Math.max(limit, 1), 500)),
+    // What a person is to settle across the whole list, whatever the filter above: sources that disagree, firms and people
+    // that look like one, and team records nobody has looked at for a year.
+    conflicts: review.conflicts.items.map((c) => conflictView(ds, c)),
+    duplicates: { firms: review.duplicates.firms.map(group), people: review.duplicates.people },
+    stale_team: review.team.stale_roles,
+  };
+}
+
+// One investor in full: every claim with the page behind it (the ones turned down too), the investments and who says so, the
+// companies that name it and have no page for it yet, the team, the funds, and what is in dispute.
+export function investorDetail(ds, id, nowMs) {
+  const o = ds.investors.find((x) => x.id === id);
+  if (!o) return null;
+  const review = reviewInvestors(ds, { asOf: iso(nowMs) });
+  const sources = new Map((ds.sources ?? []).map((s) => [s.id, s]));
+  const companies = new Map(ds.companies.map((c) => [c.id, c]));
+  const people = new Map((ds.investor_people ?? []).map((p) => [p.id, p]));
+  const sourceView = (s) => (s ? { id: s.id, kind: s.kind, url: s.url, title: s.title, publisher: s.publisher, retrieved_at: s.retrieved_at } : null);
+  const gap = review.relationships.by_investor.find((g) => g.id === id);
+  return {
+    ...investorRow(o, review, ds), ...Object.fromEntries(Object.entries(o).filter(([k]) => !['id', 'name', 'slug', 'aliases'].includes(k))),
+    check_problems: review.rows.find((r) => r.id === id)?.checkProblems ?? [],
+    records: (ds.verification_records ?? []).filter((r) => r.subject_type === 'investor_organisation' && r.subject_id === id)
+      .map((r) => ({ id: r.id, field: r.field, value: r.value, status: r.status, confidence: r.confidence, verified_at: r.verified_at, note: r.note, source: sourceView(sources.get(r.source_id)) })),
+    investments: (ds.investments ?? []).filter((i) => i.investor_organisation_id === id).map((i) => ({
+      id: i.id, company_id: i.company_id, company: companies.get(i.company_id)?.name ?? i.company_id, round: i.round, investment_date: i.investment_date, amount: i.amount, currency: i.currency,
+      lead_status: i.lead_status, status: i.verification_status, verified_at: i.verified_at, note: i.note, source: sourceView(sources.get(i.source_id)),
+    })).sort((a, b) => a.company.localeCompare(b.company)),
+    unsourced_companies: gap?.companies ?? [],
+    team: (ds.investor_people_organisations ?? []).filter((m) => m.organisation_id === id).map((m) => ({
+      id: m.id, person_id: m.person_id, person: people.get(m.person_id)?.name ?? m.person_id, person_status: people.get(m.person_id)?.verification_status ?? null,
+      role: m.role, is_current: m.is_current, status: m.verification_status, verified_at: m.verified_at, source: sourceView(sources.get(m.source_id)),
+    })),
+    funds: (ds.funds ?? []).filter((f) => f.organisation_id === id).map((f) => ({ id: f.id, name: f.name, vintage_year: f.vintage_year, status: f.verification_status })),
+    conflicts: review.conflicts.items.filter((c) => c.subject_id === id).map((c) => conflictView(ds, c)),
+    duplicates: review.duplicates.firms.filter((g) => g.ids.includes(id)),
   };
 }
 

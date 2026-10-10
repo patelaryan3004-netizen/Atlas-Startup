@@ -15,6 +15,7 @@
     "discovery": "node scripts/discovery.js",
     "scheduler": "node scripts/scheduler.js",
     "locations": "node scripts/locations.js",
+    "investors": "node scripts/investors.js",
     "admin": "node scripts/admin.js"
   },
   "dependencies": {
