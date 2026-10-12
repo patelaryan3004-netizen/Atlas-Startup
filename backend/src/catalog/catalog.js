@@ -144,13 +144,16 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   });
 
   lap('names');
+  const flags = { hiring: flag((r) => r.hiring), verified: flag((r) => r.verified), taskGate: flag((r) => r.taskGate?.enabled) };
+  // A yes/no column is indexed by the answer ('yes' or 'no'), so "hiring now" starts from the companies that are, not from all of them.
+  const answers = (column) => postings(column, (on) => [on ? 'yes' : 'no']);
   const snap = {
-    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance,
-    flags: { hiring: flag((r) => r.hiring), verified: flag((r) => r.verified), taskGate: flag((r) => r.taskGate?.enabled) },
+    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance, flags,
     idx: {
       sector: postings(records, (r) => [r.sector]), city: postings(records, (r) => [r.city]), stage: postings(records, (r) => [r.stage]),
       investor: postings(records, (r) => new Set(r.investors || [])),
       precision: postings(precisions, (p) => [p]), state: postings(records, (r) => (r.state ? [r.state] : [])),
+      hiring: answers(flags.hiring), verified: answers(flags.verified), taskGate: answers(flags.taskGate),
     },
     search: records.map((r) => [r.name, ...(r.founders || [])].join('\n').toLowerCase()),
     lowerNames, nameOrder,
@@ -240,22 +243,44 @@ function union(map, values) {
   return Uint32Array.from([...seen].sort((a, b) => a - b));
 }
 
-// The record numbers that match, ascending. The smallest facet list is the starting point, and every filter is
+// The index to start from: of the lists the filters name, the shortest (with what it is an index of), or none when no filter has one.
+// How well the place is known and the state are codes (EXACT, NSW), written in either case.
+function startingPoint(snap, f, precisions, states) {
+  const lists = [];
+  if (f.sector) lists.push(['sector', union(snap.idx.sector, f.sector.split(','))]);
+  if (f.city) lists.push(['city', union(snap.idx.city, f.city.split(','))]);
+  if (f.investor) lists.push(['investor', snap.idx.investor.get(f.investor) ?? EMPTY]);
+  if (f.stage) lists.push(['stage', snap.idx.stage.get(f.stage) ?? EMPTY]);
+  if (f.names) lists.push(['name', union(snap.byName, f.names)]);
+  // Only 'yes' and 'no' filter (any other value is ignored, as the per-record check in select always did).
+  for (const column of ['hiring', 'taskGate', 'verified']) {
+    if (f[column] === 'yes' || f[column] === 'no') lists.push([column, snap.idx[column].get(f[column]) ?? EMPTY]);
+  }
+  if (precisions) lists.push(['precision', union(snap.idx.precision, [...precisions])]);
+  if (states) lists.push(['state', union(snap.idx.state, [...states])]);
+  if (!lists.length) return null;
+  const [on, list] = lists.reduce((a, b) => (b[1].length < a[1].length ? b : a));
+  return { on, list };
+}
+
+const codes = (value) => (value ? new Set(value.toUpperCase().split(',')) : null);
+
+// How a question is answered, as a database would show its query plan: the index it starts from (or a scan of every company when no
+// filter has one), the companies it then looks at, and the companies that match. Search is always checked company by company, so
+// a question with only a search is a scan.
+export function explain(snap, f) {
+  if (isEmptyFilter(f)) return { using: 'the whole list', examined: 0, matched: snap.count };
+  const start = startingPoint(snap, f, codes(f.precision), codes(f.state));
+  return { using: start ? start.on : 'scan', examined: start ? start.list.length : snap.count, matched: select(snap, f).length };
+}
+
+// The record numbers that match, ascending. The shortest index is the starting point, and every filter is
 // then checked on each candidate, so the answer is the same however the work was split.
 export function select(snap, f) {
   if (isEmptyFilter(f)) return snap.orders.file;
-  const lists = [];
-  if (f.sector) lists.push(union(snap.idx.sector, f.sector.split(',')));
-  if (f.city) lists.push(union(snap.idx.city, f.city.split(',')));
-  if (f.investor) lists.push(snap.idx.investor.get(f.investor) ?? EMPTY);
-  if (f.stage) lists.push(snap.idx.stage.get(f.stage) ?? EMPTY);
-  if (f.names) lists.push(union(snap.byName, f.names));
-  // How well the place is known, and the state: the values are codes (EXACT, NSW), written in either case.
-  const precisions = f.precision ? new Set(f.precision.toUpperCase().split(',')) : null;
-  const states = f.state ? new Set(f.state.toUpperCase().split(',')) : null;
-  if (precisions) lists.push(union(snap.idx.precision, [...precisions]));
-  if (states) lists.push(union(snap.idx.state, [...states]));
-  const base = lists.length ? lists.reduce((a, b) => (b.length < a.length ? b : a)) : null;
+  const precisions = codes(f.precision);
+  const states = codes(f.state);
+  const base = startingPoint(snap, f, precisions, states)?.list ?? null;
 
   const q = f.search ? f.search.toLowerCase().replace(/\n/g, ' ') : null;
   const sectors = f.sector ? new Set(f.sector.split(',')) : null;

@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { createCatalog, readFilters, select, pageOf, facets, summary, markers, suggest, recordFor, MARKER_FIELDS, CARD_FIELDS, buildSnapshot, SORTS, STAGE_ORDER, stageRank } from '../src/catalog/catalog.js';
+import { createCatalog, readFilters, select, explain, pageOf, facets, summary, markers, suggest, recordFor, MARKER_FIELDS, CARD_FIELDS, buildSnapshot, SORTS, STAGE_ORDER, stageRank } from '../src/catalog/catalog.js';
 import { generateCompanies } from '../scripts/scale/fixtures.js';
 import { fixture, tempDir, removeTempDirs } from './helpers/catalog.js';
 import { INTERNAL_FIELDS } from '../src/models/company.js';
@@ -324,6 +324,76 @@ describe('hiring is counted only where a page backs it', () => {
     expect(order.slice(3).some(Boolean)).toBe(false);
     expect(recordFor(snap, rows[0].slug)).toMatchObject({ hiring: true, hiring_verified_at: CHECKED });
     expect(recordFor(snap, rows[4].slug)).toMatchObject({ hiring: false, rolesUnverified: true, hiring_status: null });
+  });
+});
+
+// The yes/no columns (hiring, taskGate, verified) are indexed like the others, so "hiring now" or "not yet confirmed" starts from the
+// companies that are, not from all of them. explain() says which index a question starts from and how many companies it looks at.
+describe('the yes/no columns are indexed', () => {
+  const rows = generateCompanies(900, { seed: 5 });
+  const snap = buildSnapshot(JSON.stringify(rows), 'v1');
+  const truth = {
+    hiring: (r) => !!r.hiring, taskGate: (r) => !!r.taskGate?.enabled, verified: (r) => !!r.verified,
+  };
+  const ask = (q) => Array.from(select(snap, readFilters(q)), (n) => snap.records[n].id);
+  const brute = (q, extra = () => true) => snap.records.filter((r) => extra(r)
+    && Object.entries(truth).every(([col, on]) => q[col] === undefined || q[col] === 'maybe' || (q[col] === 'yes') === on(r))).map((r) => r.id);
+
+  it('keeps an index of each answer that agrees with the column, in ascending order', () => {
+    for (const [column, on] of Object.entries(truth)) {
+      const yes = snap.idx[column].get('yes') ?? [];
+      const no = snap.idx[column].get('no') ?? [];
+      expect(yes.length + no.length, column).toBe(snap.count);
+      expect(Array.from(yes).every((n) => on(snap.records[n])), column).toBe(true);
+      expect(Array.from(no).some((n) => on(snap.records[n])), column).toBe(false);
+      expect(Array.from(yes), column).toEqual(Array.from(yes).sort((a, b) => a - b));
+    }
+    expect(snap.idx.hiring.get('yes').length).toBeGreaterThan(0);
+    expect(snap.idx.verified.get('no').length).toBeGreaterThan(0);
+    expect(snap.idx.taskGate.get('yes').length).toBeGreaterThan(0);
+  });
+
+  it('answers every combination of the three as checking each company does, in the same order', () => {
+    const answers = [undefined, 'yes', 'no', 'maybe'];
+    let nonEmpty = 0;
+    for (const hiring of answers) for (const taskGate of answers) for (const verified of answers) {
+      const q = {};
+      if (hiring) q.hiring = hiring;
+      if (taskGate) q.taskGate = taskGate;
+      if (verified) q.verified = verified;
+      expect(ask(q), JSON.stringify(q)).toEqual(brute(q));
+      if (brute(q).length) nonEmpty += 1;
+    }
+    expect(nonEmpty).toBeGreaterThan(30);
+  });
+
+  it('answers them together with the other filters the same way', () => {
+    const sector = snap.records[3].sector;
+    const city = snap.records[5].city;
+    for (const q of [{ hiring: 'yes', sector }, { verified: 'no', city }, { taskGate: 'yes', hiring: 'no', sector }, { verified: 'yes', search: 'a' }]) {
+      const search = q.search?.toLowerCase();
+      const extra = (r) => (!q.sector || r.sector === q.sector) && (!q.city || r.city === q.city)
+        && (!search || r.name.toLowerCase().includes(search) || (r.founders || []).some((f) => f.toLowerCase().includes(search)));
+      expect(ask(q), JSON.stringify(q)).toEqual(brute(q, extra));
+    }
+  });
+
+  it('starts from the shorter list, and looks at only those companies', () => {
+    const notVerified = snap.idx.verified.get('no').length;
+    expect(explain(snap, readFilters({ verified: 'no' }))).toEqual({ using: 'verified', examined: notVerified, matched: notVerified });
+    expect(notVerified).toBeLessThan(snap.count / 4);
+    const hiring = explain(snap, readFilters({ hiring: 'yes' }));
+    expect(hiring.using).toBe('hiring');
+    expect(hiring.examined).toBe(hiring.matched);
+    const both = explain(snap, readFilters({ hiring: 'yes', verified: 'no' }));
+    expect(both.examined).toBe(Math.min(hiring.examined, notVerified)); // the shorter of the two
+    expect(both.matched).toBe(ask({ hiring: 'yes', verified: 'no' }).length);
+  });
+
+  it('says a search is checked company by company, and that an unknown answer is not a filter', () => {
+    expect(explain(snap, readFilters({ search: 'ab' }))).toMatchObject({ using: 'scan', examined: snap.count });
+    expect(explain(snap, readFilters({ hiring: 'maybe' }))).toMatchObject({ using: 'scan', examined: snap.count, matched: snap.count });
+    expect(explain(snap, {})).toEqual({ using: 'the whole list', examined: 0, matched: snap.count });
   });
 });
 
