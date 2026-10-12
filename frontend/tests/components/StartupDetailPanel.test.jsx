@@ -384,13 +384,11 @@ describe('StartupDetailPanel, the company logo', () => {
   // The panel also asks for the news when it opens; let that answer land inside act().
   const settle = () => act(async () => {});
 
-  it('tries Clearbit, then Google\'s favicon, then gives up and leaves the initial', async () => {
+  it('asks the favicon service for the logo, and leaves the initial when it has none', async () => {
     const { container } = setup();
     await settle();
-    expect(logo(container).getAttribute('src')).toBe('https://logo.clearbit.com/canva.com?size=96');
-
-    fireEvent.error(logo(container));
-    expect(logo(container).getAttribute('src')).toBe('https://www.google.com/s2/favicons?domain=canva.com&sz=96');
+    expect(logo(container).getAttribute('src')).toBe('https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=96');
+    expect(logo(container).getAttribute('decoding')).toBe('async');
 
     fireEvent.error(logo(container));
     expect(logo(container)).toBeNull();
@@ -399,24 +397,23 @@ describe('StartupDetailPanel, the company logo', () => {
 
   // The panel used to answer every failure by pointing the image at the favicon again. For a visitor whose
   // browser blocks both addresses that failed again at once, thousands of times a second, while the panel was open.
-  it('stops after the second address, however many more failures are reported', async () => {
+  it('stops after the first failure, however many more are reported', async () => {
     const { container } = setup();
     await settle();
     for (let i = 0; i < 5; i += 1) { const current = logo(container); if (current) fireEvent.error(current); }
     expect(logo(container)).toBeNull();
   });
 
-  it('starts again from Clearbit for the next company', async () => {
+  it('asks again for the next company\'s logo', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [] });
     const props = { sectorColor: '#abcdef', isTracked: () => false, onToggleTracked: vi.fn(), onSuggestEdit: vi.fn(), onSelectPerson: vi.fn(), onClose: vi.fn() };
     const { container, rerender } = render(<StartupDetailPanel startup={startup()} {...props} />);
     await settle();
     fireEvent.error(logo(container));
-    fireEvent.error(logo(container));
     expect(logo(container)).toBeNull();
 
     rerender(<StartupDetailPanel startup={startup({ name: 'Atlassian', website: 'https://www.atlassian.com' })} {...props} />);
-    expect(logo(container).getAttribute('src')).toBe('https://logo.clearbit.com/atlassian.com?size=96');
+    expect(logo(container).getAttribute('src')).toContain('url=http://atlassian.com&size=96');
   });
 
   describe('where its facts came from', () => {

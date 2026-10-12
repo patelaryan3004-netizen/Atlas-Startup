@@ -112,12 +112,12 @@ describe('MapView', () => {
     expect(icons().at(-1).html.querySelector('.pin-fallback').style.background).toBe(colourOf('#444'));
   });
 
-  it('renders a Clearbit logo with a Google-favicon fallback, and hides it if that fails too, when the company has a website and the map is zoomed in', () => {
+  it('renders the favicon service\'s logo, and hides it if that fails, when the company has a website and the map is zoomed in', () => {
     render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
     const img = icons().at(-1).html.querySelector('img');
-    expect(img.src).toContain('https://logo.clearbit.com/canva.com');
-    img.onerror();
-    expect(img.src).toContain('www.google.com/s2/favicons?domain=canva.com');
+    expect(img.src).toBe('https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=96');
+    expect(img.src).not.toContain('clearbit');
+    expect(img.decoding).toBe('async');
     img.onerror();
     expect(img.style.display).toBe('none');
   });
@@ -133,10 +133,7 @@ describe('MapView', () => {
     render(<MapView markers={[pin('b', 'B', -37.81, 144.96, { domain: 'tiny.example' })]} sectorColors={{}} onSelectStartup={noop} />);
     const small = icons().at(-1).html.querySelector('img');
     Object.defineProperty(small, 'naturalWidth', { value: 16, configurable: true });
-    small.onload(); // the first address answered with a stand-in: try the next
-    expect(small.src).toContain('www.google.com/s2/favicons?domain=tiny.example');
-    expect(small.classList.contains('pin-logo-ready')).toBe(false);
-    small.onload(); // and a stand-in again: none
+    small.onload(); // answered with a stand-in: no logo
     expect(small.style.display).toBe('none');
     expect(small.classList.contains('pin-logo-ready')).toBe(false);
   });

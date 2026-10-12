@@ -1,25 +1,20 @@
 import { useCallback, useEffect, useRef } from 'react';
 import L from 'leaflet';
+import { logoUrl } from '../logo.js';
 import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM } from '../mapPins.js';
 
-// Clearbit has near-zero coverage of small/seed-stage companies. Cascade to Google's favicon service (much
-// higher hit-rate) before falling back to the plain initial-letter badge rendered underneath this <img>.
-// The logo is drawn big, so it appears only once it has loaded and is a real logo: until then (and if it never is) the first letter
-// shows. A picture too small to be a logo is the favicon service's stand-in for a site it does not know.
+// A pin's logo, over the plain initial-letter badge rendered underneath this <img>. The logo is drawn big, so it appears only once it has
+// loaded and is a real logo: until then (and if it never is) the first letter shows. A picture too small to be a logo is a stand-in for a
+// site the favicon service does not know, and is hidden. The pins are what the map is for, so their logos are asked for at once.
 function logoImg(domain, size) {
   const img = document.createElement('img');
   img.className = 'pin-logo';
   img.alt = '';
   img.decoding = 'async';
-  img.onload = () => {
-    if (img.naturalWidth >= 24) img.classList.add('pin-logo-ready');
-    else img.onerror();
-  };
-  img.src = `https://logo.clearbit.com/${domain}?size=${size}`;
-  img.onerror = () => {
-    img.onerror = () => { img.style.display = 'none'; };
-    img.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=${size}`;
-  };
+  const none = () => { img.style.display = 'none'; };
+  img.onload = () => { if (img.naturalWidth >= 24) img.classList.add('pin-logo-ready'); else none(); };
+  img.onerror = none;
+  img.src = logoUrl(domain, size);
   return img;
 }
 

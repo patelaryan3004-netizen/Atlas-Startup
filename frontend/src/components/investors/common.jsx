@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { logoUrl } from '../../logo.js';
 
 // Small pieces the investor pages share: a logo, a verified mark, a list of chips, and how a date, a cheque size and an
 // address are written.
@@ -26,20 +27,18 @@ export function safeUrl(url) {
   }
 }
 
-// An investor's logo from its website's domain (Clearbit, then Google's favicon, as the rest of the site does), with its
-// initial under it for when neither answers. Each failure moves one step on, so a blocked address is tried once.
+// An investor's logo from its website's domain (the favicon service, as the rest of the site does), with its initial under it for
+// when it does not answer. A failure is not tried again, so a blocked address is asked once.
 export function InvestorLogo({ domain, name, large = false }) {
-  const [step, setStep] = useState(0);
-  const [ready, setReady] = useState(false);
+  const [state, setState] = useState('loading'); // loading, ready (a real logo) or none
   const initial = (name || '?').trim().charAt(0).toUpperCase();
-  const src = step === 0 ? `https://logo.clearbit.com/${domain}?size=96` : `https://www.google.com/s2/favicons?domain=${domain}&sz=96`;
-  // A picture too small to be a logo is the favicon service's stand-in for a site it does not know: it counts as no answer.
-  const loaded = (e) => { if (e.currentTarget.naturalWidth >= 24) setReady(true); else setStep((s) => s + 1); };
+  // A picture too small to be a logo is a stand-in for a site the service does not know: it counts as no answer.
+  const loaded = (e) => setState(e.currentTarget.naturalWidth >= 24 ? 'ready' : 'none');
   return (
     <span className={`inv-logo${large ? ' inv-logo-lg' : ''}`} aria-hidden="true">
       <span className="inv-logo-initial">{initial}</span>
-      {domain && step < 2 && (
-        <img key={step} className={`inv-logo-img${ready ? ' inv-logo-img-ready' : ''}`} src={src} alt="" loading="lazy" decoding="async" onLoad={loaded} onError={() => setStep((s) => s + 1)} />
+      {domain && state !== 'none' && (
+        <img className={`inv-logo-img${state === 'ready' ? ' inv-logo-img-ready' : ''}`} src={logoUrl(domain, 96)} alt="" loading="lazy" decoding="async" onLoad={loaded} onError={() => setState('none')} />
       )}
     </span>
   );

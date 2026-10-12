@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '@fontsource-variable/geist';
 import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCounts, DIRECTORY_URL } from './api.js';
+import { logoUrl } from './logo.js';
 import LandingNav from './components/landing/LandingNav.jsx';
 import LandingHero from './components/landing/LandingHero.jsx';
 import ConceptPreview from './components/ConceptPreview.jsx';
@@ -21,18 +22,19 @@ function CompanyLogo({ website, name }) {
   const domain = domainOf(website);
   const initial = (name || '?').trim().charAt(0).toUpperCase();
   const [failed, setFailed] = useState(false);
-  const [triedFallback, setTriedFallback] = useState(false);
 
   if (!domain || failed) return <span className="landing-logo-fallback">{initial}</span>;
-  const src = triedFallback
-    ? `https://www.google.com/s2/favicons?domain=${domain}&sz=64`
-    : `https://logo.clearbit.com/${domain}?size=64`;
+  // These sit below the hero: they are asked for as they near the screen, not with the page.
   return (
     <img
       className="landing-logo"
-      src={src}
+      src={logoUrl(domain, 64)}
+      width="34"
+      height="34"
       alt=""
-      onError={() => (triedFallback ? setFailed(true) : setTriedFallback(true))}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
     />
   );
 }

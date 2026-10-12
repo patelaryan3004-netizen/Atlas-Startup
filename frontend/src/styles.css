@@ -866,3 +866,8 @@ header h1 span{color:var(--accent);}
 .sdp-sources-none{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted);}
 .sdp-hiring-note a{color:inherit;text-underline-offset:3px;}
 .sdp-links{display:flex;flex-wrap:wrap;gap:6px 18px;}
+
+/* What shows while a page's file arrives, and when it cannot (lazyLoad.jsx). */
+.view-loading{position:fixed;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;pointer-events:none;}
+.load-error{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:3000;display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;font-size:13px;box-shadow:0 8px 28px rgba(0,0,0,.5);}
+.load-error .linkbtn{font-size:13px;color:var(--accent);}

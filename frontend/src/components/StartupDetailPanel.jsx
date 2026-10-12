@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchNews, fetchInvestorsByName } from '../api.js';
+import { logoUrl } from '../logo.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { nameKey } from './investors/common.jsx';
 import ConceptPreview from './ConceptPreview.jsx';
@@ -23,16 +24,15 @@ function initialsOf(name) {
   return (name || '?').slice(0, 2).toUpperCase();
 }
 
-// Clearbit's logo, then Google's favicon, then nothing (the initial rendered underneath shows). Each failure moves
-// one step on. A handler that only swapped `src` would be called again by every failure of the new address -
-// React keeps its own error listener on an <img>, whatever `onerror` is set to - and for a visitor whose browser
-// blocks both addresses (an ad blocker, no network) it never stopped: the panel redrew its logo thousands of
-// times a second for as long as it was open.
+// The company's logo, or nothing (the initial rendered underneath shows). A failure removes the picture. A handler that swapped
+// `src` for another address would be called again by every failure of that one - React keeps its own error listener on an
+// <img>, whatever `onerror` is set to - and for a visitor whose browser blocks the address (an ad blocker, no network) it never
+// stopped: the panel redrew its logo thousands of times a second for as long as it was open. The panel opens on a click, so
+// its logo is wanted at once: it is decoded off the main thread but not held back.
 function PanelLogo({ domain }) {
-  const [step, setStep] = useState(0);
-  if (step > 1) return null;
-  const src = step === 0 ? `https://logo.clearbit.com/${domain}?size=96` : `https://www.google.com/s2/favicons?domain=${domain}&sz=96`;
-  return <img className="pc-avatar-logo" src={src} alt="" onError={() => setStep((s) => s + 1)} />;
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return <img className="pc-avatar-logo" src={logoUrl(domain, 96)} alt="" decoding="async" onError={() => setFailed(true)} />;
 }
 
 // What a source backs, in the words a visitor uses (a field the list does not know is shown as it is named).

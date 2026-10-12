@@ -16,7 +16,7 @@
 // "Quiet" means no request in flight and no change to the page (tiles aside) for 300 ms. A long task is
 // main-thread work over 50 ms, which a visitor feels as the page not answering.
 (async () => {
-  // Third-party images (logos from Clearbit and Google, map tiles) are blocked from here on, unless the driver has
+  // Third-party images (logos from the favicon service, map tiles) are blocked from here on, unless the driver has
   // already blocked them at the network (window.__blockImages === false): what is measured is this app's work, not
   // other people's servers, and no fake company's address is sent to anyone.
   if (window.__blockImages !== false) {

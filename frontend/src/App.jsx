@@ -1,38 +1,46 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { fetchMeta, fetchSummary, fetchMarkers, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
-import MapView from './components/MapView.jsx';
-import ListView from './components/ListView.jsx';
 import FilterPanel from './components/FilterPanel.jsx';
 import HeaderMenu from './components/HeaderMenu.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
 import MapKey from './components/MapKey.jsx';
-import SubmitStartupForm from './components/SubmitStartupForm.jsx';
-import SuggestEditForm from './components/SuggestEditForm.jsx';
-import StartupDetailPanel from './components/StartupDetailPanel.jsx';
-import PersonProfile from './components/PersonProfile.jsx';
 import { getPersonProfile } from './people.js';
 import { areaFilters, scopeText } from './mapPins.js';
-import FeedbackForm from './components/FeedbackForm.jsx';
-import AboutSources from './components/AboutSources.jsx';
-import PrivacyPolicy from './components/PrivacyPolicy.jsx';
-import UnverifiedList from './components/UnverifiedList.jsx';
 import BottomCapsule from './components/BottomCapsule.jsx';
-import StartupListView from './components/StartupListView.jsx';
-import JobsView from './components/JobsView.jsx';
-import InvestorsView from './components/investors/InvestorsView.jsx';
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
 import { readAppRoute, appUrl, appPath } from './appRoute.js';
 import { usePageMeta } from './hooks/usePageMeta.js';
 import { startupDescription, startupJsonLd } from './seo.js';
 import { curatedLists } from './curatedLists.js';
-import NewsPage from './components/NewsPage.jsx';
 import ListBanner from './components/ListBanner.jsx';
 import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
-import CuratedLists from './components/CuratedLists.jsx';
-import WaitlistForm from './components/WaitlistForm.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
+import { lazyView, Lazy } from './lazyLoad.jsx';
+
+// Fetched when first wanted, not with the page: the pages (the map and its library, the list, the jobs board, the investors, the
+// news), the company's panel and every dialog. What stays here is what every visit draws at once: the header, search, filters,
+// the news ticker, the map's key and the footer.
+const MapView = lazyView(() => import('./components/MapView.jsx'));
+const ListView = lazyView(() => import('./components/ListView.jsx'));
+const JobsView = lazyView(() => import('./components/JobsView.jsx'));
+const InvestorsView = lazyView(() => import('./components/investors/InvestorsView.jsx'));
+const NewsPage = lazyView(() => import('./components/NewsPage.jsx'));
+const StartupDetailPanel = lazyView(() => import('./components/StartupDetailPanel.jsx'));
+const PersonProfile = lazyView(() => import('./components/PersonProfile.jsx'));
+const SubmitStartupForm = lazyView(() => import('./components/SubmitStartupForm.jsx'));
+const SuggestEditForm = lazyView(() => import('./components/SuggestEditForm.jsx'));
+const FeedbackForm = lazyView(() => import('./components/FeedbackForm.jsx'));
+const WaitlistForm = lazyView(() => import('./components/WaitlistForm.jsx'));
+const AboutSources = lazyView(() => import('./components/AboutSources.jsx'));
+const PrivacyPolicy = lazyView(() => import('./components/PrivacyPolicy.jsx'));
+const UnverifiedList = lazyView(() => import('./components/UnverifiedList.jsx'));
+const StartupListView = lazyView(() => import('./components/StartupListView.jsx'));
+const CuratedLists = lazyView(() => import('./components/CuratedLists.jsx'));
+
+// What shows while a page's file arrives: the page's own words, over the dark background the page already has.
+const loading = (what) => <div className="view-loading" role="status">Loading {what}…</div>;
 
 // Desaturated relative to the single UI accent color, so sector dots read as
 // data encoding on the dark map rather than competing with it.
@@ -346,21 +354,23 @@ export default function App() {
   }, []);
 
   if (showJobs) {
-    return <JobsView sectorColors={sectorColors} onClose={leave} />;
+    return <Lazy fallback={loading('jobs')}><JobsView sectorColors={sectorColors} onClose={leave} /></Lazy>;
   }
 
   if (route.kind === 'news') {
-    return <NewsPage onClose={leave} />;
+    return <Lazy fallback={loading('news')}><NewsPage onClose={leave} /></Lazy>;
   }
 
   if (showInvestors) {
     return (
-      <InvestorsView
-        initialRoute={investorsStart}
-        fromLink={investorsFromLink}
-        onClose={() => setRoute({ kind: 'explore' })}
-        onOpenCompany={(company) => openStartup(company)}
-      />
+      <Lazy fallback={loading('investors')}>
+        <InvestorsView
+          initialRoute={investorsStart}
+          fromLink={investorsFromLink}
+          onClose={() => setRoute({ kind: 'explore' })}
+          onOpenCompany={(company) => openStartup(company)}
+        />
+      </Lazy>
     );
   }
 
@@ -418,28 +428,30 @@ export default function App() {
         />
       )}
 
-      {viewMode === 'map' ? (
-        <MapView
-          markers={markers}
-          areas={areas}
-          sectorColors={sectorColors}
-          onSelectStartup={openStartup}
-          onViewArea={viewArea}
-          selectedName={selectedStartup?.name}
-          trackedNames={tracked}
-        />
-      ) : (
-        <ListView
-          filters={applied}
-          sectorColors={sectorColors}
-          onSelectStartup={openStartup}
-          selectedName={selectedStartup?.name}
-          trackedNames={tracked}
-          scope={scopeText(applied)}
-          onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
-          chips={chips}
-        />
-      )}
+      <Lazy fallback={loading(viewMode === 'map' ? 'the map' : 'the list')}>
+        {viewMode === 'map' ? (
+          <MapView
+            markers={markers}
+            areas={areas}
+            sectorColors={sectorColors}
+            onSelectStartup={openStartup}
+            onViewArea={viewArea}
+            selectedName={selectedStartup?.name}
+            trackedNames={tracked}
+          />
+        ) : (
+          <ListView
+            filters={applied}
+            sectorColors={sectorColors}
+            onSelectStartup={openStartup}
+            selectedName={selectedStartup?.name}
+            trackedNames={tracked}
+            scope={scopeText(applied)}
+            onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
+            chips={chips}
+          />
+        )}
+      </Lazy>
       {viewMode === 'map' && chips && <div className="chips-float">{chips}</div>}
 
       <FilterPanel
@@ -469,52 +481,60 @@ export default function App() {
         <span className="footer-credit">Built by Aryan · Monash University</span>
       </footer>
 
-      {showSubmitForm && <SubmitStartupForm onClose={() => setShowSubmitForm(false)} />}
-      {showUnverified && <UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} />}
-      {showAbout && <AboutSources onClose={() => setShowAbout(false)} />}
-      {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
-      {editingCompany && <SuggestEditForm company={editingCompany} onClose={() => setEditingCompany(null)} />}
+      {showSubmitForm && <Lazy><SubmitStartupForm onClose={() => setShowSubmitForm(false)} /></Lazy>}
+      {showUnverified && <Lazy><UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} /></Lazy>}
+      {showAbout && <Lazy><AboutSources onClose={() => setShowAbout(false)} /></Lazy>}
+      {showPrivacy && <Lazy><PrivacyPolicy onClose={() => setShowPrivacy(false)} /></Lazy>}
+      {editingCompany && <Lazy><SuggestEditForm company={editingCompany} onClose={() => setEditingCompany(null)} /></Lazy>}
       {selectedStartup && (
-        <StartupDetailPanel
-          startup={selectedStartup}
-          sectorColor={sectorColors[selectedStartup.sector] || '#444'}
-          isTracked={isTracked}
-          onToggleTracked={toggleTracked}
-          onSuggestEdit={setEditingCompany}
-          onSelectPerson={openPerson}
-          onOpenInvestor={(slug) => openInvestors({ kind: 'investor', slug })}
-          onClose={leave}
-        />
+        <Lazy>
+          <StartupDetailPanel
+            startup={selectedStartup}
+            sectorColor={sectorColors[selectedStartup.sector] || '#444'}
+            isTracked={isTracked}
+            onToggleTracked={toggleTracked}
+            onSuggestEdit={setEditingCompany}
+            onSelectPerson={openPerson}
+            onOpenInvestor={(slug) => openInvestors({ kind: 'investor', slug })}
+            onClose={leave}
+          />
+        </Lazy>
       )}
       {selectedPersonName && (
-        <PersonProfile
-          person={getPersonProfile(selectedPersonName, personCompanies)}
-          onClose={() => setSelectedPersonName(null)}
-        />
+        <Lazy>
+          <PersonProfile
+            person={getPersonProfile(selectedPersonName, personCompanies)}
+            onClose={() => setSelectedPersonName(null)}
+          />
+        </Lazy>
       )}
-      {showFeedback && <FeedbackForm onClose={() => setShowFeedback(false)} />}
-      {showWaitlist && <WaitlistForm onClose={() => setShowWaitlist(false)} />}
+      {showFeedback && <Lazy><FeedbackForm onClose={() => setShowFeedback(false)} /></Lazy>}
+      {showWaitlist && <Lazy><WaitlistForm onClose={() => setShowWaitlist(false)} /></Lazy>}
       {showTracked && (
-        <StartupListView
-          startups={trackedStartups}
-          sectorColors={sectorColors}
-          onClose={() => setShowTracked(false)}
-          isTracked={isTracked}
-          onToggleTracked={toggleTracked}
-          title={`Tracked startups (${tracked.size})`}
-          subtitle={
-            trackedStartups.length < tracked.size
-              ? `${trackedStartups.length} of ${tracked.size} tracked companies are still in the directory.`
-              : 'Companies you have starred, saved in this browser only.'
-          }
-        />
+        <Lazy>
+          <StartupListView
+            startups={trackedStartups}
+            sectorColors={sectorColors}
+            onClose={() => setShowTracked(false)}
+            isTracked={isTracked}
+            onToggleTracked={toggleTracked}
+            title={`Tracked startups (${tracked.size})`}
+            subtitle={
+              trackedStartups.length < tracked.size
+                ? `${trackedStartups.length} of ${tracked.size} tracked companies are still in the directory.`
+                : 'Companies you have starred, saved in this browser only.'
+            }
+          />
+        </Lazy>
       )}
       {showCuratedLists && (
-        <CuratedLists
-          currentFilters={filters}
-          onApply={openList}
-          onClose={leave}
-        />
+        <Lazy>
+          <CuratedLists
+            currentFilters={filters}
+            onApply={openList}
+            onClose={leave}
+          />
+        </Lazy>
       )}
       {missing?.kind === 'startup' && (
         <PageNotFound title="This company is not in the directory." onClose={leave}>

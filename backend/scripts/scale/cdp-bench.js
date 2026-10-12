@@ -100,8 +100,8 @@ async function measure({ url, profile, script, budgetMs }) {
   try {
     for (const domain of ['Page', 'Network', 'Performance', 'Runtime']) await cdp.send(`${domain}.enable`);
     await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
-    // Other people's servers stay out of it. The map's tiles are refused. A company's logo (Clearbit, Google's favicon
-    // service) is answered here with a one-pixel image, as if it had loaded: that is what a visitor normally sees, and
+    // Other people's servers stay out of it. The map's tiles are refused. A company's logo (Google's favicon service, and
+    // Clearbit, whose logo address no longer exists but older builds still ask) is answered here with a one-pixel image, as if it had loaded: that is what a visitor normally sees, and
     // refusing logos instead would make every card and panel run its failure path, which is the worst case for the
     // old app, not the usual one. Nothing leaves the machine, so no fake company's address is sent to anyone.
     // The page shell also asks other people's servers for Leaflet's stylesheet (cdnjs) and a font (Google Fonts); a
@@ -109,10 +109,10 @@ async function measure({ url, profile, script, budgetMs }) {
     // delay every run by the same many seconds. They are answered here too: Leaflet's real stylesheet from this
     // repository's own copy (the map lays out as it does for a visitor), the font stylesheet empty.
     await cdp.send('Network.setBlockedURLs', { urls: ['*tile.openstreetmap.org*', '*fonts.gstatic.com*'] });
-    await cdp.send('Fetch.enable', { patterns: [{ urlPattern: '*clearbit.com*' }, { urlPattern: '*google.com/s2/favicons*' }, { urlPattern: '*fonts.googleapis.com*' }, { urlPattern: '*cdnjs.cloudflare.com*' }] });
+    await cdp.send('Fetch.enable', { patterns: [{ urlPattern: '*clearbit.com*' }, { urlPattern: '*google.com/s2/favicons*' }, { urlPattern: '*gstatic.com/faviconV2*' }, { urlPattern: '*fonts.googleapis.com*' }, { urlPattern: '*cdnjs.cloudflare.com*' }] });
     cdp.on('Fetch.requestPaused', (p) => {
       const url = p.request.url;
-      const answer = /clearbit\.com|google\.com\/s2\/favicons/.test(url) ? { type: 'image/png', body: ONE_PIXEL_PNG }
+      const answer = /clearbit\.com|google\.com\/s2\/favicons|gstatic\.com\/faviconV2/.test(url) ? { type: 'image/png', body: ONE_PIXEL_PNG }
         : /fonts\.googleapis\.com/.test(url) ? { type: 'text/css', body: Buffer.from('/* the font is not loaded in the benchmark */').toString('base64') }
           : /cdnjs\.cloudflare\.com.*leaflet.*\.css/.test(url) ? { type: 'text/css', body: leafletCss() }
             : null;

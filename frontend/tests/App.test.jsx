@@ -391,7 +391,7 @@ describe('App', () => {
       render(<App />);
       await userEvent.click(screen.getByText('trigger-select'));
       await userEvent.click(screen.getByText('trigger-suggest-edit'));
-      expect(screen.getByText('Suggest an edit')).toBeInTheDocument();
+      expect(await screen.findByText('Suggest an edit')).toBeInTheDocument();
       expect(screen.getAllByText('Canva').length).toBeGreaterThan(0);
     });
 
@@ -450,14 +450,14 @@ describe('App', () => {
     it('opens the submit-a-startup form from the top-level nav CTA', async () => {
       render(<App />);
       await userEvent.click(screen.getByText('Submit startup'));
-      expect(screen.getByText('Know an AU startup that should be on the map?', { exact: false })).toBeInTheDocument();
+      expect(await screen.findByText('Know an AU startup that should be on the map?', { exact: false })).toBeInTheDocument();
     });
 
     it('shows a BETA tag next to the title, with the full sourcing disclosure one click away in About & sources', async () => {
       render(<App />);
       expect(screen.getByText('BETA')).toBeInTheDocument();
       await userEvent.click(screen.getByText('About & sources'));
-      expect(screen.getByText(/public sources/)).toBeInTheDocument();
+      expect(await screen.findByText(/public sources/)).toBeInTheDocument();
     });
 
     it('opens About & sources and Privacy from the footer, and links to the no-JS directory', async () => {
@@ -468,23 +468,23 @@ describe('App', () => {
       expect(screen.getByText('Full list (no JS)').closest('a')).toHaveAttribute('href', '/directory');
 
       await userEvent.click(screen.getByText('About & sources'));
-      expect(screen.getByText(/independent, unofficial directory/)).toBeInTheDocument();
+      expect(await screen.findByText(/independent, unofficial directory/)).toBeInTheDocument();
       await userEvent.click(screen.getByLabelText('Close'));
 
       await userEvent.click(screen.getByText('Privacy'));
-      expect(screen.getByText(/No account, no tracking cookies/)).toBeInTheDocument();
+      expect(await screen.findByText(/No account, no tracking cookies/)).toBeInTheDocument();
     });
 
     it('opens the site-wide Feedback form from the footer', async () => {
       render(<App />);
       await userEvent.click(screen.getByText('Feedback'));
-      expect(screen.getByLabelText('Type')).toBeInTheDocument();
+      expect(await screen.findByLabelText('Type')).toBeInTheDocument();
     });
 
     it('opens the waitlist modal from the top-level nav CTA', async () => {
       render(<App />);
       await userEvent.click(screen.getByText('Join waitlist'));
-      expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
+      expect(await screen.findByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
     });
 
     it('credits the builder in the footer', async () => {

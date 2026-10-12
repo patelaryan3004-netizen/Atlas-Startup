@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
+import { logoUrl } from '../logo.js';
 import ConceptPreview from './ConceptPreview.jsx';
 
 const PAGE = 24;
@@ -17,22 +18,20 @@ function JobCardLogo({ website, name }) {
   const domain = domainOf(website);
   const initial = (name || '?').trim().charAt(0).toUpperCase();
   const [failed, setFailed] = useState(false);
-  const [triedFallback, setTriedFallback] = useState(false);
 
   if (!domain || failed) {
     return <span className="job-card-logo-fallback">{initial}</span>;
   }
-  const src = triedFallback
-    ? `https://www.google.com/s2/favicons?domain=${domain}&sz=64`
-    : `https://logo.clearbit.com/${domain}?size=64`;
   return (
     <img
       className="job-card-logo"
-      src={src}
+      src={logoUrl(domain, 64)}
+      width="36"
+      height="36"
       alt=""
       loading="lazy"
       decoding="async"
-      onError={() => (triedFallback ? setFailed(true) : setTriedFallback(true))}
+      onError={() => setFailed(true)}
     />
   );
 }

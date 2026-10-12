@@ -13,6 +13,21 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // The pages are separate files (lazyLoad.jsx); these two libraries are the big shared pieces, kept in files of their own so a
+        // new version of the app does not make a visitor fetch React or Leaflet again. React is what every page needs and is
+        // fetched with the first one; Leaflet only with the map.
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined;
+          if (/node_modules[\/](react|react-dom|scheduler)[\/]/.test(id)) return 'react';
+          if (/node_modules[\/]leaflet[\/]/.test(id)) return 'leaflet';
+          return undefined;
+        },
+      },
+    },
+  },
   server: {
     port: 5173,
     proxy: {
