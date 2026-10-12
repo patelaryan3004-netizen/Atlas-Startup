@@ -76,6 +76,18 @@ describe('LandingPage', () => {
       expect(fetchSummary).toHaveBeenCalledWith({});
     });
 
+    it('says when the directory was last updated, from the data, and leaves it out when no company was ever checked', async () => {
+      fetchSummary.mockResolvedValue({ count: 213, hiring: 2, lastVerifiedAt: '2026-10-05T15:12:14.342Z' });
+      const { container, unmount } = render(<LandingPage />);
+      await screen.findByText('213 startups');
+      expect(container.querySelector('.hero-facts')).toHaveTextContent('213 startupsUpdated 6 Oct 2026');
+      unmount();
+      fetchSummary.mockResolvedValue({ count: 213, hiring: 2, lastVerifiedAt: null });
+      const again = render(<LandingPage />);
+      await screen.findByText('213 startups');
+      expect(again.container.querySelector('.hero-facts')).not.toHaveTextContent('Updated');
+    });
+
     it('leaves out a count the server did not send, rather than showing a zero', async () => {
       fetchSummary.mockResolvedValue({ count: 213 });
       const { container } = render(<LandingPage />);

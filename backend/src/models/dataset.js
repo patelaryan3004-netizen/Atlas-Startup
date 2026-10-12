@@ -423,6 +423,16 @@ export function validateDataset(ds) {
       if (c[key] != null && !ISO_RE.test(c[key])) bad(at, `${key} must be an ISO-8601 UTC timestamp or null`);
     }
 
+    // Events are optional: a list of { title, date (YYYY-MM-DD), url }.
+    if (c.events != null) {
+      if (!Array.isArray(c.events)) bad(at, 'events must be an array');
+      else c.events.forEach((e, n) => {
+        if (!e || typeof e.title !== 'string' || !e.title.trim()) bad(at, `events[${n}] needs a title`);
+        else if (typeof e.date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(e.date) || Number.isNaN(Date.parse(e.date))) bad(at, `events[${n}] date must be YYYY-MM-DD`);
+        else if (e.url != null && !/^https?:\/\//.test(e.url)) bad(at, `events[${n}] url must be http(s) or null`);
+      });
+    }
+
     // The two representations of one fact must agree.
     if ((c.hiring === true) !== (c.hiring_status === 'hiring')) bad(at, 'hiring and hiring_status disagree');
     if ((c.verified === true) !== (c.verification_status !== 'unverified')) bad(at, 'verified and verification_status disagree');

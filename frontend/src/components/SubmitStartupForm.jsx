@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { submitStartup } from '../api.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
+import { TALLY_SUBMIT_URL, tallyEmbed } from '../tally.js';
 
 const EMPTY = { name: '', website: '', description: '', stage: '', email: '', hiringUrl: '' };
 const STAGES = ['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series C+', 'Growth', 'Unknown'];
 
-export default function SubmitStartupForm({ onClose }) {
+// Submissions go to a Tally form (company name, website, city, your role, and whether you want to claim the profile) once its address is
+// set in tally.js; until then the site's own form below takes them, so the button never opens a broken frame.
+export default function SubmitStartupForm({ onClose, tallyUrl = TALLY_SUBMIT_URL }) {
   useEscapeClose(onClose);
   const [form, setForm] = useState(EMPTY);
   const [error, setError] = useState('');
@@ -31,6 +34,19 @@ export default function SubmitStartupForm({ onClose }) {
       setSubmitting(false);
     }
   };
+
+  const embed = tallyEmbed(tallyUrl);
+  if (embed) {
+    return (
+      <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
+          <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
+          <h2>Submit a startup</h2>
+          <iframe className="waitlist-iframe" src={embed} title="Submit a startup" loading="lazy" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="modal-overlay" onClick={onClose}>

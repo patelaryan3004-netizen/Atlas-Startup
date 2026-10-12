@@ -92,7 +92,7 @@
 }
 
 .hero-facts{
-  margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 6px 0;
+  margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px 0;
   font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums;
 }
 .hero-facts span{ padding-right: 16px; margin-right: 16px; border-right: 1px solid var(--l-hair); }

@@ -442,7 +442,7 @@ describe('public projection', () => {
   it('drops the record-keeping fields and keeps the facts', () => {
     const out = toPublic(record);
     for (const key of INTERNAL_FIELDS) expect(out).not.toHaveProperty(key);
-    expect(out).toEqual({ id: 'acme', name: 'Acme', stage: 'Seed', hiring_status: 'hiring' });
+    expect(out).toEqual({ id: 'acme', name: 'Acme', stage: 'Seed', hiring_status: 'hiring', last_verified_at: T });
   });
 
   it('says a company is hiring only if its roles were checked, and says "no page backs it" for a flag that no page backs', () => {
@@ -464,7 +464,7 @@ describe('public projection', () => {
 
   it('pins the list of internal fields, so exposing one is a deliberate change', () => {
     expect([...INTERNAL_FIELDS].sort()).toEqual([
-      'confidence_score', 'created_at', 'last_verified_at', 'location_confidence', 'location_source', 'location_source_url',
+      'confidence_score', 'created_at', 'location_confidence', 'location_source', 'location_source_url',
       'location_verified_at', 'source_ids', 'updated_at',
     ]);
   });

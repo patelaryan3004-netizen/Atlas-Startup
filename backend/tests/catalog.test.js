@@ -435,8 +435,36 @@ describe('ordering by stage and by when a company was last checked', () => {
     expect(names('verified')).toEqual(['Amy', 'Gus', 'Cat', 'Dan', 'Zed', 'Bob', 'Eve', 'Fay']);
   });
 
-  it('never serves the date it sorts by: it is internal', () => {
-    expect(Array.from(all, (n) => snap.records[n]).every((r) => !('last_verified_at' in r))).toBe(true);
-    expect(snap.cards.every((c) => !('last_verified_at' in c))).toBe(true);
+  it('serves the date it sorts by, on the record and on the card: the site says "Verified 3 days ago"', () => {
+    expect(snap.records.find((r) => r.name === 'Amy').last_verified_at).toBe('2026-10-09T00:00:00.000Z');
+    expect(snap.cards.find((c) => c.name === 'Amy').last_verified_at).toBe('2026-10-09T00:00:00.000Z');
+  });
+});
+
+describe('the latest check and the events this week', () => {
+  const day = (offset) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
+  const named = (name, over) => ({ ...generateCompanies(1)[0], name, id: name.toLowerCase(), slug: name.toLowerCase(), events: undefined, ...over });
+  const rows = [
+    named('Soon', { events: [{ title: 'Demo day', date: day(3), url: 'https://example.com/e' }], last_verified_at: '2026-10-01T00:00:00.000Z' }),
+    named('Later', { events: [{ title: 'Summit', date: day(40), url: null }], last_verified_at: '2026-10-09T10:00:00.000Z' }),
+    named('Past', { events: [{ title: 'Meetup', date: day(-2), url: null }], last_verified_at: null }),
+    named('None', {}),
+  ];
+  const snap = buildSnapshot(JSON.stringify(rows), 'v1');
+
+  it('says when the most recent check was, or null when none was made', () => {
+    expect(summary(snap, select(snap, {})).lastVerifiedAt).toBe('2026-10-09T10:00:00.000Z');
+    expect(summary(snap, select(snap, { search: 'none' })).lastVerifiedAt).toBeNull();
+  });
+
+  it('keeps only the companies with an event in the next 14 days, and reads the filter from a query', () => {
+    const f = readFilters({ events: 'week' });
+    expect(f).toEqual({ events: 'week' });
+    expect(Array.from(select(snap, f), (n) => snap.records[n].name)).toEqual(['Soon']);
+  });
+
+  it('puts events on a card only when the company has some', () => {
+    expect(snap.cards.find((c) => c.name === 'Soon').events).toHaveLength(1);
+    expect(snap.cards.find((c) => c.name === 'None')).not.toHaveProperty('events');
   });
 });

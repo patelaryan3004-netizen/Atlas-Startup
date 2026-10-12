@@ -1,3 +1,4 @@
+import { verifiedLabel, nextEvent, eventDay, isBlank } from '../freshness.js';
 import { useEffect, useState } from 'react';
 import { fetchNews, fetchInvestorsByName } from '../api.js';
 import { logoUrl } from '../logo.js';
@@ -120,6 +121,8 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
   // The page that backs "hiring now": the company's own job board when a page was read, the company's site otherwise.
   const board = s.hiring_source?.url ?? s.hiring_source_url ?? null;
   const rolesLink = board ?? s.website;
+  const fresh = verifiedLabel(s.last_verified_at);
+  const event = nextEvent(s.events);
 
   return (
     <div className="sdp-overlay" onClick={onClose}>
@@ -134,6 +137,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             <div className="pc-hero-text">
               <h4>{s.name}</h4>
               {!s.verified && <span className="badge-unverified">Unverified</span>}
+              {fresh && <div className={fresh.stale ? 'verified-note verified-note-stale' : 'verified-note'}>{fresh.text}</div>}
             </div>
           </div>
           <button
@@ -146,18 +150,22 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
 
         <div className="pc-body">
           <div className="sdp-meta-grid">
-            <div className="sdp-meta-cell">
-              <div className="pc-section-label">Industry</div>
-              <div className="sdp-meta-value">{s.sectorFull || s.sector}</div>
-            </div>
+            {!isBlank(s.sectorFull || s.sector) && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Industry</div>
+                <div className="sdp-meta-value">{s.sectorFull || s.sector}</div>
+              </div>
+            )}
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Location</div>
               <LocationCell s={s} loading={loading} />
             </div>
-            <div className="sdp-meta-cell">
-              <div className="pc-section-label">Stage</div>
-              <div className="sdp-meta-value">{s.stage}</div>
-            </div>
+            {!isBlank(s.stage) && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Stage</div>
+                <div className="sdp-meta-value">{s.stage}</div>
+              </div>
+            )}
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Hiring</div>
               <div className="sdp-meta-value">{s.hiring ? 'Hiring now' : s.rolesUnverified ? 'Roles unverified' : 'Not currently hiring'}</div>
@@ -241,8 +249,20 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
               </p>
             )}
             {s.hiring && !s.hiring_source && checkedOn(s.hiring_verified_at) && <p className="sdp-hiring-note">Open roles checked on {checkedOn(s.hiring_verified_at)}.</p>}
+            {s.hiring && (
+              <p className="sdp-report">
+                <button type="button" className="linkbtn" onClick={() => onSuggestEdit(s.name, `Role closed: ${s.name} is no longer hiring. `)}>Report: role closed</button>
+              </p>
+            )}
             {s.rolesUnverified && <p className="sdp-hiring-note">Marked as hiring, but no open role has been checked against the company&rsquo;s own pages, so it is not counted as hiring.</p>}
           </div>
+
+          {event && (
+            <div className="sdp-section">
+              <div className="pc-section-label">Event</div>
+              <p className="sdp-event"><span className="event-badge" style={{ marginLeft: 0 }}>{eventDay(event)}</span> {event.url ? <a href={event.url} target="_blank" rel="noopener noreferrer">{event.title}</a> : event.title}</p>
+            </div>
+          )}
 
           {matchingNews.length > 0 && (
             <div className="sdp-section">

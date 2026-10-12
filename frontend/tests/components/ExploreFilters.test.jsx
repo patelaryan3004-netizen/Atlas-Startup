@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import MultiSelect, { splitValues, joinValues } from '../../src/components/MultiSelect.jsx';
 import ActiveFilters, { activeChips, withoutChip } from '../../src/components/ActiveFilters.jsx';
 
-const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', precision: '', state: '' };
+const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '' };
 const SECTORS = ['AI', 'Fintech', 'Health', 'Climate'];
 const MANY = Array.from({ length: 30 }, (_, i) => `Sector ${String(i).padStart(2, '0')}`);
 

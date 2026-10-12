@@ -56,7 +56,7 @@ describe('the Command Center is not part of the public app', () => {
     const everything = `${list.text}${dir.text}`;
     expect(everything).not.toMatch(/aud-\d{10}|enq-[a-z0-9-]+-\d|run-\d{10}|jr-\d{10}|rs-company|audit_trail|enrichment_queue|import_runs|refresh_state|job_runs/);
     for (const c of list.body.results) {
-      for (const key of ['confidence_score', 'last_verified_at', 'source_ids', 'created_at', 'updated_at']) expect(c, `${c.name} exposes ${key}`).not.toHaveProperty(key);
+      for (const key of ['confidence_score', 'source_ids', 'created_at', 'updated_at']) expect(c, `${c.name} exposes ${key}`).not.toHaveProperty(key);
     }
   });
 });

@@ -23,7 +23,7 @@ export class HttpError extends Error {
 // (Both `search` and `q` are questions; `page` is the directory's.)
 // (The investor directory's: type, location, lead, active, chequeMin and chequeMax. A parameter missing here is dropped from the
 // question, so a filtered answer would be served for the unfiltered question: add every new filter.)
-const KNOWN = new Set(['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'precision', 'state', 'name', 'limit', 'offset', 'sort', 'view', 'facets', 'q', 'page',
+const KNOWN = new Set(['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state', 'name', 'limit', 'offset', 'sort', 'view', 'facets', 'q', 'page',
   'type', 'location', 'lead', 'active', 'chequeMin', 'chequeMax']);
 export function questionKey(req) {
   const parts = [];

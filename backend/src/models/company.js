@@ -179,11 +179,11 @@ export function migrateCompanyRecord(record, ids, { evidenceFor = () => [] } = {
 }
 
 // Record-keeping the public API has no reason to serve: which sources back a
-// record, when it was last checked, how far it is trusted. The facts themselves
+// record, how far it is trusted. (last_verified_at, when it was last checked, is public: the site says "Verified 3 days ago".) The facts themselves
 // stay public. The detail behind them (sources.json, evidence.json) is not
 // served by any route. To expose one of these later, remove it here and update
 // the test that pins this list.
-export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'last_verified_at', 'created_at', 'updated_at',
+export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'created_at', 'updated_at',
   'location_source', 'location_source_url', 'location_verified_at', 'location_confidence'];
 
 // The public form of a company. What is public about where it is: the level it is known at (location_precision), the

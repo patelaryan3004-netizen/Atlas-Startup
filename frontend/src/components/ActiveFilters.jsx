@@ -15,6 +15,7 @@ export function activeChips(filters) {
   add('stage', 'Stage', filters.stage ? [filters.stage] : []);
   add('investor', 'Investor', filters.investor ? [filters.investor] : []);
   add('hiring', 'Hiring', filters.hiring ? [filters.hiring] : [], (v) => HIRING_WORDS[v] ?? v);
+  add('events', 'Events', filters.events ? [filters.events] : [], () => 'Events this week');
   add('search', 'Search', filters.search?.trim() ? [filters.search.trim()] : [], (v) => `“${v}”`);
   return chips;
 }

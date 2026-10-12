@@ -68,4 +68,13 @@ describe('SubmitStartupForm', () => {
     await userEvent.keyboard('{Escape}');
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  it('shows the Tally form once its address is set, and the own form while it is still the placeholder', () => {
+    const { container, unmount } = render(<SubmitStartupForm onClose={() => {}} tallyUrl="TALLY_SUBMIT_URL_HERE" />);
+    expect(container.querySelector('iframe')).toBeNull();
+    expect(screen.getByLabelText(/Company name/)).toBeInTheDocument();
+    unmount();
+    const tally = render(<SubmitStartupForm onClose={() => {}} tallyUrl="https://tally.so/r/abc123" />);
+    expect(tally.container.querySelector('iframe')).toHaveAttribute('src', expect.stringContaining('https://tally.so/embed/abc123'));
+  });
 });

@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
 import { logoUrl } from '../logo.js';
 import ConceptPreview from './ConceptPreview.jsx';
+import QuickFilters from './QuickFilters.jsx';
+import { verifiedLabel, nextEvent, eventDay, present } from '../freshness.js';
 
 const PAGE = 48;
 
@@ -40,10 +42,10 @@ function CardLogo({ website, name }) {
 // one page of the list. "Recently added" and "Recently funded" would need a date field that doesn't exist in the
 // dataset, so they're left out rather than faked with a stand-in.
 const SORTS = {
-  name: 'Name (A–Z)',
+  name: 'Name',
   stage: 'Stage (earliest first)',
   verified: 'Recently verified',
-  hiring: 'Hiring now',
+  hiring: 'Hiring first',
   location: 'Location (A–Z)',
   industry: 'Industry (A–Z)',
 };
@@ -52,7 +54,7 @@ const SORTS = {
 // screen (or when "Show more" is pressed), so the page holds the companies being looked at and not all of them.
 // scope: what the list is narrowed to when a group on the map was opened as a list ("City-level locations in Sydney"), with
 // onClearScope to widen it again.
-export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames, scope = '', onClearScope, chips = null }) {
+export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames, scope = '', onClearScope, chips = null, meta = null, onFiltersChange = null }) {
   const [sort, setSort] = useState('name');
   const [state, setState] = useState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
   const latest = useRef(state);
@@ -100,7 +102,8 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
     <div id="startupListView">
       {chips && <div className="startup-list-chips">{chips}</div>}
       <div className="startup-list-toolbar">
-        <span className="startup-list-count">{status === 'ready' ? `${count} ${count === 1 ? 'startup' : 'startups'}` : ''}</span>
+        <span className="startup-list-count" aria-live="polite">{status === 'ready' ? `${count} ${count === 1 ? 'startup' : 'startups'}` : ''}</span>
+        {meta && onFiltersChange && <QuickFilters filters={filters} meta={meta} onChange={onFiltersChange} />}
         {scope && (
           <span className="startup-list-scope">
             {scope}
@@ -123,7 +126,10 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
 
       {items.length > 0 && (
         <div className="startup-grid">
-          {items.map((s) => (
+          {items.map((s) => {
+            const event = nextEvent(s.events);
+            const fresh = verifiedLabel(s.last_verified_at);
+            return (
             <button
               key={s.slug || s.name}
               className={s.name === selectedName ? 'startup-card startup-card-selected' : 'startup-card'}
@@ -136,8 +142,9 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
                     {s.name}
                     {trackedNames?.has(s.name) && <span className="startup-card-tracked" title="Tracked">★</span>}
                   </h3>
-                  <div className="startup-card-meta">{s.sectorFull || s.sector} · {s.city} · {s.stage}</div>
+                  <div className="startup-card-meta">{present(s.sectorFull || s.sector, s.city, s.stage).join(' · ')}</div>
                 </div>
+                {event && <span className="event-badge" title={event.title}>{eventDay(event)}</span>}
               </div>
 
               {s.blurb && <p className="pc-desc startup-card-desc">{s.blurb}</p>}
@@ -153,8 +160,10 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
                 <ConceptPreview company={s} />
                 {!s.verified && <span className="badge-unverified">Unverified</span>}
               </div>
+              {fresh && <div className={fresh.stale ? 'verified-note verified-note-stale' : 'verified-note'}>{fresh.text}</div>}
             </button>
-          ))}
+            );
+          })}
         </div>
       )}
 

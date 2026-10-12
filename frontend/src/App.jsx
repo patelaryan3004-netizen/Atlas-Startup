@@ -52,7 +52,7 @@ const PALETTE = [
 
 // precision (EXACT, SUBURB, CITY, STATE) is how well a company's place is known, and state its state: a group on the
 // map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', precision: '', state: '' };
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '' };
 const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [] };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
@@ -150,6 +150,7 @@ export default function App() {
   const [investorsFromLink, setInvestorsFromLink] = useState(() => readInvestorsRoute() !== null);
   const [missing, setMissing] = useState(null); // a link to a company or a list the directory does not have
   const [editingCompany, setEditingCompany] = useState(null);
+  const [editingMessage, setEditingMessage] = useState('');
   const [selectedStartup, setSelectedStartup] = useState(null);
   const [selectedPersonName, setSelectedPersonName] = useState(null);
   const [personCompanies, setPersonCompanies] = useState([]);
@@ -393,7 +394,7 @@ export default function App() {
         </nav>
 
         <div className="nav-right">
-          <button className="hdrbtn hdrbtn-accent nav-cta" onClick={() => setShowSubmitForm(true)}>Submit startup</button>
+          <button className="hdrbtn hdrbtn-accent nav-cta" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
           <button className="hdrbtn nav-cta nav-cta-secondary" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
           <HeaderMenu
             onExplore={goExplore}
@@ -449,6 +450,8 @@ export default function App() {
             scope={scopeText(applied)}
             onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
             chips={chips}
+            meta={meta}
+            onFiltersChange={setFilters}
           />
         )}
       </Lazy>
@@ -485,7 +488,7 @@ export default function App() {
       {showUnverified && <Lazy><UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} /></Lazy>}
       {showAbout && <Lazy><AboutSources onClose={() => setShowAbout(false)} /></Lazy>}
       {showPrivacy && <Lazy><PrivacyPolicy onClose={() => setShowPrivacy(false)} /></Lazy>}
-      {editingCompany && <Lazy><SuggestEditForm company={editingCompany} onClose={() => setEditingCompany(null)} /></Lazy>}
+      {editingCompany && <Lazy><SuggestEditForm company={editingCompany} initialMessage={editingMessage} onClose={() => { setEditingCompany(null); setEditingMessage(''); }} /></Lazy>}
       {selectedStartup && (
         <Lazy>
           <StartupDetailPanel
@@ -493,7 +496,7 @@ export default function App() {
             sectorColor={sectorColors[selectedStartup.sector] || '#444'}
             isTracked={isTracked}
             onToggleTracked={toggleTracked}
-            onSuggestEdit={setEditingCompany}
+            onSuggestEdit={(name, message = '') => { setEditingMessage(message); setEditingCompany(name); }}
             onSelectPerson={openPerson}
             onOpenInvestor={(slug) => openInvestors({ kind: 'investor', slug })}
             onClose={leave}

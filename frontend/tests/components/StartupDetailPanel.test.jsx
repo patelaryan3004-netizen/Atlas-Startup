@@ -482,4 +482,39 @@ describe('StartupDetailPanel, the company logo', () => {
     expect(logo(container)).toBeNull();
     expect(container.querySelector('.pc-avatar-fallback')).toHaveTextContent('C');
   });
+
+  describe('freshness, events and reporting a closed role', () => {
+    it('says when the facts were last verified, and "Needs re-check" when that was over 60 days ago', () => {
+      setup({ startup: { last_verified_at: new Date(Date.now() - 3 * 86400000).toISOString() } });
+      expect(screen.getByText('Verified 3 days ago')).toBeInTheDocument();
+    });
+    it('shows "Needs re-check" for an old check and nothing for a company never checked', () => {
+      const { unmount } = setup({ startup: { last_verified_at: new Date(Date.now() - 90 * 86400000).toISOString() } });
+      expect(screen.getByText('Needs re-check')).toBeInTheDocument();
+      unmount();
+      setup({ startup: {} });
+      expect(screen.queryByText(/Verified \d|re-check/)).toBeNull();
+    });
+    it('hides the stage and industry cells when they hold nothing', () => {
+      setup({ startup: { stage: 'Unknown', sector: '', sectorFull: '' } });
+      expect(screen.queryByText('Stage')).toBeNull();
+      expect(screen.queryByText('Industry')).toBeNull();
+    });
+    it('offers "Report: role closed" for a company that is hiring, prefilled with its name, and not for one that is not', async () => {
+      const { onSuggestEdit, unmount } = setup();
+      await userEvent.click(screen.getByRole('button', { name: 'Report: role closed' }));
+      expect(onSuggestEdit).toHaveBeenCalledWith('Canva', expect.stringContaining('Canva'));
+      unmount();
+      setup({ startup: { hiring: false } });
+      expect(screen.queryByRole('button', { name: 'Report: role closed' })).toBeNull();
+    });
+    it('lists an event in the next 14 days, and renders nothing when there are none', () => {
+      const date = new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10);
+      const { unmount } = setup({ startup: { events: [{ title: 'Demo day', date, url: 'https://example.com/e' }] } });
+      expect(screen.getByRole('link', { name: 'Demo day' })).toHaveAttribute('href', 'https://example.com/e');
+      unmount();
+      setup({ startup: { events: [] } });
+      expect(screen.queryByText('Event')).toBeNull();
+    });
+  });
 });

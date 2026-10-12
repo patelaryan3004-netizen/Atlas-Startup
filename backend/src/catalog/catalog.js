@@ -42,7 +42,7 @@ export const stageRank = (stage) => {
 export const FACETS = ['sector', 'city', 'stage', 'investor'];
 // `hiring` is true only for a company whose open roles were read from a page; `rolesUnverified` is true for one flagged as hiring
 // that no page backs (toPublic).
-export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'rolesUnverified', 'hiring_source_url', 'verified', 'website', 'blurb', 'taskGate'];
+export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'rolesUnverified', 'hiring_source_url', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
@@ -97,8 +97,7 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   const keys = {
     name: records.map((r) => r.name), city: records.map((r) => r.city), industry: records.map((r) => r.sectorFull || r.sector),
     stage: records.map((r) => stageRank(r.stage)),
-    // When the company's facts were last checked against a page (last_verified_at is internal, so it is read from the stored record
-    // and never served): a company never checked has no date and goes last.
+    // When the company's facts were last checked against a page: a company never checked has no date and goes last.
     verified: source.map((c) => { const t = Date.parse(c.last_verified_at); return Number.isNaN(t) ? 0 : t; }),
   };
   const byKey = (list) => (a, b) => collator.compare(list[a], list[b]) || a - b;
@@ -227,11 +226,20 @@ const str = (v) => (Array.isArray(v) ? v.join(',') : String(v));
 // What was asked for, read from a query string, with the legacy coercions: a value is a string, and an empty one is not a filter.
 export function readFilters(query = {}) {
   const f = {};
-  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'precision', 'state']) {
+  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state']) {
     if (query[key]) f[key] = str(query[key]);
   }
   if (query.name) f.names = [].concat(query.name).map(String);
   return f;
+}
+
+// Events are an optional list on a company ({ title, date: YYYY-MM-DD, url }). One is "this week" from the start of today to 14 days on.
+export const EVENT_WINDOW_DAYS = 14;
+export function upcomingEvent(events, now = Date.now()) {
+  if (!Array.isArray(events)) return null;
+  const start = Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), new Date(now).getUTCDate());
+  const end = start + (EVENT_WINDOW_DAYS + 1) * 86400000;
+  return events.filter((e) => { const t = Date.parse(e?.date); return t >= start && t < end; }).sort((a, b) => Date.parse(a.date) - Date.parse(b.date))[0] ?? null;
 }
 
 const isEmptyFilter = (f) => Object.keys(f).length === 0;
@@ -286,6 +294,7 @@ export function select(snap, f) {
   const sectors = f.sector ? new Set(f.sector.split(',')) : null;
   const cities = f.city ? new Set(f.city.split(',')) : null;
   const names = f.names ? new Set(f.names) : null;
+  const week = f.events === 'week' ? Date.now() : null;
   const { records, flags } = snap;
   const keep = (i) => {
     const r = records[i];
@@ -303,6 +312,7 @@ export function select(snap, f) {
     if (f.verified === 'yes' && !flags.verified[i]) return false;
     if (f.verified === 'no' && flags.verified[i]) return false;
     if (names && !names.has(r.name)) return false;
+    if (week && !upcomingEvent(r.events, week)) return false;
     return true;
   };
   const out = [];
@@ -353,12 +363,15 @@ export function summary(snap, matched) {
   let pinned = 0;
   let hiring = 0;
   let taskGated = 0;
+  let lastVerifiedAt = 0;
   for (const i of matched) {
     const r = snap.records[i];
     byPrecision[snap.precisions[i]] += 1;
     if (r.verified) pinned += 1;
     if (r.hiring) hiring += 1;
     if (r.taskGate?.enabled) taskGated += 1;
+    const checked = Date.parse(r.last_verified_at);
+    if (checked > lastVerifiedAt) lastVerifiedAt = checked;
     cities.set(r.city, (cities.get(r.city) ?? 0) + 1);
     if (r.foundedYear) notable.push(i);
     if (r.vouches?.length > 0) vouched.push(i);
@@ -369,6 +382,8 @@ export function summary(snap, matched) {
   return {
     // pinned: companies with a confirmed location (the list's count); onMap: those drawn as a pin of their own
     count: matched.length, pinned, onMap: byPrecision.EXACT + byPrecision.SUBURB, byPrecision, unverified: matched.length - pinned, hiring, taskGated, cities: cities.size,
+    // The most recent check of any company in the result (null when none was ever checked): the site's "Updated" date.
+    lastVerifiedAt: lastVerifiedAt ? new Date(lastVerifiedAt).toISOString() : null,
     topCities: [...cities].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 8).map(([city, n]) => ({ city, count: n })),
     notable: { total: notable.length, items: notable.slice(0, 100).map((i) => ({ ...rows([i])[0], foundedYear: snap.records[i].foundedYear })) },
     vouched: { total: vouched.length, items: vouched.slice(0, 50).map((i) => ({ ...rows([i])[0], vouches: snap.records[i].vouches.length })) },

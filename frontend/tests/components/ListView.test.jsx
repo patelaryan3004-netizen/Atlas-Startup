@@ -145,7 +145,7 @@ describe('ListView', () => {
     mount();
     await screen.findByText('Canva');
     const select = screen.getByLabelText('Sort by');
-    expect([...select.querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Name (A–Z)', 'Stage (earliest first)', 'Recently verified', 'Hiring now', 'Location (A–Z)', 'Industry (A–Z)']);
+    expect([...select.querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Name', 'Stage (earliest first)', 'Recently verified', 'Hiring first', 'Location (A–Z)', 'Industry (A–Z)']);
 
     fetchStartupPage.mockResolvedValue(page([startup({ name: 'Zeller', slug: 'zeller' }), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
     await userEvent.selectOptions(select, 'hiring');
@@ -256,6 +256,59 @@ describe('ListView', () => {
       expect(fetchStartupPage).toHaveBeenCalledTimes(2); // the first page, and one more
       await act(async () => { release(page(many(48, 48), { count: 96, hasMore: false, offset: 48 })); });
       await waitFor(() => expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(96));
+    });
+  });
+
+  describe('the directory bar and what a card says about freshness', () => {
+    const ago = (days) => new Date(Date.now() - days * 86400000).toISOString();
+    const soon = (days) => new Date(Date.now() + days * 86400000).toISOString().slice(0, 10);
+
+    it('says "Verified 3 days ago", or a muted "Needs re-check" once the check is over 60 days old, and nothing without a date', async () => {
+      fetchStartupPage.mockResolvedValue(page([
+        startup({ name: 'Fresh', slug: 'fresh', last_verified_at: ago(3) }),
+        startup({ name: 'Old', slug: 'old', last_verified_at: ago(90) }),
+        startup({ name: 'Never', slug: 'never' }),
+      ], { count: 3 }));
+      const { container } = mount();
+      await screen.findByText('Fresh');
+      expect(screen.getByText('Verified 3 days ago')).toBeInTheDocument();
+      expect(screen.getByText('Needs re-check')).toHaveClass('verified-note-stale');
+      expect(container.querySelectorAll('.verified-note')).toHaveLength(2);
+      expect(screen.queryByText(/Verified 90/)).toBeNull();
+    });
+
+    it('leaves out a field that is empty or "Unknown", and never writes N/A or null', async () => {
+      fetchStartupPage.mockResolvedValue(page([startup({ sector: '', sectorFull: '', stage: 'Unknown', city: 'Perth' })]));
+      const { container } = mount();
+      await screen.findByText('Canva');
+      expect(container.querySelector('.startup-card-meta')).toHaveTextContent(/^Perth$/);
+      expect(container.textContent).not.toMatch(/N\/A|null|undefined|Unknown/);
+    });
+
+    it('puts a date badge on a company with an event in the next 14 days, and none for a later one or none at all', async () => {
+      fetchStartupPage.mockResolvedValue(page([
+        startup({ name: 'Soon', slug: 'soon', events: [{ title: 'Demo day', date: soon(3), url: null }] }),
+        startup({ name: 'Later', slug: 'later', events: [{ title: 'Summit', date: soon(40), url: null }] }),
+        startup({ name: 'Plain', slug: 'plain' }),
+      ], { count: 3 }));
+      const { container } = mount();
+      await screen.findByText('Soon');
+      expect(container.querySelectorAll('.event-badge')).toHaveLength(1);
+      expect(screen.getByTitle('Demo day')).toBeInTheDocument();
+    });
+
+    it('has quick filters that set the same filters the drawer does', async () => {
+      const onFiltersChange = vi.fn();
+      const meta = { sectors: ['AI', 'SaaS'], cities: ['Sydney'], stages: ['Seed', 'Unknown'] };
+      mount({ meta, onFiltersChange });
+      await screen.findByText('Canva');
+      await userEvent.click(screen.getByRole('button', { name: 'Hiring' }));
+      expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, hiring: 'yes' });
+      await userEvent.click(screen.getByRole('button', { name: 'Events this week' }));
+      expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, events: 'week' });
+      await userEvent.selectOptions(screen.getByLabelText('Sector'), 'AI');
+      expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, sector: 'AI' });
+      expect([...screen.getByLabelText('Stage').querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Stage', 'Seed']);
     });
   });
 });

@@ -78,7 +78,7 @@ const meta = {
   stages: ['Seed'],
 };
 
-const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', precision: '', state: '' };
+const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '' };
 const card = (name, overrides = {}) => ({
   name, slug: name.toLowerCase().replace(/\s+/g, '-'), sector: 'AI', sectorFull: 'AI', city: 'Sydney', stage: 'Seed', hiring: true, verified: true, ...overrides,
 });
@@ -449,7 +449,7 @@ describe('App', () => {
 
     it('opens the submit-a-startup form from the top-level nav CTA', async () => {
       render(<App />);
-      await userEvent.click(screen.getByText('Submit startup'));
+      await userEvent.click(screen.getByText('Submit a startup', { selector: '.nav-cta' }));
       expect(await screen.findByText('Know an AU startup that should be on the map?', { exact: false })).toBeInTheDocument();
     });
 

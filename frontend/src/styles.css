@@ -871,3 +871,27 @@ header h1 span{color:var(--accent);}
 .view-loading{position:fixed;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;pointer-events:none;}
 .load-error{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:3000;display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;font-size:13px;box-shadow:0 8px 28px rgba(0,0,0,.5);}
 .load-error .linkbtn{font-size:13px;color:var(--accent);}
+
+/* The bar above the list: the count, the quick filters, the sort. */
+.startup-list-toolbar{flex-wrap:wrap;}
+.startup-list-sort{margin-left:auto;}
+.qf{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+.qf-chip{
+  font:inherit;font-size:12.5px;display:inline-flex;align-items:center;padding:0;border:1px solid var(--line);border-radius:999px;
+  background:var(--panel);color:var(--ink);cursor:pointer;
+}
+button.qf-chip{padding:5px 12px;}
+.qf-chip select{
+  font:inherit;font-size:12.5px;color:inherit;background:transparent;border:0;padding:5px 8px 5px 12px;cursor:pointer;max-width:150px;
+}
+.qf-chip:hover,.qf-chip:focus-within{border-color:var(--accent);outline:none;}
+.qf-chip-on{border-color:var(--accent);background:rgba(245,166,35,.14);color:var(--accent);}
+.qf-chip select option{color:#111;background:#fff;}
+.verified-note{font-size:11px;color:var(--muted);margin-top:8px;}
+.verified-note-stale{font-style:italic;opacity:.8;}
+.event-badge{
+  margin-left:auto;flex:none;align-self:flex-start;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;
+  border:1px solid var(--accent);color:var(--accent);white-space:nowrap;
+}
+.sdp-event{font-size:13px;margin:0;}
+.sdp-report{font-size:12px;margin-top:8px;}
