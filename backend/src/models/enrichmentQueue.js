@@ -157,6 +157,18 @@ const WANTS = {
 };
 
 const lastTask = (tasks, kind, targetId) => tasks.filter((t) => t.kind === kind && t.target_id === targetId).sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))[0];
+// The company tasks on a queue, grouped by company, so a whole directory is put on the queue without reading the queue through once for
+// each company (that cost the number of companies times the length of the queue). The newest of a company's tasks, as lastTask finds it.
+function companyTasksOf(tasks) {
+  const byTarget = new Map();
+  for (const t of tasks) {
+    if (t.kind !== 'company') continue;
+    const mine = byTarget.get(t.target_id);
+    if (mine) mine.push(t); else byTarget.set(t.target_id, [t]);
+  }
+  const newest = (mine) => mine?.reduce((best, t) => (Date.parse(t.created_at) > Date.parse(best.created_at) ? t : best));
+  return { active: (id) => (byTarget.get(id) ?? []).some(isActive), last: (id) => newest(byTarget.get(id)) };
+}
 
 // Puts the existing companies on the queue in the order the completeness audit ranks them:
 // integrity problems and core gaps first, a company with no gaps last. A company with no
@@ -170,6 +182,8 @@ export function seedFromAudit(work, audit, { at, by, refreshDays = REFRESH_DAYS,
   const byId = new Map(work.companies.map((c) => [c.id, c]));
   const order = [...audit.companies].sort((a, b) => (rank.get(a.id)?.rank ?? Infinity) - (rank.get(b.id)?.rank ?? Infinity));
   const freshAfter = Date.parse(at) - refreshDays * 86400000;
+  // Each company is looked at once, so what the queue held before this loop is all it needs to know about that company.
+  const queued = companyTasksOf(work.enrichment_queue);
 
   for (const a of order) {
     const company = byId.get(a.id);
@@ -178,8 +192,8 @@ export function seedFromAudit(work, audit, { at, by, refreshDays = REFRESH_DAYS,
     const priority = entry ? (4 - Number(entry.priority.slice(1))) * 1000 + Math.min(entry.score, 999) : 100;
     const wanted = unique([...(entry?.tasks ?? []).flatMap((t) => WANTS[t.code] ?? []), 'website']);
 
-    if (work.enrichment_queue.some((t) => t.kind === 'company' && t.target_id === a.id && isActive(t))) { report.already_queued += 1; continue; }
-    const previous = lastTask(work.enrichment_queue, 'company', a.id);
+    if (queued.active(a.id)) { report.already_queued += 1; continue; }
+    const previous = queued.last(a.id);
     if (a.states.website !== 'present') {
       if (previous?.status === 'skipped' && previous.result?.outcome === 'no_website') continue;
       enqueueTask(work, { kind: 'company', targetId: a.id, priority, reason: 'audit', wanted, by, at, status: 'skipped', lastError: 'no website on record: add one (an investor portfolio page is a good start), then seed again', result: { outcome: 'no_website' } });

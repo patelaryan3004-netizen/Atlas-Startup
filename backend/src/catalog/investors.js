@@ -32,6 +32,8 @@ const RELATED = 6;
 const RECENT = 5;
 
 const collator = new Intl.Collator();
+// Adds a row to the list kept under a key. (Copying the list for each row added cost a firm with many rows the square of them.)
+const addTo = (map, key, row) => { const rows = map.get(key); if (rows) rows.push(row); else map.set(key, [row]); };
 const domainOf = (website) => { try { return new URL(website).hostname.replace(/^www\./, ''); } catch { return null; } };
 const byCount = (a, b) => b[1] - a[1] || collator.compare(a[0], b[0]);
 // Newest first; a row with no date after the ones with a date.
@@ -73,7 +75,7 @@ export function buildInvestorSnapshot(data, version) {
   for (const i of investments) {
     const r = { ...row(i), _fund: i.fund_id };
     rowOf.set(i.id, r);
-    portfolioOf.set(i.investor_organisation_id, [...(portfolioOf.get(i.investor_organisation_id) ?? []), r]);
+    addTo(portfolioOf, i.investor_organisation_id, r);
   }
   for (const rows of portfolioOf.values()) rows.sort(byDateDesc);
   const plain = ({ _fund, ...rest }) => rest;
@@ -82,21 +84,29 @@ export function buildInvestorSnapshot(data, version) {
   const teamOf = new Map();
   for (const m of roles) {
     const p = personById.get(m.person_id);
-    teamOf.set(m.organisation_id, [...(teamOf.get(m.organisation_id) ?? []), {
+    addTo(teamOf, m.organisation_id, {
       person: { slug: p.slug, name: p.name }, role: m.role, is_current: m.is_current === true, started_on: m.started_on ?? null, ended_on: m.ended_on ?? null, source: page(sourceById.get(m.source_id)),
-    }]);
+    });
   }
   for (const rows of teamOf.values()) rows.sort((a, b) => (b.is_current - a.is_current) || collator.compare(a.person.name, b.person.name));
 
   // Who else backed the same companies, from the verified portfolios.
   const backersOf = new Map();
-  for (const [orgId, rows] of portfolioOf) for (const r of rows) backersOf.set(r.company.slug, [...(backersOf.get(r.company.slug) ?? []), orgId]);
+  for (const [orgId, rows] of portfolioOf) for (const r of rows) addTo(backersOf, r.company.slug, orgId);
 
-  const records = activeRecords({ verification_records: data.records });
+  // Found by who they are about, so a firm or a person's records are looked up and not found by scanning every record once for each.
+  const recordsAbout = new Map();
+  for (const r of activeRecords({ verification_records: data.records })) addTo(recordsAbout, `${r.subject_type}|${r.subject_id}`, r);
+  const fundsOf = new Map();
+  for (const f of funds) addTo(fundsOf, f.organisation_id, f);
+  const rolesOfPerson = new Map();
+  for (const m of roles) addTo(rolesOfPerson, m.person_id, m);
+  const investmentsOfPerson = new Map();
+  for (const i of investments) if (i.investor_person_id != null) addTo(investmentsOfPerson, i.investor_person_id, i);
+
   const claimSources = (type, id) => {
     const found = new Map();
-    for (const r of records) {
-      if (r.subject_type !== type || r.subject_id !== id) continue;
+    for (const r of recordsAbout.get(`${type}|${id}`) ?? []) {
       const s = sourceById.get(r.source_id);
       if (!s) continue;
       if (!found.has(s.id)) found.set(s.id, { ...page(s), backs: [] });
@@ -119,7 +129,7 @@ export function buildInvestorSnapshot(data, version) {
     const portfolio = portfolioOf.get(o.id) ?? [];
     const cheque = o.typical_cheque_min != null || o.typical_cheque_max != null ? { min: o.typical_cheque_min, max: o.typical_cheque_max, currency: o.cheque_currency } : null;
     const shared = new Map();
-    for (const r of portfolio) for (const other of backersOf.get(r.company.slug) ?? []) if (other !== o.id) shared.set(other, [...(shared.get(other) ?? []), r.company.name]);
+    for (const r of portfolio) for (const other of backersOf.get(r.company.slug) ?? []) if (other !== o.id) addTo(shared, other, r.company.name);
     const related = [...shared].map(([id, names]) => ({ org: orgById.get(id), names })).sort((a, b) => b.names.length - a.names.length || collator.compare(a.org.name, b.org.name))
       .slice(0, RELATED).map(({ org, names }) => ({ slug: org.slug, name: org.name, shared: names.length, companies: names.slice(0, 3) }));
     const sources = new Map(claimSources('investor_organisation', o.id));
@@ -129,7 +139,7 @@ export function buildInvestorSnapshot(data, version) {
       ...cards[i], id: o.id, logo: o.logo ?? null, description: o.description, investment_thesis: o.investment_thesis, geographies: o.geographies, other_offices: o.other_offices,
       cheque, lead_or_follow: o.lead_or_follow, application_url: o.application_url, jobs_url: o.jobs_url,
       team: teamOf.get(o.id) ?? [],
-      funds: funds.filter((f) => f.organisation_id === o.id).map((f) => ({
+      funds: (fundsOf.get(o.id) ?? []).map((f) => ({
         slug: f.slug, name: f.name, vintage_year: f.vintage_year ?? null, size: f.publicly_disclosed_size == null ? null : { amount: f.publicly_disclosed_size, currency: f.size_currency },
         stage_focus: f.stage_focus, sector_focus: f.sector_focus, active_status: f.active_status, portfolio_count: portfolio.filter((r) => r._fund === f.id).length,
       })).sort((a, b) => (b.vintage_year ?? 0) - (a.vintage_year ?? 0) || collator.compare(a.name, b.name)),
@@ -148,12 +158,12 @@ export function buildInvestorSnapshot(data, version) {
 
   const personProfiles = new Map();
   for (const p of people) {
-    const rolesOf = roles.filter((m) => m.person_id === p.id).map((m) => ({
+    const rolesOf = (rolesOfPerson.get(p.id) ?? []).map((m) => ({
       organisation: { slug: orgById.get(m.organisation_id).slug, name: orgById.get(m.organisation_id).name }, role: m.role, is_current: m.is_current === true,
       started_on: m.started_on ?? null, ended_on: m.ended_on ?? null, source: page(sourceById.get(m.source_id)),
     })).sort((a, b) => (b.is_current - a.is_current) || collator.compare(a.organisation.name, b.organisation.name));
     // Only what a source attributes to this person by name.
-    const attributed = investments.filter((i) => i.investor_person_id === p.id).map((i) => plain(rowOf.get(i.id))).sort(byDateDesc);
+    const attributed = (investmentsOfPerson.get(p.id) ?? []).map((i) => plain(rowOf.get(i.id))).sort(byDateDesc);
     const sources = claimSources('investor_person', p.id);
     for (const r of rolesOf) if (!sources.has(r.source.id)) sources.set(r.source.id, { ...r.source, backs: ['role'] });
     personProfiles.set(p.slug, {
@@ -186,17 +196,18 @@ export function createInvestorCatalog({ dir, reloadMs = 1000, now = Date.now } =
   let signature = null;
 
   async function signatureOf() {
-    const parts = [];
-    for (const file of Object.values(files)) {
-      try { const info = await stat(file); parts.push(`${Math.round(info.mtimeMs)}-${info.size}`); } catch (err) { if (err.code !== 'ENOENT') throw err; parts.push('none'); }
-    }
+    const parts = await Promise.all(Object.values(files).map(async (file) => {
+      try { const info = await stat(file); return `${Math.round(info.mtimeMs)}-${info.size}`; } catch (err) { if (err.code !== 'ENOENT') throw err; return 'none'; }
+    }));
     return parts.join('/');
   }
   async function load() {
     const sig = await signatureOf();
     if (snap && sig === signature) return snap;
     const data = {};
-    for (const [key, file] of Object.entries(files)) data[key] = await readJson(file, { required: key === 'companies' });
+    const entries = Object.entries(files);
+    const read = await Promise.all(entries.map(([key, file]) => readJson(file, { required: key === 'companies' })));
+    entries.forEach(([key], i) => { data[key] = read[i]; });
     snap = buildInvestorSnapshot(data, sig);
     signature = sig;
     return snap;

@@ -2,9 +2,9 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-vi.mock('../../src/api.js', () => ({ fetchCount: vi.fn() }));
+vi.mock('../../src/api.js', () => ({ fetchCounts: vi.fn() }));
 
-import { fetchCount } from '../../src/api.js';
+import { fetchCounts } from '../../src/api.js';
 import { curatedLists } from '../../src/curatedLists.js';
 import CuratedLists from '../../src/components/CuratedLists.jsx';
 
@@ -14,7 +14,7 @@ const countFor = (filters) => (filters.hiring === 'yes' ? 70 : filters.taskGate 
 describe('CuratedLists', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    fetchCount.mockImplementation(async (filters) => ({ total: 216, count: countFor(filters) }));
+    fetchCounts.mockImplementation(async (sets) => ({ total: 216, counts: sets.map(countFor) }));
   });
 
   it('shows a category label and a company count the server worked out on a real filter-type list', async () => {
@@ -26,34 +26,50 @@ describe('CuratedLists', () => {
     expect(card).toHaveTextContent('Status');
   });
 
-  it('counts each list with the very filters "View this list" applies, so the badge and the list cannot disagree', async () => {
+  it('counts every list in ONE request, with the very filters "View this list" applies, so the badge and the list cannot disagree', async () => {
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
-    await waitFor(() => expect(fetchCount).toHaveBeenCalledTimes(curatedLists.filter((l) => l.type === 'filter').length));
-    for (const list of curatedLists.filter((l) => l.type === 'filter')) expect(fetchCount).toHaveBeenCalledWith(list.filters);
+    await waitFor(() => expect(fetchCounts).toHaveBeenCalledTimes(1));
+    expect(fetchCounts.mock.calls[0][0]).toEqual(curatedLists.filter((l) => l.type === 'filter').map((l) => l.filters)); // in the lists' order
+    await screen.findByText('Startups Hiring Now');
+    expect(fetchCounts).toHaveBeenCalledTimes(1); // and not again, and not once per list
   });
 
   it('does not download any company to count them: only counts are asked for', async () => {
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
     await screen.findByText('Startups Hiring Now');
-    expect(fetchCount.mock.calls.every(([filters]) => typeof filters === 'object')).toBe(true);
+    expect(fetchCounts.mock.calls.every(([sets]) => Array.isArray(sets) && sets.every((filters) => typeof filters === 'object'))).toBe(true);
   });
 
-  it('shows "…" until a count arrives, each count as it arrives, and "?" for a list whose count could not be had', async () => {
+  it('shows "…" until the counts arrive, and then each list\'s own count', async () => {
     let release;
-    fetchCount.mockImplementation((filters) => {
-      if (filters.hiring === 'yes') return new Promise((resolve) => { release = () => resolve({ count: 70 }); });
-      if (filters.city === 'Sydney,Sydney (Chippendale)') return Promise.reject(new Error('down'));
-      return Promise.resolve({ count: countFor(filters) });
-    });
+    fetchCounts.mockImplementation((sets) => new Promise((resolve) => { release = () => resolve({ total: 216, counts: sets.map(countFor) }); }));
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
     const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
-    const gated = screen.getByText('Sydney Startups').closest('.curated-card');
     const melbourne = screen.getByText('Melbourne AI startups').closest('.curated-card');
-    await waitFor(() => expect(melbourne).toHaveTextContent('4 companies')); // the others are not held up by the slow one
     expect(hiring).toHaveTextContent('… companies');
-    expect(gated).toHaveTextContent('? companies');
+    expect(melbourne).toHaveTextContent('… companies');
     release();
     await waitFor(() => expect(hiring).toHaveTextContent('70 companies'));
+    expect(melbourne).toHaveTextContent('4 companies');
+  });
+
+  it('shows "?" for every list when the counts cannot be had, and the lists still open', async () => {
+    fetchCounts.mockRejectedValue(new Error('down'));
+    const onApply = vi.fn();
+    render(<CuratedLists currentFilters={{}} onApply={onApply} onClose={() => {}} />);
+    const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
+    await waitFor(() => expect(hiring).toHaveTextContent('? companies'));
+    expect(screen.getByText('Sydney Startups').closest('.curated-card')).toHaveTextContent('? companies');
+    await userEvent.click(within(hiring).getByText('View this list'));
+    expect(onApply).toHaveBeenCalledTimes(1);
+  });
+
+  it('shows "?" for a list the server sent no count for', async () => {
+    fetchCounts.mockResolvedValue({ total: 216, counts: [5] });
+    render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
+    const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
+    await waitFor(() => expect(hiring).toHaveTextContent('5 companies'));
+    expect(screen.getByText('Sydney Startups').closest('.curated-card')).toHaveTextContent('? companies');
   });
 
   it('hands over the list when "View this list" is clicked: the page opens it at its own address and closes this', async () => {

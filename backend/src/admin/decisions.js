@@ -149,10 +149,16 @@ export function suggestionsOf(ds) {
     company_id: u.company_id, company_name: u.company_name, field: u.field, value: u.value, confidence: u.best_confidence,
     location: LOCATION_FIELDS.includes(u.field), pinned: byId.get(u.company_id)?.verified === true, evidence_ids: u.evidence_ids,
   }));
-  const active = activeEvidence(ds);
+  // The active descriptions by company, so each company's are looked up and not found by reading all the evidence once per company.
+  const descriptions = new Map();
+  for (const e of activeEvidence(ds)) {
+    if (e.field !== 'description') continue;
+    const mine = descriptions.get(e.company_id);
+    if (mine) mine.push(e); else descriptions.set(e.company_id, [e]);
+  }
   for (const c of ds.companies) {
     if (!isUnknown(c, 'description')) continue;
-    const rows = active.filter((e) => e.company_id === c.id && e.field === 'description');
+    const rows = descriptions.get(c.id) ?? [];
     if (!rows.length) continue;
     const best = [...rows].sort((a, b) => ['high', 'medium', 'low'].indexOf(a.confidence) - ['high', 'medium', 'low'].indexOf(b.confidence))[0];
     suggestions.push({ company_id: c.id, company_name: c.name, field: 'description', value: best.value, confidence: best.confidence, location: false, pinned: c.verified === true, evidence_ids: rows.map((r) => r.id) });

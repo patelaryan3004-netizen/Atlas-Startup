@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
-  fetchCount: vi.fn().mockResolvedValue({ count: 0 }),
+  fetchCounts: vi.fn().mockResolvedValue({ counts: [] }),
 }));
 
 vi.mock('../../src/curatedLists.js', () => ({

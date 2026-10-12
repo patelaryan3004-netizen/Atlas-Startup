@@ -5,6 +5,9 @@ import { describeLocation } from '../models/location.js';
 
 const DEFAULT_LIMIT = 48;
 const MAX_LIMIT = 200;
+// How many sets of filters one /counts request may ask about, and how long one may be.
+const MAX_COUNTS = 50;
+const MAX_FILTER_CHARS = 2000;
 
 function whole(value, name, { min, max, fallback }) {
   if (value === undefined) return fallback;
@@ -55,6 +58,20 @@ export function createStartupsRouter({ respond }) {
 
   // How many companies a set of filters picks: for a badge on a curated list, without the list.
   router.get('/count', send((snap, req) => ({ total: snap.count, count: select(snap, readFilters(req.query)).length })));
+
+  // How many companies each of several sets of filters picks, in one request: for the badges on a page of curated lists, which asked once
+  // per list. Each f is a query string like the one /count takes (f=sector%3DAI%26city%3DSydney), and the counts come back in the order
+  // asked: { total, counts: [n, ...] }. The kept answer is keyed by that order, which the usual key (parameters sorted) would lose.
+  router.get('/counts', (req, res, next) => {
+    const sets = [].concat(req.query.f ?? []).map(String);
+    const key = `${req.baseUrl}${req.path}?${sets.map(encodeURIComponent).join('&f=')}`;
+    respond(req, res, (snap) => {
+      if (sets.length === 0) throw new HttpError(400, 'f is needed: one or more sets of filters');
+      if (sets.length > MAX_COUNTS) throw new HttpError(400, `f may be given at most ${MAX_COUNTS} times`);
+      if (sets.some((f) => f.length > MAX_FILTER_CHARS)) throw new HttpError(400, `each f may be at most ${MAX_FILTER_CHARS} characters`);
+      return { total: snap.count, counts: sets.map((f) => select(snap, readFilters(Object.fromEntries(new URLSearchParams(f)))).length) };
+    }, { key }).catch(next);
+  });
 
   // Counts and short lists about a result, so the page need not hold the result to show them.
   router.get('/summary', send((snap, req) => ({ total: snap.count, ...summary(snap, select(snap, readFilters(req.query))) })));

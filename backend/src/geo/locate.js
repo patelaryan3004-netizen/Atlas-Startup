@@ -130,7 +130,7 @@ export function verifyFromEvidence(work, { at }) {
 export function applyPromotions(work, { at, company = null } = {}) {
   const results = [];
   for (const p of promotionCandidates(work, { company })) {
-    const c = work.companies.find((x) => x.id === p.company.id);
+    const c = p.company; // the company itself, as promotionCandidates took it from work.companies: no need to look it up again
     const kind = locationSourceFor(p.evidence.source.kind);
     const parsed = parseAddress(p.address);
     const base = { company_id: c.id, name: c.name, address: p.address, source: kind, changes: [] };

@@ -274,3 +274,65 @@ describe('GET /directory, a page at a time', () => {
     expect(res.text).not.toMatch(/<script/i);
   });
 });
+
+// How many companies a set of filters picks: for one set, and for several in one request (a page of curated lists used to ask once per
+// list, one request each).
+describe('GET /api/startups/count and /counts', () => {
+  const asked = (filters) => encodeURIComponent(new URLSearchParams(filters).toString());
+
+  it('counts the companies one set of filters picks, without sending any of them', async () => {
+    const f = await fixture(300);
+    const sector = f.rows[0].sector;
+    const res = await request(f.app).get(`/api/startups/count?sector=${encodeURIComponent(sector)}`);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ total: 300, count: f.rows.filter((r) => r.sector === sector).length });
+  });
+
+  it('counts several sets of filters in one request, in the order asked, each as /count would', async () => {
+    const f = await fixture(400);
+    const sets = [{ sector: f.rows[0].sector }, { city: f.rows[1].city }, { hiring: 'yes' }, {}, { sector: f.rows[2].sector, city: f.rows[2].city }, { sector: 'No Such Sector' }];
+    const res = await request(f.app).get(`/api/startups/counts?${sets.map((q) => `f=${asked(q)}`).join('&')}`);
+    expect(res.status).toBe(200);
+    expect(res.body.total).toBe(400);
+    const each = [];
+    for (const q of sets) each.push((await request(f.app).get(`/api/startups/count?${new URLSearchParams(q)}`)).body.count);
+    expect(res.body.counts).toEqual(each);
+    expect(res.body.counts[3]).toBe(400); // no filters: all of them
+    expect(res.body.counts[5]).toBe(0);
+  });
+
+  it('keeps the kept answer to the order asked: the same sets the other way round are not the answer to the first order', async () => {
+    const f = await fixture(300);
+    const a = { sector: f.rows[0].sector };
+    const b = { hiring: 'yes' };
+    const ab = await request(f.app).get(`/api/startups/counts?f=${asked(a)}&f=${asked(b)}`);
+    const ba = await request(f.app).get(`/api/startups/counts?f=${asked(b)}&f=${asked(a)}`);
+    expect(ab.body.counts).toEqual([...ba.body.counts].reverse());
+    expect(ab.body.counts[0]).not.toBe(ab.body.counts[1]);
+    const again = await request(f.app).get(`/api/startups/counts?f=${asked(a)}&f=${asked(b)}`);
+    expect(again.body.counts).toEqual(ab.body.counts);
+  });
+
+  it('answers one set the same whether it is sent once or as the only one of a batch', async () => {
+    const f = await fixture(200);
+    const res = await request(f.app).get(`/api/startups/counts?f=${asked({ hiring: 'yes' })}`);
+    expect(res.body.counts).toEqual([(await request(f.app).get('/api/startups/count?hiring=yes')).body.count]);
+  });
+
+  it('refuses a request with no filters, too many, or one that is too long', async () => {
+    const f = await fixture(50);
+    expect((await request(f.app).get('/api/startups/counts')).status).toBe(400);
+    const many = Array.from({ length: 51 }, () => 'f=').join('&');
+    expect((await request(f.app).get(`/api/startups/counts?${many}`)).status).toBe(400);
+    expect((await request(f.app).get(`/api/startups/counts?f=search%3D${'a'.repeat(2100)}`)).status).toBe(400);
+    const ok = await request(f.app).get(`/api/startups/counts?${Array.from({ length: 50 }, () => 'f=').join('&')}`);
+    expect(ok.status).toBe(200);
+    expect(ok.body.counts).toHaveLength(50);
+  });
+
+  it('reads a filter it does not know as no filter, like every other route', async () => {
+    const f = await fixture(60);
+    const res = await request(f.app).get(`/api/startups/counts?f=${asked({ bogus: 'x' })}`);
+    expect(res.body.counts).toEqual([60]);
+  });
+});

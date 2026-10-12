@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   fetchStartups, fetchMeta, fetchNews, submitStartup, submitEdit, submitFeedback,
-  fetchStartupPage, fetchMarkers, fetchSummary, fetchCount, fetchStartup, fetchStartupsByName, fetchSuggestions, fetchPerson,
+  fetchStartupPage, fetchMarkers, fetchSummary, fetchCount, fetchCounts, fetchStartup, fetchStartupsByName, fetchSuggestions, fetchPerson,
   fetchInvestors, fetchInvestorMeta, fetchInvestor, fetchInvestorPerson, fetchInvestorsByName, submitInvestorCorrection,
 } from '../src/api.js';
 
@@ -148,6 +148,15 @@ describe('api.js, asking for only what is needed', () => {
   it('fetchStartupPage throws when the response is not ok', async () => {
     mockFetchOnce({}, false);
     await expect(fetchStartupPage({})).rejects.toThrow('Failed to fetch startups');
+  });
+
+  it('fetchCounts asks for several sets of filters in one request, each as its own f, in the order given, leaving out empty filters', async () => {
+    mockFetchOnce({ total: 3, counts: [1, 2, 3] });
+    expect(await fetchCounts([{ sector: 'AI', city: '' }, { hiring: 'yes' }, {}])).toEqual({ total: 3, counts: [1, 2, 3] });
+    expect(urlOf().pathname).toBe('/api/startups/counts');
+    expect(urlOf().searchParams.getAll('f')).toEqual(['sector=AI', 'hiring=yes', '']);
+    mockFetchOnce({}, false);
+    await expect(fetchCounts([{}])).rejects.toThrow('the counts');
   });
 
   it('fetchMarkers, fetchSummary and fetchCount send the same filters to their own addresses', async () => {

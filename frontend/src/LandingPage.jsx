@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '@fontsource-variable/geist';
-import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount, DIRECTORY_URL } from './api.js';
+import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCounts, DIRECTORY_URL } from './api.js';
 import LandingNav from './components/landing/LandingNav.jsx';
 import LandingHero from './components/landing/LandingHero.jsx';
 import ConceptPreview from './components/ConceptPreview.jsx';
@@ -57,9 +57,10 @@ export default function LandingPage() {
     fetchSummary({}).then(setStats).catch(() => {});
     fetchStartupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
     fetchMarkers({}).then(({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); }).catch(() => {});
-    Promise.all(FILTER_LISTS.map(async (list) => {
-      try { return [list.id, (await fetchCount(list.filters)).count]; } catch (e) { return [list.id, 0]; }
-    })).then((pairs) => setCounts(Object.fromEntries(pairs)));
+    // Every list's count in one request, not one each; a count that could not be had is 0, as before.
+    fetchCounts(FILTER_LISTS.map((list) => list.filters))
+      .then(({ counts: found }) => found, () => [])
+      .then((found) => setCounts(Object.fromEntries(FILTER_LISTS.map((list, i) => [list.id, found[i] ?? 0]))));
   }, []);
 
   const hiringCount = stats?.hiring ?? 0;

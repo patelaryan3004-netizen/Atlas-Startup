@@ -100,17 +100,18 @@ export const JOB_STATUSES = ['open', 'closed'];
 
 // ---------- file I/O ----------
 
+// Every collection's file, read together (they are independent files: reading them one after another made the load wait for each).
 export async function loadRaw(dir) {
-  const raw = {};
-  for (const file of Object.values(COLLECTION_FILES)) {
+  const files = Object.values(COLLECTION_FILES);
+  const texts = await Promise.all(files.map(async (file) => {
     try {
-      raw[file] = await readFile(path.join(dir, file), 'utf-8');
+      return await readFile(path.join(dir, file), 'utf-8');
     } catch (err) {
       if (err.code !== 'ENOENT') throw err;
-      raw[file] = null;
+      return null;
     }
-  }
-  return raw;
+  }));
+  return Object.fromEntries(files.map((file, i) => [file, texts[i]]));
 }
 
 export function parseRaw(raw) {
@@ -357,6 +358,16 @@ export function validateDataset(ds) {
   const people = idSet(ds.people);
   const investors = idSet(ds.investors);
   const sources = idSet(ds.sources);
+  // Looked up once per company below, so each table is indexed once here, not scanned once per company (the cost grew with
+  // companies times people, and companies times every investor's every spelling).
+  const personById = new Map(ds.people.map((p) => [p.id, p]));
+  const investorByName = new Map();
+  for (const i of ds.investors) {
+    for (const n of [i.name, ...(Array.isArray(i.aliases) ? i.aliases : [])]) {
+      const k = normKey(n);
+      if (!investorByName.has(k)) investorByName.set(k, i); // the first investor with that spelling, as a scan of the table found it
+    }
+  }
   const companyIds = new Set();
   const slugs = new Set();
 
@@ -425,14 +436,14 @@ export function validateDataset(ds) {
     const founders = c.founders || [];
     if (c.founder_ids.length !== founders.length) bad(at, 'founder_ids length does not match founders');
     c.founder_ids.forEach((id, i) => {
-      const person = ds.people.find((p) => p.id === id);
+      const person = personById.get(id);
       if (!person) bad(at, `unknown founder id "${id}"`);
       else if (normKey(person.name) !== normKey(founders[i])) bad(at, `founder_ids[${i}] "${person.name}" does not match founders[${i}] "${founders[i]}"`);
     });
     for (const id of c.investor_ids) if (!investors.has(id)) bad(at, `unknown investor id "${id}"`);
     for (const id of c.source_ids) if (!sources.has(id)) bad(at, `unknown source id "${id}"`);
     for (const raw of c.investors || []) {
-      const entity = ds.investors.find((i) => [i.name, ...i.aliases].some((n) => normKey(n) === normKey(raw)));
+      const entity = investorByName.get(normKey(raw));
       if (!entity || !c.investor_ids.includes(entity.id)) bad(at, `investor "${raw}" is not linked in investor_ids`);
     }
   }

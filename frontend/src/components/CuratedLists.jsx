@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchCount } from '../api.js';
+import { fetchCounts } from '../api.js';
 import { curatedLists } from '../curatedLists.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { appUrl } from '../appRoute.js';
@@ -12,18 +12,18 @@ function buildShareUrl(filters) {
 export default function CuratedLists({ currentFilters, onApply, onClose }) {
   useEscapeClose(onClose);
   // How many companies each list picks, counted by the server with the same filters "View this list" applies,
-  // so the badge and the list it opens cannot disagree (and no company is downloaded to count them). Each count
-  // appears as it arrives; one that could not be had is null, shown as "?".
+  // so the badge and the list it opens cannot disagree (and no company is downloaded to count them). All the lists are
+  // counted in one request, not one each; if it fails, every count is null, shown as "?".
   const [counts, setCounts] = useState({});
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     let live = true;
-    curatedLists.filter((list) => list.type === 'filter').forEach((list) => {
-      fetchCount(list.filters)
-        .then(({ count }) => count, () => null)
-        .then((count) => { if (live) setCounts((prev) => ({ ...prev, [list.id]: count })); });
-    });
+    const lists = curatedLists.filter((list) => list.type === 'filter');
+    if (lists.length === 0) return undefined;
+    fetchCounts(lists.map((list) => list.filters))
+      .then(({ counts: found }) => found, () => null)
+      .then((found) => { if (live) setCounts(Object.fromEntries(lists.map((list, i) => [list.id, found?.[i] ?? null]))); });
     return () => { live = false; };
   }, []);
 

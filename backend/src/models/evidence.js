@@ -326,7 +326,9 @@ export function validateEvidence(ds) {
   const companies = new Map(ds.companies.map((c) => [c.id, c]));
   const sources = new Map(ds.sources.map((s) => [s.id, s]));
   const ids = new Set();
-  const claims = [];
+  // The values each source has claimed so far for a company's field, so a repeat is looked for among those few and not among every
+  // row before it (which made validating the evidence grow with the square of its size).
+  const claims = new Map();
 
   for (const e of ds.evidence ?? []) {
     const at = `evidence "${e.id}"`;
@@ -365,10 +367,10 @@ export function validateEvidence(ds) {
     }
 
     if (spec && company && source) {
-      const repeat = claims.some((k) => k.company === e.company_id && k.field === e.field && k.source === e.source_id
-        && valuesEqual(e.field, k.value, e.value));
-      if (repeat) bad(at, 'repeats a claim this source already makes for this field');
-      claims.push({ company: e.company_id, field: e.field, source: e.source_id, value: e.value });
+      const key = JSON.stringify([e.company_id, e.field, e.source_id]);
+      const made = claims.get(key);
+      if (made?.some((value) => valuesEqual(e.field, value, e.value))) bad(at, 'repeats a claim this source already makes for this field');
+      if (made) made.push(e.value); else claims.set(key, [e.value]);
     }
   }
 

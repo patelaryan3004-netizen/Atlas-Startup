@@ -229,7 +229,8 @@ export function validateVerificationRecords(ds) {
   const sources = new Map((ds.sources ?? []).map((s) => [s.id, s]));
   const subjects = Object.fromEntries(SUBJECT_TYPES.map((t) => [t, new Set(subjectsOf(ds, t).map((s) => s.id))]));
   const ids = new Set();
-  const claims = [];
+  // The values each source has claimed so far for a subject's field: a repeat is looked for among those, not among every record before.
+  const claims = new Map();
 
   for (const r of ds.verification_records ?? []) {
     const at = `verification record "${r.id}"`;
@@ -259,9 +260,10 @@ export function validateVerificationRecords(ds) {
     if ((r.status === 'rejected' || r.status === 'superseded') && !isStr(r.note)) bad(at, `${r.status} records need a note saying why`);
 
     if (spec && source) {
-      const repeat = claims.some((k) => k.type === r.subject_type && k.subject === r.subject_id && k.field === r.field && k.source === r.source_id && valuesEqualFor(spec, k.value, r.value));
-      if (repeat) bad(at, 'repeats a claim this source already makes for this field');
-      claims.push({ type: r.subject_type, subject: r.subject_id, field: r.field, source: r.source_id, value: r.value });
+      const key = JSON.stringify([r.subject_type, r.subject_id, r.field, r.source_id]);
+      const made = claims.get(key);
+      if (made?.some((value) => valuesEqualFor(spec, value, r.value))) bad(at, 'repeats a claim this source already makes for this field');
+      if (made) made.push(r.value); else claims.set(key, [r.value]);
     }
   }
 

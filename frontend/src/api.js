@@ -21,7 +21,7 @@ async function getJson(url, { signal, failure }) {
 
 // The whole list in one go, every company in full. Kept for anything that still wants it, but the app does not:
 // at thousands of companies that is megabytes, so it pages (fetchStartupPage), draws the map from compact pins
-// (fetchMarkers) and asks for counts (fetchSummary, fetchCount).
+// (fetchMarkers) and asks for counts (fetchSummary, fetchCount, fetchCounts for several at once).
 export async function fetchStartups(filters = {}) {
   const res = await fetch(`${BASE}/startups${toQuery(filters)}`);
   if (!res.ok) throw new Error('Failed to fetch startups');
@@ -50,6 +50,18 @@ export function fetchSummary(filters = {}, { signal } = {}) {
 
 export function fetchCount(filters = {}, { signal } = {}) {
   return getJson(`${BASE}/startups/count${toQuery(filters)}`, { signal, failure: 'Failed to fetch a count' });
+}
+
+// How many companies each of several sets of filters picks, in one request: { total, counts: [n, ...] } in the order given. A page of
+// curated lists asks this once; asking fetchCount once per list was a request each.
+export function fetchCounts(filterSets, { signal } = {}) {
+  const params = new URLSearchParams();
+  for (const filters of filterSets) {
+    const own = new URLSearchParams();
+    for (const [key, value] of Object.entries(filters)) if (value) own.set(key, value);
+    params.append('f', own.toString());
+  }
+  return getJson(`${BASE}/startups/counts?${params}`, { signal, failure: 'Failed to fetch the counts' });
 }
 
 // One company in full, by slug.

@@ -104,6 +104,10 @@ export function validateInvestorGraph(ds) {
     }
   };
 
+  // A person's team records, found by person and not by scanning every record once per person.
+  const rolesOf = new Map();
+  for (const m of memberships) { const mine = rolesOf.get(m.person_id); if (mine) mine.push(m); else rolesOf.set(m.person_id, [m]); }
+
   // ----- people -----
   uniqueIds(people, 'investor_people');
   const personSlugs = new Set();
@@ -123,12 +127,12 @@ export function validateInvestorGraph(ds) {
     if (CHECKED_STATUSES.includes(p.verification_status) && p.last_verified_at == null) bad(at, `is ${p.verification_status} but has no last_verified_at`);
     // A current role is a team record: the page that puts the person at the firm.
     if (p.current_organisation_id != null) {
-      const role = memberships.find((m) => m.person_id === p.id && m.organisation_id === p.current_organisation_id && m.is_current === true && m.verification_status !== 'rejected');
+      const role = (rolesOf.get(p.id) ?? []).find((m) => m.organisation_id === p.current_organisation_id && m.is_current === true && m.verification_status !== 'rejected');
       if (!role) bad(at, `names current_organisation_id "${p.current_organisation_id}" with no current team record for it`);
       else if (p.current_title != null && role.role.trim().toLowerCase() !== p.current_title.trim().toLowerCase()) bad(at, `current_title "${p.current_title}" is not the role its team record states ("${role.role}")`);
     } else if (p.current_title != null) bad(at, 'has a current_title but no current_organisation_id');
     if (CHECKED_STATUSES.includes(p.verification_status) && p.current_organisation_id != null) {
-      const role = memberships.find((m) => m.person_id === p.id && m.organisation_id === p.current_organisation_id && m.is_current === true);
+      const role = (rolesOf.get(p.id) ?? []).find((m) => m.organisation_id === p.current_organisation_id && m.is_current === true);
       if (role && role.verification_status !== 'verified') bad(at, `is ${p.verification_status} but its current team record is not verified`);
     }
   }

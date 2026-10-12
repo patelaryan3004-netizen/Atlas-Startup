@@ -5,11 +5,11 @@ vi.mock('../src/api.js', () => ({
   fetchStartupPage: vi.fn(),
   fetchSummary: vi.fn(),
   fetchMarkers: vi.fn(),
-  fetchCount: vi.fn(),
+  fetchCounts: vi.fn(),
   DIRECTORY_URL: '/directory',
 }));
 
-import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCount } from '../src/api.js';
+import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCounts } from '../src/api.js';
 import { curatedLists } from '../src/curatedLists.js';
 import LandingPage from '../src/LandingPage.jsx';
 
@@ -37,7 +37,7 @@ describe('LandingPage', () => {
       items: [['canva', 'Canva', -33.9, 151.2, 'SaaS', 'Sydney', 1, 'canva.com'], ['airwallex', 'Airwallex', -37.8, 144.9, 'Fintech', 'Melbourne', 1, '']],
       areas: [{ kind: 'CITY', label: 'Sydney', city: 'Sydney', lat: -33.87, lng: 151.21, count: 34 }],
     });
-    fetchCount.mockImplementation(async (filters) => ({ total: 213, count: filters.hiring === 'yes' ? 2 : 7 }));
+    fetchCounts.mockImplementation(async (sets) => ({ total: 213, counts: sets.map((filters) => (filters.hiring === 'yes' ? 2 : 7)) }));
   });
 
   describe('the hero', () => {
@@ -118,7 +118,9 @@ describe('LandingPage', () => {
     expect(screen.getByText('Startups Hiring Now')).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText('Startups Hiring Now').closest('.landing-list-card')).toHaveTextContent('2 companies'));
     expect(screen.getByText('Melbourne AI startups').closest('.landing-list-card')).toHaveTextContent('7 companies');
-    for (const list of curatedLists.filter((l) => l.type === 'filter')) expect(fetchCount).toHaveBeenCalledWith(list.filters);
+    // every list in ONE request, in the lists' order, each counted with the list's own filters
+    expect(fetchCounts).toHaveBeenCalledTimes(1);
+    expect(fetchCounts.mock.calls[0][0]).toEqual(curatedLists.filter((l) => l.type === 'filter').map((l) => l.filters));
   });
 
   it('deep-links into Jobs and Curated lists inside the real app', async () => {
@@ -150,7 +152,7 @@ describe('LandingPage', () => {
 
   it('still shows the rest of the page, and draws no startup it was not told about, when the pins or a count cannot be fetched', async () => {
     fetchMarkers.mockRejectedValue(new Error('down'));
-    fetchCount.mockRejectedValue(new Error('down'));
+    fetchCounts.mockRejectedValue(new Error('down'));
     const { container } = render(<LandingPage />);
     expect(await screen.findByText('213 startups')).toBeInTheDocument();
     expect(container.querySelectorAll('.eco-dot, .eco-city, .eco-chip')).toHaveLength(0);
