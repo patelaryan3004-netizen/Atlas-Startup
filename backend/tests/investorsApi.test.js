@@ -87,7 +87,7 @@ describe('what the public may see of the investors', () => {
     const res = await request(f.app).get('/api/investors');
     expect(res.status).toBe(200);
     expect(names(res)).toEqual(['Brisbane Angels', 'Kiwi Ventures', 'OIF Ventures', 'Old Fund', 'Skip Capital']);
-    expect(res.body).toMatchObject({ total: 5, count: 5, offset: 0, limit: 24, hasMore: false });
+    expect(res.body).toMatchObject({ total: 5, count: 5, offset: 0, limit: 20, hasMore: false, nextOffset: null });
     for (const slug of ['ver', 'cand', 'rej']) expect((await request(f.app).get(`/api/investors/${slug}`)).status).toBe(404);
     expect((await request(f.app).get('/api/investors/oif')).status).toBe(200);
     expect((await request(f.app).get('/api/investors/old')).body.status).toBe('inactive');
@@ -273,11 +273,25 @@ describe('searching and filtering the directory', () => {
   it('pages, and says whether there is more', async () => {
     const f = await app();
     const first = await request(f.app).get('/api/investors?limit=2&offset=0');
-    expect(first.body).toMatchObject({ count: 5, limit: 2, offset: 0, hasMore: true });
+    expect(first.body).toMatchObject({ count: 5, limit: 2, offset: 0, hasMore: true, nextOffset: 2 });
     expect(first.body.results).toHaveLength(2);
     const last = await request(f.app).get('/api/investors?limit=2&offset=4');
     expect(last.body.results).toHaveLength(1);
     expect(last.body.hasMore).toBe(false);
+    expect(last.body.nextOffset).toBeNull();
+  });
+
+  it('reaches every investor by following nextOffset, each once', async () => {
+    const f = await app();
+    const seen = [];
+    let offset = 0;
+    for (;;) {
+      const res = await request(f.app).get(`/api/investors?limit=2&offset=${offset}`);
+      seen.push(...names(res));
+      if (res.body.nextOffset === null) break;
+      offset = res.body.nextOffset;
+    }
+    expect(seen).toEqual(['Brisbane Angels', 'Kiwi Ventures', 'OIF Ventures', 'Old Fund', 'Skip Capital']);
   });
 
   it('refuses a question it cannot answer', async () => {
@@ -381,6 +395,29 @@ describe('suggesting a correction', () => {
     const ok = await request(mini).get('/api/investors/corrections').set('x-admin-key', 'secret');
     expect(ok.status).toBe(200);
     expect(ok.body.count).toBe(1);
+  });
+
+  it('lists them a page at a time by cursor, oldest first, and refuses a cursor it did not give', async () => {
+    const dir = await tempDir();
+    await writeFiles(dir, serializeDataset(data()));
+    const correctionsFile = path.join(dir, 'c.json');
+    const rows = Array.from({ length: 45 }, (_, i) => ({ id: `row-${i}`, investor: 'oif', message: `m${i}`, email: '', status: 'pending' }));
+    await writeFile(correctionsFile, `${JSON.stringify(rows)}
+`);
+    const investorCatalog = createInvestorCatalog({ dir, reloadMs: 0 });
+    const mini = express().use(express.json()).use('/api/investors', createInvestorsRouter({ respond: createResponder(investorCatalog), catalog: investorCatalog, correctionsFile }));
+    process.env.ADMIN_KEY = 'secret';
+    const get = (q = '') => request(mini).get(`/api/investors/corrections${q}`).set('x-admin-key', 'secret');
+    const first = await get();
+    expect(first.body).toMatchObject({ count: 45, limit: 20, hasMore: true });
+    expect(first.body.results.map((r) => r.id)).toEqual(rows.slice(0, 20).map((r) => r.id));
+    const second = await get(`?cursor=${first.body.nextCursor}`);
+    expect(second.body.results.map((r) => r.id)).toEqual(rows.slice(20, 40).map((r) => r.id));
+    const third = await get(`?cursor=${second.body.nextCursor}`);
+    expect(third.body.results).toHaveLength(5);
+    expect(third.body).toMatchObject({ hasMore: false, nextCursor: null });
+    expect((await get('?cursor=bm90IGEgcm93')).status).toBe(400);
+    expect((await get('?limit=101')).status).toBe(400);
   });
 
   it('has no route to claim a profile, because claiming needs a way to prove who is asking', async () => {

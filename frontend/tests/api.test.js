@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
-  fetchStartups, fetchMeta, fetchNews, submitStartup, submitEdit, submitFeedback,
+  fetchMeta, fetchNews, submitStartup, submitEdit, submitFeedback,
   fetchStartupPage, fetchMarkers, fetchSummary, fetchCount, fetchCounts, fetchStartup, fetchStartupsByName, fetchSuggestions, fetchPerson,
   fetchInvestors, fetchInvestorMeta, fetchInvestor, fetchInvestorPerson, fetchInvestorsByName, submitInvestorCorrection,
 } from '../src/api.js';
@@ -17,24 +17,19 @@ describe('api.js', () => {
     vi.restoreAllMocks();
   });
 
-  it('fetchStartups calls /api/startups with no query string when filters are empty', async () => {
-    mockFetchOnce({ total: 0, count: 0, results: [] });
-    await fetchStartups({});
-    expect(global.fetch).toHaveBeenCalledWith('/api/startups');
-  });
-
-  it('fetchStartups omits falsy filter values and includes truthy ones', async () => {
-    mockFetchOnce({ total: 0, count: 0, results: [] });
-    await fetchStartups({ search: 'canva', sector: '', hiring: 'yes' });
+  it('has no call for the whole list: companies and investors are asked for a page at a time, 20 unless told otherwise', async () => {
+    const api = await import('../src/api.js');
+    expect(api.fetchStartups).toBeUndefined();
+    mockFetchOnce({ total: 0, count: 0, results: [], offset: 0, limit: 20, hasMore: false, nextOffset: null });
+    await fetchStartupPage({ search: 'canva', sector: '', hiring: 'yes' });
     const url = global.fetch.mock.calls[0][0];
+    expect(url).toContain('limit=20');
+    expect(url).toContain('offset=0');
     expect(url).toContain('search=canva');
-    expect(url).toContain('hiring=yes');
     expect(url).not.toContain('sector=');
-  });
-
-  it('fetchStartups throws when the response is not ok', async () => {
-    mockFetchOnce({}, false);
-    await expect(fetchStartups({})).rejects.toThrow('Failed to fetch startups');
+    mockFetchOnce({ total: 0, count: 0, results: [] });
+    await fetchInvestors({});
+    expect(global.fetch.mock.calls[0][0]).toContain('limit=20');
   });
 
   it('fetchMeta calls /api/startups/meta and returns the parsed body', async () => {
@@ -141,7 +136,7 @@ describe('api.js, asking for only what is needed', () => {
     mockFetchOnce({ results: [] });
     const ctrl = new AbortController();
     await fetchStartupPage({}, { signal: ctrl.signal });
-    expect(Object.fromEntries(urlOf().searchParams)).toEqual({ limit: '48', offset: '0', sort: 'name', view: 'card' });
+    expect(Object.fromEntries(urlOf().searchParams)).toEqual({ limit: '20', offset: '0', sort: 'name', view: 'card' });
     expect(global.fetch.mock.calls[0][1]).toEqual({ signal: ctrl.signal });
   });
 
@@ -212,7 +207,7 @@ describe('api.js, the investor directory', () => {
     mockFetchOnce({ total: 5, count: 5, results: [], offset: 0, limit: 24, hasMore: false });
     await fetchInvestors({ type: 'angel_network', stage: '', chequeMin: '100000' });
     expect(urlOf().pathname).toBe('/api/investors');
-    expect(Object.fromEntries(urlOf().searchParams)).toEqual({ type: 'angel_network', chequeMin: '100000', limit: '24', offset: '0', sort: 'name' });
+    expect(Object.fromEntries(urlOf().searchParams)).toEqual({ type: 'angel_network', chequeMin: '100000', limit: '20', offset: '0', sort: 'name' });
   });
 
   it('fetchInvestors takes a page size, an offset, facets and an abort signal', async () => {

@@ -19,6 +19,10 @@ import { fileURLToPath } from 'node:url';
 import { websiteUrl } from '../../models/identity.js';
 
 const DEFAULT_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data', 'submissions.json');
+// The deployed queue answers a page at a time (20, or up to 100 when asked): this reads it 100 at a time, following nextCursor to the end.
+// The page count is a stop for a server that never stops giving a cursor, not a limit on a real queue (1,000 pages is 100,000 submissions).
+const PAGE = 100;
+const MAX_PAGES = 1000;
 const STAGES = new Set(['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series C', 'Series D', 'Growth', 'Early']);
 
 // Only these fields are ever read from a submission. Email and hiringUrl are not.
@@ -48,9 +52,19 @@ export function createSubmissionsSource(config, env = process.env) {
       if (url) {
         const key = env[adminKeyEnv];
         if (!key) throw new Error(`set ${adminKeyEnv} in the environment to read submissions from ${url}`);
-        const res = await (ctx.fetchImpl ?? globalThis.fetch)(url, { headers: { 'x-admin-key': key, accept: 'application/json' }, signal: AbortSignal.timeout(timeoutMs) });
-        if (!res.ok) throw new Error(`the submissions API answered HTTP ${res.status}`);
-        rows = (await res.json()).results ?? [];
+        rows = [];
+        let cursor = null;
+        for (let page = 0; page < MAX_PAGES; page += 1) {
+          const target = new URL(url);
+          target.searchParams.set('limit', String(PAGE));
+          if (cursor) target.searchParams.set('cursor', cursor);
+          const res = await (ctx.fetchImpl ?? globalThis.fetch)(target.toString(), { headers: { 'x-admin-key': key, accept: 'application/json' }, signal: AbortSignal.timeout(timeoutMs) });
+          if (!res.ok) throw new Error(`the submissions API answered HTTP ${res.status}`);
+          const body = await res.json();
+          rows.push(...(body.results ?? []));
+          cursor = body.nextCursor ?? null; // a server from before paging sends everything and no cursor: that is the end
+          if (!cursor) break;
+        }
       } else {
         try { rows = JSON.parse(await readFile(file, 'utf-8')); } catch (err) { if (err.code === 'ENOENT') rows = []; else throw err; }
       }

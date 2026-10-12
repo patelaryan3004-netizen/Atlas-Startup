@@ -201,8 +201,8 @@ class ApiError extends Error {
 const S = {
   token: null, me: null, signedOut: false, data: {}, drawer: null, poll: null, refreshedAt: null,
   ui: {
-    filter: 'open', query: '', conflictField: 'all', conflictShown: 8, suggestionField: 'all', suggestionShown: 10,
-    missingField: 'all', missingShown: 12, auditAction: '', auditTarget: '', auditLimit: 50, runMode: 'suggest',
+    filter: 'open', query: '', candidateShown: 20, conflictField: 'all', conflictShown: 8, suggestionField: 'all', suggestionShown: 10,
+    missingField: 'all', missingShown: 12, duplicateShown: 10, auditAction: '', auditTarget: '', auditLimit: 50, runMode: 'suggest',
     locationFilter: '', locationShown: 12,
     investorStatus: 'open', investorIssue: '', investorQuery: '', investorShown: 12, investorConflictShown: 6,
   },
@@ -234,19 +234,23 @@ const api = {
 };
 
 const enc = encodeURIComponent;
+// A list is asked for only as far as the page shows it (limit = the rows shown), and the server says how many there are in all.
+// The field a list is narrowed to goes to the server too: 'all' is no field.
+const fieldParam = (f) => (f === 'all' ? '' : enc(f));
+const auditQuery = () => `action=${enc(S.ui.auditAction)}&target=${enc(S.ui.auditTarget)}`;
 const LOADERS = {
   overview: () => api.get('/api/overview'),
-  candidates: () => api.get(`/api/candidates?status=${enc(S.ui.filter)}&q=${enc(S.ui.query)}&limit=200`),
-  conflicts: () => api.get('/api/conflicts'),
-  suggestions: () => api.get('/api/suggestions'),
-  missing: () => api.get('/api/missing'),
-  locations: () => api.get(`/api/locations?filter=${enc(S.ui.locationFilter)}&limit=500`),
-  investors: () => api.get(`/api/investors?status=${enc(S.ui.investorStatus)}&issue=${enc(S.ui.investorIssue)}&q=${enc(S.ui.investorQuery)}&limit=500`),
-  duplicates: () => api.get('/api/duplicates'),
+  candidates: () => api.get(`/api/candidates?status=${enc(S.ui.filter)}&q=${enc(S.ui.query)}&limit=${S.ui.candidateShown}`),
+  conflicts: () => api.get(`/api/conflicts?field=${fieldParam(S.ui.conflictField)}&limit=${S.ui.conflictShown}`),
+  suggestions: () => api.get(`/api/suggestions?field=${fieldParam(S.ui.suggestionField)}&limit=${S.ui.suggestionShown}`),
+  missing: () => api.get(`/api/missing?field=${fieldParam(S.ui.missingField)}&limit=${S.ui.missingShown}`),
+  locations: () => api.get(`/api/locations?filter=${enc(S.ui.locationFilter)}&limit=${S.ui.locationShown}`),
+  investors: () => api.get(`/api/investors?status=${enc(S.ui.investorStatus)}&issue=${enc(S.ui.investorIssue)}&q=${enc(S.ui.investorQuery)}&limit=${S.ui.investorShown}`),
+  duplicates: () => api.get(`/api/duplicates?limit=${S.ui.duplicateShown}`),
   queue: () => api.get('/api/queue'),
   imports: () => api.get('/api/imports'),
   scheduler: () => api.get('/api/scheduler'),
-  audit: () => api.get(`/api/audit?limit=${S.ui.auditLimit}&action=${enc(S.ui.auditAction)}&target=${enc(S.ui.auditTarget)}`),
+  audit: () => api.get(`/api/audit?limit=${S.ui.auditLimit}&${auditQuery()}`),
   job: () => api.get('/api/job'),
 };
 
@@ -461,9 +465,10 @@ function seg(items, current, onPick, label, keyPrefix) {
     items.map(({ key, text, count }) => h('button', { type: 'button', 'aria-pressed': String(key === current), 'data-fk': `${keyPrefix}:${key}`, on: { click: () => onPick(key) } }, text, count != null && h('span', { class: 'n' }, n(count)))));
 }
 
-function pager(shown, total, onMore, what) {
+// "Show more" under a list. Each list asks the server for the rows it shows (S.ui.*Shown) and for more when this is pressed.
+function pager(shown, total, onMore, what, step = 10) {
   if (shown >= total) return total > 0 ? h('p', { class: 'pager' }, `Showing all ${n(total)}.`) : null;
-  return h('div', { class: 'pager' }, h('span', {}, `Showing ${n(shown)} of ${n(total)}.`), btn(`Show ${Math.min(10, total - shown)} more`, { small: true, onClick: onMore, fk: `more:${what}` }));
+  return h('div', { class: 'pager' }, h('span', {}, `Showing ${n(shown)} of ${n(total)}.`), btn(`Show ${Math.min(step, total - shown)} more`, { small: true, onClick: onMore, fk: `more:${what}` }));
 }
 
 // ======================================================================= dialogs and fields
@@ -666,13 +671,14 @@ const FILTERS = [['open', 'Open'], ['new', 'New this week'], ['needs_review', 'N
 
 function setFilter(key) {
   S.ui.filter = key;
+  S.ui.candidateShown = 20;
   load('candidates', { quiet: true });
   paintDiscoveredToolbar();
 }
 
 function discoveredFrame(body) {
   const search = textInput({ type: 'search', id: 'cand-q', placeholder: 'Search name or website', 'aria-label': 'Search new startups by name or website', value: S.ui.query, 'data-fk': 'search:cand' });
-  search.addEventListener('input', debounce(() => { S.ui.query = search.value; load('candidates', { quiet: true }); }, 250));
+  search.addEventListener('input', debounce(() => { S.ui.query = search.value; S.ui.candidateShown = 20; load('candidates', { quiet: true }); }, 250));
   body.append(
     h('div', { class: 'toolbar' },
       h('div', { class: 'seg', role: 'group', 'aria-label': 'Show', id: 'cand-seg' }, FILTERS.map(([key, text]) => h('button', { type: 'button', 'data-filter': key, 'data-fk': `cand-filter:${key}`, 'aria-pressed': 'false', on: { click: () => setFilter(key) } }, text, h('span', { class: 'n' })))),
@@ -698,7 +704,9 @@ function renderDiscovered() {
   if (!body.firstChild) discoveredFrame(body);
   paintDiscoveredToolbar();
   const results = $('#discovered-results');
-  keepFocus(results, () => results.replaceChildren(view('candidates', (data) => (data.results.length ? candidatesTable(data.results) : emptyCandidates()))));
+  keepFocus(results, () => results.replaceChildren(view('candidates', (data) => (data.results.length
+    ? h('div', {}, candidatesTable(data.results), pager(data.results.length, data.total, () => { S.ui.candidateShown += 20; return load('candidates', { quiet: true }); }, 'candidates', 20))
+    : emptyCandidates()))));
 }
 
 function emptyCandidates() {
@@ -1061,10 +1069,9 @@ function missingBlock() {
     view('missing', (m) => {
       if (!m.total) return emptyBox('No company is missing a core fact.');
       const f = S.ui.missingField;
-      const rows = m.results.filter((r) => f === 'all' || r.missing.includes(f));
-      const shown = rows.slice(0, S.ui.missingShown);
+      const shown = m.results;
       return h('div', {},
-        h('div', { class: 'toolbar' }, seg(MISSING_FILTERS.map(([key, text]) => ({ key, text, count: key === 'all' ? m.total : m.counts[key] })), f, (key) => { S.ui.missingField = key; S.ui.missingShown = 12; renderQuality(); }, 'Missing', 'missing-filter')),
+        h('div', { class: 'toolbar' }, seg(MISSING_FILTERS.map(([key, text]) => ({ key, text, count: key === 'all' ? m.total : m.counts[key] })), f, (key) => { S.ui.missingField = key; S.ui.missingShown = 12; return load('missing', { quiet: true }); }, 'Missing', 'missing-filter')),
         grid({
           caption: 'Companies missing data', wide: false,
           columns: [{ label: 'Company' }, { label: 'Missing' }, { label: 'Location' }, { label: 'Website' }, { label: 'Actions', cls: 'cell-actions' }],
@@ -1078,16 +1085,18 @@ function missingBlock() {
               : h('span', { class: 'muted' }, 'No website to read'),
           ]),
         }),
-        pager(shown.length, rows.length, () => { S.ui.missingShown += 10; renderQuality(); }, 'missing'));
+        pager(shown.length, m.count, () => { S.ui.missingShown += 10; return load('missing', { quiet: true }); }, 'missing'));
     }, { skeleton: () => skeletonRows(4) }));
 }
 
 function duplicatesBlock() {
   const slot = S.data.duplicates;
-  if (!slot || slot.state !== 'ready' || !slot.value.length) return null;
+  if (!slot || slot.state !== 'ready' || !slot.value.total) return null;
+  const d = slot.value;
   return h('div', {},
-    h('div', { class: 'subhead' }, h('h3', {}, `Companies that look alike (${slot.value.length})`), h('p', {}, 'Two published records that share a website or a name. The Command Center cannot merge two published companies: compare them and correct the data files.')),
-    grid({ caption: 'Companies that look alike', columns: [{ label: 'Why they look alike' }, { label: 'Companies' }], rows: slot.value.map((g) => [capitalise(g.reason), g.names.join(' · ')]) }));
+    h('div', { class: 'subhead' }, h('h3', {}, `Companies that look alike (${d.total})`), h('p', {}, 'Two published records that share a website or a name. The Command Center cannot merge two published companies: compare them and correct the data files.')),
+    grid({ caption: 'Companies that look alike', columns: [{ label: 'Why they look alike' }, { label: 'Companies' }], rows: d.results.map((g) => [capitalise(g.reason), g.names.join(' · ')]) }),
+    pager(d.results.length, d.total, () => { S.ui.duplicateShown += 10; return load('duplicates', { quiet: true }); }, 'duplicates'));
 }
 const capitalise = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
 
@@ -1130,7 +1139,7 @@ function locationQueue() {
       problem.setAttribute('aria-label', 'Show one kind of problem');
       problem.dataset.fk = 'loc:problem';
       problem.addEventListener('change', () => pick(problem.value));
-      const shown = L.results.slice(0, S.ui.locationShown);
+      const shown = L.results;
       return h('div', {},
         h('div', { class: 'toolbar' },
           seg([{ key: '', text: 'All', count: L.queue }, ...L.flags.map((x) => ({ key: x.key, text: x.label, count: x.count }))], isFlag ? f : (f ? null : ''), pick, 'Location flags', 'loc-flag'),
@@ -1157,7 +1166,7 @@ function locationQueue() {
               ];
             }),
           }),
-          pager(shown.length, L.results.length, () => { S.ui.locationShown += 10; renderLocations(); }, 'locations')),
+          pager(shown.length, L.total, () => { S.ui.locationShown += 10; return load('locations', { quiet: true }); }, 'locations')),
         h('p', { class: 'stamp' }, 'From a terminal: ', h('code', {}, 'npm run locations -- review'), ', ', h('code', {}, 'geocode'), ', ', h('code', {}, 'promote'), ' and ', h('code', {}, 'normalize'), ' do the same work in bulk, and write the same audit trail.'));
     }, { skeleton: () => skeletonRows(5) }));
 }
@@ -1347,7 +1356,7 @@ const portfolioCell = (p) => h('div', {},
   p.unsourced > 0 && h('div', { class: 'sub' }, `${plural(p.unsourced, 'company', 'companies')} name it, no page`));
 
 function investorsTable(L) {
-  const shown = L.results.slice(0, S.ui.investorShown);
+  const shown = L.results;
   return h('div', {},
     grid({
       caption: 'Investors', wide: true,
@@ -1370,7 +1379,7 @@ function investorsTable(L) {
         ];
       }),
     }),
-    pager(shown.length, L.results.length, () => { S.ui.investorShown += 10; renderInvestors(); }, 'investors'));
+    pager(shown.length, L.total, () => { S.ui.investorShown += 10; return load('investors', { quiet: true }); }, 'investors'));
 }
 
 // ---------- what is to be settled across the whole list ----------
@@ -2019,17 +2028,18 @@ function renderConflicts() {
   const body = $('#body-conflicts');
   if (!body) return;
   keepFocus(body, () => body.replaceChildren(view('conflicts', (list) => {
-    if (!list.length) return emptyBox('No open conflicts.', 'When two sources disagree about a fact, or a source disagrees with our record, it appears here for a person to settle.');
-    const fields = [...new Set(list.map((c) => c.field))];
-    const f = fields.includes(S.ui.conflictField) ? S.ui.conflictField : 'all';
-    const rows = list.filter((c) => f === 'all' || c.field === f);
-    const shown = rows.slice(0, S.ui.conflictShown);
+    if (!list.total) return emptyBox('No open conflicts.', 'When two sources disagree about a fact, or a source disagrees with our record, it appears here for a person to settle.');
+    const fields = Object.keys(list.counts);
+    // The field a person chose may have been settled since: show them all again.
+    if (S.ui.conflictField !== 'all' && !fields.includes(S.ui.conflictField)) { S.ui.conflictField = 'all'; load('conflicts', { quiet: true }); }
+    const f = S.ui.conflictField;
+    const shown = list.results;
     return h('div', {},
       h('div', { class: 'toolbar' },
-        seg([{ key: 'all', text: 'All', count: list.length }, ...fields.map((k) => ({ key: k, text: fieldLabel(k), count: list.filter((c) => c.field === k).length }))], f, (key) => { S.ui.conflictField = key; S.ui.conflictShown = 8; renderConflicts(); }, 'Field', 'conflict-field'),
+        seg([{ key: 'all', text: 'All', count: list.total }, ...fields.map((k) => ({ key: k, text: fieldLabel(k), count: list.counts[k] }))], f, (key) => { S.ui.conflictField = key; S.ui.conflictShown = 8; return load('conflicts', { quiet: true }); }, 'Field', 'conflict-field'),
         !can('conflict.resolve') && h('p', { class: 'toolbar__note' }, 'Settling a conflict needs the admin role.')),
       shown.map((c) => conflictItem(c)),
-      pager(shown.length, rows.length, () => { S.ui.conflictShown += 10; renderConflicts(); }, 'conflicts'));
+      pager(shown.length, list.count, () => { S.ui.conflictShown += 10; return load('conflicts', { quiet: true }); }, 'conflicts'));
   }, { skeleton: () => skeletonRows(5) })));
 }
 
@@ -2119,14 +2129,14 @@ function renderSuggestions() {
   const body = $('#body-suggestions');
   if (!body) return;
   keepFocus(body, () => body.replaceChildren(view('suggestions', (list) => {
-    if (!list.length) return emptyBox('Nothing to suggest.', 'When reading a website finds a fact the record does not have, it waits here for a person to apply or dismiss.');
-    const fields = [...new Set(list.map((s) => s.field))];
-    const f = fields.includes(S.ui.suggestionField) ? S.ui.suggestionField : 'all';
-    const rows = list.filter((s) => f === 'all' || s.field === f);
-    const shown = rows.slice(0, S.ui.suggestionShown);
+    if (!list.total) return emptyBox('Nothing to suggest.', 'When reading a website finds a fact the record does not have, it waits here for a person to apply or dismiss.');
+    const fields = Object.keys(list.counts);
+    if (S.ui.suggestionField !== 'all' && !fields.includes(S.ui.suggestionField)) { S.ui.suggestionField = 'all'; load('suggestions', { quiet: true }); }
+    const f = S.ui.suggestionField;
+    const shown = list.results;
     return h('div', {},
       h('div', { class: 'toolbar' },
-        seg([{ key: 'all', text: 'All', count: list.length }, ...fields.map((k) => ({ key: k, text: fieldLabel(k), count: list.filter((s) => s.field === k).length }))], f, (key) => { S.ui.suggestionField = key; S.ui.suggestionShown = 10; renderSuggestions(); }, 'Field', 'sugg-field'),
+        seg([{ key: 'all', text: 'All', count: list.total }, ...fields.map((k) => ({ key: k, text: fieldLabel(k), count: list.counts[k] }))], f, (key) => { S.ui.suggestionField = key; S.ui.suggestionShown = 10; return load('suggestions', { quiet: true }); }, 'Field', 'sugg-field'),
         !can('suggestion.apply') && h('p', { class: 'toolbar__note' }, 'Applying a suggestion needs the admin role.')),
       grid({
         caption: 'Suggested fills', wide: true,
@@ -2146,7 +2156,7 @@ function renderSuggestions() {
           ];
         }),
       }),
-      pager(shown.length, rows.length, () => { S.ui.suggestionShown += 10; renderSuggestions(); }, 'suggestions'));
+      pager(shown.length, list.count, () => { S.ui.suggestionShown += 10; return load('suggestions', { quiet: true }); }, 'suggestions'));
   }, { skeleton: () => skeletonRows(5) })));
 }
 
@@ -2433,6 +2443,19 @@ function auditFrame(body) {
   body.append(h('div', { class: 'toolbar' }, h('div', {}, group), h('div', { class: 'search' }, icon('search', 16), target), h('p', { class: 'toolbar__note', id: 'audit-note' })), h('div', { id: 'audit-results' }));
 }
 
+// Older rows: the next page after the last one shown, asked for by cursor (a row added since does not move it), added to the end.
+async function showOlderAudit() {
+  const slot = S.data.audit;
+  const a = slot?.value;
+  if (!a?.nextCursor) return;
+  const seq = slot.seq;
+  const more = await api.get(`/api/audit?limit=50&${auditQuery()}&cursor=${enc(a.nextCursor)}`);
+  if (slot.seq !== seq) return; // the filter changed while it loaded
+  slot.value = { ...more, results: [...a.results, ...more.results] };
+  S.ui.auditLimit = Math.min(500, slot.value.results.length); // a refresh keeps at least this many, up to the most one request gives
+  renderAudit();
+}
+
 function renderAudit() {
   const body = $('#body-audit');
   if (!body) return;
@@ -2440,7 +2463,7 @@ function renderAudit() {
   const results = $('#audit-results');
   keepFocus(results, () => results.replaceChildren(view('audit', (a) => {
     const note = $('#audit-note');
-    if (note) note.textContent = `${n(Math.min(a.results.length, a.total))} of ${n(a.total)}`;
+    if (note) note.textContent = `${n(a.results.length)} of ${n(a.total)}`;
     if (!a.results.length) return emptyBox('Nothing recorded yet.', 'Every approval, rejection, edit, merge, publish, settled conflict and website read is written here with who did it and why.');
     return h('div', {},
       grid({
@@ -2456,7 +2479,7 @@ function renderAudit() {
             r.changes?.length > 0 && h('div', { class: 'changes' }, r.changes.map((c) => h('span', {}, h('b', {}, `${fieldLabel(c.field)}: `), c.from != null && h('span', { class: 'from' }, clip(fmtValue(c.from), 90)), c.from != null && ' → ', clip(fmtValue(c.to), 90))))) : null),
         ]),
       }),
-      pager(a.results.length, Math.min(a.total, 500), () => { S.ui.auditLimit = Math.min(500, S.ui.auditLimit + 100); load('audit', { quiet: true }); }, 'audit'));
+      pager(a.results.length, a.total, showOlderAudit, 'audit', 50));
   })));
 }
 

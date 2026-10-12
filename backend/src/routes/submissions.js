@@ -3,6 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { requireAdminKey } from '../middleware/requireAdminKey.js';
+import { cursorParams, cursorPage } from '../http/paging.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = path.join(__dirname, '..', 'data', 'submissions.json');
@@ -16,10 +17,13 @@ const router = Router();
 
 // GET /api/submissions — pending submissions queue (for review). Contains
 // submitter emails, so it's gated behind ADMIN_KEY rather than left public.
+// Oldest first, a page at a time: this only grows, so the next page is asked for by cursor (the last row seen), which a row added
+// meanwhile cannot move. { count, results, limit, hasMore, nextCursor }: 20 to a page, `limit` up to 100, and cursor=<nextCursor>
+// for the next. count is every row in the queue.
 router.get('/', requireAdminKey, async (req, res, next) => {
   try {
     const submissions = await loadSubmissions();
-    res.json({ count: submissions.length, results: submissions });
+    res.json({ count: submissions.length, ...cursorPage(submissions, cursorParams(req.query)) });
   } catch (err) {
     next(err);
   }

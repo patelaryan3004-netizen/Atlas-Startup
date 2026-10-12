@@ -221,7 +221,7 @@ describe('the actions and what they answer', () => {
     expect((await get('/api/companies?q=leon')).body[0]).toMatchObject({ id: 'leonardo-ai' });
     for (const p of ['/api/conflicts', '/api/suggestions', '/api/queue', '/api/imports', '/api/job', '/api/audit?limit=5', '/api/missing', '/api/duplicates']) expect((await get(p)).status, p).toBe(200);
     expect((await get('/api/missing')).body).toMatchObject({ total: expect.any(Number), counts: { website: expect.any(Number) }, results: expect.any(Array) });
-    expect(Array.isArray((await get('/api/duplicates')).body)).toBe(true);
+    expect(Array.isArray((await get('/api/duplicates')).body.results)).toBe(true);
     for (const p of ['/api/missing', '/api/duplicates']) expect((await request(app).get(p)).status, `${p} without a token`).toBe(401);
   });
 

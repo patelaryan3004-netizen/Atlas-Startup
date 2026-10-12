@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createCatalog } from './catalog/catalog.js';
 import { createInvestorCatalog } from './catalog/investors.js';
-import { createResponder } from './catalog/respond.js';
+import { createResponder, HttpError } from './catalog/respond.js';
 import { createStartupsRouter } from './routes/startups.js';
 import { createSearchRouter } from './routes/search.js';
 import { createDirectoryRouter } from './routes/directory.js';
@@ -42,6 +42,7 @@ export function createApp({ catalog = createCatalog({ file: DATA_FILE }), invest
 
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
+    if (err instanceof HttpError) return res.status(err.status).json({ error: err.message }); // a request that cannot be answered (a bad page), not a fault
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
   });

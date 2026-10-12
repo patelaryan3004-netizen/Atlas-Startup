@@ -22,6 +22,8 @@ import { suggestionsOf, LOCATION_FIELDS } from './decisions.js';
 import { locationOf } from '../discovery/report.js';
 import { buildSourceConfig } from '../discovery/config.js';
 import { schedulerStatus } from '../scheduler/status.js';
+import { DEFAULT_PAGE_SIZE, offsetInfo, cursorPage } from '../http/paging.js';
+import { BadRequestError } from './errors.js';
 
 const DAY = 86400000;
 export const OPEN = ['candidate', 'needs_review', 'matched', 'approved'];
@@ -29,6 +31,16 @@ export const OPEN = ['candidate', 'needs_review', 'matched', 'approved'];
 // to its city (a pin for a point, a group for a city), which the audit works out as `located`.
 export const MISSING_KEYS = { website: ['website'], sector: ['sector'], location: ['located'], stage: ['stage'], description: ['description'] };
 const iso = (ms) => new Date(ms).toISOString();
+// One page of a list that is already in the order to be shown, with where it started and where the next starts. The largest page a
+// caller may ask for is 500 (the routes check that); a function called directly is held to it too.
+const MAX_PAGE = 500;
+const sizeOf = (limit) => Math.min(Math.max(Number(limit) || DEFAULT_PAGE_SIZE, 1), MAX_PAGE);
+function pageOfRows(rows, { limit = DEFAULT_PAGE_SIZE, offset = 0 } = {}) {
+  const size = sizeOf(limit);
+  const start = Math.max(Number(offset) || 0, 0);
+  const results = rows.slice(start, start + size);
+  return { results, ...offsetInfo({ offset: start, limit: size, shown: results.length, total: rows.length }) };
+}
 const pct = (n, total) => (total ? Math.round((n / total) * 1000) / 10 : 0);
 
 // The labels the directory already uses, most used first, for a person typing a sector or a stage to pick from
@@ -116,15 +128,16 @@ function locationsSummary(review) {
 }
 
 // The location review queue: the companies a person should look at, worst first, each with what is wrong and what to do.
-// `filter` is a flag (duplicate_coordinates ...) or one problem (city_level_only ...); `limit` caps the rows, not the counts.
-export function locationsPanel(ds, nowMs, { filter = '', limit = 100 } = {}) {
+// `filter` is a flag (duplicate_coordinates ...) or one problem (city_level_only ...); `limit` and `offset` choose the page of rows,
+// and the counts are of the whole queue.
+export function locationsPanel(ds, nowMs, { filter = '', limit = DEFAULT_PAGE_SIZE, offset = 0 } = {}) {
   const review = reviewLocations(ds, { asOf: iso(nowMs) });
   const codes = filter ? locationFilterCodes(filter) : null;
   const rows = codes ? review.rows.filter((r) => r.issues.some((i) => codes.includes(i.code))) : review.rows;
   return {
     ...locationsSummary(review), filter: filter || null,
     issues: Object.entries(review.issues).map(([code, spec]) => ({ code, ...spec })).filter((i) => i.count > 0),
-    total: rows.length, results: rows.slice(0, Math.min(Math.max(limit, 1), 500)),
+    total: rows.length, ...pageOfRows(rows, { limit, offset }),
   };
 }
 
@@ -195,7 +208,7 @@ export function investorRow(o, review, ds) {
 
 // The investor records a person is to look at: filtered by status ('open' is candidates and records needing review), by one
 // kind of problem, or by a word in the name, an alias or the website.
-export function listInvestors(ds, nowMs, { status = 'open', issue = '', q = '', limit = 200 } = {}) {
+export function listInvestors(ds, nowMs, { status = 'open', issue = '', q = '', limit = DEFAULT_PAGE_SIZE, offset = 0 } = {}) {
   const review = reviewInvestors(ds, { asOf: iso(nowMs) });
   const needle = String(q).toLowerCase().trim();
   const rank = { high: 0, medium: 1, low: 2, null: 3 };
@@ -208,7 +221,7 @@ export function listInvestors(ds, nowMs, { status = 'open', issue = '', q = '', 
   const byId = new Map(ds.investors.map((o) => [o.id, o]));
   const group = (g) => ({ ...g, members: g.ids.map((id) => ({ id, name: byId.get(id)?.name ?? id, status: byId.get(id)?.verification_status ?? null, website: byId.get(id)?.website ?? null })) });
   return {
-    total: rows.length, counts, summary: investorsSummary(review), vocab: INVESTOR_VOCAB, results: rows.slice(0, Math.min(Math.max(limit, 1), 500)),
+    total: rows.length, counts, summary: investorsSummary(review), vocab: INVESTOR_VOCAB, ...pageOfRows(rows, { limit, offset }),
     // What a person is to settle across the whole list, whatever the filter above: sources that disagree, firms and people
     // that look like one, and team records nobody has looked at for a year.
     conflicts: review.conflicts.items.map((c) => conflictView(ds, c)),
@@ -285,15 +298,15 @@ const FILTERS = {
   all: () => true,
 };
 
-export function listCandidates(ds, nowMs, { status = 'open', q = '', limit = 200 } = {}) {
+export function listCandidates(ds, nowMs, { status = 'open', q = '', limit = DEFAULT_PAGE_SIZE, offset = 0 } = {}) {
   const keep = FILTERS[status] ?? ((c) => c.status === status);
   const needle = String(q).toLowerCase().trim();
   const rows = ds.candidates
     .filter((c) => keep(c, nowMs) && (!needle || [c.name, c.website, ...c.aliases].some((s) => String(s ?? '').toLowerCase().includes(needle))))
-    .sort((a, b) => Date.parse(b.first_discovered_at) - Date.parse(a.first_discovered_at) || (b.confidence?.score ?? 0) - (a.confidence?.score ?? 0))
-    .map(candidateRow);
+    .sort((a, b) => Date.parse(b.first_discovered_at) - Date.parse(a.first_discovered_at) || (b.confidence?.score ?? 0) - (a.confidence?.score ?? 0));
   const counts = Object.fromEntries(Object.keys(FILTERS).map((k) => [k, ds.candidates.filter((c) => FILTERS[k](c, nowMs)).length]));
-  return { total: rows.length, counts, results: rows.slice(0, limit) };
+  const page = pageOfRows(rows, { limit, offset });
+  return { total: rows.length, counts, ...page, results: page.results.map(candidateRow) }; // only the page is turned into rows
 }
 
 export function candidateDetail(ds, id) {
@@ -317,8 +330,10 @@ export function searchCompanies(ds, q, limit = 8) {
 
 // ---------- what the tiles lead to ----------
 
-// The companies behind MISSING DATA, with what each lacks and whether its website is already waiting to be read.
-export function missingData(ds, nowMs) {
+// The companies behind MISSING DATA, with what each lacks and whether its website is already waiting to be read. `field` keeps the
+// ones that lack that fact; `total` is every company missing something, `count` the ones this list has, `counts` each fact's.
+export function missingData(ds, nowMs, { field = '', limit = DEFAULT_PAGE_SIZE, offset = 0 } = {}) {
+  if (field && !Object.hasOwn(MISSING_KEYS, field)) throw new BadRequestError(`field must be one of ${Object.keys(MISSING_KEYS).join(', ')}`);
   const audit = auditDataset(ds, { asOf: iso(nowMs).slice(0, 10) });
   const task = new Map(latestTasks(ds.enrichment_queue ?? []).filter((t) => t.kind === 'company').map((t) => [t.target_id, t]));
   const record = new Map(ds.companies.map((c) => [c.id, c]));
@@ -326,11 +341,18 @@ export function missingData(ds, nowMs) {
     id: c.id, name: c.name, website: c.website, city: c.city, on_map: isPin(record.get(c.id) ?? c), precision: record.get(c.id)?.location_precision ?? null, missing,
     enrichment: task.has(c.id) ? { status: task.get(c.id).status, outcome: task.get(c.id).result?.outcome ?? null } : null,
   })).sort((a, b) => b.missing.length - a.missing.length || a.name.localeCompare(b.name));
-  return { total: rows.length, counts: Object.fromEntries(Object.keys(MISSING_KEYS).map((k) => [k, rows.filter((r) => r.missing.includes(k)).length])), results: rows };
+  const kept = field ? rows.filter((r) => r.missing.includes(field)) : rows;
+  return {
+    total: rows.length, count: kept.length, field: field || null,
+    counts: Object.fromEntries(Object.keys(MISSING_KEYS).map((k) => [k, rows.filter((r) => r.missing.includes(k)).length])), ...pageOfRows(kept, { limit, offset }),
+  };
 }
 
 // The pairs of published companies behind POTENTIAL DUPLICATES (the other part is open candidates that look like a company).
-export const companyDuplicates = (ds) => findPossibleDuplicates(ds.companies).map((g) => ({ reason: g.reason, names: g.names, company_ids: g.company_ids }));
+export function companyDuplicates(ds, page = {}) {
+  const groups = findPossibleDuplicates(ds.companies).map((g) => ({ reason: g.reason, names: g.names, company_ids: g.company_ids }));
+  return { total: groups.length, ...pageOfRows(groups, page) };
+}
 
 // ---------- conflicts and suggestions ----------
 
@@ -340,17 +362,27 @@ function describeEvidence(ds, id) {
   return { id: e.id, confidence: e.confidence, verified_at: e.verified_at, note: e.note, source: { id: s.id, kind: s.kind, title: s.title, url: s.url, publisher: s.publisher, retrieved_at: s.retrieved_at } };
 }
 
-export function listConflicts(ds) {
+// What a list of conflicts or suggestions says about itself: how many there are, how many of each field, and the page asked for.
+function fieldPage(all, field, page) {
+  const counts = {};
+  for (const r of all) counts[r.field] = (counts[r.field] ?? 0) + 1;
+  const kept = field ? all.filter((r) => r.field === field) : all;
+  return { total: all.length, count: kept.length, field: field || null, counts, ...pageOfRows(kept, page) };
+}
+
+export function listConflicts(ds, { field = '', ...page } = {}) {
   const byId = new Map(ds.companies.map((c) => [c.id, c]));
-  return detectConflicts(ds).map((c) => ({
+  const found = fieldPage(detectConflicts(ds), field, page);
+  return { ...found, results: found.results.map((c) => ({
     company_id: c.company_id, company_name: c.company_name, field: c.field, kind: c.kind, stored: c.stored,
     location: LOCATION_FIELDS.includes(c.field), pinned: byId.get(c.company_id)?.verified === true, city: byId.get(c.company_id)?.city ?? null,
     sides: c.values.map((v) => ({ value: v.value, confidence: v.best_confidence, matches_stored: v.matches_stored, evidence: v.evidence_ids.map((id) => describeEvidence(ds, id)) })),
-  }));
+  })) };
 }
 
-export function listSuggestions(ds) {
-  return suggestionsOf(ds).map((s) => ({ ...s, evidence: s.evidence_ids.map((id) => describeEvidence(ds, id)) }));
+export function listSuggestions(ds, { field = '', ...page } = {}) {
+  const found = fieldPage(suggestionsOf(ds), field, page);
+  return { ...found, results: found.results.map((s) => ({ ...s, evidence: s.evidence_ids.map((id) => describeEvidence(ds, id)) })) };
 }
 
 // ---------- queue, imports, audit ----------
@@ -397,7 +429,10 @@ export function schedulerPanel(ds, nowMs, env = process.env) {
   };
 }
 
-export function auditPage(ds, { limit = 100, actor = null, action = null, target = null } = {}) {
+// The audit trail, newest first, a page at a time. It only grows, and every action adds a row at the front of this order, so the next
+// page is asked for by cursor (the last row seen), which a new row cannot move; an offset would repeat a row for each action taken
+// while the person reads. { total, results, limit, hasMore, nextCursor }.
+export function auditPage(ds, { limit = DEFAULT_PAGE_SIZE, cursor = null, actor = null, action = null, target = null } = {}) {
   const rows = [...(ds.audit_trail ?? [])].reverse().filter((r) => (!actor || r.actor === actor) && (!action || r.action === action || r.action.startsWith(`${action}.`)) && (!target || r.target.id === target));
-  return { total: rows.length, results: rows.slice(0, Math.min(limit, 500)) };
+  return { total: rows.length, ...cursorPage(rows, { limit: sizeOf(limit), cursor }, { fail: (m) => new BadRequestError(m) }) };
 }

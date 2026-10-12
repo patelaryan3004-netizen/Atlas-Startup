@@ -109,19 +109,19 @@ export function createAdminService({ dir, now = Date.now, fetcherFactory = () =>
     candidates: (actor, filters) => read(actor, (ds) => listCandidates(ds, now(), filters)),
     candidate: (actor, id) => read(actor, (ds) => candidateDetail(ds, idOf(id)) ?? (() => { throw new NotFoundError(`no candidate "${id}"`); })()),
     companies: (actor, q) => read(actor, (ds) => searchCompanies(ds, q)),
-    missing: (actor) => read(actor, (ds) => missingData(ds, now())),
-    locations: (actor, { filter = '', limit = 100 } = {}) => read(actor, (ds) => {
+    missing: (actor, page = {}) => read(actor, (ds) => missingData(ds, now(), page)),
+    locations: (actor, { filter = '', ...page } = {}) => read(actor, (ds) => {
       if (filter && !locationFilterCodes(filter)) throw new BadRequestError(`"${filter}" is not a kind of location problem`);
-      return locationsPanel(ds, now(), { filter, limit });
+      return locationsPanel(ds, now(), { filter, ...page });
     }),
     investors: (actor, filters = {}) => read(actor, (ds) => {
       if (filters.issue && !INVESTOR_ISSUES[filters.issue]) throw new BadRequestError(`"${filters.issue}" is not a kind of investor problem`);
       return listInvestors(ds, now(), filters);
     }),
     investor: (actor, id) => read(actor, (ds) => investorDetail(ds, idOf(id), now()) ?? (() => { throw new NotFoundError(`no investor "${id}"`); })()),
-    duplicates: (actor) => read(actor, (ds) => companyDuplicates(ds)),
-    conflicts: (actor) => read(actor, (ds) => listConflicts(ds)),
-    suggestions: (actor) => read(actor, (ds) => listSuggestions(ds)),
+    duplicates: (actor, page = {}) => read(actor, (ds) => companyDuplicates(ds, page)),
+    conflicts: (actor, page = {}) => read(actor, (ds) => listConflicts(ds, page)),
+    suggestions: (actor, page = {}) => read(actor, (ds) => listSuggestions(ds, page)),
     queue: (actor) => read(actor, (ds) => queuePanel(ds, now())),
     imports: (actor) => read(actor, (ds) => importsPanel(ds)),
     scheduler: (actor) => read(actor, (ds) => schedulerPanel(ds, now())),

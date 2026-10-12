@@ -30,11 +30,11 @@ describe('GET /api/startups, one page at a time', () => {
     expect((await request(f.app).get('/api/startups?limit=10&offset=500')).body.results).toEqual([]);
   });
 
-  it('uses a page of 48 when only an offset is given, and the full record unless a card is asked for', async () => {
+  it('uses a page of 20 when only an offset is given, and the full record unless a card is asked for', async () => {
     const f = await fixture(300);
     const res = await request(f.app).get('/api/startups?offset=0');
-    expect(res.body.limit).toBe(48);
-    expect(res.body.results).toHaveLength(48);
+    expect(res.body.limit).toBe(20);
+    expect(res.body.results).toHaveLength(20);
     const withAddress = res.body.results.find((r) => r.address);
     expect(withAddress).toBeDefined();
     expect(res.body.results[0]).toHaveProperty('founder_ids');
@@ -71,21 +71,49 @@ describe('GET /api/startups, one page at a time', () => {
   });
 });
 
-describe('GET /api/startups with no paging, as it always answered', () => {
-  it('is { total, count, results } with every match in full and in file order, and nothing about paging', async () => {
+describe('GET /api/startups with no paging parameters is still a page, never the whole table', () => {
+  it('is the first 20 in file order, with the paging fields, and nothing internal', async () => {
     const f = await fixture(300);
     const res = await request(f.app).get('/api/startups');
-    expect(Object.keys(res.body).sort()).toEqual(['count', 'results', 'total']);
-    expect(res.body.results.map((r) => r.id)).toEqual(f.rows.map((r) => r.id));
+    expect(Object.keys(res.body).sort()).toEqual(['count', 'hasMore', 'limit', 'nextOffset', 'offset', 'results', 'total']);
+    expect(res.body).toMatchObject({ total: 300, count: 300, offset: 0, limit: 20, hasMore: true, nextOffset: 20 });
+    expect(res.body.results.map((r) => r.id)).toEqual(f.rows.slice(0, 20).map((r) => r.id));
     for (const r of res.body.results) for (const key of INTERNAL_FIELDS) expect(r).not.toHaveProperty(key);
-    const filtered = await request(f.app).get('/api/startups?sector=Fintech&city=Sydney');
-    expect(filtered.body.results.map((r) => r.id)).toEqual(f.rows.filter((r) => r.sector === 'Fintech' && r.city === 'Sydney').map((r) => r.id));
   });
 
-  it('answers a sort without paging by sorting the whole result', async () => {
-    const f = await fixture(120);
-    const res = await request(f.app).get('/api/startups?sort=name');
-    expect(res.body.results.map((r) => r.name)).toEqual([...f.rows].sort(byName).map((r) => r.name));
+  it('reaches every company by following nextOffset, each once, in the order asked for', async () => {
+    const f = await fixture(130);
+    const seen = [];
+    let offset = 0;
+    let pages = 0;
+    for (;;) {
+      const res = await request(f.app).get(`/api/startups?sort=name&offset=${offset}`);
+      seen.push(...res.body.results.map((r) => r.name));
+      pages += 1;
+      if (res.body.nextOffset === null) { expect(res.body.hasMore).toBe(false); break; }
+      expect(res.body.nextOffset).toBe(offset + 20);
+      offset = res.body.nextOffset;
+    }
+    expect(pages).toBe(7); // 130 companies, 20 to a page
+    expect(seen).toEqual([...f.rows].sort(byName).map((r) => r.name));
+  });
+
+  it('pages a filter the same way, and says how many match', async () => {
+    const f = await fixture(300);
+    const res = await request(f.app).get('/api/startups?sector=Fintech&city=Sydney');
+    const expected = f.rows.filter((r) => r.sector === 'Fintech' && r.city === 'Sydney').map((r) => r.id);
+    expect(res.body.count).toBe(expected.length);
+    expect(res.body.results.map((r) => r.id)).toEqual(expected.slice(0, 20));
+  });
+
+  it('refuses a page size of 0, one over 200, and an offset that is not a whole number', async () => {
+    const f = await fixture(50);
+    for (const q of ['limit=0', 'limit=201', 'limit=abc', 'offset=-1', 'offset=1.5']) {
+      const res = await request(f.app).get(`/api/startups?${q}`);
+      expect(res.status, q).toBe(400);
+      expect(res.body.error, q).toMatch(/whole number/);
+    }
+    expect((await request(f.app).get('/api/startups?limit=200')).status).toBe(200);
   });
 });
 

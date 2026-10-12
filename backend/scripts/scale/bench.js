@@ -81,6 +81,8 @@ async function startServer({ arch, size, port, baseline, noCache = false }) {
 }
 
 // What to ask for. `legacy` ones are answered by both architectures.
+// (Since paging became the default, the current server answers the "list all" ones with the first 20 rows, so its figures for them are no longer
+// the whole directory: docs/scale/results.md was measured before.)
 function scenarios(rows) {
   const mid = rows[Math.floor(rows.length / 2)];
   const person = (rows.find((r) => r.founders?.length) ?? {}).founders?.[0] ?? 'Ava Smith';

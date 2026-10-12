@@ -2,32 +2,24 @@ import { Router } from 'express';
 import { HttpError } from '../catalog/respond.js';
 import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, areas, recordFor, sourcesFor, precisionOf } from '../catalog/catalog.js';
 import { describeLocation } from '../models/location.js';
+import { offsetParams, offsetInfo } from '../http/paging.js';
 
-const DEFAULT_LIMIT = 48;
 const MAX_LIMIT = 200;
 // How many sets of filters one /counts request may ask about, and how long one may be.
 const MAX_COUNTS = 50;
 const MAX_FILTER_CHARS = 2000;
 
-function whole(value, name, { min, max, fallback }) {
-  if (value === undefined) return fallback;
-  const n = Number(value);
-  if (!Number.isInteger(n) || n < min || n > max) throw new HttpError(400, `${name} must be a whole number from ${min} to ${max}`);
-  return n;
-}
-
 // GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no&verified=yes|no&name=
 //                   &precision=EXACT,SUBURB,CITY,STATE,UNKNOWN&state=NSW,VIC
 //
-// With none of the paging parameters the answer is what it always was: { total, count, results } with every match
-// in full, in file order. That is kept so nothing that already calls it breaks, but it is the expensive way to
-// ask, and nothing in the app does any more. With `limit` (1 to 200) or `offset` it is one page:
-//   sort=file|name|hiring|location|industry   view=card|full   facets=sector,city,stage,investor
-// and the answer also carries offset, limit, hasMore and the facet counts of the matches.
+// Always one page: `limit` (1 to 200, 20 unless asked) from `offset` (0 unless asked), offset paging because the list is
+// sorted by a column the visitor picks, filtered, and small enough to slice in memory. The answer is
+// { total, count, results, offset, limit, hasMore, nextOffset } (total is every company, count is the matches, nextOffset is
+// where the next page starts and null on the last), and carries the facet counts of all the matches when asked for them:
+//   sort=file|name|hiring|location|industry|stage|verified   view=card|full   facets=sector,city,stage,investor
 function list(snap, query) {
   const filters = readFilters(query);
   const matched = select(snap, filters);
-  const paged = query.limit !== undefined || query.offset !== undefined;
   const sort = query.sort === undefined ? 'file' : String(query.sort);
   if (!SORTS.includes(sort)) throw new HttpError(400, `sort must be one of ${SORTS.join(', ')}`);
   const view = query.view === undefined ? 'full' : String(query.view);
@@ -36,13 +28,11 @@ function list(snap, query) {
   const unknown = wanted.filter((f) => !FACETS.includes(f));
   if (unknown.length) throw new HttpError(400, `facets must be from ${FACETS.join(', ')}`);
 
-  const limit = paged ? whole(query.limit, 'limit', { min: 1, max: MAX_LIMIT, fallback: DEFAULT_LIMIT }) : matched.length;
-  const offset = paged ? whole(query.offset, 'offset', { min: 0, max: 1e7, fallback: 0 }) : 0;
+  const { limit, offset } = offsetParams(query, { max: MAX_LIMIT });
   const rows = pageOf(snap, matched, { sort, offset, limit });
   const source = view === 'card' ? snap.cards : snap.records;
   const results = Array.from(rows, (i) => source[i]);
-  const body = { total: snap.count, count: matched.length, results };
-  if (paged) Object.assign(body, { offset, limit, hasMore: offset + rows.length < matched.length });
+  const body = { total: snap.count, count: matched.length, results, ...offsetInfo({ offset, limit, shown: rows.length, total: matched.length }) };
   if (wanted.length) body.facets = facets(snap, matched, wanted);
   return body;
 }

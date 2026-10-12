@@ -19,18 +19,13 @@ async function getJson(url, { signal, failure }) {
   return res.json();
 }
 
-// The whole list in one go, every company in full. Kept for anything that still wants it, but the app does not:
-// at thousands of companies that is megabytes, so it pages (fetchStartupPage), draws the map from compact pins
-// (fetchMarkers) and asks for counts (fetchSummary, fetchCount, fetchCounts for several at once).
-export async function fetchStartups(filters = {}) {
-  const res = await fetch(`${BASE}/startups${toQuery(filters)}`);
-  if (!res.ok) throw new Error('Failed to fetch startups');
-  return res.json();
-}
+// There is no call for the whole list: the server answers every list a page at a time (20 unless asked, 200 at most), so the app
+// pages (fetchStartupPage), draws the map from compact pins (fetchMarkers) and asks for counts (fetchSummary, fetchCount,
+// fetchCounts for several at once).
 
-// One page of companies as cards, in the order asked for (name, hiring, location, industry). Resolves to
-// { total, count, results, offset, limit, hasMore, facets? }; `facets` is a list like 'sector,city,stage'.
-export function fetchStartupPage(filters = {}, { limit = 48, offset = 0, sort = 'name', facets, signal } = {}) {
+// One page of companies as cards, in the order asked for (name, hiring, location, industry, stage, verified). Resolves to
+// { total, count, results, offset, limit, hasMore, nextOffset, facets? }; `facets` is a list like 'sector,city,stage'.
+export function fetchStartupPage(filters = {}, { limit = 20, offset = 0, sort = 'name', facets, signal } = {}) {
   return getJson(`${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view: 'card', facets })}`, { signal, failure: 'Failed to fetch startups' });
 }
 
@@ -87,9 +82,9 @@ export function fetchPerson(name, { signal } = {}) {
 // ---------- the investor directory ----------
 
 // One page of published investors as cards, in the order asked for (name, portfolio, location). Resolves to
-// { total, count, results, offset, limit, hasMore, facets? }; `facets` is a list like 'type,stage,sector'. Filters are
+// { total, count, results, offset, limit, hasMore, nextOffset, facets? }; `facets` is a list like 'type,stage,sector'. Filters are
 // search, type, stage, sector, location, lead, active, chequeMin, chequeMax, and name (a list of exact names).
-export function fetchInvestors(filters = {}, { limit = 24, offset = 0, sort = 'name', facets, signal } = {}) {
+export function fetchInvestors(filters = {}, { limit = 20, offset = 0, sort = 'name', facets, signal } = {}) {
   return getJson(`${BASE}/investors${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, facets })}`, { signal, failure: 'Failed to fetch investors' });
 }
 

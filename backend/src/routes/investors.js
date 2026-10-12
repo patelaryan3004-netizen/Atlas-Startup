@@ -5,24 +5,18 @@ import path from 'node:path';
 import { HttpError } from '../catalog/respond.js';
 import { INVESTOR_SORTS, INVESTOR_FACETS, readInvestorFilters, selectInvestors, sortInvestors, investorFacets, investorMeta } from '../catalog/investors.js';
 import { requireAdminKey } from '../middleware/requireAdminKey.js';
+import { offsetParams, offsetInfo, cursorParams, cursorPage } from '../http/paging.js';
 
-const DEFAULT_LIMIT = 24;
 const MAX_LIMIT = 100;
 const CORRECTIONS_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'investor_corrections.json');
 const MAX_MESSAGE = 2000;
-
-function whole(value, name, { min, max, fallback }) {
-  if (value === undefined) return fallback;
-  const n = Number(value);
-  if (!Number.isInteger(n) || n < min || n > max) throw new HttpError(400, `${name} must be a whole number from ${min} to ${max}`);
-  return n;
-}
 
 // GET /api/investors?search=&type=venture_capital,angel_network&stage=Seed&sector=Climate&location=NSW,VIC&lead=lead
 //                   &active=active&chequeMin=250000&chequeMax=1000000&sort=name|portfolio|location&limit=&offset=&facets=type,stage
 //                   &name=Blackbird%20Ventures&name=OIF   (exact names or other names, repeated: how a company's investors find their pages)
 //
-// The published investors, as cards: { total, count, results, offset, limit, hasMore, facets? }. `search` looks in a
+// The published investors, as cards: { total, count, results, offset, limit, hasMore, nextOffset, facets? }, 20 to a page unless
+// `limit` (1 to 100) says otherwise. `search` looks in a
 // firm's name and aliases, its type, stages, sectors and place, the names of its published team and the companies in its
 // sourced portfolio. A cheque filter keeps only firms with a cheque range a source states in Australian dollars: a firm
 // that states none is not "in range", it is unknown, and is left out when the filter is on.
@@ -33,12 +27,11 @@ function list(snap, query) {
   if (!INVESTOR_SORTS.includes(sort)) throw new HttpError(400, `sort must be one of ${INVESTOR_SORTS.join(', ')}`);
   const wanted = query.facets === undefined ? [] : String(query.facets).split(',').filter(Boolean);
   if (wanted.some((f) => !INVESTOR_FACETS.includes(f))) throw new HttpError(400, `facets must be from ${INVESTOR_FACETS.join(', ')}`);
-  const limit = whole(query.limit, 'limit', { min: 1, max: MAX_LIMIT, fallback: DEFAULT_LIMIT });
-  const offset = whole(query.offset, 'offset', { min: 0, max: 1e6, fallback: 0 });
+  const { limit, offset } = offsetParams(query, { max: MAX_LIMIT, maxOffset: 1e6 });
 
   const matched = sortInvestors(snap, selectInvestors(snap, filters), sort);
   const rows = matched.slice(offset, offset + limit);
-  const body = { total: snap.count, count: matched.length, results: rows.map((i) => snap.cards[i]), offset, limit, hasMore: offset + rows.length < matched.length };
+  const body = { total: snap.count, count: matched.length, results: rows.map((i) => snap.cards[i]), ...offsetInfo({ offset, limit, shown: rows.length, total: matched.length }) };
   if (wanted.length) body.facets = investorFacets(snap, matched, wanted);
   return body;
 }
@@ -61,10 +54,12 @@ export function createInvestorsRouter({ respond, catalog, correctionsFile = CORR
   // A correction a visitor suggests. It is staged, never applied: a person reads it, checks it against a page, and edits the
   // record (which then needs a source) or turns it down. A route to CLAIM a profile is deliberately not here: there are no
   // accounts, and a claim needs a way to prove who is asking that this site does not have yet.
+  // The staged corrections, oldest first, a page at a time (a log that only grows, so by cursor): { count, results, limit, hasMore,
+  // nextCursor }, 20 to a page; ask for the next with cursor=<nextCursor>.
   router.get('/corrections', requireAdminKey, async (req, res, next) => {
     try {
       const rows = await readCorrections();
-      res.json({ count: rows.length, results: rows });
+      res.json({ count: rows.length, ...cursorPage(rows, cursorParams(req.query, { max: MAX_LIMIT })) });
     } catch (err) { next(err); }
   });
 

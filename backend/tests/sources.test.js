@@ -207,7 +207,26 @@ describe('submissions', () => {
     const fetchImpl = async (url, init) => { seen.push({ url, headers: init.headers }); return new Response(JSON.stringify({ count: 1, results: [row] }), { status: 200 }); };
     const source = createSubmissionsSource({ id: 'submissions', url: 'https://api.example/api/submissions', license: { basis: 'user_submission' } }, { ADMIN_KEY: 'k-123' });
     expect((await source.discover(ctxOf({ fetchImpl }))).map((l) => l.name)).toEqual(['Zorbly Pty Ltd']);
-    expect(seen).toEqual([{ url: 'https://api.example/api/submissions', headers: { 'x-admin-key': 'k-123', accept: 'application/json' } }]);
+    expect(seen).toEqual([{ url: 'https://api.example/api/submissions?limit=100', headers: { 'x-admin-key': 'k-123', accept: 'application/json' } }]);
+  });
+
+  it('follows the cursor to the end of the deployed queue, a page at a time, and takes a server that does not page as one page', async () => {
+    const pages = { '': { results: [row, { ...row, id: 's-2', name: 'Two Co' }], nextCursor: 'c1' }, c1: { results: [{ ...row, id: 's-3', name: 'Three Co' }], nextCursor: null } };
+    const urls = [];
+    const fetchImpl = async (url) => { urls.push(url); return new Response(JSON.stringify(pages[new URL(url).searchParams.get('cursor') ?? '']), { status: 200 }); };
+    const source = createSubmissionsSource({ id: 'submissions', url: 'https://api.example/api/submissions', license: { basis: 'user_submission' } }, { ADMIN_KEY: 'k' });
+    expect((await source.discover(ctxOf({ fetchImpl }))).map((l) => l.name)).toEqual(['Zorbly Pty Ltd', 'Two Co', 'Three Co']);
+    expect(urls).toEqual(['https://api.example/api/submissions?limit=100', 'https://api.example/api/submissions?limit=100&cursor=c1']);
+    const old = async () => new Response(JSON.stringify({ count: 1, results: [row] }), { status: 200 });
+    expect(await source.discover(ctxOf({ fetchImpl: old }))).toHaveLength(1);
+  });
+
+  it('stops at a bounded number of pages when a server never stops giving a cursor', async () => {
+    let calls = 0;
+    const fetchImpl = async () => { calls += 1; return new Response(JSON.stringify({ results: [], nextCursor: 'again' }), { status: 200 }); };
+    const source = createSubmissionsSource({ id: 'submissions', url: 'https://api.example/api/submissions', license: { basis: 'user_submission' } }, { ADMIN_KEY: 'k' });
+    expect(await source.discover(ctxOf({ fetchImpl }))).toEqual([]);
+    expect(calls).toBe(1000);
   });
 
   it('says what to set when the key is missing, and reports a failed request', async () => {

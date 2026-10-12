@@ -223,12 +223,12 @@ describe('what an action does beyond the one thing', () => {
       ],
     }));
     const service = createAdminService({ dir, now: () => AT });
-    expect((await service.conflicts(viewer)).map((c) => [c.company_id, c.field, c.sides.length])).toEqual([['forward', 'city', 2]]);
+    expect((await service.conflicts(viewer)).results.map((c) => [c.company_id, c.field, c.sides.length])).toEqual([['forward', 'city', 2]]);
     await service.resolveConflict(admin, { company_id: 'forward', field: 'city', winner: { value: 'San Francisco' }, record: { type: 'unconfirm' }, reason: 'YC says San Francisco.' });
     const ds = await readDataDir(dir);
     expect(ds.companies[0]).toMatchObject({ verified: false, city: 'Unknown', lat: null });
     expect(ds.evidence.map((e) => [e.value, e.status]).sort()).toEqual([['San Francisco', 'active'], ['Sydney', 'rejected']]);
-    expect(await service.conflicts(viewer)).toEqual([]);
+    expect(await service.conflicts(viewer)).toMatchObject({ total: 0, results: [], hasMore: false });
   });
 
   it('two people deciding at once both get their decision in, in turn', async () => {
@@ -308,11 +308,11 @@ describe('what the dashboard shows', () => {
 
   it('shows each conflict with every side and where it came from, and each suggestion with its evidence', async () => {
     const { service } = await build();
-    const [conflict] = await service.conflicts(viewer);
+    const [conflict] = (await service.conflicts(viewer)).results;
     expect(conflict).toMatchObject({ company_id: 'acme-robotics', field: 'founded_year', kind: 'sources_disagree', location: false });
     expect(conflict.sides.map((s) => s.value).sort()).toEqual([2019, 2021]);
     expect(conflict.sides[0].evidence[0].source).toMatchObject({ title: expect.any(String), url: expect.stringMatching(/^https/) });
-    const [suggestion] = await service.suggestions(viewer);
+    const [suggestion] = (await service.suggestions(viewer)).results;
     expect(suggestion).toMatchObject({ company_id: 'hex', field: 'description', value: 'Hex makes hexes.' });
     expect(suggestion.evidence[0].source.url).toBe('https://acme.com.au/');
   });
@@ -348,7 +348,7 @@ describe('what the dashboard shows', () => {
   it('leads from POTENTIAL DUPLICATES to the pairs of published companies that look alike', async () => {
     const dir = await makeDataDir(dataset([co('Acme', { website: 'https://acme.com.au' }), co('Acme Robotics', { website: 'https://acme.com.au/about' }), co('Zed', { website: 'https://zed.example' })]));
     const service = createAdminService({ dir, now: () => AT });
-    expect(await service.duplicates(viewer)).toEqual([{ reason: 'same website domain', names: ['Acme', 'Acme Robotics'], company_ids: ['acme', 'acme-robotics'] }]);
+    expect((await service.duplicates(viewer)).results).toEqual([{ reason: 'same website domain', names: ['Acme', 'Acme Robotics'], company_ids: ['acme', 'acme-robotics'] }]);
     expect((await service.overview(viewer)).detail.potential_duplicates.company_pairs).toBe(1);
   });
 

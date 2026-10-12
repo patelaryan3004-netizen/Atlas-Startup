@@ -22,7 +22,7 @@ describe('UnverifiedList', () => {
     expect(await screen.findByText('A')).toBeInTheDocument();
     expect(screen.getByText('C')).toBeInTheDocument();
     expect(screen.getByText('Unconfirmed location (2)')).toBeInTheDocument();
-    expect(fetchStartupPage).toHaveBeenCalledWith({ city: 'Sydney', search: '', verified: 'no' }, expect.objectContaining({ limit: 200, sort: 'name' }));
+    expect(fetchStartupPage).toHaveBeenCalledWith({ city: 'Sydney', search: '', verified: 'no' }, expect.objectContaining({ limit: 20, offset: 0, sort: 'name' }));
   });
 
   it('asks once when no filters are given, and does not go on asking after every render', async () => {
@@ -39,10 +39,25 @@ describe('UnverifiedList', () => {
     expect(await screen.findByText('Could not load this list right now.')).toBeInTheDocument();
   });
 
-  it('says it shows only the first part when there are more than it lists', async () => {
-    fetchStartupPage.mockResolvedValue({ total: 900, count: 450, results: [s('A'), s('B')] });
+  it('offers "Show more" with how many are left when there are more than it lists, and adds the next page after the ones shown', async () => {
+    fetchStartupPage.mockResolvedValueOnce({ total: 900, count: 450, results: [s('A'), s('B')], hasMore: true, nextOffset: 2 });
+    render(<UnverifiedList filters={{ city: 'Sydney' }} onClose={() => {}} />);
+    const more = await screen.findByRole('button', { name: 'Show more (448 left)' });
+    fetchStartupPage.mockResolvedValueOnce({ total: 900, count: 450, results: [s('C'), s('D')], hasMore: false, nextOffset: null });
+    await userEvent.click(more);
+    expect(await screen.findByText('D')).toBeInTheDocument();
+    expect(fetchStartupPage).toHaveBeenLastCalledWith({ city: 'Sydney', verified: 'no' }, expect.objectContaining({ limit: 20, offset: 2, sort: 'name' }));
+    expect(screen.getAllByRole('listitem').map((li) => li.querySelector('.uv-name').textContent)).toEqual(['A', 'B', 'C', 'D']);
+    expect(screen.queryByRole('button', { name: /Show more/ })).not.toBeInTheDocument();
+  });
+
+  it('keeps what it has and says so when the next page cannot load', async () => {
+    fetchStartupPage.mockResolvedValueOnce({ total: 900, count: 450, results: [s('A')], hasMore: true, nextOffset: 1 });
     render(<UnverifiedList onClose={() => {}} />);
-    expect(await screen.findByText('Showing the first 2 of 450.')).toBeInTheDocument();
+    fetchStartupPage.mockRejectedValueOnce(new Error('down'));
+    await userEvent.click(await screen.findByRole('button', { name: /Show more/ }));
+    expect(await screen.findByRole('button', { name: 'Could not load more: try again' })).toBeInTheDocument();
+    expect(screen.getByText('A')).toBeInTheDocument();
   });
 
   it('calls onClose when the close button is clicked', async () => {

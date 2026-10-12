@@ -19,6 +19,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { permissionsOf } from './roles.js';
 import { HttpError, UnauthorizedError, ForbiddenError, TooManyRequestsError, BadRequestError, NotFoundError } from './errors.js';
+import { offsetParams, cursorParams } from '../http/paging.js';
 
 const UI_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'ui');
 const LOOPBACK = ['127.0.0.1', 'localhost', '[::1]'];
@@ -36,7 +37,12 @@ export const SECURITY_HEADERS = {
 };
 
 const ah = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
-const intOr = (v, fallback) => { const n = Number.parseInt(v, 10); return Number.isFinite(n) ? n : fallback; };
+// Every list is a page: 20 unless `limit` says otherwise, 500 at most. Most are offset pages (limit and offset); the audit trail only grows,
+// so it is paged by cursor.
+const MAX_PAGE = 500;
+const fail = (message) => new BadRequestError(message);
+const pageOf = (req) => offsetParams(req.query, { max: MAX_PAGE, fail });
+const word = (v) => (v ? String(v) : '');
 
 export function createAdminApp({ service, authenticator, limiter, securityLog, uiDir = UI_DIR, logger = console }) {
   const app = express();
@@ -100,24 +106,24 @@ export function createAdminApp({ service, authenticator, limiter, securityLog, u
 
   get('/api/me', async (actor) => ({ name: actor.name, role: actor.role, permissions: permissionsOf(actor.role) }));
   get('/api/overview', (actor) => service.overview(actor));
-  get('/api/candidates', (actor, req) => service.candidates(actor, { status: String(req.query.status ?? 'open'), q: String(req.query.q ?? ''), limit: intOr(req.query.limit, 200) }));
+  get('/api/candidates', (actor, req) => service.candidates(actor, { status: String(req.query.status ?? 'open'), q: String(req.query.q ?? ''), ...pageOf(req) }));
   get('/api/candidates/:id', (actor, req) => service.candidate(actor, req.params.id));
   get('/api/companies', (actor, req) => service.companies(actor, String(req.query.q ?? '')));
-  get('/api/missing', (actor) => service.missing(actor));
-  get('/api/locations', (actor, req) => service.locations(actor, { filter: String(req.query.filter ?? ''), limit: intOr(req.query.limit, 100) }));
+  get('/api/missing', (actor, req) => service.missing(actor, { field: word(req.query.field), ...pageOf(req) }));
+  get('/api/locations', (actor, req) => service.locations(actor, { filter: String(req.query.filter ?? ''), ...pageOf(req) }));
   get('/api/investors', (actor, req) => service.investors(actor, {
-    status: String(req.query.status ?? 'open'), issue: String(req.query.issue ?? ''), q: String(req.query.q ?? ''), limit: intOr(req.query.limit, 200),
+    status: String(req.query.status ?? 'open'), issue: String(req.query.issue ?? ''), q: String(req.query.q ?? ''), ...pageOf(req),
   }));
   get('/api/investors/:id', (actor, req) => service.investor(actor, req.params.id));
-  get('/api/duplicates', (actor) => service.duplicates(actor));
-  get('/api/conflicts', (actor) => service.conflicts(actor));
-  get('/api/suggestions', (actor) => service.suggestions(actor));
+  get('/api/duplicates', (actor, req) => service.duplicates(actor, pageOf(req)));
+  get('/api/conflicts', (actor, req) => service.conflicts(actor, { field: word(req.query.field), ...pageOf(req) }));
+  get('/api/suggestions', (actor, req) => service.suggestions(actor, { field: word(req.query.field), ...pageOf(req) }));
   get('/api/queue', (actor) => service.queue(actor));
   get('/api/imports', (actor) => service.imports(actor));
   get('/api/scheduler', (actor) => service.scheduler(actor));
   get('/api/job', (actor) => service.job(actor));
   get('/api/audit', (actor, req) => service.audit(actor, {
-    limit: intOr(req.query.limit, 100), actor: req.query.actor ? String(req.query.actor) : null,
+    ...cursorParams(req.query, { max: MAX_PAGE, fail }), actor: req.query.actor ? String(req.query.actor) : null,
     action: req.query.action ? String(req.query.action) : null, target: req.query.target ? String(req.query.target) : null,
   }));
 
