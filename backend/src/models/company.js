@@ -32,6 +32,25 @@ export const HIRING_STATUSES = ['hiring', 'not_hiring'];
 // said so instead of linked. The address itself is kept: it is what a person re-checks, and the company may have moved.
 export const WEBSITE_STATUSES = ['unavailable'];
 export const EMPLOYEE_RANGES = ['1-10', '11-50', '51-200', '201-500', '501-1000', '1001-5000', '5001+'];
+
+// Optional facts about a company, like `events`: a record has the key only once a page has given the fact, and never an estimate.
+//   remote_policy       remote-global (work from anywhere) or remote-au (remote within Australia); a company with another policy has none
+//   tech_stack          the tools it says it builds with: a list of names
+//   team_size           how many people work there: a whole number, as a page states it
+//   last_funding_date   (a field of every record) when it last raised, YYYY, YYYY-MM or YYYY-MM-DD
+//   last_role_seen_at   when a role of its was last seen on a page of its own: an ISO-8601 UTC time
+// Each is served only where an evidence row from a public page backs it, with that page's address and the date it was checked
+// (catalog.js, provenance.js): a value no page backs is not public.
+export const REMOTE_POLICIES = ['remote-global', 'remote-au'];
+export const FACT_FIELDS = ['remote_policy', 'tech_stack', 'team_size', 'last_funding_date', 'last_role_seen_at'];
+// Team size in the buckets the directory filters by. A bucket ends where the next begins: 10 is "10-29", not also "under 10".
+export const TEAM_BUCKETS = [
+  { code: 'lt10', label: 'Under 10', min: 1, max: 9 },
+  { code: '10-29', label: '10–29', min: 10, max: 29 },
+  { code: '30-99', label: '30–99', min: 30, max: 99 },
+  { code: '100plus', label: '100+', min: 100, max: Infinity },
+];
+export const teamBucketOf = (size) => (Number.isInteger(size) && size >= 1 ? TEAM_BUCKETS.find((b) => size >= b.min && size <= b.max)?.code ?? null : null);
 export const AU_STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
 
 // What kind of document a source is. licensed_dataset and open_dataset are

@@ -33,7 +33,7 @@ function coloursOf(sectorColors) {
   return [...byColour];
 }
 
-function KeyPanel({ sectorColors, onClose }) {
+function KeyPanel({ sectorColors, showInstitutions, onClose }) {
   useEscapeClose(onClose);
   const colours = coloursOf(sectorColors);
   const sectorCount = Object.keys(sectorColors).length;
@@ -47,7 +47,7 @@ function KeyPanel({ sectorColors, onClose }) {
 
       <div className="mk-group">
         <h3 className="mk-label">A company</h3>
-        <Row mark={<Pin />}>A company, in a white ring. With no logo it shows its first letter on its sector’s colour.</Row>
+        <Row mark={<Pin />}>A company, in a white ring: its own logo when it has one, else its first letter on its sector’s colour. Click it for a card.</Row>
         <Row mark={<Pin extra="pin-approx" />}>A dashed edge: placed at the suburb, not the office.</Row>
         <Row mark={<Pin><span className="pin-hiring-dot" /></Pin>}>A green dot: hiring now (an open role was checked).</Row>
         <Row mark={<Pin><span className="pin-tracked-star">&#9733;</span></Pin>}>A gold star: a company you track (kept in this browser).</Row>
@@ -70,8 +70,8 @@ function KeyPanel({ sectorColors, onClose }) {
 
       <div className="mk-group">
         <h3 className="mk-label">Places</h3>
-        <Row mark={<span className="marker-cluster-inner cluster-medium">12</span>}>
-          A numbered circle: companies close together. Click to zoom in.
+        <Row mark={<span className="marker-cluster-inner cluster-small">12</span>}>
+          A numbered ring: companies close together. The bigger the ring, the more it holds. Click to zoom in.
         </Row>
         <p className="mk-sizes">
           <span><i className="mk-dot cluster-small" aria-hidden="true" />under {CLUSTER_MEDIUM}</span>
@@ -79,6 +79,7 @@ function KeyPanel({ sectorColors, onClose }) {
           <span><i className="mk-dot cluster-large" aria-hidden="true" />{CLUSTER_LARGE} or more</span>
         </p>
         <Row mark={<span className="mk-ring" />}>A dashed ring: companies known only to a city or a state, so no pin. Click its label to open them.</Row>
+        {showInstitutions && <Row mark={<span className="inst-pin"><span className="inst-initial">B</span></span>}>A rounded square: an investor&rsquo;s office, with the firm&rsquo;s first letter.</Row>}
       </div>
 
       <p className="mk-note">Names appear under the pins as you zoom in, where there is room for them.</p>
@@ -87,7 +88,7 @@ function KeyPanel({ sectorColors, onClose }) {
 }
 
 // The key to the map's marks, behind a button so it is out of the way until it is wanted. It is for the map: the list has no marks.
-export default function MapKey({ sectorColors = {} }) {
+export default function MapKey({ sectorColors = {}, showInstitutions = false }) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -102,7 +103,7 @@ export default function MapKey({ sectorColors = {} }) {
       >
         Key
       </button>
-      {open && <KeyPanel sectorColors={sectorColors} onClose={() => setOpen(false)} />}
+      {open && <KeyPanel sectorColors={sectorColors} showInstitutions={showInstitutions} onClose={() => setOpen(false)} />}
     </>
   );
 }

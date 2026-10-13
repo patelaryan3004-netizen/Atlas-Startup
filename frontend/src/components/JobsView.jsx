@@ -1,42 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
-import { logoUrl } from '../logo.js';
 import ConceptPreview from './ConceptPreview.jsx';
+import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
+import EntityCard, { Avatar } from './EntityCard.jsx';
 import IndexRow, { cardId } from './IndexRow.jsx';
 import SiteBrand from './SiteBrand.jsx';
 
 const PAGE = 24;
-
-function domainOf(website) {
-  if (!website) return null;
-  try {
-    return new URL(website).hostname.replace(/^www\./, '');
-  } catch (e) {
-    return null;
-  }
-}
-
-function JobCardLogo({ website, name }) {
-  const domain = domainOf(website);
-  const initial = (name || '?').trim().charAt(0).toUpperCase();
-  const [failed, setFailed] = useState(false);
-
-  if (!domain || failed) {
-    return <span className="job-card-logo-fallback">{initial}</span>;
-  }
-  return (
-    <img
-      className="job-card-logo"
-      src={logoUrl(domain, 64)}
-      width="36"
-      height="36"
-      alt=""
-      loading="lazy"
-      decoding="async"
-      onError={() => setFailed(true)}
-    />
-  );
-}
 
 const EMPTY_JOB_FILTERS = { sector: '', city: '', stage: '' };
 
@@ -54,7 +24,7 @@ const NO_OPTIONS = { sector: [], city: [], stage: [] };
 // The companies that are hiring, a page at a time. The filter options come from the whole hiring set (asked for
 // with the first page, before any filter is chosen), not from the site-wide meta endpoint and not from the page
 // on screen: every option shown is guaranteed to match at least one currently-open listing.
-export default function JobsView({ sectorColors, onClose }) {
+export default function JobsView({ onClose }) {
   const [jobs, setJobs] = useState([]);
   const [matches, setMatches] = useState(0);
   const [hiringTotal, setHiringTotal] = useState(0);
@@ -171,29 +141,26 @@ export default function JobsView({ sectorColors, onClose }) {
 
         <div className="jobs-grid">
           {jobs.map((s) => (
-            <div className="job-card" key={s.slug || s.name} id={cardId('job', s.slug || s.name)} tabIndex={-1}>
-              <div className="job-card-top">
-                <JobCardLogo website={s.website} name={s.name} />
-                <div>
-                  <h2>{s.name}</h2>
-                  <div className="job-card-meta">{s.city} · {s.stage}</div>
-                </div>
-              </div>
-
-              <span className="pc-badge" style={{ background: sectorColors[s.sector] || '#444', color: '#fff' }}>
-                {s.sector}
-              </span>
-              {!s.verified && <span className="badge-unverified">Unverified</span>}
-
-              {s.blurb && <p className="pc-desc">{s.blurb}</p>}
-
+            <EntityCard
+              key={s.slug || s.name}
+              level={2}
+              className="job-card"
+              id={cardId('job', s.slug || s.name)}
+              tabIndex={-1}
+              avatar={<Avatar name={s.name} website={s.website} />}
+              name={s.name}
+              aside={<UnverifiedBadge company={s} />}
+              blurb={s.blurb}
+              meta={[s.sectorFull || s.sector, s.stage, s.city]}
+            >
+              <VerifiedNote at={s.last_verified_at} />
               <div className="job-card-footer">
                 <ConceptPreview company={s} />
                 {(s.hiring_source_url || s.website) && (
                   <a className="taskbtn" href={s.hiring_source_url || s.website} target="_blank" rel="noopener noreferrer">{s.hiring_source_url ? 'View open roles' : 'Apply now'}</a>
                 )}
               </div>
-            </div>
+            </EntityCard>
           ))}
         </div>
 

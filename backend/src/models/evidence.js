@@ -36,7 +36,7 @@
 // 'high' requires verified_at, and verified_at requires a retrieved source, so a
 // claim cannot be marked verified against a page nobody opened.
 import {
-  AU_STATES, COMPANY_STATUSES, HIRING_STATUSES, EMPLOYEE_RANGES,
+  AU_STATES, COMPANY_STATUSES, HIRING_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES,
   ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum, slugify,
 } from './company.js';
 import { sameAddress } from './identity.js';
@@ -70,6 +70,10 @@ export const EVIDENCE_FIELDS = {
   funding_total: { cardinality: 'single', type: 'money' },
   last_funding_round: { cardinality: 'single', type: 'string' },
   last_funding_date: { cardinality: 'single', type: 'date' },
+  remote_policy: { cardinality: 'single', type: 'enum', values: REMOTE_POLICIES },
+  tech_stack: { cardinality: 'multi', type: 'string' },
+  team_size: { cardinality: 'single', type: 'count' },
+  last_role_seen_at: { cardinality: 'single', type: 'timestamp' },
   description: { cardinality: 'text', type: 'string' },
   founders: { cardinality: 'multi', type: 'string' },
   investors: { cardinality: 'multi', type: 'string' },
@@ -126,7 +130,8 @@ export function storedValue(company, field) {
     case 'hiring_status': return company.hiring_status ?? (company.hiring === false ? 'not_hiring' : null);
     case 'funding_total': return nothing(company.funding_total) ? null : { amount: company.funding_total, currency: null };
     case 'founders':
-    case 'investors': return Array.isArray(company[field]) && company[field].length ? company[field] : null;
+    case 'investors':
+    case 'tech_stack': return Array.isArray(company[field]) && company[field].length ? company[field] : null;
     default: {
       const v = company[STORED_KEY[field] ?? field];
       return nothing(v) ? null : v;
@@ -308,6 +313,8 @@ export function checkValue(spec, value) {
     case 'state': return AU_STATES.includes(value) ? null : `must be one of ${AU_STATES.join(', ')}`;
     case 'enum': return spec.values.includes(value) ? null : `must be one of ${spec.values.join(', ')}`;
     case 'year': return Number.isInteger(value) && value >= 1800 && value <= 2100 ? null : 'must be an integer year';
+    case 'count': return Number.isInteger(value) && value >= 1 ? null : 'must be a whole number from 1';
+    case 'timestamp': return typeof value === 'string' && ISO_RE.test(value) ? null : 'must be an ISO-8601 UTC timestamp';
     case 'date': return typeof value === 'string' && PARTIAL_DATE_RE.test(value) ? null : 'must be YYYY, YYYY-MM or YYYY-MM-DD';
     case 'money': {
       const ok = value && typeof value === 'object' && !Array.isArray(value)

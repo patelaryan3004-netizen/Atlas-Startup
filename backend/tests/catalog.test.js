@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createCatalog, readFilters, select, explain, pageOf, facets, summary, markers, suggest, recordFor, MARKER_FIELDS, CARD_FIELDS, buildSnapshot, SORTS, STAGE_ORDER, stageRank } from '../src/catalog/catalog.js';
 import { generateCompanies } from '../scripts/scale/fixtures.js';
 import { fixture, tempDir, removeTempDirs } from './helpers/catalog.js';
+import { co } from './helpers/locations.js';
 import { INTERNAL_FIELDS } from '../src/models/company.js';
 
 afterEach(removeTempDirs);
@@ -157,6 +158,18 @@ describe('facets, summary, markers', () => {
     expect(s.vouched.total).toBe(rows.filter((r) => r.vouches?.length).length);
   });
 
+  it('gives a pin the company\'s own https logo when it has one, and nothing for anything else', () => {
+    const rows = [
+      { ...co('Own', { lat: -33.8, lng: 151.2, logo: 'https://own.example/logo.png' }), id: 'own', slug: 'own' },
+      { ...co('Plain', { lat: -33.8, lng: 151.2, logo: 'http://plain.example/logo.png' }), id: 'plain', slug: 'plain' },
+      { ...co('None', { lat: -33.8, lng: 151.2 }), id: 'none', slug: 'none' },
+      { ...co('Junk', { lat: -33.8, lng: 151.2, logo: 'javascript:alert(1)' }), id: 'junk', slug: 'junk' },
+    ];
+    const snap = buildSnapshot(JSON.stringify(rows), 'v');
+    const byName = Object.fromEntries(markers(snap, select(snap, {})).map((m) => [m[1], m[MARKER_FIELDS.indexOf('logo')]]));
+    expect(byName).toEqual({ Own: 'https://own.example/logo.png', Plain: null, None: null, Junk: null });
+  });
+
   it('gives the map one compact tuple per company whose location is a point, and none for the rest', async () => {
     const f = await fixture(500);
     const snap = await f.catalog.snapshot();
@@ -164,10 +177,11 @@ describe('facets, summary, markers', () => {
     const pinned = f.rows.filter((r) => ['EXACT', 'SUBURB'].includes(r.location_precision));
     expect(items).toHaveLength(pinned.length);
     expect(pinned.length).toBeLessThan(f.rows.filter((r) => r.verified).length); // some are known only to their city
-    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked']);
+    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo']);
     expect(items[0]).toHaveLength(MARKER_FIELDS.length);
     const first = pinned[0];
-    const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked] = items[0];
+    const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo] = items[0];
+    expect(logo).toBeNull(); // a company with no logo of its own has none: the map draws its first letter
     expect([slug, name, lat, lng, sector, city, hiring]).toEqual([first.slug, first.name, first.lat, first.lng, first.sector, first.city, first.hiring ? 1 : 0]);
     expect(domain).toBe(first.website ? first.website.replace(/^https:\/\/www\./, '') : '');
     expect(precision).toBe(first.location_precision);

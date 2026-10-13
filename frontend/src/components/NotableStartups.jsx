@@ -14,7 +14,7 @@ export default function NotableStartups({ notable }) {
           </li>
         ))}
       </ol>
-      {notable.total > items.length && <p className="fdrawer-empty">The {items.length} oldest of {notable.total}.</p>}
+      {notable.total > items.length && <p className="panel-empty">The {items.length} oldest of {notable.total}.</p>}
     </>
   );
 }

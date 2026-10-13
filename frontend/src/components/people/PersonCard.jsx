@@ -1,6 +1,7 @@
 import { shortDate } from '../../freshness.js';
 import { AppLink } from '../investors/common.jsx';
 import { cardId } from '../IndexRow.jsx';
+import EntityCard, { Avatar } from '../EntityCard.jsx';
 import Vouch from '../Vouch.jsx';
 import RequestEdit from './RequestEdit.jsx';
 import '../../people.css';
@@ -31,19 +32,22 @@ const LINKS = [['website', 'Website'], ['linkedin', 'LinkedIn'], ['x', 'X']];
 // app already has for this person (an investor's), opened in the app. `level` is the heading level of the name.
 export default function PersonCard({ person, as: Tag = 'li', level = 2, onOpenInternal }) {
   const { id, name, title, orgName, city, whyFollow, links = {}, sources = [], verifiedAt, vouches = [], href, placeholder } = person;
-  const Heading = `h${level}`;
-  const role = [title, orgName].filter(Boolean).join(', ');
   const verified = verifiedAt ? shortDate(verifiedAt) : null;
   const found = LINKS.filter(([key]) => links[key]);
   return (
-    <Tag className="person-card" id={cardId('person', id)} tabIndex={-1}>
+    <EntityCard
+      as={Tag}
+      level={level}
+      className="person-card"
+      id={cardId('person', id)}
+      tabIndex={-1}
+      avatar={<Avatar name={name} />}
+      name={href && onOpenInternal ? <AppLink href={href} onOpen={() => onOpenInternal(href)}>{name}</AppLink> : name}
+      blurb={whyFollow}
+      meta={[title, orgName, city]}
+      metaLabel="Role, organisation and place"
+    >
       {placeholder && <p className="person-placeholder">Placeholder: not a real person. It is shown only on a machine that asks for placeholders.</p>}
-      <Heading className="person-name">
-        {href && onOpenInternal ? <AppLink href={href} onOpen={() => onOpenInternal(href)}>{name}</AppLink> : name}
-      </Heading>
-      {role && <p className="person-role">{role}</p>}
-      {city && <p className="person-city">{city}</p>}
-      {whyFollow && <p className="person-why">{whyFollow}</p>}
       {found.length > 0 && (
         <ul className="person-links" aria-label={`${name} online`}>
           {found.map(([key, label]) => <li key={key}><ExternalLink href={links[key]}>{label}</ExternalLink></li>)}
@@ -60,6 +64,6 @@ export default function PersonCard({ person, as: Tag = 'li', level = 2, onOpenIn
         {verified ? <span className="person-verified">Verified {verified}</span> : <span />}
         <RequestEdit entry={{ id, name, type: 'person' }} />
       </div>
-    </Tag>
+    </EntityCard>
   );
 }

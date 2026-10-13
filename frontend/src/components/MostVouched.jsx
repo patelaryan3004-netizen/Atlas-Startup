@@ -13,7 +13,7 @@ export default function MostVouched({ vouched }) {
           </li>
         ))}
       </ol>
-      {vouched.total > items.length && <p className="fdrawer-empty">The {items.length} most vouched of {vouched.total}.</p>}
+      {vouched.total > items.length && <p className="panel-empty">The {items.length} most vouched of {vouched.total}.</p>}
     </>
   );
 }

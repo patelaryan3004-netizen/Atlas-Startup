@@ -6,25 +6,29 @@ const bounds = { getWest: () => 110, getEast: () => 156, getSouth: () => -45, ge
 const mapInstance = {
   setView: vi.fn(function () { return this; }),
   remove: vi.fn(),
+  closePopup: vi.fn(),
   on: vi.fn((event, fn) => { handlers[event] = fn; }),
   getZoom: vi.fn(() => 17),
   getBounds: vi.fn(() => bounds),
   latLngToContainerPoint: vi.fn(([lat, lng]) => ({ x: (lng - 150) * 2000, y: (-33 - lat) * 2000 })),
   createPane: vi.fn(() => ({ style: {} })),
 };
-const tileLayerInstance = { addTo: vi.fn() };
+const tileLayerInstance = { addTo: vi.fn(function () { return this; }), setUrl: vi.fn() };
 const zoomControlInstance = { addTo: vi.fn() };
-// Two layer groups are made each time the map is: the groups (cities and states) first, the pins second.
+// Three layer groups are made each time the map is: the groups (cities and states) first, the pins second, the firms' offices third.
 const areaLayerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
 const layerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
+const instLayerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
+
+vi.mock('../../src/api.js', () => ({ fetchStartup: vi.fn() }));
 
 vi.mock('leaflet', () => {
   const marker = vi.fn((latlng, opts) => ({ latlng, opts, bindTooltip: vi.fn(), on: vi.fn(), addTo: vi.fn() }));
   const popup = vi.fn(() => {
-    const p = { setLatLng: vi.fn(() => p), setContent: vi.fn(() => p), openOn: vi.fn(() => p) };
+    const p = { setLatLng: vi.fn(() => p), setContent: vi.fn(() => p), openOn: vi.fn(() => p), update: vi.fn() };
     return p;
   });
-  const layerGroup = vi.fn(() => (layerGroup.mock.calls.length % 2 === 1 ? areaLayerInstance : layerInstance));
+  const layerGroup = vi.fn(() => { const n = layerGroup.mock.calls.length % 3; return n === 1 ? areaLayerInstance : n === 2 ? layerInstance : instLayerInstance; });
   return {
     default: {
       map: vi.fn(() => mapInstance),
@@ -39,11 +43,13 @@ vi.mock('leaflet', () => {
 });
 
 import L from 'leaflet';
+import { fetchStartup } from '../../src/api.js';
 import MapView from '../../src/components/MapView.jsx';
 
-// [slug, name, lat, lng, sector, city, hiring, domain] and, from a server that says how well a place is known, [precision, place, checked]
+// [slug, name, lat, lng, sector, city, hiring, domain] and, from a server that says how well a place is known, [precision, place, checked, logo]
 const pin = (slug, name, lat = -33.87, lng = 151.21, extra = {}) => [slug, name, lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? '',
-  ...(extra.precision ? [extra.precision, extra.place ?? '', extra.checked ?? 0] : [])];
+  ...(extra.precision || extra.logo ? [extra.precision ?? '', extra.place ?? '', extra.checked ?? 0, extra.logo ?? null] : [])];
+const firm = (id, name, lat = -33.87, lng = 151.21, extra = {}) => ({ id: `${id}#0`, institution: id, name, lat, lng, city: 'Sydney', state: 'NSW', place: 'Level 2, 12 Example Street, Sydney NSW 2000', office: 'Sydney', website: 'https://firm.example', href: null, ...extra });
 const SYDNEY_GROUP = { kind: 'CITY', key: 'CITY|Sydney|NSW', label: 'Sydney', city: 'Sydney', state: 'NSW', lat: -33.8688, lng: 151.2093, count: 42, sample: [{ slug: 'trace', name: 'Trace' }, { slug: 'truestate', name: 'TrueState' }] };
 const noop = () => {};
 const colourOf = (hex) => { const probe = document.createElement('div'); probe.style.borderColor = hex; return probe.style.borderColor; };
@@ -69,6 +75,7 @@ describe('MapView', () => {
     vi.clearAllMocks();
     cleanup();
     mapInstance.getZoom.mockReturnValue(17);
+    fetchStartup.mockResolvedValue(null);
     frames = new Map();
     frameCount = 0;
     vi.stubGlobal('requestAnimationFrame', (fn) => { frameCount += 1; frames.set(frameCount, fn); return frameCount; });
@@ -76,15 +83,16 @@ describe('MapView', () => {
   });
   afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
-  it('initializes the map, tile layer, zoom control, a layer for pins and a pane and layer for groups once on mount', () => {
+  it('initializes the map, tile layer, zoom control, a layer for pins, a pane and layer for groups and a layer for the firms once on mount', () => {
     render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
     expect(L.map).toHaveBeenCalledTimes(1);
     expect(L.tileLayer).toHaveBeenCalledTimes(1);
     expect(tileLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
     expect(zoomControlInstance.addTo).toHaveBeenCalledWith(mapInstance);
-    expect(L.layerGroup).toHaveBeenCalledTimes(2); // the groups of cities, and the pins
+    expect(L.layerGroup).toHaveBeenCalledTimes(3); // the groups of cities, the pins, and the firms' offices
     expect(layerInstance.addTo).toHaveBeenCalledWith(mapInstance);
     expect(areaLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
+    expect(instLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
     expect(mapInstance.createPane).toHaveBeenCalledWith('areas');
     expect(mapInstance.on).toHaveBeenCalledWith('moveend', expect.any(Function));
   });
@@ -112,33 +120,49 @@ describe('MapView', () => {
     expect(icons().at(-1).html.querySelector('.pin-fallback').style.background).toBe(colourOf('#444'));
   });
 
-  it('renders the favicon service\'s logo, and hides it if that fails, when the company has a website and the map is zoomed in', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
+  it('draws the company\'s OWN logo when it has one, and asks no third party for any: not for a company that has only a website', () => {
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com', logo: 'https://canva.example/logo.png' })]} sectorColors={{}} onSelectStartup={noop} />);
     const img = icons().at(-1).html.querySelector('img');
-    expect(img.src).toBe('https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=96');
-    expect(img.src).not.toContain('clearbit');
+    expect(img.src).toBe('https://canva.example/logo.png');
     expect(img.decoding).toBe('async');
-    img.onerror();
-    expect(img.style.display).toBe('none');
+    expect(img.alt).toBe('');
+    cleanup();
+    vi.clearAllMocks();
+
+    // a website is not a logo: no favicon service, no other service, is asked for one
+    render(<MapView markers={[pin('b', 'B', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
+    expect(icons().at(-1).html.querySelector('img')).toBeNull();
+    expect(icons().at(-1).html.querySelector('.pin-fallback').textContent).toBe('B');
+    const src = JSON.stringify(L.divIcon.mock.calls.map((c) => c[0].html.outerHTML));
+    expect(src).not.toMatch(/gstatic|favicon|clearbit|google/i);
   });
 
-  it('shows the logo only once it has loaded and is a real logo: too small a picture counts as no answer', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
+  it('falls back to the first letter when the company\'s own logo cannot be loaded', () => {
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/gone.png' })]} sectorColors={{}} onSelectStartup={noop} />);
+    const html = icons().at(-1).html;
+    const img = html.querySelector('img');
+    img.onerror();
+    expect(img.style.display).toBe('none');
+    expect(html.querySelector('.pin-fallback').textContent).toBe('A'); // the letter was underneath all along
+  });
+
+  it('shows the logo only once it has loaded: the letter shows until a picture has arrived', () => {
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/logo.png' })]} sectorColors={{}} onSelectStartup={noop} />);
     const img = icons().at(-1).html.querySelector('img');
-    expect(img.classList.contains('pin-logo-ready')).toBe(false); // the letter shows until a picture has arrived
+    expect(img.classList.contains('pin-logo-ready')).toBe(false);
     Object.defineProperty(img, 'naturalWidth', { value: 96, configurable: true });
     img.onload();
     expect(img.classList.contains('pin-logo-ready')).toBe(true);
 
-    render(<MapView markers={[pin('b', 'B', -37.81, 144.96, { domain: 'tiny.example' })]} sectorColors={{}} onSelectStartup={noop} />);
-    const small = icons().at(-1).html.querySelector('img');
-    Object.defineProperty(small, 'naturalWidth', { value: 16, configurable: true });
-    small.onload(); // answered with a stand-in: no logo
-    expect(small.style.display).toBe('none');
-    expect(small.classList.contains('pin-logo-ready')).toBe(false);
+    render(<MapView markers={[pin('b', 'B', -37.81, 144.96, { logo: 'https://b.example/empty.png' })]} sectorColors={{}} onSelectStartup={noop} />);
+    const empty = icons().at(-1).html.querySelector('img');
+    Object.defineProperty(empty, 'naturalWidth', { value: 0, configurable: true });
+    empty.onload(); // loaded, but with nothing in it
+    expect(empty.style.display).toBe('none');
+    expect(empty.classList.contains('pin-logo-ready')).toBe(false);
   });
 
-  it('draws no logo when the company has no website', () => {
+  it('draws no logo for a company that has none: its first letter, on its sector\'s colour', () => {
     render(<MapView markers={[pin('z', 'Zeta')]} sectorColors={{}} onSelectStartup={noop} />);
     const { html } = icons().at(-1);
     expect(html.querySelector('img')).toBeNull();
@@ -146,20 +170,21 @@ describe('MapView', () => {
   });
 
   it('draws no logos when zoomed out, or when too many pins are on screen, so the page does not fetch hundreds of images', () => {
+    const own = (i) => ({ logo: `https://p${i}.example/logo.png` });
     mapInstance.getZoom.mockReturnValue(12);
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, own(0))]} sectorColors={{}} onSelectStartup={noop} />);
     expect(icons().at(-1).html.querySelector('img')).toBeNull();
     cleanup();
     vi.clearAllMocks();
 
     mapInstance.getZoom.mockReturnValue(13);
-    const few = Array.from({ length: 10 }, (_, i) => pin(`p${i}`, `P${i}`, -33.8 + i * 0.02, 151.2, { domain: `p${i}.com` }));
+    const few = Array.from({ length: 10 }, (_, i) => pin(`p${i}`, `P${i}`, -33.8 + i * 0.02, 151.2, own(i)));
     render(<MapView markers={few} sectorColors={{}} onSelectStartup={noop} />);
     expect(icons().every((i) => i.html.querySelector('img'))).toBe(true);
     cleanup();
     vi.clearAllMocks();
 
-    const many = Array.from({ length: 61 }, (_, i) => pin(`p${i}`, `P${i}`, -33.0 + i * 0.02, 151.2, { domain: `p${i}.com` }));
+    const many = Array.from({ length: 61 }, (_, i) => pin(`p${i}`, `P${i}`, -33.0 + i * 0.02, 151.2, own(i)));
     render(<MapView markers={many} sectorColors={{}} onSelectStartup={noop} />);
     flushFrames();
     expect(icons()).toHaveLength(61);
@@ -187,18 +212,94 @@ describe('MapView', () => {
     expect(b.querySelector('.pin-tracked-star')).toBeNull();
   });
 
-  it('calls onSelectStartup with what the pin knows when a pin is clicked', () => {
-    const onSelectStartup = vi.fn();
-    render(<MapView markers={[pin('acme-ai', 'Acme AI', -33.87, 151.21, { sector: 'AI', city: 'Sydney', hiring: 1, domain: 'acme.ai' })]} sectorColors={{}} onSelectStartup={onSelectStartup} />);
-    const [event, handler] = lastMarker().on.mock.calls[0];
-    expect(event).toBe('click');
-    handler();
-    expect(onSelectStartup).toHaveBeenCalledWith({ slug: 'acme-ai', name: 'Acme AI', lat: -33.87, lng: 151.21, sector: 'AI', city: 'Sydney', hiring: true, verified: true, website: 'https://acme.ai' });
-  });
+  describe('what a click on a pin opens', () => {
+    const open = (extra = {}, props = {}) => {
+      render(<MapView markers={[pin('acme-ai', 'Acme AI', -33.87, 151.21, { sector: 'AI', city: 'Sydney', hiring: 1, domain: 'acme.ai', ...extra })]} sectorColors={{}} onSelectStartup={vi.fn()} {...props} />);
+      const [event, handler] = lastMarker().on.mock.calls[0];
+      expect(event).toBe('click');
+      handler();
+      const popup = L.popup.mock.results.at(-1).value;
+      return { popup, card: popup.setContent.mock.calls[0][0] };
+    };
 
-  it('does not fail when a pin is clicked and nobody is listening (the landing page map)', () => {
-    render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} />);
-    expect(() => lastMarker().on.mock.calls[0][1]()).not.toThrow();
+    it('is a small card, not the whole company: its name, whether it is hiring, one way in, and the rest under "More"', () => {
+      const { popup, card } = open();
+      expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ className: 'pin-popup' }));
+      expect(popup.setLatLng).toHaveBeenCalledWith([-33.87, 151.21]);
+      expect(popup.openOn).toHaveBeenCalledWith(mapInstance);
+      expect(card.querySelector('.pin-pop-name').textContent).toBe('Acme AI');
+      expect(card.querySelector('.hiring-badge').textContent).toBe('● Hiring now');
+      expect([...card.querySelectorAll('button.pin-pop-cta')].map((b) => b.textContent)).toEqual(['View company']); // one call to action
+      const more = card.querySelector('details.pin-pop-more');
+      expect(more.querySelector('summary').textContent).toBe('More');
+      expect(more.open).toBe(false); // folded until asked for
+      expect(more.textContent).toContain('AI'); // the sector is in there
+    });
+
+    it('opens the company, with what the pin knows, from its one call to action, and shuts the card', () => {
+      const onSelectStartup = vi.fn();
+      const { card } = open({ precision: 'EXACT', place: '1 George Street, Sydney', checked: 1 }, { onSelectStartup });
+      expect(onSelectStartup).not.toHaveBeenCalled(); // a click on the pin alone opens the card, not the company
+      card.querySelector('.pin-pop-cta').click();
+      expect(mapInstance.closePopup).toHaveBeenCalled();
+      expect(onSelectStartup).toHaveBeenCalledWith(expect.objectContaining({ slug: 'acme-ai', name: 'Acme AI', hiring: true, website: 'https://acme.ai', location_precision: 'EXACT' }));
+    });
+
+    it('asks the server for the company\'s record and fills in its one line, its hiring state and the rest when it arrives', async () => {
+      fetchStartup.mockResolvedValue({ slug: 'acme-ai', name: 'Acme AI', blurb: 'Makes things for people.', stage: 'Seed', hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z', last_verified_at: new Date().toISOString(), website: 'https://acme.ai' });
+      const { card } = open({ hiring: 0 });
+      expect(fetchStartup).toHaveBeenCalledWith('acme-ai');
+      expect(card.querySelector('.pin-pop-blurb').hidden).toBe(true); // nothing is written for a company until its record says it
+      await Promise.resolve();
+      await Promise.resolve();
+      expect(card.querySelector('.pin-pop-blurb').textContent).toBe('Makes things for people.');
+      expect(card.querySelector('.pin-pop-blurb').hidden).toBe(false);
+      expect(card.querySelector('.hiring-badge').textContent).toBe('Hiring (checked 5 Oct)');
+      expect(card.querySelector('.hiring-badge').className).toContain('hiring-badge-off');
+      const more = card.querySelector('.pin-pop-more').textContent;
+      expect(more).toContain('Seed');
+      expect(more).toContain('acme.ai');
+    });
+
+    it('asks the map to keep the card clear of the search box again when it grows: when the record arrives, and when "More" is unfolded', async () => {
+      fetchStartup.mockResolvedValue({ slug: 'acme-ai', name: 'Acme AI', blurb: 'Makes things for people.', stage: 'Seed' });
+      const { popup, card } = open({ hiring: 0 });
+      expect(popup.update).not.toHaveBeenCalled();
+      expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ autoPanPaddingTopLeft: [24, 150], autoPanPaddingBottomRight: [24, 96] }));
+      await Promise.resolve();
+      await Promise.resolve();
+      expect(popup.update).toHaveBeenCalledTimes(1); // the record
+      document.body.append(card);
+      card.querySelector('.pin-pop-more').dispatchEvent(new Event('toggle')); // does not bubble: caught on the way down
+      expect(popup.update).toHaveBeenCalledTimes(2);
+      card.remove();
+    });
+
+    it('says what the pin knows and nothing it does not when the record cannot be fetched', async () => {
+      fetchStartup.mockRejectedValue(new Error('down'));
+      const { card } = open({ hiring: 0 });
+      await Promise.resolve();
+      await Promise.resolve();
+      expect(card.querySelector('.pin-pop-name').textContent).toBe('Acme AI');
+      expect(card.querySelector('.pin-pop-blurb').hidden).toBe(true);
+      expect(card.querySelector('.pin-pop-status').hidden).toBe(true); // it is not said to be hiring, or not, of a company nobody has read
+    });
+
+    it('does not fail when the card is opened and nobody is listening (the landing page map)', () => {
+      render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} />);
+      expect(() => lastMarker().on.mock.calls[0][1]()).not.toThrow();
+      const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      expect(() => card.querySelector('.pin-pop-cta').click()).not.toThrow();
+    });
+
+    it('builds the card as text, whatever the company is called', () => {
+      const evil = '<img src=x onerror=alert(1)>';
+      render(<MapView markers={[pin('e', evil)]} sectorColors={{}} onSelectStartup={noop} />);
+      lastMarker().on.mock.calls[0][1]();
+      const bad = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      expect(bad.querySelector('img')).toBeNull();
+      expect(bad.querySelector('.pin-pop-name').textContent).toBe(evil);
+    });
   });
 
   it('binds a lightweight hover tooltip with name, sector and city, built as text and never as HTML', () => {
@@ -223,7 +324,7 @@ describe('MapView', () => {
       const cluster = icons().find((i) => i.className === 'marker-cluster-custom');
       expect(cluster.html.className).toBe('marker-cluster-inner cluster-small');
       expect(cluster.html.textContent).toBe('2');
-      expect(cluster.iconSize).toEqual([40, 40]);
+      expect(cluster.iconSize).toEqual([44, 44]); // the same width as a pin
     });
 
     it('zooms in on a cluster when it is clicked', () => {
@@ -240,7 +341,16 @@ describe('MapView', () => {
       mapInstance.getZoom.mockReturnValue(3);
       const crowd = Array.from({ length: 60 }, (_, i) => pin(`p${i}`, `P${i}`, -33.87 + (i % 10) * 0.001, 151.2 + Math.floor(i / 10) * 0.001));
       render(<MapView markers={crowd} sectorColors={{}} onSelectStartup={noop} />);
-      expect(icons().find((i) => i.className === 'marker-cluster-custom').html.className).toContain('cluster-large');
+      const large = icons().find((i) => i.className === 'marker-cluster-custom');
+      expect(large.html.className).toContain('cluster-large');
+      expect(large.iconSize).toEqual([62, 62]); // a bigger ring, not another colour
+    });
+
+    it('draws every size in the one accent: a number in a ring, never an amber or orange fill', () => {
+      mapInstance.getZoom.mockReturnValue(3);
+      const crowd = Array.from({ length: 60 }, (_, i) => pin(`p${i}`, `P${i}`, -33.87 + (i % 10) * 0.001, 151.2 + Math.floor(i / 10) * 0.001));
+      render(<MapView markers={crowd} sectorColors={{}} onSelectStartup={noop} />);
+      for (const { html } of icons().filter((i) => i.className === 'marker-cluster-custom')) expect(html.style.background).toBe('');
     });
 
     it('draws only what is in view: a handful of elements however many companies there are', () => {
@@ -392,10 +502,13 @@ describe('MapView', () => {
       expect(content.textContent).toContain(evil);
     });
 
-    it('opens a company from its pin with how well its place is known already in hand', () => {
+    it('opens a company from its card with how well its place is known already in hand, and says it on the card', () => {
       const onSelectStartup = vi.fn();
       render(<MapView markers={[pin('acme', 'Acme', -33.88, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' })]} sectorColors={{}} onSelectStartup={onSelectStartup} />);
       lastMarker().on.mock.calls[0][1]();
+      const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      expect(card.querySelector('.pin-pop-more').textContent).toContain('Location: suburb-level');
+      card.querySelector('.pin-pop-cta').click();
       expect(onSelectStartup).toHaveBeenCalledWith(expect.objectContaining({ slug: 'acme', location_precision: 'SUBURB', location: { precision: 'SUBURB', place: 'Surry Hills, Sydney', quality: 'Location: suburb-level' } }));
     });
   });
@@ -572,4 +685,133 @@ describe('MapView', () => {
       expect(namesOn().at(-1)).toEqual(['Alpha', true]);
     });
   });
-});
+
+  describe('the firms\' offices', () => {
+    const firmMarkers = () => L.marker.mock.results.map((r) => r.value).filter((m) => m.opts.icon.opts.html?.classList?.contains('inst-pin'));
+
+    it('draws each office as a rounded square with the firm\'s initial, in a layer of its own, never as a company\'s pin', () => {
+      render(<MapView markers={[pin('a', 'A')]} institutionPins={[firm('blackbird', 'Blackbird'), firm('airtree', 'AirTree', -37.81, 144.96)]} sectorColors={{}} onSelectStartup={noop} />);
+      const marks = firmMarkers();
+      expect(marks).toHaveLength(2);
+      expect(marks[0].addTo).toHaveBeenCalledWith(instLayerInstance);
+      const html = marks[0].opts.icon.opts.html;
+      expect(html.className).toBe('inst-pin');
+      expect(html.querySelector('.inst-initial').textContent).toBe('B');
+      expect(html.classList.contains('custom-pin-badge')).toBe(false);
+      expect(html.querySelector('img')).toBeNull();
+      expect(L.marker).toHaveBeenCalledWith([-33.87, 151.21], expect.any(Object));
+    });
+
+    it('names an office under its square like a company\'s, from the same zoom and only where it fits', () => {
+      mapInstance.getZoom.mockReturnValue(7);
+      const { container } = render(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} sectorColors={{}} onSelectStartup={noop} />);
+      const label = firmMarkers()[0].opts.icon.opts.html.querySelector('.pin-label');
+      expect(label.textContent).toBe('Blackbird');
+      expect(label.getAttribute('aria-hidden')).toBe('true');
+      expect(container.querySelector('#map')).toHaveClass('show-pin-labels');
+      expect(label.classList.contains('pin-label-on')).toBe(true);
+      mapInstance.getZoom.mockReturnValue(6);
+      handlers.moveend();
+      flushFrames();
+      expect(container.querySelector('#map')).not.toHaveClass('show-pin-labels');
+    });
+
+    it('opens a small card: the name, where, one way in (its page in the app when it has one), and the rest under "More"', () => {
+      const onOpenInternal = vi.fn();
+      render(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird', -33.87, 151.21, { href: '/investors/blackbird' })]} sectorColors={{}} onSelectStartup={noop} onOpenInternal={onOpenInternal} />);
+      firmMarkers()[0].on.mock.calls[0][1]();
+      expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ className: 'pin-popup' }));
+      const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      expect(card.querySelector('.pin-pop-name').textContent).toBe('Blackbird');
+      expect(card.querySelector('.pin-pop-blurb').textContent).toBe('Sydney · Sydney');
+      const cta = card.querySelector('a.pin-pop-cta');
+      expect(cta.textContent).toBe('View investor');
+      expect(card.querySelectorAll('.pin-pop-cta')).toHaveLength(1);
+      expect(card.querySelector('.pin-pop-more').open).toBe(false);
+      expect(card.querySelector('.pin-pop-more').textContent).toContain('Level 2, 12 Example Street');
+      cta.click();
+      expect(onOpenInternal).toHaveBeenCalledWith('/investors/blackbird');
+      expect(mapInstance.closePopup).toHaveBeenCalled();
+    });
+
+    it('sends a firm with no page of its own to its website, in a new tab that cannot reach back', () => {
+      render(<MapView markers={[]} institutionPins={[firm('quiet', 'Quiet Fund')]} sectorColors={{}} onSelectStartup={noop} />);
+      firmMarkers()[0].on.mock.calls[0][1]();
+      const cta = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0].querySelector('a.pin-pop-cta');
+      expect(cta.textContent).toBe('Visit website');
+      expect(cta.getAttribute('href')).toBe('https://firm.example');
+      expect(cta.target).toBe('_blank');
+      expect(cta.rel).toBe('noopener noreferrer');
+    });
+
+    it('draws no firm when there are none, and none when its layer is switched off', () => {
+      const { rerender } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(firmMarkers()).toHaveLength(0);
+      rerender(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(firmMarkers()).toHaveLength(1);
+      instLayerInstance.clearLayers.mockClear();
+      rerender(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} showInstitutions={false} sectorColors={{}} onSelectStartup={noop} />);
+      expect(instLayerInstance.clearLayers).toHaveBeenCalled();
+      expect(firmMarkers()).toHaveLength(1); // nothing new was drawn
+    });
+
+    it('is not disturbed by the companies changing, and does not disturb them', () => {
+      const pins = [firm('blackbird', 'Blackbird')]; // the page holds the firms in state: the same array until the server sends others
+      const { rerender } = render(<MapView markers={[pin('a', 'A')]} institutionPins={pins} sectorColors={{}} onSelectStartup={noop} />);
+      instLayerInstance.clearLayers.mockClear();
+      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} institutionPins={pins} sectorColors={{}} onSelectStartup={noop} />);
+      expect(instLayerInstance.clearLayers).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('the layers', () => {
+    it('draws nothing of the companies while their layer is off, and the pins again when it is back on', () => {
+      const markers = [pin('a', 'A'), pin('b', 'B', -37.81, 144.96)];
+      const { rerender } = render(<MapView markers={markers} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(3); // two pins and a group
+      layerInstance.clearLayers.mockClear();
+      areaLayerInstance.clearLayers.mockClear();
+      rerender(<MapView markers={markers} areas={[SYDNEY_GROUP]} showCompanies={false} sectorColors={{}} onSelectStartup={noop} />);
+      expect(layerInstance.clearLayers).toHaveBeenCalled();
+      expect(areaLayerInstance.clearLayers).toHaveBeenCalled();
+      expect(L.marker).toHaveBeenCalledTimes(3); // nothing was drawn while it was off
+      rerender(<MapView markers={markers} areas={[SYDNEY_GROUP]} showCompanies sectorColors={{}} onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(6); // the pins and the group, again
+    });
+
+    it('keeps the firms on while the companies are off', () => {
+      const pins = [firm('blackbird', 'Blackbird')];
+      const markers = [pin('a', 'A')];
+      const { rerender } = render(<MapView markers={markers} institutionPins={pins} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={markers} institutionPins={pins} showCompanies={false} sectorColors={{}} onSelectStartup={noop} />);
+      expect(instLayerInstance.addTo).toHaveBeenCalled();
+      expect(L.marker.mock.results.map((r) => r.value).filter((m) => m.opts.icon.opts.html?.classList?.contains('inst-pin'))).toHaveLength(1);
+    });
+  });
+
+  describe('the basemap', () => {
+    it('opens dark: the free tiles inverted, with no new tile layer made for it', () => {
+      const { container } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+      expect(container.querySelector('#map')).toHaveClass('osm-inverted');
+      expect(container.querySelector('#map').dataset.basemap).toBe('dark');
+      expect(L.tileLayer).toHaveBeenCalledTimes(1);
+      expect(L.tileLayer.mock.calls[0][0]).toBe('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'); // no Mapbox token: the free tiles
+    });
+
+    it('opens light when asked: the same tiles as they are', () => {
+      const { container } = render(<MapView markers={[]} basemap="light" sectorColors={{}} onSelectStartup={noop} />);
+      expect(container.querySelector('#map')).not.toHaveClass('osm-inverted');
+      expect(container.querySelector('#map').dataset.basemap).toBe('light');
+    });
+
+    it('switches between them without making the map again', () => {
+      const { container, rerender } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} basemap="light" sectorColors={{}} onSelectStartup={noop} />);
+      expect(container.querySelector('#map')).not.toHaveClass('osm-inverted');
+      expect(container.querySelector('#map').dataset.basemap).toBe('light');
+      rerender(<MapView markers={[]} basemap="dark" sectorColors={{}} onSelectStartup={noop} />);
+      expect(container.querySelector('#map')).toHaveClass('osm-inverted');
+      expect(L.map).toHaveBeenCalledTimes(1);
+      expect(L.tileLayer).toHaveBeenCalledTimes(1);
+    });
+  });});

@@ -137,4 +137,39 @@ describe('the filters that are on, as chips', () => {
     render(<ActiveFilters filters={{ ...EMPTY, stage: 'Seed' }} onChange={() => {}} onClear={() => {}} />);
     expect(screen.queryByRole('button', { name: 'Clear all' })).not.toBeInTheDocument();
   });
+
+  describe('the filters for the optional facts', () => {
+    it('has a chip for a remote policy, each tool, a team size and new this week, in words', () => {
+      const chips = activeChips({ ...EMPTY, remote: 'remote-au', tech: 'Go,TypeScript', team: '10-29,100plus', fresh: 'week' });
+      expect(chips.map((c) => `${c.group}: ${c.text}`)).toEqual([
+        'Remote policy: Remote in Australia', 'Tech stack: Go', 'Tech stack: TypeScript', 'Team size: 10–29', 'Team size: 100+', 'New: New this week',
+      ]);
+      expect(activeChips({ ...EMPTY, remote: 'remote-global' })[0].text).toBe('Remote, worldwide');
+    });
+
+    it('takes off one tool or one team size at a time, and a remote policy or "new" whole', () => {
+      const on = { ...EMPTY, remote: 'remote-au', tech: 'Go,Rust,TypeScript', team: 'lt10,30-99', fresh: 'week' };
+      expect(withoutChip(on, { key: 'tech', value: 'Rust' }).tech).toBe('Go,TypeScript');
+      expect(withoutChip(on, { key: 'team', value: 'lt10' }).team).toBe('30-99');
+      expect(withoutChip(on, { key: 'remote', value: 'remote-au' }).remote).toBe('');
+      expect(withoutChip(on, { key: 'fresh', value: 'week' }).fresh).toBe('');
+      expect(withoutChip(on, { key: 'tech', value: 'Rust' }).team).toBe('lt10,30-99'); // nothing else changes
+    });
+
+    it('shows "Seed to Series A" as one chip, since that is what was chosen, and takes it off whole', () => {
+      const on = { ...EMPTY, stage: 'Seed,Early,Series A' };
+      expect(activeChips(on).map((c) => c.text)).toEqual(['Seed to Series A']);
+      expect(withoutChip(on, activeChips(on)[0]).stage).toBe('');
+    });
+
+    it('shows several stages chosen one by one as a chip each, and takes off one at a time', () => {
+      const on = { ...EMPTY, stage: 'Seed,Series B' };
+      expect(activeChips(on).map((c) => c.text)).toEqual(['Seed', 'Series B']);
+      expect(withoutChip(on, { key: 'stage', value: 'Seed' }).stage).toBe('Series B');
+    });
+
+    it('copes with filters from before they existed', () => {
+      expect(activeChips({ search: '', sector: '', city: '' })).toEqual([]);
+    });
+  });
 });

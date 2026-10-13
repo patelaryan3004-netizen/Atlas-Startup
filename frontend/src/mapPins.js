@@ -10,9 +10,13 @@ export const MAX_LOGOS = 60; // ...but only while few pins are on screen, so the
 
 const STACK_PLACES = 4; // at the deepest zoom, pins within about 10 metres are one stack: their points cannot be told apart
 
-export const CLUSTER_MEDIUM = 10; // a cluster of this many companies is drawn amber...
-export const CLUSTER_LARGE = 50; // ...and of this many orange (the map's key says so)
+// A cluster is a ring like a pin's, in the same dark fill with the one accent for its number; its size says how many it holds: a cluster of
+// this many companies is drawn a size up...
+export const CLUSTER_MEDIUM = 10;
+export const CLUSTER_LARGE = 50; // ...and of this many a size up again (the map's key says so)
 export const clusterSize = (count) => (count < CLUSTER_MEDIUM ? 'small' : count < CLUSTER_LARGE ? 'medium' : 'large');
+// How wide each size is on screen, in pixels (the pin is 44).
+export const CLUSTER_PX = { small: 44, medium: 52, large: 62 };
 
 // How well a company's place is known, in the words the site uses for it. The server says the same (models/location.js):
 // a pin carries only the precision and whether the address was checked, and the words are made here.
@@ -124,7 +128,7 @@ const PIN_RADIUS = 22; // the pin is 44px across
 const LABEL_TOP = 16; // the name card starts a little way up under the ring (styles.css .pin-label)
 const LABEL_HEIGHT = 26;
 const LABEL_MAX_WIDTH = 170;
-const CLUSTER_RADIUS = 20; // a cluster's circle is 40px across
+const CLUSTER_RADIUS = 26; // a cluster's circle is 44 to 62px across: room is kept for the middle size
 const LABEL_GAP = 2; // clear air between a label and whatever is beside it
 export const MAX_LABELS = 150; // however many pins are on screen, the page names at most this many
 export const labelWidth = (text) => Math.min(LABEL_MAX_WIDTH, Math.round(String(text).length * 7.2) + 22);

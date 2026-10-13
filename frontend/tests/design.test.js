@@ -67,6 +67,129 @@ describe('the design system, in the hand-written CSS', () => {
   });
 });
 
+describe('the one card', () => {
+  it('is drawn the same for a company, a person and a firm: the shared box, a two-line description, a row with a dot between', () => {
+    expect(styles).toMatch(/\.entity-blurb\{[^}]*-webkit-line-clamp:2/);
+    // the dot ends the item before it, so a row that wraps never starts a line with one
+    expect(styles).toMatch(/\.meta-row li:not\(:last-child\)::after\{[^}]*content:'\\00b7'/);
+    expect(styles).toMatch(/\n\.sr-only\{[^}]*clip-path:inset\(50%\)/); // text for a screen reader is hidden on every page, not only the investors'
+    expect(styles).toMatch(/\.entity-avatar\{[^}]*border-radius:50%/);
+    // it hovers like every card: the accent border and a lift, which stop for a visitor who has asked for less motion
+    expect(styles).toMatch(/\.entity-card:hover\{[^}]*border-color:rgb\(var\(--accent-rgb\) \/ \.45\)[^}]*translateY\(-2px\)/);
+    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{[^@]*\.entity-card:hover\{ transform:none; \}/);
+    // the six places a company, person or firm is drawn all use it
+    for (const file of ['components/ListView.jsx', 'components/JobsView.jsx', 'components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx', 'LandingPage.jsx']) {
+      expect(readFileSync(path.join(src, file), 'utf8'), file).toContain('<EntityCard');
+    }
+  });
+});
+
+describe('the map\'s pins', () => {
+  it('is a 44px circle in a white 3px ring with a soft shadow, and a hover that grows it by a tenth', () => {
+    expect(styles).toMatch(/\.custom-pin-badge\{[^}]*width:44px;height:44px[^}]*border:3px solid #fff;border-radius:50%[^}]*box-shadow:0 3px 10px/);
+    expect(styles).toMatch(/\.custom-pin-badge:hover\{transform:scale\(1\.1\)/);
+    expect(styles).toMatch(/\.inst-pin:hover\{transform:scale\(1\.1\)/);
+  });
+
+  it('puts the name under the pin on a white card with a 10px radius, in bold 12px', () => {
+    const label = /\.pin-label\{([^}]*)\}/.exec(styles)[1];
+    expect(label).toMatch(/background:#fff/);
+    expect(label).toMatch(/border-radius:10px/);
+    expect(label).toMatch(/font-size:12px/);
+    expect(label).toMatch(/font-weight:700/);
+  });
+
+  it('draws a cluster as a ring like a pin, sized by how many it holds, in the one accent: no amber, no orange, no second green', () => {
+    const cluster = /\.marker-cluster-inner\{([^}]*)\}/.exec(styles)[1];
+    expect(cluster).toMatch(/border:3px solid #fff/);
+    expect(cluster).toMatch(/color:var\(--accent-ink\)/);
+    expect(styles).toMatch(/\.cluster-large\{width:62px;height:62px/);
+    expect(styles).not.toMatch(/#fbbf24|#f97316|#4ade80/i);
+  });
+
+  it('draws a firm as a rounded square with the accent as its outline, so it is not taken for a company', () => {
+    const inst = /\.inst-pin\{([^}]*)\}/.exec(styles)[1];
+    expect(inst).toMatch(/border-radius:12px/);
+    expect(inst).toMatch(/border:3px solid var\(--accent\)/);
+  });
+
+  it('opens a pin as a card in the app\'s own colours with one accent button, and keeps its focus ring', () => {
+    expect(styles).toMatch(/\.pin-popup \.leaflet-popup-content-wrapper\{[^}]*background:var\(--panel\)/);
+    expect(styles).toMatch(/\.pin-pop-cta\{[^}]*background:var\(--accent\)/);
+    expect(styles).toMatch(/\.pin-pop-cta:focus-visible[^{]*\{outline:2px solid var\(--accent\)/);
+  });
+
+  it('has a light basemap whose group rings are dark, so they do not vanish on it', () => {
+    expect(styles).toMatch(/#map\[data-basemap="light"\] \.area-ring\{border-color:rgba\(20,24,26/);
+  });
+
+  it('stops the pins\' and the controls\' motion for a visitor who has asked for less', () => {
+    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.inst-pin,\.marker-cluster-inner,\.ml-btn\{transition:none;\}\n  \.inst-pin:hover,\.marker-cluster-inner:hover,\.custom-pin-badge:hover\{transform:none;\}/);
+  });
+});
+
+describe('the panel on the left and the news pill', () => {
+  it('is a 340px panel under the header that slides in, and stops sliding for a visitor who has asked for less', () => {
+    expect(styles).toMatch(/:root\{--panel-w:340px;--header-h:57px;\}/);
+    const panel = /\.map-panel\{([^}]*)\}/.exec(styles)[1];
+    expect(panel).toMatch(/width:var\(--panel-w\)/);
+    expect(panel).toMatch(/max-width:88vw/);
+    expect(panel).toMatch(/top:var\(--header-h\)/); // starts under the header, which stays in reach
+    expect(panel).toMatch(/z-index:700/); // over everything the map floats (the news pill 600, the Map / List switch 500)
+    expect(styles).toMatch(/\nheader\{\n  position:absolute;top:0;left:0;right:0;z-index:750;/); // the header, and its menu, stay above the panel and its scrim
+    expect(panel).toMatch(/animation:map-panel-in/);
+    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.map-panel\{animation:none;\}/);
+  });
+
+  it('stands beside the map on a wide screen (no scrim) and moves the map\'s controls over; below that it covers the map under a scrim', () => {
+    expect(styles).toMatch(/\.map-panel-scrim\{[^}]*position:absolute;top:var\(--header-h\);[^}]*z-index:690/);
+    const wide = /@media \(min-width:900px\)\{([\s\S]*?)\n\}/.exec(styles)[1];
+    expect(wide).toMatch(/\.map-panel-scrim\{display:none;\}/);
+    for (const id of ['#fToggle', '#siteFooter', '#mapKeyToggle', '#mapKey', '#mapLayers', '.floating-search']) expect(wide).toContain(`#app.panel-open ${id}`);
+    expect(wide).toMatch(/left:calc\(var\(--panel-w\) \+ 24px\)/);
+    expect(styles).toMatch(/@media \(max-width:640px\)\{\n  :root\{--header-h:55px;\}\n  \.map-panel\{width:min\(88vw,360px\);\}/);
+  });
+
+  it('keeps a visible focus ring on its tabs', () => {
+    expect(styles).toMatch(/\.map-panel-tab:focus-visible\{outline:2px solid var\(--accent\)/);
+  });
+
+  it('makes room in the header between a phone and a laptop: the hiring count goes under 1200px, the links go into the menu under 900px', () => {
+    expect(styles).toMatch(/@media \(max-width:1199px\)\{ \.nav-hiring-hint\{display:none;\} \.nav-link\{padding:8px 10px;\} \}/);
+    expect(styles).toMatch(/@media \(max-width:899px\)\{ \.nav-center\{display:none;\} \.hdr-menu-mobile-nav\{display:flex;flex-direction:column;gap:2px;\} \}/);
+  });
+
+  it('shows the news as a small pill while shut: the card\'s frame is dropped, and the pill has a focus ring', () => {
+    expect(styles).toMatch(/#newsTicker\.nt-collapsed\{[^}]*background:none;border:none[^}]*box-shadow:none;overflow:visible/);
+    const pill = /\.nt-pill\{([^}]*)\}/.exec(styles)[1];
+    expect(pill).toMatch(/min-height:36px/);
+    expect(pill).toMatch(/border-radius:var\(--radius-pill\)/);
+    expect(styles).toMatch(/\.nt-pill:focus-visible\{outline:2px solid var\(--accent\)/);
+  });
+});
+
+describe('the table, the switch and the strip of what is new', () => {
+  it('scrolls a table that is too wide for the screen inside its own box, so the page does not scroll sideways', () => {
+    expect(styles).toMatch(/\.startup-table-wrap\{[^}]*overflow-x:auto/);
+    expect(styles).toMatch(/\.startup-table\{[^}]*width:100%;border-collapse:collapse/);
+  });
+
+  it('keeps a visible focus ring on what can be pressed in them', () => {
+    for (const selector of ['\\.st-sort', '\\.st-open', '\\.startup-layout-btn', '\\.new-week-item']) {
+      expect(styles).toMatch(new RegExp(`${selector}:focus-visible\\{[^}]*outline:2px solid var\\(--accent\\)`));
+    }
+  });
+
+  it('makes the cards\' avatar smaller in a table row and in the strip', () => {
+    expect(styles).toMatch(/\.startup-table \.entity-avatar\{width:28px;height:28px/);
+    expect(styles).toMatch(/\.new-week-item \.entity-avatar\{width:28px;height:28px/);
+  });
+
+  it('lays the list to the right of the panel when it is open beside the map', () => {
+    expect(styles).toMatch(/#app\.panel-open #startupListView\{padding-left:calc\(var\(--panel-w\) \+ 24px\);\}/);
+  });
+});
+
 describe('the colours', () => {
   const ground = token(styles, '--paper');
   const panel = token(styles, '--panel');
@@ -171,7 +294,8 @@ describe('the grid', () => {
     expect(landing).toMatch(/\.l-grid\{[^}]*grid-template-columns: repeat\(12, minmax\(0, 1fr\)\)/);
     expect(hero).toMatch(/\.hero-copy\{ grid-column: 1 \/ span 5; \}/);
     expect(hero).toMatch(/\.hero \.eco\{ grid-column: 6 \/ -1; \}/);
-    expect(landing).toMatch(/\.landing-job-grid > \*\{ grid-column: span 3; \}/); // four across
+    // three across on a desktop, so six cards are two full rows (and each "Load more" adds two more)
+    expect(landing).toMatch(/\.landing-job-grid > \*, \.landing-list-grid > \*, \.landing-people-grid > \*\{ grid-column: span 4; \}/);
   });
 });
 

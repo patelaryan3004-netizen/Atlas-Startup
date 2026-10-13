@@ -29,6 +29,12 @@ export function fetchStartupPage(filters = {}, { limit = 20, offset = 0, sort = 
   return getJson(`${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view: 'card', facets })}`, { signal, failure: 'Failed to fetch startups' });
 }
 
+// The address of a list as a spreadsheet: the same filters and sort as the list, every company they pick (not a page), as a CSV the
+// browser saves. It is a link, not a request: the server sends the file as an attachment.
+export function exportUrl(filters = {}, sort = 'name') {
+  return `${BASE}/startups/export.csv${toQuery({ ...filters, sort })}`;
+}
+
 // The map's pins for a set of filters: { total, count, pinned, fields, items, areas, unplaced }. Each item is a compact array in
 // the order of `fields`, for a company whose place is a point (an exact office or a suburb). `areas` are the companies known
 // only to a city or a state, one group per place ({ kind, label, city, state, lat, lng, count, sample }), drawn as a group and
@@ -133,6 +139,12 @@ export function fetchPeople(filters = {}, { limit = 20, offset = 0, signal } = {
 // The firms, beside the investor pages that back them: the same shape as fetchPeople.
 export function fetchInstitutions(filters = {}, { limit = 20, offset = 0, signal } = {}) {
   return getJson(`${BASE}/institutions${toQuery({ ...filters, limit: String(limit), offset: String(offset) })}`, { signal, failure: 'Failed to fetch institutions' });
+}
+
+// The firms' offices drawn on the map: { count, items: [{ id, institution, name, lat, lng, city, state, place, office, website, href }] }.
+// None until institutions_seed.json is in place and its addresses are settled.
+export function fetchInstitutionPins({ signal } = {}) {
+  return getJson(`${BASE}/institutions/pins`, { signal, failure: 'Failed to fetch the institutions on the map' });
 }
 
 // The curated lists that have someone on them: { results: [{ id, title, description, curator, type, count }] }.

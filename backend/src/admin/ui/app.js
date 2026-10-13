@@ -118,6 +118,7 @@ const FIELD = {
   website: 'Website', sector: 'Sector', city: 'City', state: 'State', address: 'Address', description: 'Description', founders: 'Founders',
   founded_year: 'Founded year', investors: 'Investors', hiring_status: 'Hiring', stage: 'Stage', last_funding_round: 'Last round',
   last_funding_date: 'Last round date', funding_total: 'Funding total', abn: 'ABN', acn: 'ACN',
+  remote_policy: 'Remote policy', tech_stack: 'Tech stack', team_size: 'Team size', last_role_seen_at: 'Last role seen',
   name: 'Name', aliases: 'Other names', investor_type: 'Type', inclusion_basis: 'Why it is listed', headquarters_city: 'Headquarters', country: 'Country',
   other_offices: 'Other offices', stages: 'Stages', sectors: 'Sectors', geographies: 'Geographies', typical_cheque: 'Cheque size', typical_cheque_min: 'Cheque, from',
   typical_cheque_max: 'Cheque, to', cheque_currency: 'Cheque currency', lead_or_follow: 'Lead or follow', active_status: 'Investing', application_url: 'How to apply',

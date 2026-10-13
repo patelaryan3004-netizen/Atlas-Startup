@@ -1,5 +1,42 @@
 import { describe, it, expect } from 'vitest';
-import { verifiedLabel, shortDate, nextEvent, isBlank, hiringLabel, dayMonth } from '../src/freshness.js';
+import { verifiedLabel, shortDate, nextEvent, isBlank, hiringLabel, dayMonth, freshOf, freshText, partialDateText } from '../src/freshness.js';
+
+describe('what is new about a company', () => {
+  const NOW = Date.parse('2026-10-13T02:00:00Z');
+  const day = (d) => new Date(NOW - d * 86400000).toISOString().slice(0, 10);
+  const time = (d) => new Date(NOW - d * 86400000).toISOString();
+
+  it('is a raise, or a role seen on a page of the company\'s own, in the last 14 days: the newer of the two', () => {
+    expect(freshOf({ last_funding_date: day(5) }, NOW)).toEqual({ kind: 'funding', at: day(5) });
+    expect(freshOf({ last_role_seen_at: time(2) }, NOW)).toEqual({ kind: 'role', at: time(2) });
+    expect(freshOf({ last_funding_date: day(10), last_role_seen_at: time(2) }, NOW).kind).toBe('role');
+    expect(freshOf({ last_funding_date: day(1), last_role_seen_at: time(9) }, NOW).kind).toBe('funding');
+  });
+
+  it('is nothing for what is older, what has no day, what is in the future, or what is not a date', () => {
+    expect(freshOf({ last_funding_date: day(15) }, NOW)).toBeNull();
+    expect(freshOf({ last_funding_date: '2026-10' }, NOW)).toBeNull(); // a month is not "lately"
+    expect(freshOf({ last_funding_date: '2026' }, NOW)).toBeNull();
+    expect(freshOf({ last_funding_date: day(-9), last_role_seen_at: time(-9) }, NOW)).toBeNull();
+    expect(freshOf({ last_role_seen_at: 'soon' }, NOW)).toBeNull();
+    expect(freshOf({}, NOW)).toBeNull();
+    expect(freshOf(null, NOW)).toBeNull();
+  });
+
+  it('says what is new in a few words, and nothing when there is nothing', () => {
+    expect(freshText({ kind: 'funding', at: '2026-10-03' })).toBe('Raised 3 Oct');
+    expect(freshText({ kind: 'role', at: '2026-10-09T23:30:00Z' })).toBe('New role 10 Oct');
+    expect(freshText(null)).toBeNull();
+    expect(freshText({ kind: 'role', at: 'x' })).toBeNull();
+  });
+
+  it('writes a date as exactly as it is known: a year, a month, a day', () => {
+    expect(partialDateText('2026')).toBe('2026');
+    expect(partialDateText('2026-08')).toBe('Aug 2026');
+    expect(partialDateText('2026-10-30')).toBe('30 Oct 2026');
+    for (const bad of ['2026-13', '30 Sep', '', null, undefined, 2026]) expect(partialDateText(bad)).toBeNull();
+  });
+});
 
 describe('what a company says about hiring', () => {
   it('writes a day without its year, in Sydney time', () => {

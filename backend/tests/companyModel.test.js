@@ -272,6 +272,32 @@ describe('validateDataset', () => {
     expect(validateDataset(ds).join('\n')).toMatch(/lat and lng must both be set or both null/);
   });
 
+  describe('the optional facts: remote policy, tech stack, team size, last role seen', () => {
+    const withFacts = (facts) => { const ds = valid(); Object.assign(ds.companies[0], facts); return validateDataset(ds).join('\n'); };
+
+    it('accepts a record with none of them, and one with all of them', () => {
+      expect(withFacts({})).toBe('');
+      expect(withFacts({ remote_policy: 'remote-au', tech_stack: ['TypeScript', 'Go'], team_size: 42, last_role_seen_at: '2026-10-10T03:00:00Z', last_funding_date: '2026-09-30' })).toBe('');
+      expect(withFacts({ remote_policy: null, tech_stack: null, team_size: null, last_role_seen_at: null })).toBe('');
+    });
+
+    it('rejects a remote policy that is not one of the two the directory knows', () => {
+      expect(withFacts({ remote_policy: 'hybrid' })).toMatch(/remote_policy must be one of remote-global, remote-au/);
+    });
+
+    it('rejects a tech stack that is not a list of distinct, non-empty names', () => {
+      for (const bad of ['Go', [], [''], ['Go', 'Go'], ['Go', 3]]) expect(withFacts({ tech_stack: bad })).toMatch(/tech_stack must be a list/);
+    });
+
+    it('rejects a team size that is not a whole number from 1', () => {
+      for (const bad of [0, -3, 4.5, '12']) expect(withFacts({ team_size: bad })).toMatch(/team_size must be a whole number/);
+    });
+
+    it('rejects a last role seen that is not an ISO-8601 UTC time', () => {
+      expect(withFacts({ last_role_seen_at: '10 Oct' })).toMatch(/last_role_seen_at must be an ISO-8601/);
+    });
+  });
+
   it('rejects a founder id that no longer matches the founders list', () => {
     const ds = valid();
     ds.companies[0].founders = ['Someone Else'];

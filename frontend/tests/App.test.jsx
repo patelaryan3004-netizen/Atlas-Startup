@@ -1,11 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, within, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../src/api.js', () => ({
   fetchStartupPage: vi.fn(),
+  exportUrl: vi.fn(() => '/api/startups/export.csv'),
   fetchSummary: vi.fn(),
   fetchMarkers: vi.fn(),
+  fetchInstitutionPins: vi.fn(),
   fetchStartup: vi.fn(),
   fetchStartupsByName: vi.fn(),
   fetchPerson: vi.fn(),
@@ -17,8 +19,18 @@ vi.mock('../src/api.js', () => ({
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ markers, areas = [], sectorColors, onSelectStartup, onViewArea }) => (
-    <div data-testid="map-view" data-count={markers.length} data-areas={areas.map((a) => `${a.label}:${a.count}`).join(',')} data-colors={Object.keys(sectorColors).join(',')}>
+  default: ({ markers, areas = [], sectorColors, onSelectStartup, onViewArea, institutionPins = [], showCompanies, showInstitutions, basemap, onOpenInternal }) => (
+    <div
+      data-testid="map-view"
+      data-count={markers.length}
+      data-areas={areas.map((a) => `${a.label}:${a.count}`).join(',')}
+      data-colors={Object.keys(sectorColors).join(',')}
+      data-institutions={institutionPins.length}
+      data-show-companies={String(showCompanies)}
+      data-show-institutions={String(showInstitutions)}
+      data-basemap={basemap}
+    >
+      <button onClick={() => onOpenInternal('/investors/blackbird')}>trigger-open-firm</button>
       <button onClick={() => onSelectStartup({ slug: 'canva', name: 'Canva', sector: 'AI', hiring: true })}>trigger-select</button>
       <button onClick={() => onSelectStartup({ name: 'Bare Co', sector: 'AI' })}>trigger-select-bare</button>
       <button onClick={() => onViewArea({ kind: 'CITY', label: 'Sydney', city: 'Sydney', state: 'NSW', count: 3 })}>trigger-view-area</button>
@@ -77,7 +89,7 @@ vi.mock('../src/components/CuratedLists.jsx', () => ({
 }));
 
 import {
-  fetchStartupPage, fetchSummary, fetchMarkers, fetchStartup, fetchStartupsByName, fetchPerson, fetchSuggestions, fetchMeta, fetchNews,
+  fetchStartupPage, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchStartup, fetchStartupsByName, fetchPerson, fetchSuggestions, fetchMeta, fetchNews,
 } from '../src/api.js';
 import App from '../src/App.jsx';
 
@@ -88,7 +100,7 @@ const meta = {
   stages: ['Seed'],
 };
 
-const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '' };
+const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', fresh: '' };
 const card = (name, overrides = {}) => ({
   name, slug: name.toLowerCase().replace(/\s+/g, '-'), sector: 'AI', sectorFull: 'AI', city: 'Sydney', stage: 'Seed', hiring: true, verified: true, ...overrides,
 });
@@ -126,6 +138,7 @@ describe('App', () => {
     fetchMeta.mockResolvedValue(meta);
     fetchSummary.mockResolvedValue(summaryOf());
     fetchMarkers.mockResolvedValue({ total: 2, count: 2, pinned: 2, items: [pin('canva', 'Canva'), pin('zeller', 'Zeller')] });
+    fetchInstitutionPins.mockResolvedValue({ count: 0, items: [] });
     fetchStartupPage.mockResolvedValue(page([card('Canva'), card('Zeller')]));
     fetchStartup.mockImplementation(async (slug) => ({ slug, name: 'Canva', sector: 'AI', founders: ['Melanie Perkins'], investors: ['Blackbird'] }));
     fetchStartupsByName.mockResolvedValue({ results: [] });
@@ -328,14 +341,116 @@ describe('App', () => {
       expect(screen.getByRole('button', { name: 'Key' })).toHaveAttribute('aria-expanded', 'false'); // shut again, as on a first visit
     });
 
-    it('gives the filter drawer the number of matches, and its Leaderboard tab the cities the server counted', async () => {
+    describe('the map\'s layers and basemap', () => {
+      const FIRM = { id: 'blackbird#0', institution: 'blackbird', name: 'Blackbird', lat: -33.87, lng: 151.21, city: 'Sydney', state: 'NSW', place: null, office: 'Sydney', website: 'https://www.blackbird.vc', href: '/investors/blackbird' };
+      const map = () => screen.getByTestId('map-view');
+
+      it('has a Companies switch, and no Institutions switch while there are no firms\' offices to draw', async () => {
+        render(<App />);
+        await screen.findByText('(2)', { selector: '.bc-pinned' });
+        const group = screen.getByRole('group', { name: 'Map layers' });
+        expect(within(group).getByRole('button', { name: 'Companies' })).toHaveAttribute('aria-pressed', 'true');
+        expect(within(group).queryByRole('button', { name: /Institutions/ })).not.toBeInTheDocument();
+        expect(map()).toHaveAttribute('data-institutions', '0');
+      });
+
+      it('asks for the firms\' offices once, hands them to the map, and offers an Institutions switch with how many there are', async () => {
+        fetchInstitutionPins.mockResolvedValue({ count: 1, items: [FIRM] });
+        render(<App />);
+        const group = screen.getByRole('group', { name: 'Map layers' });
+        const firms = await within(group).findByRole('button', { name: /Institutions/ });
+        expect(firms).toHaveTextContent('1');
+        expect(map()).toHaveAttribute('data-institutions', '1');
+        expect(fetchInstitutionPins).toHaveBeenCalledTimes(1);
+      });
+
+      it('switches a layer off and on, tells the map, and remembers it in this browser', async () => {
+        fetchInstitutionPins.mockResolvedValue({ count: 1, items: [FIRM] });
+        const first = render(<App />);
+        const group = screen.getByRole('group', { name: 'Map layers' });
+        await within(group).findByRole('button', { name: /Institutions/ });
+        await userEvent.click(within(group).getByRole('button', { name: 'Companies' }));
+        expect(within(group).getByRole('button', { name: 'Companies' })).toHaveAttribute('aria-pressed', 'false');
+        expect(map()).toHaveAttribute('data-show-companies', 'false');
+        expect(map()).toHaveAttribute('data-show-institutions', 'true');
+        await userEvent.click(within(group).getByRole('button', { name: /Institutions/ }));
+        expect(map()).toHaveAttribute('data-show-institutions', 'false');
+        expect(JSON.parse(localStorage.getItem('auStartupMapLayers'))).toEqual({ companies: false, institutions: false });
+        first.unmount();
+        cleanup();
+        render(<App />);
+        await screen.findByTestId('map-view');
+        expect(screen.getByTestId('map-view')).toHaveAttribute('data-show-companies', 'false');
+      });
+
+      it('opens on the dark map, switches to the light one, and remembers the choice', async () => {
+        const first = render(<App />);
+        await screen.findByText('(2)', { selector: '.bc-pinned' });
+        expect(map()).toHaveAttribute('data-basemap', 'dark');
+        expect(screen.getByRole('button', { name: 'Dark map' })).toHaveAttribute('aria-pressed', 'true');
+        await userEvent.click(screen.getByRole('button', { name: 'Light map' }));
+        expect(map()).toHaveAttribute('data-basemap', 'light');
+        expect(screen.getByRole('button', { name: 'Light map' })).toHaveAttribute('aria-pressed', 'true');
+        expect(localStorage.getItem('auStartupBasemap')).toBe('light');
+        first.unmount();
+        cleanup();
+        render(<App />);
+        expect((await screen.findByTestId('map-view'))).toHaveAttribute('data-basemap', 'light');
+      });
+
+      it('opens a firm\'s own page in the app from its card on the map', async () => {
+        render(<App />);
+        await screen.findByText('(2)', { selector: '.bc-pinned' });
+        await userEvent.click(screen.getByRole('button', { name: 'trigger-open-firm' }));
+        expect(await screen.findByTestId('investors-view')).toBeInTheDocument();
+      });
+
+      it('has neither the layers nor the basemap over the list', async () => {
+        render(<App />);
+        await screen.findByText('(2)', { selector: '.bc-pinned' });
+        await userEvent.click(screen.getByRole('button', { name: 'List (2)' }));
+        expect(screen.queryByRole('group', { name: 'Map layers' })).not.toBeInTheDocument();
+      });
+
+      it('carries on with no firms when they cannot be fetched', async () => {
+        fetchInstitutionPins.mockRejectedValue(new Error('down'));
+        render(<App />);
+        await screen.findByText('(2)', { selector: '.bc-pinned' });
+        expect(map()).toHaveAttribute('data-institutions', '0');
+      });
+    });
+
+    describe('the panel on the left', () => {
+      const wide = (matches) => vi.stubGlobal('matchMedia', vi.fn((query) => ({ matches: query === '(min-width: 1200px)' ? matches : false, addEventListener: () => {}, removeEventListener: () => {} })));
+      afterEach(() => { vi.unstubAllGlobals(); try { localStorage.removeItem('auStartupPanel'); } catch (e) { /* ignore */ } });
+
+      it('is open beside the map on a wide screen, and the page moves the map\'s own controls aside for it', async () => {
+        wide(true);
+        const { container } = render(<App />);
+        await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+        expect(await screen.findByRole('complementary', { name: 'Filters and cities' })).toBeInTheDocument();
+        expect(container.querySelector('#app')).toHaveClass('panel-open');
+        await userEvent.click(screen.getByLabelText('Close'));
+        expect(container.querySelector('#app')).not.toHaveClass('panel-open');
+      });
+
+      it('is shut on a phone, with the map clear', async () => {
+        wide(false);
+        const { container } = render(<App />);
+        await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+        expect(screen.queryByRole('complementary', { name: 'Filters and cities' })).not.toBeInTheDocument();
+        expect(container.querySelector('#app')).not.toHaveClass('panel-open');
+      });
+    });
+
+    it('gives the filter panel the number of matches, and its Cities tab the cities the server counted', async () => {
       fetchSummary.mockResolvedValue(summaryOf({ count: 41, topCities: [{ city: 'Sydney', count: 30 }, { city: 'Melbourne', count: 11 }] }));
       render(<App />);
       await waitFor(() => expect(fetchSummary).toHaveBeenCalledTimes(2));
       await waitFor(() => expect(screen.getByText('(2)', { selector: '.bc-pinned' })).toBeInTheDocument());
       await openFilters();
       expect(await screen.findByText('41 startups match your filters')).toBeInTheDocument();
-      await userEvent.click(screen.getByText('Leaderboard'));
+      await userEvent.click(screen.getByRole('tab', { name: 'Cities' }));
       const items = screen.getAllByRole('listitem');
       expect(items[0]).toHaveTextContent('Sydney');
       expect(items[0]).toHaveTextContent('30');

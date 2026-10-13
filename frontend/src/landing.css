@@ -113,24 +113,12 @@
   .landing-job-grid > *, .landing-list-grid > *, .landing-people-grid > *{ grid-column: span 6; }
 }
 @media (min-width: 960px){
-  .landing-job-grid > *{ grid-column: span 3; }
-  .landing-list-grid > *, .landing-people-grid > *{ grid-column: span 4; }
+  .landing-job-grid > *, .landing-list-grid > *, .landing-people-grid > *{ grid-column: span 4; }
 }
 /* The card is inside a wrapper that rises into place (Reveal), so the wrapper is the grid item and the card fills it. */
 .landing-job-grid > .reveal > a, .landing-list-grid > .reveal > a, .landing-people-grid > .reveal > .person-card{ height: 100%; }
 
-.landing-job-card{ display: flex; align-items: center; gap: var(--l-space-2); text-decoration: none; color: inherit; }
-.landing-logo, .landing-logo-fallback{
-  width: 34px; height: 34px; flex: none; border-radius: 50%; object-fit: contain; background: #fff;
-  border: 1px solid var(--line);
-}
-.landing-logo-fallback{
-  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: var(--fs-small);
-  background: var(--ink); color: var(--paper);
-}
-.landing-job-name{ font-weight: 600; font-size: var(--fs-body); line-height: 1.25; }
-.landing-job-meta{ font-size: var(--fs-small); color: var(--muted); margin-top: 2px; }
-.landing-job-card .concept-label{ margin-left: auto; white-space: nowrap; }
+.landing-job-card .concept-label{ align-self: flex-start; white-space: nowrap; }
 
 .landing-list-card{ display: block; text-decoration: none; color: inherit; }
 .landing-list-name{ font-weight: 600; font-size: var(--fs-body); line-height: 1.25; margin-bottom: 6px; }
@@ -139,8 +127,7 @@
 
 .landing-block-foot{ margin-top: var(--l-space-3); }
 
-/* How we verify: the heading on the left, the two paragraphs on the right. */
-.landing-trust .landing-section-head p{ max-width: 62ch; }
+/* How we verify: the heading on the left, the three short statements on the right. */
 @media (min-width: 960px){
   .landing-trust .landing-section-text{ align-self: start; }
 }
@@ -153,13 +140,26 @@
 .landing-footer{
   max-width: var(--l-max); margin: 0 auto; padding: 0 var(--l-gutter) var(--l-space-4);
 }
-.landing-footer-links{ display: flex; gap: var(--l-space-2); margin-bottom: var(--l-space-3); padding-top: var(--l-space-2); border-top: 1px solid var(--l-hair); }
-.landing-footer-links a{ font-size: var(--fs-small); text-decoration: underline; text-underline-offset: 3px; color: var(--muted); }
-.landing-footer-links a:hover{ color: var(--ink); }
-.landing-legal{ max-width: 70ch; margin-bottom: var(--l-space-3); scroll-margin-top: 24px; }
-.landing-legal h3{ font-size: var(--fs-small); font-weight: 600; margin: 0 0 var(--l-space-1); }
-.landing-legal p{ font-size: var(--fs-small); color: var(--muted); margin: 0 0 10px; line-height: 1.6; }
+/* Four short columns of links, two across on a phone. */
+.footer-columns{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--l-space-3) var(--l-gap); padding: var(--l-space-3) 0; border-top: 1px solid var(--border); }
+@media (min-width: 720px){ .footer-columns{ grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.footer-title{ margin: 0 0 var(--l-space-1); font-family: var(--l-mono); font-size: var(--fs-label); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.footer-column ul{ margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.footer-column a{ display: inline-block; padding: 6px 0; font-size: var(--fs-small); color: var(--l-ink-2); text-decoration: none; }
+.footer-column a:hover{ color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+/* The two legal notes: short, and closed until asked for. */
+.footer-legal{ display: grid; gap: var(--l-space-1); max-width: 70ch; padding-top: var(--l-space-2); border-top: 1px solid var(--border); }
+.footer-legal summary{ cursor: pointer; padding: 6px 0; font-size: var(--fs-small); font-weight: 600; }
+.footer-legal details{ scroll-margin-top: 80px; }
+.footer-legal p{ margin: 0 0 var(--l-space-1); font-size: var(--fs-small); line-height: 1.6; color: var(--muted); }
+.footer-built{ margin: var(--l-space-3) 0 0; font-size: var(--fs-small); font-weight: 600; }
+.footer-note{ margin: 4px 0 0; font-size: var(--fs-small); color: var(--muted); }
 
+/* How we verify: three short statements, each with its label. */
+.verify-list{ display: grid; gap: var(--l-space-2); margin: 0; }
+.verify-list div{ display: grid; gap: 4px; }
+.verify-list dt{ font-family: var(--l-mono); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+.verify-list dd{ margin: 0; font-size: var(--fs-body); line-height: 1.5; color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
 @media (max-width: 559px){
   .landing-final-cta .landing-cta-row{ flex-direction: column; }
 }
@@ -168,3 +168,8 @@
   .landing-btn-primary, .landing-btn-secondary, .landing-btn-arrow, .landing-inline-link{ transition: none; }
   .landing-btn-primary:hover .landing-btn-arrow{ transform: none; }
 }
+
+/* "Load more" under the hiring cards, beside the link to every open role. */
+.landing-block-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--l-space-2) var(--l-space-3); }
+.landing-more{ cursor: pointer; font-family: inherit; }
+.landing-more-count{ color: var(--muted); font-weight: 400; }

@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   fetchMeta, fetchNews, submitStartup, submitEdit, submitFeedback,
   fetchStartupPage, fetchMarkers, fetchSummary, fetchCount, fetchCounts, fetchStartup, fetchStartupsByName, fetchSuggestions, fetchPerson,
-  fetchInvestors, fetchInvestorMeta, fetchInvestor, fetchInvestorPerson, fetchInvestorsByName, submitInvestorCorrection,
+  fetchInvestors, fetchInvestorMeta, fetchInvestor, fetchInvestorPerson, fetchInvestorsByName, submitInvestorCorrection, exportUrl,
 } from '../src/api.js';
 
 function mockFetchOnce(body, ok = true) {
@@ -30,6 +30,19 @@ describe('api.js', () => {
     mockFetchOnce({ total: 0, count: 0, results: [] });
     await fetchInvestors({});
     expect(global.fetch.mock.calls[0][0]).toContain('limit=20');
+  });
+
+  it('links to a list as a spreadsheet with the same filters and the sort, leaving out the filters that are off', () => {
+    expect(exportUrl({ sector: 'AI', city: '', tech: 'Go,Rust', team: '100plus', fresh: 'week' }, 'team')).toBe('/api/startups/export.csv?sector=AI&tech=Go%2CRust&team=100plus&fresh=week&sort=team');
+    expect(exportUrl({}, 'verified')).toBe('/api/startups/export.csv?sort=verified');
+    expect(exportUrl()).toBe('/api/startups/export.csv?sort=name');
+  });
+
+  it('asks for a list with the filters for the optional facts in its query', async () => {
+    mockFetchOnce({ total: 0, count: 0, results: [], offset: 0, limit: 20, hasMore: false, nextOffset: null });
+    await fetchStartupPage({ remote: 'remote-au', tech: 'Go,Rust', team: '10-29', fresh: 'week', stage: 'Seed,Early,Series A' });
+    const params = new URL(global.fetch.mock.calls[0][0], 'http://x').searchParams;
+    expect([params.get('remote'), params.get('tech'), params.get('team'), params.get('fresh'), params.get('stage')]).toEqual(['remote-au', 'Go,Rust', '10-29', 'week', 'Seed,Early,Series A']);
   });
 
   it('fetchMeta calls /api/startups/meta and returns the parsed body', async () => {

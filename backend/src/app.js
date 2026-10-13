@@ -31,7 +31,10 @@ export const HIRING_WINDOW_DAYS = 14;
 // never shows a made-up person.
 export function createApp({
   catalog = createCatalog({ file: DATA_FILE, hiringWindowDays: HIRING_WINDOW_DAYS }), investorCatalog = createInvestorCatalog({ dir: DATA_DIR }), correctionsFile, cache,
-  communityCatalog = createCommunityCatalog({ file: path.join(DATA_DIR, 'people_seed.json'), investorCatalog, production: process.env.SHOW_PLACEHOLDERS !== '1' }),
+  communityCatalog = createCommunityCatalog({
+    file: path.join(DATA_DIR, 'people_seed.json'), institutionsFile: path.join(DATA_DIR, 'institutions_seed.json'), geocodeFile: path.join(DATA_DIR, 'geocode_cache.json'),
+    investorCatalog, production: process.env.SHOW_PLACEHOLDERS !== '1',
+  }),
 } = {}) {
   const respond = createResponder(catalog, cache);
   // The investor directory is answered from its own snapshot (several files, one version) with its own kept answers.

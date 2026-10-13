@@ -29,14 +29,15 @@ describe('the investor directory', () => {
     renderView();
     const link = await screen.findByRole('link', { name: 'Blackbird' });
     const item = link.closest('li');
-    expect(within(item).getByText('Venture Capital')).toBeInTheDocument();
-    expect(within(item).getByText('Seed → Series A')).toBeInTheDocument();
-    expect(within(item).getByText('Software')).toBeInTheDocument();
-    expect(within(item).getByText('Sydney, NSW')).toBeInTheDocument();
+    expect(item).toHaveClass('card', 'entity-card', 'inv-card'); // the app's one card
+    expect(within(item).getByText('Venture Capital')).toHaveClass('entity-blurb');
+    // what it invests in and where, as one row: Sector · Stage · Place
+    expect([...item.querySelectorAll('.meta-row li')].map((li) => li.textContent)).toEqual(['Software', 'Seed → Series A', 'Sydney, NSW']);
+    expect(item.querySelector('.entity-initial')).toHaveTextContent('B');
     expect(within(item).getByText('3 connected companies')).toBeInTheDocument();
     expect(within(item).getByText('View investor')).toBeInTheDocument();
-    // the facts say what they are to a screen reader, and the tick keeps its date for the tooltip
-    for (const label of ['Stage focus', 'Sector focus', 'Location']) expect(within(item).getByText(label)).toHaveClass('sr-only');
+    // the row says what it is to a screen reader, and the tick keeps its date for the tooltip
+    expect(within(item).getByRole('list', { name: 'Sector focus, stage focus and place' })).toBeInTheDocument();
     expect(within(item).getByText('Verified')).toBeInTheDocument();
     expect(within(item).getByTitle(/Verified 8 Oct 2026/)).toBeInTheDocument();
   });
@@ -47,8 +48,7 @@ describe('the investor directory', () => {
     const item = (await screen.findByRole('link', { name: 'Blackbird' })).closest('li');
     expect(within(item).queryByText(/connected compan/)).not.toBeInTheDocument();
     expect(within(item).queryByText('No portfolio listed yet')).not.toBeInTheDocument();
-    for (const label of ['Stage focus', 'Sector focus', 'Location']) expect(within(item).queryByText(label)).not.toBeInTheDocument();
-    expect(item.querySelector('dl')).toBeNull();
+    expect(item.querySelector('.meta-row')).toBeNull();
     expect(within(item).getByText('View investor')).toBeInTheDocument(); // the card is still a way in
   });
 

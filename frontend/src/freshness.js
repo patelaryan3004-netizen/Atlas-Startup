@@ -39,10 +39,46 @@ export function hiringLabel(company) {
   return { state: 'unverified', text: 'Roles unverified' };
 }
 
+// A company is "new this week" when it raised, or had a role seen on a page of its own, in the last 14 days (the server's rule, catalog.js):
+// { kind: 'funding' | 'role', at }, the newer of the two, or null. A funding date counts only to the day, and neither counts from the future.
+export const FRESH_DAYS = 14;
+export function freshOf(company, now = Date.now()) {
+  const cutoff = now - FRESH_DAYS * DAY;
+  const latest = now + DAY;
+  const found = [];
+  const funded = /^\d{4}-\d{2}-\d{2}$/.test(company?.last_funding_date ?? '') ? Date.parse(company.last_funding_date) : NaN;
+  if (funded >= cutoff && funded <= latest) found.push({ kind: 'funding', at: company.last_funding_date, t: funded });
+  const seen = Date.parse(company?.last_role_seen_at);
+  if (seen >= cutoff && seen <= latest) found.push({ kind: 'role', at: company.last_role_seen_at, t: seen });
+  found.sort((a, b) => b.t - a.t);
+  return found[0] ? { kind: found[0].kind, at: found[0].at } : null;
+}
+
+// What is new about a company, in a few words: "Raised 3 Oct" or "New role 10 Oct".
+export function freshText(fresh) {
+  if (!fresh) return null;
+  const day = dayMonth(fresh.at);
+  if (!day) return null;
+  return fresh.kind === 'funding' ? `Raised ${day}` : `New role ${day}`;
+}
+
 // '13 Oct 2026', for "Updated <date>".
 export function shortDate(iso) {
   const t = when(iso);
   return t === null ? null : new Date(t).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Australia/Sydney' });
+}
+
+// A date that may be only a year or a month (a funding date is as exact as its source): "2026", "Oct 2026", "3 Oct 2026". Written the
+// way shortDate writes a day, so the three agree.
+export function partialDateText(value) {
+  if (typeof value !== 'string') return null;
+  if (/^\d{4}$/.test(value)) return value;
+  const month = /^(\d{4})-(\d{2})$/.exec(value);
+  if (month) {
+    if (Number(month[2]) < 1 || Number(month[2]) > 12) return null;
+    return new Date(Date.UTC(Number(month[1]), Number(month[2]) - 1, 1)).toLocaleDateString('en-AU', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+  }
+  return /^\d{4}-\d{2}-\d{2}$/.test(value) ? shortDate(value) : null;
 }
 
 // The first event from today to 14 days on ({ title, date, url }), or null: the card's date badge. Dates are plain days (YYYY-MM-DD).

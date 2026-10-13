@@ -47,7 +47,7 @@ describe('MapKey', () => {
   it('says what every mark on the map means', async () => {
     await open();
     const key = screen.getByRole('region', { name: 'Map key' });
-    for (const words of [/first letter on its sector.s colour/, /dashed edge/i, /green dot: hiring now/i, /gold star: a company you track/i, /numbered circle/i, /dashed ring/i, /Names appear under the pins/]) {
+    for (const words of [/its own logo when it has one, else its first letter on its sector.s colour/, /dashed edge/i, /green dot: hiring now/i, /gold star: a company you track/i, /numbered ring/i, /dashed ring/i, /Names appear under the pins/]) {
       expect(within(key).getByText(words)).toBeInTheDocument();
     }
   });
@@ -69,7 +69,7 @@ describe('MapKey', () => {
     expect(within(key).getByText(`under ${CLUSTER_MEDIUM}`)).toBeInTheDocument();
     expect(within(key).getByText(`${CLUSTER_MEDIUM} to ${CLUSTER_LARGE - 1}`)).toBeInTheDocument();
     expect(within(key).getByText(`${CLUSTER_LARGE} or more`)).toBeInTheDocument();
-    // and those are the thresholds the map colours by
+    // and those are the thresholds the map sizes its rings by
     expect([clusterSize(CLUSTER_MEDIUM - 1), clusterSize(CLUSTER_MEDIUM), clusterSize(CLUSTER_LARGE - 1), clusterSize(CLUSTER_LARGE)]).toEqual(['small', 'medium', 'medium', 'large']);
   });
 
@@ -101,7 +101,7 @@ describe('MapKey', () => {
     const key = screen.getByRole('region', { name: 'Map key' });
     expect(key.querySelector('.mk-colours')).toBeNull();
     expect(key.querySelector('.mk-sectors')).toBeNull();
-    expect(within(key).getByText(/numbered circle/i)).toBeInTheDocument();
+    expect(within(key).getByText(/numbered ring/i)).toBeInTheDocument();
   });
 
   it('writes a sector name as text, never as markup', async () => {
@@ -117,4 +117,22 @@ describe('MapKey', () => {
     for (const mark of key.querySelectorAll('.mk-mark')) expect(mark).toHaveAttribute('aria-hidden', 'true');
     for (const dot of key.querySelectorAll('.mk-sector-dot, .mk-dot')) expect(dot).toHaveAttribute('aria-hidden', 'true');
   });
-});
+
+  it('says a ring\'s size is how many it holds, and uses no second colour for it', async () => {
+    await open();
+    const key = screen.getByRole('region', { name: 'Map key' });
+    expect(within(key).getByText(/The bigger the ring, the more it holds/)).toBeInTheDocument();
+    expect(key.textContent).not.toMatch(/amber|orange/i);
+  });
+
+  it('explains the firm\'s mark only when the map has firms on it', async () => {
+    const { unmount } = render(<MapKey sectorColors={COLOURS} />);
+    await userEvent.click(screen.getByRole('button', { name: 'Key' }));
+    expect(screen.queryByText(/rounded square/i)).not.toBeInTheDocument();
+    unmount();
+    render(<MapKey sectorColors={COLOURS} showInstitutions />);
+    await userEvent.click(screen.getByRole('button', { name: 'Key' }));
+    const key = screen.getByRole('region', { name: 'Map key' });
+    expect(within(key).getByText(/rounded square: an investor.s office/)).toBeInTheDocument();
+    expect(key.querySelector('.inst-pin')).not.toBeNull();
+  });});

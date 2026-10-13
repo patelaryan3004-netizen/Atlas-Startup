@@ -21,11 +21,13 @@ const inList = (ui) => render(<ul>{ui}</ul>);
 describe('PersonCard', () => {
   it('says who they are, where, and why they are worth following, in the app\'s one card', () => {
     const { container } = inList(<PersonCard person={person()} />);
-    expect(container.querySelector('li')).toHaveClass('person-card');
+    expect(container.querySelector('li')).toHaveClass('card', 'entity-card', 'person-card');
     expect(screen.getByRole('heading', { level: 2, name: 'Ada Example' })).toBeInTheDocument();
-    expect(screen.getByText('Co-founder, Example Co')).toBeInTheDocument();
-    expect(screen.getByText('Sydney')).toBeInTheDocument();
-    expect(screen.getByText('Built a thing people use.')).toBeInTheDocument();
+    // the row of who they are, a dot between each: role, organisation, place
+    expect([...container.querySelectorAll('.meta-row li')].map((li) => li.textContent)).toEqual(['Co-founder', 'Example Co', 'Sydney']);
+    expect(container.querySelector('.entity-initial')).toHaveTextContent('A');
+    expect(container.querySelector('.entity-avatar img')).toBeNull(); // a person has no picture
+    expect(screen.getByText('Built a thing people use.')).toHaveClass('entity-blurb');
     expect(screen.getByText('Verified 1 Oct 2026')).toBeInTheDocument();
   });
 

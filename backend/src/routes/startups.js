@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { HttpError } from '../catalog/respond.js';
 import { FACETS, MARKER_FIELDS, SORTS, readFilters, select, pageOf, facets, summary, markers, areas, recordFor, sourcesFor, precisionOf } from '../catalog/catalog.js';
+import { exportCsv } from '../catalog/exportCsv.js';
 import { describeLocation } from '../models/location.js';
 import { offsetParams, offsetInfo } from '../http/paging.js';
 
@@ -45,6 +46,17 @@ export function createStartupsRouter({ respond }) {
 
   // Distinct filter option values, for the dropdowns.
   router.get('/meta', send((snap) => snap.meta));
+
+  // The companies the filters pick, as a spreadsheet (CSV): the same filters and sort as the list, all of them and not a page, every
+  // column and the page behind each optional fact. Sent as a file to save.
+  router.get('/export.csv', (req, res, next) => {
+    const sort = req.query.sort === undefined ? 'name' : String(req.query.sort);
+    res.set('Content-Disposition', 'attachment; filename="au-startup-map.csv"');
+    respond(req, res, (snap) => {
+      if (!SORTS.includes(sort)) throw new HttpError(400, `sort must be one of ${SORTS.join(', ')}`);
+      return exportCsv(snap, select(snap, readFilters(req.query)), { sort });
+    }, { type: 'text/csv; charset=utf-8' }).catch(next);
+  });
 
   // How many companies a set of filters picks: for a badge on a curated list, without the list.
   router.get('/count', send((snap, req) => ({ total: snap.count, count: select(snap, readFilters(req.query)).length })));

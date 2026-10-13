@@ -500,6 +500,56 @@ describe('StartupDetailPanel, the company logo', () => {
     });
   });
 
+  describe('the facts a page gives a company: team size, remote policy, tech stack, last raised, last role seen', () => {
+    const facts = {
+      team_size: { source_url: 'https://www.acme.test/about', verified_at: '2026-10-05T12:00:00.000Z' },
+      remote_policy: { source_url: 'https://www.acme.test/careers', verified_at: null },
+      tech_stack: { source_url: 'https://www.acme.test/engineering', verified_at: '2026-10-06T12:00:00.000Z' },
+      last_funding_date: { source_url: 'https://news.test/story', verified_at: null },
+      last_role_seen_at: { source_url: 'https://boards.greenhouse.io/acme', verified_at: '2026-10-10T12:00:00.000Z' },
+    };
+    const given = { team_size: 42, remote_policy: 'remote-au', tech_stack: ['TypeScript', 'Go'], last_funding_date: '2026-08', last_role_seen_at: '2026-10-10T03:00:00Z', facts };
+    const cell = (label) => screen.getByText(label, { selector: '.pc-section-label' }).closest('.sdp-section, .sdp-meta-cell');
+
+    it('shows each one with the page it comes from, and when that page was checked', () => {
+      setup({ startup: given });
+      expect(within(cell('Team size')).getByText('42')).toBeInTheDocument();
+      expect(within(cell('Team size')).getByRole('link', { name: 'acme.test' })).toHaveAttribute('href', 'https://www.acme.test/about');
+      expect(cell('Team size')).toHaveTextContent('checked 5 Oct 2026');
+      expect(within(cell('Remote policy')).getByText('Remote in Australia')).toBeInTheDocument();
+      expect(cell('Remote policy')).not.toHaveTextContent('checked'); // a page that was not checked on a day does not say it was
+      expect(within(cell('Last raised')).getByText('Aug 2026')).toBeInTheDocument(); // as exact as its source: a month
+      expect(within(cell('Last role seen')).getByText('10 Oct 2026')).toBeInTheDocument();
+      const tags = within(cell('Tech stack')).getByRole('list', { name: 'Tech stack' });
+      expect([...tags.querySelectorAll('li')].map((li) => li.textContent)).toEqual(['TypeScript', 'Go']);
+      expect(within(cell('Tech stack')).getByRole('link', { name: 'acme.test' })).toHaveAttribute('href', 'https://www.acme.test/engineering');
+    });
+
+    it('opens each page in a new tab, without handing it the opener', () => {
+      setup({ startup: given });
+      const link = within(cell('Team size')).getByRole('link', { name: 'acme.test' });
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
+    });
+
+    it('says nothing about a fact a company has not got: no heading, no placeholder', () => {
+      const { container } = setup();
+      for (const label of ['Team size', 'Remote policy', 'Last raised', 'Last role seen', 'Tech stack']) expect(screen.queryByText(label, { selector: '.pc-section-label' })).toBeNull();
+      expect(container.textContent).not.toMatch(/N\/A|undefined|null/);
+    });
+
+    it('says nothing of a remote policy the directory does not know', () => {
+      setup({ startup: { remote_policy: 'hybrid' } });
+      expect(screen.queryByText('Remote policy', { selector: '.pc-section-label' })).toBeNull();
+    });
+
+    it('shows a fact with no page under it as it is, without inventing a source', () => {
+      setup({ startup: { team_size: 7 } });
+      expect(within(cell('Team size')).getByText('7')).toBeInTheDocument();
+      expect(within(cell('Team size')).queryByRole('link')).toBeNull();
+    });
+  });
+
   it('shows no logo, and no broken image, for a company with no website', async () => {
     const { container } = setup({ startup: { website: '' } });
     await settle();

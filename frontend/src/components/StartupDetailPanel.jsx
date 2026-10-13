@@ -1,4 +1,6 @@
-import { verifiedLabel, nextEvent, eventDay, isBlank, hiringLabel } from '../freshness.js';
+import { nextEvent, eventDay, isBlank, hiringLabel, partialDateText, shortDate } from '../freshness.js';
+import { remoteLabel } from '../directory.js';
+import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
 import HiringBadge from './HiringBadge.jsx';
 import { useEffect, useState } from 'react';
 import { fetchNews, fetchInvestorsByName } from '../api.js';
@@ -43,8 +45,20 @@ const BACKS = {
   description: 'what it does', website: 'its website', address: 'its address', city: 'its city', state: 'its state', founded_year: 'the year it started',
   hiring_status: 'whether it is hiring', founders: 'its founders', investors: 'its investors', stage: 'its stage', company_status: 'whether it is operating',
   last_funding_date: 'its funding', last_funding_round: 'its funding', funding_total: 'its funding', employee_range: 'its team size',
+  team_size: 'its team size', remote_policy: 'how it works remotely', tech_stack: 'what it builds with', last_role_seen_at: 'when it last had a role',
 };
 const backsText = (fields) => [...new Set(fields.map((f) => BACKS[f] ?? f))].join(', ');
+
+// The page a fact comes from and when it was checked, under the fact: only for a fact a public page backs (the server serves no other).
+function FactSource({ fact }) {
+  if (!fact?.source_url) return null;
+  const when = checkedOn(fact.verified_at);
+  return (
+    <div className="sdp-fact-source">
+      <a href={fact.source_url} target="_blank" rel="noopener noreferrer">{domainOf(fact.source_url) ?? 'source'}</a>{when ? ` · checked ${when}` : ''}
+    </div>
+  );
+}
 
 const APPROXIMATE_NOTE = {
   SUBURB: () => 'Approximate: the pin is at the suburb, not the office.',
@@ -123,7 +137,6 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
   // The page that backs "hiring now": the company's own job board when a page was read, the company's site otherwise.
   const board = s.hiring_source?.url ?? s.hiring_source_url ?? null;
   const rolesLink = board ?? (s.website_status === 'unavailable' ? null : s.website);
-  const fresh = verifiedLabel(s.last_verified_at);
   const hiring = hiringLabel(s);
   const event = nextEvent(s.events);
 
@@ -139,8 +152,8 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             </div>
             <div className="pc-hero-text">
               <h4>{s.name}</h4>
-              {!s.verified && <span className="badge-unverified">Unverified</span>}
-              {fresh && <div className={fresh.stale ? 'verified-note verified-note-stale' : 'verified-note'}>{fresh.text}</div>}
+              <UnverifiedBadge company={s} />
+              <VerifiedNote at={s.last_verified_at} />
             </div>
           </div>
           <button
@@ -173,7 +186,46 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
               <div className="pc-section-label">Hiring</div>
               <div className="sdp-meta-value">{hiringLabel(s).text}</div>
             </div>
+            {/* The facts a page has to give a company: each is here only when a page backs it, with that page under it. */}
+            {s.team_size != null && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Team size</div>
+                <div className="sdp-meta-value">{s.team_size}</div>
+                <FactSource fact={s.facts?.team_size} />
+              </div>
+            )}
+            {remoteLabel(s.remote_policy) && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Remote policy</div>
+                <div className="sdp-meta-value">{remoteLabel(s.remote_policy)}</div>
+                <FactSource fact={s.facts?.remote_policy} />
+              </div>
+            )}
+            {partialDateText(s.last_funding_date) && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Last raised</div>
+                <div className="sdp-meta-value">{partialDateText(s.last_funding_date)}</div>
+                <FactSource fact={s.facts?.last_funding_date} />
+              </div>
+            )}
+            {shortDate(s.last_role_seen_at) && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Last role seen</div>
+                <div className="sdp-meta-value">{shortDate(s.last_role_seen_at)}</div>
+                <FactSource fact={s.facts?.last_role_seen_at} />
+              </div>
+            )}
           </div>
+
+          {Array.isArray(s.tech_stack) && s.tech_stack.length > 0 && (
+            <div className="sdp-section">
+              <div className="pc-section-label">Tech stack</div>
+              <ul className="st-tags sdp-tech" aria-label="Tech stack">
+                {s.tech_stack.map((t) => <li key={t}>{t}</li>)}
+              </ul>
+              <FactSource fact={s.facts?.tech_stack} />
+            </div>
+          )}
 
           {loading && <p className="pc-desc sdp-loading" role="status">Loading details…</p>}
 

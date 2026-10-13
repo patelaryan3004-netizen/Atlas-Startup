@@ -22,11 +22,12 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { buildProvenance } from './provenance.js';
-import { toPublic, deriveState } from '../models/company.js';
+import { toPublic, deriveState, FACT_FIELDS, REMOTE_POLICIES, TEAM_BUCKETS, teamBucketOf } from '../models/company.js';
+import { valuesEqual } from '../models/evidence.js';
 import { describeLocation, PRECISIONS } from '../models/location.js';
 import { cityCentre, stateCentre } from '../geo/places.js';
 
-export const SORTS = ['file', 'name', 'hiring', 'location', 'industry', 'stage', 'verified'];
+export const SORTS = ['file', 'name', 'hiring', 'location', 'industry', 'stage', 'verified', 'team', 'remote'];
 
 // The order a company moves through its stages, earliest first: what a "by stage" list is in. A stage this list does not know (a new
 // one) sorts after the ones it does, and "Unknown" last, so nothing is placed by a guess.
@@ -42,11 +43,16 @@ export const stageRank = (stage) => {
 export const FACETS = ['sector', 'city', 'stage', 'investor'];
 // `hiring` is true only for a company whose open roles were read from a page; `rolesUnverified` is true for one flagged as hiring
 // that no page backs (toPublic).
-export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events'];
+// team_size, remote_policy, tech_stack, last_funding_date and last_role_seen_at are the optional facts (company.js): present on a card
+// only where a public page backs them.
+export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events',
+  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
-export const MARKER_FIELDS = ['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked'];
+// logo is the company's own picture (its `logo` field, an https address) or null: the map draws that, or the first letter of its name, and
+// asks no one else for a logo.
+export const MARKER_FIELDS = ['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo'];
 // How many companies an area names, so a click can list them without another request. The rest are one filter away.
 export const AREA_SAMPLE = 12;
 
@@ -54,6 +60,8 @@ const EMPTY = new Uint32Array(0);
 const collator = new Intl.Collator(); // the same order localeCompare gives, which is what the list always sorted by
 
 const domainOf = (website) => { try { return new URL(website).hostname.replace(/^www\./, ''); } catch { return ''; } };
+// A company's own logo, as the map may draw it: an https address, or nothing (a page served over https must not load an http picture).
+const ownLogo = (logo) => (typeof logo === 'string' && /^https:\/\/\S+$/i.test(logo.trim()) ? logo.trim() : null);
 const uniqueSorted = (values) => [...new Set(values)].sort(); // default order, as the filter options always were
 
 // How well a company's place is known. A record that predates the location fields means what a record always meant:
@@ -94,6 +102,46 @@ export function hiringStateOf(record, found, nowMs, windowMs) {
   return { state: 'unverified', checkedAt: null };
 }
 
+// The optional facts of a company (company.js, FACT_FIELDS) as they may be served: a value only where an active evidence row from a public
+// page says the same thing, with that page's address and the date it was checked. A value no page backs is not public, and neither is one
+// a lead (low confidence) alone supports. A list (the tech stack) keeps the members a page names. Returns the values to serve and, for those
+// served, where each comes from: { values: { field: value | null }, sources: { field: { source_url, verified_at } } }.
+export function backedFacts(record, found) {
+  const values = {};
+  const sources = {};
+  for (const field of FACT_FIELDS) {
+    const rows = found?.facts?.[field] ?? [];
+    const value = record[field];
+    let shown = null;
+    let behind = null;
+    if (field === 'tech_stack') {
+      const members = Array.isArray(value) ? value.filter((m) => rows.some((row) => valuesEqual(field, m, row.value))) : [];
+      if (members.length) { shown = members; behind = rows.find((row) => members.some((m) => valuesEqual(field, m, row.value))); }
+    } else if (value != null) {
+      behind = rows.find((row) => valuesEqual(field, value, row.value)) ?? null;
+      if (behind) shown = value;
+    }
+    values[field] = shown;
+    if (shown != null && behind) sources[field] = { source_url: behind.url, verified_at: behind.verified_at };
+  }
+  return { values, sources };
+}
+
+// A company is "new this week" when it raised, or had a role seen on a page of its own, in the last 14 days: { kind: 'funding' | 'role', at },
+// the newer of the two, or null. A funding date counts only to the day (a month alone is not "lately"), and neither counts from the future.
+export const FRESH_DAYS = 14;
+export function freshOf(record, now = Date.now()) {
+  const cutoff = now - FRESH_DAYS * 86400000;
+  const latest = now + 86400000;
+  const found = [];
+  const funded = /^\d{4}-\d{2}-\d{2}$/.test(record.last_funding_date ?? '') ? Date.parse(record.last_funding_date) : NaN;
+  if (funded >= cutoff && funded <= latest) found.push({ kind: 'funding', at: record.last_funding_date, t: funded });
+  const seen = Date.parse(record.last_role_seen_at);
+  if (seen >= cutoff && seen <= latest) found.push({ kind: 'role', at: record.last_role_seen_at, t: seen });
+  found.sort((a, b) => b.t - a.t);
+  return found[0] ? { kind: found[0].kind, at: found[0].at } : null;
+}
+
 export function buildSnapshot(raw, version, { lap = () => {}, provenance = new Map(), now = Date.now, hiringWindowDays = null } = {}) {
   const source = JSON.parse(raw);
   lap('parse');
@@ -112,6 +160,9 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     r.open_roles = state === 'hiring' ? (found?.roles ?? []).filter((t) => windowMs == null || now() - Date.parse(t) <= windowMs).length : 0;
     const hiringPage = state === 'hiring' || state === 'checked' ? found?.hiring : null;
     if (hiringPage) r.hiring_source_url = hiringPage.url;
+    const facts = backedFacts(r, found);
+    for (const field of FACT_FIELDS) if (field in r) r[field] = facts.values[field];
+    if (Object.keys(facts.sources).length) r.facts = facts.sources;
   }
   lap('public form');
   const count = records.length;
@@ -124,6 +175,9 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     stage: records.map((r) => stageRank(r.stage)),
     // When the company's facts were last checked against a page: a company never checked has no date and goes last.
     verified: source.map((c) => { const t = Date.parse(c.last_verified_at); return Number.isNaN(t) ? 0 : t; }),
+    // The biggest team first; one whose size no page gives has none and goes last. Remote first, then remote within Australia, then the rest.
+    team: records.map((r) => r.team_size ?? 0),
+    remote: records.map((r) => { const at = REMOTE_POLICIES.indexOf(r.remote_policy); return at === -1 ? REMOTE_POLICIES.length : at; }),
   };
   const byKey = (list) => (a, b) => collator.compare(list[a], list[b]) || a - b;
   const compares = {
@@ -133,6 +187,8 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     industry: (a, b) => collator.compare(keys.industry[a], keys.industry[b]) || collator.compare(keys.name[a], keys.name[b]) || a - b,
     stage: (a, b) => keys.stage[a] - keys.stage[b] || collator.compare(keys.name[a], keys.name[b]) || a - b,
     verified: (a, b) => keys.verified[b] - keys.verified[a] || collator.compare(keys.name[a], keys.name[b]) || a - b,
+    team: (a, b) => keys.team[b] - keys.team[a] || collator.compare(keys.name[a], keys.name[b]) || a - b,
+    remote: (a, b) => keys.remote[a] - keys.remote[b] || collator.compare(keys.name[a], keys.name[b]) || a - b,
   };
   for (const [name, compare] of Object.entries(compares)) {
     // The company's own number breaks any remaining tie, so an order never depends on the sort's stability.
@@ -171,11 +227,17 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   const flags = { hiring: flag((r) => r.hiring), verified: flag((r) => r.verified), taskGate: flag((r) => r.taskGate?.enabled) };
   // A yes/no column is indexed by the answer ('yes' or 'no'), so "hiring now" starts from the companies that are, not from all of them.
   const answers = (column) => postings(column, (on) => [on ? 'yes' : 'no']);
+  const buckets = records.map((r) => teamBucketOf(r.team_size)); // each company's team-size bucket, or null when no page gives its size
+  const techCounts = new Map();
+  for (const r of records) for (const t of r.tech_stack ?? []) techCounts.set(t, (techCounts.get(t) ?? 0) + 1);
   const snap = {
-    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance, flags,
+    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance, flags, buckets,
     idx: {
       sector: postings(records, (r) => [r.sector]), city: postings(records, (r) => [r.city]), stage: postings(records, (r) => [r.stage]),
       investor: postings(records, (r) => new Set(r.investors || [])),
+      remote: postings(records, (r) => (r.remote_policy ? [r.remote_policy] : [])),
+      tech: postings(records, (r) => new Set(r.tech_stack ?? [])),
+      team: postings(buckets, (b) => (b ? [b] : [])),
       precision: postings(precisions, (p) => [p]), state: postings(records, (r) => (r.state ? [r.state] : [])),
       hiring: answers(flags.hiring), verified: answers(flags.verified), taskGate: answers(flags.taskGate),
     },
@@ -189,11 +251,18 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     meta: {
       sectors: uniqueSorted(records.map((r) => r.sector)), cities: uniqueSorted(records.map((r) => r.city)),
       investors: uniqueSorted(records.flatMap((r) => r.investors || [])), stages: uniqueSorted(records.map((r) => r.stage)),
+      // The options of the filters for the optional facts, from the data and only the ones some company has: none until a page gives one.
+      remotePolicies: REMOTE_POLICIES.filter((p) => records.some((r) => r.remote_policy === p)),
+      techStack: [...techCounts].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 60).map(([name]) => name),
+      teamSizes: TEAM_BUCKETS.filter((b) => buckets.includes(b.code)).map(({ code, label }) => ({ code, label })),
+      // Is any company new this week (freshOf)? The page asks for the strip of them only when one is, so no request is made for nothing.
+      hasFresh: records.some((r) => freshOf(r, now()) !== null),
     },
     cards: records.map((r) => Object.fromEntries(CARD_FIELDS.filter((k) => k in r).map((k) => [k, r[k]]))),
     markers: records.map((r, i) => (r.verified && isPoint(precisions[i]) && Number.isFinite(r.lat) && Number.isFinite(r.lng)
       ? [r.slug ?? r.id, r.name, r.lat, r.lng, r.sector, r.city, r.hiring ? 1 : 0, domainOf(r.website), precisions[i],
-        describeLocation({ location_precision: precisions[i], city: r.city, state: r.state, address: r.address, suburb: r.suburb }).place ?? '', r.location_verified ? 1 : 0] : null)),
+        describeLocation({ location_precision: precisions[i], city: r.city, state: r.state, address: r.address, suburb: r.suburb }).place ?? '', r.location_verified ? 1 : 0,
+        ownLogo(r.logo)] : null)),
   };
   lap('indexes, cards, markers');
   return snap;
@@ -253,7 +322,7 @@ const str = (v) => (Array.isArray(v) ? v.join(',') : String(v));
 // What was asked for, read from a query string, with the legacy coercions: a value is a string, and an empty one is not a filter.
 export function readFilters(query = {}) {
   const f = {};
-  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state']) {
+  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'fresh']) {
     if (query[key]) f[key] = str(query[key]);
   }
   if (query.name) f.names = [].concat(query.name).map(String);
@@ -285,7 +354,10 @@ function startingPoint(snap, f, precisions, states) {
   if (f.sector) lists.push(['sector', union(snap.idx.sector, f.sector.split(','))]);
   if (f.city) lists.push(['city', union(snap.idx.city, f.city.split(','))]);
   if (f.investor) lists.push(['investor', snap.idx.investor.get(f.investor) ?? EMPTY]);
-  if (f.stage) lists.push(['stage', snap.idx.stage.get(f.stage) ?? EMPTY]);
+  if (f.stage) lists.push(['stage', union(snap.idx.stage, f.stage.split(','))]);
+  if (f.remote) lists.push(['remote', union(snap.idx.remote, f.remote.split(','))]);
+  if (f.tech) lists.push(['tech', union(snap.idx.tech, f.tech.split(','))]);
+  if (f.team) lists.push(['team', union(snap.idx.team, f.team.split(','))]);
   if (f.names) lists.push(['name', union(snap.byName, f.names)]);
   // Only 'yes' and 'no' filter (any other value is ignored, as the per-record check in select always did).
   for (const column of ['hiring', 'taskGate', 'verified']) {
@@ -322,6 +394,11 @@ export function select(snap, f) {
   const cities = f.city ? new Set(f.city.split(',')) : null;
   const names = f.names ? new Set(f.names) : null;
   const week = f.events === 'week' ? Date.now() : null;
+  const stages = f.stage ? new Set(f.stage.split(',')) : null; // one stage, or several ("Seed to Series A")
+  const remotes = f.remote ? new Set(f.remote.split(',')) : null;
+  const techs = f.tech ? new Set(f.tech.split(',')) : null; // a company that uses any of them
+  const teams = f.team ? new Set(f.team.split(',')) : null;
+  const fresh = f.fresh === 'week' ? Date.now() : null; // raised, or had a role seen, in the last 14 days
   const { records, flags } = snap;
   const keep = (i) => {
     const r = records[i];
@@ -331,7 +408,11 @@ export function select(snap, f) {
     if (precisions && !precisions.has(snap.precisions[i])) return false;
     if (states && !states.has(r.state)) return false;
     if (f.investor && !(r.investors || []).includes(f.investor)) return false;
-    if (f.stage && r.stage !== f.stage) return false;
+    if (stages && !stages.has(r.stage)) return false;
+    if (remotes && !remotes.has(r.remote_policy)) return false;
+    if (techs && !(r.tech_stack ?? []).some((t) => techs.has(t))) return false;
+    if (teams && !teams.has(snap.buckets[i])) return false;
+    if (fresh && !freshOf(r, fresh)) return false;
     if (f.hiring === 'yes' && !flags.hiring[i]) return false;
     if (f.hiring === 'no' && flags.hiring[i]) return false;
     if (f.taskGate === 'yes' && !flags.taskGate[i]) return false;

@@ -4,6 +4,8 @@ import { curatedLists } from '../curatedLists.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { appUrl } from '../appRoute.js';
 
+export const LISTS_AT_FIRST = 6;
+
 // The address of the list view with these filters: the same address the map shows once they are on, so what is shared is what is seen.
 function buildShareUrl(filters) {
   return new URL(appUrl({ kind: 'explore' }, { filters, viewMode: 'list' }), window.location.origin).href;
@@ -16,6 +18,9 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
   // counted in one request, not one each; if it fails, every count is null, shown as "?".
   const [counts, setCounts] = useState({});
   const [copied, setCopied] = useState(false);
+  // The curated views show six lists to begin with; "Show all" adds the rest.
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? curatedLists : curatedLists.slice(0, LISTS_AT_FIRST);
 
   useEffect(() => {
     let live = true;
@@ -50,7 +55,7 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
         </button>
 
         <div className="curated-list-grid">
-          {curatedLists.map((list) => {
+          {visible.map((list) => {
             if (list.type === 'people') {
               return (
                 <details className="curated-card curated-card-people" key={list.id}>
@@ -98,6 +103,11 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
             );
           })}
         </div>
+        {!showAll && curatedLists.length > LISTS_AT_FIRST && (
+          <button type="button" className="hdrbtn curated-more" onClick={() => setShowAll(true)}>
+            Show all {curatedLists.length} lists
+          </button>
+        )}
       </div>
     </div>
   );

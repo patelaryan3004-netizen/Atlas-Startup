@@ -8,6 +8,8 @@
 // Nothing is made up. A field that no source has (a person's "why follow" line, for one) is left out of the card, not written for them.
 import { readFile, stat } from 'node:fs/promises';
 import { checkSeed, publicInstitution, publicPerson, ROLE_TYPES } from '../models/community.js';
+import { checkInstitutionSeed } from '../models/institutionSeed.js';
+import { buildInstitutionPins } from './institutionPins.js';
 
 const collator = new Intl.Collator();
 // A name as two writings of it would agree (no accents, case, "&" or punctuation), so "Blackbird Ventures" and "blackbird  ventures" are one.
@@ -15,7 +17,7 @@ const nameKey = (s) => String(s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '')
 const places = (location) => (typeof location === 'string' ? location : location?.label ?? location?.city ?? null);
 const pagesOf = (sources) => (sources ?? []).filter((s) => s?.url && s?.title).map((s) => ({ label: s.title, url: s.url }));
 
-export function buildCommunity({ seed, investors = null, production = false, version = 'v0' }) {
+export function buildCommunity({ seed, investors = null, production = false, version = 'v0', institutionSeed = null, geocodeRows = [] }) {
   const checked = checkSeed(seed, { production });
   const byName = (a, b) => collator.compare(a.name, b.name) || (a.id < b.id ? -1 : 1);
 
@@ -60,8 +62,14 @@ export function buildCommunity({ seed, investors = null, production = false, ver
   const counts = { founders: 0, operators: 0, investors: 0, institutions: institutions.length };
   for (const p of people) counts[`${p.roleType}s`] += 1;
   const search = (row) => [row.name, row.title, row.orgName, row.city, row.whyFollow, row.stageFocus, ...(row.sectors ?? [])].filter(Boolean).join('\n').toLowerCase();
+
+  // The firms' offices on the map (institutions_seed.json), each beside the investor page that backs the firm when there is one. A pin the
+  // geocoder has not settled is in the report, not on the map.
+  const built = buildInstitutionPins(checkInstitutionSeed(institutionSeed ?? {}), geocodeRows);
+  const pageOf = new Map(institutions.filter((i) => i.href).map((i) => [nameKey(i.name), i.href]));
+  const institutionPins = { pins: built.pins.map((pin) => ({ ...pin, href: pageOf.get(nameKey(pin.name)) ?? null })), report: built.report };
   return {
-    version, people, institutions, lists, counts, problems,
+    version, people, institutions, lists, counts, problems, institutionPins,
     personById: new Map(people.map((p) => [p.id, p])), institutionById: new Map(institutions.map((i) => [i.id, i])), listById: new Map(lists.map((l) => [l.id, l])),
     text: new Map([...people, ...institutions].map((row) => [row.id, search(row)])),
   };
@@ -89,7 +97,18 @@ async function sigOf(file) {
   try { const info = await stat(file); return `${Math.round(info.mtimeMs)}-${info.size}`; } catch (err) { if (err.code === 'ENOENT') return 'none'; throw err; }
 }
 
-export function createCommunityCatalog({ file, investorCatalog = null, production = false, reloadMs = 1000, now = Date.now } = {}) {
+// A JSON file, or `fallback` when it is not there; any other failure is a problem to report, and the fallback stands.
+async function readJson(file, fallback, problems, what) {
+  if (!file) return fallback;
+  try { return JSON.parse(await readFile(file, 'utf8')); } catch (err) {
+    if (err.code !== 'ENOENT') problems.push(`${what} could not be read: ${err.message}`);
+    return fallback;
+  }
+}
+
+// institutionsFile: the firms' offices (institutions_seed.json); geocodeFile: what the geocoder answered about their addresses.
+// Without them the map has no institution pins, and everything else is as it was.
+export function createCommunityCatalog({ file, institutionsFile = null, geocodeFile = null, investorCatalog = null, production = false, reloadMs = 1000, now = Date.now } = {}) {
   let snap = null;
   let loading = null;
   let checkedAt = 0;
@@ -97,14 +116,13 @@ export function createCommunityCatalog({ file, investorCatalog = null, productio
 
   async function load() {
     const investors = investorCatalog ? await investorCatalog.snapshot() : null;
-    const sig = `${await sigOf(file)}/${investors?.version ?? 'none'}`;
+    const sig = [await sigOf(file), institutionsFile ? await sigOf(institutionsFile) : 'no', geocodeFile ? await sigOf(geocodeFile) : 'no', investors?.version ?? 'none'].join('/');
     if (snap && sig === signature) return snap;
-    let seed = {};
     const problems = [];
-    try { seed = JSON.parse(await readFile(file, 'utf8')); } catch (err) {
-      if (err.code !== 'ENOENT') problems.push(`the people file could not be read: ${err.message}`);
-    }
-    snap = buildCommunity({ seed, investors, production, version: sig });
+    const seed = await readJson(file, {}, problems, 'the people file');
+    const institutionSeed = await readJson(institutionsFile, null, problems, 'the institutions file');
+    const geocodeRows = await readJson(geocodeFile, [], problems, 'the geocode cache');
+    snap = buildCommunity({ seed, investors, production, version: sig, institutionSeed, geocodeRows: Array.isArray(geocodeRows) ? geocodeRows : [] });
     snap.problems.push(...problems);
     signature = sig;
     return snap;

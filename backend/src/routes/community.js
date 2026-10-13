@@ -36,6 +36,14 @@ export function createCommunityRouter({ respond, companyCatalog }) {
     return { counts: snap.counts, total: inRole.length, count: matched.length, results, ...offsetInfo({ offset, limit, shown: results.length, total: matched.length }) };
   }));
 
+  // GET /api/institutions/pins     the firms' offices drawn on the map: { count, items: [{ id, institution, name, lat, lng, city, state, place,
+  //                                office, website, href }] }. An office is here only when its place is known to be that office (a point the owner gave, or
+  //                                a street address the geocoder found to the house); what is not yet settled is in the CLI's report, never on the map.
+  router.get('/institutions/pins', send((snap) => {
+    const items = snap.institutionPins.pins.map(({ how, ...pin }) => pin);
+    return { count: items.length, items };
+  }));
+
   router.get('/institutions', send((snap, req) => {
     const { limit, offset } = offsetParams(req.query, { max: MAX_LIMIT });
     const { inRole, matched } = selectInstitutions(snap, { search: text(req.query.search), list: listOf(snap, req.query, 'institutions') });

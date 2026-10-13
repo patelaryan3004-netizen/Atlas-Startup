@@ -45,12 +45,26 @@ describe('CuratedLists', () => {
     fetchCounts.mockImplementation((sets) => new Promise((resolve) => { release = () => resolve({ total: 216, counts: sets.map(countFor) }); }));
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
     const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
-    const melbourne = screen.getByText('Melbourne AI startups').closest('.curated-card');
+    const ai = screen.getByText('Australian AI Startups').closest('.curated-card');
     expect(hiring).toHaveTextContent('… companies');
-    expect(melbourne).toHaveTextContent('… companies');
+    expect(ai).toHaveTextContent('… companies');
     release();
     await waitFor(() => expect(hiring).toHaveTextContent('70 companies'));
-    expect(melbourne).toHaveTextContent('4 companies');
+    expect(ai).toHaveTextContent('11 companies');
+  });
+
+  it('shows six lists to begin with, and "Show all" adds the rest (and then goes)', async () => {
+    const { container } = render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
+    await screen.findByText('Startups Hiring Now');
+    expect(container.querySelectorAll('.curated-card')).toHaveLength(6);
+    expect(screen.queryByText('Sydney Startups')).not.toBeInTheDocument();
+    const more = screen.getByRole('button', { name: `Show all ${curatedLists.length} lists` });
+    await userEvent.click(more);
+    expect(container.querySelectorAll('.curated-card')).toHaveLength(curatedLists.length);
+    expect(screen.getByText('Sydney Startups')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Show all/ })).not.toBeInTheDocument();
+    // the counts for the later lists were asked for with the first six, in the one request
+    expect(fetchCounts).toHaveBeenCalledTimes(1);
   });
 
   it('shows "?" for every list when the counts cannot be had, and the lists still open', async () => {
@@ -59,7 +73,7 @@ describe('CuratedLists', () => {
     render(<CuratedLists currentFilters={{}} onApply={onApply} onClose={() => {}} />);
     const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
     await waitFor(() => expect(hiring).toHaveTextContent('? companies'));
-    expect(screen.getByText('Sydney Startups').closest('.curated-card')).toHaveTextContent('? companies');
+    expect(screen.getByText('Australian AI Startups').closest('.curated-card')).toHaveTextContent('? companies');
     await userEvent.click(within(hiring).getByText('View this list'));
     expect(onApply).toHaveBeenCalledTimes(1);
   });
@@ -69,7 +83,7 @@ describe('CuratedLists', () => {
     render(<CuratedLists currentFilters={{}} onApply={() => {}} onClose={() => {}} />);
     const hiring = (await screen.findByText('Startups Hiring Now')).closest('.curated-card');
     await waitFor(() => expect(hiring).toHaveTextContent('5 companies'));
-    expect(screen.getByText('Sydney Startups').closest('.curated-card')).toHaveTextContent('? companies');
+    expect(screen.getByText('Australian AI Startups').closest('.curated-card')).toHaveTextContent('? companies');
   });
 
   it('hands over the list when "View this list" is clicked: the page opens it at its own address and closes this', async () => {

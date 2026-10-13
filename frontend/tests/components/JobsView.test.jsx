@@ -64,9 +64,9 @@ describe('JobsView', () => {
     window.history.replaceState(null, '', '/jobs?sector=AI&city=Sydney');
     fakeServer([job({ name: 'A', slug: 'a' }), job({ name: 'B', slug: 'b', sector: 'Fintech' })]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
-    await screen.findByText('A');
+    await screen.findByRole('heading', { name: 'A' });
     expect(fetchStartupPage.mock.calls[0][0]).toEqual({ hiring: 'yes', sector: 'AI', city: 'Sydney', stage: '' });
-    expect(screen.queryByText('B')).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'B' })).not.toBeInTheDocument();
 
     await userEvent.selectOptions(screen.getByLabelText('Filter by startup stage'), 'Seed');
     await waitFor(() => expect(window.location.search).toBe('?sector=AI&city=Sydney&stage=Seed'));
@@ -108,14 +108,14 @@ describe('JobsView', () => {
     expect(await screen.findByText('1 company is hiring now')).toBeInTheDocument();
   });
 
-  it('renders a card per job with name, sector, city, stage and blurb', async () => {
+  it('renders a card per job on the one card: name, a row of sector, stage and city, and the blurb', async () => {
     fakeServer([job()]);
-    render(<JobsView sectorColors={{ AI: '#abcdef' }} onClose={() => {}} />);
+    const { container } = render(<JobsView onClose={() => {}} />);
 
-    expect(await screen.findByText('Acme AI')).toBeInTheDocument();
-    expect(screen.getByText('AI', { selector: '.pc-badge' })).toBeInTheDocument();
-    expect(screen.getByText('Sydney · Seed')).toBeInTheDocument();
-    expect(screen.getByText('Does things')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Acme AI' })).toBeInTheDocument();
+    expect(container.querySelector('.job-card')).toHaveClass('card', 'entity-card');
+    expect([...container.querySelectorAll('.job-card .meta-row li')].map((li) => li.textContent)).toEqual(['AI', 'Seed', 'Sydney']);
+    expect(screen.getByText('Does things')).toHaveClass('entity-blurb');
     expect(screen.queryByText('Unverified')).not.toBeInTheDocument();
   });
 
@@ -125,6 +125,21 @@ describe('JobsView', () => {
 
     expect(await screen.findByText('Acme AI')).toBeInTheDocument();
     expect(screen.getByText('Unverified')).toBeInTheDocument();
+  });
+
+  it('says when each company was last checked: "Verified 3 days ago", a muted "Needs re-check" once over 60 days, and nothing without a date', async () => {
+    const ago = (days) => new Date(Date.now() - days * 86400000).toISOString();
+    fakeServer([
+      job({ name: 'Fresh Co', slug: 'fresh', last_verified_at: ago(3) }),
+      job({ name: 'Old Co', slug: 'old', last_verified_at: ago(90) }),
+      job({ name: 'Never Co', slug: 'never' }),
+    ]);
+    const { container } = render(<JobsView sectorColors={{}} onClose={() => {}} />);
+    await screen.findByRole('heading', { name: 'Fresh Co' });
+    expect(screen.getByText('Verified 3 days ago')).toBeInTheDocument();
+    expect(screen.getByText('Needs re-check')).toHaveClass('verified-note-stale');
+    expect(container.querySelectorAll('.job-card .verified-note')).toHaveLength(2);
+    expect(container.textContent).not.toMatch(/N\/A|undefined|null/);
   });
 
   it('shows no task-gate badge and no "Start task" button, even for a company flagged as task-gated: the same plain Apply for every card', async () => {

@@ -1,48 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { fetchStartupPage } from '../api.js';
-import { logoUrl } from '../logo.js';
+import { fetchStartupPage, exportUrl } from '../api.js';
 import ConceptPreview from './ConceptPreview.jsx';
+import EntityCard, { Avatar } from './EntityCard.jsx';
 import HiringBadge from './HiringBadge.jsx';
 import QuickFilters from './QuickFilters.jsx';
+import NewThisWeek from './NewThisWeek.jsx';
+import StartupTable from './StartupTable.jsx';
 import IndexRow, { cardId } from './IndexRow.jsx';
-import { verifiedLabel, nextEvent, eventDay, present } from '../freshness.js';
+import { nextEvent, eventDay } from '../freshness.js';
+import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
 
 const PAGE = 48;
 
-function domainOf(website) {
-  if (!website) return null;
-  try {
-    return new URL(website).hostname.replace(/^www\./, '');
-  } catch (e) {
-    return null;
-  }
-}
-
-function CardLogo({ website, name }) {
-  const domain = domainOf(website);
-  const initial = (name || '?').trim().charAt(0).toUpperCase();
-  const [failed, setFailed] = useState(false);
-
-  if (!domain || failed) {
-    return <span className="startup-card-logo-fallback">{initial}</span>;
-  }
-  return (
-    <img
-      className="startup-card-logo"
-      src={logoUrl(domain, 64)}
-      width="36"
-      height="36"
-      alt=""
-      loading="lazy"
-      decoding="async"
-      onError={() => setFailed(true)}
-    />
-  );
-}
-
 // Only sorts backed by a real field on the startup record. The server sorts, because the browser only ever has
 // one page of the list. "Recently added" and "Recently funded" would need a date field that doesn't exist in the
-// dataset, so they're left out rather than faked with a stand-in.
+// dataset, so they're left out rather than faked with a stand-in. Team size and remote policy sort only once some
+// company has one (they are facts a page has to give).
 const SORTS = {
   name: 'Name',
   stage: 'Stage (earliest first)',
@@ -51,6 +24,18 @@ const SORTS = {
   location: 'Location (A–Z)',
   industry: 'Industry (A–Z)',
 };
+const FACT_SORTS = { team: 'Team size (largest first)', remote: 'Remote policy' };
+
+// The list is a table on a screen wide enough for one and cards on a phone, and a visitor's choice is kept in this browser.
+const LAYOUT_KEY = 'auStartupListLayout';
+const WIDE_LIST = '(min-width: 900px)';
+function initialLayout() {
+  try {
+    const saved = localStorage.getItem(LAYOUT_KEY);
+    if (saved === 'table' || saved === 'cards') return saved;
+  } catch (e) { /* a browser that will not say: the default */ }
+  return typeof window.matchMedia === 'function' && window.matchMedia(WIDE_LIST).matches ? 'table' : 'cards';
+}
 
 // The list for the current filters, a page at a time: the next page loads when the end of the list nears the
 // screen (or when "Show more" is pressed), so the page holds the companies being looked at and not all of them.
@@ -58,6 +43,7 @@ const SORTS = {
 // onClearScope to widen it again.
 export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames, scope = '', onClearScope, chips = null, meta = null, onFiltersChange = null }) {
   const [sort, setSort] = useState('name');
+  const [layout, setLayout] = useState(initialLayout);
   const [state, setState] = useState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
   const latest = useRef(state);
   latest.current = state;
@@ -99,6 +85,11 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
   }, [state.hasMore, state.moreFailed, state.items.length, loadMore]);
 
   const { items, count, hasMore, status, moreFailed } = state;
+  const sorts = { ...SORTS, ...(meta?.teamSizes?.length ? { team: FACT_SORTS.team } : {}), ...(meta?.remotePolicies?.length ? { remote: FACT_SORTS.remote } : {}) };
+  const chooseLayout = (next) => {
+    setLayout(next);
+    try { localStorage.setItem(LAYOUT_KEY, next); } catch (e) { /* ignore */ }
+  };
 
   return (
     <div id="startupListView">
@@ -115,52 +106,58 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
         <label className="startup-list-sort">
           Sort by
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
-            {Object.entries(SORTS).map(([key, label]) => (
+            {Object.entries(sorts).map(([key, label]) => (
               <option key={key} value={key}>{label}</option>
             ))}
           </select>
         </label>
+        <div className="startup-layout" role="group" aria-label="How the list is laid out">
+          <button type="button" className="startup-layout-btn" aria-pressed={layout === 'table'} onClick={() => chooseLayout('table')}>Table</button>
+          <button type="button" className="startup-layout-btn" aria-pressed={layout === 'cards'} onClick={() => chooseLayout('cards')}>Cards</button>
+        </div>
+        {status === 'ready' && count > 0 && (
+          <a className="hdrbtn startup-export" href={exportUrl(filters, sort)} download="au-startup-map.csv" title={`Download the ${count} ${count === 1 ? 'startup' : 'startups'} in this list as a spreadsheet, with the page behind each fact`}>
+            Export CSV
+          </a>
+        )}
       </div>
+
+      {meta?.hasFresh && <NewThisWeek filters={filters} onSelectStartup={onSelectStartup} onShowAll={onFiltersChange ? () => onFiltersChange({ ...filters, fresh: 'week' }) : null} />}
 
       {status === 'loading' && <p className="modal-sub startup-list-empty">Loading…</p>}
       {status === 'error' && <p className="form-error startup-list-empty">Could not load the list right now.</p>}
       {status === 'ready' && items.length === 0 && <p className="modal-sub startup-list-empty">No startups match your filters.</p>}
 
-      {items.length > 0 && <IndexRow items={items.map((s) => ({ id: cardId('company', s.slug || s.name), name: s.name }))} what="the companies listed" />}
+      {items.length > 0 && layout === 'cards' && <IndexRow items={items.map((s) => ({ id: cardId('company', s.slug || s.name), name: s.name }))} what="the companies listed" />}
 
-      {items.length > 0 && (
+      {items.length > 0 && layout === 'table' && (
+        <StartupTable items={items} count={count} sort={sort} onSort={setSort} onSelectStartup={onSelectStartup} selectedName={selectedName} trackedNames={trackedNames} />
+      )}
+
+      {items.length > 0 && layout === 'cards' && (
         <div className="startup-grid">
           {items.map((s) => {
             const event = nextEvent(s.events);
-            const fresh = verifiedLabel(s.last_verified_at);
             return (
-            <button
+            <EntityCard
+              as="button"
               key={s.slug || s.name}
               id={cardId('company', s.slug || s.name)}
               className={s.name === selectedName ? 'startup-card startup-card-selected' : 'startup-card'}
               onClick={() => onSelectStartup(s)}
+              avatar={<Avatar name={s.name} website={s.website} />}
+              name={<>{s.name}{trackedNames?.has(s.name) && <span className="startup-card-tracked" title="Tracked">★</span>}</>}
+              aside={event && <span className="event-badge" title={event.title}>{eventDay(event)}</span>}
+              blurb={s.blurb}
+              meta={[s.sectorFull || s.sector, s.stage, s.city]}
             >
-              <div className="startup-card-top">
-                <CardLogo website={s.website} name={s.name} />
-                <div className="startup-card-heading">
-                  <h3>
-                    {s.name}
-                    {trackedNames?.has(s.name) && <span className="startup-card-tracked" title="Tracked">★</span>}
-                  </h3>
-                  <div className="startup-card-meta">{present(s.sectorFull || s.sector, s.city, s.stage).join(' · ')}</div>
-                </div>
-                {event && <span className="event-badge" title={event.title}>{eventDay(event)}</span>}
-              </div>
-
-              {s.blurb && <p className="pc-desc startup-card-desc">{s.blurb}</p>}
-
               <div className="startup-card-tags">
                 <HiringBadge company={s} />
                 <ConceptPreview company={s} />
-                {!s.verified && <span className="badge-unverified">Unverified</span>}
+                <UnverifiedBadge company={s} />
               </div>
-              {fresh && <div className={fresh.stale ? 'verified-note verified-note-stale' : 'verified-note'}>{fresh.text}</div>}
-            </button>
+              <VerifiedNote at={s.last_verified_at} />
+            </EntityCard>
             );
           })}
         </div>

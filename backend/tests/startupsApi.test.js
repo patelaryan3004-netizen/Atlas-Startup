@@ -124,6 +124,8 @@ describe('what the page needs besides a page', () => {
     expect(res.body).toEqual({
       sectors: uniqueSorted(f.rows.map((r) => r.sector)), cities: uniqueSorted(f.rows.map((r) => r.city)),
       investors: uniqueSorted(f.rows.flatMap((r) => r.investors)), stages: uniqueSorted(f.rows.map((r) => r.stage)),
+      // the options for the optional facts: none, while no page gives one
+      remotePolicies: [], techStack: [], teamSizes: [], hasFresh: false,
     });
   });
 

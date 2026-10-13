@@ -1,0 +1,65 @@
+import { useEffect, useState } from 'react';
+import { DIRECTORY_URL } from '../../api.js';
+import { appPath } from '../../appRoute.js';
+import { MAP_PATH } from '../../paths.js';
+
+// Four short columns of links: where to go, the directory's other pages, how to take part, and what to trust. Each link is a real
+// address in the app (or an anchor on this page); a column never holds more than four.
+export const FOOTER_COLUMNS = [
+  { title: 'Explore', links: [['Map', MAP_PATH], ['People', appPath({ kind: 'people' })], ['Lists', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
+  { title: 'Directory', links: [['Investors', '/investors'], ['News', appPath({ kind: 'news' })], ['Full list, no JavaScript', DIRECTORY_URL]] },
+  { title: 'Take part', links: [['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ['Nominate someone', appPath({ kind: 'people' })]] },
+  { title: 'Trust', links: [['How we verify', '#verify'], ['Privacy', '#privacy'], ['Terms', '#terms']] },
+];
+
+// The two legal notes are short and closed until asked for: a link to #privacy or #terms opens its note.
+function useOpenOnHash(ids) {
+  const read = () => (typeof window === 'undefined' ? '' : window.location.hash.replace(/^#/, ''));
+  const [hash, setHash] = useState(read);
+  useEffect(() => {
+    const onChange = () => setHash(read());
+    window.addEventListener('hashchange', onChange);
+    return () => window.removeEventListener('hashchange', onChange);
+  }, []);
+  return (id) => ids.includes(id) && hash === id;
+}
+
+export default function LandingFooter() {
+  const opened = useOpenOnHash(['privacy', 'terms']);
+  return (
+    <footer className="landing-footer">
+      <nav className="footer-columns" aria-label="Footer">
+        {FOOTER_COLUMNS.map((column) => (
+          <div className="footer-column" key={column.title}>
+            <h2 className="footer-title">{column.title}</h2>
+            <ul>
+              {column.links.map(([label, href]) => <li key={label}><a href={href}>{label}</a></li>)}
+            </ul>
+          </div>
+        ))}
+      </nav>
+
+      <div className="footer-legal">
+        <details id="privacy" open={opened('privacy') || undefined}>
+          <summary>Privacy</summary>
+          <p>
+            The submit, edit and nomination forms send what you type to a person who reads it, and we use it for nothing else. The waitlist is
+            a form hosted by Tally and loads only when you open it. No account, no tracking cookies, no analytics.
+          </p>
+          <p>The operator&rsquo;s name and contact details are not published yet.</p>
+        </details>
+        <details id="terms" open={opened('terms') || undefined}>
+          <summary>Terms</summary>
+          <p>
+            A best-effort directory from public pages and reviewed submissions. It can be wrong or out of date, and links to company sites and
+            job pages lead to places we do not control. Names and logos belong to their owners and are shown to identify them. Draft: not yet
+            reviewed by a lawyer.
+          </p>
+        </details>
+      </div>
+
+      <p className="footer-built">Built by Aryan &middot; Monash University</p>
+      <p className="footer-note">A beta, independent project: not affiliated with any company listed.</p>
+    </footer>
+  );
+}

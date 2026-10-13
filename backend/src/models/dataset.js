@@ -48,7 +48,7 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import {
   ADDED_FIELDS, LEGACY_FIELDS, AU_STATES, COMPANY_STATUSES, VERIFICATION_STATUSES,
-  HIRING_STATUSES, WEBSITE_STATUSES, EMPLOYEE_RANGES, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
+  HIRING_STATUSES, WEBSITE_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
   slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
 } from './company.js';
 import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
@@ -433,6 +433,14 @@ export function validateDataset(ds) {
         else if (e.url != null && !/^https?:\/\//.test(e.url)) bad(at, `events[${n}] url must be http(s) or null`);
       });
     }
+
+    // The optional facts (company.js): validated when a record has them, and absent or null when it has not.
+    if (c.remote_policy != null && !REMOTE_POLICIES.includes(c.remote_policy)) bad(at, `remote_policy must be one of ${REMOTE_POLICIES.join(', ')}`);
+    if (c.tech_stack != null && (!Array.isArray(c.tech_stack) || c.tech_stack.length === 0 || c.tech_stack.some((t) => !isStr(t)) || new Set(c.tech_stack).size !== c.tech_stack.length)) {
+      bad(at, 'tech_stack must be a list of distinct, non-empty names, or null');
+    }
+    if (c.team_size != null && (!Number.isInteger(c.team_size) || c.team_size < 1)) bad(at, 'team_size must be a whole number from 1, or null');
+    if (c.last_role_seen_at != null && !ISO_RE.test(c.last_role_seen_at)) bad(at, 'last_role_seen_at must be an ISO-8601 UTC timestamp or null');
 
     // The two representations of one fact must agree.
     if ((c.hiring === true) !== (c.hiring_status === 'hiring')) bad(at, 'hiring and hiring_status disagree');

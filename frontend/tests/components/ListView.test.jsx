@@ -1,8 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor, act } from '@testing-library/react';
+import { render, screen, waitFor, act, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-vi.mock('../../src/api.js', () => ({ fetchStartupPage: vi.fn() }));
+vi.mock('../../src/api.js', () => ({
+  fetchStartupPage: vi.fn(),
+  // a stand-in with the real one's shape: the filters and the sort in the query
+  exportUrl: vi.fn((filters = {}, sort = 'name') => `/api/startups/export.csv?${new URLSearchParams(Object.entries({ ...filters, sort }).filter(([, v]) => v)).toString()}`),
+}));
 
 import { fetchStartupPage } from '../../src/api.js';
 import ListView from '../../src/components/ListView.jsx';
@@ -93,10 +97,13 @@ describe('ListView', () => {
   });
 
   it('shows the core card fields: name, industry, location, stage, description', async () => {
-    mount();
-    expect(await screen.findByText('Canva')).toBeInTheDocument();
-    expect(screen.getByText('SaaS / Design Tech · Sydney · Series D+')).toBeInTheDocument();
-    expect(screen.getByText('Online graphic design platform for everyone')).toBeInTheDocument();
+    const { container } = mount();
+    expect(await screen.findByRole('heading', { name: 'Canva' })).toBeInTheDocument();
+    // the one card: Sector · Stage · City, a dot between each, in that order
+    expect([...container.querySelectorAll('.startup-card .meta-row li')].map((li) => li.textContent)).toEqual(['SaaS / Design Tech', 'Series D+', 'Sydney']);
+    expect(container.querySelector('.startup-card')).toHaveClass('card', 'entity-card');
+    expect(container.querySelector('.startup-card .entity-initial')).toHaveTextContent('C');
+    expect(screen.getByText('Online graphic design platform for everyone')).toHaveClass('entity-blurb');
   });
 
   it('shows "Hiring now" only for a company a page confirmed lately, and never says "Not hiring" about one nobody has read', async () => {
@@ -308,8 +315,8 @@ describe('ListView', () => {
     it('leaves out a field that is empty or "Unknown", and never writes N/A or null', async () => {
       fetchStartupPage.mockResolvedValue(page([startup({ sector: '', sectorFull: '', stage: 'Unknown', city: 'Perth' })]));
       const { container } = mount();
-      await screen.findByText('Canva');
-      expect(container.querySelector('.startup-card-meta')).toHaveTextContent(/^Perth$/);
+      await screen.findByRole('heading', { name: 'Canva' });
+      expect([...container.querySelectorAll('.startup-card .meta-row li')].map((li) => li.textContent)).toEqual(['Perth']);
       expect(container.textContent).not.toMatch(/N\/A|null|undefined|Unknown/);
     });
 
@@ -325,6 +332,22 @@ describe('ListView', () => {
       expect(screen.getByTitle('Demo day')).toBeInTheDocument();
     });
 
+    it('has a "Seed to Series A" chip: it sets the stage filter to those stages, and switches off again', async () => {
+      const onFiltersChange = vi.fn();
+      const meta = { sectors: [], cities: [], stages: ['Seed', 'Series A'] };
+      const { rerender } = mount({ meta, onFiltersChange });
+      await screen.findByText('Canva');
+      const chip = screen.getByRole('button', { name: 'Seed to Series A' });
+      expect(chip).toHaveAttribute('aria-pressed', 'false');
+      await userEvent.click(chip);
+      expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, stage: 'Seed,Early,Series A' });
+      rerender(<ListView filters={{ ...FILTERS, stage: 'Seed,Early,Series A' }} sectorColors={{}} onSelectStartup={noop} meta={meta} onFiltersChange={onFiltersChange} />);
+      expect(screen.getByRole('button', { name: 'Seed to Series A' })).toHaveAttribute('aria-pressed', 'true');
+      expect(screen.getByLabelText('Stage')).toHaveValue(''); // the Stage box does not also claim it
+      await userEvent.click(screen.getByRole('button', { name: 'Seed to Series A' }));
+      expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, stage: '' });
+    });
+
     it('has quick filters that set the same filters the drawer does', async () => {
       const onFiltersChange = vi.fn();
       const meta = { sectors: ['AI', 'SaaS'], cities: ['Sydney'], stages: ['Seed', 'Unknown'] };
@@ -337,6 +360,110 @@ describe('ListView', () => {
       await userEvent.selectOptions(screen.getByLabelText('Sector'), 'AI');
       expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, sector: 'AI' });
       expect([...screen.getByLabelText('Stage').querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Stage', 'Seed']);
+    });
+  });
+
+  describe('the table, the spreadsheet and the strip of what is new', () => {
+    const screenIs = (wide) => vi.stubGlobal('matchMedia', vi.fn((query) => ({ matches: query === '(min-width: 900px)' ? wide : false })));
+    const ago = (days) => new Date(Date.now() - days * 86400000).toISOString();
+    beforeEach(() => { try { localStorage.removeItem('auStartupListLayout'); } catch (e) { /* ignore */ } });
+    afterEach(() => { try { localStorage.removeItem('auStartupListLayout'); } catch (e) { /* ignore */ } });
+
+    it('is a table on a wide screen and cards on a narrow one, until the visitor chooses, and the choice is kept', async () => {
+      screenIs(true);
+      const first = mount();
+      await screen.findByRole('table');
+      expect(screen.getByRole('button', { name: 'Table' })).toHaveAttribute('aria-pressed', 'true');
+      expect(document.querySelector('.startup-grid')).toBeNull();
+      await userEvent.click(screen.getByRole('button', { name: 'Cards' }));
+      expect(screen.queryByRole('table')).toBeNull();
+      expect(document.querySelector('.startup-grid')).not.toBeNull();
+      expect(localStorage.getItem('auStartupListLayout')).toBe('cards');
+      first.unmount();
+      mount(); // the next visit: the choice is kept, though the screen is wide
+      await screen.findByRole('heading', { name: 'Canva' });
+      expect(screen.queryByRole('table')).toBeNull();
+      vi.unstubAllGlobals();
+    });
+
+    it('is cards on a narrow screen, and the table when it is asked for', async () => {
+      screenIs(false);
+      mount();
+      await screen.findByRole('heading', { name: 'Canva' });
+      expect(screen.queryByRole('table')).toBeNull();
+      expect(screen.getByRole('button', { name: 'Cards' })).toHaveAttribute('aria-pressed', 'true');
+      await userEvent.click(screen.getByRole('button', { name: 'Table' }));
+      expect(screen.getByRole('table')).toBeInTheDocument();
+      expect(localStorage.getItem('auStartupListLayout')).toBe('table');
+    });
+
+    it('lists the same companies in either layout, and opens one from either', async () => {
+      screenIs(true);
+      fetchStartupPage.mockResolvedValue(page([startup(), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
+      const onSelectStartup = vi.fn();
+      mount({ onSelectStartup });
+      await screen.findByRole('table');
+      expect(screen.getAllByRole('rowheader').map((h) => h.querySelector('.st-name-text').textContent)).toEqual(['Canva', 'Airwallex']);
+      await userEvent.click(screen.getByRole('button', { name: 'Airwallex' }));
+      expect(onSelectStartup).toHaveBeenLastCalledWith(expect.objectContaining({ name: 'Airwallex' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Cards' }));
+      expect([...document.querySelectorAll('.startup-grid .entity-name')].map((n) => n.textContent)).toEqual(['Canva', 'Airwallex']);
+    });
+
+    it('sorts from a column header as from the Sort by box: they are one sort', async () => {
+      screenIs(true);
+      mount();
+      await screen.findByRole('table');
+      await userEvent.click(screen.getByRole('button', { name: 'Hiring' }));
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith(FILTERS, expect.objectContaining({ sort: 'hiring', offset: 0 })));
+      expect(screen.getByLabelText('Sort by')).toHaveValue('hiring');
+      await userEvent.selectOptions(screen.getByLabelText('Sort by'), 'verified');
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith(FILTERS, expect.objectContaining({ sort: 'verified', offset: 0 })));
+      expect(screen.getByRole('columnheader', { name: /Last verified/ })).toHaveAttribute('aria-sort', 'descending');
+    });
+
+    it('offers to sort by team size and remote policy only once some company has one', async () => {
+      const options = () => [...screen.getByLabelText('Sort by').querySelectorAll('option')].map((o) => o.value);
+      const first = mount({ meta: { sectors: [], cities: [], stages: [] } });
+      await screen.findByText('Canva');
+      expect(options()).toEqual(['name', 'stage', 'verified', 'hiring', 'location', 'industry']);
+      first.unmount();
+      mount({ meta: { sectors: [], cities: [], stages: [], teamSizes: [{ code: 'lt10', label: 'Under 10' }], remotePolicies: ['remote-au'] } });
+      await screen.findByText('Canva');
+      expect(options()).toEqual(['name', 'stage', 'verified', 'hiring', 'location', 'industry', 'team', 'remote']);
+    });
+
+    it('exports exactly the list: a link with the same filters and sort, saved as a file, and none when nothing is listed', async () => {
+      const filters = { ...FILTERS, sector: 'AI', tech: 'Go' };
+      fetchStartupPage.mockResolvedValue(page([startup()], { count: 1 }));
+      const { rerender, unmount } = mount({ filters });
+      const link = await screen.findByRole('link', { name: 'Export CSV' });
+      expect(link.getAttribute('href')).toBe('/api/startups/export.csv?sector=AI&tech=Go&sort=name');
+      expect(link).toHaveAttribute('download', 'au-startup-map.csv');
+      expect(link).toHaveAttribute('title', expect.stringContaining('1 startup'));
+      await userEvent.selectOptions(screen.getByLabelText('Sort by'), 'verified');
+      await waitFor(() => expect(screen.getByRole('link', { name: 'Export CSV' }).getAttribute('href')).toBe('/api/startups/export.csv?sector=AI&tech=Go&sort=verified'));
+      rerender(<ListView filters={{ ...FILTERS, hiring: 'yes' }} sectorColors={{}} onSelectStartup={noop} />);
+      await waitFor(() => expect(screen.getByRole('link', { name: 'Export CSV' }).getAttribute('href')).toBe('/api/startups/export.csv?hiring=yes&sort=verified'));
+      unmount();
+      fetchStartupPage.mockResolvedValue(page([], { count: 0 }));
+      mount();
+      await screen.findByText('No startups match your filters.');
+      expect(screen.queryByRole('link', { name: 'Export CSV' })).toBeNull();
+    });
+
+    it('shows the strip of what is new this week only when the directory says some company is, and not otherwise', async () => {
+      const raised = startup({ name: 'Fresh Co', slug: 'fresh', last_funding_date: ago(3).slice(0, 10) });
+      fetchStartupPage.mockImplementation(async (filters, { limit } = {}) => (filters.fresh === 'week' ? page([raised], { count: 1, limit }) : page([startup(), raised], { count: 2 })));
+      const first = mount({ meta: { sectors: [], cities: [], stages: [], hasFresh: false } });
+      await screen.findByText('2 startups');
+      expect(screen.queryByRole('heading', { name: 'New this week' })).toBeNull();
+      expect(fetchStartupPage.mock.calls.every(([f]) => f.fresh !== 'week')).toBe(true); // not even asked
+      first.unmount();
+      mount({ meta: { sectors: [], cities: [], stages: [], hasFresh: true }, onFiltersChange: vi.fn() });
+      expect(await screen.findByRole('heading', { name: 'New this week' })).toBeInTheDocument();
+      const strip = screen.getByRole('region', { name: 'New this week' });
+      expect(within(strip).getByRole('button', { name: /Fresh Co/ })).toHaveTextContent(/Raised \d{1,2} \w{3}/);
     });
   });
 });

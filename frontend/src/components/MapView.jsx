@@ -1,26 +1,36 @@
 import { useCallback, useEffect, useRef } from 'react';
 import L from 'leaflet';
-import { logoUrl } from '../logo.js';
-import { createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM } from '../mapPins.js';
+import { fetchStartup } from '../api.js';
+import { companyPopup, institutionPopup } from '../mapPopups.js';
+import { createPinIndex, paddedWindow, pinPayload, clusterSize, CLUSTER_PX, showLogos, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM } from '../mapPins.js';
 
-// A pin's logo, over the plain initial-letter badge rendered underneath this <img>. The logo is drawn big, so it appears only once it has
-// loaded and is a real logo: until then (and if it never is) the first letter shows. A picture too small to be a logo is a stand-in for a
-// site the favicon service does not know, and is hidden. The pins are what the map is for, so their logos are asked for at once.
-function logoImg(domain, size) {
+// A pin's logo, over the plain initial-letter badge rendered underneath this <img>. It is the company's OWN picture (its `logo` address) and
+// nobody else's: no logo is asked of a third-party service. It appears only once it has loaded; until then, and if it never does, the first
+// letter shows. The pins are what the map is for, so their pictures are asked for at once.
+function logoImg(src) {
   const img = document.createElement('img');
   img.className = 'pin-logo';
   img.alt = '';
   img.decoding = 'async';
-  const none = () => { img.style.display = 'none'; };
-  img.onload = () => { if (img.naturalWidth >= 24) img.classList.add('pin-logo-ready'); else none(); };
-  img.onerror = none;
-  img.src = logoUrl(domain, size);
+  img.onload = () => { if (img.naturalWidth > 0) img.classList.add('pin-logo-ready'); else img.style.display = 'none'; };
+  img.onerror = () => { img.style.display = 'none'; };
+  img.src = src;
   return img;
+}
+
+// The name under a pin. It starts hidden: the map shows it (placeLabels) once zoomed in and only where it fits. The hover tooltip and the
+// company's card carry the name for everyone else, so the label is for looking, not for reading out.
+function labelElement(name) {
+  const label = document.createElement('span');
+  label.className = 'pin-label';
+  label.setAttribute('aria-hidden', 'true');
+  label.textContent = name || '';
+  return label;
 }
 
 // Everything the map puts on the page is built as elements, never as an HTML string: a company's name is data.
 function pinElement(tuple, { color, logos, selected, tracked }) {
-  const [, name, , , , , hiring, domain, precision] = tuple;
+  const [, name, , , , , hiring, , precision, , , logo] = tuple;
   const root = document.createElement('div');
   // A suburb is not an office: its pin is drawn as approximate (a dashed edge), so it is never read as an address.
   root.className = `custom-pin-badge${selected ? ' pin-selected' : ''}${precision === 'SUBURB' ? ' pin-approx' : ''}`;
@@ -29,14 +39,8 @@ function pinElement(tuple, { color, logos, selected, tracked }) {
   fallback.style.background = color;
   fallback.textContent = (name || '?').trim().charAt(0).toUpperCase();
   root.append(fallback);
-  if (logos && domain) root.append(logoImg(domain, 96));
-  // The name under the pin. It starts hidden: the map shows it (placeLabels) once zoomed in and only where it fits. The hover
-  // tooltip and the company's panel carry the name for everyone else, so the label is for looking, not for reading out.
-  const label = document.createElement('span');
-  label.className = 'pin-label';
-  label.setAttribute('aria-hidden', 'true');
-  label.textContent = name || '';
-  root.append(label);
+  if (logos && logo) root.append(logoImg(logo));
+  root.append(labelElement(name));
   if (hiring) {
     const dot = document.createElement('span');
     dot.className = 'pin-hiring-dot';
@@ -52,12 +56,28 @@ function pinElement(tuple, { color, logos, selected, tracked }) {
   return root;
 }
 
+// A firm's office: a rounded square with the accent as its outline and the firm's initial in it, so it is never taken for a company.
+function institutionElement(pin) {
+  const root = document.createElement('div');
+  root.className = 'inst-pin';
+  const initial = document.createElement('span');
+  initial.className = 'inst-initial';
+  initial.textContent = (pin.name || '?').trim().charAt(0).toUpperCase();
+  root.append(initial, labelElement(pin.name));
+  return root;
+}
+
+// A cluster is a ring like a pin's: the same dark fill, the one accent for its number, and a size that says how many it holds.
 function clusterElement(count) {
   const inner = document.createElement('div');
   inner.className = `marker-cluster-inner cluster-${clusterSize(count)}`;
   inner.textContent = String(count);
   return inner;
 }
+const clusterIcon = (count) => {
+  const px = CLUSTER_PX[clusterSize(count)];
+  return L.divIcon({ html: clusterElement(count), className: 'marker-cluster-custom', iconSize: [px, px] });
+};
 
 // Name, where, and how well that is known: "Example Startup / 123 Example Street, Melbourne / Verified office". A pin from
 // a server that does not say how well a place is known gets what it always got: the name, the sector and the city.
@@ -168,6 +188,7 @@ function stackList(members, tuples, onPick) {
 const NO_MARKERS = [];
 const NO_AREAS = [];
 const NO_COLORS = {};
+const NO_INSTITUTIONS = [];
 
 // A pin is a few elements with a shadow, and a jump to street level in a dense place can put a couple of hundred on a
 // phone's screen at once. Making them all in one go held a slow phone for most of a second, so a draw makes a few at a
@@ -178,6 +199,21 @@ const NARROW = '(max-width: 639px)';
 const FIRST_BATCH = 12;
 const SLOW_BATCH_MS = 24;
 const QUICK_BATCH_MS = 8;
+// The header and the search box sit over the top of the map, and the controls over the bottom: a card pans clear of them.
+const POPUP_PAN = { autoPanPaddingTopLeft: [24, 150], autoPanPaddingBottomRight: [24, 96] };
+
+// A card grows after it opens: the company's record arrives, "More" is unfolded. Leaflet pans only as a popup opens, so it is asked to
+// look again each time, and the card is not left under the search box. Returns what to call when the card's content has changed.
+function keepClear(popup, element) {
+  const again = () => popup.update?.();
+  element.addEventListener('toggle', again, true); // "toggle" does not bubble, so it is caught on the way down
+  return again;
+}
+
+// The map's tiles. With a Mapbox token the styles are Mapbox's (dark-v11, light-v11); without one the free OpenStreetMap tiles are used,
+// inverted to dark by the .osm-inverted class (styles.css) or left as they are for the light map.
+const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+const mapboxUrl = (basemap) => `https://api.mapbox.com/styles/v1/mapbox/${basemap === 'light' ? 'light-v11' : 'dark-v11'}/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
 
 // markers: one compact array per company whose place is a point, an exact office or a suburb (see fetchMarkers). Only
 // what is in view is ever turned into elements: pins and clusters are worked out for the window and zoom, and drawn or
@@ -185,18 +221,25 @@ const QUICK_BATCH_MS = 8;
 // areas: one group per city or state for the companies known only to that much, drawn as a group and never as a pin
 // (there are a few dozen at most, so all are drawn). Clicking one lists a few of them (onSelectStartup opens one) and
 // onViewArea(area) opens the rest as a list; with neither handler (the landing page) a group is a label to hover.
-export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sectorColors = NO_COLORS, onSelectStartup, onViewArea, selectedName, trackedNames }) {
+// institutionPins: the firms' offices ({ id, name, lat, lng, city, place, office, website, href }), a few dozen at most, all drawn.
+// showCompanies and showInstitutions are the two layers' switches; basemap is 'dark' or 'light'.
+export default function MapView({
+  markers = NO_MARKERS, areas = NO_AREAS, sectorColors = NO_COLORS, onSelectStartup, onViewArea, selectedName, trackedNames,
+  institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, basemap = 'dark', onOpenInternal,
+}) {
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
+  const tilesRef = useRef(null);
   const layerRef = useRef(null);
   const areaLayerRef = useRef(null);
+  const instLayerRef = useRef(null);
   const indexRef = useRef(null);
   const shownRef = useRef(new Map());
   const labelsRef = useRef(new Map()); // for each pin on the map: where it is, its name, and the element that says it
   const clustersRef = useRef(new Map()); // for each cluster on the map: where it is (a name is kept clear of it)
   const frameRef = useRef(0);
   const latest = useRef({});
-  latest.current = { markers, sectorColors, onSelectStartup, onViewArea, selectedName, trackedNames };
+  latest.current = { markers, sectorColors, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, basemap, onOpenInternal };
 
   // Writes the names under the pins that have room for one. From zoom 7 (9 on a phone) the pins on screen are looked at in the
   // order worth naming (the open one, then those hiring, then the rest): a name is written only where it covers no other name
@@ -220,17 +263,36 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     for (const [id, p] of labelsRef.current) p.el.classList.toggle('pin-label-on', named.has(id));
   }, []);
 
+  // A company's card: what the pin knows at once, and what the full record says when it arrives. Its one call to action opens the company.
+  const openCompanyCard = useCallback((tuple, lat, lng) => {
+    const map = mapRef.current;
+    if (!map) return;
+    const card = companyPopup(tuple, { onOpen: () => { map.closePopup?.(); latest.current.onSelectStartup?.(pinPayload(tuple)); } });
+    const popup = L.popup({ className: 'pin-popup', minWidth: 230, maxWidth: 290, offset: [0, -16], ...POPUP_PAN }).setLatLng([lat, lng]).setContent(card.element).openOn(map);
+    const again = keepClear(popup, card.element);
+    fetchStartup(tuple[0]).then((record) => { card.fill(record); again(); }, () => { /* the card keeps what the pin knows */ });
+  }, []);
+
   const draw = useCallback(() => {
     const map = mapRef.current;
     const layer = layerRef.current;
     const index = indexRef.current;
     if (!map || !layer || !index) return;
     cancelAnimationFrame(frameRef.current); // a newer view replaces whatever the last one had left to make
-    const { markers: tuples, sectorColors: colors, onSelectStartup: onSelect, selectedName: selected, trackedNames: tracked } = latest.current;
+    const { markers: tuples, sectorColors: colors, onSelectStartup: onSelect, selectedName: selected, trackedNames: tracked, showCompanies: visible } = latest.current;
+    const shown = shownRef.current;
+    if (!visible) {
+      // The companies' layer is switched off: nothing of theirs is on the map (the firms' offices, if on, are untouched).
+      layer.clearLayers();
+      shown.clear();
+      for (const key of [...labelsRef.current.keys()]) if (!key.startsWith('i:')) labelsRef.current.delete(key);
+      clustersRef.current.clear();
+      placeLabels();
+      return;
+    }
     const zoom = map.getZoom();
     const features = index.view(paddedWindow(map.getBounds()), zoom);
     const logos = showLogos(zoom, features.filter((f) => f.type === 'pin').length);
-    const shown = shownRef.current;
     const keep = new Set();
     const todo = [];
 
@@ -253,11 +315,11 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     const make = ([key, f]) => {
       let marker;
       if (f.type === 'cluster') {
-        marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ html: clusterElement(f.count), className: 'marker-cluster-custom', iconSize: [40, 40] }) });
+        marker = L.marker([f.lat, f.lng], { icon: clusterIcon(f.count) });
         marker.on('click', () => map.setView([f.lat, f.lng], Math.min(index.expansionZoom(f.id), CLUSTER_MAX_ZOOM + 1)));
         clustersRef.current.set(key, { lat: f.lat, lng: f.lng });
       } else if (f.type === 'stack') {
-        marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ html: clusterElement(f.members.length), className: 'marker-cluster-custom', iconSize: [40, 40] }) });
+        marker = L.marker([f.lat, f.lng], { icon: clusterIcon(f.members.length) });
         marker.on('click', () => L.popup({ className: 'stack-popup', maxHeight: 240 }).setLatLng([f.lat, f.lng]).setContent(stackList(f.members, tuples, (p) => onSelect?.(p))).openOn(map));
         clustersRef.current.set(key, { lat: f.lat, lng: f.lng });
       } else {
@@ -265,7 +327,7 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
         const html = pinElement(t, { color: colors[t[4]] || '#444', logos, selected: t[1] === selected, tracked: tracked?.has(t[1]) || false });
         marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ className: 'custom-leaflet-marker', html, iconSize: [44, 44], iconAnchor: [22, 22] }) });
         marker.bindTooltip(tooltipContent(t), { direction: 'top', offset: [0, -20], sticky: true });
-        marker.on('click', () => onSelect?.(pinPayload(t)));
+        marker.on('click', () => openCompanyCard(t, f.lat, f.lng));
         const el = html.querySelector('.pin-label');
         if (el) labelsRef.current.set(key, { el, lat: f.lat, lng: f.lng, text: t[1] || '', rank: t[1] === selected ? 0 : t[6] ? 1 : tracked?.has(t[1]) ? 2 : 3 });
       }
@@ -284,7 +346,7 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
       else placeLabels(); // every pin of this view is on the map: now see which have room for their name
     };
     step();
-  }, [placeLabels]);
+  }, [placeLabels, openCompanyCard]);
 
   useEffect(() => {
     const map = L.map(mapElRef.current, {
@@ -293,17 +355,15 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
       maxBounds: [[-85, -180], [85, 180]],
       maxBoundsViscosity: 1.0,
     }).setView([-33.0, 145.0], 5);
-    const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+    const start = latest.current.basemap;
+    mapElRef.current.dataset.basemap = start;
     if (mapboxToken) {
-      L.tileLayer(
-        `https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
-        { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }
-      ).addTo(map);
+      tilesRef.current = L.tileLayer(mapboxUrl(start), { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }).addTo(map);
     } else {
-      // No Mapbox token: standard OSM tiles, inverted to dark via the .osm-inverted class below rather than a
-      // paid/key-gated dark provider.
-      mapElRef.current.classList.add('osm-inverted');
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // No Mapbox token: the free OpenStreetMap tiles. The dark map is those tiles inverted by the .osm-inverted class (styles.css), not a
+      // paid or key-gated dark provider; the light map is the tiles as they are.
+      mapElRef.current.classList.toggle('osm-inverted', start === 'dark');
+      tilesRef.current = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
         maxZoom: 19,
         noWrap: true,
@@ -315,20 +375,39 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     map.createPane('areas').style.zIndex = '450';
     const areaLayer = L.layerGroup().addTo(map);
     const layer = L.layerGroup().addTo(map);
+    const instLayer = L.layerGroup().addTo(map);
     map.on('moveend', draw);
     mapRef.current = map;
     layerRef.current = layer;
     areaLayerRef.current = areaLayer;
+    instLayerRef.current = instLayer;
     draw();
-    return () => { cancelAnimationFrame(frameRef.current); map.remove(); mapRef.current = null; layerRef.current = null; areaLayerRef.current = null; shownRef.current = new Map(); labelsRef.current = new Map(); clustersRef.current = new Map(); };
+    return () => {
+      cancelAnimationFrame(frameRef.current); map.remove();
+      mapRef.current = null; layerRef.current = null; areaLayerRef.current = null; instLayerRef.current = null; tilesRef.current = null;
+      shownRef.current = new Map(); labelsRef.current = new Map(); clustersRef.current = new Map();
+    };
   }, [draw]);
 
-  // The groups (a filter changed): they are few and do not depend on the window or the zoom, so all are drawn each time.
+  // The basemap was changed: Mapbox's styles are a new address for the tiles; the free tiles are the same, inverted or not.
+  const basemapSeen = useRef(false);
+  useEffect(() => {
+    if (!basemapSeen.current) { basemapSeen.current = true; return; }
+    const root = mapElRef.current;
+    if (!root) return;
+    root.dataset.basemap = basemap;
+    if (mapboxToken) tilesRef.current?.setUrl?.(mapboxUrl(basemap));
+    else root.classList.toggle('osm-inverted', basemap === 'dark');
+  }, [basemap]);
+
+  // The groups (a filter changed, or the companies' layer was switched): they are few and do not depend on the window or the zoom, so all
+  // are drawn each time.
   useEffect(() => {
     const map = mapRef.current;
     const layer = areaLayerRef.current;
     if (!map || !layer) return;
     layer.clearLayers();
+    if (!showCompanies) return;
     for (const area of areas) {
       const label = areaLabel(area);
       const marker = L.marker([area.lat, area.lng], {
@@ -339,23 +418,31 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
       marker.on('click', () => {
         const { onSelectStartup: pick, onViewArea: viewAll } = latest.current;
         if (!pick && !viewAll) return;
-        // The header and the search box sit over the top of the map, and the view switch over the bottom: pan clear of them.
-        L.popup({ className: 'stack-popup area-popup', maxHeight: 380, autoPanPaddingTopLeft: [24, 150], autoPanPaddingBottomRight: [24, 96] }).setLatLng([area.lat, area.lng])
+        L.popup({ className: 'stack-popup area-popup', maxHeight: 380, ...POPUP_PAN }).setLatLng([area.lat, area.lng])
           .setContent(areaPopup(area, { onPick: (member) => pick?.(member), onViewAll: (a) => viewAll?.(a) })).openOn(map);
       });
       marker.addTo(layer);
     }
-  }, [areas]);
+  }, [areas, showCompanies]);
 
   // New pins (a filter changed): start from nothing, because a cluster's number belongs to the index that made it.
   useEffect(() => {
     indexRef.current = createPinIndex(markers);
     layerRef.current?.clearLayers();
     shownRef.current = new Map();
-    labelsRef.current = new Map();
+    for (const key of [...labelsRef.current.keys()]) if (!key.startsWith('i:')) labelsRef.current.delete(key);
     clustersRef.current = new Map();
     draw();
   }, [markers, draw]);
+
+  // The companies' layer was switched on or off.
+  const visibleSeen = useRef(false);
+  useEffect(() => {
+    if (!visibleSeen.current) { visibleSeen.current = true; return; }
+    shownRef.current = new Map();
+    layerRef.current?.clearLayers();
+    draw();
+  }, [showCompanies, draw]);
 
   // A pin's look changed (selected, tracked, a sector's colour): only the pins whose look differs are rebuilt. (Not on
   // the first run: the effect above has just drawn, and drawing again would make a second batch of pins in that frame.)
@@ -364,6 +451,31 @@ export default function MapView({ markers = NO_MARKERS, areas = NO_AREAS, sector
     if (!looksSeen.current) { looksSeen.current = true; return; }
     draw();
   }, [sectorColors, selectedName, trackedNames, draw]);
+
+  // The firms' offices: few enough that all are drawn, each time they change or the layer is switched.
+  useEffect(() => {
+    const map = mapRef.current;
+    const layer = instLayerRef.current;
+    if (!map || !layer) return;
+    layer.clearLayers();
+    for (const key of [...labelsRef.current.keys()]) if (key.startsWith('i:')) labelsRef.current.delete(key);
+    if (showInstitutions) {
+      for (const pin of institutionPins) {
+        const html = institutionElement(pin);
+        const marker = L.marker([pin.lat, pin.lng], { icon: L.divIcon({ className: 'custom-leaflet-marker', html, iconSize: [44, 44], iconAnchor: [22, 22] }) });
+        marker.bindTooltip(pin.office ? `${pin.name} — ${pin.office}` : pin.name, { direction: 'top', offset: [0, -20], sticky: true });
+        marker.on('click', () => {
+          const card = institutionPopup(pin, { onOpen: (href) => { map.closePopup?.(); latest.current.onOpenInternal?.(href); } });
+          const popup = L.popup({ className: 'pin-popup', minWidth: 230, maxWidth: 290, offset: [0, -16], ...POPUP_PAN }).setLatLng([pin.lat, pin.lng]).setContent(card.element).openOn(map);
+          keepClear(popup, card.element);
+        });
+        marker.addTo(layer);
+        const el = html.querySelector('.pin-label');
+        if (el) labelsRef.current.set(`i:${pin.id}`, { el, lat: pin.lat, lng: pin.lng, text: pin.name || '', rank: 3 });
+      }
+    }
+    placeLabels();
+  }, [institutionPins, showInstitutions, placeLabels]);
 
   return <div id="map" ref={mapElRef} />;
 }

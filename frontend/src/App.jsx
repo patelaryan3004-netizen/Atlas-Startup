@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { fetchMeta, fetchSummary, fetchMarkers, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
+import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
 import FilterPanel from './components/FilterPanel.jsx';
 import HeaderMenu from './components/HeaderMenu.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import NewsTicker from './components/NewsTicker.jsx';
 import MapKey from './components/MapKey.jsx';
+import MapLayers from './components/MapLayers.jsx';
 import { getPersonProfile } from './people.js';
 import { areaFilters, scopeText } from './mapPins.js';
 import BottomCapsule from './components/BottomCapsule.jsx';
@@ -55,8 +56,10 @@ const PALETTE = [
 
 // precision (EXACT, SUBURB, CITY, STATE) is how well a company's place is known, and state its state: a group on the
 // map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '' };
-const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [] };
+// remote (a remote policy), tech (tools it builds with, several), team (a bucket of team size) and fresh ("week": new this week) filter by the
+// optional facts a page may give a company.
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', fresh: '' };
+const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], hasFresh: false };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
 
@@ -66,6 +69,26 @@ function loadNewsVisible() {
     return raw === null ? true : raw === '1';
   } catch (e) {
     return true;
+  }
+}
+
+// The map's two layers and its basemap are kept in this browser, so a visitor who switched one off finds it as they left it. A browser that
+// will not say (a private window) gets the defaults: both layers on, the dark map.
+const LAYERS_KEY = 'auStartupMapLayers';
+const BASEMAP_KEY = 'auStartupBasemap';
+function loadLayers() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(LAYERS_KEY) ?? 'null');
+    return { companies: saved?.companies !== false, institutions: saved?.institutions !== false };
+  } catch (e) {
+    return { companies: true, institutions: true };
+  }
+}
+function loadBasemap() {
+  try {
+    return localStorage.getItem(BASEMAP_KEY) === 'light' ? 'light' : 'dark';
+  } catch (e) {
+    return 'dark';
   }
 }
 
@@ -121,7 +144,8 @@ const aborted = (err) => err?.name === 'AbortError';
 // that is open. Everything else is asked of the server when it is needed, so the page is as fast at five
 // thousand companies as at two hundred.
 export default function App() {
-  // Where a link into the app lands: ?view=jobs, lists, list (the list of startups) or waitlist (the waitlist form); and the
+  // Where a link into the app lands: ?view=jobs, lists, list (the list of startups), waitlist (the waitlist form) or submit (the form to
+  // submit a startup); and the
   // investor pages by their own addresses: /investors, /investors/<slug> and /investors/people/<slug> (the first version's
   // ?view=investors addresses still work).
   const initialView = loadInitialView();
@@ -135,7 +159,11 @@ export default function App() {
   const [markers, setMarkers] = useState([]);
   const [areas, setAreas] = useState([]);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
-  const [showSubmitForm, setShowSubmitForm] = useState(false);
+  const [layers, setLayers] = useState(loadLayers);
+  const [basemap, setBasemap] = useState(loadBasemap);
+  const [institutionPins, setInstitutionPins] = useState([]);
+  const [panelOpen, setPanelOpen] = useState(false); // the slide-out panel on the left: the map's own controls move aside while it is open
+  const [showSubmitForm, setShowSubmitForm] = useState(initialView === 'submit');
   const [showUnverified, setShowUnverified] = useState(false);
   const [viewMode, setViewMode] = useState(initialView === 'list' || route.kind === 'list' ? 'list' : 'map');
   const [showTracked, setShowTracked] = useState(false);
@@ -252,6 +280,26 @@ export default function App() {
     return () => ctrl.abort();
   }, [applied, viewMode]);
 
+  // The firms' offices, once, for the map (they do not depend on the filters): none until the owner's file of firms is in place.
+  useEffect(() => {
+    if (viewMode !== 'map' || institutionPins.length) return undefined;
+    const ctrl = new AbortController();
+    fetchInstitutionPins({ signal: ctrl.signal })
+      .then(({ items }) => { if (!ctrl.signal.aborted) setInstitutionPins(items ?? []); })
+      .catch(() => { /* no firms on the map: the map is as it was */ });
+    return () => ctrl.abort();
+  }, [viewMode, institutionPins.length]);
+
+  const toggleLayer = (name) => setLayers((was) => {
+    const next = { ...was, [name]: !was[name] };
+    try { localStorage.setItem(LAYERS_KEY, JSON.stringify(next)); } catch (e) { /* ignore */ }
+    return next;
+  });
+  const chooseBasemap = (name) => {
+    setBasemap(name);
+    try { localStorage.setItem(BASEMAP_KEY, name); } catch (e) { /* ignore */ }
+  };
+
   // The companies a visitor tracks are looked up by name when the list is opened.
   useEffect(() => {
     if (!showTracked) return undefined;
@@ -365,7 +413,7 @@ export default function App() {
   }, [openInvestors]);
 
   if (showJobs) {
-    return <Lazy fallback={loading('jobs')}><JobsView sectorColors={sectorColors} onClose={leave} /></Lazy>;
+    return <Lazy fallback={loading('jobs')}><JobsView onClose={leave} /></Lazy>;
   }
 
   if (route.kind === 'news') {
@@ -390,7 +438,7 @@ export default function App() {
   }
 
   return (
-    <div id="app" className={activeList ? 'has-list-banner' : undefined}>
+    <div id="app" className={[activeList && 'has-list-banner', panelOpen && 'panel-open'].filter(Boolean).join(' ') || undefined}>
       <header>
         <div className="nav-brand">
           <a className="nav-brand-link" href={HOME_PATH} aria-label="Go to home">
@@ -458,6 +506,11 @@ export default function App() {
             onViewArea={viewArea}
             selectedName={selectedStartup?.name}
             trackedNames={tracked}
+            institutionPins={institutionPins}
+            showCompanies={layers.companies}
+            showInstitutions={layers.institutions}
+            basemap={basemap}
+            onOpenInternal={openInternal}
           />
         ) : (
           <ListView
@@ -483,9 +536,22 @@ export default function App() {
         meta={meta}
         resultCount={resultCount}
         summary={summary}
+        defaultOpen={viewMode === 'map'}
+        onOpenChange={setPanelOpen}
       />
 
-      {viewMode === 'map' && <MapKey sectorColors={sectorColors} />}
+      {viewMode === 'map' && <MapKey sectorColors={sectorColors} showInstitutions={institutionPins.length > 0} />}
+      {viewMode === 'map' && (
+        <MapLayers
+          showCompanies={layers.companies}
+          onToggleCompanies={() => toggleLayer('companies')}
+          institutionCount={institutionPins.length}
+          showInstitutions={layers.institutions}
+          onToggleInstitutions={() => toggleLayer('institutions')}
+          basemap={basemap}
+          onBasemap={chooseBasemap}
+        />
+      )}
 
       <NewsTicker visible={newsVisible} onClose={toggleNews} />
 

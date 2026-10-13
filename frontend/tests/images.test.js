@@ -59,9 +59,8 @@ describe('every image tag', () => {
   const all = sources().filter((f) => f.endsWith('.jsx')).flatMap((file) => [...code(file).matchAll(IMAGE_TAG)].map(([tag]) => ({ file: rel(file), tag })));
 
   it('is found where the logos are drawn (this test would otherwise check nothing)', () => {
-    expect(all.map((i) => i.file).sort()).toEqual([
-      'LandingPage.jsx', 'components/JobsView.jsx', 'components/ListView.jsx', 'components/StartupDetailPanel.jsx', 'components/investors/common.jsx',
-    ]);
+    // the logos beside a name are drawn in one place now, the shared card's picture (EntityCard); the company panel's and the investors' own are the others
+    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/StartupDetailPanel.jsx', 'components/investors/common.jsx']);
   });
 
   it('has an alt (empty: the name is beside it), and decodes off the main thread', () => {
@@ -79,7 +78,7 @@ describe('every image tag', () => {
   });
 
   it('is given its size, where it sits in a box that is the same on every screen, so the page does not move as logos arrive', () => {
-    for (const { file, tag } of all.filter((i) => ['LandingPage.jsx', 'components/JobsView.jsx', 'components/ListView.jsx'].includes(i.file))) {
+    for (const { file, tag } of all.filter((i) => ['components/EntityCard.jsx'].includes(i.file))) {
       expect(tag, file).toMatch(/\bwidth="\d+"/);
       expect(tag, file).toMatch(/\bheight="\d+"/);
     }
@@ -87,10 +86,13 @@ describe('every image tag', () => {
 });
 
 describe('the map\'s pins, built as elements', () => {
-  it('decode their logos off the main thread, and show one only once it has loaded and is a real logo', () => {
+  it('decode their logos off the main thread, show one only once it has loaded, and ask nobody else\'s service for it', () => {
     const map = text(path.join(src, 'components', 'MapView.jsx'));
     expect(map).toContain("img.decoding = 'async'");
-    expect(map).toContain('naturalWidth >= 24');
-    expect(map).toContain('logoUrl(domain, size)');
+    expect(map).toContain('img.naturalWidth > 0');
+    expect(map).toContain("img.onerror = () => { img.style.display = 'none'; }");
+    // the pin\'s logo is the company\'s own `logo` address; the favicon service is for cards, never for a pin
+    expect(map).not.toContain('logoUrl');
+    expect(map).not.toMatch(/gstatic|clearbit|favicon/i);
   });
 });

@@ -15,7 +15,11 @@ const deal = {
   url: 'https://example.com/deal',
 };
 
+const pill = () => screen.getByRole('button', { name: /^News/ });
 async function expand() {
+  await userEvent.click(pill());
+}
+async function collapse() {
   await userEvent.click(screen.getByText(/AU Startup Deals/));
 }
 
@@ -24,12 +28,17 @@ describe('NewsTicker', () => {
     vi.clearAllMocks();
   });
 
-  it('stays a collapsed one-line status bar until expanded, with no headline shown yet', async () => {
+  it('is only a small pill until pressed: no card, no headline, no refresh or hide', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
 
     await screen.findByText(/live/);
+    expect(pill()).toHaveTextContent('News');
+    expect(pill()).toHaveAttribute('aria-expanded', 'false');
     expect(screen.queryByText(deal.headline)).not.toBeInTheDocument();
+    expect(screen.queryByText(/AU Startup Deals/)).not.toBeInTheDocument();
+    expect(screen.queryByTitle('Hide news')).not.toBeInTheDocument();
+    expect(screen.queryByTitle('Get the latest news')).not.toBeInTheDocument();
   });
 
   it('expands to show the headline and meta for every deal, labeling the status as live', async () => {
@@ -38,14 +47,19 @@ describe('NewsTicker', () => {
     await screen.findByText(/live/);
 
     await expand();
+    expect(screen.getByText(/AU Startup Deals/)).toBeInTheDocument();
+    expect(screen.getByText(/● live/)).toBeInTheDocument();
     expect(screen.getByText(deal.headline)).toBeInTheDocument();
     expect(screen.getByText(deal.meta)).toBeInTheDocument();
+    expect(screen.getByText(deal.headline).closest('a')).toHaveAttribute('href', deal.url);
+    expect(screen.getByRole('button', { name: /AU Startup Deals/ })).toHaveAttribute('aria-expanded', 'true');
   });
 
-  it('labels the status as cached when the backend served from cache', async () => {
+  it('says the status to a screen reader on the pill, and in a tooltip', async () => {
     fetchNews.mockResolvedValue({ source: 'cache', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
     expect(await screen.findByText(/cached/)).toBeInTheDocument();
+    expect(pill()).toHaveAttribute('title', 'AU Startup Deals · cached');
   });
 
   it('labels the status as seeded when the backend had to fall back', async () => {
@@ -54,10 +68,11 @@ describe('NewsTicker', () => {
     expect(await screen.findByText(/seeded/)).toBeInTheDocument();
   });
 
-  it('shows "unavailable" if the fetch fails', async () => {
+  it('shows "unavailable" if the fetch fails, with a muted dot', async () => {
     fetchNews.mockRejectedValue(new Error('network down'));
-    render(<NewsTicker visible={true} onClose={() => {}} />);
+    const { container } = render(<NewsTicker visible={true} onClose={() => {}} />);
     expect(await screen.findByText(/unavailable/)).toBeInTheDocument();
+    expect(container.querySelector('.nt-dot')).toHaveClass('nt-dot-off');
   });
 
   it('renders nothing when visible is false', () => {
@@ -66,17 +81,18 @@ describe('NewsTicker', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('calls onClose when the close button is clicked', async () => {
+  it('calls onClose when the hide button is clicked', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
     const onClose = vi.fn();
     render(<NewsTicker visible={true} onClose={onClose} />);
     await screen.findByText(/live/);
 
+    await expand();
     await userEvent.click(screen.getByTitle('Hide news'));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('collapses again when the title is clicked a second time', async () => {
+  it('collapses again to the pill when the title is clicked a second time', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
     await screen.findByText(/live/);
@@ -84,22 +100,22 @@ describe('NewsTicker', () => {
     await expand();
     expect(screen.getByText(deal.headline)).toBeInTheDocument();
 
-    await expand();
+    await collapse();
     expect(screen.queryByText(deal.headline)).not.toBeInTheDocument();
+    expect(pill()).toBeInTheDocument();
   });
 
-  it('refresh button forces a live re-fetch and shows the new deals once expanded', async () => {
+  it('refresh button forces a live re-fetch and shows the new deals', async () => {
     const secondDeal = { headline: 'Fresh headline', meta: 'Melbourne · Series A', url: 'https://example.com/fresh' };
     fetchNews.mockResolvedValueOnce({ source: 'cache', deals: [deal] });
     render(<NewsTicker visible={true} onClose={() => {}} />);
     await screen.findByText(/cached/);
 
+    await expand();
     fetchNews.mockResolvedValueOnce({ source: 'live', deals: [secondDeal] });
     await userEvent.click(screen.getByTitle('Get the latest news'));
-    await screen.findByText(/live/);
-
-    await expand();
-    expect(screen.getByText('Fresh headline')).toBeInTheDocument();
+    expect(await screen.findByText('Fresh headline')).toBeInTheDocument();
+    expect(screen.getByText(/● live/)).toBeInTheDocument();
     expect(fetchNews).toHaveBeenLastCalledWith(true);
   });
 });

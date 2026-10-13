@@ -52,18 +52,20 @@ html,body,#root{margin:0;height:100%;font-family:var(--font);background:var(--bg
 .leaflet-tooltip-top:before{border-top-color:var(--panel);}
 
 .marker-cluster-custom{background:transparent;border:none;}
+/* A cluster is a ring like a pin's: the same white 3px ring and soft shadow, the panel's dark fill, and the one accent for its number.
+   Its size says how many it holds (mapPins.js CLUSTER_PX), so the map never needs a second colour for it. */
 .marker-cluster-inner{
-  width:40px;height:40px;border-radius:50%;border:2px solid rgba(10,14,15,.6);
+  box-sizing:border-box;width:44px;height:44px;border-radius:50%;border:3px solid #fff;
+  background:var(--panel);color:var(--accent-ink);
   display:flex;align-items:center;justify-content:center;
-  font-family:inherit;font-weight:700;font-size:13px;
-  box-shadow:0 2px 10px rgba(0,0,0,.5);cursor:pointer;
-  transition:transform .15s ease;
+  font-family:inherit;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;
+  box-shadow:0 3px 10px rgba(0,0,0,.45);cursor:pointer;
+  transition:transform .15s ease,box-shadow .15s ease;
 }
-.marker-cluster-inner:hover{transform:scale(1.12);}
-.cluster-small{background:#4ade80;color:#052e1c;}
-.cluster-medium{background:#fbbf24;color:#3d2a04;}
-.cluster-large{background:#f97316;color:#fff;}
-
+.marker-cluster-inner:hover{transform:scale(1.1);box-shadow:0 5px 16px rgba(0,0,0,.55);}
+.cluster-small{width:44px;height:44px;}
+.cluster-medium{width:52px;height:52px;font-size:15px;}
+.cluster-large{width:62px;height:62px;font-size:16px;}
 /* A company's pin: its logo in a white ring with a soft shadow, and its name on a white card just under it, a little way over the
    ring. With no logo (zoomed out, or none found) the circle is its first letter on its sector's colour. */
 .custom-leaflet-marker{background:transparent;border:none;}
@@ -105,8 +107,8 @@ html,body,#root{margin:0;height:100%;font-family:var(--font);background:var(--bg
 .pin-label{
   display:none;position:absolute;left:50%;top:calc(100% - 3px);transform:translateX(-50%);
   max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none;
-  padding:4px 10px;border-radius:8px;background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.4);font-size:12.5px;font-weight:700;line-height:1.3;color:#15181a;
+  padding:4px 10px;border-radius:10px;background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);font-size:12px;font-weight:700;line-height:1.3;color:#15181a;
 }
 .show-pin-labels .pin-label.pin-label-on{display:block;}
 
@@ -145,7 +147,7 @@ html,body,#root{margin:0;height:100%;font-family:var(--font);background:var(--bg
 .area-chip:hover,.area-chip:focus-visible{background:var(--panel);border-style:solid;border-color:var(--accent);outline:none;}
 
 header{
-  position:absolute;top:0;left:0;right:0;z-index:500;
+  position:absolute;top:0;left:0;right:0;z-index:750; /* over the slide-out panel (700) and its scrim, so the menu still works with the panel open */
   display:flex;align-items:center;gap:24px;
   padding:11px 24px;background:var(--paper);border-bottom:1px solid var(--line);
 }
@@ -204,6 +206,9 @@ header h1 span{color:var(--accent-ink);}
 .hdr-menu-item-accent{color:var(--accent-ink);font-weight:600;}
 .hdr-menu-sep{height:1px;background:var(--line);margin:6px 2px;}
 .hdr-menu-mobile-nav{display:none;}
+/* Between a phone and a laptop the six links do not fit beside the two buttons: the hiring count goes, then the links move into the menu. */
+@media (max-width:1199px){ .nav-hiring-hint{display:none;} .nav-link{padding:8px 10px;} }
+@media (max-width:899px){ .nav-center{display:none;} .hdr-menu-mobile-nav{display:flex;flex-direction:column;gap:2px;} }
 
 .floating-search{position:absolute;top:68px;left:24px;right:24px;z-index:490;display:flex;justify-content:center;}
 .floating-search > input{
@@ -298,29 +303,45 @@ header h1 span{color:var(--accent-ink);}
   position:absolute; top:128px; left:24px; z-index:480;
 }
 
-.fdrawer-overlay{
-  align-items:stretch; justify-content:flex-start; padding:0;
+/* The slide-out panel on the left, with Filters and Cities in it (FilterPanel.jsx). It starts under the header and covers everything the map
+   floats over it (the news pill, the key, the Map / List switch). Wide screens: it stands beside the map, nothing is dimmed and the map stays
+   alive, and the map's own controls move over (below). Narrower screens: it covers most of the map, over a scrim that closes it when pressed. */
+:root{--panel-w:340px;--header-h:57px;}
+.map-panel-scrim{position:absolute;top:var(--header-h);left:0;right:0;bottom:0;z-index:690;background:rgba(4,6,7,.55);}
+.map-panel{
+  position:absolute;top:var(--header-h);bottom:0;left:0;z-index:700;box-sizing:border-box;width:var(--panel-w);max-width:88vw;
+  padding:14px 20px 24px;overflow-y:auto;font-family:inherit;
+  background:var(--panel);border-right:1px solid var(--line);box-shadow:0 0 32px rgba(0,0,0,.4);
+  animation:map-panel-in .2s ease-out;
 }
-.fdrawer-panel{
-  position:relative; background:var(--panel); border-right:1px solid var(--line);
-  width:300px; max-width:85vw; height:100%; max-height:none; overflow-y:auto;
-  padding:24px; font-family:inherit; box-shadow:0 0 32px rgba(0,0,0,.4);
-  animation:fdrawer-slide-in .18s ease-out;
-}
-@keyframes fdrawer-slide-in{
+@keyframes map-panel-in{
   from{transform:translateX(-100%);}
   to{transform:translateX(0);}
 }
-.fdrawer-tabs{display:flex;gap:2px;margin:8px 0 18px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;}
-.fdrawer-tabs::-webkit-scrollbar{display:none;}
-.fdrawer-tab{
-  font-family:inherit;font-size:11.5px;font-weight:600;background:none;border:none;
-  padding:8px 5px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;
+.map-panel .modal-close{top:16px;right:12px;padding:6px;}
+.map-panel-tabs{display:flex;gap:2px;margin:0 30px 18px 0;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;}
+.map-panel-tabs::-webkit-scrollbar{display:none;}
+.map-panel-tab{
+  font-family:inherit;font-size:12px;font-weight:600;background:none;border:none;
+  padding:8px 8px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;
   margin-bottom:-1px;white-space:nowrap;
 }
-.fdrawer-tab:hover{color:var(--ink);}
-.fdrawer-tab-active{color:var(--ink);border-bottom-color:var(--accent);}
-.fdrawer-content{display:flex;flex-direction:column;gap:14px;}
+.map-panel-tab:hover{color:var(--ink);}
+.map-panel-tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:4px;}
+.map-panel-tab-active{color:var(--ink);border-bottom-color:var(--accent);}
+.map-panel-content{display:flex;flex-direction:column;gap:14px;}
+.panel-note{margin:0;font-size:12px;color:var(--muted);}
+@media (min-width:900px){
+  .map-panel-scrim{display:none;}
+  /* With the panel open the map's own controls move to its right edge, so none is hidden behind it. */
+  #app.panel-open #fToggle,#app.panel-open #siteFooter,#app.panel-open #mapKeyToggle,#app.panel-open #mapKey,#app.panel-open #mapLayers{left:calc(var(--panel-w) + 24px);}
+  #app.panel-open .chips-float{left:calc(var(--panel-w) + 140px);}
+  #app.panel-open .floating-search{left:calc(var(--panel-w) + 24px);}
+  #app.panel-open #startupListView{padding-left:calc(var(--panel-w) + 24px);}
+}
+@media (prefers-reduced-motion: reduce){
+  .map-panel{animation:none;}
+}
 #filters input, #filters select{
   width:100%;padding:8px 10px;font-family:inherit;font-size:12.5px;
   border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);
@@ -336,7 +357,7 @@ header h1 span{color:var(--accent-ink);}
   margin-bottom:8px;
 }
 #resultCount{font-size:12px;color:var(--muted);margin-top:2px;}
-.fdrawer-actions{display:flex;gap:8px;margin-top:2px;}
+.map-panel-actions{display:flex;gap:8px;margin-top:2px;}
 #resetBtn{
   flex:1;font-size:12px;font-weight:600;background:var(--line);color:var(--ink);border:none;
   padding:10px;cursor:pointer;border-radius:6px;
@@ -396,7 +417,7 @@ header h1 span{color:var(--accent-ink);}
   margin-bottom:8px;display:flex;justify-content:space-between;gap:6px;
 }
 #leaderboardList li b, #notableList li b, #mostVouchedList li b{color:var(--accent-ink);}
-.fdrawer-empty{font-size:12.5px;color:var(--muted);margin:0;}
+.panel-empty{font-size:12.5px;color:var(--muted);margin:0;}
 
 .bottom-capsule{
   /* Clears the footer strip (bottom:20px, ~26px tall) at every width - the
@@ -495,7 +516,17 @@ header h1 span{color:var(--accent-ink);}
   width:240px; box-shadow:0 8px 24px rgba(0,0,0,.4); font-size:11px;
   overflow:hidden;
 }
-#newsTicker.nt-collapsed{width:auto;max-width:260px;}
+/* Shut, it is only a pill: the card's own frame is dropped so nothing but the pill is on the map. */
+#newsTicker.nt-collapsed{width:auto;background:none;border:none;border-radius:0;box-shadow:none;overflow:visible;}
+.nt-pill{
+  display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 14px;border-radius:var(--radius-pill);
+  background:rgb(20 24 26 / .94);color:var(--ink);border:1px solid var(--line);font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.4);transition:border-color .15s ease;
+}
+.nt-pill:hover{border-color:rgb(var(--accent-rgb) / .6);}
+.nt-pill:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.nt-dot{color:var(--accent-ink);font-size:9px;line-height:1;}
+.nt-dot-off{color:var(--muted);}
 #newsTicker .nt-head{
   display:flex; align-items:center; justify-content:space-between; gap:8px;
   padding:9px 12px;
@@ -628,12 +659,14 @@ header h1 span{color:var(--accent-ink);}
 .startup-card-tags{display:flex;flex-wrap:wrap;gap:6px;}
 
 @media (max-width:640px){
-  .fdrawer-panel{width:100%;max-width:100%;}
+  :root{--header-h:55px;}
+  .map-panel{width:min(88vw,360px);}
   /* Stacked below the search/filters row (not beside it) so it can never
      collide with the Filters button regardless of label width at narrow
      widths - the two floating cards fought for the same horizontal band
      at 320-360px when the ticker sat level with Filters. */
-  #newsTicker{width:190px;top:158px;right:16px;}
+  #newsTicker{top:158px;right:16px;}
+  #newsTicker.nt-expanded{width:min(260px,calc(100vw - 32px));}
   header{gap:10px;padding:10px 16px;}
   header h1{font-size:13px;}
   .nav-subtitle{display:none;}
@@ -779,7 +812,10 @@ header h1 span{color:var(--accent-ink);}
 .mk-sector-dot{flex:none;width:10px;height:10px;margin-top:3px;border-radius:50%;}
 .mk-sizes{display:flex;flex-wrap:wrap;gap:4px 10px;margin:-3px 0 9px 46px;color:var(--muted);font-size:11px;}
 .mk-sizes span{display:inline-flex;align-items:center;gap:5px;}
-.mk-dot{flex:none;width:9px;height:9px;border-radius:50%;}
+.mk-dot{flex:none;box-sizing:border-box;border-radius:50%;border:2px solid #fff;background:var(--panel);}
+.mk-dot.cluster-small{width:12px;height:12px;}
+.mk-dot.cluster-medium{width:16px;height:16px;}
+.mk-dot.cluster-large{width:20px;height:20px;}
 .mk-ring{
   width:28px;height:28px;border-radius:50%;border:2px dashed rgba(232,230,222,.5);
   background:radial-gradient(circle,rgba(232,230,222,.07),rgba(232,230,222,.03) 70%,transparent 72%);
@@ -901,6 +937,57 @@ button.qf-chip{padding:5px 12px;}
 .qf-chip select option{color:#111;background:#fff;}
 .verified-note{font-size:11px;color:var(--muted);margin-top:8px;}
 .verified-note-stale{font-style:italic;opacity:.8;}
+
+/* The list as a table, the cards or the table chosen by a switch, and the spreadsheet of what is listed (ListView.jsx, StartupTable.jsx). */
+.startup-layout{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel);}
+.startup-layout-btn{font:inherit;font-size:12.5px;padding:5px 13px;background:transparent;border:0;color:var(--muted);cursor:pointer;}
+.startup-layout-btn:hover{color:var(--ink);}
+.startup-layout-btn[aria-pressed="true"]{background:rgb(var(--accent-rgb) / .14);color:var(--accent-ink);}
+.startup-layout-btn:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.startup-export{display:inline-flex;align-items:center;text-decoration:none;}
+.startup-table-wrap{max-width:1100px;margin:0 auto;overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--card-radius);}
+.startup-table{width:100%;border-collapse:collapse;font-size:13px;}
+.startup-table th,.startup-table td{padding:10px 14px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line);}
+.startup-table td{white-space:nowrap;}
+.startup-table td:has(.st-tags){white-space:normal;min-width:190px;}
+.startup-table .hiring-badge{white-space:nowrap;}
+.startup-table tbody tr:last-child > *{border-bottom:0;}
+.startup-table thead th{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.startup-table tbody tr:hover{background:rgb(var(--accent-rgb) / .05);}
+.startup-table .st-num{text-align:right;font-variant-numeric:tabular-nums;}
+.st-sort{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
+.st-sort:hover,.st-sort-on{color:var(--ink);}
+.st-sort:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+.st-arrow{color:var(--accent-ink);min-width:.8em;}
+.st-name{font-weight:600;white-space:nowrap;position:sticky;left:0;z-index:1;background:var(--panel);} /* the name stays in view while a narrow screen scrolls the rest */
+.pc-hero .verified-note{color:rgba(255,255,255,.92);margin-top:3px;} /* on the company's colour, not on the page */
+.st-name > *{vertical-align:middle;}
+.st-name .event-badge,.st-name .badge-unverified,.st-name .startup-card-tracked{margin-left:8px;}
+.st-open{font:inherit;font-weight:600;color:var(--ink);background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-align:left;}
+.st-open:hover .st-name-text{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;}
+.st-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
+.st-open-selected .st-name-text{color:var(--accent-ink);}
+.startup-table .entity-avatar{width:28px;height:28px;font-size:12px;}
+.startup-table .verified-note{margin-top:0;white-space:nowrap;}
+.st-tags{display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0;list-style:none;}
+.st-tags li{font-size:11px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;color:var(--ink);white-space:nowrap;}
+.st-tags .st-more{color:var(--muted);}
+.sdp-tech{margin-bottom:6px;}
+.sdp-fact-source{margin-top:3px;font-size:10.5px;color:var(--muted);}
+.sdp-fact-source a{color:var(--accent-ink);}
+
+/* "New this week": the companies that raised, or had a role seen on a page of their own, lately. There is no strip when there are none. */
+.new-week{max-width:1100px;margin:0 auto 18px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--card-radius);}
+.new-week-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px;}
+.new-week-title{margin:0;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);}
+.new-week-all{font-size:12px;color:var(--accent-ink);}
+.new-week-list{display:flex;gap:8px;margin:0;padding:0 0 2px;list-style:none;overflow-x:auto;scrollbar-width:thin;}
+.new-week-item{font:inherit;display:inline-flex;align-items:center;gap:9px;padding:6px 12px 6px 6px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap;}
+.new-week-item:hover{border-color:var(--accent);}
+.new-week-item:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.new-week-item .entity-avatar{width:28px;height:28px;font-size:12px;}
+.new-week-name{font-size:13px;font-weight:600;}
+.new-week-what{font-size:11.5px;color:var(--accent-ink);}
 .event-badge{
   margin-left:auto;flex:none;align-self:flex-start;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;
   border:1px solid var(--accent);color:var(--accent-ink);white-space:nowrap;
@@ -915,11 +1002,35 @@ button.qf-chip{padding:5px 12px;}
   transition:border-color .15s ease, background-color .15s ease, transform .15s ease;
 }
 :is(button, a).card, .startup-card, .inv-card, a.landing-job-card, a.landing-list-card, a.person-card{ cursor:pointer; }
-:is(button, a).card:hover, .startup-card:hover, .inv-card:hover, a.landing-job-card:hover, a.landing-list-card:hover, a.person-card:hover{
+:is(button, a).card:hover, .startup-card:hover, .inv-card:hover, a.landing-job-card:hover, a.landing-list-card:hover, a.person-card:hover, .entity-card:hover{
   border-color:rgb(var(--accent-rgb) / .45); background:var(--card-hover); transform:translateY(-2px);
 }
 .job-card{ cursor:default; }
 :where(.card, .startup-card, .job-card, .inv-card, .landing-job-card, .landing-list-card, .person-card):focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+/* The one card for a company, a person and a firm (EntityCard.jsx): a picture or initial, the name, a two-line description, and a
+   row of what it is with a dot between ("Sector · Stage · City"). It hovers like every card: the accent border and a small lift. */
+.entity-card{ display:flex; flex-direction:column; gap:12px; min-width:0; color:var(--ink); text-align:left; font-family:inherit; text-decoration:none; }
+:is(button, a).entity-card{ cursor:pointer; }
+.entity-top{ display:flex; align-items:center; gap:12px; min-width:0; }
+.entity-avatar{
+  position:relative; flex:none; width:40px; height:40px; border-radius:50%; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--ink); color:var(--paper); border:1px solid var(--line); font-size:16px; font-weight:700; line-height:1;
+}
+.entity-avatar img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#fff; opacity:0; transition:opacity .2s ease; }
+.entity-avatar img.is-loaded{ opacity:1; }
+.entity-name{ flex:1; min-width:0; margin:0; font-size:17px; font-weight:600; line-height:1.25; letter-spacing:-.01em; overflow-wrap:anywhere; }
+.entity-name a{ color:inherit; text-decoration:none; }
+.entity-name a:hover{ text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px; }
+.entity-blurb{
+  margin:0; color:var(--muted); font-size:15px; line-height:1.5;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2; overflow:hidden;
+}
+.meta-row{ display:flex; flex-wrap:wrap; margin:0; padding:0; list-style:none; color:var(--muted); font-size:15px; line-height:1.5; }
+.meta-row li:not(:last-child)::after{ content:'\00b7'; content:'\00b7' / ''; margin:0 8px; color:var(--muted); }
+/* Text for a screen reader that the page does not show (a link's "opens in a new tab", a label the picture already gives). */
+.sr-only{ position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 
 /* The index: the names on a list, as links to their cards, near the top of the list (a table of contents). The names wrap as whole
    names, a row at a time, so a long list never pushes the page sideways. */
@@ -954,7 +1065,8 @@ html{ scrollbar-color:#2c3336 var(--paper); accent-color:var(--accent); caret-co
 }
 @media (prefers-reduced-motion: reduce){
   .card, .startup-card, .job-card, .inv-card, .landing-job-card, .landing-list-card, .person-card{ transition:none; }
-  :is(button, a).card:hover, .startup-card:hover, .inv-card:hover, a.landing-job-card:hover, a.landing-list-card:hover, a.person-card:hover{ transform:none; }
+  .entity-avatar img{ transition:none; }
+  :is(button, a).card:hover, .startup-card:hover, .inv-card:hover, a.landing-job-card:hover, a.landing-list-card:hover, a.person-card:hover, .entity-card:hover{ transform:none; }
 }
 
 /* The brand on a page's header: the site's name is a link to the home page (the landing page), with a small Map link beside it.
@@ -973,3 +1085,69 @@ html{ scrollbar-color:#2c3336 var(--paper); accent-color:var(--accent); caret-co
 
 /* A website that no longer answers is said so in the card's own muted voice, not linked. */
 .sdp-website-unavailable{color:var(--muted);cursor:help;}
+
+/* ---------- the map's pins, cards and controls (Stage 3) ---------- */
+
+/* A firm's office: a rounded square with the accent as its outline and the firm's initial, so it is never taken for a company. */
+.inst-pin{
+  position:relative;box-sizing:border-box;width:44px;height:44px;border-radius:12px;
+  background:var(--panel);border:3px solid var(--accent);box-shadow:0 3px 10px rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.inst-pin:hover{transform:scale(1.1);box-shadow:0 5px 16px rgba(0,0,0,.55);z-index:1000;}
+.inst-initial{color:var(--accent-ink);font-weight:700;font-size:17px;line-height:1;}
+
+/* What a click on a pin opens: the name, one line, whether it is hiring, one way in, and the rest under "More". */
+.pin-popup .leaflet-popup-content-wrapper{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.55);}
+.pin-popup .leaflet-popup-tip{background:var(--panel);}
+.pin-popup .leaflet-popup-content{margin:14px 16px 12px;font-family:inherit;font-size:15px;line-height:1.45;}
+.pin-popup a.leaflet-popup-close-button{color:var(--muted);top:6px;right:6px;}
+.pin-popup a.leaflet-popup-close-button:hover{color:var(--ink);}
+.pin-pop-name{margin:0 18px 4px 0;font-size:17px;font-weight:600;line-height:1.25;letter-spacing:-.01em;}
+.pin-pop-blurb{margin:0 0 8px;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.pin-pop-status{margin:0 0 10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+.pin-pop-fresh{margin:-4px 0 10px;font-size:11px;color:var(--muted);}
+.pin-pop-fresh-stale{font-style:italic;opacity:.8;}
+.pin-pop [hidden]{display:none;}
+.pin-pop-cta{
+  display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 18px;border:0;border-radius:var(--radius-pill);
+  background:var(--accent);color:var(--on-accent);font:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;
+}
+.pin-pop-cta:hover{background:var(--accent-hover);}
+.pin-pop-cta:focus-visible,.pin-pop-more summary:focus-visible,.pin-pop-site:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.pin-pop-more{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;}
+.pin-pop-more summary{cursor:pointer;color:var(--muted);font-size:15px;}
+.pin-pop-more[open] summary{color:var(--ink);}
+.pin-pop-rows{margin:8px 0 0;display:grid;gap:6px;}
+.pin-pop-rows div{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px;}
+.pin-pop-rows dt{color:var(--muted);}
+.pin-pop-rows dd{margin:0;min-width:0;overflow-wrap:anywhere;}
+.pin-pop-site{color:var(--accent-ink);}
+
+/* The layers and the basemap, above the key at the foot of the map. */
+#mapLayers{position:absolute;bottom:104px;left:24px;z-index:480;display:flex;flex-direction:column;gap:8px;max-width:calc(100vw - 48px);}
+.ml-row{display:flex;flex-wrap:wrap;gap:6px;}
+.ml-btn{
+  display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:var(--radius-pill);
+  background:rgb(20 24 26 / .94);color:var(--muted);border:1px solid var(--line);font:inherit;font-size:15px;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.4);transition:border-color .15s ease,color .15s ease;
+}
+.ml-btn[aria-pressed="true"]{color:var(--ink);border-color:var(--accent);}
+.ml-btn:hover{color:var(--ink);}
+.ml-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.ml-swatch{flex:none;width:14px;height:14px;box-sizing:border-box;}
+.ml-swatch-company{border-radius:50%;background:var(--ink);border:3px solid #fff;box-shadow:0 0 0 1px var(--line);}
+.ml-swatch-firm{border-radius:4px;background:var(--panel);border:2px solid var(--accent);}
+.ml-count{font-variant-numeric:tabular-nums;color:var(--accent-ink);}
+@media (max-width:640px){ #mapLayers{bottom:132px;left:16px;} }
+
+/* The light map: the same pins on the tiles as they are. A group's dashed ring is drawn dark on it, since pale would vanish. */
+#map[data-basemap="light"]{background:#e5e9ec;}
+#map[data-basemap="light"] .leaflet-container{background:#e5e9ec;}
+#map[data-basemap="light"] .area-ring{border-color:rgba(20,24,26,.55);background:radial-gradient(circle,rgba(20,24,26,.08),rgba(20,24,26,.03) 70%,transparent 72%);}
+
+@media (prefers-reduced-motion: reduce){
+  .inst-pin,.marker-cluster-inner,.ml-btn{transition:none;}
+  .inst-pin:hover,.marker-cluster-inner:hover,.custom-pin-badge:hover{transform:none;}
+}
