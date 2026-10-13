@@ -1,5 +1,6 @@
-import { nextEvent, eventDay, isBlank, hiringLabel, partialDateText, shortDate } from '../freshness.js';
+import { nextEvent, eventDay, isBlank, hiringLabel, partialDateText, shortDate, roleClosedMessage } from '../freshness.js';
 import { remoteLabel } from '../directory.js';
+import { readableOn } from '../readableOn.js';
 import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
 import HiringBadge from './HiringBadge.jsx';
 import { useEffect, useState } from 'react';
@@ -143,7 +144,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
   return (
     <div className="sdp-overlay" onClick={onClose}>
       <div className="sdp-panel" onClick={(e) => e.stopPropagation()}>
-        <div className="pc-hero" style={{ background: sectorColor }}>
+        <div className="pc-hero" style={{ background: sectorColor, '--on-sector': readableOn(sectorColor) }}>
           <button className="modal-close sdp-close" aria-label="Close" onClick={onClose}>✕</button>
           <div className="pc-hero-top">
             <div className="pc-avatar">
@@ -244,9 +245,9 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
                   const search = `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${f} ${s.name}`)}`;
                   return (
                     <div className="pc-founder" key={f}>
-                      <span className="pc-founder-avatar">{initialsOf(f)}</span>
+                      <span className="pc-founder-avatar" aria-hidden="true">{initialsOf(f)}</span>
                       <button className="pc-founder-name pc-founder-name-btn" onClick={() => onSelectPerson(f)}>{f}</button>
-                      <a className="pc-founder-li" href={search} target="_blank" rel="noopener" title={`Search LinkedIn for ${f}`}>in</a>
+                      <a className="pc-founder-li" href={search} target="_blank" rel="noopener" title={`Search LinkedIn for ${f}`} aria-label={`Search LinkedIn for ${f}`}>in</a>
                     </div>
                   );
                 })}
@@ -271,7 +272,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
                   const slug = investorSlugs[nameKey(i)];
                   return (
                     <div className="pc-inv" key={i}>
-                      <span className="pc-inv-avatar">{initialsOf(i)}</span>
+                      <span className="pc-inv-avatar" aria-hidden="true">{initialsOf(i)}</span>
                       {slug
                         ? <button type="button" className="pc-inv-name pc-inv-link" onClick={() => onOpenInvestor(slug)}>{i}</button>
                         : <span className="pc-inv-name">{i}</span>}
@@ -314,7 +315,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             )}
             {s.hiring && (
               <p className="sdp-report">
-                <button type="button" className="linkbtn" onClick={() => onSuggestEdit(s.name, `Role closed: ${s.name} is no longer hiring. `)}>Report: role closed</button>
+                <button type="button" className="linkbtn" onClick={() => onSuggestEdit(s.name, roleClosedMessage(s.name))}>Report: role closed</button>
               </p>
             )}
           </div>

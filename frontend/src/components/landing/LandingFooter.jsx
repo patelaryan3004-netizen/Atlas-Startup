@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { DIRECTORY_URL } from '../../api.js';
 import { appPath } from '../../appRoute.js';
 import { MAP_PATH } from '../../paths.js';
+import { showPeople } from '../../flags.js';
 
 // Four short columns of links: where to go, the directory's other pages, how to take part, and what to trust. Each link is a real
 // address in the app (or an anchor on this page); a column never holds more than four.
-export const FOOTER_COLUMNS = [
-  { title: 'Explore', links: [['Map', MAP_PATH], ['People', appPath({ kind: 'people' })], ['Lists', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
+// The People link and "Nominate someone" are there only with VITE_SHOW_PEOPLE (flags.js): without it there is no People page to go to.
+export const footerColumns = (people = showPeople()) => [
+  { title: 'Explore', links: [['Map', MAP_PATH], ...(people ? [['People', appPath({ kind: 'people' })]] : []), ['Lists', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
   { title: 'Directory', links: [['Investors', '/investors'], ['News', appPath({ kind: 'news' })], ['Full list, no JavaScript', DIRECTORY_URL]] },
-  { title: 'Take part', links: [['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ['Nominate someone', appPath({ kind: 'people' })]] },
+  { title: 'Take part', links: [['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ...(people ? [['Nominate someone', appPath({ kind: 'people' })]] : [])] },
   { title: 'Trust', links: [['How we verify', '#verify'], ['Privacy', '#privacy'], ['Terms', '#terms']] },
 ];
 
@@ -29,7 +31,7 @@ export default function LandingFooter() {
   return (
     <footer className="landing-footer">
       <nav className="footer-columns" aria-label="Footer">
-        {FOOTER_COLUMNS.map((column) => (
+        {footerColumns().map((column) => (
           <div className="footer-column" key={column.title}>
             <h2 className="footer-title">{column.title}</h2>
             <ul>

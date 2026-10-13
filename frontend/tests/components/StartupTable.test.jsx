@@ -26,9 +26,16 @@ describe('the list as a table', () => {
   it('works out the columns from what the list holds', () => {
     expect(columnsFor([company()]).map((c) => c.key)).toEqual(['name', 'stage', 'hiring', 'verified']);
     expect(columnsFor([company({ team_size: 5 })]).map((c) => c.key)).toContain('team');
-    expect(columnsFor([company({ remote_policy: 'hybrid' })]).map((c) => c.key)).not.toContain('remote'); // a policy the directory does not know is not shown
+    expect(columnsFor([company({ remote_policy: 'hybrid' })]).map((c) => c.key)).toContain('remote');
+    expect(columnsFor([company({ remote_policy: 'nomad' })]).map((c) => c.key)).not.toContain('remote'); // a policy the directory does not know is not shown
     expect(columnsFor([company({ tech_stack: [] })]).map((c) => c.key)).not.toContain('tech');
     expect(columnsFor([]).map((c) => c.key)).toEqual(['name', 'stage', 'hiring', 'verified']);
+  });
+
+  it('says hybrid and on-site in words too', () => {
+    mount([company({ remote_policy: 'hybrid' }), company({ name: 'B', slug: 'b', remote_policy: 'onsite' })]);
+    expect(screen.getByText('Hybrid')).toBeInTheDocument();
+    expect(screen.getByText('On-site')).toBeInTheDocument();
   });
 
   it('says each fact in words: the team as a number, the policy as a phrase, the tools as tags with a count of the rest', () => {

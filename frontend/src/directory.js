@@ -5,8 +5,9 @@
 // between them). It is the stage filter holding several values, like the sector and city filters do.
 export const SEED_TO_SERIES_A = 'Seed,Early,Series A';
 
-// remote-global works from anywhere; remote-au is remote within Australia. A policy the directory does not know says nothing.
-const REMOTE_LABELS = { 'remote-global': 'Remote, worldwide', 'remote-au': 'Remote in Australia' };
+// remote-global works from anywhere; remote-au is remote within Australia; hybrid and onsite are what a posting says of the office.
+// A policy the directory does not know says nothing.
+const REMOTE_LABELS = { 'remote-global': 'Remote, worldwide', 'remote-au': 'Remote in Australia', hybrid: 'Hybrid', onsite: 'On-site' };
 export const remoteLabel = (code) => REMOTE_LABELS[code] ?? null;
 
 // Team size in buckets that do not overlap (the server's TEAM_BUCKETS): 10 is "10–29", and 100 is "100+".

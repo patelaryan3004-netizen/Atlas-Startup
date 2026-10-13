@@ -175,7 +175,8 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     stage: records.map((r) => stageRank(r.stage)),
     // When the company's facts were last checked against a page: a company never checked has no date and goes last.
     verified: source.map((c) => { const t = Date.parse(c.last_verified_at); return Number.isNaN(t) ? 0 : t; }),
-    // The biggest team first; one whose size no page gives has none and goes last. Remote first, then remote within Australia, then the rest.
+    // The biggest team first; one whose size no page gives has none and goes last. Remote worldwide first, then remote within Australia, hybrid,
+    // on-site, then the ones with no policy (the order of REMOTE_POLICIES).
     team: records.map((r) => r.team_size ?? 0),
     remote: records.map((r) => { const at = REMOTE_POLICIES.indexOf(r.remote_policy); return at === -1 ? REMOTE_POLICIES.length : at; }),
   };

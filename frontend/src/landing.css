@@ -1,6 +1,6 @@
 /* The /welcome page. One ground (--paper), one accent (green), and a strict 12-column grid: every section sits on the same columns, so
    the edges line up from the headline to the last card. Type has a scale of its own: a display size for the headline and the figures,
-   a heading size for a section, and two text sizes (--fs-body, --fs-small); a section uses no others. */
+   a heading size for a section, the lede under it (--fs-lede) and two text sizes (--fs-body, --fs-small); a section uses no others. */
 
 .landing{
   --l-font: var(--font);
@@ -22,10 +22,12 @@
   --fs-display: clamp(40px, 7vw, 96px);
   --fs-figure: clamp(40px, 5.2vw, 72px);
   --fs-heading: clamp(28px, 4vw, 44px);
-  --fs-body: 17px;
-  /* Text a person reads is never under 15px; the mono labels (a section's number, a count, a date) are labels, and are 13px. */
-  --fs-small: 15px;
-  --fs-label: 13px;
+  /* The text sizes are the app's three (styles.css: --t-lede, --t-body, --t-small). The line under a headline is the lede (17px); everything
+     else a person reads is body (15px, never smaller); the small print and the mono labels (a section's number, a count, a date) are 13px.
+     A section uses its headline block (the heading and its lede) and the body and small sizes, and no others. */
+  --fs-lede: var(--t-lede);
+  --fs-body: var(--t-body);
+  --fs-small: var(--t-small);
 
   font-family: var(--l-font);
   background: var(--bg);
@@ -49,7 +51,7 @@
 .landing-skip{
   position: absolute; left: -9999px; top: 12px; z-index: 30;
   padding: 10px 16px; border-radius: 999px; background: var(--accent); color: var(--on-accent);
-  font-size: var(--fs-small); font-weight: 600; text-decoration: none;
+  font-size: var(--fs-body); font-weight: 600; text-decoration: none;
 }
 .landing-skip:focus{ left: var(--l-gutter); }
 
@@ -76,7 +78,7 @@
 /* A section opens on a hairline that carries its number and its name. */
 .sec-rule{
   display: flex; align-items: baseline; gap: 14px; padding-top: 14px; border-top: 1px solid var(--l-hair);
-  font-family: var(--l-mono); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
 }
 .sec-no{ color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 
@@ -91,7 +93,7 @@
 .landing-section-head h2, .landing-final-cta h2{
   margin: 0; font-size: var(--fs-heading); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance;
 }
-.landing-section-head p{ margin: 0 0 var(--l-space-2); font-size: var(--fs-body); color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
+.landing-section-head p{ margin: 0 0 var(--l-space-2); font-size: var(--fs-lede); color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
 .landing-section-head p:last-child{ margin-bottom: 0; }
 @media (min-width: 960px){
   .landing-section-head h2{ grid-column: 1 / span 6; }
@@ -121,8 +123,8 @@
 .landing-job-card .concept-label{ align-self: flex-start; white-space: nowrap; }
 
 .landing-list-card{ display: block; text-decoration: none; color: inherit; }
-.landing-list-name{ font-weight: 600; font-size: var(--fs-body); line-height: 1.25; margin-bottom: 6px; }
-.landing-list-desc{ font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin-bottom: var(--l-space-2); }
+.landing-list-name{ font-weight: 600; font-size: var(--fs-lede); line-height: 1.25; margin: 0 0 6px; }
+.landing-list-desc{ font-size: var(--fs-body); line-height: 1.5; color: var(--muted); margin-bottom: var(--l-space-2); }
 .landing-list-count{ font-family: var(--l-mono); font-size: var(--fs-small); color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 
 .landing-block-foot{ margin-top: var(--l-space-3); }
@@ -143,22 +145,22 @@
 /* Four short columns of links, two across on a phone. */
 .footer-columns{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--l-space-3) var(--l-gap); padding: var(--l-space-3) 0; border-top: 1px solid var(--border); }
 @media (min-width: 720px){ .footer-columns{ grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.footer-title{ margin: 0 0 var(--l-space-1); font-family: var(--l-mono); font-size: var(--fs-label); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.footer-title{ margin: 0 0 var(--l-space-1); font-family: var(--l-mono); font-size: var(--fs-small); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .footer-column ul{ margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
-.footer-column a{ display: inline-block; padding: 6px 0; font-size: var(--fs-small); color: var(--l-ink-2); text-decoration: none; }
+.footer-column a{ display: inline-block; padding: 6px 0; font-size: var(--fs-body); color: var(--l-ink-2); text-decoration: none; }
 .footer-column a:hover{ color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 /* The two legal notes: short, and closed until asked for. */
 .footer-legal{ display: grid; gap: var(--l-space-1); max-width: 70ch; padding-top: var(--l-space-2); border-top: 1px solid var(--border); }
-.footer-legal summary{ cursor: pointer; padding: 6px 0; font-size: var(--fs-small); font-weight: 600; }
+.footer-legal summary{ cursor: pointer; padding: 6px 0; font-size: var(--fs-body); font-weight: 600; }
 .footer-legal details{ scroll-margin-top: 80px; }
-.footer-legal p{ margin: 0 0 var(--l-space-1); font-size: var(--fs-small); line-height: 1.6; color: var(--muted); }
-.footer-built{ margin: var(--l-space-3) 0 0; font-size: var(--fs-small); font-weight: 600; }
-.footer-note{ margin: 4px 0 0; font-size: var(--fs-small); color: var(--muted); }
+.footer-legal p{ margin: 0 0 var(--l-space-1); font-size: var(--fs-body); line-height: 1.6; color: var(--muted); }
+.footer-built{ margin: var(--l-space-3) 0 0; font-size: var(--fs-body); font-weight: 600; }
+.footer-note{ margin: 4px 0 0; font-size: var(--fs-body); color: var(--muted); }
 
 /* How we verify: three short statements, each with its label. */
 .verify-list{ display: grid; gap: var(--l-space-2); margin: 0; }
 .verify-list div{ display: grid; gap: 4px; }
-.verify-list dt{ font-family: var(--l-mono); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+.verify-list dt{ font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
 .verify-list dd{ margin: 0; font-size: var(--fs-body); line-height: 1.5; color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
 @media (max-width: 559px){
   .landing-final-cta .landing-cta-row{ flex-direction: column; }

@@ -19,7 +19,7 @@ vi.mock('../src/api.js', () => ({
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ markers, areas = [], sectorColors, onSelectStartup, onViewArea, institutionPins = [], showCompanies, showInstitutions, basemap, onOpenInternal }) => (
+  default: ({ markers, areas = [], sectorColors, onSelectStartup, onViewArea, institutionPins = [], showCompanies, showInstitutions, basemap, onOpenInternal, onReportRoleClosed }) => (
     <div
       data-testid="map-view"
       data-count={markers.length}
@@ -31,6 +31,7 @@ vi.mock('../src/components/MapView.jsx', () => ({
       data-basemap={basemap}
     >
       <button onClick={() => onOpenInternal('/investors/blackbird')}>trigger-open-firm</button>
+      <button onClick={() => onReportRoleClosed('Canva')}>trigger-report-role-closed</button>
       <button onClick={() => onSelectStartup({ slug: 'canva', name: 'Canva', sector: 'AI', hiring: true })}>trigger-select</button>
       <button onClick={() => onSelectStartup({ name: 'Bare Co', sector: 'AI' })}>trigger-select-bare</button>
       <button onClick={() => onViewArea({ kind: 'CITY', label: 'Sydney', city: 'Sydney', state: 'NSW', count: 3 })}>trigger-view-area</button>
@@ -612,6 +613,30 @@ describe('App', () => {
       expect(await screen.findByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
     });
 
+    it('shows the waitlist and submit forms as dialogs that give focus back to their button when they close', async () => {
+      render(<App />);
+      const waitlist = screen.getByText('Join waitlist', { selector: '.nav-cta' });
+      await userEvent.click(waitlist);
+      expect(await screen.findByRole('dialog', { name: 'Join the waitlist' })).toBeInTheDocument();
+      await userEvent.keyboard('{Escape}');
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+      expect(waitlist).toHaveFocus();
+
+      const submit = screen.getByText('Submit a startup', { selector: '.nav-cta' });
+      await userEvent.click(submit);
+      expect(await screen.findByRole('dialog', { name: 'Submit a startup' })).toBeInTheDocument();
+      await userEvent.click(screen.getByLabelText('Close'));
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+      expect(submit).toHaveFocus();
+    });
+
+    it('opens the edit form, with the sentence about a closed role started, from the "Report: role closed" link on a pin\'s card', async () => {
+      render(<App />);
+      await userEvent.click(await screen.findByText('trigger-report-role-closed'));
+      expect(await screen.findByText('Suggest an edit')).toBeInTheDocument();
+      expect(screen.getByLabelText(/What.s wrong/)).toHaveValue('Role closed: Canva is no longer hiring. ');
+    });
+
     it('credits the builder in the footer', async () => {
       render(<App />);
       expect(screen.getByText('Built by Aryan · Monash University')).toBeInTheDocument();
@@ -888,6 +913,42 @@ describe('App', () => {
       const view = await screen.findByTestId('investors-view');
       expect(JSON.parse(view.getAttribute('data-route'))).toEqual({ kind: 'investor', slug: 'blackbird' });
       expect(screen.queryByTestId('people-view')).not.toBeInTheDocument();
+    });
+
+    describe('with the people switched off (VITE_SHOW_PEOPLE not set: how the live site is until the people have been told)', () => {
+      beforeEach(() => { vi.stubEnv('VITE_SHOW_PEOPLE', ''); });
+
+      it('has no People in the header or in the menu, and the other links are as they were', async () => {
+        render(<App />);
+        await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+        expect(screen.queryByRole('button', { name: 'People' })).not.toBeInTheDocument();
+        await userEvent.click(screen.getByRole('button', { name: 'Menu' }));
+        expect(screen.getByRole('button', { name: 'Hide news ticker' })).toBeInTheDocument(); // the menu is open
+        expect(screen.queryByRole('button', { name: 'People' })).not.toBeInTheDocument();
+        for (const name of ['Explore', 'Investors', 'Lists', 'News']) expect(screen.getAllByRole('button', { name }).length).toBeGreaterThan(0);
+      });
+
+      it('has no /people page: the address opens the map, and the address is put right', async () => {
+        window.history.pushState({}, '', '/people?tab=operators');
+        render(<App />);
+        expect(await screen.findByTestId('map-view')).toBeInTheDocument();
+        expect(screen.queryByTestId('people-view')).not.toBeInTheDocument();
+        await waitFor(() => expect(window.location.pathname).toBe('/'));
+      });
+
+      it('does not ask for the firms\' offices for the map, at all', async () => {
+        render(<App />);
+        await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+        await screen.findByTestId('map-view');
+        expect(fetchInstitutionPins).not.toHaveBeenCalled();
+        expect(screen.getByTestId('map-view')).toHaveAttribute('data-institutions', '0');
+      });
+
+      it('asks for the firms\' offices once it is on', async () => {
+        vi.stubEnv('VITE_SHOW_PEOPLE', '1');
+        render(<App />);
+        await waitFor(() => expect(fetchInstitutionPins).toHaveBeenCalled());
+      });
     });
 
     it('opens the page a link names: /jobs, /lists and /news, and the first versions\' ?view=jobs and ?view=lists', async () => {

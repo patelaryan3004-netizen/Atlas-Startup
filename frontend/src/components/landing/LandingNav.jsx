@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { HOME_PATH, MAP_PATH } from '../../paths.js';
 import { appPath } from '../../appRoute.js';
+import { showPeople } from '../../flags.js';
 
 // Where each link goes in the app. The product has no accounts, so the one action on the right is the waitlist, which
 // opens the same form as the app's own Join waitlist button. The three links are the places a visitor goes: the map, the
 // people worth following, and the lists. (Jobs, News and Investors are in the footer and in the app's own menu.)
-const LINKS = [
+// People is there only with VITE_SHOW_PEOPLE (flags.js).
+const links = () => [
   { label: 'Map', href: MAP_PATH },
-  { label: 'People', href: appPath({ kind: 'people' }) },
+  ...(showPeople() ? [{ label: 'People', href: appPath({ kind: 'people' }) }] : []),
   { label: 'Lists', href: appPath({ kind: 'lists' }) },
 ];
 
@@ -69,7 +71,7 @@ export default function LandingNav() {
 
         <nav id="landing-menu" className="landing-nav-links" aria-label="Main" data-open={open ? 'true' : 'false'}>
           <ul>
-            {LINKS.map((link) => (
+            {links().map((link) => (
               <li key={link.label}>
                 <a href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
               </li>

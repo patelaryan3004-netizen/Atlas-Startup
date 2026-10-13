@@ -1,6 +1,14 @@
 // The "Submit a startup" form is a Tally form. Until its address is put here the site keeps its own form, so there is
-// never a broken frame. Paste the form's share link (https://tally.so/r/<id>) in place of the placeholder.
-export const TALLY_SUBMIT_URL = 'TALLY_SUBMIT_URL_HERE';
+// never a broken frame. Paste the form's share link (https://tally.so/r/<id>) in place of the placeholder, or set it as
+// VITE_TALLY_SUBMIT_URL (a build setting on Vercel).
+//
+// The Tally form should ask for: company name, website, city, your role, and "Do you want to claim this profile?". The site's own
+// form (used while this is the placeholder) asks the same, plus a one-line description and the stage.
+export const TALLY_SUBMIT_URL = import.meta.env.VITE_TALLY_SUBMIT_URL || 'TALLY_SUBMIT_URL_HERE';
+
+// The waitlist is already a real Tally form (kdVrGo), so it is used as it is; the brief's placeholder (TALLY_FORM_URL_HERE) is for a
+// site that has none. To point the waitlist at another form, set VITE_TALLY_WAITLIST_URL to its share link.
+export const WAITLIST_URL = import.meta.env.VITE_TALLY_WAITLIST_URL || 'https://tally.so/r/kdVrGo';
 
 // The embed address of a Tally share link, or null while it is still the placeholder (or not a Tally link).
 export function tallyEmbed(url) {

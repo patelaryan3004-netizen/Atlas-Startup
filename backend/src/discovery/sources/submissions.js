@@ -25,7 +25,9 @@ const PAGE = 100;
 const MAX_PAGES = 1000;
 const STAGES = new Set(['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series C', 'Series D', 'Growth', 'Early']);
 
-// Only these fields are ever read from a submission. Email and hiringUrl are not.
+// Only these fields are ever read from a submission. Email, hiringUrl, and the submitter's own role and wish to claim the profile are not
+// (those are about a person, and are for whoever reviews the submission). Its city is not either: a submitted city is a claim, and the
+// location system places a company from an address it can check.
 export function submissionToLead(row, { retrievedAt }) {
   const name = String(row.name ?? '').replace(/\s+/g, ' ').trim();
   if (!name) return null;

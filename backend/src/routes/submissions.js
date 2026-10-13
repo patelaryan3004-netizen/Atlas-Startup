@@ -29,10 +29,15 @@ router.get('/', requireAdminKey, async (req, res, next) => {
   }
 });
 
+// The submit form's newer fields (city, the submitter's role, whether they want to claim the profile) are kept as short plain text, and
+// anything that is not text is left empty rather than refused: a form that sends them blank is the same as an older form that sends none.
+const shortText = (value) => (typeof value === 'string' ? value.trim().slice(0, 200) : '');
+const CLAIMS = new Set(['yes', 'no']);
+
 // POST /api/submissions — company name + one-line description required
 router.post('/', async (req, res, next) => {
   try {
-    const { name, description, website = '', stage = '', email = '', hiringUrl = '' } = req.body || {};
+    const { name, description, website = '', stage = '', email = '', hiringUrl = '', city, role, claim } = req.body || {};
 
     if (!name || !name.trim() || !description || !description.trim()) {
       return res.status(400).json({ error: 'name and description are required' });
@@ -44,6 +49,9 @@ router.post('/', async (req, res, next) => {
       name: name.trim(),
       description: description.trim(),
       website: website.trim(),
+      city: shortText(city),
+      role: shortText(role),
+      claim: CLAIMS.has(shortText(claim).toLowerCase()) ? shortText(claim).toLowerCase() : '',
       stage: stage.trim(),
       email: email.trim(),
       hiringUrl: hiringUrl.trim(),

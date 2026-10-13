@@ -1,0 +1,1518 @@
+{
+ "_readme": "Pass 2 findings: only what a posting itself states. NOT merged into the directory. Each value has the posting it came from (source_url), when it was read (last_verified_at) and the words that showed it (basis). null means no posting said. See pass2_postings.py for the rules.",
+ "generated_at": "2026-10-13T10:08:09Z",
+ "script": "backend/scripts/enrich/pass2_postings.py",
+ "user_agent": "AUStartupMapBot/1.0 (+https://au-startup-map.vercel.app/; enrichment)",
+ "coverage": {
+  "companies": 24,
+  "with_postings_read": 21,
+  "remote_policy": 4,
+  "remote_policy_by_value": {
+   "hybrid": 3,
+   "remote-global": 1
+  },
+  "tech_stack": 10,
+  "last_role_seen_at": 20,
+  "postings_read": 154,
+  "postings_stating_a_policy": 32,
+  "postings_remote_but_unplaced": 3
+ },
+ "requests": 54,
+ "seconds": 24,
+ "companies": [
+  {
+   "id": "canva",
+   "name": "Canva",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://www.lifeatcanva.com/en/jobs/6000000001228519/research-mle-training-optimization-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%BC%98%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%B8%88/",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 1,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "every posting read is located outside Australia (1)",
+   "remote_statements": {},
+   "text_quotes": [
+    {
+     "url": "https://www.lifeatcanva.com/en/jobs/6000000001370667/creative-strategist-growth-marketing-netherlands-12-month-contract/",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…Where and How You Can Work This role is based in Amsterdam, with a hybrid working arrangement. Our Amsterdam hub is a place for collaborati…"
+    }
+   ],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-09-02",
+    "source_url": "https://www.lifeatcanva.com/en/jobs/6000000001370667/creative-strategist-growth-marketing-netherlands-12-month-contract/",
+    "last_verified_at": "2026-10-13T10:07:45Z",
+    "basis": "schema.org posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 41
+   }
+  },
+  {
+   "id": "airwallex",
+   "name": "Airwallex",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://careers.airwallex.com/job/7f398475-31d6-44ea-b9ba-0b25775c136b/director-corporate-legal-ma/",
+     "postings": 1
+    }
+   ],
+   "refused": [
+    {
+     "url": "https://api.ashbyhq.com/posting-api/job-board/airwallex",
+     "code": "robots_unavailable"
+    }
+   ],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 1,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "every posting read is located outside Australia (1)",
+   "remote_statements": {},
+   "text_quotes": [
+    {
+     "url": "https://careers.airwallex.com/job/7f398475-31d6-44ea-b9ba-0b25775c136b/director-corporate-legal-ma/",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…oss‑border deals that enable Airwallex’s next phase of growth. This hybrid role is based in San Francisco or New York. Responsibilities:…"
+    }
+   ],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-09-23",
+    "source_url": "https://careers.airwallex.com/job/7f398475-31d6-44ea-b9ba-0b25775c136b/director-corporate-legal-ma/",
+    "last_verified_at": "2026-10-13T10:07:45Z",
+    "basis": "schema.org posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 20
+   }
+  },
+  {
+   "id": "culture-amp",
+   "name": "Culture Amp",
+   "read": [
+    {
+     "kind": "greenhouse",
+     "url": "https://boards.greenhouse.io/cultureamp",
+     "postings": 32
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 32,
+   "postings_outside_australia": 10,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "hybrid x3, mixed x1 of 22 postings; 18 say nothing",
+   "remote_statements": {
+    "hybrid": 3,
+    "mixed": 1
+   },
+   "text_quotes": [
+    {
+     "url": "https://job-boards.greenhouse.io/cultureamp/jobs/8107802",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…irst companies possible through accessible people analytics. This is a hybrid position: 2 days per week from our Richmond-based office and…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/cultureamp/jobs/8246129",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…om. Please note, this position can be performed from Chicago. This is a hybrid position that requires on site work in our Chicago office up…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/cultureamp/jobs/8187902",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…executive relationships, and leading complex contract renewals. This hybrid role sits at the intersection of Customer Success and Renewals,…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/cultureamp/jobs/8187903",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…executive relationships, and leading complex contract renewals. This hybrid role sits at the intersection of Customer Success and Renewals,…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/cultureamp/jobs/8155844",
+     "label": "mixed",
+     "basis": "the text states more than one",
+     "quote": "…ate effectively with C-level executives. Please be advised, this is a Hybrid role based out of our NYC office that will require you to be…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/cultureamp/jobs/8168527",
+     "label": "mixed",
+     "basis": "the text states more than one",
+     "quote": "…ate effectively with C-level executives. Please be advised, this is a Hybrid role based out of our NYC office that will require you to be…"
+    }
+   ],
+   "tech_stack": {
+    "value": [
+     "Looker",
+     "Python",
+     "AWS",
+     "React",
+     "TypeScript",
+     "Datadog",
+     "Go",
+     "Google Cloud",
+     "Kotlin",
+     "Ruby",
+     "Terraform"
+    ],
+    "items": [
+     {
+      "name": "Looker",
+      "postings": 5,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8212621"
+     },
+     {
+      "name": "Python",
+      "postings": 5,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "AWS",
+      "postings": 3,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "React",
+      "postings": 2,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/7573350"
+     },
+     {
+      "name": "TypeScript",
+      "postings": 2,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "Datadog",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8229754"
+     },
+     {
+      "name": "Go",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "Google Cloud",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "Kotlin",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "Ruby",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709"
+     },
+     {
+      "name": "Terraform",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8229754"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:45Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-11",
+    "source_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8260732",
+    "last_verified_at": "2026-10-13T10:07:45Z",
+    "basis": "greenhouse posting date",
+    "postings_dated": 32,
+    "postings_read": 32,
+    "days_old": 2
+   }
+  },
+  {
+   "id": "immutable",
+   "name": "Immutable",
+   "read": [
+    {
+     "kind": "lever",
+     "url": "https://jobs.lever.co/immutable",
+     "postings": 3
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 3,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "hybrid x2, remote-unspecified x1 of 3 postings; 0 say nothing",
+   "remote_statements": {
+    "remote-unspecified": 1,
+    "hybrid": 2
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": [
+     "AWS",
+     "Google Cloud",
+     "Kubernetes",
+     "BigQuery",
+     "Go",
+     "Next.js",
+     "React",
+     "Terraform",
+     "TypeScript"
+    ],
+    "items": [
+     {
+      "name": "AWS",
+      "postings": 2,
+      "source_url": "https://jobs.lever.co/immutable/fcd9fcb4-e568-4a40-a67e-fd57442171de"
+     },
+     {
+      "name": "Google Cloud",
+      "postings": 2,
+      "source_url": "https://jobs.lever.co/immutable/fcd9fcb4-e568-4a40-a67e-fd57442171de"
+     },
+     {
+      "name": "Kubernetes",
+      "postings": 2,
+      "source_url": "https://jobs.lever.co/immutable/fcd9fcb4-e568-4a40-a67e-fd57442171de"
+     },
+     {
+      "name": "BigQuery",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8"
+     },
+     {
+      "name": "Go",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8"
+     },
+     {
+      "name": "Next.js",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8"
+     },
+     {
+      "name": "React",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8"
+     },
+     {
+      "name": "Terraform",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/immutable/fcd9fcb4-e568-4a40-a67e-fd57442171de"
+     },
+     {
+      "name": "TypeScript",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:45Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-07",
+    "source_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8",
+    "last_verified_at": "2026-10-13T10:07:45Z",
+    "basis": "lever posting date",
+    "postings_dated": 3,
+    "postings_read": 3,
+    "days_old": 6
+   }
+  },
+  {
+   "id": "quantum-brilliance",
+   "name": "Quantum Brilliance",
+   "read": [
+    {
+     "kind": "bamboohr",
+     "url": "https://quantumbrilliance.bamboohr.com/careers",
+     "postings": 3
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 3,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "postings disagree: hybrid x1, onsite x2; 0 say nothing",
+   "remote_statements": {
+    "onsite": 2,
+    "hybrid": 1
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": [
+     "Python"
+    ],
+    "items": [
+     {
+      "name": "Python",
+      "postings": 1,
+      "source_url": "https://quantumbrilliance.bamboohr.com/careers/148"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:45Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-09-02",
+    "source_url": "https://quantumbrilliance.bamboohr.com/careers/148",
+    "last_verified_at": "2026-10-13T10:07:45Z",
+    "basis": "bamboohr posting date",
+    "postings_dated": 3,
+    "postings_read": 3,
+    "days_old": 41
+   }
+  },
+  {
+   "id": "buildkite",
+   "name": "Buildkite",
+   "read": [
+    {
+     "kind": "greenhouse",
+     "url": "https://boards.greenhouse.io/buildkite-talent-community",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 1 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2024-11-20",
+    "source_url": "https://job-boards.greenhouse.io/buildkite-talent-community/jobs/4413405008",
+    "last_verified_at": "2026-10-13T10:07:45Z",
+    "basis": "greenhouse posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 692
+   }
+  },
+  {
+   "id": "zeller",
+   "name": "Zeller",
+   "read": [
+    {
+     "kind": "lever",
+     "url": "https://jobs.lever.co/Zeller",
+     "postings": 20
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 20,
+   "postings_outside_australia": 4,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "postings disagree: hybrid x5, onsite x9, remote-unspecified x2; 0 say nothing",
+   "remote_statements": {
+    "remote-unspecified": 2,
+    "onsite": 9,
+    "hybrid": 5
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": [
+     "SQL",
+     "AWS",
+     "GraphQL",
+     "React",
+     "React Native",
+     "TypeScript"
+    ],
+    "items": [
+     {
+      "name": "SQL",
+      "postings": 2,
+      "source_url": "https://jobs.lever.co/Zeller/ffd8a3da-5a66-4635-ae1f-039cefda0c81"
+     },
+     {
+      "name": "AWS",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/Zeller/82e19356-99c2-4446-b3f9-477b47c2c8e6"
+     },
+     {
+      "name": "GraphQL",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/Zeller/82e19356-99c2-4446-b3f9-477b47c2c8e6"
+     },
+     {
+      "name": "React",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/Zeller/82e19356-99c2-4446-b3f9-477b47c2c8e6"
+     },
+     {
+      "name": "React Native",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/Zeller/82e19356-99c2-4446-b3f9-477b47c2c8e6"
+     },
+     {
+      "name": "TypeScript",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/Zeller/82e19356-99c2-4446-b3f9-477b47c2c8e6"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:48Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-09-26",
+    "source_url": "https://jobs.lever.co/Zeller/2b118eb2-4413-46da-b224-681a3eb86ea7",
+    "last_verified_at": "2026-10-13T10:07:48Z",
+    "basis": "lever posting date",
+    "postings_dated": 20,
+    "postings_read": 20,
+    "days_old": 17
+   }
+  },
+  {
+   "id": "askable",
+   "name": "Askable",
+   "read": [
+    {
+     "kind": "teamtailor",
+     "url": "https://askable.teamtailor.com/jobs",
+     "postings": 12
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 12,
+   "postings_outside_australia": 7,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 5 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-13",
+    "source_url": "https://askable.teamtailor.com/jobs/8534525-senior-enterprise-customer-success-manager-aus",
+    "last_verified_at": "2026-10-13T10:07:50Z",
+    "basis": "teamtailor posting date",
+    "postings_dated": 12,
+    "postings_read": 12,
+    "days_old": 0
+   }
+  },
+  {
+   "id": "karbon",
+   "name": "Karbon",
+   "read": [
+    {
+     "kind": "greenhouse",
+     "url": "https://boards.greenhouse.io/karbon",
+     "postings": 13
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 13,
+   "postings_outside_australia": 7,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "hybrid x2 of 6 postings; 4 say nothing",
+   "remote_statements": {
+    "hybrid": 2
+   },
+   "text_quotes": [
+    {
+     "url": "https://job-boards.greenhouse.io/karbon/jobs/6182896004",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…set number of qualified opportunities are achieved. This will be a hybrid role. We are looking for suitable candidates within the Chicago a…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/karbon/jobs/6100168004",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…ing people insights leaders haven't thought to ask for yet. This is a hybrid role based near Town Hall station, 3 days per week in-office.…"
+    },
+    {
+     "url": "https://job-boards.greenhouse.io/karbon/jobs/6099244004",
+     "label": "hybrid",
+     "basis": "sentence in the posting",
+     "quote": "…ing people insights leaders haven't thought to ask for yet. This is a hybrid role based near Town Hall station, 3 days per week in-office.…"
+    }
+   ],
+   "tech_stack": {
+    "value": [
+     "TypeScript",
+     "C#",
+     "Python",
+     "SQL",
+     ".NET",
+     "Azure",
+     "Cypress",
+     "Datadog",
+     "FastAPI",
+     "JavaScript",
+     "LangChain",
+     "OpenAI",
+     "Playwright",
+     "PostgreSQL",
+     "React",
+     "React Native",
+     "Vercel"
+    ],
+    "items": [
+     {
+      "name": "TypeScript",
+      "postings": 3,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6208899004"
+     },
+     {
+      "name": "C#",
+      "postings": 2,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "Python",
+      "postings": 2,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6208899004"
+     },
+     {
+      "name": "SQL",
+      "postings": 2,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6208899004"
+     },
+     {
+      "name": ".NET",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "Azure",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "Cypress",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6210309004"
+     },
+     {
+      "name": "Datadog",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "FastAPI",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "JavaScript",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "LangChain",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "OpenAI",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "Playwright",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6210309004"
+     },
+     {
+      "name": "PostgreSQL",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "React",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "React Native",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     },
+     {
+      "name": "Vercel",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:51Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-09",
+    "source_url": "https://job-boards.greenhouse.io/karbon/jobs/6221388004",
+    "last_verified_at": "2026-10-13T10:07:51Z",
+    "basis": "greenhouse posting date",
+    "postings_dated": 13,
+    "postings_read": 13,
+    "days_old": 4
+   }
+  },
+  {
+   "id": "sonder",
+   "name": "Sonder (employee care)",
+   "read": [
+    {
+     "kind": "greenhouse",
+     "url": "https://boards.greenhouse.io/sonderaustralia",
+     "postings": 43
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 43,
+   "postings_outside_australia": 7,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "onsite x1 of 36 postings; 35 say nothing",
+   "remote_statements": {
+    "onsite": 1
+   },
+   "text_quotes": [
+    {
+     "url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7670442002",
+     "label": "onsite",
+     "basis": "sentence in the posting",
+     "quote": "…Provide input into operational processes and functionality. Office-based role in Waterloo, Sydney. Who are we looking for? The ideal can…"
+    }
+   ],
+   "tech_stack": {
+    "value": [
+     "AWS",
+     "Google Cloud",
+     "Python",
+     "SQL",
+     "Snowflake",
+     "TypeScript",
+     "dbt"
+    ],
+    "items": [
+     {
+      "name": "AWS",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     },
+     {
+      "name": "Google Cloud",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     },
+     {
+      "name": "Python",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     },
+     {
+      "name": "SQL",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     },
+     {
+      "name": "Snowflake",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     },
+     {
+      "name": "TypeScript",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     },
+     {
+      "name": "dbt",
+      "postings": 1,
+      "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:53Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-12",
+    "source_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8884536002",
+    "last_verified_at": "2026-10-13T10:07:53Z",
+    "basis": "greenhouse posting date",
+    "postings_dated": 43,
+    "postings_read": 43,
+    "days_old": 1
+   }
+  },
+  {
+   "id": "assignar",
+   "name": "Assignar",
+   "read": [
+    {
+     "kind": "breezy",
+     "url": "https://assignar.breezy.hr/",
+     "postings": 5
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 5,
+   "postings_outside_australia": 1,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "remote-au x3 of 4 postings; 1 say nothing",
+   "remote_statements": {
+    "remote-au": 3
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-09",
+    "source_url": "https://assignar.breezy.hr/p/8edc50b7c374-customer-solutions-manager",
+    "last_verified_at": "2026-10-13T10:07:53Z",
+    "basis": "breezy posting date",
+    "postings_dated": 5,
+    "postings_read": 5,
+    "days_old": 4
+   }
+  },
+  {
+   "id": "kasada",
+   "name": "Kasada",
+   "read": [
+    {
+     "kind": "lever",
+     "url": "https://jobs.lever.co/kasada",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": "hybrid",
+    "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af",
+    "last_verified_at": "2026-10-13T10:07:54Z",
+    "basis": "lever workplace field: hybrid",
+    "quote": null,
+    "postings_saying_it": 1,
+    "postings_read": 1
+   },
+   "remote_policy_reason": null,
+   "remote_statements": {
+    "hybrid": 1
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": [
+     "AWS",
+     "Kubernetes",
+     "Node.js",
+     "PostgreSQL",
+     "Redis",
+     "SQL",
+     "TypeScript"
+    ],
+    "items": [
+     {
+      "name": "AWS",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     },
+     {
+      "name": "Kubernetes",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     },
+     {
+      "name": "Node.js",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     },
+     {
+      "name": "PostgreSQL",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     },
+     {
+      "name": "Redis",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     },
+     {
+      "name": "SQL",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     },
+     {
+      "name": "TypeScript",
+      "postings": 1,
+      "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:54Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-06-30",
+    "source_url": "https://jobs.lever.co/kasada/01a75d0d-a13a-4492-807c-ba72cc91d2af",
+    "last_verified_at": "2026-10-13T10:07:54Z",
+    "basis": "lever posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 105
+   }
+  },
+  {
+   "id": "enboarder",
+   "name": "Enboarder",
+   "read": [
+    {
+     "kind": "greenhouse",
+     "url": "https://boards.greenhouse.io/enboarder",
+     "postings": 5
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 5,
+   "postings_outside_australia": 4,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 1 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-08-16",
+    "source_url": "https://enboarder.com/careers?gh_jid=4724665005",
+    "last_verified_at": "2026-10-13T10:07:55Z",
+    "basis": "greenhouse posting date",
+    "postings_dated": 5,
+    "postings_read": 5,
+    "days_old": 58
+   }
+  },
+  {
+   "id": "atomi",
+   "name": "Atomi",
+   "read": [
+    {
+     "kind": "lever",
+     "url": "https://jobs.lever.co/atomi",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": "hybrid",
+    "source_url": "https://jobs.lever.co/atomi/62f94fb0-42a7-4276-8e84-457b84f2d29b",
+    "last_verified_at": "2026-10-13T10:07:56Z",
+    "basis": "lever workplace field: hybrid",
+    "quote": null,
+    "postings_saying_it": 1,
+    "postings_read": 1
+   },
+   "remote_policy_reason": null,
+   "remote_statements": {
+    "hybrid": 1
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2023-04-20",
+    "source_url": "https://jobs.lever.co/atomi/62f94fb0-42a7-4276-8e84-457b84f2d29b",
+    "last_verified_at": "2026-10-13T10:07:56Z",
+    "basis": "lever posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 1272
+   }
+  },
+  {
+   "id": "bridgit",
+   "name": "Bridgit",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://careers.bridgit.com.au/jobs/8534466-marketing-coordinator",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 1 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-13",
+    "source_url": "https://careers.bridgit.com.au/jobs/8534466-marketing-coordinator",
+    "last_verified_at": "2026-10-13T10:07:56Z",
+    "basis": "schema.org posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 0
+   }
+  },
+  {
+   "id": "visory",
+   "name": "Visory",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://careers.visory.com.au/jobs/8510145-technical-reviewer-tax-cpa",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 1,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "every posting read is located outside Australia (1)",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-07",
+    "source_url": "https://careers.visory.com.au/jobs/8510145-technical-reviewer-tax-cpa",
+    "last_verified_at": "2026-10-13T10:07:57Z",
+    "basis": "schema.org posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 6
+   }
+  },
+  {
+   "id": "bookipi",
+   "name": "Bookipi",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://bookipi.com/jobs/full-stack-developer/",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": "remote-global",
+    "source_url": "https://bookipi.com/jobs/full-stack-developer/",
+    "last_verified_at": "2026-10-13T10:07:58Z",
+    "basis": "sentence in the posting",
+    "quote": "…rom Home, empowering you to make a significant impact from anywhere in the world. 🏡 What you will do: Innovate & Develop: Collabora…",
+    "postings_saying_it": 1,
+    "postings_read": 1
+   },
+   "remote_policy_reason": null,
+   "remote_statements": {
+    "remote-global": 1
+   },
+   "text_quotes": [
+    {
+     "url": "https://bookipi.com/jobs/full-stack-developer/",
+     "label": "remote-global",
+     "basis": "sentence in the posting",
+     "quote": "…rom Home, empowering you to make a significant impact from anywhere in the world. 🏡 What you will do: Innovate & Develop: Collabora…"
+    }
+   ],
+   "tech_stack": {
+    "value": [
+     "AWS",
+     "Docker",
+     "JavaScript",
+     "Kubernetes",
+     "MongoDB",
+     "Node.js",
+     "React"
+    ],
+    "items": [
+     {
+      "name": "AWS",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     },
+     {
+      "name": "Docker",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     },
+     {
+      "name": "JavaScript",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     },
+     {
+      "name": "Kubernetes",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     },
+     {
+      "name": "MongoDB",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     },
+     {
+      "name": "Node.js",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     },
+     {
+      "name": "React",
+      "postings": 1,
+      "source_url": "https://bookipi.com/jobs/full-stack-developer/"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:58Z"
+   },
+   "last_role_seen_at": {
+    "value": "2024-05-14",
+    "source_url": "https://bookipi.com/jobs/full-stack-developer/",
+    "last_verified_at": "2026-10-13T10:07:58Z",
+    "basis": "schema.org posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 882
+   }
+  },
+  {
+   "id": "asseti",
+   "name": "Asseti",
+   "read": [
+    {
+     "kind": "workable",
+     "url": "https://apply.workable.com/asseti/",
+     "postings": 8
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 6,
+   "postings_outside_australia": 4,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 2 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": [
+     "AWS",
+     "C++",
+     "PostgreSQL",
+     "Python",
+     "React",
+     "Terraform",
+     "TypeScript"
+    ],
+    "items": [
+     {
+      "name": "AWS",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     },
+     {
+      "name": "C++",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     },
+     {
+      "name": "PostgreSQL",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     },
+     {
+      "name": "Python",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     },
+     {
+      "name": "React",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     },
+     {
+      "name": "Terraform",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     },
+     {
+      "name": "TypeScript",
+      "postings": 1,
+      "source_url": "https://apply.workable.com/j/1A1A32C7B4"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:07:59Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-10-10",
+    "source_url": "https://apply.workable.com/j/7F19100A04",
+    "last_verified_at": "2026-10-13T10:07:59Z",
+    "basis": "workable posting date",
+    "postings_dated": 6,
+    "postings_read": 6,
+    "days_old": 3
+   }
+  },
+  {
+   "id": "safewill",
+   "name": "Safewill",
+   "read": [
+    {
+     "kind": "teamtailor",
+     "url": "https://safewill.teamtailor.com/jobs",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": "hybrid",
+    "source_url": "https://careers.safewill.com/jobs/8158584-growth-operations-manager",
+    "last_verified_at": "2026-10-13T10:08:01Z",
+    "basis": "teamtailor workplace field: hybrid",
+    "quote": null,
+    "postings_saying_it": 1,
+    "postings_read": 1
+   },
+   "remote_policy_reason": null,
+   "remote_statements": {
+    "hybrid": 1
+   },
+   "text_quotes": [],
+   "tech_stack": {
+    "value": [
+     "SQL"
+    ],
+    "items": [
+     {
+      "name": "SQL",
+      "postings": 1,
+      "source_url": "https://careers.safewill.com/jobs/8158584-growth-operations-manager"
+     }
+    ],
+    "last_verified_at": "2026-10-13T10:08:01Z"
+   },
+   "last_role_seen_at": {
+    "value": "2026-08-02",
+    "source_url": "https://careers.safewill.com/jobs/8158584-growth-operations-manager",
+    "last_verified_at": "2026-10-13T10:08:01Z",
+    "basis": "teamtailor posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 72
+   }
+  },
+  {
+   "id": "slyp",
+   "name": "Slyp",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://www.slyp.com.au/careers",
+     "postings": 2
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 2,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 2 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null
+   }
+  },
+  {
+   "id": "amber-electric",
+   "name": "Amber Electric",
+   "read": [
+    {
+     "kind": "lever",
+     "url": "https://jobs.lever.co/amberelectric",
+     "postings": 0
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 0,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "no postings could be read",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null
+   }
+  },
+  {
+   "id": "superstat",
+   "name": "Superstat",
+   "read": [],
+   "refused": [],
+   "notes": [],
+   "postings_read": 0,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "no postings could be read",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null
+   }
+  },
+  {
+   "id": "fastlane",
+   "name": "Fastlane",
+   "read": [
+    {
+     "kind": "schema.org",
+     "url": "https://www.usefastlane.ai/careers/cracked",
+     "postings": 1
+    }
+   ],
+   "refused": [],
+   "notes": [],
+   "postings_read": 1,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "none of 1 postings states how people work",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": "2026-09-16",
+    "source_url": "https://www.usefastlane.ai/careers/cracked",
+    "last_verified_at": "2026-10-13T10:08:05Z",
+    "basis": "schema.org posting date",
+    "postings_dated": 1,
+    "postings_read": 1,
+    "days_old": 27
+   }
+  },
+  {
+   "id": "forward",
+   "name": "Forward",
+   "read": [],
+   "refused": [],
+   "notes": [],
+   "postings_read": 0,
+   "postings_outside_australia": 0,
+   "remote_policy": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null,
+    "quote": null
+   },
+   "remote_policy_reason": "no postings could be read",
+   "remote_statements": {},
+   "text_quotes": [],
+   "tech_stack": {
+    "value": null,
+    "items": [],
+    "last_verified_at": null
+   },
+   "last_role_seen_at": {
+    "value": null,
+    "source_url": null,
+    "last_verified_at": null,
+    "basis": null
+   }
+  }
+ ]
+}

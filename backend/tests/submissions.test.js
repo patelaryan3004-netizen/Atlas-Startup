@@ -62,6 +62,31 @@ describe('POST /api/submissions', () => {
     expect(res.body.stage).toBe('');
     expect(res.body.email).toBe('');
     expect(res.body.hiringUrl).toBe('');
+    expect(res.body).toMatchObject({ city: '', role: '', claim: '' });
+  });
+
+  it('keeps the city, the role and the wish to claim the profile, trimmed', async () => {
+    const res = await request(app).post('/api/submissions').send({
+      name: 'Acme', description: 'Does things', city: '  Melbourne ', role: ' Founder ', claim: 'Yes',
+    });
+    expect(res.status).toBe(201);
+    expect(res.body).toMatchObject({ city: 'Melbourne', role: 'Founder', claim: 'yes' });
+    const stored = JSON.parse(await readFile(DATA_PATH, 'utf-8'));
+    expect(stored[0]).toMatchObject({ city: 'Melbourne', role: 'Founder', claim: 'yes' });
+  });
+
+  it('leaves the claim empty unless it is a yes or a no, and drops anything that is not text, rather than refusing the submission', async () => {
+    const odd = await request(app).post('/api/submissions').send({ name: 'Acme', description: 'Does things', claim: 'maybe', city: 42, role: { a: 1 } });
+    expect(odd.status).toBe(201);
+    expect(odd.body).toMatchObject({ city: '', role: '', claim: '' });
+    const no = await request(app).post('/api/submissions').send({ name: 'Beta', description: 'Does more', claim: 'no' });
+    expect(no.body.claim).toBe('no');
+  });
+
+  it('cuts a very long city or role to 200 characters', async () => {
+    const res = await request(app).post('/api/submissions').send({ name: 'Acme', description: 'Does things', city: 'x'.repeat(500), role: 'y'.repeat(500) });
+    expect(res.body.city).toHaveLength(200);
+    expect(res.body.role).toHaveLength(200);
   });
 });
 

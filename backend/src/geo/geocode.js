@@ -117,11 +117,12 @@ export function createGeocoder({
 // Mutates `rows` (the cache). `fromCache` says whether the geocoder was spared. A failure to ask (the network, a 429) is
 // reported but not kept: nothing was learned, and the next run should ask again.
 export async function geocodeCached(geocoder, rows, query, nowMs) {
-  const hit = lookup(rows, PROVIDER, query, nowMs);
+  const provider = geocoder.provider ?? PROVIDER; // each geocoder's answers are kept under its own name
+  const hit = lookup(rows, provider, query, nowMs);
   if (hit) return { row: hit, fromCache: true };
   const answer = await geocoder.search(query);
   if (answer.status === 'error') return { row: { status: 'error', error: answer.error, result: null, quality: null }, fromCache: false };
-  return { row: remember(rows, { provider: PROVIDER, query, status: answer.status, quality: answer.quality ?? null, result: answer.result ?? null }, nowMs), fromCache: false };
+  return { row: remember(rows, { provider, query, status: answer.status, quality: answer.quality ?? null, result: answer.result ?? null }, nowMs), fromCache: false };
 }
 
 // Merges two copies of the cache by question, keeping the answer that was fetched later.

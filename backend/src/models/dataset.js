@@ -48,7 +48,7 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import {
   ADDED_FIELDS, LEGACY_FIELDS, AU_STATES, COMPANY_STATUSES, VERIFICATION_STATUSES,
-  HIRING_STATUSES, WEBSITE_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
+  HIRING_STATUSES, WEBSITE_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES, isWhen, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
   slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
 } from './company.js';
 import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
@@ -440,7 +440,7 @@ export function validateDataset(ds) {
       bad(at, 'tech_stack must be a list of distinct, non-empty names, or null');
     }
     if (c.team_size != null && (!Number.isInteger(c.team_size) || c.team_size < 1)) bad(at, 'team_size must be a whole number from 1, or null');
-    if (c.last_role_seen_at != null && !ISO_RE.test(c.last_role_seen_at)) bad(at, 'last_role_seen_at must be an ISO-8601 UTC timestamp or null');
+    if (c.last_role_seen_at != null && !isWhen(c.last_role_seen_at)) bad(at, 'last_role_seen_at must be a day (YYYY-MM-DD) or an ISO-8601 UTC timestamp, or null');
 
     // The two representations of one fact must agree.
     if ((c.hiring === true) !== (c.hiring_status === 'hiring')) bad(at, 'hiring and hiring_status disagree');

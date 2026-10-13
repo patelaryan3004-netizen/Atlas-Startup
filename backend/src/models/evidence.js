@@ -36,7 +36,7 @@
 // 'high' requires verified_at, and verified_at requires a retrieved source, so a
 // claim cannot be marked verified against a page nobody opened.
 import {
-  AU_STATES, COMPANY_STATUSES, HIRING_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES,
+  AU_STATES, COMPANY_STATUSES, HIRING_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES, isWhen,
   ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum, slugify,
 } from './company.js';
 import { sameAddress } from './identity.js';
@@ -314,7 +314,7 @@ export function checkValue(spec, value) {
     case 'enum': return spec.values.includes(value) ? null : `must be one of ${spec.values.join(', ')}`;
     case 'year': return Number.isInteger(value) && value >= 1800 && value <= 2100 ? null : 'must be an integer year';
     case 'count': return Number.isInteger(value) && value >= 1 ? null : 'must be a whole number from 1';
-    case 'timestamp': return typeof value === 'string' && ISO_RE.test(value) ? null : 'must be an ISO-8601 UTC timestamp';
+    case 'timestamp': return isWhen(value) ? null : 'must be a day (YYYY-MM-DD) or an ISO-8601 UTC timestamp';
     case 'date': return typeof value === 'string' && PARTIAL_DATE_RE.test(value) ? null : 'must be YYYY, YYYY-MM or YYYY-MM-DD';
     case 'money': {
       const ok = value && typeof value === 'object' && !Array.isArray(value)

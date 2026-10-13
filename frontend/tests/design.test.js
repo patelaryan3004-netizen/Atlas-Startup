@@ -267,19 +267,33 @@ describe('the landing page\'s type', () => {
     expect(hero).toMatch(/\.hero-title\{[^}]*font-size: var\(--fs-display\)[^}]*line-height: \.98/);
   });
 
-  it('keeps a section to the scale: a display size, a heading size, two reading sizes and a label size, and nothing else', () => {
-    const allowed = new Set(['var(--fs-display)', 'var(--fs-figure)', 'var(--fs-heading)', 'var(--fs-body)', 'var(--fs-small)', 'var(--fs-label)']);
+  it('keeps a section to the scale: a display size, a heading size, the lede under it, and two text sizes (body and small), and nothing else', () => {
+    const allowed = new Set(['var(--fs-display)', 'var(--fs-figure)', 'var(--fs-heading)', 'var(--fs-lede)', 'var(--fs-body)', 'var(--fs-small)']);
     const heroSection = hero.slice(hero.indexOf('/* Hero */'), hero.indexOf('/* The picture'));
     for (const [name, text] of [['landing.css', landing.slice(landing.indexOf('/* A section opens'))], ['hero section', heroSection]]) {
       const sizes = [...text.matchAll(/(?<![-\w])font-size:\s*([^;}]+)/g)].map((m) => m[1].trim());
       expect(sizes.length, name).toBeGreaterThan(3);
       for (const size of sizes) expect(allowed.has(size), `${name}: ${size}`).toBe(true);
     }
-    expect(token(landing, '--fs-body')).toBe('17px');
-    // text a person reads is never under 15px; the 13px size is for labels (a section's number, a count, a date)
-    expect(token(landing, '--fs-small')).toBe('15px');
-    expect(token(landing, '--fs-label')).toBe('13px');
-    expect(landing).toMatch(/\.sec-rule\{[^}]*font-size: var\(--fs-label\)/);
+    // the landing's names are the app's three sizes, not three of its own
+    expect(token(landing, '--fs-lede')).toBe('var(--t-lede)');
+    expect(token(landing, '--fs-body')).toBe('var(--t-body)');
+    expect(token(landing, '--fs-small')).toBe('var(--t-small)');
+    expect(token(styles, '--t-lede')).toBe('17px');
+    // text a person reads is never under 15px; the 13px size is for labels (a section's number, a count, a date) and the small print
+    expect(token(styles, '--t-body')).toBe('15px');
+    expect(token(styles, '--t-small')).toBe('13px');
+    expect(landing).toMatch(/\.sec-rule\{[^}]*font-size: var\(--fs-small\)/);
+    // the lede is the line under a headline: the section's intro and the hero's, and nothing else (a button is body text)
+    const ledes = [...`${landing}\n${hero}`.matchAll(/([^{}]+)\{[^{}]*font-size:\s*var\(--fs-lede\)/g)].map((m) => m[1].trim().replace(/\s+/g, ' '));
+    expect(ledes.sort()).toEqual(['.hero-lede', '.landing-list-name', '.landing-section-head p']);
+    expect(landing).toMatch(/\.landing-btn-primary, \.landing-btn-secondary\{[^}]*font-size: var\(--fs-body\)/);
+  });
+
+  it('sets the picture\'s own labels in one size, which grows and shrinks with the picture and is never under 12px', () => {
+    expect(hero).toMatch(/--eco-fs: clamp\(12px, 2\.1cqi, 13\.5px\)/);
+    expect(hero).toMatch(/\.eco-city\{[^}]*font-size: 1em/);
+    expect(hero).toMatch(/\.eco-chip-link\{[^}]*font-size: 1em/);
   });
 
   it('sets one word in italic in a face that has an italic, and the numbers and labels in the monospace', () => {
@@ -306,6 +320,104 @@ describe('motion', () => {
     expect(hero).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.eco \*, \.eco-chip\{ animation: none !important/);
     expect(landing).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.landing-btn-primary/);
     expect(`${styles}${landing}${hero}`).not.toMatch(/<video|autoplay/i);
+  });
+});
+
+// ---- the text on the pages, the grid of cards, readable text and what can be pressed ----
+
+const withoutComments = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '');
+const rulesOf = (text) => [...withoutComments(text).matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(([, selector, body]) => [selector.trim().replace(/\s+/g, ' '), body]);
+const sizeOf = (body) => /(?<![-\w])font-size:\s*([^;}]+)/.exec(body)?.[1].trim();
+const people = css('people.css');
+
+describe('the text on the pages', () => {
+  const TEXT = new Set(['var(--t-body)', 'var(--t-small)']);
+
+  it('is body and small, the app\'s two text sizes, on the content pages: the card, the table, the lists, the news, the dialogs and the footer', () => {
+    const sizes = new Map(rulesOf(styles).filter(([, body]) => sizeOf(body)).map(([selector, body]) => [selector, sizeOf(body)]));
+    const content = [
+      '.entity-blurb', '.meta-row', '.index-row', '.index-row-label', '.verified-note', '.badge-unverified', '.hiring-badge', '.vouch-badge', '.concept-label',
+      '.job-card-meta', '.jobs-subhead', '.jobs-filters select', '.jobs-filter-count', '.news-meta', '.news-headline',
+      '.curated-card-category', '.curated-card-desc', '.curated-card-count', '.list-banner-kicker', '.list-banner-desc', '.list-banner-count',
+      '.startup-table', '.startup-table thead th', '.st-tags li', '.startup-list-count', '.startup-list-sort', '.startup-layout-btn',
+      '.new-week-title', '.new-week-name', '.new-week-what', '.event-badge',
+      '.sdp-meta-value', '.sdp-meta-note', '.sdp-hiring-note', '.sdp-source-meta', '.sdp-sources-list', '.pc', '.pc-desc', '.pc-section-label', '.pc-inv-name', '.pc-founder-name',
+      '.vouch blockquote', '.vouch figcaption', '.modal-sub', '.modal-panel label', '.modal-panel .hint', '.form-error', '.taskbtn', '.linkbtn',
+      '#siteFooter', '#siteFooter .linkbtn', '.footer-credit', '.site-brand-link', '.site-brand-map', '.pin-pop-fresh', '.pin-pop-report',
+    ];
+    for (const selector of content) expect(TEXT.has(sizes.get(selector)), `${selector} is ${sizes.get(selector)}`).toBe(true);
+    // a card's name is its heading, and takes the heading's size
+    expect(sizes.get('.entity-name')).toBe('17px');
+  });
+
+  it('is body and small in the investor and people pages too: no size of its own under 17px, but a heading, an initial in a logo and a table\'s initial', () => {
+    const OWN = { 'investors.css': ['.inv-table .inv-logo-initial', '.inv-logo-initial', '.inv-correct h2'], 'people.css': [] };
+    for (const [name, text] of [['investors.css', investors], ['people.css', people]]) {
+      const own = rulesOf(text).filter(([, body]) => { const size = sizeOf(body); return size && /^[\d.]+px$/.test(size) && parseFloat(size) < 17; }).map(([selector]) => selector);
+      expect(own, name).toEqual(OWN[name]);
+      expect(text.match(/var\(--t-(body|small)\)/g)?.length ?? 0, name).toBeGreaterThan(10);
+    }
+  });
+});
+
+describe('the grid of cards', () => {
+  const FOUR = '.jobs-grid, .startup-grid, .curated-list-grid, .inv-grid';
+  const CHILDREN = FOUR.split(', ').map((s) => `${s} > *`).join(', ');
+
+  it('has twelve columns for the jobs, the list, the lists and the investors and people, and each card takes 12, then 6, then 4 of them as the grid\'s own width grows', () => {
+    const rules = rulesOf(styles);
+    const grid = rules.find(([selector]) => selector === FOUR);
+    expect(grid[1]).toMatch(/display:grid; grid-template-columns:repeat\(12,minmax\(0,1fr\)\)/);
+    expect(grid[1]).toContain('container-type:inline-size');
+    const spans = rules.filter(([selector]) => selector === CHILDREN).map(([, body]) => /grid-column:span (\d+)/.exec(body)[1]);
+    expect(spans).toEqual(['12', '6', '4']);
+    expect(styles).toMatch(/@container \(min-width:600px\)\{\s*\.jobs-grid > \*/);
+    expect(styles).toMatch(/@container \(min-width:900px\)\{\s*\.jobs-grid > \*/);
+  });
+
+  it('is the only place that says how many columns they have: no auto-fill, no 3-column rule of its own', () => {
+    for (const [name, text] of [['styles.css', styles], ['investors.css', investors], ['people.css', people]]) {
+      for (const [selector, body] of rulesOf(text)) {
+        if (selector === FOUR) continue;
+        if (/(^|, )\.(jobs-grid|startup-grid|curated-list-grid|inv-grid|people-grid)( |$|,)/.test(selector) && !selector.includes('>')) expect(body, `${name} ${selector}`).not.toMatch(/grid-template-columns|display:\s*grid/);
+      }
+    }
+  });
+
+  it('lays an investor\'s page on twelve columns too: the page takes eight, and the facts beside it four', () => {
+    expect(investors).toMatch(/\.inv-profile-body \{ grid-template-columns: repeat\(12, minmax\(0, 1fr\)\)/);
+    expect(investors).toMatch(/\.inv-profile-main \{ grid-column: 1 \/ span 8;/);
+    expect(investors).toMatch(/\.inv-profile-facts \{ grid-column: 9 \/ -1;/);
+  });
+});
+
+describe('text that can be read, and what can be pressed', () => {
+  it('sets the company\'s panel header in the ink that reads on the company\'s colour, not in white', () => {
+    expect(styles).toMatch(/\.pc-hero\{[^}]*color:var\(--on-sector,#fff\)/);
+    for (const selector of ['.sdp-close', '.sdp-track', '.pc-avatar-fallback', '.pc-hero .verified-note']) {
+      const body = rulesOf(styles).find(([s]) => s === selector)[1];
+      expect(body, selector).toContain('var(--on-sector,#fff)');
+    }
+    expect(readFileSync(path.join(src, 'components', 'StartupDetailPanel.jsx'), 'utf8')).toContain("'--on-sector': readableOn(sectorColor)");
+  });
+
+  it('puts no decorative dot between the footer links in front of a screen reader', () => {
+    expect(readFileSync(path.join(src, 'App.jsx'), 'utf8')).not.toMatch(/<span className="tag-sep">/);
+  });
+
+  it('gives what can be pressed at least 24px of height (WCAG 2.2 AA), as padding or as a minimum, though its text is smaller', () => {
+    const body = rulesOf(styles).find(([selector]) => selector.startsWith('.site-brand-link, .site-brand-map, .index-row a'))[1];
+    expect(body).toMatch(/display:inline-flex; align-items:center; min-height:24px/);
+    for (const selector of ['.site-brand-link', '.index-row a', '.st-sort', '.inv-card-link', '.inv-back', '.person-request']) {
+      expect(rulesOf(styles).find(([s]) => s.split(', ').includes(selector)), selector).toBeTruthy();
+    }
+    expect(styles).toMatch(/#siteFooter \.linkbtn\{ padding:5px 2px; \}/);
+  });
+
+  it('stops every animation and transition for a visitor who has asked for less motion, as a net under the rules that stop their own', () => {
+    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n\s*\*, \*::before, \*::after\{ animation-duration:\.01ms !important; animation-iteration-count:1 !important; transition-duration:\.01ms !important; scroll-behavior:auto !important; \}/);
+    // and the page's own never starts one that only reduced motion could stop: nothing autoplays
+    expect(`${styles}${landing}${hero}${investors}${people}`).not.toMatch(/<video|autoplay/i);
   });
 });
 

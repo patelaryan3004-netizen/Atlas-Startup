@@ -225,7 +225,7 @@ const mapboxUrl = (basemap) => `https://api.mapbox.com/styles/v1/mapbox/${basema
 // showCompanies and showInstitutions are the two layers' switches; basemap is 'dark' or 'light'.
 export default function MapView({
   markers = NO_MARKERS, areas = NO_AREAS, sectorColors = NO_COLORS, onSelectStartup, onViewArea, selectedName, trackedNames,
-  institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, basemap = 'dark', onOpenInternal,
+  institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, basemap = 'dark', onOpenInternal, onReportRoleClosed,
 }) {
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
@@ -239,7 +239,7 @@ export default function MapView({
   const clustersRef = useRef(new Map()); // for each cluster on the map: where it is (a name is kept clear of it)
   const frameRef = useRef(0);
   const latest = useRef({});
-  latest.current = { markers, sectorColors, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, basemap, onOpenInternal };
+  latest.current = { markers, sectorColors, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, basemap, onOpenInternal, onReportRoleClosed };
 
   // Writes the names under the pins that have room for one. From zoom 7 (9 on a phone) the pins on screen are looked at in the
   // order worth naming (the open one, then those hiring, then the rest): a name is written only where it covers no other name
@@ -267,7 +267,11 @@ export default function MapView({
   const openCompanyCard = useCallback((tuple, lat, lng) => {
     const map = mapRef.current;
     if (!map) return;
-    const card = companyPopup(tuple, { onOpen: () => { map.closePopup?.(); latest.current.onSelectStartup?.(pinPayload(tuple)); } });
+    const card = companyPopup(tuple, {
+      onOpen: () => { map.closePopup?.(); latest.current.onSelectStartup?.(pinPayload(tuple)); },
+      // The link is left out of the card when the page gave no way to report (a tuple's name is the company's name).
+      onReport: latest.current.onReportRoleClosed ? () => { map.closePopup?.(); latest.current.onReportRoleClosed?.(tuple[1]); } : undefined,
+    });
     const popup = L.popup({ className: 'pin-popup', minWidth: 230, maxWidth: 290, offset: [0, -16], ...POPUP_PAN }).setLatLng([lat, lng]).setContent(card.element).openOn(map);
     const again = keepClear(popup, card.element);
     fetchStartup(tuple[0]).then((record) => { card.fill(record); again(); }, () => { /* the card keeps what the pin knows */ });

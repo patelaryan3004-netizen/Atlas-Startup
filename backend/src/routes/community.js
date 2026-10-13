@@ -14,9 +14,11 @@ const MAX_LIMIT = 100;
 // GET /api/lists/:id?limit=&offset=                       one list, in its own order: { list, results, ... } (people, institutions or companies)
 // What is in any of it is only what the owner typed into people_seed.json and what the investor directory has published; see
 // models/community.js. (A person's own page is /api/people/:name, which is a founder's companies, in routes/search.js.)
-export function createCommunityRouter({ respond, companyCatalog }) {
+// `enabled` is the server's switch (SHOW_PEOPLE, app.js): while it is off none of these answers, so nobody listed is served before they have been told.
+export function createCommunityRouter({ respond, companyCatalog, enabled = true }) {
   const router = Router();
-  const send = (build) => (req, res, next) => respond(req, res, (snap) => build(snap, req)).catch(next);
+  const off = (req, res, next) => (enabled ? next() : res.status(404).json({ error: 'Not found' }));
+  const send = (build) => [off, (req, res, next) => respond(req, res, (snap) => build(snap, req)).catch(next)];
   const text = (value) => (value === undefined ? '' : String(Array.isArray(value) ? value[0] : value).slice(0, 80));
 
   function listOf(snap, query, type) {

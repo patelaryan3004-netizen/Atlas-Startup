@@ -1,4 +1,5 @@
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
+import { showPeople } from './flags.js';
 
 // The addresses of the app's pages, so every page can be linked to, opened in a new tab and come back to with the back button:
 //   /                        the map (or, with ?view=list, the list), with the filters in the query: /?sector=AI&city=Sydney
@@ -19,7 +20,7 @@ export function readAppRoute({ pathname = window.location.pathname, search = win
   if (first === 'jobs') return { kind: 'jobs' };
   if (first === 'lists') return second ? { kind: 'list', slug: second } : { kind: 'lists' };
   if (first === 'news') return { kind: 'news' };
-  if (first === 'people') return { kind: 'people' };
+  if (first === 'people' && showPeople()) return { kind: 'people' }; // with the people switched off there is no such page: the map opens instead
   if (!first) {
     const view = new URLSearchParams(search).get('view');
     if (view === 'jobs') return { kind: 'jobs' };

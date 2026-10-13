@@ -34,14 +34,17 @@ export const WEBSITE_STATUSES = ['unavailable'];
 export const EMPLOYEE_RANGES = ['1-10', '11-50', '51-200', '201-500', '501-1000', '1001-5000', '5001+'];
 
 // Optional facts about a company, like `events`: a record has the key only once a page has given the fact, and never an estimate.
-//   remote_policy       remote-global (work from anywhere) or remote-au (remote within Australia); a company with another policy has none
+//   remote_policy       remote-global (work from anywhere), remote-au (remote within Australia), hybrid or onsite, as the company's own postings say
 //   tech_stack          the tools it says it builds with: a list of names
 //   team_size           how many people work there: a whole number, as a page states it
 //   last_funding_date   (a field of every record) when it last raised, YYYY, YYYY-MM or YYYY-MM-DD
-//   last_role_seen_at   when a role of its was last seen on a page of its own: an ISO-8601 UTC time
+//   last_role_seen_at   when a role of its was posted on a page of its own: the posting's date (YYYY-MM-DD) or an ISO-8601 UTC time
 // Each is served only where an evidence row from a public page backs it, with that page's address and the date it was checked
 // (catalog.js, provenance.js): a value no page backs is not public.
-export const REMOTE_POLICIES = ['remote-global', 'remote-au'];
+export const REMOTE_POLICIES = ['remote-global', 'remote-au', 'hybrid', 'onsite'];
+export const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
+// A time that may be given only to the day: a posting says "2026-10-11", and a day is not made into a time it never had.
+export const isWhen = (v) => typeof v === 'string' && (DAY_RE.test(v) ? !Number.isNaN(Date.parse(v)) : ISO_RE.test(v));
 export const FACT_FIELDS = ['remote_policy', 'tech_stack', 'team_size', 'last_funding_date', 'last_role_seen_at'];
 // Team size in the buckets the directory filters by. A bucket ends where the next begins: 10 is "10-29", not also "under 10".
 export const TEAM_BUCKETS = [

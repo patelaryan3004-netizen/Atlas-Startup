@@ -39,6 +39,9 @@ export function hiringLabel(company) {
   return { state: 'unverified', text: 'Roles unverified' };
 }
 
+// What the "Report: role closed" link puts in the edit form: the sentence to finish, the same from the company's page and from a pin's card.
+export const roleClosedMessage = (name) => `Role closed: ${name} is no longer hiring. `;
+
 // A company is "new this week" when it raised, or had a role seen on a page of its own, in the last 14 days (the server's rule, catalog.js):
 // { kind: 'funding' | 'role', at }, the newer of the two, or null. A funding date counts only to the day, and neither counts from the future.
 export const FRESH_DAYS = 14;

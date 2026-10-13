@@ -290,6 +290,21 @@ describe('LandingPage', () => {
       expect(fetchInstitutions).toHaveBeenCalledWith({}, { limit: 3 });
     });
 
+    it('with the people switched off asks for no person and no firm, draws no People section, no People link in the bar, and the numbers close the gap', async () => {
+      vi.stubEnv('VITE_SHOW_PEOPLE', '');
+      fetchPeople.mockResolvedValue({ results: [{ id: 'ada-example', name: 'Ada Example', type: 'person', roleType: 'founder', title: 'Co-founder', orgName: 'Example Co', sources: [], vouches: [] }], counts: {} });
+      fetchInstitutions.mockResolvedValue({ results: [{ id: 'investor-blackbird', name: 'Blackbird', type: 'institution', sources: [] }] });
+      const { container } = render(<LandingPage />);
+      await waitFor(() => expect(container.querySelectorAll('.landing-job-card')).toHaveLength(6));
+      expect(fetchPeople).not.toHaveBeenCalled();
+      expect(fetchInstitutions).not.toHaveBeenCalled();
+      expect(screen.queryByRole('heading', { name: /worth following/ })).not.toBeInTheDocument();
+      expect(container.textContent).not.toMatch(/Ada Example|Blackbird|See everyone/);
+      expect([...container.querySelectorAll('.sec-rule')].map((r) => r.textContent)).toEqual(['01Map', '02Lists', '03How we verify']);
+      const nav = screen.getByRole('navigation', { name: 'Main' });
+      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['Lists', '/lists']]);
+    });
+
     it('has no People section when there are neither people nor firms, and does not leave a gap in the numbers', async () => {
       const { container } = render(<LandingPage />);
       await waitFor(() => expect(fetchInstitutions).toHaveBeenCalled());
@@ -353,6 +368,15 @@ describe('LandingPage', () => {
       expect(columns[3][1]).toEqual([['How we verify', '#verify'], ['Privacy', '#privacy'], ['Terms', '#terms']]);
       for (const [, links] of columns) expect(links.length).toBeLessThanOrEqual(4);
       expect(container.querySelector('.footer-built')).toHaveTextContent('Built by Aryan · Monash University');
+    });
+
+    it('has no People link and no "Nominate someone" with the people switched off, and a column of three where there were four', async () => {
+      vi.stubEnv('VITE_SHOW_PEOPLE', '');
+      const { container } = render(<LandingPage />);
+      const columns = [...container.querySelectorAll('.footer-column')].map((c) => [...c.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')]));
+      expect(columns[0]).toEqual([['Map', '/'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
+      expect(columns[2]).toEqual([['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist']]);
+      expect(container.querySelector('.landing-footer').innerHTML).not.toContain('/people');
     });
 
     it('has no long paragraphs: the legal notes are short and closed until asked for', async () => {

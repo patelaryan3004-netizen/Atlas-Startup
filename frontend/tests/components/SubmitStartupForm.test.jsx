@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
@@ -35,6 +35,69 @@ describe('SubmitStartupForm', () => {
     expect(submitStartup).toHaveBeenCalledWith(
       expect.objectContaining({ name: 'Acme', description: 'Does things' })
     );
+  });
+
+  it('asks for the city, the submitter\'s role and whether they want to claim the profile, and sends them', async () => {
+    submitStartup.mockResolvedValue({ id: '1', status: 'pending' });
+    render(<SubmitStartupForm onClose={() => {}} tallyUrl="TALLY_SUBMIT_URL_HERE" />);
+
+    await userEvent.type(screen.getByLabelText('Company name *'), 'Acme');
+    await userEvent.type(screen.getByLabelText('Website'), 'https://acme.example');
+    await userEvent.type(screen.getByLabelText('City'), 'Melbourne');
+    await userEvent.type(screen.getByLabelText('Your role'), 'Founder');
+    await userEvent.type(screen.getByLabelText(/One-line description/), 'Does things');
+    await userEvent.selectOptions(screen.getByLabelText('Do you want to claim this profile?'), 'yes');
+    await userEvent.click(screen.getByText('Submit startup'));
+
+    expect(await screen.findByText('Thanks!')).toBeInTheDocument();
+    expect(submitStartup).toHaveBeenCalledWith(expect.objectContaining({
+      name: 'Acme', website: 'https://acme.example', city: 'Melbourne', role: 'Founder', claim: 'yes', description: 'Does things',
+    }));
+  });
+
+  it('leaves the claim question unanswered unless the submitter answers it', async () => {
+    submitStartup.mockResolvedValue({ id: '1', status: 'pending' });
+    render(<SubmitStartupForm onClose={() => {}} tallyUrl="TALLY_SUBMIT_URL_HERE" />);
+    const claim = screen.getByLabelText('Do you want to claim this profile?');
+    expect(claim).toHaveValue('');
+    expect([...claim.options].map((o) => o.value)).toEqual(['', 'yes', 'no']);
+    await userEvent.type(screen.getByLabelText('Company name *'), 'Acme');
+    await userEvent.type(screen.getByLabelText(/One-line description/), 'Does things');
+    await userEvent.click(screen.getByText('Submit startup'));
+    await screen.findByText('Thanks!');
+    expect(submitStartup).toHaveBeenCalledWith(expect.objectContaining({ claim: '', city: '', role: '' }));
+  });
+
+  describe('as a dialog', () => {
+    it('is named by its heading, in the own form and in the Tally frame, and takes focus', () => {
+      const own = render(<SubmitStartupForm onClose={() => {}} tallyUrl="TALLY_SUBMIT_URL_HERE" />);
+      const dialog = screen.getByRole('dialog', { name: 'Submit a startup' });
+      expect(dialog).toHaveAttribute('aria-modal', 'true');
+      expect(dialog).toHaveFocus();
+      own.unmount();
+      render(<SubmitStartupForm onClose={() => {}} tallyUrl="https://tally.so/r/abc123" />);
+      expect(screen.getByRole('dialog', { name: 'Submit a startup' })).toHaveFocus();
+    });
+
+    it('is named "Thanks!" once the submission is sent, so a screen reader hears that it went', async () => {
+      submitStartup.mockResolvedValue({ id: '1' });
+      render(<SubmitStartupForm onClose={() => {}} tallyUrl="TALLY_SUBMIT_URL_HERE" />);
+      await userEvent.type(screen.getByLabelText('Company name *'), 'Acme');
+      await userEvent.type(screen.getByLabelText(/One-line description/), 'Does things');
+      await userEvent.click(screen.getByText('Submit startup'));
+      expect(await screen.findByRole('dialog', { name: 'Thanks!' })).toBeInTheDocument();
+    });
+
+    it('does not lose what was typed when a press that began in a field ends outside the panel', async () => {
+      const onClose = vi.fn();
+      const { container } = render(<SubmitStartupForm onClose={onClose} tallyUrl="TALLY_SUBMIT_URL_HERE" />);
+      const field = screen.getByLabelText('Company name *');
+      await userEvent.type(field, 'Acme');
+      fireEvent.mouseDown(field);
+      fireEvent.click(container.querySelector('.modal-overlay'));
+      expect(onClose).not.toHaveBeenCalled();
+      expect(field).toHaveValue('Acme');
+    });
   });
 
   it('shows the API error message when submission fails', async () => {

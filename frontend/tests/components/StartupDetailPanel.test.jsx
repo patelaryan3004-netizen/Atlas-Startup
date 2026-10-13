@@ -539,7 +539,7 @@ describe('StartupDetailPanel, the company logo', () => {
     });
 
     it('says nothing of a remote policy the directory does not know', () => {
-      setup({ startup: { remote_policy: 'hybrid' } });
+      setup({ startup: { remote_policy: 'nomad' } });
       expect(screen.queryByText('Remote policy', { selector: '.pc-section-label' })).toBeNull();
     });
 

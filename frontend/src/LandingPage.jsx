@@ -14,13 +14,14 @@ import { appPath } from './appRoute.js';
 import ConceptPreview from './components/ConceptPreview.jsx';
 import VerifiedNote, { UnverifiedBadge } from './components/VerifiedNote.jsx';
 import { curatedLists } from './curatedLists.js';
+import { showPeople } from './flags.js';
 import './landing.css';
 import './landing-hero.css';
 
 // The curated views show six lists.
 const LISTS_SHOWN = 6;
 
-// Only the startup-filtering lists fit this showcase (the static people-to-follow list has no company count and is not a live filter),
+// Only the startup-filtering lists fit this showcase (a list of people has no company count and is not a live filter),
 // and the page shows the first six, so it asks for the counts of those six and no more.
 const FILTER_LISTS = curatedLists.filter((list) => list.type === 'filter').slice(0, LISTS_SHOWN);
 
@@ -51,26 +52,30 @@ export default function LandingPage() {
   const [people, setPeople] = useState([]);
   const [firms, setFirms] = useState([]);
 
+  const peopleOn = showPeople(); // VITE_SHOW_PEOPLE (flags.js): without it the page asks for no person and no firm, and has no People section
+
   useEffect(() => {
     fetchSummary({}).then(setStats).catch(() => {});
     // The people worth following, if the owner has listed any. With none, the section shows the firms published in the investor
     // directory instead: real, checked, and the same card.
-    fetchPeople({}, { limit: PEOPLE_CARDS })
-      .then(({ results }) => {
-        setPeople(results ?? []);
-        if ((results ?? []).length === 0) return fetchInstitutions({}, { limit: PEOPLE_CARDS }).then((found) => setFirms(found.results ?? []));
-        return undefined;
-      })
-      .catch(() => {});
+    if (peopleOn) {
+      fetchPeople({}, { limit: PEOPLE_CARDS })
+        .then(({ results }) => {
+          setPeople(results ?? []);
+          if ((results ?? []).length === 0) return fetchInstitutions({}, { limit: PEOPLE_CARDS }).then((found) => setFirms(found.results ?? []));
+          return undefined;
+        })
+        .catch(() => {});
+    }
     fetchStartupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
     fetchMarkers({}).then(({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); }).catch(() => {});
     // Every list's count in one request, not one each; a count that could not be had is 0, as before.
     fetchCounts(FILTER_LISTS.map((list) => list.filters))
       .then(({ counts: found }) => found, () => [])
       .then((found) => setCounts(Object.fromEntries(FILTER_LISTS.map((list, i) => [list.id, found[i] ?? 0]))));
-  }, []);
+  }, [peopleOn]);
 
-  const hasPeopleSection = people.length > 0 || firms.length > 0;
+  const hasPeopleSection = peopleOn && (people.length > 0 || firms.length > 0);
   const numberOf = sectionNumbers({ people: hasPeopleSection });
   const hiringCount = stats?.hiring ?? 0;
   const listCounts = FILTER_LISTS.map((list) => ({ ...list, count: counts[list.id] ?? 0 }));
@@ -175,7 +180,7 @@ export default function LandingPage() {
               {listCounts.map((list, i) => (
                 <Reveal index={i % 3} key={list.id}>
                   <a className="landing-list-card" id={cardId('list', list.id)} href={appPath({ kind: 'list', slug: list.id })}>
-                    <div className="landing-list-name">{list.name}</div>
+                    <h3 className="landing-list-name">{list.name}</h3>
                     <div className="landing-list-desc">{list.description}</div>
                     <div className="landing-list-count">{list.count} companies</div>
                   </a>

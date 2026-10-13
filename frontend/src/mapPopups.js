@@ -34,7 +34,9 @@ const externalLink = (href, text, className) => {
 // A company's card. `tuple` is what the pin knows at once ([slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked]);
 // `fill(record)` adds what the full record says when it arrives (its one line, its hiring state, its stage, when it was checked, its website).
 // onOpen() opens the company's own page: the card's one call to action.
-export function companyPopup(tuple, { onOpen }) {
+// onReport() is the small "Report: role closed" link under it, for a company the card says is hiring (it is left out when there is no
+// onReport, and stays hidden while the card says nothing about hiring); it opens the same prefilled edit form as the company's own page.
+export function companyPopup(tuple, { onOpen, onReport }) {
   const [, name, , , sector, city, hiring, , precision, place, checked] = tuple;
   const box = node('div', 'pin-pop');
   const title = node('h3', 'pin-pop-name', name);
@@ -57,6 +59,10 @@ export function companyPopup(tuple, { onOpen }) {
   const cta = node('button', 'pin-pop-cta', 'View company');
   cta.type = 'button';
   cta.addEventListener('click', () => onOpen());
+  const report = node('button', 'pin-pop-report', 'Report: role closed');
+  report.type = 'button';
+  report.hidden = !onReport || !(hiring === 1 || hiring === true);
+  if (onReport) report.addEventListener('click', () => onReport());
   const more = node('details', 'pin-pop-more');
   more.append(node('summary', null, 'More'));
   const body = node('div', 'pin-pop-more-body');
@@ -68,7 +74,7 @@ export function companyPopup(tuple, { onOpen }) {
     body.replaceChildren(rows([known[0], ['Stage', record?.stage], known[1], known[2], ['Website', site ?? unavailable]]));
   };
   paint(null);
-  box.append(title, blurb, status, fresh, cta, more);
+  box.append(title, blurb, status, fresh, cta, report, more);
   return {
     element: box,
     fill(record) {
@@ -80,6 +86,7 @@ export function companyPopup(tuple, { onOpen }) {
       unverified.hidden = record.verified !== false;
       concept.hidden = record.taskGate?.optedIn !== true;
       status.hidden = false;
+      report.hidden = !onReport || (label.state !== 'hiring' && label.state !== 'checked');
       const note = verifiedLabel(record.last_verified_at);
       if (note) {
         fresh.textContent = note.text;

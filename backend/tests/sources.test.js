@@ -180,6 +180,14 @@ describe('submissions', () => {
     expect(lead).not.toHaveProperty('hiringUrl');
   });
 
+  it("does not read the submitter's role, their wish to claim the profile, or a submitted city", () => {
+    const lead = submissionToLead({ ...row, city: 'Narnia', role: 'Founder and CEO', claim: 'yes' }, { retrievedAt });
+    const text = JSON.stringify(lead);
+    for (const secret of ['Narnia', 'Founder and CEO', '"claim"']) expect(text).not.toContain(secret);
+    for (const field of ['city', 'role', 'claim']) expect(lead).not.toHaveProperty(field);
+    expect(lead.evidence.map((e) => e.field)).toEqual(['description', 'website', 'stage']);
+  });
+
   it('ignores a "website" that cannot be a company site, and a stage it does not recognise', () => {
     const lead = submissionToLead({ ...row, website: 'https://www.linkedin.com/company/zorbly', stage: 'whenever' }, { retrievedAt });
     expect(lead.website).toBeNull();

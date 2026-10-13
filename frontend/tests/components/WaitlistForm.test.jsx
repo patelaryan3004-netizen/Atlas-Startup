@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import WaitlistForm from '../../src/components/WaitlistForm.jsx';
 
@@ -42,10 +42,52 @@ describe('WaitlistForm', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
+  it('does not close on a click inside the panel, or on a press that began inside it and ended outside (selecting text)', async () => {
+    const onClose = vi.fn();
+    const { container } = render(<WaitlistForm onClose={onClose} />);
+    await userEvent.click(screen.getByText('Join the waitlist'));
+    expect(onClose).not.toHaveBeenCalled();
+    const overlay = container.querySelector('.modal-overlay');
+    fireEvent.mouseDown(screen.getByText('Join the waitlist'));
+    fireEvent.click(overlay); // the browser reports the click on the common ancestor, the overlay
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
   it('closes on Escape', async () => {
     const onClose = vi.fn();
     render(<WaitlistForm onClose={onClose} />);
     await userEvent.keyboard('{Escape}');
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  describe('as a dialog', () => {
+    it('is named by its heading, and modal', () => {
+      render(<WaitlistForm onClose={() => {}} />);
+      const dialog = screen.getByRole('dialog', { name: 'Join the waitlist' });
+      expect(dialog).toHaveAttribute('aria-modal', 'true');
+    });
+
+    it('takes focus when it opens and gives it back to what opened it when it closes', () => {
+      const opener = document.createElement('button');
+      document.body.append(opener);
+      opener.focus();
+      const { unmount } = render(<WaitlistForm onClose={() => {}} />);
+      expect(screen.getByRole('dialog')).toHaveFocus();
+      unmount();
+      expect(opener).toHaveFocus();
+      opener.remove();
+    });
+
+    it('keeps Tab inside the panel: from the last control to the first, and back with Shift+Tab', async () => {
+      render(<WaitlistForm onClose={() => {}} />);
+      const close = screen.getByLabelText('Close');
+      const frame = screen.getByTitle('Waitlist signup');
+      frame.focus();
+      expect(frame).toHaveFocus();
+      await userEvent.tab();
+      expect(close).toHaveFocus();
+      await userEvent.tab({ shift: true });
+      expect(frame).toHaveFocus();
+    });
   });
 });

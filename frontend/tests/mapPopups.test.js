@@ -31,6 +31,35 @@ describe('a company\'s card', () => {
     expect(text(hiring, '.hiring-badge')).toBe('● Hiring now');
   });
 
+  describe('the small "Report: role closed" link', () => {
+    const hiringTuple = () => tuple().map((v, i) => (i === 6 ? 1 : v));
+    const link = (el) => el.querySelector('.pin-pop-report');
+
+    it('is there, and works, for a company the pin says is hiring; it is not a second call to action', () => {
+      const onReport = vi.fn();
+      const { element } = companyPopup(hiringTuple(), { onOpen: vi.fn(), onReport });
+      expect(link(element).hidden).toBe(false);
+      expect(link(element).textContent).toBe('Report: role closed');
+      expect(link(element).type).toBe('button');
+      expect(element.querySelectorAll('.pin-pop-cta')).toHaveLength(1);
+      link(element).click();
+      expect(onReport).toHaveBeenCalledTimes(1);
+    });
+
+    it('is hidden for a company the pin does not say is hiring, and absent when the page gave no way to report', () => {
+      expect(link(companyPopup(tuple(), { onOpen: vi.fn(), onReport: vi.fn() }).element).hidden).toBe(true);
+      expect(link(companyPopup(hiringTuple(), { onOpen: vi.fn() }).element).hidden).toBe(true);
+    });
+
+    it('follows what the full record says: shown for hiring now and a dated "hiring", hidden for no roles listed or unverified', () => {
+      const shown = (pin, record) => { const card = companyPopup(pin, { onOpen: vi.fn(), onReport: vi.fn() }); card.fill(record); return !link(card.element).hidden; };
+      expect(shown(tuple(), { hiringState: 'hiring' })).toBe(true);
+      expect(shown(tuple(), { hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' })).toBe(true);
+      expect(shown(hiringTuple(), { hiringState: 'none' })).toBe(false);
+      expect(shown(hiringTuple(), { hiringState: 'unverified' })).toBe(false);
+    });
+  });
+
   it('keeps sector, place and how well the place is known under "More", and leaves out what it does not know', () => {
     const { element } = companyPopup(tuple(), { onOpen: vi.fn() });
     const rows = [...element.querySelectorAll('.pin-pop-rows div')].map((r) => [r.querySelector('dt').textContent, r.querySelector('dd').textContent]);

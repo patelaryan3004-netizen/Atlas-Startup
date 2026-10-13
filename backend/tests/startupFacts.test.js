@@ -31,6 +31,9 @@ async function world() {
   back(1, 'team_size', 10); back(1, 'remote_policy', 'remote-global'); back(1, 'tech_stack', 'Go'); back(1, 'last_funding_date', dayAgo(5), { source: 's-press', verified_at: null, confidence: 'medium' });
   // 2..5: the edges of the team-size buckets
   for (const [i, size] of [[2, 29], [3, 30], [4, 99], [5, 100]]) { rows[i].team_size = size; back(i, 'team_size', size); }
+  // 2 says hybrid and 3 on-site, in the postings (see backend/scripts/enrich/pass2_postings.py)
+  rows[2].remote_policy = 'hybrid'; back(2, 'remote_policy', 'hybrid');
+  rows[3].remote_policy = 'onsite'; back(3, 'remote_policy', 'onsite');
   // 6: facts no page backs (nothing, or a lead only): none of them is public
   Object.assign(rows[6], { team_size: 50, remote_policy: 'remote-au', tech_stack: ['Rust'] });
   back(6, 'remote_policy', 'remote-au', { confidence: 'low', verified_at: null });
@@ -108,6 +111,8 @@ describe('filtering and sorting by the facts', () => {
     const { app, rows } = await world();
     expect(names((await request(app).get('/api/startups?remote=remote-au&view=card')).body)).toEqual([rows[0].slug]);
     expect(names((await request(app).get('/api/startups?remote=remote-global&view=card')).body)).toEqual([rows[1].slug]);
+    expect(names((await request(app).get('/api/startups?remote=hybrid&view=card')).body)).toEqual([rows[2].slug]);
+    expect(names((await request(app).get('/api/startups?remote=onsite&view=card')).body)).toEqual([rows[3].slug]);
     expect((await request(app).get('/api/startups?remote=remote-au,remote-global&view=card')).body.count).toBe(2);
   });
 
@@ -155,7 +160,7 @@ describe('filtering and sorting by the facts', () => {
     const bySize = names((await request(app).get('/api/startups?sort=team&view=card&limit=200')).body);
     expect(bySize.slice(0, 6)).toEqual([rows[5], rows[4], rows[3], rows[2], rows[1], rows[0]].map((r) => r.slug));
     const byRemote = names((await request(app).get('/api/startups?sort=remote&view=card&limit=200')).body);
-    expect(byRemote.slice(0, 2)).toEqual([rows[1].slug, rows[0].slug]); // worldwide, then Australia, then the rest
+    expect(byRemote.slice(0, 4)).toEqual([rows[1], rows[0], rows[2], rows[3]].map((r) => r.slug)); // worldwide, Australia, hybrid, on-site, then the rest
   });
 
   it('asks the filters through readFilters and keeps a company out when it does not match any of them', async () => {
@@ -168,7 +173,7 @@ describe('filtering and sorting by the facts', () => {
   it('lists as filter options only what the data has', async () => {
     const { app } = await world();
     const meta = (await request(app).get('/api/startups/meta')).body;
-    expect(meta.remotePolicies).toEqual(['remote-global', 'remote-au']);
+    expect(meta.remotePolicies).toEqual(['remote-global', 'remote-au', 'hybrid', 'onsite']);
     expect(meta.techStack).toEqual(['Go', 'TypeScript']); // most used first; Rust is not backed
     expect(meta.teamSizes).toEqual([{ code: 'lt10', label: 'Under 10' }, { code: '10-29', label: '10–29' }, { code: '30-99', label: '30–99' }, { code: '100plus', label: '100+' }]);
     expect(meta.hasFresh).toBe(true); // two companies are new this week

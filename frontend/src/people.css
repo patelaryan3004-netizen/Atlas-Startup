@@ -7,36 +7,37 @@
   display: flex; flex-direction: column; gap: 10px; min-width: 0; list-style: none;
 }
 .person-placeholder{
-  margin: 0; padding: 6px 10px; font-size: 12.5px; line-height: 1.4; color: var(--muted);
+  margin: 0; padding: 6px 10px; font-size: var(--t-small); line-height: 1.4; color: var(--muted);
   border: 1px dashed var(--muted); border-radius: 8px;
 }
 .person-name{ margin: 0; font-size: 17px; font-weight: 650; line-height: 1.25; letter-spacing: -0.015em; overflow-wrap: anywhere; }
 .person-name a{ color: inherit; text-decoration: none; }
 .person-name a:hover{ text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
-.person-role{ margin: 0; font-size: 14px; line-height: 1.4; color: var(--ink); }
-.person-city{ margin: 0; font-size: 12.5px; color: var(--muted); }
-.person-why{ margin: 0; font-size: 14px; line-height: 1.5; color: var(--person-soft); text-wrap: pretty; }
-.person-facts{ display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: 13.5px; line-height: 1.4; color: var(--person-soft); }
+.person-role{ margin: 0; font-size: var(--t-body); line-height: 1.4; color: var(--ink); }
+.person-city{ margin: 0; font-size: var(--t-small); color: var(--muted); }
+.person-why{ margin: 0; font-size: var(--t-body); line-height: 1.5; color: var(--person-soft); text-wrap: pretty; }
+.person-facts{ display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: var(--t-small); line-height: 1.4; color: var(--person-soft); }
 .person-facts dd{ margin: 0; }
 
-.person-links{ display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 12.5px; }
+.person-links{ display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: var(--t-small); }
 .person-links a, .person-sources a{
+  display: inline-block; padding-block: 4px;
   color: var(--ink); text-decoration: underline; text-decoration-color: rgb(var(--accent-rgb) / .5); text-underline-offset: 3px;
 }
 .person-links a:hover, .person-sources a:hover{ color: var(--accent-ink); text-decoration-color: var(--accent); }
 
-.person-vouches summary, .person-sources summary{ cursor: pointer; font-size: 12.5px; color: var(--muted); }
+.person-vouches summary, .person-sources summary{ cursor: pointer; font-size: var(--t-small); color: var(--muted); }
 .person-vouches summary{ color: var(--accent-ink); font-weight: 600; }
 .person-vouches summary:hover, .person-sources summary:hover{ color: var(--ink); }
 .person-vouch-list{ display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
-.person-sources ul{ display: flex; flex-direction: column; gap: 4px; margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; }
+.person-sources ul{ display: flex; flex-direction: column; gap: 4px; margin: 8px 0 0; padding-left: 18px; font-size: var(--t-small); }
 
 .person-foot{
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px;
-  margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted);
+  margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: var(--t-small); color: var(--muted);
 }
 .person-request{
-  padding: 0; font: inherit; font-size: 12.5px; color: var(--muted); background: none; border: 0; cursor: pointer;
+  padding: 0; font: inherit; font-size: var(--t-small); color: var(--muted); background: none; border: 0; cursor: pointer;
   text-decoration: underline; text-underline-offset: 3px;
 }
 .person-request:hover{ color: var(--ink); }
@@ -45,24 +46,24 @@
 /* The page. */
 .people-nominate{ margin: 20px 0 0; }
 .people-lists{ display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; margin: 28px 0 24px; }
-.people-lists-label{ font-family: var(--mono); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.people-lists-label{ font-family: var(--mono); font-size: var(--t-small); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 .people-lists ul{ display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .people-chip{
-  padding: 6px 13px; font: inherit; font-size: 13px; color: var(--ink); background: transparent; cursor: pointer;
+  padding: 6px 13px; font: inherit; font-size: var(--t-small); color: var(--ink); background: transparent; cursor: pointer;
   border: 1px solid var(--line); border-radius: 999px; transition: border-color .15s ease, background-color .15s ease;
 }
 .people-chip:hover{ border-color: rgb(var(--accent-rgb) / .45); }
 .people-chip[aria-pressed='true']{ border-color: var(--accent); background: rgb(var(--accent-rgb) / .14); color: var(--accent-ink); }
-.people-chip-count{ font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.people-chip-count{ font-family: var(--mono); font-size: var(--t-small); color: var(--muted); }
 
 .people-tabs{ display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 18px; border-bottom: 1px solid var(--line); }
 .people-tab{
-  margin-bottom: -1px; padding: 10px 14px; font: inherit; font-size: 14px; font-weight: 600; color: var(--muted);
+  margin-bottom: -1px; padding: 10px 14px; font: inherit; font-size: var(--t-body); font-weight: 600; color: var(--muted);
   background: none; border: 0; border-bottom: 2px solid transparent; cursor: pointer; transition: color .15s ease;
 }
 .people-tab:hover{ color: var(--ink); }
 .people-tab[aria-selected='true']{ color: var(--ink); border-bottom-color: var(--accent); }
-.people-tab-count{ font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.people-tab-count{ font-family: var(--mono); font-size: var(--t-small); color: var(--muted); }
 
 #investorsView .people-count{ margin: 20px 0 14px; }
 
@@ -71,6 +72,6 @@
   padding: var(--card-pad); background: var(--panel); border: 1px solid var(--line); border-radius: var(--card-radius);
 }
 .people-banner-title{ margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -0.02em; }
-.people-banner-desc, .people-banner-curator{ margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+.people-banner-desc, .people-banner-curator{ margin: 6px 0 0; font-size: var(--t-body); color: var(--muted); }
 .people-banner-side{ display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-.people-banner-count{ font-family: var(--mono); font-size: 13px; color: var(--accent-ink); }
+.people-banner-count{ font-family: var(--mono); font-size: var(--t-small); color: var(--accent-ink); }

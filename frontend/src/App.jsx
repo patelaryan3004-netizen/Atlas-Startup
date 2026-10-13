@@ -14,6 +14,9 @@ import { readAppRoute, appUrl, appPath } from './appRoute.js';
 import { usePageMeta } from './hooks/usePageMeta.js';
 import { startupDescription, startupJsonLd } from './seo.js';
 import { curatedLists } from './curatedLists.js';
+import { showPeople } from './flags.js';
+import { roleClosedMessage } from './freshness.js';
+import { PALETTE, FALLBACK_COLOR } from './sectorPalette.js';
 import ListBanner from './components/ListBanner.jsx';
 import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
@@ -46,13 +49,6 @@ const CuratedLists = lazyView(() => import('./components/CuratedLists.jsx'));
 // What shows while a page's file arrives: the page's own words, over the dark background the page already has.
 const loading = (what) => <div className="view-loading" role="status">Loading {what}…</div>;
 
-// Desaturated relative to the single UI accent color, so sector dots read as
-// data encoding on the dark map rather than competing with it.
-const PALETTE = [
-  '#5fb894', '#e08a5a', '#d4a24e', '#7a95b8', '#a878c4', '#6ac48a', '#d4726a', '#c4864e',
-  '#a89468', '#6ab87a', '#d47aa0', '#7a94c4', '#c4507a', '#9a9a7a', '#c4966a', '#8686b8',
-  '#8a8a8a', '#6ab8c4', '#c4785a', '#6aa898',
-];
 
 // precision (EXACT, SUBURB, CITY, STATE) is how well a company's place is known, and state its state: a group on the
 // map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
@@ -149,6 +145,7 @@ export default function App() {
   // investor pages by their own addresses: /investors, /investors/<slug> and /investors/people/<slug> (the first version's
   // ?view=investors addresses still work).
   const initialView = loadInitialView();
+  const peopleOn = showPeople(); // VITE_SHOW_PEOPLE: without it the People page, its links and the firms on the map do not exist (flags.js)
   // The page is in the address bar (appRoute.js): a link opens it, Back leaves it.
   const [route, setRoute] = useState(readAppRoute);
   const [meta, setMeta] = useState(EMPTY_META);
@@ -281,14 +278,15 @@ export default function App() {
   }, [applied, viewMode]);
 
   // The firms' offices, once, for the map (they do not depend on the filters): none until the owner's file of firms is in place.
+  // With the people switched off the firms are not asked for at all.
   useEffect(() => {
-    if (viewMode !== 'map' || institutionPins.length) return undefined;
+    if (!peopleOn || viewMode !== 'map' || institutionPins.length) return undefined;
     const ctrl = new AbortController();
     fetchInstitutionPins({ signal: ctrl.signal })
       .then(({ items }) => { if (!ctrl.signal.aborted) setInstitutionPins(items ?? []); })
       .catch(() => { /* no firms on the map: the map is as it was */ });
     return () => ctrl.abort();
-  }, [viewMode, institutionPins.length]);
+  }, [peopleOn, viewMode, institutionPins.length]);
 
   const toggleLayer = (name) => setLayers((was) => {
     const next = { ...was, [name]: !was[name] };
@@ -371,7 +369,7 @@ export default function App() {
 
   const goExplore = () => { if (route.kind !== 'explore') leave(); };
   const showNews = () => goTo({ kind: 'news' });
-  const showPeople = () => goTo({ kind: 'people' });
+  const openPeople = () => goTo({ kind: 'people' });
   const showJobsPage = () => goTo({ kind: 'jobs' });
   const showLists = () => goTo({ kind: 'lists' });
   // A list is chosen: its filters apply, the list view shows them, and the address is the list's own.
@@ -420,7 +418,7 @@ export default function App() {
     return <Lazy fallback={loading('news')}><NewsPage onClose={leave} /></Lazy>;
   }
 
-  if (route.kind === 'people') {
+  if (route.kind === 'people' && peopleOn) {
     return <Lazy fallback={loading('people')}><PeopleView onClose={leave} onOpenCompany={(company) => openStartup(company)} onOpenInternal={openInternal} /></Lazy>;
   }
 
@@ -454,7 +452,7 @@ export default function App() {
             Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
           </button>
           <button className="nav-link" onClick={() => openInvestors()}>Investors</button>
-          <button className="nav-link" onClick={showPeople}>People</button>
+          {peopleOn && <button className="nav-link" onClick={openPeople}>People</button>}
           <button className="nav-link" onClick={showLists}>Lists</button>
           <button className="nav-link" onClick={showNews}>News</button>
         </nav>
@@ -467,7 +465,7 @@ export default function App() {
             onShowJobs={showJobsPage}
             hiringCount={hiringCount}
             onShowInvestors={() => openInvestors()}
-            onShowPeople={showPeople}
+            onShowPeople={peopleOn ? openPeople : undefined}
             onShowCuratedLists={showLists}
             onShowNews={showNews}
             newsVisible={newsVisible}
@@ -511,6 +509,7 @@ export default function App() {
             showInstitutions={layers.institutions}
             basemap={basemap}
             onOpenInternal={openInternal}
+            onReportRoleClosed={(name) => { setEditingMessage(roleClosedMessage(name)); setEditingCompany(name); }}
           />
         ) : (
           <ListView
@@ -559,13 +558,13 @@ export default function App() {
 
       <footer id="siteFooter">
         <button className="linkbtn" onClick={() => setShowAbout(true)}>About &amp; sources</button>
-        <span className="tag-sep">·</span>
+        <span className="tag-sep" aria-hidden="true">·</span>
         <button className="linkbtn" onClick={() => setShowPrivacy(true)}>Privacy</button>
-        <span className="tag-sep">·</span>
+        <span className="tag-sep" aria-hidden="true">·</span>
         <a className="linkbtn" href={DIRECTORY_URL}>Full list (no JS)</a>
-        <span className="tag-sep">·</span>
+        <span className="tag-sep" aria-hidden="true">·</span>
         <button className="linkbtn" onClick={() => setShowFeedback(true)}>Feedback</button>
-        <span className="tag-sep">·</span>
+        <span className="tag-sep" aria-hidden="true">·</span>
         <span className="footer-credit">Built by Aryan · Monash University</span>
       </footer>
 
@@ -578,7 +577,7 @@ export default function App() {
         <Lazy>
           <StartupDetailPanel
             startup={selectedStartup}
-            sectorColor={sectorColors[selectedStartup.sector] || '#444'}
+            sectorColor={sectorColors[selectedStartup.sector] || FALLBACK_COLOR}
             isTracked={isTracked}
             onToggleTracked={toggleTracked}
             onSuggestEdit={(name, message = '') => { setEditingMessage(message); setEditingCompany(name); }}

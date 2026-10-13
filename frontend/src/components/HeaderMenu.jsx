@@ -31,7 +31,7 @@ export default function HeaderMenu({
                 Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
               </button>
               <button className="hdr-menu-item" onClick={go(onShowInvestors)}>Investors</button>
-              <button className="hdr-menu-item" onClick={go(onShowPeople)}>People</button>
+              {onShowPeople && <button className="hdr-menu-item" onClick={go(onShowPeople)}>People</button>}
               <button className="hdr-menu-item" onClick={go(onShowCuratedLists)}>Lists</button>
               <button className="hdr-menu-item" onClick={go(onShowNews)}>News</button>
               <button className="hdr-menu-item hdr-menu-item-accent" onClick={go(onShowSubmitForm)}>Submit a startup</button>

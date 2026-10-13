@@ -281,8 +281,13 @@ describe('validateDataset', () => {
       expect(withFacts({ remote_policy: null, tech_stack: null, team_size: null, last_role_seen_at: null })).toBe('');
     });
 
-    it('rejects a remote policy that is not one of the two the directory knows', () => {
-      expect(withFacts({ remote_policy: 'hybrid' })).toMatch(/remote_policy must be one of remote-global, remote-au/);
+    it('accepts each of the four policies, and a posting date given only to the day', () => {
+      for (const remote_policy of ['remote-global', 'remote-au', 'hybrid', 'onsite']) expect(withFacts({ remote_policy })).toBe('');
+      expect(withFacts({ last_role_seen_at: '2026-10-11' })).toBe('');
+    });
+
+    it('rejects a remote policy that is not one of the four the directory knows', () => {
+      for (const bad of ['nomad', 'Hybrid', 'remote', 'on-site']) expect(withFacts({ remote_policy: bad })).toMatch(/remote_policy must be one of remote-global, remote-au, hybrid, onsite/);
     });
 
     it('rejects a tech stack that is not a list of distinct, non-empty names', () => {
@@ -293,8 +298,8 @@ describe('validateDataset', () => {
       for (const bad of [0, -3, 4.5, '12']) expect(withFacts({ team_size: bad })).toMatch(/team_size must be a whole number/);
     });
 
-    it('rejects a last role seen that is not an ISO-8601 UTC time', () => {
-      expect(withFacts({ last_role_seen_at: '10 Oct' })).toMatch(/last_role_seen_at must be an ISO-8601/);
+    it('rejects a last role seen that is neither a day nor an ISO-8601 UTC time', () => {
+      for (const bad of ['10 Oct', '2026-10', '2026-13-45', '2026-10-10T03:00:00+10:00']) expect(withFacts({ last_role_seen_at: bad })).toMatch(/last_role_seen_at must be a day \(YYYY-MM-DD\) or an ISO-8601/);
     });
   });
 

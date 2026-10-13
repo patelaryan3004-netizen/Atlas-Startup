@@ -143,14 +143,15 @@ describe('validateEvidence', () => {
 
   it('checks the optional facts: remote policy, tech stack, team size, last role seen', () => {
     const errs = (field, value) => errorsFor({ ...ev({ field, value, confidence: 'medium', verified_at: null }) });
-    expect(errs('remote_policy', 'hybrid')).toEqual(expect.arrayContaining([expect.stringContaining('one of remote-global, remote-au')]));
-    expect(errs('remote_policy', 'remote-au')).toEqual([]);
+    expect(errs('remote_policy', 'nomad')).toEqual(expect.arrayContaining([expect.stringContaining('one of remote-global, remote-au, hybrid, onsite')]));
+    for (const policy of ['remote-au', 'remote-global', 'hybrid', 'onsite']) expect(errs('remote_policy', policy)).toEqual([]);
     expect(errs('tech_stack', '')).toEqual(expect.arrayContaining([expect.stringContaining('non-empty string')]));
     expect(errs('tech_stack', 'TypeScript')).toEqual([]);
     for (const value of [0, 4.5, '12', -1]) expect(errs('team_size', value)).toEqual(expect.arrayContaining([expect.stringContaining('whole number from 1')]));
     expect(errs('team_size', 12)).toEqual([]);
     expect(errs('last_role_seen_at', '10 Oct')).toEqual(expect.arrayContaining([expect.stringContaining('ISO-8601')]));
     expect(errs('last_role_seen_at', '2026-10-10T03:00:00Z')).toEqual([]);
+    expect(errs('last_role_seen_at', '2026-10-10')).toEqual([]); // a posting's own date, to the day
   });
 
   it('rejects an invalid confidence or status', () => {

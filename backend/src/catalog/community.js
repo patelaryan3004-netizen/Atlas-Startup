@@ -17,6 +17,16 @@ const nameKey = (s) => String(s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '')
 const places = (location) => (typeof location === 'string' ? location : location?.label ?? location?.city ?? null);
 const pagesOf = (sources) => (sources ?? []).filter((s) => s?.url && s?.title).map((s) => ({ label: s.title, url: s.url }));
 
+// The four starter lists (Stage 7). Each gathers what the page already has, in the order it was typed in (the seed's own order, not the
+// alphabet); one of the same id in the seed file wins, and a list with no one on it is not shown. `roleType` picks the people.
+export const STARTER_LISTS = [
+  { id: 'founders-to-follow', title: 'Founders to follow', description: 'Founders of Australian startups, each with the page that backs it.', type: 'people', roleType: 'founder' },
+  { id: 'operators-to-learn-from', title: 'Operators to learn from', description: 'People who run the work inside Australian startups, each with the page that backs it.', type: 'people', roleType: 'operator' },
+  { id: 'investors-people', title: 'Investors (people)', description: 'The people who back Australian startups, each with the page that backs it.', type: 'people', roleType: 'investor' },
+  { id: 'investors-firms', title: 'Investors (firms)', description: 'The firms that back Australian startups.', type: 'institutions', roleType: null },
+];
+const STARTER_CURATOR = 'AU Startup Map';
+
 export function buildCommunity({ seed, investors = null, production = false, version = 'v0', institutionSeed = null, geocodeRows = [] }) {
   const checked = checkSeed(seed, { production });
   const byName = (a, b) => collator.compare(a.name, b.name) || (a.id < b.id ? -1 : 1);
@@ -44,15 +54,38 @@ export function buildCommunity({ seed, investors = null, production = false, ver
       }));
     }
   }
+  // The firms of institutions_seed.json (the owner's reviewed file), after those published in the investor directory: a firm that is already
+  // there, under the same name, stays as it is (the published one has its pages behind it). A firm with no offices is listed, with no pin.
+  const seeded = checkInstitutionSeed(institutionSeed ?? {});
+  {
+    const have = new Set(institutions.map((i) => nameKey(i.name)));
+    const taken = new Set(institutions.map((i) => i.id));
+    for (const firm of seeded.institutions) {
+      if (have.has(nameKey(firm.name)) || taken.has(firm.id)) continue;
+      have.add(nameKey(firm.name));
+      institutions.push(publicInstitution({
+        id: firm.id, name: firm.name, type: 'institution', city: firm.offices.find((o) => o.city)?.city ?? null, stageFocus: [], sectors: [], website: firm.website,
+        sources: [], verifiedAt: null,
+      }));
+    }
+  }
+  // The order the owner typed them in, for the lists (the tabs are by name).
+  const typedPeople = [...people];
+  const typedInstitutions = [...institutions];
   people.sort(byName);
   institutions.sort(byName);
 
   const personIds = new Set(people.map((p) => p.id));
   const institutionIds = new Set(institutions.map((i) => i.id));
   const problems = [...checked.problems];
+  const named = new Set(checked.lists.map((l) => l.id));
+  const starter = STARTER_LISTS.filter((l) => !named.has(l.id)).map((l) => ({
+    id: l.id, title: l.title, description: l.description, curator: STARTER_CURATOR, type: l.type,
+    itemIds: l.type === 'people' ? typedPeople.filter((p) => p.roleType === l.roleType).map((p) => p.id) : typedInstitutions.map((i) => i.id),
+  }));
   // A list keeps the ids it can name, in its own order. A people or institutions list that names no one is not shown; a companies
   // list is resolved against the companies when it is asked for (they are another catalog).
-  const lists = checked.lists.flatMap((list) => {
+  const lists = [...checked.lists, ...starter].flatMap((list) => {
     const known = list.type === 'people' ? personIds : list.type === 'institutions' ? institutionIds : null;
     const itemIds = known ? list.itemIds.filter((id) => known.has(id)) : list.itemIds;
     if (known) for (const id of list.itemIds) if (!known.has(id)) problems.push(`list "${list.id}" names "${id}", which is not a ${list.type === 'people' ? 'person' : 'institution'} here: left out`);
@@ -65,7 +98,7 @@ export function buildCommunity({ seed, investors = null, production = false, ver
 
   // The firms' offices on the map (institutions_seed.json), each beside the investor page that backs the firm when there is one. A pin the
   // geocoder has not settled is in the report, not on the map.
-  const built = buildInstitutionPins(checkInstitutionSeed(institutionSeed ?? {}), geocodeRows);
+  const built = buildInstitutionPins(seeded, geocodeRows);
   const pageOf = new Map(institutions.filter((i) => i.href).map((i) => [nameKey(i.name), i.href]));
   const institutionPins = { pins: built.pins.map((pin) => ({ ...pin, href: pageOf.get(nameKey(pin.name)) ?? null })), report: built.report };
   return {

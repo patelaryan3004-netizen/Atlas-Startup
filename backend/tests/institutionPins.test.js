@@ -130,7 +130,7 @@ describe('GET /api/institutions/pins', () => {
     await writeFile(files.cache, JSON.stringify(cache));
     const investorCatalog = { snapshot: async () => ({ version: 'x', cards: [{ slug: 'example-capital', name: 'Example Capital', location: { city: 'Sydney' }, stages: [], sectors: [], website: null, verified_at: null }], profiles: new Map(), personProfiles: new Map() }) };
     const communityCatalog = createCommunityCatalog({ file: files.people, institutionsFile: files.seed, geocodeFile: files.cache, investorCatalog, production: true, reloadMs: 0 });
-    return { app: createApp({ catalog: f.catalog, investorCatalog, communityCatalog }), files };
+    return { app: createApp({ catalog: f.catalog, investorCatalog, communityCatalog, showPeople: true }), files };
   }
 
   it('serves no pins, and does not fail, when there is no seed file', async () => {

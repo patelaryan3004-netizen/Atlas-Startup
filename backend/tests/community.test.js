@@ -4,13 +4,14 @@ import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createApp } from '../src/app.js';
-import { createCommunityCatalog, buildCommunity } from '../src/catalog/community.js';
+import { createApp, peopleShown } from '../src/app.js';
+import { createCommunityCatalog, buildCommunity, STARTER_LISTS } from '../src/catalog/community.js';
 import { checkSeed, personProblems, institutionProblems, listProblems, publicPerson, WHY_MAX } from '../src/models/community.js';
 import { fixture, tempDir, removeTempDirs } from './helpers/catalog.js';
 
 afterEach(removeTempDirs);
 
+const STARTER_IDS = STARTER_LISTS.map((l) => l.id);
 const SEED_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data', 'people_seed.json');
 
 const person = (over = {}) => ({
@@ -120,33 +121,159 @@ describe('checking the seed', () => {
   });
 });
 
-describe('the seed file that ships', () => {
-  const shipped = JSON.parse(readFileSync(SEED_FILE, 'utf8'));
+// The owner's reviewed seed (real people, and a "hold" list of those never to show) is kept out of the public repository: what is committed is
+// the file with three placeholders. On a computer that has the reviewed file the checks below run on it; on one that does not, they have nothing to
+// check and skip, and the committed file is checked by the last test of this block.
+const SHIPPED = JSON.parse(readFileSync(SEED_FILE, 'utf8'));
+const hasOwnersSeed = Array.isArray(SHIPPED.hold) && SHIPPED.people.some((p) => !p.placeholder);
+
+describe.skipIf(!hasOwnersSeed)('the seed file that ships', () => {
+  const shipped = SHIPPED;
+  // The names in "hold", one by one: an entry there reads "Name (Org)", or several names with commas, or ends in "others".
+  const heldNames = (shipped.hold ?? []).flatMap((h) => h.name.split(',')).map((n) => n.replace(/\(.*?\)/g, '').trim()).filter((n) => n && !/^others$/i.test(n));
 
   it('meets every rule, so a slip in an edit fails here and not on the live site', () => {
-    const checked = checkSeed(shipped);
+    const checked = checkSeed(shipped, { production: true });
     expect(checked.problems).toEqual([]);
     expect(checked.people.length).toBe(shipped.people.length);
   });
 
-  it('explains itself, and every person in it is a marked placeholder until the owner supplies real ones', () => {
-    expect(Array.isArray(shipped._comment) && shipped._comment.join(' ')).toMatch(/NOT REAL PEOPLE/);
-    expect(shipped.people).toHaveLength(3);
-    expect(shipped.people.every((p) => p.placeholder === true && /PLACEHOLDER/.test(p.name))).toBe(true);
-    expect(shipped.people.map((p) => p.roleType).sort()).toEqual(['founder', 'investor', 'operator']);
+  it('is the owner\'s reviewed file: people only, each with a source and a date, and none marked as a placeholder', () => {
+    expect(shipped._readme).toMatch(/NOT approved for publishing/);
+    expect(shipped.people.length).toBeGreaterThan(0);
+    expect(shipped.people.every((p) => p.type === 'person' && p.sources.length > 0 && /^\d{4}-\d{2}-\d{2}$/.test(p.verifiedAt))).toBe(true);
+    expect(shipped.people.some((p) => p.placeholder === true || /PLACEHOLDER/.test(p.name))).toBe(false);
+    expect(new Set(shipped.people.map((p) => p.roleType))).toEqual(new Set(['founder', 'operator', 'investor']));
+    expect(shipped.institutions).toBeUndefined(); // the firms come from institutions_seed.json and from the investor directory
   });
 
-  it('serves none of it in production: no placeholder reaches a visitor', () => {
-    const live = checkSeed(shipped, { production: true });
-    expect(live.people).toEqual([]);
-    expect(live.institutions).toEqual([]);
+  it('never serves an entry that is on hold: not one of the held names is among the people, whatever the confidence', () => {
+    expect(shipped.hold.length).toBeGreaterThan(0);
+    expect(heldNames.length).toBeGreaterThan(3);
+    const people = buildCommunity({ seed: shipped, production: true }).people.map((p) => p.name.toLowerCase());
+    for (const name of heldNames) expect(people, name).not.toContain(name.toLowerCase());
+    expect(JSON.stringify(buildCommunity({ seed: shipped, production: true }))).not.toMatch(/Vullinghs|"hold"|"gaps"|"issue"/);
+  });
+
+  it('serves every person in it in production (the placeholders are gone), with the pages behind them', () => {
     const community = buildCommunity({ seed: shipped, production: true });
-    expect(community.people).toEqual([]);
-    expect(community.lists).toEqual([]); // a list with no one on it is not shown
+    expect(community.people).toHaveLength(shipped.people.length);
+    expect(community.people.every((p) => p.sources.length > 0 && !p.placeholder)).toBe(true);
+    expect(community.counts).toMatchObject({ founders: 12, operators: 7, investors: 9, institutions: 0 });
   });
 
-  it('has the four starter lists the owner named', () => {
-    expect(shipped.lists.map((l) => l.title)).toEqual(['Founders to follow', 'Operators to learn from', 'Investors (people)', 'Investors (firms)']);
+  it('has the four starter lists the owner named, made from the people in it, in the order they were typed', () => {
+    const community = buildCommunity({ seed: shipped, production: true });
+    // no firm is in the file, so "Investors (firms)" has no one to show
+    expect(community.lists.map((l) => l.title)).toEqual(['Founders to follow', 'Operators to learn from', 'Investors (people)']);
+    const founders = community.lists.find((l) => l.id === 'founders-to-follow');
+    expect(founders.itemIds).toEqual(shipped.people.filter((p) => p.roleType === 'founder').map((p) => p.id));
+    expect(founders).toMatchObject({ type: 'people', curator: 'AU Startup Map' });
+  });
+});
+
+describe('the seed file as committed', () => {
+  it.skipIf(hasOwnersSeed)('is valid, and serves nobody in production: its entries are placeholders', () => {
+    expect(checkSeed(SHIPPED).problems).toEqual([]);
+    expect(SHIPPED.people.length).toBeGreaterThan(0);
+    expect(SHIPPED.people.every((p) => p.placeholder === true)).toBe(true);
+    expect(buildCommunity({ seed: SHIPPED, production: true }).people).toEqual([]);
+  });
+});
+
+describe('the four starter lists', () => {
+  it('gather the people by role and the firms, each in the order typed, and show a firm list only with a firm in it', () => {
+    const seed = { people: [person({ id: 'z-founder', name: 'Zed' }), person({ id: 'a-founder', name: 'Abe' }), person({ id: 'op', name: 'Ola', roleType: 'operator' }), person({ id: 'inv', name: 'Ivy', roleType: 'investor' })] };
+    const c = buildCommunity({ seed, production: true });
+    expect(c.lists.map((l) => [l.id, l.itemIds])).toEqual([['founders-to-follow', ['z-founder', 'a-founder']], ['operators-to-learn-from', ['op']], ['investors-people', ['inv']]]);
+    const withFirms = buildCommunity({ seed, investors: investors(), production: true });
+    expect(withFirms.lists.at(-1)).toMatchObject({ id: 'investors-firms', type: 'institutions', title: 'Investors (firms)', itemIds: ['investor-blackbird', 'investor-skip'] });
+  });
+
+  it('give way to a list of the same id in the seed file, which keeps its own members', () => {
+    const seed = { people: [person(), person({ id: 'bea', name: 'Bea' })], lists: [list({ itemIds: ['bea'] })] };
+    const c = buildCommunity({ seed, production: true });
+    expect(c.lists.filter((l) => l.id === 'founders-to-follow')).toHaveLength(1);
+    expect(c.lists.find((l) => l.id === 'founders-to-follow').itemIds).toEqual(['bea']);
+  });
+
+  it('show nobody who is a placeholder in production, and no list when no one is on it', () => {
+    const seed = { people: [person({ id: 'placeholder-founder', name: 'PLACEHOLDER', placeholder: true })] };
+    expect(buildCommunity({ seed, production: true }).lists).toEqual([]);
+    expect(buildCommunity({ seed: {}, production: true }).lists).toEqual([]);
+  });
+});
+
+describe('the firms of institutions_seed.json', () => {
+  const firms = { institutions: [
+    { id: 'example-vc', name: 'Example VC', website: 'https://vc.example', offices: [{ label: 'Sydney', address: 'Level 2, 12 Example Street, Sydney NSW 2000', city: 'Sydney', state: 'NSW' }] },
+    { id: 'no-office', name: 'No Office Capital', website: 'https://nooffice.example', offices: [] },
+    { id: 'held-vc', name: 'Held VC', placeholder: true, offices: [] },
+  ], hold: [{ name: 'Another Held VC', issue: 'unresolved' }] };
+
+  it('are listed under Institutions: the one with offices and the one with none (which has no pin), and not the ones on hold', () => {
+    const c = buildCommunity({ seed: {}, institutionSeed: firms, production: true });
+    expect(c.institutions.map((i) => i.name)).toEqual(['Example VC', 'No Office Capital']);
+    expect(c.institutions[0]).toMatchObject({ id: 'example-vc', city: 'Sydney', website: 'https://vc.example', sources: [], verifiedAt: null });
+    expect(c.institutions[1].city).toBeNull();
+    expect(JSON.stringify(c)).not.toMatch(/Held VC|Another Held/);
+    expect(c.institutionPins.pins).toEqual([]); // nothing is drawn until an address has been geocoded
+  });
+
+  it('are on "Investors (firms)", and a firm already published in the investor directory stays as that (with its pages) and is not listed twice', () => {
+    const c = buildCommunity({ seed: {}, institutionSeed: { institutions: [...firms.institutions, { id: 'bb', name: 'blackbird ', offices: [] }] }, investors: investors(), production: true });
+    expect(c.institutions.map((i) => i.id).sort()).toEqual(['example-vc', 'investor-blackbird', 'investor-skip', 'no-office']);
+    expect(c.institutions.find((i) => i.id === 'investor-blackbird').href).toBe('/investors/blackbird');
+    expect(c.lists.find((l) => l.id === 'investors-firms').itemIds).toHaveLength(4);
+    expect(c.counts.institutions).toBe(4);
+  });
+});
+
+describe('the switch that keeps the people off the live site (SHOW_PEOPLE)', () => {
+  const over = async (showPeople) => {
+    // a seed full of invented people: 12 founders, 7 operators and 9 investors, the shape of the owner's file
+    const shipped = { people: [...many(12), ...many(7, 'operator'), ...many(9, 'investor')] };
+    const f = await fixture(5);
+    const dir = await tempDir();
+    const file = path.join(dir, 'people_seed.json');
+    await writeFile(file, JSON.stringify(shipped));
+    const investorCatalog = { snapshot: async () => investors() };
+    const communityCatalog = createCommunityCatalog({ file, investorCatalog, production: true, reloadMs: 0 });
+    return { app: createApp({ catalog: f.catalog, investorCatalog, communityCatalog, showPeople }), rows: f.rows };
+  };
+
+  it('is off unless the machine says so: "not found" for the people, the firms, their pins and the lists, with the seed full of people', async () => {
+    const { app } = await over(false);
+    for (const url of ['/api/people', '/api/people?role=founder', '/api/institutions', '/api/institutions/pins', '/api/lists', '/api/lists/founders-to-follow']) {
+      const res = await request(app).get(url);
+      expect(res.status, url).toBe(404);
+      expect(res.body).toEqual({ error: 'Not found' });
+      expect(JSON.stringify(res.body)).not.toMatch(/Perkins|Canva|Blackbird/);
+    }
+  });
+
+  it('is off by default: nothing in the environment, nothing served', () => {
+    expect(peopleShown({})).toBe(false);
+    expect(peopleShown({ SHOW_PEOPLE: '' })).toBe(false);
+    expect(peopleShown({ SHOW_PEOPLE: '0' })).toBe(false);
+    expect(peopleShown({ SHOW_PEOPLE: 'no' })).toBe(false);
+    for (const on of ['1', 'true', 'TRUE', ' yes ', 'on']) expect(peopleShown({ SHOW_PEOPLE: on }), on).toBe(true);
+  });
+
+  it('serves everything once it is on', async () => {
+    const { app } = await over(true);
+    const res = await request(app).get('/api/people?role=founder');
+    expect(res.status).toBe(200);
+    expect(res.body.total).toBe(12);
+    expect((await request(app).get('/api/lists')).body.results.map((l) => l.id)).toEqual(['founders-to-follow', 'operators-to-learn-from', 'investors-people', 'investors-firms']);
+  });
+
+  it('leaves the companies, and a founder\'s own page, as they are with it off: only the new people pages are held back', async () => {
+    const { app, rows } = await over(false);
+    expect((await request(app).get('/api/startups?limit=1&view=card')).status).toBe(200);
+    const founder = rows.find((r) => r.founders?.length)?.founders[0];
+    expect((await request(app).get(`/api/people/${encodeURIComponent(founder)}`)).status).toBe(200);
+    expect((await request(app).get('/api/health')).status).toBe(200);
   });
 });
 
@@ -186,7 +313,8 @@ describe('joined to the investor directory', () => {
   it('keeps a list to the entries it can name, in the list\'s own order, and says what it could not', () => {
     const seed = { institutions: [], lists: [list({ id: 'firms', type: 'institutions', itemIds: ['investor-skip', 'investor-nobody', 'investor-blackbird'] }), list({ id: 'empty', type: 'people', itemIds: ['ghost'] })] };
     const c = buildCommunity({ seed, investors: investors() });
-    expect(c.lists.map((l) => [l.id, l.itemIds])).toEqual([['firms', ['investor-skip', 'investor-blackbird']]]);
+    // (the starter lists made from the directory are also there: see the starter lists below)
+    expect(c.lists.filter((l) => !STARTER_IDS.includes(l.id)).map((l) => [l.id, l.itemIds])).toEqual([['firms', ['investor-skip', 'investor-blackbird']]]);
     expect(c.problems.join('\n')).toMatch(/list "firms" names "investor-nobody"/);
   });
 });
@@ -199,7 +327,7 @@ async function appOver(seed, { production = false, n = 20 } = {}) {
   await writeFile(file, JSON.stringify(typeof seed === 'function' ? seed(f.rows) : seed));
   const investorCatalog = { snapshot: async () => investors() };
   const communityCatalog = createCommunityCatalog({ file, investorCatalog, production, reloadMs: 0 });
-  const app = createApp({ catalog: f.catalog, investorCatalog, communityCatalog });
+  const app = createApp({ catalog: f.catalog, investorCatalog, communityCatalog, showPeople: true });
   return { app, rows: f.rows, file, communityCatalog };
 }
 const many = (n, role = 'founder') => Array.from({ length: n }, (_, i) => person({ id: `person-${role}-${String(i).padStart(2, '0')}`, name: `Person ${role} ${String(i).padStart(2, '0')}`, roleType: role }));
@@ -247,7 +375,9 @@ describe('GET /api/people', () => {
     const seed = { people: [person({ id: 'placeholder-founder', name: 'PLACEHOLDER Founder', placeholder: true })], lists: [list({ itemIds: ['placeholder-founder'] })] };
     const live = await appOver(seed, { production: true });
     expect((await request(live.app).get('/api/people?role=founder')).body).toMatchObject({ results: [], counts: { founders: 0 } });
-    expect((await request(live.app).get('/api/lists')).body.results).toEqual([]);
+    // no list names the placeholder (the lists left are the ones made from the investor directory)
+    expect((await request(live.app).get('/api/lists')).body.results.map((l) => l.id)).toEqual(['investors-people', 'investors-firms']);
+    expect((await request(live.app).get('/api/lists/investors-people')).body.results.map((p) => p.id)).toEqual(['investor-person-sam-rivera']);
     const dev = await appOver(seed, { production: false });
     expect((await request(dev.app).get('/api/people?role=founder')).body.results).toMatchObject([{ id: 'placeholder-founder', placeholder: true }]);
   });
@@ -256,7 +386,7 @@ describe('GET /api/people', () => {
     const f = await fixture(5);
     const dir = await tempDir();
     const communityCatalog = createCommunityCatalog({ file: path.join(dir, 'missing.json'), production: true, reloadMs: 0 });
-    const app = createApp({ catalog: f.catalog, investorCatalog: { snapshot: async () => ({ version: 'x', cards: [], profiles: new Map(), personProfiles: new Map() }) }, communityCatalog });
+    const app = createApp({ catalog: f.catalog, investorCatalog: { snapshot: async () => ({ version: 'x', cards: [], profiles: new Map(), personProfiles: new Map() }) }, communityCatalog, showPeople: true });
     expect((await request(app).get('/api/people')).body).toMatchObject({ total: 0, count: 0, results: [], counts: { founders: 0, operators: 0, investors: 0, institutions: 0 } });
     expect((await request(app).get('/api/lists')).body).toEqual({ results: [] });
   });
@@ -297,6 +427,9 @@ describe('curated lists', () => {
     expect((await request(app).get('/api/lists')).body.results).toEqual([
       { id: 'founders-to-follow', title: 'Founders to follow', description: 'Worth watching.', curator: null, type: 'people', count: 2 },
       { id: 'firms', title: 'Firms', description: 'Worth watching.', curator: null, type: 'institutions', count: 2 },
+      // the starter lists made from the investor directory (no operator is listed, so no list of operators)
+      { id: 'investors-people', title: 'Investors (people)', description: expect.any(String), curator: 'AU Startup Map', type: 'people', count: 1 },
+      { id: 'investors-firms', title: 'Investors (firms)', description: expect.any(String), curator: 'AU Startup Map', type: 'institutions', count: 2 },
     ]); // the list of companies names one the directory does not have, and the last has no one
   });
 
@@ -310,7 +443,7 @@ describe('curated lists', () => {
 
   it('resolves a list of companies against the directory, in the order of the list, and leaves out one that is not there', async () => {
     const { app, rows } = await appOver((companies) => ({ lists: [list({ id: 'picks', title: 'Picks', type: 'companies', itemIds: [companies[2].slug, 'ghost', companies[0].slug] })] }));
-    expect((await request(app).get('/api/lists')).body.results).toEqual([{ id: 'picks', title: 'Picks', description: 'Worth watching.', curator: null, type: 'companies', count: 2 }]);
+    expect((await request(app).get('/api/lists')).body.results.filter((l) => !STARTER_IDS.includes(l.id))).toEqual([{ id: 'picks', title: 'Picks', description: 'Worth watching.', curator: null, type: 'companies', count: 2 }]);
     const res = await request(app).get('/api/lists/picks');
     expect(res.body.results.map((c) => c.name)).toEqual([rows[2].name, rows[0].name]);
     expect(res.body.results[0]).toHaveProperty('slug', rows[2].slug); // a card, as the company list shows it
@@ -319,7 +452,7 @@ describe('curated lists', () => {
 
   it('does not show a list of companies that names none the directory has', async () => {
     const { app } = await appOver({ lists: [list({ id: 'picks', title: 'Picks', type: 'companies', itemIds: ['ghost'] })] });
-    expect((await request(app).get('/api/lists')).body.results).toEqual([]);
+    expect((await request(app).get('/api/lists')).body.results.filter((l) => !STARTER_IDS.includes(l.id))).toEqual([]);
     expect((await request(app).get('/api/lists/picks')).status).toBe(404);
   });
 
