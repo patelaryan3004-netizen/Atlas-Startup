@@ -2,6 +2,7 @@ import { verifiedLabel, nextEvent, eventDay, isBlank } from '../freshness.js';
 import { useEffect, useState } from 'react';
 import { fetchNews, fetchInvestorsByName } from '../api.js';
 import { logoUrl } from '../logo.js';
+import Vouch from './Vouch.jsx';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { nameKey } from './investors/common.jsx';
 import ConceptPreview from './ConceptPreview.jsx';
@@ -281,13 +282,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             <details className="pc-vouches sdp-section">
               <summary className="vouch-badge">Vouched by {s.vouches.length}</summary>
               <div className="vouch-list">
-                {s.vouches.map((v, i) => (
-                  <div className="vouch-item" key={i}>
-                    <span className="vouch-item-name">{v.name}</span>
-                    {v.role && <span className="vouch-item-role"> · {v.role}</span>}
-                    {v.note && <p className="vouch-item-note">{v.note}</p>}
-                  </div>
-                ))}
+                {s.vouches.map((v, i) => <Vouch key={i} name={v.name} role={v.role} note={v.note} />)}
               </div>
             </details>
           )}

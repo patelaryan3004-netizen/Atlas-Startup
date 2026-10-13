@@ -7,3 +7,36 @@ export function tallyEmbed(url) {
   const m = /^https:\/\/tally\.so\/(?:r|embed)\/([A-Za-z0-9]+)/.exec(url ?? '');
   return m ? `https://tally.so/embed/${m[1]}?hideTitle=1&alignLeft=1` : null;
 }
+
+// ---------- the People pages ----------
+//
+// Two more Tally forms, made by the owner: one to nominate someone, one to ask for an edit or the removal of a card. Until one is made its
+// address is the placeholder, and the page says the form is not set up yet instead of linking to nothing. To set one up, make the form in
+// Tally and put its share link (https://tally.so/r/<id>) in VITE_TALLY_NOMINATE_URL or VITE_TALLY_REMOVAL_URL (a build setting on Vercel),
+// or replace the placeholder below.
+//
+// The nomination form should ask for: name, a link, role type (founder, operator, investor), why they are worth following, and a
+// checkbox "I am nominating myself or have asked them". The removal form is opened with name, id and type filled in as hidden fields
+// (Tally reads them from the address), so a request says which card it is about.
+export const NOMINATE_URL = import.meta.env.VITE_TALLY_NOMINATE_URL || 'TALLY_NOMINATE_URL_HERE';
+export const REMOVAL_URL = import.meta.env.VITE_TALLY_REMOVAL_URL || 'TALLY_REMOVAL_URL_HERE';
+
+export const NOMINATE_FIELDS = [
+  'Name', 'A link to them', 'Role type: founder, operator or investor', 'Why they are worth following',
+  'A checkbox: I am nominating myself or have asked them',
+];
+
+// A real Tally address, not the placeholder or anything else.
+export const isConfigured = (url) => typeof url === 'string' && /^https:\/\/tally\.so\//.test(url);
+
+// The address Tally lets a page show in a frame: /r/<id> is the share link, /embed/<id> is the frame.
+export function embedUrl(url) {
+  const base = url.replace('://tally.so/r/', '://tally.so/embed/').split('?')[0];
+  return `${base}?hideTitle=1&alignLeft=1&transparentBackground=1`;
+}
+
+// The removal form, opened about one card: the share link with the card's name, id and kind in the address.
+export function removalHref(url, entry) {
+  const params = new URLSearchParams({ name: entry.name, id: entry.id, type: entry.type });
+  return `${url.split('?')[0]}?${params}`;
+}

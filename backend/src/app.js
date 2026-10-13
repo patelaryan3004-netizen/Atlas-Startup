@@ -4,11 +4,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createCatalog } from './catalog/catalog.js';
 import { createInvestorCatalog } from './catalog/investors.js';
+import { createCommunityCatalog } from './catalog/community.js';
 import { createResponder, HttpError } from './catalog/respond.js';
 import { createStartupsRouter } from './routes/startups.js';
 import { createSearchRouter } from './routes/search.js';
 import { createDirectoryRouter } from './routes/directory.js';
 import { createInvestorsRouter, createInvestorPeopleRouter } from './routes/investors.js';
+import { createCommunityRouter } from './routes/community.js';
 import newsRouter from './routes/news.js';
 import submissionsRouter from './routes/submissions.js';
 import editsRouter from './routes/edits.js';
@@ -20,10 +22,17 @@ const DATA_FILE = path.join(DATA_DIR, 'startups.json');
 // The app, over a catalog of companies and a catalog of investors. The server and the tests use the real data files; a
 // scale test gives it a catalog over synthetic companies in a temporary folder (scripts/scale/serve.js). There is
 // deliberately no environment variable that points the public server at another file.
-export function createApp({ catalog = createCatalog({ file: DATA_FILE }), investorCatalog = createInvestorCatalog({ dir: DATA_DIR }), correctionsFile, cache } = {}) {
+// The people pages read people_seed.json and the investor directory. An entry marked placeholder is hidden unless the machine asks to see
+// it (SHOW_PLACEHOLDERS=1, on the owner's own computer while building): the safe way round, so a server that forgets to say it is live
+// never shows a made-up person.
+export function createApp({
+  catalog = createCatalog({ file: DATA_FILE }), investorCatalog = createInvestorCatalog({ dir: DATA_DIR }), correctionsFile, cache,
+  communityCatalog = createCommunityCatalog({ file: path.join(DATA_DIR, 'people_seed.json'), investorCatalog, production: process.env.SHOW_PLACEHOLDERS !== '1' }),
+} = {}) {
   const respond = createResponder(catalog, cache);
   // The investor directory is answered from its own snapshot (several files, one version) with its own kept answers.
   const respondInvestors = createResponder(investorCatalog, cache);
+  const respondCommunity = createResponder(communityCatalog, cache);
   const app = express();
 
   app.use(cors());
@@ -33,6 +42,7 @@ export function createApp({ catalog = createCatalog({ file: DATA_FILE }), invest
   app.use('/api/startups', createStartupsRouter({ respond }));
   app.use('/api/investors', createInvestorsRouter({ respond: respondInvestors, catalog: investorCatalog, correctionsFile }));
   app.use('/api/investor-people', createInvestorPeopleRouter({ respond: respondInvestors }));
+  app.use('/api', createCommunityRouter({ respond: respondCommunity, companyCatalog: catalog })); // before the search router: /api/people here, /api/people/:name there
   app.use('/api', createSearchRouter({ respond }));
   app.use('/api/news', newsRouter);
   app.use('/api/submissions', submissionsRouter);
@@ -49,6 +59,7 @@ export function createApp({ catalog = createCatalog({ file: DATA_FILE }), invest
 
   app.locals.catalog = catalog;
   app.locals.investorCatalog = investorCatalog;
+  app.locals.communityCatalog = communityCatalog;
   app.locals.respond = respond;
   return app;
 }
@@ -57,5 +68,6 @@ const app = createApp();
 // Load the companies and the investors now, so the first visitor does not wait for it; a failure here is reported on the first request.
 app.locals.catalog.refresh().catch(() => {});
 app.locals.investorCatalog.refresh().catch(() => {});
+app.locals.communityCatalog.refresh().catch(() => {});
 
 export default app;

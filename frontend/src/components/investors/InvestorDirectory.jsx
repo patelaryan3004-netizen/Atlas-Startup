@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchInvestors, fetchInvestorMeta } from '../../api.js';
 import InvestorCard from './InvestorCard.jsx';
 import InvestorTable from './InvestorTable.jsx';
+import IndexRow, { cardId } from '../IndexRow.jsx';
 import { LEAD_WORDS, plural } from './common.jsx';
 
 const PAGE = 24;
@@ -238,6 +239,7 @@ export default function InvestorDirectory({ onOpen, onClose }) {
             </div>
           )}
 
+          {page.items.length > 0 && <IndexRow items={page.items.map((i) => ({ id: cardId('investor', i.slug), name: i.name }))} what="the investors listed" />}
           {page.items.length > 0 && current.render(page.items, onOpen)}
 
           {moreError && <p className="form-error" role="alert">{moreError}</p>}

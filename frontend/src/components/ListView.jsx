@@ -3,6 +3,7 @@ import { fetchStartupPage } from '../api.js';
 import { logoUrl } from '../logo.js';
 import ConceptPreview from './ConceptPreview.jsx';
 import QuickFilters from './QuickFilters.jsx';
+import IndexRow, { cardId } from './IndexRow.jsx';
 import { verifiedLabel, nextEvent, eventDay, present } from '../freshness.js';
 
 const PAGE = 48;
@@ -124,6 +125,8 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
       {status === 'error' && <p className="form-error startup-list-empty">Could not load the list right now.</p>}
       {status === 'ready' && items.length === 0 && <p className="modal-sub startup-list-empty">No startups match your filters.</p>}
 
+      {items.length > 0 && <IndexRow items={items.map((s) => ({ id: cardId('company', s.slug || s.name), name: s.name }))} what="the companies listed" />}
+
       {items.length > 0 && (
         <div className="startup-grid">
           {items.map((s) => {
@@ -132,6 +135,7 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
             return (
             <button
               key={s.slug || s.name}
+              id={cardId('company', s.slug || s.name)}
               className={s.name === selectedName ? 'startup-card startup-card-selected' : 'startup-card'}
               onClick={() => onSelectStartup(s)}
             >

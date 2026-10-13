@@ -1,0 +1,95 @@
+{
+  "_comment": [
+    "The people and institutions worth following, and the lists that gather them. Everything in this file is typed in by the owner: nothing is scraped, and nothing is filled in for a field nobody has checked.",
+    "THE THREE ENTRIES MARKED \"placeholder\": true BELOW ARE NOT REAL PEOPLE. They show the layout while this is built, appear only on a computer that sets SHOW_PLACEHOLDERS=1, and are served to nobody on the live site. Delete them when the first real entry is added.",
+    "A person: { id (lowercase letters, digits, hyphens), name, type: \"person\", roleType: \"founder\" | \"operator\" | \"investor\", title, orgName, orgType: \"company\" | \"firm\" | null, city, whyFollow (140 characters at most), links: { website, linkedin, x } (http(s) addresses or null), sources: [{ label, url }], verifiedAt (a date, and then at least one source: a check no page backs is not shown), vouches: [{ name, role, note, consented }] }. A vouch is shown only where consented is true.",
+    "An institution: { id, name, type: \"institution\", city, stageFocus, sectors: [], website, sources: [{ label, url }], verifiedAt }. The investors already published in the Command Center appear under Institutions without being listed here; list one here only to add a firm that is not among them.",
+    "A list: { id, title, description, curator, type: \"people\" | \"institutions\" | \"companies\", itemIds: [] }. itemIds name entries of that kind (a company by its slug; a published investor as \"investor-<slug>\"). A list with no one on it is not shown.",
+    "Only public professional information, with the page that says it. Do not copy from LinkedIn or any site by machine. See docs/people.md."
+  ],
+  "people": [
+    {
+      "id": "placeholder-founder",
+      "placeholder": true,
+      "name": "PLACEHOLDER Founder",
+      "type": "person",
+      "roleType": "founder",
+      "title": "PLACEHOLDER title",
+      "orgName": "PLACEHOLDER company",
+      "orgType": "company",
+      "city": "PLACEHOLDER city",
+      "whyFollow": "PLACEHOLDER: one line, 140 characters at most, saying why this person is worth following.",
+      "links": { "website": null, "linkedin": null, "x": null },
+      "sources": [],
+      "verifiedAt": null,
+      "vouches": []
+    },
+    {
+      "id": "placeholder-operator",
+      "placeholder": true,
+      "name": "PLACEHOLDER Operator",
+      "type": "person",
+      "roleType": "operator",
+      "title": "PLACEHOLDER title",
+      "orgName": "PLACEHOLDER company",
+      "orgType": "company",
+      "city": "PLACEHOLDER city",
+      "whyFollow": "PLACEHOLDER: one line, 140 characters at most, saying what this person can teach.",
+      "links": { "website": null, "linkedin": null, "x": null },
+      "sources": [],
+      "verifiedAt": null,
+      "vouches": []
+    },
+    {
+      "id": "placeholder-investor",
+      "placeholder": true,
+      "name": "PLACEHOLDER Investor",
+      "type": "person",
+      "roleType": "investor",
+      "title": "PLACEHOLDER title",
+      "orgName": "PLACEHOLDER firm",
+      "orgType": "firm",
+      "city": "PLACEHOLDER city",
+      "whyFollow": "PLACEHOLDER: one line, 140 characters at most, saying why this investor is worth following.",
+      "links": { "website": null, "linkedin": null, "x": null },
+      "sources": [],
+      "verifiedAt": null,
+      "vouches": []
+    }
+  ],
+  "institutions": [],
+  "lists": [
+    {
+      "id": "founders-to-follow",
+      "title": "Founders to follow",
+      "description": "Founders whose work is worth watching.",
+      "curator": null,
+      "type": "people",
+      "itemIds": ["placeholder-founder"]
+    },
+    {
+      "id": "operators-to-learn-from",
+      "title": "Operators to learn from",
+      "description": "People who run things well, and say how.",
+      "curator": null,
+      "type": "people",
+      "itemIds": ["placeholder-operator"]
+    },
+    {
+      "id": "investors-people",
+      "title": "Investors (people)",
+      "description": "The people who back Australian startups.",
+      "curator": null,
+      "type": "people",
+      "itemIds": ["placeholder-investor"]
+    },
+    {
+      "id": "investors-firms",
+      "title": "Investors (firms)",
+      "description": "The firms that back Australian startups.",
+      "curator": null,
+      "type": "institutions",
+      "itemIds": []
+    }
+  ]
+}

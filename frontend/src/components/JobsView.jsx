@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
 import { logoUrl } from '../logo.js';
 import ConceptPreview from './ConceptPreview.jsx';
+import IndexRow, { cardId } from './IndexRow.jsx';
+import SiteBrand from './SiteBrand.jsx';
 
 const PAGE = 24;
 
@@ -121,14 +123,17 @@ export default function JobsView({ sectorColors, onClose }) {
 
   return (
     <div id="jobsView">
-      <header className="jobs-header">
+      <header className="site-bar">
+        <button className="hdrbtn" onClick={onClose}>← Back to map</button>
+        <SiteBrand onMap={onClose} />
+      </header>
+      <div className="jobs-header">
         <div>
           <h1>Startup jobs in Australia</h1>
           {haveOptions.current && !error && <p className="jobs-subhead">{hiringTotal} {hiringTotal === 1 ? 'company is' : 'companies are'} hiring now</p>}
           {haveOptions.current && !error && <p className="jobs-subhead">Only companies whose open roles were read from a page are listed. A company marked as hiring that no page backs is not.</p>}
         </div>
-        <button className="hdrbtn" onClick={onClose}>← Back to map</button>
-      </header>
+      </div>
 
       <div className="jobs-body">
         {shownFirstLoad && <p className="modal-sub">Loading…</p>}
@@ -162,9 +167,11 @@ export default function JobsView({ sectorColors, onClose }) {
           <p className="modal-sub">No open roles match those filters.</p>
         )}
 
+        <IndexRow items={jobs.map((s) => ({ id: cardId('job', s.slug || s.name), name: s.name }))} what="the companies hiring" />
+
         <div className="jobs-grid">
           {jobs.map((s) => (
-            <div className="job-card" key={s.slug || s.name}>
+            <div className="job-card" key={s.slug || s.name} id={cardId('job', s.slug || s.name)} tabIndex={-1}>
               <div className="job-card-top">
                 <JobCardLogo website={s.website} name={s.name} />
                 <div>

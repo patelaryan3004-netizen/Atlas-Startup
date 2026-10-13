@@ -53,6 +53,7 @@ cd frontend && npm install && npm run dev
 - `GET /api/startups/meta` — distinct sector/city/investor/stage values for populating filter dropdowns
 - `GET /api/startups/:slug` — one company in full, with where its facts came from: `sources` (the public pages behind them: title, address, publisher, what each backs and when it was read), `checked_at` (when the newest was read) and, for a company that is hiring, `hiring_source` (the page that backs it). Only pages anyone can open are served: a source a person supplied, a page with no web address and any note are never served (`src/catalog/provenance.js`); `GET /api/people/:name` — the companies a person founded
 - `GET /api/search?q=` — name suggestions for the search box
+- `GET /api/people`, `GET /api/institutions`, `GET /api/lists` and `GET /api/lists/:id` — the people and firms worth following, and the curated lists that gather them (the People page, `/people`). Typed in by the owner in `people_seed.json`, with the published investors added: see [docs/people.md](docs/people.md)
 - `GET /directory?page=n` — the no-JavaScript list, 250 companies a page
 
 ### Paging

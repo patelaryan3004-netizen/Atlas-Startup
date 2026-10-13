@@ -42,6 +42,21 @@ describe('ListView', () => {
     expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ limit: 48, offset: 0, sort: 'name' }));
   });
 
+  it('has an index of the names on the page near the top, each a link to its card, and none for a list of one', async () => {
+    fetchStartupPage.mockResolvedValue(page([startup(), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
+    const { unmount } = mount();
+    const index = await screen.findByRole('navigation', { name: 'Index of the companies listed' });
+    expect(index.textContent).toContain('Canva');
+    const jump = screen.getByRole('link', { name: 'Jump to Airwallex' });
+    expect(document.getElementById(jump.getAttribute('href').slice(1))).toBe(screen.getByRole('heading', { name: 'Airwallex' }).closest('button'));
+    unmount();
+
+    fetchStartupPage.mockResolvedValue(page([startup()], { count: 1 }));
+    mount();
+    await screen.findByRole('heading', { name: 'Canva' });
+    expect(screen.queryByRole('navigation', { name: /^Index of/ })).not.toBeInTheDocument();
+  });
+
   it('says what the list is narrowed to when a group on the map was opened as a list, and widens it again on request', async () => {
     const onClearScope = vi.fn();
     mount({ filters: { ...FILTERS, city: 'Sydney', precision: 'CITY' }, scope: 'City-level locations in Sydney', onClearScope });
@@ -270,7 +285,7 @@ describe('ListView', () => {
         startup({ name: 'Never', slug: 'never' }),
       ], { count: 3 }));
       const { container } = mount();
-      await screen.findByText('Fresh');
+      await screen.findByRole('heading', { name: 'Fresh' });
       expect(screen.getByText('Verified 3 days ago')).toBeInTheDocument();
       expect(screen.getByText('Needs re-check')).toHaveClass('verified-note-stale');
       expect(container.querySelectorAll('.verified-note')).toHaveLength(2);
@@ -292,7 +307,7 @@ describe('ListView', () => {
         startup({ name: 'Plain', slug: 'plain' }),
       ], { count: 3 }));
       const { container } = mount();
-      await screen.findByText('Soon');
+      await screen.findByRole('heading', { name: 'Soon' });
       expect(container.querySelectorAll('.event-badge')).toHaveLength(1);
       expect(screen.getByTitle('Demo day')).toBeInTheDocument();
     });

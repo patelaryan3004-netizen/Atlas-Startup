@@ -10,7 +10,8 @@
     { "source": "/jobs", "destination": "/index.html" },
     { "source": "/lists", "destination": "/index.html" },
     { "source": "/lists/:path*", "destination": "/index.html" },
-    { "source": "/news", "destination": "/index.html" }
+    { "source": "/news", "destination": "/index.html" },
+    { "source": "/people", "destination": "/index.html" }
   ],
   "headers": [
     {

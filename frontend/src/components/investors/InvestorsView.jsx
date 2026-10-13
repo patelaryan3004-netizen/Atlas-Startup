@@ -4,6 +4,7 @@ import InvestorProfile from './InvestorProfile.jsx';
 import InvestorPersonProfile from './InvestorPersonProfile.jsx';
 import { clearRoute, readRoute, writeRoute } from './route.js';
 import { usePageTitle } from './usePageTitle.js';
+import SiteBrand from '../SiteBrand.jsx';
 import '../../investors.css';
 
 // The investor directory as a page of its own, as Jobs is. It holds three views (the directory, one investor, one person)
@@ -64,7 +65,7 @@ export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLin
     <div id="investorsView" ref={scroller}>
       <header className="inv-bar">
         <button type="button" className="hdrbtn" onClick={close}>← Back to map</button>
-        <span className="inv-bar-name">AU Startup Map</span>
+        <SiteBrand onMap={close} />
       </header>
       <main className="inv-main" id="inv-main">
         <div hidden={route.kind !== 'list'} ref={title}>

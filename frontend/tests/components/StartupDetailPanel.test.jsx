@@ -320,8 +320,11 @@ describe('StartupDetailPanel', () => {
   });
 
   it('shows vouches when present and omits the section when absent', () => {
-    const { unmount } = setup({ startup: { vouches: [{ name: 'Sam Lee', role: 'Investor', note: 'Backed their seed round.' }] } });
+    const { unmount, container } = setup({ startup: { vouches: [{ name: 'Sam Lee', role: 'Investor', note: 'Backed their seed round.' }] } });
     expect(screen.getByText('Vouched by 1')).toBeInTheDocument();
+    // each is a quotation, then who said it and in what role in muted text
+    expect(container.querySelector('.vouch blockquote')).toHaveTextContent('Backed their seed round.');
+    expect(container.querySelector('.vouch figcaption')).toHaveTextContent('Sam Lee, Investor');
     unmount();
 
     setup({ startup: { vouches: [] } });

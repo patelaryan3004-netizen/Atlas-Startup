@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { fetchNews } from '../api.js';
 import { usePageMeta } from '../hooks/usePageMeta.js';
+import SiteBrand from './SiteBrand.jsx';
 import '../investors.css';
 
 const SOURCE_WORDS = {
@@ -33,7 +34,7 @@ export default function NewsPage({ onClose }) {
     <div id="investorsView" className="news-page">
       <header className="inv-bar">
         <button type="button" className="hdrbtn" onClick={onClose}>← Back to map</button>
-        <span className="inv-bar-name">AU Startup Map</span>
+        <SiteBrand onMap={onClose} />
       </header>
       <main className="inv-main" id="news-main">
         <section className="inv-intro" aria-labelledby="news-title">

@@ -357,6 +357,7 @@ export function facets(snap, matched, names, { top = 100 } = {}) {
 // What the header and the side panels show about a result, without sending the result.
 export function summary(snap, matched) {
   const cities = new Map();
+  const founders = new Set(); // the people named as founders on these companies, each once
   const notable = [];
   const vouched = [];
   const byPrecision = Object.fromEntries(PRECISIONS.map((p) => [p, 0]));
@@ -373,6 +374,7 @@ export function summary(snap, matched) {
     const checked = Date.parse(r.last_verified_at);
     if (checked > lastVerifiedAt) lastVerifiedAt = checked;
     cities.set(r.city, (cities.get(r.city) ?? 0) + 1);
+    for (const person of r.founders || []) founders.add(person);
     if (r.foundedYear) notable.push(i);
     if (r.vouches?.length > 0) vouched.push(i);
   }
@@ -381,7 +383,7 @@ export function summary(snap, matched) {
   vouched.sort((a, b) => snap.records[b].vouches.length - snap.records[a].vouches.length || a - b);
   return {
     // pinned: companies with a confirmed location (the list's count); onMap: those drawn as a pin of their own
-    count: matched.length, pinned, onMap: byPrecision.EXACT + byPrecision.SUBURB, byPrecision, unverified: matched.length - pinned, hiring, taskGated, cities: cities.size,
+    count: matched.length, pinned, onMap: byPrecision.EXACT + byPrecision.SUBURB, byPrecision, unverified: matched.length - pinned, hiring, taskGated, cities: cities.size, founders: founders.size,
     // The most recent check of any company in the result (null when none was ever checked): the site's "Updated" date.
     lastVerifiedAt: lastVerifiedAt ? new Date(lastVerifiedAt).toISOString() : null,
     topCities: [...cities].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 8).map(([city, n]) => ({ city, count: n })),

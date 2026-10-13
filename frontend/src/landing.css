@@ -1,16 +1,28 @@
+/* The /welcome page. One ground (--paper), one accent (green), and a strict 12-column grid: every section sits on the same columns, so
+   the edges line up from the headline to the last card. Type has a scale of its own: a display size for the headline and the figures,
+   a heading size for a section, and two text sizes (--fs-body, --fs-small); a section uses no others. */
+
 .landing{
   --l-font: 'Geist Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --l-mono: 'Courier New', ui-monospace, monospace;
-  --l-max: 1160px;
-  --l-gutter: clamp(20px, 5vw, 48px);
-  --l-ink-2: rgba(232, 230, 222, 0.74);
-  --l-hair: rgba(232, 230, 222, 0.14);
+  --l-serif: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --l-mono: var(--mono);
+  --l-max: 1240px;
+  --l-gutter: clamp(20px, 5vw, 56px);
+  --l-gap: clamp(12px, 2vw, 24px);
+  --l-ink-2: rgba(232, 230, 222, 0.78);
+  --l-hair: rgba(232, 230, 222, 0.16);
   --l-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --l-space-1: 8px;
   --l-space-2: 16px;
   --l-space-3: 32px;
   --l-space-4: 64px;
-  --l-space-5: 112px;
+  --l-block: clamp(64px, 9vw, 120px);
+
+  --fs-display: clamp(40px, 7vw, 96px);
+  --fs-figure: clamp(40px, 5.2vw, 72px);
+  --fs-heading: clamp(28px, 4vw, 44px);
+  --fs-body: 17px;
+  --fs-small: 13px;
 
   font-family: var(--l-font);
   background: var(--paper);
@@ -18,11 +30,11 @@
   color-scheme: dark;
   min-height: 100vh;
   line-height: 1.5;
+  font-size: var(--fs-body);
   -webkit-font-smoothing: antialiased;
 }
 
 :where(.landing) a{color:inherit;}
-.landing ::selection{ background: rgba(245, 166, 35, .32); color: var(--ink); }
 .landing :is(a, button):focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* Text for screen readers that the picture leaves out of sight. */
@@ -33,99 +45,123 @@
 
 .landing-skip{
   position: absolute; left: -9999px; top: 12px; z-index: 30;
-  padding: 10px 16px; border-radius: 999px; background: var(--ink); color: var(--paper);
-  font-size: 14px; font-weight: 600; text-decoration: none;
+  padding: 10px 16px; border-radius: 999px; background: var(--accent); color: var(--on-accent);
+  font-size: var(--fs-small); font-weight: 600; text-decoration: none;
 }
 .landing-skip:focus{ left: var(--l-gutter); }
+
+/* The grid. Twelve columns, one gap; a block says how many it takes. */
+.l-wrap{ max-width: var(--l-max); margin: 0 auto; padding-left: var(--l-gutter); padding-right: var(--l-gutter); }
+.l-grid{ display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--l-gap); row-gap: var(--l-space-3); }
+.l-grid > *{ grid-column: 1 / -1; min-width: 0; }
 
 .landing-cta-row{ display: flex; gap: 12px; flex-wrap: wrap; }
 
 .landing-btn-primary, .landing-btn-secondary{
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   height: 48px; padding: 0 24px; border-radius: 999px;
-  font-size: 15px; font-weight: 600; letter-spacing: -0.005em; text-decoration: none;
+  font-size: var(--fs-body); font-weight: 600; letter-spacing: -0.01em; text-decoration: none;
   transition: background-color .2s var(--l-ease), border-color .2s var(--l-ease);
 }
-.landing-btn-primary{ background: var(--ink); color: var(--paper); }
-.landing-btn-primary:hover{ background: #f6f4ec; }
-.landing-btn-secondary{ background: transparent; color: var(--ink); border: 1px solid rgba(232, 230, 222, .26); }
-.landing-btn-secondary:hover{ border-color: rgba(232, 230, 222, .55); background: rgba(232, 230, 222, .06); }
+.landing-btn-primary{ background: var(--accent); color: var(--on-accent); }
+.landing-btn-primary:hover{ background: var(--accent-hover); }
+.landing-btn-secondary{ background: transparent; color: var(--ink); border: 1px solid rgba(232, 230, 222, .28); }
+.landing-btn-secondary:hover{ border-color: rgba(232, 230, 222, .6); background: rgba(232, 230, 222, .06); }
 .landing-btn-arrow{ flex: none; transition: transform .25s var(--l-ease); }
 .landing-btn-primary:hover .landing-btn-arrow{ transform: translateX(3px); }
 
+/* A section opens on a hairline that carries its number and its name. */
+.sec-rule{
+  display: flex; align-items: baseline; gap: 14px; padding-top: 14px; border-top: 1px solid var(--l-hair);
+  font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.sec-no{ color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+
 .landing-section{
-  max-width: var(--l-max);
-  margin: 0 auto;
-  padding: var(--l-space-4) var(--l-gutter);
-  border-top: 1px solid var(--line);
+  max-width: var(--l-max); margin: 0 auto;
+  padding: var(--l-block) var(--l-gutter) 0;
 }
-.landing-section-head{ max-width: 60ch; margin-bottom: var(--l-space-3); }
-.landing-section-head h2{
-  font-size: clamp(24px, 3.5vw, 32px); font-weight: 600; margin: 0 0 var(--l-space-1);
-  letter-spacing: -0.02em;
+.landing-section > .sec-rule{ margin-bottom: var(--l-space-4); }
+
+/* A section's head: the heading across the left half, what it says across the right. */
+.landing-section-head{ margin-bottom: var(--l-space-3); }
+.landing-section-head h2, .landing-final-cta h2{
+  margin: 0; font-size: var(--fs-heading); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance;
 }
-.landing-section-head p{ font-size: 16px; color: var(--muted); margin: 0 0 var(--l-space-1); }
+.landing-section-head p{ margin: 0 0 var(--l-space-2); font-size: var(--fs-body); color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
+.landing-section-head p:last-child{ margin-bottom: 0; }
+@media (min-width: 960px){
+  .landing-section-head h2{ grid-column: 1 / span 6; }
+  .landing-section-head .landing-section-text{ grid-column: 8 / -1; align-self: end; }
+}
 
 .landing-inline-link{
-  display: inline-block; margin-top: var(--l-space-2); font-size: 15px; font-weight: 600;
-  text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px;
+  display: inline-block; font-size: var(--fs-body); font-weight: 600;
+  text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color .2s var(--l-ease);
 }
+.landing-inline-link:hover{ color: var(--accent-ink); }
 
-.landing-job-grid{
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: var(--l-space-2);
+/* The cards. Their box is the shared card (styles.css); what is set here is how many columns each takes: four across on a desktop,
+   two on a tablet, one on a phone. */
+.landing-job-grid, .landing-list-grid, .landing-people-grid{ display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--l-gap); }
+.landing-people-grid{ margin: 0; padding: 0; list-style: none; }
+.landing-job-grid > *, .landing-list-grid > *, .landing-people-grid > *{ grid-column: span 12; min-width: 0; }
+@media (min-width: 640px){
+  .landing-job-grid > *, .landing-list-grid > *, .landing-people-grid > *{ grid-column: span 6; }
 }
-.landing-job-card{
-  display: flex; align-items: center; gap: var(--l-space-2);
-  padding: var(--l-space-2); border: 1px solid var(--line); border-radius: 6px; background: var(--panel);
+@media (min-width: 960px){
+  .landing-job-grid > *{ grid-column: span 3; }
+  .landing-list-grid > *, .landing-people-grid > *{ grid-column: span 4; }
 }
+/* The card is inside a wrapper that rises into place (Reveal), so the wrapper is the grid item and the card fills it. */
+.landing-job-grid > .reveal > a, .landing-list-grid > .reveal > a, .landing-people-grid > .reveal > .person-card{ height: 100%; }
+
+.landing-job-card{ display: flex; align-items: center; gap: var(--l-space-2); text-decoration: none; color: inherit; }
 .landing-logo, .landing-logo-fallback{
   width: 34px; height: 34px; flex: none; border-radius: 50%; object-fit: contain; background: #fff;
   border: 1px solid var(--line);
 }
 .landing-logo-fallback{
-  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: var(--fs-small);
   background: var(--ink); color: var(--paper);
 }
-.landing-job-name{ font-weight: 600; font-size: 14px; }
-.landing-job-meta{ font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+.landing-job-name{ font-weight: 600; font-size: var(--fs-body); line-height: 1.25; }
+.landing-job-meta{ font-size: var(--fs-small); color: var(--muted); margin-top: 2px; }
 .landing-job-card .concept-label{ margin-left: auto; white-space: nowrap; }
 
-.landing-list-grid{
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--l-space-2);
-}
-.landing-list-card{
-  padding: var(--l-space-2); border: 1px solid var(--line); border-radius: 6px; background: var(--panel);
-}
-.landing-list-name{ font-weight: 600; font-size: 15px; margin-bottom: 4px; }
-.landing-list-desc{ font-size: 13.5px; color: var(--muted); margin-bottom: var(--l-space-1); }
-.landing-list-count{ font-family: var(--l-mono); font-size: 12px; color: var(--accent); }
+.landing-list-card{ display: block; text-decoration: none; color: inherit; }
+.landing-list-name{ font-weight: 600; font-size: var(--fs-body); line-height: 1.25; margin-bottom: 6px; }
+.landing-list-desc{ font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin-bottom: var(--l-space-2); }
+.landing-list-count{ font-family: var(--l-mono); font-size: var(--fs-small); color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 
-.landing-trust .landing-section-head{ max-width: 68ch; }
-.landing-trust p{ font-size: 15.5px; }
+.landing-block-foot{ margin-top: var(--l-space-3); }
+
+/* How we verify: the heading on the left, the two paragraphs on the right. */
+.landing-trust .landing-section-head p{ max-width: 62ch; }
+@media (min-width: 960px){
+  .landing-trust .landing-section-text{ align-self: start; }
+}
 
 .landing-final-cta{
-  max-width: var(--l-max); margin: 0 auto; padding: var(--l-space-4) var(--l-gutter);
-  text-align: center; border-top: 1px solid var(--line);
+  max-width: var(--l-max); margin: 0 auto; padding: var(--l-block) var(--l-gutter);
 }
-.landing-final-cta h2{ font-size: clamp(26px, 4vw, 36px); font-weight: 600; margin: 0 0 var(--l-space-2); letter-spacing: -0.02em; }
-.landing-final-cta .landing-cta-row{ justify-content: center; }
+.landing-final-cta h2{ margin-bottom: var(--l-space-3); }
 
 .landing-footer{
-  max-width: var(--l-max); margin: 0 auto; padding: var(--l-space-3) var(--l-gutter) var(--l-space-4);
-  border-top: 1px solid var(--line);
+  max-width: var(--l-max); margin: 0 auto; padding: 0 var(--l-gutter) var(--l-space-4);
 }
-.landing-footer-links{ display: flex; gap: var(--l-space-2); margin-bottom: var(--l-space-3); }
-.landing-footer-links a{ font-size: 13px; text-decoration: underline; color: var(--muted); }
+.landing-footer-links{ display: flex; gap: var(--l-space-2); margin-bottom: var(--l-space-3); padding-top: var(--l-space-2); border-top: 1px solid var(--l-hair); }
+.landing-footer-links a{ font-size: var(--fs-small); text-decoration: underline; text-underline-offset: 3px; color: var(--muted); }
+.landing-footer-links a:hover{ color: var(--ink); }
 .landing-legal{ max-width: 70ch; margin-bottom: var(--l-space-3); scroll-margin-top: 24px; }
-.landing-legal h3{ font-size: 15px; margin: 0 0 var(--l-space-1); }
-.landing-legal p{ font-size: 13px; color: var(--muted); margin: 0 0 10px; line-height: 1.6; }
+.landing-legal h3{ font-size: var(--fs-small); font-weight: 600; margin: 0 0 var(--l-space-1); }
+.landing-legal p{ font-size: var(--fs-small); color: var(--muted); margin: 0 0 10px; line-height: 1.6; }
 
 @media (max-width: 559px){
   .landing-final-cta .landing-cta-row{ flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .landing-btn-primary, .landing-btn-secondary, .landing-btn-arrow{ transition: none; }
+  .landing-btn-primary, .landing-btn-secondary, .landing-btn-arrow, .landing-inline-link{ transition: none; }
   .landing-btn-primary:hover .landing-btn-arrow{ transform: none; }
 }

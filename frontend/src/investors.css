@@ -1,10 +1,10 @@
 /* The investor directory: a page of its own, like Jobs. It uses the app's colours (--ink, --paper, --panel, --line, --muted,
-   --accent) and adds two of its own: a softer text for paragraphs and a green for "verified". Amber stays what it is
-   elsewhere on the site: the accent, and "hiring now". Everything is scoped to #investorsView so it can leak nowhere. */
+   --accent) and adds a softer text for paragraphs. "Verified" is the accent too: the site has one green. Everything is scoped
+   to #investorsView so it can leak nowhere. */
 
 #investorsView {
   --inv-soft: #b8bbb5;
-  --inv-ok: #6ab87a;
+  --inv-ok: var(--accent-ink);
   --inv-raise: #1c2224;
   --inv-edge: #3a4244;
   --inv-underline: #747c7e;
@@ -13,7 +13,7 @@
   background: var(--paper); color: var(--ink);
   scrollbar-width: thin; scrollbar-color: var(--inv-edge) var(--paper);
 }
-#investorsView ::selection { background: rgba(245, 166, 35, 0.35); color: #fff; }
+#investorsView ::selection { background: rgb(var(--accent-rgb) / 0.35); color: #fff; }
 #investorsView input, #investorsView textarea { caret-color: var(--accent); }
 #investorsView a:focus-visible, #investorsView button:focus-visible, #investorsView select:focus-visible, #investorsView input:focus-visible {
   outline: 2px solid var(--accent); outline-offset: 2px;
@@ -30,7 +30,6 @@
   position: sticky; top: 0; z-index: 10; left: auto; right: auto; display: flex; align-items: center; gap: 16px;
   padding: 12px 24px; background: var(--paper); border-bottom: 1px solid var(--line);
 }
-.inv-bar-name { font-size: 13px; font-weight: 700; letter-spacing: -0.005em; color: var(--muted); }
 .inv-main { max-width: 1120px; margin: 0 auto; padding: 44px 24px 88px; }
 
 .inv-intro h1 { margin: 0; font-size: clamp(1.75rem, 1.15rem + 2.2vw, 2.5rem); line-height: 1.1; letter-spacing: -0.025em; font-weight: 700; text-wrap: balance; }
@@ -72,13 +71,8 @@
 @media (min-width: 640px) { .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1000px) { .inv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
-.inv-card {
-  position: relative; display: flex; flex-direction: column; gap: 14px; padding: 20px;
-  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
-}
-/* The hover is small on purpose: the border warms to the accent, the card rises two pixels, the arrow moves. */
-.inv-card:hover { border-color: rgba(245, 166, 35, 0.45); background: #171c1e; transform: translateY(-2px); }
+/* Its box (radius, border, padding, hover) is the shared card in styles.css. */
+.inv-card { position: relative; display: flex; flex-direction: column; gap: 14px; }
 .inv-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .inv-card-top .inv-verified { padding-top: 2px; font-size: 11.5px; }
 .inv-card .inv-logo { width: 44px; height: 44px; }
@@ -102,7 +96,7 @@
 .inv-card-count { margin-right: auto; }
 .inv-card-cta { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; font-weight: 600; color: var(--ink); transition: color 0.15s ease; }
 .inv-card-arrow { display: inline-block; transition: transform 0.15s ease; }
-.inv-card:hover .inv-card-cta { color: var(--accent); }
+.inv-card:hover .inv-card-cta { color:var(--accent-ink); }
 .inv-card:hover .inv-card-arrow { transform: translateX(3px); }
 @media (prefers-reduced-motion: reduce) {
   .inv-card, .inv-card-arrow, .inv-card-cta { transition: none; }
@@ -126,7 +120,7 @@
 .inv-table .inv-logo-initial { font-size: 13px; }
 .inv-table-who { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
 .inv-table-link { color: var(--ink); text-decoration: none; }
-.inv-table-link:hover { color: var(--accent); }
+.inv-table-link:hover { color:var(--accent-ink); }
 
 /* A table needs about 810px. Below 900px there is no choice of view (cards only), and a table that is still open when the window
    narrows stacks its rows into blocks, so the page never scrolls sideways. */
@@ -210,7 +204,7 @@
 .inv-row-side { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 12.5px; text-align: right; }
 .inv-row-source { font-size: 12px; color: var(--muted); text-decoration-color: var(--inv-underline); text-underline-offset: 3px; }
 .inv-row-source:hover { color: var(--ink); }
-.inv-hiring { font-size: 12px; font-weight: 600; color: var(--accent); }
+.inv-hiring { font-size: 12px; font-weight: 600; color:var(--accent-ink); }
 
 .inv-linkbtn, .inv-textlink {
   padding: 0; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); text-align: left; background: none; border: 0; cursor: pointer;

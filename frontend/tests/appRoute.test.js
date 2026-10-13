@@ -11,6 +11,8 @@ describe('the address of each page', () => {
     expect(readAppRoute(at('/lists'))).toEqual({ kind: 'lists' });
     expect(readAppRoute(at('/lists/au-ai'))).toEqual({ kind: 'list', slug: 'au-ai' });
     expect(readAppRoute(at('/news'))).toEqual({ kind: 'news' });
+    expect(readAppRoute(at('/people'))).toEqual({ kind: 'people' });
+    expect(readAppRoute(at('/people', '?tab=operators&list=picks'))).toEqual({ kind: 'people' }); // the page reads its own tab, list and word
     expect(readAppRoute(at('/investors'))).toEqual({ kind: 'investors' });
     expect(readAppRoute(at('/investors/blackbird'))).toEqual({ kind: 'investors' });
   });

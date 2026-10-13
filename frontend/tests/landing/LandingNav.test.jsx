@@ -13,6 +13,8 @@ describe('LandingNav', () => {
   it('has the name and the links, each going somewhere real in the app', () => {
     render(<LandingNav />);
     expect(screen.getByText('AU Startup Map').closest('a')).toHaveAttribute('href', '/welcome');
+    // the name goes home, and says so
+    expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
     const main = screen.getByRole('navigation', { name: 'Main' });
     expect(within(main).getByRole('link', { name: 'Discover' })).toHaveAttribute('href', '/');
     expect(within(main).getByRole('link', { name: 'Lists' })).toHaveAttribute('href', '/?view=lists');

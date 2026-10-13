@@ -48,13 +48,13 @@ describe('EcosystemGraphic', () => {
     expect(screen.getByRole('link', { name: /Q&A Co/ })).toHaveAttribute('href', '/?view=list&search=Q%26A%20Co');
   });
 
-  it('says what a dot is, and mentions amber only when a named company is hiring', () => {
+  it('says what a dot is, and mentions green only when a named company is hiring', () => {
     const { rerender } = render(<EcosystemGraphic pins={pins} companies={companies} />);
     expect(screen.getByText(/Each dot is about 90/)).toHaveTextContent('larger means more startups with a known location');
-    expect(screen.getByText(/Each dot is about 90/)).toHaveTextContent('Amber marks a company that is hiring now');
+    expect(screen.getByText(/Each dot is about 90/)).toHaveTextContent('Green marks a company that is hiring now');
 
     rerender(<EcosystemGraphic pins={pins} companies={[{ name: 'Canva', city: 'Sydney', hiring: false }]} />);
-    expect(screen.getByText(/Each dot is about 90/)).not.toHaveTextContent('Amber');
+    expect(screen.getByText(/Each dot is about 90/)).not.toHaveTextContent('Green');
     expect(screen.getByRole('link', { name: 'Canva, Sydney' })).toBeInTheDocument();
   });
 

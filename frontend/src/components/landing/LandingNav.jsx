@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { HOME_PATH } from '../../paths.js';
 
 // Where each link goes in the app. The product has no accounts, so the one action on the right is the waitlist, which
 // opens the same form as the app's own Join waitlist button.
@@ -58,7 +59,7 @@ export default function LandingNav() {
 
   return (
     <header className="landing-nav" ref={bar}>
-      <a className="landing-brand" href="/welcome">
+      <a className="landing-brand" href={HOME_PATH} aria-label="Go to home">
         <Mark />
         <span>AU Startup Map</span>
       </a>

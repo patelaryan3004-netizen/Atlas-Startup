@@ -1,5 +1,6 @@
 import { AppLink, InvestorLogo, listText, plural, stageText } from './common.jsx';
 import { investorHref } from './route.js';
+import { cardId } from '../IndexRow.jsx';
 
 // A blank is shown as a dash, and read out as what it is: nothing is known, which is not the same as none.
 const Dash = () => (
@@ -31,7 +32,7 @@ export default function InvestorTable({ investors, onOpen }) {
             const stage = stageText(i.stages);
             const sector = listText(i.sectors);
             return (
-              <tr key={i.slug}>
+              <tr key={i.slug} id={cardId('investor', i.slug)} tabIndex={-1}>
                 <th scope="row" className="inv-table-name">
                   <div className="inv-table-id">
                     <InvestorLogo domain={i.domain} name={i.name} />

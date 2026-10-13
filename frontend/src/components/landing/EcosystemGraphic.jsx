@@ -74,7 +74,7 @@ export default function EcosystemGraphic({ pins, areas, companies }) {
       {drawn && (
         <figcaption className="eco-caption">
           Each dot is about 90&nbsp;km across; larger means more startups with a known location.
-          {art.chips.some((chip) => chip.hiring) && ' Amber marks a company that is hiring now.'}
+          {art.chips.some((chip) => chip.hiring) && ' Green marks a company that is hiring now.'}
         </figcaption>
       )}
     </figure>

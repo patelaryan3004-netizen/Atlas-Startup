@@ -5,6 +5,7 @@ import { readRoute as readInvestorsRoute } from './components/investors/route.js
 //   /startup/<slug>          one company, open over whichever view the filters describe
 //   /jobs                    the companies hiring
 //   /lists, /lists/<slug>    the curated lists, and one list opened as a list of companies
+//   /people                  the people and firms worth following (the tab, list and word are in the query: ?tab=operators&list=<id>&q=)
 //   /news                    the news feed
 //   /investors...            the investor pages (components/investors/route.js)
 // The first versions kept the page in the query: ?view=jobs and ?view=lists still open the same pages.
@@ -18,6 +19,7 @@ export function readAppRoute({ pathname = window.location.pathname, search = win
   if (first === 'jobs') return { kind: 'jobs' };
   if (first === 'lists') return second ? { kind: 'list', slug: second } : { kind: 'lists' };
   if (first === 'news') return { kind: 'news' };
+  if (first === 'people') return { kind: 'people' };
   if (!first) {
     const view = new URLSearchParams(search).get('view');
     if (view === 'jobs') return { kind: 'jobs' };
@@ -33,6 +35,7 @@ export function appPath(route) {
     case 'lists': return '/lists';
     case 'list': return `/lists/${encodeURIComponent(route.slug)}`;
     case 'news': return '/news';
+    case 'people': return '/people';
     default: return '/';
   }
 }

@@ -57,6 +57,16 @@ vi.mock('../src/components/investors/InvestorsView.jsx', () => ({
   ),
 }));
 
+vi.mock('../src/components/people/PeopleView.jsx', () => ({
+  default: ({ onClose, onOpenCompany, onOpenInternal }) => (
+    <div data-testid="people-view">
+      <button onClick={onClose}>trigger-people-close</button>
+      <button onClick={() => onOpenCompany({ slug: 'canva', name: 'Canva', sector: 'AI' })}>trigger-people-company</button>
+      <button onClick={() => onOpenInternal('/investors/blackbird')}>trigger-people-investor</button>
+    </div>
+  ),
+}));
+
 vi.mock('../src/components/CuratedLists.jsx', () => ({
   default: ({ currentFilters, onApply, onClose }) => (
     <div data-testid="curated-lists" data-current={JSON.stringify(currentFilters)}>
@@ -184,7 +194,7 @@ describe('App', () => {
       await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, search: 'z' }, expect.objectContaining({ offset: 0 })));
       expect(fetchMarkers).not.toHaveBeenCalled();
 
-      await userEvent.click(screen.getByText('Map'));
+      await userEvent.click(screen.getByRole('button', { name: 'Map' }));
       await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, search: 'z' }, expect.anything()));
     });
 
@@ -296,10 +306,10 @@ describe('App', () => {
 
       await userEvent.click(screen.getByRole('button', { name: 'List (2)' }));
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
-      expect(await screen.findByText('Zeller')).toBeInTheDocument();
-      expect(screen.getByText('Canva')).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { name: 'Zeller' })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'Canva' })).toBeInTheDocument();
 
-      await userEvent.click(screen.getByText('Map'));
+      await userEvent.click(screen.getByRole('button', { name: 'Map' }));
       expect(screen.getByTestId('map-view')).toBeInTheDocument();
     });
 
@@ -314,7 +324,7 @@ describe('App', () => {
       expect(screen.queryByRole('button', { name: 'Key' })).not.toBeInTheDocument();
       expect(screen.queryByRole('region', { name: 'Map key' })).not.toBeInTheDocument();
 
-      await userEvent.click(screen.getByText('Map'));
+      await userEvent.click(screen.getByRole('button', { name: 'Map' }));
       expect(screen.getByRole('button', { name: 'Key' })).toHaveAttribute('aria-expanded', 'false'); // shut again, as on a first visit
     });
 
@@ -644,7 +654,7 @@ describe('App', () => {
       await waitFor(() => expect(at()).toBe('/?sector=AI'));
       await userEvent.click(screen.getByRole('button', { name: 'List (2)' }));
       await waitFor(() => expect(at()).toBe('/?sector=AI&view=list'));
-      await userEvent.click(screen.getByText('Map'));
+      await userEvent.click(screen.getByRole('button', { name: 'Map' }));
       await waitFor(() => expect(at()).toBe('/?sector=AI'));
     });
 
@@ -705,6 +715,64 @@ describe('App', () => {
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
       await userEvent.click(screen.getByRole('button', { name: '← Back to map' }));
       await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
+    });
+
+    it('has the brand as a link to the home page on the map page, with a Map link beside it that stays on the map', async () => {
+      render(<App />);
+      const home = screen.getByRole('link', { name: 'Go to home' });
+      expect(home).toHaveAttribute('href', '/welcome');
+      expect(home).toHaveTextContent('AU Startup Map');
+      const map = screen.getByRole('link', { name: 'Map' });
+      expect(map).toHaveAttribute('href', '/');
+      await userEvent.click(map);
+      expect(await screen.findByTestId('map-view')).toBeInTheDocument();
+      expect(window.location.pathname).toBe('/');
+    });
+
+    it('has them on the page over the map too, and its Map link goes back to the map', async () => {
+      render(<App />);
+      await userEvent.click(screen.getByRole('button', { name: 'News' }));
+      await screen.findByRole('heading', { level: 1, name: 'Australian startup news' });
+      expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
+      await userEvent.click(screen.getByRole('link', { name: 'Map' }));
+      await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
+      await waitFor(() => expect(window.location.pathname).toBe('/'));
+    });
+
+    it('opens People at /people from the header, and leaves it for the map', async () => {
+      render(<App />);
+      await userEvent.click(screen.getByRole('button', { name: 'People' }));
+      expect(await screen.findByTestId('people-view')).toBeInTheDocument();
+      expect(window.location.pathname).toBe('/people');
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      await userEvent.click(screen.getByText('trigger-people-close'));
+      await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
+      await waitFor(() => expect(window.location.pathname).toBe('/'));
+    });
+
+    it('opens the people page a link names, with the query it carries left for the page to read', async () => {
+      window.history.pushState({}, '', '/people?tab=operators&list=picks');
+      render(<App />);
+      expect(await screen.findByTestId('people-view')).toBeInTheDocument();
+      expect(`${window.location.pathname}${window.location.search}`).toBe('/people?tab=operators&list=picks');
+    });
+
+    it('opens a company from the people page as the company page, and an investor in the investor pages', async () => {
+      window.history.pushState({}, '', '/people');
+      render(<App />);
+      await userEvent.click(await screen.findByText('trigger-people-company'));
+      expect(await screen.findByTestId('startup-detail-panel')).toBeInTheDocument();
+      expect(window.location.pathname).toBe('/startup/canva');
+      expect(screen.queryByTestId('people-view')).not.toBeInTheDocument();
+    });
+
+    it('opens an investor page from the people page in the investor pages', async () => {
+      window.history.pushState({}, '', '/people');
+      render(<App />);
+      await userEvent.click(await screen.findByText('trigger-people-investor'));
+      const view = await screen.findByTestId('investors-view');
+      expect(JSON.parse(view.getAttribute('data-route'))).toEqual({ kind: 'investor', slug: 'blackbird' });
+      expect(screen.queryByTestId('people-view')).not.toBeInTheDocument();
     });
 
     it('opens the page a link names: /jobs, /lists and /news, and the first versions\' ?view=jobs and ?view=lists', async () => {

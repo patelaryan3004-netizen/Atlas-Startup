@@ -2,12 +2,22 @@
   --ink:#e8e6de;
   --paper:#0a0e0f;
   --line:#22282a;
-  --accent:#f5a623;
-  --accent2:#f5a623;
-  --gold:#f5a623;
+  /* One accent, a green. --accent is for fills, rings and lines (9.5:1 on the ground); --accent-ink is the same green lifted for
+     text on the ground and the panels (12:1), because small green text wants more than a fill does. A tint is
+     rgb(var(--accent-rgb) / alpha); text on a filled accent is --on-accent. */
+  --accent:#3ecf6e;
+  --accent-ink:#7ee8a0;
+  --accent-hover:#5fdc8a;
+  --accent-rgb:62 207 110;
+  --on-accent:#0a0e0f;
   --panel:#14181a;
   --muted:#8a8f8c;
   --danger:#e0685a;
+  /* The one card (see "The card" at the end of this file) and the one monospace, for numbers and labels that are data. */
+  --card-radius:12px;
+  --card-pad:20px;
+  --card-hover:#171c1e;
+  --mono:ui-monospace,'SF Mono','Cascadia Mono',Consolas,'Liberation Mono',monospace;
 }
 *{box-sizing:border-box;}
 html,body,#root{margin:0;height:100%;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
@@ -67,7 +77,7 @@ html,body,#root{margin:0;height:100%;font-family:'Inter',-apple-system,BlinkMacS
 }
 .pin-hiring-dot{
   position:absolute;top:-3px;right:-3px;width:13px;height:13px;border-radius:50%;
-  background:#22c55e;border:2px solid #fff;
+  background:var(--accent);border:2px solid #fff;
 }
 .pin-tracked-star{
   position:absolute;bottom:-4px;left:-4px;width:17px;height:17px;border-radius:50%;
@@ -116,7 +126,7 @@ html,body,#root{margin:0;height:100%;font-family:'Inter',-apple-system,BlinkMacS
 }
 .area-state .area-chip{left:52px;}
 .area-chip b{font-weight:650;}
-.area-count{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent);}
+.area-count{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent-ink);}
 .area-level{color:var(--muted);font-size:10.5px;}
 .area-chip:hover,.area-chip:focus-visible{background:var(--panel);border-style:solid;border-color:var(--accent);outline:none;}
 
@@ -125,12 +135,14 @@ header{
   display:flex;align-items:center;gap:24px;
   padding:11px 24px;background:var(--paper);border-bottom:1px solid var(--line);
 }
-.nav-brand{flex-shrink:0;min-width:0;}
+.nav-brand{flex-shrink:0;min-width:0;display:flex;align-items:center;gap:14px;}
+/* The brand block is a link home (the landing page); it looks as it did, and says so to the keyboard. */
+.nav-brand-link{display:block;min-width:0;color:inherit;text-decoration:none;border-radius:6px;}
 header h1{
   font-size:15px;letter-spacing:-0.01em;margin:0;font-weight:700;display:flex;align-items:center;gap:8px;
   white-space:nowrap;
 }
-header h1 span{color:var(--accent);}
+header h1 span{color:var(--accent-ink);}
 .nav-subtitle{font-size:10.5px;color:var(--muted);margin-top:1px;white-space:nowrap;}
 .beta-tag{
   font-size:9px;font-weight:700;letter-spacing:.5px;color:#0a0e0f;background:var(--accent);
@@ -156,8 +168,8 @@ header h1 span{color:var(--accent);}
   transition:background-color .15s ease, border-color .15s ease;
 }
 .hdrbtn:hover{background:var(--line);border-color:var(--accent);}
-.hdrbtn-accent{background:var(--accent);color:#0a0e0f;border-color:var(--accent);font-weight:700;}
-.hdrbtn-accent:hover{background:#ffb84d;border-color:#ffb84d;}
+.hdrbtn-accent{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:700;}
+.hdrbtn-accent:hover{background:var(--accent-hover);border-color:var(--accent-hover);}
 
 .nav-mobile-toggle{display:block;}
 
@@ -175,7 +187,7 @@ header h1 span{color:var(--accent);}
   font-family:inherit;font-size:13px;color:var(--ink);padding:9px 10px;cursor:pointer;
 }
 .hdr-menu-item:hover{background:var(--line);}
-.hdr-menu-item-accent{color:var(--accent);font-weight:600;}
+.hdr-menu-item-accent{color:var(--accent-ink);font-weight:600;}
 .hdr-menu-sep{height:1px;background:var(--line);margin:6px 2px;}
 .hdr-menu-mobile-nav{display:none;}
 
@@ -249,7 +261,7 @@ header h1 span{color:var(--accent);}
   font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;border-radius:6px;
   transition:background-color .15s ease;
 }
-.taskbtn:hover{background:#ffb84d;}
+.taskbtn:hover{background:var(--accent-hover);}
 .linkbtn{background:none;border:none;font-family:inherit;font-size:12px;color:var(--muted);cursor:pointer;text-decoration:underline;}
 .linkbtn:hover{color:var(--ink);}
 .submit-done{text-align:center;padding:20px 0;}
@@ -265,7 +277,7 @@ header h1 span{color:var(--accent);}
   background:none;border:none;cursor:pointer;font-size:14px;color:var(--muted);
   padding:0;margin-right:6px;line-height:1;vertical-align:middle;
 }
-.track-star:hover{color:var(--accent);}
+.track-star:hover{color:var(--accent-ink);}
 .unverified-list .uv-meta{color:var(--muted);text-align:right;}
 
 #fToggle{
@@ -341,7 +353,7 @@ header h1 span{color:var(--accent);}
 }
 .sdp-track:hover{background:rgba(255,255,255,.3);}
 .sdp-track-active{background:var(--accent);color:#0a0e0f;}
-.sdp-track-active:hover{background:#ffb84d;}
+.sdp-track-active:hover{background:var(--accent-hover);}
 
 .sdp-meta-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:14px 10px;margin-bottom:16px;padding-bottom:16px;
@@ -360,7 +372,7 @@ header h1 span{color:var(--accent);}
 .sdp-apply-btn{width:auto;padding:6px 14px;font-size:11px;margin-top:0;}
 .sdp-news-list{display:flex;flex-direction:column;gap:8px;}
 .sdp-news-item{display:block;font-size:11.5px;color:var(--ink);text-decoration:none;line-height:1.4;}
-.sdp-news-item:hover{color:var(--accent);text-decoration:underline;}
+.sdp-news-item:hover{color:var(--accent-ink);text-decoration:underline;}
 .sdp-website-link{display:block;width:100%;margin-bottom:0;}
 
 #leaderboardList, #notableList, #mostVouchedList{
@@ -369,7 +381,7 @@ header h1 span{color:var(--accent);}
 #leaderboardList li, #notableList li, #mostVouchedList li{
   margin-bottom:8px;display:flex;justify-content:space-between;gap:6px;
 }
-#leaderboardList li b, #notableList li b, #mostVouchedList li b{color:var(--accent);}
+#leaderboardList li b, #notableList li b, #mostVouchedList li b{color:var(--accent-ink);}
 .fdrawer-empty{font-size:12.5px;color:var(--muted);margin:0;}
 
 .bottom-capsule{
@@ -418,16 +430,14 @@ header h1 span{color:var(--accent);}
 .pc-body{padding:14px 16px 16px;background:var(--panel);}
 .pc-desc{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.45;}
 .pc-link{
-  display:inline-block;margin-bottom:12px;color:var(--accent);text-decoration:none;font-size:12px;font-weight:600;
+  display:inline-block;margin-bottom:12px;color:var(--accent-ink);text-decoration:none;font-size:12px;font-weight:600;
 }
 .pc-link:hover{text-decoration:underline;}
 .pc-badges-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
 .hiring-badge{
-  /* Green, not amber - matches the hiring-dot already used on map markers
-     for the same signal, and keeps amber free for the one real CTA on
-     each card (Apply) rather than competing with it. */
+  /* The accent, the same green as the hiring dot on the map's markers: one signal, one colour. */
   display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-  padding:3px 8px;border-radius:10px;background:#4ade80;color:#052e1c;
+  padding:3px 8px;border-radius:10px;background:var(--accent);color:var(--on-accent);
 }
 .hiring-badge-off{background:var(--line);color:var(--muted);}
 .pc-section-label{font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;}
@@ -451,7 +461,7 @@ header h1 span{color:var(--accent);}
 .pc-founder-name-btn{
   background:none;border:none;font-family:inherit;text-align:left;cursor:pointer;padding:0;
 }
-.pc-founder-name-btn:hover{color:var(--accent);text-decoration:underline;}
+.pc-founder-name-btn:hover{color:var(--accent-ink);text-decoration:underline;}
 .pc-founder-li{
   flex:none;width:18px;height:18px;border-radius:3px;background:#0a66c2;color:#fff;
   font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;
@@ -463,7 +473,7 @@ header h1 span{color:var(--accent);}
   width:100%;margin-top:8px;padding:4px;background:none;border:none;
   font-family:inherit;font-size:10.5px;color:var(--muted);cursor:pointer;text-decoration:underline;
 }
-.pc-suggest-edit:hover{color:var(--accent);}
+.pc-suggest-edit:hover{color:var(--accent-ink);}
 
 #newsTicker{
   position:absolute; top:128px; right:24px; z-index:600;
@@ -480,7 +490,7 @@ header h1 span{color:var(--accent);}
   background:none;border:none;font-family:inherit;color:var(--ink);letter-spacing:.2px;font-size:11.5px;font-weight:600;
   cursor:pointer;padding:0;display:flex;align-items:center;gap:6px;
 }
-#newsTicker .nt-head .nt-live{color:var(--accent);font-size:9px;font-weight:400;}
+#newsTicker .nt-head .nt-live{color:var(--accent-ink);font-size:9px;font-weight:400;}
 #newsTicker .nt-head-actions{display:flex;align-items:center;gap:8px;}
 #newsTicker .nt-close, #newsTicker .nt-refresh{
   background:none;border:none;color:var(--muted);cursor:pointer;font-size:13px;line-height:1;padding:0 2px;
@@ -512,7 +522,7 @@ header h1 span{color:var(--accent);}
   overflow-y:auto;
 }
 .jobs-header{
-  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center; justify-content:space-between;
   padding:16px 24px; background:var(--paper); border-bottom:1px solid var(--line);
 }
 .jobs-header h1{font-size:19px;margin:0;font-weight:700;letter-spacing:-0.01em;}
@@ -528,10 +538,7 @@ header h1 span{color:var(--accent);}
 .jobs-grid{
   display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:18px;
 }
-.job-card{
-  background:var(--panel); border:1px solid var(--line); border-radius:10px;
-  box-shadow:0 8px 24px rgba(0,0,0,.35); padding:20px; display:flex; flex-direction:column; gap:12px;
-}
+.job-card{ display:flex; flex-direction:column; gap:12px; }
 .job-card-top{display:flex;align-items:center;gap:10px;}
 .job-card-top h2{margin:0;font-size:15px;font-weight:700;}
 .job-card-meta{font-size:11.5px;color:var(--muted);margin-top:2px;}
@@ -565,9 +572,9 @@ header h1 span{color:var(--accent);}
 }
 .startup-list-scope-clear{
   font:inherit; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; border:1px solid var(--line);
-  background:transparent; color:var(--accent); cursor:pointer;
+  background:transparent; color:var(--accent-ink); cursor:pointer;
 }
-.startup-list-scope-clear:hover,.startup-list-scope-clear:focus-visible{background:rgba(245,166,35,.14);outline:none;}
+.startup-list-scope-clear:hover,.startup-list-scope-clear:focus-visible{background:rgb(var(--accent-rgb) / .14);outline:none;}
 .startup-list-sort{
   display:flex; align-items:center; gap:8px; font-size:11px; text-transform:uppercase;
   letter-spacing:.5px; color:var(--muted);
@@ -583,20 +590,15 @@ header h1 span{color:var(--accent);}
   display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px;
   max-width:1100px; margin:0 auto;
 }
-.startup-card{
-  background:var(--panel); border:1px solid var(--line); border-radius:10px;
-  box-shadow:0 8px 24px rgba(0,0,0,.35); padding:18px; display:flex; flex-direction:column; gap:10px;
-  font-family:inherit; color:var(--ink); text-align:left; cursor:pointer; transition:border-color .15s ease, transform .15s ease;
-}
-.startup-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.startup-card-selected{border-color:var(--accent);box-shadow:0 8px 24px rgba(0,0,0,.35), 0 0 0 1px var(--accent);}
+.startup-card{ display:flex; flex-direction:column; gap:10px; font-family:inherit; color:var(--ink); text-align:left; }
+.startup-card-selected{ border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
 .startup-card-top{display:flex;align-items:center;gap:10px;}
 .startup-card-heading{min-width:0;}
 .startup-card-heading h3{
   margin:0;font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:6px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-.startup-card-tracked{color:var(--accent);font-size:12px;}
+.startup-card-tracked{color:var(--accent-ink);font-size:12px;}
 .startup-card-meta{font-size:11px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .startup-card-logo, .startup-card-logo-fallback{
   width:36px;height:36px;flex:none;border-radius:50%;object-fit:contain;background:#fff;
@@ -684,7 +686,7 @@ header h1 span{color:var(--accent);}
 .people-list{list-style:none;margin:14px 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px;}
 .people-item-head{display:flex;align-items:center;gap:6px;}
 .people-item-name{font-weight:700;font-size:12.5px;}
-.people-item-head a{font-size:11px;color:var(--accent);text-decoration:none;}
+.people-item-head a{font-size:11px;color:var(--accent-ink);text-decoration:none;}
 .people-item-head a:hover{text-decoration:underline;}
 .people-item-meta{font-size:10.5px;color:var(--muted);margin-top:1px;}
 .people-item-why{margin:3px 0 0;font-size:11.5px;color:var(--muted);line-height:1.4;}
@@ -699,11 +701,7 @@ header h1 span{color:var(--accent);}
 }
 .vouch-badge::-webkit-details-marker{display:none;}
 .pc-vouches{margin-top:4px;}
-.vouch-list{margin-top:8px;display:flex;flex-direction:column;gap:8px;}
-.vouch-item{border-left:2px solid var(--accent);padding-left:8px;}
-.vouch-item-name{font-weight:700;font-size:11.5px;}
-.vouch-item-role{color:var(--muted);font-size:10px;}
-.vouch-item-note{margin:2px 0 0;font-size:11.5px;color:var(--muted);line-height:1.35;}
+.vouch-list{margin-top:10px;display:flex;flex-direction:column;gap:14px;}
 
 .badge-unverified{
   display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;
@@ -724,7 +722,7 @@ header h1 span{color:var(--accent);}
 .stack-popup a.leaflet-popup-close-button{color:var(--muted);}
 .stack-list{list-style:none;margin:0;padding:0;min-width:170px;max-height:220px;overflow:auto;}
 .stack-item{display:block;width:100%;text-align:left;background:none;border:0;border-radius:4px;padding:7px 6px;color:var(--ink);font:inherit;font-size:13px;cursor:pointer;}
-.stack-item:hover,.stack-item:focus-visible{background:rgba(245,166,35,.14);outline:none;}
+.stack-item:hover,.stack-item:focus-visible{background:rgb(var(--accent-rgb) / .14);outline:none;}
 .stack-more{padding:6px;font-size:12px;color:var(--muted);}
 
 /* A group of city-level companies: what it is, a few by name, and the rest in the list. */
@@ -734,9 +732,9 @@ header h1 span{color:var(--accent);}
 .area-pop-note{margin:0 0 6px;font-size:11.5px;line-height:1.4;color:var(--muted);}
 .area-viewall{
   display:block;width:100%;margin-top:6px;padding:7px 8px;border-radius:6px;border:1px solid var(--line);
-  background:rgba(245,166,35,.12);color:var(--ink);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
+  background:rgb(var(--accent-rgb) / .12);color:var(--ink);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
 }
-.area-viewall:hover,.area-viewall:focus-visible{background:rgba(245,166,35,.24);outline:none;}
+.area-viewall:hover,.area-viewall:focus-visible{background:rgb(var(--accent-rgb) / .24);outline:none;}
 
 /* The map's key: a button above the footer, and a card that opens above the button. The marks in the card are the map's own
    (the same classes, shrunk below), so what the key shows is what the map draws. */
@@ -796,7 +794,7 @@ header h1 span{color:var(--accent);}
 .list-banner-title{margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em;}
 .list-banner-desc{margin:4px 0 0;font-size:12.5px;line-height:1.45;color:var(--muted);}
 .list-banner-side{display:flex;flex:none;flex-direction:column;align-items:flex-end;gap:6px;}
-.list-banner-count{font-size:12px;font-weight:600;color:var(--accent);}
+.list-banner-count{font-size:12px;font-weight:600;color:var(--accent-ink);}
 /* The list under the banner starts below it (the Filters button and the count sit above, as always). */
 .has-list-banner #startupListView{padding-top:290px;}
 
@@ -808,7 +806,7 @@ header h1 span{color:var(--accent);}
   display:flex;flex-direction:column;gap:5px;padding:14px 16px;text-decoration:none;color:var(--ink);
   background:var(--panel);border:1px solid var(--line);border-radius:10px;transition:border-color .15s ease,background-color .15s ease;
 }
-.news-link:hover{border-color:rgba(245,166,35,.45);background:#171c1e;}
+.news-link:hover{border-color:rgb(var(--accent-rgb) / .45);background:#171c1e;}
 .news-headline{font-size:15px;font-weight:600;line-height:1.4;}
 .news-meta{font-size:12px;color:var(--muted);}
 
@@ -843,7 +841,7 @@ header h1 span{color:var(--accent);}
 .chip:hover,.chip:focus-visible{border-color:var(--accent);background:var(--line);outline:none;}
 .chip-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .chip-x{color:var(--muted);font-size:10px;}
-.chip:hover .chip-x{color:var(--accent);}
+.chip:hover .chip-x{color:var(--accent-ink);}
 .chip-clear{font-size:12px;margin-left:4px;}
 .chips-float{position:absolute;top:128px;left:140px;right:290px;z-index:470;max-height:90px;overflow:hidden;}
 .startup-list-chips{max-width:1100px;margin:0 auto 14px;}
@@ -861,7 +859,7 @@ header h1 span{color:var(--accent);}
 .sdp-sources[open] summary{margin-bottom:8px;}
 .sdp-sources-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.35;}
 .sdp-sources-list a{color:var(--ink);text-underline-offset:3px;overflow-wrap:anywhere;}
-.sdp-sources-list a:hover{color:var(--accent);}
+.sdp-sources-list a:hover{color:var(--accent-ink);}
 .sdp-source-meta{display:block;margin-top:1px;font-size:11.5px;color:var(--muted);}
 .sdp-sources-none{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted);}
 .sdp-hiring-note a{color:inherit;text-underline-offset:3px;}
@@ -870,7 +868,7 @@ header h1 span{color:var(--accent);}
 /* What shows while a page's file arrives, and when it cannot (lazyLoad.jsx). */
 .view-loading{position:fixed;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;pointer-events:none;}
 .load-error{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:3000;display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;font-size:13px;box-shadow:0 8px 28px rgba(0,0,0,.5);}
-.load-error .linkbtn{font-size:13px;color:var(--accent);}
+.load-error .linkbtn{font-size:13px;color:var(--accent-ink);}
 
 /* The bar above the list: the count, the quick filters, the sort. */
 .startup-list-toolbar{flex-wrap:wrap;}
@@ -885,13 +883,76 @@ button.qf-chip{padding:5px 12px;}
   font:inherit;font-size:12.5px;color:inherit;background:transparent;border:0;padding:5px 8px 5px 12px;cursor:pointer;max-width:150px;
 }
 .qf-chip:hover,.qf-chip:focus-within{border-color:var(--accent);outline:none;}
-.qf-chip-on{border-color:var(--accent);background:rgba(245,166,35,.14);color:var(--accent);}
+.qf-chip-on{border-color:var(--accent);background:rgb(var(--accent-rgb) / .14);color:var(--accent-ink);}
 .qf-chip select option{color:#111;background:#fff;}
 .verified-note{font-size:11px;color:var(--muted);margin-top:8px;}
 .verified-note-stale{font-style:italic;opacity:.8;}
 .event-badge{
   margin-left:auto;flex:none;align-self:flex-start;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;
-  border:1px solid var(--accent);color:var(--accent);white-space:nowrap;
+  border:1px solid var(--accent);color:var(--accent-ink);white-space:nowrap;
 }
 .sdp-event{font-size:13px;margin:0;}
 .sdp-report{font-size:12px;margin-top:8px;}
+
+/* The card. One box for a company, a job, an investor, a curated list and a person: the same radius, border, padding and hover.
+   A card that is a link or a button lifts two pixels and warms its border to the accent; one that is not does neither. */
+.card, .startup-card, .job-card, .inv-card, .landing-job-card, .landing-list-card, .person-card{
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--card-radius); padding:var(--card-pad);
+  transition:border-color .15s ease, background-color .15s ease, transform .15s ease;
+}
+:is(button, a).card, .startup-card, .inv-card, a.landing-job-card, a.landing-list-card, a.person-card{ cursor:pointer; }
+:is(button, a).card:hover, .startup-card:hover, .inv-card:hover, a.landing-job-card:hover, a.landing-list-card:hover, a.person-card:hover{
+  border-color:rgb(var(--accent-rgb) / .45); background:var(--card-hover); transform:translateY(-2px);
+}
+.job-card{ cursor:default; }
+:where(.card, .startup-card, .job-card, .inv-card, .landing-job-card, .landing-list-card, .person-card):focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+/* The index: the names on a list, as links to their cards, near the top of the list (a table of contents). The names wrap as whole
+   names, a row at a time, so a long list never pushes the page sideways. */
+.index-row{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; margin:0 0 20px; font-size:13px; color:var(--muted); line-height:1.5; }
+.index-row-label{ font-family:var(--mono); font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
+.index-row ul{ display:flex; flex-wrap:wrap; gap:6px 18px; flex:1 1 0; min-width:0; margin:0; padding:0; list-style:none; }
+.index-row li{ min-width:0; }
+.index-row a{ white-space:nowrap; color:var(--ink); text-decoration:underline; text-decoration-color:rgb(var(--accent-rgb) / .5); text-underline-offset:3px; }
+.index-row a:hover, .index-row a:focus-visible{ color:var(--accent-ink); text-decoration-color:var(--accent); outline:none; }
+.index-row-more{ white-space:nowrap; }
+/* On the company list the cards sit in a centred column; the index lines up with it. */
+#startupListView .index-row{ max-width:1100px; margin:0 auto 20px; }
+
+/* An endorsement: what was said, then who said it. */
+.vouch{ margin:0; }
+.vouch blockquote{ margin:0; font-size:13px; line-height:1.5; color:var(--ink); }
+.vouch blockquote p{ margin:0; }
+.vouch blockquote p::before{ content:'\201c'; }
+.vouch blockquote p::after{ content:'\201d'; }
+.vouch figcaption{ margin-top:4px; font-size:12px; color:var(--muted); }
+.vouch figcaption b{ font-weight:600; }
+
+/* Things the browser draws that the page did not: selected text, the scrollbar, checkboxes and the caret take the accent. */
+::selection{ background:rgb(var(--accent-rgb) / .28); color:var(--ink); }
+html{ scrollbar-color:#2c3336 var(--paper); accent-color:var(--accent); caret-color:var(--accent); }
+
+/* Content that rises into place as it arrives (Reveal.jsx). It is hidden only for a visitor who has not asked for less motion, and
+   only until the element is on screen. */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); transition-delay:calc(var(--i, 0) * 70ms); }
+  .reveal:not(.is-in){ opacity:0; transform:translateY(14px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .card, .startup-card, .job-card, .inv-card, .landing-job-card, .landing-list-card, .person-card{ transition:none; }
+  :is(button, a).card:hover, .startup-card:hover, .inv-card:hover, a.landing-job-card:hover, a.landing-list-card:hover, a.person-card:hover{ transform:none; }
+}
+
+/* The brand on a page's header: the site's name is a link to the home page (the landing page), with a small Map link beside it.
+   A bare `header` rule positions every header on the site, so the bar says all of it again, as the investors' bar does. */
+.site-bar{
+  position:sticky; top:0; z-index:10; left:auto; right:auto; display:flex; align-items:center; gap:16px;
+  padding:12px 24px; background:var(--paper); border-bottom:1px solid var(--line);
+}
+.site-brand{display:flex;align-items:baseline;gap:14px;min-width:0;}
+.site-brand-link{font-size:13px;font-weight:700;letter-spacing:-.005em;color:var(--muted);text-decoration:none;white-space:nowrap;}
+.site-brand-link:hover{color:var(--ink);}
+.site-brand-map{font-size:12.5px;color:var(--muted);white-space:nowrap;text-decoration:underline;text-decoration-color:rgb(var(--accent-rgb) / .5);text-underline-offset:3px;}
+.site-brand-map:hover{color:var(--accent-ink);text-decoration-color:var(--accent);}
+.site-brand a:focus-visible, .nav-brand a:focus-visible, .landing-brand:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px;}
+@media (max-width:640px){ .site-bar{padding:10px 16px;} .nav-brand{gap:10px;} }

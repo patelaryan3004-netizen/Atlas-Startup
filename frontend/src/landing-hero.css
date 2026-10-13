@@ -1,5 +1,5 @@
-/* The /welcome navigation and hero. Near-black ground, off-white ink, and one amber that means one thing here:
-   a company is hiring now. Shared tokens and the buttons are in landing.css. */
+/* The /welcome navigation and hero. Near-black ground, off-white ink, and one green accent (on the buttons, the hiring dots and the
+   italic word). Shared tokens and the buttons are in landing.css. */
 
 /* Navigation */
 
@@ -63,48 +63,55 @@
 
 /* Hero */
 
+/* The headline across all twelve columns, in display type; under it what this is and where to go (five columns) beside the picture (seven),
+   and under both the three figures, four columns each. */
 .hero{
   max-width: var(--l-max); margin: 0 auto;
-  padding: clamp(28px, 6vh, 72px) var(--l-gutter) clamp(64px, 11vh, 120px);
-  display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(48px, 7vw, 72px); align-items: center;
+  padding: clamp(20px, 4vh, 48px) var(--l-gutter) 0;
 }
-@media (min-width: 960px){
-  .hero{
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px);
-    min-height: min(calc(100svh - 77px), 820px);
-  }
+.hero-grid{ row-gap: clamp(28px, 4vw, 56px); align-items: start; }
+.hero-title{
+  margin: 0; font-size: var(--fs-display); line-height: .98; font-weight: 600; letter-spacing: -0.04em; text-wrap: balance;
 }
-
-.hero-copy{ max-width: 34rem; }
-.hero h1{
-  margin: 0; max-width: 12ch;
-  font-size: clamp(2.6rem, 1.55rem + 3.9vw, 4.5rem); line-height: 1.02; font-weight: 600;
-  letter-spacing: -0.035em; text-wrap: balance;
+/* The one italic word, in a face that has an italic (Geist has none): the same green as the buttons. */
+.hero-title em{
+  font-family: var(--l-serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; color: var(--accent);
+  padding-right: .04em;
 }
-.hero-lede{
-  margin: 24px 0 0; max-width: 30rem;
-  font-size: clamp(1.0625rem, .98rem + .4vw, 1.25rem); line-height: 1.55; color: var(--l-ink-2);
-  text-wrap: pretty;
-}
-.hero .landing-cta-row{ margin-top: 36px; }
+.hero-copy{ align-self: start; }
+.hero-lede{ margin: 0; max-width: 34ch; color: var(--l-ink-2); text-wrap: pretty; }
+.hero .landing-cta-row{ margin-top: var(--l-space-3); }
 @media (max-width: 559px){
   .hero .landing-cta-row{ flex-direction: column; }
 }
-
-.hero-facts{
-  margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px 0;
-  font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums;
+@media (min-width: 960px){
+  .hero-copy{ grid-column: 1 / span 5; }
+  .hero .eco{ grid-column: 6 / -1; }
 }
-.hero-facts span{ padding-right: 16px; margin-right: 16px; border-right: 1px solid var(--l-hair); }
-.hero-facts span:last-child{ padding-right: 0; margin-right: 0; border-right: 0; }
-.hero-facts-hiring::before{
-  content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 8px;
-  border-radius: 50%; background: var(--accent); vertical-align: 1px;
+
+/* The figures: what is counted, from the server's own counts. One it has not sent, or that is zero, is not here. */
+.hero-stats{
+  list-style: none; margin: 0; padding: var(--l-space-3) 0 0; border-top: 1px solid var(--l-hair);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--l-space-3);
+}
+.hero-stat{ min-width: 0; }
+.hero-stat-reveal{ display: grid; gap: 6px; align-content: start; }
+.hero-stat-num{
+  font-size: var(--fs-figure); line-height: 1; font-weight: 600; letter-spacing: -0.04em; font-variant-numeric: tabular-nums;
+}
+.hero-stat-label{ font-size: var(--fs-small); font-weight: 600; color: var(--ink); }
+.hero-stat-def{ font-size: var(--fs-small); line-height: 1.5; color: var(--muted); max-width: 30ch; }
+.hero-updated{ margin: var(--l-space-3) 0 0; font-family: var(--l-mono); font-size: var(--fs-small); color: var(--muted); letter-spacing: .04em; }
+@media (min-width: 640px){
+  .hero-stats{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--l-gap); }
+}
+@media (min-width: 960px){
+  .hero-stat{ grid-column: auto; }
 }
 
 /* The picture: Australia in dots, the directory's startups lit on it. */
 
-.eco{ margin: 0; width: 100%; max-width: 700px; justify-self: center; container-type: inline-size; }
+.eco{ margin: 0; width: 100%; max-width: 760px; justify-self: end; container-type: inline-size; }
 .eco-stage{
   --eco-fs: clamp(11px, 2.1cqi, 13.5px);
   position: relative; width: 100%; aspect-ratio: 640 / 530; font-size: var(--eco-fs);
@@ -158,7 +165,7 @@
 .eco-chip-link:hover{ border-color: rgba(232, 230, 222, .42); background: #1a2023; }
 .eco-chip-dot{ flex: none; width: .55em; height: .55em; border-radius: 50%; background: var(--accent); }
 
-.eco-caption{ margin: 18px 0 0; max-width: 46ch; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.eco-caption{ margin: 18px 0 0; max-width: 46ch; font-size: var(--fs-small); line-height: 1.5; color: var(--muted); }
 
 @keyframes eco-fade{ from{ opacity: 0; } }
 @keyframes eco-pop{ from{ opacity: 0; transform: scale(.2); } }

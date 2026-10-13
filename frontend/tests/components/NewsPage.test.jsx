@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({ fetchNews: vi.fn() }));
@@ -23,7 +23,7 @@ describe('NewsPage', () => {
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
     expect(link).toHaveTextContent('SmartCompany · 14 Aug');
-    expect(screen.getAllByRole('link')).toHaveLength(2);
+    expect(within(screen.getByRole('list')).getAllByRole('link')).toHaveLength(2); // the headlines; the brand and Map links in the bar are not in the list
     expect(screen.getByRole('heading', { level: 1, name: 'Australian startup news' })).toBeInTheDocument();
   });
 

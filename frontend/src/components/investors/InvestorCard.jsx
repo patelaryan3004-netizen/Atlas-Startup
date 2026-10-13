@@ -1,5 +1,6 @@
 import { AppLink, InvestorLogo, VerifiedMark, listText, plural, stageText } from './common.jsx';
 import { investorHref } from './route.js';
+import { cardId } from '../IndexRow.jsx';
 
 // One investor in the directory: who it is, what it invests in and where, and how much of its portfolio a page backs. Only what
 // is known is written: a line with nothing behind it is left out, never filled in. The name is the one link; it reaches over the
@@ -11,7 +12,7 @@ export default function InvestorCard({ investor, onOpen }) {
   const sector = listText(sectors);
   const where = location?.label;
   return (
-    <li className="inv-card">
+    <li className="inv-card" id={cardId('investor', slug)} tabIndex={-1}>
       <div className="inv-card-top">
         <InvestorLogo domain={domain} name={name} />
         <VerifiedMark at={verifiedAt} compact />

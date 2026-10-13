@@ -145,6 +145,9 @@ describe('facets, summary, markers', () => {
     expect(s.pinned).toBe(rows.filter((r) => r.verified).length);
     expect(s.unverified).toBe(rows.filter((r) => !r.verified).length);
     expect(s.hiring).toBe(rows.filter((r) => r.hiring).length);
+    // the people named as founders, each once however many companies they are named on
+    expect(s.founders).toBe(new Set(rows.flatMap((r) => r.founders ?? [])).size);
+    expect(s.founders).toBeGreaterThan(0);
     expect(s.topCities).toHaveLength(8);
     expect(s.topCities[0].city).toBe('Sydney');
     const years = s.notable.items.map((x) => x.foundedYear);

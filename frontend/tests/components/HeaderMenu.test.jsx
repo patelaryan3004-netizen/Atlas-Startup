@@ -8,6 +8,7 @@ function setup(overrides = {}) {
     onExplore: vi.fn(),
     onShowJobs: vi.fn(),
     onShowInvestors: vi.fn(),
+    onShowPeople: vi.fn(),
     onShowCuratedLists: vi.fn(),
     newsVisible: true,
     onToggleNews: vi.fn(),
@@ -85,6 +86,15 @@ describe('HeaderMenu', () => {
 
     expect(onShowInvestors).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Investors')).not.toBeInTheDocument();
+  });
+
+  it('opens the people page, and closes itself, when People is clicked', async () => {
+    const { onShowPeople } = setup();
+    await userEvent.click(screen.getByLabelText('Menu'));
+    await userEvent.click(screen.getByText('People'));
+
+    expect(onShowPeople).toHaveBeenCalledTimes(1);
+    expect(screen.queryByText('People')).not.toBeInTheDocument();
   });
 
   it('calls onShowTracked and closes when the Tracked item is clicked', async () => {

@@ -18,6 +18,8 @@ import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
 import { lazyView, Lazy } from './lazyLoad.jsx';
+import { HOME_PATH, MAP_PATH } from './paths.js';
+import { isPlainClick } from './components/SiteBrand.jsx';
 
 // Fetched when first wanted, not with the page: the pages (the map and its library, the list, the jobs board, the investors, the
 // news), the company's panel and every dialog. What stays here is what every visit draws at once: the header, search, filters,
@@ -27,6 +29,7 @@ const ListView = lazyView(() => import('./components/ListView.jsx'));
 const JobsView = lazyView(() => import('./components/JobsView.jsx'));
 const InvestorsView = lazyView(() => import('./components/investors/InvestorsView.jsx'));
 const NewsPage = lazyView(() => import('./components/NewsPage.jsx'));
+const PeopleView = lazyView(() => import('./components/people/PeopleView.jsx'));
 const StartupDetailPanel = lazyView(() => import('./components/StartupDetailPanel.jsx'));
 const PersonProfile = lazyView(() => import('./components/PersonProfile.jsx'));
 const SubmitStartupForm = lazyView(() => import('./components/SubmitStartupForm.jsx'));
@@ -320,6 +323,7 @@ export default function App() {
 
   const goExplore = () => { if (route.kind !== 'explore') leave(); };
   const showNews = () => goTo({ kind: 'news' });
+  const showPeople = () => goTo({ kind: 'people' });
   const showJobsPage = () => goTo({ kind: 'jobs' });
   const showLists = () => goTo({ kind: 'lists' });
   // A list is chosen: its filters apply, the list view shows them, and the address is the list's own.
@@ -354,12 +358,22 @@ export default function App() {
     setRoute({ kind: 'investors' });
   }, []);
 
+  // A page the app already has for someone on the People page (an investor, or a person who invests), opened in the app.
+  const openInternal = useCallback((href) => {
+    const page = readInvestorsRoute({ pathname: href, search: '' });
+    if (page) openInvestors(page);
+  }, [openInvestors]);
+
   if (showJobs) {
     return <Lazy fallback={loading('jobs')}><JobsView sectorColors={sectorColors} onClose={leave} /></Lazy>;
   }
 
   if (route.kind === 'news') {
     return <Lazy fallback={loading('news')}><NewsPage onClose={leave} /></Lazy>;
+  }
+
+  if (route.kind === 'people') {
+    return <Lazy fallback={loading('people')}><PeopleView onClose={leave} onOpenCompany={(company) => openStartup(company)} onOpenInternal={openInternal} /></Lazy>;
   }
 
   if (showInvestors) {
@@ -379,8 +393,11 @@ export default function App() {
     <div id="app" className={activeList ? 'has-list-banner' : undefined}>
       <header>
         <div className="nav-brand">
-          <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
-          <div className="nav-subtitle">Australia&rsquo;s startup ecosystem</div>
+          <a className="nav-brand-link" href={HOME_PATH} aria-label="Go to home">
+            <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
+            <div className="nav-subtitle">Australia&rsquo;s startup ecosystem</div>
+          </a>
+          <a className="site-brand-map" href={MAP_PATH} onClick={(event) => { if (isPlainClick(event)) { event.preventDefault(); goExplore(); } }}>Map</a>
         </div>
 
         <nav className="nav-center">
@@ -389,6 +406,7 @@ export default function App() {
             Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
           </button>
           <button className="nav-link" onClick={() => openInvestors()}>Investors</button>
+          <button className="nav-link" onClick={showPeople}>People</button>
           <button className="nav-link" onClick={showLists}>Lists</button>
           <button className="nav-link" onClick={showNews}>News</button>
         </nav>
@@ -401,6 +419,7 @@ export default function App() {
             onShowJobs={showJobsPage}
             hiringCount={hiringCount}
             onShowInvestors={() => openInvestors()}
+            onShowPeople={showPeople}
             onShowCuratedLists={showLists}
             onShowNews={showNews}
             newsVisible={newsVisible}

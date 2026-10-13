@@ -121,6 +121,31 @@ export async function submitInvestorCorrection(slug, data) {
   return body;
 }
 
+// ---------- the people pages ----------
+
+// People worth following, one tab at a time (role: founder, operator or investor), 20 to a page. Resolves to
+// { counts: { founders, operators, investors, institutions }, total, count, results, offset, limit, hasMore, nextOffset }.
+// `list` is a curated list's id: the people on it, in its order.
+export function fetchPeople(filters = {}, { limit = 20, offset = 0, signal } = {}) {
+  return getJson(`${BASE}/people${toQuery({ ...filters, limit: String(limit), offset: String(offset) })}`, { signal, failure: 'Failed to fetch people' });
+}
+
+// The firms, beside the investor pages that back them: the same shape as fetchPeople.
+export function fetchInstitutions(filters = {}, { limit = 20, offset = 0, signal } = {}) {
+  return getJson(`${BASE}/institutions${toQuery({ ...filters, limit: String(limit), offset: String(offset) })}`, { signal, failure: 'Failed to fetch institutions' });
+}
+
+// The curated lists that have someone on them: { results: [{ id, title, description, curator, type, count }] }.
+export function fetchLists({ signal } = {}) {
+  return getJson(`${BASE}/lists`, { signal, failure: 'Failed to fetch the lists' });
+}
+
+// One list, in its own order: { list, total, count, results, offset, limit, hasMore, nextOffset }. Its results are people,
+// institutions or companies, as its type says.
+export function fetchList(id, { limit = 20, offset = 0, signal } = {}) {
+  return getJson(`${BASE}/lists/${encodeURIComponent(id)}${toQuery({ limit: String(limit), offset: String(offset) })}`, { signal, failure: 'Failed to fetch the list' });
+}
+
 export async function fetchMeta() {
   const res = await fetch(`${BASE}/startups/meta`);
   if (!res.ok) throw new Error('Failed to fetch filter metadata');

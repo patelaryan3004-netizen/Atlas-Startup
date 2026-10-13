@@ -41,6 +41,19 @@ function fakeServer(all) {
   });
 }
 
+describe('the bar of the jobs page', () => {
+  it('has the brand as a link home, and a Map link that takes the page back to the map, beside the back button', async () => {
+    fakeServer([job()]);
+    const onClose = vi.fn();
+    render(<JobsView sectorColors={{}} onClose={onClose} />);
+    expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
+    await userEvent.click(screen.getByRole('link', { name: 'Map' }));
+    expect(onClose).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByRole('button', { name: '← Back to map' }));
+    expect(onClose).toHaveBeenCalledTimes(2);
+  });
+});
+
 describe('JobsView', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -121,7 +134,7 @@ describe('JobsView', () => {
     ]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
 
-    await screen.findByText('Gated Co');
+    await screen.findByRole('heading', { name: 'Gated Co' });
     expect(screen.queryByText(/TASK-GATE/i)).not.toBeInTheDocument();
     expect(screen.queryByText('NO GATE')).not.toBeInTheDocument();
     expect(screen.queryByText('Start task → Apply')).not.toBeInTheDocument();
@@ -131,7 +144,7 @@ describe('JobsView', () => {
   it('labels a company that opted in to task-gated applications as a concept preview, and no other', async () => {
     fakeServer([job({ name: 'Opted Co', slug: 'opted', taskGate: { enabled: true, optedIn: true } }), job({ name: 'Plain Co', slug: 'plain' })]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
-    await screen.findByText('Opted Co');
+    await screen.findByRole('heading', { name: 'Opted Co' });
     const labels = screen.getAllByText('Concept preview');
     expect(labels).toHaveLength(1);
     expect(labels[0].closest('.job-card')).toHaveTextContent('Opted Co');
@@ -188,7 +201,7 @@ describe('JobsView', () => {
     it('only offers filter options that appear in the whole hiring set, not the whole site and not just the page on screen', async () => {
       fakeServer(jobs);
       render(<JobsView sectorColors={{}} onClose={() => {}} />);
-      await screen.findByText('Sydney AI Co');
+      await screen.findByRole('heading', { name: 'Sydney AI Co' });
 
       expect(screen.getByRole('option', { name: 'AI' })).toBeInTheDocument();
       expect(screen.getByRole('option', { name: 'Fintech' })).toBeInTheDocument();
@@ -199,11 +212,11 @@ describe('JobsView', () => {
     it('asks the server again for the chosen filter, without asking for the options a second time, and shows how many match', async () => {
       fakeServer(jobs);
       render(<JobsView sectorColors={{}} onClose={() => {}} />);
-      await screen.findByText('Sydney AI Co');
+      await screen.findByRole('heading', { name: 'Sydney AI Co' });
 
       await userEvent.selectOptions(screen.getByLabelText('Filter by industry'), 'AI');
-      await waitFor(() => expect(screen.queryByText('Melbourne Fintech Co')).not.toBeInTheDocument());
-      expect(screen.getByText('Sydney AI Co')).toBeInTheDocument();
+      await waitFor(() => expect(screen.queryByRole('heading', { name: 'Melbourne Fintech Co' })).not.toBeInTheDocument());
+      expect(screen.getByRole('heading', { name: 'Sydney AI Co' })).toBeInTheDocument();
       expect(screen.getByText('1 match your filters')).toBeInTheDocument();
       const last = fetchStartupPage.mock.calls.at(-1);
       expect(last[0]).toMatchObject({ hiring: 'yes', sector: 'AI' });
@@ -215,21 +228,21 @@ describe('JobsView', () => {
     it('shows Clear filters only once a filter is active, and it resets the grid', async () => {
       fakeServer(jobs);
       render(<JobsView sectorColors={{}} onClose={() => {}} />);
-      await screen.findByText('Sydney AI Co');
+      await screen.findByRole('heading', { name: 'Sydney AI Co' });
       expect(screen.queryByText('Clear filters')).not.toBeInTheDocument();
 
       await userEvent.selectOptions(screen.getByLabelText('Filter by location'), 'Melbourne');
-      await waitFor(() => expect(screen.queryByText('Sydney AI Co')).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.queryByRole('heading', { name: 'Sydney AI Co' })).not.toBeInTheDocument());
 
       await userEvent.click(screen.getByText('Clear filters'));
-      expect(await screen.findByText('Sydney AI Co')).toBeInTheDocument();
-      expect(screen.getByText('Melbourne Fintech Co')).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { name: 'Sydney AI Co' })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'Melbourne Fintech Co' })).toBeInTheDocument();
     });
 
     it('shows an honest empty state when filters match nothing, without fabricating a listing', async () => {
       fakeServer(jobs);
       render(<JobsView sectorColors={{}} onClose={() => {}} />);
-      await screen.findByText('Sydney AI Co');
+      await screen.findByRole('heading', { name: 'Sydney AI Co' });
 
       await userEvent.selectOptions(screen.getByLabelText('Filter by industry'), 'AI');
       await userEvent.selectOptions(screen.getByLabelText('Filter by location'), 'Melbourne');
