@@ -1,5 +1,93 @@
 [
   {
+    "id": "adora.acn.671450650",
+    "company_id": "adora",
+    "scheme": "acn",
+    "value": "671450650",
+    "source_id": "www-adora-ai",
+    "note": null
+  },
+  {
+    "id": "adora.legal_name.adora-software-pty-ltd",
+    "company_id": "adora",
+    "scheme": "legal_name",
+    "value": "Adora Software Pty Ltd",
+    "source_id": "www-adora-ai",
+    "note": null
+  },
+  {
+    "id": "alloy-robotics.acn.684502332",
+    "company_id": "alloy-robotics",
+    "scheme": "acn",
+    "value": "684502332",
+    "source_id": "www-usealloy-ai",
+    "note": null
+  },
+  {
+    "id": "alloy-robotics.legal_name.alloy-technologies-operations-pty-ltd",
+    "company_id": "alloy-robotics",
+    "scheme": "legal_name",
+    "value": "Alloy Technologies Operations Pty Ltd",
+    "source_id": "www-usealloy-ai",
+    "note": null
+  },
+  {
+    "id": "apromore.abn.51635938760",
+    "company_id": "apromore",
+    "scheme": "abn",
+    "value": "51635938760",
+    "source_id": "apromore-com",
+    "note": null
+  },
+  {
+    "id": "block-earner.acn.668516952",
+    "company_id": "block-earner",
+    "scheme": "acn",
+    "value": "668516952",
+    "source_id": "blockearner-com-au",
+    "note": null
+  },
+  {
+    "id": "block-earner.legal_name.web3-loans-pty-ltd",
+    "company_id": "block-earner",
+    "scheme": "legal_name",
+    "value": "Web3 Loans Pty Ltd",
+    "source_id": "blockearner-com-au",
+    "note": null
+  },
+  {
+    "id": "block-earner.legal_name.web3-ventures-pty-ltd",
+    "company_id": "block-earner",
+    "scheme": "legal_name",
+    "value": "Web3 Ventures Pty Ltd",
+    "source_id": "blockearner-com-au",
+    "note": null
+  },
+  {
+    "id": "ceres-tag.abn.51614436467",
+    "company_id": "ceres-tag",
+    "scheme": "abn",
+    "value": "51614436467",
+    "source_id": "cerestag-com",
+    "note": null
+  },
+  {
+    "id": "dovetail.legal_name.dovetail-research-pty-ltd",
+    "company_id": "dovetail",
+    "scheme": "legal_name",
+    "value": "Dovetail Research Pty Ltd",
+    "source_id": "dovetail-com",
+    "note": null
+  },
+  {
+    "id": "emesent.abn.95626502350",
+    "company_id": "emesent",
+    "scheme": "abn",
+    "value": "95626502350",
+    "source_id": "www-emesent-com",
+    "note": null
+  },
+  {
     "id": "fastlane.acn.690900497",
     "company_id": "fastlane",
     "scheme": "acn",
@@ -24,6 +112,158 @@
     "note": null
   },
   {
+    "id": "hello-clever.abn.69637950497",
+    "company_id": "hello-clever",
+    "scheme": "abn",
+    "value": "69637950497",
+    "source_id": "helloclever-co",
+    "note": null
+  },
+  {
+    "id": "ignition.acn.153623931",
+    "company_id": "ignition",
+    "scheme": "acn",
+    "value": "153623931",
+    "source_id": "www-ignitionapp-com",
+    "note": null
+  },
+  {
+    "id": "ignition.legal_name.practice-ignition-pty-ltd",
+    "company_id": "ignition",
+    "scheme": "legal_name",
+    "value": "Practice Ignition Pty Ltd",
+    "source_id": "www-ignitionapp-com",
+    "note": null
+  },
+  {
+    "id": "indebted.acn.613132951",
+    "company_id": "indebted",
+    "scheme": "acn",
+    "value": "613132951",
+    "source_id": "www-indebted-co",
+    "note": null
+  },
+  {
+    "id": "indebted.legal_name.indebted-australia-pty-ltd",
+    "company_id": "indebted",
+    "scheme": "legal_name",
+    "value": "InDebted Australia Pty Ltd",
+    "source_id": "www-indebted-co",
+    "note": null
+  },
+  {
+    "id": "indebted.legal_name.indebted-holdings-pty-ltd",
+    "company_id": "indebted",
+    "scheme": "legal_name",
+    "value": "InDebted Holdings Pty Ltd",
+    "source_id": "www-indebted-co",
+    "note": null
+  },
+  {
+    "id": "index.alias.alloy-planning",
+    "company_id": "index",
+    "scheme": "alias",
+    "value": "Alloy Planning",
+    "source_id": "alloy-app-planning",
+    "note": null
+  },
+  {
+    "id": "index.legal_name.index-technologies-pty-ltd",
+    "company_id": "index",
+    "scheme": "legal_name",
+    "value": "Index Technologies Pty Ltd",
+    "source_id": "alloy-app-planning",
+    "note": null
+  },
+  {
+    "id": "instant.abn.50642933462",
+    "company_id": "instant",
+    "scheme": "abn",
+    "value": "50642933462",
+    "source_id": "instant-one",
+    "note": null
+  },
+  {
+    "id": "instant.acn.642933462",
+    "company_id": "instant",
+    "scheme": "acn",
+    "value": "642933462",
+    "source_id": "instant-one",
+    "note": null
+  },
+  {
+    "id": "instant.legal_name.instant-checkout-pty-ltd",
+    "company_id": "instant",
+    "scheme": "legal_name",
+    "value": "Instant Checkout Pty Ltd",
+    "source_id": "instant-one",
+    "note": null
+  },
+  {
+    "id": "intelligencebank.abn.73138768564",
+    "company_id": "intelligencebank",
+    "scheme": "abn",
+    "value": "73138768564",
+    "source_id": "intelligencebank-com",
+    "note": null
+  },
+  {
+    "id": "lombard.alias.lombard-finance",
+    "company_id": "lombard",
+    "scheme": "alias",
+    "value": "Lombard Finance",
+    "source_id": "www-lombard-finance",
+    "note": null
+  },
+  {
+    "id": "nutromics.legal_name.nutromics-technology-pty-ltd",
+    "company_id": "nutromics",
+    "scheme": "legal_name",
+    "value": "Nutromics Technology Pty Ltd",
+    "source_id": "www-nutromics-com",
+    "note": null
+  },
+  {
+    "id": "reejig.abn.75631012318",
+    "company_id": "reejig",
+    "scheme": "abn",
+    "value": "75631012318",
+    "source_id": "www-reejig-com",
+    "note": null
+  },
+  {
+    "id": "relevance-ai.abn.33637909409",
+    "company_id": "relevance-ai",
+    "scheme": "abn",
+    "value": "33637909409",
+    "source_id": "relevanceai-com",
+    "note": null
+  },
+  {
+    "id": "relevance-ai.legal_name.onsearch-pty-ltd",
+    "company_id": "relevance-ai",
+    "scheme": "legal_name",
+    "value": "OnSearch Pty Ltd",
+    "source_id": "relevanceai-com",
+    "note": null
+  },
+  {
+    "id": "roller.alias.roller-software",
+    "company_id": "roller",
+    "scheme": "alias",
+    "value": "ROLLER Software",
+    "source_id": "www-roller-software",
+    "note": null
+  },
+  {
+    "id": "roller.legal_name.roller-networks-pty-ltd",
+    "company_id": "roller",
+    "scheme": "legal_name",
+    "value": "Roller Networks Pty Ltd",
+    "source_id": "www-roller-software",
+    "note": null
+  },
+  {
     "id": "superstat.domain.superstat-com-au",
     "company_id": "superstat",
     "scheme": "domain",
@@ -37,6 +277,62 @@
     "scheme": "legal_name",
     "value": "Superstat Pty Ltd",
     "source_id": "superstat-privacy-policy",
+    "note": null
+  },
+  {
+    "id": "tribe.abn.34606186109",
+    "company_id": "tribe",
+    "scheme": "abn",
+    "value": "34606186109",
+    "source_id": "www-tribegroup-co",
+    "note": null
+  },
+  {
+    "id": "tribe.alias.tribe-group",
+    "company_id": "tribe",
+    "scheme": "alias",
+    "value": "TRIBE Group",
+    "source_id": "www-tribegroup-co",
+    "note": null
+  },
+  {
+    "id": "tribe.legal_name.tribe-digital-pty-ltd",
+    "company_id": "tribe",
+    "scheme": "legal_name",
+    "value": "TRIBE Digital Pty Ltd",
+    "source_id": "www-tribegroup-co",
+    "note": null
+  },
+  {
+    "id": "upcover.abn.17628197437",
+    "company_id": "upcover",
+    "scheme": "abn",
+    "value": "17628197437",
+    "source_id": "www-upcover-com",
+    "note": null
+  },
+  {
+    "id": "vivi.legal_name.vivi-international-pty-ltd",
+    "company_id": "vivi",
+    "scheme": "legal_name",
+    "value": "Vivi International Pty Ltd",
+    "source_id": "www-vivi-io",
+    "note": null
+  },
+  {
+    "id": "wemoney.abn.88633007860",
+    "company_id": "wemoney",
+    "scheme": "abn",
+    "value": "88633007860",
+    "source_id": "www-wemoney-com-au",
+    "note": null
+  },
+  {
+    "id": "wemoney.acn.633007860",
+    "company_id": "wemoney",
+    "scheme": "acn",
+    "value": "633007860",
+    "source_id": "www-wemoney-com-au",
     "note": null
   }
 ]

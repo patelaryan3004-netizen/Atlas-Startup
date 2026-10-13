@@ -7491,5 +7491,2219 @@
       "warnings": [],
       "refused": []
     }
+  },
+  {
+    "id": "enq-adora-1",
+    "kind": "company",
+    "target_id": "adora",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:57.518Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:12.512Z",
+    "finished_at": "2026-10-13T13:25:19.373Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 2,
+      "added_fields": [
+        "founded_year"
+      ],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "founded_year"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-affinda-1",
+    "kind": "company",
+    "target_id": "affinda",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:57.676Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:12.642Z",
+    "finished_at": "2026-10-13T13:25:15.358Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 2,
+      "evidence_added": 0,
+      "evidence_refreshed": 2,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": [
+        {
+          "url": "https://www.affinda.com/privacy-and-data-protection-policy/",
+          "code": "robots_disallow"
+        },
+        {
+          "url": "https://www.affinda.com/website-terms/",
+          "code": "robots_disallow"
+        }
+      ]
+    }
+  },
+  {
+    "id": "enq-apromore-1",
+    "kind": "company",
+    "target_id": "apromore",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:57.840Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:12.786Z",
+    "finished_at": "2026-10-13T13:25:23.481Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 2,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description",
+        "company_status"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [
+        {
+          "code": "acquired_notice",
+          "detail": "the homepage says: \"ter. . Home Page V5 Apromore is now part of Salesforce! Learn more X × × Platform Core Differe\"",
+          "other": "Salesforce"
+        }
+      ],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "company_status"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-bellroy-1",
+    "kind": "company",
+    "target_id": "bellroy",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:58.006Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:15.449Z",
+    "finished_at": "2026-10-13T13:25:22.841Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-block-earner-1",
+    "kind": "company",
+    "target_id": "block-earner",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:58.143Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:19.458Z",
+    "finished_at": "2026-10-13T13:25:25.982Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 2,
+      "evidence_refreshed": 4,
+      "added_fields": [
+        "description",
+        "founded_year"
+      ],
+      "refreshed_fields": [
+        "website",
+        "address",
+        "state",
+        "city"
+      ],
+      "confirmed_fields": [
+        "website",
+        "founded_year",
+        "address",
+        "state",
+        "city"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-ceres-tag-1",
+    "kind": "company",
+    "target_id": "ceres-tag",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:58.295Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:22.941Z",
+    "finished_at": "2026-10-13T13:25:29.464Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-cortical-labs-1",
+    "kind": "company",
+    "target_id": "cortical-labs",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:58.483Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:23.617Z",
+    "finished_at": "2026-10-13T13:25:26.076Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 2,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-dovetail-1",
+    "kind": "company",
+    "target_id": "dovetail",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:58.695Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:26.172Z",
+    "finished_at": "2026-10-13T13:25:32.846Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-emesent-1",
+    "kind": "company",
+    "target_id": "emesent",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:58.895Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:26.248Z",
+    "finished_at": "2026-10-13T13:25:33.041Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 2,
+      "added_fields": [
+        "founded_year"
+      ],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "founded_year"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-fleetyr-1",
+    "kind": "company",
+    "target_id": "fleetyr",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:59.159Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:29.556Z",
+    "finished_at": "2026-10-13T13:25:29.887Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 1,
+      "evidence_added": 0,
+      "evidence_refreshed": 1,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-cand-harvest-b-1",
+    "kind": "candidate",
+    "target_id": "cand-harvest-b",
+    "status": "queued",
+    "priority": 4500,
+    "reason": "approved",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:59.260Z",
+    "created_by": "owner (via Claude)",
+    "not_before": "2026-10-13T13:36:26.587Z",
+    "attempts": 1,
+    "started_at": null,
+    "finished_at": null,
+    "lease_until": null,
+    "last_error": "robots_unavailable: fetch failed",
+    "result": null
+  },
+  {
+    "id": "enq-harvest-b-1",
+    "kind": "company",
+    "target_id": "harvest-b",
+    "status": "queued",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:59.337Z",
+    "created_by": "owner (via Claude)",
+    "not_before": "2026-10-13T13:35:30.121Z",
+    "attempts": 1,
+    "started_at": null,
+    "finished_at": null,
+    "lease_until": null,
+    "last_error": "robots_unavailable: fetch failed",
+    "result": null
+  },
+  {
+    "id": "enq-hello-clever-1",
+    "kind": "company",
+    "target_id": "hello-clever",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:59.528Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:30.195Z",
+    "finished_at": "2026-10-13T13:25:34.480Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 3,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-ignition-1",
+    "kind": "company",
+    "target_id": "ignition",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:59.708Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:32.934Z",
+    "finished_at": "2026-10-13T13:25:40.338Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 6,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state",
+        "founded_year",
+        "founders"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state",
+        "founded_year",
+        "founders"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-indebted-1",
+    "kind": "company",
+    "target_id": "indebted",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:23:59.848Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:33.135Z",
+    "finished_at": "2026-10-13T13:25:39.818Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 5,
+      "added_fields": [
+        "investors"
+      ],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state",
+        "city"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state",
+        "city"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "investors"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-index-1",
+    "kind": "company",
+    "target_id": "index",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.022Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:34.559Z",
+    "finished_at": "2026-10-13T13:25:41.328Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 7,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state",
+        "founded_year",
+        "founders"
+      ],
+      "confirmed_fields": [
+        "address",
+        "state",
+        "founded_year",
+        "founders",
+        "founders"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [
+        "website"
+      ],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-instant-1",
+    "kind": "company",
+    "target_id": "instant",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.187Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:39.888Z",
+    "finished_at": "2026-10-13T13:25:50.408Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 3,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "state"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [
+        "the site gives ABN 50642933462 and ACN 008651232, which do not belong to one company (a company's ABN ends with its ACN): they probably identify two legal entities, so check which is which before relying on either"
+      ],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-intelligencebank-1",
+    "kind": "company",
+    "target_id": "intelligencebank",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.336Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:40.423Z",
+    "finished_at": "2026-10-13T13:25:47.545Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 3,
+      "evidence_refreshed": 2,
+      "added_fields": [
+        "description",
+        "address",
+        "state"
+      ],
+      "refreshed_fields": [
+        "website",
+        "address"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-isaacus-1",
+    "kind": "company",
+    "target_id": "isaacus",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.517Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:41.415Z",
+    "finished_at": "2026-10-13T13:25:47.765Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-cand-liquid-instruments-1",
+    "kind": "candidate",
+    "target_id": "cand-liquid-instruments",
+    "status": "skipped",
+    "priority": 4500,
+    "reason": "approved",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.612Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:26.665Z",
+    "finished_at": "2026-10-13T13:26:26.744Z",
+    "lease_until": null,
+    "last_error": "robots_unavailable: robots.txt is access-controlled",
+    "result": {
+      "outcome": "refused",
+      "code": "robots_unavailable",
+      "refused": [
+        {
+          "url": "https://liquidinstruments.com/",
+          "code": "robots_unavailable"
+        }
+      ]
+    }
+  },
+  {
+    "id": "enq-liquid-instruments-1",
+    "kind": "company",
+    "target_id": "liquid-instruments",
+    "status": "skipped",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.699Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:47.619Z",
+    "finished_at": "2026-10-13T13:25:48.031Z",
+    "lease_until": null,
+    "last_error": "robots_unavailable: robots.txt is access-controlled",
+    "result": {
+      "outcome": "refused",
+      "code": "robots_unavailable",
+      "refused": [
+        {
+          "url": "https://liquidinstruments.com/",
+          "code": "robots_unavailable"
+        }
+      ]
+    }
+  },
+  {
+    "id": "enq-cand-livewire-1",
+    "kind": "candidate",
+    "target_id": "cand-livewire",
+    "status": "skipped",
+    "priority": 4500,
+    "reason": "approved",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.776Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:26.897Z",
+    "finished_at": "2026-10-13T13:26:27.141Z",
+    "lease_until": null,
+    "last_error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around",
+    "result": {
+      "outcome": "refused",
+      "code": "access_controlled",
+      "refused": [
+        {
+          "url": "https://livewiremarkets.com/",
+          "code": "access_controlled"
+        }
+      ]
+    }
+  },
+  {
+    "id": "enq-livewire-1",
+    "kind": "company",
+    "target_id": "livewire",
+    "status": "skipped",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:00.856Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:47.845Z",
+    "finished_at": "2026-10-13T13:25:48.371Z",
+    "lease_until": null,
+    "last_error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around",
+    "result": {
+      "outcome": "refused",
+      "code": "access_controlled",
+      "refused": [
+        {
+          "url": "https://livewiremarkets.com/",
+          "code": "access_controlled"
+        }
+      ]
+    }
+  },
+  {
+    "id": "enq-lombard-1",
+    "kind": "company",
+    "target_id": "lombard",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.010Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:48.102Z",
+    "finished_at": "2026-10-13T13:25:54.511Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 2,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-nutromics-1",
+    "kind": "company",
+    "target_id": "nutromics",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.177Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:48.441Z",
+    "finished_at": "2026-10-13T13:25:55.450Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 4,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-octopus-deploy-1",
+    "kind": "company",
+    "target_id": "octopus-deploy",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.322Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:50.495Z",
+    "finished_at": "2026-10-13T13:25:57.424Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 3,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description",
+        "address",
+        "state"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "address"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-qsic-1",
+    "kind": "company",
+    "target_id": "qsic",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.505Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:54.608Z",
+    "finished_at": "2026-10-13T13:26:01.750Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 4,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-reejig-1",
+    "kind": "company",
+    "target_id": "reejig",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.670Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:55.527Z",
+    "finished_at": "2026-10-13T13:26:08.319Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 2,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-relevance-ai-1",
+    "kind": "company",
+    "target_id": "relevance-ai",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.832Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:25:57.495Z",
+    "finished_at": "2026-10-13T13:26:03.881Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 1,
+      "added_fields": [
+        "description"
+      ],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-relume-1",
+    "kind": "company",
+    "target_id": "relume",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:01.962Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:01.825Z",
+    "finished_at": "2026-10-13T13:26:08.575Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 3,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "founded_year"
+      ],
+      "confirmed_fields": [
+        "website",
+        "founded_year"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-roller-1",
+    "kind": "company",
+    "target_id": "roller",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:02.121Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:03.985Z",
+    "finished_at": "2026-10-13T13:26:12.780Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 3,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "founded_year"
+      ],
+      "confirmed_fields": [
+        "website",
+        "founded_year"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-send-payments-1",
+    "kind": "company",
+    "target_id": "send-payments",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:02.282Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:08.387Z",
+    "finished_at": "2026-10-13T13:26:09.375Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 1,
+      "evidence_added": 0,
+      "evidence_refreshed": 1,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-simpro-1",
+    "kind": "company",
+    "target_id": "simpro",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:02.445Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:08.653Z",
+    "finished_at": "2026-10-13T13:26:14.238Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 3,
+      "evidence_added": 0,
+      "evidence_refreshed": 1,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-syenta-1",
+    "kind": "company",
+    "target_id": "syenta",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:02.618Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:09.490Z",
+    "finished_at": "2026-10-13T13:26:12.884Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 2,
+      "evidence_added": 0,
+      "evidence_refreshed": 2,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-tribe-1",
+    "kind": "company",
+    "target_id": "tribe",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:02.764Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:12.962Z",
+    "finished_at": "2026-10-13T13:26:19.749Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 4,
+      "added_fields": [
+        "founded_year"
+      ],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "founded_year"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-upcover-1",
+    "kind": "company",
+    "target_id": "upcover",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:02.925Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:13.033Z",
+    "finished_at": "2026-10-13T13:26:20.085Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 1,
+      "evidence_refreshed": 4,
+      "added_fields": [
+        "address"
+      ],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-vivi-1",
+    "kind": "company",
+    "target_id": "vivi",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:03.070Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:14.304Z",
+    "finished_at": "2026-10-13T13:26:44.906Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 2,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description"
+      ],
+      "confirmed_fields": [
+        "website"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-wemoney-1",
+    "kind": "company",
+    "target_id": "wemoney",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:03.190Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:19.838Z",
+    "finished_at": "2026-10-13T13:26:26.414Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 4,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [
+        "state"
+      ],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
+  },
+  {
+    "id": "enq-alloy-robotics-1",
+    "kind": "company",
+    "target_id": "alloy-robotics",
+    "status": "done",
+    "priority": 5000,
+    "reason": "published",
+    "wanted": [
+      "website",
+      "description",
+      "address",
+      "city",
+      "state",
+      "founded_year",
+      "founders",
+      "investors",
+      "hiring_status",
+      "jobs"
+    ],
+    "max_pages": null,
+    "created_at": "2026-10-13T13:24:25.039Z",
+    "created_by": "owner (via Claude)",
+    "not_before": null,
+    "attempts": 0,
+    "started_at": "2026-10-13T13:26:20.160Z",
+    "finished_at": "2026-10-13T13:26:26.825Z",
+    "lease_until": null,
+    "last_error": null,
+    "result": {
+      "outcome": "read",
+      "pages": 4,
+      "evidence_added": 0,
+      "evidence_refreshed": 4,
+      "added_fields": [],
+      "refreshed_fields": [
+        "website",
+        "description",
+        "address",
+        "state"
+      ],
+      "confirmed_fields": [
+        "website",
+        "address",
+        "state"
+      ],
+      "status_signals": [],
+      "applied": [
+        "description"
+      ],
+      "suggested": [],
+      "conflicts": [],
+      "held": [],
+      "jobs": {
+        "added": 0,
+        "updated": 0,
+        "closed": 0
+      },
+      "warnings": [],
+      "refused": []
+    }
   }
 ]

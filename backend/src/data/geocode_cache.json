@@ -6102,5 +6102,424 @@
     "result": null,
     "fetched_at": "2026-10-06T16:34:08.237Z",
     "expires_at": "2027-01-04T16:34:08.237Z"
+  },
+  {
+    "id": "nominatim:54-66 wentworth ave surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "54-66 Wentworth Ave, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8793194,
+      "lng": 151.2102585,
+      "display_name": "54-66, Wentworth Avenue, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "way",
+      "osm_id": 540509396,
+      "class": "building",
+      "type": "commercial",
+      "addresstype": "building",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "54-66",
+        "road": "Wentworth Avenue",
+        "suburb": "Surry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8795065",
+        "-33.8791268",
+        "151.2100741",
+        "151.2104241"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:19.828Z",
+    "expires_at": "2027-10-13T13:29:19.828Z"
+  },
+  {
+    "id": "nominatim:333 kent st sydney nsw 2000 australia",
+    "provider": "nominatim",
+    "query": "333 Kent St, Sydney, NSW, 2000, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -33.8590236,
+      "lng": 151.2035733,
+      "display_name": "Kent Street, Millers Point, Sydney, New South Wales, 2000, Australia",
+      "osm_type": "way",
+      "osm_id": 150425274,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "road",
+      "importance": 0.05341579385061414,
+      "address": {
+        "road": "Kent Street",
+        "suburb": "Millers Point",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8596838",
+        "-33.8583644",
+        "151.2035216",
+        "151.2036161"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:20.743Z",
+    "expires_at": "2027-10-13T13:29:20.743Z"
+  },
+  {
+    "id": "nominatim:265 riley street surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "265 Riley Street, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8816676,
+      "lng": 151.213324,
+      "display_name": "263-265, Riley Street, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "way",
+      "osm_id": 587457672,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "263-265",
+        "road": "Riley Street",
+        "suburb": "Surry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8817255",
+        "-33.8816194",
+        "151.2132475",
+        "151.2133943"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:22.615Z",
+    "expires_at": "2027-10-13T13:29:22.615Z"
+  },
+  {
+    "id": "nominatim:40 city rd southbank vic 3006 australia",
+    "provider": "nominatim",
+    "query": "40 City Rd, Southbank, VIC, 3006, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8210013,
+      "lng": 144.9667421,
+      "display_name": "HWT Tower, 40, City Road, Southbank, Melbourne, Victoria, 3006, Australia",
+      "osm_type": "way",
+      "osm_id": 27165313,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "40",
+        "road": "City Road",
+        "suburb": "Southbank",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3006",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8212516",
+        "-37.8207744",
+        "144.9664841",
+        "144.9669991"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:23.888Z",
+    "expires_at": "2027-10-13T13:29:23.888Z"
+  },
+  {
+    "id": "nominatim:420 victoria street brunswick vic 3056 australia",
+    "provider": "nominatim",
+    "query": "420 Victoria Street, Brunswick, VIC, 3056, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.7665943,
+      "lng": 144.9566828,
+      "display_name": "Brunswick Business Incubator, 420, Victoria Street, Brunswick, Melbourne, Victoria, 3056, Australia",
+      "osm_type": "way",
+      "osm_id": 32746125,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "420",
+        "road": "Victoria Street",
+        "suburb": "Brunswick",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3056",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.7667242",
+        "-37.7664646",
+        "144.9560178",
+        "144.9573480"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:24.548Z",
+    "expires_at": "2027-10-13T13:29:24.548Z"
+  },
+  {
+    "id": "nominatim:145 little smith street fitzroy vic 3065 australia",
+    "provider": "nominatim",
+    "query": "145 Little Smith Street, Fitzroy, VIC, 3065, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.8051825,
+      "lng": 144.9825847,
+      "display_name": "Little Smith Street, Fitzroy, Melbourne, Victoria, 3065, Australia",
+      "osm_type": "way",
+      "osm_id": 27522359,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "road",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Little Smith Street",
+        "suburb": "Fitzroy",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3065",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8062935",
+        "-37.8040716",
+        "144.9824059",
+        "144.9827647"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:26.311Z",
+    "expires_at": "2027-10-13T13:29:26.311Z"
+  },
+  {
+    "id": "nominatim:145 clarendon st southbank vic 3006 australia",
+    "provider": "nominatim",
+    "query": "145 Clarendon St, Southbank, VIC, 3006, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8287694,
+      "lng": 144.958831,
+      "display_name": "143-145, Clarendon Street, Southbank, Melbourne, Victoria, 3006, Australia",
+      "osm_type": "node",
+      "osm_id": 2682666727,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "143-145",
+        "road": "Clarendon Street",
+        "suburb": "Southbank",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3006",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8288194",
+        "-37.8287194",
+        "144.9587810",
+        "144.9588810"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:26.894Z",
+    "expires_at": "2027-10-13T13:29:26.894Z"
+  },
+  {
+    "id": "nominatim:300 barangaroo ave barangaroo nsw 2000 australia",
+    "provider": "nominatim",
+    "query": "300 Barangaroo Ave, Barangaroo, NSW, 2000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8651207,
+      "lng": 151.2020826,
+      "display_name": "Sanofi, 300, Barangaroo Avenue, Barangaroo, Sydney, New South Wales, 2000, Australia",
+      "osm_type": "node",
+      "osm_id": 13909093976,
+      "class": "office",
+      "type": "company",
+      "addresstype": "office",
+      "importance": 0.5521352024698181,
+      "address": {
+        "house_number": "300",
+        "road": "Barangaroo Avenue",
+        "suburb": "Barangaroo",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8651707",
+        "-33.8650707",
+        "151.2020326",
+        "151.2021326"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:28.708Z",
+    "expires_at": "2027-10-13T13:29:28.708Z"
+  },
+  {
+    "id": "nominatim:46 kippax street surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "46 Kippax Street, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8847314,
+      "lng": 151.2097992,
+      "display_name": "46, Kippax Street, Strawberry Hills, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "node",
+      "osm_id": 10679626453,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "46",
+        "road": "Kippax Street",
+        "suburb": "Surry Hills",
+        "neighbourhood": "Strawberry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8847814",
+        "-33.8846814",
+        "151.2097492",
+        "151.2098492"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:29.359Z",
+    "expires_at": "2027-10-13T13:29:29.359Z"
+  },
+  {
+    "id": "nominatim:199 grey street south brisbane qld 4101 australia",
+    "provider": "nominatim",
+    "query": "199 Grey Street, South Brisbane, QLD, 4101, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -27.4806526,
+      "lng": 153.022608,
+      "display_name": "199, Grey Street, South Bank, South Brisbane, Brisbane, Queensland, 4101, Australia",
+      "osm_type": "way",
+      "osm_id": 71185202,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00007694132906076169,
+      "address": {
+        "house_number": "199",
+        "road": "Grey Street",
+        "suburb": "South Brisbane",
+        "neighbourhood": "South Bank",
+        "city_district": "South Brisbane",
+        "city": "Brisbane",
+        "state": "Queensland",
+        "postcode": "4101",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-27.4810009",
+        "-27.4803623",
+        "153.0223144",
+        "153.0229367"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:29:30.615Z",
+    "expires_at": "2027-10-13T13:29:30.615Z"
+  },
+  {
+    "id": "nominatim:23 foster street surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "23 Foster Street, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -33.8797985,
+      "lng": 151.2102246,
+      "display_name": "Foster Street, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "way",
+      "osm_id": 772273239,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "road",
+      "importance": 0.05341579385061414,
+      "address": {
+        "road": "Foster Street",
+        "suburb": "Surry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8801922",
+        "-33.8794054",
+        "151.2099027",
+        "151.2105473"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:35:24.186Z",
+    "expires_at": "2027-10-13T13:35:24.186Z"
+  },
+  {
+    "id": "nominatim:63-73 ann street surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "63-73 Ann Street, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -33.8822001,
+      "lng": 151.2120601,
+      "display_name": "Ann Street, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "way",
+      "osm_id": 173486856,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "road",
+      "importance": 0.05341579385061414,
+      "address": {
+        "road": "Ann Street",
+        "suburb": "Surry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8824006",
+        "-33.8820882",
+        "151.2108076",
+        "151.2133075"
+      ]
+    },
+    "fetched_at": "2026-10-13T13:35:25.800Z",
+    "expires_at": "2027-10-13T13:35:25.800Z"
   }
 ]

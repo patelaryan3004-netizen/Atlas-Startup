@@ -8180,5 +8180,4582 @@
         "to": "unavailable"
       }
     ]
+  },
+  {
+    "id": "aud-20261013132013328-1",
+    "at": "2026-10-13T13:20:13.328Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "import.run",
+    "target": {
+      "type": "import_run",
+      "id": "run-20261013132013324"
+    },
+    "summary": "Ran discovery: 36 new candidate(s), 0 attached, 0 seen before",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132153216-1",
+    "at": "2026-10-13T13:21:53.216Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.distinct",
+    "target": {
+      "type": "candidate",
+      "id": "cand-alloy-robotics"
+    },
+    "summary": "Confirmed Alloy Robotics is not alloy",
+    "reason": "Not confirmed to be the existing 'Alloy' (no website; Level 6, 283 Clarence St, Sydney): this one's own pages give 604/46 Kippax Street, Surry Hills and do not mention that address. Check whether the existing record is one of these.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132153446-1",
+    "at": "2026-10-13T13:21:53.446Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.distinct",
+    "target": {
+      "type": "candidate",
+      "id": "cand-index"
+    },
+    "summary": "Confirmed Index is not alloy",
+    "reason": "Not confirmed to be the existing 'Alloy' (no website; Level 6, 283 Clarence St, Sydney): this site (index.inc, now alloy.app/planning) gives no address on the pages read. Check whether the existing record is this one.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132158292-1",
+    "at": "2026-10-13T13:21:58.292Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-alloy-robotics"
+    },
+    "summary": "Read the website of Alloy Robotics",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132203275-1",
+    "at": "2026-10-13T13:22:03.275Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-index"
+    },
+    "summary": "Read the website of Index",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132221225-1",
+    "at": "2026-10-13T13:22:21.225Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.distinct",
+    "target": {
+      "type": "candidate",
+      "id": "cand-index"
+    },
+    "summary": "Confirmed Index is not cand-alloy-robotics",
+    "reason": "Different companies: alloy.app (Index Technologies Pty Ltd, Alloy Planning, 265 Riley Street Surry Hills) and usealloy.ai (Alloy Technologies Operations Pty Ltd, robotics data, 604/46 Kippax Street Surry Hills).",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132320329-1",
+    "at": "2026-10-13T13:23:20.329Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.edit",
+    "target": {
+      "type": "candidate",
+      "id": "owner-leads-2026-10-14"
+    },
+    "summary": "Kept only each company's own names (and one corrected ACN) on 23 candidate(s) added from the lead list",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357443-1",
+    "at": "2026-10-13T13:23:57.443Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-adora"
+    },
+    "summary": "Approved Adora",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357543-1",
+    "at": "2026-10-13T13:23:57.543Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-adora"
+    },
+    "summary": "Published Adora as adora (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357634-1",
+    "at": "2026-10-13T13:23:57.634Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-affinda"
+    },
+    "summary": "Approved Affinda",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357710-1",
+    "at": "2026-10-13T13:23:57.710Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-affinda"
+    },
+    "summary": "Published Affinda as affinda (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357788-1",
+    "at": "2026-10-13T13:23:57.788Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-apromore"
+    },
+    "summary": "Approved Apromore",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357872-1",
+    "at": "2026-10-13T13:23:57.872Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-apromore"
+    },
+    "summary": "Published Apromore as apromore (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132357956-1",
+    "at": "2026-10-13T13:23:57.956Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-bellroy"
+    },
+    "summary": "Approved Bellroy",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358029-1",
+    "at": "2026-10-13T13:23:58.029Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-bellroy"
+    },
+    "summary": "Published Bellroy as bellroy (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358102-1",
+    "at": "2026-10-13T13:23:58.102Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-block-earner"
+    },
+    "summary": "Approved Block Earner",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358169-1",
+    "at": "2026-10-13T13:23:58.169Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-block-earner"
+    },
+    "summary": "Published Block Earner as block-earner (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358253-1",
+    "at": "2026-10-13T13:23:58.253Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ceres-tag"
+    },
+    "summary": "Approved Ceres Tag",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358324-1",
+    "at": "2026-10-13T13:23:58.324Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ceres-tag"
+    },
+    "summary": "Published Ceres Tag as ceres-tag (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358418-1",
+    "at": "2026-10-13T13:23:58.418Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-cortical-labs"
+    },
+    "summary": "Approved Cortical Labs",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358522-1",
+    "at": "2026-10-13T13:23:58.522Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-cortical-labs"
+    },
+    "summary": "Published Cortical Labs as cortical-labs (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358641-1",
+    "at": "2026-10-13T13:23:58.641Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-dovetail"
+    },
+    "summary": "Approved Dovetail",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358727-1",
+    "at": "2026-10-13T13:23:58.727Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-dovetail"
+    },
+    "summary": "Published Dovetail as dovetail (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358846-1",
+    "at": "2026-10-13T13:23:58.846Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-emesent"
+    },
+    "summary": "Approved Emesent",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132358942-1",
+    "at": "2026-10-13T13:23:58.942Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-emesent"
+    },
+    "summary": "Published Emesent as emesent (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359082-1",
+    "at": "2026-10-13T13:23:59.082Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-fleetyr"
+    },
+    "summary": "Approved Fleetyr",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359194-1",
+    "at": "2026-10-13T13:23:59.194Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-fleetyr"
+    },
+    "summary": "Published Fleetyr as fleetyr (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359291-1",
+    "at": "2026-10-13T13:23:59.291Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-harvest-b"
+    },
+    "summary": "Approved Harvest B; website queued for reading",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359370-1",
+    "at": "2026-10-13T13:23:59.370Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-harvest-b"
+    },
+    "summary": "Published Harvest B as harvest-b (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359473-1",
+    "at": "2026-10-13T13:23:59.473Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-hello-clever"
+    },
+    "summary": "Approved Hello Clever",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359557-1",
+    "at": "2026-10-13T13:23:59.557Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-hello-clever"
+    },
+    "summary": "Published Hello Clever as hello-clever (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359654-1",
+    "at": "2026-10-13T13:23:59.654Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ignition"
+    },
+    "summary": "Approved Ignition",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359736-1",
+    "at": "2026-10-13T13:23:59.736Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ignition"
+    },
+    "summary": "Published Ignition as ignition (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359807-1",
+    "at": "2026-10-13T13:23:59.807Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-indebted"
+    },
+    "summary": "Approved InDebted",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359873-1",
+    "at": "2026-10-13T13:23:59.873Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-indebted"
+    },
+    "summary": "Published InDebted as indebted (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132359968-1",
+    "at": "2026-10-13T13:23:59.968Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-index"
+    },
+    "summary": "Approved Index",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400062-1",
+    "at": "2026-10-13T13:24:00.062Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-index"
+    },
+    "summary": "Published Index as index (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400142-1",
+    "at": "2026-10-13T13:24:00.142Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-instant"
+    },
+    "summary": "Approved Instant",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400212-1",
+    "at": "2026-10-13T13:24:00.212Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-instant"
+    },
+    "summary": "Published Instant as instant (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400295-1",
+    "at": "2026-10-13T13:24:00.295Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-intelligencebank"
+    },
+    "summary": "Approved IntelligenceBank",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400362-1",
+    "at": "2026-10-13T13:24:00.362Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-intelligencebank"
+    },
+    "summary": "Published IntelligenceBank as intelligencebank (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400463-1",
+    "at": "2026-10-13T13:24:00.463Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-isaacus"
+    },
+    "summary": "Approved Isaacus",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400556-1",
+    "at": "2026-10-13T13:24:00.556Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-isaacus"
+    },
+    "summary": "Published Isaacus as isaacus (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400640-1",
+    "at": "2026-10-13T13:24:00.640Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-liquid-instruments"
+    },
+    "summary": "Approved Liquid Instruments; website queued for reading",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400726-1",
+    "at": "2026-10-13T13:24:00.726Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-liquid-instruments"
+    },
+    "summary": "Published Liquid Instruments as liquid-instruments (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400804-1",
+    "at": "2026-10-13T13:24:00.804Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-livewire"
+    },
+    "summary": "Approved Livewire; website queued for reading",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400883-1",
+    "at": "2026-10-13T13:24:00.883Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-livewire"
+    },
+    "summary": "Published Livewire as livewire (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132400975-1",
+    "at": "2026-10-13T13:24:00.975Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-lombard"
+    },
+    "summary": "Approved Lombard",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401038-1",
+    "at": "2026-10-13T13:24:01.038Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-lombard"
+    },
+    "summary": "Published Lombard as lombard (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401131-1",
+    "at": "2026-10-13T13:24:01.131Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-nutromics"
+    },
+    "summary": "Approved Nutromics",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401205-1",
+    "at": "2026-10-13T13:24:01.205Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-nutromics"
+    },
+    "summary": "Published Nutromics as nutromics (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401284-1",
+    "at": "2026-10-13T13:24:01.284Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-octopus-deploy"
+    },
+    "summary": "Approved Octopus Deploy",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401352-1",
+    "at": "2026-10-13T13:24:01.352Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-octopus-deploy"
+    },
+    "summary": "Published Octopus Deploy as octopus-deploy (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401447-1",
+    "at": "2026-10-13T13:24:01.447Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-qsic"
+    },
+    "summary": "Approved Qsic",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401540-1",
+    "at": "2026-10-13T13:24:01.540Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-qsic"
+    },
+    "summary": "Published Qsic as qsic (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401619-1",
+    "at": "2026-10-13T13:24:01.619Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-reejig"
+    },
+    "summary": "Approved Reejig",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401699-1",
+    "at": "2026-10-13T13:24:01.699Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-reejig"
+    },
+    "summary": "Published Reejig as reejig (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401792-1",
+    "at": "2026-10-13T13:24:01.792Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-relevance-ai"
+    },
+    "summary": "Approved Relevance AI",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401856-1",
+    "at": "2026-10-13T13:24:01.856Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-relevance-ai"
+    },
+    "summary": "Published Relevance AI as relevance-ai (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401929-1",
+    "at": "2026-10-13T13:24:01.929Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-relume"
+    },
+    "summary": "Approved Relume",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132401986-1",
+    "at": "2026-10-13T13:24:01.986Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-relume"
+    },
+    "summary": "Published Relume as relume (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402053-1",
+    "at": "2026-10-13T13:24:02.053Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-roller"
+    },
+    "summary": "Approved ROLLER",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402149-1",
+    "at": "2026-10-13T13:24:02.149Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-roller"
+    },
+    "summary": "Published ROLLER as roller (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402233-1",
+    "at": "2026-10-13T13:24:02.233Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-send-payments"
+    },
+    "summary": "Approved Send Payments",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402312-1",
+    "at": "2026-10-13T13:24:02.312Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-send-payments"
+    },
+    "summary": "Published Send Payments as send-payments (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402402-1",
+    "at": "2026-10-13T13:24:02.402Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-simpro"
+    },
+    "summary": "Approved Simpro",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402471-1",
+    "at": "2026-10-13T13:24:02.471Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-simpro"
+    },
+    "summary": "Published Simpro as simpro (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402556-1",
+    "at": "2026-10-13T13:24:02.556Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-syenta"
+    },
+    "summary": "Approved Syenta",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402651-1",
+    "at": "2026-10-13T13:24:02.651Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-syenta"
+    },
+    "summary": "Published Syenta as syenta (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402729-1",
+    "at": "2026-10-13T13:24:02.729Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-tribe"
+    },
+    "summary": "Approved TRIBE",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402789-1",
+    "at": "2026-10-13T13:24:02.789Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-tribe"
+    },
+    "summary": "Published TRIBE as tribe (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402887-1",
+    "at": "2026-10-13T13:24:02.887Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-upcover"
+    },
+    "summary": "Approved upcover",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132402952-1",
+    "at": "2026-10-13T13:24:02.952Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-upcover"
+    },
+    "summary": "Published upcover as upcover (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132403024-1",
+    "at": "2026-10-13T13:24:03.024Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-vivi"
+    },
+    "summary": "Approved Vivi",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132403094-1",
+    "at": "2026-10-13T13:24:03.094Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-vivi"
+    },
+    "summary": "Published Vivi as vivi (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132403158-1",
+    "at": "2026-10-13T13:24:03.158Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-wemoney"
+    },
+    "summary": "Approved WeMoney",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132403215-1",
+    "at": "2026-10-13T13:24:03.215Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-wemoney"
+    },
+    "summary": "Published WeMoney as wemoney (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132424479-1",
+    "at": "2026-10-13T13:24:24.479Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.distinct",
+    "target": {
+      "type": "candidate",
+      "id": "cand-alloy-robotics"
+    },
+    "summary": "Confirmed Alloy Robotics is not cand-index",
+    "reason": "Different companies: usealloy.ai (Alloy Technologies Operations Pty Ltd, robotics data) and alloy.app (Index Technologies Pty Ltd, Alloy Planning).",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132424733-1",
+    "at": "2026-10-13T13:24:24.733Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.distinct",
+    "target": {
+      "type": "candidate",
+      "id": "cand-alloy-robotics"
+    },
+    "summary": "Confirmed Alloy Robotics is not index",
+    "reason": "Different companies (the published Index, alloy.app).",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132424978-1",
+    "at": "2026-10-13T13:24:24.978Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-alloy-robotics"
+    },
+    "summary": "Approved Alloy Robotics",
+    "reason": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132425064-1",
+    "at": "2026-10-13T13:24:25.064Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-alloy-robotics"
+    },
+    "summary": "Published Alloy Robotics as alloy-robotics (unconfirmed location: listed, not on the map); queued for enrichment",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132433556-1",
+    "at": "2026-10-13T13:24:33.556Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "adora"
+    },
+    "summary": "Set Adora's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…Get started Get started Adora Privacy Policy Adora Software Pty Ltd (ACN 671 450 650) of Level 16/80 Collins Street, So); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.adora.ai/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:33.556Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132433758-1",
+    "at": "2026-10-13T13:24:33.758Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "affinda"
+    },
+    "summary": "Set Affinda's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…ies 120+ Global employees Our story Who we are Affinda was founded by Melbourne-based brothers Ben and Tim Toner in 201); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.affinda.com/about-us/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:33.758Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132433993-1",
+    "at": "2026-10-13T13:24:33.993Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "alloy-robotics"
+    },
+    "summary": "Set Alloy Robotics's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…erations Pty Ltd (ACN 684 502 332) 604/46 Kippax Street, Surry Hills, NSW 2010, Australia Email: hello@usealloy.ai Last); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.usealloy.ai/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:33.993Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132434206-1",
+    "at": "2026-10-13T13:24:34.206Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "apromore"
+    },
+    "summary": "Set Apromore's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…d Use Cases Global focus Apromore has an international reach with its headquarters in Melbourne and presence in New Yor); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://apromore.com/about-us"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:34.206Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132434409-1",
+    "at": "2026-10-13T13:24:34.409Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "bellroy"
+    },
+    "summary": "Set Bellroy's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…are ‘we’? When we talk about “we” (or “our” or “us”), we mean Bellroy Pty Ltd and all its wholly owned subsidiaries. We); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://bellroy.com/customer-care/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:34.409Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132434604-1",
+    "at": "2026-10-13T13:24:34.604Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "block-earner"
+    },
+    "summary": "Set Block Earner's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…m.au Address: Block Earner c/o The Commons, Suite 33, 39 Martin Place Sydney, NSW 2000 Australia Last Update: 9 Decembe); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://blockearner.com.au/privacy-policy/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:34.604Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132434868-1",
+    "at": "2026-10-13T13:24:34.868Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "ceres-tag"
+    },
+    "summary": "Set Ceres Tag's location (STATE)",
+    "reason": "Its own page puts it in QLD (…d to activate the CERES RANCH Device. \"CERES TAG\" means CERES TAG LTD ABN 51 614 436 467. \"CERES TAG Products\" means CE); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "state",
+        "from": null,
+        "to": "QLD"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "STATE"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://cerestag.com/terms-of-service"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:34.868Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132437052-1",
+    "at": "2026-10-13T13:24:37.052Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "cortical-labs"
+    },
+    "summary": "Set Cortical Labs's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…eneration of biological computers. We're a revolutionary biotech firm based in Melbourne, Australia. Brett Kagan, PhD C); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://corticallabs.com/company"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:37.052Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132437883-1",
+    "at": "2026-10-13T13:24:37.883Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "dovetail"
+    },
+    "summary": "Set Dovetail's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…d recharge. Join Tommy, as he takes you on a grand tour of Dovetail’s headquarters in Sydney. A look back on Dovetail i); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://dovetail.com/careers/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:37.883Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132438211-1",
+    "at": "2026-10-13T13:24:38.211Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "emesent"
+    },
+    "summary": "Set Emesent's location (CITY)",
+    "reason": "Its own page puts it in Brisbane (…ocations Head Office Level 1, North Tower 339 Coronation Drive Milton QLD 4064 AUSTRALIA Phone: +61 7 3548 9494 For del); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Brisbane"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "QLD"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.emesent.com/contact-us/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:38.211Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132438513-1",
+    "at": "2026-10-13T13:24:38.513Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "fleetyr"
+    },
+    "summary": "Set Fleetyr's location (CITY)",
+    "reason": "A press page puts it in Brisbane (The Driven calls it an Australian start-up with new funding for its fleet-management platform; other reports place it in); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Brisbane"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "QLD"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "credible_profile"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://thedriven.io/2025/03/19/australian-start-up-lands-new-funding-for-ai-driven-ev-fleet-management-platform/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:38.513Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132438826-1",
+    "at": "2026-10-13T13:24:38.826Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "harvest-b"
+    },
+    "summary": "Set Harvest B's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…ere to buy? Stockist Where to buy? Product Catalogue © 2025 Harvest B Pty Ltd. All Rights Reserved. Harvest B operates ); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.harvestb.io"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:38.826Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132439086-1",
+    "at": "2026-10-13T13:24:39.086Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "hello-clever"
+    },
+    "summary": "Set Hello Clever's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…og Acknowledgement Hello Clever services are provided by Hello Clever Pty Ltd (ABN 69 637 950 497). Copyright Hello Cle); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://helloclever.co"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:39.086Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132439297-1",
+    "at": "2026-10-13T13:24:39.297Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "ignition"
+    },
+    "summary": "Set Ignition's location (CITY)",
+    "reason": "Its own page puts it in Sydney (schema.org address on the page: Surry Hills, NSW); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.ignitionapp.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:39.297Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132439620-1",
+    "at": "2026-10-13T13:24:39.620Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "indebted"
+    },
+    "summary": "Set InDebted's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…Complaints Policies Call Us 1800 951 414 Address Level 14/333 Kent St Sydney NSW 2000 Australia Australia Australia Can); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.indebted.co/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:39.620Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132439911-1",
+    "at": "2026-10-13T13:24:39.911Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "index"
+    },
+    "summary": "Set Index's location (CITY)",
+    "reason": "A press page puts it in Sydney (Startup Daily calls it 'Sydney startup Index' (A$3.5M seed led by Blackbird and Bain Capital Ventures; founders Simon Ku); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "credible_profile"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.startupdaily.net/topic/funding/canva-and-atlassian-alumni-raise-3-5-million-seed-round-for-their-product-management-startup/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:39.911Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132440121-1",
+    "at": "2026-10-13T13:24:40.121Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "intelligencebank"
+    },
+    "summary": "Set IntelligenceBank's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…IntelligenceBank Pty Ltd, Level 5 HWT Tower, 40 City Road, Southbank VIC 3006, Australia. IntelligenceBank will process); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://intelligencebank.com/privacy/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:40.121Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132440348-1",
+    "at": "2026-10-13T13:24:40.348Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "isaacus"
+    },
+    "summary": "Set Isaacus's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…Legal RAG Bench , Open Australian Legal Corpus , and semchunk . We’re based in Melbourne, Australia, and Riyadh, Saudi ); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://isaacus.com/about"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:40.348Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132440542-1",
+    "at": "2026-10-13T13:24:40.542Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "liquid-instruments"
+    },
+    "summary": "Set Liquid Instruments's location (CITY)",
+    "reason": "A press page puts it in Canberra (ANU says Liquid Instruments is an ANU spin-out (founded 2014) that raised A$70M in a Series C co-led by Keysight and the); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Canberra"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "ACT"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "credible_profile"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.anu.edu.au/news/all-news/anu-spin-out-liquid-instruments-secures-70-million-to-advance-ai-driven-tech"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:40.542Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132440760-1",
+    "at": "2026-10-13T13:24:40.760Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "nutromics"
+    },
+    "summary": "Set Nutromics's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…tact © 2023 Nutromics. All Rights Reserved • Privacy Policy Nutromics Pty Ltd, 420 Victoria Street, Brunswick, VIC 3056); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.nutromics.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:40.760Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132441021-1",
+    "at": "2026-10-13T13:24:41.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "octopus-deploy"
+    },
+    "summary": "Set Octopus Deploy's location (CITY)",
+    "reason": "Its own page puts it in Brisbane (schema.org address on the page: South Brisbane, QLD); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Brisbane"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "QLD"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://octopus.com"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:41.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132441220-1",
+    "at": "2026-10-13T13:24:41.220Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "qsic"
+    },
+    "summary": "Set Qsic's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…TX 75201 Australia +61 1300 113 279 145 Little Smith Street, Fitzroy VIC 3065 Contact Emails General hi@getqsic.com Sup); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.getqsic.com/contact"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:41.220Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132441426-1",
+    "at": "2026-10-13T13:24:41.426Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "reejig"
+    },
+    "summary": "Set Reejig's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…es \"). In this Privacy Policy, Reejig , we , us , or our means Reejig Pty Ltd., ABN 75 631 012 318, a private limited c); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.reejig.com/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:41.426Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132441649-1",
+    "at": "2026-10-13T13:24:41.649Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "relevance-ai"
+    },
+    "summary": "Set Relevance AI's location (CITY)",
+    "reason": "Its own page puts it in Sydney (…n Q&A. Watch the webinar The home of the AI Workforce © 2026 OnSearch Pty Ltd T/A Relevance AI. All rights reserved. Us); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://relevanceai.com"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:41.649Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132441848-1",
+    "at": "2026-10-13T13:24:41.848Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "relume"
+    },
+    "summary": "Set Relume's location (CITY)",
+    "reason": "Its own page puts it in Sydney (schema.org address on the page: Sydney, NSW); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.relume.ai/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:41.848Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132442090-1",
+    "at": "2026-10-13T13:24:42.090Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "roller"
+    },
+    "summary": "Set ROLLER's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…r’s contact information Roller’s contact information: Roller Networks Pty Ltd PO Box 562 South Melbourne, 3205 Australi); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.roller.software/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:42.090Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132442318-1",
+    "at": "2026-10-13T13:24:42.318Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "simpro"
+    },
+    "summary": "Set Simpro's location (CITY)",
+    "reason": "A press page puts it in Brisbane (Wikipedia says Simpro was founded in Brisbane in 2002; an announcement of its North America HQ in Miami calls it 'the Br); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Brisbane"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "QLD"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "credible_profile"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://en.wikipedia.org/wiki/Simpro"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:42.318Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132442545-1",
+    "at": "2026-10-13T13:24:42.545Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "syenta"
+    },
+    "summary": "Set Syenta's location (CITY)",
+    "reason": "A press page puts it in Canberra (pv magazine Australia headlines it as a Canberra startup making 3D electronics printers (formerly Spark3D, an ANU spin-o); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Canberra"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "ACT"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "credible_profile"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.pv-magazine-australia.com/2022/12/21/canberra-startup-develops-3d-electronics-printer-with-potential-to-reshape-pv-battery-manufacturing-and-performance/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:42.545Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132442743-1",
+    "at": "2026-10-13T13:24:42.743Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "tribe"
+    },
+    "summary": "Set TRIBE's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (schema.org address on the page: South Melbourne, VIC); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.tribegroup.co/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:42.743Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132442939-1",
+    "at": "2026-10-13T13:24:42.939Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "upcover"
+    },
+    "summary": "Set upcover's location (CITY)",
+    "reason": "Its own page puts it in Sydney (schema.org address on the page: Barangaroo, NSW); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.upcover.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:42.939Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132443138-1",
+    "at": "2026-10-13T13:24:43.138Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "vivi"
+    },
+    "summary": "Set Vivi's location (CITY)",
+    "reason": "Its own page puts it in Melbourne (…sellers Press Blog Request a Demo Follow us © 2026 Vivi International Pty Ltd Privacy Policy Terms of Service Please wa); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Melbourne"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "VIC"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.vivi.io/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:24:43.138Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132515358-1",
+    "at": "2026-10-13T13:25:15.358Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "affinda"
+    },
+    "summary": "Read affinda.com: 0 evidence added; 2 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Affinda is an AI platform for intelligent document processing (IDP) — resume parsing, invoice processing, ID extraction, and more."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132519373-1",
+    "at": "2026-10-13T13:25:19.373Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "adora"
+    },
+    "summary": "Read adora.ai: 1 evidence added; 2 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Every user-journey, every screen, every interaction. Your entire product mapped for you in real-time, overlaid with analytics and replays."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132522841-1",
+    "at": "2026-10-13T13:25:22.841Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "bellroy"
+    },
+    "summary": "Read bellroy.com: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Bellroy puts its heart, soul and countless design hours into helping the world carry with simplicity and ease. Every piece has been deeply considered, for the best of life's little moments."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132523481-1",
+    "at": "2026-10-13T13:25:23.481Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "apromore"
+    },
+    "summary": "Read apromore.com: 2 evidence added; 1 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Achieve full-spectrum process intelligence with Apromore. Unify process mining, task mining, simulation, and real-time monitoring in one platform to uncover inefficiencies, accelerate automation, and drive smarter decisions—faster. "
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132525982-1",
+    "at": "2026-10-13T13:25:25.982Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "block-earner"
+    },
+    "summary": "Read blockearner.com.au: 2 evidence added; 4 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Block Earner offers Crypto-Backed Loans. Borrow AUD using Bitcoin, Ethereum or XRP with Australia's leading blockchain and crypto finance solutions."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132526076-1",
+    "at": "2026-10-13T13:25:26.076Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "cortical-labs"
+    },
+    "summary": "Read corticallabs.com: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "We've combined lab-grown neurons with silicon chips and made it available to anyone, for first time ever.."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132529464-1",
+    "at": "2026-10-13T13:25:29.464Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "ceres-tag"
+    },
+    "summary": "Read cerestag.com: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "CERES TAG is a reliable GPS tracking device for livestock in Australia. Monitor welfare with a GPS ear tag for cattle powered by direct-to-satellite communication."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132529887-1",
+    "at": "2026-10-13T13:25:29.887Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "fleetyr"
+    },
+    "summary": "Read fleetyr.com: 0 evidence added; 1 re-checked",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132532846-1",
+    "at": "2026-10-13T13:25:32.846Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "dovetail"
+    },
+    "summary": "Read dovetail.com: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Dovetail is the leading customer intelligence platform. Assemble. Analyze. Act. Turn feedback into real-time insights that drive innovation and growth."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132533041-1",
+    "at": "2026-10-13T13:25:33.041Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "emesent"
+    },
+    "summary": "Read emesent.com: 1 evidence added; 2 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Emesent is an expert in SLAM-based LiDAR mapping. We help companies visualize and understand their environments by mapping the inaccessible."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132534480-1",
+    "at": "2026-10-13T13:25:34.480Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "hello-clever"
+    },
+    "summary": "Read helloclever.co: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Connect every rail and understand every payment. Unify your payment infrastructure with Clever AI to instantly turn transaction data into measurable growth."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132539818-1",
+    "at": "2026-10-13T13:25:39.818Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "indebted"
+    },
+    "summary": "Read indebted.co: 1 evidence added; 5 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "InDebted is changing the world of consumer debt recovery for good by creating a better way for businesses to support their customers to get back on track."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132540338-1",
+    "at": "2026-10-13T13:25:40.338Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "ignition"
+    },
+    "summary": "Read ignitionapp.com: 0 evidence added; 6 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Founded in 2013, Ignition is the leading AI revenue and billing automation platform for firms and agencies to transform their sales, billing and payment processes.\r\nIgnition automates proposals, engagement letters, invoicing, payments and workflows in a single AI-powered platform, empowering 8,50..."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132541328-1",
+    "at": "2026-10-13T13:25:41.328Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "index"
+    },
+    "summary": "Read alloy.app: 0 evidence added; 7 re-checked; filled description; 1 conflict(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Alloy is an AI prototyping tool for product managers. Clone your product or web app, make changes instantly, and share high-fidelity prototypes with stakeholders."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132547545-1",
+    "at": "2026-10-13T13:25:47.545Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "intelligencebank"
+    },
+    "summary": "Read intelligencebank.com: 3 evidence added; 2 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "IntelligenceBank is the AI marketing operations platform for digital asset management, marketing compliance, workflows and brand management."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132547765-1",
+    "at": "2026-10-13T13:25:47.765Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "isaacus"
+    },
+    "summary": "Read isaacus.com: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Isaacus is legal AI research company building legal superintelligence. Try out our hallucination-free models."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132550408-1",
+    "at": "2026-10-13T13:25:50.408Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "instant"
+    },
+    "summary": "Read instant.one: 1 evidence added; 3 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "AI-powered email marketing and customer retargeting for Shopify brands."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132554511-1",
+    "at": "2026-10-13T13:25:54.511Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "lombard"
+    },
+    "summary": "Read lombard.finance: 0 evidence added; 2 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Lombard is behind LBTC, BTC.b, Bitcoin Earn and Bitcoin Smart Accounts. We're onboarding $1 trillion in Bitcoin to DeFi."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132555450-1",
+    "at": "2026-10-13T13:25:55.450Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "nutromics"
+    },
+    "summary": "Read nutromics.com: 0 evidence added; 4 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Nutromics vision is a world with zero preventable deaths due to a lack of continuous diagnostic monitoring.Explore Nutromics' innovative diagnostic solutions. Offering Continuous Diagnostic Monitoring through advanced DNA-based sensors, our arm-worn patches with microneedles provide accurate insi..."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132557424-1",
+    "at": "2026-10-13T13:25:57.424Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "octopus-deploy"
+    },
+    "summary": "Read octopus.com: 3 evidence added; 1 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Deploy software to multi-cloud, hybrid, and on-premises environments with Octopus Deploy, the continuous deployment software. Save 2000 hours per rollout, ensure reliable deployments, and automate routine tasks."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132601750-1",
+    "at": "2026-10-13T13:26:01.750Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "qsic"
+    },
+    "summary": "Read getqsic.com: 0 evidence added; 4 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "QSIC is the next gen audio platform that uses AI (Audio + Intelligence) to improve and monetize in-store experiences faster and easier."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132603881-1",
+    "at": "2026-10-13T13:26:03.881Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "relevance-ai"
+    },
+    "summary": "Read relevanceai.com: 1 evidence added; 1 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Deliver maximum ROI through optimized specialist agents. Build agents for sales, customer success, marketing and HR, and run millions of daily tasks on one platform."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132608319-1",
+    "at": "2026-10-13T13:26:08.319Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "reejig"
+    },
+    "summary": "Read reejig.com: 0 evidence added; 2 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Reejig is the Work Operating System for AI-powered work. Critical infrastructure for AI-powered work. The platform enterprises use to see how work runs, build AI workflows, orchestrate agents, and drive adoption. Reejig runs inside Fortune 50 enterprises. We build the way the world works."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132608575-1",
+    "at": "2026-10-13T13:26:08.575Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "relume"
+    },
+    "summary": "Read relume.ai: 0 evidence added; 3 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "AI-powered web builder that generates and publishes professional websites from text prompts, backed by a 1,000+ component design system and library for Figma, Webflow, and React."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132609375-1",
+    "at": "2026-10-13T13:26:09.375Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "send-payments"
+    },
+    "summary": "Read sendpayments.com: 0 evidence added; 1 re-checked",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132612780-1",
+    "at": "2026-10-13T13:26:12.780Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "roller"
+    },
+    "summary": "Read roller.software: 0 evidence added; 3 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "ROLLER Software is a cloud-based venue management platform for attractions and FECs to streamline operations and improve guest experience."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132612884-1",
+    "at": "2026-10-13T13:26:12.884Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "syenta"
+    },
+    "summary": "Read syenta.com: 0 evidence added; 2 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Syenta is architecting the future of AI computing through its revolutionary Localized Electrochemical Manufacturing (LEM) technology, which enables High-Resolution Interconnects -a new class of chip-to-chip connections that transcends traditional packaging to deliver wafer-level system integratio..."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132614238-1",
+    "at": "2026-10-13T13:26:14.238Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "simpro"
+    },
+    "summary": "Read simpro.com: 0 evidence added; 1 re-checked",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132619749-1",
+    "at": "2026-10-13T13:26:19.749Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "tribe"
+    },
+    "summary": "Read tribegroup.co: 1 evidence added; 4 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "TRIBE is an Influencer Marketing Platform, connecting brands and agencies with social media influencers."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132620085-1",
+    "at": "2026-10-13T13:26:20.085Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "upcover"
+    },
+    "summary": "Read upcover.com: 1 evidence added; 4 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Business insurance and risk management for small, mid-market and technology businesses. Quote in minutes or speak to a specialist. Replace your broker today."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132626414-1",
+    "at": "2026-10-13T13:26:26.414Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "wemoney"
+    },
+    "summary": "Read wemoney.com.au: 0 evidence added; 4 re-checked; filled description; 1 suggestion(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "WeMoney is the social financial wellness app that helps Australians track and crush debt, for free. Bring your bills, bank accounts and credit score into one place."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132626825-1",
+    "at": "2026-10-13T13:26:26.825Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "alloy-robotics"
+    },
+    "summary": "Read usealloy.ai: 0 evidence added; 4 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Alloy Robotics is a robotics data platform for commercialised robotics teams. Automates mission analysis, enables semantic search across MCAP and ROS2 data, and tracks scenarios over time to detect regressions."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132644906-1",
+    "at": "2026-10-13T13:26:44.906Z",
+    "actor": "enrichment",
+    "role": "system",
+    "via": "worker",
+    "action": "enrichment.task",
+    "target": {
+      "type": "company",
+      "id": "vivi"
+    },
+    "summary": "Read vivi.io: 0 evidence added; 2 re-checked; filled description",
+    "reason": null,
+    "changes": [
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Vivi is a wireless screen mirroring, student engagement, campus communications, and device management platform designed for education environments."
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132645002-1",
+    "at": "2026-10-13T13:26:45.002Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.run",
+    "target": {
+      "type": "queue",
+      "id": "enrichment"
+    },
+    "summary": "Ran the enrichment queue in fill mode: 33 read, 4 skipped, 0 failed, 2 to retry; 23 evidence added, 30 field(s) filled",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132855615-1",
+    "at": "2026-10-13T13:28:55.615Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "roller"
+    },
+    "summary": "Pass 1 reading of www.roller.software (roles_found_board): 1 evidence added, jobs +14",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132855615-2",
+    "at": "2026-10-13T13:28:55.615Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "qsic"
+    },
+    "summary": "Pass 1 reading of www.getqsic.com (roles_found_board): 1 evidence added, jobs +4",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132855615-3",
+    "at": "2026-10-13T13:28:55.615Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bellroy"
+    },
+    "summary": "Pass 1 reading of bellroy.com (roles_found_board): 1 evidence added, jobs +9",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132855615-4",
+    "at": "2026-10-13T13:28:55.615Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "emesent"
+    },
+    "summary": "Pass 1 reading of www.emesent.com (roles_found_board): 1 evidence added, jobs +10",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132855615-5",
+    "at": "2026-10-13T13:28:55.615Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "harvest-b"
+    },
+    "summary": "Harvest B: website https://harvestb.io -> https://www.harvestb.io",
+    "reason": "https://harvestb.io does not answer over https; the company's site is at https://www.harvestb.io",
+    "changes": [
+      {
+        "field": "website",
+        "from": "https://harvestb.io",
+        "to": "https://www.harvestb.io"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013132932476-1",
+    "at": "2026-10-13T13:29:32.476Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 10 address(es), 167 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013132959899-1",
+    "at": "2026-10-13T13:29:59.899Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "octopus-deploy"
+    },
+    "summary": "Gave Octopus Deploy the address its own website states (199 Grey Street, South Brisbane QLD 4101), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "South Brisbane"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "4101"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -27.4806526
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 153.022608
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "199 Grey Street, South Brisbane QLD 4101"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://octopus.com",
+        "to": "https://octopus.com/company/contact"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:41.021Z",
+        "to": "2026-10-13T13:25:57.387Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449391-1",
+    "at": "2026-10-13T13:34:49.391Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "instant"
+    },
+    "summary": "Set Instant's location (CITY)",
+    "reason": "Its own page puts it in Sydney (23 Foster Street, Surry Hills NSW 2010); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://instant.one/legal/privacy-policy/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:34:49.391Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449619-1",
+    "at": "2026-10-13T13:34:49.619Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "wemoney"
+    },
+    "summary": "Set WeMoney's location (CITY)",
+    "reason": "Its own page puts it in Sydney (63-73 Ann Street, Surry Hills NSW 2010); added at the owner's go-ahead",
+    "changes": [
+      {
+        "field": "city",
+        "from": "Unknown",
+        "to": "Sydney"
+      },
+      {
+        "field": "state",
+        "from": null,
+        "to": "NSW"
+      },
+      {
+        "field": "verified",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "location_precision",
+        "from": "UNKNOWN",
+        "to": "CITY"
+      },
+      {
+        "field": "location_source",
+        "from": null,
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.wemoney.com.au/policies/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-13T13:34:49.619Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": null,
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-1",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "block-earner"
+    },
+    "summary": "Block Earner: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "39 Martin Place, Sydney NSW 2000",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-2",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "ignition"
+    },
+    "summary": "Ignition: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "Level 7/54-66 Wentworth Ave, Surry Hills NSW 2010",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-3",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "indebted"
+    },
+    "summary": "InDebted: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "14/333 Kent St, Sydney NSW 2000",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-4",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "index"
+    },
+    "summary": "Index: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "265 Riley Street, Surry Hills NSW 2010",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-5",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "instant"
+    },
+    "summary": "Instant: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "23 Foster Street, Surry Hills NSW 2010",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-6",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "intelligencebank"
+    },
+    "summary": "IntelligenceBank: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "40 City Rd, Southbank VIC 3006",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-7",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "nutromics"
+    },
+    "summary": "Nutromics: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "420 Victoria Street, Brunswick VIC 3056",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-8",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "qsic"
+    },
+    "summary": "Qsic: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "145 Little Smith Street, Fitzroy VIC 3065",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-9",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "tribe"
+    },
+    "summary": "TRIBE: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "145 Clarendon St, Southbank VIC 3006",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-10",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "upcover"
+    },
+    "summary": "upcover: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "International Tower 3, Level 17/300 Barangaroo Ave, Barangaroo NSW 2000",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-11",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "wemoney"
+    },
+    "summary": "WeMoney: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "63-73 Ann Street, Surry Hills NSW 2010",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133449898-12",
+    "at": "2026-10-13T13:34:49.898Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "alloy-robotics"
+    },
+    "summary": "Alloy Robotics: address moved from the record to its evidence",
+    "reason": "Its place is known to the city or state: the address its own page states is kept as evidence (not on the record) until the geocoder can put it on the map.",
+    "changes": [
+      {
+        "field": "address",
+        "from": "604/46 Kippax Street, Surry Hills NSW 2010",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133527489-1",
+    "at": "2026-10-13T13:35:27.489Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 2 address(es), 173 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013133610110-1",
+    "at": "2026-10-13T13:36:10.110Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "block-earner"
+    },
+    "summary": "Gave Block Earner the address its own document states (39 Martin Place, Sydney NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8679877
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2101617
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "39 Martin Place, Sydney NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "company_website",
+        "to": "company_document"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:34.604Z",
+        "to": "2026-10-13T13:25:25.875Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133610110-2",
+    "at": "2026-10-13T13:36:10.110Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "index"
+    },
+    "summary": "Gave Index the address its own website states (265 Riley Street, Surry Hills NSW 2010), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Surry Hills"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2010"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8816676
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.213324
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "265 Riley Street, Surry Hills NSW 2010"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "credible_profile",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.startupdaily.net/topic/funding/canva-and-atlassian-alumni-raise-3-5-million-seed-round-for-their-product-management-startup/",
+        "to": "https://alloy.app/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:39.911Z",
+        "to": "2026-10-13T13:25:41.266Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133610110-3",
+    "at": "2026-10-13T13:36:10.110Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "intelligencebank"
+    },
+    "summary": "Gave IntelligenceBank the address its own website states (40 City Rd, Southbank VIC 3006), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Southbank"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3006"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8210013
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9667421
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "40 City Rd, Southbank VIC 3006"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://intelligencebank.com/privacy/",
+        "to": "https://intelligencebank.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:40.121Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133610110-4",
+    "at": "2026-10-13T13:36:10.110Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "tribe"
+    },
+    "summary": "Gave TRIBE the address its own document states (145 Clarendon St, Southbank VIC 3006), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Southbank"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3006"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8287694
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.958831
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "145 Clarendon St, Southbank VIC 3006"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "company_website",
+        "to": "company_document"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.tribegroup.co/",
+        "to": "https://www.tribegroup.co/privacy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:42.743Z",
+        "to": "2026-10-13T13:26:19.694Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133610110-5",
+    "at": "2026-10-13T13:36:10.110Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "upcover"
+    },
+    "summary": "Gave upcover the address its own website states (17/300 Barangaroo Ave, Barangaroo NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Barangaroo"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8651207
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2020826
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "17/300 Barangaroo Ave, Barangaroo NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.upcover.com/",
+        "to": "https://www.upcover.com/about-us"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:42.939Z",
+        "to": "2026-10-13T13:26:20.032Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013133610110-6",
+    "at": "2026-10-13T13:36:10.110Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "alloy-robotics"
+    },
+    "summary": "Gave Alloy Robotics the address its own document states (604/46 Kippax Street, Surry Hills NSW 2010), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Surry Hills"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2010"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8847314
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2097992
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "604/46 Kippax Street, Surry Hills NSW 2010"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "company_website",
+        "to": "company_document"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:33.993Z",
+        "to": "2026-10-13T13:26:26.778Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
   }
 ]

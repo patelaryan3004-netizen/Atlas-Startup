@@ -1088,5 +1088,20 @@
     "id": "darryl-luo",
     "name": "Darryl Luo",
     "slug": "darryl-luo"
+  },
+  {
+    "id": "guy-pearson",
+    "name": "Guy Pearson",
+    "slug": "guy-pearson"
+  },
+  {
+    "id": "simon-kubica",
+    "name": "Simon Kubica",
+    "slug": "simon-kubica"
+  },
+  {
+    "id": "christian-iacullo",
+    "name": "Christian Iacullo",
+    "slug": "christian-iacullo"
   }
 ]

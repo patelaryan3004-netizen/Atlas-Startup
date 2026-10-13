@@ -2716,5 +2716,626 @@
     "publisher": "usefastlane.ai",
     "retrieved_at": "2026-10-13T04:24:45Z",
     "note": "Job posting on the company site."
+  },
+  {
+    "id": "www-adora-ai",
+    "kind": "user_supplied",
+    "url": "https://www.adora.ai/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:19.297Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-affinda-com",
+    "kind": "user_supplied",
+    "url": "https://www.affinda.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:15.297Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "apromore-com",
+    "kind": "user_supplied",
+    "url": "https://apromore.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:23.420Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "apromore-com-2",
+    "kind": "company_website",
+    "url": "https://apromore.com/",
+    "title": "Full Spectrum Process Intelligence Platform | Apromore",
+    "publisher": "Apromore Pty Ltd",
+    "retrieved_at": "2026-10-13T13:19:02.987Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "bellroy-com",
+    "kind": "user_supplied",
+    "url": "https://bellroy.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:22.787Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "bellroy-com-2",
+    "kind": "company_website",
+    "url": "https://bellroy.com/",
+    "title": "Bellroy | Considered Carry Goods: Wallets, Bags, Phone Cases & More",
+    "publisher": "Bellroy Pty Ltd",
+    "retrieved_at": "2026-10-13T13:18:34.041Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "blockearner-com-au",
+    "kind": "user_supplied",
+    "url": "https://blockearner.com.au",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:25.875Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "blockearner-com-au-2",
+    "kind": "company_website",
+    "url": "https://blockearner.com.au/",
+    "title": "Block Earner | Home of Australia's Crypto-Backed Loans",
+    "publisher": "Web3 Loans Pty Ltd",
+    "retrieved_at": "2026-10-13T13:20:02.474Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "blockearner-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://blockearner.com.au/privacy-policy/",
+    "title": "Privacy Policy - Block Earner",
+    "publisher": "Web3 Ventures Pty Ltd",
+    "retrieved_at": "2026-10-13T13:25:25.875Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "cerestag-com",
+    "kind": "user_supplied",
+    "url": "https://cerestag.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:29.409Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "cerestag-com-2",
+    "kind": "company_website",
+    "url": "https://cerestag.com/",
+    "title": "GPS Tracking Device for Animals | Livestock Ear Tags | CERES TAG",
+    "publisher": "cerestag.com",
+    "retrieved_at": "2026-10-13T13:19:48.279Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "corticallabs-com",
+    "kind": "user_supplied",
+    "url": "https://corticallabs.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:26.022Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "corticallabs-com-2",
+    "kind": "company_website",
+    "url": "https://corticallabs.com/",
+    "title": "Cortical Labs",
+    "publisher": "corticallabs.com",
+    "retrieved_at": "2026-10-13T13:18:00.642Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "dovetail-com",
+    "kind": "user_supplied",
+    "url": "https://dovetail.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:32.808Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "dovetail-com-2",
+    "kind": "company_website",
+    "url": "https://dovetail.com/",
+    "title": "Dovetail | Customer Intelligence Platform",
+    "publisher": "Dovetail Research Pty Ltd",
+    "retrieved_at": "2026-10-13T13:17:43.739Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-emesent-com",
+    "kind": "user_supplied",
+    "url": "https://www.emesent.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:32.998Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "fleetyr-com",
+    "kind": "user_supplied",
+    "url": "https://fleetyr.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:29.830Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "fleetyr-com-2",
+    "kind": "company_website",
+    "url": "https://fleetyr.com/",
+    "title": "https://fleetyr.com/",
+    "publisher": "fleetyr.com",
+    "retrieved_at": "2026-10-13T13:19:27.903Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-harvestb-io",
+    "kind": "user_supplied",
+    "url": "https://www.harvestb.io",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:17:34.252Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "helloclever-co",
+    "kind": "user_supplied",
+    "url": "https://helloclever.co",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:34.424Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "helloclever-co-2",
+    "kind": "company_website",
+    "url": "https://helloclever.co/",
+    "title": "Hello Clever | Turn Payments Into Business Growth",
+    "publisher": "Hello Clever Pty Ltd",
+    "retrieved_at": "2026-10-13T13:19:08.129Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-ignitionapp-com",
+    "kind": "user_supplied",
+    "url": "https://www.ignitionapp.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:40.271Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-indebted-co",
+    "kind": "user_supplied",
+    "url": "https://www.indebted.co/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:39.746Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "alloy-app-planning",
+    "kind": "user_supplied",
+    "url": "https://alloy.app/planning",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:17:34.252Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-13T13:21:58.529Z",
+    "note": ""
+  },
+  {
+    "id": "alloy-app",
+    "kind": "company_website",
+    "url": "https://alloy.app/",
+    "title": "AI Prototyping Tool for Product Managers · Alloy",
+    "publisher": "Index Technologies Pty Ltd",
+    "retrieved_at": "2026-10-13T13:25:41.266Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "instant-one",
+    "kind": "user_supplied",
+    "url": "https://instant.one",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:50.340Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "instant-one-2",
+    "kind": "company_website",
+    "url": "https://instant.one/",
+    "title": "AI-Powered Email and SMS Marketing for eCommerce | Instant",
+    "publisher": "Instant Checkout Pty Ltd",
+    "retrieved_at": "2026-10-13T13:17:58.352Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "instant-one-legal-privacy-policy",
+    "kind": "company_document",
+    "url": "https://instant.one/legal/privacy-policy/",
+    "title": "Instant | Legal | Privacy Policy",
+    "publisher": "Instant Checkout Pty Ltd",
+    "retrieved_at": "2026-10-13T13:25:50.340Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "intelligencebank-com",
+    "kind": "user_supplied",
+    "url": "https://intelligencebank.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:47.495Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "intelligencebank-com-2",
+    "kind": "company_website",
+    "url": "https://intelligencebank.com/",
+    "title": "IntelligenceBank | AI Digital Asset Management and Marketing Compliance Platform",
+    "publisher": "IntelligenceBank | AI Digital Asset Management Software & Marketing Compliance",
+    "retrieved_at": "2026-10-13T13:19:13.135Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "intelligencebank-com-privacy",
+    "kind": "company_document",
+    "url": "https://intelligencebank.com/privacy/",
+    "title": "Privacy Policy | IntelligenceBank",
+    "publisher": "IntelligenceBank Pty Ltd",
+    "retrieved_at": "2026-10-13T13:25:47.495Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "isaacus-com",
+    "kind": "user_supplied",
+    "url": "https://isaacus.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:47.721Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "isaacus-com-2",
+    "kind": "company_website",
+    "url": "https://isaacus.com/",
+    "title": "Isaacus - legal AI research",
+    "publisher": "Isaacus Pty Ltd",
+    "retrieved_at": "2026-10-13T13:18:04.947Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "liquidinstruments-com",
+    "kind": "user_supplied",
+    "url": "https://liquidinstruments.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:17:34.252Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-livewiremarkets-com",
+    "kind": "user_supplied",
+    "url": "https://www.livewiremarkets.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:17:34.252Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-lombard-finance",
+    "kind": "user_supplied",
+    "url": "https://www.lombard.finance/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:54.434Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-nutromics-com",
+    "kind": "user_supplied",
+    "url": "https://www.nutromics.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:55.418Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "octopus-com",
+    "kind": "user_supplied",
+    "url": "https://octopus.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:25:57.387Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "octopus-com-2",
+    "kind": "company_website",
+    "url": "https://octopus.com/",
+    "title": "Continuous Deployment & Delivery Software for DevOps teams | Octopus Deploy - Octopus Deploy",
+    "publisher": "Octopus Deploy",
+    "retrieved_at": "2026-10-13T13:19:27.683Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-getqsic-com",
+    "kind": "user_supplied",
+    "url": "https://www.getqsic.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:01.669Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-reejig-com",
+    "kind": "user_supplied",
+    "url": "https://www.reejig.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:08.277Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "relevanceai-com",
+    "kind": "user_supplied",
+    "url": "https://relevanceai.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:03.820Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "relevanceai-com-2",
+    "kind": "company_website",
+    "url": "https://relevanceai.com/",
+    "title": "Specialist AI Agents for Every Task | Relevance AI",
+    "publisher": "OnSearch Pty Ltd",
+    "retrieved_at": "2026-10-13T13:18:09.223Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-relume-ai",
+    "kind": "user_supplied",
+    "url": "https://www.relume.ai/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:08.541Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-roller-software",
+    "kind": "user_supplied",
+    "url": "https://www.roller.software/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:12.717Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "sendpayments-com",
+    "kind": "user_supplied",
+    "url": "https://sendpayments.com",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:09.305Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "sendpayments-com-2",
+    "kind": "company_website",
+    "url": "https://sendpayments.com/",
+    "title": "https://sendpayments.com/",
+    "publisher": "sendpayments.com",
+    "retrieved_at": "2026-10-13T13:19:03.895Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-simpro-com",
+    "kind": "user_supplied",
+    "url": "https://www.simpro.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:14.191Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-syenta-com",
+    "kind": "user_supplied",
+    "url": "https://www.syenta.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:12.840Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-tribegroup-co",
+    "kind": "user_supplied",
+    "url": "https://www.tribegroup.co/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:19.694Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-tribegroup-co-privacy",
+    "kind": "company_document",
+    "url": "https://www.tribegroup.co/privacy",
+    "title": "Privacy Policy | TRIBE",
+    "publisher": "TRIBE Digital Pty Ltd",
+    "retrieved_at": "2026-10-13T13:26:19.694Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-upcover-com",
+    "kind": "user_supplied",
+    "url": "https://www.upcover.com/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:20.032Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-upcover-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.upcover.com/privacy-policy",
+    "title": "Privacy Policy | upcover",
+    "publisher": "Professional Risk Underwriting Pty Ltd",
+    "retrieved_at": "2026-10-13T13:19:43.849Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-vivi-io",
+    "kind": "user_supplied",
+    "url": "https://www.vivi.io/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:44.857Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-wemoney-com-au",
+    "kind": "user_supplied",
+    "url": "https://www.wemoney.com.au/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:26.345Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "www-wemoney-com-au-policies-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.wemoney.com.au/policies/privacy-policy",
+    "title": "WeMoney Privacy & Credit Reporting Policy | WeMoney",
+    "publisher": "WeMoney Pty Ltd",
+    "retrieved_at": "2026-10-13T13:26:26.345Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-usealloy-ai",
+    "kind": "user_supplied",
+    "url": "https://www.usealloy.ai/",
+    "title": "Owner lead list",
+    "publisher": "Owner lead list (names only)",
+    "retrieved_at": "2026-10-13T13:26:26.778Z",
+    "note": "Source licence basis: company_website."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-2",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-13T13:21:53.703Z",
+    "note": ""
+  },
+  {
+    "id": "www-usealloy-ai-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.usealloy.ai/privacy-policy",
+    "title": "Privacy Policy | Alloy",
+    "publisher": "Alloy Technologies Operations Pty Ltd",
+    "retrieved_at": "2026-10-13T13:26:26.778Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "adora-about-us",
+    "kind": "company_website",
+    "url": "https://www.adora.ai/about-us",
+    "title": "About Us - Adora",
+    "publisher": "Adora",
+    "retrieved_at": "2026-10-13T13:25:19.297Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "emesent-our-team",
+    "kind": "company_website",
+    "url": "https://www.emesent.com/our-team",
+    "title": "Our Team: SLAM-Based LiDAR Experts | Emesent",
+    "publisher": "emesent.com",
+    "retrieved_at": "2026-10-13T13:25:32.998Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "octopus-deploy-company-contact",
+    "kind": "company_website",
+    "url": "https://octopus.com/company/contact",
+    "title": "Contact Octopus Deploy - Octopus Deploy",
+    "publisher": "Octopus Deploy",
+    "retrieved_at": "2026-10-13T13:25:57.387Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "tribe-about-us",
+    "kind": "company_website",
+    "url": "https://www.tribegroup.co/about-us",
+    "title": "About Us | TRIBE",
+    "publisher": "tribegroup.co",
+    "retrieved_at": "2026-10-13T13:26:19.694Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "upcover-about-us",
+    "kind": "company_website",
+    "url": "https://www.upcover.com/about-us",
+    "title": "Transforming Risk Management for Modern Businesses",
+    "publisher": "Experience Insurance Services Pty Ltd",
+    "retrieved_at": "2026-10-13T13:26:20.032Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "roller-greenhouse-jobs",
+    "kind": "company_website",
+    "url": "https://boards.greenhouse.io/roller",
+    "title": "Greenhouse job board",
+    "publisher": "roller.software",
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "qsic-lever-jobs",
+    "kind": "company_website",
+    "url": "https://jobs.lever.co/qsic",
+    "title": "Lever job board",
+    "publisher": "getqsic.com",
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "bellroy-greenhouse-jobs",
+    "kind": "company_website",
+    "url": "https://boards.greenhouse.io/bellroy",
+    "title": "Greenhouse job board",
+    "publisher": "bellroy.com",
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "emesent-lever-jobs",
+    "kind": "company_website",
+    "url": "https://jobs.lever.co/Emesent",
+    "title": "Lever job board",
+    "publisher": "emesent.com",
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
   }
 ]

@@ -84,7 +84,8 @@ describe('GET /api/startups', () => {
     for (const c of candidates) {
       expect(payload, `candidate id ${c.id} leaked`).not.toContain(c.id);
       if (!companyNames.has(c.name)) expect(payload, `candidate "${c.name}" is in the public list`).not.toContain(`"${c.name}"`);
-      expect((await request(app).get(`/api/startups?limit=200&search=${encodeURIComponent(c.name)}`)).body.results.map((s) => s.name), c.name).not.toContain(c.name);
+      // a candidate that has been published IS a company now, and is found like one; one that has not been is found nowhere
+      if (!companyNames.has(c.name)) expect((await request(app).get(`/api/startups?limit=200&search=${encodeURIComponent(c.name)}`)).body.results.map((s) => s.name), c.name).not.toContain(c.name);
     }
     for (const i of identifiers) expect(every.every((s) => !('identifiers' in s)), `identifier ${i.id}`).toBe(true);
     const directory = (await request(app).get('/directory')).text;

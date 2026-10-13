@@ -22,6 +22,39 @@
     "note": "The site itself."
   },
   {
+    "id": "adora.description.www-adora-ai",
+    "company_id": "adora",
+    "field": "description",
+    "value": "Every user-journey, every screen, every interaction. Your entire product mapped for you in real-time, overlaid with analytics and replays.",
+    "source_id": "www-adora-ai",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:19.297Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "adora.founded_year.adora-about-us",
+    "company_id": "adora",
+    "field": "founded_year",
+    "value": 2023,
+    "source_id": "adora-about-us",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:19.297Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "adora.website.www-adora-ai",
+    "company_id": "adora",
+    "field": "website",
+    "value": "https://www.adora.ai/",
+    "source_id": "www-adora-ai",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:19.297Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "advanced-navigation.address.advanced-navigation-website",
     "company_id": "advanced-navigation",
     "field": "address",
@@ -75,6 +108,28 @@
     "verified_at": "2026-10-05T15:04:12.752Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "affinda.description.www-affinda-com",
+    "company_id": "affinda",
+    "field": "description",
+    "value": "Affinda is an AI platform for intelligent document processing (IDP) — resume parsing, invoice processing, ID extraction, and more.",
+    "source_id": "www-affinda-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:15.297Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "affinda.website.www-affinda-com",
+    "company_id": "affinda",
+    "field": "website",
+    "value": "https://www.affinda.com/",
+    "source_id": "www-affinda-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:15.297Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "agridigital.description.agridigital-website",
@@ -174,6 +229,61 @@
     "verified_at": "2026-10-05T15:06:30.463Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "alloy-robotics.address.www-usealloy-ai-privacy-policy",
+    "company_id": "alloy-robotics",
+    "field": "address",
+    "value": "604/46 Kippax Street, Surry Hills NSW 2010",
+    "source_id": "www-usealloy-ai-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:26.778Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "alloy-robotics.description.www-usealloy-ai",
+    "company_id": "alloy-robotics",
+    "field": "description",
+    "value": "Alloy Robotics is a robotics data platform for commercialised robotics teams. Automates mission analysis, enables semantic search across MCAP and ROS2 data, and tracks scenarios over time to detect regressions.",
+    "source_id": "www-usealloy-ai",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:26.778Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "alloy-robotics.state.www-usealloy-ai-privacy-policy",
+    "company_id": "alloy-robotics",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "www-usealloy-ai-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:26.778Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "alloy-robotics.website.user-supplied-supplied-by-a-reviewer-2",
+    "company_id": "alloy-robotics",
+    "field": "website",
+    "value": "https://usealloy.ai",
+    "source_id": "user-supplied-supplied-by-a-reviewer-2",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by owner (via Claude)."
+  },
+  {
+    "id": "alloy-robotics.website.www-usealloy-ai",
+    "company_id": "alloy-robotics",
+    "field": "website",
+    "value": "https://www.usealloy.ai/",
+    "source_id": "www-usealloy-ai",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:26.778Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "amazingco.description.amazingco-aus",
@@ -359,6 +469,61 @@
     "source_id": "apate-ai-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:07:45.263Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "apromore.company_status.apromore-com",
+    "company_id": "apromore",
+    "field": "company_status",
+    "value": "acquired",
+    "source_id": "apromore-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:23.420Z",
+    "status": "active",
+    "note": "the homepage says: \"ter. . Home Page V5 Apromore is now part of Salesforce! Learn more X × × Platform Core Differe\""
+  },
+  {
+    "id": "apromore.description.apromore-com",
+    "company_id": "apromore",
+    "field": "description",
+    "value": "Achieve full-spectrum process intelligence with Apromore. Unify process mining, task mining, simulation, and real-time monitoring in one platform to uncover inefficiencies, accelerate automation, and drive smarter decisions—faster. ",
+    "source_id": "apromore-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:23.420Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "apromore.description.apromore-com-2",
+    "company_id": "apromore",
+    "field": "description",
+    "value": "Achieve full-spectrum process intelligence with Apromore. Unify process mining, task mining, simulation, and real-time monitoring in one platform to uncover inefficiencies, accelerate automation, and drive smarter decisions—faster. ",
+    "source_id": "apromore-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "apromore.website.apromore-com",
+    "company_id": "apromore",
+    "field": "website",
+    "value": "https://apromore.com",
+    "source_id": "apromore-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:23.420Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "apromore.website.apromore-com-2",
+    "company_id": "apromore",
+    "field": "website",
+    "value": "https://apromore.com",
+    "source_id": "apromore-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:02.987Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -825,6 +990,61 @@
     "note": "The site itself."
   },
   {
+    "id": "bellroy.description.bellroy-com",
+    "company_id": "bellroy",
+    "field": "description",
+    "value": "Bellroy puts its heart, soul and countless design hours into helping the world carry with simplicity and ease. Every piece has been deeply considered, for the best of life's little moments.",
+    "source_id": "bellroy-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:22.787Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "bellroy.description.bellroy-com-2",
+    "company_id": "bellroy",
+    "field": "description",
+    "value": "Bellroy puts its heart, soul and countless design hours into helping the world carry with simplicity and ease. Every piece has been deeply considered, for the best of life's little moments.",
+    "source_id": "bellroy-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "bellroy.hiring_status.bellroy-greenhouse-jobs",
+    "company_id": "bellroy",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "bellroy-greenhouse-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T12:56:29Z",
+    "status": "active",
+    "note": "9 open roles on the company's Greenhouse job board, which its careers page links to, such as \"AI Enablement Lead\"."
+  },
+  {
+    "id": "bellroy.website.bellroy-com",
+    "company_id": "bellroy",
+    "field": "website",
+    "value": "https://bellroy.com",
+    "source_id": "bellroy-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:22.787Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "bellroy.website.bellroy-com-2",
+    "company_id": "bellroy",
+    "field": "website",
+    "value": "https://bellroy.com",
+    "source_id": "bellroy-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:18:34.041Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "biteable.description.biteable-website",
     "company_id": "biteable",
     "field": "description",
@@ -964,6 +1184,105 @@
     "source_id": "blinq-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:03:40.578Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "block-earner.address.blockearner-com-au-privacy-policy",
+    "company_id": "block-earner",
+    "field": "address",
+    "value": "39 Martin Place, Sydney NSW 2000",
+    "source_id": "blockearner-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:25.875Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "block-earner.city.blockearner-com-au-privacy-policy",
+    "company_id": "block-earner",
+    "field": "city",
+    "value": "Sydney",
+    "source_id": "blockearner-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:25.875Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "block-earner.description.blockearner-com-au",
+    "company_id": "block-earner",
+    "field": "description",
+    "value": "Block Earner offers Crypto-Backed Loans. Borrow AUD using Bitcoin, Ethereum or XRP with Australia's leading blockchain and crypto finance solutions.",
+    "source_id": "blockearner-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:25.875Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "block-earner.description.blockearner-com-au-2",
+    "company_id": "block-earner",
+    "field": "description",
+    "value": "Block Earner offers Crypto-Backed Loans. Borrow AUD using Bitcoin, Ethereum or XRP with Australia's leading blockchain and crypto finance solutions.",
+    "source_id": "blockearner-com-au-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "block-earner.founded_year.blockearner-com-au",
+    "company_id": "block-earner",
+    "field": "founded_year",
+    "value": 2021,
+    "source_id": "blockearner-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:25.875Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "block-earner.founded_year.blockearner-com-au-2",
+    "company_id": "block-earner",
+    "field": "founded_year",
+    "value": 2021,
+    "source_id": "blockearner-com-au-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "block-earner.state.blockearner-com-au-privacy-policy",
+    "company_id": "block-earner",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "blockearner-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:25.875Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "block-earner.website.blockearner-com-au",
+    "company_id": "block-earner",
+    "field": "website",
+    "value": "https://blockearner.com.au",
+    "source_id": "blockearner-com-au",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:25.875Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "block-earner.website.blockearner-com-au-2",
+    "company_id": "block-earner",
+    "field": "website",
+    "value": "https://blockearner.com.au",
+    "source_id": "blockearner-com-au-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:20:02.474Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -1364,6 +1683,50 @@
     "note": "The site itself."
   },
   {
+    "id": "ceres-tag.description.cerestag-com",
+    "company_id": "ceres-tag",
+    "field": "description",
+    "value": "CERES TAG is a reliable GPS tracking device for livestock in Australia. Monitor welfare with a GPS ear tag for cattle powered by direct-to-satellite communication.",
+    "source_id": "cerestag-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:29.409Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ceres-tag.description.cerestag-com-2",
+    "company_id": "ceres-tag",
+    "field": "description",
+    "value": "CERES TAG is a reliable GPS tracking device for livestock in Australia. Monitor welfare with a GPS ear tag for cattle powered by direct-to-satellite communication.",
+    "source_id": "cerestag-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ceres-tag.website.cerestag-com",
+    "company_id": "ceres-tag",
+    "field": "website",
+    "value": "https://cerestag.com",
+    "source_id": "cerestag-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:29.409Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "ceres-tag.website.cerestag-com-2",
+    "company_id": "ceres-tag",
+    "field": "website",
+    "value": "https://cerestag.com",
+    "source_id": "cerestag-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:48.279Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "chirp.description.chirp-website",
     "company_id": "chirp",
     "field": "description",
@@ -1492,6 +1855,50 @@
     "source_id": "coassemble-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:08:01.930Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "cortical-labs.description.corticallabs-com",
+    "company_id": "cortical-labs",
+    "field": "description",
+    "value": "We've combined lab-grown neurons with silicon chips and made it available to anyone, for first time ever..",
+    "source_id": "corticallabs-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:26.022Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cortical-labs.description.corticallabs-com-2",
+    "company_id": "cortical-labs",
+    "field": "description",
+    "value": "We've combined lab-grown neurons with silicon chips and made it available to anyone, for first time ever..",
+    "source_id": "corticallabs-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cortical-labs.website.corticallabs-com",
+    "company_id": "cortical-labs",
+    "field": "website",
+    "value": "https://corticallabs.com",
+    "source_id": "corticallabs-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:26.022Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "cortical-labs.website.corticallabs-com-2",
+    "company_id": "cortical-labs",
+    "field": "website",
+    "value": "https://corticallabs.com",
+    "source_id": "corticallabs-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:18:00.642Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -1782,6 +2189,50 @@
     "note": "The site itself."
   },
   {
+    "id": "dovetail.description.dovetail-com",
+    "company_id": "dovetail",
+    "field": "description",
+    "value": "Dovetail is the leading customer intelligence platform. Assemble. Analyze. Act. Turn feedback into real-time insights that drive innovation and growth.",
+    "source_id": "dovetail-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:32.808Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "dovetail.description.dovetail-com-2",
+    "company_id": "dovetail",
+    "field": "description",
+    "value": "Dovetail is the leading customer intelligence platform. Assemble. Analyze. Act. Turn feedback into real-time insights that drive innovation and growth.",
+    "source_id": "dovetail-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "dovetail.website.dovetail-com",
+    "company_id": "dovetail",
+    "field": "website",
+    "value": "https://dovetail.com",
+    "source_id": "dovetail-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:32.808Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "dovetail.website.dovetail-com-2",
+    "company_id": "dovetail",
+    "field": "website",
+    "value": "https://dovetail.com",
+    "source_id": "dovetail-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:17:43.739Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "drawboard.address.drawboard-privacy",
     "company_id": "drawboard",
     "field": "address",
@@ -2044,6 +2495,50 @@
     "verified_at": "2026-10-05T15:11:58.092Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "emesent.description.www-emesent-com",
+    "company_id": "emesent",
+    "field": "description",
+    "value": "Emesent is an expert in SLAM-based LiDAR mapping. We help companies visualize and understand their environments by mapping the inaccessible.",
+    "source_id": "www-emesent-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:32.998Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "emesent.founded_year.emesent-our-team",
+    "company_id": "emesent",
+    "field": "founded_year",
+    "value": 2018,
+    "source_id": "emesent-our-team",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:32.998Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "emesent.hiring_status.emesent-lever-jobs",
+    "company_id": "emesent",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "emesent-lever-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T12:56:29Z",
+    "status": "active",
+    "note": "10 open roles on the company's Lever job board, which its careers page links to, such as \"Director of Cybersecurity\"."
+  },
+  {
+    "id": "emesent.website.www-emesent-com",
+    "company_id": "emesent",
+    "field": "website",
+    "value": "https://www.emesent.com/",
+    "source_id": "www-emesent-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:32.998Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "employment-hero.description.employment-hero-website",
@@ -2537,6 +3032,28 @@
     "source_id": "fleet-space-technologies-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:04:34.903Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "fleetyr.website.fleetyr-com",
+    "company_id": "fleetyr",
+    "field": "website",
+    "value": "https://fleetyr.com",
+    "source_id": "fleetyr-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:29.830Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "fleetyr.website.fleetyr-com-2",
+    "company_id": "fleetyr",
+    "field": "website",
+    "value": "https://fleetyr.com",
+    "source_id": "fleetyr-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:27.903Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -3069,6 +3586,17 @@
     "note": "The site itself."
   },
   {
+    "id": "harvest-b.website.www-harvestb-io",
+    "company_id": "harvest-b",
+    "field": "website",
+    "value": "https://www.harvestb.io",
+    "source_id": "www-harvestb-io",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "heaps-normal.address.heaps-normal-pages-health-club",
     "company_id": "heaps-normal",
     "field": "address",
@@ -3164,6 +3692,50 @@
     "source_id": "heidi-health-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:05:34.988Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "hello-clever.description.helloclever-co",
+    "company_id": "hello-clever",
+    "field": "description",
+    "value": "Connect every rail and understand every payment. Unify your payment infrastructure with Clever AI to instantly turn transaction data into measurable growth.",
+    "source_id": "helloclever-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:34.424Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "hello-clever.description.helloclever-co-2",
+    "company_id": "hello-clever",
+    "field": "description",
+    "value": "Connect every rail and understand every payment. Unify your payment infrastructure with Clever AI to instantly turn transaction data into measurable growth.",
+    "source_id": "helloclever-co-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "hello-clever.website.helloclever-co",
+    "company_id": "hello-clever",
+    "field": "website",
+    "value": "https://helloclever.co",
+    "source_id": "helloclever-co",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:34.424Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "hello-clever.website.helloclever-co-2",
+    "company_id": "hello-clever",
+    "field": "website",
+    "value": "https://helloclever.co",
+    "source_id": "helloclever-co-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:08.129Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -3322,6 +3894,72 @@
     "note": "The site itself."
   },
   {
+    "id": "ignition.address.www-ignitionapp-com",
+    "company_id": "ignition",
+    "field": "address",
+    "value": "Level 7/54-66 Wentworth Ave, Surry Hills NSW 2010",
+    "source_id": "www-ignitionapp-com",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:40.271Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "ignition.description.www-ignitionapp-com",
+    "company_id": "ignition",
+    "field": "description",
+    "value": "Founded in 2013, Ignition is the leading AI revenue and billing automation platform for firms and agencies to transform their sales, billing and payment processes.\r\nIgnition automates proposals, engagement letters, invoicing, payments and workflows in a single AI-powered platform, empowering 8,500+ businesses to sell, bill and get paid for their services with ease.\r\nTo date, Ignition customers hav",
+    "source_id": "www-ignitionapp-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:40.271Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ignition.founded_year.www-ignitionapp-com",
+    "company_id": "ignition",
+    "field": "founded_year",
+    "value": 2013,
+    "source_id": "www-ignitionapp-com",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:40.271Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "ignition.founders.guy-pearson.www-ignitionapp-com",
+    "company_id": "ignition",
+    "field": "founders",
+    "value": "Guy Pearson",
+    "source_id": "www-ignitionapp-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:40.271Z",
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "ignition.state.www-ignitionapp-com",
+    "company_id": "ignition",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "www-ignitionapp-com",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:40.271Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "ignition.website.www-ignitionapp-com",
+    "company_id": "ignition",
+    "field": "website",
+    "value": "https://www.ignitionapp.com/",
+    "source_id": "www-ignitionapp-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:40.271Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "immutable.description.immutable-website",
     "company_id": "immutable",
     "field": "description",
@@ -3351,6 +3989,336 @@
     "source_id": "immutable-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:06:14.526Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "indebted.address.www-indebted-co",
+    "company_id": "indebted",
+    "field": "address",
+    "value": "14/333 Kent St, Sydney NSW 2000",
+    "source_id": "www-indebted-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:39.746Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "indebted.city.www-indebted-co",
+    "company_id": "indebted",
+    "field": "city",
+    "value": "Sydney",
+    "source_id": "www-indebted-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:39.746Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "indebted.description.www-indebted-co",
+    "company_id": "indebted",
+    "field": "description",
+    "value": "InDebted is changing the world of consumer debt recovery for good by creating a better way for businesses to support their customers to get back on track.",
+    "source_id": "www-indebted-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:39.746Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "indebted.investors.airtree.www-indebted-co",
+    "company_id": "indebted",
+    "field": "investors",
+    "value": "Airtree",
+    "source_id": "www-indebted-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:39.746Z",
+    "status": "active",
+    "note": "The page says: \"Backed by leading investors such as Airtree and Mass Mutual Ventures 130+ client partners Trusted by in\"."
+  },
+  {
+    "id": "indebted.state.www-indebted-co",
+    "company_id": "indebted",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "www-indebted-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:39.746Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "indebted.website.www-indebted-co",
+    "company_id": "indebted",
+    "field": "website",
+    "value": "https://www.indebted.co/",
+    "source_id": "www-indebted-co",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:39.746Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "index.address.alloy-app",
+    "company_id": "index",
+    "field": "address",
+    "value": "265 Riley Street, Surry Hills NSW 2010",
+    "source_id": "alloy-app",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "index.description.alloy-app",
+    "company_id": "index",
+    "field": "description",
+    "value": "Alloy is an AI prototyping tool for product managers. Clone your product or web app, make changes instantly, and share high-fidelity prototypes with stakeholders.",
+    "source_id": "alloy-app",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "index.founded_year.alloy-app",
+    "company_id": "index",
+    "field": "founded_year",
+    "value": 2023,
+    "source_id": "alloy-app",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "index.founders.christian-iacullo.alloy-app",
+    "company_id": "index",
+    "field": "founders",
+    "value": "Christian Iacullo",
+    "source_id": "alloy-app",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "index.founders.simon-kubica.alloy-app",
+    "company_id": "index",
+    "field": "founders",
+    "value": "Simon Kubica",
+    "source_id": "alloy-app",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "index.state.alloy-app",
+    "company_id": "index",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "alloy-app",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "index.website.alloy-app",
+    "company_id": "index",
+    "field": "website",
+    "value": "https://alloy.app",
+    "source_id": "alloy-app",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:25:41.266Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "index.website.alloy-app-planning",
+    "company_id": "index",
+    "field": "website",
+    "value": "https://alloy.app/planning",
+    "source_id": "alloy-app-planning",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "index.website.user-supplied-supplied-by-a-reviewer",
+    "company_id": "index",
+    "field": "website",
+    "value": "https://alloy.app",
+    "source_id": "user-supplied-supplied-by-a-reviewer",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by owner (via Claude)."
+  },
+  {
+    "id": "instant.address.instant-one-legal-privacy-policy",
+    "company_id": "instant",
+    "field": "address",
+    "value": "23 Foster Street, Surry Hills NSW 2010",
+    "source_id": "instant-one-legal-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:50.340Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "instant.description.instant-one",
+    "company_id": "instant",
+    "field": "description",
+    "value": "AI-powered email marketing and customer retargeting for Shopify brands.",
+    "source_id": "instant-one",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:50.340Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "instant.description.instant-one-2",
+    "company_id": "instant",
+    "field": "description",
+    "value": "AI-powered email marketing and customer retargeting for Shopify brands.",
+    "source_id": "instant-one-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "instant.state.instant-one-legal-privacy-policy",
+    "company_id": "instant",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "instant-one-legal-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:50.340Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "instant.website.instant-one",
+    "company_id": "instant",
+    "field": "website",
+    "value": "https://instant.one",
+    "source_id": "instant-one",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:50.340Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "instant.website.instant-one-2",
+    "company_id": "instant",
+    "field": "website",
+    "value": "https://instant.one",
+    "source_id": "instant-one-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:17:58.352Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "intelligencebank.address.intelligencebank-com",
+    "company_id": "intelligencebank",
+    "field": "address",
+    "value": "40 City Rd, Southbank VIC 3006",
+    "source_id": "intelligencebank-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:47.495Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "intelligencebank.address.intelligencebank-com-2",
+    "company_id": "intelligencebank",
+    "field": "address",
+    "value": "40 City Rd, Southbank VIC 3006",
+    "source_id": "intelligencebank-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "intelligencebank.address.intelligencebank-com-privacy",
+    "company_id": "intelligencebank",
+    "field": "address",
+    "value": "40 City Road, Southbank VIC 3006",
+    "source_id": "intelligencebank-com-privacy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:47.495Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "intelligencebank.description.intelligencebank-com",
+    "company_id": "intelligencebank",
+    "field": "description",
+    "value": "IntelligenceBank is the AI marketing operations platform for digital asset management, marketing compliance, workflows and brand management.",
+    "source_id": "intelligencebank-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:47.495Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "intelligencebank.description.intelligencebank-com-2",
+    "company_id": "intelligencebank",
+    "field": "description",
+    "value": "IntelligenceBank is the AI marketing operations platform for digital asset management, marketing compliance, workflows and brand management.",
+    "source_id": "intelligencebank-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "intelligencebank.state.intelligencebank-com",
+    "company_id": "intelligencebank",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "intelligencebank-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:47.495Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "intelligencebank.state.intelligencebank-com-2",
+    "company_id": "intelligencebank",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "intelligencebank-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "intelligencebank.website.intelligencebank-com",
+    "company_id": "intelligencebank",
+    "field": "website",
+    "value": "https://intelligencebank.com",
+    "source_id": "intelligencebank-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:47.495Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "intelligencebank.website.intelligencebank-com-2",
+    "company_id": "intelligencebank",
+    "field": "website",
+    "value": "https://intelligencebank.com",
+    "source_id": "intelligencebank-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:13.135Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -3395,6 +4363,50 @@
     "source_id": "ipscape-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:10:17.273Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "isaacus.description.isaacus-com",
+    "company_id": "isaacus",
+    "field": "description",
+    "value": "Isaacus is legal AI research company building legal superintelligence. Try out our hallucination-free models.",
+    "source_id": "isaacus-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:47.721Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "isaacus.description.isaacus-com-2",
+    "company_id": "isaacus",
+    "field": "description",
+    "value": "Isaacus is legal AI research company building legal superintelligence. Try out our hallucination-free models.",
+    "source_id": "isaacus-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "isaacus.website.isaacus-com",
+    "company_id": "isaacus",
+    "field": "website",
+    "value": "https://isaacus.com",
+    "source_id": "isaacus-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:47.721Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "isaacus.website.isaacus-com-2",
+    "company_id": "isaacus",
+    "field": "website",
+    "value": "https://isaacus.com",
+    "source_id": "isaacus-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:18:04.947Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -3606,6 +4618,50 @@
     "verified_at": "2026-10-05T15:08:23.241Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "liquid-instruments.website.liquidinstruments-com",
+    "company_id": "liquid-instruments",
+    "field": "website",
+    "value": "https://liquidinstruments.com",
+    "source_id": "liquidinstruments-com",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "livewire.website.www-livewiremarkets-com",
+    "company_id": "livewire",
+    "field": "website",
+    "value": "https://www.livewiremarkets.com/",
+    "source_id": "www-livewiremarkets-com",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "lombard.description.www-lombard-finance",
+    "company_id": "lombard",
+    "field": "description",
+    "value": "Lombard is behind LBTC, BTC.b, Bitcoin Earn and Bitcoin Smart Accounts. We're onboarding $1 trillion in Bitcoin to DeFi.",
+    "source_id": "www-lombard-finance",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:54.434Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "lombard.website.www-lombard-finance",
+    "company_id": "lombard",
+    "field": "website",
+    "value": "https://www.lombard.finance/",
+    "source_id": "www-lombard-finance",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:54.434Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "loopit.address.loopit-en-us",
@@ -4279,6 +5335,116 @@
     "note": "The site itself."
   },
   {
+    "id": "nutromics.address.www-nutromics-com",
+    "company_id": "nutromics",
+    "field": "address",
+    "value": "420 Victoria Street, Brunswick VIC 3056",
+    "source_id": "www-nutromics-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:55.418Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "nutromics.description.www-nutromics-com",
+    "company_id": "nutromics",
+    "field": "description",
+    "value": "Nutromics vision is a world with zero preventable deaths due to a lack of continuous diagnostic monitoring.Explore Nutromics' innovative diagnostic solutions. Offering Continuous Diagnostic Monitoring through advanced DNA-based sensors, our arm-worn patches with microneedles provide accurate insights into your health.",
+    "source_id": "www-nutromics-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:55.418Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "nutromics.state.www-nutromics-com",
+    "company_id": "nutromics",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-nutromics-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:55.418Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "nutromics.website.www-nutromics-com",
+    "company_id": "nutromics",
+    "field": "website",
+    "value": "https://www.nutromics.com/",
+    "source_id": "www-nutromics-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:55.418Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "octopus-deploy.address.octopus-deploy-company-contact",
+    "company_id": "octopus-deploy",
+    "field": "address",
+    "value": "199 Grey Street, South Brisbane QLD 4101",
+    "source_id": "octopus-deploy-company-contact",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:57.387Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "octopus-deploy.description.octopus-com",
+    "company_id": "octopus-deploy",
+    "field": "description",
+    "value": "Deploy software to multi-cloud, hybrid, and on-premises environments with Octopus Deploy, the continuous deployment software. Save 2000 hours per rollout, ensure reliable deployments, and automate routine tasks.",
+    "source_id": "octopus-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:57.387Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "octopus-deploy.description.octopus-com-2",
+    "company_id": "octopus-deploy",
+    "field": "description",
+    "value": "Deploy software to multi-cloud, hybrid, and on-premises environments with Octopus Deploy, the continuous deployment software. Save 2000 hours per rollout, ensure reliable deployments, and automate routine tasks.",
+    "source_id": "octopus-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "octopus-deploy.state.octopus-deploy-company-contact",
+    "company_id": "octopus-deploy",
+    "field": "state",
+    "value": "QLD",
+    "source_id": "octopus-deploy-company-contact",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:25:57.387Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "octopus-deploy.website.octopus-com",
+    "company_id": "octopus-deploy",
+    "field": "website",
+    "value": "https://octopus.com",
+    "source_id": "octopus-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:25:57.387Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "octopus-deploy.website.octopus-com-2",
+    "company_id": "octopus-deploy",
+    "field": "website",
+    "value": "https://octopus.com",
+    "source_id": "octopus-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:27.683Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "onemri.description.onemri-website",
     "company_id": "onemri",
     "field": "description",
@@ -4840,6 +6006,61 @@
     "note": "The site itself."
   },
   {
+    "id": "qsic.address.www-getqsic-com",
+    "company_id": "qsic",
+    "field": "address",
+    "value": "145 Little Smith Street, Fitzroy VIC 3065",
+    "source_id": "www-getqsic-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:01.669Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "qsic.description.www-getqsic-com",
+    "company_id": "qsic",
+    "field": "description",
+    "value": "QSIC is the next gen audio platform that uses AI (Audio + Intelligence) to improve and monetize in-store experiences faster and easier.",
+    "source_id": "www-getqsic-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:01.669Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "qsic.hiring_status.qsic-lever-jobs",
+    "company_id": "qsic",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "qsic-lever-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T12:56:29Z",
+    "status": "active",
+    "note": "4 open roles on the company's Lever job board, which its careers page links to, such as \"Account Manager\"."
+  },
+  {
+    "id": "qsic.state.www-getqsic-com",
+    "company_id": "qsic",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-getqsic-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:01.669Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "qsic.website.www-getqsic-com",
+    "company_id": "qsic",
+    "field": "website",
+    "value": "https://www.getqsic.com/",
+    "source_id": "www-getqsic-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:01.669Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "quantum-brilliance.address.quantum-brilliance-website",
     "company_id": "quantum-brilliance",
     "field": "address",
@@ -4961,6 +6182,105 @@
     "note": "The site itself."
   },
   {
+    "id": "reejig.description.www-reejig-com",
+    "company_id": "reejig",
+    "field": "description",
+    "value": "Reejig is the Work Operating System for AI-powered work. Critical infrastructure for AI-powered work. The platform enterprises use to see how work runs, build AI workflows, orchestrate agents, and drive adoption. Reejig runs inside Fortune 50 enterprises. We build the way the world works.",
+    "source_id": "www-reejig-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:08.277Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "reejig.website.www-reejig-com",
+    "company_id": "reejig",
+    "field": "website",
+    "value": "https://www.reejig.com/",
+    "source_id": "www-reejig-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:08.277Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "relevance-ai.description.relevanceai-com",
+    "company_id": "relevance-ai",
+    "field": "description",
+    "value": "Deliver maximum ROI through optimized specialist agents. Build agents for sales, customer success, marketing and HR, and run millions of daily tasks on one platform.",
+    "source_id": "relevanceai-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:03.820Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "relevance-ai.description.relevanceai-com-2",
+    "company_id": "relevance-ai",
+    "field": "description",
+    "value": "Deliver maximum ROI through optimized specialist agents. Build agents for sales, customer success, marketing and HR, and run millions of daily tasks on one platform.",
+    "source_id": "relevanceai-com-2",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "relevance-ai.website.relevanceai-com",
+    "company_id": "relevance-ai",
+    "field": "website",
+    "value": "https://relevanceai.com",
+    "source_id": "relevanceai-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:03.820Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "relevance-ai.website.relevanceai-com-2",
+    "company_id": "relevance-ai",
+    "field": "website",
+    "value": "https://relevanceai.com",
+    "source_id": "relevanceai-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:18:09.223Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "relume.description.www-relume-ai",
+    "company_id": "relume",
+    "field": "description",
+    "value": "AI-powered web builder that generates and publishes professional websites from text prompts, backed by a 1,000+ component design system and library for Figma, Webflow, and React.",
+    "source_id": "www-relume-ai",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:08.541Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "relume.founded_year.www-relume-ai",
+    "company_id": "relume",
+    "field": "founded_year",
+    "value": 2021,
+    "source_id": "www-relume-ai",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:26:08.541Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "relume.website.www-relume-ai",
+    "company_id": "relume",
+    "field": "website",
+    "value": "https://www.relume.ai/",
+    "source_id": "www-relume-ai",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:08.541Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "rokt.description.rokt-website",
     "company_id": "rokt",
     "field": "description",
@@ -4981,6 +6301,50 @@
     "verified_at": "2026-10-05T15:06:49.816Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "roller.description.www-roller-software",
+    "company_id": "roller",
+    "field": "description",
+    "value": "ROLLER Software is a cloud-based venue management platform for attractions and FECs to streamline operations and improve guest experience.",
+    "source_id": "www-roller-software",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:12.717Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "roller.founded_year.www-roller-software",
+    "company_id": "roller",
+    "field": "founded_year",
+    "value": 2010,
+    "source_id": "www-roller-software",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:26:12.717Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "roller.hiring_status.roller-greenhouse-jobs",
+    "company_id": "roller",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "roller-greenhouse-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T12:56:29Z",
+    "status": "active",
+    "note": "14 open roles on the company's Greenhouse job board, which its careers page links to, such as \"Business Development Representative - AMER\"."
+  },
+  {
+    "id": "roller.website.www-roller-software",
+    "company_id": "roller",
+    "field": "website",
+    "value": "https://www.roller.software/",
+    "source_id": "www-roller-software",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:12.717Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "rosterfy.address.rosterfy-website",
@@ -5203,6 +6567,28 @@
     "note": "The site itself."
   },
   {
+    "id": "send-payments.website.sendpayments-com",
+    "company_id": "send-payments",
+    "field": "website",
+    "value": "https://sendpayments.com",
+    "source_id": "sendpayments-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:09.305Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "send-payments.website.sendpayments-com-2",
+    "company_id": "send-payments",
+    "field": "website",
+    "value": "https://sendpayments.com",
+    "source_id": "sendpayments-com-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:19:03.895Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "sendle.description.sendle-website",
     "company_id": "sendle",
     "field": "description",
@@ -5388,6 +6774,17 @@
     "verified_at": "2026-10-05T15:09:14.638Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "simpro.website.www-simpro-com",
+    "company_id": "simpro",
+    "field": "website",
+    "value": "https://www.simpro.com/",
+    "source_id": "www-simpro-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:14.191Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "slyp.description.slyp-website",
@@ -5894,6 +7291,28 @@
     "note": "The site itself."
   },
   {
+    "id": "syenta.description.www-syenta-com",
+    "company_id": "syenta",
+    "field": "description",
+    "value": "Syenta is architecting the future of AI computing through its revolutionary Localized Electrochemical Manufacturing (LEM) technology, which enables High-Resolution Interconnects -a new class of chip-to-chip connections that transcends traditional packaging to deliver wafer-level system integration at unprecedented density.",
+    "source_id": "www-syenta-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:12.840Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "syenta.website.www-syenta-com",
+    "company_id": "syenta",
+    "field": "website",
+    "value": "https://www.syenta.com/",
+    "source_id": "www-syenta-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:12.840Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "tendl.description.tendl-website",
     "company_id": "tendl",
     "field": "description",
@@ -6004,6 +7423,61 @@
     "note": "The site itself."
   },
   {
+    "id": "tribe.address.www-tribegroup-co-privacy",
+    "company_id": "tribe",
+    "field": "address",
+    "value": "145 Clarendon St, Southbank VIC 3006",
+    "source_id": "www-tribegroup-co-privacy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:19.694Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "tribe.description.www-tribegroup-co",
+    "company_id": "tribe",
+    "field": "description",
+    "value": "TRIBE is an Influencer Marketing Platform, connecting brands and agencies with social media influencers.",
+    "source_id": "www-tribegroup-co",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:19.694Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "tribe.founded_year.tribe-about-us",
+    "company_id": "tribe",
+    "field": "founded_year",
+    "value": 2014,
+    "source_id": "tribe-about-us",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:19.694Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "tribe.state.www-tribegroup-co-privacy",
+    "company_id": "tribe",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-tribegroup-co-privacy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:19.694Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "tribe.website.www-tribegroup-co",
+    "company_id": "tribe",
+    "field": "website",
+    "value": "https://www.tribegroup.co/",
+    "source_id": "www-tribegroup-co",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:19.694Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "truyu.address.truyu-privacy-policy",
     "company_id": "truyu",
     "field": "address",
@@ -6079,6 +7553,72 @@
     "verified_at": "2026-10-05T15:04:55.752Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "upcover.address.upcover-about-us",
+    "company_id": "upcover",
+    "field": "address",
+    "value": "17/300 Barangaroo Ave, Barangaroo NSW 2000",
+    "source_id": "upcover-about-us",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:20.032Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "upcover.address.www-upcover-com",
+    "company_id": "upcover",
+    "field": "address",
+    "value": "International Tower 3, Level 17/300 Barangaroo Ave, Barangaroo NSW 2000",
+    "source_id": "www-upcover-com",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:26:20.032Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "upcover.address.www-upcover-com-privacy-policy",
+    "company_id": "upcover",
+    "field": "address",
+    "value": "17/300 Barangaroo Ave, Barangaroo NSW 2000",
+    "source_id": "www-upcover-com-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "upcover.description.www-upcover-com",
+    "company_id": "upcover",
+    "field": "description",
+    "value": "Business insurance and risk management for small, mid-market and technology businesses. Quote in minutes or speak to a specialist. Replace your broker today.",
+    "source_id": "www-upcover-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:20.032Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "upcover.state.www-upcover-com",
+    "company_id": "upcover",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "www-upcover-com",
+    "confidence": "high",
+    "verified_at": "2026-10-13T13:26:20.032Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "upcover.website.www-upcover-com",
+    "company_id": "upcover",
+    "field": "website",
+    "value": "https://www.upcover.com/",
+    "source_id": "www-upcover-com",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:20.032Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "v2food.description.v2food-website",
@@ -6224,6 +7764,28 @@
     "note": "The site itself."
   },
   {
+    "id": "vivi.description.www-vivi-io",
+    "company_id": "vivi",
+    "field": "description",
+    "value": "Vivi is a wireless screen mirroring, student engagement, campus communications, and device management platform designed for education environments.",
+    "source_id": "www-vivi-io",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:44.857Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "vivi.website.www-vivi-io",
+    "company_id": "vivi",
+    "field": "website",
+    "value": "https://www.vivi.io/",
+    "source_id": "www-vivi-io",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:44.857Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
     "id": "vow.description.vow-website",
     "company_id": "vow",
     "field": "description",
@@ -6266,6 +7828,50 @@
     "verified_at": "2026-10-05T15:07:39.074Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "wemoney.address.www-wemoney-com-au-policies-privacy-policy",
+    "company_id": "wemoney",
+    "field": "address",
+    "value": "63-73 Ann Street, Surry Hills NSW 2010",
+    "source_id": "www-wemoney-com-au-policies-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:26.345Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "wemoney.description.www-wemoney-com-au",
+    "company_id": "wemoney",
+    "field": "description",
+    "value": "WeMoney is the social financial wellness app that helps Australians track and crush debt, for free. Bring your bills, bank accounts and credit score into one place.",
+    "source_id": "www-wemoney-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:26.345Z",
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "wemoney.state.www-wemoney-com-au-policies-privacy-policy",
+    "company_id": "wemoney",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "www-wemoney-com-au-policies-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T13:26:26.345Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "wemoney.website.www-wemoney-com-au",
+    "company_id": "wemoney",
+    "field": "website",
+    "value": "https://www.wemoney.com.au/",
+    "source_id": "www-wemoney-com-au",
+    "confidence": "low",
+    "verified_at": "2026-10-13T13:26:26.345Z",
+    "status": "active",
+    "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
     "id": "zeller.description.zeller-au",

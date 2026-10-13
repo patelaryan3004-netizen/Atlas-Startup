@@ -1,1 +1,59 @@
-[]
+[
+  {
+    "id": "run-20261013132013324",
+    "started_at": "2026-10-13T13:17:34.290Z",
+    "finished_at": "2026-10-13T13:20:13.324Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "owner-leads-2026-10-14",
+        "leads": 36,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 36,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 179
+    },
+    "refused": [
+      {
+        "url": "https://liquidinstruments.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.affinda.com/privacy-and-data-protection-policy/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /privacy-and-data-protection-policy/"
+      },
+      {
+        "url": "https://www.affinda.com/website-terms/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /website-terms/"
+      },
+      {
+        "url": "https://harvestb.io/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://harvestb.io/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://www.livewiremarkets.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      }
+    ],
+    "acknowledged": []
+  }
+]

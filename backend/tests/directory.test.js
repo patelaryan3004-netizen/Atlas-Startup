@@ -25,9 +25,20 @@ describe('GET /directory', () => {
   });
 });
 
+// The page lists 250 companies at a time ("Page 1 of 2: next"), so a directory of more than 250 is read a page at a time, as a visitor would.
+async function wholeDirectory() {
+  const pages = [];
+  for (let n = 1; ; n += 1) {
+    const res = await request(app).get(n > 1 ? `/directory?page=${n}` : '/directory');
+    pages.push(res.text);
+    if (!res.text.includes(`href="/directory?page=${n + 1}">next`)) break;
+  }
+  return { text: pages.join('\n'), pages: pages.length };
+}
+
 describe('GET /directory, who is hiring', () => {
   it('says Yes only for a company whose open roles a page confirmed lately, gives an earlier reading its date, and never says No for what nobody read', async () => {
-    const res = await request(app).get('/directory');
+    const res = await wholeDirectory();
     const cells = (text) => res.text.split(`<td>${text}</td>`).length - 1;
     const summary = (await request(app).get('/api/startups/summary')).body;
     expect(cells('Yes')).toBe(summary.hiring);
@@ -39,11 +50,24 @@ describe('GET /directory, who is hiring', () => {
   });
 
   it('says a website that no longer answers is unavailable instead of linking it', async () => {
-    const res = await request(app).get('/directory');
+    const res = await wholeDirectory();
     const dead = startups.filter((c) => c.website_status === 'unavailable');
     expect(dead.length).toBeGreaterThan(0);
     expect(res.text.split('Website unavailable').length - 1).toBe(dead.length);
     for (const c of dead) expect(res.text, `${c.name}'s dead address is still linked`).not.toContain(`href="${c.website}"`);
+  });
+
+  it('lists every company exactly once across its pages, 250 to a page, and links to the next page', async () => {
+    const whole = await wholeDirectory();
+    expect(whole.pages).toBe(Math.ceil(startups.length / 250));
+    const rows = whole.text.match(/<tr>\s*<td>/g)?.length ?? 0;
+    expect(rows).toBe(startups.length);
+    if (startups.length > 250) {
+      const first = (await request(app).get('/directory')).text;
+      expect(first).toContain('Page 1 of 2');
+      expect(first).toContain('href="/directory?page=2">next');
+      expect((await request(app).get('/directory?page=3')).status).toBe(404);
+    }
   });
 
   it('is on the site\'s dark ground, with no paper or ochre left', async () => {

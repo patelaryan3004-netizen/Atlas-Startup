@@ -1,5 +1,1556 @@
 [
   {
+    "id": "cand-adora",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:34.296Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:39.228Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:57.413Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:57.518Z",
+        "by": "owner (via Claude)",
+        "note": "published as adora"
+      }
+    ],
+    "name": "Adora",
+    "aliases": [
+      "Adora Software Pty Ltd"
+    ],
+    "website": "https://adora.ai",
+    "domain": "adora.ai",
+    "description": "Every user-journey, every screen, every interaction. Your entire product mapped for you in real-time, overlaid with analytics and replays.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": "671450650"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "adora",
+        "url": "https://www.adora.ai/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:34.296Z",
+    "last_seen_at": "2026-10-13T13:17:34.296Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.adora.ai/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.adora.ai/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://adora.ai",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:17:39.198Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.adora.ai/",
+          "title": "Adora: Visualize your entire product experience",
+          "publisher": "Adora",
+          "retrieved_at": "2026-10-13T13:17:39.198Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Every user-journey, every screen, every interaction. Your entire product mapped for you in real-time, overlaid with analytics and replays.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.adora.ai/",
+          "title": "Adora: Visualize your entire product experience",
+          "publisher": "Adora",
+          "retrieved_at": "2026-10-13T13:17:39.198Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.44,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:57.413Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "adora",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-affinda",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:33.088Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:33.828Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:57.600Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:57.676Z",
+        "by": "owner (via Claude)",
+        "note": "published as affinda"
+      }
+    ],
+    "name": "Affinda",
+    "aliases": [],
+    "website": "https://affinda.com",
+    "domain": "affinda.com",
+    "description": "Affinda is an AI platform for intelligent document processing (IDP) — resume parsing, invoice processing, ID extraction, and more.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "affinda",
+        "url": "https://www.affinda.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:33.088Z",
+    "last_seen_at": "2026-10-13T13:19:33.088Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.affinda.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.affinda.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://affinda.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:33.820Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.affinda.com/",
+          "title": "Affinda | Put AI to work in your organisation",
+          "publisher": "Affinda",
+          "retrieved_at": "2026-10-13T13:19:33.820Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Affinda is an AI platform for intelligent document processing (IDP) — resume parsing, invoice processing, ID extraction, and more.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.affinda.com/",
+          "title": "Affinda | Put AI to work in your organisation",
+          "publisher": "Affinda",
+          "retrieved_at": "2026-10-13T13:19:33.820Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.25,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:57.600Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "affinda",
+    "notes": [
+      {
+        "at": "2026-10-13T13:19:33.825Z",
+        "by": "engine",
+        "text": "Could not read https://www.affinda.com/privacy-and-data-protection-policy/: robots.txt disallows /privacy-and-data-protection-policy/"
+      },
+      {
+        "at": "2026-10-13T13:19:33.825Z",
+        "by": "engine",
+        "text": "Could not read https://www.affinda.com/website-terms/: robots.txt disallows /website-terms/"
+      }
+    ]
+  },
+  {
+    "id": "cand-alloy-robotics",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:43.773Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:43.776Z",
+        "by": "engine",
+        "note": "possible duplicate: Alloy"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:21:53.171Z",
+        "by": "owner (via Claude)",
+        "note": "Not confirmed to be the existing 'Alloy' (no website; Level 6, 283 Clarence St, Sydney): this one's own pages give 604/46 Kippax Street, Surry Hills and do not mention that address. Check whether the existing record is one of these."
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:24:24.411Z",
+        "by": "owner (via Claude)",
+        "note": "Different companies: usealloy.ai (Alloy Technologies Operations Pty Ltd, robotics data) and alloy.app (Index Technologies Pty Ltd, Alloy Planning)."
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:24:24.682Z",
+        "by": "owner (via Claude)",
+        "note": "Different companies (the published Index, alloy.app)."
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:24.939Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:25.039Z",
+        "by": "owner (via Claude)",
+        "note": "published as alloy-robotics"
+      }
+    ],
+    "name": "Alloy Robotics",
+    "aliases": [
+      "Alloy Technologies Operations Pty Ltd"
+    ],
+    "website": "https://usealloy.ai",
+    "domain": "usealloy.ai",
+    "description": "Alloy Robotics is a robotics data platform for commercialised robotics teams. Automates mission analysis, enables semantic search across MCAP and ROS2 data, and tracks scenarios over time to detect regressions.",
+    "city": null,
+    "state": "NSW",
+    "address": "604/46 Kippax Street, Surry Hills NSW 2010",
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": "684502332"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "alloy-robotics",
+        "url": "https://www.usealloy.ai/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:43.773Z",
+    "last_seen_at": "2026-10-13T13:17:43.773Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.usealloy.ai/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.usealloy.ai/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://usealloy.ai",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by owner (via Claude).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "owner (via Claude)",
+          "retrieved_at": "2026-10-13T13:21:53.703Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://usealloy.ai",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:21:58.260Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.usealloy.ai/",
+          "title": "Robotics Data Platform | Alloy",
+          "publisher": "usealloy.ai",
+          "retrieved_at": "2026-10-13T13:21:58.260Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Alloy Robotics is a robotics data platform for commercialised robotics teams. Automates mission analysis, enables semantic search across MCAP and ROS2 data, and tracks scenarios over time to detect regressions.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.usealloy.ai/",
+          "title": "Robotics Data Platform | Alloy",
+          "publisher": "usealloy.ai",
+          "retrieved_at": "2026-10-13T13:21:58.260Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "604/46 Kippax Street, Surry Hills NSW 2010",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.usealloy.ai/privacy-policy",
+          "title": "Privacy Policy | Alloy",
+          "publisher": "Alloy Technologies Operations Pty Ltd",
+          "retrieved_at": "2026-10-13T13:21:58.260Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.usealloy.ai/privacy-policy",
+          "title": "Privacy Policy | Alloy",
+          "publisher": "Alloy Technologies Operations Pty Ltd",
+          "retrieved_at": "2026-10-13T13:21:58.260Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.95,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "604/46 Kippax Street, Surry Hills NSW 2010"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [
+        "alloy",
+        "cand-index",
+        "index"
+      ],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.61,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.95,
+        "startup": 0.15,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:24.939Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "alloy-robotics",
+    "notes": [
+      {
+        "at": "2026-10-13T13:21:53.171Z",
+        "by": "owner (via Claude)",
+        "text": "Confirmed not the same as Alloy (alloy)."
+      },
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      },
+      {
+        "at": "2026-10-13T13:24:24.411Z",
+        "by": "owner (via Claude)",
+        "text": "Confirmed not the same as Index (cand-index)."
+      },
+      {
+        "at": "2026-10-13T13:24:24.682Z",
+        "by": "owner (via Claude)",
+        "text": "Confirmed not the same as Index (index)."
+      }
+    ]
+  },
+  {
+    "id": "cand-apromore",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:54.555Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:03.030Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:57.759Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:57.840Z",
+        "by": "owner (via Claude)",
+        "note": "published as apromore"
+      }
+    ],
+    "name": "Apromore",
+    "aliases": [],
+    "website": "https://apromore.com",
+    "domain": "apromore.com",
+    "description": "Achieve full-spectrum process intelligence with Apromore. Unify process mining, task mining, simulation, and real-time monitoring in one platform to uncover inefficiencies, accelerate automation, and drive smarter decisions—faster. ",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "51635938760",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "apromore",
+        "url": "https://apromore.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:54.555Z",
+    "last_seen_at": "2026-10-13T13:18:54.555Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://apromore.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://apromore.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://apromore.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:02.987Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://apromore.com/",
+          "title": "Full Spectrum Process Intelligence Platform | Apromore",
+          "publisher": "Apromore Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:02.987Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Achieve full-spectrum process intelligence with Apromore. Unify process mining, task mining, simulation, and real-time monitoring in one platform to uncover inefficiencies, accelerate automation, and drive smarter decisions—faster. ",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://apromore.com/",
+          "title": "Full Spectrum Process Intelligence Platform | Apromore",
+          "publisher": "Apromore Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:02.987Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.49,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:57.759Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "apromore",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-bellroy",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:29.235Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:34.082Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:57.934Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:58.006Z",
+        "by": "owner (via Claude)",
+        "note": "published as bellroy"
+      }
+    ],
+    "name": "Bellroy",
+    "aliases": [],
+    "website": "https://bellroy.com",
+    "domain": "bellroy.com",
+    "description": "Bellroy puts its heart, soul and countless design hours into helping the world carry with simplicity and ease. Every piece has been deeply considered, for the best of life's little moments.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "bellroy",
+        "url": "https://bellroy.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:29.235Z",
+    "last_seen_at": "2026-10-13T13:18:29.235Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://bellroy.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://bellroy.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://bellroy.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:34.041Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://bellroy.com/",
+          "title": "Bellroy | Considered Carry Goods: Wallets, Bags, Phone Cases & More",
+          "publisher": "Bellroy Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:34.041Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Bellroy puts its heart, soul and countless design hours into helping the world carry with simplicity and ease. Every piece has been deeply considered, for the best of life's little moments.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://bellroy.com/",
+          "title": "Bellroy | Considered Carry Goods: Wallets, Bags, Phone Cases & More",
+          "publisher": "Bellroy Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:34.041Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.2,
+      "signals": [
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.28,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.2,
+        "startup": 0,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:57.934Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "bellroy",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-block-earner",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:58.025Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:20:02.534Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:58.076Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:58.143Z",
+        "by": "owner (via Claude)",
+        "note": "published as block-earner"
+      }
+    ],
+    "name": "Block Earner",
+    "aliases": [
+      "Web3 Ventures Pty Ltd",
+      "Web3 Loans Pty Ltd"
+    ],
+    "website": "https://blockearner.com.au",
+    "domain": "blockearner.com.au",
+    "description": "Block Earner offers Crypto-Backed Loans. Borrow AUD using Bitcoin, Ethereum or XRP with Australia's leading blockchain and crypto finance solutions.",
+    "city": "Sydney",
+    "state": "NSW",
+    "address": "39 Martin Place, Sydney NSW 2000",
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": "668516952"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "block-earner",
+        "url": "https://blockearner.com.au",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:58.025Z",
+    "last_seen_at": "2026-10-13T13:19:58.025Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://blockearner.com.au",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://blockearner.com.au",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://blockearner.com.au",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:20:02.474Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://blockearner.com.au/",
+          "title": "Block Earner | Home of Australia's Crypto-Backed Loans",
+          "publisher": "Web3 Loans Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:02.474Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Block Earner offers Crypto-Backed Loans. Borrow AUD using Bitcoin, Ethereum or XRP with Australia's leading blockchain and crypto finance solutions.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://blockearner.com.au/",
+          "title": "Block Earner | Home of Australia's Crypto-Backed Loans",
+          "publisher": "Web3 Loans Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:02.474Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founded_year",
+        "value": 2021,
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Stated on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://blockearner.com.au/",
+          "title": "Block Earner | Home of Australia's Crypto-Backed Loans",
+          "publisher": "Web3 Loans Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:02.474Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "39 Martin Place, Sydney NSW 2000",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://blockearner.com.au/privacy-policy/",
+          "title": "Privacy Policy - Block Earner",
+          "publisher": "Web3 Ventures Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:02.474Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://blockearner.com.au/privacy-policy/",
+          "title": "Privacy Policy - Block Earner",
+          "publisher": "Web3 Ventures Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:02.474Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "city",
+        "value": "Sydney",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://blockearner.com.au/privacy-policy/",
+          "title": "Privacy Policy - Block Earner",
+          "publisher": "Web3 Ventures Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:02.474Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 1,
+      "signals": [
+        {
+          "code": "au_domain",
+          "weight": 0.35,
+          "detail": "blockearner.com.au"
+        },
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "39 Martin Place, Sydney NSW 2000"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        },
+        {
+          "code": "au_mention",
+          "weight": 0.2,
+          "detail": "Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.1,
+      "signals": [
+        {
+          "code": "recent_founding",
+          "weight": 0.1,
+          "detail": "2021"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.6,
+      "label": "medium",
+      "breakdown": {
+        "australian": 1,
+        "startup": 0.1,
+        "evidence": 0.67,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:58.076Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "block-earner",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-ceres-tag",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:43.897Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:48.293Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:58.230Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:58.295Z",
+        "by": "owner (via Claude)",
+        "note": "published as ceres-tag"
+      }
+    ],
+    "name": "Ceres Tag",
+    "aliases": [],
+    "website": "https://cerestag.com",
+    "domain": "cerestag.com",
+    "description": "CERES TAG is a reliable GPS tracking device for livestock in Australia. Monitor welfare with a GPS ear tag for cattle powered by direct-to-satellite communication.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "51614436467",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "ceres-tag",
+        "url": "https://cerestag.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:43.897Z",
+    "last_seen_at": "2026-10-13T13:19:43.897Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://cerestag.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://cerestag.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://cerestag.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:48.279Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://cerestag.com/",
+          "title": "GPS Tracking Device for Animals | Livestock Ear Tags | CERES TAG",
+          "publisher": "cerestag.com",
+          "retrieved_at": "2026-10-13T13:19:48.279Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "CERES TAG is a reliable GPS tracking device for livestock in Australia. Monitor welfare with a GPS ear tag for cattle powered by direct-to-satellite communication.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://cerestag.com/",
+          "title": "GPS Tracking Device for Animals | Livestock Ear Tags | CERES TAG",
+          "publisher": "cerestag.com",
+          "retrieved_at": "2026-10-13T13:19:48.279Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "au_mention",
+          "weight": 0.2,
+          "detail": "Australia"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.44,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:58.230Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "ceres-tag",
+    "notes": []
+  },
+  {
+    "id": "cand-cortical-labs",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:58.403Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:00.649Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:58.391Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:58.483Z",
+        "by": "owner (via Claude)",
+        "note": "published as cortical-labs"
+      }
+    ],
+    "name": "Cortical Labs",
+    "aliases": [],
+    "website": "https://corticallabs.com",
+    "domain": "corticallabs.com",
+    "description": "We've combined lab-grown neurons with silicon chips and made it available to anyone, for first time ever..",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "cortical-labs",
+        "url": "https://corticallabs.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:58.403Z",
+    "last_seen_at": "2026-10-13T13:17:58.403Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://corticallabs.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://corticallabs.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://corticallabs.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:00.642Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://corticallabs.com/",
+          "title": "Cortical Labs",
+          "publisher": "corticallabs.com",
+          "retrieved_at": "2026-10-13T13:18:00.642Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "We've combined lab-grown neurons with silicon chips and made it available to anyone, for first time ever..",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://corticallabs.com/",
+          "title": "Cortical Labs",
+          "publisher": "corticallabs.com",
+          "retrieved_at": "2026-10-13T13:18:00.642Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.2,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:58.391Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "cortical-labs",
+    "notes": []
+  },
+  {
+    "id": "cand-dovetail",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:39.230Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:43.770Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:58.585Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:58.695Z",
+        "by": "owner (via Claude)",
+        "note": "published as dovetail"
+      }
+    ],
+    "name": "Dovetail",
+    "aliases": [
+      "Dovetail Research Pty Ltd"
+    ],
+    "website": "https://dovetail.com",
+    "domain": "dovetail.com",
+    "description": "Dovetail is the leading customer intelligence platform. Assemble. Analyze. Act. Turn feedback into real-time insights that drive innovation and growth.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "dovetail",
+        "url": "https://dovetail.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:39.230Z",
+    "last_seen_at": "2026-10-13T13:17:39.230Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://dovetail.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://dovetail.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://dovetail.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:17:43.739Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://dovetail.com/",
+          "title": "Dovetail | Customer Intelligence Platform",
+          "publisher": "Dovetail Research Pty Ltd",
+          "retrieved_at": "2026-10-13T13:17:43.739Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Dovetail is the leading customer intelligence platform. Assemble. Analyze. Act. Turn feedback into real-time insights that drive innovation and growth.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://dovetail.com/",
+          "title": "Dovetail | Customer Intelligence Platform",
+          "publisher": "Dovetail Research Pty Ltd",
+          "retrieved_at": "2026-10-13T13:17:43.739Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.2,
+      "signals": [
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.33,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.2,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:58.585Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "dovetail",
+    "notes": []
+  },
+  {
     "id": "cand-eastend-ventures",
     "status": "rejected",
     "status_history": [
@@ -98,6 +1649,1863 @@
     "review": null,
     "published_company_id": null,
     "notes": []
+  },
+  {
+    "id": "cand-emesent",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:33.830Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:38.642Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:58.812Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:58.895Z",
+        "by": "owner (via Claude)",
+        "note": "published as emesent"
+      }
+    ],
+    "name": "Emesent",
+    "aliases": [],
+    "website": "https://emesent.com",
+    "domain": "emesent.com",
+    "description": "Emesent is an expert in SLAM-based LiDAR mapping. We help companies visualize and understand their environments by mapping the inaccessible.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "95626502350",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "emesent",
+        "url": "https://www.emesent.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:33.830Z",
+    "last_seen_at": "2026-10-13T13:19:33.830Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.emesent.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.emesent.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://emesent.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:38.606Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.emesent.com/",
+          "title": "Home | Emesent",
+          "publisher": "emesent.com",
+          "retrieved_at": "2026-10-13T13:19:38.606Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Emesent is an expert in SLAM-based LiDAR mapping. We help companies visualize and understand their environments by mapping the inaccessible.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.emesent.com/",
+          "title": "Home | Emesent",
+          "publisher": "emesent.com",
+          "retrieved_at": "2026-10-13T13:19:38.606Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.44,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:58.812Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "emesent",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-fleetyr",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:27.700Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:27.906Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:59.041Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:59.159Z",
+        "by": "owner (via Claude)",
+        "note": "published as fleetyr"
+      }
+    ],
+    "name": "Fleetyr",
+    "aliases": [],
+    "website": "https://fleetyr.com",
+    "domain": "fleetyr.com",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "fleetyr",
+        "url": "https://fleetyr.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:27.700Z",
+    "last_seen_at": "2026-10-13T13:19:27.700Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://fleetyr.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://fleetyr.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://fleetyr.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:27.903Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://fleetyr.com/",
+          "title": "https://fleetyr.com/",
+          "publisher": "fleetyr.com",
+          "retrieved_at": "2026-10-13T13:19:27.903Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.25,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 1,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:59.041Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "fleetyr",
+    "notes": []
+  },
+  {
+    "id": "cand-harvest-b",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:57.775Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:58.023Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:59.260Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:59.337Z",
+        "by": "owner (via Claude)",
+        "note": "published as harvest-b"
+      }
+    ],
+    "name": "Harvest B",
+    "aliases": [],
+    "website": "https://harvestb.io",
+    "domain": "harvestb.io",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "harvest-b",
+        "url": "https://www.harvestb.io",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:57.775Z",
+    "last_seen_at": "2026-10-13T13:19:57.775Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.harvestb.io",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.harvestb.io",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.08,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 0.3,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:59.260Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "harvest-b",
+    "notes": [
+      {
+        "at": "2026-10-13T13:19:58.021Z",
+        "by": "engine",
+        "text": "Could not read https://harvestb.io/: fetch failed"
+      }
+    ]
+  },
+  {
+    "id": "cand-hello-clever",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:03.912Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:08.141Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:59.441Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:59.528Z",
+        "by": "owner (via Claude)",
+        "note": "published as hello-clever"
+      }
+    ],
+    "name": "Hello Clever",
+    "aliases": [],
+    "website": "https://helloclever.co",
+    "domain": "helloclever.co",
+    "description": "Connect every rail and understand every payment. Unify your payment infrastructure with Clever AI to instantly turn transaction data into measurable growth.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "69637950497",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "hello-clever",
+        "url": "https://helloclever.co",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:03.912Z",
+    "last_seen_at": "2026-10-13T13:19:03.912Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://helloclever.co",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://helloclever.co",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://helloclever.co",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:08.129Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://helloclever.co/",
+          "title": "Hello Clever | Turn Payments Into Business Growth",
+          "publisher": "Hello Clever Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:08.129Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Connect every rail and understand every payment. Unify your payment infrastructure with Clever AI to instantly turn transaction data into measurable growth.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://helloclever.co/",
+          "title": "Hello Clever | Turn Payments Into Business Growth",
+          "publisher": "Hello Clever Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:08.129Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.49,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:59.441Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "hello-clever",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-ignition",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:24.053Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:29.233Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:59.623Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:59.708Z",
+        "by": "owner (via Claude)",
+        "note": "published as ignition"
+      }
+    ],
+    "name": "Ignition",
+    "aliases": [
+      "Practice Ignition Pty Ltd"
+    ],
+    "website": "https://ignitionapp.com",
+    "domain": "ignitionapp.com",
+    "description": "Founded in 2013, Ignition is the leading AI revenue and billing automation platform for firms and agencies to transform their sales, billing and payment processes.\r\nIgnition automates proposals, engagement letters, invoicing, payments and workflows in a single AI-powered platform, empowering 8,500+ businesses to sell, bill and get paid for their services with ease.\r\nTo date, Ignition customers hav",
+    "city": null,
+    "state": "NSW",
+    "address": "Level 7/54-66 Wentworth Ave, Surry Hills NSW 2010",
+    "founders": [
+      "Guy Pearson"
+    ],
+    "external_ids": {
+      "abn": null,
+      "acn": "153623931"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "ignition",
+        "url": "https://www.ignitionapp.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:24.053Z",
+    "last_seen_at": "2026-10-13T13:18:24.053Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.ignitionapp.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://ignitionapp.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:29.185Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Ignition | Automate Agreements, Billing & Payments",
+          "publisher": "LOZ Markham Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:29.185Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Founded in 2013, Ignition is the leading AI revenue and billing automation platform for firms and agencies to transform their sales, billing and payment processes.\r\nIgnition automates proposals, engagement letters, invoicing, payments and workflows in a single AI-powered platform, empowering 8,500+ businesses to sell, bill and get paid for their services with ease.\r\nTo date, Ignition customers hav",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Ignition | Automate Agreements, Billing & Payments",
+          "publisher": "LOZ Markham Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:29.185Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "Level 7/54-66 Wentworth Ave, Surry Hills NSW 2010",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:29.185Z",
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Ignition | Automate Agreements, Billing & Payments",
+          "publisher": "LOZ Markham Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:29.185Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:29.185Z",
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Ignition | Automate Agreements, Billing & Payments",
+          "publisher": "LOZ Markham Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:29.185Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founded_year",
+        "value": 2013,
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:29.185Z",
+        "note": "Stated on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Ignition | Automate Agreements, Billing & Payments",
+          "publisher": "LOZ Markham Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:29.185Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founders",
+        "value": "Guy Pearson",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Named as a founder in the page's structured data.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.ignitionapp.com/",
+          "title": "Ignition | Automate Agreements, Billing & Payments",
+          "publisher": "LOZ Markham Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:29.185Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.95,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "Level 7/54-66 Wentworth Ave, Surry Hills NSW 2010"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.65,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.95,
+        "startup": 0.15,
+        "evidence": 0.87,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:59.623Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "ignition",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-indebted",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:14.128Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:18.836Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:59.785Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:23:59.848Z",
+        "by": "owner (via Claude)",
+        "note": "published as indebted"
+      }
+    ],
+    "name": "InDebted",
+    "aliases": [
+      "InDebted Holdings Pty Ltd",
+      "InDebted Australia Pty Ltd"
+    ],
+    "website": "https://indebted.co",
+    "domain": "indebted.co",
+    "description": "InDebted is changing the world of consumer debt recovery for good by creating a better way for businesses to support their customers to get back on track.",
+    "city": "Sydney",
+    "state": "NSW",
+    "address": "14/333 Kent St, Sydney NSW 2000",
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": "613132951"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "indebted",
+        "url": "https://www.indebted.co/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:14.128Z",
+    "last_seen_at": "2026-10-13T13:18:14.128Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.indebted.co/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.indebted.co/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://indebted.co",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:18.816Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.indebted.co/",
+          "title": "InDebted | The collections backbone for leading organisations",
+          "publisher": "InDebted Holdings Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:18.816Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "InDebted is changing the world of consumer debt recovery for good by creating a better way for businesses to support their customers to get back on track.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.indebted.co/",
+          "title": "InDebted | The collections backbone for leading organisations",
+          "publisher": "InDebted Holdings Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:18.816Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "14/333 Kent St, Sydney NSW 2000",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.indebted.co/",
+          "title": "InDebted | The collections backbone for leading organisations",
+          "publisher": "InDebted Holdings Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:18.816Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.indebted.co/",
+          "title": "InDebted | The collections backbone for leading organisations",
+          "publisher": "InDebted Holdings Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:18.816Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "city",
+        "value": "Sydney",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.indebted.co/",
+          "title": "InDebted | The collections backbone for leading organisations",
+          "publisher": "InDebted Holdings Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:18.816Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.95,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "14/333 Kent St, Sydney NSW 2000"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.55,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.95,
+        "startup": 0,
+        "evidence": 0.68,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:59.785Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "indebted",
+    "notes": []
+  },
+  {
+    "id": "cand-index",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:43.779Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:43.783Z",
+        "by": "engine",
+        "note": "possible duplicate: Alloy"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:21:53.393Z",
+        "by": "owner (via Claude)",
+        "note": "Not confirmed to be the existing 'Alloy' (no website; Level 6, 283 Clarence St, Sydney): this site (index.inc, now alloy.app/planning) gives no address on the pages read. Check whether the existing record is this one."
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:22:21.150Z",
+        "by": "owner (via Claude)",
+        "note": "Different companies: alloy.app (Index Technologies Pty Ltd, Alloy Planning, 265 Riley Street Surry Hills) and usealloy.ai (Alloy Technologies Operations Pty Ltd, robotics data, 604/46 Kippax Street Surry Hills)."
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:23:59.940Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:00.022Z",
+        "by": "owner (via Claude)",
+        "note": "published as index"
+      }
+    ],
+    "name": "Index",
+    "aliases": [
+      "Alloy Planning",
+      "Index Technologies Pty Ltd"
+    ],
+    "website": "https://alloy.app",
+    "domain": "alloy.app",
+    "description": "Alloy is an AI prototyping tool for product managers. Clone your product or web app, make changes instantly, and share high-fidelity prototypes with stakeholders.",
+    "city": null,
+    "state": "NSW",
+    "address": "265 Riley Street, Surry Hills NSW 2010",
+    "founders": [
+      "Simon Kubica",
+      "Christian Iacullo"
+    ],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "index",
+        "url": "https://alloy.app/planning",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:43.779Z",
+    "last_seen_at": "2026-10-13T13:17:43.779Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://alloy.app/planning",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://alloy.app/planning",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://alloy.app",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by owner (via Claude).",
+        "source": {
+          "kind": "user_supplied",
+          "url": null,
+          "title": "Supplied by a reviewer",
+          "publisher": "owner (via Claude)",
+          "retrieved_at": "2026-10-13T13:21:58.529Z",
+          "note": ""
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://alloy.app",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:22:03.240Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Alloy is an AI prototyping tool for product managers. Clone your product or web app, make changes instantly, and share high-fidelity prototypes with stakeholders.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "265 Riley Street, Surry Hills NSW 2010",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:22:03.240Z",
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:22:03.240Z",
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founded_year",
+        "value": 2023,
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:22:03.240Z",
+        "note": "Stated on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founders",
+        "value": "Simon Kubica",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Named as a founder in the page's structured data.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founders",
+        "value": "Christian Iacullo",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Named as a founder in the page's structured data.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alloy.app/",
+          "title": "AI Prototyping Tool for Product Managers · Alloy",
+          "publisher": "Index Technologies Pty Ltd",
+          "retrieved_at": "2026-10-13T13:22:03.240Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "likely",
+      "score": 0.55,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "265 Riley Street, Surry Hills NSW 2010"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "likely",
+      "score": 0.25,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        },
+        {
+          "code": "recent_founding",
+          "weight": 0.1,
+          "detail": "2023"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [
+        "alloy",
+        "cand-alloy-robotics"
+      ],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.52,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.55,
+        "startup": 0.25,
+        "evidence": 0.87,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:23:59.940Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "index",
+    "notes": [
+      {
+        "at": "2026-10-13T13:21:53.393Z",
+        "by": "owner (via Claude)",
+        "text": "Confirmed not the same as Alloy (alloy)."
+      },
+      {
+        "at": "2026-10-13T13:22:21.150Z",
+        "by": "owner (via Claude)",
+        "text": "Confirmed not the same as Alloy Robotics (cand-alloy-robotics)."
+      },
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-instant",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:50.102Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:58.401Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:00.120Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:00.187Z",
+        "by": "owner (via Claude)",
+        "note": "published as instant"
+      }
+    ],
+    "name": "Instant",
+    "aliases": [
+      "Instant Checkout Pty Ltd"
+    ],
+    "website": "https://instant.one",
+    "domain": "instant.one",
+    "description": "AI-powered email marketing and customer retargeting for Shopify brands.",
+    "city": null,
+    "state": "NSW",
+    "address": "23 Foster Street, Surry Hills NSW 2010",
+    "founders": [],
+    "external_ids": {
+      "abn": "50642933462",
+      "acn": "642933462"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "instant",
+        "url": "https://instant.one",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:50.102Z",
+    "last_seen_at": "2026-10-13T13:17:50.102Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://instant.one",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://instant.one",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://instant.one",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:17:58.352Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://instant.one/",
+          "title": "AI-Powered Email and SMS Marketing for eCommerce | Instant",
+          "publisher": "Instant Checkout Pty Ltd",
+          "retrieved_at": "2026-10-13T13:17:58.352Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "AI-powered email marketing and customer retargeting for Shopify brands.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://instant.one/",
+          "title": "AI-Powered Email and SMS Marketing for eCommerce | Instant",
+          "publisher": "Instant Checkout Pty Ltd",
+          "retrieved_at": "2026-10-13T13:17:58.352Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "23 Foster Street, Surry Hills NSW 2010",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://instant.one/legal/privacy-policy/",
+          "title": "Instant | Legal | Privacy Policy",
+          "publisher": "Instant Checkout Pty Ltd",
+          "retrieved_at": "2026-10-13T13:17:58.352Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://instant.one/legal/privacy-policy/",
+          "title": "Instant | Legal | Privacy Policy",
+          "publisher": "Instant Checkout Pty Ltd",
+          "retrieved_at": "2026-10-13T13:17:58.352Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 1,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "23 Foster Street, Surry Hills NSW 2010"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        },
+        {
+          "code": "au_phone",
+          "weight": 0.15,
+          "detail": "an Australian phone number"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.63,
+      "label": "medium",
+      "breakdown": {
+        "australian": 1,
+        "startup": 0.15,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:00.120Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "instant",
+    "notes": [
+      {
+        "at": "2026-10-13T13:17:58.395Z",
+        "by": "engine",
+        "text": "the site gives ABN 50642933462 and ACN 008651232, which do not belong to one company (a company's ABN ends with its ACN): they probably identify two legal entities, so check which is which before relying on either"
+      },
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      },
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "ACN set to 642933462: the page also gives ACN 008651232, which is not the ACN its ABN ends with: it names another legal entity."
+      }
+    ]
+  },
+  {
+    "id": "cand-intelligencebank",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:08.146Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:13.187Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:00.271Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:00.336Z",
+        "by": "owner (via Claude)",
+        "note": "published as intelligencebank"
+      }
+    ],
+    "name": "IntelligenceBank",
+    "aliases": [],
+    "website": "https://intelligencebank.com",
+    "domain": "intelligencebank.com",
+    "description": "IntelligenceBank is the AI marketing operations platform for digital asset management, marketing compliance, workflows and brand management.",
+    "city": null,
+    "state": "VIC",
+    "address": "40 City Rd, Southbank VIC 3006",
+    "founders": [],
+    "external_ids": {
+      "abn": "73138768564",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "intelligencebank",
+        "url": "https://intelligencebank.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:08.146Z",
+    "last_seen_at": "2026-10-13T13:19:08.146Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://intelligencebank.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://intelligencebank.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://intelligencebank.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:13.135Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://intelligencebank.com/",
+          "title": "IntelligenceBank | AI Digital Asset Management and Marketing Compliance Platform",
+          "publisher": "IntelligenceBank | AI Digital Asset Management Software & Marketing Compliance",
+          "retrieved_at": "2026-10-13T13:19:13.135Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "IntelligenceBank is the AI marketing operations platform for digital asset management, marketing compliance, workflows and brand management.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://intelligencebank.com/",
+          "title": "IntelligenceBank | AI Digital Asset Management and Marketing Compliance Platform",
+          "publisher": "IntelligenceBank | AI Digital Asset Management Software & Marketing Compliance",
+          "retrieved_at": "2026-10-13T13:19:13.135Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "40 City Rd, Southbank VIC 3006",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://intelligencebank.com/",
+          "title": "IntelligenceBank | AI Digital Asset Management and Marketing Compliance Platform",
+          "publisher": "IntelligenceBank | AI Digital Asset Management Software & Marketing Compliance",
+          "retrieved_at": "2026-10-13T13:19:13.135Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "VIC",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://intelligencebank.com/",
+          "title": "IntelligenceBank | AI Digital Asset Management and Marketing Compliance Platform",
+          "publisher": "IntelligenceBank | AI Digital Asset Management Software & Marketing Compliance",
+          "retrieved_at": "2026-10-13T13:19:13.135Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "40 City Road, Southbank VIC 3006",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://intelligencebank.com/privacy/",
+          "title": "Privacy Policy | IntelligenceBank",
+          "publisher": "IntelligenceBank Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:13.135Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 1,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "40 City Rd, Southbank VIC 3006"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        },
+        {
+          "code": "au_phone",
+          "weight": 0.15,
+          "detail": "an Australian phone number"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.63,
+      "label": "medium",
+      "breakdown": {
+        "australian": 1,
+        "startup": 0.15,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:00.271Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "intelligencebank",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-isaacus",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:00.652Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:04.963Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:00.430Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:00.517Z",
+        "by": "owner (via Claude)",
+        "note": "published as isaacus"
+      }
+    ],
+    "name": "Isaacus",
+    "aliases": [],
+    "website": "https://isaacus.com",
+    "domain": "isaacus.com",
+    "description": "Isaacus is legal AI research company building legal superintelligence. Try out our hallucination-free models.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "isaacus",
+        "url": "https://isaacus.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:00.652Z",
+    "last_seen_at": "2026-10-13T13:18:00.652Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://isaacus.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://isaacus.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://isaacus.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:04.947Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://isaacus.com/",
+          "title": "Isaacus - legal AI research",
+          "publisher": "Isaacus Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:04.947Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Isaacus is legal AI research company building legal superintelligence. Try out our hallucination-free models.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://isaacus.com/",
+          "title": "Isaacus - legal AI research",
+          "publisher": "Isaacus Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:04.947Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.2,
+      "signals": [
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.33,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.2,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:00.430Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "isaacus",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
   },
   {
     "id": "cand-kinoxis",
@@ -240,6 +3648,380 @@
     "review": null,
     "published_company_id": null,
     "notes": []
+  },
+  {
+    "id": "cand-liquid-instruments",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:27.909Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:28.610Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:00.612Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:00.699Z",
+        "by": "owner (via Claude)",
+        "note": "published as liquid-instruments"
+      }
+    ],
+    "name": "Liquid Instruments",
+    "aliases": [],
+    "website": "https://liquidinstruments.com",
+    "domain": "liquidinstruments.com",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "liquid-instruments",
+        "url": "https://liquidinstruments.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:27.909Z",
+    "last_seen_at": "2026-10-13T13:19:27.909Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://liquidinstruments.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://liquidinstruments.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.08,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 0.3,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:00.612Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "liquid-instruments",
+    "notes": [
+      {
+        "at": "2026-10-13T13:19:28.603Z",
+        "by": "engine",
+        "text": "Could not read https://liquidinstruments.com/: robots.txt is access-controlled"
+      }
+    ]
+  },
+  {
+    "id": "cand-livewire",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:20:02.537Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:20:03.285Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:00.776Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:00.856Z",
+        "by": "owner (via Claude)",
+        "note": "published as livewire"
+      }
+    ],
+    "name": "Livewire",
+    "aliases": [],
+    "website": "https://livewiremarkets.com",
+    "domain": "livewiremarkets.com",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "livewire",
+        "url": "https://www.livewiremarkets.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:20:02.537Z",
+    "last_seen_at": "2026-10-13T13:20:02.537Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.livewiremarkets.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.livewiremarkets.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.08,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 0.3,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:00.776Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "livewire",
+    "notes": [
+      {
+        "at": "2026-10-13T13:20:03.281Z",
+        "by": "engine",
+        "text": "Could not read https://livewiremarkets.com/: HTTP 403: access-controlled, so not retried or worked around"
+      }
+    ]
+  },
+  {
+    "id": "cand-lombard",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:53.291Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:57.774Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:00.948Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.010Z",
+        "by": "owner (via Claude)",
+        "note": "published as lombard"
+      }
+    ],
+    "name": "Lombard",
+    "aliases": [
+      "Lombard Finance"
+    ],
+    "website": "https://lombard.finance",
+    "domain": "lombard.finance",
+    "description": "Lombard is behind LBTC, BTC.b, Bitcoin Earn and Bitcoin Smart Accounts. We're onboarding $1 trillion in Bitcoin to DeFi.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "lombard",
+        "url": "https://www.lombard.finance/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:53.291Z",
+    "last_seen_at": "2026-10-13T13:19:53.291Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.lombard.finance/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.lombard.finance/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://lombard.finance",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:57.704Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.lombard.finance/",
+          "title": "Lombard: Bitcoin Yield, Assets and Infrastructure for DeFi",
+          "publisher": "Lombard",
+          "retrieved_at": "2026-10-13T13:19:57.704Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Lombard is behind LBTC, BTC.b, Bitcoin Earn and Bitcoin Smart Accounts. We're onboarding $1 trillion in Bitcoin to DeFi.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.lombard.finance/",
+          "title": "Lombard: Bitcoin Yield, Assets and Infrastructure for DeFi",
+          "publisher": "Lombard",
+          "retrieved_at": "2026-10-13T13:19:57.704Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.2,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:00.948Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "lombard",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
   },
   {
     "id": "cand-medcast",
@@ -461,6 +4243,528 @@
     ]
   },
   {
+    "id": "cand-nutromics",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:48.294Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:53.285Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:01.102Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.177Z",
+        "by": "owner (via Claude)",
+        "note": "published as nutromics"
+      }
+    ],
+    "name": "Nutromics",
+    "aliases": [
+      "Nutromics Technology Pty Ltd"
+    ],
+    "website": "https://nutromics.com",
+    "domain": "nutromics.com",
+    "description": "Nutromics vision is a world with zero preventable deaths due to a lack of continuous diagnostic monitoring.Explore Nutromics' innovative diagnostic solutions. Offering Continuous Diagnostic Monitoring through advanced DNA-based sensors, our arm-worn patches with microneedles provide accurate insights into your health.",
+    "city": null,
+    "state": "VIC",
+    "address": "420 Victoria Street, Brunswick VIC 3056",
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "nutromics",
+        "url": "https://www.nutromics.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:48.294Z",
+    "last_seen_at": "2026-10-13T13:19:48.294Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.nutromics.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.nutromics.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://nutromics.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:53.265Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.nutromics.com/",
+          "title": "Nutromics – Solving some of the biggest healthcare challenges",
+          "publisher": "Nutromics Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:53.265Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Nutromics vision is a world with zero preventable deaths due to a lack of continuous diagnostic monitoring.Explore Nutromics' innovative diagnostic solutions. Offering Continuous Diagnostic Monitoring through advanced DNA-based sensors, our arm-worn patches with microneedles provide accurate insights into your health.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.nutromics.com/",
+          "title": "Nutromics – Solving some of the biggest healthcare challenges",
+          "publisher": "Nutromics Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:53.265Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "420 Victoria Street, Brunswick VIC 3056",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.nutromics.com/",
+          "title": "Nutromics – Solving some of the biggest healthcare challenges",
+          "publisher": "Nutromics Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:53.265Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "VIC",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.nutromics.com/",
+          "title": "Nutromics – Solving some of the biggest healthcare challenges",
+          "publisher": "Nutromics Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:53.265Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "likely",
+      "score": 0.55,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "420 Victoria Street, Brunswick VIC 3056"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.4,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.55,
+        "startup": 0,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:01.102Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "nutromics",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-octopus-deploy",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:22.056Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:27.698Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:01.257Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.322Z",
+        "by": "owner (via Claude)",
+        "note": "published as octopus-deploy"
+      }
+    ],
+    "name": "Octopus Deploy",
+    "aliases": [],
+    "website": "https://octopus.com",
+    "domain": "octopus.com",
+    "description": "Deploy software to multi-cloud, hybrid, and on-premises environments with Octopus Deploy, the continuous deployment software. Save 2000 hours per rollout, ensure reliable deployments, and automate routine tasks.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "octopus-deploy",
+        "url": "https://octopus.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:22.056Z",
+    "last_seen_at": "2026-10-13T13:19:22.056Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://octopus.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://octopus.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://octopus.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:27.683Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://octopus.com/",
+          "title": "Continuous Deployment & Delivery Software for DevOps teams | Octopus Deploy - Octopus Deploy",
+          "publisher": "Octopus Deploy",
+          "retrieved_at": "2026-10-13T13:19:27.683Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Deploy software to multi-cloud, hybrid, and on-premises environments with Octopus Deploy, the continuous deployment software. Save 2000 hours per rollout, ensure reliable deployments, and automate routine tasks.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://octopus.com/",
+          "title": "Continuous Deployment & Delivery Software for DevOps teams | Octopus Deploy - Octopus Deploy",
+          "publisher": "Octopus Deploy",
+          "retrieved_at": "2026-10-13T13:19:27.683Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "software"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.25,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:01.257Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "octopus-deploy",
+    "notes": []
+  },
+  {
+    "id": "cand-qsic",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:18.838Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:24.050Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:01.414Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.505Z",
+        "by": "owner (via Claude)",
+        "note": "published as qsic"
+      }
+    ],
+    "name": "Qsic",
+    "aliases": [],
+    "website": "https://getqsic.com",
+    "domain": "getqsic.com",
+    "description": "QSIC is the next gen audio platform that uses AI (Audio + Intelligence) to improve and monetize in-store experiences faster and easier.",
+    "city": null,
+    "state": "VIC",
+    "address": "145 Little Smith Street, Fitzroy VIC 3065",
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "qsic",
+        "url": "https://www.getqsic.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:18.838Z",
+    "last_seen_at": "2026-10-13T13:18:18.838Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.getqsic.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.getqsic.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://getqsic.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:24.032Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.getqsic.com/",
+          "title": "Home | QSIC | In-Store Audio for The Retail Media Era",
+          "publisher": "getqsic.com",
+          "retrieved_at": "2026-10-13T13:18:24.032Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "QSIC is the next gen audio platform that uses AI (Audio + Intelligence) to improve and monetize in-store experiences faster and easier.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.getqsic.com/",
+          "title": "Home | QSIC | In-Store Audio for The Retail Media Era",
+          "publisher": "getqsic.com",
+          "retrieved_at": "2026-10-13T13:18:24.032Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "145 Little Smith Street, Fitzroy VIC 3065",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.getqsic.com/",
+          "title": "Home | QSIC | In-Store Audio for The Retail Media Era",
+          "publisher": "getqsic.com",
+          "retrieved_at": "2026-10-13T13:18:24.032Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "VIC",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.getqsic.com/",
+          "title": "Home | QSIC | In-Store Audio for The Retail Media Era",
+          "publisher": "getqsic.com",
+          "retrieved_at": "2026-10-13T13:18:24.032Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "likely",
+      "score": 0.55,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "145 Little Smith Street, Fitzroy VIC 3065"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.45,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.55,
+        "startup": 0.15,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:01.414Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "qsic",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
     "id": "cand-r2crete",
     "status": "needs_review",
     "status_history": [
@@ -612,6 +4916,504 @@
     },
     "review": null,
     "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-reejig",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:13.189Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:22.054Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:01.593Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.670Z",
+        "by": "owner (via Claude)",
+        "note": "published as reejig"
+      }
+    ],
+    "name": "Reejig",
+    "aliases": [],
+    "website": "https://reejig.com",
+    "domain": "reejig.com",
+    "description": "Reejig is the Work Operating System for AI-powered work. Critical infrastructure for AI-powered work. The platform enterprises use to see how work runs, build AI workflows, orchestrate agents, and drive adoption. Reejig runs inside Fortune 50 enterprises. We build the way the world works.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "75631012318",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "reejig",
+        "url": "https://www.reejig.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:13.189Z",
+    "last_seen_at": "2026-10-13T13:19:13.189Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.reejig.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.reejig.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://reejig.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:22.018Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.reejig.com/",
+          "title": "The Work Operating System for AI-powered work | Reejig",
+          "publisher": "Reejig",
+          "retrieved_at": "2026-10-13T13:19:22.018Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Reejig is the Work Operating System for AI-powered work. Critical infrastructure for AI-powered work. The platform enterprises use to see how work runs, build AI workflows, orchestrate agents, and drive adoption. Reejig runs inside Fortune 50 enterprises. We build the way the world works.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.reejig.com/",
+          "title": "The Work Operating System for AI-powered work | Reejig",
+          "publisher": "Reejig",
+          "retrieved_at": "2026-10-13T13:19:22.018Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.49,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:01.593Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "reejig",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-relevance-ai",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:04.966Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:09.278Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:01.759Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.832Z",
+        "by": "owner (via Claude)",
+        "note": "published as relevance-ai"
+      }
+    ],
+    "name": "Relevance AI",
+    "aliases": [
+      "OnSearch Pty Ltd"
+    ],
+    "website": "https://relevanceai.com",
+    "domain": "relevanceai.com",
+    "description": "Deliver maximum ROI through optimized specialist agents. Build agents for sales, customer success, marketing and HR, and run millions of daily tasks on one platform.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "33637909409",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "relevance-ai",
+        "url": "https://relevanceai.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:04.966Z",
+    "last_seen_at": "2026-10-13T13:18:04.966Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://relevanceai.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://relevanceai.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://relevanceai.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:09.223Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://relevanceai.com/",
+          "title": "Specialist AI Agents for Every Task | Relevance AI",
+          "publisher": "OnSearch Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:09.223Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Deliver maximum ROI through optimized specialist agents. Build agents for sales, customer success, marketing and HR, and run millions of daily tasks on one platform.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://relevanceai.com/",
+          "title": "Specialist AI Agents for Every Task | Relevance AI",
+          "publisher": "OnSearch Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:09.223Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.6,
+      "signals": [
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.49,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.6,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:01.759Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "relevance-ai",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-relume",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:45.197Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:50.097Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:01.906Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:01.962Z",
+        "by": "owner (via Claude)",
+        "note": "published as relume"
+      }
+    ],
+    "name": "Relume",
+    "aliases": [],
+    "website": "https://relume.ai",
+    "domain": "relume.ai",
+    "description": "AI-powered web builder that generates and publishes professional websites from text prompts, backed by a 1,000+ component design system and library for Figma, Webflow, and React.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "relume",
+        "url": "https://www.relume.ai/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:45.197Z",
+    "last_seen_at": "2026-10-13T13:17:45.197Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.relume.ai/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.relume.ai/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://relume.ai",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:17:50.086Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.relume.ai/",
+          "title": "Relume — Build a marketing site you’d actually publish",
+          "publisher": "relume.ai",
+          "retrieved_at": "2026-10-13T13:17:50.086Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "AI-powered web builder that generates and publishes professional websites from text prompts, backed by a 1,000+ component design system and library for Figma, Webflow, and React.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.relume.ai/",
+          "title": "Relume — Build a marketing site you’d actually publish",
+          "publisher": "relume.ai",
+          "retrieved_at": "2026-10-13T13:17:50.086Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founded_year",
+        "value": 2021,
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:17:50.086Z",
+        "note": "Stated on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.relume.ai/",
+          "title": "Relume — Build a marketing site you’d actually publish",
+          "publisher": "relume.ai",
+          "retrieved_at": "2026-10-13T13:17:50.086Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "likely",
+      "score": 0.2,
+      "signals": [
+        {
+          "code": "funding_language",
+          "weight": 0.35,
+          "detail": "backed by"
+        },
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        },
+        {
+          "code": "recent_founding",
+          "weight": 0.1,
+          "detail": "2021"
+        },
+        {
+          "code": "ordinary_business",
+          "weight": -0.4,
+          "detail": "builder"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.29,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0.2,
+        "evidence": 0.87,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:01.906Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "relume",
     "notes": []
   },
   {
@@ -768,6 +5570,576 @@
     },
     "review": null,
     "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-roller",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:09.281Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:14.122Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:02.029Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:02.121Z",
+        "by": "owner (via Claude)",
+        "note": "published as roller"
+      }
+    ],
+    "name": "ROLLER",
+    "aliases": [
+      "Roller Networks Pty Ltd",
+      "ROLLER Software"
+    ],
+    "website": "https://roller.software",
+    "domain": "roller.software",
+    "description": "ROLLER Software is a cloud-based venue management platform for attractions and FECs to streamline operations and improve guest experience.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "roller",
+        "url": "https://www.roller.software/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:09.281Z",
+    "last_seen_at": "2026-10-13T13:18:09.281Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.roller.software/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.roller.software/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://roller.software",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:14.073Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.roller.software/",
+          "title": "All-in-One Venue Management Software for Attractions | ROLLER Software",
+          "publisher": "ROLLER Networks Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:14.073Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "ROLLER Software is a cloud-based venue management platform for attractions and FECs to streamline operations and improve guest experience.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.roller.software/",
+          "title": "All-in-One Venue Management Software for Attractions | ROLLER Software",
+          "publisher": "ROLLER Networks Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:14.073Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "founded_year",
+        "value": 2010,
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:14.073Z",
+        "note": "Stated on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.roller.software/",
+          "title": "All-in-One Venue Management Software for Attractions | ROLLER Software",
+          "publisher": "ROLLER Networks Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:14.073Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.2,
+      "signals": [
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.35,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.2,
+        "startup": 0.15,
+        "evidence": 0.87,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:02.029Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "roller",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-send-payments",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:03.032Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:03.905Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:02.201Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:02.282Z",
+        "by": "owner (via Claude)",
+        "note": "published as send-payments"
+      }
+    ],
+    "name": "Send Payments",
+    "aliases": [],
+    "website": "https://sendpayments.com",
+    "domain": "sendpayments.com",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "send-payments",
+        "url": "https://sendpayments.com",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:03.032Z",
+    "last_seen_at": "2026-10-13T13:19:03.032Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://sendpayments.com",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://sendpayments.com",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://sendpayments.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:03.895Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://sendpayments.com/",
+          "title": "https://sendpayments.com/",
+          "publisher": "sendpayments.com",
+          "retrieved_at": "2026-10-13T13:19:03.895Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.25,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 1,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:02.201Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "send-payments",
+    "notes": []
+  },
+  {
+    "id": "cand-simpro",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:20:07.967Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:20:13.318Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:02.377Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:02.445Z",
+        "by": "owner (via Claude)",
+        "note": "published as simpro"
+      }
+    ],
+    "name": "Simpro",
+    "aliases": [],
+    "website": "https://simpro.com",
+    "domain": "simpro.com",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "simpro",
+        "url": "https://www.simpro.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:20:07.967Z",
+    "last_seen_at": "2026-10-13T13:20:07.967Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.simpro.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.simpro.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://simpro.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:20:13.307Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.simpro.com/",
+          "title": "Home | simpro-international",
+          "publisher": "simpro-international",
+          "retrieved_at": "2026-10-13T13:20:13.307Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.25,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0,
+        "evidence": 1,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:02.377Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "simpro",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-syenta",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:17:43.785Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:17:45.193Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:02.526Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:02.618Z",
+        "by": "owner (via Claude)",
+        "note": "published as syenta"
+      }
+    ],
+    "name": "Syenta",
+    "aliases": [],
+    "website": "https://syenta.com",
+    "domain": "syenta.com",
+    "description": "Syenta is architecting the future of AI computing through its revolutionary Localized Electrochemical Manufacturing (LEM) technology, which enables High-Resolution Interconnects -a new class of chip-to-chip connections that transcends traditional packaging to deliver wafer-level system integration at unprecedented density.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "syenta",
+        "url": "https://www.syenta.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:17:43.785Z",
+    "last_seen_at": "2026-10-13T13:17:43.785Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.syenta.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.syenta.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://syenta.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:17:45.178Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.syenta.com/",
+          "title": "Breaking the AI memory wall through ultra-high bandwidth High-Resolution Interconnects",
+          "publisher": "syenta.com",
+          "retrieved_at": "2026-10-13T13:17:45.178Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Syenta is architecting the future of AI computing through its revolutionary Localized Electrochemical Manufacturing (LEM) technology, which enables High-Resolution Interconnects -a new class of chip-to-chip connections that transcends traditional packaging to deliver wafer-level system integration at unprecedented density.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.syenta.com/",
+          "title": "Breaking the AI memory wall through ultra-high bandwidth High-Resolution Interconnects",
+          "publisher": "syenta.com",
+          "retrieved_at": "2026-10-13T13:17:45.178Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.25,
+      "label": "low",
+      "breakdown": {
+        "australian": 0,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:02.526Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "syenta",
     "notes": []
   },
   {
@@ -951,5 +6323,761 @@
     "review": null,
     "published_company_id": null,
     "notes": []
+  },
+  {
+    "id": "cand-tribe",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:20:03.287Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:20:07.966Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:02.704Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:02.764Z",
+        "by": "owner (via Claude)",
+        "note": "published as tribe"
+      }
+    ],
+    "name": "TRIBE",
+    "aliases": [
+      "TRIBE Digital Pty Ltd",
+      "TRIBE Group"
+    ],
+    "website": "https://tribegroup.co",
+    "domain": "tribegroup.co",
+    "description": "TRIBE is an Influencer Marketing Platform, connecting brands and agencies with social media influencers.",
+    "city": null,
+    "state": "VIC",
+    "address": "145 Clarendon St, Southbank VIC 3006",
+    "founders": [],
+    "external_ids": {
+      "abn": "34606186109",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "tribe",
+        "url": "https://www.tribegroup.co/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:20:03.287Z",
+    "last_seen_at": "2026-10-13T13:20:03.287Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.tribegroup.co/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.tribegroup.co/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://tribegroup.co",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:20:07.910Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.tribegroup.co/",
+          "title": "TRIBE | Influencer Marketing Platform For Brands & Agencies",
+          "publisher": "tribegroup.co",
+          "retrieved_at": "2026-10-13T13:20:07.910Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "TRIBE is an Influencer Marketing Platform, connecting brands and agencies with social media influencers.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.tribegroup.co/",
+          "title": "TRIBE | Influencer Marketing Platform For Brands & Agencies",
+          "publisher": "tribegroup.co",
+          "retrieved_at": "2026-10-13T13:20:07.910Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "145 Clarendon St, Southbank VIC 3006",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.tribegroup.co/privacy",
+          "title": "Privacy Policy | TRIBE",
+          "publisher": "TRIBE Digital Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:07.910Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "VIC",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.tribegroup.co/privacy",
+          "title": "Privacy Policy | TRIBE",
+          "publisher": "TRIBE Digital Pty Ltd",
+          "retrieved_at": "2026-10-13T13:20:07.910Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 1,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "145 Clarendon St, Southbank VIC 3006"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        },
+        {
+          "code": "au_phone",
+          "weight": 0.15,
+          "detail": "an Australian phone number"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.58,
+      "label": "medium",
+      "breakdown": {
+        "australian": 1,
+        "startup": 0,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:02.704Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "tribe",
+    "notes": []
+  },
+  {
+    "id": "cand-upcover",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:38.645Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:43.896Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:02.849Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:02.925Z",
+        "by": "owner (via Claude)",
+        "note": "published as upcover"
+      }
+    ],
+    "name": "upcover",
+    "aliases": [],
+    "website": "https://upcover.com",
+    "domain": "upcover.com",
+    "description": "Business insurance and risk management for small, mid-market and technology businesses. Quote in minutes or speak to a specialist. Replace your broker today.",
+    "city": null,
+    "state": "NSW",
+    "address": "International Tower 3, Level 17/300 Barangaroo Ave, Barangaroo NSW 2000",
+    "founders": [],
+    "external_ids": {
+      "abn": "17628197437",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "upcover",
+        "url": "https://www.upcover.com/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:38.645Z",
+    "last_seen_at": "2026-10-13T13:19:38.645Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.upcover.com/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.upcover.com/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://upcover.com",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:43.849Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.upcover.com/",
+          "title": "Insurance Built for Growing Businesses | upcover",
+          "publisher": "Experience Insurance Services Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:43.849Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Business insurance and risk management for small, mid-market and technology businesses. Quote in minutes or speak to a specialist. Replace your broker today.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.upcover.com/",
+          "title": "Insurance Built for Growing Businesses | upcover",
+          "publisher": "Experience Insurance Services Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:43.849Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "International Tower 3, Level 17/300 Barangaroo Ave, Barangaroo NSW 2000",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:43.849Z",
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.upcover.com/",
+          "title": "Insurance Built for Growing Businesses | upcover",
+          "publisher": "Experience Insurance Services Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:43.849Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:43.849Z",
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.upcover.com/",
+          "title": "Insurance Built for Growing Businesses | upcover",
+          "publisher": "Experience Insurance Services Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:43.849Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "17/300 Barangaroo Ave, Barangaroo NSW 2000",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.upcover.com/privacy-policy",
+          "title": "Privacy Policy | upcover",
+          "publisher": "Professional Risk Underwriting Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:43.849Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.95,
+      "signals": [
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "International Tower 3, Level 17/300 Barangaroo Ave, Barangaroo NSW 2000"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.61,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.95,
+        "startup": 0,
+        "evidence": 0.9,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:02.849Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "upcover",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-vivi",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:18:34.084Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:18:54.553Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:03.000Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:03.070Z",
+        "by": "owner (via Claude)",
+        "note": "published as vivi"
+      }
+    ],
+    "name": "Vivi",
+    "aliases": [
+      "Vivi International Pty Ltd"
+    ],
+    "website": "https://vivi.io",
+    "domain": "vivi.io",
+    "description": "Vivi is a wireless screen mirroring, student engagement, campus communications, and device management platform designed for education environments.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "vivi",
+        "url": "https://www.vivi.io/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:18:34.084Z",
+    "last_seen_at": "2026-10-13T13:18:34.084Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.vivi.io/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.vivi.io/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://vivi.io",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:18:54.530Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.vivi.io/",
+          "title": "Home - Vivi",
+          "publisher": "Vivi International Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:54.530Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Vivi is a wireless screen mirroring, student engagement, campus communications, and device management platform designed for education environments.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.vivi.io/",
+          "title": "Home - Vivi",
+          "publisher": "Vivi International Pty Ltd",
+          "retrieved_at": "2026-10-13T13:18:54.530Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "unknown",
+      "score": 0.2,
+      "signals": [
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "platform"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.33,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.2,
+        "startup": 0.15,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:03.000Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "vivi",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
+  },
+  {
+    "id": "cand-wemoney",
+    "status": "published",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-10-13T13:19:28.616Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-10-13T13:19:33.086Z",
+        "by": "engine",
+        "note": "ready for review"
+      },
+      {
+        "status": "approved",
+        "at": "2026-10-13T13:24:03.135Z",
+        "by": "owner (via Claude)",
+        "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+      },
+      {
+        "status": "published",
+        "at": "2026-10-13T13:24:03.190Z",
+        "by": "owner (via Claude)",
+        "note": "published as wemoney"
+      }
+    ],
+    "name": "WeMoney",
+    "aliases": [],
+    "website": "https://wemoney.com.au",
+    "domain": "wemoney.com.au",
+    "description": "WeMoney is the social financial wellness app that helps Australians track and crush debt, for free. Bring your bills, bank accounts and credit score into one place.",
+    "city": null,
+    "state": "NSW",
+    "address": "63-73 Ann Street, Surry Hills NSW 2010",
+    "founders": [],
+    "external_ids": {
+      "abn": "88633007860",
+      "acn": "633007860"
+    },
+    "discoveries": [
+      {
+        "source_id": "owner-leads-2026-10-14",
+        "source_kind": "user_supplied",
+        "license_basis": "company_website",
+        "region": null,
+        "key": "wemoney",
+        "url": "https://www.wemoney.com.au/",
+        "title": "Owner lead list",
+        "observed_at": "2026-10-13T13:17:34.252Z"
+      }
+    ],
+    "first_discovered_at": "2026-10-13T13:19:28.616Z",
+    "last_seen_at": "2026-10-13T13:19:28.616Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://www.wemoney.com.au/",
+        "confidence": "low",
+        "verified_at": null,
+        "note": "Supplied by the owner from a list of names; the engine reads the company's own website.",
+        "source": {
+          "kind": "user_supplied",
+          "url": "https://www.wemoney.com.au/",
+          "title": "Owner lead list",
+          "publisher": "Owner lead list (names only)",
+          "retrieved_at": "2026-10-13T13:17:34.252Z",
+          "note": "Source licence basis: company_website."
+        }
+      },
+      {
+        "field": "website",
+        "value": "https://wemoney.com.au",
+        "confidence": "high",
+        "verified_at": "2026-10-13T13:19:33.043Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.wemoney.com.au/",
+          "title": "WeMoney - Pay down debt faster",
+          "publisher": "WeMoney Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:33.043Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "WeMoney is the social financial wellness app that helps Australians track and crush debt, for free. Bring your bills, bank accounts and credit score into one place.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.wemoney.com.au/",
+          "title": "WeMoney - Pay down debt faster",
+          "publisher": "WeMoney Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:33.043Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "address",
+        "value": "63-73 Ann Street, Surry Hills NSW 2010",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "Australian address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.wemoney.com.au/policies/privacy-policy",
+          "title": "WeMoney Privacy & Credit Reporting Policy | WeMoney",
+          "publisher": "WeMoney Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:33.043Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "state",
+        "value": "NSW",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "From the address on the page.",
+        "source": {
+          "kind": "company_document",
+          "url": "https://www.wemoney.com.au/policies/privacy-policy",
+          "title": "WeMoney Privacy & Credit Reporting Policy | WeMoney",
+          "publisher": "WeMoney Pty Ltd",
+          "retrieved_at": "2026-10-13T13:19:33.043Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 1,
+      "signals": [
+        {
+          "code": "au_domain",
+          "weight": 0.35,
+          "detail": "wemoney.com.au"
+        },
+        {
+          "code": "au_address",
+          "weight": 0.35,
+          "detail": "63-73 Ann Street, Surry Hills NSW 2010"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0.15,
+      "signals": [
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "app"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.63,
+      "label": "medium",
+      "breakdown": {
+        "australian": 1,
+        "startup": 0.15,
+        "evidence": 0.7,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": {
+      "by": "owner (via Claude)",
+      "at": "2026-10-13T13:24:03.135Z",
+      "note": "Added at the owner's go-ahead (add them all) from the lead list of 2026-10-13; see candidates_to_add.json for its evidence and flags."
+    },
+    "published_company_id": "wemoney",
+    "notes": [
+      {
+        "at": "2026-10-13T13:23:20.329Z",
+        "by": "owner (via Claude)",
+        "text": "Edited by owner (via Claude): aliases."
+      }
+    ]
   }
 ]

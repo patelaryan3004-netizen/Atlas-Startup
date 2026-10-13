@@ -1,0 +1,200 @@
+{
+  "adora": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC", "hq_basis": "@place",
+    "reason": {"text": "Early-stage Australian software startup (Adora Software Pty Ltd, Collins Street Melbourne; founded 2023 per its About page) that maps a company's live product, its screens and user journeys, with analytics and replays.", "quote": "@description"},
+    "press": [{"claim": "US$7M seed round led by Blackbird (Feb 2026), CEO and CTO named", "source_url": "https://blackbird.vc/blog/investment-notes-adora-seed", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "dovetail": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW", "hq_basis": "@place",
+    "reason": {"text": "Customer-research and insights software from an Australian company (Dovetail Research Pty. Ltd.), founded in Sydney in 2017 per press. A real fit on nationality and product; see the flag, it looks too big.", "quote": "@description"},
+    "flags": [{"kind": "too_big", "basis": "Series A in January 2022 of US$63M led by Accel at a US$700M post-money valuation; over 65 staff then and 186 to 190 in later listings, with offices in Sydney and San Francisco", "source_url": "https://corestage-cdn.startupdaily.net/?p=95275", "source_kind": "press (search result summary)"}],
+    "press": [{"claim": "founded 2017; Sydney and San Francisco offices", "source_url": "https://corestage-cdn.startupdaily.net/?p=95275", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "alloy-robotics": {
+    "verdict": "confirmed_by_own_site", "hq": "Surry Hills, NSW", "hq_basis": "@place",
+    "reason": {"text": "Seed-stage Sydney company (Alloy Technologies Operations Pty Ltd, Kippax Street Surry Hills) building a data platform for robotics teams; its own banner announces an A$11.5M seed.", "quote": "@description"},
+    "notes": "Not the same company as 'Alloy' at alloy.app (see Index, which appears to have renamed itself Alloy Planning)."
+  },
+  "index": {
+    "verdict": "confirmed_by_own_site", "hq": "Surry Hills, NSW",
+    "hq_basis": {"quote": "265 Riley Street, Surry Hills NSW 2010", "source_url": "https://alloy.app/", "source_kind": "own_site"},
+    "reason": {"text": "Seed-stage Sydney startup (Index Technologies Pty Ltd; founders Simon Kubica and Christian Iacullo, founded 2023 per its own site) building an AI prototyping and planning tool for product managers; an A$3.5M seed is announced in a post on its own site.", "quote": "@description"},
+    "press": [{"claim": "'Sydney startup Index': A$3.5M seed led by Blackbird and Bain Capital Ventures; Y Combinator", "source_url": "https://www.startupdaily.net/topic/funding/canva-and-atlassian-alumni-raise-3-5-million-seed-round-for-their-product-management-startup/", "source_kind": "press", "how_read": "fetched, summarised"}],
+    "notes": "index.inc redirects to alloy.app/planning ('Alloy Planning'), and a post on that site says 'Index just raised an A$3.5m seed round', and the site names Index Technologies Pty Ltd: the same company under a new name. Added as 'Index' with the alias 'Alloy Planning'; rename it if you prefer. Not Alloy Robotics (usealloy.ai). The pages my first scan read said no place; the discovery engine's read of the home page found the address."
+  },
+  "syenta": {
+    "verdict": "press_only", "hq": "Canberra, ACT",
+    "hq_basis": {"summary": "pv magazine Australia headlines it as a Canberra startup making 3D electronics printers (formerly Spark3D, an ANU spin-out).", "source_url": "https://www.pv-magazine-australia.com/2022/12/21/canberra-startup-develops-3d-electronics-printer-with-potential-to-reshape-pv-battery-manufacturing-and-performance/", "source_kind": "press", "how_read": "search result summary"},
+    "reason": {"text": "Australian deep-tech startup making ultra-high-bandwidth chip-to-chip interconnects (its own site reports an A$37M Series A led by Playground Global and Australia's National Reconstruction Fund).", "quote": "@description"},
+    "notes": "Its own site is one page and says no city; the Australian links on it are the investors, the A$37M raise with the National Reconstruction Fund, and 'Australian and US markets'."
+  },
+  "relume": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW", "hq_basis": "@address",
+    "reason": {"text": "Sydney company (schema.org address and a 2021 founding date on its own pages) whose AI tool builds sitemaps, wireframes and website components; a software product company, not an agency.", "quote": "@description"}
+  },
+  "instant": {
+    "verdict": "confirmed_by_own_site", "hq": "Surry Hills, NSW",
+    "hq_basis": {"quote": "23 Foster Street, Surry Hills NSW 2010", "source_url": "https://instant.one/legal/privacy-policy/", "source_kind": "own_site"},
+    "reason": {"text": "Australian company (Instant Checkout Pty Ltd) selling AI-powered email and SMS retention marketing to eCommerce brands; its own site says 2,000+ brands. Founded 2021 per press, with an A$18M Series A.", "quote": "@description"},
+    "notes": "Its own privacy policy gives the Surry Hills address (press disagreed: SmartCompany said Sydney, Startup Daily said Brisbane). Its page also names an ACN (008651232) that is not the one its ABN ends with: another entity.",
+    "press": [{"claim": "A$18M Series A led by Hummingbird at a A$100M valuation; founded 2021 by Liam Millward and William Gao", "source_url": "https://www.smartcompany.com.au/startupsmart/instant-startup-raises-18-million-valuation-100-million/", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "cortical-labs": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC", "hq_basis": "@place",
+    "reason": {"text": "Melbourne biotech firm (its Company page says so) that combines lab-grown neurons with silicon chips and sells the result (CL1, Cortical Cloud).", "quote": "@description"}
+  },
+  "isaacus": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC", "hq_basis": "@place",
+    "reason": {"text": "Legal-AI research company (Isaacus Pty Ltd) that says it is based in Melbourne, building models for legal search and enrichment.", "quote": "@description"}
+  },
+  "relevance-ai": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW (the city is from press)", "hq_basis": "@place",
+    "drop": ["funding", "size"],
+    "reason": {"text": "Australian company (OnSearch Pty Ltd trading as Relevance AI) with a platform for building AI agents for sales, support and marketing. Press: Sydney and San Francisco, a Series B of about US$24M in 2025, about 80 staff.", "quote": "@description"},
+    "notes": "The 'Series B' and '210 staff' text on its home page is a product demo, not the company, so it is left out of the evidence.",
+    "press": [{"claim": "Series B of about US$24M (May 2025) led by Bessemer; about 80 staff in Sydney and San Francisco", "source_url": "https://www.techpartner.news/news/australian-startup-relevance-ai-secures-a37m-funding-617000", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "roller": {
+    "verdict": "confirmed_by_own_site", "hq": "South Melbourne, VIC", "hq_basis": "@place",
+    "reason": {"text": "Melbourne software for running attractions (ticketing, point of sale, payments); 14 open roles on its own Greenhouse board. Older and bigger than a seed company: see the flag.", "quote": "@description"},
+    "notes": "Press: a US$50M round led by Insight Partners, more than 1,500 venues in 30 countries (its own site says 'Trusted by over 3,500 venues worldwide'), over 120 staff (about 2023), founded 2011 by Luke and Mark Finn (its own page says 2010).",
+    "press": [{"claim": "US$50M round led by Insight Partners; 120+ staff (about 2023); 1,500+ venues", "source_url": "https://www.smartcompany.com.au/startupsmart/melbourne-software-startup-roller-78-5-million-raise/", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "indebted": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW", "hq_basis": "@place",
+    "reason": {"text": "Sydney consumer debt-recovery platform (InDebted Holdings Pty Ltd, Kent Street) that uses data to change how collections work. Growth stage (a Series C per press), not early.", "quote": "@description"},
+    "notes": "Press: a US$40M Series C valuing it above US$250M (Airtree led); founded 2015 or 2016; about 70% of revenue from the US. A scale-up, but under the 'too big' line used here.",
+    "press": [{"claim": "US$40M Series C at over US$250M; five rounds, about A$122.5M in total", "source_url": "https://www.businesswire.com/news/home/20240924812507/en/Australian-Founded-Fintech-Transforming-Debt-Collection-in-the-USA-Secures-US40M", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "qsic": {
+    "verdict": "confirmed_by_own_site", "hq": "Fitzroy, VIC", "hq_basis": "@place",
+    "reason": {"text": "Melbourne (Fitzroy) in-store audio and retail-media platform with an office in Dallas; 4 open roles on its Lever board.", "quote": "@description"},
+    "flags": [{"kind": "too_old", "basis": "press says it was founded in 2012 by Matt Elsley and Nick Larkins (borderline: the line used here is 2012 or earlier)", "source_url": "https://dallasinnovates.com/australia-based-qsic-opens-dallas-office-to-expand-its-in-store-audio-retail-media-platform/", "source_kind": "press (search result summary)"}],
+    "notes": "Press also says A$4M Series A, clients such as McDonald's and 7-Eleven, and that the CEO is moving to the Dallas office for North America."
+  },
+  "ignition": {
+    "verdict": "confirmed_by_own_site", "hq": "Surry Hills, NSW", "hq_basis": "@address",
+    "reason": {"text": "Sydney software (Practice Ignition Pty Ltd, Wentworth Avenue Surry Hills) that automates proposals, contracts, billing and payments for professional-services firms; founded 2013 per its About page, with 8,500+ customers.", "quote": "@description"}
+  },
+  "bellroy": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC (the city is from press)", "hq_basis": "@place",
+    "reason": {"text": "Australian company (Bellroy Pty Ltd, 'we are based in Australia') making wallets, bags and carry goods; 9 open roles on Greenhouse. A consumer-goods brand, not a software or deep-tech startup.", "quote": "@description"},
+    "flags": [{"kind": "too_old", "basis": "Wikipedia: founded in 2009, first wallets launched in August 2010; 100+ staff (2023)", "source_url": "https://en.wikipedia.org/wiki/Bellroy", "source_kind": "press (search result summary)"}],
+    "notes": "Probably outside what the map is for (a product brand rather than a tech startup); your call."
+  },
+  "vivi": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC (the city is from press)", "hq_basis": "@place",
+    "reason": {"text": "Australian company (Vivi International Pty Ltd, operated in Australia) making wireless screen-sharing and signage for classrooms. Press: founded 2015, raised about US$20M from Quad Partners.", "quote": "@description"},
+    "press": [{"claim": "founded 2015 in Melbourne; US$20M from Quad Partners; 47 staff in 2021", "source_url": "https://www.smartcompany.com.au/smart50-awards-2021/smart-50-awards-vivi-international/", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "apromore": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC", "hq_basis": "@place",
+    "reason": {"text": "Process-mining software that its own About page says grew out of ten years of research at the University of Melbourne, with headquarters in Melbourne; a Series A led by GBTEC is on its pages.", "quote": "@description"}
+  },
+  "send-payments": {
+    "verdict": "press_only", "hq": "Sydney or Gold Coast (sources disagree)",
+    "hq_basis": {"summary": "FinTech Australia reports Send Payments, an Australian cross-border payments company, raised A$5M and named Matt Barr CEO; profiles disagree between Sydney and the Gold Coast, and a job board lists Queensland and Sydney offices.", "source_url": "https://www.fintechaustralia.org.au/community-news/send-payments-raises-5m-aud-in-funding-and-appoints-matt-barr-as-ceo", "source_kind": "press", "how_read": "search result summary"},
+    "reason": {"text": "Australian cross-border payments company (founded 2019) selling to enterprises, with a A$5M raise in 2025. Its own site is a page that shows nothing to this reader (it needs a browser), so the description is from press.", "quote": "", "summary": "An Australian cross-border payments company founded in 2019 that sells digital transfers, multi-currency wallets and embedded payments to enterprises.", "source_url": "https://www.fintechaustralia.org.au/community-news/send-payments-raises-5m-aud-in-funding-and-appoints-matt-barr-as-ceo", "source_kind": "press"},
+    "notes": "Its own site could not be read: it loads as an empty page for a reader that does not run scripts."
+  },
+  "hello-clever": {
+    "verdict": "confirmed_by_own_site", "hq": null, "hq_basis": "@place",
+    "reason": {"text": "Australian company (Hello Clever Pty Ltd, with an Acknowledgement of Country) whose platform turns merchants' payments data into growth; founded 2021 per press, a A$4.5M seed round in 2022.", "quote": "@description"},
+    "notes": "City not stated on its own pages; press says Sydney.",
+    "press": [{"claim": "Sydney fintech; A$4.5M pre-seed and seed in 2022; founded 2021 by Caroline Tran and Gavin Nguyen", "source_url": "https://fintech.global/2022/08/24/hello-clever-bags-4-5m-from-pre-seed-seed-hauls/", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "intelligencebank": {
+    "verdict": "confirmed_by_own_site", "hq": "Southbank, VIC", "hq_basis": "@place",
+    "reason": {"text": "Melbourne (Southbank) marketing-operations platform for digital asset management and compliance. Older: see the flag.", "quote": "@description"},
+    "flags": [{"kind": "too_old", "basis": "Business News Australia says it was founded in 2010 (Preqin gives 2009); a US$37M growth investment in July 2021; about 85 staff in 2022", "source_url": "https://direct.businessnewsaustralia.com/articles/-50m-investment-to-bolster-us-plans-for-marketing-software-developer-intelligencebank.html", "source_kind": "press (search result summary)"}]
+  },
+  "reejig": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW (the city is from press)", "hq_basis": "@place",
+    "reason": {"text": "Australian company (Reejig Pty Ltd) whose software maps work, jobs and skills across a workforce; founded in Sydney in 2019 per press, with a A$15M Series A.", "quote": "@description"},
+    "press": [{"claim": "founded in Sydney in 2019; Series A of about A$15M led by Skip Capital", "source_url": "https://anz.peoplemattersglobal.com/article/funding-investment/workforce-intelligence-firm-reejig-raises-15-million-series-a-investment-32701", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "octopus-deploy": {
+    "verdict": "confirmed_by_own_site", "hq": "South Brisbane, QLD", "hq_basis": "@address",
+    "reason": {"text": "Brisbane continuous-deployment software, with its office address on its own contact page. Too established for an early-stage map: see the flags.", "quote": "@description"},
+    "flags": [
+      {"kind": "too_big", "basis": "its own history page is reported to say 200+ staff, over US$50M revenue and 3,700 customers; SmartCompany reports a US$30M investment valuing it at A$882M", "source_url": "https://www.smartcompany.com.au/startupsmart/octopus-deploy-brisbane-startup-45-6-million-investment-raise", "source_kind": "press (search result summary)"},
+      {"kind": "too_old", "basis": "founded in 2012 by Paul and Sonia Stovell in Brisbane (the line used here is 2012 or earlier)", "source_url": "https://www.smartcompany.com.au/startupsmart/octopus-deploy-brisbane-startup-45-6-million-investment-raise", "source_kind": "press (search result summary)"}
+    ]
+  },
+  "fleetyr": {
+    "verdict": "press_only", "hq": "Brisbane, QLD",
+    "hq_basis": {"summary": "The Driven calls it an Australian start-up with new funding for its fleet-management platform; other reports place it in Brisbane (co-founded 2021 by Tim Hill and Brodie Ruttan; a seed of about A$750,000 in 2025).", "source_url": "https://thedriven.io/2025/03/19/australian-start-up-lands-new-funding-for-ai-driven-ev-fleet-management-platform/", "source_kind": "press", "how_read": "search result summary"},
+    "reason": {"text": "Brisbane fleet-data startup (founded 2021) that connects the data of fleet and mobility systems; a small seed. Its own site is a page that shows nothing to this reader, so the description is from press.", "quote": "", "summary": "A fleet and safety analytics and integration platform that pulls data from siloed fleet systems and visualises it for operators.", "source_url": "https://thedriven.io/2025/03/19/australian-start-up-lands-new-funding-for-ai-driven-ev-fleet-management-platform/", "source_kind": "press"},
+    "notes": "Its own site could not be read: it loads as an empty page for a reader that does not run scripts. Press disagrees on the city (Brisbane or Ipswich)."
+  },
+  "liquid-instruments": {
+    "verdict": "press_only", "hq": "Canberra, ACT",
+    "hq_basis": {"summary": "ANU says Liquid Instruments is an ANU spin-out (founded 2014) that raised A$70M in a Series C co-led by Keysight and the National Reconstruction Fund; it has said it stays headquartered in Canberra, with a Melbourne manufacturing site.", "source_url": "https://www.anu.edu.au/news/all-news/anu-spin-out-liquid-instruments-secures-70-million-to-advance-ai-driven-tech", "source_kind": "press", "how_read": "search result summary"},
+    "reason": {"text": "ANU spin-out making software-defined test and measurement instruments; a growth-stage deep-tech company (Series C, April 2026 per press). Its own site did not let this reader in, so nothing here is from it.", "quote": "", "summary": "A test and measurement company founded in 2014 out of Australian National University research.", "source_url": "https://www.anu.edu.au/news/all-news/anu-spin-out-liquid-instruments-secures-70-million-to-advance-ai-driven-tech", "source_kind": "press"},
+    "notes": "Not read: robots.txt could not be fetched, so the site is closed to this reader by its own rules (no workaround tried)."
+  },
+  "wemoney": {
+    "verdict": "confirmed_by_own_site", "hq": "Surry Hills, NSW",
+    "hq_basis": {"quote": "63-73 Ann Street, Surry Hills NSW 2010", "source_url": "https://www.wemoney.com.au/policies/privacy-policy", "source_kind": "own_site"},
+    "reason": {"text": "Australian consumer-finance app aimed at Australians paying down debt (WeMoney Pty Ltd; the description on its own site).", "quote": "@description"},
+    "notes": "The home page this reader got gives no entity or address, but the company's own privacy policy states WeMoney Pty Ltd, an ABN and 63-73 Ann Street, Surry Hills NSW 2010 (found by the discovery engine)."
+  },
+  "affinda": {
+    "verdict": "confirmed_by_own_site", "hq": "Melbourne, VIC", "hq_basis": "@place",
+    "reason": {"text": "Document-AI company that its own About page says was founded by Melbourne-based brothers; 120+ staff and 2,800+ customers in 85+ countries, so mature.", "quote": "@description"},
+    "notes": "Founded 2012 on its own page, so flagged as old; 120+ staff is mid-size."
+  },
+  "emesent": {
+    "verdict": "confirmed_by_own_site", "hq": "Milton, QLD", "hq_basis": "@place",
+    "reason": {"text": "Brisbane (Milton head office on its own contact page) maker of SLAM LiDAR mapping systems for places people cannot easily go; 10 open roles on Lever.", "quote": "@description"},
+    "notes": "Its own site says 110+ team members."
+  },
+  "upcover": {
+    "verdict": "confirmed_by_own_site", "hq": "Barangaroo, NSW", "hq_basis": "@address",
+    "reason": {"text": "Sydney (Barangaroo) business-insurance platform (upcover Pty Ltd, a corporate authorised representative) that quotes in minutes for small and technology businesses.", "quote": "@description"}
+  },
+  "ceres-tag": {
+    "verdict": "confirmed_by_own_site", "hq": "Queensland (the state is from press; its own pages show an Australian ABN)", "hq_basis": "@place",
+    "reason": {"text": "Australian agtech company (Ceres Tag Ltd) selling a GPS ear tag that talks directly to satellites, for livestock in Australia and abroad.", "quote": "@description"},
+    "press": [{"claim": "started on a family farm in 2016; Queensland; a 5% stake sold to an Australian satellite company in 2021", "source_url": "https://tiq.qld.gov.au/queensland-business/success-stories/ceres-tag", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "nutromics": {
+    "verdict": "confirmed_by_own_site", "hq": "Brunswick, VIC", "hq_basis": "@place",
+    "reason": {"text": "Melbourne (Brunswick) medtech building continuous-monitoring biosensors; founded 2017 per its own Our Story page, a team of 60+ in Melbourne and San Diego, US$14M pre-Series A in 2022.", "quote": "@description"}
+  },
+  "lombard": {
+    "verdict": "not_australian", "hq": null,
+    "hq_basis": {"summary": "A July 2025 press release for its LBTC launch is datelined London; company-data pages list New York; created in April 2024. One venture directory lists Sydney, which conflicts.", "source_url": "https://www.barchart.com/story/news/33685541/lombard-finance-launches-lbtc-on-etherlink-expanding-bitcoin-defi-opportunities-on-tezos-l2", "source_kind": "press"},
+    "reason": {"text": "A Bitcoin-yield and DeFi infrastructure project; its own site names no place or Australian entity, and press places it in London and New York.", "quote": "@description"},
+    "flags": [{"kind": "not_australian", "basis": "its own pages say no place or Australian company; a July 2025 press release is datelined London and company-data pages say New York (one directory says Sydney)", "source_url": "https://www.barchart.com/story/news/33685541/lombard-finance-launches-lbtc-on-etherlink-expanding-bitcoin-defi-opportunities-on-tezos-l2", "source_kind": "press (search result summary)"}]
+  },
+  "harvest-b": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW (the plant is in Penrith, from press)", "hq_basis": "@place",
+    "reason": {"text": "Sydney plant-protein ingredients company (Harvest B Pty Ltd; its footer acknowledges Darug, Durak and Gadigal Country) making plant-based meat ingredients from Australian grains.", "quote": "@description"},
+    "notes": "The site's footer says 2025, so check it is still trading. Press: founded 2020, a A$3.5M seed (Woolworths' W23 and Aura Ventures), a Penrith facility opened December 2022.",
+    "press": [{"claim": "A$3.5M seed led by W23 and Aura; Penrith facility opened December 2022; founded 2020", "source_url": "https://vegconomist.com/investments/australian-alt-protein-startup-harvest-b-raises-3-5m-in-funding-round-led-by-woolworths", "source_kind": "press", "how_read": "search result summary"}]
+  },
+  "block-earner": {
+    "verdict": "confirmed_by_own_site", "hq": "Sydney, NSW", "hq_basis": "@place",
+    "reason": {"text": "Sydney crypto-finance company (Web3 Ventures Pty Ltd trading as Block Earner, Martin Place) offering crypto-backed loans and trading; founded 2021 per its own pages.", "quote": "@description"}
+  },
+  "livewire": {
+    "verdict": "unclear", "hq": null, "hq_basis": null,
+    "reason": {"text": "An investing-content platform (Livewire Markets). Its own site refused this reader (HTTP 403), so nothing about it was read from the company.", "quote": "", "summary": "Livewire Markets hosts fund managers' investor presentations and commentary, including Wilson Asset Management's (Sydney).", "source_url": "https://www.livewiremarkets.com:443/wires/in-focus-wilson-asset-management", "source_kind": "press"},
+    "flags": [{"kind": "unclear_fit", "basis": "from what search showed, it is an investor-content media platform that carries fund managers' material, not a product startup; its founding year and owner were not established", "source_url": "https://www.livewiremarkets.com:443/wires/in-focus-wilson-asset-management", "source_kind": "press (search result summary)"}],
+    "notes": "Not read: the site answers 403 to this reader, which is final (no workaround tried)."
+  },
+  "tribe": {
+    "verdict": "confirmed_by_own_site", "hq": "South Melbourne, VIC", "hq_basis": "@address",
+    "reason": {"text": "Melbourne (Southbank, schema.org address South Melbourne) influencer-marketing platform (TRIBE Digital Pty Ltd), founded 2014 per its About page.", "quote": "@description"}
+  },
+  "simpro": {
+    "verdict": "press_only", "hq": "Brisbane, QLD",
+    "hq_basis": {"summary": "Wikipedia says Simpro was founded in Brisbane in 2002; an announcement of its North America HQ in Miami calls it 'the Brisbane, Australia-based company'.", "source_url": "https://en.wikipedia.org/wiki/Simpro", "source_kind": "press", "how_read": "search result summary"},
+    "reason": {"text": "Field-service software for trades businesses, founded in Brisbane. The pages of its own site that this reader got say no place and carry no description.", "quote": "", "summary": "Field-service management software for trade and service businesses, founded in Brisbane in 2002.", "source_url": "https://en.wikipedia.org/wiki/Simpro", "source_kind": "press"},
+    "flags": [
+      {"kind": "too_big", "basis": "reported 400 to 487 employees, a US$350M funding round (November 2021), acquisitions of AroFlo, ClockShark and BigChange, and a North America headquarters in Miami", "source_url": "https://en.wikipedia.org/wiki/Simpro", "source_kind": "press (search result summary)"},
+      {"kind": "too_old", "basis": "founded in Brisbane in 2002", "source_url": "https://en.wikipedia.org/wiki/Simpro", "source_kind": "press (search result summary)"}
+    ]
+  }
+}
