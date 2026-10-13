@@ -19,3 +19,7 @@ dev-server.log
 .data.lock
 backend/.admin/
 .scheduler.lock
+
+# Python's compiled files (backend/scripts/enrich)
+__pycache__/
+*.pyc
