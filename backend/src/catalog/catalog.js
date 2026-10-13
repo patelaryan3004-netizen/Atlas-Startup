@@ -42,7 +42,7 @@ export const stageRank = (stage) => {
 export const FACETS = ['sector', 'city', 'stage', 'investor'];
 // `hiring` is true only for a company whose open roles were read from a page; `rolesUnverified` is true for one flagged as hiring
 // that no page backs (toPublic).
-export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'rolesUnverified', 'hiring_source_url', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events'];
+export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
@@ -78,14 +78,39 @@ function postings(list, keyOf) {
 // function is several times slower in V8, and this runs on every start.
 const sortedNumbers = (count, compare) => Uint32Array.from(Array.from({ length: count }, (_, i) => i).sort(compare));
 
-export function buildSnapshot(raw, version, { lap = () => {}, provenance = new Map() } = {}) {
+// What a company says about hiring, as one of four states a visitor can be told:
+//   hiring       open roles were CONFIRMED by a page (the company's job board or structured postings on its own page) within the window
+//   checked      roles were read on an earlier date, or not by a source we confirm: said with the date, never as "hiring now"
+//   none         a job board was read and listed no open roles
+//   unverified   nothing has been read: no website, a careers page with no readable roles, or a claim no page backs
+// With no window (hiringWindowDays null) a company is `hiring` when a page backs it, however long ago, as it always was.
+export function hiringStateOf(record, found, nowMs, windowMs) {
+  if (record.hiring === true) {
+    const confirmed = Date.parse(found?.hiring?.confirmed_at);
+    if (windowMs == null || (Number.isFinite(confirmed) && nowMs - confirmed <= windowMs)) return { state: 'hiring', checkedAt: null };
+    return { state: 'checked', checkedAt: found?.hiring?.checked_at ?? record.hiring_verified_at ?? null };
+  }
+  if (record.hiring_status === 'not_hiring' && found?.no_roles) return { state: 'none', checkedAt: found.no_roles.checked_at };
+  return { state: 'unverified', checkedAt: null };
+}
+
+export function buildSnapshot(raw, version, { lap = () => {}, provenance = new Map(), now = Date.now, hiringWindowDays = null } = {}) {
   const source = JSON.parse(raw);
   lap('parse');
   const records = source.map(toPublic);
+  const windowMs = hiringWindowDays == null ? null : hiringWindowDays * 86400000;
   // The page that says a company is hiring is served with a company that is (hiring is public only where a page backs it): it is
-  // where the Jobs board sends a visitor.
+  // where the Jobs board sends a visitor. A company whose roles were read but are not confirmed within the window is not `hiring`,
+  // and says when it was checked.
   for (const r of records) {
-    const hiringPage = r.hiring === true ? provenance.get(r.id)?.hiring : null;
+    const found = provenance.get(r.id);
+    const { state, checkedAt } = hiringStateOf(r, found, now(), windowMs);
+    r.hiring = state === 'hiring';
+    r.hiringState = state;
+    r.hiring_checked_at = checkedAt;
+    // The open roles read from the pages of a company that is hiring now, counting those read inside the window.
+    r.open_roles = state === 'hiring' ? (found?.roles ?? []).filter((t) => windowMs == null || now() - Date.parse(t) <= windowMs).length : 0;
+    const hiringPage = state === 'hiring' || state === 'checked' ? found?.hiring : null;
     if (hiringPage) r.hiring_source_url = hiringPage.url;
   }
   lap('public form');
@@ -174,7 +199,9 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   return snap;
 }
 
-export function createCatalog({ file, reloadMs = 1000, now = Date.now } = {}) {
+// hiringWindowDays: how recent a CONFIRMED reading of a company's open roles must be for it to count as hiring now (see hiringStateOf).
+// null keeps the older rule. The snapshot is rebuilt when the UTC day changes, so a company ages out of "hiring now" on time.
+export function createCatalog({ file, reloadMs = 1000, now = Date.now, hiringWindowDays = null } = {}) {
   let snap = null;
   let loading = null;
   let checkedAt = 0;
@@ -192,11 +219,11 @@ export function createCatalog({ file, reloadMs = 1000, now = Date.now } = {}) {
 
   async function load() {
     const info = await stat(file);
-    const sig = [`${Math.round(info.mtimeMs)}-${info.size}`, ...(await Promise.all(beside.map(statOf)))].join('/');
+    const sig = [`${Math.round(info.mtimeMs)}-${info.size}`, ...(await Promise.all(beside.map(statOf))), ...(hiringWindowDays == null ? [] : [new Date(now()).toISOString().slice(0, 10)])].join('/');
     if (snap && sig === signature) return snap;
     const raw = await readFile(file, 'utf8');
     const [sources, evidence, jobs] = await Promise.all(beside.map(rowsOf));
-    snap = buildSnapshot(raw, sig, { provenance: buildProvenance({ sources, evidence, jobs }) });
+    snap = buildSnapshot(raw, sig, { provenance: buildProvenance({ sources, evidence, jobs }), now, hiringWindowDays });
     signature = sig;
     return snap;
   }
@@ -363,13 +390,16 @@ export function summary(snap, matched) {
   const byPrecision = Object.fromEntries(PRECISIONS.map((p) => [p, 0]));
   let pinned = 0;
   let hiring = 0;
+  let hiringChecked = 0; // roles read earlier, or not by a source we confirm: said with the date, not counted as hiring now
+  let openRoles = 0;     // the open roles read from the pages of the companies that are hiring now
   let taskGated = 0;
   let lastVerifiedAt = 0;
   for (const i of matched) {
     const r = snap.records[i];
     byPrecision[snap.precisions[i]] += 1;
     if (r.verified) pinned += 1;
-    if (r.hiring) hiring += 1;
+    if (r.hiring) { hiring += 1; openRoles += r.open_roles ?? 0; }
+    if (r.hiringState === 'checked') hiringChecked += 1;
     if (r.taskGate?.enabled) taskGated += 1;
     const checked = Date.parse(r.last_verified_at);
     if (checked > lastVerifiedAt) lastVerifiedAt = checked;
@@ -383,7 +413,7 @@ export function summary(snap, matched) {
   vouched.sort((a, b) => snap.records[b].vouches.length - snap.records[a].vouches.length || a - b);
   return {
     // pinned: companies with a confirmed location (the list's count); onMap: those drawn as a pin of their own
-    count: matched.length, pinned, onMap: byPrecision.EXACT + byPrecision.SUBURB, byPrecision, unverified: matched.length - pinned, hiring, taskGated, cities: cities.size, founders: founders.size,
+    count: matched.length, pinned, onMap: byPrecision.EXACT + byPrecision.SUBURB, byPrecision, unverified: matched.length - pinned, hiring, hiringChecked, openRoles, taskGated, cities: cities.size, founders: founders.size,
     // The most recent check of any company in the result (null when none was ever checked): the site's "Updated" date.
     lastVerifiedAt: lastVerifiedAt ? new Date(lastVerifiedAt).toISOString() : null,
     topCities: [...cities].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 8).map(([city, n]) => ({ city, count: n })),
@@ -473,7 +503,7 @@ export const sourcesFor = (snap, record) => {
   const found = snap.provenance?.get(record.id);
   const sources = found?.sources ?? [];
   const times = sources.map((s) => Date.parse(s.checked_at)).filter((t) => !Number.isNaN(t));
-  return { sources, checked_at: times.length ? new Date(Math.max(...times)).toISOString() : null, hiring_source: record.hiring === true ? found?.hiring ?? null : null };
+  return { sources, checked_at: times.length ? new Date(Math.max(...times)).toISOString() : null, hiring_source: record.hiring === true || record.hiringState === 'checked' ? found?.hiring ?? null : null };
 };
 
 export const recordFor = (snap, key) => {

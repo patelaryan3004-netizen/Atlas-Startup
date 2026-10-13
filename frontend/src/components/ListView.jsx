@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchStartupPage } from '../api.js';
 import { logoUrl } from '../logo.js';
 import ConceptPreview from './ConceptPreview.jsx';
+import HiringBadge from './HiringBadge.jsx';
 import QuickFilters from './QuickFilters.jsx';
 import IndexRow, { cardId } from './IndexRow.jsx';
 import { verifiedLabel, nextEvent, eventDay, present } from '../freshness.js';
@@ -154,13 +155,7 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
               {s.blurb && <p className="pc-desc startup-card-desc">{s.blurb}</p>}
 
               <div className="startup-card-tags">
-                {s.hiring ? (
-                  <span className="hiring-badge">● Hiring now</span>
-                ) : s.rolesUnverified ? (
-                  <span className="hiring-badge hiring-badge-off" title="Marked as hiring, but no open role has been checked against the company's own pages">Roles unverified</span>
-                ) : (
-                  <span className="hiring-badge hiring-badge-off">Not hiring</span>
-                )}
+                <HiringBadge company={s} />
                 <ConceptPreview company={s} />
                 {!s.verified && <span className="badge-unverified">Unverified</span>}
               </div>

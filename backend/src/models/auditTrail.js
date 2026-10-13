@@ -28,6 +28,9 @@ export const AUDIT_ACTIONS = [
   'company.rename',
   'conflict.resolve', 'suggestion.apply', 'suggestion.dismiss',
   'enrichment.seed', 'enrichment.enqueue', 'enrichment.task', 'enrichment.retry', 'enrichment.cancel', 'enrichment.run',
+  // A reading made outside the worker (scripts/enrich) put on the dataset, and the owner's decisions about it: a company's hiring answer,
+  // a piece of hiring evidence held out of "hiring now" until it is re-checked by hand, and a website that no longer answers.
+  'enrichment.apply', 'company.hiring_decision', 'evidence.hold', 'company.website_status',
   'import.run', 'import.dismiss',
   'scheduler.run',
   'location.geocode', 'location.normalize', 'location.verify', 'location.promote', 'location.set',

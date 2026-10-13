@@ -23,6 +23,50 @@ const luminance = (hex) => {
 };
 const contrast = (a, b) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05); };
 
+describe('the design system, in the hand-written CSS', () => {
+  it('names the six colours of the brief as variables at :root, with the values the brief gives', () => {
+    expect(token(styles, '--paper')).toBe('#0a0e0f'); // bg
+    expect(token(styles, '--panel')).toBe('#14181a'); // surface
+    expect(token(styles, '--line')).toBe('#22282a'); // border
+    expect(token(styles, '--ink')).toBe('#e8e6de'); // text
+    expect(token(styles, '--muted')).toBe('#8a8f8c');
+    expect(token(styles, '--accent')).toBe('#3ecf6e');
+    // the brief's names are the same values, not second colours
+    expect(token(styles, '--bg')).toBe('var(--paper)');
+    expect(token(styles, '--surface')).toBe('var(--panel)');
+    expect(token(styles, '--border')).toBe('var(--line)');
+    expect(token(styles, '--text')).toBe('var(--ink)');
+  });
+
+  it('has an 8px spacing scale, a 12px radius, a pill, and a 1120px page width', () => {
+    expect(token(styles, '--space-1')).toBe('8px');
+    for (const [name, px] of [['--space-2', 16], ['--space-3', 24], ['--space-4', 32], ['--space-6', 48], ['--space-8', 64], ['--space-10', 80]]) expect(token(styles, name), name).toBe(`${px}px`);
+    expect(token(styles, '--radius')).toBe('12px');
+    expect(token(styles, '--card-radius')).toBe('12px');
+    expect(token(styles, '--radius-pill')).toBe('999px');
+    expect(token(styles, '--maxw')).toBe('1120px');
+    expect(token(landing, '--l-max')).toBe('var(--maxw)');
+  });
+
+  it('uses Inter with the system face as its fallback, everywhere: the page, the landing, and the no-JavaScript directory', () => {
+    expect(token(styles, '--font')).toMatch(/^'Inter',\s*system-ui/);
+    expect(styles).toMatch(/html,body,#root\{[^}]*font-family:var\(--font\)/);
+    expect(token(landing, '--l-font')).toBe('var(--font)');
+    expect(readFileSync(path.join(src, 'LandingPage.jsx'), 'utf8')).not.toMatch(/geist/i);
+    expect(readFileSync(path.join(src, '..', '..', 'backend', 'src', 'routes', 'directory.js'), 'utf8')).toMatch(/font-family:'Inter',system-ui/);
+  });
+
+  it('has no Courier, no paper or ochre left, and does not switch Tailwind or shadcn on for the whole app', () => {
+    // (Georgia may sit in the fallback stack of the one italic word's face, --l-serif, and nowhere else)
+    const withoutSerifFallback = (text) => text.replace(/--l-serif:[^;]*;/, '');
+    for (const [name, text] of [['styles.css', styles], ['landing.css', landing], ['landing-hero.css', hero], ['investors.css', investors]]) {
+      expect(withoutSerifFallback(text), name).not.toMatch(/courier|georgia|#c05a2e|#f6f3ec|#d8d2c2|ochre/i);
+    }
+    // shadcn.css pulls in Tailwind's reset, which would restyle every page: nothing the app loads imports it
+    for (const file of ['main.jsx', 'App.jsx', 'LandingPage.jsx', 'styles.css', 'landing.css']) expect(readFileSync(path.join(src, file), 'utf8'), file).not.toMatch(/shadcn\.css|@import\s+["']tailwindcss/);
+  });
+});
+
 describe('the colours', () => {
   const ground = token(styles, '--paper');
   const panel = token(styles, '--panel');
@@ -100,8 +144,8 @@ describe('the landing page\'s type', () => {
     expect(hero).toMatch(/\.hero-title\{[^}]*font-size: var\(--fs-display\)[^}]*line-height: \.98/);
   });
 
-  it('keeps a section to the scale: a display size, a heading size and two text sizes, and nothing else', () => {
-    const allowed = new Set(['var(--fs-display)', 'var(--fs-figure)', 'var(--fs-heading)', 'var(--fs-body)', 'var(--fs-small)']);
+  it('keeps a section to the scale: a display size, a heading size, two reading sizes and a label size, and nothing else', () => {
+    const allowed = new Set(['var(--fs-display)', 'var(--fs-figure)', 'var(--fs-heading)', 'var(--fs-body)', 'var(--fs-small)', 'var(--fs-label)']);
     const heroSection = hero.slice(hero.indexOf('/* Hero */'), hero.indexOf('/* The picture'));
     for (const [name, text] of [['landing.css', landing.slice(landing.indexOf('/* A section opens'))], ['hero section', heroSection]]) {
       const sizes = [...text.matchAll(/(?<![-\w])font-size:\s*([^;}]+)/g)].map((m) => m[1].trim());
@@ -109,7 +153,10 @@ describe('the landing page\'s type', () => {
       for (const size of sizes) expect(allowed.has(size), `${name}: ${size}`).toBe(true);
     }
     expect(token(landing, '--fs-body')).toBe('17px');
-    expect(token(landing, '--fs-small')).toBe('13px');
+    // text a person reads is never under 15px; the 13px size is for labels (a section's number, a count, a date)
+    expect(token(landing, '--fs-small')).toBe('15px');
+    expect(token(landing, '--fs-label')).toBe('13px');
+    expect(landing).toMatch(/\.sec-rule\{[^}]*font-size: var\(--fs-label\)/);
   });
 
   it('sets one word in italic in a face that has an italic, and the numbers and labels in the monospace', () => {

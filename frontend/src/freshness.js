@@ -18,6 +18,27 @@ export function verifiedLabel(iso, now = Date.now()) {
   return { text: `Verified ${Math.floor(days / 7)} weeks ago`, stale: false };
 }
 
+// '5 Oct', a day without its year, for "checked 5 Oct".
+export function dayMonth(iso) {
+  const t = when(iso);
+  return t === null ? null : new Date(t).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Sydney' });
+}
+
+// What a company says about hiring, as a label and a tone. There are four things it can be, and "Hiring now" is only the first:
+//   hiring       a page confirmed its open roles lately (the server's window)                     Hiring now
+//   checked      roles were read on an earlier date, or not by a source confirmed                 Hiring (checked 5 Oct)
+//   none         a job board was read and listed no open roles                                    No open roles listed (13 Oct)
+//   unverified   nothing was read: no website, no readable board, or a claim no page backs        Roles unverified
+// A company the server has not classified (an older answer) is "Hiring now" only when it says it is hiring.
+export function hiringLabel(company) {
+  const state = company?.hiringState ?? (company?.hiring === true ? 'hiring' : 'unverified');
+  const day = dayMonth(company?.hiring_checked_at);
+  if (state === 'hiring') return { state, text: 'Hiring now' };
+  if (state === 'checked') return { state, text: day ? `Hiring (checked ${day})` : 'Hiring (checked earlier)' };
+  if (state === 'none') return { state, text: day ? `No open roles listed (${day})` : 'No open roles listed' };
+  return { state: 'unverified', text: 'Roles unverified' };
+}
+
 // '13 Oct 2026', for "Updated <date>".
 export function shortDate(iso) {
   const t = when(iso);

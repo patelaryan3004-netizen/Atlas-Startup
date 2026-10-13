@@ -143,6 +143,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "airwallex.hiring_status.airwallex-careers",
+    "company_id": "airwallex",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "airwallex-careers",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:24:45Z",
+    "status": "active",
+    "note": "1 open role in the page's structured data, such as \"Airwallex Careers\"."
+  },
+  {
     "id": "airwallex.state.airwallex-global-terms-privacy-policy",
     "company_id": "airwallex",
     "field": "state",
@@ -176,6 +187,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "amazingco.hiring_status.amazingco-breezy-jobs",
+    "company_id": "amazingco",
+    "field": "hiring_status",
+    "value": "not_hiring",
+    "source_id": "amazingco-breezy-jobs",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "The company's Breezy job board, which its careers page links to, listed no open roles when it was read."
+  },
+  {
     "id": "amazingco.website.amazingco-aus",
     "company_id": "amazingco",
     "field": "website",
@@ -207,6 +229,17 @@
     "verified_at": "2026-10-05T15:05:57.998Z",
     "status": "active",
     "note": "2 open roles on the company's Lever job board, which its careers page links to, such as \"Chief Technology Officer (CTO)\"."
+  },
+  {
+    "id": "amber-electric.hiring_status.amber-electric-lever-jobs.2",
+    "company_id": "amber-electric",
+    "field": "hiring_status",
+    "value": "not_hiring",
+    "source_id": "amber-electric-lever-jobs",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T04:17:55Z",
+    "status": "active",
+    "note": "The company's Lever job board, which its careers page links to, listed no open roles when it was read."
   },
   {
     "id": "amber-electric.website.amber-electric-website",
@@ -429,6 +462,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "askable.hiring_status.askable-teamtailor-jobs",
+    "company_id": "askable",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "askable-teamtailor-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "12 open roles on the company's Teamtailor job board, which its careers page links to, such as \"Senior Enterprise Customer Success Manager (AUS)\"."
+  },
+  {
     "id": "askable.state.askable-company-about",
     "company_id": "askable",
     "field": "state",
@@ -473,6 +517,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "asseti.hiring_status.asseti-workable-jobs",
+    "company_id": "asseti",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "asseti-workable-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:17:55Z",
+    "status": "active",
+    "note": "8 open roles on the company's Workable job board, which its careers page links to, such as \"Enterprise Account Executive\"."
+  },
+  {
     "id": "asseti.state.asseti-terms",
     "company_id": "asseti",
     "field": "state",
@@ -504,6 +559,17 @@
     "verified_at": "2026-10-05T15:03:57.700Z",
     "status": "active",
     "note": "The page's own description."
+  },
+  {
+    "id": "assignar.hiring_status.assignar-breezy-jobs",
+    "company_id": "assignar",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "assignar-breezy-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "5 open roles on the company's Breezy job board, which its careers page links to, such as \"Customer Solutions Manager\"."
   },
   {
     "id": "assignar.website.assignar-website",
@@ -548,6 +614,17 @@
     "verified_at": "2026-10-05T15:10:45.390Z",
     "status": "active",
     "note": "The page's own description."
+  },
+  {
+    "id": "atomi.hiring_status.atomi-lever-jobs",
+    "company_id": "atomi",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "atomi-lever-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:24:45Z",
+    "status": "active",
+    "note": "1 open role on the company's Lever job board, which its careers page links to, such as \"Join our Talent Community!\"."
   },
   {
     "id": "atomi.website.atomi-website",
@@ -902,6 +979,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "bookipi.hiring_status.bookipi-careers",
+    "company_id": "bookipi",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "bookipi-careers",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:24:45Z",
+    "status": "active",
+    "note": "2 open roles in the page's structured data, such as \"Senior Full Stack Developer\"."
+  },
+  {
     "id": "bookipi.website.bookipi-website",
     "company_id": "bookipi",
     "field": "website",
@@ -922,6 +1010,17 @@
     "verified_at": "2026-10-05T15:10:28.688Z",
     "status": "active",
     "note": "The page's own description."
+  },
+  {
+    "id": "bridgit.hiring_status.bridgit-careers",
+    "company_id": "bridgit",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "bridgit-careers",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:24:45Z",
+    "status": "active",
+    "note": "1 open role in the page's structured data, such as \"Marketing Coordinator\"."
   },
   {
     "id": "bridgit.website.bridgit-website",
@@ -1106,7 +1205,7 @@
     "value": "hiring",
     "source_id": "buildkite-greenhouse-jobs",
     "confidence": "high",
-    "verified_at": "2026-10-05T15:06:00.051Z",
+    "verified_at": "2026-10-13T04:17:55Z",
     "status": "active",
     "note": "1 open role on the company's Greenhouse job board, which its careers page links to, such as \"🚀 Join our Talent Community 🚀\"."
   },
@@ -1175,6 +1274,17 @@
     "verified_at": "2026-10-05T15:07:01.673Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "canva.hiring_status.canva-careers",
+    "company_id": "canva",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "canva-careers",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:17:55Z",
+    "status": "active",
+    "note": "1 open role in the page's structured data, such as \"Research MLE (Training Optimization）大模型训练优化工程师\"."
   },
   {
     "id": "care-gp.description.care-gp-website",
@@ -1414,7 +1524,7 @@
     "value": "hiring",
     "source_id": "culture-amp-greenhouse-jobs",
     "confidence": "high",
-    "verified_at": "2026-10-05T15:06:32.946Z",
+    "verified_at": "2026-10-13T04:17:55Z",
     "status": "active",
     "note": "30 open roles on the company's Greenhouse job board, which its careers page links to, such as \"Associate Site Reliability Engineer\"."
   },
@@ -1969,6 +2079,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "enboarder.hiring_status.enboarder-greenhouse-jobs",
+    "company_id": "enboarder",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "enboarder-greenhouse-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:17:55Z",
+    "status": "active",
+    "note": "5 open roles on the company's Greenhouse job board, which its careers page links to, such as \"Other Careers in APAC\"."
+  },
+  {
     "id": "enboarder.website.enboarder-website",
     "company_id": "enboarder",
     "field": "website",
@@ -2321,6 +2442,17 @@
     "note": "Open roles on retrieval: Founding Engineer, Head of Social Content, Creative Director (Videographer), Head of Growth; in person in Sydney."
   },
   {
+    "id": "fastlane.hiring_status.fastlane-careers-2",
+    "company_id": "fastlane",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "fastlane-careers-2",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:24:45Z",
+    "status": "active",
+    "note": "1 open role in the page's structured data, such as \"Cracked\"."
+  },
+  {
     "id": "fastlane.last_funding_date.almanac-fastlane",
     "company_id": "fastlane",
     "field": "last_funding_date",
@@ -2590,10 +2722,10 @@
     "field": "hiring_status",
     "value": "hiring",
     "source_id": "forward-careers",
-    "confidence": "high",
+    "confidence": "medium",
     "verified_at": "2026-10-05T03:59:04.292Z",
     "status": "active",
-    "note": "Open roles on retrieval: Software Engineer, Credit Engineer (San Francisco/Sydney)."
+    "note": "Open roles on retrieval: Software Engineer, Credit Engineer (San Francisco/Sydney). Read from the page's text by hand on 2026-10-05, not from a job board or structured postings: a check, not a confirmation. Held out of \"hiring now\" until the owner re-checks it by hand (2026-10-13)."
   },
   {
     "id": "forward.investors.airtree.owner-research-forward",
@@ -3207,7 +3339,7 @@
     "value": "hiring",
     "source_id": "immutable-lever-jobs",
     "confidence": "high",
-    "verified_at": "2026-10-05T15:06:14.526Z",
+    "verified_at": "2026-10-13T04:17:55Z",
     "status": "active",
     "note": "6 open roles on the company's Lever job board, which its careers page links to, such as \"Chief of Staff, CCO\"."
   },
@@ -3350,7 +3482,7 @@
     "value": "hiring",
     "source_id": "karbon-greenhouse-jobs",
     "confidence": "high",
-    "verified_at": "2026-10-05T15:02:51.789Z",
+    "verified_at": "2026-10-13T04:17:55Z",
     "status": "active",
     "note": "15 open roles on the company's Greenhouse job board, which its careers page links to, such as \"Account Executive - Mid Market\"."
   },
@@ -3375,6 +3507,17 @@
     "verified_at": "2026-10-05T15:11:55.257Z",
     "status": "active",
     "note": "The page's own description."
+  },
+  {
+    "id": "kasada.hiring_status.kasada-lever-jobs",
+    "company_id": "kasada",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "kasada-lever-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:17:55Z",
+    "status": "active",
+    "note": "1 open role on the company's Lever job board, which its careers page links to, such as \"Senior Software Engineer\"."
   },
   {
     "id": "kasada.website.kasada-website",
@@ -4730,6 +4873,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "quantum-brilliance.hiring_status.quantum-brilliance-bamboohr-jobs",
+    "company_id": "quantum-brilliance",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "quantum-brilliance-bamboohr-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "3 open roles on the company's BambooHR job board, which its careers page links to, such as \"Expressions of Interest - Australia (Canberra or Melbourne Labs)\"."
+  },
+  {
     "id": "quantum-brilliance.state.quantum-brilliance-website",
     "company_id": "quantum-brilliance",
     "field": "state",
@@ -4893,6 +5047,17 @@
     "verified_at": "2026-10-05T15:10:35.093Z",
     "status": "active",
     "note": "The page's own description."
+  },
+  {
+    "id": "safewill.hiring_status.safewill-teamtailor-jobs",
+    "company_id": "safewill",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "safewill-teamtailor-jobs",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "2 open roles on the company's Teamtailor job board, which its careers page links to, such as \"Growth Marketing Specialist\"."
   },
   {
     "id": "safewill.website.safewill-website",
@@ -5148,6 +5313,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "shippit.hiring_status.shippit-bamboohr-jobs",
+    "company_id": "shippit",
+    "field": "hiring_status",
+    "value": "not_hiring",
+    "source_id": "shippit-bamboohr-jobs",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "The company's BambooHR job board, which its careers page links to, listed no open roles when it was read."
+  },
+  {
     "id": "shippit.website.shippit-website",
     "company_id": "shippit",
     "field": "website",
@@ -5225,6 +5401,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "slyp.hiring_status.slyp-careers",
+    "company_id": "slyp",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "slyp-careers",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:17:55Z",
+    "status": "active",
+    "note": "2 open roles in the page's structured data, such as \"Principal Engineer\"."
+  },
+  {
     "id": "slyp.website.slyp-website",
     "company_id": "slyp",
     "field": "website",
@@ -5297,7 +5484,7 @@
     "value": "hiring",
     "source_id": "sonder-greenhouse-jobs",
     "confidence": "high",
-    "verified_at": "2026-10-05T15:07:01.280Z",
+    "verified_at": "2026-10-13T04:17:55Z",
     "status": "active",
     "note": "30 open roles on the company's Greenhouse job board, which its careers page links to, such as \"Chief of Staff\"."
   },
@@ -5366,6 +5553,17 @@
     "verified_at": "2026-10-05T15:04:56.524Z",
     "status": "active",
     "note": "Stated on the page."
+  },
+  {
+    "id": "spriggy.hiring_status.spriggy-bamboohr-jobs",
+    "company_id": "spriggy",
+    "field": "hiring_status",
+    "value": "not_hiring",
+    "source_id": "spriggy-bamboohr-jobs",
+    "confidence": "medium",
+    "verified_at": "2026-10-13T04:29:43Z",
+    "status": "active",
+    "note": "The company's BambooHR job board, which its careers page links to, listed no open roles when it was read."
   },
   {
     "id": "spriggy.state.spriggy-website",
@@ -5580,10 +5778,10 @@
     "field": "hiring_status",
     "value": "hiring",
     "source_id": "superstat-careers",
-    "confidence": "high",
+    "confidence": "medium",
     "verified_at": "2026-10-05T03:59:04.292Z",
     "status": "active",
-    "note": "Open roles on retrieval: Founding Engineer, Founding Social Media Manager, Computer Vision Engineer."
+    "note": "Open roles on retrieval: Founding Engineer, Founding Social Media Manager, Computer Vision Engineer. Read from the page's text by hand on 2026-10-05, not from a job board or structured postings: a check, not a confirmation. Held out of \"hiring now\" until the owner re-checks it by hand (2026-10-13)."
   },
   {
     "id": "superstat.investors.blackbird.blackbird-superstat-post",
@@ -6004,6 +6202,17 @@
     "note": "The page's own description."
   },
   {
+    "id": "visory.hiring_status.visory-careers",
+    "company_id": "visory",
+    "field": "hiring_status",
+    "value": "hiring",
+    "source_id": "visory-careers",
+    "confidence": "high",
+    "verified_at": "2026-10-13T04:24:45Z",
+    "status": "active",
+    "note": "1 open role in the page's structured data, such as \"Technical Reviewer - Tax - CPA\"."
+  },
+  {
     "id": "visory.website.visory-website",
     "company_id": "visory",
     "field": "website",
@@ -6076,7 +6285,7 @@
     "value": "hiring",
     "source_id": "zeller-lever-jobs",
     "confidence": "high",
-    "verified_at": "2026-10-05T15:06:28.664Z",
+    "verified_at": "2026-10-13T04:17:55Z",
     "status": "active",
     "note": "20 open roles on the company's Lever job board, which its careers page links to, such as \"Account Executive\"."
   },

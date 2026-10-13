@@ -1,4 +1,5 @@
-import { verifiedLabel, nextEvent, eventDay, isBlank } from '../freshness.js';
+import { verifiedLabel, nextEvent, eventDay, isBlank, hiringLabel } from '../freshness.js';
+import HiringBadge from './HiringBadge.jsx';
 import { useEffect, useState } from 'react';
 import { fetchNews, fetchInvestorsByName } from '../api.js';
 import { logoUrl } from '../logo.js';
@@ -121,8 +122,9 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
   const investorCount = s.investors?.length || 0;
   // The page that backs "hiring now": the company's own job board when a page was read, the company's site otherwise.
   const board = s.hiring_source?.url ?? s.hiring_source_url ?? null;
-  const rolesLink = board ?? s.website;
+  const rolesLink = board ?? (s.website_status === 'unavailable' ? null : s.website);
   const fresh = verifiedLabel(s.last_verified_at);
+  const hiring = hiringLabel(s);
   const event = nextEvent(s.events);
 
   return (
@@ -169,7 +171,7 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
             )}
             <div className="sdp-meta-cell">
               <div className="pc-section-label">Hiring</div>
-              <div className="sdp-meta-value">{s.hiring ? 'Hiring now' : s.rolesUnverified ? 'Roles unverified' : 'Not currently hiring'}</div>
+              <div className="sdp-meta-value">{hiringLabel(s).text}</div>
             </div>
           </div>
 
@@ -231,31 +233,38 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
           <div className="sdp-section">
             <div className="pc-section-label">Hiring</div>
             <div className="pc-badges-row">
-              {s.hiring ? (
-                <>
-                  <span className="hiring-badge">● Hiring now</span>
-                  {rolesLink && <a className="taskbtn sdp-apply-btn" href={rolesLink} target="_blank" rel="noopener noreferrer">{board ? 'View open roles' : 'Apply now'}</a>}
-                </>
-              ) : s.rolesUnverified ? (
-                <span className="hiring-badge hiring-badge-off">Roles unverified</span>
-              ) : (
-                <span className="hiring-badge hiring-badge-off">Not hiring right now</span>
+              <HiringBadge company={s} />
+              {(s.hiring || hiring.state === 'checked') && rolesLink && (
+                <a className="taskbtn sdp-apply-btn" href={rolesLink} target="_blank" rel="noopener noreferrer">{board ? 'View open roles' : 'Apply now'}</a>
               )}
               <ConceptPreview company={s} />
             </div>
             {s.hiring && s.hiring_source && (
               <p className="sdp-hiring-note">
-                Verified from the company&rsquo;s own job board, <a href={s.hiring_source.url} target="_blank" rel="noopener noreferrer">{domainOf(s.hiring_source.url) ?? s.hiring_source.url}</a>
+                Confirmed from the company&rsquo;s own job page, <a href={s.hiring_source.url} target="_blank" rel="noopener noreferrer">{domainOf(s.hiring_source.url) ?? s.hiring_source.url}</a>
                 {checkedOn(s.hiring_source.checked_at) ? `, on ${checkedOn(s.hiring_source.checked_at)}` : ''}.
               </p>
             )}
             {s.hiring && !s.hiring_source && checkedOn(s.hiring_verified_at) && <p className="sdp-hiring-note">Open roles checked on {checkedOn(s.hiring_verified_at)}.</p>}
+            {hiring.state === 'checked' && (
+              <p className="sdp-hiring-note">
+                Open roles were read {checkedOn(s.hiring_checked_at) ? `on ${checkedOn(s.hiring_checked_at)}` : 'earlier'}, but a company is only called hiring now when a job board
+                or structured postings on its own page have confirmed them in the last 14 days. It is not counted as hiring now.
+              </p>
+            )}
+            {hiring.state === 'none' && <p className="sdp-hiring-note">The company&rsquo;s job board was read{checkedOn(s.hiring_checked_at) ? ` on ${checkedOn(s.hiring_checked_at)}` : ''} and listed no open roles.</p>}
+            {hiring.state === 'unverified' && (
+              <p className="sdp-hiring-note">
+                {s.rolesUnverified
+                  ? 'Marked as hiring, but no open role has been checked against the company’s own pages, so it is not counted as hiring.'
+                  : 'No open roles have been read for this company, so we do not say whether it is hiring.'}
+              </p>
+            )}
             {s.hiring && (
               <p className="sdp-report">
                 <button type="button" className="linkbtn" onClick={() => onSuggestEdit(s.name, `Role closed: ${s.name} is no longer hiring. `)}>Report: role closed</button>
               </p>
             )}
-            {s.rolesUnverified && <p className="sdp-hiring-note">Marked as hiring, but no open role has been checked against the company&rsquo;s own pages, so it is not counted as hiring.</p>}
           </div>
 
           {event && (
@@ -308,7 +317,10 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
           )}
 
           <div className="sdp-links">
-            {s.website && (
+            {s.website && s.website_status === 'unavailable' && (
+              <span className="pc-link sdp-website-unavailable" title={`${s.website.replace(/^https?:\/\//, '')} no longer answers; the address is kept so it can be re-checked`}>Website unavailable</span>
+            )}
+            {s.website && s.website_status !== 'unavailable' && (
               <a className="pc-link sdp-website-link" href={s.website} target="_blank" rel="noopener noreferrer">
                 {s.website.replace(/^https?:\/\//, '')} ↗
               </a>

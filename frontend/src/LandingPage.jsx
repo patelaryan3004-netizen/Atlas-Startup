@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import '@fontsource-variable/geist';
 import '@fontsource/instrument-serif/latin-400-italic.css';
 import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCounts, fetchPeople, DIRECTORY_URL } from './api.js';
 import PersonCard from './components/people/PersonCard.jsx';

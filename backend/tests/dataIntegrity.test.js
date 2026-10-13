@@ -78,8 +78,20 @@ describe('shipped data files', () => {
     }
   });
 
-  it('has not guessed hiring_status for companies not known to be hiring', () => {
-    for (const c of ds.companies.filter((x) => !x.hiring)) expect(c.hiring_status).toBeNull();
+  it('has not guessed hiring_status for companies not known to be hiring: it is set only where a job board was read and listed no roles', () => {
+    for (const c of ds.companies.filter((x) => !x.hiring)) {
+      if (c.hiring_status == null) continue;
+      expect(c.hiring_status, `${c.name}`).toBe('not_hiring');
+      const read = ds.evidence.filter((e) => e.company_id === c.id && e.field === 'hiring_status' && e.value === 'not_hiring' && e.status === 'active' && e.verified_at != null);
+      expect(read.length, `${c.name} is not_hiring with no board read behind it`).toBeGreaterThan(0);
+    }
+  });
+
+  it('says a website is unavailable only for a company that still has the address on record', () => {
+    for (const c of ds.companies.filter((x) => x.website_status != null)) {
+      expect(c.website_status).toBe('unavailable');
+      expect(c.website, `${c.name} lost its address`).toMatch(/^https?:\/\//);
+    }
   });
 });
 

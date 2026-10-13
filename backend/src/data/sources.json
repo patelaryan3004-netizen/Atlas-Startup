@@ -221,7 +221,7 @@
     "url": "https://boards.greenhouse.io/karbon",
     "title": "Greenhouse job board",
     "publisher": "karbonhq.com",
-    "retrieved_at": "2026-10-05T15:02:52.555Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -824,7 +824,7 @@
     "url": "https://jobs.lever.co/amberelectric",
     "title": "Lever job board",
     "publisher": "amber.com.au",
-    "retrieved_at": "2026-10-05T15:05:59.244Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -851,7 +851,7 @@
     "url": "https://boards.greenhouse.io/buildkite-talent-community",
     "title": "Greenhouse job board",
     "publisher": "buildkite.com",
-    "retrieved_at": "2026-10-05T15:06:00.429Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -923,7 +923,7 @@
     "url": "https://jobs.lever.co/immutable",
     "title": "Lever job board",
     "publisher": "immutable.com",
-    "retrieved_at": "2026-10-05T15:06:18.816Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -968,7 +968,7 @@
     "url": "https://jobs.lever.co/Zeller",
     "title": "Lever job board",
     "publisher": "myzeller.com",
-    "retrieved_at": "2026-10-05T15:06:31.391Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -986,7 +986,7 @@
     "url": "https://boards.greenhouse.io/cultureamp",
     "title": "Greenhouse job board",
     "publisher": "cultureamp.com",
-    "retrieved_at": "2026-10-05T15:06:44.306Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -1040,7 +1040,7 @@
     "url": "https://boards.greenhouse.io/sonderaustralia",
     "title": "Greenhouse job board",
     "publisher": "sonder.io",
-    "retrieved_at": "2026-10-05T15:07:01.864Z",
+    "retrieved_at": "2026-10-13T04:17:55Z",
     "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
   },
   {
@@ -2554,5 +2554,167 @@
     "publisher": "kingriver.co",
     "retrieved_at": "2026-10-10T16:27:42.084Z",
     "note": "Read by a person."
+  },
+  {
+    "id": "canva-careers",
+    "kind": "company_website",
+    "url": "https://www.lifeatcanva.com/en/",
+    "title": "Careers page",
+    "publisher": "lifeatcanva.com",
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "note": "Job posting on the company site."
+  },
+  {
+    "id": "airwallex-careers",
+    "kind": "company_website",
+    "url": "https://careers.airwallex.com/job/7f398475-31d6-44ea-b9ba-0b25775c136b/director-corporate-legal-ma/",
+    "title": "Careers page",
+    "publisher": "careers.airwallex.com",
+    "retrieved_at": "2026-10-13T04:24:45Z",
+    "note": "Job posting on the company site."
+  },
+  {
+    "id": "quantum-brilliance-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://quantumbrilliance.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "quantumbrilliance.com",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "askable-teamtailor-jobs",
+    "kind": "company_website",
+    "url": "https://askable.teamtailor.com/jobs",
+    "title": "Teamtailor job board",
+    "publisher": "askable.com",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's Teamtailor job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "shippit-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://shippit.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "shippit.com",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "amazingco-breezy-jobs",
+    "kind": "company_website",
+    "url": "https://amazingco.breezy.hr/",
+    "title": "Breezy job board",
+    "publisher": "amazingco.me",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's Breezy job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "assignar-breezy-jobs",
+    "kind": "company_website",
+    "url": "https://assignar.breezy.hr/",
+    "title": "Breezy job board",
+    "publisher": "assignar.com",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's Breezy job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "kasada-lever-jobs",
+    "kind": "company_website",
+    "url": "https://jobs.lever.co/kasada",
+    "title": "Lever job board",
+    "publisher": "kasada.io",
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "enboarder-greenhouse-jobs",
+    "kind": "company_website",
+    "url": "https://boards.greenhouse.io/enboarder",
+    "title": "Greenhouse job board",
+    "publisher": "enboarder.com",
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "note": "The company's Greenhouse job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "atomi-lever-jobs",
+    "kind": "company_website",
+    "url": "https://jobs.lever.co/atomi",
+    "title": "Lever job board",
+    "publisher": "getatomi.com",
+    "retrieved_at": "2026-10-13T04:24:45Z",
+    "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "bridgit-careers",
+    "kind": "company_website",
+    "url": "https://careers.bridgit.com.au/jobs/8534466-marketing-coordinator",
+    "title": "Careers page",
+    "publisher": "careers.bridgit.com.au",
+    "retrieved_at": "2026-10-13T04:24:45Z",
+    "note": "Job posting on the company site."
+  },
+  {
+    "id": "visory-careers",
+    "kind": "company_website",
+    "url": "https://careers.visory.com.au/jobs/8510145-technical-reviewer-tax-cpa",
+    "title": "Careers page",
+    "publisher": "careers.visory.com.au",
+    "retrieved_at": "2026-10-13T04:24:45Z",
+    "note": "Job posting on the company site."
+  },
+  {
+    "id": "bookipi-careers",
+    "kind": "company_website",
+    "url": "https://bookipi.com/jobs/full-stack-developer/",
+    "title": "Careers page",
+    "publisher": "bookipi.com",
+    "retrieved_at": "2026-10-13T04:24:45Z",
+    "note": "Job posting on the company site."
+  },
+  {
+    "id": "asseti-workable-jobs",
+    "kind": "company_website",
+    "url": "https://apply.workable.com/asseti/",
+    "title": "Workable job board",
+    "publisher": "asseti.co",
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "note": "The company's Workable job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "safewill-teamtailor-jobs",
+    "kind": "company_website",
+    "url": "https://safewill.teamtailor.com/jobs",
+    "title": "Teamtailor job board",
+    "publisher": "safewill.com",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's Teamtailor job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "spriggy-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://spriggy.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "spriggy.com.au",
+    "retrieved_at": "2026-10-13T04:29:43Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "slyp-careers",
+    "kind": "company_website",
+    "url": "https://www.slyp.com.au/careers",
+    "title": "Careers page",
+    "publisher": "slyp.com.au",
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "note": "Job posting on the company site."
+  },
+  {
+    "id": "fastlane-careers-2",
+    "kind": "company_website",
+    "url": "https://www.usefastlane.ai/careers/cracked",
+    "title": "Careers page",
+    "publisher": "usefastlane.ai",
+    "retrieved_at": "2026-10-13T04:24:45Z",
+    "note": "Job posting on the company site."
   }
 ]

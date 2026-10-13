@@ -24,7 +24,8 @@ const isWebAddress = (url) => {
 
 const time = (iso) => { const t = Date.parse(iso); return Number.isNaN(t) ? null : t; };
 
-// Map of company id -> { sources: [{ title, url, publisher, kind, checked_at, backs: [field] }], hiring: { url, checked_at } | null }.
+// Map of company id -> { sources: [{ title, url, publisher, kind, checked_at, backs: [field] }],
+//   hiring: { url, checked_at, confirmed_at } | null, no_roles: { url, checked_at } | null }.
 export function buildProvenance({ sources = [], evidence = [], jobs = [] } = {}) {
   const sourceById = new Map(sources.map((s) => [s.id, s]));
   const servable = (id) => {
@@ -34,7 +35,7 @@ export function buildProvenance({ sources = [], evidence = [], jobs = [] } = {})
 
   const byCompany = new Map();
   const entry = (id) => {
-    if (!byCompany.has(id)) byCompany.set(id, { pages: new Map(), hiring: null });
+    if (!byCompany.has(id)) byCompany.set(id, { pages: new Map(), hiring: null, confirmed: null, empty: null, roles: [] });
     return byCompany.get(id);
   };
 
@@ -51,6 +52,15 @@ export function buildProvenance({ sources = [], evidence = [], jobs = [] } = {})
     if (e.field === 'hiring_status' && e.value === 'hiring' && e.confidence !== 'low' && (time(e.verified_at) ?? -1) > (time(mine.hiring?.checked_at) ?? -1)) {
       mine.hiring = { url: s.url, checked_at: e.verified_at };
     }
+    // A high-confidence reading (the company's job board, or structured postings on its own page) is a CONFIRMATION: a page was read and
+    // listed open roles. A reading of a page's plain text is a check, but it is not confirmed until a person has looked.
+    if (e.field === 'hiring_status' && e.value === 'hiring' && e.confidence === 'high' && (time(e.verified_at) ?? -1) > (time(mine.confirmed?.checked_at) ?? -1)) {
+      mine.confirmed = { url: s.url, checked_at: e.verified_at };
+    }
+    // A job board read without trouble that listed no open roles: a positive observation, and the newer it is the more it matters.
+    if (e.field === 'hiring_status' && e.value === 'not_hiring' && e.confidence !== 'low' && (time(e.verified_at) ?? -1) > (time(mine.empty?.checked_at) ?? -1)) {
+      mine.empty = { url: s.url, checked_at: e.verified_at };
+    }
   }
   // An open role read from a page is a check too, when no evidence row says it: the page the role was read from.
   for (const j of jobs) {
@@ -58,6 +68,7 @@ export function buildProvenance({ sources = [], evidence = [], jobs = [] } = {})
     const s = servable(j.source_id);
     if (!s) continue;
     const mine = entry(j.company_id);
+    mine.roles.push(j.retrieved_at); // when each open role was read: how many of them are recent is the catalog's to say
     if ((time(j.retrieved_at) ?? -1) > (time(mine.hiring?.checked_at) ?? -1)) mine.hiring = { url: s.url, checked_at: j.retrieved_at };
   }
 
@@ -66,7 +77,9 @@ export function buildProvenance({ sources = [], evidence = [], jobs = [] } = {})
     const pages = [...mine.pages.values()]
       .map((p) => ({ ...p, backs: [...p.backs].sort() }))
       .sort((a, b) => b.backs.length - a.backs.length || String(a.title).localeCompare(String(b.title)));
-    out.set(id, { sources: pages, hiring: mine.hiring });
+    // confirmed_at: when a page last CONFIRMED the open roles, and null once a board read after that listed none (the claim is in dispute).
+    const confirmedAt = mine.confirmed && (time(mine.empty?.checked_at) ?? -1) <= (time(mine.confirmed.checked_at) ?? -1) ? mine.confirmed.checked_at : null;
+    out.set(id, { sources: pages, hiring: mine.hiring ? { ...mine.hiring, confirmed_at: confirmedAt } : null, no_roles: mine.empty, roles: mine.roles });
   }
   return out;
 }

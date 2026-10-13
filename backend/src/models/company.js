@@ -27,6 +27,10 @@ export const VERIFICATION_STATUSES = ['unverified', 'location_verified', 'verifi
 // cannot tell "checked, not hiring" from "no open roles observed", so it does
 // not become 'not_hiring'.
 export const HIRING_STATUSES = ['hiring', 'not_hiring'];
+
+// null: the address on record is as good as it was. 'unavailable': the website no longer answers (the domain does not resolve), so it is
+// said so instead of linked. The address itself is kept: it is what a person re-checks, and the company may have moved.
+export const WEBSITE_STATUSES = ['unavailable'];
 export const EMPLOYEE_RANGES = ['1-10', '11-50', '51-200', '201-500', '501-1000', '1001-5000', '5001+'];
 export const AU_STATES = ['NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS', 'NT', 'ACT'];
 
@@ -69,7 +73,7 @@ export const LEGACY_FIELDS = [
 // rewrite of this file.
 export const ADDED_FIELDS = [
   'id', 'slug', 'logo', 'subsector', 'state', 'country', 'suburb', 'postcode', 'location_precision', 'location_source',
-  'location_source_url', 'location_verified_at', 'location_confidence', 'company_status', 'hiring_status', 'hiring_verified_at',
+  'location_source_url', 'location_verified_at', 'location_confidence', 'company_status', 'hiring_status', 'hiring_verified_at', 'website_status',
   'employee_range', 'funding_total', 'last_funding_date', 'last_funding_round',
   'verification_status', 'confidence_score', 'created_at', 'updated_at', 'last_verified_at',
   'founder_ids', 'investor_ids', 'source_ids',
@@ -240,6 +244,7 @@ export function toCanonical(c) {
     company_status: c.company_status ?? null,
     hiring_status: c.hiring_status ?? null,
     hiring_verified_at: c.hiring_verified_at ?? null,
+    website_status: c.website_status ?? null,
     employee_range: c.employee_range ?? null,
     funding_total: c.funding_total ?? null,
     last_funding_date: c.last_funding_date ?? null,

@@ -48,7 +48,7 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import {
   ADDED_FIELDS, LEGACY_FIELDS, AU_STATES, COMPANY_STATUSES, VERIFICATION_STATUSES,
-  HIRING_STATUSES, EMPLOYEE_RANGES, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
+  HIRING_STATUSES, WEBSITE_STATUSES, EMPLOYEE_RANGES, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
   slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
 } from './company.js';
 import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
@@ -414,6 +414,7 @@ export function validateDataset(ds) {
     if (c.state != null && c.country !== 'Australia') bad(at, 'state is set but country is not Australia');
     if (c.company_status != null && !COMPANY_STATUSES.includes(c.company_status)) bad(at, `invalid company_status "${c.company_status}"`);
     if (c.hiring_status != null && !HIRING_STATUSES.includes(c.hiring_status)) bad(at, `invalid hiring_status "${c.hiring_status}"`);
+    if (c.website_status != null && !WEBSITE_STATUSES.includes(c.website_status)) bad(at, `invalid website_status "${c.website_status}"`);
     if (c.employee_range != null && !EMPLOYEE_RANGES.includes(c.employee_range)) bad(at, `invalid employee_range "${c.employee_range}"`);
     if (!VERIFICATION_STATUSES.includes(c.verification_status)) bad(at, `invalid verification_status "${c.verification_status}"`);
     if (c.funding_total != null && (!isNum(c.funding_total) || c.funding_total < 0)) bad(at, 'funding_total must be a number >= 0 or null');

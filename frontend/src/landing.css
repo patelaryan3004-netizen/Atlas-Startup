@@ -3,10 +3,11 @@
    a heading size for a section, and two text sizes (--fs-body, --fs-small); a section uses no others. */
 
 .landing{
-  --l-font: 'Geist Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --l-font: var(--font);
+  /* The one italic word is set in a face that has an italic (Inter, loaded in its upright weights only, has none worth using). */
   --l-serif: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
   --l-mono: var(--mono);
-  --l-max: 1240px;
+  --l-max: var(--maxw);
   --l-gutter: clamp(20px, 5vw, 56px);
   --l-gap: clamp(12px, 2vw, 24px);
   --l-ink-2: rgba(232, 230, 222, 0.78);
@@ -22,11 +23,13 @@
   --fs-figure: clamp(40px, 5.2vw, 72px);
   --fs-heading: clamp(28px, 4vw, 44px);
   --fs-body: 17px;
-  --fs-small: 13px;
+  /* Text a person reads is never under 15px; the mono labels (a section's number, a count, a date) are labels, and are 13px. */
+  --fs-small: 15px;
+  --fs-label: 13px;
 
   font-family: var(--l-font);
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   color-scheme: dark;
   min-height: 100vh;
   line-height: 1.5;
@@ -73,7 +76,7 @@
 /* A section opens on a hairline that carries its number and its name. */
 .sec-rule{
   display: flex; align-items: baseline; gap: 14px; padding-top: 14px; border-top: 1px solid var(--l-hair);
-  font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  font-family: var(--l-mono); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
 }
 .sec-no{ color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 

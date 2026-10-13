@@ -69,7 +69,21 @@ describe('what a company page may say about where its facts came from', () => {
         evidenceRow('acme', 'hiring_status', 'not_hiring', 'site', { id: 'h4', verified_at: '2026-10-11T00:00:00.000Z', confidence: 'high' }),
       ],
     });
-    expect(p.get('acme').hiring).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: LATE });
+    // the newest check is the board's (LATE), but a board read on the 11th, after it, listed no roles: so the roles are checked, not confirmed
+    expect(p.get('acme').hiring).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: LATE, confirmed_at: null });
+    // a job board that listed no roles is kept too, as its own observation
+    expect(p.get('acme').no_roles).toEqual({ url: 'https://acme.example/', checked_at: '2026-10-11T00:00:00.000Z' });
+  });
+
+  it('confirms hiring only from a high-confidence reading, and takes the confirmation back once a board read later lists no roles', () => {
+    const rows = (hiring, extra = []) => buildProvenance({ sources, evidence: [evidenceRow('acme', 'hiring_status', 'hiring', 'board', { id: 'h', verified_at: EARLY, confidence: hiring }), ...extra] }).get('acme');
+    expect(rows('high').hiring.confirmed_at).toBe(EARLY);
+    // plain text read by hand, or an inference: a check (it has a date), but not a confirmation
+    expect(rows('medium').hiring).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: EARLY, confirmed_at: null });
+    // an empty board read AFTER the confirmation puts it in dispute; one read BEFORE it does not
+    const empty = (at) => evidenceRow('acme', 'hiring_status', 'not_hiring', 'site', { id: 'n', verified_at: at, confidence: 'medium' });
+    expect(rows('high', [empty(LATE)]).hiring.confirmed_at).toBeNull();
+    expect(rows('high', [empty('2026-10-01T00:00:00.000Z')]).hiring.confirmed_at).toBe(EARLY);
   });
 
   it('falls back to the page an open role was read from when no evidence says hiring, and ignores a closed one', () => {
@@ -82,13 +96,70 @@ describe('what a company page may say about where its facts came from', () => {
         { id: 'j3', company_id: 'beta', status: 'open', source_id: 'note', retrieved_at: LATE },
       ],
     });
-    expect(p.get('acme').hiring).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: LATE });
+    // an open role is a check, but only evidence can confirm
+    expect(p.get('acme').hiring).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: LATE, confirmed_at: null });
     expect(p.get('beta')?.hiring ?? null).toBeNull(); // a page that may not be served is not named
   });
 
   it('is empty for no records at all', () => {
     expect(buildProvenance().size).toBe(0);
     expect(buildProvenance({ sources: [], evidence: [], jobs: [] }).size).toBe(0);
+  });
+});
+
+describe('hiring now: the four states, and the window', () => {
+  const NOW = Date.parse('2026-10-13T12:00:00.000Z');
+  const DAY = 86400000;
+  const iso = (daysAgo) => new Date(NOW - daysAgo * DAY).toISOString();
+  const board = source('board', 'company_website', 'https://boards.greenhouse.io/acme');
+  const build = (rows, evidence, windowDays = 14) => buildSnapshot(JSON.stringify(rows.map((r) => ({ ...r, slug: r.id }))), 'v', {
+    provenance: buildProvenance({ sources: [board], evidence }), now: () => NOW, hiringWindowDays: windowDays,
+  });
+  const company = (id, extra = {}) => ({ ...co(id, { hiring: true }), id, hiring_verified_at: iso(1), ...extra });
+  const hiringRow = (id, daysAgo, confidence = 'high') => evidenceRow(id, 'hiring_status', 'hiring', 'board', { id: `${id}-h`, verified_at: iso(daysAgo), confidence });
+
+  it('counts a company as hiring when a page confirmed its roles inside the window, and not when the confirmation is older', () => {
+    const snap = build([company('fresh'), company('old')], [hiringRow('fresh', 3), hiringRow('old', 20)]);
+    expect(recordFor(snap, 'fresh')).toMatchObject({ hiring: true, hiringState: 'hiring', hiring_checked_at: null });
+    // the edge: 14 days is inside, 15 is not
+    expect(recordFor(build([company('edge')], [hiringRow('edge', 14)]), 'edge').hiring).toBe(true);
+    expect(recordFor(build([company('past')], [hiringRow('past', 15)]), 'past')).toMatchObject({ hiring: false, hiringState: 'checked' });
+    expect(recordFor(snap, 'old')).toMatchObject({ hiring: false, hiringState: 'checked', hiring_checked_at: iso(20), hiring_source_url: 'https://boards.greenhouse.io/acme' });
+  });
+
+  it('holds a company out of hiring now when its roles were only read from page text by hand (medium), but still says when', () => {
+    const snap = build([company('hand')], [hiringRow('hand', 8, 'medium')]);
+    expect(recordFor(snap, 'hand')).toMatchObject({ hiring: false, hiringState: 'checked', hiring_checked_at: iso(8) });
+  });
+
+  it('holds a company out when a board read after the confirmation listed no roles: the claim is in dispute', () => {
+    const empty = evidenceRow('disputed', 'hiring_status', 'not_hiring', 'board', { id: 'n', verified_at: iso(1), confidence: 'medium' });
+    const snap = build([company('disputed')], [hiringRow('disputed', 8), empty]);
+    expect(recordFor(snap, 'disputed')).toMatchObject({ hiring: false, hiringState: 'checked', hiring_checked_at: iso(8) });
+  });
+
+  it('says "none" for a company whose board was read and listed no roles, and "unverified" for everything nobody read', () => {
+    const empty = evidenceRow('quiet', 'hiring_status', 'not_hiring', 'board', { id: 'q', verified_at: iso(1), confidence: 'medium' });
+    const snap = build([{ ...co('quiet'), id: 'quiet', hiring: false, hiring_status: 'not_hiring' }, { ...co('nobody'), id: 'nobody' }, company('flagged', { hiring_verified_at: null })], [empty]);
+    expect(recordFor(snap, 'quiet')).toMatchObject({ hiring: false, hiringState: 'none', hiring_checked_at: iso(1) });
+    expect(recordFor(snap, 'nobody')).toMatchObject({ hiring: false, hiringState: 'unverified', hiring_checked_at: null });
+    expect(recordFor(snap, 'flagged')).toMatchObject({ hiring: false, hiringState: 'unverified', rolesUnverified: true });
+  });
+
+  it('keeps the older rule when no window is asked for: a page-backed company is hiring however long ago', () => {
+    const snap = build([company('old')], [hiringRow('old', 200)], null);
+    expect(recordFor(snap, 'old')).toMatchObject({ hiring: true, hiringState: 'hiring' });
+  });
+
+  it('counts the confirmed ones as hiring and the earlier ones as checked, and answers from a catalog that rebuilds when the day changes', async () => {
+    const dir = await makeDataDir(dataset([co('fresh', { hiring: true }), co('old', { hiring: true })], { evidence: [hiringRow('fresh', 3), hiringRow('old', 20)], sources: [board] }));
+    let clock = NOW;
+    const catalog = createCatalog({ file: path.join(dir, 'startups.json'), now: () => clock, hiringWindowDays: 14, reloadMs: 0 });
+    const day1 = await catalog.refresh();
+    expect(recordFor(day1, 'fresh').hiring).toBe(true);
+    clock = NOW + 12 * DAY; // 15 days after the confirmation: it has aged out, with no change to any file
+    const day13 = await catalog.refresh();
+    expect(recordFor(day13, 'fresh')).toMatchObject({ hiring: false, hiringState: 'checked' });
   });
 });
 
@@ -121,7 +192,7 @@ describe('a company in the catalog', () => {
     const acme = sourcesFor(snap, recordFor(snap, 'acme'));
     expect(acme.sources.map((s) => s.url)).toEqual(['https://boards.greenhouse.io/acme', 'https://acme.example/']); // one fact each: by title
     expect(acme.checked_at).toBe(LATE);
-    expect(acme.hiring_source).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: LATE });
+    expect(acme.hiring_source).toEqual({ url: 'https://boards.greenhouse.io/acme', checked_at: LATE, confirmed_at: LATE });
   });
 
   it('says nothing was checked for a company no public page backs, and names no hiring page for one not public as hiring', () => {

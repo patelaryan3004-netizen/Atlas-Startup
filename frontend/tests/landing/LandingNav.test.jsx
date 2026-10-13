@@ -16,10 +16,19 @@ describe('LandingNav', () => {
     // the name goes home, and says so
     expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
     const main = screen.getByRole('navigation', { name: 'Main' });
-    expect(within(main).getByRole('link', { name: 'Discover' })).toHaveAttribute('href', '/');
-    expect(within(main).getByRole('link', { name: 'Lists' })).toHaveAttribute('href', '/?view=lists');
-    expect(within(main).getByRole('link', { name: 'Jobs' })).toHaveAttribute('href', '/?view=jobs');
+    // the three places a visitor goes: the map, the people worth following, the lists
+    expect(within(main).getByRole('link', { name: 'Map' })).toHaveAttribute('href', '/');
+    expect(within(main).getByRole('link', { name: 'People' })).toHaveAttribute('href', '/people');
+    expect(within(main).getByRole('link', { name: 'Lists' })).toHaveAttribute('href', '/lists');
+    expect(within(main).getAllByRole('link')).toHaveLength(3);
     expect(screen.getByRole('link', { name: 'Join waitlist' })).toHaveAttribute('href', '/?view=waitlist');
+  });
+
+  it('is one slim bar that stays at the top: the content sits inside it, on the page width', () => {
+    const { container } = render(<LandingNav />);
+    const bar = container.querySelector('header.landing-nav');
+    expect(bar).toBeInTheDocument();
+    expect(bar.querySelector(':scope > .landing-nav-inner')).toBeInTheDocument();
   });
 
   it('offers no sign-in, because the product has no accounts', () => {

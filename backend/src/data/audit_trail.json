@@ -7538,5 +7538,647 @@
         "to": "published"
       }
     ]
+  },
+  {
+    "id": "aud-20261013044811937-1",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "canva"
+    },
+    "summary": "Pass 1 reading of canva.com (roles_found_structured): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-2",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "airwallex"
+    },
+    "summary": "Pass 1 reading of airwallex.com (roles_found_structured): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-3",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "culture-amp"
+    },
+    "summary": "Pass 1 reading of cultureamp.com (roles_found_board): 0 evidence added, 1 re-checked, jobs +6/~28/-2",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-4",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "immutable"
+    },
+    "summary": "Pass 1 reading of immutable.com (roles_found_board): 0 evidence added, 1 re-checked, jobs +1/~2/-4",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-5",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "quantum-brilliance"
+    },
+    "summary": "Pass 1 reading of quantumbrilliance.com (roles_found_board): 1 evidence added, 0 re-checked, jobs +3/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-6",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "buildkite"
+    },
+    "summary": "Pass 1 reading of buildkite.com (roles_found_board): 0 evidence added, 1 re-checked, jobs +0/~1/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-7",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "zeller"
+    },
+    "summary": "Pass 1 reading of myzeller.com (roles_found_board): 0 evidence added, 1 re-checked, jobs +1/~19/-1",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-8",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "askable"
+    },
+    "summary": "Pass 1 reading of askable.com (roles_found_board): 1 evidence added, 0 re-checked, jobs +12/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-9",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "karbon"
+    },
+    "summary": "Pass 1 reading of karbonhq.com (roles_found_board): 0 evidence added, 1 re-checked, jobs +1/~12/-3",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-10",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "sonder"
+    },
+    "summary": "Pass 1 reading of sonder.io (roles_found_board): 0 evidence added, 1 re-checked, jobs +14/~29/-1",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-11",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "shippit"
+    },
+    "summary": "Pass 1 reading of shippit.com (board_empty): 1 evidence added, 0 re-checked, jobs +0/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-12",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "amazingco"
+    },
+    "summary": "Pass 1 reading of amazingco.me (board_empty): 1 evidence added, 0 re-checked, jobs +0/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-13",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "assignar"
+    },
+    "summary": "Pass 1 reading of assignar.com (roles_found_board): 1 evidence added, 0 re-checked, jobs +5/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-14",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "kasada"
+    },
+    "summary": "Pass 1 reading of kasada.io (roles_found_board): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-15",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "enboarder"
+    },
+    "summary": "Pass 1 reading of enboarder.com (roles_found_board): 1 evidence added, 0 re-checked, jobs +5/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-16",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "atomi"
+    },
+    "summary": "Pass 1 reading of getatomi.com (roles_found_board): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-17",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bridgit"
+    },
+    "summary": "Pass 1 reading of bridgit.com.au (roles_found_structured): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-18",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "visory"
+    },
+    "summary": "Pass 1 reading of visory.com.au (roles_found_structured): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-19",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bookipi"
+    },
+    "summary": "Pass 1 reading of bookipi.com (roles_found_structured): 1 evidence added, 0 re-checked, jobs +2/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-20",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "asseti"
+    },
+    "summary": "Pass 1 reading of asseti.co (roles_found_board): 1 evidence added, 0 re-checked, jobs +6/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-21",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "safewill"
+    },
+    "summary": "Pass 1 reading of safewill.com (roles_found_board): 1 evidence added, 0 re-checked, jobs +2/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-22",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "spriggy"
+    },
+    "summary": "Pass 1 reading of spriggy.com.au (board_empty): 1 evidence added, 0 re-checked, jobs +0/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-23",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "slyp"
+    },
+    "summary": "Pass 1 reading of slyp.com.au (roles_found_structured): 1 evidence added, 0 re-checked, jobs +2/~0/-0",
+    "reason": null,
+    "changes": [
+      {
+        "field": "hiring",
+        "from": false,
+        "to": true
+      },
+      {
+        "field": "hiring_status",
+        "from": null,
+        "to": "hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-24",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "amber-electric"
+    },
+    "summary": "Pass 1 reading of amber.com.au (board_empty): 1 evidence added, 0 re-checked, jobs +0/~0/-2",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-25",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "fastlane"
+    },
+    "summary": "Pass 1 reading of usefastlane.ai (roles_found_structured): 1 evidence added, 0 re-checked, jobs +1/~0/-0",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261013044811937-26",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "company.hiring_decision",
+    "target": {
+      "type": "company",
+      "id": "shippit"
+    },
+    "summary": "Shippit: hiring true -> false, accepted by the owner after its job board was read empty",
+    "reason": "Owner decision 2026-10-13: the company's job board lists no open roles; the \"hiring\" flag no page backed is replaced by not_hiring.",
+    "changes": [
+      {
+        "field": "hiring",
+        "from": true,
+        "to": false
+      },
+      {
+        "field": "hiring_status",
+        "from": "hiring",
+        "to": "not_hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-27",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "company.hiring_decision",
+    "target": {
+      "type": "company",
+      "id": "spriggy"
+    },
+    "summary": "Spriggy: hiring true -> false, accepted by the owner after its job board was read empty",
+    "reason": "Owner decision 2026-10-13: the company's job board lists no open roles; the \"hiring\" flag no page backed is replaced by not_hiring.",
+    "changes": [
+      {
+        "field": "hiring",
+        "from": true,
+        "to": false
+      },
+      {
+        "field": "hiring_status",
+        "from": "hiring",
+        "to": "not_hiring"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-28",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "evidence.hold",
+    "target": {
+      "type": "company",
+      "id": "superstat"
+    },
+    "summary": "Superstat: hiring evidence high -> medium",
+    "reason": "Owner decision 2026-10-13: shown as \"Hiring (checked 2026-10-05)\" and not counted as hiring now until re-checked by hand.",
+    "changes": [
+      {
+        "field": "evidence superstat.hiring_status.superstat-careers confidence",
+        "from": "high",
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-29",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "evidence.hold",
+    "target": {
+      "type": "company",
+      "id": "forward"
+    },
+    "summary": "Forward: hiring evidence high -> medium",
+    "reason": "Owner decision 2026-10-13: shown as \"Hiring (checked 2026-10-05)\" and not counted as hiring now until re-checked by hand.",
+    "changes": [
+      {
+        "field": "evidence forward.hiring_status.forward-careers confidence",
+        "from": "high",
+        "to": "medium"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-30",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "company.website_status",
+    "target": {
+      "type": "company",
+      "id": "zoomo"
+    },
+    "summary": "Zoomo: website marked unavailable (zoomo.co does not resolve)",
+    "reason": "The domain did not resolve on three tries in a row (2026-10-13). The address is kept for a person to re-check.",
+    "changes": [
+      {
+        "field": "website_status",
+        "from": null,
+        "to": "unavailable"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-31",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "company.website_status",
+    "target": {
+      "type": "company",
+      "id": "gloss-guide"
+    },
+    "summary": "Gloss Guide: website marked unavailable (glossguide.com.au does not resolve)",
+    "reason": "The domain did not resolve on three tries in a row (2026-10-13). The address is kept for a person to re-check.",
+    "changes": [
+      {
+        "field": "website_status",
+        "from": null,
+        "to": "unavailable"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261013044811937-32",
+    "at": "2026-10-13T04:48:11.937Z",
+    "actor": "enrich_companies.py",
+    "role": "cli",
+    "via": "cli",
+    "action": "company.website_status",
+    "target": {
+      "type": "company",
+      "id": "pentacue-ai"
+    },
+    "summary": "PentaCue AI: website marked unavailable (pentacue.com does not resolve)",
+    "reason": "The domain did not resolve on three tries in a row (2026-10-13). The address is kept for a person to re-check.",
+    "changes": [
+      {
+        "field": "website_status",
+        "from": null,
+        "to": "unavailable"
+      }
+    ]
   }
 ]

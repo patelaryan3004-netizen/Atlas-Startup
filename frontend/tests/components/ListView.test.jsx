@@ -99,14 +99,27 @@ describe('ListView', () => {
     expect(screen.getByText('Online graphic design platform for everyone')).toBeInTheDocument();
   });
 
-  it('shows a hiring badge when hiring, a not-hiring badge otherwise', async () => {
+  it('shows "Hiring now" only for a company a page confirmed lately, and never says "Not hiring" about one nobody has read', async () => {
     const { unmount } = mount();
     expect(await screen.findByText('● Hiring now')).toBeInTheDocument();
     unmount();
 
     fetchStartupPage.mockResolvedValue(page([startup({ hiring: false })]));
     mount();
-    expect(await screen.findByText('Not hiring')).toBeInTheDocument();
+    expect(await screen.findByText('Roles unverified')).toHaveClass('hiring-badge-off');
+    expect(screen.queryByText('Not hiring')).not.toBeInTheDocument();
+  });
+
+  it('gives roles that were read earlier their date, and says so for a job board that listed none, in the muted style, never as "Hiring now"', async () => {
+    fetchStartupPage.mockResolvedValue(page([
+      startup({ name: 'Superstat', slug: 'superstat', hiring: false, hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' }),
+      startup({ name: 'Shippit', slug: 'shippit', hiring: false, hiringState: 'none', hiring_checked_at: '2026-10-13T04:29:43.000Z' }),
+    ]));
+    mount();
+    const checked = await screen.findByText('Hiring (checked 5 Oct)');
+    expect(checked).toHaveClass('hiring-badge-off');
+    expect(screen.getByText('No open roles listed (13 Oct)')).toHaveClass('hiring-badge-off');
+    expect(screen.queryByText('● Hiring now')).not.toBeInTheDocument();
   });
 
   it('says "Roles unverified", not "Hiring now" and not "Not hiring", for a company flagged as hiring that no page backs', async () => {

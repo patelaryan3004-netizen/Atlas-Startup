@@ -266,11 +266,32 @@ describe('StartupDetailPanel', () => {
     expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
   });
 
-  it('shows a not-hiring badge and no apply button when not hiring', () => {
+  it('says "Roles unverified", not "not hiring", for a company nobody has read, with no apply button', () => {
     setup({ startup: { hiring: false } });
-    expect(screen.getByText('Not hiring right now')).toBeInTheDocument();
+    expect(screen.getAllByText('Roles unverified').length).toBeGreaterThan(0);
+    expect(screen.queryByText(/not hiring|not currently hiring/i)).not.toBeInTheDocument();
     expect(screen.queryByText('Apply now')).not.toBeInTheDocument();
-    expect(screen.queryByText('Roles unverified')).not.toBeInTheDocument();
+    expect(screen.getByText(/No open roles have been read for this company/)).toBeInTheDocument();
+  });
+
+  it('gives roles read earlier their date and a link to check, and says they are not counted as hiring now', () => {
+    setup({ startup: { hiring: false, hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z', hiring_source_url: 'https://superstatsport.com/careers' } });
+    expect(screen.getAllByText('Hiring (checked 5 Oct)').length).toBeGreaterThan(0);
+    expect(screen.queryByText('● Hiring now')).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'View open roles' })).toHaveAttribute('href', 'https://superstatsport.com/careers');
+    expect(screen.getByText(/not counted as hiring now/)).toBeInTheDocument();
+  });
+
+  it('says a job board that listed no roles was read, with the day, and calls the company neither hiring nor unread', () => {
+    setup({ startup: { hiring: false, hiringState: 'none', hiring_checked_at: '2026-10-13T04:29:43.000Z' } });
+    expect(screen.getAllByText('No open roles listed (13 Oct)').length).toBeGreaterThan(0);
+    expect(screen.getByText(/listed no open roles/)).toBeInTheDocument();
+  });
+
+  it('says a website that no longer answers is unavailable instead of linking it, and never offers it as the place to apply', () => {
+    setup({ startup: { website: 'https://zoomo.co', website_status: 'unavailable', hiring: false } });
+    expect(screen.getByText('Website unavailable')).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /zoomo\.co/ })).not.toBeInTheDocument();
   });
 
   it('labels a company that opted in to task-gated applications as a concept preview, and no other', () => {
@@ -457,8 +478,8 @@ describe('StartupDetailPanel, the company logo', () => {
 
     it('names the page that backs hiring as the company\'s own job board, and sends "View open roles" there', () => {
       setup({ startup: { hiring: true, hiring_verified_at: '2026-10-05T12:00:00.000Z', hiring_source: { url: 'https://boards.greenhouse.io/cultureamp', checked_at: '2026-10-05T12:00:00.000Z' } } });
-      const note = screen.getByText(/Verified from the company.s own job board/);
-      expect(note).toHaveTextContent('Verified from the company’s own job board, boards.greenhouse.io, on 5 Oct 2026.');
+      const note = screen.getByText(/Confirmed from the company.s own job page/);
+      expect(note).toHaveTextContent('Confirmed from the company’s own job page, boards.greenhouse.io, on 5 Oct 2026.');
       expect(within(note).getByRole('link', { name: 'boards.greenhouse.io' })).toHaveAttribute('href', 'https://boards.greenhouse.io/cultureamp');
       const roles = screen.getByText('View open roles');
       expect(roles).toHaveAttribute('href', 'https://boards.greenhouse.io/cultureamp');

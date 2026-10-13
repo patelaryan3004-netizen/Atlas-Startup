@@ -19,6 +19,10 @@ import feedbackRouter from './routes/feedback.js';
 const DATA_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'data');
 const DATA_FILE = path.join(DATA_DIR, 'startups.json');
 
+// A company counts as hiring now when a page CONFIRMED its open roles within this many days (catalog.js, hiringStateOf); earlier readings are
+// said with their date. The server asks for it; a test's or a scale run's own catalog does not unless it says so.
+export const HIRING_WINDOW_DAYS = 14;
+
 // The app, over a catalog of companies and a catalog of investors. The server and the tests use the real data files; a
 // scale test gives it a catalog over synthetic companies in a temporary folder (scripts/scale/serve.js). There is
 // deliberately no environment variable that points the public server at another file.
@@ -26,7 +30,7 @@ const DATA_FILE = path.join(DATA_DIR, 'startups.json');
 // it (SHOW_PLACEHOLDERS=1, on the owner's own computer while building): the safe way round, so a server that forgets to say it is live
 // never shows a made-up person.
 export function createApp({
-  catalog = createCatalog({ file: DATA_FILE }), investorCatalog = createInvestorCatalog({ dir: DATA_DIR }), correctionsFile, cache,
+  catalog = createCatalog({ file: DATA_FILE, hiringWindowDays: HIRING_WINDOW_DAYS }), investorCatalog = createInvestorCatalog({ dir: DATA_DIR }), correctionsFile, cache,
   communityCatalog = createCommunityCatalog({ file: path.join(DATA_DIR, 'people_seed.json'), investorCatalog, production: process.env.SHOW_PLACEHOLDERS !== '1' }),
 } = {}) {
   const respond = createResponder(catalog, cache);

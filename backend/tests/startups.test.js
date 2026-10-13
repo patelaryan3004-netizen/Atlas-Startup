@@ -69,7 +69,8 @@ describe('GET /api/startups', () => {
     for (const { id } of sources) expect(payload, `source "${id}" leaked`).not.toContain(id);
     // A company that has sources still comes back with its public facts.
     const superstat = every.find((s) => s.name === 'Superstat');
-    expect(superstat).toMatchObject({ id: 'superstat', state: 'VIC', hiring: true, hiring_status: 'hiring' });
+    // Its roles were read by hand from a page's text on 5 Oct: a check with a date, not a confirmation, so it is not "hiring now".
+    expect(superstat).toMatchObject({ id: 'superstat', state: 'VIC', hiring: false, hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' });
     expect(superstat.founders).toEqual(['Cordelia King', 'Kai Bloomfield', 'Sam Hung']);
   });
 

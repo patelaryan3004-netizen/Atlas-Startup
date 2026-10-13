@@ -9,6 +9,17 @@ function esc(s) {
   }[c]));
 }
 
+const day = (iso) => (iso ? new Date(iso).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'UTC' }) : '');
+
+// What the page may say about hiring: a company is "Yes" only when a page confirmed its open roles recently; a reading from earlier is said
+// with its date, a job board that lists none is said so, and everything else is unverified, never "No".
+function hiringCell(s) {
+  if (s.hiring) return 'Yes';
+  if (s.hiringState === 'checked') return `Checked ${esc(day(s.hiring_checked_at))}`;
+  if (s.hiringState === 'none') return `No open roles listed (${esc(day(s.hiring_checked_at))})`;
+  return 'Roles unverified';
+}
+
 function pageHtml(snap, page) {
   const pages = Math.max(1, Math.ceil(snap.count / PAGE_SIZE));
   if (page > pages) throw new HttpError(404, 'There is no such page');
@@ -21,8 +32,8 @@ function pageHtml(snap, page) {
         <td>${esc(s.sectorFull || s.sector)}</td>
         <td>${esc(s.city)}</td>
         <td>${esc(s.stage)}</td>
-        <td>${s.hiring ? 'Yes' : s.rolesUnverified ? 'Unverified' : 'No'}</td>
-        <td>${s.website ? `<a href="${esc(s.website)}">${esc(s.website.replace(/^https?:\/\//, ''))}</a>` : ''}</td>
+        <td>${hiringCell(s)}</td>
+        <td>${s.website_status === 'unavailable' ? '<span class="muted">Website unavailable</span>' : s.website ? `<a href="${esc(s.website)}">${esc(s.website.replace(/^https?:\/\//, ''))}</a>` : ''}</td>
       </tr>`;
   }).join('');
   const link = (n, label) => `<a href="/directory${n > 1 ? `?page=${n}` : ''}">${label}</a>`;
@@ -39,12 +50,14 @@ function pageHtml(snap, page) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ${rel}
 <style>
-  body{font-family:Georgia,serif;max-width:1000px;margin:24px auto;padding:0 16px;color:#12130f;}
-  h1{font-size:22px;} p{color:#5a5648;font-size:14px;}
-  table{width:100%;border-collapse:collapse;font-size:14px;}
-  th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #d8d2c2;}
-  th{background:#f6f3ec;}
-  a{color:#c05a2e;}
+  :root{--bg:#0a0e0f;--surface:#14181a;--border:#22282a;--text:#e8e6de;--muted:#8a8f8c;--accent:#3ecf6e;--accent-ink:#7ee8a0;}
+  body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:1120px;margin:0 auto;padding:24px 16px;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;}
+  h1{font-size:22px;letter-spacing:-.01em;} p{color:var(--muted);font-size:15px;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{background:var(--surface);font-weight:600;font-size:13px;color:var(--muted);}
+  a{color:var(--accent-ink);} a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+  .muted{color:var(--muted);}
 </style>
 </head>
 <body>

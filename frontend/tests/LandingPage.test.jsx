@@ -49,38 +49,72 @@ describe('LandingPage', () => {
       expect(hero()).toHaveTextContent('Discover startups, founders, investors and jobs across Australia — all in one place.');
     });
 
-    it('has two calls to action, both going to the real app', async () => {
+    it('has two calls to action and only two, going to the real app: the map, and the waitlist', async () => {
       render(<LandingPage />);
-      expect(within(hero()).getByRole('link', { name: 'Explore the map' })).toHaveAttribute('href', '/');
-      expect(within(hero()).getByRole('link', { name: 'Browse startups' })).toHaveAttribute('href', '/?view=list');
-      // the closing call to action says the same
+      const ctas = [...hero().querySelectorAll('.landing-cta-row a')];
+      expect(ctas.map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Explore the map', '/'], ['Join waitlist', '/?view=waitlist']]);
+      // the closing call to action keeps the map first
       screen.getAllByRole('link', { name: 'Explore the map' }).forEach((link) => expect(link).toHaveAttribute('href', '/'));
-      screen.getAllByRole('link', { name: 'Browse startups' }).forEach((link) => expect(link).toHaveAttribute('href', '/?view=list'));
     });
 
-    it('has a minimal navigation with a way into the app for each name, and no sign-in because there are no accounts', async () => {
+    it('has a minimal navigation: the map, the people and the lists, with a way into the app for each, and no sign-in because there are no accounts', async () => {
       render(<LandingPage />);
       const nav = screen.getByRole('navigation', { name: 'Main' });
-      expect(within(nav).getByRole('link', { name: 'Discover' })).toHaveAttribute('href', '/');
-      expect(within(nav).getByRole('link', { name: 'Lists' })).toHaveAttribute('href', '/?view=lists');
-      expect(within(nav).getByRole('link', { name: 'Jobs' })).toHaveAttribute('href', '/?view=jobs');
-      expect(screen.getByRole('link', { name: 'Join waitlist' })).toHaveAttribute('href', '/?view=waitlist');
+      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['People', '/people'], ['Lists', '/lists']]);
+      // the header's pill, and the hero's second call to action, both open the same form
+      screen.getAllByRole('link', { name: 'Join waitlist' }).forEach((link) => expect(link).toHaveAttribute('href', '/?view=waitlist'));
+      expect(within(document.querySelector('.landing-nav')).getByRole('link', { name: 'Join waitlist' })).toBeInTheDocument();
       expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#main');
       expect(document.getElementById('main').tagName).toBe('MAIN');
     });
 
     it('shows three figures under the headline, each with what it counts, worked out by the server', async () => {
-      fetchSummary.mockResolvedValue({ count: 213, founders: 1234, hiring: 2 });
+      fetchSummary.mockResolvedValue({ count: 213, founders: 1234, hiring: 2, openRoles: 158 });
       const { container } = render(<LandingPage />);
       await screen.findByText('Startups tracked');
       const stats = [...container.querySelectorAll('.hero-stat')].map((li) => [li.querySelector('.hero-stat-num').textContent, li.querySelector('.hero-stat-label').textContent, li.querySelector('.hero-stat-def').textContent]);
       expect(stats).toEqual([
         ['213', 'Startups tracked', 'Companies in the directory.'],
         ['1,234', 'Founders named', 'People named as founders on a company record.'],
-        ['2', 'Verified hiring', 'Companies whose open roles we checked on their own pages.'],
+        ['158', 'Open roles', 'Read from the pages of the companies hiring now.'],
       ]);
       expect(fetchSummary).toHaveBeenCalledWith({});
+    });
+
+    it('puts a pill above the headline with a real count: the companies hiring now, else the startups tracked, else nothing', async () => {
+      fetchSummary.mockResolvedValue({ count: 213, hiring: 21, openRoles: 158 });
+      const first = render(<LandingPage />);
+      await screen.findByText('Startups tracked');
+      const badge = first.container.querySelector('.hero-badge');
+      expect(badge).toHaveTextContent('21 companies hiring now');
+      // it sits above the headline
+      expect(badge.compareDocumentPosition(screen.getByRole('heading', { level: 1 })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+      first.unmount();
+      fetchSummary.mockResolvedValue({ count: 213, hiring: 1 });
+      const one = render(<LandingPage />);
+      await screen.findByText('Startups tracked');
+      expect(one.container.querySelector('.hero-badge')).toHaveTextContent('1 company hiring now');
+      one.unmount();
+      // nothing confirmed lately: no zero, no fake count; the pill says what is true
+      fetchSummary.mockResolvedValue({ count: 213, hiring: 0, openRoles: 0 });
+      const none = render(<LandingPage />);
+      await screen.findByText('Startups tracked');
+      expect(none.container.querySelector('.hero-badge')).toHaveTextContent('213 startups tracked');
+      expect(none.container.querySelector('.hero-stats')).not.toHaveTextContent('Open roles');
+      none.unmount();
+      fetchSummary.mockResolvedValue(null);
+      const nothing = render(<LandingPage />);
+      expect(nothing.container.querySelector('.hero-badge')).toBeNull();
+    });
+
+    it('shows "Updated <date>" directly under the subline', async () => {
+      fetchSummary.mockResolvedValue({ count: 213, hiring: 2, lastVerifiedAt: '2026-10-13T04:29:43.000Z' });
+      const { container } = render(<LandingPage />);
+      await screen.findByText('Startups tracked');
+      const lede = container.querySelector('.hero-lede');
+      expect(lede.nextElementSibling).toBe(container.querySelector('.hero-updated'));
+      expect(lede.nextElementSibling).toHaveTextContent('Updated 13 Oct 2026');
     });
 
     it('sets one word of the headline in italic, and gives the headline the display size', async () => {

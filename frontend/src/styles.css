@@ -18,9 +18,23 @@
   --card-pad:20px;
   --card-hover:#171c1e;
   --mono:ui-monospace,'SF Mono','Cascadia Mono',Consolas,'Liberation Mono',monospace;
+  /* The design system, in the names the brief uses: one ground (--bg #0a0e0f), one surface (#14181a), one line (#22282a), one ink
+     (#e8e6de), one muted (#8a8f8c) and one accent (#3ecf6e). They are the values above under their newer names; the older names
+     (--paper, --panel, --line, --ink) stay for the CSS that already uses them, so nothing has two colours. */
+  --bg:var(--paper);
+  --surface:var(--panel);
+  --border:var(--line);
+  --text:var(--ink);
+  /* One typeface, Inter, with the system's own as its fallback. */
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,sans-serif;
+  /* An 8px scale, the 12px card radius (--card-radius), the pill, and the page's widest line of content. */
+  --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:40px; --space-6:48px; --space-8:64px; --space-10:80px;
+  --radius:12px;
+  --radius-pill:999px;
+  --maxw:1120px;
 }
 *{box-sizing:border-box;}
-html,body,#root{margin:0;height:100%;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+html,body,#root{margin:0;height:100%;font-family:var(--font);background:var(--bg);color:var(--text);}
 #app{position:relative;height:100vh;width:100vw;overflow:hidden;}
 #map{position:absolute;inset:0;z-index:1;}
 
@@ -909,7 +923,7 @@ button.qf-chip{padding:5px 12px;}
 
 /* The index: the names on a list, as links to their cards, near the top of the list (a table of contents). The names wrap as whole
    names, a row at a time, so a long list never pushes the page sideways. */
-.index-row{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; margin:0 0 20px; font-size:13px; color:var(--muted); line-height:1.5; }
+.index-row{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; margin:0 0 20px; font-size:15px; color:var(--muted); line-height:1.5; }
 .index-row-label{ font-family:var(--mono); font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
 .index-row ul{ display:flex; flex-wrap:wrap; gap:6px 18px; flex:1 1 0; min-width:0; margin:0; padding:0; list-style:none; }
 .index-row li{ min-width:0; }
@@ -956,3 +970,6 @@ html{ scrollbar-color:#2c3336 var(--paper); accent-color:var(--accent); caret-co
 .site-brand-map:hover{color:var(--accent-ink);text-decoration-color:var(--accent);}
 .site-brand a:focus-visible, .nav-brand a:focus-visible, .landing-brand:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px;}
 @media (max-width:640px){ .site-bar{padding:10px 16px;} .nav-brand{gap:10px;} }
+
+/* A website that no longer answers is said so in the card's own muted voice, not linked. */
+.sdp-website-unavailable{color:var(--muted);cursor:help;}

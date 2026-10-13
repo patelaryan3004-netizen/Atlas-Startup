@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { HOME_PATH } from '../../paths.js';
+import { HOME_PATH, MAP_PATH } from '../../paths.js';
+import { appPath } from '../../appRoute.js';
 
 // Where each link goes in the app. The product has no accounts, so the one action on the right is the waitlist, which
-// opens the same form as the app's own Join waitlist button.
+// opens the same form as the app's own Join waitlist button. The three links are the places a visitor goes: the map, the
+// people worth following, and the lists. (Jobs, News and Investors are in the footer and in the app's own menu.)
 const LINKS = [
-  { label: 'Discover', href: '/' },
-  { label: 'Lists', href: '/?view=lists' },
-  { label: 'Jobs', href: '/?view=jobs' },
+  { label: 'Map', href: MAP_PATH },
+  { label: 'People', href: appPath({ kind: 'people' }) },
+  { label: 'Lists', href: appPath({ kind: 'lists' }) },
 ];
 
 function Mark() {
@@ -59,34 +61,36 @@ export default function LandingNav() {
 
   return (
     <header className="landing-nav" ref={bar}>
-      <a className="landing-brand" href={HOME_PATH} aria-label="Go to home">
-        <Mark />
-        <span>AU Startup Map</span>
-      </a>
+      <div className="landing-nav-inner">
+        <a className="landing-brand" href={HOME_PATH} aria-label="Go to home">
+          <Mark />
+          <span>AU Startup Map</span>
+        </a>
 
-      <nav id="landing-menu" className="landing-nav-links" aria-label="Main" data-open={open ? 'true' : 'false'}>
-        <ul>
-          {LINKS.map((link) => (
-            <li key={link.label}>
-              <a href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <nav id="landing-menu" className="landing-nav-links" aria-label="Main" data-open={open ? 'true' : 'false'}>
+          <ul>
+            {LINKS.map((link) => (
+              <li key={link.label}>
+                <a href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <div className="landing-nav-end">
-        <a className="landing-nav-cta" href="/?view=waitlist">Join waitlist</a>
-        <button
-          ref={toggle}
-          type="button"
-          className="landing-menu-btn"
-          aria-expanded={open}
-          aria-controls="landing-menu"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((was) => !was)}
-        >
-          <MenuIcon open={open} />
-        </button>
+        <div className="landing-nav-end">
+          <a className="landing-nav-cta" href="/?view=waitlist">Join waitlist</a>
+          <button
+            ref={toggle}
+            type="button"
+            className="landing-menu-btn"
+            aria-expanded={open}
+            aria-controls="landing-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((was) => !was)}
+          >
+            <MenuIcon open={open} />
+          </button>
+        </div>
       </div>
     </header>
   );
