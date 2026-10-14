@@ -1,30 +1,34 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
 import FilterPanel from './components/FilterPanel.jsx';
-import HeaderMenu from './components/HeaderMenu.jsx';
-import SearchBar from './components/SearchBar.jsx';
+import { splitValues } from './components/MultiSelect.jsx';
 import MapKey from './components/MapKey.jsx';
 import MapLayers from './components/MapLayers.jsx';
+import ExploreHeader from './components/explore/ExploreHeader.jsx';
+import ExploreToolbar, { nextCity, placeLabel } from './components/explore/ExploreToolbar.jsx';
+import PreviewCard from './components/explore/PreviewCard.jsx';
+import CityDock from './components/explore/CityDock.jsx';
+import MapOverview from './components/explore/MapOverview.jsx';
+import ResultsSheet from './components/explore/ResultsSheet.jsx';
 import { getPersonProfile } from './people.js';
-import { areaFilters, scopeText } from './mapPins.js';
-import BottomCapsule from './components/BottomCapsule.jsx';
+import { areaFilters, pinPayload, scopeText } from './mapPins.js';
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
 import { readAppRoute, appUrl, appPath } from './appRoute.js';
 import { usePageMeta } from './hooks/usePageMeta.js';
 import { startupDescription, startupJsonLd } from './seo.js';
 import { curatedLists } from './curatedLists.js';
 import { showPeople } from './flags.js';
-import { roleClosedMessage } from './freshness.js';
+import { hiringLabel, roleClosedMessage } from './freshness.js';
 import { PALETTE, FALLBACK_COLOR } from './sectorPalette.js';
 import ListBanner from './components/ListBanner.jsx';
 import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
+import { useMediaQuery, DESKTOP } from './hooks/useMediaQuery.js';
 import { lazyView, Lazy } from './lazyLoad.jsx';
-import { HOME_PATH, MAP_PATH } from './paths.js';
-import { isPlainClick } from './components/SiteBrand.jsx';
 import { ListSkeleton, MapPlaceholder } from './components/Skeletons.jsx';
 import { peek } from './peek.js';
+import './explore.css';
 
 // Fetched when first wanted, not with the page: the pages (the map and its library, the list, the jobs board, the investors, the
 // news, the people), the news ticker (once the page has settled), the company's panel and every dialog. What stays here is what every
@@ -75,6 +79,8 @@ const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '
 const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], hasFresh: false };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
+const DOCK_CITIES = 4; // the cities on the map's dock
+const SHEET_INSET = 340; // the height of a card in the phone's sheet: a pin picked on the map is brought clear of it
 
 function loadNewsVisible() {
   try {
@@ -180,7 +186,14 @@ export default function App() {
   const [layers, setLayers] = useState(loadLayers);
   const [basemap, setBasemap] = useState(loadBasemap);
   const [institutionPins, setInstitutionPins] = useState([]);
-  const [panelOpen, setPanelOpen] = useState(false); // the slide-out panel on the left: the map's own controls move aside while it is open
+  const desktop = useMediaQuery(DESKTOP, true); // a card on the map (wide) or a sheet that slides up from the bottom (a phone)
+  const [filtersOpen, setFiltersOpen] = useState(false); // the slide-out panel on the left, opened by the Filters button: the map's own cards move aside while it is open
+  const filtersButton = useRef(null);
+  const [preview, setPreview] = useState(null); // the company picked on the map: its card (a pin's company, as pinPayload makes it)
+  const [focus, setFocus] = useState(null); // a place for the map to bring into view (MapView's focus)
+  const focusTicket = useRef(0);
+  const [mapView, setMapView] = useState(null); // where the map is looking, for the little map of Australia
+  const [sheetOpen, setSheetOpen] = useState(false); // the phone's sheet: its list is showing
   const [showSubmitForm, setShowSubmitForm] = useState(initialView === 'submit');
   const [showUnverified, setShowUnverified] = useState(false);
   const [viewMode, setViewMode] = useState(initialView === 'list' || route.kind === 'list' ? 'list' : 'map');
@@ -346,12 +359,13 @@ export default function App() {
   }, [meta.sectors]);
 
   // The filters that are on, as chips that take them off one at a time. A curated list's own filters are the list: no chips for them.
-  const chipsShown = !activeList && activeChips(filters).length > 0;
-  const chips = chipsShown ? <ActiveFilters filters={filters} onChange={setFilters} onClear={() => setFilters(EMPTY_FILTERS)} /> : null;
+  // The city is not a chip: the toolbar's breadcrumb and the city dock already say it (and take it off).
+  const chipFilters = { ...filters, city: '' };
+  const chipsShown = !activeList && activeChips(chipFilters).length > 0;
+  const chips = chipsShown ? <ActiveFilters filters={chipFilters} onChange={(next) => setFilters({ ...next, city: filters.city })} onClear={() => setFilters({ ...EMPTY_FILTERS, city: filters.city })} /> : null;
 
   const resultCount = summary?.count ?? 0;
   const unverifiedCount = summary?.unverified ?? 0;
-  const pinnedCount = summary?.pinned ?? 0;
   // From the whole directory, so this reflects all of it - not whatever filters are active right now.
   const hiringCount = stats?.hiring ?? 0;
 
@@ -437,6 +451,65 @@ export default function App() {
     if (page) openInvestors(page);
   }, [openInvestors]);
 
+  // ---------- the map's chrome (components/explore) ----------
+
+  // The cities for the toolbar's menu and the map's dock, each with how many startups it has, the busiest first. The counts are the whole
+  // directory's (stats.topCities); a city the directory lists without a count is still in the menu, after those that have one. A company whose
+  // city is not known is not a city.
+  const cityOptions = useMemo(() => {
+    const counts = new Map((stats?.topCities ?? []).map(({ city, count }) => [city, count]));
+    const known = (city) => city && String(city).trim() && String(city).trim().toLowerCase() !== 'unknown';
+    const names = new Set([...(meta.cities ?? []), ...counts.keys()].filter(known));
+    return [...names]
+      .map((city) => ({ city, count: counts.get(city) ?? null }))
+      .sort((a, b) => (b.count ?? -1) - (a.count ?? -1) || a.city.localeCompare(b.city));
+  }, [meta.cities, stats]);
+  const dockCities = useMemo(() => cityOptions.filter(({ count }) => count != null).slice(0, DOCK_CITIES), [cityOptions]);
+
+  const applyFilters = useCallback((partial) => setFilters((now) => ({ ...now, ...partial })), []);
+  const pickCity = useCallback((city) => setFilters((now) => ({ ...now, city: nextCity(now.city, city) })), []);
+  const showAustralia = useCallback(() => {
+    setFilters((now) => ({ ...now, city: '' }));
+    focusTicket.current += 1;
+    setFocus({ key: focusTicket.current, home: true });
+  }, []);
+
+  // A company is picked on the map: its card opens (on a phone, in the sheet, and the map brings its pin clear of the sheet). Any change to what is
+  // being looked at puts the card away: it was for a company of the last view.
+  const selectPin = useCallback((pin) => {
+    setPreview(pin);
+    if (!desktop && Number.isFinite(pin.lat) && Number.isFinite(pin.lng)) {
+      focusTicket.current += 1;
+      setFocus({ key: focusTicket.current, lat: pin.lat, lng: pin.lng, inset: SHEET_INSET });
+    }
+  }, [desktop]);
+  const clearPin = useCallback(() => setPreview(null), []);
+  useEffect(() => { setPreview(null); }, [applied, viewMode]);
+
+  // A company picked from the sheet's list: the pin it has on the map when it has one (the map then goes to it), else just what the list knows.
+  const pickFromSheet = (startup) => {
+    const tuple = markers.find((m) => m[0] === startup.slug);
+    selectPin(tuple ? pinPayload(tuple) : {
+      slug: startup.slug, name: startup.name, city: startup.city, sector: startup.sector, verified: true, website: startup.website || '',
+      hiring: hiringLabel(startup).state === 'hiring',
+    });
+  };
+  const openFromPreview = () => { const pin = preview; setPreview(null); openStartup(pin); };
+  const reportRoleClosed = (name) => { setEditingMessage(roleClosedMessage(name)); setEditingCompany(name); };
+  const previewCard = (variant) => (
+    <PreviewCard
+      key={preview.slug}
+      pin={preview}
+      variant={variant}
+      saved={tracked.has(preview.name)}
+      onToggleSaved={() => toggleTracked(preview.name)}
+      onOpen={openFromPreview}
+      onClose={clearPin}
+      onReport={() => reportRoleClosed(preview.name)}
+    />
+  );
+  const sheetMode = preview ? 'detail' : sheetOpen ? 'open' : 'peek';
+
   if (showJobs) {
     return <Lazy fallback={loading('jobs')}><JobsView onClose={leave} /></Lazy>;
   }
@@ -463,53 +536,49 @@ export default function App() {
   }
 
   return (
-    <div id="app" className={[activeList && 'has-list-banner', panelOpen && 'panel-open'].filter(Boolean).join(' ') || undefined}>
-      <header>
-        <div className="nav-brand">
-          <a className="nav-brand-link" href={HOME_PATH} aria-label="Go to home">
-            <h1>AU <span>Startup</span> Map <span className="beta-tag">BETA</span></h1>
-            <div className="nav-subtitle">Australia&rsquo;s startup ecosystem</div>
-          </a>
-          <a className="site-brand-map" href={MAP_PATH} onClick={(event) => { if (isPlainClick(event)) { event.preventDefault(); goExplore(); } }}>Map</a>
-        </div>
+    <div id="app" className={['xp', activeList && 'has-list-banner', filtersOpen && 'panel-open'].filter(Boolean).join(' ')}>
+      <ExploreHeader
+        hiringCount={hiringCount}
+        trackedCount={tracked.size}
+        onExplore={goExplore}
+        onShowJobs={showJobsPage}
+        onShowInvestors={() => openInvestors()}
+        onShowTracked={() => setShowTracked(true)}
+        onAdd={() => setShowSubmitForm(true)}
+        menu={{
+          onExplore: goExplore,
+          onShowJobs: showJobsPage,
+          hiringCount,
+          onShowInvestors: () => openInvestors(),
+          onShowPeople: peopleOn ? openPeople : undefined,
+          onShowCuratedLists: showLists,
+          onShowNews: showNews,
+          newsVisible,
+          onToggleNews: toggleNews,
+          onShowWaitlist: () => setShowWaitlist(true),
+          onShowUnverified: () => setShowUnverified(true),
+          unverifiedCount,
+          onShowTracked: () => setShowTracked(true),
+          trackedCount: tracked.size,
+          onShowAbout: () => setShowAbout(true),
+          onShowPrivacy: () => setShowPrivacy(true),
+          onShowFeedback: () => setShowFeedback(true),
+          directoryUrl: DIRECTORY_URL,
+        }}
+      />
 
-        <nav className="nav-center">
-          <button className="nav-link" onClick={goExplore}>Explore</button>
-          <button className="nav-link" onClick={showJobsPage}>
-            Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> · {hiringCount} hiring now</span>}
-          </button>
-          <button className="nav-link" onClick={() => openInvestors()}>Investors</button>
-          {peopleOn && <button className="nav-link" onClick={openPeople}>People</button>}
-          <button className="nav-link" onClick={showLists}>Lists</button>
-          <button className="nav-link" onClick={showNews}>News</button>
-        </nav>
-
-        <div className="nav-right">
-          <button className="hdrbtn hdrbtn-accent nav-cta" onClick={() => setShowSubmitForm(true)}>Submit a startup</button>
-          <button className="hdrbtn nav-cta nav-cta-secondary" onClick={() => setShowWaitlist(true)}>Join waitlist</button>
-          <HeaderMenu
-            onExplore={goExplore}
-            onShowJobs={showJobsPage}
-            hiringCount={hiringCount}
-            onShowInvestors={() => openInvestors()}
-            onShowPeople={peopleOn ? openPeople : undefined}
-            onShowCuratedLists={showLists}
-            onShowNews={showNews}
-            newsVisible={newsVisible}
-            onToggleNews={toggleNews}
-            onShowSubmitForm={() => setShowSubmitForm(true)}
-            onShowWaitlist={() => setShowWaitlist(true)}
-            onShowUnverified={() => setShowUnverified(true)}
-            unverifiedCount={unverifiedCount}
-            onShowTracked={() => setShowTracked(true)}
-            trackedCount={tracked.size}
-          />
-        </div>
-      </header>
-
-      <SearchBar
+      <ExploreToolbar
         filters={filters}
-        onApplyFilters={(partial) => setFilters({ ...filters, ...partial })}
+        onFilterChange={applyFilters}
+        onApplyFilters={applyFilters}
+        meta={meta}
+        cities={cityOptions}
+        total={stats?.count}
+        filtersOpen={filtersOpen}
+        onToggleFilters={() => setFiltersOpen((open) => !open)}
+        filtersRef={filtersButton}
+        viewMode={viewMode}
+        onSetViewMode={setViewMode}
       />
 
       {activeList && (
@@ -521,85 +590,94 @@ export default function App() {
         />
       )}
 
-      <Lazy fallback={viewMode === 'map' ? <MapPlaceholder basemap={basemap} /> : <ListSkeleton />}>
-        {viewMode === 'map' ? (
-          <MapView
-            markers={markers}
-            areas={areas}
-            sectorColors={sectorColors}
-            onSelectStartup={openStartup}
-            onViewArea={viewArea}
-            selectedName={selectedStartup?.name}
-            trackedNames={tracked}
-            institutionPins={institutionPins}
-            showCompanies={layers.companies}
-            showInstitutions={layers.institutions}
-            basemap={basemap}
-            onOpenInternal={openInternal}
-            onReportRoleClosed={(name) => { setEditingMessage(roleClosedMessage(name)); setEditingCompany(name); }}
-          />
-        ) : (
-          <ListView
+      <main className="xm" data-view={viewMode} data-sheet={sheetMode} data-card={desktop && viewMode === 'map' && preview ? '' : undefined}>
+        <Lazy fallback={viewMode === 'map' ? <MapPlaceholder basemap={basemap} /> : <ListSkeleton />}>
+          {viewMode === 'map' ? (
+            <MapView
+              markers={markers}
+              areas={areas}
+              onSelectStartup={openStartup}
+              onSelectPin={selectPin}
+              onClearPin={clearPin}
+              onViewArea={viewArea}
+              selectedName={preview?.name ?? selectedStartup?.name}
+              trackedNames={tracked}
+              institutionPins={institutionPins}
+              showCompanies={layers.companies}
+              showInstitutions={layers.institutions}
+              basemap={basemap}
+              scope={applied.city}
+              focus={focus}
+              onViewChange={setMapView}
+              onOpenInternal={openInternal}
+              onReportRoleClosed={reportRoleClosed}
+            />
+          ) : (
+            <ListView
+              filters={applied}
+              sectorColors={sectorColors}
+              onSelectStartup={openStartup}
+              selectedName={selectedStartup?.name}
+              trackedNames={tracked}
+              scope={scopeText(applied)}
+              onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
+              chips={chips}
+              meta={meta}
+              onFiltersChange={setFilters}
+            />
+          )}
+        </Lazy>
+
+        {viewMode === 'map' && <h2 className="xm-title">Discover what&rsquo;s around you</h2>}
+        {viewMode === 'map' && chips && <div className="chips-float">{chips}</div>}
+
+        {viewMode === 'map' && <CityDock cities={dockCities} selected={splitValues(filters.city)} onSelect={pickCity} />}
+        {viewMode === 'map' && desktop && <MapOverview view={mapView} onShowAll={showAustralia} />}
+
+        {viewMode === 'map' && desktop && preview && (
+          <div className="xm-preview">{previewCard('card')}</div>
+        )}
+        {viewMode === 'map' && !desktop && (
+          <ResultsSheet
             filters={applied}
-            sectorColors={sectorColors}
-            onSelectStartup={openStartup}
-            selectedName={selectedStartup?.name}
-            trackedNames={tracked}
-            scope={scopeText(applied)}
-            onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
-            chips={chips}
-            meta={meta}
-            onFiltersChange={setFilters}
+            count={resultCount}
+            where={placeLabel(splitValues(filters.city))}
+            open={sheetOpen}
+            onOpenChange={setSheetOpen}
+            selectedName={preview?.name}
+            onPick={pickFromSheet}
+            detail={preview ? previewCard('sheet') : null}
           />
         )}
-      </Lazy>
-      {viewMode === 'map' && chips && <div className="chips-float">{chips}</div>}
 
-      <FilterPanel
-        filters={filters}
-        onChange={setFilters}
-        onReset={() => setFilters(EMPTY_FILTERS)}
-        meta={meta}
-        resultCount={resultCount}
-        summary={summary}
-        defaultOpen={viewMode === 'map'}
-        onOpenChange={setPanelOpen}
-      />
-
-      {viewMode === 'map' && <MapKey sectorColors={sectorColors} showInstitutions={institutionPins.length > 0} />}
-      {viewMode === 'map' && (
-        <MapLayers
-          showCompanies={layers.companies}
-          onToggleCompanies={() => toggleLayer('companies')}
-          institutionCount={institutionPins.length}
-          showInstitutions={layers.institutions}
-          onToggleInstitutions={() => toggleLayer('institutions')}
-          basemap={basemap}
-          onBasemap={chooseBasemap}
+        <FilterPanel
+          filters={filters}
+          onChange={setFilters}
+          onReset={() => setFilters(EMPTY_FILTERS)}
+          meta={meta}
+          resultCount={resultCount}
+          summary={summary}
+          open={filtersOpen}
+          onOpenChange={setFiltersOpen}
+          toggleRef={filtersButton}
+          mapTools={viewMode === 'map' ? (
+            <>
+              <MapLayers
+                showCompanies={layers.companies}
+                onToggleCompanies={() => toggleLayer('companies')}
+                institutionCount={institutionPins.length}
+                showInstitutions={layers.institutions}
+                onToggleInstitutions={() => toggleLayer('institutions')}
+                basemap={basemap}
+                onBasemap={chooseBasemap}
+              />
+              <MapKey showInstitutions={institutionPins.length > 0} />
+            </>
+          ) : null}
         />
-      )}
 
-      {newsReady && <Lazy><NewsTicker visible={newsVisible} onClose={toggleNews} /></Lazy>}
-
-      <BottomCapsule pinnedCount={pinnedCount} viewMode={viewMode} onSetViewMode={setViewMode} />
-
-      <footer id="siteFooter">
-        <button className="linkbtn" onClick={() => setShowAbout(true)}>About &amp; sources</button>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <button className="linkbtn" onClick={() => setShowPrivacy(true)}>Privacy</button>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <a className="linkbtn" href={DIRECTORY_URL}>Full list (no JS)</a>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <a className="linkbtn" href="/methodology">Methodology</a>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <a className="linkbtn" href="/about">About</a>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <a className="linkbtn" href="/contact">Contact</a>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <button className="linkbtn" onClick={() => setShowFeedback(true)}>Feedback</button>
-        <span className="tag-sep" aria-hidden="true">·</span>
-        <span className="footer-credit">Built by Aryan · Monash University</span>
-      </footer>
+        {newsReady && <Lazy><NewsTicker visible={newsVisible} onClose={toggleNews} /></Lazy>}
+      </main>
 
       {showSubmitForm && <Lazy><SubmitStartupForm onClose={() => setShowSubmitForm(false)} /></Lazy>}
       {showUnverified && <Lazy><UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} /></Lazy>}

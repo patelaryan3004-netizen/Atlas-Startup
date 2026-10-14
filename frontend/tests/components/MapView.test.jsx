@@ -1,20 +1,29 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, cleanup } from '@testing-library/react';
 
-const handlers = {};
-const bounds = { getWest: () => 110, getEast: () => 156, getSouth: () => -45, getNorth: () => -9 };
+// The map's events: `handlers.moveend()` runs every listener the page added to it (it adds more than one).
+const listeners = {};
+const handlers = new Proxy({}, { get: (_, event) => (...args) => (listeners[event] ?? []).forEach((fn) => fn(...args)) });
+const bounds = { getWest: () => 110, getEast: () => 156, getSouth: () => -45, getNorth: () => -9, contains: ([lat, lng]) => lng >= 110 && lng <= 156 && lat >= -45 && lat <= -9 };
 const mapInstance = {
   setView: vi.fn(function () { return this; }),
   remove: vi.fn(),
   closePopup: vi.fn(),
-  on: vi.fn((event, fn) => { handlers[event] = fn; }),
+  on: vi.fn((event, fn) => { (listeners[event] ??= []).push(fn); }),
   getZoom: vi.fn(() => 17),
   getBounds: vi.fn(() => bounds),
   latLngToContainerPoint: vi.fn(([lat, lng]) => ({ x: (lng - 150) * 2000, y: (-33 - lat) * 2000 })),
   createPane: vi.fn(() => ({ style: {} })),
+  getCenter: vi.fn(() => ({ lat: -33, lng: 145 })),
+  getSize: vi.fn(() => ({ x: 1000, y: 700 })),
+  project: vi.fn(([lat, lng]) => ({ x: lng * 100, y: -lat * 100, add(p) { return { x: this.x + p[0], y: this.y + p[1] }; } })),
+  unproject: vi.fn((p) => ({ lat: -p.y / 100, lng: p.x / 100 })),
+  fitBounds: vi.fn(),
+  flyTo: vi.fn(),
 };
 const tileLayerInstance = { addTo: vi.fn(function () { return this; }), setUrl: vi.fn() };
 const zoomControlInstance = { addTo: vi.fn() };
+const attributionInstance = { addTo: vi.fn() };
 // Three layer groups are made each time the map is: the groups (cities and states) first, the pins second, the firms' offices third.
 const areaLayerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
 const layerInstance = { addTo: vi.fn(function () { return this; }), clearLayers: vi.fn(), removeLayer: vi.fn() };
@@ -33,7 +42,8 @@ vi.mock('leaflet', () => {
     default: {
       map: vi.fn(() => mapInstance),
       tileLayer: vi.fn(() => tileLayerInstance),
-      control: { zoom: vi.fn(() => zoomControlInstance) },
+      control: { zoom: vi.fn(() => zoomControlInstance), attribution: vi.fn(() => attributionInstance) },
+      latLngBounds: vi.fn((points) => ({ points })),
       layerGroup,
       marker,
       popup,
@@ -52,7 +62,6 @@ const pin = (slug, name, lat = -33.87, lng = 151.21, extra = {}) => [slug, name,
 const firm = (id, name, lat = -33.87, lng = 151.21, extra = {}) => ({ id: `${id}#0`, institution: id, name, lat, lng, city: 'Sydney', state: 'NSW', place: 'Level 2, 12 Example Street, Sydney NSW 2000', office: 'Sydney', website: 'https://firm.example', href: null, ...extra });
 const SYDNEY_GROUP = { kind: 'CITY', key: 'CITY|Sydney|NSW', label: 'Sydney', city: 'Sydney', state: 'NSW', lat: -33.8688, lng: 151.2093, count: 42, sample: [{ slug: 'trace', name: 'Trace' }, { slug: 'truestate', name: 'TrueState' }] };
 const noop = () => {};
-const colourOf = (hex) => { const probe = document.createElement('div'); probe.style.borderColor = hex; return probe.style.borderColor; };
 const icons = () => L.divIcon.mock.calls.map((c) => c[0]);
 const lastMarker = () => L.marker.mock.results.at(-1).value;
 
@@ -74,6 +83,7 @@ describe('MapView', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     cleanup();
+    for (const event of Object.keys(listeners)) delete listeners[event];
     mapInstance.getZoom.mockReturnValue(17);
     fetchStartup.mockResolvedValue(null);
     frames = new Map();
@@ -84,7 +94,7 @@ describe('MapView', () => {
   afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
   it('initializes the map, tile layer, zoom control, a layer for pins, a pane and layer for groups and a layer for the firms once on mount', () => {
-    render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[]} onSelectStartup={noop} />);
     expect(L.map).toHaveBeenCalledTimes(1);
     expect(L.tileLayer).toHaveBeenCalledTimes(1);
     expect(tileLayerInstance.addTo).toHaveBeenCalledWith(mapInstance);
@@ -98,30 +108,46 @@ describe('MapView', () => {
   });
 
   it('puts a pin on the map for each company in view when zoomed in', () => {
-    render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} onSelectStartup={noop} />);
     expect(L.marker).toHaveBeenCalledTimes(2);
     expect(L.marker).toHaveBeenCalledWith([-33.87, 151.21], expect.any(Object));
     expect(L.marker).toHaveBeenCalledWith([-37.81, 144.96], expect.any(Object));
     expect(lastMarker().addTo).toHaveBeenCalledWith(layerInstance);
   });
 
-  it('builds each pin as elements, a white ring with the company\'s initial on its sector colour inside', () => {
-    render(<MapView markers={[pin('a', 'Acme', -33.87, 151.21, { sector: 'AI' })]} sectorColors={{ AI: '#abcdef' }} onSelectStartup={noop} />);
+  it('builds each pin as elements: a small dot, with the company\'s name ready to write under it', () => {
+    render(<MapView markers={[pin('a', 'Acme', -33.87, 151.21, { sector: 'AI' })]} onSelectStartup={noop} />);
     const { html, className } = icons().at(-1);
     expect(className).toBe('custom-leaflet-marker');
     expect(html).toBeInstanceOf(HTMLElement);
-    expect(html.style.borderColor).toBe(''); // the ring is white for every pin (styles.css); only the circle inside takes the sector's colour
-    expect(html.querySelector('.pin-fallback').textContent).toBe('A');
-    expect(html.querySelector('.pin-fallback').style.background).toBe(colourOf('#abcdef'));
+    expect(html.className).toBe('custom-pin-badge pin-dot');
+    expect(html.querySelector('.pin-face')).not.toBeNull();
+    expect(html.querySelector('.pin-fallback')).toBeNull(); // a dot has no letter, and no colour of a sector: every company is the same dot
+    expect(html.querySelector('.pin-label').textContent).toBe('Acme');
   });
 
-  it('falls back to a default colour when the sector has no mapped colour', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { sector: 'Unmapped' })]} sectorColors={{}} onSelectStartup={noop} />);
-    expect(icons().at(-1).html.querySelector('.pin-fallback').style.background).toBe(colourOf('#444'));
+  it('draws a white tile with the first letter for the companies worth seeing from afar: one that is hiring, one that is saved, the open one', () => {
+    const markers = [pin('a', 'Acme', -33.87, 151.21, { hiring: 1 }), pin('b', 'Beta', -37.81, 144.96), pin('c', 'Cora', -27.47, 153.02), pin('d', 'Delta', -34.9, 138.6)];
+    render(<MapView markers={markers} onSelectStartup={noop} selectedName="Beta" trackedNames={new Set(['Cora'])} />);
+    const byName = Object.fromEntries(icons().map((i) => [i.html.querySelector('.pin-label').textContent, i.html]));
+    for (const name of ['Acme', 'Beta', 'Cora']) {
+      expect(byName[name].classList.contains('pin-tile')).toBe(true);
+      expect(byName[name].querySelector('.pin-fallback').textContent).toBe(name[0]);
+    }
+    expect(byName.Delta.classList.contains('pin-dot')).toBe(true);
+  });
+
+  it('draws the open company over its neighbours, and one that is hiring over those that are not', () => {
+    const markers = [pin('a', 'Acme', -33.87, 151.21, { hiring: 1 }), pin('b', 'Beta', -37.81, 144.96), pin('c', 'Cora', -27.47, 153.02)];
+    render(<MapView markers={markers} onSelectStartup={noop} selectedName="Beta" />);
+    const offsets = Object.fromEntries(L.marker.mock.calls.map(([, opts]) => [opts.icon.opts.html.querySelector('.pin-label').textContent, opts.zIndexOffset]));
+    expect(offsets.Beta).toBeGreaterThan(offsets.Acme);
+    expect(offsets.Acme).toBeGreaterThan(offsets.Cora);
+    expect(offsets.Cora).toBe(0);
   });
 
   it('draws the company\'s OWN logo when it has one, and asks no third party for any: not for a company that has only a website', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com', logo: 'https://canva.example/logo.png' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com', logo: 'https://canva.example/logo.png' })]} onSelectStartup={noop} />);
     const img = icons().at(-1).html.querySelector('img');
     expect(img.src).toBe('https://canva.example/logo.png');
     expect(img.decoding).toBe('async');
@@ -130,15 +156,15 @@ describe('MapView', () => {
     vi.clearAllMocks();
 
     // a website is not a logo: no favicon service, no other service, is asked for one
-    render(<MapView markers={[pin('b', 'B', -33.87, 151.21, { domain: 'canva.com' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('b', 'B', -33.87, 151.21, { domain: 'canva.com' })]} onSelectStartup={noop} />);
     expect(icons().at(-1).html.querySelector('img')).toBeNull();
-    expect(icons().at(-1).html.querySelector('.pin-fallback').textContent).toBe('B');
+    expect(icons().at(-1).html.classList.contains('pin-dot')).toBe(true);
     const src = JSON.stringify(L.divIcon.mock.calls.map((c) => c[0].html.outerHTML));
     expect(src).not.toMatch(/gstatic|favicon|clearbit|google/i);
   });
 
   it('falls back to the first letter when the company\'s own logo cannot be loaded', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/gone.png' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/gone.png' })]} onSelectStartup={noop} />);
     const html = icons().at(-1).html;
     const img = html.querySelector('img');
     img.onerror();
@@ -147,14 +173,14 @@ describe('MapView', () => {
   });
 
   it('shows the logo only once it has loaded: the letter shows until a picture has arrived', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/logo.png' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/logo.png' })]} onSelectStartup={noop} />);
     const img = icons().at(-1).html.querySelector('img');
     expect(img.classList.contains('pin-logo-ready')).toBe(false);
     Object.defineProperty(img, 'naturalWidth', { value: 96, configurable: true });
     img.onload();
     expect(img.classList.contains('pin-logo-ready')).toBe(true);
 
-    render(<MapView markers={[pin('b', 'B', -37.81, 144.96, { logo: 'https://b.example/empty.png' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('b', 'B', -37.81, 144.96, { logo: 'https://b.example/empty.png' })]} onSelectStartup={noop} />);
     const empty = icons().at(-1).html.querySelector('img');
     Object.defineProperty(empty, 'naturalWidth', { value: 0, configurable: true });
     empty.onload(); // loaded, but with nothing in it
@@ -162,51 +188,53 @@ describe('MapView', () => {
     expect(empty.classList.contains('pin-logo-ready')).toBe(false);
   });
 
-  it('draws no logo for a company that has none: its first letter, on its sector\'s colour', () => {
-    render(<MapView markers={[pin('z', 'Zeta')]} sectorColors={{}} onSelectStartup={noop} />);
-    const { html } = icons().at(-1);
-    expect(html.querySelector('img')).toBeNull();
-    expect(html.textContent).toContain('Z');
+  it('draws no logo for a company that has none: a dot, or, when it is hiring, a tile with its first letter', () => {
+    render(<MapView markers={[pin('z', 'Zeta'), pin('y', 'Yarra', -37.81, 144.96, { hiring: 1 })]} onSelectStartup={noop} />);
+    const [zeta, yarra] = icons().map((i) => i.html);
+    expect(zeta.querySelector('img')).toBeNull();
+    expect(zeta.querySelector('.pin-fallback')).toBeNull();
+    expect(yarra.querySelector('img')).toBeNull();
+    expect(yarra.querySelector('.pin-fallback').textContent).toBe('Y');
   });
 
   it('draws no logos when zoomed out, or when too many pins are on screen, so the page does not fetch hundreds of images', () => {
     const own = (i) => ({ logo: `https://p${i}.example/logo.png` });
     mapInstance.getZoom.mockReturnValue(12);
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, own(0))]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, own(0))]} onSelectStartup={noop} />);
     expect(icons().at(-1).html.querySelector('img')).toBeNull();
     cleanup();
     vi.clearAllMocks();
 
     mapInstance.getZoom.mockReturnValue(13);
     const few = Array.from({ length: 10 }, (_, i) => pin(`p${i}`, `P${i}`, -33.8 + i * 0.02, 151.2, own(i)));
-    render(<MapView markers={few} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={few} onSelectStartup={noop} />);
     expect(icons().every((i) => i.html.querySelector('img'))).toBe(true);
     cleanup();
     vi.clearAllMocks();
 
     const many = Array.from({ length: 61 }, (_, i) => pin(`p${i}`, `P${i}`, -33.0 + i * 0.02, 151.2, own(i)));
-    render(<MapView markers={many} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={many} onSelectStartup={noop} />);
     flushFrames();
     expect(icons()).toHaveLength(61);
     expect(icons().some((i) => i.html.querySelector('img'))).toBe(false);
   });
 
   it('marks a hiring company with a hiring-dot badge, and omits it when not hiring', () => {
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { hiring: 1 }), pin('b', 'B', -37.81, 144.96, { hiring: 0 })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { hiring: 1 }), pin('b', 'B', -37.81, 144.96, { hiring: 0 })]} onSelectStartup={noop} />);
     const [a, b] = icons().map((i) => i.html);
     expect(a.querySelector('.pin-hiring-dot')).not.toBeNull();
     expect(b.querySelector('.pin-hiring-dot')).toBeNull();
   });
 
   it('marks the selected company with a selected class, and no other', () => {
-    render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} sectorColors={{}} onSelectStartup={noop} selectedName="B" />);
+    render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} onSelectStartup={noop} selectedName="B" />);
     const [a, b] = icons().map((i) => i.html);
     expect(a.classList.contains('pin-selected')).toBe(false);
     expect(b.classList.contains('pin-selected')).toBe(true);
   });
 
   it('marks a tracked company with a star, and omits it for the others', () => {
-    render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} sectorColors={{}} onSelectStartup={noop} trackedNames={new Set(['A'])} />);
+    render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} onSelectStartup={noop} trackedNames={new Set(['A'])} />);
     const [a, b] = icons().map((i) => i.html);
     expect(a.querySelector('.pin-tracked-star')).not.toBeNull();
     expect(b.querySelector('.pin-tracked-star')).toBeNull();
@@ -214,7 +242,7 @@ describe('MapView', () => {
 
   describe('what a click on a pin opens', () => {
     const open = (extra = {}, props = {}) => {
-      render(<MapView markers={[pin('acme-ai', 'Acme AI', -33.87, 151.21, { sector: 'AI', city: 'Sydney', hiring: 1, domain: 'acme.ai', ...extra })]} sectorColors={{}} onSelectStartup={vi.fn()} {...props} />);
+      render(<MapView markers={[pin('acme-ai', 'Acme AI', -33.87, 151.21, { sector: 'AI', city: 'Sydney', hiring: 1, domain: 'acme.ai', ...extra })]} onSelectStartup={vi.fn()} {...props} />);
       const [event, handler] = lastMarker().on.mock.calls[0];
       expect(event).toBe('click');
       handler();
@@ -265,7 +293,7 @@ describe('MapView', () => {
       fetchStartup.mockResolvedValue({ slug: 'acme-ai', name: 'Acme AI', blurb: 'Makes things for people.', stage: 'Seed' });
       const { popup, card } = open({ hiring: 0 });
       expect(popup.update).not.toHaveBeenCalled();
-      expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ autoPanPaddingTopLeft: [24, 150], autoPanPaddingBottomRight: [24, 96] }));
+      expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ autoPanPaddingTopLeft: [24, 64], autoPanPaddingBottomRight: [24, 96] }));
       await Promise.resolve();
       await Promise.resolve();
       expect(popup.update).toHaveBeenCalledTimes(1); // the record
@@ -286,7 +314,7 @@ describe('MapView', () => {
     });
 
     it('does not fail when the card is opened and nobody is listening (the landing page map)', () => {
-      render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} />);
+      render(<MapView markers={[pin('a', 'A')]} />);
       expect(() => lastMarker().on.mock.calls[0][1]()).not.toThrow();
       const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
       expect(() => card.querySelector('.pin-pop-cta').click()).not.toThrow();
@@ -294,7 +322,7 @@ describe('MapView', () => {
 
     it('builds the card as text, whatever the company is called', () => {
       const evil = '<img src=x onerror=alert(1)>';
-      render(<MapView markers={[pin('e', evil)]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('e', evil)]} onSelectStartup={noop} />);
       lastMarker().on.mock.calls[0][1]();
       const bad = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
       expect(bad.querySelector('img')).toBeNull();
@@ -304,7 +332,7 @@ describe('MapView', () => {
 
   it('binds a lightweight hover tooltip with name, sector and city, built as text and never as HTML', () => {
     const evil = '<img src=x onerror=alert(1)>';
-    render(<MapView markers={[pin('a', evil, -33.87, 151.21, { sector: 'AI', city: 'Sydney' })]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', evil, -33.87, 151.21, { sector: 'AI', city: 'Sydney' })]} onSelectStartup={noop} />);
     const marker = lastMarker();
     const [content] = marker.bindTooltip.mock.calls[0];
     expect(content).toBeInstanceOf(HTMLElement);
@@ -319,7 +347,7 @@ describe('MapView', () => {
 
     it('groups companies that are close together into a cluster with their number, and leaves a distant one alone', () => {
       mapInstance.getZoom.mockReturnValue(5);
-      render(<MapView markers={near} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={near} onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(2);
       const cluster = icons().find((i) => i.className === 'marker-cluster-custom');
       expect(cluster.html.className).toBe('marker-cluster-inner cluster-small');
@@ -329,7 +357,7 @@ describe('MapView', () => {
 
     it('zooms in on a cluster when it is clicked', () => {
       mapInstance.getZoom.mockReturnValue(5);
-      render(<MapView markers={near} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={near} onSelectStartup={noop} />);
       const clusterMarker = L.marker.mock.results.map((r) => r.value).find((m) => m.opts.icon.opts.className === 'marker-cluster-custom');
       clusterMarker.on.mock.calls[0][1]();
       const [latlng, zoom] = mapInstance.setView.mock.calls.at(-1);
@@ -340,7 +368,7 @@ describe('MapView', () => {
     it('sizes a cluster by how many companies it holds', () => {
       mapInstance.getZoom.mockReturnValue(3);
       const crowd = Array.from({ length: 60 }, (_, i) => pin(`p${i}`, `P${i}`, -33.87 + (i % 10) * 0.001, 151.2 + Math.floor(i / 10) * 0.001));
-      render(<MapView markers={crowd} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={crowd} onSelectStartup={noop} />);
       const large = icons().find((i) => i.className === 'marker-cluster-custom');
       expect(large.html.className).toContain('cluster-large');
       expect(large.iconSize).toEqual([62, 62]); // a bigger ring, not another colour
@@ -349,14 +377,14 @@ describe('MapView', () => {
     it('draws every size in the one accent: a number in a ring, never an amber or orange fill', () => {
       mapInstance.getZoom.mockReturnValue(3);
       const crowd = Array.from({ length: 60 }, (_, i) => pin(`p${i}`, `P${i}`, -33.87 + (i % 10) * 0.001, 151.2 + Math.floor(i / 10) * 0.001));
-      render(<MapView markers={crowd} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={crowd} onSelectStartup={noop} />);
       for (const { html } of icons().filter((i) => i.className === 'marker-cluster-custom')) expect(html.style.background).toBe('');
     });
 
     it('draws only what is in view: a handful of elements however many companies there are', () => {
       mapInstance.getZoom.mockReturnValue(5);
       const thousands = Array.from({ length: 5000 }, (_, i) => pin(`p${i}`, `P${i}`, -33.7 - ((i * 7919) % 1000) / 5000, 151 + ((i * 104729) % 1000) / 4000));
-      render(<MapView markers={thousands} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={thousands} onSelectStartup={noop} />);
       flushFrames();
       expect(L.marker.mock.calls.length).toBeLessThan(40);
     });
@@ -364,7 +392,7 @@ describe('MapView', () => {
 
   describe('a crowded view', () => {
     it('makes the first few pins at once and the rest over the next frames, so a slow phone keeps answering touches', () => {
-      render(<MapView markers={spread(60)} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={spread(60)} onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(12); // the first batch, in the same frame as the move
       expect(frames.size).toBe(1); // and the rest is waiting for a frame
       flushFrames();
@@ -373,7 +401,7 @@ describe('MapView', () => {
     });
 
     it('makes a view of a dozen or fewer in one go, with no frame waiting', () => {
-      render(<MapView markers={spread(12)} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={spread(12)} onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(12);
       expect(frames.size).toBe(0);
     });
@@ -381,7 +409,7 @@ describe('MapView', () => {
     it('makes bigger batches while they are quick and smaller ones while they are slow', () => {
       let clock = 0;
       vi.spyOn(performance, 'now').mockImplementation(() => { clock += 1; return clock; }); // every batch takes 1 ms
-      render(<MapView markers={spread(150)} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={spread(150)} onSelectStartup={noop} />);
       flushFrames();
       const quickFrames = frameCount;
       expect(L.marker).toHaveBeenCalledTimes(150);
@@ -392,14 +420,14 @@ describe('MapView', () => {
       frames = new Map();
       frameCount = 0;
       vi.spyOn(performance, 'now').mockImplementation(() => { clock += 50; return clock; }); // every batch takes 50 ms
-      render(<MapView markers={spread(150)} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={spread(150)} onSelectStartup={noop} />);
       flushFrames();
       expect(L.marker).toHaveBeenCalledTimes(150);
       expect(frameCount).toBeGreaterThan(quickFrames * 5); // 12, 6, 4, 4, ...
     });
 
     it('drops what was still waiting when the map moves on: a newer view replaces the last one\'s leftovers', () => {
-      render(<MapView markers={spread(60)} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={spread(60)} onSelectStartup={noop} />);
       expect(frames.size).toBe(1);
       mapInstance.getZoom.mockReturnValue(5);
       handlers.moveend();
@@ -408,7 +436,7 @@ describe('MapView', () => {
     });
 
     it('stops making pins when the map is taken away', () => {
-      const { unmount } = render(<MapView markers={spread(60)} sectorColors={{}} onSelectStartup={noop} />);
+      const { unmount } = render(<MapView markers={spread(60)} onSelectStartup={noop} />);
       unmount();
       expect(frames.size).toBe(0);
       flushFrames();
@@ -416,7 +444,7 @@ describe('MapView', () => {
     });
 
     it('never makes the same pin twice when the view is redrawn while pins are still waiting', () => {
-      render(<MapView markers={spread(60)} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={spread(60)} onSelectStartup={noop} />);
       handlers.moveend(); // the same view again
       flushFrames();
       expect(L.marker).toHaveBeenCalledTimes(60);
@@ -425,7 +453,7 @@ describe('MapView', () => {
 
   it('lists companies that sit at one place when they are clicked, and opens the one that is picked', () => {
     const onSelectStartup = vi.fn();
-    render(<MapView markers={[pin('x', 'X Co'), pin('y', 'Y Co'), pin('far', 'Far Co', -37.81, 144.96)]} sectorColors={{}} onSelectStartup={onSelectStartup} />);
+    render(<MapView markers={[pin('x', 'X Co'), pin('y', 'Y Co'), pin('far', 'Far Co', -37.81, 144.96)]} onSelectStartup={onSelectStartup} />);
     const stack = L.marker.mock.results.map((r) => r.value).find((m) => m.opts.icon.opts.html.textContent === '2');
     expect(stack.opts.icon.opts.html.className).toContain('marker-cluster-inner');
     stack.on.mock.calls[0][1]();
@@ -440,7 +468,7 @@ describe('MapView', () => {
   });
 
   it('redraws for the new view when the map is moved or zoomed, removing what is no longer there', () => {
-    render(<MapView markers={[pin('a', 'A', -33.8688, 151.2093), pin('b', 'B', -33.8679, 151.2093)]} sectorColors={{}} onSelectStartup={noop} />);
+    render(<MapView markers={[pin('a', 'A', -33.8688, 151.2093), pin('b', 'B', -33.8679, 151.2093)]} onSelectStartup={noop} />);
     expect(L.marker).toHaveBeenCalledTimes(2); // two pins at the deepest zoom
     mapInstance.getZoom.mockReturnValue(5);
     handlers.moveend();
@@ -449,54 +477,156 @@ describe('MapView', () => {
   });
 
   it('starts from nothing when the companies change (a filter), because a cluster\'s number belongs to the grouping that made it', () => {
-    const { rerender } = render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} onSelectStartup={noop} />);
+    const { rerender } = render(<MapView markers={[pin('a', 'A')]} onSelectStartup={noop} />);
     expect(L.marker).toHaveBeenCalledTimes(1);
     layerInstance.clearLayers.mockClear();
-    rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96), pin('c', 'C', -27.47, 153.02)]} sectorColors={{}} onSelectStartup={noop} />);
+    rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96), pin('c', 'C', -27.47, 153.02)]} onSelectStartup={noop} />);
     expect(layerInstance.clearLayers).toHaveBeenCalledTimes(1);
     expect(L.marker).toHaveBeenCalledTimes(3);
   });
 
   it('rebuilds only the pins whose look changed when a company is selected', () => {
     const markers = [pin('a', 'A'), pin('b', 'B', -37.81, 144.96), pin('c', 'C', -27.47, 153.02)];
-    const { rerender } = render(<MapView markers={markers} sectorColors={{}} onSelectStartup={noop} />);
+    const { rerender } = render(<MapView markers={markers} onSelectStartup={noop} />);
     expect(L.marker).toHaveBeenCalledTimes(3);
-    rerender(<MapView markers={markers} sectorColors={{}} onSelectStartup={noop} selectedName="B" />);
+    rerender(<MapView markers={markers} onSelectStartup={noop} selectedName="B" />);
     expect(L.marker).toHaveBeenCalledTimes(4);
     expect(layerInstance.removeLayer).toHaveBeenCalledTimes(1);
     expect(icons().at(-1).html.classList.contains('pin-selected')).toBe(true);
   });
 
+  describe('the page\'s card for a company, the city the map is on, and where it looks', () => {
+    const MELBOURNE = [pin('m1', 'M One', -37.81, 144.96, { city: 'Melbourne' }), pin('m2', 'M Two', -37.9, 145.1, { city: 'Melbourne' })];
+    const ALL = [pin('a', 'A'), ...MELBOURNE];
+
+    it('hands the page the company when its pin is pressed, and opens no card of its own', () => {
+      const onSelectPin = vi.fn();
+      render(<MapView markers={[pin('acme-ai', 'Acme AI', -33.87, 151.21, { hiring: 1, domain: 'acme.ai', precision: 'SUBURB', place: 'Surry Hills, Sydney' })]} onSelectPin={onSelectPin} />);
+      lastMarker().on.mock.calls[0][1]();
+      expect(onSelectPin).toHaveBeenCalledWith(expect.objectContaining({ slug: 'acme-ai', name: 'Acme AI', lat: -33.87, lng: 151.21, hiring: true, website: 'https://acme.ai', location_precision: 'SUBURB' }));
+      expect(L.popup).not.toHaveBeenCalled();
+    });
+
+    it('hands the page the company picked from a list of companies at one place', () => {
+      const onSelectPin = vi.fn();
+      const onSelectStartup = vi.fn();
+      render(<MapView markers={[pin('x', 'X Co'), pin('y', 'Y Co'), pin('far', 'Far Co', -37.81, 144.96)]} onSelectPin={onSelectPin} onSelectStartup={onSelectStartup} />);
+      L.marker.mock.results.map((r) => r.value).find((m) => m.opts.icon.opts.html.textContent === '2').on.mock.calls[0][1]();
+      const list = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      [...list.querySelectorAll('button')].find((b) => b.textContent === 'Y Co').click();
+      expect(onSelectPin).toHaveBeenCalledWith(expect.objectContaining({ slug: 'y', name: 'Y Co' }));
+      expect(onSelectStartup).not.toHaveBeenCalled();
+    });
+
+    it('tells the page when the bare map is pressed, so it can put the card away', () => {
+      const onClearPin = vi.fn();
+      render(<MapView markers={[]} onClearPin={onClearPin} />);
+      handlers.click();
+      expect(onClearPin).toHaveBeenCalledTimes(1);
+      expect(() => { cleanup(); render(<MapView markers={[]} />); handlers.click(); }).not.toThrow();
+    });
+
+    it('says where the map is looking when it opens and after each move', () => {
+      const onViewChange = vi.fn();
+      render(<MapView markers={[]} onViewChange={onViewChange} />);
+      expect(onViewChange).toHaveBeenLastCalledWith({ lat: -33, lng: 145, zoom: 17 });
+      mapInstance.getCenter.mockReturnValueOnce({ lat: -37.8, lng: 144.9 });
+      handlers.moveend();
+      expect(onViewChange).toHaveBeenLastCalledWith({ lat: -37.8, lng: 144.9, zoom: 17 });
+    });
+
+    it('takes the credit for the tiles without Leaflet\'s own name in front of it', () => {
+      render(<MapView markers={[]} />);
+      expect(L.map).toHaveBeenCalledWith(expect.any(HTMLElement), expect.objectContaining({ attributionControl: false }));
+      expect(L.control.attribution).toHaveBeenCalledWith({ position: 'bottomright', prefix: false });
+      expect(attributionInstance.addTo).toHaveBeenCalledWith(mapInstance);
+    });
+
+    it('moves to the pins of a city when the city is picked, once they arrive, and not before', () => {
+      const { rerender } = render(<MapView markers={ALL} scope="" />);
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+      rerender(<MapView markers={ALL} scope="Melbourne" />); // the city is picked: the pins of the city are not here yet
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+      rerender(<MapView markers={MELBOURNE} scope="Melbourne" />);
+      expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1);
+      expect(mapInstance.fitBounds).toHaveBeenCalledWith({ points: [[-37.81, 144.96], [-37.9, 145.1]] }, expect.objectContaining({ maxZoom: 13 }));
+    });
+
+    it('leaves the map where the visitor put it when something else about the pins changes', () => {
+      const { rerender } = render(<MapView markers={ALL} scope="Melbourne" />);
+      expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1); // it opened on the city
+      mapInstance.fitBounds.mockClear();
+      rerender(<MapView markers={[...MELBOURNE]} scope="Melbourne" />); // a sector was picked, say: new pins, the same city
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+    });
+
+    it('opens on the city the address names, once its pins are in', () => {
+      const { rerender } = render(<MapView markers={[]} scope="Melbourne" />);
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled(); // nothing to fit yet
+      rerender(<MapView markers={MELBOURNE} scope="Melbourne" />);
+      expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1);
+    });
+
+    it('goes back to Australia when the city is cleared', () => {
+      const { rerender } = render(<MapView markers={MELBOURNE} scope="Melbourne" />);
+      mapInstance.setView.mockClear();
+      rerender(<MapView markers={ALL} scope="" />);
+      expect(mapInstance.setView).toHaveBeenCalledWith([-33, 145], 5);
+    });
+
+    it('shows a city known only as a group where there are no pins to fit, never closer than the city', () => {
+      const { rerender } = render(<MapView markers={[]} areas={[]} scope="Perth" />);
+      rerender(<MapView markers={[]} areas={[{ ...SYDNEY_GROUP, label: 'Perth', city: 'Perth', lat: -31.95, lng: 115.86 }]} scope="Perth" />);
+      expect(mapInstance.fitBounds).toHaveBeenCalledWith({ points: [[-31.95, 115.86]] }, expect.objectContaining({ maxZoom: 10 }));
+    });
+
+    it('brings a company into view when asked, a little way up from the bottom sheet, and leaves one that is already clear', () => {
+      const { rerender } = render(<MapView markers={[]} focus={null} />);
+      rerender(<MapView markers={[]} focus={{ key: 1, lat: -33.87, lng: 151.21, inset: 300 }} />); // off to the right of the window
+      expect(mapInstance.flyTo).toHaveBeenCalledTimes(1);
+      mapInstance.flyTo.mockClear();
+      rerender(<MapView markers={[]} focus={{ key: 2, lat: -33.1, lng: 150.2, inset: 300 }} />); // inside it, clear of the sheet
+      expect(mapInstance.flyTo).not.toHaveBeenCalled();
+    });
+
+    it('goes home when asked to', () => {
+      const { rerender } = render(<MapView markers={[]} />);
+      mapInstance.setView.mockClear();
+      rerender(<MapView markers={[]} focus={{ key: 3, home: true }} />);
+      expect(mapInstance.setView).toHaveBeenCalledWith([-33, 145], 5);
+    });
+  });
+
   it('removes the map on unmount', () => {
-    const { unmount } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+    const { unmount } = render(<MapView markers={[]} onSelectStartup={noop} />);
     unmount();
     expect(mapInstance.remove).toHaveBeenCalledTimes(1);
   });
 
   describe('how well a place is known', () => {
     it('draws a suburb\'s pin as approximate, and an office\'s as it always was', () => {
-      render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' }), pin('b', 'B', -37.81, 144.96, { precision: 'EXACT', place: '1 William Street, Melbourne', checked: 1 })]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' }), pin('b', 'B', -37.81, 144.96, { precision: 'EXACT', place: '1 William Street, Melbourne', checked: 1 })]} onSelectStartup={noop} />);
       const [suburb, office] = icons().map((i) => i.html);
       expect(suburb.classList.contains('pin-approx')).toBe(true);
       expect(office.classList.contains('pin-approx')).toBe(false);
     });
 
     it('says in the tooltip the name, where, and how well that is known', () => {
-      render(<MapView markers={[pin('a', 'Example Startup', -37.81, 144.96, { precision: 'EXACT', place: '123 Example Street, Melbourne', checked: 1 })]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'Example Startup', -37.81, 144.96, { precision: 'EXACT', place: '123 Example Street, Melbourne', checked: 1 })]} onSelectStartup={noop} />);
       const [content] = lastMarker().bindTooltip.mock.calls[0];
       expect([...content.children].map((c) => c.textContent)).toEqual(['Example Startup', '123 Example Street, Melbourne', 'Verified office']);
       expect(content.querySelector('.tip-quality').className).toContain('tip-exact');
     });
 
     it('does not call an address that was only on file verified, and calls a suburb suburb-level', () => {
-      render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'EXACT', place: '1 George Street, Sydney', checked: 0 }), pin('b', 'B', -37.81, 144.96, { precision: 'SUBURB', place: 'Richmond, Melbourne' })]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'EXACT', place: '1 George Street, Sydney', checked: 0 }), pin('b', 'B', -37.81, 144.96, { precision: 'SUBURB', place: 'Richmond, Melbourne' })]} onSelectStartup={noop} />);
       const words = L.marker.mock.results.map((r) => r.value.bindTooltip.mock.calls[0][0].querySelector('.tip-quality').textContent);
       expect(words).toEqual(['Office address on file', 'Location: suburb-level']);
     });
 
     it('builds the tooltip as text, whatever the company or the place is called', () => {
       const evil = '<img src=x onerror=alert(1)>';
-      render(<MapView markers={[pin('a', evil, -37.81, 144.96, { precision: 'EXACT', place: evil })]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', evil, -37.81, 144.96, { precision: 'EXACT', place: evil })]} onSelectStartup={noop} />);
       const [content] = lastMarker().bindTooltip.mock.calls[0];
       expect(content.querySelector('img')).toBeNull();
       expect(content.textContent).toContain(evil);
@@ -504,7 +634,7 @@ describe('MapView', () => {
 
     it('opens a company from its card with how well its place is known already in hand, and says it on the card', () => {
       const onSelectStartup = vi.fn();
-      render(<MapView markers={[pin('acme', 'Acme', -33.88, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' })]} sectorColors={{}} onSelectStartup={onSelectStartup} />);
+      render(<MapView markers={[pin('acme', 'Acme', -33.88, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' })]} onSelectStartup={onSelectStartup} />);
       lastMarker().on.mock.calls[0][1]();
       const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
       expect(card.querySelector('.pin-pop-more').textContent).toContain('Location: suburb-level');
@@ -517,7 +647,7 @@ describe('MapView', () => {
     const groupMarker = () => L.marker.mock.results.map((r) => r.value).find((m) => m.opts.pane === 'areas');
 
     it('draws a group as a ring and a label in a pane under the pins, never as a pin, and says what it is', () => {
-      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(1);
       expect(L.marker).toHaveBeenCalledWith([-33.8688, 151.2093], expect.objectContaining({ pane: 'areas', title: 'Sydney — 42 startups with city-level locations', keyboard: false }));
       const { html, className } = icons().at(-1);
@@ -531,13 +661,13 @@ describe('MapView', () => {
     });
 
     it('draws a state\'s group as state-level, and says "1 startup" for one', () => {
-      render(<MapView markers={[]} areas={[{ kind: 'STATE', label: 'Victoria', city: null, state: 'VIC', lat: -36.9, lng: 144.3, count: 1, sample: [] }]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[]} areas={[{ kind: 'STATE', label: 'Victoria', city: null, state: 'VIC', lat: -36.9, lng: 144.3, count: 1, sample: [] }]} onSelectStartup={noop} />);
       expect(icons().at(-1).html.className).toContain('area-state');
       expect(groupMarker().opts.title).toBe('Victoria — 1 startup with a state-level location');
     });
 
     it('is drawn alongside the pins without disturbing them', () => {
-      render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'A'), pin('b', 'B', -37.81, 144.96)]} areas={[SYDNEY_GROUP]} onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(3);
       expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(1);
       expect(layerInstance.clearLayers).toHaveBeenCalledTimes(1); // the pins' own start-from-nothing, and only that
@@ -545,7 +675,7 @@ describe('MapView', () => {
 
     it('builds the label as text, whatever the place is called', () => {
       const evil = '<img src=x onerror=alert(1)>';
-      render(<MapView markers={[]} areas={[{ ...SYDNEY_GROUP, label: evil }]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[]} areas={[{ ...SYDNEY_GROUP, label: evil }]} onSelectStartup={noop} />);
       const { html } = icons().at(-1);
       expect(html.querySelector('img')).toBeNull();
       expect(html.querySelector('b').textContent).toBe(evil);
@@ -553,7 +683,7 @@ describe('MapView', () => {
 
     it('lists a few of its companies when it is clicked, and opens the one that is picked', () => {
       const onSelectStartup = vi.fn();
-      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={onSelectStartup} onViewArea={vi.fn()} />);
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} onSelectStartup={onSelectStartup} onViewArea={vi.fn()} />);
       groupMarker().on.mock.calls[0][1]();
       expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ className: expect.stringContaining('stack-popup') }));
       const popup = L.popup.mock.results.at(-1).value;
@@ -573,7 +703,7 @@ describe('MapView', () => {
 
     it('opens all of them as a list from "View all", with the group', () => {
       const onViewArea = vi.fn();
-      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} onViewArea={onViewArea} />);
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} onSelectStartup={noop} onViewArea={onViewArea} />);
       groupMarker().on.mock.calls[0][1]();
       const box = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
       const all = box.querySelector('.area-viewall');
@@ -583,24 +713,24 @@ describe('MapView', () => {
     });
 
     it('does nothing when clicked on a page that listens to nothing (the landing page map): it is a label to hover', () => {
-      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} sectorColors={{}} />);
+      render(<MapView markers={[]} areas={[SYDNEY_GROUP]} />);
       expect(() => groupMarker().on.mock.calls[0][1]()).not.toThrow();
       expect(L.popup).not.toHaveBeenCalled();
     });
 
     it('is drawn again only when the groups change, not when the pins do', () => {
       const groups = [SYDNEY_GROUP]; // the page holds its groups in state: the same array until the server sends others
-      const { rerender } = render(<MapView markers={[pin('a', 'A')]} areas={groups} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={[pin('a', 'A')]} areas={groups} onSelectStartup={noop} />);
       areaLayerInstance.clearLayers.mockClear();
-      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} areas={groups} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} areas={groups} onSelectStartup={noop} />);
       expect(areaLayerInstance.clearLayers).not.toHaveBeenCalled();
-      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} areas={[{ ...SYDNEY_GROUP, count: 5 }]} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} areas={[{ ...SYDNEY_GROUP, count: 5 }]} onSelectStartup={noop} />);
       expect(areaLayerInstance.clearLayers).toHaveBeenCalledTimes(1);
       expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(2);
     });
 
     it('draws no group when there are none', () => {
-      render(<MapView markers={[pin('a', 'A')]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'A')]} onSelectStartup={noop} />);
       expect(L.marker.mock.calls.filter((c) => c[1].pane === 'areas')).toHaveLength(0);
     });
   });
@@ -612,7 +742,7 @@ describe('MapView', () => {
     const mapEl = (container) => container.querySelector('#map');
 
     it('is built as text, with the name only, hidden from screen readers', () => {
-      render(<MapView markers={[pin('a', '<img src=x onerror=alert(1)>')]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', '<img src=x onerror=alert(1)>')]} onSelectStartup={noop} />);
       const html = icons().at(-1).html;
       const label = html.querySelector('.pin-label');
       expect(label.textContent).toBe('<img src=x onerror=alert(1)>');
@@ -622,7 +752,7 @@ describe('MapView', () => {
 
     it('is written under a pin from zoom 7, and the map is circles only below it', () => {
       mapInstance.getZoom.mockReturnValue(7);
-      const { container } = render(<MapView markers={[pin('a', 'Alpha')]} sectorColors={{}} onSelectStartup={noop} />);
+      const { container } = render(<MapView markers={[pin('a', 'Alpha')]} onSelectStartup={noop} />);
       flushFrames();
       expect(mapEl(container)).toHaveClass('show-pin-labels');
       expect(namesOn()).toEqual([['Alpha', true]]);
@@ -635,7 +765,7 @@ describe('MapView', () => {
     it('waits for zoom 9 on a phone', () => {
       vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: true })));
       mapInstance.getZoom.mockReturnValue(8);
-      const { container } = render(<MapView markers={[pin('a', 'Alpha')]} sectorColors={{}} onSelectStartup={noop} />);
+      const { container } = render(<MapView markers={[pin('a', 'Alpha')]} onSelectStartup={noop} />);
       flushFrames();
       expect(mapEl(container)).not.toHaveClass('show-pin-labels');
       mapInstance.getZoom.mockReturnValue(9);
@@ -646,19 +776,19 @@ describe('MapView', () => {
     });
 
     it('names the company that is hiring, and not the one beside it that would run into it', () => {
-      render(<MapView markers={close({}, { hiring: 1 })} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={close({}, { hiring: 1 })} onSelectStartup={noop} />);
       flushFrames();
       expect(namesOn()).toEqual([['Alpha', false], ['Beta', true]]);
     });
 
     it('names the open company before one that is hiring', () => {
-      render(<MapView markers={close({}, { hiring: 1 })} sectorColors={{}} onSelectStartup={noop} selectedName="Alpha" />);
+      render(<MapView markers={close({}, { hiring: 1 })} onSelectStartup={noop} selectedName="Alpha" />);
       flushFrames();
       expect(namesOn().filter(([, on]) => on).map(([name]) => name)).toEqual(['Alpha']);
     });
 
     it('names every company that has room', () => {
-      render(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), pin('b', 'Beta', -33.0, 150.2)]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), pin('b', 'Beta', -33.0, 150.2)]} onSelectStartup={noop} />);
       flushFrames();
       expect(namesOn()).toEqual([['Alpha', true], ['Beta', true]]);
     });
@@ -666,21 +796,21 @@ describe('MapView', () => {
     it('writes no name where a cluster is, and writes it once the cluster is clear of the pin', () => {
       const stackAt = (lat) => [pin('s1', 'S1', lat, 150.0), pin('s2', 'S2', lat, 150.0)]; // two companies at one place: drawn as a "2"
       // 20px under the pin, where its name would go
-      const { rerender } = render(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), ...stackAt(-33.01)]} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), ...stackAt(-33.01)]} onSelectStartup={noop} />);
       flushFrames();
       expect(namesOn()).toEqual([['Alpha', false]]);
       // 100px under it: room for the name
-      rerender(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), ...stackAt(-33.05)]} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0), ...stackAt(-33.05)]} onSelectStartup={noop} />);
       flushFrames();
       expect(namesOn().at(-1)).toEqual(['Alpha', true]);
     });
 
     it('works out again which names fit when the map moves, and when the companies change', () => {
-      const { rerender } = render(<MapView markers={close({}, { hiring: 1 })} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={close({}, { hiring: 1 })} onSelectStartup={noop} />);
       flushFrames();
       expect(namesOn()).toEqual([['Alpha', false], ['Beta', true]]);
       // a filter leaves only Alpha: a new set of pins, and now it has room
-      rerender(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0)]} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[pin('a', 'Alpha', -33.0, 150.0)]} onSelectStartup={noop} />);
       flushFrames();
       expect(namesOn().at(-1)).toEqual(['Alpha', true]);
     });
@@ -690,7 +820,7 @@ describe('MapView', () => {
     const firmMarkers = () => L.marker.mock.results.map((r) => r.value).filter((m) => m.opts.icon.opts.html?.classList?.contains('inst-pin'));
 
     it('draws each office as a rounded square with the firm\'s initial, in a layer of its own, never as a company\'s pin', () => {
-      render(<MapView markers={[pin('a', 'A')]} institutionPins={[firm('blackbird', 'Blackbird'), firm('airtree', 'AirTree', -37.81, 144.96)]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[pin('a', 'A')]} institutionPins={[firm('blackbird', 'Blackbird'), firm('airtree', 'AirTree', -37.81, 144.96)]} onSelectStartup={noop} />);
       const marks = firmMarkers();
       expect(marks).toHaveLength(2);
       expect(marks[0].addTo).toHaveBeenCalledWith(instLayerInstance);
@@ -704,7 +834,7 @@ describe('MapView', () => {
 
     it('names an office under its square like a company\'s, from the same zoom and only where it fits', () => {
       mapInstance.getZoom.mockReturnValue(7);
-      const { container } = render(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} sectorColors={{}} onSelectStartup={noop} />);
+      const { container } = render(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} onSelectStartup={noop} />);
       const label = firmMarkers()[0].opts.icon.opts.html.querySelector('.pin-label');
       expect(label.textContent).toBe('Blackbird');
       expect(label.getAttribute('aria-hidden')).toBe('true');
@@ -718,7 +848,7 @@ describe('MapView', () => {
 
     it('opens a small card: the name, where, one way in (its page in the app when it has one), and the rest under "More"', () => {
       const onOpenInternal = vi.fn();
-      render(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird', -33.87, 151.21, { href: '/investors/blackbird' })]} sectorColors={{}} onSelectStartup={noop} onOpenInternal={onOpenInternal} />);
+      render(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird', -33.87, 151.21, { href: '/investors/blackbird' })]} onSelectStartup={noop} onOpenInternal={onOpenInternal} />);
       firmMarkers()[0].on.mock.calls[0][1]();
       expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ className: 'pin-popup' }));
       const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
@@ -735,7 +865,7 @@ describe('MapView', () => {
     });
 
     it('sends a firm with no page of its own to its website, in a new tab that cannot reach back', () => {
-      render(<MapView markers={[]} institutionPins={[firm('quiet', 'Quiet Fund')]} sectorColors={{}} onSelectStartup={noop} />);
+      render(<MapView markers={[]} institutionPins={[firm('quiet', 'Quiet Fund')]} onSelectStartup={noop} />);
       firmMarkers()[0].on.mock.calls[0][1]();
       const cta = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0].querySelector('a.pin-pop-cta');
       expect(cta.textContent).toBe('Visit website');
@@ -745,21 +875,21 @@ describe('MapView', () => {
     });
 
     it('draws no firm when there are none, and none when its layer is switched off', () => {
-      const { rerender } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
       expect(firmMarkers()).toHaveLength(0);
-      rerender(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} onSelectStartup={noop} />);
       expect(firmMarkers()).toHaveLength(1);
       instLayerInstance.clearLayers.mockClear();
-      rerender(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} showInstitutions={false} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} institutionPins={[firm('blackbird', 'Blackbird')]} showInstitutions={false} onSelectStartup={noop} />);
       expect(instLayerInstance.clearLayers).toHaveBeenCalled();
       expect(firmMarkers()).toHaveLength(1); // nothing new was drawn
     });
 
     it('is not disturbed by the companies changing, and does not disturb them', () => {
       const pins = [firm('blackbird', 'Blackbird')]; // the page holds the firms in state: the same array until the server sends others
-      const { rerender } = render(<MapView markers={[pin('a', 'A')]} institutionPins={pins} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={[pin('a', 'A')]} institutionPins={pins} onSelectStartup={noop} />);
       instLayerInstance.clearLayers.mockClear();
-      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} institutionPins={pins} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[pin('b', 'B', -37.81, 144.96)]} institutionPins={pins} onSelectStartup={noop} />);
       expect(instLayerInstance.clearLayers).not.toHaveBeenCalled();
     });
   });
@@ -767,23 +897,23 @@ describe('MapView', () => {
   describe('the layers', () => {
     it('draws nothing of the companies while their layer is off, and the pins again when it is back on', () => {
       const markers = [pin('a', 'A'), pin('b', 'B', -37.81, 144.96)];
-      const { rerender } = render(<MapView markers={markers} areas={[SYDNEY_GROUP]} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={markers} areas={[SYDNEY_GROUP]} onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(3); // two pins and a group
       layerInstance.clearLayers.mockClear();
       areaLayerInstance.clearLayers.mockClear();
-      rerender(<MapView markers={markers} areas={[SYDNEY_GROUP]} showCompanies={false} sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={markers} areas={[SYDNEY_GROUP]} showCompanies={false} onSelectStartup={noop} />);
       expect(layerInstance.clearLayers).toHaveBeenCalled();
       expect(areaLayerInstance.clearLayers).toHaveBeenCalled();
       expect(L.marker).toHaveBeenCalledTimes(3); // nothing was drawn while it was off
-      rerender(<MapView markers={markers} areas={[SYDNEY_GROUP]} showCompanies sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={markers} areas={[SYDNEY_GROUP]} showCompanies onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(6); // the pins and the group, again
     });
 
     it('keeps the firms on while the companies are off', () => {
       const pins = [firm('blackbird', 'Blackbird')];
       const markers = [pin('a', 'A')];
-      const { rerender } = render(<MapView markers={markers} institutionPins={pins} sectorColors={{}} onSelectStartup={noop} />);
-      rerender(<MapView markers={markers} institutionPins={pins} showCompanies={false} sectorColors={{}} onSelectStartup={noop} />);
+      const { rerender } = render(<MapView markers={markers} institutionPins={pins} onSelectStartup={noop} />);
+      rerender(<MapView markers={markers} institutionPins={pins} showCompanies={false} onSelectStartup={noop} />);
       expect(instLayerInstance.addTo).toHaveBeenCalled();
       expect(L.marker.mock.results.map((r) => r.value).filter((m) => m.opts.icon.opts.html?.classList?.contains('inst-pin'))).toHaveLength(1);
     });
@@ -791,7 +921,7 @@ describe('MapView', () => {
 
   describe('the basemap', () => {
     it('opens dark: the free tiles inverted, with no new tile layer made for it', () => {
-      const { container } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
+      const { container } = render(<MapView markers={[]} onSelectStartup={noop} />);
       expect(container.querySelector('#map')).toHaveClass('osm-inverted');
       expect(container.querySelector('#map').dataset.basemap).toBe('dark');
       expect(L.tileLayer).toHaveBeenCalledTimes(1);
@@ -799,17 +929,17 @@ describe('MapView', () => {
     });
 
     it('opens light when asked: the same tiles as they are', () => {
-      const { container } = render(<MapView markers={[]} basemap="light" sectorColors={{}} onSelectStartup={noop} />);
+      const { container } = render(<MapView markers={[]} basemap="light" onSelectStartup={noop} />);
       expect(container.querySelector('#map')).not.toHaveClass('osm-inverted');
       expect(container.querySelector('#map').dataset.basemap).toBe('light');
     });
 
     it('switches between them without making the map again', () => {
-      const { container, rerender } = render(<MapView markers={[]} sectorColors={{}} onSelectStartup={noop} />);
-      rerender(<MapView markers={[]} basemap="light" sectorColors={{}} onSelectStartup={noop} />);
+      const { container, rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} basemap="light" onSelectStartup={noop} />);
       expect(container.querySelector('#map')).not.toHaveClass('osm-inverted');
       expect(container.querySelector('#map').dataset.basemap).toBe('light');
-      rerender(<MapView markers={[]} basemap="dark" sectorColors={{}} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} basemap="dark" onSelectStartup={noop} />);
       expect(container.querySelector('#map')).toHaveClass('osm-inverted');
       expect(L.map).toHaveBeenCalledTimes(1);
       expect(L.tileLayer).toHaveBeenCalledTimes(1);

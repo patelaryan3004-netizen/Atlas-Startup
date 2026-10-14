@@ -81,8 +81,8 @@ describe('every image tag', () => {
 
   it('is given its size, where it sits in a box that is the same on every screen, so the page does not move as logos arrive', () => {
     for (const { file, tag } of all.filter((i) => ['components/EntityCard.jsx'].includes(i.file))) {
-      expect(tag, file).toMatch(/\bwidth="\d+"/);
-      expect(tag, file).toMatch(/\bheight="\d+"/);
+      expect(tag, file).toMatch(/\bwidth=(?:"\d+"|\{size\})/); // the avatar's size is its own prop, 40 unless a card says otherwise
+      expect(tag, file).toMatch(/\bheight=(?:"\d+"|\{size\})/);
     }
   });
 });

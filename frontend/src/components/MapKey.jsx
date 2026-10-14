@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { CLUSTER_MEDIUM, CLUSTER_LARGE } from '../mapPins.js';
 
-// One mark and what it means. The marks are drawn with the map's own classes (shrunk in styles.css), so the key shows what the
+// One mark and what it means. The marks are drawn with the map's own classes (shrunk in explore.css), so the key shows what the
 // map draws and cannot fall behind it.
 function Row({ mark, children }) {
   return (
@@ -13,97 +11,42 @@ function Row({ mark, children }) {
   );
 }
 
-function Pin({ extra = '', children }) {
+function Pin({ kind, extra = '', children }) {
   return (
-    <span className={`custom-pin-badge ${extra}`.trim()}>
-      <span className="pin-fallback" style={{ background: 'var(--muted)' }}>A</span>
+    <span className={`custom-pin-badge ${kind} ${extra}`.trim()}>
+      <span className="pin-face">{kind === 'pin-tile' && <span className="pin-fallback">A</span>}</span>
       {children}
     </span>
   );
 }
 
-// The sectors, grouped by the colour the map gives them: the map has far fewer colours than the directory has sectors (the sector
-// is free text), so several share one, and a pin's colour is decoded by finding it here and reading the sectors beside it.
-function coloursOf(sectorColors) {
-  const byColour = new Map();
-  for (const [sector, colour] of Object.entries(sectorColors).sort(([a], [b]) => a.localeCompare(b))) {
-    if (!byColour.has(colour)) byColour.set(colour, []);
-    byColour.get(colour).push(sector);
-  }
-  return [...byColour];
-}
-
-function KeyPanel({ sectorColors, showInstitutions, onClose }) {
-  useEscapeClose(onClose);
-  const colours = coloursOf(sectorColors);
-  const sectorCount = Object.keys(sectorColors).length;
-
+// The key to the map's marks, in the filter panel's Map tab (so it is out of the way until it is wanted). It is for the map: the list has no marks.
+export default function MapKey({ showInstitutions = false }) {
   return (
-    <section id="mapKey" aria-label="Map key">
-      <div className="mk-head">
-        <h2 className="mk-title">Map key</h2>
-        <button type="button" className="mk-close" aria-label="Close the map key" onClick={onClose}>&#10005;</button>
-      </div>
-
+    <section className="mk" aria-label="Map key">
       <div className="mk-group">
         <h3 className="mk-label">A company</h3>
-        <Row mark={<Pin />}>A company, in a white ring: its own logo when it has one, else its first letter on its sector’s colour. Click it for a card.</Row>
-        <Row mark={<Pin extra="pin-approx" />}>A dashed edge: placed at the suburb, not the office.</Row>
-        <Row mark={<Pin><span className="pin-hiring-dot" /></Pin>}>A green dot: hiring now (an open role was checked).</Row>
-        <Row mark={<Pin><span className="pin-tracked-star">&#9733;</span></Pin>}>A gold star: a company you track (kept in this browser).</Row>
+        <Row mark={<Pin kind="pin-dot" />}>A small dot: a company. Press it for its card.</Row>
+        <Row mark={<Pin kind="pin-tile"><span className="pin-hiring-dot" /></Pin>}>A white tile with a mint dot: hiring now (an open role was checked). The tile shows its logo, or its first letter.</Row>
+        <Row mark={<Pin kind="pin-tile"><span className="pin-tracked-star">&#9733;</span></Pin>}>A tile with a star: a company you saved (kept in this browser).</Row>
+        <Row mark={<Pin kind="pin-dot" extra="pin-approx" />}>A dashed edge: placed at the suburb, not the office.</Row>
       </div>
-
-      {colours.length > 0 && (
-        <details className="mk-group mk-colours">
-          <summary>Colour of each sector</summary>
-          {colours.length < sectorCount && <p className="mk-note-inline">There are more sectors than colours, so some share one.</p>}
-          <ul className="mk-sectors">
-            {colours.map(([colour, names]) => (
-              <li key={colour}>
-                <i className="mk-sector-dot" aria-hidden="true" style={{ background: colour }} />
-                <span>{names.join(', ')}</span>
-              </li>
-            ))}
-          </ul>
-        </details>
-      )}
 
       <div className="mk-group">
         <h3 className="mk-label">Places</h3>
         <Row mark={<span className="marker-cluster-inner cluster-small">12</span>}>
-          A numbered ring: companies close together. The bigger the ring, the more it holds. Click to zoom in.
+          A numbered ring: companies close together. The bigger the ring, the more it holds. Press it to zoom in.
         </Row>
         <p className="mk-sizes">
           <span><i className="mk-dot cluster-small" aria-hidden="true" />under {CLUSTER_MEDIUM}</span>
           <span><i className="mk-dot cluster-medium" aria-hidden="true" />{CLUSTER_MEDIUM} to {CLUSTER_LARGE - 1}</span>
           <span><i className="mk-dot cluster-large" aria-hidden="true" />{CLUSTER_LARGE} or more</span>
         </p>
-        <Row mark={<span className="mk-ring" />}>A dashed ring: companies known only to a city or a state, so no pin. Click its label to open them.</Row>
+        <Row mark={<span className="mk-ring" />}>A dashed ring: companies known only to a city or a state, so no pin. Press its label to open them.</Row>
         {showInstitutions && <Row mark={<span className="inst-pin"><span className="inst-initial">B</span></span>}>A rounded square: an investor&rsquo;s office, with the firm&rsquo;s first letter.</Row>}
       </div>
 
       <p className="mk-note">Names appear under the pins as you zoom in, where there is room for them.</p>
     </section>
-  );
-}
-
-// The key to the map's marks, behind a button so it is out of the way until it is wanted. It is for the map: the list has no marks.
-export default function MapKey({ sectorColors = {}, showInstitutions = false }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <>
-      <button
-        type="button"
-        id="mapKeyToggle"
-        className="hdrbtn"
-        title="What the marks on the map mean"
-        aria-expanded={open}
-        aria-controls="mapKey"
-        onClick={() => setOpen((v) => !v)}
-      >
-        Key
-      </button>
-      {open && <KeyPanel sectorColors={sectorColors} showInstitutions={showInstitutions} onClose={() => setOpen(false)} />}
-    </>
   );
 }

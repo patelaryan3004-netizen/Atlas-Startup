@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { fetchSuggestions } from '../api.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
+import { SearchIcon } from './explore/icons.jsx';
 
 const SUGGEST_DELAY_MS = 200;
 
 // The search box. What it suggests is asked of the server (companies, people, investors, industries and
 // locations that match, five of each at most), a moment after typing stops, and an answer to text that has since
 // changed is dropped: the page never holds the companies in order to search them.
-export default function SearchBar({ filters, onApplyFilters }) {
+export default function SearchBar({ filters, onApplyFilters, placeholder = 'Search Australian startups, founders, investors...' }) {
   const [open, setOpen] = useState(false);
   const [groups, setGroups] = useState(null);
   useEscapeClose(() => setOpen(false));
@@ -40,10 +41,11 @@ export default function SearchBar({ filters, onApplyFilters }) {
   };
 
   return (
-    <div className="floating-search">
+    <div className="xt-search">
+      <SearchIcon size={20} className="xt-search-icon" />
       <input
         type="text"
-        placeholder="Search Australian startups, founders, investors..."
+        placeholder={placeholder}
         value={filters.search}
         onChange={(e) => { onApplyFilters({ search: e.target.value }); setOpen(true); }}
         onFocus={() => setOpen(true)}

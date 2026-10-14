@@ -17,6 +17,10 @@ function setup(overrides = {}) {
     unverifiedCount: 3,
     onShowTracked: vi.fn(),
     trackedCount: 2,
+    onShowAbout: vi.fn(),
+    onShowPrivacy: vi.fn(),
+    onShowFeedback: vi.fn(),
+    directoryUrl: '/directory/',
     ...overrides,
   };
   const result = render(<HeaderMenu {...props} />);
@@ -42,7 +46,25 @@ describe('HeaderMenu', () => {
     expect(screen.getByText('Hide news ticker')).toBeInTheDocument();
     expect(screen.getByText('Join waitlist')).toBeInTheDocument();
     expect(screen.getByText('Unconfirmed (3)')).toBeInTheDocument();
-    expect(screen.getByText('★ Tracked (2)')).toBeInTheDocument();
+    expect(screen.getByText('Saved (2)')).toBeInTheDocument();
+  });
+
+  it('holds what the header has no room for: the about, privacy and feedback dialogs, the pages about the project, and the list that needs no scripts', async () => {
+    const { onShowAbout, onShowPrivacy, onShowFeedback } = setup();
+    await userEvent.click(screen.getByLabelText('Menu'));
+    expect(screen.getByRole('link', { name: 'Methodology' })).toHaveAttribute('href', '/methodology');
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
+    expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '/contact');
+    expect(screen.getByRole('link', { name: 'Full list (no JS)' })).toHaveAttribute('href', '/directory/');
+    expect(screen.getByText(/Built by Aryan/)).toBeInTheDocument();
+    await userEvent.click(screen.getByText('About & sources'));
+    expect(onShowAbout).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByLabelText('Menu'));
+    await userEvent.click(screen.getByText('Privacy'));
+    expect(onShowPrivacy).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByLabelText('Menu'));
+    await userEvent.click(screen.getByText('Feedback'));
+    expect(onShowFeedback).toHaveBeenCalledTimes(1);
   });
 
   it('shows a subtle hiring-count hint on the Jobs item when given one, omitting it otherwise', async () => {
@@ -97,13 +119,13 @@ describe('HeaderMenu', () => {
     expect(screen.queryByText('People')).not.toBeInTheDocument();
   });
 
-  it('calls onShowTracked and closes when the Tracked item is clicked', async () => {
+  it('calls onShowTracked and closes when the Saved item is clicked', async () => {
     const { onShowTracked } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
-    await userEvent.click(screen.getByText('★ Tracked (2)'));
+    await userEvent.click(screen.getByText('Saved (2)'));
 
     expect(onShowTracked).toHaveBeenCalledTimes(1);
-    expect(screen.queryByText('★ Tracked (2)')).not.toBeInTheDocument();
+    expect(screen.queryByText('Saved (2)')).not.toBeInTheDocument();
   });
 
   it('closes on Escape', async () => {

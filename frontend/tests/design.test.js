@@ -13,6 +13,7 @@ const styles = css('styles.css');
 const landing = css('landing.css');
 const hero = css('landing-hero.css');
 const investors = css('investors.css');
+const explore = css('explore.css');
 
 const token = (text, name) => new RegExp(`${name}\\s*:\\s*([^;]+);`).exec(text)?.[1].trim();
 
@@ -85,26 +86,38 @@ describe('the one card', () => {
 });
 
 describe('the map\'s pins', () => {
-  it('is a 44px circle in a white 3px ring with a soft shadow, and a hover that grows it by a tenth', () => {
-    expect(styles).toMatch(/\.custom-pin-badge\{[^}]*width:44px;height:44px[^}]*border:3px solid #fff;border-radius:50%[^}]*box-shadow:0 3px 10px/);
-    expect(styles).toMatch(/\.custom-pin-badge:hover\{transform:scale\(1\.1\)/);
+  it('is a 44px place to press, with a 14px dot or a 36px white tile in it, the tile with a rounded square\'s corners and a soft shadow, and a hover that grows it', () => {
+    expect(explore).toMatch(/\.custom-pin-badge\{[^}]*width:44px;height:44px/);
+    expect(explore).toMatch(/\.pin-dot \.pin-face\{width:14px;height:14px;border-radius:50%/);
+    expect(explore).toMatch(/\.pin-tile \.pin-face\{width:36px;height:36px;border-radius:10px;[^}]*background:#f4f6f8[^}]*box-shadow:0 4px 14px/);
+    expect(explore).toMatch(/\.custom-pin-badge:hover \.pin-face\{transform:scale\(1\.14\)/);
     expect(styles).toMatch(/\.inst-pin:hover\{transform:scale\(1\.1\)/);
   });
 
-  it('puts the name under the pin on a white card with a 10px radius, in bold 12px', () => {
-    const label = /\.pin-label\{([^}]*)\}/.exec(styles)[1];
-    expect(label).toMatch(/background:#fff/);
-    expect(label).toMatch(/border-radius:10px/);
-    expect(label).toMatch(/font-size:12px/);
-    expect(label).toMatch(/font-weight:700/);
+  it('marks the open company with a ring in the page\'s accent, and a suburb\'s pin with a dashed edge', () => {
+    expect(explore).toMatch(/\.pin-selected \.pin-face\{[^}]*0 0 0 3px var\(--accent\)/);
+    expect(explore).toMatch(/\.pin-approx \.pin-face\{outline:1\.5px dashed/);
   });
 
-  it('draws a cluster as a ring like a pin, sized by how many it holds, in the one accent: no amber, no orange, no second green', () => {
-    const cluster = /\.marker-cluster-inner\{([^}]*)\}/.exec(styles)[1];
-    expect(cluster).toMatch(/border:3px solid #fff/);
+  it('puts the name under the pin on a dark card with an 8px radius, in bold 12px', () => {
+    const label = /\.pin-label\{([^}]*)\}/.exec(explore)[1];
+    expect(label).toMatch(/background:rgb\(16 20 22/);
+    expect(label).toMatch(/border-radius:8px/);
+    expect(label).toMatch(/font-size:12px/);
+    expect(label).toMatch(/font-weight:600/);
+  });
+
+  it('draws a cluster as a ring in the one accent, sized by how many it holds: no amber, no orange, no second green', () => {
+    const cluster = /\.marker-cluster-inner\{([^}]*)\}/.exec(explore)[1];
+    expect(cluster).toMatch(/border:1\.5px solid rgb\(var\(--accent-rgb\)/);
     expect(cluster).toMatch(/color:var\(--accent-ink\)/);
-    expect(styles).toMatch(/\.cluster-large\{width:62px;height:62px/);
-    expect(styles).not.toMatch(/#fbbf24|#f97316|#4ade80/i);
+    expect(explore).toMatch(/\.cluster-large\{width:62px;height:62px/);
+    expect(`${styles}${explore}`).not.toMatch(/#fbbf24|#f97316|#4ade80/i);
+  });
+
+  it('leaves the old white ring and its sector colours behind: they are in neither stylesheet', () => {
+    expect(styles).not.toMatch(/\.custom-pin-badge|\.pin-fallback|\.pin-label|\.marker-cluster-inner/);
+    expect(explore).not.toMatch(/border:3px solid #fff/);
   });
 
   it('draws a firm as a rounded square with the accent as its outline, so it is not taken for a company', () => {
@@ -124,39 +137,38 @@ describe('the map\'s pins', () => {
   });
 
   it('stops the pins\' and the controls\' motion for a visitor who has asked for less', () => {
-    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.inst-pin,\.marker-cluster-inner,\.ml-btn\{transition:none;\}\n  \.inst-pin:hover,\.marker-cluster-inner:hover,\.custom-pin-badge:hover\{transform:none;\}/);
+    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.inst-pin\{transition:none;\}\n  \.inst-pin:hover\{transform:none;\}/);
+    expect(explore).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.pin-face,\.marker-cluster-inner\{transition:none;\}\n  \.custom-pin-badge:hover \.pin-face,\.marker-cluster-inner:hover\{transform:none;\}/);
   });
 });
 
 describe('the panel on the left and the news pill', () => {
-  it('is a 340px panel under the header that slides in, and stops sliding for a visitor who has asked for less', () => {
-    expect(styles).toMatch(/:root\{--panel-w:340px;--header-h:57px;\}/);
+  it('is a panel that slides in beside the map (340px, and 360px on the map\'s page), and stops sliding for a visitor who has asked for less', () => {
+    expect(styles).toMatch(/:root\{--panel-w:340px;\}/);
+    expect(token(explore, '--panel-w')).toBe('360px');
     const panel = /\.map-panel\{([^}]*)\}/.exec(styles)[1];
     expect(panel).toMatch(/width:var\(--panel-w\)/);
     expect(panel).toMatch(/max-width:88vw/);
-    expect(panel).toMatch(/top:var\(--header-h\)/); // starts under the header, which stays in reach
-    expect(panel).toMatch(/z-index:700/); // over everything the map floats (the news pill 600, the Map / List switch 500)
-    expect(styles).toMatch(/\nheader\{\n  position:absolute;top:0;left:0;right:0;z-index:750;/); // the header, and its menu, stay above the panel and its scrim
+    expect(panel).toMatch(/top:0/); // in the map's area, which starts under the header and the toolbar
+    expect(panel).toMatch(/z-index:700/); // over everything the map floats (the news pill 600, the card and the dock 480)
     expect(panel).toMatch(/animation:map-panel-in/);
     expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.map-panel\{animation:none;\}/);
   });
 
-  it('stands beside the map on a wide screen (no scrim) and moves the map\'s controls over; below that it covers the map under a scrim', () => {
-    expect(styles).toMatch(/\.map-panel-scrim\{[^}]*position:absolute;top:var\(--header-h\);[^}]*z-index:690/);
+  it('stands beside the map on a wide screen (no scrim), and under 900px it is a sheet that comes up from the bottom, over a scrim', () => {
+    expect(styles).toMatch(/\.map-panel-scrim\{[^}]*position:absolute;top:0;[^}]*z-index:690/);
     const wide = /@media \(min-width:900px\)\{([\s\S]*?)\n\}/.exec(styles)[1];
     expect(wide).toMatch(/\.map-panel-scrim\{display:none;\}/);
-    for (const id of ['#fToggle', '#siteFooter', '#mapKeyToggle', '#mapKey', '#mapLayers', '.floating-search']) expect(wide).toContain(`#app.panel-open ${id}`);
-    expect(wide).toMatch(/left:calc\(var\(--panel-w\) \+ 24px\)/);
-    expect(styles).toMatch(/@media \(max-width:640px\)\{\n  :root\{--header-h:55px;\}\n  \.map-panel\{width:min\(88vw,360px\);\}/);
+    const narrow = /@media \(max-width:899px\)\{([\s\S]*?)\n\}\n@keyframes xp-sheet-up/.exec(explore)[1];
+    expect(narrow).toMatch(/\.xp \.map-panel\{[^}]*position:fixed;top:auto;left:0;right:0;bottom:0;[^}]*border-radius:20px 20px 0 0/);
+    expect(narrow).toMatch(/\.xp \.map-panel-scrim\{position:fixed;inset:0;[^}]*display:block;\}/);
+    // the card, the dock, the title and the list make room for it on a wide screen
+    for (const selector of ['.xp.panel-open .xm-preview', '.xp.panel-open .xd', '.xp.panel-open .xm-title', '.xp.panel-open #startupListView']) expect(explore).toContain(selector);
+    expect(explore).toMatch(/\.xp\.panel-open #startupListView\{padding-left:calc\(var\(--panel-w\) \+ 28px\);\}/);
   });
 
   it('keeps a visible focus ring on its tabs', () => {
     expect(styles).toMatch(/\.map-panel-tab:focus-visible\{outline:2px solid var\(--accent\)/);
-  });
-
-  it('makes room in the header between a phone and a laptop: the hiring count goes under 1200px, the links go into the menu under 900px', () => {
-    expect(styles).toMatch(/@media \(max-width:1199px\)\{ \.nav-hiring-hint\{display:none;\} \.nav-link\{padding:8px 10px;\} \}/);
-    expect(styles).toMatch(/@media \(max-width:899px\)\{ \.nav-center\{display:none;\} \.hdr-menu-mobile-nav\{display:flex;flex-direction:column;gap:2px;\} \}/);
   });
 
   it('shows the news as a small pill while shut: the card\'s frame is dropped, and the pill has a focus ring', () => {
@@ -165,6 +177,74 @@ describe('the panel on the left and the news pill', () => {
     expect(pill).toMatch(/min-height:36px/);
     expect(pill).toMatch(/border-radius:var\(--radius-pill\)/);
     expect(styles).toMatch(/\.nt-pill:focus-visible\{outline:2px solid var\(--accent\)/);
+  });
+});
+
+describe('the map\'s page (explore.css)', () => {
+  const ground = '#15191c'; // the header's and the toolbar's
+  const mint = token(explore, '--accent');
+  const mintInk = token(explore, '--accent-ink');
+  const topLevel = rulesOf(explore).map(([selector]) => selector).filter((selector) => !selector.startsWith('@') && !/^(from|to)$/.test(selector));
+
+  it('takes a pale mint for its accent, at .xp only, and dark text on it that can be read', () => {
+    expect(mint).toBe('#9fd8bc');
+    expect(token(explore, '--accent-rgb')).toBe('159 216 188'); // the same mint, for tints
+    expect(/\.xp\{[^}]*--accent:#9fd8bc/.test(explore)).toBe(true);
+    expect(contrast(token(explore, '--on-accent'), mint)).toBeGreaterThanOrEqual(7); // the Add startup and View company buttons
+    expect(contrast(mintInk, ground)).toBeGreaterThanOrEqual(7); // a count, a hiring label, the number in a ring
+    expect(contrast(mint, ground)).toBeGreaterThanOrEqual(7); // the underline, the ring round the open pin, the icon of a saved company
+    expect(contrast(token(styles, '--muted'), ground)).toBeGreaterThanOrEqual(4.5);
+  });
+
+  it('does not reach another page: every rule is the map page\'s own (its prefix, its pins, its menu or its map controls)', () => {
+    const OWN = /\.(xp|xh|xt|xm|xd|xo|xs)\b|\.(hdr-menu|custom-leaflet-marker|custom-pin-badge|pin-|marker-cluster|cluster-|leaflet-)/;
+    for (const selector of topLevel) {
+      for (const part of selector.split(',')) expect(OWN.test(part.trim()), part.trim()).toBe(true);
+    }
+  });
+
+  it('has a 72px header with a name, four places and one action, and moves the places into the menu under 900px', () => {
+    expect(explore).toMatch(/\.xh\{[^}]*height:72px/);
+    expect(explore).toMatch(/\.xh \.xh-title\{[^}]*font-size:24px;font-weight:600/);
+    expect(explore).toMatch(/\.xh-link\[aria-current="page"\]::after\{[^}]*height:2px[^}]*background:var\(--accent\)/);
+    expect(explore).toMatch(/@media \(max-width:899px\)\{[\s\S]*\.xh-nav\{display:none;\}[\s\S]*\.hdr-menu-mobile-nav\{display:flex;flex-direction:column;gap:2px;\}/);
+    expect(explore).toMatch(/\.xh-add-text\{display:none;\}/);
+  });
+
+  it('makes what is pressed big enough: 44px in the header, 46px in the toolbar, 52px on the card, and a 60px row in the phone\'s sheet', () => {
+    expect(explore).toMatch(/\.xh-add\{[^}]*height:44px/);
+    expect(explore).toMatch(/\.xh-more\{[^}]*width:44px;height:44px/);
+    expect(explore).toMatch(/\.xt-btn\{[^}]*height:46px/);
+    expect(explore).toMatch(/\.xt-view\{[^}]*height:46px/);
+    expect(explore).toMatch(/\.xp-cta\{[^}]*height:52px/);
+    expect(explore).toMatch(/\.xp-save\{[^}]*width:52px;height:52px/);
+    expect(explore).toMatch(/\.xs-row\{[^}]*min-height:60px/);
+    expect(explore).toMatch(/\.xd-city\{height:42px/);
+  });
+
+  it('is a grid of two rows on a phone, with the sectors left to the filters', () => {
+    const narrow = /@media \(max-width:899px\)\{([\s\S]*?)\n\}\n@keyframes xp-sheet-up/.exec(explore)[1];
+    expect(narrow).toMatch(/\.xt\{display:grid;grid-template-columns:minmax\(0,1fr\) auto;/);
+    expect(narrow).toMatch(/\.xt-search\{grid-area:2 \/ 1;/);
+    expect(narrow).toMatch(/\.xt-menu\{display:none;\}/);
+  });
+
+  it('draws the phone\'s sheet shut at 70px and open at most 560px tall, and lets a card in it take its own height', () => {
+    expect(explore).toMatch(/\.xs-peek\{height:calc\(70px \+ env\(safe-area-inset-bottom\)\);\}/);
+    expect(explore).toMatch(/\.xs-open\{height:min\(64%,560px\);\}/);
+    expect(explore).toMatch(/\.xs-detail\{height:auto;max-height:80%;overflow-y:auto;\}/);
+  });
+
+  it('keeps a visible focus ring on what can be pressed in the header, the toolbar, the card and the dock', () => {
+    expect(explore).toMatch(/\.xh button:focus-visible,\.xt button:focus-visible[^{]*\{outline:2px solid var\(--accent\)/);
+    expect(explore).toMatch(/\.xp-card button:focus-visible\{outline:2px solid var\(--accent\)/);
+    expect(explore).toMatch(/\.xd-city:focus-visible\{outline:2px solid var\(--accent\)/);
+    expect(explore).toMatch(/\.xo:focus-visible\{outline:2px solid var\(--accent\)/);
+  });
+
+  it('is loaded by the app only: the landing page and the plain pages never fetch it', () => {
+    expect(readFileSync(path.join(src, 'App.jsx'), 'utf8')).toContain("import './explore.css';");
+    for (const file of ['main.jsx', 'LandingPage.jsx', 'InfoPage.jsx']) expect(readFileSync(path.join(src, file), 'utf8'), file).not.toContain('explore.css');
   });
 });
 
@@ -186,7 +266,7 @@ describe('the table, the switch and the strip of what is new', () => {
   });
 
   it('lays the list to the right of the panel when it is open beside the map', () => {
-    expect(styles).toMatch(/#app\.panel-open #startupListView\{padding-left:calc\(var\(--panel-w\) \+ 24px\);\}/);
+    expect(explore).toMatch(/\.xp\.panel-open #startupListView\{padding-left:calc\(var\(--panel-w\) \+ 28px\);\}/);
   });
 });
 
@@ -343,7 +423,7 @@ describe('the text on the pages', () => {
       '.new-week-title', '.new-week-name', '.new-week-what', '.event-badge',
       '.sdp-meta-value', '.sdp-meta-note', '.sdp-hiring-note', '.sdp-source-meta', '.sdp-sources-list', '.pc', '.pc-desc', '.pc-section-label', '.pc-inv-name', '.pc-founder-name',
       '.vouch blockquote', '.vouch figcaption', '.modal-sub', '.modal-panel label', '.modal-panel .hint', '.form-error', '.taskbtn', '.linkbtn',
-      '#siteFooter', '#siteFooter .linkbtn', '.footer-credit', '.site-brand-link', '.site-brand-map', '.pin-pop-fresh', '.pin-pop-report',
+      '.site-brand-link', '.site-brand-map', '.pin-pop-fresh', '.pin-pop-report',
     ];
     for (const selector of content) expect(TEXT.has(sizes.get(selector)), `${selector} is ${sizes.get(selector)}`).toBe(true);
     // a card's name is its heading, and takes the heading's size
@@ -401,17 +481,12 @@ describe('text that can be read, and what can be pressed', () => {
     expect(readFileSync(path.join(src, 'components', 'StartupDetailPanel.jsx'), 'utf8')).toContain("'--on-sector': readableOn(sectorColor)");
   });
 
-  it('puts no decorative dot between the footer links in front of a screen reader', () => {
-    expect(readFileSync(path.join(src, 'App.jsx'), 'utf8')).not.toMatch(/<span className="tag-sep">/);
-  });
-
   it('gives what can be pressed at least 24px of height (WCAG 2.2 AA), as padding or as a minimum, though its text is smaller', () => {
     const body = rulesOf(styles).find(([selector]) => selector.startsWith('.site-brand-link, .site-brand-map, .index-row a'))[1];
     expect(body).toMatch(/display:inline-flex; align-items:center; min-height:24px/);
     for (const selector of ['.site-brand-link', '.index-row a', '.st-sort', '.inv-card-link', '.inv-back', '.person-request']) {
       expect(rulesOf(styles).find(([s]) => s.split(', ').includes(selector)), selector).toBeTruthy();
     }
-    expect(styles).toMatch(/#siteFooter \.linkbtn\{ padding:5px 2px; \}/);
   });
 
   it('stops every animation and transition for a visitor who has asked for less motion, as a net under the rules that stop their own', () => {

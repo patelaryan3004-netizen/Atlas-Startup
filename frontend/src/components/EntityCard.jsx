@@ -9,8 +9,9 @@ const domainOf = (website) => {
 
 // The picture beside a name: a company's or a firm's logo once it has loaded, and until then (or if there is none) the first letter of
 // its name. A person has no picture (their initial), and none is ever fetched for one. The letter is always drawn underneath, so a
-// logo that arrives late does not move anything.
-export function Avatar({ name, website = null, domain = null }) {
+// logo that arrives late does not move anything. `size` is the picture's side in pixels (40 for a card; the map's company card draws a
+// larger one, and then asks for a sharper picture), and `className` is for the one place that draws it as something other than a circle.
+export function Avatar({ name, website = null, domain = null, size = 40, className = '' }) {
   const host = domain ?? domainOf(website);
   const initial = (name || '?').trim().charAt(0).toUpperCase();
   const [state, setState] = useState('pending');
@@ -22,15 +23,15 @@ export function Avatar({ name, website = null, domain = null }) {
     if (el?.complete && el.naturalWidth > 0) setState('loaded');
   }, []);
   return (
-    <span className="entity-avatar" aria-hidden="true">
+    <span className={className ? `entity-avatar ${className}` : 'entity-avatar'} aria-hidden="true">
       <span className="entity-initial">{initial}</span>
       {host && state !== 'failed' && (
         <img
           ref={img}
           className={state === 'loaded' ? 'is-loaded' : undefined}
-          src={logoUrl(host, 64)}
-          width="40"
-          height="40"
+          src={size > 48 ? logoUrl(host, 96) : logoUrl(host, 64)}
+          width={size}
+          height={size}
           alt=""
           loading="lazy"
           decoding="async"

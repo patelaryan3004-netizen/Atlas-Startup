@@ -63,7 +63,8 @@ describe('SiteBrand', () => {
 describe('the focus ring', () => {
   const styles = read('styles.css');
   it('is drawn for the brand on every page: the pages\' bar, the map page\'s header and the landing page\'s', () => {
-    expect(styles).toMatch(/\.site-brand a:focus-visible, \.nav-brand a:focus-visible, \.landing-brand:focus-visible\{outline:2px solid var\(--accent\);outline-offset:4px;/);
+    expect(styles).toMatch(/\.site-brand a:focus-visible, \.landing-brand:focus-visible\{outline:2px solid var\(--accent\);outline-offset:4px;/);
+    expect(read('explore.css')).toMatch(/\.xh a:focus-visible,\.xh button:focus-visible[^{]*\{outline:2px solid var\(--accent\);outline-offset:2px;/);
   });
 });
 
@@ -81,7 +82,7 @@ describe('the brand on each page that has a header', () => {
   });
 
   it('has them on the map page\'s own header, and the landing page\'s brand says where it goes', () => {
-    needs('App.jsx', 'className="nav-brand-link" href={HOME_PATH} aria-label="Go to home"', 'className="site-brand-map" href={MAP_PATH}');
+    needs('components/explore/ExploreHeader.jsx', 'className="xh-brand" href={HOME_PATH} aria-label="Go to home"');
     needs('components/landing/LandingNav.jsx', 'className="landing-brand" href={HOME_PATH} aria-label="Go to home"');
   });
 });

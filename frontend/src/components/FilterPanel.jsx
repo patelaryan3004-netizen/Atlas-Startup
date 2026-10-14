@@ -34,22 +34,31 @@ function startsOpen(defaultOpen) {
 // `summary` is what the server says about the current results (see fetchSummary): the cities, the oldest and the most vouched come
 // from it, so this panel never needs the companies themselves. `onOpenChange(open)` tells the page, which moves the map's own controls
 // aside while the panel is open on a wide screen.
-export default function FilterPanel({ filters, onChange, onReset, meta, resultCount, summary, defaultOpen = false, onOpenChange }) {
-  const [open, setOpen] = useState(() => startsOpen(defaultOpen));
+// Controlled by the page when `open` is given: the Filters button is then in the toolbar, `toggleRef` is that button (so focus returns to it
+// when the panel closes) and the panel has no button of its own. Otherwise it keeps its own state and its own button. `mapTools`, when given,
+// is a fifth tab, Map, for the map's layers, its basemap and its key.
+export default function FilterPanel({ filters, onChange, onReset, meta, resultCount, summary, defaultOpen = false, onOpenChange, open: openProp, toggleRef: outerToggleRef, mapTools = null }) {
+  const controlled = openProp !== undefined;
+  const [ownOpen, setOwnOpen] = useState(() => (controlled ? false : startsOpen(defaultOpen)));
+  const open = controlled ? openProp : ownOpen;
+  const setOpen = controlled ? (next) => onOpenChange?.(next) : setOwnOpen;
   const [tab, setTab] = useState('filters');
-  const toggleRef = useRef(null);
+  const ownToggleRef = useRef(null);
+  const toggleRef = outerToggleRef ?? ownToggleRef;
   const tabRef = useRef(null);
   const asked = useRef(false); // opened by a press, so focus moves into it (never when it opens by itself)
   const set = (key) => (e) => onChange({ ...filters, [key]: e.target.value });
   const activeCount = Object.values(filters).filter(Boolean).length;
 
-  useEffect(() => { onOpenChange?.(open); }, [open, onOpenChange]);
-  useEffect(() => { if (open && asked.current) tabRef.current?.focus(); }, [open]);
+  useEffect(() => { if (!controlled) onOpenChange?.(open); }, [controlled, open, onOpenChange]);
+  // Opened by a press, so focus moves into it (never when it opens by itself). A panel the page controls is only ever opened by a press, on the
+  // page's own Filters button.
+  useEffect(() => { if (open && (asked.current || controlled)) tabRef.current?.focus(); }, [open, controlled]);
 
   const choose = (next, { refocus = false } = {}) => {
     asked.current = next;
     setOpen(next);
-    if (isWide()) {
+    if (!controlled && isWide()) {
       try { localStorage.setItem(PANEL_KEY, next ? '1' : '0'); } catch (e) { /* ignore */ }
     }
     if (!next && refocus) toggleRef.current?.focus();
@@ -61,7 +70,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
 
   return (
     <>
-      <button
+      {!controlled && <button
         ref={toggleRef}
         id="fToggle"
         className="hdrbtn hdrbtn-accent"
@@ -70,7 +79,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
         onClick={() => choose(!open)}
       >
         &#9776; Filters{activeCount ? ` (${activeCount})` : ''}
-      </button>
+      </button>}
 
       {open && (
         <>
@@ -84,7 +93,7 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
             <button className="modal-close" aria-label="Close" onClick={() => choose(false, { refocus: true })}>&#10005;</button>
 
             <div className="map-panel-tabs" role="tablist" aria-label="Panel">
-              {TABS.map((t) => (
+              {[...TABS, ...(mapTools ? [{ id: 'map', label: 'Map' }] : [])].map((t) => (
                 <button
                   key={t.id}
                   ref={tab === t.id ? tabRef : undefined}
@@ -216,6 +225,8 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
                   </div>
                 </div>
               )}
+
+              {tab === 'map' && mapTools && <div className="map-panel-content">{mapTools}</div>}
 
               {tab === 'cities' && (
                 <div className="map-panel-content">
