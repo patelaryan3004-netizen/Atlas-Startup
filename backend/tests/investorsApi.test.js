@@ -227,6 +227,9 @@ describe('searching and filtering the directory', () => {
     expect(await find(f, 'location=VIC')).toEqual(['Skip Capital']);
     expect(await find(f, 'location=New%20Zealand')).toEqual(['Kiwi Ventures']);
     expect(await find(f, 'location=NSW,QLD')).toEqual(['Brisbane Angels', 'OIF Ventures', 'Old Fund']);
+    // A country lists every investor in it, whatever its state, so "Australia" is the sum of its states and not only the investors with no state.
+    expect(await find(f, 'location=Australia')).toEqual(['Brisbane Angels', 'OIF Ventures', 'Old Fund', 'Skip Capital']);
+    expect(await find(f, 'location=Australia&stage=Series%20A')).toEqual(['OIF Ventures', 'Skip Capital']);
     expect(await find(f, 'lead=lead')).toEqual(['OIF Ventures', 'Skip Capital']);
     expect(await find(f, 'lead=follow')).toEqual(['Skip Capital']);
     expect(await find(f, 'active=active')).toEqual(['Brisbane Angels', 'OIF Ventures']);
@@ -270,6 +273,23 @@ describe('searching and filtering the directory', () => {
     expect(names(await request(f.app).get('/api/investors?sort=name'))[0]).toBe('Brisbane Angels');
   });
 
+  it('sorts by name from Z to A too, the exact reverse of A to Z, whatever the filter', async () => {
+    const f = await app();
+    const az = names(await request(f.app).get('/api/investors?sort=name'));
+    expect(names(await request(f.app).get('/api/investors?sort=name_desc'))).toEqual([...az].reverse());
+    expect(names(await request(f.app).get('/api/investors?sort=name_desc&location=NSW,QLD'))).toEqual(['Old Fund', 'OIF Ventures', 'Brisbane Angels']);
+  });
+
+  it('lists only the investors asked for by address (a visitor\'s saved ones), narrowed by every other filter, and none for an address it does not know', async () => {
+    const f = await app();
+    expect(await find(f, 'slug=skip,oif')).toEqual(['OIF Ventures', 'Skip Capital']);
+    expect(await find(f, 'slug=skip,oif&stage=Seed')).toEqual(['OIF Ventures']);
+    expect(await find(f, 'slug=nobody')).toEqual([]);
+    expect(await find(f, 'slug=ver')).toEqual([]); // verified, not published: not public, so not listed even when asked for
+    const res = await request(f.app).get('/api/investors?slug=skip');
+    expect(res.body).toMatchObject({ count: 1, total: 5 });
+  });
+
   it('pages, and says whether there is more', async () => {
     const f = await app();
     const first = await request(f.app).get('/api/investors?limit=2&offset=0');
@@ -307,7 +327,7 @@ describe('searching and filtering the directory', () => {
     const res = await request(f.app).get('/api/investors?type=venture_capital&facets=type,stage,location,lead,active');
     expect(res.body.facets.type.values).toEqual([{ value: 'venture_capital', count: 3, label: 'Venture Capital' }]);
     expect(res.body.facets.stage.values.map((v) => v.value)).toEqual(['Seed', 'Series A', 'Series B']);
-    expect(res.body.facets.location.values.map((v) => `${v.value}:${v.count}`).sort()).toEqual(['NSW:2', 'VIC:1']);
+    expect(res.body.facets.location.values.map((v) => `${v.value}:${v.count}`).sort()).toEqual(['Australia:3', 'NSW:2', 'VIC:1']);
     expect(res.body.facets.lead.values.map((v) => v.value).sort()).toEqual(['both', 'lead']);
   });
 

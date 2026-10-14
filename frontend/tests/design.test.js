@@ -431,7 +431,7 @@ describe('the text on the pages', () => {
   });
 
   it('is body and small in the investor and people pages too: no size of its own under 17px, but a heading, an initial in a logo and a table\'s initial', () => {
-    const OWN = { 'investors.css': ['.inv-table .inv-logo-initial', '.inv-logo-initial', '.inv-correct h2'], 'people.css': [] };
+    const OWN = { 'investors.css': ['.inv-logo-initial', '.inv-correct h2'], 'people.css': [] };
     for (const [name, text] of [['investors.css', investors], ['people.css', people]]) {
       const own = rulesOf(text).filter(([, body]) => { const size = sizeOf(body); return size && /^[\d.]+px$/.test(size) && parseFloat(size) < 17; }).map(([selector]) => selector);
       expect(own, name).toEqual(OWN[name]);
@@ -501,5 +501,95 @@ describe('the endorsement', () => {
     expect(styles).toMatch(/\.vouch figcaption\{[^}]*color:var\(--muted\)/);
     expect(styles).toMatch(/\.vouch blockquote p::before\{ content:'\\201c'; \}/);
     expect(styles).not.toMatch(/\.vouch[^{]*\{[^}]*border-left/);
+  });
+});
+
+describe('the investors page (investors.css): one design in two themes', () => {
+  const themeBlock = (name) => new RegExp(`#investorsView\\[data-theme='${name}'\\] \\{([^}]*)\\}`).exec(investors)[1];
+  const light = themeBlock('light');
+  const dark = themeBlock('dark');
+  const props = (block) => [...block.matchAll(/(--[\w-]+)\s*:/g)].map((m) => m[1]).sort();
+
+  it('has a light theme (a warm off-white page, white cards, one orange) and a dark one (the map page\'s own mint), each a set of the same tokens', () => {
+    expect(token(light, '--paper')).toBe('#f8f7f4');
+    expect(token(light, '--panel')).toBe('#ffffff');
+    expect(token(light, '--accent')).toBe('#d4430d');
+    expect(token(dark, '--accent')).toBe(token(explore, '--accent')); // the same mint as the map's page
+    expect(token(dark, '--on-accent')).toBe(token(explore, '--on-accent'));
+    expect(props(light)).toEqual(props(dark));
+    expect(light).toMatch(/color-scheme: light;/);
+    expect(dark).toMatch(/color-scheme: dark;/);
+  });
+
+  it('can be read in the light theme: white on the orange fill, the orange as text on the page and on a selected card, the muted text on both', () => {
+    const [paper, panel, accent, ink, tint] = ['--paper', '--panel', '--accent', '--accent-ink', '--inv-tint'].map((n) => token(light, n));
+    expect(contrast(token(light, '--on-accent'), accent)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(ink, paper)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(ink, panel)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(ink, tint)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(token(light, '--ink'), paper)).toBeGreaterThanOrEqual(7);
+    expect(contrast(token(light, '--inv-soft'), paper)).toBeGreaterThanOrEqual(7);
+    expect(contrast(token(light, '--muted'), paper)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(token(light, '--muted'), panel)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(token(light, '--muted'), tint)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(token(light, '--xh-dim'), token(light, '--xp-bar'))).toBeGreaterThanOrEqual(4.5); // the header's links
+    expect(contrast(token(light, '--xp-placeholder'), token(light, '--xp-field'))).toBeGreaterThanOrEqual(4.5); // a hint in the search box
+  });
+
+  it('can be read in the dark theme too', () => {
+    const [paper, panel, accent, ink] = ['--paper', '--panel', '--accent', '--accent-ink'].map((n) => token(dark, n));
+    expect(contrast(token(dark, '--on-accent'), accent)).toBeGreaterThanOrEqual(7);
+    expect(contrast(ink, panel)).toBeGreaterThanOrEqual(7);
+    expect(contrast(token(dark, '--ink'), paper)).toBeGreaterThanOrEqual(7);
+    expect(contrast(token(dark, '--muted'), paper)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(token(dark, '--muted'), panel)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(token(dark, '--xh-dim'), token(dark, '--xp-bar'))).toBeGreaterThanOrEqual(7);
+  });
+
+  it('does not reach another page: every rule is the investors\' own, and the themes are set on the page\'s own root, never on :root', () => {
+    const OWN = /#investorsView|\.inv-|\.xh-theme/;
+    const selectors = rulesOf(investors).map(([selector]) => selector).filter((selector) => !selector.startsWith('@') && !/^(from|to)$/.test(selector));
+    for (const selector of selectors) for (const part of selector.split(',')) expect(OWN.test(part.trim()), part.trim()).toBe(true);
+    expect(investors).not.toMatch(/:root\s*\{/);
+  });
+
+  it('keeps the card the app\'s one card, a little roomier here through its own tokens', () => {
+    expect(token(investors.slice(investors.indexOf('#investorsView {')), '--card-radius')).toBe('14px');
+    expect(token(investors.slice(investors.indexOf('#investorsView {')), '--card-pad')).toBe('24px');
+    expect(investors).toMatch(/@media \(max-width: 639px\) \{\n  #investorsView \{ --card-pad: 20px; \}/);
+    expect(readFileSync(path.join(src, 'components/investors/InvestorCard.jsx'), 'utf8')).toContain('<EntityCard');
+  });
+
+  it('makes what is pressed big enough: a 50px search and menus, 40px bookmarks and sort, 44px selects and, in a drawer, a 44px way back', () => {
+    expect(investors).toMatch(/#investorsView \.inv-search \{[^}]*height: 50px/);
+    expect(investors).toMatch(/#investorsView \.xt-btn \{ height: 50px;/);
+    expect(investors).toMatch(/\.inv-save \{[^}]*width: 40px; height: 40px/);
+    expect(investors).toMatch(/\.inv-select \{[^}]*height: 44px/);
+    expect(investors).toMatch(/\.inv-panel-drawer \.inv-panel-back \{ min-height: 44px;/);
+    expect(investors).toMatch(/\.inv-panel-visit, \.inv-panel-apply \{[^}]*height: 44px/);
+  });
+
+  it('puts the panel beside the results from 1000px, sticky and scrolling by itself, and a full-screen drawer under it, with the page behind it still', () => {
+    expect(investors).toMatch(/@media \(min-width: 1000px\) \{\n  \.inv-split-open \{ grid-template-columns: minmax\(0, 1fr\) clamp\(440px, 40vw, 620px\); \}/);
+    expect(investors).toMatch(/\.inv-panel-side \{ position: sticky; top: 88px; max-height: calc\(100vh - 104px\); overflow-y: auto;/);
+    expect(investors).toMatch(/@media \(max-width: 999px\) \{\n  \.inv-panel-drawer \{\n    position: fixed; inset: 0; z-index: 1500;/);
+    expect(investors).toMatch(/#investorsView\.inv-locked \{ overflow: hidden; \}/);
+  });
+
+  it('lets the focus and the companies give way when the results are narrow, so a table never scrolls sideways beside the panel, and stacks it on a phone', () => {
+    expect(investors).toMatch(/@container \(max-width: 760px\) \{ \.inv-col-focus, \.inv-col-companies \{ display: none; \} \}/);
+    expect(investors).toMatch(/@media \(max-width: 899px\) \{\n  \.inv-views \{ display: none !important; \}/);
+    expect(investors).toMatch(/\.inv-results \{ min-width: 0; container-type: inline-size; \}/);
+  });
+
+  it('stops its motion for a visitor who has asked for less: the panel, the drawer and the cards', () => {
+    expect(investors).toMatch(/@media \(prefers-reduced-motion: reduce\) \{ \.inv-panel, \.inv-profile \{ animation: none; \} \}/);
+    expect(investors).toMatch(/@media \(prefers-reduced-motion: reduce\) \{ \.inv-panel-drawer \{ animation: none; \} \}/);
+    expect(investors).toMatch(/@media \(prefers-reduced-motion: reduce\) \{\n  \.inv-card, \.inv-card-arrow, \.inv-card-cta \{ transition: none; \}/);
+  });
+
+  it('shows the filter menus on a phone, though the map\'s toolbar hides its own there', () => {
+    expect(explore).toMatch(/\.xt-menu\{display:none;\}/);
+    expect(investors).toMatch(/#investorsView \.xt-menu \{ display: block; \}/);
   });
 });

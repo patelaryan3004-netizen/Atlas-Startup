@@ -1,7 +1,8 @@
 // Where the investor pages are in the address bar, so an investor or a person can be linked to, opened in a new tab and
 // come back to with the back button:
 //   /investors                       the directory
-//   /investors/<slug>                one investor
+//   /investors/<slug>                the directory with one investor open beside the results (a full-screen drawer on a phone)
+//   /investors/<slug>/profile        that investor's own full page
 //   /investors/people/<slug>         one person who invests
 // ("people" is the one word an investor's own address cannot be.) The first version of these pages lived at
 // ?view=investors[&investor=<slug>|&investorPerson=<slug>]: those addresses still open the same pages, and the address bar is
@@ -9,6 +10,7 @@
 
 const HOME = '/investors';
 const PEOPLE = 'people';
+const FULL = 'profile';
 const LEGACY_KEYS = ['view', 'investor', 'investorPerson'];
 
 const decode = (part) => { try { return decodeURIComponent(part); } catch (e) { return part; } };
@@ -18,6 +20,7 @@ export function readRoute({ pathname = window.location.pathname, search = window
   const [first, second, third] = pathname.split('/').filter(Boolean).map(decode);
   if (first === 'investors') {
     if (second === PEOPLE) return third ? { kind: 'person', slug: third } : { kind: 'list' };
+    if (second && third === FULL) return { kind: 'profile', slug: second };
     return second ? { kind: 'investor', slug: second } : { kind: 'list' };
   }
   const params = new URLSearchParams(search);
@@ -29,6 +32,7 @@ export function readRoute({ pathname = window.location.pathname, search = window
 
 const pathOf = (route) => {
   if (route.kind === 'investor') return `${HOME}/${encodeURIComponent(route.slug)}`;
+  if (route.kind === 'profile') return `${HOME}/${encodeURIComponent(route.slug)}/${FULL}`;
   if (route.kind === 'person') return `${HOME}/${PEOPLE}/${encodeURIComponent(route.slug)}`;
   return HOME;
 };
@@ -48,18 +52,21 @@ export function routeUrl(route, { search = window.location.search } = {}) {
 // A link to an investor or a person that is a real address.
 export const investorHref = (slug) => routeUrl({ kind: 'investor', slug });
 export const personHref = (slug) => routeUrl({ kind: 'person', slug });
+export const profileHref = (slug) => routeUrl({ kind: 'profile', slug });
 
-function put(url, replace) {
+function put(url, replace, state = null) {
   try {
-    if (replace) window.history.replaceState(null, '', url);
-    else window.history.pushState(null, '', url);
+    if (replace) window.history.replaceState(state, '', url);
+    else window.history.pushState(state, '', url);
   } catch (e) { /* a locked-down browser: the page still moves */ }
 }
 
-export function writeRoute(route, { replace = false } = {}) {
+// `state` is kept with the step in the history: the directory marks the step that opened an investor's panel, so closing the panel can go Back
+// (and the next Back leaves the directory) instead of adding a step of its own.
+export function writeRoute(route, { replace = false, state = null } = {}) {
   const url = routeUrl(route);
   if (url === `${window.location.pathname}${window.location.search}`) return; // already there: nothing to add
-  put(url, replace);
+  put(url, replace, state);
 }
 
 // Leaves the investor pages: the map is at the root again, with whatever else the address said.

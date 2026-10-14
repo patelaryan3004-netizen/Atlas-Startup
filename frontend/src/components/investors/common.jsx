@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { logoUrl } from '../../logo.js';
+import { BookmarkIcon } from '../explore/icons.jsx';
 
 // Small pieces the investor pages share: a logo, a verified mark, a list of chips, and how a date, a cheque size and an
 // address are written.
@@ -148,13 +149,32 @@ export function VerifiedMark({ at, compact = false }) {
   );
 }
 
+// The bookmark that saves an investor in this browser (there are no accounts) and takes it out again: one button on a card, a row and the panel.
+// `withText` writes "Save" / "Saved" beside the icon, as the panel's does. It says what it will do to a screen reader and whether it is on.
+export function SaveButton({ name, saved, onToggle, withText = false, className = '' }) {
+  return (
+    <button
+      type="button"
+      className={`inv-save${saved ? ' inv-save-on' : ''}${withText ? ' inv-save-text' : ''}${className ? ` ${className}` : ''}`}
+      aria-pressed={saved}
+      aria-label={saved ? `Remove ${name} from saved` : `Save ${name}`}
+      title={saved ? 'Saved in this browser' : 'Save (kept in this browser)'}
+      onClick={(e) => { e.stopPropagation(); onToggle(); }}
+    >
+      <BookmarkIcon size={withText ? 18 : 20} fill={saved ? 'currentColor' : 'none'} />
+      {withText && <span>{saved ? 'Saved' : 'Save'}</span>}
+    </button>
+  );
+}
+
 // A link that opens an investor, a person or a company in this app when clicked plainly, and is still a real address (open in
 // a new tab, copy it, share it).
-export function AppLink({ href, onOpen, className, children }) {
+export function AppLink({ href, onOpen, className, children, ...rest }) {
   return (
     <a
       className={className}
       href={href}
+      {...rest}
       onClick={(e) => {
         if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();

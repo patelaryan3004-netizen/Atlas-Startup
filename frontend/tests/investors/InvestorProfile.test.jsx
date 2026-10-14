@@ -10,7 +10,8 @@ import * as api from '../../src/api.js';
 import InvestorsView from '../../src/components/investors/InvestorsView.jsx';
 import { card, company, page, person, profile, row, serve } from './helpers.js';
 
-const open = (slug, props = {}) => render(<InvestorsView initialRoute={{ kind: 'investor', slug }} onClose={() => {}} onOpenCompany={() => {}} {...props} />);
+// the full page of an investor: /investors/<slug>/profile (the directory with the panel open is /investors/<slug>)
+const open = (slug, props = {}) => render(<InvestorsView initialRoute={{ kind: 'profile', slug }} onClose={() => {}} onOpenCompany={() => {}} {...props} />);
 const heading = (name) => screen.queryByRole('heading', { level: 2, name });
 
 beforeEach(() => { vi.clearAllMocks(); });

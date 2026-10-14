@@ -12,7 +12,8 @@ const CORRECTIONS_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)),
 const MAX_MESSAGE = 2000;
 
 // GET /api/investors?search=&type=venture_capital,angel_network&stage=Seed&sector=Climate&location=NSW,VIC&lead=lead
-//                   &active=active&chequeMin=250000&chequeMax=1000000&sort=name|portfolio|location&limit=&offset=&facets=type,stage
+//                   &active=active&chequeMin=250000&chequeMax=1000000&sort=name|name_desc|portfolio|location&limit=&offset=&facets=type,stage
+//                   &slug=oif,skip   (only these, by address: how a visitor's saved investors are listed)
 //                   &name=Blackbird%20Ventures&name=OIF   (exact names or other names, repeated: how a company's investors find their pages)
 //
 // The published investors, as cards: { total, count, results, offset, limit, hasMore, nextOffset, facets? }, 20 to a page unless

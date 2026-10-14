@@ -8,7 +8,8 @@ import { cursorParams, cursorPage } from '../http/paging.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = path.join(__dirname, '..', 'data', 'feedback.json');
 
-const TYPES = ['feedback', 'feature', 'bug'];
+// 'investor' is a suggestion for the investor directory (an investor to add); a person checks it against pages the investor publishes itself.
+const TYPES = ['feedback', 'feature', 'bug', 'investor'];
 
 async function loadFeedback() {
   const raw = await readFile(DATA_PATH, 'utf-8');

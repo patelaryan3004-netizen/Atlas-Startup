@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { fetchInvestors, fetchInvestorMeta } from '../../api.js';
+import { useMediaQuery } from '../../hooks/useMediaQuery.js';
+import { usePopover } from '../../hooks/usePopover.js';
 import InvestorCard from './InvestorCard.jsx';
 import InvestorTable from './InvestorTable.jsx';
-import IndexRow, { cardId } from '../IndexRow.jsx';
+import InvestorPanel from './InvestorPanel.jsx';
+import Tabs from './Tabs.jsx';
+import CheckMenu from '../explore/CheckMenu.jsx';
+import { SearchIcon, SlidersIcon, GridIcon, TableIcon } from '../explore/icons.jsx';
+import { cardId } from '../IndexRow.jsx';
 import { LEAD_WORDS, plural } from './common.jsx';
 
 const PAGE = 24;
@@ -30,57 +36,94 @@ export function toQueryFilters(f) {
   return out;
 }
 
-// The ways to look at the same investors. Cards are the first, and the one a visit starts in; another is added here.
-const VIEWS = [
-  { id: 'cards', label: 'Cards', render: (items, onOpen) => <ul className="inv-grid">{items.map((i) => <InvestorCard key={i.slug} investor={i} onOpen={onOpen} />)}</ul> },
-  { id: 'table', label: 'Table', render: (items, onOpen) => <InvestorTable investors={items} onOpen={onOpen} /> },
+// The orders the server can give the same investors in. The first is the one a visit starts in. Every one is by a name or a number a page states:
+// none is a ranking of how good an investor is.
+const SORTS = [
+  ['name', 'Name A–Z'],
+  ['name_desc', 'Name Z–A'],
+  ['portfolio', 'Most connected'],
+  ['location', 'Location A–Z'],
 ];
 
-// The search box is as wide as the screen, and the whole of what it searches does not fit a phone: there it names the first three.
+// The two ways to look at the same investors: cards (the one a visit starts in) and a table for comparing them.
+const VIEWS = [
+  { id: 'cards', label: 'Cards', Icon: GridIcon },
+  { id: 'table', label: 'Table', Icon: TableIcon },
+];
+
 const NARROW = '(max-width: 639px)';
-const SEARCH_HINT = 'Search investors, people, sectors or portfolio companies...';
-const SEARCH_HINT_NARROW = 'Search investors, people, sectors...';
-function useNarrow() {
-  const [narrow, setNarrow] = useState(() => typeof window.matchMedia === 'function' && window.matchMedia(NARROW).matches);
-  useEffect(() => {
-    if (typeof window.matchMedia !== 'function') return undefined;
-    const query = window.matchMedia(NARROW);
-    const change = () => setNarrow(query.matches);
-    change();
-    query.addEventListener?.('change', change);
-    return () => query.removeEventListener?.('change', change);
-  }, []);
-  return narrow;
-}
+const SEARCH_HINT = 'Search investors, sectors or portfolio companies';
+const SEARCH_HINT_NARROW = 'Search investors, sectors…';
 
 const withCount = (label, count) => (count == null ? label : `${label} (${count})`);
 
-function Select({ label, value, onChange, all, options }) {
+function Field({ label, value, onChange, all, options }) {
   if (!options.length) return null;
   return (
-    <select className="inv-select" aria-label={label} value={value} onChange={(e) => onChange(e.target.value)}>
-      <option value="">{all}</option>
-      {options.map((o) => <option key={o.value} value={o.value}>{withCount(o.label ?? o.value, o.count)}</option>)}
-    </select>
+    <label className="inv-field">
+      <span className="inv-field-label">{label}</span>
+      <select className="inv-select" aria-label={label} value={value} onChange={(e) => onChange(e.target.value)}>
+        <option value="">{all}</option>
+        {options.map((o) => <option key={o.value} value={o.value}>{withCount(o.label ?? o.value, o.count)}</option>)}
+      </select>
+    </label>
   );
 }
 
-// The published investors, a page at a time, in alphabetical order. There is no ranking: the order is the alphabet, and a
-// filter narrows the list, it never reorders it. Every option shown is one some published investor has.
-export default function InvestorDirectory({ onOpen, onClose }) {
+// The filters beyond the three everyone uses: the kind of investor, whether it leads or follows, whether it is still investing, and a cheque size.
+// Each is offered only when some investor has a value for it, and a filter that is on says so on the button.
+function MoreFilters({ meta, filters, set, active, onClear }) {
+  const { open, setOpen, ref } = usePopover();
+  const hasLead = meta.lead.length > 0;
+  const hasActive = meta.active.length > 0;
+  const hasType = meta.types.length > 0;
+  if (!hasType && !hasLead && !hasActive && !meta.cheque) return null;
+  const on = ['type', 'lead', 'active', 'cheque'].filter((key) => filters[key]).length;
+  return (
+    <div className="xt-menu" ref={ref}>
+      <button type="button" className={on ? 'xt-btn xt-btn-on' : 'xt-btn'} aria-haspopup="true" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+        <SlidersIcon size={20} />
+        <span>More filters{on ? <>{' '}<span className="xt-badge">{on}</span></> : null}</span>
+      </button>
+      {open && (
+        <div className="xt-pop inv-more-pop" role="group" aria-label="More filters">
+          <Field label="Investor type" all="All investor types" value={filters.type} onChange={set('type')} options={meta.types} />
+          <Field label="Leads or follows" all="Lead or follow" value={filters.lead} onChange={set('lead')} options={meta.lead.map((o) => ({ ...o, label: LEAD_WORDS[o.value] ?? o.value }))} />
+          <Field label="Investing" all="Active or not" value={filters.active} onChange={set('active')} options={meta.active.map((o) => ({ ...o, label: o.value === 'inactive' ? 'No longer investing' : 'Investing now' }))} />
+          {meta.cheque && (
+            <>
+              <Field label="Cheque size" all="Any cheque size" value={filters.cheque} onChange={set('cheque')} options={CHEQUE_BANDS.map((b) => ({ value: b.key, label: b.label }))} />
+              <p className="inv-note">
+                Cheque size matches only investors that state a range in Australian dollars ({plural(meta.cheque.count, 'investor')} {meta.cheque.count === 1 ? 'does' : 'do'}). Others are unknown, not out of range.
+              </p>
+            </>
+          )}
+          {active && <button type="button" className="xt-clear" onClick={onClear}>Clear all filters</button>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// The published investors, a page at a time. The order is the alphabet unless the visitor picks another, and a filter narrows the list, it never
+// reorders it. Every option shown is one some published investor has. The cards and the table are two drawings of the same answer: the search, the
+// filters, the sort, the tab and the count are one state, so switching between them changes nothing else. An investor that is picked opens beside
+// the results (`selected`, from the address), in a panel that is a drawer on a phone.
+export default function InvestorDirectory({
+  selected = null, panelMode = 'side', tab, onTab, saved, isSaved, onToggleSaved, onOpen, onClosePanel, onOpenFull, onOpenInvestor, onOpenPerson, onOpenCompany, onClose,
+}) {
   const [meta, setMeta] = useState(null);
   const [metaFailed, setMetaFailed] = useState(false);
   const [filters, setFilters] = useState(EMPTY);
   const [applied, setApplied] = useState(EMPTY);
+  const [sort, setSort] = useState(SORTS[0][0]);
+  const [view, setView] = useState(VIEWS[0].id);
   const [page, setPage] = useState({ items: [], count: 0, hasMore: false });
   const [status, setStatus] = useState('loading');
   const [loadingMore, setLoadingMore] = useState(false);
   const [moreError, setMoreError] = useState('');
   const [attempt, setAttempt] = useState(0);
-  const [view, setView] = useState(VIEWS[0].id);
-  const narrow = useNarrow();
-  const [more, setMore] = useState(false); // the filters beyond the four everyone uses
-  const [filtersOpen, setFiltersOpen] = useState(false); // on a phone, the filters are folded away until asked for
+  const narrow = useMediaQuery(NARROW, false);
   const generation = useRef(0);
 
   useEffect(() => {
@@ -99,12 +142,22 @@ export default function InvestorDirectory({ onOpen, onClose }) {
     return () => clearTimeout(timer);
   }, [filters, applied]);
 
+  // What is asked: the filters, and on the Saved tab only the investors saved (by their addresses; none saved is nothing to ask).
+  const savedKey = tab === 'saved' ? saved.join(',') : '';
+  const nothingSaved = tab === 'saved' && saved.length === 0;
+  const asked = () => ({ ...toQueryFilters(applied), ...(tab === 'saved' ? { slug: savedKey } : {}) });
+
   useEffect(() => {
-    const ctrl = new AbortController();
     generation.current += 1;
-    setStatus('loading');
     setMoreError('');
-    fetchInvestors(toQueryFilters(applied), { limit: PAGE, offset: 0, signal: ctrl.signal })
+    if (nothingSaved) {
+      setPage({ items: [], count: 0, hasMore: false });
+      setStatus('ready');
+      return undefined;
+    }
+    const ctrl = new AbortController();
+    setStatus('loading');
+    fetchInvestors(asked(), { limit: PAGE, offset: 0, sort, signal: ctrl.signal })
       .then((found) => {
         if (ctrl.signal.aborted) return;
         setPage({ items: found.results, count: found.count, hasMore: found.hasMore });
@@ -112,14 +165,14 @@ export default function InvestorDirectory({ onOpen, onClose }) {
       })
       .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') setStatus('error'); });
     return () => ctrl.abort();
-  }, [applied, attempt]);
+  }, [applied, sort, attempt, tab, savedKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const showMore = async () => {
     const mine = generation.current;
     setLoadingMore(true);
     setMoreError('');
     try {
-      const found = await fetchInvestors(toQueryFilters(applied), { limit: PAGE, offset: page.items.length });
+      const found = await fetchInvestors(asked(), { limit: PAGE, offset: page.items.length, sort });
       if (mine === generation.current) setPage((p) => ({ items: [...p.items, ...found.results], count: found.count, hasMore: found.hasMore }));
     } catch (e) {
       if (mine === generation.current) setMoreError('Could not load more investors right now.');
@@ -128,23 +181,37 @@ export default function InvestorDirectory({ onOpen, onClose }) {
     }
   };
 
+  // An investor opened from a link is brought into view among the results, so the highlighted one is not off screen.
+  useEffect(() => {
+    if (!selected) return;
+    document.getElementById(cardId('investor', selected))?.scrollIntoView?.({ block: 'nearest' });
+  }, [selected, page.items.length]);
+
   const set = (key) => (value) => setFilters((f) => ({ ...f, [key]: value }));
+  const clear = () => setFilters(EMPTY);
   const active = Object.values(filters).some(Boolean);
-  const filterCount = Object.entries(filters).filter(([key, value]) => key !== 'search' && value).length;
-  // A filter that is on is never hidden: "More filters" opens by itself when one of its filters has been chosen.
-  const hasExtras = Boolean(meta && (meta.lead.length || meta.active.length || meta.cheque));
-  const extraOn = Boolean(filters.lead || filters.active || filters.cheque);
-  const showExtras = hasExtras && (more || extraOn);
-  const current = VIEWS.find((v) => v.id === view) ?? VIEWS[0];
-  const total = meta?.total ?? null;
-  const empty = total === 0;
+  const total = tab === 'saved' ? saved.length : meta?.total ?? null;
+  const empty = tab === 'all' && meta?.total === 0;
   const firstLoad = status === 'loading' && page.items.length === 0;
+  const shown = page.items.length;
+  const noun = tab === 'saved' ? 'saved investor' : 'investor';
+  const countText = status !== 'ready' ? (firstLoad ? '' : 'Updating…')
+    : active && total != null && page.count !== total ? `${page.count} of ${plural(total, noun)}`
+      : plural(tab === 'saved' ? saved.length : page.count, noun);
+
+  const props = { onOpen, selected, isSaved, onToggleSaved };
+  const results = view === 'table'
+    ? <InvestorTable investors={page.items} {...props} />
+    : <ul className="inv-grid">{page.items.map((i) => <InvestorCard key={i.slug} investor={i} {...props} selected={i.slug === selected} saved={isSaved(i.slug)} />)}</ul>;
 
   return (
     <>
-      <section className="inv-intro" aria-labelledby="inv-title">
-        <h1 id="inv-title" tabIndex={-1}>Australian Startup Investors</h1>
-        <p className="inv-lead">Discover the funds, angels and institutions backing Australian startups.</p>
+      <section className="inv-hero" aria-labelledby="inv-title">
+        <div>
+          <h1 id="inv-title" tabIndex={-1}>Find your next backer.</h1>
+          <p className="inv-lead">Explore investors by stage, sector and location.</p>
+        </div>
+        <p className="inv-total" role="status">{countText}</p>
       </section>
 
       {empty ? (
@@ -159,11 +226,8 @@ export default function InvestorDirectory({ onOpen, onClose }) {
       ) : (
         <>
           <div className="inv-tools" role="search">
-            <div className="inv-search">
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="1.75" />
-                <path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
-              </svg>
+            <div className="xt-search inv-search">
+              <SearchIcon size={20} className="xt-search-icon" />
               <input
                 type="search"
                 aria-label="Search investors by name, person, sector, stage, location or portfolio company"
@@ -173,89 +237,99 @@ export default function InvestorDirectory({ onOpen, onClose }) {
               />
             </div>
             {meta && (
-              <>
-                <button
-                  type="button"
-                  className="hdrbtn inv-filters-toggle"
-                  aria-expanded={filtersOpen}
-                  aria-controls="inv-filters"
-                  onClick={() => setFiltersOpen((v) => !v)}
-                >
-                  Filters{filterCount ? ` (${filterCount})` : ''}
-                </button>
-                <div id="inv-filters" className={`inv-filters${filtersOpen ? ' inv-filters-open' : ''}`} role="group" aria-label="Filters">
-                  <Select label="Stage" all="All stages" value={filters.stage} onChange={set('stage')} options={meta.stages} />
-                  <Select label="Sector" all="All sectors" value={filters.sector} onChange={set('sector')} options={meta.sectors} />
-                  <Select label="Location" all="All locations" value={filters.location} onChange={set('location')} options={meta.locations} />
-                  <Select label="Investor type" all="All investor types" value={filters.type} onChange={set('type')} options={meta.types} />
-                  {hasExtras && !extraOn && (
-                    <button type="button" className="linkbtn inv-more-toggle" aria-expanded={showExtras} onClick={() => setMore((v) => !v)}>
-                      {showExtras ? 'Fewer filters' : 'More filters'}
+              <div className="inv-filters" role="group" aria-label="Filters">
+                <CheckMenu label="Stage" noun="stages" options={meta.stages} value={filters.stage} onChange={set('stage')} />
+                <CheckMenu label="Sector" noun="sectors" options={meta.sectors} value={filters.sector} onChange={set('sector')} />
+                <CheckMenu label="Location" noun="locations" options={meta.locations} value={filters.location} onChange={set('location')} />
+                <MoreFilters meta={meta} filters={filters} set={set} active={active} onClear={clear} />
+                {active && <button type="button" className="inv-clear" onClick={clear}>Clear filters</button>}
+              </div>
+            )}
+          </div>
+
+          <div className="inv-bar">
+            <Tabs
+              prefix="invdir"
+              tabs={[['all', 'All investors'], ['saved', 'Saved', saved.length]]}
+              value={tab}
+              onChange={onTab}
+              label="Which investors"
+            />
+            <div className="inv-bar-end">
+              <label className="inv-sort">
+                <span className="inv-sort-label" aria-hidden="true">Sort:</span>
+                <select className="inv-select" aria-label="Sort by" value={sort} onChange={(e) => setSort(e.target.value)}>
+                  {SORTS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}
+                </select>
+              </label>
+              <div className="xt-view inv-views" role="group" aria-label="View">
+                {VIEWS.map(({ id, label, Icon }) => (
+                  <button key={id} type="button" className={id === view ? 'xt-seg xt-seg-on' : 'xt-seg'} aria-pressed={id === view} onClick={() => setView(id)}>
+                    <Icon size={18} /><span>{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className={selected ? 'inv-split inv-split-open' : 'inv-split'}>
+            <div className="inv-results" id="invdir-panel" role="tabpanel" aria-labelledby={`invdir-tab-${tab}`}>
+              {firstLoad && <p className="inv-loading">Loading…</p>}
+              {(status === 'error' || metaFailed) && status !== 'ready' && (
+                <div className="inv-error" role="alert">
+                  <p>Could not load investors right now.</p>
+                  <button type="button" className="hdrbtn" onClick={() => setAttempt((n) => n + 1)}>Try again</button>
+                </div>
+              )}
+              {nothingSaved && (
+                <div className="inv-none">
+                  <p>You have not saved any investors yet. Press the bookmark on an investor to keep it here. Saved investors are kept in this browser only.</p>
+                  <button type="button" className="linkbtn" onClick={() => onTab('all')}>See all investors</button>
+                </div>
+              )}
+              {!nothingSaved && status === 'ready' && shown === 0 && (
+                <div className="inv-none">
+                  <p>No investors match those filters.</p>
+                  {active && <button type="button" className="linkbtn" onClick={clear}>Clear filters</button>}
+                </div>
+              )}
+
+              {shown > 0 && results}
+
+              {moreError && <p className="form-error" role="alert">{moreError}</p>}
+              {shown > 0 && (
+                <div className="inv-foot">
+                  <p className="inv-showing">Showing {shown} of {page.count} {page.count === 1 ? noun : `${noun}s`}</p>
+                  {page.hasMore && status !== 'error' && (
+                    <button type="button" className="hdrbtn inv-showmore" onClick={showMore} disabled={loadingMore}>
+                      {loadingMore ? 'Loading…' : `Show more (${page.count - shown} left)`}
                     </button>
                   )}
-                  {active && <button type="button" className="linkbtn" onClick={() => setFilters(EMPTY)}>Clear filters</button>}
-                  {showExtras && (
-                    <div className="inv-filters-more">
-                      <Select label="Leads or follows" all="Lead or follow" value={filters.lead} onChange={set('lead')} options={meta.lead.map((o) => ({ ...o, label: LEAD_WORDS[o.value] ?? o.value }))} />
-                      <Select label="Investing" all="Active or not" value={filters.active} onChange={set('active')} options={meta.active.map((o) => ({ ...o, label: o.value === 'inactive' ? 'No longer investing' : 'Investing now' }))} />
-                      {meta.cheque && (
-                        <Select label="Cheque size" all="Any cheque size" value={filters.cheque} onChange={set('cheque')} options={CHEQUE_BANDS.map((b) => ({ value: b.key, label: b.label }))} />
-                      )}
-                    </div>
-                  )}
                 </div>
-              </>
-            )}
-            {showExtras && meta?.cheque && (
-              <p className="inv-note">
-                Cheque size matches only investors that state a range in Australian dollars ({plural(meta.cheque.count, 'investor')} {meta.cheque.count === 1 ? 'does' : 'do'}). Others are unknown, not out of range.
-              </p>
+              )}
+            </div>
+
+            {selected && (
+              <InvestorPanel
+                slug={selected}
+                card={page.items.find((i) => i.slug === selected)}
+                mode={panelMode}
+                saved={isSaved(selected)}
+                onToggleSaved={onToggleSaved}
+                onClose={onClosePanel}
+                onOpenFull={onOpenFull}
+                onOpenInvestor={onOpenInvestor}
+                onOpenPerson={onOpenPerson}
+                onOpenCompany={onOpenCompany}
+              />
             )}
           </div>
-
-          <div className="inv-listbar">
-            <p className="inv-count" role="status">
-              {status === 'ready' && (active ? `${plural(page.count, 'investor')} match` : plural(page.count, 'investor'))}
-              {status === 'loading' && !firstLoad && 'Updating…'}
-            </p>
-            <div className="inv-views" role="group" aria-label="View">
-              {VIEWS.map((v) => (
-                <button key={v.id} type="button" className="inv-view-btn" aria-pressed={v.id === current.id} onClick={() => setView(v.id)}>{v.label}</button>
-              ))}
-            </div>
-          </div>
-
-          {firstLoad && <p className="inv-loading">Loading…</p>}
-          {(status === 'error' || metaFailed) && status !== 'ready' && (
-            <div className="inv-error" role="alert">
-              <p>Could not load investors right now.</p>
-              <button type="button" className="hdrbtn" onClick={() => setAttempt((n) => n + 1)}>Try again</button>
-            </div>
-          )}
-          {status === 'ready' && page.items.length === 0 && (
-            <div className="inv-none">
-              <p>No investors match those filters.</p>
-              {active && <button type="button" className="linkbtn" onClick={() => setFilters(EMPTY)}>Clear filters</button>}
-            </div>
-          )}
-
-          {page.items.length > 0 && <IndexRow items={page.items.map((i) => ({ id: cardId('investor', i.slug), name: i.name }))} what="the investors listed" />}
-          {page.items.length > 0 && current.render(page.items, onOpen)}
-
-          {moreError && <p className="form-error" role="alert">{moreError}</p>}
-          {page.hasMore && status !== 'error' && (
-            <div className="inv-more">
-              <button type="button" className="hdrbtn" onClick={showMore} disabled={loadingMore}>
-                {loadingMore ? 'Loading…' : `Show more (${page.count - page.items.length} left)`}
-              </button>
-            </div>
-          )}
         </>
       )}
 
       <p className="inv-method">
         Every investor here was checked against pages it publishes itself, and a person published it. A blank means no public page says it:
-        nothing is guessed. The list is in alphabetical order and is not a ranking. Open an investor to see the pages behind it, or to suggest a correction.
+        nothing is guessed. The list is in alphabetical order unless you sort it, and no order is a ranking. Open an investor to see the pages behind it, or to suggest a correction.
       </p>
     </>
   );

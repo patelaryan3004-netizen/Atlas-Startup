@@ -67,9 +67,16 @@ vi.mock('../src/components/JobsView.jsx', () => ({
 }));
 
 vi.mock('../src/components/investors/InvestorsView.jsx', () => ({
-  default: ({ initialRoute, fromLink, onClose, onOpenCompany }) => (
-    <div data-testid="investors-view" data-route={JSON.stringify(initialRoute)} data-from-link={String(Boolean(fromLink))}>
+  default: ({ initialRoute, fromLink, onClose, onOpenCompany, chrome }) => (
+    <div data-testid="investors-view" data-route={JSON.stringify(initialRoute)} data-from-link={String(Boolean(fromLink))} data-hiring={chrome?.hiringCount}>
       <button onClick={onClose}>trigger-investors-close</button>
+      <button onClick={() => chrome.onShowJobs()}>trigger-investors-jobs</button>
+      <button onClick={() => chrome.menu.onShowAbout()}>trigger-investors-about</button>
+      <button onClick={() => chrome.menu.onShowPrivacy()}>trigger-investors-privacy</button>
+      <button onClick={() => chrome.menu.onShowFeedback()}>trigger-investors-feedback</button>
+      <button onClick={() => chrome.menu.onShowWaitlist()}>trigger-investors-waitlist</button>
+      <button onClick={() => chrome.menu.onShowTracked()}>trigger-investors-tracked</button>
+      <button onClick={() => chrome.menu.onShowCuratedLists()}>trigger-investors-lists</button>
       <button onClick={() => onOpenCompany({ slug: 'canva', name: 'Canva', sector: 'AI' })}>trigger-investors-company</button>
     </div>
   ),
@@ -737,6 +744,54 @@ describe('App', () => {
       render(<App />);
       expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'person', slug: 'sam' }));
       window.history.pushState({}, '', '/');
+    });
+
+    describe('the investors\' page has the app\'s header', () => {
+      it('is given how many are hiring, and the Jobs link goes to the jobs page', async () => {
+        fetchSummary.mockResolvedValue(summaryOf({ hiring: 70 }));
+        render(<App />);
+        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await waitFor(() => expect(screen.getByTestId('investors-view').dataset.hiring).toBe('70'));
+        await userEvent.click(screen.getByText('trigger-investors-jobs'));
+        expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
+        expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
+      });
+
+      it('opens the dialogs its menu asks for over the page, which stays where it is: About, Privacy, Feedback and the waitlist', async () => {
+        render(<App />);
+        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByText('trigger-investors-about'));
+        expect(await screen.findByText(/independent, unofficial directory/)).toBeInTheDocument();
+        expect(screen.getByTestId('investors-view')).toBeInTheDocument();
+        await userEvent.click(screen.getByLabelText('Close'));
+        await userEvent.click(screen.getByText('trigger-investors-privacy'));
+        expect(await screen.findByText(/No account, no tracking cookies/)).toBeInTheDocument();
+        await userEvent.click(screen.getByLabelText('Close'));
+        await userEvent.click(screen.getByText('trigger-investors-feedback'));
+        expect(await screen.findByLabelText('Type')).toBeInTheDocument();
+        await userEvent.click(screen.getByLabelText('Close'));
+        await userEvent.click(screen.getByText('trigger-investors-waitlist'));
+        expect(await screen.findByRole('dialog', { name: 'Join the waitlist' })).toBeInTheDocument();
+        expect(screen.getByTestId('investors-view')).toBeInTheDocument();
+      });
+
+      it('opens the companies a visitor saved, over the page, when the menu asks for them', async () => {
+        localStorage.setItem('auStartupTracked', JSON.stringify(['Canva']));
+        fetchStartupsByName.mockResolvedValue({ results: [card('Canva')] });
+        render(<App />);
+        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByText('trigger-investors-tracked'));
+        expect(await screen.findByText('Tracked startups (1)')).toBeInTheDocument();
+        expect(screen.getByTestId('investors-view')).toBeInTheDocument();
+      });
+
+      it('leaves the investors for another page of the app from its menu: the lists', async () => {
+        render(<App />);
+        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByText('trigger-investors-lists'));
+        expect(await screen.findByTestId('curated-lists')).toBeInTheDocument();
+        expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
+      });
     });
 
     it('opens an investor from a company\'s panel, and the panel is closed behind it', async () => {

@@ -34,7 +34,7 @@ describe('POST /api/feedback', () => {
   });
 
   it('accepts each valid type and persists it as pending', async () => {
-    for (const type of ['feedback', 'feature', 'bug']) {
+    for (const type of ['feedback', 'feature', 'bug', 'investor']) {
       const res = await request(app).post('/api/feedback').send({ type, message: `A ${type} report` });
       expect(res.status).toBe(201);
       expect(res.body).toMatchObject({ type, message: `A ${type} report`, status: 'pending' });
@@ -42,7 +42,7 @@ describe('POST /api/feedback', () => {
     }
 
     const stored = JSON.parse(await readFile(DATA_PATH, 'utf-8'));
-    expect(stored).toHaveLength(3);
+    expect(stored).toHaveLength(4);
   });
 
   it('defaults email to an empty string when omitted', async () => {

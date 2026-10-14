@@ -39,12 +39,23 @@ export const metaOf = (cards, over = {}) => ({
   lead: [], active: countBy(cards, (c) => c.active_status), cheque: null, ...over,
 });
 
-// A stand-in for the server: filters the cards it has, pages them in the order given, and knows the profiles it is given.
+const list = (v) => (v ? String(v).split(',').filter(Boolean) : null);
+const ORDERS = {
+  name: (a, b) => a.name.localeCompare(b.name),
+  name_desc: (a, b) => b.name.localeCompare(a.name),
+  portfolio: (a, b) => b.portfolio_count - a.portfolio_count || a.name.localeCompare(b.name),
+  location: (a, b) => (a.location.label ?? '\uffff').localeCompare(b.location.label ?? '\uffff') || a.name.localeCompare(b.name),
+};
+
+// A stand-in for the server: filters the cards it has (by search, type, stage, sector and location, each of several, and by address), puts them in the
+// order asked for, pages them, and knows the profiles it is given.
 export function serve(api, { cards = [card()], meta = metaOf(cards), profiles = {}, people = {} } = {}) {
   api.fetchInvestorMeta.mockResolvedValue(meta);
-  api.fetchInvestors.mockImplementation(async (filters = {}, { limit = 24, offset = 0 } = {}) => {
-    const matches = cards.filter((c) => (!filters.type || c.type === filters.type) && (!filters.stage || c.stages.includes(filters.stage))
-      && (!filters.search || JSON.stringify(c).toLowerCase().includes(String(filters.search).toLowerCase())));
+  api.fetchInvestors.mockImplementation(async (filters = {}, { limit = 24, offset = 0, sort = 'name' } = {}) => {
+    const [types, stages, sectors, places, slugs] = ['type', 'stage', 'sector', 'location', 'slug'].map((k) => list(filters[k]));
+    const matches = cards.filter((c) => (!types || types.includes(c.type)) && (!stages || c.stages.some((s) => stages.includes(s))) && (!sectors || c.sectors.some((s) => sectors.includes(s)))
+      && (!places || places.includes(c.location.state ?? c.location.country)) && (!slugs || slugs.includes(c.slug))
+      && (!filters.search || JSON.stringify(c).toLowerCase().includes(String(filters.search).toLowerCase()))).sort(ORDERS[sort]);
     return { total: cards.length, count: matches.length, results: matches.slice(offset, offset + limit), offset, limit, hasMore: offset + limit < matches.length };
   });
   api.fetchInvestor.mockImplementation(async (slug) => {
@@ -58,5 +69,5 @@ export function serve(api, { cards = [card()], meta = metaOf(cards), profiles = 
 }
 
 export const mockApi = () => ({
-  fetchInvestors: vi.fn(), fetchInvestorMeta: vi.fn(), fetchInvestor: vi.fn(), fetchInvestorPerson: vi.fn(), submitInvestorCorrection: vi.fn(), fetchInvestorsByName: vi.fn(),
+  fetchInvestors: vi.fn(), fetchInvestorMeta: vi.fn(), fetchInvestor: vi.fn(), fetchInvestorPerson: vi.fn(), submitInvestorCorrection: vi.fn(), fetchInvestorsByName: vi.fn(), submitFeedback: vi.fn(),
 });

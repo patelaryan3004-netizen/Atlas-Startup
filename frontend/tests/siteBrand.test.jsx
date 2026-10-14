@@ -75,7 +75,7 @@ describe('the brand on each page that has a header', () => {
     needs('components/JobsView.jsx', '<SiteBrand onMap={onClose} />');
     needs('components/NewsPage.jsx', '<SiteBrand onMap={onClose} />');
     needs('components/people/PeopleView.jsx', '<SiteBrand onMap={onClose} />');
-    needs('components/investors/InvestorsView.jsx', '<SiteBrand onMap={close} />');
+    needs('components/investors/InvestorsView.jsx', '<ExploreHeader', 'active="investors"'); // the investors' page has the map page's own header, with Investors lit
     for (const file of ['components/NewsPage.jsx', 'components/people/PeopleView.jsx', 'components/investors/InvestorsView.jsx']) {
       expect(read(file), file).not.toContain('inv-bar-name');
     }

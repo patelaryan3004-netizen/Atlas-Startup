@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { render } from '@testing-library/react';
-import { readRoute, routeUrl, investorHref, personHref, writeRoute, clearRoute } from '../../src/components/investors/route.js';
+import { readRoute, routeUrl, investorHref, personHref, profileHref, writeRoute, clearRoute } from '../../src/components/investors/route.js';
 import { chequeText, dateText, partialDateText, nameKey, safeUrl, amountText, domainOf, stageText, listText } from '../../src/components/investors/common.jsx';
 import { usePageTitle } from '../../src/components/investors/usePageTitle.js';
 
@@ -9,12 +9,17 @@ afterEach(() => { window.history.pushState({}, '', '/'); });
 const at = (pathname, search = '') => ({ pathname, search });
 
 describe('where the investor pages are in the address', () => {
-  it('reads the directory, an investor and a person from the address', () => {
+  it('reads the directory, an investor opened in it, an investor\'s full page and a person from the address', () => {
     expect(readRoute(at('/investors'))).toEqual({ kind: 'list' });
     expect(readRoute(at('/investors/'))).toEqual({ kind: 'list' });
-    expect(readRoute(at('/investors/blackbird'))).toEqual({ kind: 'investor', slug: 'blackbird' });
+    expect(readRoute(at('/investors/blackbird'))).toEqual({ kind: 'investor', slug: 'blackbird' }); // the directory with the investor beside the results
     expect(readRoute(at('/investors/main-sequence'))).toEqual({ kind: 'investor', slug: 'main-sequence' });
+    expect(readRoute(at('/investors/blackbird/profile'))).toEqual({ kind: 'profile', slug: 'blackbird' }); // that investor's own page
     expect(readRoute(at('/investors/people/sam'))).toEqual({ kind: 'person', slug: 'sam' });
+  });
+
+  it('keeps every address an investor had working: /investors/<slug> still opens that investor', () => {
+    for (const slug of ['airtree', 'square-peg', 'brandon-capital', 'oneventures']) expect(readRoute(at(`/investors/${slug}`))).toEqual({ kind: 'investor', slug });
   });
 
   it('reads nothing from any other address, and "people" is never an investor', () => {
@@ -39,7 +44,7 @@ describe('where the investor pages are in the address', () => {
 
   it('writes an address that reads back as the same place, keeping what else the address says', () => {
     const search = '?city=Sydney&sector=AI';
-    for (const route of [{ kind: 'list' }, { kind: 'investor', slug: 'blackbird' }, { kind: 'person', slug: 'sam' }]) {
+    for (const route of [{ kind: 'list' }, { kind: 'investor', slug: 'blackbird' }, { kind: 'profile', slug: 'blackbird' }, { kind: 'person', slug: 'sam' }]) {
       const url = routeUrl(route, { search });
       const [pathname, query = ''] = url.split('?');
       expect(readRoute(at(pathname, query ? `?${query}` : ''))).toEqual(route);
@@ -51,6 +56,7 @@ describe('where the investor pages are in the address', () => {
   it('writes the addresses the pages are linked by, and takes the first version\'s keys out', () => {
     expect(routeUrl({ kind: 'list' }, { search: '' })).toBe('/investors');
     expect(routeUrl({ kind: 'investor', slug: 'blackbird' }, { search: '' })).toBe('/investors/blackbird');
+    expect(routeUrl({ kind: 'profile', slug: 'blackbird' }, { search: '' })).toBe('/investors/blackbird/profile');
     expect(routeUrl({ kind: 'person', slug: 'sam' }, { search: '' })).toBe('/investors/people/sam');
     expect(routeUrl({ kind: 'person', slug: 'sam' }, { search: '?view=investors&investor=blackbird&city=Sydney' })).toBe('/investors/people/sam?city=Sydney');
     expect(routeUrl({ kind: 'investor', slug: 'a b/c' }, { search: '' })).toBe('/investors/a%20b%2Fc');
@@ -59,6 +65,17 @@ describe('where the investor pages are in the address', () => {
   it('gives links that are real addresses', () => {
     expect(investorHref('blackbird')).toBe('/investors/blackbird');
     expect(personHref('sam')).toBe('/investors/people/sam');
+    expect(profileHref('blackbird')).toBe('/investors/blackbird/profile');
+  });
+
+  it('writes a step with a marker when it is asked to, and a replace keeps the one it is given', () => {
+    writeRoute({ kind: 'investor', slug: 'a' }, { state: { investors: 'panel' } });
+    expect(window.history.state).toEqual({ investors: 'panel' });
+    writeRoute({ kind: 'investor', slug: 'b' }, { replace: true, state: window.history.state });
+    expect(window.location.pathname).toBe('/investors/b');
+    expect(window.history.state).toEqual({ investors: 'panel' });
+    writeRoute({ kind: 'person', slug: 'sam' });
+    expect(window.history.state).toBeNull();
   });
 
   it('writes a new step in the history for a move, none for a replace, and none for where it already is', () => {

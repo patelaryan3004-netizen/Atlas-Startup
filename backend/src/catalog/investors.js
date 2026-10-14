@@ -21,7 +21,7 @@ import path from 'node:path';
 import { INVESTOR_STAGES, isPublicStatus, typeLabel } from '../models/investor.js';
 import { activeRecords } from '../models/investorEvidence.js';
 
-export const INVESTOR_SORTS = ['name', 'portfolio', 'location'];
+export const INVESTOR_SORTS = ['name', 'name_desc', 'portfolio', 'location'];
 export const INVESTOR_FACETS = ['type', 'stage', 'sector', 'location', 'lead', 'active'];
 export const INVESTOR_FILES = {
   investors: 'investors.json', people: 'investor_people.json', funds: 'funds.json', investments: 'investments.json',
@@ -44,8 +44,8 @@ const locationOf = (o) => {
   const label = parts.filter(Boolean).join(', ') || o.country || null;
   return { city: o.headquarters_city ?? null, state: o.state ?? null, country: o.country ?? null, label };
 };
-// The place an investor is filtered by: its state when it has one, otherwise its country.
-const placeKey = (o) => o.state ?? o.country ?? null;
+// The places an investor is found under: its state and its country, so "Australia" lists every Australian investor and "NSW" only the ones in NSW.
+const placesOf = (c) => [...new Set([c.location.state, c.location.country].filter(Boolean))];
 
 export function buildInvestorSnapshot(data, version) {
   const companyById = new Map(data.companies.map((c) => [c.id, c]));
@@ -230,7 +230,7 @@ const list = (v) => (v == null || v === '' ? null : new Set(String(Array.isArray
 const nameKey = (s) => String(s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
 export function readInvestorFilters(query = {}) {
   const f = {};
-  for (const key of ['search', 'type', 'stage', 'sector', 'location', 'lead', 'active']) if (query[key]) f[key] = String(Array.isArray(query[key]) ? query[key].join(',') : query[key]);
+  for (const key of ['search', 'type', 'stage', 'sector', 'location', 'lead', 'active', 'slug']) if (query[key]) f[key] = String(Array.isArray(query[key]) ? query[key].join(',') : query[key]);
   // Exact names (repeat the parameter: a name can hold a comma). It is how a company's investors are matched to their pages.
   if (query.name !== undefined && query.name !== '') f.name = [].concat(query.name).map(String).slice(0, 100);
   for (const key of ['chequeMin', 'chequeMax']) if (query[key] !== undefined && query[key] !== '') f[key] = Number(query[key]);
@@ -254,15 +254,17 @@ export function selectInvestors(snap, f) {
   const leads = list(f.lead);
   const actives = list(f.active);
   const names = f.name ? new Set(f.name.map(nameKey).filter(Boolean)) : null;
+  const slugs = list(f.slug); // the investors a visitor saved, by their addresses
   const q = f.search ? f.search.toLowerCase().replace(/\n/g, ' ') : null;
   const out = [];
   snap.cards.forEach((c, i) => {
     if (q && !snap.search[i].includes(q)) return;
+    if (slugs && !slugs.has(c.slug)) return;
     if (names && ![c.name, ...c.aliases].some((n) => names.has(nameKey(n)))) return;
     if (types && !types.has(c.type)) return;
     if (stages && !c.stages.some((s) => stages.has(s))) return;
     if (sectors && !c.sectors.some((s) => [...sectors].some((w) => w.toLowerCase() === s.toLowerCase()))) return;
-    if (places && !places.has(c.location.state ?? c.location.country)) return;
+    if (places && !placesOf(c).some((p) => places.has(p))) return;
     const profile = snap.profiles.get(c.slug);
     if (leads && !(leads.has(profile.lead_or_follow) || (profile.lead_or_follow === 'both' && (leads.has('lead') || leads.has('follow'))))) return;
     if (actives && !(actives.has(c.active_status) || (actives.has('inactive') && c.status === 'inactive'))) return;
@@ -276,6 +278,7 @@ export function sortInvestors(snap, matched, sort = 'name') {
   const cards = snap.cards;
   const compare = {
     name: (a, b) => collator.compare(cards[a].name, cards[b].name) || a - b,
+    name_desc: (a, b) => collator.compare(cards[b].name, cards[a].name) || a - b,
     portfolio: (a, b) => cards[b].portfolio_count - cards[a].portfolio_count || collator.compare(cards[a].name, cards[b].name) || a - b,
     location: (a, b) => collator.compare(cards[a].location.label ?? '￿', cards[b].location.label ?? '￿') || collator.compare(cards[a].name, cards[b].name) || a - b,
   }[sort];
@@ -293,7 +296,7 @@ export function investorFacets(snap, matched, names) {
       const c = snap.cards[i];
       const p = snap.profiles.get(c.slug);
       const values = {
-        type: [c.type], stage: c.stages, sector: c.sectors, location: [c.location.state ?? c.location.country], lead: [p.lead_or_follow],
+        type: [c.type], stage: c.stages, sector: c.sectors, location: placesOf(c), lead: [p.lead_or_follow],
         active: [c.status === 'inactive' ? 'inactive' : c.active_status],
       }[name];
       for (const v of values) if (v) counts.set(v, (counts.get(v) ?? 0) + 1);

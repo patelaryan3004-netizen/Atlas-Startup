@@ -510,6 +510,58 @@ export default function App() {
   );
   const sheetMode = preview ? 'detail' : sheetOpen ? 'open' : 'peek';
 
+  // The header's menu is the same on the map's page and the investors' page (which takes it as `chrome`, and swaps the few items that mean something
+  // else there: Explore, Investors and Saved).
+  const menuProps = {
+    onExplore: goExplore,
+    onShowJobs: showJobsPage,
+    hiringCount,
+    onShowInvestors: () => openInvestors(),
+    onShowPeople: peopleOn ? openPeople : undefined,
+    onShowCuratedLists: showLists,
+    onShowNews: showNews,
+    newsVisible,
+    onToggleNews: toggleNews,
+    onShowWaitlist: () => setShowWaitlist(true),
+    onShowUnverified: () => setShowUnverified(true),
+    unverifiedCount,
+    onShowTracked: () => setShowTracked(true),
+    trackedCount: tracked.size,
+    onShowAbout: () => setShowAbout(true),
+    onShowPrivacy: () => setShowPrivacy(true),
+    onShowFeedback: () => setShowFeedback(true),
+    directoryUrl: DIRECTORY_URL,
+  };
+
+  // The dialogs the menu and the header open, which are over any page of the app, not only the map.
+  const sharedDialogs = (
+    <>
+      {showSubmitForm && <Lazy><SubmitStartupForm onClose={() => setShowSubmitForm(false)} /></Lazy>}
+      {showUnverified && <Lazy><UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} /></Lazy>}
+      {showAbout && <Lazy><AboutSources onClose={() => setShowAbout(false)} /></Lazy>}
+      {showPrivacy && <Lazy><PrivacyPolicy onClose={() => setShowPrivacy(false)} /></Lazy>}
+      {showFeedback && <Lazy><FeedbackForm onClose={() => setShowFeedback(false)} /></Lazy>}
+      {showWaitlist && <Lazy><WaitlistForm onClose={() => setShowWaitlist(false)} /></Lazy>}
+      {showTracked && (
+        <Lazy>
+          <StartupListView
+            startups={trackedStartups}
+            sectorColors={sectorColors}
+            onClose={() => setShowTracked(false)}
+            isTracked={isTracked}
+            onToggleTracked={toggleTracked}
+            title={`Tracked startups (${tracked.size})`}
+            subtitle={
+              trackedStartups.length < tracked.size
+                ? `${trackedStartups.length} of ${tracked.size} tracked companies are still in the directory.`
+                : 'Companies you have starred, saved in this browser only.'
+            }
+          />
+        </Lazy>
+      )}
+    </>
+  );
+
   if (showJobs) {
     return <Lazy fallback={loading('jobs')}><JobsView onClose={leave} /></Lazy>;
   }
@@ -524,14 +576,18 @@ export default function App() {
 
   if (showInvestors) {
     return (
-      <Lazy fallback={loading('investors')}>
-        <InvestorsView
-          initialRoute={investorsStart}
-          fromLink={investorsFromLink}
-          onClose={() => setRoute({ kind: 'explore' })}
-          onOpenCompany={(company) => openStartup(company)}
-        />
-      </Lazy>
+      <>
+        <Lazy fallback={loading('investors')}>
+          <InvestorsView
+            initialRoute={investorsStart}
+            fromLink={investorsFromLink}
+            onClose={() => setRoute({ kind: 'explore' })}
+            onOpenCompany={(company) => openStartup(company)}
+            chrome={{ hiringCount, onShowJobs: showJobsPage, menu: menuProps }}
+          />
+        </Lazy>
+        {sharedDialogs}
+      </>
     );
   }
 
@@ -545,26 +601,7 @@ export default function App() {
         onShowInvestors={() => openInvestors()}
         onShowTracked={() => setShowTracked(true)}
         onAdd={() => setShowSubmitForm(true)}
-        menu={{
-          onExplore: goExplore,
-          onShowJobs: showJobsPage,
-          hiringCount,
-          onShowInvestors: () => openInvestors(),
-          onShowPeople: peopleOn ? openPeople : undefined,
-          onShowCuratedLists: showLists,
-          onShowNews: showNews,
-          newsVisible,
-          onToggleNews: toggleNews,
-          onShowWaitlist: () => setShowWaitlist(true),
-          onShowUnverified: () => setShowUnverified(true),
-          unverifiedCount,
-          onShowTracked: () => setShowTracked(true),
-          trackedCount: tracked.size,
-          onShowAbout: () => setShowAbout(true),
-          onShowPrivacy: () => setShowPrivacy(true),
-          onShowFeedback: () => setShowFeedback(true),
-          directoryUrl: DIRECTORY_URL,
-        }}
+        menu={menuProps}
       />
 
       <ExploreToolbar
@@ -679,10 +716,7 @@ export default function App() {
         {newsReady && <Lazy><NewsTicker visible={newsVisible} onClose={toggleNews} /></Lazy>}
       </main>
 
-      {showSubmitForm && <Lazy><SubmitStartupForm onClose={() => setShowSubmitForm(false)} /></Lazy>}
-      {showUnverified && <Lazy><UnverifiedList filters={applied} onClose={() => setShowUnverified(false)} /></Lazy>}
-      {showAbout && <Lazy><AboutSources onClose={() => setShowAbout(false)} /></Lazy>}
-      {showPrivacy && <Lazy><PrivacyPolicy onClose={() => setShowPrivacy(false)} /></Lazy>}
+      {sharedDialogs}
       {editingCompany && <Lazy><SuggestEditForm company={editingCompany} initialMessage={editingMessage} onClose={() => { setEditingCompany(null); setEditingMessage(''); }} /></Lazy>}
       {selectedStartup && (
         <Lazy>
@@ -703,25 +737,6 @@ export default function App() {
           <PersonProfile
             person={getPersonProfile(selectedPersonName, personCompanies)}
             onClose={() => setSelectedPersonName(null)}
-          />
-        </Lazy>
-      )}
-      {showFeedback && <Lazy><FeedbackForm onClose={() => setShowFeedback(false)} /></Lazy>}
-      {showWaitlist && <Lazy><WaitlistForm onClose={() => setShowWaitlist(false)} /></Lazy>}
-      {showTracked && (
-        <Lazy>
-          <StartupListView
-            startups={trackedStartups}
-            sectorColors={sectorColors}
-            onClose={() => setShowTracked(false)}
-            isTracked={isTracked}
-            onToggleTracked={toggleTracked}
-            title={`Tracked startups (${tracked.size})`}
-            subtitle={
-              trackedStartups.length < tracked.size
-                ? `${trackedStartups.length} of ${tracked.size} tracked companies are still in the directory.`
-                : 'Companies you have starred, saved in this browser only.'
-            }
           />
         </Lazy>
       )}
