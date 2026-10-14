@@ -62,6 +62,18 @@ Open http://localhost:5173 and look at: `/` (map), `/?view=list`, `/jobs`, `/lis
 - [ ] The company panel opens on the company's own colour. It is a light colour for most sectors, so its text is dark; check two or three sectors.
 - [ ] The text sizes beyond a headline are 15px and 13px on every content page (the line under a headline is 17px). The map's own controls (header, search, filters, key, tooltips) keep their compact sizes on purpose.
 
+## The snapshot (speed): remake it whenever the data changes
+
+The site draws its first screen from `frontend/public/data/snapshot.json`, a copy of the API's answers to the first views' questions, and asks the API in the background (see [performance.md](performance.md)). So the site does not wait for Render, which sleeps when idle. The file goes stale: the site ignores it once it is **14 days old**, and a data change on Render does not change it. Before every site deploy, and after any data change you want visitors to see at once:
+
+```powershell
+npm run snapshot --prefix backend      # writes frontend/public/data/snapshot.json from the real data files
+git add frontend/public/data/snapshot.json
+```
+
+- [ ] `npm test --prefix frontend` passes (it checks the file holds an answer to every first-view question and nothing about people).
+- [ ] The summary line the command prints shows today's counts (companies, hiring now).
+
 ## Deploy, when you say so
 
 1. Look at what changes: `git status` and `git diff --stat` (about 50 files changed, 1,100 lines added, 600 removed, plus new files). Say "commit" and it is committed; nothing is pushed until you say "push".

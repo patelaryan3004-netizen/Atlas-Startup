@@ -9,8 +9,14 @@ import StartupTable from './StartupTable.jsx';
 import IndexRow, { cardId } from './IndexRow.jsx';
 import { nextEvent, eventDay } from '../freshness.js';
 import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
+import { CardGridSkeleton, TableSkeleton } from './Skeletons.jsx';
+import { LAYOUT_KEY, initialLayout } from '../listLayout.js';
+import { LIST_PAGE as PAGE } from '../snapshotRequests.js';
+import { peek } from '../peek.js';
 
-const PAGE = 48;
+const LOADING = { items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false };
+const readyFrom = (page) => ({ items: page.results, count: page.count, hasMore: page.hasMore, status: 'ready', moreFailed: false });
+const firstPage = (filters, sort) => peek.startupPage(filters, { limit: PAGE, offset: 0, sort });
 
 // Only sorts backed by a real field on the startup record. The server sorts, because the browser only ever has
 // one page of the list. "Recently added" and "Recently funded" would need a date field that doesn't exist in the
@@ -26,16 +32,6 @@ const SORTS = {
 };
 const FACT_SORTS = { team: 'Team size (largest first)', remote: 'Remote policy' };
 
-// The list is a table on a screen wide enough for one and cards on a phone, and a visitor's choice is kept in this browser.
-const LAYOUT_KEY = 'auStartupListLayout';
-const WIDE_LIST = '(min-width: 900px)';
-function initialLayout() {
-  try {
-    const saved = localStorage.getItem(LAYOUT_KEY);
-    if (saved === 'table' || saved === 'cards') return saved;
-  } catch (e) { /* a browser that will not say: the default */ }
-  return typeof window.matchMedia === 'function' && window.matchMedia(WIDE_LIST).matches ? 'table' : 'cards';
-}
 
 // The list for the current filters, a page at a time: the next page loads when the end of the list nears the
 // screen (or when "Show more" is pressed), so the page holds the companies being looked at and not all of them.
@@ -44,7 +40,9 @@ function initialLayout() {
 export default function ListView({ filters, sectorColors, onSelectStartup, selectedName, trackedNames, scope = '', onClearScope, chips = null, meta = null, onFiltersChange = null }) {
   const [sort, setSort] = useState('name');
   const [layout, setLayout] = useState(initialLayout);
-  const [state, setState] = useState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
+  // The first page of the unfiltered list is in the snapshot file (snapshot.js): when it has arrived it is what the list first draws, so there is
+  // no placeholder and nothing moves when the server's answer comes (and an unreachable server leaves the list as the snapshot drew it).
+  const [state, setState] = useState(() => { const known = firstPage(filters, 'name'); return known ? readyFrom(known) : LOADING; });
   const latest = useRef(state);
   latest.current = state;
   const generation = useRef(0);
@@ -55,10 +53,13 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
     const ctrl = new AbortController();
     generation.current += 1;
     busy.current = false;
-    setState({ items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false });
-    fetchStartupPage(filters, { limit: PAGE, offset: 0, sort, signal: ctrl.signal })
-      .then((page) => { if (!ctrl.signal.aborted) setState({ items: page.results, count: page.count, hasMore: page.hasMore, status: 'ready', moreFailed: false }); })
-      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') setState({ items: [], count: 0, hasMore: false, status: 'error', moreFailed: false }); });
+    const known = firstPage(filters, sort);
+    setState((now) => (known ? (now.status === 'ready' && now.items === known.results ? now : readyFrom(known)) : LOADING));
+    let shown = Boolean(known);
+    const draw = (page) => { if (!ctrl.signal.aborted) setState((now) => (now.status === 'ready' && now.items === page.results ? now : readyFrom(page))); };
+    fetchStartupPage(filters, { limit: PAGE, offset: 0, sort, signal: ctrl.signal, onSnapshot: (page) => { shown = true; draw(page); } })
+      .then(draw)
+      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError' && !shown) setState({ items: [], count: 0, hasMore: false, status: 'error', moreFailed: false }); });
     return () => ctrl.abort();
   }, [filters, sort]);
 
@@ -124,7 +125,7 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
 
       {meta?.hasFresh && <NewThisWeek filters={filters} onSelectStartup={onSelectStartup} onShowAll={onFiltersChange ? () => onFiltersChange({ ...filters, fresh: 'week' }) : null} />}
 
-      {status === 'loading' && <p className="modal-sub startup-list-empty">Loading…</p>}
+      {status === 'loading' && (layout === 'table' ? <TableSkeleton /> : <CardGridSkeleton count={9} />)}
       {status === 'error' && <p className="form-error startup-list-empty">Could not load the list right now.</p>}
       {status === 'ready' && items.length === 0 && <p className="modal-sub startup-list-empty">No startups match your filters.</p>}
 

@@ -16,7 +16,8 @@
     "scheduler": "node scripts/scheduler.js",
     "locations": "node scripts/locations.js",
     "investors": "node scripts/investors.js",
-    "admin": "node scripts/admin.js"
+    "admin": "node scripts/admin.js",
+    "snapshot": "node scripts/snapshot.mjs"
   },
   "dependencies": {
     "cors": "^2.8.5",

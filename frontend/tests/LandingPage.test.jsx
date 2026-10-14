@@ -84,7 +84,7 @@ describe('LandingPage', () => {
         ['1,234', 'Founders named', 'People named as founders on a company record.'],
         ['158', 'Open roles', 'Read from the pages of the companies hiring now.'],
       ]);
-      expect(fetchSummary).toHaveBeenCalledWith({});
+      expect(fetchSummary).toHaveBeenCalledWith({}, { onSnapshot: expect.any(Function) });
     });
 
     it('puts a pill above the headline with a real count: the companies hiring now, else the startups tracked, else nothing', async () => {
@@ -166,8 +166,9 @@ describe('LandingPage', () => {
   it('does not ask for the whole list: it asks for the companies that are hiring, the pins and counts', async () => {
     render(<LandingPage />);
     await screen.findByText('Startups tracked');
-    expect(fetchStartupPage).toHaveBeenCalledWith({ hiring: 'yes' }, { limit: 80, sort: 'file' });
-    expect(fetchMarkers).toHaveBeenCalledWith({});
+    // (each also passes onSnapshot: the first screen is drawn from the snapshot file when it holds the answer, and the server's replaces it)
+    expect(fetchStartupPage).toHaveBeenCalledWith({ hiring: 'yes' }, { limit: 80, sort: 'file', onSnapshot: expect.any(Function) });
+    expect(fetchMarkers).toHaveBeenCalledWith({}, { onSnapshot: expect.any(Function) });
   });
 
   const names = (container) => [...container.querySelectorAll('.landing-job-card .entity-name')].map((n) => n.textContent);

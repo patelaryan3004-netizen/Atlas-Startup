@@ -153,7 +153,7 @@ describe('App', () => {
       render(<App />);
       await waitFor(() => expect(fetchMeta).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
-      expect(fetchSummary).toHaveBeenCalledWith({});
+      expect(fetchSummary).toHaveBeenCalledWith({}, expect.objectContaining({ onSnapshot: expect.any(Function) }));
       expect(fetchSummary).toHaveBeenCalledWith(EMPTY, expect.objectContaining({ signal: expect.any(AbortSignal) }));
       expect(fetchMarkers).toHaveBeenCalledWith(EMPTY, expect.objectContaining({ signal: expect.any(AbortSignal) }));
       expect(fetchStartupPage).not.toHaveBeenCalled(); // no list is fetched while the map is showing
@@ -560,7 +560,8 @@ describe('App', () => {
 
     it('shows the news ticker by default and toggles it off/on via the More menu, persisting the choice', async () => {
       render(<App />);
-      await waitFor(() => expect(document.getElementById('newsTicker')).toBeInTheDocument());
+      // The ticker is not part of the first view: it is fetched, and mounted, once the page has settled (App.jsx, useWhenIdle).
+      await waitFor(() => expect(document.getElementById('newsTicker')).toBeInTheDocument(), { timeout: 4000 });
 
       let menu = await openMenu();
       await userEvent.click(menu.getByText('Hide news ticker'));

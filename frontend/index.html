@@ -10,10 +10,33 @@
 <meta property="og:title" content="Australian Startup Map">
 <meta property="og:description" content="Australia's startup ecosystem on a map: startups, founders, investors and jobs, each with where the facts came from.">
 <meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // Starts downloads before any script has run: the snapshot of the first views (src/snapshot.js) on the pages that draw from it, and the
+  // files of the page this address opens (vitePreload.js fills in their names at build).
+  (function () {
+    var path = location.pathname.replace(/\/$/, ''), search = location.search, files = /*ROUTE_FILES*/{};
+    if (path === '' || path === '/welcome' || path === '/jobs') {
+      window.__auSnapshot = fetch('/data/snapshot.json').then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; });
+    }
+    var kinds = path === '/welcome' ? []
+      : path === '/jobs' ? ['app', 'jobs']
+      : /^\/(investors|news|people)(\/|$)|^\/lists$|[?&]view=(jobs|lists|investors)\b/.test(path + search) ? ['app']
+      : /^\/lists\/|[?&]view=list\b/.test(path + search) ? ['app', 'list']
+      : ['app', 'map'];
+    function add(rel, href, as) {
+      var link = document.createElement('link');
+      link.rel = rel; link.href = href; link.crossOrigin = '';
+      if (as) link.as = as;
+      document.head.appendChild(link);
+    }
+    kinds.forEach(function (kind) {
+      var found = files[kind];
+      if (!found) return;
+      found.js.forEach(function (href) { add('modulepreload', href); });
+      found.css.forEach(function (href) { add('preload', href, 'style'); });
+    });
+  })();
+</script>
 </head>
 <body>
 <div id="root"></div>

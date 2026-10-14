@@ -1,22 +1,29 @@
-const API_ROOT = import.meta.env.VITE_API_BASE || '';
-const BASE = `${API_ROOT}/api`;
+import { snapshotAnswer, peekSnapshot } from './snapshot.js';
+import { API_ROOT, BASE, toQuery, startupPageUrl, markersUrl, summaryUrl, metaUrl, countsUrl } from './apiUrls.js';
+
 export const DIRECTORY_URL = `${API_ROOT}/directory`;
 
-// Empty values are left out; a list (the tracked names) is repeated as name=a&name=b.
-function toQuery(params) {
-  const qs = new URLSearchParams();
-  Object.entries(params).forEach(([k, v]) => {
-    if (Array.isArray(v)) v.forEach((x) => qs.append(k, x));
-    else if (v) qs.set(k, v);
-  });
-  const s = qs.toString();
-  return s ? `?${s}` : '';
-}
-
-async function getJson(url, { signal, failure }) {
-  const res = await fetch(url, signal ? { signal } : undefined);
+// `onSnapshot(data)`, when given, is called with the answer this request had when the snapshot file was made (snapshot.js), if the file holds
+// one and the server has not answered yet, so a page draws at once and the server's own answer follows: the promise resolves with that, and
+// with the very same object when nothing changed (so a page that sets it as state does not draw twice). A server that cannot be reached
+// still rejects; the page has what the snapshot gave it.
+async function getJson(url, { signal, failure, onSnapshot }) {
+  const path = url.slice(API_ROOT.length);
+  let answered = false;
+  if (onSnapshot) {
+    snapshotAnswer(path).then((hit) => {
+      if (!hit || answered || signal?.aborted) return;
+      onSnapshot(hit);
+    }, () => {});
+  }
+  const res = await (signal ? fetch(url, { signal }) : fetch(url));
+  answered = true;
   if (!res.ok) throw Object.assign(new Error(failure), { status: res.status });
-  return res.json();
+  const body = await res.json();
+  // The snapshot's own object when the server's answer is the same (peek.js gave a page that object to start from), so state set from it
+  // does not change and the page does not draw twice.
+  const known = peekSnapshot(path);
+  return known && JSON.stringify(known) === JSON.stringify(body) ? known : body;
 }
 
 // There is no call for the whole list: the server answers every list a page at a time (20 unless asked, 200 at most), so the app
@@ -25,8 +32,8 @@ async function getJson(url, { signal, failure }) {
 
 // One page of companies as cards, in the order asked for (name, hiring, location, industry, stage, verified). Resolves to
 // { total, count, results, offset, limit, hasMore, nextOffset, facets? }; `facets` is a list like 'sector,city,stage'.
-export function fetchStartupPage(filters = {}, { limit = 20, offset = 0, sort = 'name', facets, signal } = {}) {
-  return getJson(`${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view: 'card', facets })}`, { signal, failure: 'Failed to fetch startups' });
+export function fetchStartupPage(filters = {}, { limit = 20, offset = 0, sort = 'name', facets, signal, onSnapshot } = {}) {
+  return getJson(startupPageUrl(filters, { limit, offset, sort, facets }), { signal, failure: 'Failed to fetch startups', onSnapshot });
 }
 
 // The address of a list as a spreadsheet: the same filters and sort as the list, every company they pick (not a page), as a CSV the
@@ -39,14 +46,14 @@ export function exportUrl(filters = {}, sort = 'name') {
 // the order of `fields`, for a company whose place is a point (an exact office or a suburb). `areas` are the companies known
 // only to a city or a state, one group per place ({ kind, label, city, state, lat, lng, count, sample }), drawn as a group and
 // never as a pin; `unplaced` counts those whose city has no centre on file (they are in the list, not on the map).
-export function fetchMarkers(filters = {}, { signal } = {}) {
-  return getJson(`${BASE}/startups/markers${toQuery(filters)}`, { signal, failure: 'Failed to fetch map pins' });
+export function fetchMarkers(filters = {}, { signal, onSnapshot } = {}) {
+  return getJson(markersUrl(filters), { signal, failure: 'Failed to fetch map pins', onSnapshot });
 }
 
 // Counts and short lists about a set of filters: { count, pinned, onMap, byPrecision, unverified, hiring, taskGated, cities, topCities,
 // notable, vouched }. `pinned` is the companies with a confirmed location; `onMap` those drawn as a pin of their own.
-export function fetchSummary(filters = {}, { signal } = {}) {
-  return getJson(`${BASE}/startups/summary${toQuery(filters)}`, { signal, failure: 'Failed to fetch counts' });
+export function fetchSummary(filters = {}, { signal, onSnapshot } = {}) {
+  return getJson(summaryUrl(filters), { signal, failure: 'Failed to fetch counts', onSnapshot });
 }
 
 export function fetchCount(filters = {}, { signal } = {}) {
@@ -55,14 +62,8 @@ export function fetchCount(filters = {}, { signal } = {}) {
 
 // How many companies each of several sets of filters picks, in one request: { total, counts: [n, ...] } in the order given. A page of
 // curated lists asks this once; asking fetchCount once per list was a request each.
-export function fetchCounts(filterSets, { signal } = {}) {
-  const params = new URLSearchParams();
-  for (const filters of filterSets) {
-    const own = new URLSearchParams();
-    for (const [key, value] of Object.entries(filters)) if (value) own.set(key, value);
-    params.append('f', own.toString());
-  }
-  return getJson(`${BASE}/startups/counts?${params}`, { signal, failure: 'Failed to fetch the counts' });
+export function fetchCounts(filterSets, { signal, onSnapshot } = {}) {
+  return getJson(countsUrl(filterSets), { signal, failure: 'Failed to fetch the counts', onSnapshot });
 }
 
 // One company in full, by slug.
@@ -158,10 +159,8 @@ export function fetchList(id, { limit = 20, offset = 0, signal } = {}) {
   return getJson(`${BASE}/lists/${encodeURIComponent(id)}${toQuery({ limit: String(limit), offset: String(offset) })}`, { signal, failure: 'Failed to fetch the list' });
 }
 
-export async function fetchMeta() {
-  const res = await fetch(`${BASE}/startups/meta`);
-  if (!res.ok) throw new Error('Failed to fetch filter metadata');
-  return res.json();
+export function fetchMeta({ onSnapshot } = {}) {
+  return getJson(metaUrl(), { failure: 'Failed to fetch filter metadata', onSnapshot });
 }
 
 export async function fetchNews(force = false) {

@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css'; // with the map's own file, not the page's: only the map needs it (it used to be a stylesheet every page waited for)
 import { fetchStartup } from '../api.js';
 import { companyPopup, institutionPopup } from '../mapPopups.js';
-import { createPinIndex, paddedWindow, pinPayload, clusterSize, CLUSTER_PX, showLogos, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM } from '../mapPins.js';
+import { createPinIndex } from '../pinIndex.js';
+import { paddedWindow, pinPayload, clusterSize, CLUSTER_PX, showLogos, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM } from '../mapPins.js';
 
 // A pin's logo, over the plain initial-letter badge rendered underneath this <img>. It is the company's OWN picture (its `logo` address) and
 // nobody else's: no logo is asked of a third-party service. It appears only once it has loaded; until then, and if it never does, the first

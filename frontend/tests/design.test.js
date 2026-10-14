@@ -49,7 +49,7 @@ describe('the design system, in the hand-written CSS', () => {
   });
 
   it('uses Inter with the system face as its fallback, everywhere: the page, the landing, and the no-JavaScript directory', () => {
-    expect(token(styles, '--font')).toMatch(/^'Inter',\s*system-ui/);
+    expect(token(styles, '--font')).toMatch(/^'Inter Variable',\s*'Inter',\s*system-ui/); // the variable file served with the site (main.jsx), then an installed Inter
     expect(styles).toMatch(/html,body,#root\{[^}]*font-family:var\(--font\)/);
     expect(token(landing, '--l-font')).toBe('var(--font)');
     expect(readFileSync(path.join(src, 'LandingPage.jsx'), 'utf8')).not.toMatch(/geist/i);

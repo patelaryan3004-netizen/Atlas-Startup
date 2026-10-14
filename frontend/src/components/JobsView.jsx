@@ -5,8 +5,8 @@ import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
 import EntityCard, { Avatar } from './EntityCard.jsx';
 import IndexRow, { cardId } from './IndexRow.jsx';
 import SiteBrand from './SiteBrand.jsx';
-
-const PAGE = 24;
+import { JOBS_PAGE as PAGE } from '../snapshotRequests.js';
+import { peek } from '../peek.js';
 
 const EMPTY_JOB_FILTERS = { sector: '', city: '', stage: '' };
 
@@ -24,37 +24,53 @@ const NO_OPTIONS = { sector: [], city: [], stage: [] };
 // The companies that are hiring, a page at a time. The filter options come from the whole hiring set (asked for
 // with the first page, before any filter is chosen), not from the site-wide meta endpoint and not from the page
 // on screen: every option shown is guaranteed to match at least one currently-open listing.
+const FACETS = 'sector,city,stage';
+const optionsOf = (page) => ({ sector: page.facets.sector.values.map((v) => v.value).sort(), city: page.facets.city.values.map((v) => v.value).sort(), stage: page.facets.stage.values.map((v) => v.value).sort() });
+// The first request of the board: the hiring companies' first page, with the options to filter by.
+const firstRequest = (filters) => peek.startupPage({ hiring: 'yes', ...filters }, { limit: PAGE, offset: 0, sort: 'name', facets: FACETS });
+
 export default function JobsView({ onClose }) {
-  const [jobs, setJobs] = useState([]);
-  const [matches, setMatches] = useState(0);
-  const [hiringTotal, setHiringTotal] = useState(0);
-  const [options, setOptions] = useState(NO_OPTIONS);
-  const [hasMore, setHasMore] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState(filtersFromAddress);
+  // The first page of the board is in the snapshot file (snapshot.js): when it has arrived it is what the board first draws, so there is no
+  // wait and nothing moves when the server's answer comes (and an unreachable server leaves the board as the snapshot drew it).
+  const [first] = useState(() => firstRequest(filters));
+  const [jobs, setJobs] = useState(first?.results ?? []);
+  const [matches, setMatches] = useState(first?.count ?? 0);
+  const [hiringTotal, setHiringTotal] = useState(first?.facets ? first.count : 0);
+  const [options, setOptions] = useState(first?.facets ? optionsOf(first) : NO_OPTIONS);
+  const [hasMore, setHasMore] = useState(first?.hasMore ?? false);
+  const [loading, setLoading] = useState(!first);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState('');
-  const [filters, setFilters] = useState(filtersFromAddress);
-  const haveOptions = useRef(false);
+  const [haveOptions, setHaveOptions] = useState(Boolean(first?.facets)); // the options to filter by have arrived (they are asked with the first page only)
+  const needOptions = useRef(true); // the first request asks for the options; once they are in, the next ones do not
   const generation = useRef(0);
 
   useEffect(() => {
     const ctrl = new AbortController();
     generation.current += 1;
-    setLoading(true);
+    const known = needOptions.current ? firstRequest(filters) : null;
+    setLoading(!known);
     setError('');
-    fetchStartupPage({ hiring: 'yes', ...filters }, { limit: PAGE, offset: 0, sort: 'name', facets: haveOptions.current ? undefined : 'sector,city,stage', signal: ctrl.signal })
-      .then((page) => {
-        if (ctrl.signal.aborted) return;
-        setJobs(page.results);
-        setMatches(page.count);
-        setHasMore(page.hasMore);
-        if (page.facets && !haveOptions.current) {
-          haveOptions.current = true;
-          setHiringTotal(page.count);
-          setOptions({ sector: page.facets.sector.values.map((v) => v.value).sort(), city: page.facets.city.values.map((v) => v.value).sort(), stage: page.facets.stage.values.map((v) => v.value).sort() });
-        }
-      })
-      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') setError('Could not load jobs right now.'); })
+    let shown = Boolean(known);
+    const draw = (page) => {
+      if (ctrl.signal.aborted) return;
+      setJobs(page.results);
+      setMatches(page.count);
+      setHasMore(page.hasMore);
+      if (page.facets) { // only a request that asked for them gets them: the first, before any filter is chosen (the snapshot's and then the server's)
+        needOptions.current = false;
+        setHaveOptions(true);
+        setHiringTotal(page.count);
+        if (page !== first) setOptions(optionsOf(page)); // (the snapshot's own are already in)
+      }
+    };
+    fetchStartupPage({ hiring: 'yes', ...filters }, {
+      limit: PAGE, offset: 0, sort: 'name', facets: needOptions.current ? FACETS : undefined, signal: ctrl.signal,
+      onSnapshot: (page) => { shown = true; draw(page); if (!ctrl.signal.aborted) setLoading(false); },
+    })
+      .then(draw)
+      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError' && !shown) setError('Could not load jobs right now.'); })
       .finally(() => { if (!ctrl.signal.aborted) setLoading(false); });
     return () => ctrl.abort();
   }, [filters]);
@@ -100,8 +116,8 @@ export default function JobsView({ onClose }) {
       <div className="jobs-header">
         <div>
           <h1>Startup jobs in Australia</h1>
-          {haveOptions.current && !error && <p className="jobs-subhead">{hiringTotal} {hiringTotal === 1 ? 'company is' : 'companies are'} hiring now</p>}
-          {haveOptions.current && !error && <p className="jobs-subhead">Only companies whose open roles were read from a page are listed. A company marked as hiring that no page backs is not.</p>}
+          {haveOptions && !error && <p className="jobs-subhead">{hiringTotal} {hiringTotal === 1 ? 'company is' : 'companies are'} hiring now</p>}
+          {haveOptions && !error && <p className="jobs-subhead">Only companies whose open roles were read from a page are listed. A company marked as hiring that no page backs is not.</p>}
         </div>
       </div>
 
@@ -130,7 +146,7 @@ export default function JobsView({ onClose }) {
           </div>
         )}
 
-        {!loading && !error && haveOptions.current && hiringTotal === 0 && (
+        {!loading && !error && haveOptions && hiringTotal === 0 && (
           <p className="modal-sub">No company has open roles checked against its own pages right now.</p>
         )}
         {!loading && !error && hiringTotal > 0 && jobs.length === 0 && (

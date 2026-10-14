@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import {
-  createPinIndex, paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS,
+  paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS,
   labelsVisible, labelWidth, chooseLabels, LABEL_ZOOM, LABEL_ZOOM_NARROW, MAX_LABELS,
 } from '../src/mapPins.js';
+import { createPinIndex } from '../src/pinIndex.js';
 
 // [slug, name, lat, lng, sector, city, hiring, domain]
 const pin = (slug, lat, lng, extra = {}) => [slug, extra.name ?? slug.toUpperCase(), lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? ''];

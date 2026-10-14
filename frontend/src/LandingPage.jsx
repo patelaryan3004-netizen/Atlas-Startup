@@ -13,26 +13,26 @@ import IndexRow, { cardId } from './components/IndexRow.jsx';
 import { appPath } from './appRoute.js';
 import ConceptPreview from './components/ConceptPreview.jsx';
 import VerifiedNote, { UnverifiedBadge } from './components/VerifiedNote.jsx';
-import { curatedLists } from './curatedLists.js';
 import { showPeople } from './flags.js';
+import { CardGridSkeleton } from './components/Skeletons.jsx';
+import { peek } from './peek.js';
+import { HIRING_SAMPLE, LANDING_LISTS_SHOWN as LISTS_SHOWN, LANDING_LISTS as FILTER_LISTS } from './snapshotRequests.js';
 import './landing.css';
 import './landing-hero.css';
 
-// The curated views show six lists.
-const LISTS_SHOWN = 6;
-
 // Only the startup-filtering lists fit this showcase (a list of people has no company count and is not a live filter),
-// and the page shows the first six, so it asks for the counts of those six and no more.
-const FILTER_LISTS = curatedLists.filter((list) => list.type === 'filter').slice(0, LISTS_SHOWN);
+// and the page shows the first six, so it asks for the counts of those six and no more (snapshotRequests.js).
 
-// The companies that are hiring now, asked for once (enough to name some in most capitals in the hero's picture). The section shows six
-// cards, and six more each time "Load more" is pressed.
-const HIRING_SAMPLE = 80;
+// The companies that are hiring now, asked for once (enough to name some in most capitals in the hero's picture; HIRING_SAMPLE). The
+// section shows six cards, and six more each time "Load more" is pressed.
 const HIRING_AT_FIRST = 6;
 const HIRING_STEP = 6;
 
 // How many of those worth following the page shows: three people, or three firms while no person is listed.
 const PEOPLE_CARDS = 3;
+
+// The server's counts, in the order the lists were asked in, by the list they are of; one it did not send is 0.
+const countsByList = ({ counts: found }) => Object.fromEntries(FILTER_LISTS.map((list, i) => [list.id, found[i] ?? 0]));
 
 // The sections, in the order they run and under the numbers the page always gives them: 01 Map, 02 People, 03 Lists, 04 How we verify.
 // A section the page has nothing for (no people and no firms) is not drawn, and the numbers after it close the gap.
@@ -43,19 +43,33 @@ export function sectionNumbers({ people }) {
 
 // The page asks for what it shows (counts, the companies that are hiring, the map's pins), never for every company.
 export default function LandingPage() {
-  const [stats, setStats] = useState(null);
-  const [hiringSample, setHiringSample] = useState([]);
+  // What the snapshot already holds is what the first paint has (peek.js), so the figures, the cards and the picture are there at once and
+  // nothing moves when the server's answers come; with no snapshot the page starts empty, as before.
+  const [first] = useState(() => ({
+    stats: peek.summary({}),
+    hiring: peek.startupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file' }),
+    pins: peek.markers({}),
+    counts: peek.counts(FILTER_LISTS.map((list) => list.filters)),
+  }));
+  const [stats, setStats] = useState(first.stats);
+  const [hiringSample, setHiringSample] = useState(first.hiring?.results ?? []);
+  const [hiringLoading, setHiringLoading] = useState(!first.hiring); // until the companies hiring now arrive (or fail to): cards' placeholders show
   const [shownHiring, setShownHiring] = useState(HIRING_AT_FIRST);
-  const [markers, setMarkers] = useState([]);
-  const [areas, setAreas] = useState([]);
-  const [counts, setCounts] = useState({});
+  const [markers, setMarkers] = useState(first.pins?.items ?? []);
+  const [areas, setAreas] = useState(first.pins?.areas ?? []);
+  const [counts, setCounts] = useState(() => (first.counts ? countsByList(first.counts) : {}));
   const [people, setPeople] = useState([]);
   const [firms, setFirms] = useState([]);
 
   const peopleOn = showPeople(); // VITE_SHOW_PEOPLE (flags.js): without it the page asks for no person and no firm, and has no People section
 
+  // Each question is asked of the API, and answered at once from the snapshot file when it holds the answer (api.js, snapshot.js): the page
+  // draws its first screen without waiting on the API server, which the answer then replaces (or confirms).
   useEffect(() => {
-    fetchSummary({}).then(setStats).catch(() => {});
+    const applyHiring = ({ results }) => { setHiringSample(results); setHiringLoading(false); };
+    const applyMarkers = ({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); };
+    const applyCounts = (answer) => setCounts(countsByList(answer));
+    fetchSummary({}, { onSnapshot: setStats }).then(setStats).catch(() => {});
     // The people worth following, if the owner has listed any. With none, the section shows the firms published in the investor
     // directory instead: real, checked, and the same card.
     if (peopleOn) {
@@ -67,12 +81,10 @@ export default function LandingPage() {
         })
         .catch(() => {});
     }
-    fetchStartupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file' }).then(({ results }) => setHiringSample(results)).catch(() => {});
-    fetchMarkers({}).then(({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); }).catch(() => {});
-    // Every list's count in one request, not one each; a count that could not be had is 0, as before.
-    fetchCounts(FILTER_LISTS.map((list) => list.filters))
-      .then(({ counts: found }) => found, () => [])
-      .then((found) => setCounts(Object.fromEntries(FILTER_LISTS.map((list, i) => [list.id, found[i] ?? 0]))));
+    fetchStartupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file', onSnapshot: applyHiring }).then(applyHiring).catch(() => setHiringLoading(false));
+    fetchMarkers({}, { onSnapshot: applyMarkers }).then(applyMarkers).catch(() => {});
+    // Every list's count in one request, not one each; a count that could not be had is 0, as before (the page reads a missing one as 0).
+    fetchCounts(FILTER_LISTS.map((list) => list.filters), { onSnapshot: applyCounts }).then(applyCounts).catch(() => {});
   }, [peopleOn]);
 
   const hasPeopleSection = peopleOn && (people.length > 0 || firms.length > 0);
@@ -100,6 +112,11 @@ export default function LandingPage() {
               </p>
             </Reveal>
           </div>
+          {hiringShown.length === 0 && hiringLoading && (
+            <div className="l-grid">
+              <CardGridSkeleton className="landing-job-grid" count={HIRING_AT_FIRST} />
+            </div>
+          )}
           {hiringShown.length > 0 && (
             <div className="l-grid">
               <IndexRow items={hiringShown.map((s) => ({ id: cardId('hiring', s.slug || s.name), name: s.name }))} what="the companies hiring" />

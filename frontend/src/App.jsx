@@ -3,7 +3,6 @@ import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchStart
 import FilterPanel from './components/FilterPanel.jsx';
 import HeaderMenu from './components/HeaderMenu.jsx';
 import SearchBar from './components/SearchBar.jsx';
-import NewsTicker from './components/NewsTicker.jsx';
 import MapKey from './components/MapKey.jsx';
 import MapLayers from './components/MapLayers.jsx';
 import { getPersonProfile } from './people.js';
@@ -24,11 +23,14 @@ import { useTrackedStartups } from './hooks/useTrackedStartups.js';
 import { lazyView, Lazy } from './lazyLoad.jsx';
 import { HOME_PATH, MAP_PATH } from './paths.js';
 import { isPlainClick } from './components/SiteBrand.jsx';
+import { ListSkeleton, MapPlaceholder } from './components/Skeletons.jsx';
+import { peek } from './peek.js';
 
 // Fetched when first wanted, not with the page: the pages (the map and its library, the list, the jobs board, the investors, the
-// news), the company's panel and every dialog. What stays here is what every visit draws at once: the header, search, filters,
-// the news ticker, the map's key and the footer.
+// news, the people), the news ticker (once the page has settled), the company's panel and every dialog. What stays here is what every
+// visit draws at once: the header, search, filters, the map's key and the footer.
 const MapView = lazyView(() => import('./components/MapView.jsx'));
+const NewsTicker = lazyView(() => import('./components/NewsTicker.jsx'));
 const ListView = lazyView(() => import('./components/ListView.jsx'));
 const JobsView = lazyView(() => import('./components/JobsView.jsx'));
 const InvestorsView = lazyView(() => import('./components/investors/InvestorsView.jsx'));
@@ -48,6 +50,21 @@ const CuratedLists = lazyView(() => import('./components/CuratedLists.jsx'));
 
 // What shows while a page's file arrives: the page's own words, over the dark background the page already has.
 const loading = (what) => <div className="view-loading" role="status">Loading {what}…</div>;
+
+// True once the browser has nothing better to do (a moment after the page is up), so a part the first view does not need is asked for
+// then and not alongside the page's own files. A browser without requestIdleCallback waits a short fixed time.
+function useWhenIdle() {
+  const [idle, setIdle] = useState(false);
+  useEffect(() => {
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(() => setIdle(true), { timeout: 2500 });
+      return () => window.cancelIdleCallback?.(id);
+    }
+    const timer = setTimeout(() => setIdle(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+  return idle;
+}
 
 
 // precision (EXACT, SUBURB, CITY, STATE) is how well a company's place is known, and state its state: a group on the
@@ -148,13 +165,17 @@ export default function App() {
   const peopleOn = showPeople(); // VITE_SHOW_PEOPLE: without it the People page, its links and the firms on the map do not exist (flags.js)
   // The page is in the address bar (appRoute.js): a link opens it, Back leaves it.
   const [route, setRoute] = useState(readAppRoute);
-  const [meta, setMeta] = useState(EMPTY_META);
   const [filters, setFilters] = useState(() => initialFilters(route));
   const applied = useAppliedFilters(filters);
-  const [summary, setSummary] = useState(null);
-  const [stats, setStats] = useState(null);
-  const [markers, setMarkers] = useState([]);
-  const [areas, setAreas] = useState([]);
+  // What the snapshot already holds is what the first paint has (peek.js): the filters' options, the counts and, on the map, the pins. An
+  // address with filters asks something the snapshot does not hold, so those start empty and the API answers, as before.
+  const startsOnMap = !(initialView === 'list' || route.kind === 'list');
+  const [first] = useState(() => ({ meta: peek.meta(), stats: peek.summary({}), summary: peek.summary(applied), pins: startsOnMap ? peek.markers(applied) : null }));
+  const [meta, setMeta] = useState(first.meta ?? EMPTY_META);
+  const [summary, setSummary] = useState(first.summary);
+  const [stats, setStats] = useState(first.stats);
+  const [markers, setMarkers] = useState(first.pins?.items ?? []);
+  const [areas, setAreas] = useState(first.pins?.areas ?? []);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [layers, setLayers] = useState(loadLayers);
   const [basemap, setBasemap] = useState(loadBasemap);
@@ -182,6 +203,7 @@ export default function App() {
   const [selectedStartup, setSelectedStartup] = useState(null);
   const [selectedPersonName, setSelectedPersonName] = useState(null);
   const [personCompanies, setPersonCompanies] = useState([]);
+  const newsReady = useWhenIdle();
 
   // A page that is opened from another is a step of its own in the history (marked, so closing it can go Back and land where the
   // visitor was); one opened from a link is not, and closing it puts the map at the root.
@@ -253,17 +275,20 @@ export default function App() {
     else if (!sameFilters(filters, listFilters(activeList))) goTo({ kind: 'explore' }, { replace: true });
   }, [route, activeList, filters, goTo]);
 
+  // The first views draw from the snapshot file when it holds the answer (api.js, snapshot.js), and the API's answer then replaces it. An API
+  // that cannot be reached leaves what the snapshot gave; with no snapshot either, these stay as they start (empty options, no counts).
   useEffect(() => {
-    fetchMeta().then(setMeta).catch(() => setMeta(EMPTY_META));
+    fetchMeta({ onSnapshot: setMeta }).then(setMeta).catch(() => {});
     // The whole directory's counts, once: the Jobs link says how many are hiring however the map is filtered.
-    fetchSummary({}).then(setStats).catch(() => setStats(null));
+    fetchSummary({}, { onSnapshot: setStats }).then(setStats).catch(() => {});
   }, []);
 
   useEffect(() => {
     const ctrl = new AbortController();
-    fetchSummary(applied, { signal: ctrl.signal })
+    let shown = false;
+    fetchSummary(applied, { signal: ctrl.signal, onSnapshot: (found) => { shown = true; setSummary(found); } })
       .then((found) => { if (!ctrl.signal.aborted) setSummary(found); })
-      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setSummary(null); });
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err) && !shown) setSummary(null); });
     return () => ctrl.abort();
   }, [applied]);
 
@@ -271,9 +296,11 @@ export default function App() {
   useEffect(() => {
     if (viewMode !== 'map') return undefined;
     const ctrl = new AbortController();
-    fetchMarkers(applied, { signal: ctrl.signal })
-      .then(({ items, areas: groups }) => { if (!ctrl.signal.aborted) { setMarkers(items); setAreas(groups ?? []); } })
-      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) { setMarkers([]); setAreas([]); } });
+    let shown = false;
+    const draw = ({ items, areas: groups }) => { if (!ctrl.signal.aborted) { setMarkers(items); setAreas(groups ?? []); } };
+    fetchMarkers(applied, { signal: ctrl.signal, onSnapshot: (found) => { shown = true; draw(found); } })
+      .then(draw)
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err) && !shown) { setMarkers([]); setAreas([]); } });
     return () => ctrl.abort();
   }, [applied, viewMode]);
 
@@ -494,7 +521,7 @@ export default function App() {
         />
       )}
 
-      <Lazy fallback={loading(viewMode === 'map' ? 'the map' : 'the list')}>
+      <Lazy fallback={viewMode === 'map' ? <MapPlaceholder basemap={basemap} /> : <ListSkeleton />}>
         {viewMode === 'map' ? (
           <MapView
             markers={markers}
@@ -552,7 +579,7 @@ export default function App() {
         />
       )}
 
-      <NewsTicker visible={newsVisible} onClose={toggleNews} />
+      {newsReady && <Lazy><NewsTicker visible={newsVisible} onClose={toggleNews} /></Lazy>}
 
       <BottomCapsule pinnedCount={pinnedCount} viewMode={viewMode} onSetViewMode={setViewMode} />
 

@@ -66,6 +66,42 @@ describe('what the first visit downloads', () => {
   });
 });
 
+describe('what the first paint waits for', () => {
+  it('is served with the page: index.html asks no other site for a stylesheet, a script or a connection', () => {
+    expect(html).not.toMatch(/<link[^>]+(?:href|src)="https?:\/\//);
+    expect(html).not.toMatch(/<script[^>]+src="https?:\/\//);
+    expect(html).not.toMatch(/googleapis|gstatic|cdnjs/);
+  });
+
+  it('starts the typeface and the snapshot early: a preload for the Latin Inter file, and the snapshot\'s download before any script runs', () => {
+    expect(html).toMatch(/<link rel="preload" as="font" type="font\/woff2" href="\/assets\/inter-latin-wght-normal-[^"]+\.woff2" crossorigin/);
+    expect(html).toContain("fetch('/data/snapshot.json')");
+  });
+
+  it('names the files of the page an address opens, so the browser asks for them with the app\'s own instead of a round trip later', async () => {
+    const files = JSON.parse(/files = (\{.*?\});/s.exec(html)[1]);
+    // the app, the map, the list and the jobs board; not the landing page (measured: preloading its files made its largest paint later)
+    expect(Object.keys(files).sort()).toEqual(['app', 'jobs', 'list', 'map']);
+    const names = await readdir(path.join(dist, 'assets'));
+    for (const [kind, { js, css }] of Object.entries(files)) {
+      for (const file of [...js, ...css]) expect(names, `${kind}: ${file}`).toContain(file.replace('/assets/', ''));
+      expect(js.some((f) => f.includes(entry())), `${kind} does not repeat the entry`).toBe(false);
+    }
+    expect(files.map.js.some((f) => /leaflet-.*\.js$/.test(f)) && files.map.css.some((f) => /leaflet-.*\.css$/.test(f))).toBe(true);
+    expect(files.list.js.some((f) => /ListView-/.test(f))).toBe(true);
+    expect(files.jobs.js.some((f) => /JobsView-/.test(f))).toBe(true);
+    expect(Object.values(files).flatMap((f) => f.js).some((f) => /react-/.test(f))).toBe(false); // React is index.html's own
+  });
+
+  it('sets the typeface to swap in, so text is drawn at once in the system face and never waits for the file', async () => {
+    const own = /<link rel="stylesheet"[^>]*href="\/assets\/([^"]+\.css)"/.exec(html)[1];
+    const css = await readFile(path.join(dist, 'assets', own), 'utf8');
+    const faces = css.match(/@font-face\{[^}]*Inter Variable[^}]*\}/g) ?? [];
+    expect(faces.length).toBeGreaterThan(0);
+    for (const face of faces) expect(face).toMatch(/font-display:\s*swap/);
+  });
+});
+
 describe('what each page downloads', () => {
   const sizeOf = (names) => bytes(closure(names[0]));
 
@@ -87,6 +123,27 @@ describe('what each page downloads', () => {
     // a visit to /welcome: the entry, the page, and what they share
     const visit = new Set([...closure(entry()), ...landing]);
     expect(bytes(visit)).toBeLessThan(LIMIT + 60_000);
+  });
+
+  it('keeps Supercluster (the pins\' grouping) to the map: the list, the jobs board and the landing page never download it', () => {
+    const carrier = Object.keys(files).filter((n) => files[n].includes('getClusterExpansionZoom'));
+    expect(carrier, 'one file carries Supercluster').toHaveLength(1);
+    expect(closure(called('MapView')[0]).has(carrier[0])).toBe(true);
+    for (const piece of ['App', 'LandingPage', 'ListView', 'JobsView', 'StartupDetailPanel']) {
+      expect(closure(called(piece)[0]).has(carrier[0]), `${piece} would load Supercluster`).toBe(false);
+    }
+    expect(closure(entry()).has(carrier[0])).toBe(false);
+  });
+
+  it('keeps Leaflet\'s stylesheet to the map: it is not in the page\'s own stylesheet', async () => {
+    const own = /<link rel="stylesheet"[^>]*href="\/assets\/([^"]+\.css)"/.exec(html)[1];
+    const css = await readFile(path.join(dist, 'assets', own), 'utf8');
+    // (the page's own sheet has a few rules of its own for Leaflet's classes; Leaflet's sheet is the one that moves the map's panes about)
+    expect(css).not.toContain('leaflet-zoom-animated');
+    const names = await readdir(path.join(dist, 'assets'));
+    const sheets = names.filter((n) => n.endsWith('.css') && n.startsWith('leaflet-'));
+    expect(sheets).toHaveLength(1);
+    expect(await readFile(path.join(dist, 'assets', sheets[0]), 'utf8')).toContain('leaflet-zoom-animated');
   });
 
   it('keeps each dialog and view small: the largest piece besides the libraries is a page, and it is a file of its own', () => {
