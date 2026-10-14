@@ -26,7 +26,17 @@ export function tallyEmbed(url) {
 // The nomination form should ask for: name, a link, role type (founder, operator, investor), why they are worth following, and a
 // checkbox "I am nominating myself or have asked them". The removal form is opened with name, id and type filled in as hidden fields
 // (Tally reads them from the address), so a request says which card it is about.
-export const NOMINATE_URL = import.meta.env.VITE_TALLY_NOMINATE_URL || 'TALLY_NOMINATE_URL_HERE';
+// ---------- the Contact page ----------
+//
+// The Contact page shows a Tally form in a frame. Until its address is put here the page says the form is not set up yet (and points to
+// "Suggest an edit" on a company's page) rather than showing a broken frame or an email address. To set it up, make the form in Tally and
+// put its share link (https://tally.so/r/<id>) in VITE_TALLY_CONTACT_URL (a build setting on Vercel), or replace the placeholder below.
+//
+// The form should ask for: a name (optional), an email address to answer to, what it is about (a correction, a removal, a question), the
+// company, investor or person it concerns, a link to a page that shows it, and the message.
+export const CONTACT_URL = import.meta.env.VITE_TALLY_CONTACT_URL || 'TALLY_CONTACT_URL_HERE';
+
+export const NOMINATE_URL =import.meta.env.VITE_TALLY_NOMINATE_URL || 'TALLY_NOMINATE_URL_HERE';
 export const REMOVAL_URL = import.meta.env.VITE_TALLY_REMOVAL_URL || 'TALLY_REMOVAL_URL_HERE';
 
 export const NOMINATE_FIELDS = [

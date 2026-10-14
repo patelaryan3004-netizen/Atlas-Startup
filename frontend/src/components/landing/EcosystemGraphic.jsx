@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { DOT_SIZE, GRID_PATH, VIEW, layoutEcosystem } from './australia.js';
 
 const percent = (value, of) => `${((value / of) * 100).toFixed(3)}%`;
@@ -11,11 +11,15 @@ const companyHref = (name) => `/?view=list&search=${encodeURIComponent(name)}`;
 export default function EcosystemGraphic({ pins, areas, companies }) {
   const art = useMemo(() => layoutEcosystem({ pins, areas, companies }), [pins, areas, companies]);
   const drawn = art.lit.length > 0 || art.hubs.length > 0;
+  // The drawing of the dots is a big, decorative path: it is drawn once the page is up, not written into the page's HTML (a page drawn as HTML paints
+  // sooner without it). The names and counts of the cities, which are the picture's words, are in the HTML.
+  const [ready, setReady] = useState(false);
+  useEffect(() => { setReady(true); }, []);
 
   return (
     <figure className="eco" aria-hidden={drawn ? undefined : 'true'}>
       <div className="eco-stage">
-        <svg className="eco-svg" viewBox={`0 0 ${VIEW.width} ${VIEW.height}`} focusable="false" aria-hidden="true">
+        {ready && <svg className="eco-svg" viewBox={`0 0 ${VIEW.width} ${VIEW.height}`} focusable="false" aria-hidden="true">
           <path className="eco-grid" d={GRID_PATH} strokeWidth={DOT_SIZE} />
           <g className="eco-routes">
             {art.links.map((link, i) => (
@@ -35,7 +39,7 @@ export default function EcosystemGraphic({ pins, areas, companies }) {
               <circle key={hub.id} className="eco-ring" cx={hub.x} cy={hub.y} r="6.5" />
             ))}
           </g>
-        </svg>
+        </svg>}
 
         <ul className="eco-cities">
           {art.hubs.map((hub) => (

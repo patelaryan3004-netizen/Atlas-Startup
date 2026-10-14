@@ -1,4 +1,4 @@
-import { fetchSummary, fetchMeta, fetchMarkers, fetchStartupPage, fetchCounts } from './api.js';
+import { fetchSummary, fetchMeta, fetchMarkers, fetchStartupPage, fetchCounts, fetchInvestors } from './api.js';
 import { curatedLists } from './curatedLists.js';
 
 // What the first views of the busiest pages ask the API, in one place. The pages ask with these sizes and these lists, and the snapshot file
@@ -22,4 +22,14 @@ export const FIRST_VIEWS = [
   () => fetchCounts(LANDING_LISTS.map((list) => list.filters)), // the landing page's lists
   () => fetchStartupPage({}, { limit: LIST_PAGE, offset: 0, sort: 'name' }), // the list of startups
   () => fetchStartupPage({ hiring: 'yes' }, { limit: JOBS_PAGE, offset: 0, sort: 'name', facets: 'sector,city,stage' }), // the jobs board
+];
+
+// What the pre-render needs besides the snapshot (scripts/prerender.mjs): the static pages for /lists and /investors are made from these at
+// build time. They are kept in frontend/prerender-data.json, which the site does not serve (the snapshot, which it serves, holds only
+// FIRST_VIEWS). Every curated list that filters companies, with its count; and every published investor.
+export const ALL_LISTS = curatedLists.filter((list) => list.type === 'filter');
+export const INVESTORS_ALL = 100;
+export const PRERENDER_VIEWS = [
+  () => fetchCounts(ALL_LISTS.map((list) => list.filters)),
+  () => fetchInvestors({}, { limit: INVESTORS_ALL, offset: 0, sort: 'name' }),
 ];

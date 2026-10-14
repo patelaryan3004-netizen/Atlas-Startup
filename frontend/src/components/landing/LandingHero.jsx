@@ -61,7 +61,7 @@ export default function LandingHero({ stats, pins, areas, companies, number }) {
               Explore the map
               <Arrow />
             </a>
-            <a className="landing-btn-secondary" href="/?view=waitlist">Join waitlist</a>
+            <a className="landing-btn-secondary" href="/?view=submit">Submit a startup</a>
           </div>
         </Reveal>
 

@@ -3,3 +3,6 @@
 //   MAP_PATH   the map: the app, which opens on the map.
 export const HOME_PATH = '/welcome';
 export const MAP_PATH = '/';
+
+// The plain pages that are not the app (InfoPage.jsx): address -> page. Each is drawn as HTML at build (scripts/prerender.mjs) and hydrated.
+export const INFO_PATHS = { '/about': 'about', '/methodology': 'methodology', '/contact': 'contact' };

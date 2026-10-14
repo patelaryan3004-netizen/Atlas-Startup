@@ -590,6 +590,12 @@ export default function App() {
         <span className="tag-sep" aria-hidden="true">·</span>
         <a className="linkbtn" href={DIRECTORY_URL}>Full list (no JS)</a>
         <span className="tag-sep" aria-hidden="true">·</span>
+        <a className="linkbtn" href="/methodology">Methodology</a>
+        <span className="tag-sep" aria-hidden="true">·</span>
+        <a className="linkbtn" href="/about">About</a>
+        <span className="tag-sep" aria-hidden="true">·</span>
+        <a className="linkbtn" href="/contact">Contact</a>
+        <span className="tag-sep" aria-hidden="true">·</span>
         <button className="linkbtn" onClick={() => setShowFeedback(true)}>Feedback</button>
         <span className="tag-sep" aria-hidden="true">·</span>
         <span className="footer-credit">Built by Aryan · Monash University</span>

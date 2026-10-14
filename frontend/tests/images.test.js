@@ -24,7 +24,9 @@ describe('the app owns no picture files to optimise', () => {
     const publicDir = path.resolve(src, '..', 'public');
     const pictures = (dir) => readdirSync(dir, { recursive: true }).filter((f) => /\.(png|jpe?g|gif|webp|avif|bmp|ico|svg)$/i.test(String(f)));
     expect(pictures(src)).toEqual([]);
-    expect(pictures(publicDir)).toEqual([]);
+    // (the two pictures the site serves are the tab icon, favicon.svg, and the preview a link to it shows, og-image.png: no page draws either,
+    // so there is nothing to optimise in the app)
+    expect(pictures(publicDir).sort()).toEqual(['favicon.svg', 'og-image.png']);
     for (const file of sources()) {
       expect(text(file), rel(file)).not.toMatch(/(?:import|url\()\s*\(?['"]?[^'")\s]*\.(png|jpe?g|gif|webp|avif|bmp)/i);
     }

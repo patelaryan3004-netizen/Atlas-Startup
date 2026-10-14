@@ -54,21 +54,21 @@ describe('LandingPage', () => {
       expect(hero()).toHaveTextContent('Discover startups, founders, investors and jobs across Australia — all in one place.');
     });
 
-    it('has two calls to action and only two, going to the real app: the map, and the waitlist', async () => {
+    it('has two calls to action and only two, going to the real app: the map, and submitting a startup', async () => {
       render(<LandingPage />);
       const ctas = [...hero().querySelectorAll('.landing-cta-row a')];
-      expect(ctas.map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Explore the map', '/'], ['Join waitlist', '/?view=waitlist']]);
+      expect(ctas.map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Explore the map', '/'], ['Submit a startup', '/?view=submit']]);
       // the closing call to action keeps the map first
       screen.getAllByRole('link', { name: 'Explore the map' }).forEach((link) => expect(link).toHaveAttribute('href', '/'));
     });
 
-    it('has a minimal navigation: the map, the people and the lists, with a way into the app for each, and no sign-in because there are no accounts', async () => {
+    it('has a navigation of the map, the list, the people, the lists and the three pages of trust, and no sign-in because there are no accounts', async () => {
       render(<LandingPage />);
       const nav = screen.getByRole('navigation', { name: 'Main' });
-      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['People', '/people'], ['Lists', '/lists']]);
+      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['List', '/?view=list'], ['People', '/people'], ['Lists', '/lists'], ['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact']]);
       // the header's pill, and the hero's second call to action, both open the same form
-      screen.getAllByRole('link', { name: 'Join waitlist' }).forEach((link) => expect(link).toHaveAttribute('href', '/?view=waitlist'));
-      expect(within(document.querySelector('.landing-nav')).getByRole('link', { name: 'Join waitlist' })).toBeInTheDocument();
+      screen.getAllByRole('link', { name: 'Submit a startup' }).forEach((link) => expect(link).toHaveAttribute('href', '/?view=submit'));
+      expect(within(document.querySelector('.landing-nav')).getByRole('link', { name: 'Submit a startup' })).toBeInTheDocument();
       expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#main');
       expect(document.getElementById('main').tagName).toBe('MAIN');
@@ -303,7 +303,7 @@ describe('LandingPage', () => {
       expect(container.textContent).not.toMatch(/Ada Example|Blackbird|See everyone/);
       expect([...container.querySelectorAll('.sec-rule')].map((r) => r.textContent)).toEqual(['01Map', '02Lists', '03How we verify']);
       const nav = screen.getByRole('navigation', { name: 'Main' });
-      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['Lists', '/lists']]);
+      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['List', '/?view=list'], ['Lists', '/lists'], ['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact']]);
     });
 
     it('has no People section when there are neither people nor firms, and does not leave a gap in the numbers', async () => {
@@ -348,7 +348,7 @@ describe('LandingPage', () => {
       expect([...verify.querySelectorAll('dt')].map((d) => d.textContent)).toEqual(['Where it comes from', 'What “hiring now” means', 'Who reviews it']);
       for (const dd of verify.querySelectorAll('dd')) expect(dd.textContent.length, dd.textContent).toBeLessThan(260);
       expect(verify.textContent).toContain('last 14 days');
-      expect(container.textContent).not.toMatch(/LinkedIn|Crunchbase/);
+      expect(verify.textContent).not.toMatch(/LinkedIn|Crunchbase/);
     });
   });
 
@@ -363,19 +363,20 @@ describe('LandingPage', () => {
       const { container } = render(<LandingPage />);
       const columns = [...container.querySelectorAll('.footer-column')].map((c) => [c.querySelector('.footer-title').textContent, [...c.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])]);
       expect(columns.map(([title]) => title)).toEqual(['Explore', 'Directory', 'Take part', 'Trust']);
-      expect(columns[0][1]).toEqual([['Map', '/'], ['People', '/people'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
+      expect(columns[0][1]).toEqual([['Map', '/'], ['List', '/?view=list'], ['People', '/people'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
       expect(columns[1][1]).toEqual([['Investors', '/investors'], ['News', '/news'], ['Full list, no JavaScript', '/directory']]);
       expect(columns[2][1]).toEqual([['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ['Nominate someone', '/people']]);
-      expect(columns[3][1]).toEqual([['How we verify', '#verify'], ['Privacy', '#privacy'], ['Terms', '#terms']]);
-      for (const [, links] of columns) expect(links.length).toBeLessThanOrEqual(4);
+      expect(columns[3][1]).toEqual([['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact'], ['Privacy', '#privacy'], ['Terms', '#terms']]);
+      for (const [, links] of columns) expect(links.length).toBeLessThanOrEqual(5);
       expect(container.querySelector('.footer-built')).toHaveTextContent('Built by Aryan · Monash University');
+      expect(within(container.querySelector('.footer-built')).getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/in/aryaninspires');
     });
 
     it('has no People link and no "Nominate someone" with the people switched off, and a column of three where there were four', async () => {
       vi.stubEnv('VITE_SHOW_PEOPLE', '');
       const { container } = render(<LandingPage />);
       const columns = [...container.querySelectorAll('.footer-column')].map((c) => [...c.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')]));
-      expect(columns[0]).toEqual([['Map', '/'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
+      expect(columns[0]).toEqual([['Map', '/'], ['List', '/?view=list'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
       expect(columns[2]).toEqual([['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist']]);
       expect(container.querySelector('.landing-footer').innerHTML).not.toContain('/people');
     });
@@ -396,9 +397,10 @@ describe('LandingPage', () => {
       window.location.hash = '';
     });
 
-    it('flags business details as an unfilled draft rather than inventing them, in both Privacy and Terms', async () => {
+    it('points to who runs the site and how to reach them, says no business registration details are published, and flags the terms as an unreviewed draft', async () => {
       render(<LandingPage />);
-      expect(screen.getByText(/operator.s name and contact details are not published yet/)).toBeInTheDocument();
+      expect(screen.getByText(/No business registration details are published yet/)).toBeInTheDocument();
+      expect(within(document.querySelector('#privacy')).getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
       expect(screen.getByText(/Draft: not yet reviewed by a lawyer/)).toBeInTheDocument();
     });
 

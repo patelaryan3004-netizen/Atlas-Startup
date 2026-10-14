@@ -53,7 +53,9 @@ Open http://localhost:5173 and look at: `/` (map), `/?view=list`, `/jobs`, `/lis
 - [ ] 14 companies carry the "Unverified" badge, and 73 of 216 have no verified date (nothing is shown for them).
 - [ ] Investors: 19 published. Four named firms are still unverified (Tank Stream, Skip, Investible, Startmate). 58 portfolio links are recorded; `link --apply` has not been run.
 - [ ] Pass 2 (remote policy, tech stack, last role seen, read from the 24 verified companies' own postings) is staged in `backend/scripts/enrich/pass2_findings.json` and **not merged**. Until it is, those facts show nowhere.
-- [ ] There is no sitemap, so nothing can list a person or a firm there.
+- [ ] `sitemap.xml` lists only the seven pre-rendered pages (no company, person or firm page), and `/people` is not pre-rendered, so nothing can list a person or a firm there. See [prerender-and-seo.md](prerender-and-seo.md).
+- [ ] **Contact form**: `/contact` says the form is not set up until `VITE_TALLY_CONTACT_URL` is a Tally link (make the form, then set it on Vercel). Open `/about`, `/methodology` and `/contact` and read each once: they say what is true today (no schedule, no accounts, people switched off).
+- [ ] The in-app About & sources window still lists LinkedIn among the sources, while `/methodology` says nothing is taken from LinkedIn or Crunchbase: make them agree.
 
 ## Design (Stage 9), checked by machine; look at it too
 

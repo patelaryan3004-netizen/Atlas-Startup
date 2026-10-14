@@ -155,6 +155,7 @@
 .footer-legal details{ scroll-margin-top: 80px; }
 .footer-legal p{ margin: 0 0 var(--l-space-1); font-size: var(--fs-body); line-height: 1.6; color: var(--muted); }
 .footer-built{ margin: var(--l-space-3) 0 0; font-size: var(--fs-body); font-weight: 600; }
+.footer-built a, .footer-legal a{ color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .footer-note{ margin: 4px 0 0; font-size: var(--fs-body); color: var(--muted); }
 
 /* How we verify: three short statements, each with its label. */
@@ -162,6 +163,13 @@
 .verify-list div{ display: grid; gap: 4px; }
 .verify-list dt{ font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
 .verify-list dd{ margin: 0; font-size: var(--fs-body); line-height: 1.5; color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
+/* One real entry under the three statements: its name, the page that confirmed it, and the day it was verified. */
+.verify-example{ margin: var(--l-space-3) 0 0; padding: var(--l-space-2); border: 1px solid var(--l-hair); border-radius: var(--card-radius); background: var(--panel); max-width: 60ch; }
+.verify-example figcaption{ margin-bottom: 6px; font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+.verify-example p{ margin: 0; font-size: var(--fs-body); line-height: 1.5; color: var(--l-ink-2); }
+.verify-example-name{ font-weight: 600; color: var(--ink) !important; }
+.verify-example-state{ font-weight: 400; color: var(--accent-ink); }
+.verify-example a{ color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 @media (max-width: 559px){
   .landing-final-cta .landing-cta-row{ flex-direction: column; }
 }

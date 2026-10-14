@@ -2,23 +2,25 @@ import { useEffect, useState } from 'react';
 import { DIRECTORY_URL } from '../../api.js';
 import { appPath } from '../../appRoute.js';
 import { MAP_PATH } from '../../paths.js';
+import { LINKEDIN_URL } from '../../siteMeta.js';
 import { showPeople } from '../../flags.js';
 
 // Four short columns of links: where to go, the directory's other pages, how to take part, and what to trust. Each link is a real
-// address in the app (or an anchor on this page); a column never holds more than four.
+// address in the app; a column never holds more than five.
 // The People link and "Nominate someone" are there only with VITE_SHOW_PEOPLE (flags.js): without it there is no People page to go to.
 export const footerColumns = (people = showPeople()) => [
-  { title: 'Explore', links: [['Map', MAP_PATH], ...(people ? [['People', appPath({ kind: 'people' })]] : []), ['Lists', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
+  { title: 'Explore', links: [['Map', MAP_PATH], ['List', '/?view=list'], ...(people ? [['People', appPath({ kind: 'people' })]] : []), ['Lists', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
   { title: 'Directory', links: [['Investors', '/investors'], ['News', appPath({ kind: 'news' })], ['Full list, no JavaScript', DIRECTORY_URL]] },
   { title: 'Take part', links: [['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ...(people ? [['Nominate someone', appPath({ kind: 'people' })]] : [])] },
-  { title: 'Trust', links: [['How we verify', '#verify'], ['Privacy', '#privacy'], ['Terms', '#terms']] },
+  { title: 'Trust', links: [['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact'], ['Privacy', '#privacy'], ['Terms', '#terms']] },
 ];
 
 // The two legal notes are short and closed until asked for: a link to #privacy or #terms opens its note.
 function useOpenOnHash(ids) {
   const read = () => (typeof window === 'undefined' ? '' : window.location.hash.replace(/^#/, ''));
-  const [hash, setHash] = useState(read);
+  const [hash, setHash] = useState(''); // read after the page is up: the first render is the same on the server (pre-rendered) and in the browser
   useEffect(() => {
+    setHash(read());
     const onChange = () => setHash(read());
     window.addEventListener('hashchange', onChange);
     return () => window.removeEventListener('hashchange', onChange);
@@ -48,7 +50,7 @@ export default function LandingFooter() {
             The submit, edit and nomination forms send what you type to a person who reads it, and we use it for nothing else. The waitlist is
             a form hosted by Tally and loads only when you open it. No account, no tracking cookies, no analytics.
           </p>
-          <p>The operator&rsquo;s name and contact details are not published yet.</p>
+          <p>Who runs this is on the <a href="/about">About</a> page, and messages go through the <a href="/contact">Contact</a> page. No business registration details are published yet.</p>
         </details>
         <details id="terms" open={opened('terms') || undefined}>
           <summary>Terms</summary>
@@ -60,7 +62,7 @@ export default function LandingFooter() {
         </details>
       </div>
 
-      <p className="footer-built">Built by Aryan &middot; Monash University</p>
+      <p className="footer-built">Built by Aryan &middot; Monash University &middot; <a href={LINKEDIN_URL} rel="noopener noreferrer" target="_blank">LinkedIn</a></p>
       <p className="footer-note">A beta, independent project: not affiliated with any company listed.</p>
     </footer>
   );

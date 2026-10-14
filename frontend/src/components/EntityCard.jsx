@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { logoUrl } from '../logo.js';
 import { present } from '../freshness.js';
 
@@ -14,11 +14,19 @@ export function Avatar({ name, website = null, domain = null }) {
   const host = domain ?? domainOf(website);
   const initial = (name || '?').trim().charAt(0).toUpperCase();
   const [state, setState] = useState('pending');
+  const img = useRef(null);
+  // A picture of a page that was pre-rendered may have finished loading before the page was hydrated, and then its load event has come and
+  // gone: ask the picture itself once the page is up. (One that failed stays invisible over the letter, which is what a failed one does.)
+  useEffect(() => {
+    const el = img.current;
+    if (el?.complete && el.naturalWidth > 0) setState('loaded');
+  }, []);
   return (
     <span className="entity-avatar" aria-hidden="true">
       <span className="entity-initial">{initial}</span>
       {host && state !== 'failed' && (
         <img
+          ref={img}
           className={state === 'loaded' ? 'is-loaded' : undefined}
           src={logoUrl(host, 64)}
           width="40"

@@ -16,6 +16,8 @@ import VerifiedNote, { UnverifiedBadge } from './components/VerifiedNote.jsx';
 import { showPeople } from './flags.js';
 import { CardGridSkeleton } from './components/Skeletons.jsx';
 import { peek } from './peek.js';
+import { ClockContext, getPrerenderClock } from './clock.js';
+import { shortDate, hiringLabel } from './freshness.js';
 import { HIRING_SAMPLE, LANDING_LISTS_SHOWN as LISTS_SHOWN, LANDING_LISTS as FILTER_LISTS } from './snapshotRequests.js';
 import './landing.css';
 import './landing-hero.css';
@@ -33,6 +35,16 @@ const PEOPLE_CARDS = 3;
 
 // The server's counts, in the order the lists were asked in, by the list they are of; one it did not send is 0.
 const countsByList = ({ counts: found }) => Object.fromEntries(FILTER_LISTS.map((list, i) => [list.id, found[i] ?? 0]));
+
+// One real entry, to show what the checking looks like: a company hiring now that has both the page that confirmed it and a date it was
+// verified, with that page and that date. It is taken from the data the page already has, so it is never made up; none qualifies, none shown.
+export function exampleEntry(companies) {
+  const company = companies.find((c) => hiringLabel(c).state === 'hiring' && c.hiring_source_url && shortDate(c.last_verified_at));
+  if (!company) return null;
+  let host = null;
+  try { host = new URL(company.hiring_source_url).hostname.replace(/^www\./, ''); } catch (e) { return null; }
+  return { company, host, verified: shortDate(company.last_verified_at) };
+}
 
 // The sections, in the order they run and under the numbers the page always gives them: 01 Map, 02 People, 03 Lists, 04 How we verify.
 // A section the page has nothing for (no people and no firms) is not drawn, and the numbers after it close the gap.
@@ -60,6 +72,9 @@ export default function LandingPage() {
   const [counts, setCounts] = useState(() => (first.counts ? countsByList(first.counts) : {}));
   const [people, setPeople] = useState([]);
   const [firms, setFirms] = useState([]);
+  // "Verified 3 days ago" is read as of the time the page was made until the page is up (clock.js); then as of now.
+  const [clock, setClock] = useState(getPrerenderClock);
+  useEffect(() => { setClock(null); }, []);
 
   const peopleOn = showPeople(); // VITE_SHOW_PEOPLE (flags.js): without it the page asks for no person and no firm, and has no People section
 
@@ -68,7 +83,7 @@ export default function LandingPage() {
   useEffect(() => {
     const applyHiring = ({ results }) => { setHiringSample(results); setHiringLoading(false); };
     const applyMarkers = ({ items, areas: groups }) => { setMarkers(items); setAreas(groups ?? []); };
-    const applyCounts = (answer) => setCounts(countsByList(answer));
+    const applyCounts = (answer) => { const next = countsByList(answer); setCounts((now) => (FILTER_LISTS.every((list) => now[list.id] === next[list.id]) ? now : next)); };
     fetchSummary({}, { onSnapshot: setStats }).then(setStats).catch(() => {});
     // The people worth following, if the owner has listed any. With none, the section shows the firms published in the investor
     // directory instead: real, checked, and the same card.
@@ -92,8 +107,10 @@ export default function LandingPage() {
   const hiringCount = stats?.hiring ?? 0;
   const listCounts = FILTER_LISTS.map((list) => ({ ...list, count: counts[list.id] ?? 0 }));
   const hiringShown = hiringSample.slice(0, shownHiring);
+  const example = exampleEntry(hiringSample);
 
   return (
+    <ClockContext.Provider value={clock}>
     <div className="landing">
       <a className="landing-skip" href="#main">Skip to content</a>
       <LandingNav />
@@ -227,6 +244,20 @@ export default function LandingPage() {
                   <dd>A person reviews every submission before it changes the map. Where only a city is known, the pin says so.</dd>
                 </div>
               </dl>
+              {example && (
+                <figure className="verify-example">
+                  <figcaption>An example entry</figcaption>
+                  <p className="verify-example-name">
+                    <a href={appPath({ kind: 'startup', slug: example.company.slug || example.company.name })}>{example.company.name}</a>
+                    <span className="verify-example-state"> &middot; Hiring now</span>
+                  </p>
+                  <p>
+                    Source: <a href={example.company.hiring_source_url} rel="noopener noreferrer" target="_blank">{example.host}</a>, its own job page.
+                    {' '}Verified {example.verified}.
+                  </p>
+                </figure>
+              )}
+              <p className="landing-block-foot"><a className="landing-inline-link" href="/methodology">How we verify, in full →</a></p>
             </Reveal>
           </div>
         </section>
@@ -235,12 +266,13 @@ export default function LandingPage() {
           <Reveal as="h2">Start exploring.</Reveal>
           <Reveal className="landing-cta-row" index={1}>
             <a className="landing-btn-primary" href="/">Explore the map</a>
-            <a className="landing-btn-secondary" href="/?view=waitlist">Join waitlist</a>
+            <a className="landing-btn-secondary" href="/?view=submit">Submit a startup</a>
           </Reveal>
         </section>
       </main>
 
       <LandingFooter />
     </div>
+    </ClockContext.Provider>
   );
 }

@@ -3,12 +3,12 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { preloadInter, preloadPages } from './vitePreload.js';
+import { preloadInter, preloadPages, writePrerenderManifest } from './vitePreload.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), preloadInter(), preloadPages()],
+  plugins: [react(), tailwindcss(), preloadInter(), preloadPages(), writePrerenderManifest()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

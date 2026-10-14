@@ -1,17 +1,26 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm ci",
+  "buildCommand": "npm run build",
   "rewrites": [
-    { "source": "/welcome", "destination": "/index.html" },
-    { "source": "/welcome/", "destination": "/index.html" },
-    { "source": "/investors", "destination": "/index.html" },
-    { "source": "/investors/:path*", "destination": "/index.html" },
-    { "source": "/startup/:path*", "destination": "/index.html" },
-    { "source": "/jobs", "destination": "/index.html" },
-    { "source": "/lists", "destination": "/index.html" },
-    { "source": "/lists/:path*", "destination": "/index.html" },
-    { "source": "/news", "destination": "/index.html" },
-    { "source": "/people", "destination": "/index.html" }
+    { "source": "/welcome", "destination": "/welcome/index.html" },
+    { "source": "/welcome/", "destination": "/welcome/index.html" },
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/about/", "destination": "/about/index.html" },
+    { "source": "/methodology", "destination": "/methodology/index.html" },
+    { "source": "/methodology/", "destination": "/methodology/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/contact/", "destination": "/contact/index.html" },
+    { "source": "/lists", "destination": "/lists/index.html" },
+    { "source": "/lists/", "destination": "/lists/index.html" },
+    { "source": "/lists/:path*", "destination": "/app.html" },
+    { "source": "/investors", "destination": "/investors/index.html" },
+    { "source": "/investors/", "destination": "/investors/index.html" },
+    { "source": "/investors/:path*", "destination": "/app.html" },
+    { "source": "/startup/:path*", "destination": "/app.html" },
+    { "source": "/jobs", "destination": "/app.html" },
+    { "source": "/news", "destination": "/app.html" },
+    { "source": "/people", "destination": "/app.html" }
   ],
   "headers": [
     {

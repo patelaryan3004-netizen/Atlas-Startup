@@ -15,6 +15,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 delete process.env.SHOW_PEOPLE; // the same as the live server: no people, no firms
 const here = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(here, '../../frontend/public/data/snapshot.json');
+const PRERENDER_OUT = path.resolve(here, '../../frontend/prerender-data.json'); // read by the build only (frontend/scripts/prerender.mjs): not served
 const SNAPSHOT_VERSION = 1; // frontend/src/snapshot.js
 
 const { default: app } = await import('../src/app.js');
@@ -34,17 +35,24 @@ globalThis.fetch = async (url) => {
 };
 
 try {
-  const { FIRST_VIEWS } = await import(pathToFileURL(path.resolve(here, '../../frontend/src/snapshotRequests.js')).href);
+  const { FIRST_VIEWS, PRERENDER_VIEWS } = await import(pathToFileURL(path.resolve(here, '../../frontend/src/snapshotRequests.js')).href);
   await new Promise((resolve) => setTimeout(resolve, 1500)); // the catalogs load as the app starts
   for (const ask of FIRST_VIEWS) await ask();
-  const summary = answers['/api/startups/summary'];
+  const first = { ...answers };
+  const summary = first['/api/startups/summary'];
   if (!summary || !(summary.count > 0)) throw new Error('The summary has no companies: the data did not load, so no snapshot is written.');
-  const snapshot = { version: SNAPSHOT_VERSION, generatedAt: new Date().toISOString(), answers };
+  const generatedAt = new Date().toISOString();
+  const snapshot = { version: SNAPSHOT_VERSION, generatedAt, answers: first };
   const text = JSON.stringify(snapshot);
   await mkdir(path.dirname(OUT), { recursive: true });
   await writeFile(OUT, text, 'utf8');
-  console.log(`Wrote ${path.relative(process.cwd(), OUT)}: ${Object.keys(answers).length} answers, ${(text.length / 1024).toFixed(1)} KB, ${summary.count} companies (${summary.hiring} hiring now).`);
-  for (const [key, body] of Object.entries(answers)) console.log(`  ${(JSON.stringify(body).length / 1024).toFixed(1).padStart(6)} KB  ${key}`);
+  console.log(`Wrote ${path.relative(process.cwd(), OUT)}: ${Object.keys(first).length} answers, ${(text.length / 1024).toFixed(1)} KB, ${summary.count} companies (${summary.hiring} hiring now).`);
+  for (const [key, body] of Object.entries(first)) console.log(`  ${(JSON.stringify(body).length / 1024).toFixed(1).padStart(6)} KB  ${key}`);
+  // The extra answers the static pages are made from (not part of the snapshot the site serves).
+  for (const key of Object.keys(answers)) if (key in first) delete answers[key];
+  for (const ask of PRERENDER_VIEWS) await ask();
+  await writeFile(PRERENDER_OUT, JSON.stringify({ version: SNAPSHOT_VERSION, generatedAt, answers }), 'utf8');
+  console.log(`Wrote ${path.relative(process.cwd(), PRERENDER_OUT)}: ${Object.keys(answers).length} answers (build only).`);
 } finally {
   globalThis.fetch = realFetch;
   server.close();

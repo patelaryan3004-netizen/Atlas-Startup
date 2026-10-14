@@ -63,3 +63,34 @@ export function preloadPages() {
     },
   };
 }
+
+// The pages that are drawn as HTML and hydrated (the landing page, the plain pages) carry their own stylesheet in their HTML, so they are
+// styled before any script runs: otherwise the browser paints their text unstyled, and a visitor with no scripts never gets the style at all (a
+// page's stylesheet is otherwise fetched by the script that fetches the page). This writes down which stylesheets those are, for
+// scripts/prerender.mjs, which puts the links in and deletes the note.
+export const PRERENDER_MANIFEST = 'prerender-manifest.json';
+const HYDRATED = { landing: 'LandingPage', info: 'InfoPage' };
+
+export function writePrerenderManifest() {
+  return {
+    name: 'write-prerender-manifest',
+    generateBundle(options, bundle) {
+      const chunks = Object.values(bundle).filter((o) => o.type === 'chunk');
+      const entry = chunks.find((c) => c.isEntry);
+      if (!entry) return;
+      const already = new Set([entry.fileName, ...entry.imports]);
+      const collect = (chunk, seen) => {
+        if (!chunk || seen.has(chunk.fileName) || already.has(chunk.fileName)) return seen;
+        seen.add(chunk.fileName);
+        for (const dep of chunk.imports) collect(bundle[dep], seen);
+        return seen;
+      };
+      const manifest = {};
+      for (const [kind, name] of Object.entries(HYDRATED)) {
+        const files = collect(chunks.find((c) => c.name === name), new Set());
+        manifest[kind] = [...new Set([...files].flatMap((f) => [...(bundle[f].viteMetadata?.importedCss ?? [])]))].map((f) => `/${f}`);
+      }
+      this.emitFile({ type: 'asset', fileName: PRERENDER_MANIFEST, source: JSON.stringify(manifest) });
+    },
+  };
+}

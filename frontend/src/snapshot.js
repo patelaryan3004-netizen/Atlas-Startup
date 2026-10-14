@@ -41,5 +41,12 @@ export const snapshotAnswer = (path) => loadSnapshot().then((snapshot) => snapsh
 // paint then already has the figures, the cards and the pins, instead of drawing without them and moving everything when they come.
 export const peekSnapshot = (path) => loaded?.answers[path] ?? null;
 
+// For the pre-render (scripts/prerender.mjs): the snapshot given directly, as if it had been fetched, so the page it draws has its figures.
+export function primeSnapshot(snapshot) {
+  loaded = usable(snapshot);
+  loading = Promise.resolve(loaded);
+  return loaded;
+}
+
 // For tests: forget the file that was loaded.
 export function forgetSnapshot() { loading = null; loaded = null; }

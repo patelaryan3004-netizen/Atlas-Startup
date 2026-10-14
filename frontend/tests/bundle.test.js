@@ -59,7 +59,7 @@ describe('what the first visit downloads', () => {
     const text = [...initial].map((n) => files[n]).join('\n');
     expect(called('react').some((n) => initial.has(n))).toBe(true);
     for (const library of ['leaflet-container', 'leaflet-tile-pane']) expect(text, library).not.toContain(library);
-    for (const piece of ['MapView', 'JobsView', 'InvestorsView', 'StartupDetailPanel', 'LandingPage', 'NewsPage', 'SubmitStartupForm']) {
+    for (const piece of ['MapView', 'JobsView', 'InvestorsView', 'StartupDetailPanel', 'LandingPage', 'InfoPage', 'NewsPage', 'SubmitStartupForm']) {
       expect(called(piece).length, `${piece} is a file of its own`).toBe(1);
       expect(initial.has(called(piece)[0]), `${piece} is not fetched at once`).toBe(false);
     }

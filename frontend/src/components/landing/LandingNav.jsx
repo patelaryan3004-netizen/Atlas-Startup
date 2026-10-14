@@ -2,15 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { HOME_PATH, MAP_PATH } from '../../paths.js';
 import { appPath } from '../../appRoute.js';
 import { showPeople } from '../../flags.js';
+import '../../landing-nav.css';
 
-// Where each link goes in the app. The product has no accounts, so the one action on the right is the waitlist, which
-// opens the same form as the app's own Join waitlist button. The three links are the places a visitor goes: the map, the
-// people worth following, and the lists. (Jobs, News and Investors are in the footer and in the app's own menu.)
-// People is there only with VITE_SHOW_PEOPLE (flags.js).
-const links = () => [
+// Where each link goes. The product has no accounts, so the one action on the right is to submit a startup, which opens the same form as
+// the app's own Submit a startup button. The links are the places a visitor goes: the map, the list of startups, the curated lists, and the
+// three pages that say how far to trust it (how it checks, who runs it, how to reach them). (Jobs, News and Investors are in the footer and
+// in the app's own menu.) People is there only with VITE_SHOW_PEOPLE (flags.js).
+export const navLinks = (people = showPeople()) => [
   { label: 'Map', href: MAP_PATH },
-  ...(showPeople() ? [{ label: 'People', href: appPath({ kind: 'people' }) }] : []),
+  { label: 'List', href: '/?view=list' },
+  ...(people ? [{ label: 'People', href: appPath({ kind: 'people' }) }] : []),
   { label: 'Lists', href: appPath({ kind: 'lists' }) },
+  { label: 'Methodology', href: '/methodology' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 function Mark() {
@@ -71,7 +76,7 @@ export default function LandingNav() {
 
         <nav id="landing-menu" className="landing-nav-links" aria-label="Main" data-open={open ? 'true' : 'false'}>
           <ul>
-            {links().map((link) => (
+            {navLinks().map((link) => (
               <li key={link.label}>
                 <a href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
               </li>
@@ -80,7 +85,7 @@ export default function LandingNav() {
         </nav>
 
         <div className="landing-nav-end">
-          <a className="landing-nav-cta" href="/?view=waitlist">Join waitlist</a>
+          <a className="landing-nav-cta" href="/?view=submit">Submit a startup</a>
           <button
             ref={toggle}
             type="button"
