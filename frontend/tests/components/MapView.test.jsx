@@ -115,26 +115,26 @@ describe('MapView', () => {
     expect(lastMarker().addTo).toHaveBeenCalledWith(layerInstance);
   });
 
-  it('builds each pin as elements: a small dot, with the company\'s name ready to write under it', () => {
+  it('builds each pin as elements: a rounded-square tile with the first letter under the logo, and the company\'s name ready to write under it', () => {
     render(<MapView markers={[pin('a', 'Acme', -33.87, 151.21, { sector: 'AI' })]} onSelectStartup={noop} />);
     const { html, className } = icons().at(-1);
     expect(className).toBe('custom-leaflet-marker');
     expect(html).toBeInstanceOf(HTMLElement);
-    expect(html.className).toBe('custom-pin-badge pin-dot');
+    expect(html.className).toBe('custom-pin-badge pin-tile'); // no dot: every company is a tile
     expect(html.querySelector('.pin-face')).not.toBeNull();
-    expect(html.querySelector('.pin-fallback')).toBeNull(); // a dot has no letter, and no colour of a sector: every company is the same dot
+    expect(html.querySelector('.pin-fallback').textContent).toBe('A'); // no colour of a sector either: every company is the same tile
     expect(html.querySelector('.pin-label').textContent).toBe('Acme');
+    expect(html.querySelector('.pin-vc-badge')).toBeNull();
   });
 
-  it('draws a white tile with the first letter for the companies worth seeing from afar: one that is hiring, one that is saved, the open one', () => {
+  it('draws every company as a tile with its first letter, whether it is hiring, saved, open or none of them', () => {
     const markers = [pin('a', 'Acme', -33.87, 151.21, { hiring: 1 }), pin('b', 'Beta', -37.81, 144.96), pin('c', 'Cora', -27.47, 153.02), pin('d', 'Delta', -34.9, 138.6)];
     render(<MapView markers={markers} onSelectStartup={noop} selectedName="Beta" trackedNames={new Set(['Cora'])} />);
     const byName = Object.fromEntries(icons().map((i) => [i.html.querySelector('.pin-label').textContent, i.html]));
-    for (const name of ['Acme', 'Beta', 'Cora']) {
-      expect(byName[name].classList.contains('pin-tile')).toBe(true);
+    for (const name of ['Acme', 'Beta', 'Cora', 'Delta']) {
+      expect(byName[name].classList.contains('pin-tile'), name).toBe(true);
       expect(byName[name].querySelector('.pin-fallback').textContent).toBe(name[0]);
     }
-    expect(byName.Delta.classList.contains('pin-dot')).toBe(true);
   });
 
   it('draws the open company over its neighbours, and one that is hiring over those that are not', () => {
@@ -146,7 +146,7 @@ describe('MapView', () => {
     expect(offsets.Cora).toBe(0);
   });
 
-  it('draws the company\'s OWN logo when it has one, and asks no third party for any: not for a company that has only a website', () => {
+  it('draws the company\'s OWN logo when its record has one, and otherwise the picture its website gives, from the one source the cards use', () => {
     render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'canva.com', logo: 'https://canva.example/logo.png' })]} onSelectStartup={noop} />);
     const img = icons().at(-1).html.querySelector('img');
     expect(img.src).toBe('https://canva.example/logo.png');
@@ -155,21 +155,28 @@ describe('MapView', () => {
     cleanup();
     vi.clearAllMocks();
 
-    // a website is not a logo: no favicon service, no other service, is asked for one
     render(<MapView markers={[pin('b', 'B', -33.87, 151.21, { domain: 'canva.com' })]} onSelectStartup={noop} />);
-    expect(icons().at(-1).html.querySelector('img')).toBeNull();
-    expect(icons().at(-1).html.classList.contains('pin-dot')).toBe(true);
-    const src = JSON.stringify(L.divIcon.mock.calls.map((c) => c[0].html.outerHTML));
-    expect(src).not.toMatch(/gstatic|favicon|clearbit|google/i);
+    const site = icons().at(-1).html.querySelector('img');
+    expect(site.src).toContain('canva.com');
+    expect(site.src).toMatch(/size=96$/);
+    expect(site.className).toBe('pin-logo');
   });
 
-  it('falls back to the first letter when the company\'s own logo cannot be loaded', () => {
+  it('falls back to the first letter when the logo cannot be loaded', () => {
     render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { logo: 'https://canva.example/gone.png' })]} onSelectStartup={noop} />);
     const html = icons().at(-1).html;
     const img = html.querySelector('img');
     img.onerror();
     expect(img.style.display).toBe('none');
     expect(html.querySelector('.pin-fallback').textContent).toBe('A'); // the letter was underneath all along
+  });
+
+  it('falls back to the first letter when the website\'s picture cannot be loaded either', () => {
+    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { domain: 'nobody.example' })]} onSelectStartup={noop} />);
+    const html = icons().at(-1).html;
+    html.querySelector('img').onerror();
+    expect(html.querySelector('img').style.display).toBe('none');
+    expect(html.querySelector('.pin-fallback').textContent).toBe('A');
   });
 
   it('shows the logo only once it has loaded: the letter shows until a picture has arrived', () => {
@@ -188,35 +195,22 @@ describe('MapView', () => {
     expect(empty.classList.contains('pin-logo-ready')).toBe(false);
   });
 
-  it('draws no logo for a company that has none: a dot, or, when it is hiring, a tile with its first letter', () => {
+  it('draws no picture for a company that has no logo and no website: its first letter', () => {
     render(<MapView markers={[pin('z', 'Zeta'), pin('y', 'Yarra', -37.81, 144.96, { hiring: 1 })]} onSelectStartup={noop} />);
     const [zeta, yarra] = icons().map((i) => i.html);
-    expect(zeta.querySelector('img')).toBeNull();
-    expect(zeta.querySelector('.pin-fallback')).toBeNull();
-    expect(yarra.querySelector('img')).toBeNull();
+    for (const html of [zeta, yarra]) expect(html.querySelector('img')).toBeNull();
+    expect(zeta.querySelector('.pin-fallback').textContent).toBe('Z');
     expect(yarra.querySelector('.pin-fallback').textContent).toBe('Y');
   });
 
-  it('draws no logos when zoomed out, or when too many pins are on screen, so the page does not fetch hundreds of images', () => {
+  it('draws logos at every zoom, and however many pins are on screen: a map of logos, not of dots', () => {
     const own = (i) => ({ logo: `https://p${i}.example/logo.png` });
     mapInstance.getZoom.mockReturnValue(12);
-    render(<MapView markers={[pin('a', 'A', -33.87, 151.21, own(0))]} onSelectStartup={noop} />);
-    expect(icons().at(-1).html.querySelector('img')).toBeNull();
-    cleanup();
-    vi.clearAllMocks();
-
-    mapInstance.getZoom.mockReturnValue(13);
-    const few = Array.from({ length: 10 }, (_, i) => pin(`p${i}`, `P${i}`, -33.8 + i * 0.02, 151.2, own(i)));
-    render(<MapView markers={few} onSelectStartup={noop} />);
-    expect(icons().every((i) => i.html.querySelector('img'))).toBe(true);
-    cleanup();
-    vi.clearAllMocks();
-
     const many = Array.from({ length: 61 }, (_, i) => pin(`p${i}`, `P${i}`, -33.0 + i * 0.02, 151.2, own(i)));
     render(<MapView markers={many} onSelectStartup={noop} />);
     flushFrames();
     expect(icons()).toHaveLength(61);
-    expect(icons().some((i) => i.html.querySelector('img'))).toBe(false);
+    expect(icons().every((i) => i.html.querySelector('img'))).toBe(true);
   });
 
   it('marks a hiring company with a hiring-dot badge, and omits it when not hiring', () => {
@@ -352,17 +346,32 @@ describe('MapView', () => {
       const cluster = icons().find((i) => i.className === 'marker-cluster-custom');
       expect(cluster.html.className).toBe('marker-cluster-inner cluster-small');
       expect(cluster.html.textContent).toBe('2');
-      expect(cluster.iconSize).toEqual([44, 44]); // the same width as a pin
+      expect(cluster.iconSize).toEqual([40, 40]); // compact: a little narrower than a pin's box
     });
 
-    it('zooms in on a cluster when it is clicked', () => {
+    it('opens a cluster to what it holds when it is clicked: the map is fitted to its companies, never closer than street level', () => {
       mapInstance.getZoom.mockReturnValue(5);
       render(<MapView markers={near} onSelectStartup={noop} />);
       const clusterMarker = L.marker.mock.results.map((r) => r.value).find((m) => m.opts.icon.opts.className === 'marker-cluster-custom');
       clusterMarker.on.mock.calls[0][1]();
-      const [latlng, zoom] = mapInstance.setView.mock.calls.at(-1);
-      expect(latlng[0]).toBeCloseTo(-33.868, 2);
-      expect(zoom).toBeGreaterThan(5);
+      expect(L.latLngBounds).toHaveBeenLastCalledWith([[-33.8688, 151.2093], [-33.8679, 151.2093]]);
+      const [bounds, options] = mapInstance.fitBounds.mock.calls.at(-1);
+      expect(bounds.points).toHaveLength(2);
+      expect(options.maxZoom).toBe(17);
+      expect(options.paddingTopLeft).toBeDefined();
+    });
+
+    it('lists the companies of a cluster that stand at one place, since there is nothing to zoom to, and opens the one that is picked', () => {
+      mapInstance.getZoom.mockReturnValue(5);
+      const onSelectPin = vi.fn();
+      render(<MapView markers={[pin('x', 'X', -33.8688, 151.2093), pin('y', 'Y', -33.8688, 151.2093), pin('m', 'M', -37.8136, 144.9631)]} onSelectStartup={noop} onSelectPin={onSelectPin} />);
+      const clusterMarker = L.marker.mock.results.map((r) => r.value).find((m) => m.opts.icon.opts.className === 'marker-cluster-custom');
+      clusterMarker.on.mock.calls[0][1]();
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+      const list = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      expect([...list.querySelectorAll('.stack-item')].map((b) => b.textContent)).toEqual(['X', 'Y']);
+      list.querySelectorAll('.stack-item')[1].click();
+      expect(onSelectPin).toHaveBeenCalledWith(expect.objectContaining({ slug: 'y', name: 'Y' }));
     });
 
     it('sizes a cluster by how many companies it holds', () => {
@@ -371,7 +380,7 @@ describe('MapView', () => {
       render(<MapView markers={crowd} onSelectStartup={noop} />);
       const large = icons().find((i) => i.className === 'marker-cluster-custom');
       expect(large.html.className).toContain('cluster-large');
-      expect(large.iconSize).toEqual([62, 62]); // a bigger ring, not another colour
+      expect(large.iconSize).toEqual([58, 58]); // a bigger ring, not another colour
     });
 
     it('draws every size in the one accent: a number in a ring, never an amber or orange fill', () => {
@@ -920,28 +929,208 @@ describe('MapView', () => {
   });
 
   describe('the basemap', () => {
-    it('opens dark: the free tiles inverted, with no new tile layer made for it', () => {
+    it('opens dark: the free tiles, turned down by a class, with no new tile layer made for it', () => {
       const { container } = render(<MapView markers={[]} onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).toHaveClass('osm-inverted');
+      expect(container.querySelector('#map')).toHaveClass('map-quiet-dark');
       expect(container.querySelector('#map').dataset.basemap).toBe('dark');
       expect(L.tileLayer).toHaveBeenCalledTimes(1);
       expect(L.tileLayer.mock.calls[0][0]).toBe('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'); // no Mapbox token: the free tiles
+      expect(L.tileLayer.mock.calls[0][1].attribution).toBe('&copy; OpenStreetMap contributors');
     });
 
-    it('opens light when asked: the same tiles as they are', () => {
+    it('opens light when asked: the same tiles, faded', () => {
       const { container } = render(<MapView markers={[]} basemap="light" onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).not.toHaveClass('osm-inverted');
+      expect(container.querySelector('#map')).toHaveClass('map-quiet-light');
+      expect(container.querySelector('#map')).not.toHaveClass('map-quiet-dark');
       expect(container.querySelector('#map').dataset.basemap).toBe('light');
     });
 
     it('switches between them without making the map again', () => {
       const { container, rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
       rerender(<MapView markers={[]} basemap="light" onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).not.toHaveClass('osm-inverted');
+      expect(container.querySelector('#map')).toHaveClass('map-quiet-light');
+      expect(container.querySelector('#map')).not.toHaveClass('map-quiet-dark');
       expect(container.querySelector('#map').dataset.basemap).toBe('light');
       rerender(<MapView markers={[]} basemap="dark" onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).toHaveClass('osm-inverted');
+      expect(container.querySelector('#map')).toHaveClass('map-quiet-dark');
       expect(L.map).toHaveBeenCalledTimes(1);
       expect(L.tileLayer).toHaveBeenCalledTimes(1);
     });
-  });});
+  });
+
+  describe('the investors on the map', () => {
+    // An item of /api/investors/pins: the reference point of a city, never an office.
+    const vc = (slug, name, extra = {}) => ({
+      id: `${slug}@Sydney`, slug, name, type: 'venture_capital', type_label: 'Venture Capital', domain: `${slug}.vc`, logo: null, lat: -33.8688, lng: 151.2093, city: 'Sydney', state: 'NSW',
+      place: 'Sydney, NSW', role: 'headquarters', precision: 'CITY', stages: ['Seed'], sectors: ['Software'], portfolio_count: 0, ...extra,
+    });
+    const named = (html) => html.querySelector('.pin-label').textContent;
+
+    it('draws an investor alone in its city as a tile of its own with VC on it and a dashed edge, since its place is a city and not an office', () => {
+      render(<MapView markers={[]} vcPins={[vc('oif', 'OIF Ventures')]} showVcs onSelectStartup={noop} />);
+      const html = icons().at(-1).html;
+      expect(html.className).toBe('custom-pin-badge pin-tile pin-vc pin-approx');
+      expect(html.querySelector('.pin-vc-badge').textContent).toBe('VC');
+      expect(named(html)).toBe('OIF Ventures');
+      expect(html.querySelector('img').src).toContain('oif.vc'); // its logo, from its website like a card's
+      expect(html.querySelector('.pin-hiring-dot')).toBeNull(); // an investor is never said to be hiring
+    });
+
+    it('says in the tooltip that it is a venture capital firm and that its place is a city with no address on file', () => {
+      render(<MapView markers={[]} vcPins={[vc('oif', 'OIF Ventures')]} showVcs onSelectStartup={noop} />);
+      const [content] = lastMarker().bindTooltip.mock.calls[0];
+      expect(content.textContent).toBe('OIF VenturesVenture capital · Sydney, NSWCity-level: its headquarters city, no address on file');
+      cleanup();
+      render(<MapView markers={[]} vcPins={[vc('oif', 'OIF Ventures', { role: 'office' })]} showVcs onSelectStartup={noop} />);
+      expect(lastMarker().bindTooltip.mock.calls[0][0].textContent).toContain('it has an office in this city, no address on file');
+    });
+
+    it('draws the investors of one city as ONE mark with their number, never a pile of marks on one spot, and says so in its tooltip', () => {
+      render(<MapView markers={[]} vcPins={[vc('a', 'Alpha'), vc('b', 'Beta'), vc('c', 'Cee')]} showVcs onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(1);
+      const html = icons().at(-1).html;
+      expect(html.className).toBe('custom-pin-badge pin-tile pin-vc pin-vcgroup pin-approx');
+      expect(html.querySelector('.pin-fallback').textContent).toBe('3');
+      expect(html.querySelector('.pin-vc-badge').textContent).toBe('VC');
+      expect(named(html)).toBe('3 VCs in Sydney');
+      expect(html.querySelector('img')).toBeNull();
+      expect(lastMarker().bindTooltip.mock.calls[0][0].textContent).toContain('3 venture capital firms · Sydney, NSW');
+      expect(lastMarker().bindTooltip.mock.calls[0][0].textContent).toContain('no address on file');
+    });
+
+    it('lists the investors of a city when its mark is pressed, each with its logo, its focus and its stages, and opens the one that is picked as an investor', () => {
+      const onSelectPin = vi.fn();
+      render(<MapView markers={[]} vcPins={[vc('a', 'Alpha', { stages: ['Seed', 'Series A'] }), vc('b', 'Beta', { sectors: [], stages: [] })]} showVcs onSelectStartup={noop} onSelectPin={onSelectPin} />);
+      const marker = lastMarker();
+      marker.on.mock.calls.find(([event]) => event === 'click')[1]();
+      const list = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
+      const rows = [...list.querySelectorAll('.stack-vc')];
+      expect(rows.map((r) => r.querySelector('b').textContent)).toEqual(['Alpha', 'Beta']);
+      expect(rows[0].querySelector('small').textContent).toBe('Software · Seed · Series A');
+      expect(rows[1].querySelector('small')).toBeNull(); // nothing is made up for an investor that states no focus
+      expect(rows[0].querySelector('img').src).toContain('a.vc');
+      expect(rows[0].querySelector('.pin-fallback').textContent).toBe('A');
+      rows[1].click();
+      expect(onSelectPin).toHaveBeenCalledWith(expect.objectContaining({ kind: 'vc', slug: 'b', name: 'Beta', location: expect.objectContaining({ precision: 'CITY' }) }));
+    });
+
+    it('hands the page the investor, not a company, when a lone investor\'s mark is pressed', () => {
+      const onSelectPin = vi.fn();
+      render(<MapView markers={[]} vcPins={[vc('oif', 'OIF Ventures')]} showVcs onSelectStartup={noop} onSelectPin={onSelectPin} />);
+      lastMarker().on.mock.calls.find(([event]) => event === 'click')[1]();
+      expect(onSelectPin).toHaveBeenCalledWith(expect.objectContaining({ kind: 'vc', slug: 'oif', id: 'oif@Sydney' }));
+    });
+
+    it('draws them only while the VCs are on, and the companies only while the companies are on', () => {
+      const markers = [pin('a', 'A', -37.81, 144.96)];
+      const vcPins = [vc('oif', 'OIF Ventures')];
+      const names = () => icons().map((i) => named(i.html)).sort();
+      render(<MapView markers={markers} vcPins={vcPins} showVcs onSelectStartup={noop} />);
+      expect(names()).toEqual(['A', 'OIF Ventures']);
+      cleanup();
+      vi.clearAllMocks();
+      render(<MapView markers={markers} vcPins={vcPins} showVcs={false} onSelectStartup={noop} />);
+      expect(names()).toEqual(['A']);
+      cleanup();
+      vi.clearAllMocks();
+      render(<MapView markers={markers} vcPins={vcPins} showVcs showCompanies={false} onSelectStartup={noop} />);
+      expect(names()).toEqual(['OIF Ventures']);
+    });
+
+    it('counts them in a cluster with the companies near them, since the map holds one index of both', () => {
+      mapInstance.getZoom.mockReturnValue(5);
+      render(<MapView markers={[pin('a', 'A', -33.8679, 151.2093)]} vcPins={[vc('oif', 'OIF Ventures')]} showVcs onSelectStartup={noop} />);
+      const cluster = icons().find((i) => i.className === 'marker-cluster-custom');
+      expect(cluster.html.textContent).toBe('2');
+    });
+
+    it('draws them again, from nothing, when they change, and a company\'s pins are not disturbed', () => {
+      const { rerender } = render(<MapView markers={[pin('a', 'A', -37.81, 144.96)]} vcPins={[vc('a', 'Alpha')]} showVcs onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(2);
+      rerender(<MapView markers={[pin('a', 'A', -37.81, 144.96)]} vcPins={[vc('b', 'Beta')]} showVcs onSelectStartup={noop} />);
+      expect(icons().map((i) => named(i.html))).toEqual(['A', 'Alpha', 'A', 'Beta']);
+    });
+  });
+
+  describe('for a keyboard and a screen reader', () => {
+    const nameOf = (marker) => {
+      const el = document.createElement('div');
+      marker.getElement = () => el;
+      marker.on.mock.calls.find(([event]) => event === 'add')[1]();
+      return el.getAttribute('aria-label');
+    };
+
+    it('gives each mark a name: the company, whether it is hiring, a VC as a venture capital firm, a cluster as places to open', () => {
+      mapInstance.getZoom.mockReturnValue(5);
+      render(<MapView markers={[pin('a', 'Acme', -33.8688, 151.2093, { hiring: 1 }), pin('b', 'Beta', -33.8679, 151.2093), pin('m', 'Mel', -37.8136, 144.9631)]} onSelectStartup={noop} />);
+      const marks = L.marker.mock.results.map((r) => r.value);
+      const cluster = marks.find((m) => m.opts.icon.opts.className === 'marker-cluster-custom');
+      expect(nameOf(cluster)).toBe('2 places close together. Press to open them.');
+      cleanup();
+      vi.clearAllMocks();
+      mapInstance.getZoom.mockReturnValue(17);
+      render(<MapView markers={[pin('a', 'Acme', -33.8688, 151.2093, { hiring: 1 })]} vcPins={[{ id: 'o@Mel', slug: 'o', name: 'OIF Ventures', domain: 'oif.vc', lat: -37.8, lng: 144.9, city: 'Melbourne', place: 'Melbourne, VIC', role: 'headquarters', stages: [], sectors: [] }]} showVcs onSelectStartup={noop} />);
+      const labels = L.marker.mock.results.map((r) => nameOf(r.value));
+      expect(labels).toEqual(['Acme, hiring now', 'OIF Ventures, venture capital firm']);
+    });
+
+    it('is a tab stop (Leaflet\'s own default), and Enter and Space press it: Leaflet\'s Enter only opens a bound popup, and these marks open panels and lists', () => {
+      render(<MapView markers={[pin('a', 'A')]} onSelectStartup={noop} />);
+      const marker = lastMarker();
+      expect(marker.opts.keyboard).toBeUndefined(); // the default: a tab stop with role "button"
+      const el = document.createElement('div');
+      marker.getElement = () => el;
+      marker.fire = vi.fn();
+      marker.on.mock.calls.find(([event]) => event === 'add')[1]();
+      for (const k of ['Enter', ' ']) {
+        const press = new KeyboardEvent('keydown', { key: k, cancelable: true });
+        el.dispatchEvent(press);
+        expect(press.defaultPrevented, k).toBe(true); // so the key is not pressed a second time as a keypress
+      }
+      expect(marker.fire).toHaveBeenCalledTimes(2);
+      expect(marker.fire).toHaveBeenCalledWith('click', expect.objectContaining({ originalEvent: expect.any(KeyboardEvent) }));
+      el.dispatchEvent(new KeyboardEvent('keydown', { key: 'a' }));
+      el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
+      expect(marker.fire).toHaveBeenCalledTimes(2); // other keys are left alone
+    });
+  });
+
+  describe('the city-level groups\' names', () => {
+    it('are written from zoom 8: further out a group is its ring alone, so the names of a dozen cities do not crowd a map of the whole country', () => {
+      mapInstance.getZoom.mockReturnValue(7);
+      const { container, rerender } = render(<MapView markers={[]} areas={[SYDNEY_GROUP]} onSelectStartup={noop} />);
+      expect(container.querySelector('#map')).not.toHaveClass('show-area-chips');
+      mapInstance.getZoom.mockReturnValue(8);
+      rerender(<MapView markers={[pin('a', 'A')]} areas={[SYDNEY_GROUP]} onSelectStartup={noop} />);
+      expect(container.querySelector('#map')).toHaveClass('show-area-chips');
+    });
+  });
+
+  describe('keeping the open mark in sight', () => {
+    it('brings a mark that a side panel would cover clear of it: the map goes a little way past it, away from the panel', () => {
+      const { rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} onSelectStartup={noop} focus={{ key: 1, lat: -33.87, lng: 151.21, insetRight: 440 }} />);
+      expect(mapInstance.flyTo).toHaveBeenCalledTimes(1);
+      const [x, y] = [mapInstance.unproject.mock.calls.at(-1)[0].x, mapInstance.unproject.mock.calls.at(-1)[0].y];
+      expect(x).toBeCloseTo(151.21 * 100 + 220, 5); // the centre is half the panel to the right of the mark
+      expect(y).toBeCloseTo(33.87 * 100, 5);
+    });
+
+    it('leaves a mark that is already clear of the edges and of the panel where it is', () => {
+      mapInstance.latLngToContainerPoint.mockReturnValueOnce({ x: 300, y: 300 });
+      const { rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
+      mapInstance.latLngToContainerPoint.mockReturnValue({ x: 300, y: 300 });
+      rerender(<MapView markers={[]} onSelectStartup={noop} focus={{ key: 2, lat: -33.87, lng: 151.21, insetRight: 440 }} />);
+      expect(mapInstance.flyTo).not.toHaveBeenCalled();
+      mapInstance.latLngToContainerPoint.mockImplementation(([lat, lng]) => ({ x: (lng - 150) * 2000, y: (-33 - lat) * 2000 }));
+    });
+
+    it('counts the panel in what is covered: a mark at x=700 is clear of the edge but under a 440px panel on a 1000px map', () => {
+      const { rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
+      mapInstance.latLngToContainerPoint.mockReturnValue({ x: 700, y: 300 });
+      rerender(<MapView markers={[]} onSelectStartup={noop} focus={{ key: 3, lat: -33.87, lng: 151.21, insetRight: 440 }} />);
+      expect(mapInstance.flyTo).toHaveBeenCalledTimes(1);
+      mapInstance.latLngToContainerPoint.mockImplementation(([lat, lng]) => ({ x: (lng - 150) * 2000, y: (-33 - lat) * 2000 }));
+    });
+  });
+});

@@ -41,19 +41,21 @@ export function appPath(route) {
   }
 }
 
-// The query of the pages that show companies (the map, the list, one company over them): the filters that are on, and the list
-// view when it is the one in use. Nothing else: a page that is not one of those has no query.
-export function exploreSearch(filters, viewMode) {
+// The query of the pages that show companies (the map, the list, one company over them): the filters that are on, the list
+// view when it is the one in use, and what is shown when it is not both (show=startups or show=vcs). Nothing else: a page that is not one of those
+// has no query.
+export function exploreSearch(filters, viewMode, entity = 'all') {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(filters)) if (value) params.set(key, value);
   if (viewMode === 'list') params.set('view', 'list');
+  if (entity === 'startups' || entity === 'vcs') params.set('show', entity);
   const query = params.toString();
   return query ? `?${query}` : '';
 }
 
 // The address a route is shown at. The pages that show companies carry the filters; a curated list carries none (the list is
 // the filter); the others stand alone.
-export function appUrl(route, { filters = {}, viewMode = 'map' } = {}) {
+export function appUrl(route, { filters = {}, viewMode = 'map', entity = 'all' } = {}) {
   const path = appPath(route);
-  return route.kind === 'explore' || route.kind === 'startup' ? `${path}${exploreSearch(filters, viewMode)}` : path;
+  return route.kind === 'explore' || route.kind === 'startup' ? `${path}${exploreSearch(filters, viewMode, entity)}` : path;
 }

@@ -2,14 +2,15 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, within, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-vi.mock('../../src/api.js', () => ({ fetchStartup: vi.fn(), fetchStartupPage: vi.fn(), fetchSuggestions: vi.fn() }));
+vi.mock('../../src/api.js', () => ({ fetchStartup: vi.fn(), fetchStartupPage: vi.fn(), fetchSuggestions: vi.fn(), fetchInvestor: vi.fn() }));
 
-import { fetchStartup, fetchStartupPage, fetchSuggestions } from '../../src/api.js';
+import { fetchStartup, fetchStartupPage, fetchSuggestions, fetchInvestor } from '../../src/api.js';
 import ExploreHeader from '../../src/components/explore/ExploreHeader.jsx';
 import ExploreToolbar, { placeLabel, nextCity } from '../../src/components/explore/ExploreToolbar.jsx';
-import CityDock from '../../src/components/explore/CityDock.jsx';
-import MapOverview from '../../src/components/explore/MapOverview.jsx';
-import PreviewCard from '../../src/components/explore/PreviewCard.jsx';
+import AllAustralia from '../../src/components/explore/AllAustralia.jsx';
+import VcList from '../../src/components/explore/VcList.jsx';
+import StartupPanel from '../../src/components/explore/StartupPanel.jsx';
+import VcPanel from '../../src/components/explore/VcPanel.jsx';
 import ResultsSheet from '../../src/components/explore/ResultsSheet.jsx';
 import { Avatar } from '../../src/components/EntityCard.jsx';
 
@@ -84,10 +85,10 @@ describe('the toolbar', () => {
   it('says "Australia" with no city, and "Australia / Melbourne" on one, and asks the search to be for that place', () => {
     const { rerender, props } = setup();
     expect(screen.getByRole('button', { name: /^Australia/ })).toHaveTextContent('Australia');
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search in Australia');
+    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors');
     rerender(<ExploreToolbar {...props} filters={{ ...FILTERS, city: 'Melbourne' }} />);
     expect(screen.getByRole('button', { name: /^Australia/ })).toHaveTextContent('Australia/Melbourne');
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search in Melbourne');
+    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors in Melbourne');
   });
 
   it('has a short search box on a phone', () => {
@@ -172,55 +173,104 @@ describe('the toolbar', () => {
   });
 });
 
-describe('the city dock', () => {
-  it('is nothing at all with no cities', () => {
-    const { container } = render(<CityDock cities={[]} selected={[]} onSelect={() => {}} />);
-    expect(container).toBeEmptyDOMElement();
+describe('the toolbar: what is shown', () => {
+  const META = { sectors: ['AI', 'Fintech'], cities: [], investors: [], stages: [] };
+  const VC_OPTIONS = { sectors: [{ value: 'Technology', count: 9 }, { value: 'Deep tech', count: 2 }], stages: [{ value: 'Seed', count: 8 }, { value: 'Series A', count: 6 }] };
+  const setup = (over = {}) => {
+    const props = {
+      filters: FILTERS, onFilterChange: vi.fn(), onApplyFilters: vi.fn(), meta: META, cities: [], total: 41, filtersOpen: false, onToggleFilters: vi.fn(), filtersRef: { current: null },
+      viewMode: 'map', onSetViewMode: vi.fn(), entity: 'all', onEntityChange: vi.fn(), vcOptions: VC_OPTIONS, ...over,
+    };
+    return { props, ...render(<ExploreToolbar {...props} />) };
+  };
+  beforeEach(() => { fetchSuggestions.mockResolvedValue({ companies: [], people: [], investors: [], industries: [], locations: [] }); });
+
+  it('has All, Startups and VCs, with the one that is on pressed, and hands a press to the page', async () => {
+    const { props } = setup({ entity: 'startups' });
+    const group = screen.getByRole('group', { name: 'What the map shows' });
+    expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(['All', 'Startups', 'VCs']);
+    expect(within(group).getByRole('button', { name: 'Startups' })).toHaveAttribute('aria-pressed', 'true');
+    expect(within(group).getByRole('button', { name: 'All' })).toHaveAttribute('aria-pressed', 'false');
+    await userEvent.click(within(group).getByRole('button', { name: 'VCs' }));
+    expect(props.onEntityChange).toHaveBeenCalledWith('vcs');
   });
 
-  it('is a labelled group of the cities, each with its count, the one that is on pressed, and hands a press to the page', async () => {
-    const onSelect = vi.fn();
-    render(<CityDock cities={[{ city: 'Sydney', count: 30 }, { city: 'Melbourne', count: 1 }]} selected={['Melbourne']} onSelect={onSelect} />);
-    const nav = screen.getByRole('navigation', { name: 'Explore cities' });
-    expect(within(nav).getByText('Explore cities')).toBeInTheDocument();
-    expect(within(nav).getByRole('button', { name: 'Sydney' })).toHaveAttribute('title', '30 startups');
-    expect(within(nav).getByRole('button', { name: 'Melbourne' })).toHaveAttribute('title', '1 startup');
-    expect(within(nav).getByRole('button', { name: 'Melbourne' })).toHaveAttribute('aria-pressed', 'true');
-    expect(within(nav).getByRole('button', { name: 'Sydney' })).toHaveAttribute('aria-pressed', 'false');
-    await userEvent.click(within(nav).getByRole('button', { name: 'Sydney' }));
-    expect(onSelect).toHaveBeenCalledWith('Sydney');
+  it('asks for what it is searching: startups or investors, startups, or investors', () => {
+    const { rerender, props } = setup();
+    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors');
+    rerender(<ExploreToolbar {...props} entity="startups" />);
+    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups');
+    rerender(<ExploreToolbar {...props} entity="vcs" filters={{ ...FILTERS, city: 'Sydney' }} />);
+    expect(screen.getByLabelText(/Search/)).toHaveAttribute('placeholder', 'Search investors in Sydney');
+  });
+
+  it('offers the startups\' sectors for the startups, and the investors\' own sectors and stages when only the VCs are on', async () => {
+    const { props, rerender } = setup();
+    await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
+    expect(within(screen.getByRole('group', { name: 'Sector' })).getAllByRole('checkbox').map((c) => c.closest('label').textContent)).toEqual(['AI', 'Fintech']);
+    expect(screen.queryByRole('button', { name: /^Stage/ })).not.toBeInTheDocument();
+    rerender(<ExploreToolbar {...props} entity="vcs" />);
+    await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
+    expect(within(screen.getByRole('group', { name: 'Sector' })).getAllByRole('checkbox').map((c) => c.closest('label').textContent)).toEqual(['Technology9', 'Deep tech2']);
+    await userEvent.click(screen.getByRole('button', { name: /^Stage/ }));
+    await userEvent.click(within(screen.getByRole('group', { name: 'Stage' })).getByRole('checkbox', { name: /Series A/ }));
+    expect(props.onFilterChange).toHaveBeenLastCalledWith({ stage: 'Series A' });
+  });
+
+  it('does not count the stage on the Filters button while the VCs have a menu of their own for it', () => {
+    setup({ entity: 'vcs', filters: { ...FILTERS, stage: 'Seed' } });
+    expect(screen.getByRole('button', { name: /^Filters/ }).textContent).toBe('Filters');
   });
 });
 
-describe('the little map of Australia', () => {
-  it('is a button that shows all of Australia, with the country drawn in dots and nothing of any company on it', async () => {
-    const onShowAll = vi.fn();
-    const { container } = render(<MapOverview view={null} onShowAll={onShowAll} />);
-    expect(container.querySelector('svg path.xo-land')).not.toBeNull();
-    expect(container.querySelector('circle')).toBeNull(); // no view yet: no dot
-    await userEvent.click(screen.getByRole('button', { name: 'Show all of Australia' }));
-    expect(onShowAll).toHaveBeenCalledTimes(1);
-  });
-
-  it('puts a dot where the map is looking, and none when it is looking away from Australia', () => {
-    const { container, rerender } = render(<MapOverview view={{ lat: -37.8, lng: 144.96, zoom: 12 }} onShowAll={() => {}} />);
-    expect(container.querySelector('circle.xo-here')).not.toBeNull();
-    const [x0, y0] = ['cx', 'cy'].map((a) => Number(container.querySelector('circle.xo-here').getAttribute(a)));
-    rerender(<MapOverview view={{ lat: -33.87, lng: 151.2, zoom: 12 }} onShowAll={() => {}} />);
-    const [x1, y1] = ['cx', 'cy'].map((a) => Number(container.querySelector('circle.xo-here').getAttribute(a)));
-    expect(x1).toBeGreaterThan(x0); // Sydney is east of Melbourne
-    expect(y1).toBeLessThan(y0); // and north of it
-    rerender(<MapOverview view={{ lat: 51.5, lng: -0.12, zoom: 5 }} onShowAll={() => {}} />);
-    expect(container.querySelector('circle')).toBeNull();
+describe('the way back to all of Australia', () => {
+  it('is a button on the map, and hands its press to the page', async () => {
+    const onClick = vi.fn();
+    render(<AllAustralia onClick={onClick} />);
+    await userEvent.click(screen.getByRole('button', { name: 'All Australia' }));
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
 
-describe('the company\'s card', () => {
+describe('the list of VCs', () => {
+  const pin = (slug, city, name = slug.toUpperCase()) => ({ id: `${slug}@${city}`, slug, name, domain: `${slug}.vc`, city, stages: ['Seed', 'Series A'], sectors: ['Software', 'Health', 'AI', 'Fintech'] });
+
+  it('is one card for each firm in name order, with its places, its stages and the first of its sectors, and opens the firm\'s page', async () => {
+    const onOpen = vi.fn();
+    const { container } = render(<VcList pins={[pin('b', 'Sydney', 'Beta'), pin('a', 'Sydney', 'Alpha'), pin('b', 'Melbourne', 'Beta')]} where="Australia" onOpen={onOpen} onOpenDirectory={() => {}} />);
+    expect(screen.getByRole('heading', { name: '2 venture capital firms in Australia' })).toBeInTheDocument();
+    const cards = [...container.querySelectorAll('li.vl-card')];
+    expect(cards.map((c) => within(c).getByRole('button').textContent)).toEqual(['Alpha', 'Beta']);
+    expect(cards[1]).toHaveTextContent('Sydney, Melbourne');
+    expect(cards[1]).toHaveTextContent('Seed · Series A');
+    expect(cards[1]).toHaveTextContent('Software · Health · AI');
+    expect(cards[1]).not.toHaveTextContent('Fintech');
+    await userEvent.click(within(cards[1]).getByRole('button', { name: 'Beta' }));
+    expect(onOpen).toHaveBeenCalledWith('b');
+  });
+
+  it('says how many more investors match and have no city that can be placed, and offers the directory', async () => {
+    const onOpenDirectory = vi.fn();
+    render(<VcList pins={[pin('a', 'Sydney')]} unplaced={6} where="Sydney" onOpen={() => {}} onOpenDirectory={onOpenDirectory} />);
+    expect(screen.getByText(/6 more investors match but have no city we can place/)).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: 'See every investor in the directory' }));
+    expect(onOpenDirectory).toHaveBeenCalledTimes(1);
+  });
+
+  it('says there is none, and nothing of what is not placed, when no firm matches', () => {
+    render(<VcList pins={[]} where="Hobart" onOpen={() => {}} onOpenDirectory={() => {}} />);
+    expect(screen.getByRole('heading', { name: '0 venture capital firms in Hobart' })).toBeInTheDocument();
+    expect(screen.getByText(/No venture capital firm with a city on file matches/)).toBeInTheDocument();
+    expect(screen.queryByText(/have no city we can place/)).not.toBeInTheDocument();
+  });
+});
+
+describe('the company\'s panel', () => {
   const PIN = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', sector: 'AI', hiring: false, website: 'https://acme.ai', location: { quality: 'Location: suburb-level' } };
   const RECORD = { slug: 'acme', name: 'Acme AI', sector: 'AI', sectorFull: 'AI infrastructure', blurb: 'Makes things for people.', website: 'https://acme.ai', verified: true, last_verified_at: new Date().toISOString(), hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' };
   const setup = (over = {}) => {
     const props = { pin: PIN, saved: false, onToggleSaved: vi.fn(), onOpen: vi.fn(), onClose: vi.fn(), onReport: vi.fn(), ...over };
-    return { props, ...render(<PreviewCard {...props} />) };
+    return { props, ...render(<StartupPanel {...props} />) };
   };
   beforeEach(() => { fetchStartup.mockReset(); fetchStartup.mockResolvedValue(RECORD); });
 
@@ -270,26 +320,27 @@ describe('the company\'s card', () => {
     const { props, rerender } = setup();
     expect(await screen.findByText('Makes things for people.')).toBeInTheDocument();
     fetchStartup.mockResolvedValue({ slug: 'beta', name: 'Beta', blurb: 'Another one.' });
-    rerender(<PreviewCard {...props} pin={{ ...PIN, slug: 'beta', name: 'Beta' }} />);
+    rerender(<StartupPanel {...props} pin={{ ...PIN, slug: 'beta', name: 'Beta' }} />);
     expect(screen.queryByText('Makes things for people.')).not.toBeInTheDocument();
     expect(await screen.findByText('Another one.')).toBeInTheDocument();
   });
 
   it('has the two things to do with a company: open it, and save it (kept in this browser)', async () => {
     const { props, rerender } = setup();
+    await screen.findByText('Makes things for people.'); // the record has arrived: what the main button is depends on it
     await userEvent.click(screen.getByRole('button', { name: /View company/ }));
     expect(props.onOpen).toHaveBeenCalledTimes(1);
     const save = screen.getByRole('button', { name: 'Save Acme AI' });
     expect(save).toHaveAttribute('aria-pressed', 'false');
     await userEvent.click(save);
     expect(props.onToggleSaved).toHaveBeenCalledTimes(1);
-    rerender(<PreviewCard {...props} saved />);
+    rerender(<StartupPanel {...props} saved />);
     expect(screen.getByRole('button', { name: 'Remove Acme AI from saved' })).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('closes from its own button and with Escape', async () => {
     const { props } = setup();
-    await userEvent.click(screen.getByRole('button', { name: 'Close this card' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Close this panel' }));
     await userEvent.keyboard('{Escape}');
     expect(props.onClose).toHaveBeenCalledTimes(2);
   });
@@ -319,7 +370,7 @@ describe('the company\'s card', () => {
     fetchStartup.mockImplementation(() => new Promise(() => {}));
     const { container } = setup();
     const img = container.querySelector('.xp-logo img');
-    expect(img.getAttribute('width')).toBe('82');
+    expect(img.getAttribute('width')).toBe('72');
     expect(img.getAttribute('src')).toMatch(/size=96$/);
     expect(img.getAttribute('src')).toContain('acme.ai');
   });
@@ -330,6 +381,156 @@ describe('the company\'s card', () => {
     const { container } = setup({ pin: { ...PIN, name: evil } });
     expect(screen.getByRole('heading', { name: evil })).toBeInTheDocument();
     expect(container.querySelector('.xp-name img')).toBeNull();
+  });
+});
+
+describe('the company\'s panel: its tabs, its jobs and its way in', () => {
+  const PIN = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', sector: 'AI', hiring: true, website: 'https://acme.ai', location: { place: '1 Example St, Melbourne', quality: 'Office address on file' } };
+  const RECORD = {
+    slug: 'acme', name: 'Acme AI', sector: 'AI', blurb: 'Makes things for people.', website: 'https://acme.ai', verified: true, last_verified_at: new Date().toISOString(), hiringState: 'hiring',
+    open_roles: 3, hiring_source: { url: 'https://boards.acme.ai/jobs', checked_at: '2026-10-05T03:59:04.292Z' }, stage: 'Seed',
+  };
+  const setup = (over = {}) => {
+    const props = { pin: PIN, saved: false, onToggleSaved: vi.fn(), onOpen: vi.fn(), onClose: vi.fn(), onReport: vi.fn(), ...over };
+    return { props, ...render(<StartupPanel {...props} />) };
+  };
+  beforeEach(() => { fetchStartup.mockReset(); fetchStartup.mockResolvedValue(RECORD); });
+
+  it('says what it is with tags (a startup, its sector), its one line, where it is and how well that is known', async () => {
+    setup();
+    const panel = screen.getByRole('region', { name: 'Acme AI' });
+    expect(within(panel).getByText('Startup')).toBeInTheDocument();
+    expect(within(panel).getByText('AI')).toBeInTheDocument();
+    expect(within(panel).getByText('1 Example St, Melbourne')).toBeInTheDocument();
+    expect(within(panel).getByText('Office address on file')).toBeInTheDocument();
+    expect(await within(panel).findByText('Makes things for people.')).toBeInTheDocument();
+  });
+
+  it('opens on its overview: the website as a link that opens in a new tab, and the stage', async () => {
+    setup();
+    const link = screen.getByRole('link', { name: /acme\.ai/ });
+    expect(link).toHaveAttribute('href', 'https://acme.ai');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link.getAttribute('rel')).toContain('noopener');
+    expect(await screen.findByText('Seed')).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: 'Overview' })).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('has a Jobs tab with what a page says of its open roles, how many, and the way to them', async () => {
+    setup();
+    await userEvent.click(screen.getByRole('tab', { name: /^Jobs/ }));
+    const jobs = screen.getByRole('tabpanel');
+    expect(await within(jobs).findByText(/3 open roles/)).toBeInTheDocument();
+    expect(within(jobs).getByRole('link', { name: 'boards.acme.ai' })).toHaveAttribute('href', 'https://boards.acme.ai/jobs');
+    expect(within(jobs).getByRole('link', { name: /View open roles/ })).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('tab', { name: /^Jobs/ })).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('makes viewing the open roles its main action when the company is hiring, and keeps View company beside Save', async () => {
+    const { props } = setup();
+    await screen.findByText('Makes things for people.');
+    const roles = screen.getAllByRole('link', { name: /View open roles/ });
+    expect(roles[roles.length - 1]).toHaveAttribute('href', 'https://boards.acme.ai/jobs');
+    await userEvent.click(screen.getByRole('button', { name: 'View company' }));
+    expect(props.onOpen).toHaveBeenCalledTimes(1);
+  });
+
+  it('makes View company its main action, and sends nobody to a job page, when the company is not hiring', async () => {
+    fetchStartup.mockResolvedValue({ ...RECORD, hiringState: 'none', hiring_source: undefined });
+    setup({ pin: { ...PIN, hiring: false } });
+    await screen.findByText(/No open roles listed/);
+    expect(screen.queryByRole('link', { name: /View open roles|Apply now/ })).not.toBeInTheDocument();
+    expect(screen.getAllByRole('button', { name: /View company/ })).toHaveLength(1);
+  });
+
+  it('says on the Jobs tab that nothing has been read, rather than that nobody is hiring, for a company nobody has read', async () => {
+    fetchStartup.mockResolvedValue({ ...RECORD, hiringState: 'unverified', hiring_source: undefined });
+    setup({ pin: { ...PIN, hiring: false } });
+    await userEvent.click(screen.getByRole('tab', { name: /^Jobs/ }));
+    expect(await screen.findByText(/No open roles have been read for this company/)).toBeInTheDocument();
+  });
+});
+
+describe('the VC\'s panel', () => {
+  const PIN = { kind: 'vc', slug: 'oif', id: 'oif@Sydney', name: 'OIF Ventures', city: 'Sydney', website: 'https://oif.vc', location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'City-level: its headquarters city, no address on file' } };
+  const RECORD = {
+    slug: 'oif', name: 'OIF Ventures', type_label: 'Venture Capital', website: 'https://oif.vc', description: 'Backs software founders.', sectors: ['Software', 'Health'], stages: ['Seed', 'Series A'],
+    other_offices: ['Melbourne', 'Brisbane'], verified_at: new Date().toISOString(),
+    portfolio: [
+      { company: { slug: 'acme', name: 'Acme', city: 'Sydney', sector: 'SaaS', website: 'https://acme.ai' }, round: 'Seed' },
+      { company: { slug: 'acme', name: 'Acme', city: 'Sydney', sector: 'SaaS', website: 'https://acme.ai' }, round: 'Series A' },
+      { company: { slug: 'beta', name: 'Beta', city: 'Melbourne', sector: 'AI', website: '' } },
+    ],
+  };
+  const setup = (over = {}) => {
+    const props = { pin: PIN, saved: false, onToggleSaved: vi.fn(), onClose: vi.fn(), onOpenProfile: vi.fn(), onOpenCompany: vi.fn(), ...over };
+    return { props, ...render(<VcPanel {...props} />) };
+  };
+  beforeEach(() => { fetchInvestor.mockReset(); fetchInvestor.mockResolvedValue(RECORD); });
+
+  it('opens at once with what the mark knows: the name, VC, and the city said as a city with no address behind it', () => {
+    fetchInvestor.mockImplementation(() => new Promise(() => {}));
+    setup();
+    const panel = screen.getByRole('region', { name: 'OIF Ventures' });
+    expect(within(panel).getByRole('heading', { name: 'OIF Ventures' })).toBeInTheDocument();
+    expect(within(panel).getByText('VC')).toBeInTheDocument();
+    expect(within(panel).getByText('Sydney, NSW')).toBeInTheDocument();
+    expect(within(panel).getByText('City-level: its headquarters city, no address on file')).toBeInTheDocument();
+  });
+
+  it('fills in its investment focus, its stages and its other offices from the record', async () => {
+    setup();
+    expect(await screen.findByText('Software · Health')).toBeInTheDocument();
+    expect(screen.getByText('Seed · Series A')).toBeInTheDocument();
+    expect(screen.getByText('Melbourne · Brisbane')).toBeInTheDocument();
+    expect(screen.getByText('Venture Capital')).toBeInTheDocument();
+    expect(screen.getByText('Backs software founders.')).toBeInTheDocument();
+    expect(fetchInvestor).toHaveBeenCalledWith('oif', expect.objectContaining({ signal: expect.any(AbortSignal) }));
+  });
+
+  it('lists the companies a page says it backed, each once, and opens one from its name', async () => {
+    const { props } = setup();
+    expect(await screen.findByRole('heading', { name: 'Portfolio (2)' })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: /^Beta/ }));
+    expect(props.onOpenCompany).toHaveBeenCalledWith(expect.objectContaining({ slug: 'beta', name: 'Beta' }));
+    expect(screen.getAllByRole('button', { name: /^Acme/ })).toHaveLength(1);
+  });
+
+  it('says so when no company is linked to it, and when the record cannot be fetched', async () => {
+    fetchInvestor.mockResolvedValue({ ...RECORD, portfolio: [] });
+    const { unmount } = setup();
+    expect(await screen.findByText(/No company in the directory is linked to this investor by a page yet/)).toBeInTheDocument();
+    unmount();
+    fetchInvestor.mockRejectedValue(new Error('down'));
+    setup();
+    expect(await screen.findByText(/Could not load the rest of this investor/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'OIF Ventures' })).toBeInTheDocument();
+  });
+
+  it('says "Not stated" for a focus no source gives, never a guess', async () => {
+    fetchInvestor.mockResolvedValue({ ...RECORD, sectors: [], stages: [], other_offices: [] });
+    setup();
+    expect(await screen.findByText('Not stated')).toBeInTheDocument();
+  });
+
+  it('opens the investor\'s own page, saves the investor, and closes from its button and with Escape', async () => {
+    const { props } = setup();
+    await userEvent.click(screen.getByRole('button', { name: /View investor profile/ }));
+    expect(props.onOpenProfile).toHaveBeenCalledWith('oif');
+    await userEvent.click(screen.getByRole('button', { name: 'Save OIF Ventures' }));
+    expect(props.onToggleSaved).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByRole('button', { name: 'Close this panel' }));
+    await userEvent.keyboard('{Escape}');
+    expect(props.onClose).toHaveBeenCalledTimes(2);
+  });
+
+  it('links its website out in a new tab, and writes its name as text', () => {
+    fetchInvestor.mockImplementation(() => new Promise(() => {}));
+    const evil = '<img src=x onerror=alert(1)>';
+    const { container } = setup({ pin: { ...PIN, name: evil } });
+    expect(screen.getByRole('link', { name: /oif\.vc/ })).toHaveAttribute('target', '_blank');
+    expect(container.querySelector('.xp-name img')).toBeNull();
+    expect(screen.getByRole('heading', { name: evil })).toBeInTheDocument();
   });
 });
 
@@ -429,5 +630,42 @@ describe('the phone\'s sheet', () => {
     expect(screen.getByRole('region', { name: 'A card' })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /startups in/ })).not.toBeInTheDocument();
     expect(fetchStartupPage).not.toHaveBeenCalled();
+  });
+
+  describe('with the VCs on', () => {
+    const FIRMS = [
+      { slug: 'oif', name: 'OIF Ventures', domain: 'oif.vc', places: ['Sydney', 'Melbourne'], stages: [], sectors: [], pin: { id: 'oif@Sydney', slug: 'oif', name: 'OIF Ventures', lat: -33.87, lng: 151.21, city: 'Sydney', place: 'Sydney, NSW' } },
+    ];
+
+    it('counts the startups and the VCs in the bar, and lists the investors after the startups when it is open', async () => {
+      const p = props({ open: true, entity: 'all', vcFirms: FIRMS, onPickVc: vi.fn() });
+      render(<ResultsSheet {...p} />);
+      expect(screen.getByRole('button', { name: /2 startups · 1 VC in Australia/ })).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { name: 'Venture capital firms' })).toBeInTheDocument();
+      const row = screen.getByRole('button', { name: /^OIF Ventures/ });
+      expect(row).toHaveTextContent('Sydney, Melbourne');
+      expect(row).toHaveTextContent('VC');
+      await userEvent.click(row);
+      expect(p.onPickVc).toHaveBeenCalledWith(FIRMS[0].pin);
+    });
+
+    it('counts only the VCs, lists only them, and asks for no startups, when only the VCs are on', async () => {
+      render(<ResultsSheet {...props({ open: true, entity: 'vcs', vcFirms: FIRMS, onPickVc: vi.fn() })} />);
+      expect(screen.getByRole('button', { name: /1 VC in Australia/ })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /^OIF Ventures/ })).toBeInTheDocument();
+      expect(fetchStartupPage).not.toHaveBeenCalled();
+      expect(screen.queryByRole('heading', { name: 'Venture capital firms' })).not.toBeInTheDocument();
+    });
+
+    it('says so when no VC matches, with only the VCs on', () => {
+      render(<ResultsSheet {...props({ open: true, entity: 'vcs', vcFirms: [] })} />);
+      expect(screen.getByText(/No venture capital firm with a city on file matches/)).toBeInTheDocument();
+    });
+
+    it('shows the startups alone when only the startups are on, whatever firms it is given', async () => {
+      render(<ResultsSheet {...props({ open: true, entity: 'startups', vcFirms: FIRMS })} />);
+      expect(await screen.findByRole('button', { name: /^Acme/ })).toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /^OIF Ventures/ })).not.toBeInTheDocument();
+    });
   });
 });

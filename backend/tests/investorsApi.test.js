@@ -341,6 +341,51 @@ describe('searching and filtering the directory', () => {
   });
 });
 
+describe('the investors on the map', () => {
+  const pins = async (f, query = '') => (await request(f.app).get(`/api/investors/pins${query}`)).body;
+
+  it('marks an investor at the reference point of its headquarters city, as a city: a precision and a role, never an office address', async () => {
+    const f = await app();
+    const body = await pins(f);
+    const skip = body.items.find((i) => i.slug === 'skip');
+    expect(skip).toMatchObject({ id: 'skip@Melbourne', name: 'Skip Capital', city: 'Melbourne', state: 'VIC', place: 'Melbourne, VIC', role: 'headquarters', precision: 'CITY', lat: -37.8136, lng: 144.9631 });
+    expect(skip.stages).toEqual(['Series A', 'Series B']);
+    expect(skip.type_label).toBe('Venture Capital');
+    expect(Object.keys(skip)).not.toContain('address');
+    expect(body.items.every((i) => i.precision === 'CITY')).toBe(true);
+  });
+
+  it('draws only the published investors, and says how many there are and how many could not be placed', async () => {
+    const f = await app();
+    const body = await pins(f);
+    expect(body.total).toBe(5);
+    expect(body.count).toBe(5);
+    // Kiwi Ventures is in Auckland, which the gazetteer of Australian cities does not hold: it is counted, not drawn.
+    expect(body.items.map((i) => i.slug).sort()).toEqual(['angels', 'oif', 'old', 'skip']);
+    expect(body.pinned).toBe(4);
+    expect(body.unplaced).toBe(1);
+  });
+
+  it('marks the cities of an investor\'s other offices as well, and leaves out an office that is not a city this project knows', async () => {
+    const ds = data();
+    const skip = ds.investors.find((o) => o.id === 'skip');
+    skip.other_offices = ['Sydney', 'Auckland', 'Melbourne'];
+    const f = await app({ ds });
+    const mine = (await pins(f)).items.filter((i) => i.slug === 'skip');
+    expect(mine.map((i) => `${i.city}:${i.role}`)).toEqual(['Melbourne:headquarters', 'Sydney:office']);
+  });
+
+  it('takes the same filters as the list, and keeps only the marks in the cities asked for', async () => {
+    const f = await app();
+    expect((await pins(f, '?stage=Series%20B')).items.map((i) => i.slug)).toEqual(['skip']);
+    expect((await pins(f, '?search=brisbane')).items.map((i) => i.slug)).toEqual(['angels']);
+    expect((await pins(f, '?city=Sydney')).items.map((i) => i.slug).sort()).toEqual(['oif', 'old']);
+    expect((await pins(f, '?city=melbourne,brisbane')).items.map((i) => i.slug).sort()).toEqual(['angels', 'skip']);
+    // The question has its own answer in the response cache: a city is part of it.
+    expect((await pins(f, '?city=Perth')).items).toEqual([]);
+  });
+});
+
 describe('a directory with nothing published', () => {
   it('answers with an empty list and no cheque filter, and a 404 for any investor', async () => {
     const f = await app({ ds: world({ companies: [co('Acme')], orgs: [backed('ver')] }) });

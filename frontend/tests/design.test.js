@@ -86,12 +86,21 @@ describe('the one card', () => {
 });
 
 describe('the map\'s pins', () => {
-  it('is a 44px place to press, with a 14px dot or a 36px white tile in it, the tile with a rounded square\'s corners and a soft shadow, and a hover that grows it', () => {
+  it('is a 44px place to press with a 40px tile in it (a rounded square on a pale ground, with a soft shadow), no dot, and a hover that grows it', () => {
     expect(explore).toMatch(/\.custom-pin-badge\{[^}]*width:44px;height:44px/);
-    expect(explore).toMatch(/\.pin-dot \.pin-face\{width:14px;height:14px;border-radius:50%/);
-    expect(explore).toMatch(/\.pin-tile \.pin-face\{width:36px;height:36px;border-radius:10px;[^}]*background:#f4f6f8[^}]*box-shadow:0 4px 14px/);
-    expect(explore).toMatch(/\.custom-pin-badge:hover \.pin-face\{transform:scale\(1\.14\)/);
+    expect(explore).not.toMatch(/\.pin-dot/);
+    expect(explore).toMatch(/\.pin-tile \.pin-face\{width:40px;height:40px;border-radius:12px;[^}]*background:#f4f6f8[^}]*box-shadow:0 4px 14px/);
+    expect(explore).toMatch(/\.custom-pin-badge:hover \.pin-face\{transform:scale\(1\.1\)/);
     expect(styles).toMatch(/\.inst-pin:hover\{transform:scale\(1\.1\)/);
+  });
+
+  it('keeps a logo\'s own colours and proportions (contain) on the tile, and draws an investor\'s tile with VC on it and the accent for its dashed edge', () => {
+    expect(explore).toMatch(/\.pin-logo\{[^}]*object-fit:contain/);
+    expect(explore).toMatch(/\.pin-vc\.pin-approx \.pin-face\{outline-color:var\(--accent\);\}/);
+    const badge = /\.pin-vc-badge\{([^}]*)\}/.exec(explore)[1];
+    expect(badge).toMatch(/background:var\(--accent\)/);
+    expect(badge).toMatch(/color:var\(--on-accent\)/);
+    expect(explore).toMatch(/\.pin-vcgroup \.pin-face\{[^}]*border-color:var\(--accent\)/);
   });
 
   it('marks the open company with a ring in the page\'s accent, and a suburb\'s pin with a dashed edge', () => {
@@ -111,7 +120,7 @@ describe('the map\'s pins', () => {
     const cluster = /\.marker-cluster-inner\{([^}]*)\}/.exec(explore)[1];
     expect(cluster).toMatch(/border:1\.5px solid rgb\(var\(--accent-rgb\)/);
     expect(cluster).toMatch(/color:var\(--accent-ink\)/);
-    expect(explore).toMatch(/\.cluster-large\{width:62px;height:62px/);
+    expect(explore).toMatch(/\.cluster-large\{width:58px;height:58px/);
     expect(`${styles}${explore}`).not.toMatch(/#fbbf24|#f97316|#4ade80/i);
   });
 
@@ -163,7 +172,7 @@ describe('the panel on the left and the news pill', () => {
     expect(narrow).toMatch(/\.xp \.map-panel\{[^}]*position:fixed;top:auto;left:0;right:0;bottom:0;[^}]*border-radius:20px 20px 0 0/);
     expect(narrow).toMatch(/\.xp \.map-panel-scrim\{position:fixed;inset:0;[^}]*display:block;\}/);
     // the card, the dock, the title and the list make room for it on a wide screen
-    for (const selector of ['.xp.panel-open .xm-preview', '.xp.panel-open .xd', '.xp.panel-open .xm-title', '.xp.panel-open #startupListView']) expect(explore).toContain(selector);
+    for (const selector of ['.xp.panel-open .xr', '.xp.panel-open .xm-title', '.xp.panel-open #startupListView']) expect(explore).toContain(selector);
     expect(explore).toMatch(/\.xp\.panel-open #startupListView\{padding-left:calc\(var\(--panel-w\) \+ 28px\);\}/);
   });
 
@@ -197,7 +206,7 @@ describe('the map\'s page (explore.css)', () => {
   });
 
   it('does not reach another page: every rule is the map page\'s own (its prefix, its pins, its menu or its map controls)', () => {
-    const OWN = /\.(xp|xh|xt|xm|xd|xo|xs)\b|\.(hdr-menu|custom-leaflet-marker|custom-pin-badge|pin-|marker-cluster|cluster-|leaflet-)/;
+    const OWN = /\.(xp|xh|xt|xm|xr|xs|vl)\b|\.(hdr-menu|custom-leaflet-marker|custom-pin-badge|pin-|marker-cluster|cluster-|leaflet-|stack-|vc-popup)/;
     for (const selector of topLevel) {
       for (const part of selector.split(',')) expect(OWN.test(part.trim()), part.trim()).toBe(true);
     }
@@ -211,35 +220,39 @@ describe('the map\'s page (explore.css)', () => {
     expect(explore).toMatch(/\.xh-add-text\{display:none;\}/);
   });
 
-  it('makes what is pressed big enough: 44px in the header, 46px in the toolbar, 52px on the card, and a 60px row in the phone\'s sheet', () => {
+  it('makes what is pressed big enough: 44px in the header, 46px in the toolbar, 50px and 46px on the panel, and a 60px row in the phone\'s sheet', () => {
     expect(explore).toMatch(/\.xh-add\{[^}]*height:44px/);
     expect(explore).toMatch(/\.xh-more\{[^}]*width:44px;height:44px/);
     expect(explore).toMatch(/\.xt-btn\{[^}]*height:46px/);
     expect(explore).toMatch(/\.xt-view\{[^}]*height:46px/);
-    expect(explore).toMatch(/\.xp-cta\{[^}]*height:52px/);
-    expect(explore).toMatch(/\.xp-save\{[^}]*width:52px;height:52px/);
+    expect(explore).toMatch(/\.xp-cta\{[^}]*height:50px/);
+    expect(explore).toMatch(/\.xp-secondary\{[^}]*height:46px/);
     expect(explore).toMatch(/\.xs-row\{[^}]*min-height:60px/);
-    expect(explore).toMatch(/\.xd-city\{height:42px/);
+    expect(explore).toMatch(/\.xt-entity\{[^}]*height:46px/);
+    expect(explore).toMatch(/\.xr\{[^}]*height:48px/);
   });
 
-  it('is a grid of two rows on a phone, with the sectors left to the filters', () => {
+  it('is a grid of two rows on a phone (a third only for the VCs\' own menus), with the startups\' sectors left to the filters', () => {
     const narrow = /@media \(max-width:899px\)\{([\s\S]*?)\n\}\n@keyframes xp-sheet-up/.exec(explore)[1];
-    expect(narrow).toMatch(/\.xt\{display:grid;grid-template-columns:minmax\(0,1fr\) auto;/);
-    expect(narrow).toMatch(/\.xt-search\{grid-area:2 \/ 1;/);
+    expect(narrow).toMatch(/\.xt\{display:grid;grid-template-columns:auto minmax\(0,1fr\) auto auto;/);
+    expect(narrow).toMatch(/\.xt-loc\{grid-area:1 \/ 1 \/ 2 \/ 2;/);
+    expect(narrow).toMatch(/\.xt-entity\{grid-area:1 \/ 2 \/ 2 \/ 5;\}/);
+    expect(narrow).toMatch(/\.xt-search\{grid-area:2 \/ 1 \/ 3 \/ 3;/);
+    expect(narrow).toMatch(/\.xt-view\{grid-area:2 \/ 4 \/ 3 \/ 5;/);
     expect(narrow).toMatch(/\.xt-menu\{display:none;\}/);
   });
 
   it('draws the phone\'s sheet shut at 70px and open at most 560px tall, and lets a card in it take its own height', () => {
     expect(explore).toMatch(/\.xs-peek\{height:calc\(70px \+ env\(safe-area-inset-bottom\)\);\}/);
     expect(explore).toMatch(/\.xs-open\{height:min\(64%,560px\);\}/);
-    expect(explore).toMatch(/\.xs-detail\{height:auto;max-height:80%;overflow-y:auto;\}/);
+    expect(explore).toMatch(/\.xs-detail\{height:auto;max-height:min\(58%,520px\);overflow-y:auto;\}/);
   });
 
-  it('keeps a visible focus ring on what can be pressed in the header, the toolbar, the card and the dock', () => {
+  it('keeps a visible focus ring on what can be pressed in the header, the toolbar, the panel, the way back and the marks', () => {
     expect(explore).toMatch(/\.xh button:focus-visible,\.xt button:focus-visible[^{]*\{outline:2px solid var\(--accent\)/);
-    expect(explore).toMatch(/\.xp-card button:focus-visible\{outline:2px solid var\(--accent\)/);
-    expect(explore).toMatch(/\.xd-city:focus-visible\{outline:2px solid var\(--accent\)/);
-    expect(explore).toMatch(/\.xo:focus-visible\{outline:2px solid var\(--accent\)/);
+    expect(explore).toMatch(/\.xp-card button:focus-visible,\.xp-card a:focus-visible\{outline:2px solid var\(--accent\)/);
+    expect(explore).toMatch(/\.xr:focus-visible\{outline:2px solid var\(--accent\)/);
+    expect(explore).toMatch(/\.leaflet-marker-icon:focus-visible \.pin-face,\.leaflet-marker-icon:focus-visible \.marker-cluster-inner\{outline:3px solid #fff/);
   });
 
   it('is loaded by the app only: the landing page and the plain pages never fetch it', () => {

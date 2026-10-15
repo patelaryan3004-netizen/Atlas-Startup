@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import SearchBar from '../SearchBar.jsx';
+import CheckMenu from './CheckMenu.jsx';
 import { splitValues, joinValues } from '../MultiSelect.jsx';
 import { usePopover } from '../../hooks/usePopover.js';
 import { useMediaQuery, DESKTOP } from '../../hooks/useMediaQuery.js';
 import { PinIcon, ChevronDown, SlidersIcon, MapIcon, ListIcon, CheckIcon } from './icons.jsx';
 
-// The bar under the header: where (a country and a city, with a menu of the cities), a search box for that place, the sector and the filters,
-// and the switch between the map and the list. A city chosen here is the filter `city` of the filter panel, so the map, the list, the counts
-// and the search all narrow to it, and "Australia" alone is no city at all.
+// The bar under the header: where (a country and a city, with a menu of the cities), a search box for that place, what is shown (All, Startups
+// or VCs), the sector and the filters, and the switch between the map and the list. A city chosen here is the filter `city` of the filter panel,
+// so the map, the list, the counts and the search all narrow to it, and "Australia" alone is no city at all. What is shown is not a filter of the
+// directory: it says which layers of the map (and which list) are on. With only VCs on, the Sector menu offers the sectors investors state and a Stage
+// menu joins it, because the startups' sectors and the filters of the panel are about startups.
+export const ENTITIES = [['all', 'All'], ['startups', 'Startups'], ['vcs', 'VCs']];
+const SEARCH_WORDS = { all: 'Search startups or investors', startups: 'Search startups', vcs: 'Search investors' };
 
 const SECTOR_FIND_FROM = 8; // a list longer than this gets a box to narrow it
 const BADGE_LEFT_OUT = ['search', 'city', 'sector'];
@@ -104,18 +109,34 @@ function SectorMenu({ sectors, value, onChange }) {
 
 export default function ExploreToolbar({
   filters, onFilterChange, onApplyFilters, meta, cities, total, filtersOpen, onToggleFilters, filtersRef, viewMode, onSetViewMode,
+  entity = 'all', onEntityChange, vcOptions = { sectors: [], stages: [] },
 }) {
   const selectedCities = splitValues(filters.city);
   // The filters on, for the badge: not the search (it has its own box), nor the city (it is the breadcrumb) nor the sectors (they have their button).
-  const activeCount = Object.entries(filters).filter(([key, value]) => value && !BADGE_LEFT_OUT.includes(key)).length;
+  const leftOut = entity === 'vcs' ? [...BADGE_LEFT_OUT, 'stage'] : BADGE_LEFT_OUT; // with only VCs on, the stage has its own menu
+  const activeCount = Object.entries(filters).filter(([key, value]) => value && !leftOut.includes(key)).length;
   const chooseCity = (city) => onFilterChange({ city: nextCity(filters.city, city) });
   const where = placeLabel(selectedCities);
   const wide = useMediaQuery(DESKTOP, true);
   return (
     <div className="xt">
       <LocationMenu cities={cities} selected={selectedCities} total={total} onSelect={chooseCity} />
-      <SearchBar filters={filters} onApplyFilters={onApplyFilters} placeholder={wide ? `Search in ${where}` : 'Search startups'} />
-      <SectorMenu sectors={meta.sectors} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} />
+      <SearchBar filters={filters} onApplyFilters={onApplyFilters} placeholder={wide ? `${SEARCH_WORDS[entity] ?? SEARCH_WORDS.all}${where === 'Australia' ? '' : ` in ${where}`}` : entity === 'vcs' ? 'Search investors' : 'Search startups'} />
+      {onEntityChange && (
+        <div className="xt-entity" role="group" aria-label="What the map shows">
+          {ENTITIES.map(([id, label]) => (
+            <button key={id} type="button" className={entity === id ? 'xt-seg xt-seg-on' : 'xt-seg'} aria-pressed={entity === id} onClick={() => onEntityChange(id)}>{label}</button>
+          ))}
+        </div>
+      )}
+      {entity === 'vcs' ? (
+        <div className="xt-vcmenus">
+          <CheckMenu label="Sector" options={vcOptions.sectors} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} noun="sectors" />
+          <CheckMenu label="Stage" options={vcOptions.stages} value={filters.stage} onChange={(stage) => onFilterChange({ stage })} noun="stages" />
+        </div>
+      ) : (
+        <SectorMenu sectors={meta.sectors} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} />
+      )}
       <button
         ref={filtersRef}
         type="button"
@@ -126,7 +147,7 @@ export default function ExploreToolbar({
         onClick={onToggleFilters}
       >
         <SlidersIcon size={20} />
-        <span className="xt-btn-text">Filters{activeCount ? <span className="xt-badge">{activeCount}</span> : null}</span>
+        <span className="xt-btn-text"><span className="xt-btn-word">Filters</span>{activeCount ? <span className="xt-badge">{activeCount}</span> : null}</span>
         <ChevronDown size={18} className="xt-chev" />
       </button>
       <div className="xt-view" role="group" aria-label="How the startups are shown">

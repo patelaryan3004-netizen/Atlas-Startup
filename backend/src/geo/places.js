@@ -80,6 +80,13 @@ export function cityCentre(city, state) {
   return known.length === 1 ? known[0] : null;
 }
 
+// The reference point for a city known only by name (an office listed as "Melbourne", with no state beside it), or null. The names in
+// the table above are all different, so a name is enough; a name that is not in the table (Auckland) has no point.
+export function cityNamed(name) {
+  const wanted = keyOf(name, '').split('|')[0];
+  return wanted ? CITIES.find((c) => c.key.split('|')[0] === wanted) ?? null : null;
+}
+
 export function stateCentre(state) {
   const s = STATES[state];
   return s ? { lat: s.centre[0], lng: s.centre[1], name: s.name } : null;

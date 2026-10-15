@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { HttpError } from '../catalog/respond.js';
-import { INVESTOR_SORTS, INVESTOR_FACETS, readInvestorFilters, selectInvestors, sortInvestors, investorFacets, investorMeta } from '../catalog/investors.js';
+import { INVESTOR_SORTS, INVESTOR_FACETS, readInvestorFilters, selectInvestors, sortInvestors, investorFacets, investorMeta, investorPins } from '../catalog/investors.js';
 import { requireAdminKey } from '../middleware/requireAdminKey.js';
 import { offsetParams, offsetInfo, cursorParams, cursorPage } from '../http/paging.js';
 
@@ -51,6 +51,16 @@ export function createInvestorsRouter({ respond, catalog, correctionsFile = CORR
 
   // The filter vocabulary of the whole directory, and whether any investor states a cheque size.
   router.get('/meta', send((snap) => investorMeta(snap)));
+
+  // GET /api/investors/pins?search=&sector=&stage=&type=&city=Sydney,Melbourne   the investors as marks for the map: { total, count, pinned,
+  // unplaced, items: [{ id, slug, name, type, type_label, domain, logo, lat, lng, city, state, place, role, precision, stages, sectors,
+  // portfolio_count }] }. The same filters as the list, and `city` keeps the marks in those cities. A mark is a city's reference point
+  // (precision CITY, role headquarters or office): the records state a city, never an address, so nothing here is an office.
+  router.get('/pins', send((snap, req) => {
+    const filters = readInvestorFilters(req.query);
+    const cities = req.query.city ? String(Array.isArray(req.query.city) ? req.query.city.join(',') : req.query.city).split(',').map((c) => c.trim()).filter(Boolean) : null;
+    return { total: snap.count, ...investorPins(snap, selectInvestors(snap, filters), { cities }) };
+  }));
 
   // A correction a visitor suggests. It is staged, never applied: a person reads it, checks it against a page, and edits the
   // record (which then needs a source) or turns it down. A route to CLAIM a profile is deliberately not here: there are no

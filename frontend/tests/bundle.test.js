@@ -150,7 +150,8 @@ describe('what each page downloads', () => {
     const libraries = [...called('react'), ...called('leaflet')];
     const rest = Object.keys(files).filter((n) => !libraries.includes(n) && !n.startsWith('index-'));
     const biggest = rest.sort((a, b) => Buffer.byteLength(files[b]) - Buffer.byteLength(files[a]))[0];
-    expect(Buffer.byteLength(files[biggest])).toBeLessThan(60_000);
+    // (The app's shell is the biggest: it grew by the VC layer, the entity switch and the sheet's VC rows; the panels and the VC list are files of their own.)
+    expect(Buffer.byteLength(files[biggest])).toBeLessThan(64_000);
     expect(sizeOf(called('InvestorsView'))).toBeGreaterThan(0);
   });
 });

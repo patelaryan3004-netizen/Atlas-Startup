@@ -8,7 +8,9 @@ import { ChevronDown } from './icons.jsx';
 
 // The phone's bottom sheet: what the map says about the places on it. Shut it is a bar with the count ("58 startups in Melbourne"); pulled up it
 // is the list of those startups, a page at a time, and a startup picked from it opens as a card in the same sheet (`detail`, which the page
-// gives it) while the map moves to it. A swipe on the bar, or a press, opens and shuts it.
+// gives it) while the map moves to it. A swipe on the bar, or a press, opens and shuts it. With the VCs on (`entity` all or vcs) the investors the
+// map draws are listed too (`vcFirms`, one row each; picking one calls onPickVc with its first mark), and with only the VCs on the bar counts them
+// and no startup is asked for.
 const LOADING = { items: [], count: 0, hasMore: false, status: 'loading', moreFailed: false };
 const readyFrom = (page) => ({ items: page.results, count: page.count, hasMore: page.hasMore, status: 'ready', moreFailed: false });
 const firstPage = (filters) => peek.startupPage(filters, { limit: LIST_PAGE, offset: 0, sort: 'name' });
@@ -55,6 +57,21 @@ function useResults(filters, active) {
   return [state, more];
 }
 
+function VcRow({ firm, selected, onPick }) {
+  return (
+    <li>
+      <button type="button" className={selected ? 'xs-row xs-row-on' : 'xs-row'} onClick={() => onPick(firm.pin)}>
+        <Avatar name={firm.name} domain={firm.domain} />
+        <span className="xs-rowtext">
+          <b>{firm.name}</b>
+          <span>{[...new Set(firm.places)].join(', ')}</span>
+        </span>
+        <span className="xs-vc">VC</span>
+      </button>
+    </li>
+  );
+}
+
 function Row({ startup, selected, onPick }) {
   const hiring = hiringLabel(startup).state === 'hiring';
   const where = present(startup.city, startup.sectorFull || startup.sector).join(' · ');
@@ -73,8 +90,9 @@ function Row({ startup, selected, onPick }) {
 }
 
 // `open`: the list is showing. `where`: the place the count is for ("Melbourne", "Australia"). `detail`: a card to show instead of the list.
-export default function ResultsSheet({ filters, count, where, open, onOpenChange, selectedName, onPick, detail = null }) {
-  const [{ items, hasMore, status, moreFailed }, more] = useResults(filters, open && !detail);
+export default function ResultsSheet({ filters, count, where, open, onOpenChange, selectedName, onPick, detail = null, entity = 'startups', vcFirms = [], onPickVc }) {
+  const startups = entity !== 'vcs';
+  const [{ items, hasMore, status, moreFailed }, more] = useResults(filters, open && !detail && startups);
   const swipe = useRef(null);
   const sentinel = useRef(null);
 
@@ -86,7 +104,8 @@ export default function ResultsSheet({ filters, count, where, open, onOpenChange
   }, [hasMore, moreFailed, items.length, more]);
 
   const mode = detail ? 'detail' : open ? 'open' : 'peek';
-  const label = `${count} ${count === 1 ? 'startup' : 'startups'}`;
+  const vcs = `${vcFirms.length} ${vcFirms.length === 1 ? 'VC' : 'VCs'}`;
+  const label = entity === 'vcs' ? vcs : `${count} ${count === 1 ? 'startup' : 'startups'}${entity === 'all' && vcFirms.length ? ` · ${vcs}` : ''}`;
   const touch = {
     onTouchStart: (e) => { swipe.current = e.touches[0].clientY; },
     onTouchEnd: (e) => {
@@ -112,18 +131,29 @@ export default function ResultsSheet({ filters, count, where, open, onOpenChange
           </button>
           {open && (
             <div id="xsBody" className="xs-body">
-              {status === 'loading' && <p className="xs-note" role="status">Loading startups…</p>}
-              {status === 'error' && <p className="xs-note">Could not load the startups right now.</p>}
-              {status === 'ready' && items.length === 0 && <p className="xs-note">No startups match your filters.</p>}
-              {items.length > 0 && (
+              {startups && status === 'loading' && <p className="xs-note" role="status">Loading startups…</p>}
+              {startups && status === 'error' && <p className="xs-note">Could not load the startups right now.</p>}
+              {startups && status === 'ready' && items.length === 0 && <p className="xs-note">No startups match your filters.</p>}
+              {startups && items.length > 0 && (
                 <ul className="xs-list">
                   {items.map((s) => <Row key={s.slug || s.name} startup={s} selected={s.name === selectedName} onPick={onPick} />)}
                 </ul>
               )}
-              {hasMore && (
+              {startups && hasMore && (
                 <div className="xs-more" ref={sentinel}>
                   <button type="button" className="xs-morebtn" onClick={more}>{moreFailed ? 'Could not load more: try again' : `Show more (${count - items.length} left)`}</button>
                 </div>
+              )}
+              {entity !== 'startups' && (
+                <>
+                  {entity === 'all' && vcFirms.length > 0 && <h3 className="xs-sub">Venture capital firms</h3>}
+                  {entity === 'vcs' && vcFirms.length === 0 && <p className="xs-note">No venture capital firm with a city on file matches.</p>}
+                  {vcFirms.length > 0 && (
+                    <ul className="xs-list">
+                      {vcFirms.map((firm) => <VcRow key={firm.slug} firm={firm} selected={firm.name === selectedName} onPick={onPickVc} />)}
+                    </ul>
+                  )}
+                </>
               )}
             </div>
           )}

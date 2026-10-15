@@ -1,17 +1,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
+import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
 import FilterPanel from './components/FilterPanel.jsx';
 import { splitValues } from './components/MultiSelect.jsx';
 import MapKey from './components/MapKey.jsx';
 import MapLayers from './components/MapLayers.jsx';
 import ExploreHeader from './components/explore/ExploreHeader.jsx';
-import ExploreToolbar, { nextCity, placeLabel } from './components/explore/ExploreToolbar.jsx';
-import PreviewCard from './components/explore/PreviewCard.jsx';
-import CityDock from './components/explore/CityDock.jsx';
-import MapOverview from './components/explore/MapOverview.jsx';
+import ExploreToolbar, { placeLabel } from './components/explore/ExploreToolbar.jsx';
+import AllAustralia from './components/explore/AllAustralia.jsx';
 import ResultsSheet from './components/explore/ResultsSheet.jsx';
 import { getPersonProfile } from './people.js';
-import { areaFilters, pinPayload, scopeText } from './mapPins.js';
+import { areaFilters, pinPayload, scopeText, vcTuple, vcFirms } from './mapPins.js';
+import { useSavedInvestors } from './hooks/useSavedInvestors.js';
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
 import { readAppRoute, appUrl, appPath } from './appRoute.js';
 import { usePageMeta } from './hooks/usePageMeta.js';
@@ -36,6 +35,9 @@ import './explore.css';
 const MapView = lazyView(() => import('./components/MapView.jsx'));
 const NewsTicker = lazyView(() => import('./components/NewsTicker.jsx'));
 const ListView = lazyView(() => import('./components/ListView.jsx'));
+const StartupPanel = lazyView(() => import('./components/explore/StartupPanel.jsx'));
+const VcPanel = lazyView(() => import('./components/explore/VcPanel.jsx'));
+const VcList = lazyView(() => import('./components/explore/VcList.jsx'));
 const JobsView = lazyView(() => import('./components/JobsView.jsx'));
 const InvestorsView = lazyView(() => import('./components/investors/InvestorsView.jsx'));
 const NewsPage = lazyView(() => import('./components/NewsPage.jsx'));
@@ -79,8 +81,17 @@ const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '
 const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], hasFresh: false };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
-const DOCK_CITIES = 4; // the cities on the map's dock
-const SHEET_INSET = 340; // the height of a card in the phone's sheet: a pin picked on the map is brought clear of it
+// The phone's sheet holds a panel at most 58% of the screen tall (explore.css .xs-detail) and no more than 520px: a pin picked on the map is brought clear of
+// that much, so the one that is open is in sight above the sheet whatever the panel says.
+const sheetInset = () => Math.round(Math.min(window.innerHeight * 0.58, 520));
+const PANEL_INSET = 440; // the width of the panel docked on a wide map's right (with its margin): a pin picked on the map is brought clear of it
+// What the map shows: the startups, the VCs, or both. It is in the address (?show=startups or ?show=vcs; both is no parameter), so a link opens as it was.
+const SHOWN = ['all', 'startups', 'vcs'];
+// The filters that are about a startup alone (whether it is hiring, its remote policy, how it is placed...): an investor has none of them, so with one on
+// the VCs are left off the map when both are shown, and ignored when only they are.
+const STARTUP_ONLY = ['hiring', 'taskGate', 'events', 'remote', 'tech', 'team', 'fresh', 'investor', 'precision', 'state', 'verified'];
+const NO_VCS = { items: [], unplaced: 0, count: 0, ready: false };
+const ALL_AUSTRALIA_ZOOM = 6.5; // zoomed in past this, the map offers the way back to all of Australia even with no city chosen
 
 function loadNewsVisible() {
   try {
@@ -91,16 +102,16 @@ function loadNewsVisible() {
   }
 }
 
-// The map's two layers and its basemap are kept in this browser, so a visitor who switched one off finds it as they left it. A browser that
-// will not say (a private window) gets the defaults: both layers on, the dark map.
+// The firms' layer and the basemap are kept in this browser, so a visitor who switched one off finds it as they left it. A browser that
+// will not say (a private window) gets the defaults: the layer on, the dark map.
 const LAYERS_KEY = 'auStartupMapLayers';
 const BASEMAP_KEY = 'auStartupBasemap';
 function loadLayers() {
   try {
     const saved = JSON.parse(localStorage.getItem(LAYERS_KEY) ?? 'null');
-    return { companies: saved?.companies !== false, institutions: saved?.institutions !== false };
+    return { institutions: saved?.institutions !== false };
   } catch (e) {
-    return { companies: true, institutions: true };
+    return { institutions: true };
   }
 }
 function loadBasemap() {
@@ -134,6 +145,15 @@ const listFilters = (list) => ({ ...EMPTY_FILTERS, ...list.filters });
 function initialFilters(route) {
   const list = route.kind === 'list' ? filterList(route.slug) : null;
   return list ? listFilters(list) : loadFiltersFromUrl();
+}
+
+function loadShown() {
+  try {
+    const value = new URLSearchParams(window.location.search).get('show');
+    return SHOWN.includes(value) ? value : 'all';
+  } catch (e) {
+    return 'all';
+  }
 }
 
 function loadInitialView() {
@@ -186,10 +206,14 @@ export default function App() {
   const [layers, setLayers] = useState(loadLayers);
   const [basemap, setBasemap] = useState(loadBasemap);
   const [institutionPins, setInstitutionPins] = useState([]);
+  const [shown, setShown] = useState(loadShown); // 'all', 'startups' or 'vcs': which layers of the map (and which list) are on
+  const [vcData, setVcData] = useState(NO_VCS); // the investors' marks for the filters (api.fetchInvestorPins)
+  const [vcOptions, setVcOptions] = useState({ sectors: [], stages: [] }); // what the VC-only menus offer (the investors' own sectors and stages)
+  const savedVcs = useSavedInvestors();
   const desktop = useMediaQuery(DESKTOP, true); // a card on the map (wide) or a sheet that slides up from the bottom (a phone)
   const [filtersOpen, setFiltersOpen] = useState(false); // the slide-out panel on the left, opened by the Filters button: the map's own cards move aside while it is open
   const filtersButton = useRef(null);
-  const [preview, setPreview] = useState(null); // the company picked on the map: its card (a pin's company, as pinPayload makes it)
+  const [preview, setPreview] = useState(null); // the company or the VC picked on the map: its panel (as pinPayload makes it from a pin)
   const [focus, setFocus] = useState(null); // a place for the map to bring into view (MapView's focus)
   const focusTicket = useRef(0);
   const [mapView, setMapView] = useState(null); // where the map is looking, for the little map of Australia
@@ -221,7 +245,7 @@ export default function App() {
   // A page that is opened from another is a step of its own in the history (marked, so closing it can go Back and land where the
   // visitor was); one opened from a link is not, and closing it puts the map at the root.
   const ui = useRef({});
-  ui.current = { applied, viewMode, route };
+  ui.current = { applied, viewMode, route, entity: shown };
   const goTo = useCallback((next, { replace = false } = {}) => {
     const url = appUrl(next, ui.current);
     try {
@@ -249,6 +273,7 @@ export default function App() {
         const from = loadFiltersFromUrl();
         setFilters((now) => (sameFilters(now, from) ? now : from));
         setViewMode(new URLSearchParams(window.location.search).get('view') === 'list' ? 'list' : 'map');
+        setShown(loadShown());
       } else if (next.kind === 'list') {
         const list = filterList(next.slug);
         if (list) { setFilters(listFilters(list)); setViewMode('list'); }
@@ -262,13 +287,13 @@ export default function App() {
   useEffect(() => {
     try {
       if (route.kind === 'explore' || route.kind === 'startup') {
-        const url = appUrl(route, { filters: applied, viewMode });
+        const url = appUrl(route, { filters: applied, viewMode, entity: shown });
         if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
       } else if (route.kind !== 'investors' && window.location.pathname !== appPath(route)) {
         window.history.replaceState(window.history.state, '', appPath(route));
       }
     } catch (e) { /* ignore */ }
-  }, [route, applied, viewMode]);
+  }, [route, applied, viewMode, shown]);
 
   // A /startup/<slug> address (a link, or Forward) opens that company; one the directory does not have says so.
   useEffect(() => {
@@ -328,6 +353,28 @@ export default function App() {
     return () => ctrl.abort();
   }, [peopleOn, viewMode, institutionPins.length]);
 
+  // The investors the map draws, for the search, sector, stage and city. Only while they are on, and not while a filter that is about startups alone is.
+  const vcOn = shown === 'vcs' || (shown === 'all' && !STARTUP_ONLY.some((key) => applied[key]));
+  const vcFilters = useMemo(() => ({ search: applied.search, sector: applied.sector, stage: applied.stage, city: applied.city }), [applied.search, applied.sector, applied.stage, applied.city]);
+  useEffect(() => {
+    if (!vcOn || route.kind !== 'explore') { setVcData((was) => (was === NO_VCS ? was : NO_VCS)); return undefined; }
+    const ctrl = new AbortController();
+    fetchInvestorPins(vcFilters, { signal: ctrl.signal })
+      .then((found) => { if (!ctrl.signal.aborted) setVcData({ items: found.items ?? [], unplaced: found.unplaced ?? 0, count: found.count ?? 0, ready: true }); })
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setVcData(NO_VCS); });
+    return () => ctrl.abort();
+  }, [vcOn, vcFilters, route.kind]);
+
+  // With only the VCs on, the menus offer what investors state: asked of the directory once.
+  useEffect(() => {
+    if (shown !== 'vcs' || vcOptions.sectors.length) return undefined;
+    const ctrl = new AbortController();
+    fetchInvestorMeta({ signal: ctrl.signal })
+      .then((found) => { if (!ctrl.signal.aborted) setVcOptions({ sectors: found.sectors ?? [], stages: found.stages ?? [] }); })
+      .catch(() => { /* the menus stay empty and are left out */ });
+    return () => ctrl.abort();
+  }, [shown, vcOptions.sectors.length]);
+
   const toggleLayer = (name) => setLayers((was) => {
     const next = { ...was, [name]: !was[name] };
     try { localStorage.setItem(LAYERS_KEY, JSON.stringify(next)); } catch (e) { /* ignore */ }
@@ -359,7 +406,7 @@ export default function App() {
   }, [meta.sectors]);
 
   // The filters that are on, as chips that take them off one at a time. A curated list's own filters are the list: no chips for them.
-  // The city is not a chip: the toolbar's breadcrumb and the city dock already say it (and take it off).
+  // The city is not a chip: the toolbar's breadcrumb already says it (and takes it off).
   const chipFilters = { ...filters, city: '' };
   const chipsShown = !activeList && activeChips(chipFilters).length > 0;
   const chips = chipsShown ? <ActiveFilters filters={chipFilters} onChange={(next) => setFilters({ ...next, city: filters.city })} onClear={() => setFilters({ ...EMPTY_FILTERS, city: filters.city })} /> : null;
@@ -453,7 +500,7 @@ export default function App() {
 
   // ---------- the map's chrome (components/explore) ----------
 
-  // The cities for the toolbar's menu and the map's dock, each with how many startups it has, the busiest first. The counts are the whole
+  // The cities for the toolbar's menu, each with how many startups it has, the busiest first. The counts are the whole
   // directory's (stats.topCities); a city the directory lists without a count is still in the menu, after those that have one. A company whose
   // city is not known is not a city.
   const cityOptions = useMemo(() => {
@@ -464,27 +511,25 @@ export default function App() {
       .map((city) => ({ city, count: counts.get(city) ?? null }))
       .sort((a, b) => (b.count ?? -1) - (a.count ?? -1) || a.city.localeCompare(b.city));
   }, [meta.cities, stats]);
-  const dockCities = useMemo(() => cityOptions.filter(({ count }) => count != null).slice(0, DOCK_CITIES), [cityOptions]);
 
   const applyFilters = useCallback((partial) => setFilters((now) => ({ ...now, ...partial })), []);
-  const pickCity = useCallback((city) => setFilters((now) => ({ ...now, city: nextCity(now.city, city) })), []);
   const showAustralia = useCallback(() => {
     setFilters((now) => ({ ...now, city: '' }));
     focusTicket.current += 1;
     setFocus({ key: focusTicket.current, home: true });
   }, []);
 
-  // A company is picked on the map: its card opens (on a phone, in the sheet, and the map brings its pin clear of the sheet). Any change to what is
-  // being looked at puts the card away: it was for a company of the last view.
+  // A company or a VC is picked on the map: its panel opens (docked on the right of a wide map, and in the sheet on a phone), and the map brings its pin
+  // clear of the panel, so the one that is open is always in sight. Any change to what is being looked at puts the panel away: it was for the last view.
   const selectPin = useCallback((pin) => {
     setPreview(pin);
-    if (!desktop && Number.isFinite(pin.lat) && Number.isFinite(pin.lng)) {
+    if (Number.isFinite(pin.lat) && Number.isFinite(pin.lng)) {
       focusTicket.current += 1;
-      setFocus({ key: focusTicket.current, lat: pin.lat, lng: pin.lng, inset: SHEET_INSET });
+      setFocus({ key: focusTicket.current, lat: pin.lat, lng: pin.lng, ...(desktop ? { insetRight: PANEL_INSET } : { inset: sheetInset() }) });
     }
   }, [desktop]);
   const clearPin = useCallback(() => setPreview(null), []);
-  useEffect(() => { setPreview(null); }, [applied, viewMode]);
+  useEffect(() => { setPreview(null); }, [applied, viewMode, shown]);
 
   // A company picked from the sheet's list: the pin it has on the map when it has one (the map then goes to it), else just what the list knows.
   const pickFromSheet = (startup) => {
@@ -494,10 +539,26 @@ export default function App() {
       hiring: hiringLabel(startup).state === 'hiring',
     });
   };
+  // A company named on a VC's panel: its pin when it has one (the map goes to it), else its page.
+  const openCompanyFromVc = (company) => {
+    const tuple = markers.find((m) => m[0] === company.slug);
+    if (tuple) selectPin(pinPayload(tuple)); else openStartup({ slug: company.slug, name: company.name, city: company.city ?? '', sector: company.sector ?? '', website: company.website || '', verified: true });
+  };
   const openFromPreview = () => { const pin = preview; setPreview(null); openStartup(pin); };
   const reportRoleClosed = (name) => { setEditingMessage(roleClosedMessage(name)); setEditingCompany(name); };
-  const previewCard = (variant) => (
-    <PreviewCard
+  const previewPanel = (variant) => (preview.kind === 'vc' ? (
+    <Lazy><VcPanel
+      key={preview.id}
+      pin={preview}
+      variant={variant}
+      saved={savedVcs.isSaved(preview.slug)}
+      onToggleSaved={() => savedVcs.toggle(preview.slug)}
+      onClose={clearPin}
+      onOpenProfile={(slug) => openInvestors({ kind: 'investor', slug })}
+      onOpenCompany={openCompanyFromVc}
+    /></Lazy>
+  ) : (
+    <Lazy><StartupPanel
       key={preview.slug}
       pin={preview}
       variant={variant}
@@ -506,8 +567,11 @@ export default function App() {
       onOpen={openFromPreview}
       onClose={clearPin}
       onReport={() => reportRoleClosed(preview.name)}
-    />
-  );
+    /></Lazy>
+  ));
+  // The VCs the map draws, one row each, for the phone's sheet and the list.
+  const vcRows = useMemo(() => vcFirms(vcData.items), [vcData.items]);
+  const where = placeLabel(splitValues(filters.city));
   const sheetMode = preview ? 'detail' : sheetOpen ? 'open' : 'peek';
 
   // The header's menu is the same on the map's page and the investors' page (which takes it as `chrome`, and swaps the few items that mean something
@@ -616,6 +680,9 @@ export default function App() {
         filtersRef={filtersButton}
         viewMode={viewMode}
         onSetViewMode={setViewMode}
+        entity={shown}
+        onEntityChange={setShown}
+        vcOptions={vcOptions}
       />
 
       {activeList && (
@@ -627,7 +694,7 @@ export default function App() {
         />
       )}
 
-      <main className="xm" data-view={viewMode} data-sheet={sheetMode} data-card={desktop && viewMode === 'map' && preview ? '' : undefined}>
+      <main className="xm" data-view={viewMode} data-sheet={sheetMode} data-card={desktop && viewMode === 'map' && preview ? '' : undefined} data-shown={shown}>
         <Lazy fallback={viewMode === 'map' ? <MapPlaceholder basemap={basemap} /> : <ListSkeleton />}>
           {viewMode === 'map' ? (
             <MapView
@@ -639,8 +706,10 @@ export default function App() {
               onViewArea={viewArea}
               selectedName={preview?.name ?? selectedStartup?.name}
               trackedNames={tracked}
+              vcPins={vcData.items}
+              showVcs={vcOn}
               institutionPins={institutionPins}
-              showCompanies={layers.companies}
+              showCompanies={shown !== 'vcs'}
               showInstitutions={layers.institutions}
               basemap={basemap}
               scope={applied.city}
@@ -648,6 +717,14 @@ export default function App() {
               onViewChange={setMapView}
               onOpenInternal={openInternal}
               onReportRoleClosed={reportRoleClosed}
+            />
+          ) : shown === 'vcs' ? (
+            <VcList
+              pins={vcData.items}
+              unplaced={vcData.unplaced}
+              where={where}
+              onOpen={(slug) => openInvestors({ kind: 'investor', slug })}
+              onOpenDirectory={() => openInvestors()}
             />
           ) : (
             <ListView
@@ -665,14 +742,21 @@ export default function App() {
           )}
         </Lazy>
 
-        {viewMode === 'map' && <h2 className="xm-title">Discover what&rsquo;s around you</h2>}
+        {viewMode === 'map' && (
+          <div className="xm-title">
+            <h2>Explore {where}</h2>
+            <p>{shown === 'vcs' ? 'Venture capital firms' : shown === 'startups' ? 'Startups' : 'Startups and venture capital firms'}</p>
+          </div>
+        )}
         {viewMode === 'map' && chips && <div className="chips-float">{chips}</div>}
+        {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
+          <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>
+        )}
 
-        {viewMode === 'map' && <CityDock cities={dockCities} selected={splitValues(filters.city)} onSelect={pickCity} />}
-        {viewMode === 'map' && desktop && <MapOverview view={mapView} onShowAll={showAustralia} />}
+        {viewMode === 'map' && (splitValues(filters.city).length > 0 || (mapView?.zoom ?? 0) > ALL_AUSTRALIA_ZOOM) && <AllAustralia onClick={showAustralia} />}
 
         {viewMode === 'map' && desktop && preview && (
-          <div className="xm-preview">{previewCard('card')}</div>
+          <div className="xm-panel">{previewPanel('panel')}</div>
         )}
         {viewMode === 'map' && !desktop && (
           <ResultsSheet
@@ -683,7 +767,10 @@ export default function App() {
             onOpenChange={setSheetOpen}
             selectedName={preview?.name}
             onPick={pickFromSheet}
-            detail={preview ? previewCard('sheet') : null}
+            detail={preview ? previewPanel('sheet') : null}
+            entity={shown}
+            vcFirms={vcRows}
+            onPickVc={(pin) => selectPin(pinPayload(vcTuple(pin)))}
           />
         )}
 
@@ -700,8 +787,6 @@ export default function App() {
           mapTools={viewMode === 'map' ? (
             <>
               <MapLayers
-                showCompanies={layers.companies}
-                onToggleCompanies={() => toggleLayer('companies')}
                 institutionCount={institutionPins.length}
                 showInstitutions={layers.institutions}
                 onToggleInstitutions={() => toggleLayer('institutions')}

@@ -46,11 +46,11 @@ html:not(.js) #root{height:auto;min-height:100%;}
 #app{position:relative;height:100vh;width:100vw;overflow:hidden;}
 #map{position:absolute;inset:0;z-index:1;}
 
-.leaflet-container{background:#0d1113;}
-/* No Mapbox dark style without a token: invert the free OSM raster tiles to
-   fake a dark map rather than depend on a key-gated dark tile provider.
-   Scoped to .osm-inverted only - never applied to a real Mapbox dark layer. */
-.osm-inverted .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(0.8) contrast(0.85) saturate(0.32);}
+.leaflet-container{background:#0f1214;}
+/* The free OpenStreetMap tiles, turned down so the logos on them are what the eye finds (mapTiles.js). The dark map is the tiles inverted into greys;
+   the light map is the tiles faded. Neither touches the marks, which are not in the tile pane. */
+.map-quiet-dark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) grayscale(.7) brightness(.6) contrast(.68);}
+.map-quiet-light .leaflet-tile-pane{filter:grayscale(.5) brightness(1.04) contrast(.82);}
 
 .leaflet-tooltip{
   font-family:inherit; font-size:11px; padding:4px 8px;
@@ -88,6 +88,10 @@ html:not(.js) #root{height:auto;min-height:100%;}
 .area-chip b{font-weight:650;}
 .area-count{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent-ink);}
 .area-level{color:var(--muted);font-size:10.5px;}
+.area-chip{display:none;}
+.show-area-chips .area-chip{display:inline-flex;}
+.area-ring{opacity:.6;}
+.show-area-chips .area-ring{opacity:1;}
 .area-chip:hover,.area-chip:focus-visible{background:var(--panel);border-style:solid;border-color:var(--accent);outline:none;}
 
 header{

@@ -14,7 +14,7 @@ describe('MapKey', () => {
 
   it('says what every mark on the map means', () => {
     render(<MapKey />);
-    for (const words of [/A small dot: a company/, /white tile with a mint dot: hiring now/i, /tile with a star: a company you saved/i, /dashed edge/i, /numbered ring/i, /dashed ring/i, /Names appear under the pins/]) {
+    for (const words of [/rounded square with the company.s logo, or its first letter/, /mint dot: hiring now/i, /A star: a company you saved/i, /dashed edge: placed at the suburb/i, /square with VC on it and a dashed edge/i, /never a street address/i, /numbered ring/i, /dashed ring/i, /Names appear under the pins/]) {
       expect(within(key()).getByText(words)).toBeInTheDocument();
     }
   });
@@ -22,10 +22,11 @@ describe('MapKey', () => {
   it('draws the marks with the map\'s own classes, so the key cannot drift from the map', () => {
     render(<MapKey />);
     const k = key();
-    expect(k.querySelectorAll('.custom-pin-badge').length).toBe(4);
-    expect(k.querySelectorAll('.custom-pin-badge.pin-dot').length).toBe(2);
-    expect(k.querySelectorAll('.custom-pin-badge.pin-tile').length).toBe(2);
-    expect(k.querySelector('.custom-pin-badge.pin-approx')).not.toBeNull();
+    expect(k.querySelectorAll('.custom-pin-badge').length).toBe(5);
+    expect(k.querySelectorAll('.custom-pin-badge.pin-tile').length).toBe(5); // every mark is a tile: there is no dot
+    expect(k.querySelector('.pin-dot')).toBeNull();
+    expect(k.querySelectorAll('.custom-pin-badge.pin-approx').length).toBe(2); // a suburb, and a VC (a city)
+    expect(k.querySelector('.custom-pin-badge.pin-vc .pin-vc-badge')).toHaveTextContent('VC');
     expect(k.querySelector('.pin-hiring-dot')).not.toBeNull();
     expect(k.querySelector('.pin-tracked-star')).not.toBeNull();
     expect(k.querySelector('.marker-cluster-inner')).not.toBeNull();
@@ -41,7 +42,7 @@ describe('MapKey', () => {
     expect([clusterSize(CLUSTER_MEDIUM - 1), clusterSize(CLUSTER_MEDIUM), clusterSize(CLUSTER_LARGE - 1), clusterSize(CLUSTER_LARGE)]).toEqual(['small', 'medium', 'medium', 'large']);
   });
 
-  it('says nothing of sector colours: a company is the same dot whatever it does', () => {
+  it('says nothing of sector colours: a company is the same tile whatever it does', () => {
     render(<MapKey />);
     expect(key().textContent).not.toMatch(/colour of each sector|sector.s colour/i);
     expect(key().querySelector('details')).toBeNull();
@@ -61,7 +62,7 @@ describe('MapKey', () => {
 
   it('explains the firm\'s mark only when the map has firms on it', () => {
     const { unmount } = render(<MapKey />);
-    expect(screen.queryByText(/rounded square/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/investor.s office/i)).not.toBeInTheDocument();
     unmount();
     render(<MapKey showInstitutions />);
     expect(within(key()).getByText(/rounded square: an investor.s office/)).toBeInTheDocument();

@@ -101,6 +101,14 @@ export function fetchInvestorMeta({ signal } = {}) {
   return getJson(`${BASE}/investors/meta`, { signal, failure: 'Failed to fetch the investor filters' });
 }
 
+// The investors as marks for the map: { total, count, pinned, unplaced, items: [{ id, slug, name, type_label, domain, logo, lat, lng, city, state, place,
+// role, precision, stages, sectors, portfolio_count }] }. The map's own search, sector, stage and city narrow them, like the companies'. A mark is the
+// reference point of a city (precision CITY), never an office: the investors' records state a city and no address.
+export function fetchInvestorPins(filters = {}, { signal } = {}) {
+  const { search, sector, stage, city } = filters;
+  return getJson(`${BASE}/investors/pins${toQuery({ search, sector, stage, city })}`, { signal, failure: 'Failed to fetch the investors for the map' });
+}
+
 // One published investor in full, by slug.
 export function fetchInvestor(slug, { signal } = {}) {
   return getJson(`${BASE}/investors/${encodeURIComponent(slug)}`, { signal, failure: 'Failed to fetch the investor' });

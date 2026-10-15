@@ -3,16 +3,14 @@
 // page only ever creates elements for what is in view: a few dozen clusters and pins, however many companies
 // there are. (Creating an element per company is what made 5,000 pins slow before.)
 export const CLUSTER_MAX_ZOOM = 16; // up to here pins that are close together are grouped; one zoom deeper they are all single
-export const LOGO_ZOOM = 13; // from this zoom a pin may show the company's logo...
-export const MAX_LOGOS = 60; // ...but only while few pins are on screen, so the page does not fetch hundreds of images
 
 // A cluster is a ring like a pin's, in the same dark fill with the one accent for its number; its size says how many it holds: a cluster of
 // this many companies is drawn a size up...
 export const CLUSTER_MEDIUM = 10;
 export const CLUSTER_LARGE = 50; // ...and of this many a size up again (the map's key says so)
 export const clusterSize = (count) => (count < CLUSTER_MEDIUM ? 'small' : count < CLUSTER_LARGE ? 'medium' : 'large');
-// How wide each size is on screen, in pixels (the pin is 44).
-export const CLUSTER_PX = { small: 44, medium: 52, large: 62 };
+// How wide each size is on screen, in pixels (the pin's box is 44, its square 40).
+export const CLUSTER_PX = { small: 40, medium: 48, large: 58 };
 
 // How well a company's place is known, in the words the site uses for it. The server says the same (models/location.js):
 // a pin carries only the precision and whether the address was checked, and the words are made here.
@@ -26,11 +24,53 @@ export function locationQuality(precision, checked = false) {
   }
 }
 
+// ---------- investors on the map ----------
+
+// An investor's record states a city and the cities of its offices, and never an address, so what is drawn for one is the reference point of
+// a city, and every such mark says so: a dashed edge, "VC" on the tile, and these words wherever its place is told.
+export const KIND_VC = 'vc';
+export const vcQuality = (role) => (role === 'office' ? 'City-level: it has an office in this city, no address on file' : 'City-level: its headquarters city, no address on file');
+
+// An investor's mark (an item of /api/investors/pins) as a tuple that reads like a company's, with the kind and the address of its page after it:
+// [id, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo, 'vc', slug, role]. The id is the investor's address and the
+// city (an investor with an office in two cities is two marks), the sector the first one it states, and hiring is never claimed.
+export function vcTuple(pin) {
+  return [pin.id, pin.name, pin.lat, pin.lng, pin.sectors?.[0] ?? '', pin.city, 0, pin.domain ?? '', 'CITY', pin.place, 0, pin.logo ?? null, KIND_VC, pin.slug, pin.role ?? 'headquarters'];
+}
+export const isVc = (tuple) => tuple[12] === KIND_VC;
+
+// Investors in one city all stand at that city's one reference point, so on a map they would be a pile of marks on the same spot: it is drawn as ONE
+// mark, a group that says how many firms it holds and lists them when it is pressed. A city with one investor is that investor's own mark. The marks
+// the map's index is given are these: [id, name, lat, lng, '', city, 0, '', 'CITY', place, 0, null, 'vcgroup', pins].
+export const KIND_VC_GROUP = 'vcgroup';
+export const isVcGroup = (tuple) => tuple[12] === KIND_VC_GROUP;
+export function vcMarks(pins) {
+  const byPoint = new Map();
+  for (const pin of pins) {
+    const key = `${pin.lat},${pin.lng}`;
+    if (byPoint.has(key)) byPoint.get(key).push(pin); else byPoint.set(key, [pin]);
+  }
+  const marks = [];
+  for (const group of byPoint.values()) {
+    if (group.length === 1) { marks.push(vcTuple(group[0])); continue; }
+    const first = group[0];
+    marks.push([`vcgroup:${first.city}`, `${group.length} VCs in ${first.city}`, first.lat, first.lng, '', first.city, 0, '', 'CITY', first.place, 0, null, KIND_VC_GROUP, group]);
+  }
+  return marks;
+}
+
 // A pin's tuple as the object the rest of the page reads. The tuple is
 // [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked]; a tuple from a server that does not
-// yet say how well the place is known stops after the domain, and the company then carries no `location`.
+// yet say how well the place is known stops after the domain, and the company then carries no `location`. An investor's (vcTuple) is
+// { kind: 'vc', slug, id, ... } with the same `location`, worded for a city.
 export function pinPayload(tuple) {
   const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked] = tuple;
+  if (isVc(tuple)) {
+    return {
+      kind: KIND_VC, slug: tuple[13], id: slug, name, lat, lng, city, sector, role: tuple[14], verified: true, website: domain ? `https://${domain}` : '',
+      location: { precision: 'CITY', place: place || city, quality: vcQuality(tuple[14]) },
+    };
+  }
   const company = { slug, name, lat, lng, sector, city, hiring: hiring === 1 || hiring === true, verified: true, website: domain ? `https://${domain}` : '' };
   if (!precision) return company;
   return { ...company, location_precision: precision, location: { precision, place: place || city, quality: locationQuality(precision, checked === 1 || checked === true) } };
@@ -77,24 +117,24 @@ export function paddedWindow(bounds, by = 0.15) {
   return { west: Math.max(-180, w - dx), south: Math.max(-85, s - dy), east: Math.min(180, e + dx), north: Math.min(85, n + dy) };
 }
 
-// Whether pins in this view may carry logos.
-export const showLogos = (zoom, pinCount) => zoom >= LOGO_ZOOM && pinCount <= MAX_LOGOS;
-
 // ---------- the name under a pin ----------
 
 // A company's name is written under its pin once the map is close enough that pins stand apart: from zoom 7, and from zoom 9
-// on a phone, where a label is a larger part of the screen. Below that the map is circles only.
+// on a phone, where a label is a larger part of the screen. Below that the map is tiles and clusters only.
 export const LABEL_ZOOM = 7;
 export const LABEL_ZOOM_NARROW = 9;
 export const labelsVisible = (zoom, narrow = false) => zoom >= (narrow ? LABEL_ZOOM_NARROW : LABEL_ZOOM);
+// The label of a city-level group ("Sydney 44 city-level") is written from this zoom; further out the group is its ring alone (its name is in its tooltip), so
+// the names of a dozen cities do not crowd the clusters of a map of the whole country.
+export const AREA_CHIP_ZOOM = 8;
 
 // The room a label takes, in pixels, from the centre of its pin. (The styles set a 24px-tall chip, at most 160px wide, that
 // hangs 20px under the centre: the page works out where labels fit without measuring a single element.)
-const PIN_RADIUS = 22; // the pin is 44px across
-const LABEL_TOP = 16; // the name card starts a little way up under the ring (styles.css .pin-label)
+const PIN_RADIUS = 22; // the pin's box is 44px across
+const LABEL_TOP = 22; // the name card starts just under the square (explore.css .pin-label)
 const LABEL_HEIGHT = 26;
 const LABEL_MAX_WIDTH = 170;
-const CLUSTER_RADIUS = 26; // a cluster's circle is 44 to 62px across: room is kept for the middle size
+const CLUSTER_RADIUS = 26; // a cluster's circle is 40 to 58px across: room is kept for the middle size
 const LABEL_GAP = 2; // clear air between a label and whatever is beside it
 export const MAX_LABELS = 150; // however many pins are on screen, the page names at most this many
 export const labelWidth = (text) => Math.min(LABEL_MAX_WIDTH, Math.round(String(text).length * 7.2) + 22);
@@ -124,4 +164,17 @@ export function chooseLabels(pins, { limit = MAX_LABELS, blockers = [] } = {}) {
     named.add(p.id);
   }
   return named;
+}
+
+// ---------- the investors as a list ----------
+
+// The investors behind a set of marks (/api/investors/pins items), one row for each, in name order: an investor with marks in two cities is one firm
+// in two places. `pin` is its first mark, for what opens it.
+export function vcFirms(pins) {
+  const firms = new Map();
+  for (const pin of pins) {
+    const firm = firms.get(pin.slug);
+    if (firm) firm.places.push(pin.city); else firms.set(pin.slug, { slug: pin.slug, name: pin.name, domain: pin.domain, stages: pin.stages ?? [], sectors: pin.sectors ?? [], places: [pin.city], pin });
+  }
+  return [...firms.values()].sort((a, b) => a.name.localeCompare(b.name));
 }

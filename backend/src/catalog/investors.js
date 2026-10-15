@@ -20,6 +20,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { INVESTOR_STAGES, isPublicStatus, typeLabel } from '../models/investor.js';
 import { activeRecords } from '../models/investorEvidence.js';
+import { cityCentre, cityNamed } from '../geo/places.js';
 
 export const INVESTOR_SORTS = ['name', 'name_desc', 'portfolio', 'location'];
 export const INVESTOR_FACETS = ['type', 'stage', 'sector', 'location', 'lead', 'active'];
@@ -283,6 +284,37 @@ export function sortInvestors(snap, matched, sort = 'name') {
     location: (a, b) => collator.compare(cards[a].location.label ?? '￿', cards[b].location.label ?? '￿') || collator.compare(cards[a].name, cards[b].name) || a - b,
   }[sort];
   return [...matched].sort(compare);
+}
+
+// The investors on the map. An investor's record has a city (its headquarters) and a list of the cities it has offices in, and never a street
+// address, so what is drawn is a CITY: the reference point of that city (geo/places.js), labelled city-level, never an office. An investor with
+// a headquarters city and two offices is three marks; one with only a country ("Australia") has none, and is counted as unplaced. `cities`
+// (names) keeps only the marks in those cities. Like the companies' groups, nothing here is jittered or moved to tell two marks apart.
+export function investorPins(snap, matched, { cities = null } = {}) {
+  const wanted = cities ? new Set([...cities].map((c) => String(c).toLowerCase())) : null;
+  const items = [];
+  let pinned = 0;
+  for (const i of matched) {
+    const card = snap.cards[i];
+    const profile = snap.profiles.get(card.slug);
+    const spots = [];
+    const hq = card.location.city ? (cityCentre(card.location.city, card.location.state) ?? cityNamed(card.location.city)) : null;
+    if (hq) spots.push({ role: 'headquarters', centre: hq });
+    for (const office of profile.other_offices ?? []) {
+      const centre = cityNamed(office);
+      if (centre && !spots.some((s) => s.centre === centre)) spots.push({ role: 'office', centre });
+    }
+    const shown = spots.filter(({ centre }) => !wanted || wanted.has(centre.name.toLowerCase()));
+    if (spots.length) pinned += 1;
+    for (const { role, centre } of shown) {
+      items.push({
+        id: `${card.slug}@${centre.name}`, slug: card.slug, name: card.name, type: card.type, type_label: card.type_label, domain: card.domain, logo: profile.logo ?? null,
+        lat: centre.lat, lng: centre.lng, city: centre.name, state: centre.state, place: `${centre.name}, ${centre.state}`, role, precision: 'CITY',
+        stages: card.stages, sectors: card.sectors, portfolio_count: card.portfolio_count,
+      });
+    }
+  }
+  return { count: matched.length, pinned, unplaced: matched.length - pinned, items };
 }
 
 const sorted = (counts, order = null) => [...counts].sort(order ? (a, b) => order.indexOf(a[0]) - order.indexOf(b[0]) : byCount);

@@ -11,10 +11,10 @@ function Row({ mark, children }) {
   );
 }
 
-function Pin({ kind, extra = '', children }) {
+function Pin({ extra = '', children }) {
   return (
-    <span className={`custom-pin-badge ${kind} ${extra}`.trim()}>
-      <span className="pin-face">{kind === 'pin-tile' && <span className="pin-fallback">A</span>}</span>
+    <span className={`custom-pin-badge pin-tile ${extra}`.trim()}>
+      <span className="pin-face"><span className="pin-fallback">A</span></span>
       {children}
     </span>
   );
@@ -25,17 +25,22 @@ export default function MapKey({ showInstitutions = false }) {
   return (
     <section className="mk" aria-label="Map key">
       <div className="mk-group">
-        <h3 className="mk-label">A company</h3>
-        <Row mark={<Pin kind="pin-dot" />}>A small dot: a company. Press it for its card.</Row>
-        <Row mark={<Pin kind="pin-tile"><span className="pin-hiring-dot" /></Pin>}>A white tile with a mint dot: hiring now (an open role was checked). The tile shows its logo, or its first letter.</Row>
-        <Row mark={<Pin kind="pin-tile"><span className="pin-tracked-star">&#9733;</span></Pin>}>A tile with a star: a company you saved (kept in this browser).</Row>
-        <Row mark={<Pin kind="pin-dot" extra="pin-approx" />}>A dashed edge: placed at the suburb, not the office.</Row>
+        <h3 className="mk-label">A startup</h3>
+        <Row mark={<Pin />}>A rounded square with the company&rsquo;s logo, or its first letter when it has none or the logo does not load. Press it for its panel.</Row>
+        <Row mark={<Pin><span className="pin-hiring-dot" /></Pin>}>A mint dot: hiring now (an open role was checked).</Row>
+        <Row mark={<Pin><span className="pin-tracked-star">&#9733;</span></Pin>}>A star: a company you saved (kept in this browser).</Row>
+        <Row mark={<Pin extra="pin-approx" />}>A dashed edge: placed at the suburb, not at the office.</Row>
+      </div>
+
+      <div className="mk-group">
+        <h3 className="mk-label">A venture capital firm</h3>
+        <Row mark={<Pin extra="pin-vc pin-approx"><span className="pin-vc-badge">VC</span></Pin>}>A square with VC on it and a dashed edge: the firm&rsquo;s city. Its record gives a city, never a street address, so it is drawn at the city&rsquo;s centre and is not an office.</Row>
       </div>
 
       <div className="mk-group">
         <h3 className="mk-label">Places</h3>
         <Row mark={<span className="marker-cluster-inner cluster-small">12</span>}>
-          A numbered ring: companies close together. The bigger the ring, the more it holds. Press it to zoom in.
+          A numbered ring: places close together. The bigger the ring, the more it holds. Press it to open them (VCs in one city are listed, since they share a point).
         </Row>
         <p className="mk-sizes">
           <span><i className="mk-dot cluster-small" aria-hidden="true" />under {CLUSTER_MEDIUM}</span>

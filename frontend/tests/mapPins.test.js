@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
-  paddedWindow, pinPayload, clusterSize, showLogos, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, LOGO_ZOOM, MAX_LOGOS,
-  labelsVisible, labelWidth, chooseLabels, LABEL_ZOOM, LABEL_ZOOM_NARROW, MAX_LABELS,
+  paddedWindow, pinPayload, clusterSize, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, AREA_CHIP_ZOOM,
+  labelsVisible, labelWidth, chooseLabels, LABEL_ZOOM, LABEL_ZOOM_NARROW, MAX_LABELS, vcTuple, vcMarks, vcFirms, vcQuality, isVc, isVcGroup,
 } from '../src/mapPins.js';
 import { createPinIndex } from '../src/pinIndex.js';
 
@@ -23,6 +23,23 @@ describe('grouping pins for what the map shows', () => {
     expect(clusters).toHaveLength(1);
     expect(clusters[0].count).toBe(2);
     expect(pins.map((p) => tuples[p.i][0])).toEqual(['m']);
+  });
+
+  it('groups marks that are closer than the width of a mark on the SCREEN (64px on Leaflet\'s 256px tiles), so two tiles never overlap', () => {
+    // at zoom 10 a pixel is 360 / (256 * 1024) degrees of longitude at the equator, so 0.06 degrees is about 44px and 0.12 about 87px
+    const close = [pin('p', -33.8, 151.2), pin('q', -33.8, 151.26)];
+    const apart = [pin('p', -33.8, 151.2), pin('q', -33.8, 151.32)];
+    const here = { west: 150, south: -35, east: 153, north: -32 };
+    expect(createPinIndex(close).view(here, 10).map((f) => f.type)).toEqual(['cluster']);
+    expect(createPinIndex(apart).view(here, 10).map((f) => f.type)).toEqual(['pin', 'pin']);
+    expect(createPinIndex(close).view(here, 11).map((f) => f.type)).toEqual(['pin', 'pin']);
+  });
+
+  it('groups for the whole zoom below the one the map is at, never the one above, so a map between two zooms does not put marks on each other', () => {
+    const close = [pin('p', -33.8, 151.2), pin('q', -33.8, 151.26)];
+    const here = { west: 150, south: -35, east: 153, north: -32 };
+    expect(createPinIndex(close).view(here, 10.9).map((f) => f.type)).toEqual(['cluster']); // as at zoom 10, not at 11
+    expect(createPinIndex(close).view(here, 11).map((f) => f.type)).toEqual(['pin', 'pin']);
   });
 
   it('opens a cluster into its pins as the map zooms in', () => {
@@ -97,11 +114,61 @@ describe('what a pin looks like', () => {
     expect([1, 9, 10, 49, 50, 4000].map(clusterSize)).toEqual(['small', 'small', 'medium', 'medium', 'large', 'large']);
   });
 
-  it('shows logos only when zoomed in and few pins are on screen, so the page does not fetch hundreds of images', () => {
-    expect(showLogos(LOGO_ZOOM, 10)).toBe(true);
-    expect(showLogos(LOGO_ZOOM, MAX_LOGOS)).toBe(true);
-    expect(showLogos(LOGO_ZOOM, MAX_LOGOS + 1)).toBe(false);
-    expect(showLogos(LOGO_ZOOM - 1, 3)).toBe(false);
+  it('writes the name of a city-level group only from zoom 8, so the names of a dozen cities do not crowd the clusters of the whole country', () => {
+    expect(AREA_CHIP_ZOOM).toBe(8);
+  });
+});
+
+// An item of /api/investors/pins: a city's reference point, never an office.
+const vc = (slug, city, extra = {}) => ({
+  id: `${slug}@${city}`, slug, name: extra.name ?? slug.toUpperCase(), type: 'venture_capital', type_label: 'Venture Capital', domain: `${slug}.vc`, logo: null,
+  lat: extra.lat ?? -33.8688, lng: extra.lng ?? 151.2093, city, state: 'NSW', place: `${city}, NSW`, role: extra.role ?? 'headquarters', precision: 'CITY',
+  stages: extra.stages ?? ['Seed'], sectors: extra.sectors ?? ['Software'], portfolio_count: 0,
+});
+
+describe('investors on the map', () => {
+  it('makes a tuple that reads like a company\'s, with its kind, its address and the kind of place it is', () => {
+    const tuple = vcTuple(vc('oif', 'Sydney', { name: 'OIF Ventures' }));
+    expect(tuple.slice(0, 12)).toEqual(['oif@Sydney', 'OIF Ventures', -33.8688, 151.2093, 'Software', 'Sydney', 0, 'oif.vc', 'CITY', 'Sydney, NSW', 0, null]);
+    expect(tuple.slice(12)).toEqual(['vc', 'oif', 'headquarters']);
+    expect(isVc(tuple)).toBe(true);
+    expect(isVc(pin('a', 1, 2))).toBe(false);
+  });
+
+  it('is opened as an investor, never as a company, and says that its place is a city and not an address', () => {
+    const payload = pinPayload(vcTuple(vc('oif', 'Sydney', { name: 'OIF Ventures' })));
+    expect(payload).toMatchObject({ kind: 'vc', slug: 'oif', id: 'oif@Sydney', name: 'OIF Ventures', city: 'Sydney', website: 'https://oif.vc', verified: true });
+    expect(payload.location).toEqual({ precision: 'CITY', place: 'Sydney, NSW', quality: vcQuality('headquarters') });
+    expect(payload.hiring).toBeUndefined(); // an investor is never said to be hiring
+    expect(vcQuality('headquarters')).toMatch(/headquarters city, no address on file/);
+    expect(vcQuality('office')).toMatch(/office in this city, no address on file/);
+  });
+
+  it('makes one mark of the investors that stand at one point (a city), and a mark of its own for a city with one', () => {
+    const marks = vcMarks([vc('a', 'Sydney'), vc('b', 'Sydney'), vc('c', 'Melbourne', { lat: -37.8136, lng: 144.9631 })]);
+    expect(marks).toHaveLength(2);
+    const group = marks.find(isVcGroup);
+    expect(group[1]).toBe('2 VCs in Sydney');
+    expect(group[2]).toBe(-33.8688);
+    expect(group[13].map((p) => p.slug)).toEqual(['a', 'b']);
+    expect(group[8]).toBe('CITY');
+    const single = marks.find(isVc);
+    expect(single[13]).toBe('c');
+    expect(vcMarks([])).toEqual([]);
+  });
+
+  it('lists the firms behind the marks once each, in name order, with every city they are in', () => {
+    const firms = vcFirms([vc('b', 'Sydney', { name: 'Beta' }), vc('a', 'Sydney', { name: 'Alpha' }), vc('b', 'Melbourne', { name: 'Beta', lat: -37.8, lng: 144.9 })]);
+    expect(firms.map((f) => f.name)).toEqual(['Alpha', 'Beta']);
+    expect(firms[1].places).toEqual(['Sydney', 'Melbourne']);
+    expect(firms[1].pin.id).toBe('b@Sydney');
+  });
+
+  it('opens a cluster to its pins, and says whether they are all at one place', () => {
+    const tuples = [pin('a', ...SYDNEY), pin('b', ...NEAR_SYDNEY), pin('m', ...MELBOURNE)];
+    const index = createPinIndex(tuples);
+    const [cluster] = index.view(AUSTRALIA, 5).filter((f) => f.type === 'cluster');
+    expect(index.leaves(cluster.id).sort()).toEqual([0, 1]);
   });
 });
 

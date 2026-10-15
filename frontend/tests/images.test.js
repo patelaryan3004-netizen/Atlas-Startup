@@ -93,8 +93,10 @@ describe('the map\'s pins, built as elements', () => {
     expect(map).toContain("img.decoding = 'async'");
     expect(map).toContain('img.naturalWidth > 0');
     expect(map).toContain("img.onerror = () => { img.style.display = 'none'; }");
-    // the pin\'s logo is the company\'s own `logo` address; the favicon service is for cards, never for a pin
-    expect(map).not.toContain('logoUrl');
+    // a pin\'s logo is the company\'s own `logo` address when the record has one, else the picture its website gives, from the one source every card on
+    // the site uses (logo.js); the map names no other service
+    expect(map).toContain("import { logoUrl } from '../logo.js';");
+    expect(map).toContain('logo || (domain ? logoUrl(domain, 96) : null)');
     expect(map).not.toMatch(/gstatic|clearbit|favicon/i);
   });
 });
