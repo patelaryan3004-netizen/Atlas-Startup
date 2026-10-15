@@ -65,13 +65,13 @@ describe('NewsPage', () => {
     expect(screen.queryByText('Could not load the news right now.')).not.toBeInTheDocument();
   });
 
-  it('says there is nothing when the feed is empty, and leaves for the map on request', async () => {
+  it('says there is nothing when the feed is empty, and leaves for the map from the shared header', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [] });
-    const onClose = vi.fn();
-    render(<NewsPage onClose={onClose} />);
+    const explore = vi.fn();
+    render(<NewsPage chrome={{ go: { explore } }} />);
     expect(await screen.findByText('No headlines right now.')).toBeInTheDocument();
-    await userEvent.click(screen.getByRole('button', { name: '← Back to map' }));
-    expect(onClose).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByRole('link', { name: 'Explore' }));
+    expect(explore).toHaveBeenCalledTimes(1);
   });
 
   it('names itself to the tab and to search engines', async () => {

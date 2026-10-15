@@ -62,13 +62,13 @@ describe('LandingPage', () => {
       screen.getAllByRole('link', { name: 'Explore the map' }).forEach((link) => expect(link).toHaveAttribute('href', '/'));
     });
 
-    it('has a navigation of the map, the list, the people, the lists and the three pages of trust, and no sign-in because there are no accounts', async () => {
+    it('has the shared header: the five places and the one action, each a real address, and no sign-in because there are no accounts', async () => {
       render(<LandingPage />);
       const nav = screen.getByRole('navigation', { name: 'Main' });
-      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['List', '/?view=list'], ['People', '/people'], ['Lists', '/lists'], ['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact']]);
-      // the header's pill, and the hero's second call to action, both open the same form
+      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Explore', '/'], ['Collections', '/lists'], ['Investors', '/investors'], ['Jobs', '/jobs'], ['Saved', '/?view=saved']]);
+      // the header's action, and the hero's second call to action, both open the same form
       screen.getAllByRole('link', { name: 'Submit a startup' }).forEach((link) => expect(link).toHaveAttribute('href', '/?view=submit'));
-      expect(within(document.querySelector('.landing-nav')).getByRole('link', { name: 'Submit a startup' })).toBeInTheDocument();
+      expect(within(document.querySelector('.sh')).getByRole('link', { name: 'Add company' })).toHaveAttribute('href', '/?view=submit');
       expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#main');
       expect(document.getElementById('main').tagName).toBe('MAIN');
@@ -246,21 +246,27 @@ describe('LandingPage', () => {
   });
 
   describe('the sections', () => {
-    it('numbers the main sections in the order they run, in small labels, and skips none', async () => {
+    const headings = (container) => [...container.querySelectorAll('main h2')].map((h) => h.textContent);
+    const HIRING = 'See who’s hiring, right now.';
+    const LISTS = 'Curated, shareable views.';
+    const VERIFY = 'Reviewed before it is published.';
+    const START = 'Start exploring.';
+
+    it('has its sections in the order they run, each named by its own heading, and no numbers or rules between them', async () => {
       const { container } = render(<LandingPage />);
-      const rules = [...container.querySelectorAll('.sec-rule')].map((r) => [r.querySelector('.sec-no').textContent, r.querySelector('.sec-name').textContent]);
-      expect(rules).toEqual([['01', 'Map'], ['02', 'Lists'], ['03', 'How we verify']]);
-      container.querySelectorAll('.sec-rule').forEach((r) => expect(r).toHaveAttribute('aria-hidden', 'true')); // the heading names the section for everyone else
+      expect(headings(container)).toEqual([HIRING, LISTS, VERIFY, START]);
+      expect(container.querySelector('.sec-rule')).toBeNull();
+      expect(container.textContent).not.toMatch(/\b0[1-4]\s*(Map|Lists|People|How we verify)/);
     });
 
-    it('has a People section, numbered 02, when someone is listed, and then the lists are 03 and how we verify 04', async () => {
+    it('has a People section after the hiring one when someone is listed, then the lists and how we verify', async () => {
       fetchPeople.mockResolvedValue({ results: [
         { id: 'ada', name: 'Ada Example', type: 'person', roleType: 'founder', title: 'Co-founder', orgName: 'Example Co', whyFollow: 'Built a thing.', links: {}, sources: [], verifiedAt: null, vouches: [] },
         { id: 'bea', name: 'Bea Builder', type: 'person', roleType: 'operator', title: 'COO', orgName: 'Widgets', links: {}, sources: [], verifiedAt: null, vouches: [] },
       ] });
       const { container } = render(<LandingPage />);
       await screen.findByRole('heading', { name: 'People worth following.' });
-      expect([...container.querySelectorAll('.sec-rule')].map((r) => r.textContent)).toEqual(['01Map', '02People', '03Lists', '04How we verify']);
+      expect(headings(container)).toEqual([HIRING, 'People worth following.', LISTS, VERIFY, START]);
       expect([...container.querySelectorAll('.landing-people-grid .entity-name')].map((n) => n.textContent)).toEqual(['Ada Example', 'Bea Builder']);
       expect(container.querySelector('.landing-people-grid .entity-name').tagName).toBe('H3');
       // a person on the one card: an initial (never a picture), the name, why they are worth following, and a row of who they are
@@ -275,14 +281,14 @@ describe('LandingPage', () => {
       expect(fetchInstitutions).not.toHaveBeenCalled(); // people are shown, so the firms are not asked for
     });
 
-    it('keeps the People section as 02 when no one is listed, by showing the firms published in the investor directory on the same card', async () => {
+    it('keeps the People section when no one is listed, by showing the firms published in the investor directory on the same card', async () => {
       fetchInstitutions.mockResolvedValue({ results: [
         { id: 'investor-blackbird', name: 'Blackbird', type: 'institution', city: 'Sydney', stageFocus: 'Seed', sectors: ['Technology'], website: 'https://www.blackbird.vc', sources: [{ label: 'Blackbird', url: 'https://www.blackbird.vc' }], verifiedAt: null, href: '/investors/blackbird' },
         { id: 'investor-airtree', name: 'AirTree', type: 'institution', city: 'Sydney', stageFocus: 'Seed, Growth', sectors: [], website: null, sources: [], verifiedAt: null, href: '/investors/airtree' },
       ] });
       const { container } = render(<LandingPage />);
       await screen.findByRole('heading', { name: 'People and firms worth following.' });
-      expect([...container.querySelectorAll('.sec-rule')].map((r) => r.textContent)).toEqual(['01Map', '02People', '03Lists', '04How we verify']);
+      expect(headings(container)).toEqual([HIRING, 'People and firms worth following.', LISTS, VERIFY, START]);
       expect([...container.querySelectorAll('.landing-people-grid .entity-name')].map((n) => n.textContent)).toEqual(['Blackbird', 'AirTree']);
       const blackbird = container.querySelector('#institution-investor-blackbird');
       expect(blackbird).toHaveClass('card', 'entity-card');
@@ -291,7 +297,7 @@ describe('LandingPage', () => {
       expect(fetchInstitutions).toHaveBeenCalledWith({}, { limit: 3 });
     });
 
-    it('with the people switched off asks for no person and no firm, draws no People section, no People link in the bar, and the numbers close the gap', async () => {
+    it('with the people switched off asks for no person and no firm, and draws no People section and no People link', async () => {
       vi.stubEnv('VITE_SHOW_PEOPLE', '');
       fetchPeople.mockResolvedValue({ results: [{ id: 'ada-example', name: 'Ada Example', type: 'person', roleType: 'founder', title: 'Co-founder', orgName: 'Example Co', sources: [], vouches: [] }], counts: {} });
       fetchInstitutions.mockResolvedValue({ results: [{ id: 'investor-blackbird', name: 'Blackbird', type: 'institution', sources: [] }] });
@@ -301,16 +307,15 @@ describe('LandingPage', () => {
       expect(fetchInstitutions).not.toHaveBeenCalled();
       expect(screen.queryByRole('heading', { name: /worth following/ })).not.toBeInTheDocument();
       expect(container.textContent).not.toMatch(/Ada Example|Blackbird|See everyone/);
-      expect([...container.querySelectorAll('.sec-rule')].map((r) => r.textContent)).toEqual(['01Map', '02Lists', '03How we verify']);
-      const nav = screen.getByRole('navigation', { name: 'Main' });
-      expect([...nav.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Map', '/'], ['List', '/?view=list'], ['Lists', '/lists'], ['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact']]);
+      expect(headings(container)).toEqual([HIRING, LISTS, VERIFY, START]);
+      expect(screen.queryByRole('link', { name: 'People' })).toBeNull();
     });
 
-    it('has no People section when there are neither people nor firms, and does not leave a gap in the numbers', async () => {
+    it('has no People section when there are neither people nor firms', async () => {
       const { container } = render(<LandingPage />);
       await waitFor(() => expect(fetchInstitutions).toHaveBeenCalled());
       expect(screen.queryByRole('heading', { name: /worth following/ })).not.toBeInTheDocument();
-      expect([...container.querySelectorAll('.sec-rule')].map((r) => r.textContent)).toEqual(['01Map', '02Lists', '03How we verify']);
+      expect(headings(container)).toEqual([HIRING, LISTS, VERIFY, START]);
     });
 
     it('opens the lists and the hiring cards with an index of names that jump to their cards', async () => {
@@ -363,7 +368,7 @@ describe('LandingPage', () => {
       const { container } = render(<LandingPage />);
       const columns = [...container.querySelectorAll('.footer-column')].map((c) => [c.querySelector('.footer-title').textContent, [...c.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')])]);
       expect(columns.map(([title]) => title)).toEqual(['Explore', 'Directory', 'Take part', 'Trust']);
-      expect(columns[0][1]).toEqual([['Map', '/'], ['List', '/?view=list'], ['People', '/people'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
+      expect(columns[0][1]).toEqual([['Map', '/'], ['List', '/?view=list'], ['People', '/people'], ['Collections', '/lists'], ['Jobs', '/jobs']]);
       expect(columns[1][1]).toEqual([['Investors', '/investors'], ['News', '/news'], ['Full list, no JavaScript', '/directory']]);
       expect(columns[2][1]).toEqual([['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ['Nominate someone', '/people']]);
       expect(columns[3][1]).toEqual([['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact'], ['Privacy', '#privacy'], ['Terms', '#terms']]);
@@ -376,7 +381,7 @@ describe('LandingPage', () => {
       vi.stubEnv('VITE_SHOW_PEOPLE', '');
       const { container } = render(<LandingPage />);
       const columns = [...container.querySelectorAll('.footer-column')].map((c) => [...c.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')]));
-      expect(columns[0]).toEqual([['Map', '/'], ['List', '/?view=list'], ['Lists', '/lists'], ['Jobs', '/jobs']]);
+      expect(columns[0]).toEqual([['Map', '/'], ['List', '/?view=list'], ['Collections', '/lists'], ['Jobs', '/jobs']]);
       expect(columns[2]).toEqual([['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist']]);
       expect(container.querySelector('.landing-footer').innerHTML).not.toContain('/people');
     });

@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-import '@fontsource/instrument-serif/latin-400-italic.css';
 import { fetchStartupPage, fetchSummary, fetchMarkers, fetchCounts, fetchPeople, fetchInstitutions } from './api.js';
 import PersonCard from './components/people/PersonCard.jsx';
 import InstitutionCard from './components/people/InstitutionCard.jsx';
 import EntityCard, { Avatar } from './components/EntityCard.jsx';
-import LandingNav from './components/landing/LandingNav.jsx';
+import SiteHeader from './components/brand/SiteHeader.jsx';
 import LandingHero from './components/landing/LandingHero.jsx';
 import LandingFooter from './components/landing/LandingFooter.jsx';
-import SectionRule from './components/landing/SectionRule.jsx';
 import Reveal from './components/Reveal.jsx';
 import IndexRow, { cardId } from './components/IndexRow.jsx';
 import { appPath } from './appRoute.js';
@@ -44,13 +42,6 @@ export function exampleEntry(companies) {
   let host = null;
   try { host = new URL(company.hiring_source_url).hostname.replace(/^www\./, ''); } catch (e) { return null; }
   return { company, host, verified: shortDate(company.last_verified_at) };
-}
-
-// The sections, in the order they run and under the numbers the page always gives them: 01 Map, 02 People, 03 Lists, 04 How we verify.
-// A section the page has nothing for (no people and no firms) is not drawn, and the numbers after it close the gap.
-export function sectionNumbers({ people }) {
-  const ids = ['map', ...(people ? ['people'] : []), 'lists', 'verify'];
-  return (id) => ids.indexOf(id) + 1;
 }
 
 // The page asks for what it shows (counts, the companies that are hiring, the map's pins), never for every company.
@@ -103,7 +94,6 @@ export default function LandingPage() {
   }, [peopleOn]);
 
   const hasPeopleSection = peopleOn && (people.length > 0 || firms.length > 0);
-  const numberOf = sectionNumbers({ people: hasPeopleSection });
   const hiringCount = stats?.hiring ?? 0;
   const listCounts = FILTER_LISTS.map((list) => ({ ...list, count: counts[list.id] ?? 0 }));
   const hiringShown = hiringSample.slice(0, shownHiring);
@@ -113,10 +103,10 @@ export default function LandingPage() {
     <ClockContext.Provider value={clock}>
     <div className="landing">
       <a className="landing-skip" href="#main">Skip to content</a>
-      <LandingNav />
+      <SiteHeader />
 
       <main id="main">
-        <LandingHero stats={stats} pins={markers} areas={areas} companies={hiringSample} number={numberOf('map')} />
+        <LandingHero stats={stats} pins={markers} areas={areas} companies={hiringSample} />
 
         <section className="landing-section" aria-labelledby="hiring-title">
           <div className="l-grid landing-section-head">
@@ -172,7 +162,6 @@ export default function LandingPage() {
 
         {hasPeopleSection && (
           <section className="landing-section" aria-labelledby="people-title">
-            <SectionRule number={numberOf('people')} name="People" />
             <div className="l-grid landing-section-head">
               <Reveal as="h2" id="people-title">{people.length ? 'People worth following.' : 'People and firms worth following.'}</Reveal>
               <Reveal className="landing-section-text" index={1}>
@@ -201,7 +190,6 @@ export default function LandingPage() {
         )}
 
         <section className="landing-section" aria-labelledby="lists-title">
-          <SectionRule number={numberOf('lists')} name="Lists" />
           <div className="l-grid landing-section-head">
             <Reveal as="h2" id="lists-title">Curated, shareable views.</Reveal>
             <Reveal className="landing-section-text" index={1}>
@@ -226,7 +214,6 @@ export default function LandingPage() {
         </section>
 
         <section className="landing-section landing-trust" id="verify" aria-labelledby="verify-title">
-          <SectionRule number={numberOf('verify')} name="How we verify" />
           <div className="l-grid landing-section-head">
             <Reveal as="h2" id="verify-title">Reviewed before it is published.</Reveal>
             <Reveal className="landing-section-text" index={1}>

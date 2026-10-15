@@ -1,6 +1,5 @@
-import LandingNav from './components/landing/LandingNav.jsx';
+import SiteHeader from './components/brand/SiteHeader.jsx';
 import LandingFooter from './components/landing/LandingFooter.jsx';
-import SectionRule from './components/landing/SectionRule.jsx';
 import { CONTACT_URL, isConfigured, embedUrl } from './tally.js';
 import { LINKEDIN_URL } from './siteMeta.js';
 import './landing.css';
@@ -117,23 +116,22 @@ function Contact() {
   );
 }
 
-// The pages by name: the heading, the section label above it, and the text.
+// The pages by name: the heading and the text.
 export const INFO_PAGES = {
-  about: { number: 1, name: 'About', heading: 'About AU Startup Map', Body: About },
-  methodology: { number: 2, name: 'Methodology', heading: 'How we verify', Body: Methodology },
-  contact: { number: 3, name: 'Contact', heading: 'Contact', Body: Contact },
+  about: { name: 'About', heading: 'About AU Startup Map', Body: About },
+  methodology: { name: 'Methodology', heading: 'How we verify', Body: Methodology },
+  contact: { name: 'Contact', heading: 'Contact', Body: Contact },
 };
 
 export default function InfoPage({ page }) {
-  const { number, name, heading, Body } = INFO_PAGES[page];
+  const { heading, Body } = INFO_PAGES[page];
   return (
     <div className="landing info-page">
       <a className="landing-skip" href="#main">Skip to content</a>
-      <LandingNav />
+      <SiteHeader />
       <main id="main" className="info-main">
         <article className="l-grid info-article">
-          <SectionRule number={number} name={name} />
-          <h1>{heading}</h1>
+          <h1 className="serif-h1">{heading}</h1>
           <div className="info-body">
             <Body />
           </div>

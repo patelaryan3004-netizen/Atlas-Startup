@@ -38,7 +38,6 @@ function setup(overrides = {}) {
   const result = render(
     <StartupDetailPanel
       startup={startup(overrides.startup)}
-      sectorColor="#abcdef"
       isTracked={overrides.isTracked || (() => false)}
       onToggleTracked={onToggleTracked}
       onSuggestEdit={onSuggestEdit}
@@ -310,8 +309,7 @@ describe('StartupDetailPanel', () => {
     render(
       <StartupDetailPanel
         startup={startup()}
-        sectorColor="#abcdef"
-        isTracked={() => false}
+          isTracked={() => false}
         onToggleTracked={() => {}}
         onSuggestEdit={() => {}}
         onClose={() => {}}
@@ -329,8 +327,7 @@ describe('StartupDetailPanel', () => {
     render(
       <StartupDetailPanel
         startup={startup()}
-        sectorColor="#abcdef"
-        isTracked={() => false}
+          isTracked={() => false}
         onToggleTracked={() => {}}
         onSuggestEdit={() => {}}
         onClose={() => {}}
@@ -358,18 +355,18 @@ describe('StartupDetailPanel', () => {
     expect(link).toHaveAttribute('href', 'https://www.canva.com');
   });
 
-  it('shows an untracked toggle by default, and a tracked state when isTracked returns true', () => {
+  it('shows a Save button by default, and a Saved state (pressed) when isTracked returns true', () => {
     const { unmount } = setup({ isTracked: () => false });
-    expect(screen.getByText('☆ Track')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Save' })).toHaveAttribute('aria-pressed', 'false');
     unmount();
 
     setup({ isTracked: () => true });
-    expect(screen.getByText('★ Tracked')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Saved' })).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('calls onToggleTracked with the startup name when the track button is clicked', async () => {
+  it('calls onToggleTracked with the startup name when the Save button is clicked', async () => {
     const { onToggleTracked } = setup();
-    await userEvent.click(screen.getByText('☆ Track'));
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }));
     expect(onToggleTracked).toHaveBeenCalledWith('Canva');
   });
 
@@ -404,7 +401,7 @@ describe('StartupDetailPanel', () => {
 describe('StartupDetailPanel, the company logo', () => {
   beforeEach(() => { vi.clearAllMocks(); });
 
-  const logo = (container) => container.querySelector('.pc-avatar-logo');
+  const logo = (container) => container.querySelector('.pc-logo img');
   // The panel also asks for the news when it opens; let that answer land inside act().
   const settle = () => act(async () => {});
 
@@ -416,7 +413,7 @@ describe('StartupDetailPanel, the company logo', () => {
 
     fireEvent.error(logo(container));
     expect(logo(container)).toBeNull();
-    expect(container.querySelector('.pc-avatar-fallback')).toHaveTextContent('C');
+    expect(container.querySelector('.pc-logo .entity-initial')).toHaveTextContent('C');
   });
 
   // The panel used to answer every failure by pointing the image at the favicon again. For a visitor whose
@@ -430,7 +427,7 @@ describe('StartupDetailPanel, the company logo', () => {
 
   it('asks again for the next company\'s logo', async () => {
     fetchNews.mockResolvedValue({ source: 'live', deals: [] });
-    const props = { sectorColor: '#abcdef', isTracked: () => false, onToggleTracked: vi.fn(), onSuggestEdit: vi.fn(), onSelectPerson: vi.fn(), onClose: vi.fn() };
+    const props = { isTracked: () => false, onToggleTracked: vi.fn(), onSuggestEdit: vi.fn(), onSelectPerson: vi.fn(), onClose: vi.fn() };
     const { container, rerender } = render(<StartupDetailPanel startup={startup()} {...props} />);
     await settle();
     fireEvent.error(logo(container));
@@ -554,7 +551,7 @@ describe('StartupDetailPanel, the company logo', () => {
     const { container } = setup({ startup: { website: '' } });
     await settle();
     expect(logo(container)).toBeNull();
-    expect(container.querySelector('.pc-avatar-fallback')).toHaveTextContent('C');
+    expect(container.querySelector('.pc-logo .entity-initial')).toHaveTextContent('C');
   });
 
   describe('freshness, events and reporting a closed role', () => {

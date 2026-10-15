@@ -1,34 +1,28 @@
-/* The /welcome hero. Near-black ground, off-white ink, and one green accent (on the buttons, the hiring dots and the italic word).
-   Shared tokens and the buttons are in landing.css; the navigation bar above it is landing-nav.css. */
-
-
-/* Hero */
+/* The /welcome hero: the headline in the serif with its one italic green word, what this is and where to go beside Australia drawn in dots, and the figures under
+   both. The tokens and the buttons are in styles.css and landing.css; the header above it is the site's own (brand.css). */
 
 /* The headline across all twelve columns, in display type; under it what this is and where to go (five columns) beside the picture (seven),
-   and under both the three figures, four columns each. */
+   and under both the figures, a third of the width each. */
 .hero{
   max-width: var(--l-max); margin: 0 auto;
-  padding: clamp(20px, 4vh, 48px) var(--l-gutter) 0;
+  padding: clamp(32px, 6vh, 72px) var(--l-gutter) 0;
 }
 .hero-grid{ row-gap: clamp(28px, 4vw, 56px); align-items: start; }
 /* The pill above the headline: a real count, with a green dot that says it is live data. */
 .hero-badge-wrap{ justify-self: start; margin-bottom: calc(var(--l-space-1) * -1); }
 .hero-badge{
   display: inline-flex; align-items: center; gap: 10px; margin: 0; padding: 7px 16px 7px 14px;
-  border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface);
-  color: var(--text); font-size: var(--fs-body); font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums;
+  border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--bg-subtle);
+  color: var(--text); font-size: var(--t-small); font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums;
 }
-.hero-badge-dot{ flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / .2); }
+.hero-badge-dot{ flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgb(var(--green-rgb) / .18); }
 .hero-title{
-  margin: 0; font-size: var(--fs-display); line-height: .98; font-weight: 600; letter-spacing: -0.04em; text-wrap: balance;
+  margin: 0; font-family: var(--font-serif); font-size: var(--fs-display); line-height: .98; font-weight: 400; letter-spacing: -.02em; text-wrap: balance;
 }
-/* The one italic word, in a face that has an italic (Geist has none): the same green as the buttons. */
-.hero-title em{
-  font-family: var(--l-serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; color: var(--accent);
-  padding-right: .04em;
-}
+/* The one italic word: the same green as the buttons. */
+.hero-title em{ font-style: italic; font-weight: 400; color: var(--green); padding-right: .04em; }
 .hero-copy{ align-self: start; }
-.hero-lede{ margin: 0; max-width: 34ch; font-size: var(--fs-lede); color: var(--l-ink-2); text-wrap: pretty; }
+.hero-lede{ margin: 0; max-width: 34ch; font-size: var(--t-lede); color: var(--text-2); text-wrap: pretty; }
 .hero .landing-cta-row{ margin-top: var(--l-space-3); }
 @media (max-width: 559px){
   .hero .landing-cta-row{ flex-direction: column; }
@@ -40,17 +34,17 @@
 
 /* The figures: what is counted, from the server's own counts. One it has not sent, or that is zero, is not here. */
 .hero-stats{
-  list-style: none; margin: 0; padding: var(--l-space-3) 0 0; border-top: 1px solid var(--l-hair);
+  list-style: none; margin: 0; padding: var(--l-space-3) 0 0; border-top: 1px solid var(--border);
   display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--l-space-3);
 }
 .hero-stat{ min-width: 0; }
 .hero-stat-reveal{ display: grid; gap: 6px; align-content: start; }
 .hero-stat-num{
-  font-size: var(--fs-figure); line-height: 1; font-weight: 600; letter-spacing: -0.04em; font-variant-numeric: tabular-nums;
+  font-family: var(--font-serif); font-size: clamp(2.5rem, 1.9rem + 2vw, 3.5rem); line-height: 1; font-weight: 400; letter-spacing: -.01em; font-variant-numeric: tabular-nums; color: var(--text);
 }
-.hero-stat-label{ font-size: var(--fs-body); font-weight: 600; color: var(--ink); }
-.hero-stat-def{ font-size: var(--fs-body); line-height: 1.5; color: var(--muted); max-width: 30ch; }
-.hero-updated{ margin: var(--l-space-1) 0 0; font-family: var(--l-mono); font-size: var(--fs-small); color: var(--muted); letter-spacing: .02em; }
+.hero-stat-label{ font-size: var(--t-body); font-weight: 600; color: var(--text); }
+.hero-stat-def{ font-size: var(--t-body); line-height: 1.5; color: var(--text-2); max-width: 30ch; }
+.hero-updated{ margin: var(--l-space-1) 0 0; font-size: var(--t-small); color: var(--text-2); }
 @media (min-width: 640px){
   .hero-stats{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--l-gap); }
 }
@@ -67,28 +61,28 @@
 }
 .eco-svg{ position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 
-.eco-grid{ fill: none; stroke: rgba(232, 230, 222, .26); stroke-linecap: round; animation: eco-fade 1.2s var(--l-ease) both; }
+.eco-grid{ fill: none; stroke: rgb(var(--ink-rgb) / .13); stroke-linecap: round; animation: eco-fade 1.2s var(--ease) both; }
 .eco-route{
-  fill: none; stroke: rgba(232, 230, 222, .3); stroke-width: 1.2; stroke-dasharray: 1;
-  animation: eco-draw 1.6s var(--l-ease) both; animation-delay: calc(450ms + var(--i) * 120ms);
+  fill: none; stroke: rgb(var(--green-rgb) / .38); stroke-width: 1.2; stroke-dasharray: 1;
+  animation: eco-draw 1.6s var(--ease) both; animation-delay: calc(450ms + var(--i) * 120ms);
 }
 .eco-leader{
-  stroke: rgba(232, 230, 222, .36); stroke-width: 1; stroke-dasharray: 2 3;
-  animation: eco-fade 1s var(--l-ease) both; animation-delay: calc(900ms + var(--i) * 140ms);
+  stroke: rgb(var(--ink-rgb) / .35); stroke-width: 1; stroke-dasharray: 2 3;
+  animation: eco-fade 1s var(--ease) both; animation-delay: calc(900ms + var(--i) * 140ms);
 }
 .eco-dot{
-  fill: var(--ink); fill-opacity: .92; transform-box: fill-box; transform-origin: center;
-  animation: eco-pop .9s var(--l-ease) both; animation-delay: calc(150ms + var(--i) * 40ms);
+  fill: var(--green); fill-opacity: .9; transform-box: fill-box; transform-origin: center;
+  animation: eco-pop .9s var(--ease) both; animation-delay: calc(150ms + var(--i) * 40ms);
 }
-.eco-ring{ fill: none; stroke: rgba(232, 230, 222, .6); stroke-width: 1.2; stroke-dasharray: 2 2.4; }
+.eco-ring{ fill: none; stroke: rgb(var(--green-rgb) / .7); stroke-width: 1.2; stroke-dasharray: 2 2.4; }
 
 .eco-cities, .eco-chips{ list-style: none; margin: 0; padding: 0; }
 .eco-city{
   position: absolute; white-space: nowrap; pointer-events: none;
-  font-size: 1em; line-height: 1.2; font-weight: 500; letter-spacing: .01em; color: var(--l-ink-2);
-  animation: eco-fade 1s var(--l-ease) both; animation-delay: 350ms;
+  font-size: 1em; line-height: 1.2; font-weight: 500; letter-spacing: .01em; color: var(--text);
+  animation: eco-fade 1s var(--ease) both; animation-delay: 350ms;
 }
-.eco-city-count{ margin-left: .25em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.eco-city-count{ margin-left: .25em; color: var(--text-2); font-variant-numeric: tabular-nums; }
 .eco-city[data-label="right"]{ transform: translate(calc(var(--r) * 100cqi / 640 + .6em), -50%); }
 .eco-city[data-label="left"]{ transform: translate(calc(-100% - var(--r) * 100cqi / 640 - .6em), -50%); }
 .eco-city[data-label="above"]{ transform: translate(-50%, calc(-100% - var(--r) * 100cqi / 640 - .35em)); }
@@ -106,15 +100,20 @@
 .eco-chip[data-side="left"]{ transform: translate(-100%, -50%); }
 .eco-chip-link{
   display: inline-flex; align-items: center; gap: .6em; padding: .6em 1em .6em .85em;
-  border: 1px solid var(--l-hair); border-radius: 999px; background: var(--panel);
-  color: var(--ink); font-size: 1em; font-weight: 500; line-height: 1; white-space: nowrap; text-decoration: none;
-  animation: eco-rise 1s var(--l-ease) both; animation-delay: calc(950ms + var(--i) * 150ms);
-  transition: border-color .2s var(--l-ease), background-color .2s var(--l-ease);
+  border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--bg); box-shadow: var(--shadow-1);
+  color: var(--text); font-size: 1em; font-weight: 500; line-height: 1; white-space: nowrap; text-decoration: none;
+  animation: eco-rise 1s var(--ease) both; animation-delay: calc(950ms + var(--i) * 150ms);
+  transition: border-color .2s var(--ease), background-color .2s var(--ease);
 }
-.eco-chip-link:hover{ border-color: rgba(232, 230, 222, .42); background: #1a2023; }
-.eco-chip-dot{ flex: none; width: .55em; height: .55em; border-radius: 50%; background: var(--accent); }
+.eco-chip-link:hover{ border-color: rgb(var(--green-rgb) / .5); background: var(--bg-subtle); }
+.eco-chip-dot{ flex: none; width: .55em; height: .55em; border-radius: 50%; background: var(--green); }
 
-.eco-caption{ margin: 18px 0 0; max-width: 46ch; font-size: var(--fs-body); line-height: 1.5; color: var(--muted); }
+/* On a phone the picture leaves room on its right for the names of the cities that stand there, so none runs off the screen. */
+@media (max-width: 639px){
+  .eco{ width: 82%; justify-self: start; }
+}
+
+.eco-caption{ margin: 18px 0 0; max-width: 46ch; font-size: var(--t-small); line-height: 1.5; color: var(--text-2); }
 
 @keyframes eco-fade{ from{ opacity: 0; } }
 @keyframes eco-pop{ from{ opacity: 0; transform: scale(.2); } }
@@ -124,5 +123,4 @@
 
 @media (prefers-reduced-motion: reduce){
   .eco *, .eco-chip{ animation: none !important; transition: none !important; }
-  .landing-nav-links a, .landing-nav-cta{ transition: none; }
 }

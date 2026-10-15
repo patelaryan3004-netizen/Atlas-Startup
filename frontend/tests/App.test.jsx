@@ -11,6 +11,7 @@ vi.mock('../src/api.js', () => ({
   fetchInvestorPins: vi.fn(),
   fetchInvestorMeta: vi.fn(),
   fetchInvestor: vi.fn(),
+  fetchInvestors: vi.fn(),
   fetchStartup: vi.fn(),
   fetchStartupsByName: vi.fn(),
   fetchPerson: vi.fn(),
@@ -22,7 +23,7 @@ vi.mock('../src/api.js', () => ({
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ markers, areas = [], onSelectStartup, onSelectPin, onClearPin, onViewArea, institutionPins = [], showCompanies, showInstitutions, showVcs, vcPins = [], basemap, scope, focus, selectedName, onViewChange, onOpenInternal, onReportRoleClosed }) => (
+  default: ({ markers, areas = [], onSelectStartup, onSelectPin, onClearPin, onViewArea, institutionPins = [], showCompanies, showInstitutions, showVcs, vcPins = [], scope, focus, selectedName, onViewChange, onOpenInternal, onReportRoleClosed, previewAt, previewCard }) => (
     <div
       data-testid="map-view"
       data-count={markers.length}
@@ -35,18 +36,20 @@ vi.mock('../src/components/MapView.jsx', () => ({
       data-institutions={institutionPins.length}
       data-show-companies={String(showCompanies)}
       data-show-institutions={String(showInstitutions)}
-      data-basemap={basemap}
+      data-preview-at={previewAt ? JSON.stringify(previewAt) : ''}
     >
       <button onClick={() => onOpenInternal('/investors/blackbird')}>trigger-open-firm</button>
       <button onClick={() => onReportRoleClosed('Canva')}>trigger-report-role-closed</button>
       <button onClick={() => onSelectStartup({ slug: 'canva', name: 'Canva', sector: 'AI', hiring: true })}>trigger-select</button>
       <button onClick={() => onSelectStartup({ name: 'Bare Co', sector: 'AI' })}>trigger-select-bare</button>
       <button onClick={() => onSelectPin({ slug: 'canva', name: 'Canva', city: 'Sydney', sector: 'AI', lat: -33.8, lng: 151.2, hiring: true, website: 'https://canva.com', location: { quality: 'Verified office' } })}>trigger-pin</button>
+      <button onClick={() => onSelectPin({ slug: 'zeller', name: 'Zeller', city: 'Melbourne', sector: 'Fintech', lat: -37.8, lng: 144.9, hiring: false, website: 'https://zeller.com', location: { quality: 'City-level' } })}>trigger-pin-quiet</button>
       <button onClick={() => onSelectPin({ kind: 'vc', slug: 'oif', id: 'oif@Sydney', name: 'OIF Ventures', city: 'Sydney', lat: -33.87, lng: 151.21, website: 'https://oif.vc', location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'City-level: its headquarters city, no address on file' } })}>trigger-vc-pin</button>
       <button onClick={() => onClearPin()}>trigger-clear-pin</button>
       <button onClick={() => onViewChange({ lat: -33.8, lng: 151.2, zoom: 9 })}>trigger-move</button>
       <button onClick={() => onViewArea({ kind: 'CITY', label: 'Sydney', city: 'Sydney', state: 'NSW', count: 3 })}>trigger-view-area</button>
       <button onClick={() => onViewArea({ kind: 'STATE', label: 'Victoria', city: null, state: 'VIC', count: 2 })}>trigger-view-state</button>
+      {previewAt && previewCard && <div data-testid="preview-slot">{previewCard}</div>}
     </div>
   ),
 }));
@@ -65,33 +68,33 @@ vi.mock('../src/components/StartupDetailPanel.jsx', () => ({
 }));
 
 vi.mock('../src/components/JobsView.jsx', () => ({
-  default: ({ onClose }) => (
-    <div data-testid="jobs-view">
-      <button onClick={onClose}>trigger-jobs-close</button>
+  default: ({ chrome }) => (
+    <div data-testid="jobs-view" data-hiring={chrome?.counts?.jobs}>
+      <button onClick={() => chrome.go.explore()}>trigger-jobs-close</button>
     </div>
   ),
 }));
 
 vi.mock('../src/components/investors/InvestorsView.jsx', () => ({
   default: ({ initialRoute, fromLink, onClose, onOpenCompany, chrome }) => (
-    <div data-testid="investors-view" data-route={JSON.stringify(initialRoute)} data-from-link={String(Boolean(fromLink))} data-hiring={chrome?.hiringCount}>
+    <div data-testid="investors-view" data-route={JSON.stringify(initialRoute)} data-from-link={String(Boolean(fromLink))} data-hiring={chrome?.counts?.jobs}>
       <button onClick={onClose}>trigger-investors-close</button>
-      <button onClick={() => chrome.onShowJobs()}>trigger-investors-jobs</button>
+      <button onClick={() => chrome.go.jobs()}>trigger-investors-jobs</button>
       <button onClick={() => chrome.menu.onShowAbout()}>trigger-investors-about</button>
       <button onClick={() => chrome.menu.onShowPrivacy()}>trigger-investors-privacy</button>
       <button onClick={() => chrome.menu.onShowFeedback()}>trigger-investors-feedback</button>
       <button onClick={() => chrome.menu.onShowWaitlist()}>trigger-investors-waitlist</button>
-      <button onClick={() => chrome.menu.onShowTracked()}>trigger-investors-tracked</button>
-      <button onClick={() => chrome.menu.onShowCuratedLists()}>trigger-investors-lists</button>
+      <button onClick={() => chrome.go.saved()}>trigger-investors-tracked</button>
+      <button onClick={() => chrome.go.collections()}>trigger-investors-lists</button>
       <button onClick={() => onOpenCompany({ slug: 'canva', name: 'Canva', sector: 'AI' })}>trigger-investors-company</button>
     </div>
   ),
 }));
 
 vi.mock('../src/components/people/PeopleView.jsx', () => ({
-  default: ({ onClose, onOpenCompany, onOpenInternal }) => (
+  default: ({ chrome, onOpenCompany, onOpenInternal }) => (
     <div data-testid="people-view">
-      <button onClick={onClose}>trigger-people-close</button>
+      <button onClick={() => chrome.go.explore()}>trigger-people-close</button>
       <button onClick={() => onOpenCompany({ slug: 'canva', name: 'Canva', sector: 'AI' })}>trigger-people-company</button>
       <button onClick={() => onOpenInternal('/investors/blackbird')}>trigger-people-investor</button>
     </div>
@@ -99,16 +102,16 @@ vi.mock('../src/components/people/PeopleView.jsx', () => ({
 }));
 
 vi.mock('../src/components/CuratedLists.jsx', () => ({
-  default: ({ currentFilters, onApply, onClose }) => (
+  default: ({ currentFilters, onApply, chrome }) => (
     <div data-testid="curated-lists" data-current={JSON.stringify(currentFilters)}>
       <button onClick={() => onApply({ id: 'au-fintech', name: 'Australian Fintech Startups', description: 'Fintech.', filters: { sector: 'Fintech' } })}>trigger-apply-list</button>
-      <button onClick={onClose}>trigger-curated-close</button>
+      <button onClick={() => chrome.go.explore()}>trigger-curated-close</button>
     </div>
   ),
 }));
 
 import {
-  fetchStartupPage, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchInvestor, fetchStartup, fetchStartupsByName, fetchPerson, fetchSuggestions, fetchMeta, fetchNews,
+  fetchStartupPage, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchInvestor, fetchInvestors, fetchStartup, fetchStartupsByName, fetchPerson, fetchSuggestions, fetchMeta, fetchNews,
 } from '../src/api.js';
 import App from '../src/App.jsx';
 
@@ -169,6 +172,7 @@ describe('App', () => {
     fetchInstitutionPins.mockResolvedValue({ count: 0, items: [] });
     fetchInvestorPins.mockResolvedValue({ total: 0, count: 0, pinned: 0, unplaced: 0, items: [] });
     fetchInvestorMeta.mockResolvedValue({ sectors: [], stages: [] });
+    fetchInvestors.mockResolvedValue({ results: [] });
     fetchStartupPage.mockResolvedValue(page([card('Canva'), card('Zeller')]));
     fetchStartup.mockImplementation(async (slug) => ({ slug, name: 'Canva', sector: 'AI', founders: ['Melanie Perkins'], investors: ['Blackbird'] }));
     fetchStartupsByName.mockResolvedValue({ results: [] });
@@ -185,7 +189,8 @@ describe('App', () => {
       expect(fetchSummary).toHaveBeenCalledWith({}, expect.objectContaining({ onSnapshot: expect.any(Function) }));
       expect(fetchSummary).toHaveBeenCalledWith(EMPTY, expect.objectContaining({ signal: expect.any(AbortSignal) }));
       expect(fetchMarkers).toHaveBeenCalledWith(EMPTY, expect.objectContaining({ signal: expect.any(AbortSignal) }));
-      expect(fetchStartupPage).not.toHaveBeenCalled(); // no list is fetched while the map is showing
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenCalled());
+      for (const [, options] of fetchStartupPage.mock.calls) expect(options).toMatchObject({ offset: 0, limit: expect.any(Number) }); // one page for the results beside the map, never the whole list
     });
 
     it('draws the map from the pins, and tells it which city it is on', async () => {
@@ -254,7 +259,7 @@ describe('App', () => {
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'x' }), expect.anything()));
 
       const menu = await openMenu();
-      await userEvent.click(menu.getByText('Lists'));
+      await userEvent.click(menu.getByText('Collections'));
       await userEvent.click(screen.getByText('trigger-apply-list'));
 
       expect(screen.queryByTestId('curated-lists')).not.toBeInTheDocument();
@@ -268,7 +273,7 @@ describe('App', () => {
       fetchSummary.mockRejectedValue(new Error('network error'));
       render(<App />);
       await waitFor(() => expect(screen.getByTestId('map-view').dataset.count).toBe('0'));
-      expect(screen.getByRole('button', { name: /^Jobs/ }).textContent).toBe('Jobs');
+      expect(screen.getByRole('link', { name: /^Jobs/ }).textContent).toBe('Jobs');
     });
   });
 
@@ -329,7 +334,7 @@ describe('App', () => {
       fetchSummary.mockImplementation(async (filters) => (Object.values(filters).some(Boolean) ? summaryOf({ count: 1, hiring: 1 }) : summaryOf({ hiring: 70 })));
       window.history.pushState({}, '', '/?city=Sydney');
       render(<App />);
-      const jobsButton = await screen.findByRole('button', { name: 'Jobs' });
+      const jobsButton = await screen.findByRole('link', { name: 'Jobs' });
       await waitFor(() => expect(jobsButton).toHaveAttribute('title', '70 hiring now'));
       const menu = await openMenu();
       expect(menu.getByText('Jobs', { exact: false })).toHaveTextContent('Jobs · 70 hiring now');
@@ -340,7 +345,7 @@ describe('App', () => {
       fetchSummary.mockResolvedValue(summaryOf({ hiring: 0 }));
       render(<App />);
       await waitFor(() => expect(fetchSummary).toHaveBeenCalledTimes(2));
-      expect(screen.getByRole('button', { name: 'Jobs' })).not.toHaveAttribute('title');
+      expect(screen.getByRole('link', { name: 'Jobs' })).not.toHaveAttribute('title');
       const menu = await openMenu();
       expect(menu.getByText('Jobs').textContent).toBe('Jobs');
     });
@@ -364,7 +369,7 @@ describe('App', () => {
       render(<App />);
       await openMapTab();
       expect(screen.getByRole('region', { name: 'Map key' })).toBeInTheDocument();
-      expect(screen.getByRole('group', { name: 'Map layers' })).toBeInTheDocument();
+      expect(screen.queryByRole('group', { name: 'Map layers' })).not.toBeInTheDocument(); // no firms' offices to switch
 
       await userEvent.click(screen.getByRole('button', { name: 'List' }));
       expect(screen.queryByRole('tab', { name: 'Map' })).not.toBeInTheDocument();
@@ -375,12 +380,12 @@ describe('App', () => {
       const FIRM = { id: 'blackbird#0', institution: 'blackbird', name: 'Blackbird', lat: -33.87, lng: 151.21, city: 'Sydney', state: 'NSW', place: null, office: 'Sydney', website: 'https://www.blackbird.vc', href: '/investors/blackbird' };
       const map = () => screen.getByTestId('map-view');
 
-      it('has no Companies switch (the toolbar says which of the startups and the VCs are drawn), and no Institutions switch while there are no firms\' offices to draw', async () => {
+      it('has no Companies switch (the toolbar says which of the startups and the VCs are drawn), and no layers at all while there are no offices of firms to draw', async () => {
         render(<App />);
         await openMapTab();
-        const group = screen.getByRole('group', { name: 'Map layers' });
-        expect(within(group).queryByRole('button', { name: 'Companies' })).not.toBeInTheDocument();
-        expect(within(group).queryByRole('button', { name: /Institutions/ })).not.toBeInTheDocument();
+        expect(screen.queryByRole('group', { name: 'Map layers' })).not.toBeInTheDocument();
+        expect(screen.queryByRole('button', { name: 'Companies' })).not.toBeInTheDocument();
+        expect(screen.queryByRole('button', { name: /Institutions/ })).not.toBeInTheDocument();
         expect(map()).toHaveAttribute('data-institutions', '0');
       });
 
@@ -412,19 +417,12 @@ describe('App', () => {
         expect(screen.getByTestId('map-view')).toHaveAttribute('data-show-institutions', 'false');
       });
 
-      it('opens on the dark map, switches to the light one, and remembers the choice', async () => {
-        const first = render(<App />);
-        await openMapTab();
-        expect(map()).toHaveAttribute('data-basemap', 'dark');
-        expect(screen.getByRole('button', { name: 'Dark map' })).toHaveAttribute('aria-pressed', 'true');
-        await userEvent.click(screen.getByRole('button', { name: 'Light map' }));
-        expect(map()).toHaveAttribute('data-basemap', 'light');
-        expect(screen.getByRole('button', { name: 'Light map' })).toHaveAttribute('aria-pressed', 'true');
-        expect(localStorage.getItem('auStartupBasemap')).toBe('light');
-        first.unmount();
-        cleanup();
+      it('has one map background: no basemap to choose, none kept in this browser', async () => {
         render(<App />);
-        expect((await screen.findByTestId('map-view'))).toHaveAttribute('data-basemap', 'light');
+        await openMapTab();
+        expect(screen.queryByRole('button', { name: /dark map|light map/i })).not.toBeInTheDocument();
+        expect(map()).not.toHaveAttribute('data-basemap');
+        expect(localStorage.getItem('auStartupBasemap')).toBeNull();
       });
 
       it('opens a firm\'s own page in the app from its card on the map', async () => {
@@ -516,7 +514,7 @@ describe('App', () => {
       render(<App />);
       await userEvent.click(screen.getByText('trigger-select'));
       expect(screen.getByTestId('startup-detail-panel')).toHaveAttribute('data-partial', 'true');
-      expect(screen.getByText('Canva')).toBeInTheDocument();
+      expect(within(screen.getByTestId('startup-detail-panel')).getByText('Canva')).toBeInTheDocument();
       expect(screen.queryByTestId('founders')).not.toBeInTheDocument();
       expect(fetchStartup).toHaveBeenCalledWith('canva');
 
@@ -533,7 +531,7 @@ describe('App', () => {
       render(<App />);
       await userEvent.click(screen.getByText('trigger-select'));
       await waitFor(() => expect(fetchStartup).toHaveBeenCalled());
-      expect(screen.getByText('Canva')).toBeInTheDocument();
+      expect(within(screen.getByTestId('startup-detail-panel')).getByText('Canva')).toBeInTheDocument();
       expect(screen.getByTestId('startup-detail-panel')).toHaveAttribute('data-partial', 'true');
 
       let release;
@@ -582,18 +580,19 @@ describe('App', () => {
       render(<App />);
       const menu = await openMenu();
       await userEvent.click(menu.getByText(/Saved \(2\)/));
-      expect(await screen.findByText('Tracked startups (2)')).toBeInTheDocument();
-      await waitFor(() => expect(screen.getByText('1 of 2 tracked companies are still in the directory.')).toBeInTheDocument());
+      expect(await screen.findByText('Saved (2)')).toBeInTheDocument();
+      await waitFor(() => expect(screen.getByText('1 of 2 saved companies are still in the directory. What you save stays in this browser.')).toBeInTheDocument());
       expect(fetchStartupsByName).toHaveBeenCalledWith(['Canva', 'Gone Co'], expect.anything());
     });
 
-    it('says the tracked list is saved in this browser when every tracked company was found', async () => {
+    it('says what is saved stays in this browser when every saved company was found', async () => {
       localStorage.setItem('auStartupTracked', JSON.stringify(['Canva']));
       fetchStartupsByName.mockResolvedValue({ results: [card('Canva')] });
       render(<App />);
       const menu = await openMenu();
       await userEvent.click(menu.getByText(/Saved \(1\)/));
-      expect(await screen.findByText('Companies you have starred, saved in this browser only.')).toBeInTheDocument();
+      expect(await screen.findByText('Saved (1)')).toBeInTheDocument();
+      expect(screen.getByText('The companies and investors you saved. They stay in this browser.')).toBeInTheDocument();
     });
 
     it('shows the news ticker by default and toggles it off/on via the More menu, persisting the choice', async () => {
@@ -614,7 +613,7 @@ describe('App', () => {
 
     it('opens the submit-a-startup form from the header\'s one action', async () => {
       render(<App />);
-      await userEvent.click(screen.getByRole('button', { name: 'Add startup' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Add company' }));
       expect(await screen.findByText('Know an AU startup that should be on the map?', { exact: false })).toBeInTheDocument();
     });
 
@@ -663,7 +662,7 @@ describe('App', () => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
       expect(screen.getByLabelText('Menu')).toHaveFocus(); // the item that opened it was in the menu, which is gone: the menu's own button is what is left
 
-      const submit = screen.getByRole('button', { name: 'Add startup' });
+      const submit = screen.getByRole('button', { name: 'Add company' });
       await userEvent.click(submit);
       expect(await screen.findByRole('dialog', { name: 'Submit a startup' })).toBeInTheDocument();
       await userEvent.click(screen.getByLabelText('Close'));
@@ -688,7 +687,7 @@ describe('App', () => {
       render(<App />);
       expect(screen.getByTestId('map-view')).toBeInTheDocument();
 
-      await userEvent.click(screen.getByRole('button', { name: /^Jobs/ }));
+      await userEvent.click(screen.getByRole('link', { name: /^Jobs/ }));
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
       expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
 
@@ -699,7 +698,7 @@ describe('App', () => {
 
     it('swaps to the investor directory (no map) when Investors is clicked, and back to the map on close', async () => {
       render(<App />);
-      await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
       expect(screen.getByTestId('investors-view').dataset.route).toBe(JSON.stringify({ kind: 'list' }));
 
@@ -729,7 +728,7 @@ describe('App', () => {
 
     it('opened from the nav the pages are not "from a link": the address gets a step of its own', async () => {
       render(<App />);
-      await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
       expect(screen.getByTestId('investors-view').dataset.fromLink).toBe('false');
     });
 
@@ -755,7 +754,7 @@ describe('App', () => {
       it('is given how many are hiring, and the Jobs link goes to the jobs page', async () => {
         fetchSummary.mockResolvedValue(summaryOf({ hiring: 70 }));
         render(<App />);
-        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
         await waitFor(() => expect(screen.getByTestId('investors-view').dataset.hiring).toBe('70'));
         await userEvent.click(screen.getByText('trigger-investors-jobs'));
         expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
@@ -764,7 +763,7 @@ describe('App', () => {
 
       it('opens the dialogs its menu asks for over the page, which stays where it is: About, Privacy, Feedback and the waitlist', async () => {
         render(<App />);
-        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
         await userEvent.click(screen.getByText('trigger-investors-about'));
         expect(await screen.findByText(/independent, unofficial directory/)).toBeInTheDocument();
         expect(screen.getByTestId('investors-view')).toBeInTheDocument();
@@ -784,15 +783,15 @@ describe('App', () => {
         localStorage.setItem('auStartupTracked', JSON.stringify(['Canva']));
         fetchStartupsByName.mockResolvedValue({ results: [card('Canva')] });
         render(<App />);
-        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
         await userEvent.click(screen.getByText('trigger-investors-tracked'));
-        expect(await screen.findByText('Tracked startups (1)')).toBeInTheDocument();
+        expect(await screen.findByText('Saved (1)')).toBeInTheDocument();
         expect(screen.getByTestId('investors-view')).toBeInTheDocument();
       });
 
       it('leaves the investors for another page of the app from its menu: the lists', async () => {
         render(<App />);
-        await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+        await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
         await userEvent.click(screen.getByText('trigger-investors-lists'));
         expect(await screen.findByTestId('curated-lists')).toBeInTheDocument();
         expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
@@ -814,7 +813,7 @@ describe('App', () => {
 
     it('opens a company an investor backed over the map, and leaves the directory', async () => {
       render(<App />);
-      await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
       await userEvent.click(screen.getByText('trigger-investors-company'));
       expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
       expect(screen.getByTestId('map-view')).toBeInTheDocument();
@@ -825,7 +824,7 @@ describe('App', () => {
     it('opens Curated lists via the More menu and closes it again', async () => {
       render(<App />);
       const menu = await openMenu();
-      await userEvent.click(menu.getByText('Lists'));
+      await userEvent.click(menu.getByText('Collections'));
       expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
 
       await userEvent.click(screen.getByText('trigger-curated-close'));
@@ -926,14 +925,14 @@ describe('App', () => {
 
     it('opens Jobs at /jobs, Lists at /lists and the news at /news, and leaves each for the map', async () => {
       render(<App />);
-      await userEvent.click(screen.getByRole('button', { name: /^Jobs/ }));
+      await userEvent.click(screen.getByRole('link', { name: /^Jobs/ }));
       expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
       expect(window.location.pathname).toBe('/jobs');
       await userEvent.click(screen.getByText('trigger-jobs-close'));
       await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
       await waitFor(() => expect(window.location.pathname).toBe('/'));
 
-      await userEvent.click((await openMenu()).getByText('Lists'));
+      await userEvent.click((await openMenu()).getByText('Collections'));
       expect(screen.getByTestId('curated-lists')).toBeInTheDocument();
       expect(window.location.pathname).toBe('/lists');
       await userEvent.click(screen.getByText('trigger-curated-close'));
@@ -943,7 +942,7 @@ describe('App', () => {
       expect(await screen.findByRole('heading', { level: 1, name: 'Australian startup news' })).toBeInTheDocument();
       expect(window.location.pathname).toBe('/news');
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
-      await userEvent.click(screen.getByRole('button', { name: '← Back to map' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Explore' })); // the header's own way back to the map
       await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
     });
 
@@ -952,16 +951,16 @@ describe('App', () => {
       const home = screen.getByRole('link', { name: 'Go to home' });
       expect(home).toHaveAttribute('href', '/welcome');
       expect(home).toHaveTextContent('AU Startup Map');
-      expect(screen.getByRole('button', { name: 'Explore' })).toHaveAttribute('aria-current', 'page');
-      expect(screen.getByRole('heading', { level: 1, name: 'AU Startup Map' })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: 'Explore' })).toHaveAttribute('aria-current', 'page');
+      expect(screen.getByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
     });
 
-    it('has them on the page over the map too, and its Map link goes back to the map', async () => {
+    it('has them on the page over the map too, and its Explore link goes back to the map', async () => {
       render(<App />);
       await userEvent.click((await openMenu()).getByText('News'));
       await screen.findByRole('heading', { level: 1, name: 'Australian startup news' });
       expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
-      await userEvent.click(screen.getByRole('link', { name: 'Map' }));
+      await userEvent.click(screen.getByRole('link', { name: 'Explore' }));
       await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
       await waitFor(() => expect(window.location.pathname).toBe('/'));
     });
@@ -1008,11 +1007,12 @@ describe('App', () => {
       it('has no People in the header or in the menu, and the other links are as they were', async () => {
         render(<App />);
         await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
+        expect(screen.queryByRole('link', { name: 'People' })).not.toBeInTheDocument();
         expect(screen.queryByRole('button', { name: 'People' })).not.toBeInTheDocument();
         await userEvent.click(screen.getByRole('button', { name: 'Menu' }));
         expect(screen.getByRole('button', { name: 'Hide news ticker' })).toBeInTheDocument(); // the menu is open
         expect(screen.queryByRole('button', { name: 'People' })).not.toBeInTheDocument();
-        for (const name of ['Explore', 'Investors', 'Lists', 'News']) expect(screen.getAllByRole('button', { name }).length).toBeGreaterThan(0);
+        for (const name of ['Explore', 'Investors', 'Collections', 'News']) expect(screen.getAllByRole('button', { name }).length).toBeGreaterThan(0);
       });
 
       it('has no /people page: the address opens the map, and the address is put right', async () => {
@@ -1085,7 +1085,7 @@ describe('App', () => {
 
     it('chooses a list from Lists: its address is the list\'s own, and Back goes to the map', async () => {
       render(<App />);
-      await userEvent.click((await openMenu()).getByText('Lists'));
+      await userEvent.click((await openMenu()).getByText('Collections'));
       await userEvent.click(screen.getByText('trigger-apply-list'));
       expect(await screen.findByRole('region', { name: 'List: Australian Fintech Startups' })).toBeInTheDocument();
       expect(window.location.pathname).toBe('/lists/au-fintech');
@@ -1096,7 +1096,7 @@ describe('App', () => {
 
     it('goes back and forward between pages: the page and the filters come from the address again', async () => {
       render(<App />);
-      await userEvent.click(screen.getByRole('button', { name: /^Jobs/ }));
+      await userEvent.click(screen.getByRole('link', { name: /^Jobs/ }));
       expect(screen.getByTestId('jobs-view')).toBeInTheDocument();
       window.history.back();
       await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
@@ -1122,13 +1122,13 @@ describe('App', () => {
     afterEach(() => { vi.unstubAllGlobals(); });
     const CITIES = summaryOf({ count: 41, topCities: [{ city: 'Sydney', count: 30 }, { city: 'Melbourne', count: 11 }] });
     const withCities = () => { fetchSummary.mockResolvedValue(CITIES); fetchMeta.mockResolvedValue({ ...meta, cities: ['Melbourne', 'Sydney', 'Unknown'] }); };
-    const where = () => screen.getByRole('button', { name: /^Australia/ });
+    const where = () => screen.getByRole('button', { name: /^City: Australia/ });
     const pickCity = async (city) => {
       await userEvent.click(where());
       await userEvent.click(within(screen.getByRole('group', { name: 'Choose a city' })).getByRole('button', { name: new RegExp(`^${city}`) }));
     };
 
-    it('narrows everything to a city picked from the toolbar\'s menu, the map included, and says so in the title over the map', async () => {
+    it('narrows everything to a city picked from the toolbar\'s menu, the map included, and says so in the results heading', async () => {
       withCities();
       render(<App />);
       await waitFor(() => expect(fetchSummary).toHaveBeenCalledTimes(2));
@@ -1136,9 +1136,8 @@ describe('App', () => {
       await pickCity('Melbourne');
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, city: 'Melbourne' }, expect.anything()));
       await waitFor(() => expect(screen.getByTestId('map-view').dataset.scope).toBe('Melbourne'));
-      expect(screen.getByRole('button', { name: /Melbourne/, expanded: false })).toHaveTextContent('Australia/Melbourne'); // the breadcrumb in the toolbar
+      expect(screen.getByRole('button', { name: 'City: Melbourne' })).toHaveTextContent('Melbourne'); // the city button in the toolbar
       expect(screen.getByRole('heading', { name: 'Explore Melbourne' })).toBeInTheDocument();
-      expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors in Melbourne');
       expect(window.location.search).toBe('?city=Melbourne');
     });
 
@@ -1160,19 +1159,19 @@ describe('App', () => {
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, city: 'Sydney' }, expect.anything()));
       expect(screen.queryByRole('group', { name: 'Choose a city' })).not.toBeInTheDocument(); // it closes
 
-      await userEvent.click(screen.getByRole('button', { name: /^Australia/ }));
+      await userEvent.click(screen.getByRole('button', { name: 'City: Sydney' }));
       await userEvent.click(within(screen.getByRole('group', { name: 'Choose a city' })).getByRole('button', { name: /^All of Australia/ }));
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith(EMPTY, expect.anything()));
     });
 
-    it('filters by sector from the toolbar\'s own menu, counts the sectors on its button and not on Filters', async () => {
+    it('filters by sector from the Filters panel, counts it on the Filters button, and takes it off with its chip', async () => {
       render(<App />);
       await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
-      await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
-      await userEvent.click(within(screen.getByRole('group', { name: 'Sector' })).getByRole('checkbox', { name: 'Fintech' }));
+      expect(screen.queryByRole('button', { name: /^Sector/ })).not.toBeInTheDocument(); // the toolbar has no sector menu while startups are shown: the panel has it
+      await openFilters();
+      await tick('Sector', 'Fintech');
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'Fintech' }, expect.anything()));
-      expect(screen.getByRole('button', { name: /^Sector/ })).toHaveTextContent('1');
-      expect(screen.getByRole('button', { name: /^Filters/ }).textContent).toBe('Filters');
+      expect(screen.getByRole('button', { name: /^Filters/ })).toHaveTextContent('1');
       await userEvent.click(screen.getByRole('button', { name: 'Remove filter: Sector Fintech' }));
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith(EMPTY, expect.anything()));
     });
@@ -1187,47 +1186,50 @@ describe('App', () => {
     describe('a company picked on the map', () => {
       const cardOf = async () => screen.findByRole('region', { name: 'Canva' });
 
-      it('opens its card at once with what the pin knows, and fills it in when the record arrives', async () => {
-        fetchStartup.mockResolvedValue({ slug: 'canva', name: 'Canva', sector: 'AI', blurb: 'Design for everyone', hiringState: 'hiring', verified: true, last_verified_at: new Date().toISOString() });
+      it('opens its preview beside its mark at once with what the pin knows, and lights its row in the results', async () => {
         const { container } = render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
         const card = await cardOf();
-        expect(container.querySelector('.xm-panel')).toContainElement(card);
-        expect(within(card).getByRole('heading', { name: 'Canva' })).toBeInTheDocument();
+        expect(screen.getByTestId('preview-slot')).toContainElement(card); // MapView draws it beside the mark
+        expect(JSON.parse(screen.getByTestId('map-view').dataset.previewAt)).toEqual({ lat: -33.8, lng: 151.2 });
+        expect(within(card).getByText('Canva')).toBeInTheDocument();
+        expect(within(card).getByText('AI')).toBeInTheDocument();
         expect(within(card).getByText('Sydney')).toBeInTheDocument();
         expect(within(card).getByText('Verified office')).toBeInTheDocument(); // how well its place is known, from the pin
-        expect(within(card).getByText('● Hiring now')).toBeInTheDocument();
-        expect(await within(card).findByText('Design for everyone')).toBeInTheDocument();
-        expect(fetchStartup).toHaveBeenCalledWith('canva', expect.objectContaining({ signal: expect.any(AbortSignal) }));
-        expect(screen.getByTestId('map-view').dataset.selected).toBe('Canva'); // its pin is drawn as the open one
-        expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument(); // a pin opens a card, not the company
+        expect(within(card).getByText('Hiring')).toBeInTheDocument(); // the pin says so
+        expect(screen.getByTestId('map-view').dataset.selected).toBe('Canva'); // its mark is drawn as the open one
+        await waitFor(() => expect(container.querySelector('.xc-list [aria-current="true"]')).toHaveTextContent('Canva')); // and its row beside the map
+        expect(fetchStartup).not.toHaveBeenCalled(); // a preview is the pin: the record is asked for when the company is opened
+        expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument(); // a pin opens a preview, not the company
       });
 
-      it('opens the company from the card, and puts the card away', async () => {
+      it('opens the company from the preview, and puts the preview away', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
-        await userEvent.click(within(await cardOf()).getByRole('button', { name: /View company/ }));
+        await userEvent.click(within(await cardOf()).getByRole('button', { name: /Explore company/ }));
         expect(await screen.findByTestId('startup-detail-panel')).toHaveTextContent('Canva');
         expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument();
         expect(window.location.pathname).toBe('/startup/canva');
       });
 
-      it('saves the company in this browser from the card, and shows that it is saved', async () => {
+      it('saves the company in this browser from the preview, and shows that it is saved there and in its row', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
         const save = within(await cardOf()).getByRole('button', { name: 'Save Canva' });
         expect(save).toHaveAttribute('aria-pressed', 'false');
         await userEvent.click(save);
-        expect(within(screen.getByRole('region', { name: 'Canva' })).getByRole('button', { name: 'Remove Canva from saved' })).toHaveAttribute('aria-pressed', 'true');
+        const card = screen.getByRole('region', { name: 'Canva' });
+        expect(within(card).getByRole('button', { name: 'Remove Canva from saved' })).toHaveAttribute('aria-pressed', 'true');
         expect(JSON.parse(localStorage.getItem('auStartupTracked'))).toEqual(['Canva']);
-        await userEvent.click(screen.getByRole('button', { name: 'Remove Canva from saved' }));
+        await waitFor(() => expect(screen.getAllByRole('button', { name: 'Remove Canva from saved' })).toHaveLength(2)); // its row beside the map says so too
+        await userEvent.click(within(card).getByRole('button', { name: 'Remove Canva from saved' }));
         expect(JSON.parse(localStorage.getItem('auStartupTracked'))).toEqual([]);
       });
 
-      it('puts the card away from its own button, with Escape, with a press on the bare map, and when what is shown changes', async () => {
+      it('puts the preview away from its own button, with Escape, with a press on the bare map, and when what is shown changes', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
-        await userEvent.click(within(await cardOf()).getByRole('button', { name: 'Close this panel' }));
+        await userEvent.click(within(await cardOf()).getByRole('button', { name: 'Close the preview' }));
         expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument();
 
         await userEvent.click(screen.getByText('trigger-pin'));
@@ -1246,7 +1248,15 @@ describe('App', () => {
         await waitFor(() => expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument());
       });
 
-      it('has no card over the list', async () => {
+      it('picks a company from its row in the results: the preview opens beside its mark, and the map is sent to it', async () => {
+        render(<App />);
+        await userEvent.click(await screen.findByRole('button', { name: /^Zeller/ }));
+        expect(await screen.findByRole('region', { name: 'Zeller' })).toBeInTheDocument();
+        expect(screen.getByTestId('map-view').dataset.selected).toBe('Zeller');
+        expect(JSON.parse(screen.getByTestId('map-view').dataset.focus)).toMatchObject({ lat: -33.8, lng: 151.2 });
+      });
+
+      it('has no preview over the list', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
         await cardOf();
@@ -1254,26 +1264,56 @@ describe('App', () => {
         expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument();
       });
 
-      it('offers "Report: role closed" for a company that is hiring, which opens the edit form with the sentence started, and not for one nobody has read', async () => {
-        fetchStartup.mockResolvedValue({ slug: 'canva', name: 'Canva', sector: 'AI', hiringState: 'unverified' });
+      it('offers "Report: role closed" for a company the pin says is hiring, which opens the edit form with the sentence started, and not for one that is not', async () => {
         render(<App />);
-        await userEvent.click(await screen.findByText('trigger-pin'));
-        await within(await cardOf()).findByText('Roles unverified');
-        expect(within(screen.getByRole('region', { name: 'Canva' })).queryByRole('button', { name: 'Report: role closed' })).not.toBeInTheDocument();
+        await userEvent.click(await screen.findByText('trigger-pin-quiet'));
+        const quiet = await screen.findByRole('region', { name: 'Zeller' });
+        expect(within(quiet).queryByRole('button', { name: 'Report: role closed' })).not.toBeInTheDocument();
         await userEvent.click(screen.getByText('trigger-clear-pin'));
-        fetchStartup.mockResolvedValue({ slug: 'canva', name: 'Canva', sector: 'AI', hiringState: 'hiring' });
-        await userEvent.click(await screen.findByText('trigger-pin'));
+        await userEvent.click(screen.getByText('trigger-pin'));
         await userEvent.click(within(await cardOf()).getByRole('button', { name: 'Report: role closed' }));
         expect(await screen.findByLabelText(/What.s wrong/)).toHaveValue('Role closed: Canva is no longer hiring. ');
       });
 
-      it('does not say a company is not hiring when nobody has read its page: no hiring label until the record says one', async () => {
-        fetchStartup.mockImplementation(() => new Promise(() => {})); // the record never arrives
+      it('does not say a company is not hiring when nobody has read its page: a Hiring label only when the pin says so, and nothing for the rest', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
-        const card = await cardOf();
-        expect(within(card).getByText('● Hiring now')).toBeInTheDocument(); // the pin said it is hiring
-        expect(within(card).queryByText(/Roles unverified|No open roles/)).not.toBeInTheDocument();
+        expect(within(await cardOf()).getByText('Hiring')).toBeInTheDocument(); // the pin said it is hiring
+        await userEvent.click(screen.getByText('trigger-clear-pin'));
+        await userEvent.click(screen.getByText('trigger-pin-quiet'));
+        const quiet = await screen.findByRole('region', { name: 'Zeller' });
+        expect(within(quiet).queryByText(/hiring|Roles unverified|No open roles/i)).not.toBeInTheDocument();
+        expect(fetchStartup).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('the page scrolls to the workspace when part of it is below the screen', () => {
+      let scroll;
+      beforeEach(() => { scroll = vi.fn(); Element.prototype.scrollIntoView = scroll; });
+      afterEach(() => { delete Element.prototype.scrollIntoView; vi.restoreAllMocks(); });
+      const belowTheFold = () => vi.spyOn(Element.prototype, 'getBoundingClientRect').mockReturnValue({ top: 400, bottom: window.innerHeight + 600, left: 0, right: 0, width: 0, height: 0 });
+      const toWorkspace = () => expect(scroll).toHaveBeenCalledWith({ block: 'start', behavior: expect.any(String) });
+
+      it('does it for a row picked in the results, so the mark and its preview are in sight, and not when the workspace is all in view', async () => {
+        render(<App />);
+        await userEvent.click(await screen.findByRole('button', { name: /^Zeller/ }));
+        expect(scroll).not.toHaveBeenCalledWith({ block: 'start', behavior: expect.any(String) }); // nothing is below the screen
+
+        belowTheFold();
+        await userEvent.click(screen.getByRole('button', { name: /^Canva/ }));
+        toWorkspace();
+      });
+
+      it('does it on a phone when the sheet is pulled up, and when a mark is picked', async () => {
+        phone();
+        belowTheFold();
+        render(<App />);
+        const sheet = await screen.findByRole('region', { name: 'Startups on the map' });
+        await userEvent.click(within(sheet).getByRole('button', { name: /startups/ }));
+        toWorkspace();
+        scroll.mockClear();
+        await userEvent.click(screen.getByText('trigger-pin'));
+        toWorkspace();
       });
     });
 
@@ -1365,7 +1405,7 @@ describe('App', () => {
       it('keeps the toolbar to the city, the Map | List switch, the search and the filters, with the sectors inside the filters', async () => {
         render(<App />);
         await waitFor(() => expect(fetchMarkers).toHaveBeenCalled());
-        expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups');
+        expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors');
         await openFilters();
         expect(screen.getByRole('complementary', { name: 'Filters and cities' })).toBeInTheDocument();
         expect(screen.getByRole('group', { name: 'Sector' })).toBeInTheDocument(); // in the panel
@@ -1470,7 +1510,7 @@ describe('App', () => {
       withVcs([], { count: 5, pinned: 0, unplaced: 5 });
       window.history.pushState({}, '', '/?show=vcs');
       const first = render(<App />);
-      expect(await screen.findByRole('status')).toHaveTextContent('No venture capital firm with a city on file matches. 5 more match but have no city we can place.');
+      expect(await screen.findByText('No venture capital firm with a city on file matches. 5 more match but have no city we can place.')).toBeInTheDocument();
       first.unmount();
       cleanup();
       window.history.pushState({}, '', '/');
@@ -1495,19 +1535,22 @@ describe('App', () => {
       };
       beforeEach(() => { fetchInvestor.mockResolvedValue(INVESTOR); });
 
-      it('opens its panel on the right of the map, as an investor, with its focus, its stages and its portfolio, and the map is sent clear of the panel', async () => {
+      it('opens its preview beside its mark, as an investor, with its place and how well that place is known, and the map is not sent clear of a side panel', async () => {
         const { container } = render(<App />);
         await userEvent.click(await screen.findByText(VC_PIN));
-        const panel = await screen.findByRole('region', { name: 'OIF Ventures' });
-        expect(container.querySelector('.xm-panel')).toContainElement(panel);
-        expect(within(panel).getByText('City-level: its headquarters city, no address on file')).toBeInTheDocument();
-        expect(await within(panel).findByText('Backs software founders.')).toBeInTheDocument();
-        expect(within(panel).getByText('Software')).toBeInTheDocument();
-        expect(within(panel).getByRole('heading', { name: 'Portfolio (2)' })).toBeInTheDocument();
-        expect(fetchInvestor).toHaveBeenCalledWith('oif', expect.anything());
+        const card = await screen.findByRole('region', { name: 'OIF Ventures' });
+        expect(screen.getByTestId('preview-slot')).toContainElement(card);
+        expect(within(card).getByText('Venture capital')).toBeInTheDocument();
+        expect(within(card).getByText('VC')).toBeInTheDocument(); // the badge
+        expect(within(card).getByText('Sydney, NSW')).toBeInTheDocument();
+        expect(within(card).getByText('City-level: its headquarters city, no address on file')).toBeInTheDocument();
         expect(fetchStartup).not.toHaveBeenCalled(); // an investor is not a company
         expect(map().dataset.selected).toBe('OIF Ventures'); // its mark is drawn as the open one
-        expect(JSON.parse(map().dataset.focus)).toMatchObject({ lat: -33.87, lng: 151.21, insetRight: 440 });
+        expect(container.querySelector('.xc-list [aria-current="true"]')).toHaveTextContent('OIF Ventures'); // and its row beside the map
+        const focus = JSON.parse(map().dataset.focus);
+        expect(focus).toMatchObject({ lat: -33.87, lng: 151.21 });
+        expect(focus.insetRight).toBeUndefined();
+        expect(focus.inset).toBeUndefined();
       });
 
       it('saves the investor in this browser, in the same list as the investors\' page', async () => {
@@ -1529,12 +1572,18 @@ describe('App', () => {
         expect(JSON.parse(view.dataset.route)).toEqual({ kind: 'investor', slug: 'oif' });
       });
 
-      it('goes to a portfolio company\'s pin when it has one (the map moves to it and its panel opens), and opens its page when it has none', async () => {
+      it('goes to the pin of a portfolio company when it has one (the map moves to it and its panel opens), and opens its page when it has none', async () => {
+        phone(); // the portfolio is in the panel of the phone's sheet; on a wide screen the preview has the one way on, the investor's profile
         render(<App />);
         await userEvent.click(await screen.findByText(VC_PIN));
-        const panel = await screen.findByRole('region', { name: 'OIF Ventures' });
+        const sheet = screen.getByRole('region', { name: 'Startups on the map' });
+        const panel = await within(sheet).findByRole('region', { name: 'OIF Ventures' });
+        expect(await within(panel).findByText('Backs software founders.')).toBeInTheDocument();
+        expect(within(panel).getByText('Software')).toBeInTheDocument();
+        expect(within(panel).getByRole('heading', { name: 'Portfolio (2)' })).toBeInTheDocument();
+        expect(fetchInvestor).toHaveBeenCalledWith('oif', expect.anything());
         await userEvent.click(await within(panel).findByRole('button', { name: /^Canva/ }));
-        expect(await screen.findByRole('region', { name: 'Canva' })).toBeInTheDocument(); // Canva has a pin: its panel replaces the investor's
+        expect(await within(sheet).findByRole('region', { name: 'Canva' })).toBeInTheDocument(); // Canva has a pin: its panel replaces the investor's
         expect(screen.queryByRole('region', { name: 'OIF Ventures' })).not.toBeInTheDocument();
         expect(map().dataset.selected).toBe('Canva');
 
@@ -1548,7 +1597,7 @@ describe('App', () => {
       it('is put away by its button, by Escape, by a press on the bare map, and when what is shown changes', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText(VC_PIN));
-        await userEvent.click(within(await screen.findByRole('region', { name: 'OIF Ventures' })).getByRole('button', { name: 'Close this panel' }));
+        await userEvent.click(within(await screen.findByRole('region', { name: 'OIF Ventures' })).getByRole('button', { name: 'Close the preview' }));
         expect(screen.queryByRole('region', { name: 'OIF Ventures' })).not.toBeInTheDocument();
         await userEvent.click(screen.getByText(VC_PIN));
         await screen.findByRole('region', { name: 'OIF Ventures' });
@@ -1569,12 +1618,12 @@ describe('App', () => {
         render(<App />);
         await userEvent.click(await screen.findByText(VC_PIN));
         await screen.findByRole('region', { name: 'OIF Ventures' });
-        await userEvent.click(screen.getByRole('button', { name: 'Close this panel' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Close the preview' }));
         expect(window.location.search).toBe('?sector=AI&city=Sydney');
         await userEvent.click(screen.getByRole('button', { name: 'List' }));
         await userEvent.click(screen.getByRole('button', { name: 'Map' }));
         expect(window.location.search).toBe('?sector=AI&city=Sydney');
-        expect(screen.getByRole('button', { name: /Australia\/Sydney|Sydney/ })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'City: Sydney' })).toBeInTheDocument();
       });
 
       it('is the same panel in the phone\'s sheet, and the map is sent clear of the sheet, not of a side panel', async () => {

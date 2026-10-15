@@ -7,6 +7,7 @@ import InvestorTable from './InvestorTable.jsx';
 import InvestorPanel from './InvestorPanel.jsx';
 import Tabs from './Tabs.jsx';
 import CheckMenu from '../explore/CheckMenu.jsx';
+import { Segmented } from '../brand/parts.jsx';
 import { SearchIcon, SlidersIcon, GridIcon, TableIcon } from '../explore/icons.jsx';
 import { cardId } from '../IndexRow.jsx';
 import { LEAD_WORDS, plural } from './common.jsx';
@@ -208,7 +209,7 @@ export default function InvestorDirectory({
     <>
       <section className="inv-hero" aria-labelledby="inv-title">
         <div>
-          <h1 id="inv-title" tabIndex={-1}>Find your next backer.</h1>
+          <h1 id="inv-title" tabIndex={-1}>Find your next <em>backer.</em></h1>
           <p className="inv-lead">Explore investors by stage, sector and location.</p>
         </div>
         <p className="inv-total" role="status">{countText}</p>
@@ -226,8 +227,8 @@ export default function InvestorDirectory({
       ) : (
         <>
           <div className="inv-tools" role="search">
-            <div className="xt-search inv-search">
-              <SearchIcon size={20} className="xt-search-icon" />
+            <div className="field field-lg inv-search">
+              <SearchIcon size={20} />
               <input
                 type="search"
                 aria-label="Search investors by name, person, sector, stage, location or portfolio company"
@@ -262,13 +263,7 @@ export default function InvestorDirectory({
                   {SORTS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}
                 </select>
               </label>
-              <div className="xt-view inv-views" role="group" aria-label="View">
-                {VIEWS.map(({ id, label, Icon }) => (
-                  <button key={id} type="button" className={id === view ? 'xt-seg xt-seg-on' : 'xt-seg'} aria-pressed={id === view} onClick={() => setView(id)}>
-                    <Icon size={18} /><span>{label}</span>
-                  </button>
-                ))}
-              </div>
+              <Segmented className="inv-views" label="View" options={VIEWS.map(({ id, label, Icon }) => ({ id, label, icon: <Icon size={18} /> }))} value={view} onChange={setView} />
             </div>
           </div>
 

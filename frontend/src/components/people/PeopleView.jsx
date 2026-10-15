@@ -7,7 +7,7 @@ import { AppLink } from '../investors/common.jsx';
 import PersonCard from './PersonCard.jsx';
 import InstitutionCard from './InstitutionCard.jsx';
 import TallyDialog from './TallyDialog.jsx';
-import SiteBrand from '../SiteBrand.jsx';
+import SiteHeader from '../brand/SiteHeader.jsx';
 import { NOMINATE_URL, NOMINATE_FIELDS } from '../../tally.js';
 import '../../investors.css';
 import '../../people.css';
@@ -63,7 +63,7 @@ function CompanyCard({ company, onOpenCompany }) {
 // The people and firms worth following, at /people: four tabs (founders, operators, investors who are people, institutions), the
 // curated lists that gather them, and a way to nominate someone. Everything on it was typed in by a person and shows the pages
 // behind it; a tab with no one in it says so, and does not fill itself.
-export default function PeopleView({ onClose, onOpenCompany, onOpenInternal, initialAddress }) {
+export default function PeopleView({ chrome = {}, onOpenCompany, onOpenInternal, initialAddress }) {
   const start = useRef(initialAddress ?? readAddress()).current;
   const [tab, setTab] = useState(start.tab); // null until a tab is chosen: the first with someone in it is shown
   const [list, setList] = useState(start.list);
@@ -180,10 +180,7 @@ export default function PeopleView({ onClose, onOpenCompany, onOpenInternal, ini
 
   return (
     <div id="investorsView" className="people-page">
-      <header className="inv-bar">
-        <button type="button" className="hdrbtn" onClick={onClose}>← Back to map</button>
-        <SiteBrand onMap={onClose} />
-      </header>
+      <SiteHeader go={chrome.go} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
       <main className="inv-main" id="people-main">
         <section className="inv-intro" aria-labelledby="people-title">
           <h1 id="people-title" tabIndex={-1}>People worth following</h1>

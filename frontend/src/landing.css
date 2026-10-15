@@ -1,46 +1,29 @@
-/* The /welcome page. One ground (--paper), one accent (green), and a strict 12-column grid: every section sits on the same columns, so
-   the edges line up from the headline to the last card. Type has a scale of its own: a display size for the headline and the figures,
-   a heading size for a section, the lede under it (--fs-lede) and two text sizes (--fs-body, --fs-small); a section uses no others. */
+/* The /welcome page and the plain pages (About, How we verify, Contact). The tokens, the header and the buttons are the site's own (styles.css, brand.css); what is set here
+   is the page's layout: a strict 12-column grid, so every section sits on the same columns and the edges line up from the headline to the last card. Headings are the
+   serif, the text is Inter in the body scale (--t-lede, --t-body, --t-small), and the page is white with the one green. */
 
 .landing{
-  --l-font: var(--font);
-  /* The one italic word is set in a face that has an italic (Inter, loaded in its upright weights only, has none worth using). */
-  --l-serif: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
-  --l-mono: var(--mono);
   --l-max: var(--maxw);
   --l-gutter: clamp(20px, 5vw, 56px);
   --l-gap: clamp(12px, 2vw, 24px);
-  --l-ink-2: rgba(232, 230, 222, 0.78);
-  --l-hair: rgba(232, 230, 222, 0.16);
-  --l-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --l-space-1: 8px;
   --l-space-2: 16px;
   --l-space-3: 32px;
   --l-space-4: 64px;
-  --l-block: clamp(64px, 9vw, 120px);
+  --l-block: clamp(64px, 9vw, 112px);
 
-  --fs-display: clamp(40px, 7vw, 96px);
-  --fs-figure: clamp(40px, 5.2vw, 72px);
-  --fs-heading: clamp(28px, 4vw, 44px);
-  /* The text sizes are the app's three (styles.css: --t-lede, --t-body, --t-small). The line under a headline is the lede (17px); everything
-     else a person reads is body (15px, never smaller); the small print and the mono labels (a section's number, a count, a date) are 13px.
-     A section uses its headline block (the heading and its lede) and the body and small sizes, and no others. */
-  --fs-lede: var(--t-lede);
-  --fs-body: var(--t-body);
-  --fs-small: var(--t-small);
-
-  font-family: var(--l-font);
+  font-family: var(--font);
   background: var(--bg);
   color: var(--text);
-  color-scheme: dark;
+  color-scheme: light;
   min-height: 100vh;
   line-height: 1.5;
-  font-size: var(--fs-body);
+  font-size: var(--t-body);
   -webkit-font-smoothing: antialiased;
 }
 
 :where(.landing) a{color:inherit;}
-.landing :is(a, button):focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+.landing :is(a, button):focus-visible{ outline: var(--focus); outline-offset: 3px; }
 
 /* Text for screen readers that the picture leaves out of sight. */
 .landing-sr{
@@ -49,9 +32,9 @@
 }
 
 .landing-skip{
-  position: absolute; left: -9999px; top: 12px; z-index: 30;
-  padding: 10px 16px; border-radius: 999px; background: var(--accent); color: var(--on-accent);
-  font-size: var(--fs-body); font-weight: 600; text-decoration: none;
+  position: absolute; left: -9999px; top: 12px; z-index: 800;
+  padding: 10px 16px; border-radius: var(--radius-pill); background: var(--green); color: var(--on-green);
+  font-size: var(--t-body); font-weight: 600; text-decoration: none;
 }
 .landing-skip:focus{ left: var(--l-gutter); }
 
@@ -62,38 +45,31 @@
 
 .landing-cta-row{ display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* The page's buttons are the site's: green to go on, outlined for the other way. */
 .landing-btn-primary, .landing-btn-secondary{
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  height: 48px; padding: 0 24px; border-radius: 999px;
-  font-size: var(--fs-body); font-weight: 600; letter-spacing: -0.01em; text-decoration: none;
-  transition: background-color .2s var(--l-ease), border-color .2s var(--l-ease);
+  min-height: var(--control); padding: 0 24px; border: 1px solid transparent; border-radius: var(--r-md);
+  font-family: inherit; font-size: var(--t-body); font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
 }
-.landing-btn-primary{ background: var(--accent); color: var(--on-accent); }
-.landing-btn-primary:hover{ background: var(--accent-hover); }
-.landing-btn-secondary{ background: transparent; color: var(--ink); border: 1px solid rgba(232, 230, 222, .28); }
-.landing-btn-secondary:hover{ border-color: rgba(232, 230, 222, .6); background: rgba(232, 230, 222, .06); }
-.landing-btn-arrow{ flex: none; transition: transform .25s var(--l-ease); }
+.landing-btn-primary{ background: var(--green); border-color: var(--green); color: var(--on-green); }
+.landing-btn-primary:hover{ background: var(--green-hover); border-color: var(--green-hover); }
+.landing-btn-secondary{ background: var(--bg); color: var(--text); border-color: var(--border); font-weight: 500; }
+.landing-btn-secondary:hover{ border-color: rgb(var(--ink-rgb) / .35); background: var(--bg-subtle); }
+.landing-btn-arrow{ flex: none; transition: transform .25s var(--ease); }
 .landing-btn-primary:hover .landing-btn-arrow{ transform: translateX(3px); }
-
-/* A section opens on a hairline that carries its number and its name. */
-.sec-rule{
-  display: flex; align-items: baseline; gap: 14px; padding-top: 14px; border-top: 1px solid var(--l-hair);
-  font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
-}
-.sec-no{ color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 
 .landing-section{
   max-width: var(--l-max); margin: 0 auto;
   padding: var(--l-block) var(--l-gutter) 0;
 }
-.landing-section > .sec-rule{ margin-bottom: var(--l-space-4); }
 
-/* A section's head: the heading across the left half, what it says across the right. */
+/* A section's head: the serif heading across the left half, what it says across the right. */
 .landing-section-head{ margin-bottom: var(--l-space-3); }
 .landing-section-head h2, .landing-final-cta h2{
-  margin: 0; font-size: var(--fs-heading); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance;
+  margin: 0; font-family: var(--font-serif); font-size: var(--fs-h2); font-weight: 400; line-height: 1.06; letter-spacing: -.015em; text-wrap: balance;
 }
-.landing-section-head p{ margin: 0 0 var(--l-space-2); font-size: var(--fs-lede); color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
+.landing-section-head p{ margin: 0 0 var(--l-space-2); font-size: var(--t-lede); color: var(--text-2); max-width: 60ch; text-wrap: pretty; }
 .landing-section-head p:last-child{ margin-bottom: 0; }
 @media (min-width: 960px){
   .landing-section-head h2{ grid-column: 1 / span 6; }
@@ -101,12 +77,12 @@
 }
 
 .landing-inline-link{
-  display: inline-block; font-size: var(--fs-body); font-weight: 600;
-  text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color .2s var(--l-ease);
+  display: inline-flex; align-items: center; min-height: 44px; font-size: var(--t-body); font-weight: 600; color: var(--green);
+  text-decoration: none; transition: color .2s var(--ease);
 }
-.landing-inline-link:hover{ color: var(--accent-ink); }
+.landing-inline-link:hover{ color: var(--green-hover); text-decoration: underline; text-underline-offset: 4px; }
 
-/* The cards. Their box is the shared card (styles.css); what is set here is how many columns each takes: four across on a desktop,
+/* The cards. Their box is the shared card (styles.css); what is set here is how many columns each takes: three across on a desktop,
    two on a tablet, one on a phone. */
 .landing-job-grid, .landing-list-grid, .landing-people-grid{ display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--l-gap); }
 .landing-people-grid{ margin: 0; padding: 0; list-style: none; }
@@ -123,9 +99,9 @@
 .landing-job-card .concept-label{ align-self: flex-start; white-space: nowrap; }
 
 .landing-list-card{ display: block; text-decoration: none; color: inherit; }
-.landing-list-name{ font-weight: 600; font-size: var(--fs-lede); line-height: 1.25; margin: 0 0 6px; }
-.landing-list-desc{ font-size: var(--fs-body); line-height: 1.5; color: var(--muted); margin-bottom: var(--l-space-2); }
-.landing-list-count{ font-family: var(--l-mono); font-size: var(--fs-small); color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+.landing-list-name{ font-weight: 600; font-size: var(--t-lede); line-height: 1.25; margin: 0 0 6px; }
+.landing-list-desc{ font-size: var(--t-body); line-height: 1.5; color: var(--text-2); margin-bottom: var(--l-space-2); }
+.landing-list-count{ font-size: var(--t-small); font-weight: 600; color: var(--green); font-variant-numeric: tabular-nums; }
 
 .landing-block-foot{ margin-top: var(--l-space-3); }
 
@@ -134,8 +110,10 @@
   .landing-trust .landing-section-text{ align-self: start; }
 }
 
+/* The last word of the page: a tinted band with the serif and the two ways on. */
 .landing-final-cta{
-  max-width: var(--l-max); margin: 0 auto; padding: var(--l-block) var(--l-gutter);
+  max-width: var(--l-max); margin: var(--l-block) auto; padding: clamp(40px, 7vw, 80px) var(--l-gutter);
+  width: calc(100% - 2 * var(--page-pad)); border: 1px solid var(--border); border-radius: var(--r-xl); background: var(--bg-subtle);
 }
 .landing-final-cta h2{ margin-bottom: var(--l-space-3); }
 
@@ -145,31 +123,31 @@
 /* Four short columns of links, two across on a phone. */
 .footer-columns{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--l-space-3) var(--l-gap); padding: var(--l-space-3) 0; border-top: 1px solid var(--border); }
 @media (min-width: 720px){ .footer-columns{ grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.footer-title{ margin: 0 0 var(--l-space-1); font-family: var(--l-mono); font-size: var(--fs-small); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.footer-title{ margin: 0 0 var(--l-space-1); font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-2); }
 .footer-column ul{ margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
-.footer-column a{ display: inline-block; padding: 6px 0; font-size: var(--fs-body); color: var(--l-ink-2); text-decoration: none; }
-.footer-column a:hover{ color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.footer-column a{ display: inline-block; padding: 6px 0; font-size: var(--t-body); color: var(--text); text-decoration: none; }
+.footer-column a:hover{ color: var(--green); text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
 /* The two legal notes: short, and closed until asked for. */
 .footer-legal{ display: grid; gap: var(--l-space-1); max-width: 70ch; padding-top: var(--l-space-2); border-top: 1px solid var(--border); }
-.footer-legal summary{ cursor: pointer; padding: 6px 0; font-size: var(--fs-body); font-weight: 600; }
-.footer-legal details{ scroll-margin-top: 80px; }
-.footer-legal p{ margin: 0 0 var(--l-space-1); font-size: var(--fs-body); line-height: 1.6; color: var(--muted); }
-.footer-built{ margin: var(--l-space-3) 0 0; font-size: var(--fs-body); font-weight: 600; }
-.footer-built a, .footer-legal a{ color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
-.footer-note{ margin: 4px 0 0; font-size: var(--fs-body); color: var(--muted); }
+.footer-legal summary{ cursor: pointer; padding: 6px 0; font-size: var(--t-body); font-weight: 600; }
+.footer-legal details{ scroll-margin-top: 96px; }
+.footer-legal p{ margin: 0 0 var(--l-space-1); font-size: var(--t-body); line-height: 1.6; color: var(--text-2); }
+.footer-built{ margin: var(--l-space-3) 0 0; font-size: var(--t-body); font-weight: 600; }
+.footer-built a, .footer-legal a{ color: inherit; text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
+.footer-note{ margin: 4px 0 0; font-size: var(--t-body); color: var(--text-2); }
 
 /* How we verify: three short statements, each with its label. */
 .verify-list{ display: grid; gap: var(--l-space-2); margin: 0; }
 .verify-list div{ display: grid; gap: 4px; }
-.verify-list dt{ font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
-.verify-list dd{ margin: 0; font-size: var(--fs-body); line-height: 1.5; color: var(--l-ink-2); max-width: 60ch; text-wrap: pretty; }
+.verify-list dt{ font-size: var(--t-small); font-weight: 600; color: var(--green); }
+.verify-list dd{ margin: 0; font-size: var(--t-body); line-height: 1.5; color: var(--text-2); max-width: 60ch; text-wrap: pretty; }
 /* One real entry under the three statements: its name, the page that confirmed it, and the day it was verified. */
-.verify-example{ margin: var(--l-space-3) 0 0; padding: var(--l-space-2); border: 1px solid var(--l-hair); border-radius: var(--card-radius); background: var(--panel); max-width: 60ch; }
-.verify-example figcaption{ margin-bottom: 6px; font-family: var(--l-mono); font-size: var(--fs-small); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
-.verify-example p{ margin: 0; font-size: var(--fs-body); line-height: 1.5; color: var(--l-ink-2); }
-.verify-example-name{ font-weight: 600; color: var(--ink) !important; }
-.verify-example-state{ font-weight: 400; color: var(--accent-ink); }
-.verify-example a{ color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.verify-example{ margin: var(--l-space-3) 0 0; padding: var(--l-space-2); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-subtle); max-width: 60ch; }
+.verify-example figcaption{ margin-bottom: 6px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+.verify-example p{ margin: 0; font-size: var(--t-body); line-height: 1.5; color: var(--text-2); }
+.verify-example-name{ font-weight: 600; color: var(--text) !important; }
+.verify-example-state{ font-weight: 400; color: var(--green); }
+.verify-example a{ color: inherit; text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
 @media (max-width: 559px){
   .landing-final-cta .landing-cta-row{ flex-direction: column; }
 }
@@ -182,4 +160,4 @@
 /* "Load more" under the hiring cards, beside the link to every open role. */
 .landing-block-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--l-space-2) var(--l-space-3); }
 .landing-more{ cursor: pointer; font-family: inherit; }
-.landing-more-count{ color: var(--muted); font-weight: 400; }
+.landing-more-count{ color: var(--text-2); font-weight: 400; }

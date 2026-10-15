@@ -4,7 +4,7 @@ import ConceptPreview from './ConceptPreview.jsx';
 import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
 import EntityCard, { Avatar } from './EntityCard.jsx';
 import IndexRow, { cardId } from './IndexRow.jsx';
-import SiteBrand from './SiteBrand.jsx';
+import SiteHeader from './brand/SiteHeader.jsx';
 import { JOBS_PAGE as PAGE } from '../snapshotRequests.js';
 import { peek } from '../peek.js';
 
@@ -29,7 +29,7 @@ const optionsOf = (page) => ({ sector: page.facets.sector.values.map((v) => v.va
 // The first request of the board: the hiring companies' first page, with the options to filter by.
 const firstRequest = (filters) => peek.startupPage({ hiring: 'yes', ...filters }, { limit: PAGE, offset: 0, sort: 'name', facets: FACETS });
 
-export default function JobsView({ onClose }) {
+export default function JobsView({ chrome = {} }) {
   const [filters, setFilters] = useState(filtersFromAddress);
   // The first page of the board is in the snapshot file (snapshot.js): when it has arrived it is what the board first draws, so there is no
   // wait and nothing moves when the server's answer comes (and an unreachable server leaves the board as the snapshot drew it).
@@ -109,13 +109,10 @@ export default function JobsView({ onClose }) {
 
   return (
     <div id="jobsView">
-      <header className="site-bar">
-        <button className="hdrbtn" onClick={onClose}>← Back to map</button>
-        <SiteBrand onMap={onClose} />
-      </header>
+      <SiteHeader active="jobs" go={{ ...chrome.go, jobs: () => {} }} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
       <div className="jobs-header">
         <div>
-          <h1>Startup jobs in Australia</h1>
+          <h1>Startup jobs in <em>Australia</em></h1>
           {haveOptions && !error && <p className="jobs-subhead">{hiringTotal} {hiringTotal === 1 ? 'company is' : 'companies are'} hiring now</p>}
           {haveOptions && !error && <p className="jobs-subhead">Only companies whose open roles were read from a page are listed. A company marked as hiring that no page backs is not.</p>}
         </div>
@@ -127,20 +124,20 @@ export default function JobsView({ onClose }) {
 
         {!error && hiringTotal > 0 && (
           <div className="jobs-filters">
-            <select value={filters.sector} onChange={set('sector')} aria-label="Filter by industry">
+            <select className="select" value={filters.sector} onChange={set('sector')} aria-label="Filter by industry">
               <option value="">All industries</option>
               {options.sector.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
-            <select value={filters.city} onChange={set('city')} aria-label="Filter by location">
+            <select className="select" value={filters.city} onChange={set('city')} aria-label="Filter by location">
               <option value="">All locations</option>
               {options.city.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
-            <select value={filters.stage} onChange={set('stage')} aria-label="Filter by startup stage">
+            <select className="select" value={filters.stage} onChange={set('stage')} aria-label="Filter by startup stage">
               <option value="">All stages</option>
               {options.stage.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
             {filtersActive && (
-              <button className="linkbtn" onClick={() => setFilters(EMPTY_JOB_FILTERS)}>Clear filters</button>
+              <button type="button" className="btn btn-quiet btn-sm" onClick={() => setFilters(EMPTY_JOB_FILTERS)}>Clear filters</button>
             )}
             {filtersActive && !loading && <span className="jobs-filter-count">{matches} match your filters</span>}
           </div>

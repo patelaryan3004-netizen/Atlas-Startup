@@ -41,16 +41,15 @@ function fakeServer(all) {
   });
 }
 
-describe('the bar of the jobs page', () => {
-  it('has the brand as a link home, and a Map link that takes the page back to the map, beside the back button', async () => {
+describe('the header of the jobs page', () => {
+  it('is the shared header: the brand is a link home, Jobs is the page it is on, and Explore takes the page back to the map', async () => {
     fakeServer([job()]);
-    const onClose = vi.fn();
-    render(<JobsView sectorColors={{}} onClose={onClose} />);
+    const explore = vi.fn();
+    render(<JobsView chrome={{ go: { explore }, counts: { jobs: 1, saved: 0 } }} />);
     expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
-    await userEvent.click(screen.getByRole('link', { name: 'Map' }));
-    expect(onClose).toHaveBeenCalledTimes(1);
-    await userEvent.click(screen.getByRole('button', { name: '← Back to map' }));
-    expect(onClose).toHaveBeenCalledTimes(2);
+    expect(screen.getByRole('link', { name: 'Jobs' })).toHaveAttribute('aria-current', 'page');
+    await userEvent.click(screen.getByRole('link', { name: 'Explore' }));
+    expect(explore).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -98,7 +97,7 @@ describe('JobsView', () => {
   it('shows a strong header with a live count of companies hiring now', async () => {
     fakeServer([job({ name: 'A', slug: 'a' }), job({ name: 'B', slug: 'b' })]);
     render(<JobsView sectorColors={{}} onClose={() => {}} />);
-    expect(await screen.findByText('Startup jobs in Australia')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { level: 1, name: 'Startup jobs in Australia' })).toBeInTheDocument();
     expect(await screen.findByText('2 companies are hiring now')).toBeInTheDocument();
   });
 
@@ -199,12 +198,11 @@ describe('JobsView', () => {
     expect(await screen.findByText('Could not load jobs right now.')).toBeInTheDocument();
   });
 
-  it('calls onClose when Back to map is clicked', async () => {
+  it('has no back button of its own: the header\'s Explore is the way back', async () => {
     fakeServer([]);
-    const onClose = vi.fn();
-    render(<JobsView sectorColors={{}} onClose={onClose} />);
-    await userEvent.click(await screen.findByText('← Back to map'));
-    expect(onClose).toHaveBeenCalledTimes(1);
+    render(<JobsView />);
+    await screen.findByRole('heading', { level: 1 });
+    expect(screen.queryByText('← Back to map')).not.toBeInTheDocument();
   });
 
   describe('filters', () => {

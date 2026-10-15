@@ -5,21 +5,18 @@ import HeaderMenu from '../../src/components/HeaderMenu.jsx';
 
 function setup(overrides = {}) {
   const props = {
-    onExplore: vi.fn(),
-    onShowJobs: vi.fn(),
-    onShowInvestors: vi.fn(),
+    go: { explore: vi.fn(), collections: vi.fn(), investors: vi.fn(), jobs: vi.fn(), saved: vi.fn() },
     onShowPeople: vi.fn(),
-    onShowCuratedLists: vi.fn(),
     newsVisible: true,
     onToggleNews: vi.fn(),
     onShowWaitlist: vi.fn(),
     onShowUnverified: vi.fn(),
     unverifiedCount: 3,
-    onShowTracked: vi.fn(),
     trackedCount: 2,
     onShowAbout: vi.fn(),
     onShowPrivacy: vi.fn(),
     onShowFeedback: vi.fn(),
+    onShowNews: vi.fn(),
     directoryUrl: '/directory/',
     ...overrides,
   };
@@ -30,23 +27,20 @@ function setup(overrides = {}) {
 describe('HeaderMenu', () => {
   it('starts closed, with no menu items in the document', () => {
     setup();
-    expect(screen.queryByText('Curated lists')).not.toBeInTheDocument();
-    expect(screen.queryByText('Lists')).not.toBeInTheDocument();
+    expect(screen.queryByText('Collections')).not.toBeInTheDocument();
+    expect(screen.queryByText('News')).not.toBeInTheDocument();
   });
 
-  it('opens to show the mobile nav row and the always-visible secondary actions with live counts', async () => {
+  it('opens to show the five places the header names (for a phone) and the secondary actions with live counts', async () => {
     setup();
     await userEvent.click(screen.getByLabelText('Menu'));
 
-    expect(screen.getByText('Explore')).toBeInTheDocument();
-    expect(screen.getByText('Jobs')).toBeInTheDocument();
-    expect(screen.getByText('Investors')).toBeInTheDocument();
-    expect(screen.getByText('Lists')).toBeInTheDocument();
+    for (const place of ['Explore', 'Collections', 'Investors', 'Jobs']) expect(screen.getByText(place)).toBeInTheDocument();
+    expect(screen.getByText('Saved (2)')).toBeInTheDocument();
     expect(screen.getByText('News')).toBeInTheDocument();
     expect(screen.getByText('Hide news ticker')).toBeInTheDocument();
     expect(screen.getByText('Join waitlist')).toBeInTheDocument();
     expect(screen.getByText('Unconfirmed (3)')).toBeInTheDocument();
-    expect(screen.getByText('Saved (2)')).toBeInTheDocument();
   });
 
   it('holds what the header has no room for: the about, privacy and feedback dialogs, the pages about the project, and the list that needs no scripts', async () => {
@@ -86,27 +80,27 @@ describe('HeaderMenu', () => {
   });
 
   it('opens the News page from its item', async () => {
-    const { onShowNews } = setup({ onShowNews: vi.fn() });
+    const { onShowNews } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
     await userEvent.click(screen.getByText('News'));
     expect(onShowNews).toHaveBeenCalledTimes(1);
   });
 
-  it('calls the matching handler and closes itself when an item is clicked', async () => {
-    const { onShowCuratedLists } = setup();
+  it('calls the matching handler and closes itself when a place is chosen', async () => {
+    const { go } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
-    await userEvent.click(screen.getByText('Lists'));
+    await userEvent.click(screen.getByText('Collections'));
 
-    expect(onShowCuratedLists).toHaveBeenCalledTimes(1);
-    expect(screen.queryByText('Lists')).not.toBeInTheDocument();
+    expect(go.collections).toHaveBeenCalledTimes(1);
+    expect(screen.queryByText('Collections')).not.toBeInTheDocument();
   });
 
   it('opens the investor directory, and closes itself, when Investors is clicked', async () => {
-    const { onShowInvestors } = setup();
+    const { go } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
     await userEvent.click(screen.getByText('Investors'));
 
-    expect(onShowInvestors).toHaveBeenCalledTimes(1);
+    expect(go.investors).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Investors')).not.toBeInTheDocument();
   });
 
@@ -119,30 +113,43 @@ describe('HeaderMenu', () => {
     expect(screen.queryByText('People')).not.toBeInTheDocument();
   });
 
-  it('calls onShowTracked and closes when the Saved item is clicked', async () => {
-    const { onShowTracked } = setup();
+  it('opens the saved companies and closes when the Saved item is clicked', async () => {
+    const { go } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
     await userEvent.click(screen.getByText('Saved (2)'));
 
-    expect(onShowTracked).toHaveBeenCalledTimes(1);
+    expect(go.saved).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Saved (2)')).not.toBeInTheDocument();
+  });
+
+  it('is only links on a page that is not the app (no handlers): the places are their addresses, and what needs a dialog is left out', async () => {
+    render(<HeaderMenu />);
+    await userEvent.click(screen.getByLabelText('Menu'));
+    expect(screen.getByRole('link', { name: 'Explore' })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: 'Collections' })).toHaveAttribute('href', '/lists');
+    expect(screen.getByRole('link', { name: 'Investors' })).toHaveAttribute('href', '/investors');
+    expect(screen.getByRole('link', { name: 'Jobs' })).toHaveAttribute('href', '/jobs');
+    expect(screen.getByRole('link', { name: 'Saved' })).toHaveAttribute('href', '/?view=saved');
+    expect(screen.getByRole('link', { name: 'News' })).toHaveAttribute('href', '/news');
+    expect(screen.queryByText('Join waitlist')).not.toBeInTheDocument();
+    expect(screen.queryByText('Feedback')).not.toBeInTheDocument();
   });
 
   it('closes on Escape', async () => {
     setup();
     await userEvent.click(screen.getByLabelText('Menu'));
-    expect(screen.getByText('Lists')).toBeInTheDocument();
+    expect(screen.getByText('Collections')).toBeInTheDocument();
 
     await userEvent.keyboard('{Escape}');
-    expect(screen.queryByText('Lists')).not.toBeInTheDocument();
+    expect(screen.queryByText('Collections')).not.toBeInTheDocument();
   });
 
   it('closes when clicking the scrim outside the panel', async () => {
     const { container } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
-    expect(screen.getByText('Lists')).toBeInTheDocument();
+    expect(screen.getByText('Collections')).toBeInTheDocument();
 
     await userEvent.click(container.querySelector('.hdr-menu-scrim'));
-    expect(screen.queryByText('Lists')).not.toBeInTheDocument();
+    expect(screen.queryByText('Collections')).not.toBeInTheDocument();
   });
 });

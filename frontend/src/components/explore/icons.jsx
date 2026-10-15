@@ -20,6 +20,9 @@ export const MapIcon = icon(<path d="M9 5 3.5 7v12L9 17l6 2 5.5-2V5L15 7zM9 5v12
 export const ListIcon = icon(<path d="M9 7h11M9 12h11M9 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01" />, { strokeWidth: 2 });
 export const BookmarkIcon = icon(<path d="M7 4.5h10a1 1 0 0 1 1 1V20l-6-4-6 4V5.5a1 1 0 0 1 1-1z" />);
 export const ArrowRight = icon(<path d="M4 12h15M13 6l6 6-6 6" />);
+export const LinkIcon = icon(<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />);
+export const NavigateIcon =icon(<path d="M3.5 11 20.5 3.5 13 20.5l-2-7.5z" />);
+export const ArrowUpRight =icon(<path d="M7 17 17 7M8 7h9v9" />, { strokeWidth: 1.6 });
 export const MoreIcon = icon(<path d="M5 12h.01M12 12h.01M19 12h.01" />, { strokeWidth: 3 });
 export const CloseIcon = icon(<path d="m6 6 12 12M18 6 6 18" />);
 export const CheckIcon = icon(<path d="m5 12.5 4.5 4.5L19 7.5" />, { strokeWidth: 2 });

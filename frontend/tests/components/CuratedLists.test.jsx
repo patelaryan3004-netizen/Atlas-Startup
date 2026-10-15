@@ -86,7 +86,7 @@ describe('CuratedLists', () => {
     expect(screen.getByText('Australian AI Startups').closest('.curated-card')).toHaveTextContent('? companies');
   });
 
-  it('hands over the list when "View this list" is clicked: the page opens it at its own address and closes this', async () => {
+  it('hands over the list when "View this list" is clicked: the page opens it at its own address and leaves this one', async () => {
     const onApply = vi.fn();
     const onClose = vi.fn();
     render(<CuratedLists currentFilters={{}} onApply={onApply} onClose={onClose} />);
@@ -98,6 +98,15 @@ describe('CuratedLists', () => {
     expect(onApply).toHaveBeenCalledTimes(1);
     expect(onApply.mock.calls[0][0]).toMatchObject({ id: 'currently-hiring', filters: { hiring: 'yes' } });
     expect(onClose).not.toHaveBeenCalled(); // the page moves on to the list: it does not also step back
+  });
+
+  it('is a page of its own under the shared header, with the heading and the share button, and the lists of people as peach cards', async () => {
+    render(<CuratedLists currentFilters={{}} onApply={() => {}} chrome={{ go: {} }} />);
+    await screen.findByText('Startups Hiring Now');
+    expect(screen.getByRole('banner')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: 'Curated collections' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Collections' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.queryByRole('dialog')).toBeNull();
   });
 
   it('never uses ranking language like "best" or "top" - discovery only, no unsupported quality claims', async () => {
@@ -112,7 +121,7 @@ describe('CuratedLists', () => {
     Object.assign(navigator, { clipboard: { writeText } });
     render(<CuratedLists currentFilters={{ sector: 'AI' }} onApply={() => {}} onClose={() => {}} />);
 
-    await userEvent.click(screen.getByText('🔗 Share current view'));
+    await userEvent.click(screen.getByRole('button', { name: /Share current view/ }));
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('sector=AI'));
     expect(await screen.findByText('Copied!')).toBeInTheDocument();
   });

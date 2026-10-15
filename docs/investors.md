@@ -25,7 +25,7 @@ same thing. Closing keeps the list where it was: the card the visitor was lookin
 - Sort by name (A-Z, Z-A), most connected companies, or location.
 - Save an investor with its bookmark; the **Saved** tab lists them. Saved investors live in the visitor's browser (`auStartupSavedInvestors`),
   there are no accounts. The header's "Saved" on this page opens the same list.
-- Switch the page between a light theme (default, orange) and a dark one (mint, the map page's); the choice is kept in `auStartupInvestorTheme`.
+- There is one look, the site's light design (`BRAND_GUIDELINES.md`): no theme switch, and nothing about a theme is kept in the browser.
 - "Add investor" is a suggestion form: it sends a `feedback` of type `investor`. **Nothing is listed on a suggestion alone**; publishing is a
   separate step in the Command Center.
 
@@ -56,5 +56,5 @@ parameter must also be added to `KNOWN` in `backend/src/catalog/respond.js`, or 
 
 `frontend/src/components/investors/` (`InvestorsView` = page and routing, `InvestorDirectory` = tools, tabs, results, `InvestorCard`,
 `InvestorTable`, `InvestorPanel` = the side panel and drawer, `InvestorProfile` = the full page, `SuggestInvestor`), `frontend/src/investors.css`
-(everything under `#investorsView`; the light and dark token sets are on `#investorsView[data-theme]`), and the hooks `useSavedInvestors` and
-`useInvestorTheme`. The header and filter controls are the map page's (`explore/ExploreHeader`, `explore/CheckMenu`, `explore.css`).
+(everything under `#investorsView`, on the site's design tokens), and the hook `useSavedInvestors`. The header is the shared `SiteHeader` and the rows, badges and
+segmented switch are the shared parts (`components/brand/`); the filter menus are the map page's (`explore/CheckMenu`).

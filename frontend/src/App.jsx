@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
+import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchInvestors, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
 import FilterPanel from './components/FilterPanel.jsx';
 import { splitValues } from './components/MultiSelect.jsx';
 import MapKey from './components/MapKey.jsx';
 import MapLayers from './components/MapLayers.jsx';
-import ExploreHeader from './components/explore/ExploreHeader.jsx';
+import SiteHeader from './components/brand/SiteHeader.jsx';
+import ExploreHero from './components/explore/ExploreHero.jsx';
+import ResultsColumn from './components/explore/ResultsColumn.jsx';
 import ExploreToolbar, { placeLabel } from './components/explore/ExploreToolbar.jsx';
 import AllAustralia from './components/explore/AllAustralia.jsx';
 import ResultsSheet from './components/explore/ResultsSheet.jsx';
@@ -18,7 +20,7 @@ import { startupDescription, startupJsonLd } from './seo.js';
 import { curatedLists } from './curatedLists.js';
 import { showPeople } from './flags.js';
 import { hiringLabel, roleClosedMessage } from './freshness.js';
-import { PALETTE, FALLBACK_COLOR } from './sectorPalette.js';
+import { PALETTE } from './sectorPalette.js';
 import ListBanner from './components/ListBanner.jsx';
 import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
@@ -36,6 +38,7 @@ const MapView = lazyView(() => import('./components/MapView.jsx'));
 const NewsTicker = lazyView(() => import('./components/NewsTicker.jsx'));
 const ListView = lazyView(() => import('./components/ListView.jsx'));
 const StartupPanel = lazyView(() => import('./components/explore/StartupPanel.jsx'));
+const PreviewCard = lazyView(() => import('./components/explore/PreviewCard.jsx'));
 const VcPanel = lazyView(() => import('./components/explore/VcPanel.jsx'));
 const VcList = lazyView(() => import('./components/explore/VcList.jsx'));
 const JobsView = lazyView(() => import('./components/JobsView.jsx'));
@@ -84,7 +87,6 @@ const SEARCH_DEBOUNCE_MS = 250;
 // The phone's sheet holds a panel at most 58% of the screen tall (explore.css .xs-detail) and no more than 520px: a pin picked on the map is brought clear of
 // that much, so the one that is open is in sight above the sheet whatever the panel says.
 const sheetInset = () => Math.round(Math.min(window.innerHeight * 0.58, 520));
-const PANEL_INSET = 440; // the width of the panel docked on a wide map's right (with its margin): a pin picked on the map is brought clear of it
 // What the map shows: the startups, the VCs, or both. It is in the address (?show=startups or ?show=vcs; both is no parameter), so a link opens as it was.
 const SHOWN = ['all', 'startups', 'vcs'];
 // The filters that are about a startup alone (whether it is hiring, its remote policy, how it is placed...): an investor has none of them, so with one on
@@ -102,23 +104,15 @@ function loadNewsVisible() {
   }
 }
 
-// The firms' layer and the basemap are kept in this browser, so a visitor who switched one off finds it as they left it. A browser that
-// will not say (a private window) gets the defaults: the layer on, the dark map.
+// The firms' layer is kept in this browser, so a visitor who switched it off finds it as they left it. A browser that will not say (a private
+// window) gets the default: the layer on.
 const LAYERS_KEY = 'auStartupMapLayers';
-const BASEMAP_KEY = 'auStartupBasemap';
 function loadLayers() {
   try {
     const saved = JSON.parse(localStorage.getItem(LAYERS_KEY) ?? 'null');
     return { institutions: saved?.institutions !== false };
   } catch (e) {
     return { institutions: true };
-  }
-}
-function loadBasemap() {
-  try {
-    return localStorage.getItem(BASEMAP_KEY) === 'light' ? 'light' : 'dark';
-  } catch (e) {
-    return 'dark';
   }
 }
 
@@ -204,7 +198,6 @@ export default function App() {
   const [areas, setAreas] = useState(first.pins?.areas ?? []);
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [layers, setLayers] = useState(loadLayers);
-  const [basemap, setBasemap] = useState(loadBasemap);
   const [institutionPins, setInstitutionPins] = useState([]);
   const [shown, setShown] = useState(loadShown); // 'all', 'startups' or 'vcs': which layers of the map (and which list) are on
   const [vcData, setVcData] = useState(NO_VCS); // the investors' marks for the filters (api.fetchInvestorPins)
@@ -221,9 +214,10 @@ export default function App() {
   const [showSubmitForm, setShowSubmitForm] = useState(initialView === 'submit');
   const [showUnverified, setShowUnverified] = useState(false);
   const [viewMode, setViewMode] = useState(initialView === 'list' || route.kind === 'list' ? 'list' : 'map');
-  const [showTracked, setShowTracked] = useState(false);
+  const [showTracked, setShowTracked] = useState(initialView === 'saved'); // /?view=saved: the header's Saved link from a page that is not the app
   const { tracked, toggleTracked, isTracked } = useTrackedStartups();
   const [trackedStartups, setTrackedStartups] = useState([]);
+  const [savedInvestorCards, setSavedInvestorCards] = useState([]); // the investors saved, for the Saved dialog
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -380,10 +374,6 @@ export default function App() {
     try { localStorage.setItem(LAYERS_KEY, JSON.stringify(next)); } catch (e) { /* ignore */ }
     return next;
   });
-  const chooseBasemap = (name) => {
-    setBasemap(name);
-    try { localStorage.setItem(BASEMAP_KEY, name); } catch (e) { /* ignore */ }
-  };
 
   // The companies a visitor tracks are looked up by name when the list is opened.
   useEffect(() => {
@@ -396,6 +386,18 @@ export default function App() {
       .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setTrackedStartups([]); });
     return () => ctrl.abort();
   }, [showTracked, tracked]);
+
+  // The investors saved are looked up by their addresses when the Saved dialog is opened.
+  const savedSlugs = savedVcs.saved.join(',');
+  useEffect(() => {
+    if (!showTracked) return undefined;
+    if (!savedSlugs) { setSavedInvestorCards([]); return undefined; }
+    const ctrl = new AbortController();
+    fetchInvestors({ slug: savedSlugs }, { limit: 100, offset: 0, sort: 'name', signal: ctrl.signal })
+      .then(({ results }) => { if (!ctrl.signal.aborted) setSavedInvestorCards(results ?? []); })
+      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setSavedInvestorCards([]); });
+    return () => ctrl.abort();
+  }, [showTracked, savedSlugs]);
 
   const sectorColors = useMemo(() => {
     const colors = {};
@@ -519,15 +521,27 @@ export default function App() {
     setFocus({ key: focusTicket.current, home: true });
   }, []);
 
-  // A company or a VC is picked on the map: its panel opens (docked on the right of a wide map, and in the sheet on a phone), and the map brings its pin
-  // clear of the panel, so the one that is open is always in sight. Any change to what is being looked at puts the panel away: it was for the last view.
+  // The page is scrolled so that the workspace (the toolbar, the results and the map) is under the sticky header, when part of it is below the screen: a mark
+  // picked from the results, or the sheet pulled up on a phone, then has the map in sight. Left alone when the workspace is already all in view.
+  const workspace = useRef(null);
+  const showWorkspace = useCallback(() => {
+    const el = workspace.current;
+    if (!el?.scrollIntoView || el.getBoundingClientRect().bottom <= window.innerHeight + 1) return;
+    const calm = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    el.scrollIntoView({ block: 'start', behavior: calm ? 'auto' : 'smooth' });
+  }, []);
+
+  // A company or a VC is picked on the map (or in the results beside it): its preview opens (a card beside its mark on a wide map, the panel in the sheet on
+  // a phone), and the map brings its pin into view clear of the edges (and of the sheet), so the one that is open is always in sight. Any change to what
+  // is being looked at puts the preview away: it was for the last view.
   const selectPin = useCallback((pin) => {
     setPreview(pin);
     if (Number.isFinite(pin.lat) && Number.isFinite(pin.lng)) {
       focusTicket.current += 1;
-      setFocus({ key: focusTicket.current, lat: pin.lat, lng: pin.lng, ...(desktop ? { insetRight: PANEL_INSET } : { inset: sheetInset() }) });
+      setFocus({ key: focusTicket.current, lat: pin.lat, lng: pin.lng, id: pin.id ?? pin.slug, ...(desktop ? {} : { inset: sheetInset() }) });
     }
-  }, [desktop]);
+    if (!desktop) showWorkspace();
+  }, [desktop, showWorkspace]);
   const clearPin = useCallback(() => setPreview(null), []);
   useEffect(() => { setPreview(null); }, [applied, viewMode, shown]);
 
@@ -538,6 +552,13 @@ export default function App() {
       slug: startup.slug, name: startup.name, city: startup.city, sector: startup.sector, verified: true, website: startup.website || '',
       hiring: hiringLabel(startup).state === 'hiring',
     });
+  };
+  // A company picked in the results column: its mark on the map when it has one (the map goes to it and its preview opens there), else its page: a company
+  // known only to a city has no mark to open.
+  const pickFromColumn = (startup) => {
+    const tuple = markers.find((m) => m[0] === startup.slug);
+    if (tuple) selectPin(pinPayload(tuple)); else openStartup(startup);
+    showWorkspace();
   };
   // A company named on a VC's panel: its pin when it has one (the map goes to it), else its page.
   const openCompanyFromVc = (company) => {
@@ -576,21 +597,22 @@ export default function App() {
 
   // The header's menu is the same on the map's page and the investors' page (which takes it as `chrome`, and swaps the few items that mean something
   // else there: Explore, Investors and Saved).
+  const go = {
+    explore: goExplore,
+    collections: showLists,
+    investors: () => openInvestors(),
+    jobs: showJobsPage,
+    saved: () => setShowTracked(true),
+  };
+  const counts = { jobs: hiringCount, saved: tracked.size };
   const menuProps = {
-    onExplore: goExplore,
-    onShowJobs: showJobsPage,
-    hiringCount,
-    onShowInvestors: () => openInvestors(),
     onShowPeople: peopleOn ? openPeople : undefined,
-    onShowCuratedLists: showLists,
     onShowNews: showNews,
     newsVisible,
     onToggleNews: toggleNews,
     onShowWaitlist: () => setShowWaitlist(true),
     onShowUnverified: () => setShowUnverified(true),
     unverifiedCount,
-    onShowTracked: () => setShowTracked(true),
-    trackedCount: tracked.size,
     onShowAbout: () => setShowAbout(true),
     onShowPrivacy: () => setShowPrivacy(true),
     onShowFeedback: () => setShowFeedback(true),
@@ -610,15 +632,19 @@ export default function App() {
         <Lazy>
           <StartupListView
             startups={trackedStartups}
-            sectorColors={sectorColors}
+            investors={savedInvestorCards}
             onClose={() => setShowTracked(false)}
             isTracked={isTracked}
             onToggleTracked={toggleTracked}
-            title={`Tracked startups (${tracked.size})`}
+            isSavedInvestor={savedVcs.isSaved}
+            onToggleInvestor={savedVcs.toggle}
+            onOpenStartup={(startup) => { setShowTracked(false); openStartup(startup); }}
+            onOpenInvestor={(slug) => { setShowTracked(false); openInvestors({ kind: 'investor', slug }); }}
+            title={`Saved (${tracked.size + savedVcs.saved.length})`}
             subtitle={
               trackedStartups.length < tracked.size
-                ? `${trackedStartups.length} of ${tracked.size} tracked companies are still in the directory.`
-                : 'Companies you have starred, saved in this browser only.'
+                ? `${trackedStartups.length} of ${tracked.size} saved companies are still in the directory. What you save stays in this browser.`
+                : 'The companies and investors you saved. They stay in this browser.'
             }
           />
         </Lazy>
@@ -626,16 +652,34 @@ export default function App() {
     </>
   );
 
+  // The header and its menu, for every page of the app: the places, the counts beside them, the one action and everything else.
+  const chrome = { go, counts, menu: menuProps, onAdd: () => setShowSubmitForm(true) };
+
   if (showJobs) {
-    return <Lazy fallback={loading('jobs')}><JobsView onClose={leave} /></Lazy>;
+    return (
+      <>
+        <Lazy fallback={loading('jobs')}><JobsView onClose={leave} chrome={chrome} /></Lazy>
+        {sharedDialogs}
+      </>
+    );
   }
 
   if (route.kind === 'news') {
-    return <Lazy fallback={loading('news')}><NewsPage onClose={leave} /></Lazy>;
+    return (
+      <>
+        <Lazy fallback={loading('news')}><NewsPage onClose={leave} chrome={chrome} /></Lazy>
+        {sharedDialogs}
+      </>
+    );
   }
 
   if (route.kind === 'people' && peopleOn) {
-    return <Lazy fallback={loading('people')}><PeopleView onClose={leave} onOpenCompany={(company) => openStartup(company)} onOpenInternal={openInternal} /></Lazy>;
+    return (
+      <>
+        <Lazy fallback={loading('people')}><PeopleView onClose={leave} chrome={chrome} onOpenCompany={(company) => openStartup(company)} onOpenInternal={openInternal} /></Lazy>
+        {sharedDialogs}
+      </>
+    );
   }
 
   if (showInvestors) {
@@ -647,7 +691,7 @@ export default function App() {
             fromLink={investorsFromLink}
             onClose={() => setRoute({ kind: 'explore' })}
             onOpenCompany={(company) => openStartup(company)}
-            chrome={{ hiringCount, onShowJobs: showJobsPage, menu: menuProps }}
+            chrome={chrome}
           />
         </Lazy>
         {sharedDialogs}
@@ -655,151 +699,185 @@ export default function App() {
     );
   }
 
+  // The collections are a page of their own, under the header; one that is picked opens as a list of its companies.
+  if (showCuratedLists) {
+    return (
+      <>
+        <Lazy fallback={loading('collections')}><CuratedLists currentFilters={filters} onApply={openList} chrome={chrome} /></Lazy>
+        {sharedDialogs}
+      </>
+    );
+  }
+
+  // The open mark's compact preview (a wide screen: beside its mark, MapView draws it there) and, on a phone, the panel in the bottom sheet.
+  const wideMap = viewMode === 'map' && desktop;
+  const previewCard = wideMap && preview ? (
+    <Lazy><PreviewCard
+      key={preview.id ?? preview.slug}
+      pin={preview}
+      saved={preview.kind === 'vc' ? savedVcs.isSaved(preview.slug) : tracked.has(preview.name)}
+      onToggleSaved={() => (preview.kind === 'vc' ? savedVcs.toggle(preview.slug) : toggleTracked(preview.name))}
+      onOpen={() => (preview.kind === 'vc' ? (clearPin(), openInvestors({ kind: 'investor', slug: preview.slug })) : openFromPreview())}
+      onClose={clearPin}
+      onReport={() => reportRoleClosed(preview.name)}
+    /></Lazy>
+  ) : null;
+
   return (
     <div id="app" className={['xp', activeList && 'has-list-banner', filtersOpen && 'panel-open'].filter(Boolean).join(' ')}>
-      <ExploreHeader
-        hiringCount={hiringCount}
-        trackedCount={tracked.size}
-        onExplore={goExplore}
-        onShowJobs={showJobsPage}
-        onShowInvestors={() => openInvestors()}
-        onShowTracked={() => setShowTracked(true)}
-        onAdd={() => setShowSubmitForm(true)}
-        menu={menuProps}
-      />
+      <SiteHeader active="explore" go={go} counts={counts} onAdd={chrome.onAdd} menu={menuProps} />
 
-      <ExploreToolbar
-        filters={filters}
-        onFilterChange={applyFilters}
-        onApplyFilters={applyFilters}
-        meta={meta}
-        cities={cityOptions}
-        total={stats?.count}
-        filtersOpen={filtersOpen}
-        onToggleFilters={() => setFiltersOpen((open) => !open)}
-        filtersRef={filtersButton}
-        viewMode={viewMode}
-        onSetViewMode={setViewMode}
-        entity={shown}
-        onEntityChange={setShown}
-        vcOptions={vcOptions}
-      />
+      <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />
 
-      {activeList && (
-        <ListBanner
-          list={activeList}
-          count={summary?.count ?? null}
-          url={new URL(appPath(route), window.location.origin).href}
-          onAllLists={showLists}
+      <div className="xw" ref={workspace}>
+        <ExploreToolbar
+          filters={filters}
+          onFilterChange={applyFilters}
+          cities={cityOptions}
+          total={stats?.count}
+          filtersOpen={filtersOpen}
+          onToggleFilters={() => setFiltersOpen((open) => !open)}
+          filtersRef={filtersButton}
+          viewMode={viewMode}
+          onSetViewMode={setViewMode}
+          entity={shown}
+          onEntityChange={setShown}
+          vcOptions={vcOptions}
         />
-      )}
 
-      <main className="xm" data-view={viewMode} data-sheet={sheetMode} data-card={desktop && viewMode === 'map' && preview ? '' : undefined} data-shown={shown}>
-        <Lazy fallback={viewMode === 'map' ? <MapPlaceholder basemap={basemap} /> : <ListSkeleton />}>
-          {viewMode === 'map' ? (
-            <MapView
-              markers={markers}
-              areas={areas}
-              onSelectStartup={openStartup}
-              onSelectPin={selectPin}
-              onClearPin={clearPin}
-              onViewArea={viewArea}
-              selectedName={preview?.name ?? selectedStartup?.name}
-              trackedNames={tracked}
-              vcPins={vcData.items}
-              showVcs={vcOn}
-              institutionPins={institutionPins}
-              showCompanies={shown !== 'vcs'}
-              showInstitutions={layers.institutions}
-              basemap={basemap}
-              scope={applied.city}
-              focus={focus}
-              onViewChange={setMapView}
-              onOpenInternal={openInternal}
-              onReportRoleClosed={reportRoleClosed}
-            />
-          ) : shown === 'vcs' ? (
-            <VcList
-              pins={vcData.items}
-              unplaced={vcData.unplaced}
-              where={where}
-              onOpen={(slug) => openInvestors({ kind: 'investor', slug })}
-              onOpenDirectory={() => openInvestors()}
-            />
-          ) : (
-            <ListView
-              filters={applied}
-              sectorColors={sectorColors}
-              onSelectStartup={openStartup}
-              selectedName={selectedStartup?.name}
-              trackedNames={tracked}
-              scope={scopeText(applied)}
-              onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
-              chips={chips}
-              meta={meta}
-              onFiltersChange={setFilters}
-            />
-          )}
-        </Lazy>
-
-        {viewMode === 'map' && (
-          <div className="xm-title">
-            <h2>Explore {where}</h2>
-            <p>{shown === 'vcs' ? 'Venture capital firms' : shown === 'startups' ? 'Startups' : 'Startups and venture capital firms'}</p>
-          </div>
-        )}
-        {viewMode === 'map' && chips && <div className="chips-float">{chips}</div>}
-        {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
-          <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>
-        )}
-
-        {viewMode === 'map' && (splitValues(filters.city).length > 0 || (mapView?.zoom ?? 0) > ALL_AUSTRALIA_ZOOM) && <AllAustralia onClick={showAustralia} />}
-
-        {viewMode === 'map' && desktop && preview && (
-          <div className="xm-panel">{previewPanel('panel')}</div>
-        )}
-        {viewMode === 'map' && !desktop && (
-          <ResultsSheet
-            filters={applied}
-            count={resultCount}
-            where={placeLabel(splitValues(filters.city))}
-            open={sheetOpen}
-            onOpenChange={setSheetOpen}
-            selectedName={preview?.name}
-            onPick={pickFromSheet}
-            detail={preview ? previewPanel('sheet') : null}
-            entity={shown}
-            vcFirms={vcRows}
-            onPickVc={(pin) => selectPin(pinPayload(vcTuple(pin)))}
+        {activeList && (
+          <ListBanner
+            list={activeList}
+            count={summary?.count ?? null}
+            url={new URL(appPath(route), window.location.origin).href}
+            onAllLists={showLists}
           />
         )}
 
-        <FilterPanel
-          filters={filters}
-          onChange={setFilters}
-          onReset={() => setFilters(EMPTY_FILTERS)}
-          meta={meta}
-          resultCount={resultCount}
-          summary={summary}
-          open={filtersOpen}
-          onOpenChange={setFiltersOpen}
-          toggleRef={filtersButton}
-          mapTools={viewMode === 'map' ? (
-            <>
-              <MapLayers
-                institutionCount={institutionPins.length}
-                showInstitutions={layers.institutions}
-                onToggleInstitutions={() => toggleLayer('institutions')}
-                basemap={basemap}
-                onBasemap={chooseBasemap}
-              />
-              <MapKey showInstitutions={institutionPins.length > 0} />
-            </>
-          ) : null}
-        />
+        <div className="xb" data-view={viewMode}>
+          {wideMap && (
+            <ResultsColumn
+              where={where}
+              entity={shown}
+              filters={applied}
+              selected={preview}
+              onPick={pickFromColumn}
+              onPickVc={(pin) => { selectPin(pinPayload(vcTuple(pin))); showWorkspace(); }}
+              vcFirms={vcOn ? vcRows : []}
+              isTracked={isTracked}
+              onToggleTracked={toggleTracked}
+              isSavedVc={savedVcs.isSaved}
+              onToggleVc={savedVcs.toggle}
+              chips={chips}
+              onViewAll={() => setViewMode('list')}
+              onShowCollections={showLists}
+              onClearFilters={() => setFilters({ ...EMPTY_FILTERS, city: filters.city })}
+            />
+          )}
 
-        {newsReady && <Lazy><NewsTicker visible={newsVisible} onClose={toggleNews} /></Lazy>}
-      </main>
+          <main className="xm" data-view={viewMode} data-sheet={sheetMode} data-card={desktop && viewMode === 'map' && preview ? '' : undefined} data-shown={shown}>
+            <Lazy fallback={viewMode === 'map' ? <MapPlaceholder /> : <ListSkeleton />}>
+              {viewMode === 'map' ? (
+                <MapView
+                  markers={markers}
+                  areas={areas}
+                  onSelectStartup={openStartup}
+                  onSelectPin={selectPin}
+                  onClearPin={clearPin}
+                  onViewArea={viewArea}
+                  selectedName={preview?.name ?? selectedStartup?.name}
+                  trackedNames={tracked}
+                  vcPins={vcData.items}
+                  showVcs={vcOn}
+                  institutionPins={institutionPins}
+                  showCompanies={shown !== 'vcs'}
+                  showInstitutions={layers.institutions}
+                  scope={applied.city}
+                  focus={focus}
+                  onViewChange={setMapView}
+                  onOpenInternal={openInternal}
+                  onReportRoleClosed={reportRoleClosed}
+                  previewAt={wideMap && preview && Number.isFinite(preview.lat) && Number.isFinite(preview.lng) ? { lat: preview.lat, lng: preview.lng } : null}
+                  previewCard={previewCard}
+                  previewKey={preview ? String(preview.id ?? preview.slug) : ''}
+                />
+              ) : shown === 'vcs' ? (
+                <VcList
+                  pins={vcData.items}
+                  unplaced={vcData.unplaced}
+                  where={where}
+                  onOpen={(slug) => openInvestors({ kind: 'investor', slug })}
+                  onOpenDirectory={() => openInvestors()}
+                />
+              ) : (
+                <ListView
+                  filters={applied}
+                  sectorColors={sectorColors}
+                  onSelectStartup={openStartup}
+                  selectedName={selectedStartup?.name}
+                  trackedNames={tracked}
+                  scope={scopeText(applied)}
+                  onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
+                  chips={chips}
+                  meta={meta}
+                  onFiltersChange={setFilters}
+                />
+              )}
+            </Lazy>
+
+            {viewMode === 'map' && !desktop && chips && <div className="chips-float">{chips}</div>}
+            {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
+              <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>
+            )}
+
+            {viewMode === 'map' && (splitValues(filters.city).length > 0 || (mapView?.zoom ?? 0) > ALL_AUSTRALIA_ZOOM) && <AllAustralia onClick={showAustralia} />}
+
+            {viewMode === 'map' && !desktop && (
+              <ResultsSheet
+                filters={applied}
+                count={resultCount}
+                where={placeLabel(splitValues(filters.city))}
+                open={sheetOpen}
+                onOpenChange={(open) => { setSheetOpen(open); if (open) showWorkspace(); }}
+                selectedName={preview?.name}
+                onPick={pickFromSheet}
+                detail={preview ? previewPanel('sheet') : null}
+                entity={shown}
+                vcFirms={vcRows}
+                onPickVc={(pin) => selectPin(pinPayload(vcTuple(pin)))}
+                isTracked={isTracked}
+                onToggleTracked={toggleTracked}
+                isSavedVc={savedVcs.isSaved}
+                onToggleVc={savedVcs.toggle}
+              />
+            )}
+
+            {newsReady && <Lazy><NewsTicker visible={newsVisible} onClose={toggleNews} /></Lazy>}
+          </main>
+
+          <FilterPanel
+            filters={filters}
+            onChange={setFilters}
+            onReset={() => setFilters(EMPTY_FILTERS)}
+            meta={meta}
+            resultCount={resultCount}
+            summary={summary}
+            open={filtersOpen}
+            onOpenChange={setFiltersOpen}
+            toggleRef={filtersButton}
+            mapTools={viewMode === 'map' ? (
+              <>
+                <MapLayers
+                  institutionCount={institutionPins.length}
+                  showInstitutions={layers.institutions}
+                  onToggleInstitutions={() => toggleLayer('institutions')}
+                />
+                <MapKey showInstitutions={institutionPins.length > 0} />
+              </>
+            ) : null}
+          />
+        </div>
+      </div>
 
       {sharedDialogs}
       {editingCompany && <Lazy><SuggestEditForm company={editingCompany} initialMessage={editingMessage} onClose={() => { setEditingCompany(null); setEditingMessage(''); }} /></Lazy>}
@@ -807,7 +885,6 @@ export default function App() {
         <Lazy>
           <StartupDetailPanel
             startup={selectedStartup}
-            sectorColor={sectorColors[selectedStartup.sector] || FALLBACK_COLOR}
             isTracked={isTracked}
             onToggleTracked={toggleTracked}
             onSuggestEdit={(name, message = '') => { setEditingMessage(message); setEditingCompany(name); }}
@@ -822,15 +899,6 @@ export default function App() {
           <PersonProfile
             person={getPersonProfile(selectedPersonName, personCompanies)}
             onClose={() => setSelectedPersonName(null)}
-          />
-        </Lazy>
-      )}
-      {showCuratedLists && (
-        <Lazy>
-          <CuratedLists
-            currentFilters={filters}
-            onApply={openList}
-            onClose={leave}
           />
         </Lazy>
       )}

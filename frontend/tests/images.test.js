@@ -61,8 +61,8 @@ describe('every image tag', () => {
   const all = sources().filter((f) => f.endsWith('.jsx')).flatMap((file) => [...code(file).matchAll(IMAGE_TAG)].map(([tag]) => ({ file: rel(file), tag })));
 
   it('is found where the logos are drawn (this test would otherwise check nothing)', () => {
-    // the logos beside a name are drawn in one place now, the shared card's picture (EntityCard); the company panel's and the investors' own are the others
-    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/StartupDetailPanel.jsx', 'components/investors/common.jsx']);
+    // the logos beside a name are drawn in one place now, the shared avatar (EntityCard: the cards, the rows, the previews and the company's panel); the investors' own are the other
+    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx']);
   });
 
   it('has an alt (empty: the name is beside it), and decodes off the main thread', () => {
@@ -72,11 +72,8 @@ describe('every image tag', () => {
     }
   });
 
-  it('waits until it is near the screen (loading="lazy"), except the company panel\'s, which opens on a click and is wanted at once', () => {
-    for (const { file, tag } of all) {
-      if (file === 'components/StartupDetailPanel.jsx') expect(tag, file).not.toContain('loading="lazy"');
-      else expect(tag, file).toContain('loading="lazy"');
-    }
+  it('waits until it is near the screen (loading="lazy")', () => {
+    for (const { file, tag } of all) expect(tag, file).toContain('loading="lazy"');
   });
 
   it('is given its size, where it sits in a box that is the same on every screen, so the page does not move as logos arrive', () => {

@@ -1,11 +1,11 @@
 import { nextEvent, eventDay, isBlank, hiringLabel, partialDateText, shortDate, roleClosedMessage } from '../freshness.js';
 import { remoteLabel } from '../directory.js';
-import { readableOn } from '../readableOn.js';
 import VerifiedNote, { UnverifiedBadge } from './VerifiedNote.jsx';
 import HiringBadge from './HiringBadge.jsx';
 import { useEffect, useState } from 'react';
 import { fetchNews, fetchInvestorsByName } from '../api.js';
-import { logoUrl } from '../logo.js';
+import { Avatar } from './EntityCard.jsx';
+import { BookmarkIcon } from './explore/icons.jsx';
 import Vouch from './Vouch.jsx';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { nameKey } from './investors/common.jsx';
@@ -28,17 +28,6 @@ function initialsOf(name) {
   const words = (name || '').trim().split(/\s+/).filter(Boolean);
   if (words.length >= 2) return (words[0][0] + words[1][0]).toUpperCase();
   return (name || '?').slice(0, 2).toUpperCase();
-}
-
-// The company's logo, or nothing (the initial rendered underneath shows). A failure removes the picture. A handler that swapped
-// `src` for another address would be called again by every failure of that one - React keeps its own error listener on an
-// <img>, whatever `onerror` is set to - and for a visitor whose browser blocks the address (an ad blocker, no network) it never
-// stopped: the panel redrew its logo thousands of times a second for as long as it was open. The panel opens on a click, so
-// its logo is wanted at once: it is decoded off the main thread but not held back.
-function PanelLogo({ domain }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
-  return <img className="pc-avatar-logo" src={logoUrl(domain, 96)} alt="" decoding="async" onError={() => setFailed(true)} />;
 }
 
 // What a source backs, in the words a visitor uses (a field the list does not know is shown as it is named).
@@ -101,7 +90,7 @@ function relatedNews(news, startupName) {
   return news.filter((d) => d.headline.toLowerCase().includes(q) || (d.meta || '').toLowerCase().includes(q));
 }
 
-export default function StartupDetailPanel({ startup: s, sectorColor, isTracked, onToggleTracked, onSuggestEdit, onSelectPerson, onOpenInvestor, onClose }) {
+export default function StartupDetailPanel({ startup: s, isTracked, onToggleTracked, onSuggestEdit, onSelectPerson, onOpenInvestor, onClose }) {
   useEscapeClose(onClose);
   const [news, setNews] = useState([]);
   // The investors in the directory among this company's: by name, so only one with a page of its own becomes a link.
@@ -130,8 +119,6 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
 
   // The map and the list know a company's name, place and sector; the rest arrives a moment after it opens.
   const loading = Boolean(s.partial);
-  const domain = domainOf(s.website);
-  const initial = (s.name || '?').trim().charAt(0).toUpperCase();
   const tracked = isTracked(s.name);
   const matchingNews = relatedNews(news, s.name);
   const investorCount = s.investors?.length || 0;
@@ -144,24 +131,23 @@ export default function StartupDetailPanel({ startup: s, sectorColor, isTracked,
   return (
     <div className="sdp-overlay" onClick={onClose}>
       <div className="sdp-panel" onClick={(e) => e.stopPropagation()}>
-        <div className="pc-hero" style={{ background: sectorColor, '--on-sector': readableOn(sectorColor) }}>
+        <div className="pc-hero">
           <button className="modal-close sdp-close" aria-label="Close" onClick={onClose}>✕</button>
           <div className="pc-hero-top">
-            <div className="pc-avatar">
-              <span className="pc-avatar-fallback">{initial}</span>
-              {domain && <PanelLogo key={domain} domain={domain} />}
-            </div>
+            <Avatar key={domainOf(s.website) ?? s.name} name={s.name} website={s.website} size={72} className="pc-logo" />
             <div className="pc-hero-text">
-              <h4>{s.name}</h4>
+              <h2>{s.name}</h2>
               <UnverifiedBadge company={s} />
               <VerifiedNote at={s.last_verified_at} />
             </div>
           </div>
           <button
-            className={tracked ? 'sdp-track sdp-track-active' : 'sdp-track'}
+            type="button"
+            className={tracked ? 'btn btn-secondary btn-sm sdp-track sdp-track-active' : 'btn btn-secondary btn-sm sdp-track'}
+            aria-pressed={tracked}
             onClick={() => onToggleTracked(s.name)}
           >
-            {tracked ? '★ Tracked' : '☆ Track'}
+            <BookmarkIcon size={18} fill={tracked ? 'currentColor' : 'none'} />{tracked ? 'Saved' : 'Save'}
           </button>
         </div>
 

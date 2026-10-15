@@ -9,7 +9,7 @@ import { showPeople } from '../../flags.js';
 // address in the app; a column never holds more than five.
 // The People link and "Nominate someone" are there only with VITE_SHOW_PEOPLE (flags.js): without it there is no People page to go to.
 export const footerColumns = (people = showPeople()) => [
-  { title: 'Explore', links: [['Map', MAP_PATH], ['List', '/?view=list'], ...(people ? [['People', appPath({ kind: 'people' })]] : []), ['Lists', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
+  { title: 'Explore', links: [['Map', MAP_PATH], ['List', '/?view=list'], ...(people ? [['People', appPath({ kind: 'people' })]] : []), ['Collections', appPath({ kind: 'lists' })], ['Jobs', appPath({ kind: 'jobs' })]] },
   { title: 'Directory', links: [['Investors', '/investors'], ['News', appPath({ kind: 'news' })], ['Full list, no JavaScript', DIRECTORY_URL]] },
   { title: 'Take part', links: [['Submit a startup', '/?view=submit'], ['Join waitlist', '/?view=waitlist'], ...(people ? [['Nominate someone', appPath({ kind: 'people' })]] : [])] },
   { title: 'Trust', links: [['Methodology', '/methodology'], ['About', '/about'], ['Contact', '/contact'], ['Privacy', '#privacy'], ['Terms', '#terms']] },

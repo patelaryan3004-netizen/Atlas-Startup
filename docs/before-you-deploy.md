@@ -26,12 +26,12 @@ Open http://localhost:5173 and look at: `/` (map), `/?view=list`, `/jobs`, `/lis
 
 ## Pins (the map)
 
-- [ ] Zoom to the Sydney and Melbourne centres and open about five pins in each. The card shows the name, one line, "Hiring now" only where it is true, and under "More" an address that matches the company's own site.
+- [ ] Zoom to the Sydney and Melbourne centres and open about five pins in each. The preview card shows the name, what it is, "Hiring" only where it is true, and the place with how well it is known (an address that matches the company's own site, or only a city).
 - [ ] 148 companies have an exact pin and 11 a suburb pin (159 on the map). The 11 are drawn as approximate; open two and read the wording under "More".
 - [ ] 43 companies are known only to a city and have **no pin** on purpose: they show as grey "Sydney 34 city-level" groups. Click one: it opens the list. 14 have no location at all and are not on the map.
 - [ ] The location problems still open (nothing was changed by this work): 9 where a geocoder puts the address somewhere else, 6 pins shared between companies at different addresses, 2 on a city centre, 2 closed or acquired, 112 addresses not yet checked against a source. Look at the worst first: `npm run locations --prefix backend -- review --issue geocode_disagrees`.
 - [ ] On a pin for a hiring company, "Report: role closed" opens the edit form with the sentence already started. It is not shown on a company that is not hiring.
-- [ ] Light and dark map, the Layers buttons, the Key, and the panel on the left (open by default only on wide screens).
+- [ ] One light map (no dark map, no basemap switch), the Institutions layer (only when there are firms' offices), the Key, and the Filters panel (shut when the page opens).
 - [ ] The basemap is OpenStreetMap. **No Mapbox token exists anywhere**, so nothing uses Mapbox yet. To use it: put a public token in Vercel as `VITE_MAPBOX_TOKEN` (restrict it to your site's address in Mapbox), and for geocoding the firms' offices set `MAPBOX_TOKEN` in your own shell only, then `node backend/scripts/institution-pins.js geocode --provider mapbox` (it lists any match under 0.85 relevance for you to check, and draws none of them).
 
 ## People and firms (behind the two switches)

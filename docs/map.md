@@ -1,6 +1,9 @@
 # The map
 
-The map page (`/`, App.jsx with `components/MapView.jsx` and `components/explore/`) draws startups and venture capital firms on one Leaflet map.
+The map page (`/`, App.jsx with `components/MapView.jsx` and `components/explore/`) is the Explore page of the design system (`BRAND_GUIDELINES.md`): the shared header, a
+heading with the main search (`explore/ExploreHero`), and one workspace under it: the toolbar (city, All / Startups / VCs, Filters, Map / List), a results column on the
+left (`explore/ResultsColumn`: one row per company or investor, "View all results", the Collections card) and the map on the right. It draws startups and venture capital
+firms on one Leaflet map. On a phone the column is the bottom sheet (`explore/ResultsSheet`).
 
 ## What is on it
 
@@ -40,12 +43,18 @@ investors as well as the startups; the filters about a startup alone (hiring, re
 are ignored when only they are. With only the VCs on, the Sector menu offers the sectors investors state and a Stage menu appears. The List view lists the
 VCs (one card each) instead of the startups.
 
-## Panels
+## Previews and panels
 
-A startup opens a panel (Overview and Jobs tabs: website, stage, what a page says of its open roles and the way to them, View company, Save). A VC opens its
-focus, stages, its place (said as a city, or as the street address for an office at its address), other offices, the addresses its pages give and the companies a page says it backed, each a way into that company, and View investor profile and Save
-(the same saved list as the Investors page). Wide screens dock the panel on the map's right and bring the open mark clear of it (`focus.insetRight`); a phone has
-the bottom sheet (`focus.inset`). Search, filters and city are not touched by opening or closing a panel or switching Map / List.
+On a wide screen a mark (or a row in the results column) opens a **preview card** beside the mark (`explore/PreviewCard`, placed by `MapView`, which keeps it beside the
+mark as the map moves and flips it to the left at the right edge): the logo, the name, what it is, its place and how well that place is known (a city, or a street address
+for an office at its address), the bookmark, and the one way on ("Explore company" opens the company's page; "View investor profile" the investor's). A company the pin says is
+hiring also has "Report: role closed". The mark and the row are lit together: picking either lights both, and the column scrolls to the row if it has to. The map is
+not moved clear of any panel on a wide screen (nothing is docked over it).
+
+On a phone the same pick opens a **panel in the bottom sheet** (`focus.inset` brings the mark clear of it): for a startup the Overview and Jobs tabs (website, stage, what a
+page says of its open roles and the way to them, View company, Save); for a VC its focus, stages, its place, other offices, the addresses its pages give and the companies
+a page says it backed, each a way into that company, and View investor profile and Save (the same saved list as the Investors page). Search, filters and city are not
+touched by opening or closing a preview or a panel or by switching Map / List.
 
 ## Clusters and overlap
 
@@ -55,10 +64,10 @@ the grouping is for the whole zoom below the map's, so two marks never overlap. 
 ## Keyboard
 
 Every mark is a tab stop with a name (`aria-label`); Enter and Space press it (Leaflet's own Enter only opens a popup bound to a mark, so `MapView.named` adds the
-key handler). Escape closes a panel; the toolbar, the menus and the panels are ordinary buttons and links.
+key handler). Escape closes the preview or the panel; the header, the toolbar, the menus, the rows and the panels are ordinary buttons and links.
 
 ## Background
 
-OpenStreetMap's tiles, quieted by CSS (`.map-quiet-dark`, `.map-quiet-light` in `styles.css`). CARTO's Dark Matter and Positron look better but answer "API key
-required" without a key (checked 2026-10-15). With a Mapbox token (`VITE_MAPBOX_TOKEN`) its dark and light styles are used. A keyed provider is a change to
-`mapTiles.js` only.
+One light background: OpenStreetMap's tiles, quieted by CSS (`.map-quiet-light` in `styles.css`: desaturated and faded over a pale ground, so the roads and place names stay but sit
+behind the logos). There is no dark map and no basemap switch. CARTO's Positron looks better but answers "API key required" without a key (checked 2026-10-15). With a Mapbox
+token (`VITE_MAPBOX_TOKEN`) its light style is used. A keyed provider is a change to `mapTiles.js` only.

@@ -467,7 +467,7 @@ describe('the shared header and the theme', () => {
     const onClose = vi.fn();
     window.history.pushState({}, '', '/investors?city=Sydney');
     renderView({ onClose });
-    await userEvent.click(await screen.findByRole('button', { name: 'Explore' }));
+    await userEvent.click(await screen.findByRole('link', { name: 'Explore' }));
     expect(onClose).toHaveBeenCalledTimes(1);
     expect(window.location.pathname).toBe('/');
     expect(window.location.search).toBe('?city=Sydney');
@@ -476,8 +476,8 @@ describe('the shared header and the theme', () => {
   it('goes to the jobs page from Jobs, and says how many are hiring', async () => {
     world();
     const onShowJobs = vi.fn();
-    renderView({ chrome: { hiringCount: 25, onShowJobs, menu: {} } });
-    const jobs = await screen.findByRole('button', { name: 'Jobs' });
+    renderView({ chrome: { go: { jobs: onShowJobs }, counts: { jobs: 25 }, menu: {} } });
+    const jobs = await screen.findByRole('link', { name: 'Jobs' });
     expect(jobs).toHaveAttribute('title', '25 hiring now');
     await userEvent.click(jobs);
     expect(onShowJobs).toHaveBeenCalledTimes(1);
@@ -491,7 +491,7 @@ describe('the shared header and the theme', () => {
     await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
     await panel();
     await userEvent.click(screen.getByRole('tab', { name: 'Saved' }));
-    await userEvent.click(screen.getByRole('button', { name: 'Investors' }));
+    await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
     await waitFor(() => expect(screen.queryByRole('complementary', { name: 'Blackbird' })).not.toBeInTheDocument());
     expect(screen.getByRole('tab', { name: 'All investors' })).toHaveAttribute('aria-selected', 'true');
   });
@@ -501,7 +501,7 @@ describe('the shared header and the theme', () => {
     localStorage.setItem('auStartupSavedInvestors', JSON.stringify(['blackbird']));
     const onClose = vi.fn();
     const onShowAbout = vi.fn();
-    renderView({ onClose, chrome: { hiringCount: 0, menu: { onShowAbout, directoryUrl: '/directory/', trackedCount: 9 } } });
+    renderView({ onClose, chrome: { counts: { jobs: 0, saved: 9 }, menu: { onShowAbout, directoryUrl: '/directory/' } } });
     await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
     const menu = within(document.querySelector('.hdr-menu-panel'));
     expect(menu.getByText('Saved (1)')).toBeInTheDocument(); // the investors saved, not the companies
@@ -574,62 +574,14 @@ describe('the shared header and the theme', () => {
     });
   });
 
-  describe('the theme', () => {
-    it('opens light, and switches to dark and back from the button in the header', async () => {
+  describe('the look', () => {
+    it('is one light design: no theme to switch, none kept in the browser, and none set on the page', async () => {
       world();
-      renderView();
-      const view = await screen.findByRole('link', { name: 'Blackbird' }).then(() => document.getElementById('investorsView'));
-      expect(view).toHaveAttribute('data-theme', 'light');
-      const toggle = screen.getByRole('button', { name: 'Dark theme' });
-      expect(toggle).toHaveAttribute('aria-pressed', 'false');
-      await userEvent.click(toggle);
-      expect(view).toHaveAttribute('data-theme', 'dark');
-      expect(toggle).toHaveAttribute('aria-pressed', 'true');
-      expect(toggle).toHaveAttribute('title', 'Switch to the light theme');
-      await userEvent.click(toggle);
-      expect(view).toHaveAttribute('data-theme', 'light');
-    });
-
-    it('is kept in this browser, so the page opens as it was left', async () => {
-      world();
-      const first = renderView();
-      await userEvent.click(await screen.findByRole('button', { name: 'Dark theme' }));
-      expect(localStorage.getItem('auStartupInvestorTheme')).toBe('dark');
-      first.unmount();
       renderView();
       await screen.findByRole('link', { name: 'Blackbird' });
-      expect(document.getElementById('investorsView')).toHaveAttribute('data-theme', 'dark');
-    });
-
-    it('is not changed by switching the view, opening an investor, a full profile, or the saved tab', async () => {
-      world();
-      renderView();
-      await userEvent.click(await screen.findByRole('button', { name: 'Dark theme' }));
-      const view = document.getElementById('investorsView');
-      await userEvent.click(screen.getByRole('button', { name: 'Table' }));
-      expect(view).toHaveAttribute('data-theme', 'dark');
-      await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
-      await panel();
-      expect(view).toHaveAttribute('data-theme', 'dark');
-      await userEvent.click(screen.getByRole('button', { name: 'Cards' }));
-      await userEvent.click(screen.getByRole('tab', { name: 'Saved' }));
-      expect(view).toHaveAttribute('data-theme', 'dark');
-      await userEvent.click(screen.getByRole('tab', { name: 'All investors' }));
-      await userEvent.click(within(await panel()).getByRole('button', { name: /Open full profile/ }));
-      await screen.findByRole('article');
-      expect(view).toHaveAttribute('data-theme', 'dark');
-    });
-
-    it('falls back to light when the browser will not say what was kept', async () => {
-      world();
-      const get = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('blocked'); });
-      try {
-        renderView();
-        await screen.findByRole('link', { name: 'Blackbird' });
-        expect(document.getElementById('investorsView')).toHaveAttribute('data-theme', 'light');
-      } finally {
-        get.mockRestore();
-      }
+      expect(screen.queryByRole('button', { name: /theme/i })).not.toBeInTheDocument();
+      expect(document.getElementById('investorsView')).not.toHaveAttribute('data-theme');
+      expect(localStorage.getItem('auStartupInvestorTheme')).toBeNull();
     });
   });
 });

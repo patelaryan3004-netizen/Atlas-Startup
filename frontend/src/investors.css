@@ -1,95 +1,24 @@
-/* The investor directory: a page of its own, like Jobs, drawn as one design in two themes. Light is the one it opens in (a warm off-white page,
-   white cards and one orange accent); dark is the map page's own look (the ground, the mint). The visitor chooses, and the choice is kept.
-   Everything is scoped to #investorsView so it can leak nowhere, and a theme is only a set of the site's own tokens (--paper, --panel, --line,
-   --ink, --muted, --accent ...) plus the few the shared header and menus read (--xp-*, --xh-*), so the cards, the table, the panel, the profile page
-   and the dialogs that sit inside the page follow it without a rule of their own. The header, the menus and the cards' box are the app's own
-   (explore.css, styles.css). */
+/* The investor directory, and the pages that share its page (News, People): a page of its own, like Jobs, in the site's one design. The tokens are the site's
+   (styles.css), the header, the field, the switch and the badges are the shared ones (brand.css); this file is the layout of the page: the heading and the search,
+   the tabs and the sort, the cards and the table, the panel beside them, and an investor's full page.
+   Everything is scoped to #investorsView so it can leak nowhere. A few names the page's rules read are set below from the site's tokens. */
 
 #investorsView {
-  --inv-radius: 14px;
+  --inv-radius: var(--r-lg);
   /* The one card's own tokens (styles.css), a little roomier on this page: the box itself is the app's. */
-  --card-radius: 14px;
+  --card-radius: var(--r-lg);
   --card-pad: 24px;
-  position: absolute; inset: 0; z-index: 1000; overflow-y: auto;
-  background: var(--paper); color: var(--ink);
-  scrollbar-width: thin; scrollbar-color: var(--inv-edge) var(--paper);
-}
-
-/* ---------- the two themes ---------- */
-
-#investorsView[data-theme='light'] {
-  color-scheme: light;
-  --paper: #f8f7f4;
-  --panel: #ffffff;
-  --line: #e8e5df;
-  --ink: #12141a;
-  --muted: #666a73;
-  /* One orange. The fill and the text are two steps of it, so white on the fill (4.6:1) and the orange as small text on the page (4.8:1) both read. */
-  --accent: #d4430d;
-  --accent-ink: #c2410c;
-  --accent-hover: #b93a09;
-  --accent-rgb: 212 67 13;
-  --on-accent: #ffffff;
-  --card-hover: #fffdfa;
-  --inv-soft: #454a53;
-  --inv-ok: #3f444c;
-  --inv-raise: #f2f0eb;
-  --inv-edge: #d6d2ca;
-  --inv-underline: #a8a49b;
-  --inv-tint: #fcf0e9;
-  --inv-chev: #7d818a;
-  --inv-shadow: 0 1px 2px rgba(30, 24, 12, .05), 0 6px 20px rgba(30, 24, 12, .05);
-  /* what the shared header and menus read */
-  --xp-bar: #fdfcfa;
-  --xp-line: #ebe8e2;
-  --xp-field: #ffffff;
-  --xp-field-line: #dfdcd5;
-  --xp-on: #fbede5;
-  --xp-on-line: #f0b79c;
-  --xp-pop: #ffffff;
-  --xp-pop-shadow: 0 18px 44px rgba(30, 24, 12, .16);
-  --xp-hover: rgba(20, 24, 32, .05);
-  --xp-edge: #c9c5bd;
-  --xp-placeholder: #6f737b;
-  --xp-icon: #6b6f78;
-  --xh-dim: #565b64;
-  --xh-strong: #12141a;
-}
-#investorsView[data-theme='dark'] {
-  color-scheme: dark;
-  --paper: #111516;
-  --panel: #151a1a;
-  --line: #262b2e;
-  --ink: #eceeed;
-  --muted: #9ba3a7;
-  --accent: #9fd8bc;
-  --accent-ink: #b4e3cc;
-  --accent-hover: #b3e4cd;
-  --accent-rgb: 159 216 188;
-  --on-accent: #0b1a14;
-  --card-hover: #171d1d;
-  --inv-soft: #b8bdbf;
-  --inv-ok: var(--accent-ink);
-  --inv-raise: #1c2222;
-  --inv-edge: #3a4244;
-  --inv-underline: #747c7e;
-  --inv-tint: #1b2422;
-  --inv-chev: #8b9396;
+  --inv-soft: #464e49;
+  --inv-ok: var(--green);
+  --inv-raise: var(--bg-subtle);
+  --inv-edge: #cfd4ce;
+  --inv-underline: rgb(var(--ink-rgb) / .4);
+  --inv-tint: var(--peach);
+  --inv-chev: var(--text-2);
   --inv-shadow: none;
-  --xp-bar: #121617;
-  --xp-line: #262b2e;
-  --xp-field: #14181b;
-  --xp-field-line: #2c3033;
-  --xp-on: #212a2a;
-  --xp-on-line: #3d4d49;
-  --xp-pop: #171b1e;
-  --xp-pop-shadow: 0 18px 44px rgba(0, 0, 0, .55);
-  --xp-hover: rgba(255, 255, 255, .06);
-  --xp-edge: #3a3f43;
-  --xp-placeholder: #7d8387;
-  --xp-icon: #aeb4b2;
-  --xh-dim: #c4c9c7;
-  --xh-strong: #ffffff;
+  position: absolute; inset: 0; z-index: 1000; overflow-y: auto;
+  background: var(--paper); color: var(--ink); color-scheme: light;
+  scrollbar-width: thin; scrollbar-color: var(--inv-edge) var(--paper);
 }
 
 #investorsView ::selection { background: rgb(var(--accent-rgb) / 0.3); }
@@ -104,43 +33,40 @@
 /* A drawer is open: the page behind it does not scroll. */
 #investorsView.inv-locked { overflow: hidden; }
 
-/* ---------- the header and the page ---------- */
+/* ---------- the page ---------- */
 
-/* The shared header stays at the top as the page scrolls. (A bare `header` rule elsewhere positions every header on the site: this says all of it.) */
-#investorsView .xh { position: sticky; top: 0; z-index: 30; }
-.inv-main { max-width: 1480px; margin: 0 auto; padding: 36px 40px 88px; }
+.inv-main { max-width: 1480px; margin: 0 auto; padding: var(--space-6) var(--page-pad) 88px; }
+.news-page .inv-main { max-width: calc(1024px + 2 * var(--page-pad)); } /* a feed to read: the same width as Jobs and Collections */
 
 .inv-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 32px; }
-.inv-hero h1 { margin: 0; font-size: clamp(2rem, 1.3rem + 2.2vw, 3rem); line-height: 1.06; letter-spacing: -0.03em; font-weight: 750; text-wrap: balance; }
-.inv-lead { margin: 10px 0 0; max-width: 60ch; font-size: var(--t-lede); line-height: 1.5; color: var(--inv-soft); }
+.inv-hero h1, .inv-intro h1 { margin: 0; font-family: var(--font-serif); font-size: var(--fs-h1); line-height: 1.02; letter-spacing: -0.02em; font-weight: 400; text-wrap: balance; }
+.inv-lead { margin: 12px 0 0; max-width: 60ch; font-size: var(--t-lede); line-height: 1.5; color: var(--text-2); }
 .inv-total { flex: none; margin: 0 0 6px; min-height: 1.3em; font-size: var(--t-body); font-variant-numeric: tabular-nums; color: var(--muted); }
 
 /* ---------- search and filters ---------- */
 
-.inv-tools { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
-#investorsView .inv-search { flex: 1 1 320px; min-width: 0; max-width: none; height: 50px; }
-#investorsView .inv-search input { height: 50px; font-size: var(--t-body); border-radius: 12px; padding-left: 50px; }
-#investorsView .inv-search .xt-search-icon { top: 15px; }
+.inv-tools { display: flex; align-items: center; gap: 12px; margin-top: 32px; }
+#investorsView .inv-search { flex: 1 1 320px; min-width: 0; max-width: none; }
 .inv-filters { display: flex; align-items: center; gap: 10px; flex: none; }
 /* (The map's toolbar hides its sector menu on a phone, because the sectors are in its filters: here the menus are the filters, on every screen.) */
 #investorsView .xt-menu { display: block; }
-#investorsView .xt-btn { height: 50px; border-radius: 12px; font-size: var(--t-body); }
+#investorsView .xt-btn { height: var(--control); border-radius: var(--r-md); font-size: var(--t-body); border-color: var(--border); }
 #investorsView .xt-btn-on { border-color: var(--accent); }
 #investorsView .xt-pop { min-width: 260px; }
 .inv-clear { padding: 0 6px; font: inherit; font-size: var(--t-body); color: var(--muted); background: none; border: 0; cursor: pointer; white-space: nowrap; }
 .inv-clear:hover { color: var(--ink); }
 .inv-more-pop { display: flex; flex-direction: column; gap: 14px; width: 320px; padding: 16px; left: auto; right: 0; }
 .inv-field { display: flex; flex-direction: column; gap: 6px; }
-.inv-field-label { font-size: var(--t-small); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.inv-field-label { font-size: var(--t-small); font-weight: 600; color: var(--text); }
 .inv-note { margin: 0; font-size: var(--t-small); line-height: 1.5; color: var(--muted); }
 
 /* A select, drawn as the page draws one: a bordered box with its own chevron. */
 .inv-select {
-  max-width: 100%; height: 44px; padding: 0 38px 0 12px; font: inherit; font-size: var(--t-body); color: var(--ink); cursor: pointer;
-  appearance: none; background: var(--xp-field) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23858a93' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center / 18px;
-  border: 1px solid var(--xp-field-line); border-radius: 10px; transition: border-color 0.15s ease;
+  max-width: 100%; height: var(--control-sm); padding: 0 38px 0 12px; font: inherit; font-size: var(--t-body); color: var(--ink); cursor: pointer;
+  appearance: none; background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23626a65' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center / 18px;
+  border: 1px solid var(--border); border-radius: var(--r-md); transition: border-color 0.15s ease;
 }
-.inv-select:hover { border-color: var(--xp-edge); }
+.inv-select:hover { border-color: rgb(var(--ink-rgb) / .35); }
 .inv-select option { color: #111; background: #fff; }
 
 /* ---------- the tabs, the sort and the view ---------- */
@@ -149,20 +75,17 @@
 .inv-bar-end { display: flex; align-items: center; gap: 16px; padding-bottom: 8px; }
 .inv-tabs { display: flex; gap: 28px; }
 .inv-tab {
-  display: inline-flex; align-items: center; gap: 8px; margin-bottom: -1px; padding: 12px 0; font: inherit; font-size: 17px; font-weight: 600; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: -1px; padding: 12px 0; font: inherit; font-size: var(--t-body); font-weight: 500; color: var(--muted);
   background: none; border: 0; border-bottom: 2px solid transparent; cursor: pointer; transition: color 0.15s ease;
 }
 .inv-tab:hover { color: var(--ink); }
-.inv-tab-on { color: var(--ink); border-bottom-color: var(--accent); }
+.inv-tab-on { color: var(--green); font-weight: 600; border-bottom-color: var(--accent); }
 .inv-tab-count { min-width: 22px; padding: 0 7px; font-size: var(--t-small); font-weight: 700; line-height: 22px; text-align: center; color: var(--accent-ink); background: rgb(var(--accent-rgb) / 0.14); border-radius: 10px; }
 .inv-sort { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: var(--t-body); }
 .inv-sort .inv-select { height: 40px; padding-left: 6px; font-weight: 600; background-color: transparent; border-color: transparent; }
-.inv-sort .inv-select:hover { border-color: var(--xp-field-line); }
-#investorsView .inv-views { height: 40px; }
-#investorsView .inv-views .xt-seg { padding: 0 14px; gap: 8px; font-size: var(--t-body); }
-#investorsView[data-theme='light'] .inv-views { padding: 3px; gap: 2px; background: #f0eee9; border-color: transparent; }
-#investorsView[data-theme='light'] .inv-views .xt-seg { border-radius: 8px; color: var(--muted); }
-#investorsView[data-theme='light'] .inv-views .xt-seg-on { color: var(--ink); background: #fff; box-shadow: 0 1px 3px rgba(30, 24, 12, 0.14); }
+.inv-sort .inv-select:hover { border-color: var(--border); }
+#investorsView .inv-views { height: var(--control-sm); }
+#investorsView .inv-views .seg-item { padding: 0 14px; font-size: var(--t-body); }
 
 /* ---------- the results, and the panel beside them ---------- */
 
@@ -181,18 +104,20 @@
 /* Its box (radius, border, padding, hover) is the shared card in styles.css. */
 .inv-card { position: relative; gap: 16px; box-shadow: var(--inv-shadow); }
 .inv-card .entity-top { gap: 16px; align-items: center; }
-.inv-card .inv-avatar { width: 60px; height: 60px; font-size: 22px; background: var(--inv-raise); color: var(--inv-soft); border-color: var(--line); }
-.inv-card .inv-avatar img { padding: 8px; }
-.inv-card .entity-name { font-size: 22px; font-weight: 650; line-height: 1.2; letter-spacing: -0.02em; }
+.inv-card .inv-avatar { width: 60px; height: 60px; border-radius: var(--r-md); font-size: 22px; background: var(--inv-raise); color: var(--green); border-color: var(--line); }
+.inv-card .inv-avatar img { padding: 8px; background: transparent; }
+.inv-card .entity-name { font-size: 1.25rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; }
 .inv-card-link { color: inherit; text-decoration: none; }
 /* The name's link reaches over the whole card: one target to click, one stop for the keyboard. */
 .inv-card-link::after { content: ''; position: absolute; inset: 0; border-radius: var(--card-radius); }
 #investorsView .inv-card-link:focus-visible { outline: none; }
 .inv-card-link:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 2px; }
-.inv-card-type { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: -6px 0 0; font-size: var(--t-small); color: var(--muted); }
+.inv-card-type { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: -6px 0 0; font-size: var(--t-small); color: var(--muted); }
+/* The kind of investor is the butter yellow, wherever an investor is named. */
+.inv-card-type > span:first-child:not(.inv-verified) { padding: 2px 10px; border-radius: var(--r-sm); background: var(--butter); color: var(--text); font-size: .75rem; font-weight: 700; letter-spacing: .02em; }
 .inv-card-facts { display: flex; flex-direction: column; gap: 10px; margin: 0; }
 .inv-card-facts > div { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; align-items: baseline; }
-.inv-card-facts dt { margin: 0; font-size: var(--t-small); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.inv-card-facts dt { margin: 0; font-size: var(--t-small); font-weight: 500; color: var(--muted); }
 .inv-card-facts dd { margin: 0; font-size: var(--t-body); line-height: 1.4; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .inv-card-foot {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: auto; padding-top: 16px;
@@ -201,10 +126,10 @@
 .inv-card-count { margin-right: auto; }
 .inv-card-cta { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; font-size: var(--t-body); font-weight: 600; color: var(--ink); transition: color 0.15s ease; }
 .inv-card-arrow { display: inline-block; color: var(--accent-ink); transition: transform 0.15s ease; }
-.inv-card:hover .inv-card-cta { color: var(--accent-ink); }
+.inv-card:hover .inv-card-cta { color: var(--green); }
 .inv-card:hover .inv-card-arrow { transform: translateX(3px); }
 /* The one that is open beside the results. */
-.inv-card-on, .inv-card-on:hover { border-color: var(--accent); background: var(--inv-tint); box-shadow: 0 0 0 1px var(--accent); }
+.inv-card-on, .inv-card-on:hover { border-color: rgb(var(--green-rgb) / .45); background: var(--inv-tint); box-shadow: 0 0 0 1px rgb(var(--green-rgb) / .3); }
 @media (prefers-reduced-motion: reduce) {
   .inv-card, .inv-card-arrow, .inv-card-cta { transition: none; }
   .inv-card:hover { transform: none; }
@@ -214,12 +139,12 @@
 /* The bookmark: on a card (above the link that reaches over it), in a table row and in the panel. */
 .inv-save {
   position: relative; z-index: 2; flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 40px; height: 40px; padding: 0;
-  font: inherit; font-size: var(--t-body); font-weight: 600; color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 10px; cursor: pointer;
+  font: inherit; font-size: var(--t-body); font-weight: 600; color: var(--text); background: transparent; border: 1px solid transparent; border-radius: var(--r-md); cursor: pointer;
   transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
-.inv-save:hover { color: var(--ink); background: var(--xp-hover); }
+.inv-save:hover { color: var(--ink); background: var(--green-tint); }
 .inv-save-on { color: var(--accent-ink); }
-.inv-save-text { width: auto; padding: 0 14px; color: var(--ink); border-color: var(--xp-field-line); background: var(--xp-field); }
+.inv-save-text { width: auto; padding: 0 14px; color: var(--ink); border-color: var(--border); background: var(--bg); }
 .inv-save-text.inv-save-on { color: var(--accent-ink); border-color: var(--accent); }
 
 .inv-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 22px; }
@@ -231,23 +156,23 @@
 .inv-table-wrap { overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: var(--inv-radius); }
 .inv-table { width: 100%; border-collapse: collapse; font-size: var(--t-body); }
 .inv-table th, .inv-table td { padding: 14px 16px; text-align: left; vertical-align: middle; }
-.inv-table thead th { padding-block: 16px; font-size: var(--t-small); font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); background: var(--panel); }
+.inv-table thead th { padding-block: 16px; font-size: var(--t-small); font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--line); background: var(--bg-subtle); }
 .inv-table tbody tr { cursor: pointer; transition: background-color 0.12s ease; }
 .inv-table tbody tr + tr > * { border-top: 1px solid var(--line); }
-.inv-table tbody tr:hover { background: var(--xp-hover); }
+.inv-table tbody tr:hover { background: var(--bg-subtle); }
 .inv-table td { color: var(--inv-soft); }
 .inv-table-name { font-weight: 650; color: var(--ink); }
 .inv-table-id { display: flex; align-items: center; gap: 14px; min-width: 190px; }
-.inv-table .inv-logo { width: 40px; height: 40px; border-radius: 50%; }
+.inv-table .inv-logo { width: 40px; height: 40px; border-radius: var(--r-sm); }
 .inv-table-who { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; }
 .inv-table-link { color: var(--ink); text-decoration: none; }
-.inv-table-link:hover { color: var(--accent-ink); }
+.inv-table-link:hover { color: var(--green); }
 .inv-table-type { font-size: var(--t-small); font-weight: 400; color: var(--muted); }
 .inv-col-stage { white-space: nowrap; }
 .inv-col-save { width: 1%; text-align: right; }
-/* The open investor's row: lit, with a bar of the accent on its left edge. */
+/* The open investor's row: lit in the peach, with a thin edge of the green on its left. */
 .inv-table tbody tr.inv-row-on { background: var(--inv-tint); }
-.inv-table tbody tr.inv-row-on > :first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.inv-table tbody tr.inv-row-on > :first-child { box-shadow: inset 2px 0 0 var(--accent); }
 /* With the panel open the results are narrow: the focus and the companies give way, so the table never scrolls sideways. */
 @container (max-width: 760px) { .inv-col-focus, .inv-col-companies { display: none; } }
 @container (max-width: 520px) { .inv-table th, .inv-table td { padding-inline: 12px; } .inv-col-stage { display: none; } }
@@ -270,14 +195,14 @@
 }
 
 .inv-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.inv-chip { padding: 3px 10px; font-size: var(--t-small); line-height: 1.4; color: var(--ink); background: var(--inv-raise); border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
+.inv-chip { padding: 3px 12px; font-size: var(--t-small); line-height: 1.4; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
 .inv-chip-more { color: var(--muted); background: transparent; }
 .inv-tag { padding: 2px 8px; font-size: var(--t-small); font-weight: 600; color: var(--inv-soft); border: 1px solid var(--inv-edge); border-radius: 999px; }
 .inv-verified { display: inline-flex; align-items: center; gap: 5px; font-size: var(--t-small); font-weight: 600; color: var(--inv-ok); }
 
-.inv-logo { position: relative; flex: none; display: inline-flex; width: 40px; height: 40px; overflow: hidden; background: var(--inv-raise); border: 1px solid var(--line); border-radius: 10px; }
-.inv-logo-lg { width: 64px; height: 64px; border-radius: 16px; }
-.inv-logo-initial { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--inv-soft); }
+.inv-logo { position: relative; flex: none; display: inline-flex; width: 40px; height: 40px; overflow: hidden; background: var(--inv-raise); border: 1px solid var(--line); border-radius: var(--r-md); }
+.inv-logo-lg { width: 64px; height: 64px; border-radius: var(--r-lg); }
+.inv-logo-initial { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--green); }
 .inv-logo-lg .inv-logo-initial { font-size: 24px; }
 /* The picture appears only once it has loaded and is a real logo; until then (and if it never is) the initial shows. */
 .inv-logo-img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 4px; object-fit: contain; background: #fff; opacity: 0; }
@@ -286,7 +211,7 @@
 /* ---------- states ---------- */
 
 .inv-empty { max-width: 64ch; margin-top: 28px; padding: 24px 26px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--inv-radius); }
-.inv-empty h2 { margin: 0 0 8px; font-size: 17px; letter-spacing: -0.01em; }
+.inv-empty h2 { margin: 0 0 8px; font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; letter-spacing: -0.01em; }
 .inv-empty p { margin: 0 0 16px; font-size: var(--t-body); line-height: 1.6; color: var(--inv-soft); }
 .inv-loading, .inv-none, .inv-error { margin: 8px 0 18px; font-size: var(--t-body); color: var(--inv-soft); }
 .inv-none p, .inv-error p { margin: 0 0 8px; max-width: 60ch; }
@@ -294,7 +219,7 @@
 
 /* ---------- the panel: an investor beside the results (a full-screen drawer on a phone) ---------- */
 
-.inv-panel { min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--inv-shadow); animation: inv-in 0.24s cubic-bezier(0.16, 1, 0.3, 1); }
+.inv-panel { min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-xl); box-shadow: var(--shadow-float); animation: inv-in 0.24s cubic-bezier(0.16, 1, 0.3, 1); }
 @keyframes inv-in { from { opacity: 0; transform: translateY(8px); } }
 @media (prefers-reduced-motion: reduce) { .inv-panel, .inv-profile { animation: none; } }
 .inv-panel-side { position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inv-edge) transparent; }
@@ -303,28 +228,28 @@
   display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px; font: inherit; font-size: var(--t-small); font-weight: 600; color: var(--muted);
   background: none; border: 0; border-radius: 8px; cursor: pointer;
 }
-.inv-panel-back:hover { color: var(--ink); background: var(--xp-hover); }
+.inv-panel-back:hover { color: var(--ink); background: var(--bg-subtle); }
 .inv-panel-body { padding: 4px 28px 28px; }
 .inv-panel-state { margin: 8px 0 0; font-size: 1.25rem; }
 .inv-panel-head { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
-.inv-panel-head .inv-logo-lg { width: 72px; height: 72px; border-radius: 50%; }
+.inv-panel-head .inv-logo-lg { width: 72px; height: 72px; border-radius: var(--r-lg); }
 .inv-panel-id { flex: 1 1 220px; min-width: 0; }
-.inv-panel-id h2 { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.12; letter-spacing: -0.025em; font-weight: 750; overflow-wrap: anywhere; }
+.inv-panel-id h2 { margin: 0; font-family: var(--font-serif); font-size: clamp(2rem, 1.6rem + 1vw, 2.5rem); line-height: 1.05; letter-spacing: -0.015em; font-weight: 400; overflow-wrap: anywhere; }
 .inv-panel-sub { margin: 6px 0 0; font-size: var(--t-body); color: var(--inv-soft); }
 .inv-panel-flags { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 8px 0 0; font-size: var(--t-small); color: var(--muted); }
 .inv-panel-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
 .inv-panel-full {
   display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; font: inherit; font-size: var(--t-body); font-weight: 600; color: var(--ink);
-  background: var(--xp-field); border: 1px solid var(--xp-field-line); border-radius: 10px; cursor: pointer; transition: border-color 0.15s ease;
+  background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-md); cursor: pointer; transition: border-color 0.15s ease;
 }
-.inv-panel-full:hover { border-color: var(--xp-edge); }
+.inv-panel-full:hover { border-color: rgb(var(--ink-rgb) / .35); }
 
 /* Focus, stage and place, side by side with a rule between, as the mockup has them. */
 .inv-panel-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 22px 0 0; padding: 16px 0; border-block: 1px solid var(--line); }
 .inv-panel-facts > div { min-width: 0; padding-inline: 16px; }
 .inv-panel-facts > div:first-child { padding-left: 0; }
 .inv-panel-facts > div + div { border-left: 1px solid var(--line); }
-.inv-panel-facts dt { margin: 0 0 4px; font-size: var(--t-small); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.inv-panel-facts dt { margin: 0 0 4px; font-size: var(--t-small); font-weight: 500; color: var(--muted); }
 .inv-panel-facts dd { margin: 0; font-size: var(--t-body); line-height: 1.4; overflow-wrap: anywhere; }
 
 .inv-panel .inv-tabs { gap: 24px; margin-top: 8px; border-bottom: 1px solid var(--line); }
@@ -336,10 +261,10 @@
 .inv-panel-correct h3 { margin: 0 0 6px; font-size: var(--t-body); font-weight: 700; }
 .inv-panel-foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); }
 .inv-panel-visit, .inv-panel-apply {
-  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; font: inherit; font-size: var(--t-body); font-weight: 600; text-decoration: none; border-radius: 10px;
+  display: inline-flex; align-items: center; gap: 8px; height: var(--control); padding: 0 20px; font: inherit; font-size: var(--t-body); font-weight: 600; text-decoration: none; border-radius: var(--r-md);
 }
-.inv-panel-visit { color: var(--ink); border: 1px solid var(--xp-field-line); background: var(--xp-field); }
-.inv-panel-visit:hover { border-color: var(--xp-edge); }
+.inv-panel-visit { color: var(--ink); border: 1px solid var(--border); background: var(--bg); font-weight: 500; }
+.inv-panel-visit:hover { border-color: rgb(var(--ink-rgb) / .35); background: var(--bg-subtle); }
 .inv-panel-apply { color: var(--on-accent); background: var(--accent); border: 1px solid var(--accent); }
 .inv-panel-apply:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
@@ -364,7 +289,7 @@
 
 .inv-profile-head { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 20px; margin-top: 22px; }
 .inv-profile-id { flex: 1 1 280px; min-width: 0; }
-.inv-profile h1 { margin: 0; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.125rem); line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; text-wrap: balance; }
+.inv-profile h1 { margin: 0; font-family: var(--font-serif); font-size: var(--fs-h1); line-height: 1.02; letter-spacing: -0.02em; font-weight: 400; text-wrap: balance; }
 .inv-profile-state { font-size: 1.25rem; margin-top: 22px; }
 .inv-profile-meta { margin: 6px 0 0; font-size: var(--t-body); color: var(--inv-soft); }
 .inv-profile-flags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 10px 0 0; font-size: var(--t-small); }
@@ -387,11 +312,11 @@
 }
 
 .inv-section + .inv-section { margin-top: 38px; }
-.inv-section h2 { margin: 0 0 12px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.inv-section h2 { margin: 0 0 12px; font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
 .inv-section-note { max-width: 70ch; margin: -6px 0 12px; font-size: var(--t-small); line-height: 1.5; color: var(--muted); }
 .inv-prose { max-width: 68ch; margin: 0; font-size: var(--t-body); line-height: 1.65; }
 
-.inv-rows { margin: 0; padding: 0; list-style: none; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.inv-rows { margin: 0; padding: 0; list-style: none; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg); }
 .inv-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 16px; }
 .inv-row + .inv-row { border-top: 1px solid var(--line); }
 .inv-row-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -400,7 +325,7 @@
 .inv-row-side { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: var(--t-small); text-align: right; }
 .inv-row-source { font-size: var(--t-small); color: var(--muted); text-decoration-color: var(--inv-underline); text-underline-offset: 3px; }
 .inv-row-source:hover { color: var(--ink); }
-.inv-hiring { font-size: var(--t-small); font-weight: 600; color: var(--accent-ink); }
+.inv-hiring { font-size: var(--t-small); font-weight: 600; color: var(--green); }
 
 .inv-linkbtn, .inv-textlink {
   padding: 0; font: inherit; font-size: var(--t-body); font-weight: 600; color: var(--ink); text-align: left; background: none; border: 0; cursor: pointer;
@@ -408,8 +333,8 @@
 }
 .inv-linkbtn:hover, .inv-textlink:hover { text-decoration-color: var(--accent); }
 
-.inv-facts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin: 0; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
-.inv-facts dt { margin: 0 0 4px; font-size: var(--t-small); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.inv-facts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin: 0; padding: 20px; background: var(--bg-subtle); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.inv-facts dt { margin: 0 0 4px; font-size: var(--t-small); font-weight: 500; color: var(--muted); }
 .inv-facts dd { margin: 0; font-size: var(--t-body); line-height: 1.45; }
 .inv-addresses { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
 .inv-addresses b { font-weight: 600; }
@@ -431,31 +356,26 @@
 }
 .inv-after { margin-top: 14px; }
 
-.inv-correct { padding: 18px; border: 1px solid var(--line); border-radius: 12px; }
+.inv-correct { padding: 20px; border: 1px solid var(--line); border-radius: var(--r-lg); }
 .inv-correct h2 { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
 .inv-correct p { margin: 0 0 14px; font-size: var(--t-small); line-height: 1.55; color: var(--inv-soft); }
 .inv-correct-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 
-/* ---------- the shared header's theme switch ---------- */
-
-.xh-theme { flex: none; }
-
 /* ---------- narrower screens ---------- */
 
 @media (max-width: 1199px) {
-  .inv-main { padding-inline: 28px; }
   .inv-filters { flex-wrap: wrap; }
   .inv-tools { flex-wrap: wrap; }
   #investorsView .inv-search { flex-basis: 100%; }
 }
 @media (max-width: 899px) {
-  .inv-main { padding: 28px 20px 72px; }
+  .inv-main { padding-top: var(--space-4); padding-bottom: 72px; }
   .inv-hero { align-items: flex-start; flex-direction: column; gap: 6px; }
   .inv-total { margin: 0; }
 }
 @media (max-width: 639px) {
   #investorsView { --card-pad: 20px; }
-  .inv-main { padding: 22px 16px 64px; }
+  .inv-main { padding-top: var(--space-3); padding-bottom: 64px; }
   /* One column, not a wrapping one: a wrapping column makes every item as wide as the widest, which pushed the search past the screen. */
   .inv-tools { flex-direction: column; flex-wrap: nowrap; align-items: stretch; margin-top: 20px; }
   #investorsView .inv-search { flex: none; }
@@ -483,11 +403,4 @@
   .inv-panel-facts { grid-template-columns: 1fr; padding: 4px 0; }
   .inv-panel-facts > div, .inv-panel-facts > div:first-child { padding: 10px 0; }
   .inv-panel-facts > div + div { border-left: 0; border-top: 1px solid var(--line); }
-  /* The header has the theme button as well as the map page's, so on the smallest phones its parts sit a little closer to keep the menu on screen. */
-  #investorsView .xh { gap: 8px; padding: 0 12px; }
-  #investorsView .xh-brand { gap: 8px; }
-  #investorsView .xh-mark { width: 26px; height: 26px; }
-  #investorsView .xh .xh-title { font-size: 17px; }
-  #investorsView .xh-end { gap: 6px; }
-  #investorsView .xh-end > *, #investorsView .xh-add, #investorsView .xh-more, #investorsView .xh-theme { width: 40px; height: 40px; }
 }

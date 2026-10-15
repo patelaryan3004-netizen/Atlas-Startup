@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { fetchNews } from '../api.js';
 import { usePageMeta } from '../hooks/usePageMeta.js';
-import SiteBrand from './SiteBrand.jsx';
+import SiteHeader from './brand/SiteHeader.jsx';
 import '../investors.css';
 
 const SOURCE_WORDS = {
@@ -12,7 +12,7 @@ const SOURCE_WORDS = {
 
 // The news the ticker shows, as a page of its own at /news: recent funding rounds, acquisitions and ecosystem headlines. Each one
 // links to the publisher's own page, and says who published it and when. Nothing here is written by this site.
-export default function NewsPage({ onClose }) {
+export default function NewsPage({ chrome = {} }) {
   const [state, setState] = useState({ status: 'loading', deals: [], source: null });
   const [refreshing, setRefreshing] = useState(false);
   usePageMeta({
@@ -32,10 +32,7 @@ export default function NewsPage({ onClose }) {
 
   return (
     <div id="investorsView" className="news-page">
-      <header className="inv-bar">
-        <button type="button" className="hdrbtn" onClick={onClose}>← Back to map</button>
-        <SiteBrand onMap={onClose} />
-      </header>
+      <SiteHeader go={chrome.go} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
       <main className="inv-main" id="news-main">
         <section className="inv-intro" aria-labelledby="news-title">
           <h1 id="news-title">Australian startup news</h1>

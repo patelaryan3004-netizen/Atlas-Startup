@@ -1,0 +1,190 @@
+/* AU Startup Map: the shared components. The tokens they read are at the top of styles.css; BRAND_GUIDELINES.md says how to use both.
+   Nothing here belongs to one page: the header, the buttons, the search field, the segmented switch, the badges, the company row, the
+   bookmark, the tabs, the empty state and the headings are the same on every route, so a page that needs one uses it and does not restyle it. */
+
+/* ---------- headings and the editorial voice ---------- */
+/* A big heading is Instrument Serif with at most one italic word in the green; everything else on the page is Inter. */
+.display{margin:0;font-family:var(--font-serif);font-weight:400;font-size:var(--fs-display);line-height:.98;letter-spacing:-.02em;text-wrap:balance;color:var(--text);}
+.serif-h1{margin:0;font-family:var(--font-serif);font-weight:400;font-size:var(--fs-h1);line-height:1.02;letter-spacing:-.02em;text-wrap:balance;color:var(--text);}
+.serif-h2{margin:0;font-family:var(--font-serif);font-weight:400;font-size:var(--fs-h2);line-height:1.08;letter-spacing:-.015em;text-wrap:balance;color:var(--text);}
+.display em,.serif-h1 em,.serif-h2 em{font-style:italic;color:var(--green);}
+.kicker{margin:0;font-size:.75rem;font-weight:600;letter-spacing:.16em;line-height:1.2;text-transform:uppercase;color:var(--green);}
+.lede{margin:0;font-size:var(--t-lede);line-height:1.55;color:var(--text-2);max-width:62ch;text-wrap:pretty;}
+.page{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--page-pad);}
+.page-head{display:grid;gap:var(--space-2);padding:var(--space-8) 0 var(--space-4);}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--control);padding:0 24px;border:1px solid transparent;border-radius:var(--r-md);
+  background:transparent;color:var(--text);font:600 var(--t-body)/1 var(--font);text-decoration:none;white-space:nowrap;cursor:pointer;
+  transition:background-color .15s var(--ease),border-color .15s var(--ease),color .15s var(--ease);
+}
+.btn-primary{background:var(--green);border-color:var(--green);color:var(--on-green);}
+.btn-primary:hover{background:var(--green-hover);border-color:var(--green-hover);}
+.btn-secondary{background:var(--bg);border-color:var(--border);color:var(--text);font-weight:500;}
+.btn-secondary:hover{background:var(--bg-subtle);border-color:rgb(var(--ink-rgb) / .35);}
+.btn-quiet{color:var(--text-2);font-weight:500;padding:0 14px;}
+.btn-quiet:hover{background:var(--green-tint);color:var(--text);}
+.btn-sm{min-height:var(--control-sm);padding:0 16px;font-size:var(--t-small);}
+.btn-block{display:flex;width:100%;}
+.btn:disabled,.btn[aria-disabled="true"]{opacity:.55;cursor:default;}
+:is(.btn,.bm,.seg-item,.sh-link,.sh-add,.sh-more,.crow-main,.tab,.field-clear):focus-visible{outline:var(--focus);outline-offset:2px;}
+
+/* ---------- the field: a search box and the text inputs the pages share ---------- */
+.field{
+  position:relative;display:flex;align-items:center;gap:12px;height:var(--control);padding:0 16px;border:1px solid var(--border);border-radius:var(--r-md);
+  background:var(--bg);color:var(--text);transition:border-color .15s var(--ease),box-shadow .15s var(--ease);
+}
+.field:focus-within{border-color:var(--green);box-shadow:0 0 0 3px rgb(var(--green-rgb) / .15);}
+.field > svg{flex:none;color:var(--text-2);}
+.field input{flex:1;min-width:0;height:100%;padding:0;border:0;outline:0;background:transparent;color:inherit;font:inherit;font-size:var(--t-body);}
+.field input::placeholder{color:var(--text-2);opacity:1;}
+.field-lg{height:56px;border-radius:var(--r-md);}
+.kbd{flex:none;display:inline-flex;align-items:center;gap:2px;height:28px;padding:0 8px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--bg-subtle);color:var(--text-2);font:500 .75rem/1 var(--font);}
+.select{
+  min-height:var(--control-sm);padding:0 36px 0 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg);color:var(--text);
+  font:inherit;font-size:var(--t-small);appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23626a65' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9.5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+}
+.select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgb(var(--green-rgb) / .15);}
+
+/* ---------- the segmented switch: All / Startups / VCs, Map / List, Cards / Table ---------- */
+.seg{display:inline-flex;align-items:center;gap:2px;height:var(--control);padding:4px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg);}
+.seg-item{
+  display:inline-flex;align-items:center;gap:8px;height:100%;padding:0 18px;border:0;border-radius:var(--r-sm);background:transparent;color:var(--text);
+  font:500 var(--t-body)/1 var(--font);white-space:nowrap;cursor:pointer;transition:background-color .15s var(--ease),color .15s var(--ease);
+}
+.seg-item:hover{background:var(--bg-subtle);}
+.seg-item[aria-pressed="true"],.seg-item[aria-selected="true"]{background:var(--green);color:var(--on-green);}
+.seg-item[aria-pressed="true"] .badge-vc{background:var(--butter);}
+
+/* ---------- badges ---------- */
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--bg-subtle);color:var(--text);font-size:.75rem;font-weight:700;letter-spacing:.04em;line-height:1;white-space:nowrap;}
+.badge-vc{background:var(--butter);border-color:transparent;color:var(--text);}
+.badge-green{background:var(--green-tint);border-color:transparent;color:var(--green);}
+.badge-peach{background:var(--peach);border-color:transparent;color:var(--text);}
+.badge-quiet{background:transparent;color:var(--text-2);font-weight:500;letter-spacing:0;}
+
+/* ---------- the site header: the same on every page ---------- */
+.sh{
+  position:sticky;top:0;z-index:760;flex:none;display:flex;align-items:center;gap:var(--space-4);height:80px;padding:0 var(--page-pad);
+  background:var(--bg);border-bottom:1px solid var(--border);
+}
+.sh-brand{display:flex;align-items:center;gap:12px;flex:none;min-width:0;color:var(--text);text-decoration:none;border-radius:var(--r-sm);}
+.sh-brand:focus-visible{outline:var(--focus);outline-offset:4px;}
+.sh-mark{color:var(--green);flex:none;}
+.sh-name{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:-.025em;line-height:1;white-space:nowrap;}
+.sh-nav{margin:0 auto;display:flex;align-items:center;height:52px;padding:0 8px;border:1px solid var(--border);border-radius:var(--radius-pill);}
+.sh-link{
+  position:relative;display:inline-flex;align-items:center;gap:8px;height:100%;padding:0 20px;border:0;background:none;color:var(--text);
+  font:500 var(--t-body)/1 var(--font);text-decoration:none;cursor:pointer;transition:color .15s var(--ease);
+}
+.sh-link + .sh-link::before{content:'';position:absolute;left:0;top:17px;bottom:17px;width:1px;background:var(--border);}
+.sh-link:hover{color:var(--green);}
+.sh-link[aria-current="page"]{color:var(--green);font-weight:600;}
+.sh-link[aria-current="page"]::after{content:'';position:absolute;left:20px;right:20px;bottom:9px;height:2px;border-radius:1px;background:var(--green);}
+.sh-count{min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--green-tint);color:var(--green);font-size:.75rem;font-weight:600;line-height:20px;text-align:center;}
+.sh-end{display:flex;align-items:center;gap:12px;flex:none;}
+.sh-add{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;height:var(--control);padding:0 20px;border:1px solid rgb(var(--ink-rgb) / .28);border-radius:var(--radius-pill);
+  background:var(--bg);color:var(--text);font:500 var(--t-body)/1 var(--font);text-decoration:none;white-space:nowrap;cursor:pointer;
+  transition:background-color .15s var(--ease),border-color .15s var(--ease);
+}
+.sh-add:hover{background:var(--bg-subtle);border-color:var(--text);}
+.sh-more{
+  display:inline-flex;align-items:center;justify-content:center;width:var(--control);height:var(--control);padding:0;border:1px solid var(--border);border-radius:50%;
+  background:var(--bg-subtle);color:var(--text);cursor:pointer;transition:background-color .15s var(--ease);
+}
+.sh-more:hover{background:var(--green-tint);}
+.sh .hdr-menu-panel{width:272px;max-height:calc(100dvh - 96px);overflow-y:auto;padding:8px;border-radius:var(--r-lg);background:var(--bg);border-color:var(--border);box-shadow:var(--shadow-float);}
+.sh .hdr-menu-item{display:block;width:100%;padding:10px 12px;border-radius:var(--r-sm);font-size:var(--t-body);line-height:1.35;text-align:left;text-decoration:none;color:var(--text);}
+.sh .hdr-menu-item:hover,.sh .hdr-menu-item:focus-visible{background:var(--bg-subtle);outline:none;}
+.sh .hdr-menu-item .nav-hiring-hint{display:inline;font-size:var(--t-small);color:var(--text-2);}
+.hdr-menu-credit{margin:8px 12px 6px;font-size:.75rem;line-height:1.5;color:var(--text-2);}
+
+/* ---------- tabs: a panel's sections ---------- */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);}
+.tab{margin-bottom:-1px;padding:12px 14px;border:0;border-bottom:2px solid transparent;background:none;color:var(--text-2);font:500 var(--t-body)/1 var(--font);cursor:pointer;}
+.tab:hover{color:var(--text);}
+.tab[aria-selected="true"]{color:var(--green);border-bottom-color:var(--green);font-weight:600;}
+
+/* ---------- a company row: the logo, the name, what it is, the bookmark ---------- */
+.crow{position:relative;display:flex;align-items:center;gap:4px;margin:0;border:1px solid transparent;border-radius:var(--r-md);background:transparent;transition:background-color .15s var(--ease),border-color .15s var(--ease);}
+.crow:hover{background:var(--bg-subtle);}
+.crow[aria-current="true"]{background:var(--peach);border-color:rgb(var(--green-rgb) / .22);}
+.crow-main{display:flex;flex:1;align-items:center;gap:16px;min-width:0;padding:12px 4px 12px 14px;border:0;border-radius:var(--r-md);background:none;color:var(--text);font:inherit;text-align:left;cursor:pointer;}
+.crow-main .entity-avatar,.crow-logo{flex:none;width:56px;height:56px;border-radius:var(--r-md);border:0;background:transparent;font-size:1.375rem;}
+.crow-main .entity-avatar img{padding:2px;background:transparent;}
+.crow-text{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.crow-name{display:flex;align-items:center;gap:8px;min-width:0;font-size:1.0625rem;font-weight:600;line-height:1.25;letter-spacing:-.01em;}
+.crow-name > span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.crow-sub{color:var(--text-2);font-size:var(--t-small);line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.crow .bm{margin-right:6px;}
+
+/* ---------- the bookmark ---------- */
+.bm{display:inline-flex;flex:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:var(--r-md);background:transparent;color:var(--text);cursor:pointer;transition:background-color .15s var(--ease),color .15s var(--ease);}
+.bm:hover{background:var(--green-tint);}
+.bm[aria-pressed="true"]{color:var(--green);}
+
+/* ---------- the empty state ---------- */
+.empty-state{display:grid;justify-items:center;gap:var(--space-1);padding:var(--space-6) var(--space-3);text-align:center;color:var(--text-2);}
+.empty-state h3{margin:0;font-family:var(--font-serif);font-size:1.75rem;font-weight:400;line-height:1.15;color:var(--text);}
+.empty-state p{margin:0;max-width:46ch;font-size:var(--t-body);line-height:1.55;}
+.empty-state .btn{margin-top:var(--space-1);}
+
+/* ---------- a surface: a bordered box, a tinted band, and the coral editorial card ---------- */
+.surface{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);}
+.surface-subtle{background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--r-lg);}
+.collections-card{
+  position:relative;display:block;overflow:hidden;padding:24px;border-radius:var(--r-lg);background:var(--peach);color:var(--text);text-decoration:none;
+  transition:box-shadow .2s var(--ease);
+}
+.collections-card:hover{box-shadow:var(--shadow-1);}
+.collections-card:focus-visible{outline:var(--focus);outline-offset:3px;}
+.collections-card .cc-label{display:block;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#a94a30;}
+.collections-card .cc-title{display:block;max-width:12ch;margin-top:12px;font-family:var(--font-serif);font-size:2rem;font-weight:400;line-height:1.02;letter-spacing:-.015em;}
+.collections-card .cc-arrow{position:absolute;top:20px;right:20px;color:var(--text);}
+.collections-card .cc-shape{position:absolute;right:0;bottom:0;width:46%;height:60%;pointer-events:none;}
+
+/* ---------- small things the pages share ---------- */
+.link{color:var(--green);text-underline-offset:3px;}
+.link:hover{color:var(--green-hover);}
+.divider{height:1px;border:0;background:var(--border);margin:0;}
+
+/* ---------- narrower screens ---------- */
+/* The header gives way a part at a time: the pill tightens, then "Add company" keeps only its plus. */
+@media (max-width:1239px){
+  .sh{gap:var(--space-2);}
+  .sh-link{padding:0 14px;}
+  .sh-link[aria-current="page"]::after{left:14px;right:14px;}
+  .sh-add{width:var(--control);padding:0;}
+  .sh-add-text{display:none;}
+}
+
+/* ---------- on a phone ---------- */
+@media (max-width:899px){
+  .sh{gap:var(--space-2);height:64px;}
+  .sh-nav{display:none;}
+  .sh-name{font-size:1.25rem;}
+  .sh-end{margin-left:auto;}
+  .hdr-menu-mobile-nav{display:flex;flex-direction:column;gap:2px;}
+}
+@media (max-width:420px){
+  .sh-name{font-size:1.0625rem;}
+  .sh-brand{gap:8px;}
+}
+@media (min-width:900px){
+  .hdr-menu-mobile-nav{display:none;}
+}
+
+/* An h1 with one italic word is the serif's italic in the green, wherever the page puts it. */
+.inv-hero h1 em, .inv-intro h1 em, .info-article > h1 em{ font-style: italic; color: var(--green); }
+
+/* The selects of the dialogs and of the filter panel are drawn as the site draws a select: a bordered box with its own chevron. */
+.modal-panel select, #filters select, .qf-chip select, .startup-list-sort select, .jobs-filters select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23626a65' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9.5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;
+}
+.qf-chip select{background-position:right 8px center;padding-right:28px;}

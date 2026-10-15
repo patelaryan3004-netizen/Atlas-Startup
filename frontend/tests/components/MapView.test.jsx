@@ -598,6 +598,28 @@ describe('MapView', () => {
       expect(mapInstance.flyTo).not.toHaveBeenCalled();
     });
 
+    it('goes in to a mark that is not drawn on its own (it is inside a cluster), even when its place is clear of the edges, and leaves one that is drawn', () => {
+      mapInstance.getZoom.mockReturnValue(5); // zoomed well out, where a mark inside a cluster is not drawn
+      const markers = [pin('a', 'A', -33.1, 150.2)];
+      const { rerender } = render(<MapView markers={markers} focus={null} />);
+      rerender(<MapView markers={markers} focus={{ key: 1, lat: -33.1, lng: 150.2, id: 'a' }} />); // its mark is drawn: nothing to do
+      expect(mapInstance.flyTo).not.toHaveBeenCalled();
+      rerender(<MapView markers={markers} focus={{ key: 2, lat: -33.1, lng: 150.2, id: 'hidden-in-a-cluster' }} />); // no mark of its own is in sight
+      expect(mapInstance.flyTo).toHaveBeenCalledTimes(1);
+      expect(mapInstance.flyTo.mock.calls[0][1]).toBeGreaterThanOrEqual(12);
+    });
+
+    it('goes in as far as it takes for a mark inside a cluster to stand on its own, and not further for one that already does', () => {
+      mapInstance.getZoom.mockReturnValue(5);
+      const markers = [pin('a', 'A', -33.1, 150.2), pin('b', 'B', -33.1, 150.201), pin('c', 'C', -37.8, 144.9)]; // a and b are one cluster at zoom 5; c, far off, is alone
+      const { rerender } = render(<MapView markers={markers} focus={null} />);
+      rerender(<MapView markers={markers} focus={{ key: 1, lat: -33.3, lng: 150.4, id: 'c' }} />);
+      expect(mapInstance.flyTo).not.toHaveBeenCalled();
+      rerender(<MapView markers={markers} focus={{ key: 2, lat: -33.1, lng: 150.2, id: 'a' }} />);
+      expect(mapInstance.flyTo).toHaveBeenCalledTimes(1);
+      expect(mapInstance.flyTo.mock.calls[0][1]).toBeGreaterThan(5);
+    });
+
     it('goes home when asked to', () => {
       const { rerender } = render(<MapView markers={[]} />);
       mapInstance.setView.mockClear();
@@ -929,30 +951,19 @@ describe('MapView', () => {
   });
 
   describe('the basemap', () => {
-    it('opens dark: the free tiles, turned down by a class, with no new tile layer made for it', () => {
+    it('is one light background: the free tiles, turned down by a class, with one tile layer and no dark style', () => {
       const { container } = render(<MapView markers={[]} onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).toHaveClass('map-quiet-dark');
-      expect(container.querySelector('#map').dataset.basemap).toBe('dark');
+      expect(container.querySelector('#map')).toHaveClass('map-quiet-light');
+      expect(container.querySelector('#map')).not.toHaveClass('map-quiet-dark');
+      expect(container.querySelector('#map').dataset.basemap).toBeUndefined();
       expect(L.tileLayer).toHaveBeenCalledTimes(1);
       expect(L.tileLayer.mock.calls[0][0]).toBe('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'); // no Mapbox token: the free tiles
       expect(L.tileLayer.mock.calls[0][1].attribution).toBe('&copy; OpenStreetMap contributors');
     });
 
-    it('opens light when asked: the same tiles, faded', () => {
-      const { container } = render(<MapView markers={[]} basemap="light" onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).toHaveClass('map-quiet-light');
-      expect(container.querySelector('#map')).not.toHaveClass('map-quiet-dark');
-      expect(container.querySelector('#map').dataset.basemap).toBe('light');
-    });
-
-    it('switches between them without making the map again', () => {
-      const { container, rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
-      rerender(<MapView markers={[]} basemap="light" onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).toHaveClass('map-quiet-light');
-      expect(container.querySelector('#map')).not.toHaveClass('map-quiet-dark');
-      expect(container.querySelector('#map').dataset.basemap).toBe('light');
-      rerender(<MapView markers={[]} basemap="dark" onSelectStartup={noop} />);
-      expect(container.querySelector('#map')).toHaveClass('map-quiet-dark');
+    it('is not made again when the page renders again', () => {
+      const { rerender } = render(<MapView markers={[]} onSelectStartup={noop} />);
+      rerender(<MapView markers={[]} onSelectStartup={noop} />);
       expect(L.map).toHaveBeenCalledTimes(1);
       expect(L.tileLayer).toHaveBeenCalledTimes(1);
     });

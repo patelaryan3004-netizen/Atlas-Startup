@@ -5,7 +5,6 @@ import userEvent from '@testing-library/user-event';
 vi.mock('../../src/api.js', () => ({ fetchStartup: vi.fn(), fetchStartupPage: vi.fn(), fetchSuggestions: vi.fn(), fetchInvestor: vi.fn() }));
 
 import { fetchStartup, fetchStartupPage, fetchSuggestions, fetchInvestor } from '../../src/api.js';
-import ExploreHeader from '../../src/components/explore/ExploreHeader.jsx';
 import ExploreToolbar, { placeLabel, nextCity } from '../../src/components/explore/ExploreToolbar.jsx';
 import AllAustralia from '../../src/components/explore/AllAustralia.jsx';
 import VcList from '../../src/components/explore/VcList.jsx';
@@ -15,46 +14,6 @@ import ResultsSheet from '../../src/components/explore/ResultsSheet.jsx';
 import { Avatar } from '../../src/components/EntityCard.jsx';
 
 const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', fresh: '' };
-
-describe('the header', () => {
-  const props = (over = {}) => ({ hiringCount: 25, trackedCount: 0, onExplore: vi.fn(), onShowJobs: vi.fn(), onShowInvestors: vi.fn(), onShowTracked: vi.fn(), onAdd: vi.fn(), menu: { directoryUrl: '/directory/' }, ...over });
-
-  it('names the site, as a link to its home page, in the one heading of the page', () => {
-    render(<ExploreHeader {...props()} />);
-    expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('AU Startup Map');
-  });
-
-  it('has four places, with Explore as the one it is on, and hands each press to the page', async () => {
-    const p = props();
-    render(<ExploreHeader {...p} />);
-    const nav = screen.getByRole('navigation', { name: 'Main' });
-    expect(within(nav).getAllByRole('button').map((b) => b.textContent)).toEqual(['Explore', 'Jobs', 'Investors', 'Saved']);
-    expect(within(nav).getByRole('button', { name: 'Explore' })).toHaveAttribute('aria-current', 'page');
-    await userEvent.click(within(nav).getByRole('button', { name: 'Jobs' }));
-    await userEvent.click(within(nav).getByRole('button', { name: 'Investors' }));
-    await userEvent.click(within(nav).getByRole('button', { name: 'Saved' }));
-    await userEvent.click(within(nav).getByRole('button', { name: 'Explore' }));
-    expect([p.onShowJobs, p.onShowInvestors, p.onShowTracked, p.onExplore].map((fn) => fn.mock.calls.length)).toEqual([1, 1, 1, 1]);
-  });
-
-  it('says how many are hiring on the Jobs link, and how many are saved beside Saved, only when there are some', () => {
-    const { rerender } = render(<ExploreHeader {...props({ hiringCount: 25, trackedCount: 3 })} />);
-    expect(screen.getByRole('button', { name: 'Jobs' })).toHaveAttribute('title', '25 hiring now');
-    expect(screen.getByRole('button', { name: /^Saved/ })).toHaveTextContent('Saved3');
-    rerender(<ExploreHeader {...props({ hiringCount: 0, trackedCount: 0 })} />);
-    expect(screen.getByRole('button', { name: 'Jobs' })).not.toHaveAttribute('title');
-    expect(screen.getByRole('button', { name: 'Saved' }).textContent).toBe('Saved');
-  });
-
-  it('has one action, Add startup, and the menu with everything else', async () => {
-    const p = props();
-    render(<ExploreHeader {...p} />);
-    await userEvent.click(screen.getByRole('button', { name: 'Add startup' }));
-    expect(p.onAdd).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('button', { name: 'Menu' })).toBeInTheDocument();
-  });
-});
 
 describe('the words for a place', () => {
   it('says Australia, a city, or how many cities', () => {
@@ -76,47 +35,44 @@ describe('the toolbar', () => {
   const META = { sectors: ['AI', 'Fintech'], cities: [], investors: [], stages: [] };
   const CITIES = [{ city: 'Sydney', count: 30 }, { city: 'Melbourne', count: 11 }, { city: 'Hobart', count: null }];
   const setup = (over = {}) => {
-    const props = { filters: FILTERS, onFilterChange: vi.fn(), onApplyFilters: vi.fn(), meta: META, cities: CITIES, total: 41, filtersOpen: false, onToggleFilters: vi.fn(), filtersRef: { current: null }, viewMode: 'map', onSetViewMode: vi.fn(), ...over };
+    const props = { filters: FILTERS, onFilterChange: vi.fn(), meta: META, cities: CITIES, total: 41, filtersOpen: false, onToggleFilters: vi.fn(), filtersRef: { current: null }, viewMode: 'map', onSetViewMode: vi.fn(), ...over };
     return { props, ...render(<ExploreToolbar {...props} />) };
   };
-  beforeEach(() => { fetchSuggestions.mockResolvedValue({ companies: [], people: [], investors: [], industries: [], locations: [] }); });
-  afterEach(() => { vi.unstubAllGlobals(); });
 
-  it('says "Australia" with no city, and "Australia / Melbourne" on one, and asks the search to be for that place', () => {
+  it('says "Australia" with no city and the city on one, in a box that names what it is for', () => {
     const { rerender, props } = setup();
-    expect(screen.getByRole('button', { name: /^Australia/ })).toHaveTextContent('Australia');
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors');
+    expect(screen.getByRole('button', { name: 'City: Australia' })).toHaveTextContent('Australia');
     rerender(<ExploreToolbar {...props} filters={{ ...FILTERS, city: 'Melbourne' }} />);
-    expect(screen.getByRole('button', { name: /^Australia/ })).toHaveTextContent('Australia/Melbourne');
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors in Melbourne');
+    expect(screen.getByRole('button', { name: 'City: Melbourne' })).toHaveTextContent('Melbourne');
   });
 
-  it('has a short search box on a phone', () => {
-    vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: false, addEventListener: () => {}, removeEventListener: () => {} })));
+  it('has no search box of its own: the search is the box beside the heading, and the sectors are in the filters', () => {
     setup();
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups');
+    expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^Sector/ })).not.toBeInTheDocument();
   });
 
   it('opens a menu of the cities with their counts, picks one, and closes with Escape and with a press outside', async () => {
     const { props } = setup();
-    await userEvent.click(screen.getByRole('button', { name: /^Australia/ }));
+    await userEvent.click(screen.getByRole('button', { name: /^City:/ }));
     const menu = screen.getByRole('group', { name: 'Choose a city' });
     expect(within(menu).getAllByRole('button').map((b) => b.textContent)).toEqual(['All of Australia41', 'Sydney30', 'Melbourne11', 'Hobart']);
     await userEvent.click(within(menu).getByRole('button', { name: /^Melbourne/ }));
     expect(props.onFilterChange).toHaveBeenCalledWith({ city: 'Melbourne' });
     expect(screen.queryByRole('group', { name: 'Choose a city' })).not.toBeInTheDocument();
 
-    await userEvent.click(screen.getByRole('button', { name: /^Australia/ }));
+    await userEvent.click(screen.getByRole('button', { name: /^City:/ }));
     await userEvent.keyboard('{Escape}');
     expect(screen.queryByRole('group', { name: 'Choose a city' })).not.toBeInTheDocument();
-    await userEvent.click(screen.getByRole('button', { name: /^Australia/ }));
+    await userEvent.click(screen.getByRole('button', { name: /^City:/ }));
     await userEvent.click(document.body);
     expect(screen.queryByRole('group', { name: 'Choose a city' })).not.toBeInTheDocument();
   });
 
   it('marks the city that is on, lists a city the directory does not count, and leaves it when it is picked again', async () => {
     const { props } = setup({ filters: { ...FILTERS, city: 'Perth' } });
-    await userEvent.click(screen.getByRole('button', { name: /^Australia/ }));
+    await userEvent.click(screen.getByRole('button', { name: /^City:/ }));
     const menu = screen.getByRole('group', { name: 'Choose a city' });
     expect(within(menu).getByRole('button', { name: /^Perth/ })).toHaveAttribute('aria-pressed', 'true');
     expect(within(menu).getByRole('button', { name: /^All of Australia/ })).toHaveAttribute('aria-pressed', 'false');
@@ -124,38 +80,10 @@ describe('the toolbar', () => {
     expect(props.onFilterChange).toHaveBeenCalledWith({ city: '' });
   });
 
-  it('picks sectors from its own menu, several at once, and counts them on its button', async () => {
-    const { props, rerender } = setup();
-    await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
-    await userEvent.click(within(screen.getByRole('group', { name: 'Sector' })).getByRole('checkbox', { name: 'AI' }));
-    expect(props.onFilterChange).toHaveBeenCalledWith({ sector: 'AI' });
-    rerender(<ExploreToolbar {...props} filters={{ ...FILTERS, sector: 'AI' }} />);
-    await userEvent.click(within(screen.getByRole('group', { name: 'Sector' })).getByRole('checkbox', { name: 'Fintech' }));
-    expect(props.onFilterChange).toHaveBeenLastCalledWith({ sector: 'AI,Fintech' });
-    expect(screen.getByRole('button', { name: /^Sector/ })).toHaveTextContent('1');
-    await userEvent.click(screen.getByRole('button', { name: 'Clear sectors' }));
-    expect(props.onFilterChange).toHaveBeenLastCalledWith({ sector: '' });
-  });
-
-  it('gives a long list of sectors a box to narrow it, and a short one none', async () => {
-    const many = Array.from({ length: 12 }, (_, i) => `Sector ${i}`);
-    const { unmount } = setup({ meta: { ...META, sectors: many } });
-    await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
-    await userEvent.type(screen.getByLabelText('Find a sector'), '11');
-    expect(within(screen.getByRole('group', { name: 'Sector' })).getAllByRole('checkbox').map((c) => c.closest('label').textContent)).toEqual(['Sector 11']);
-    await userEvent.clear(screen.getByLabelText('Find a sector'));
-    await userEvent.type(screen.getByLabelText('Find a sector'), 'zzz');
-    expect(screen.getByText('None match.')).toBeInTheDocument();
-    unmount();
-    setup();
-    await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
-    expect(screen.queryByLabelText('Find a sector')).not.toBeInTheDocument();
-  });
-
-  it('has a Filters button that says whether the panel is open and counts the filters on, but not the search, the city or the sectors', async () => {
+  it('has a Filters button that says whether the panel is open and counts the filters on, but not the search or the city', async () => {
     const { props, rerender } = setup({ filters: { ...FILTERS, search: 'x', city: 'Sydney', sector: 'AI', stage: 'Seed', hiring: 'yes' } });
     const button = screen.getByRole('button', { name: /^Filters/ });
-    expect(button).toHaveTextContent('2');
+    expect(button).toHaveTextContent('3'); // the sector is in the filters now: sector, stage and hiring
     expect(button).toHaveAttribute('aria-expanded', 'false');
     expect(button).toHaveAttribute('aria-controls', 'filters');
     await userEvent.click(button);
@@ -166,6 +94,7 @@ describe('the toolbar', () => {
 
   it('has the Map | List switch, with the one that is showing pressed', async () => {
     const { props } = setup();
+    expect(screen.getByRole('group', { name: 'How the startups are shown' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Map' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: 'List' })).toHaveAttribute('aria-pressed', 'false');
     await userEvent.click(screen.getByRole('button', { name: 'List' }));
@@ -178,36 +107,26 @@ describe('the toolbar: what is shown', () => {
   const VC_OPTIONS = { sectors: [{ value: 'Technology', count: 9 }, { value: 'Deep tech', count: 2 }], stages: [{ value: 'Seed', count: 8 }, { value: 'Series A', count: 6 }] };
   const setup = (over = {}) => {
     const props = {
-      filters: FILTERS, onFilterChange: vi.fn(), onApplyFilters: vi.fn(), meta: META, cities: [], total: 41, filtersOpen: false, onToggleFilters: vi.fn(), filtersRef: { current: null },
+      filters: FILTERS, onFilterChange: vi.fn(), meta: META, cities: [], total: 41, filtersOpen: false, onToggleFilters: vi.fn(), filtersRef: { current: null },
       viewMode: 'map', onSetViewMode: vi.fn(), entity: 'all', onEntityChange: vi.fn(), vcOptions: VC_OPTIONS, ...over,
     };
     return { props, ...render(<ExploreToolbar {...props} />) };
   };
-  beforeEach(() => { fetchSuggestions.mockResolvedValue({ companies: [], people: [], investors: [], industries: [], locations: [] }); });
 
-  it('has All, Startups and VCs, with the one that is on pressed, and hands a press to the page', async () => {
+  it('has All, Startups and VCs (the last with a yellow VC beside it), with the one that is on pressed, and hands a press to the page', async () => {
     const { props } = setup({ entity: 'startups' });
     const group = screen.getByRole('group', { name: 'What the map shows' });
-    expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(['All', 'Startups', 'VCs']);
+    expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(['All', 'Startups', 'VCsVC']);
+    expect(group.querySelector('.badge-vc')).toHaveTextContent('VC');
     expect(within(group).getByRole('button', { name: 'Startups' })).toHaveAttribute('aria-pressed', 'true');
     expect(within(group).getByRole('button', { name: 'All' })).toHaveAttribute('aria-pressed', 'false');
     await userEvent.click(within(group).getByRole('button', { name: 'VCs' }));
     expect(props.onEntityChange).toHaveBeenCalledWith('vcs');
   });
 
-  it('asks for what it is searching: startups or investors, startups, or investors', () => {
-    const { rerender, props } = setup();
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups or investors');
-    rerender(<ExploreToolbar {...props} entity="startups" />);
-    expect(screen.getByLabelText(/Search startups/)).toHaveAttribute('placeholder', 'Search startups');
-    rerender(<ExploreToolbar {...props} entity="vcs" filters={{ ...FILTERS, city: 'Sydney' }} />);
-    expect(screen.getByLabelText(/Search/)).toHaveAttribute('placeholder', 'Search investors in Sydney');
-  });
-
-  it('offers the startups\' sectors for the startups, and the investors\' own sectors and stages when only the VCs are on', async () => {
+  it('offers the investors\' own sectors and stages when only the VCs are on, and none of them otherwise', async () => {
     const { props, rerender } = setup();
-    await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
-    expect(within(screen.getByRole('group', { name: 'Sector' })).getAllByRole('checkbox').map((c) => c.closest('label').textContent)).toEqual(['AI', 'Fintech']);
+    expect(screen.queryByRole('button', { name: /^Sector/ })).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /^Stage/ })).not.toBeInTheDocument();
     rerender(<ExploreToolbar {...props} entity="vcs" />);
     await userEvent.click(screen.getByRole('button', { name: /^Sector/ }));
@@ -217,8 +136,8 @@ describe('the toolbar: what is shown', () => {
     expect(props.onFilterChange).toHaveBeenLastCalledWith({ stage: 'Series A' });
   });
 
-  it('does not count the stage on the Filters button while the VCs have a menu of their own for it', () => {
-    setup({ entity: 'vcs', filters: { ...FILTERS, stage: 'Seed' } });
+  it('does not count the sector or the stage on the Filters button while the VCs have a menu of their own for each', () => {
+    setup({ entity: 'vcs', filters: { ...FILTERS, stage: 'Seed', sector: 'Technology' } });
     expect(screen.getByRole('button', { name: /^Filters/ }).textContent).toBe('Filters');
   });
 });
@@ -606,9 +525,10 @@ describe('the phone\'s sheet', () => {
   it('shows the startups when it is open: each with its place and sector, hiring now marked only where the record says it', async () => {
     const { container } = render(<ResultsSheet {...props({ open: true })} />);
     expect(container.querySelector('.xs')).toHaveClass('xs-open');
-    expect(await screen.findByRole('button', { name: /^Acme/ })).toHaveTextContent('Sydney · AI');
-    expect(screen.getAllByText('Hiring now')).toHaveLength(1);
-    expect(within(screen.getByRole('button', { name: /^Acme/ })).getByText('Hiring now')).toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: /^Acme/ })).toHaveTextContent('AI · Sydney');
+    expect(screen.getAllByText('Hiring')).toHaveLength(1);
+    expect(within(screen.getByRole('button', { name: /^Acme/ })).getByText('Hiring')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^Save/ })).not.toBeInTheDocument(); // no bookmark until the page gives the sheet a way to save
     expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ offset: 0, sort: 'name' }));
   });
 
@@ -626,7 +546,7 @@ describe('the phone\'s sheet', () => {
     unmount();
     fetchStartupPage.mockResolvedValue(page([]));
     const second = render(<ResultsSheet {...props({ open: true, count: 0 })} />);
-    expect(await screen.findByText('No startups match your filters.')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'No startups match.' })).toBeInTheDocument();
     second.unmount();
     fetchStartupPage.mockRejectedValue(new Error('down'));
     render(<ResultsSheet {...props({ open: true })} />);
@@ -645,7 +565,7 @@ describe('the phone\'s sheet', () => {
 
   it('marks the startup that is open, and starts the list again when the filters change', async () => {
     const { rerender } = render(<ResultsSheet {...props({ open: true, selectedName: 'Beta' })} />);
-    expect(await screen.findByRole('button', { name: /^Beta/ })).toHaveClass('xs-row-on');
+    expect((await screen.findByRole('button', { name: /^Beta/ })).closest('li')).toHaveAttribute('aria-current', 'true');
     fetchStartupPage.mockResolvedValue(page(['Zed']));
     rerender(<ResultsSheet {...props({ open: true, filters: { ...FILTERS, search: 'z' } })} />);
     expect(await screen.findByRole('button', { name: /^Zed/ })).toBeInTheDocument();
@@ -671,7 +591,7 @@ describe('the phone\'s sheet', () => {
       expect(screen.getByRole('button', { name: /2 startups · 1 VC in Australia/ })).toBeInTheDocument();
       expect(await screen.findByRole('heading', { name: 'Venture capital firms' })).toBeInTheDocument();
       const row = screen.getByRole('button', { name: /^OIF Ventures/ });
-      expect(row).toHaveTextContent('Sydney, Melbourne');
+      expect(row).toHaveTextContent('Venture capital · Sydney, Melbourne');
       expect(row).toHaveTextContent('VC');
       await userEvent.click(row);
       expect(p.onPickVc).toHaveBeenCalledWith(FIRMS[0].pin);
@@ -687,7 +607,7 @@ describe('the phone\'s sheet', () => {
 
     it('says so when no VC matches, with only the VCs on', () => {
       render(<ResultsSheet {...props({ open: true, entity: 'vcs', vcFirms: [] })} />);
-      expect(screen.getByText(/No venture capital firm with a city on file matches/)).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'No venture capital firm matches.' })).toBeInTheDocument();
     });
 
     it('shows the startups alone when only the startups are on, whatever firms it is given', async () => {

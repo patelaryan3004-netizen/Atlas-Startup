@@ -28,8 +28,8 @@ describe('the investor directory', () => {
     renderView();
     expect(await screen.findByRole('heading', { level: 1, name: 'Find your next backer.' })).toBeInTheDocument();
     expect(screen.getByText('Explore investors by stage, sector and location.')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Investors' })).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('button', { name: 'Explore' })).not.toHaveAttribute('aria-current');
+    expect(screen.getByRole('link', { name: 'Investors' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link', { name: 'Explore' })).not.toHaveAttribute('aria-current');
   });
 
   it('shows each investor as a card: logo, name, type, focus, stage, place, how many companies a page says it backed, and the way in', async () => {
@@ -402,7 +402,7 @@ describe('the investor directory', () => {
       expect(window.location.pathname).toBe('/investors');
       expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual(['b']);
       expect(screen.getByRole('tab', { name: 'Saved 1' })).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: 'Saved 1' })).toBeInTheDocument(); // the header's own place
+      expect(screen.getByRole('link', { name: 'Saved 1' })).toBeInTheDocument(); // the header's own place
       await userEvent.click(screen.getByRole('button', { name: 'Remove Bravo from saved' }));
       expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual([]);
       expect(screen.getByRole('tab', { name: 'Saved' })).toBeInTheDocument();
@@ -476,8 +476,8 @@ describe('the investor directory', () => {
       serve(api, { cards: three });
       renderView();
       await screen.findByRole('link', { name: 'Alpha' });
-      expect(screen.getByRole('button', { name: 'Saved 1' })).toBeInTheDocument();
-      await userEvent.click(screen.getByRole('button', { name: 'Saved 1' }));
+      expect(screen.getByRole('link', { name: 'Saved 1' })).toBeInTheDocument();
+      await userEvent.click(screen.getByRole('link', { name: 'Saved 1' }));
       expect(screen.getByRole('tab', { name: 'Saved 1' })).toHaveAttribute('aria-selected', 'true');
       await waitFor(() => expect(names()).toEqual(['Alpha']));
     });

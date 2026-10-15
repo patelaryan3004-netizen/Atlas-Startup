@@ -55,9 +55,9 @@ export function ListSkeleton() {
 }
 
 // The map while its file (Leaflet and the pins' code) arrives: the ground the map is drawn on, filling the screen the map will fill.
-export function MapPlaceholder({ basemap = 'dark' }) {
+export function MapPlaceholder() {
   return (
-    <div className="map-placeholder" data-basemap={basemap} role="status" aria-busy="true">
+    <div className="map-placeholder" role="status" aria-busy="true">
       <span className="sr-only">Loading the map…</span>
     </div>
   );

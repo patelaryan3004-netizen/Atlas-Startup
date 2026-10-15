@@ -52,6 +52,17 @@ describe('grouping pins for what the map shows', () => {
     expect(opened.filter((f) => f.type === 'pin').map((p) => tuples[p.i][0]).sort()).toEqual(['a', 'b', 'm']);
   });
 
+  it('says at which zoom a pin stands on its own: where it already does, where a cluster has to open, and never for a stack', () => {
+    const index = createPinIndex(tuples);
+    expect(index.aloneZoom(2, 5)).toBe(5); // Melbourne is alone at once
+    const zoom = index.aloneZoom(0, 5); // Sydney's pin is inside a cluster at zoom 5
+    expect(zoom).toBeGreaterThan(5);
+    expect(zoom).toBeLessThanOrEqual(CLUSTER_MAX_ZOOM + 1);
+    expect(index.view({ west: 151, south: -34, east: 152, north: -33.5 }, zoom).some((f) => f.type === 'pin' && f.i === 0)).toBe(true);
+    const stacked = [pin('x', ...SYDNEY), pin('y', ...SYDNEY)];
+    expect(createPinIndex(stacked).aloneZoom(0, 5)).toBe(CLUSTER_MAX_ZOOM + 1); // the deepest zoom is the answer when it never is
+  });
+
   it('gives only what is inside the window it is asked about', () => {
     const index = createPinIndex(tuples);
     const sydneyOnly = { west: 150, south: -35, east: 152, north: -33 };

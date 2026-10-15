@@ -5,8 +5,11 @@ import { HOME_PATH, INFO_PATHS } from './paths.js';
 import { opensOnMap } from './mapPrefetch.js';
 import { loadSnapshot } from './snapshot.js';
 import { setPrerenderClock } from './clock.js';
-import '@fontsource-variable/inter'; // the one typeface, served with the site (it was a stylesheet from Google that every page waited for)
+import '@fontsource-variable/inter'; // the sans, served with the site (it was a stylesheet from Google that every page waited for)
+import '@fontsource/instrument-serif/latin-400.css'; // the serif of the big headings, regular and italic (the italic word in "Find your people.")
+import '@fontsource/instrument-serif/latin-400-italic.css';
 import './styles.css';
+import './brand.css'; // the shared components (the header, the buttons, the switches, the rows), after the tokens they read
 
 // The page that is asked for is the only one fetched: the landing page does not carry the app, the plain pages (About, How we verify,
 // Contact) carry neither, and the app does not carry them. What the app itself shows is split the same way (App.jsx).

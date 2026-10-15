@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchSuggestions } from '../api.js';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
-import { SearchIcon } from './explore/icons.jsx';
+import { SearchIcon, CloseIcon } from './explore/icons.jsx';
 
 const SUGGEST_DELAY_MS = 200;
+const isMac = () => typeof navigator !== 'undefined' && /mac|iphone|ipad/i.test(navigator.platform || navigator.userAgent || '');
 
 // The search box. What it suggests is asked of the server (companies, people, investors, industries and
 // locations that match, five of each at most), a moment after typing stops, and an answer to text that has since
-// changed is dropped: the page never holds the companies in order to search them.
-export default function SearchBar({ filters, onApplyFilters, placeholder = 'Search Australian startups, founders, investors...' }) {
+// changed is dropped: the page never holds the companies in order to search them. `large` is the page's main search (the one beside the heading), which
+// is also reached from anywhere on the page with Ctrl+K (⌘K on a Mac) and says so.
+export default function SearchBar({ filters, onApplyFilters, placeholder = 'Search Australian startups, founders, investors...', large = false }) {
   const [open, setOpen] = useState(false);
   const [groups, setGroups] = useState(null);
+  const input = useRef(null);
   useEscapeClose(() => setOpen(false));
 
   const q = filters.search.trim();
@@ -25,6 +28,15 @@ export default function SearchBar({ filters, onApplyFilters, placeholder = 'Sear
     }, SUGGEST_DELAY_MS);
     return () => { clearTimeout(timer); ctrl.abort(); };
   }, [q]);
+
+  useEffect(() => {
+    if (!large) return undefined;
+    const onKey = (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); input.current?.focus(); input.current?.select(); }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [large]);
 
   const hasResults = !!groups && (
     groups.companies.length || groups.people.length || groups.investors.length
@@ -41,9 +53,10 @@ export default function SearchBar({ filters, onApplyFilters, placeholder = 'Sear
   };
 
   return (
-    <div className="xt-search">
-      <SearchIcon size={20} className="xt-search-icon" />
+    <div className={large ? 'field field-lg search-box' : 'field search-box'}>
+      <SearchIcon size={20} />
       <input
+        ref={input}
         type="text"
         placeholder={placeholder}
         value={filters.search}
@@ -51,6 +64,11 @@ export default function SearchBar({ filters, onApplyFilters, placeholder = 'Sear
         onFocus={() => setOpen(true)}
         aria-label="Search startups, founders, investors, industries, locations"
       />
+      {filters.search ? (
+        <button type="button" className="field-clear" aria-label="Clear the search" onClick={() => { onApplyFilters({ search: '' }); input.current?.focus(); }}><CloseIcon size={16} /></button>
+      ) : large && (
+        <span className="kbd" aria-hidden="true">{isMac() ? '⌘ K' : 'Ctrl K'}</span>
+      )}
 
       {open && q && (
         <>

@@ -3,13 +3,11 @@ import InvestorDirectory from './InvestorDirectory.jsx';
 import InvestorProfile from './InvestorProfile.jsx';
 import InvestorPersonProfile from './InvestorPersonProfile.jsx';
 import SuggestInvestor from './SuggestInvestor.jsx';
-import ExploreHeader from '../explore/ExploreHeader.jsx';
-import { MoonIcon, SunIcon } from '../explore/icons.jsx';
+import SiteHeader from '../brand/SiteHeader.jsx';
 import { clearRoute, readRoute, writeRoute } from './route.js';
 import { usePageTitle } from './usePageTitle.js';
 import { useMediaQuery } from '../../hooks/useMediaQuery.js';
 import { useSavedInvestors } from '../../hooks/useSavedInvestors.js';
-import { useInvestorTheme } from '../../hooks/useInvestorTheme.js';
 import '../../investors.css';
 
 // From this width an investor opens beside the results; under it, in a full-screen drawer.
@@ -23,13 +21,12 @@ const inDirectory = (kind) => kind === 'list' || kind === 'investor';
 // (/investors/<slug>), that investor's own full page (/investors/<slug>/profile) and a person (/investors/people/<slug>). The directory stays
 // mounted behind the two full pages: coming back finds the same search, filters, sort, view, tab and place.
 //
-// `chrome` is what the shared header needs from the app: how many are hiring (the Jobs link), what the Jobs link does, and the menu's own props.
+// `chrome` is what the shared header needs from the app: the places it goes to (go), the counts beside them, the action and the menu's own props.
 export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLink = false, onClose, onOpenCompany, chrome = {} }) {
   const [route, setRoute] = useState(initialRoute);
   const [tab, setTab] = useState('all'); // All investors, or the Saved ones
   const [suggesting, setSuggesting] = useState(false);
   const saved = useSavedInvestors();
-  const { theme, toggle: toggleTheme } = useInvestorTheme();
   const sideBySide = useMediaQuery(SIDE_BY_SIDE, true);
   const scroller = useRef(null);
   const listScroll = useRef(0);
@@ -113,30 +110,14 @@ export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLin
     scroller.current?.scrollTo?.({ top: 0 });
   };
 
-  // The menu is the app's, with the three places that mean something else here: Explore leaves for the map, Investors is this page, and Saved is the saved tab.
-  const menu = { ...chrome.menu, onExplore: close, onShowInvestors: showDirectory, onShowTracked: showSaved, trackedCount: saved.saved.length };
-  const dark = theme === 'dark';
+  // The header is the app's, with the three places that mean something else here: Explore leaves for the map, Investors is this page, and Saved is the saved tab.
+  const places = { ...chrome.go, explore: close, investors: showDirectory, saved: showSaved };
+  const counts = { ...chrome.counts, saved: saved.saved.length };
   const drawerOpen = route.kind === 'investor' && !sideBySide;
 
   return (
-    <div id="investorsView" ref={scroller} data-theme={theme} className={drawerOpen ? 'inv-locked' : undefined}>
-      <ExploreHeader
-        active="investors"
-        addLabel="Add investor"
-        hiringCount={chrome.hiringCount ?? 0}
-        trackedCount={saved.saved.length}
-        onExplore={close}
-        onShowJobs={chrome.onShowJobs}
-        onShowInvestors={showDirectory}
-        onShowTracked={showSaved}
-        onAdd={() => setSuggesting(true)}
-        menu={menu}
-        extra={(
-          <button type="button" className="xh-more xh-theme" aria-pressed={dark} aria-label="Dark theme" title={dark ? 'Switch to the light theme' : 'Switch to the dark theme'} onClick={toggleTheme}>
-            {dark ? <SunIcon size={20} /> : <MoonIcon size={20} />}
-          </button>
-        )}
-      />
+    <div id="investorsView" ref={scroller} className={drawerOpen ? 'inv-locked' : undefined}>
+      <SiteHeader active="investors" go={places} counts={counts} addLabel="Add investor" onAdd={() => setSuggesting(true)} menu={chrome.menu} />
       <main className="inv-main" id="inv-main">
         <div hidden={!inDirectory(route.kind)} ref={title}>
           <InvestorDirectory

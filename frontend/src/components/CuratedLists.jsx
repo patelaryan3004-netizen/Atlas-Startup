@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { fetchCounts } from '../api.js';
 import { curatedLists } from '../curatedLists.js';
-import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { appUrl } from '../appRoute.js';
+import SiteHeader from './brand/SiteHeader.jsx';
+import { LinkIcon } from './explore/icons.jsx';
 
 export const LISTS_AT_FIRST = 6;
 
@@ -11,14 +12,15 @@ function buildShareUrl(filters) {
   return new URL(appUrl({ kind: 'explore' }, { filters, viewMode: 'list' }), window.location.origin).href;
 }
 
-export default function CuratedLists({ currentFilters, onApply, onClose }) {
-  useEscapeClose(onClose);
+// The collections, at /lists: groups of Australian startups picked by what they do, where they are and what is happening now. Each opens as a list of
+// exactly those companies. A page of its own, like Jobs and Investors, under the site's header; the lists of people are the peach cards.
+export default function CuratedLists({ currentFilters, onApply, chrome = {} }) {
   // How many companies each list picks, counted by the server with the same filters "View this list" applies,
   // so the badge and the list it opens cannot disagree (and no company is downloaded to count them). All the lists are
   // counted in one request, not one each; if it fails, every count is null, shown as "?".
   const [counts, setCounts] = useState({});
   const [copied, setCopied] = useState(false);
-  // The curated views show six lists to begin with; "Show all" adds the rest.
+  // The collections show six lists to begin with; "Show all" adds the rest.
   const [showAll, setShowAll] = useState(false);
   const visible = showAll ? curatedLists : curatedLists.slice(0, LISTS_AT_FIRST);
 
@@ -44,15 +46,16 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-panel curated-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
-        <h2>Curated lists</h2>
-        <p className="modal-sub">Discover groups of Australian startups. Pick one to view the companies in it, or share your current view.</p>
-
-        <button className="hdrbtn" onClick={handleShare}>
-          {copied ? 'Copied!' : '🔗 Share current view'}
-        </button>
+    <div id="collectionsView" className="view-page">
+      <SiteHeader active="collections" go={{ ...chrome.go, collections: () => {} }} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
+      <main className="page collections-main" id="collections-main">
+        <div className="page-head">
+          <h1 className="serif-h1">Curated <em>collections</em></h1>
+          <p className="lede">Groups of Australian startups, picked by what they do, where they are and what is happening now. Open one to see the companies in it, or share your current view.</p>
+          <p className="page-actions">
+            <button type="button" className="btn btn-secondary" onClick={handleShare}><LinkIcon size={18} />{copied ? 'Copied!' : 'Share current view'}</button>
+          </p>
+        </div>
 
         <div className="curated-list-grid">
           {visible.map((list) => {
@@ -95,7 +98,7 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
                 <p className="curated-card-desc">{list.description}</p>
                 <div className="curated-card-footer">
                   <span className="curated-card-count">{count === undefined ? '…' : count ?? '?'} companies</span>
-                  <button className="taskbtn" onClick={() => onApply(list)}>
+                  <button type="button" className="btn btn-primary btn-sm" onClick={() => onApply(list)}>
                     View this list
                   </button>
                 </div>
@@ -104,11 +107,13 @@ export default function CuratedLists({ currentFilters, onApply, onClose }) {
           })}
         </div>
         {!showAll && curatedLists.length > LISTS_AT_FIRST && (
-          <button type="button" className="hdrbtn curated-more" onClick={() => setShowAll(true)}>
-            Show all {curatedLists.length} lists
-          </button>
+          <p className="page-actions page-actions-center">
+            <button type="button" className="btn btn-secondary curated-more" onClick={() => setShowAll(true)}>
+              Show all {curatedLists.length} lists
+            </button>
+          </p>
         )}
-      </div>
+      </main>
     </div>
   );
 }

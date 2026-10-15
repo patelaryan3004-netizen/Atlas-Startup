@@ -1,6 +1,5 @@
 import { shortDate } from '../../freshness.js';
 import EcosystemGraphic from './EcosystemGraphic.jsx';
-import SectionRule from './SectionRule.jsx';
 import Reveal from '../Reveal.jsx';
 
 function Arrow() {
@@ -34,7 +33,7 @@ export function heroBadge(stats) {
 
 // The headline across the page in display type, with one word in italic; what this is and where to go beside the directory drawn on
 // Australia; and the figures under both.
-export default function LandingHero({ stats, pins, areas, companies, number }) {
+export default function LandingHero({ stats, pins, areas, companies }) {
   const figures = heroStats(stats);
   const badge = heroBadge(stats);
   // The most recent check of any company, from the data itself; left out when the server has none.
@@ -43,7 +42,6 @@ export default function LandingHero({ stats, pins, areas, companies, number }) {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="l-grid hero-grid">
-        <SectionRule number={number} name="Map" />
         {badge && (
           <Reveal className="hero-badge-wrap">
             <p className="hero-badge"><span className="hero-badge-dot" aria-hidden="true" />{badge}</p>

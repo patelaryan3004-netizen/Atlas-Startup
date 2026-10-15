@@ -309,6 +309,8 @@ const FOCUS_EDGE = 28;
 const SELECTED_Z = 1000; // how far over the rest the open company's pin, and one that is hiring, are drawn
 const HIRING_Z = 400;
 const FOCUS_ZOOM = 12;
+const PREVIEW_GAP = 32; // from a mark's centre to the edge of its preview card (the tile is 40px across)
+const ZOOM_CLEARANCE = 160; // the zoom buttons take the map's bottom right corner, up to this far from its bottom
 
 // A card grows after it opens: the company's record arrives, "More" is unfolded. Leaflet pans only as a popup opens, so it is asked to
 // look again each time, and the card is not left under the search box. Returns what to call when the card's content has changed.
@@ -318,10 +320,10 @@ function keepClear(popup, element) {
   return again;
 }
 
-// The map's tiles. With a Mapbox token the styles are Mapbox's (dark-v11, light-v11); without one the OpenStreetMap tiles are used, turned down by the
-// .map-quiet-dark and .map-quiet-light classes (mapTiles.js, styles.css).
+// The map's tiles: one light background. With a Mapbox token the style is Mapbox's light-v11; without one the OpenStreetMap tiles are used, turned down by
+// the .map-quiet-light class (mapTiles.js, styles.css).
 const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
-const mapboxUrl = (basemap) => `https://api.mapbox.com/styles/v1/mapbox/${basemap === 'light' ? 'light-v11' : 'dark-v11'}/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
+const mapboxUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
 
 // markers: one compact array per company whose place is a point, an exact office or a suburb (see fetchMarkers). Only
 // what is in view is ever turned into elements: pins and clusters are worked out for the window and zoom, and drawn or
@@ -331,15 +333,18 @@ const mapboxUrl = (basemap) => `https://api.mapbox.com/styles/v1/mapbox/${basema
 // onViewArea(area) opens the rest as a list; with neither handler (the landing page) a group is a label to hover.
 // institutionPins: the firms' offices ({ id, name, lat, lng, city, place, office, website, href }), a few dozen at most, all drawn.
 // vcPins: the investors' marks (an item of /api/investors/pins: a city's reference point, never an office), drawn in the same index as the companies,
-// so a cluster can hold both; showCompanies, showVcs and showInstitutions are the layers' switches; basemap is 'dark' or 'light'.
+// so a cluster can hold both; showCompanies, showVcs and showInstitutions are the layers' switches.
 // onSelectPin(company): a pin was pressed (the page shows its card; without it the map opens its own small card), and onClearPin(): the bare map
 // was. scope: what the map is narrowed to ("Melbourne", or "" for all of Australia): when it changes, the map moves to fit the pins that come next.
-// focus: { key, lat, lng, inset, insetRight }: bring this place into view, clear of the `inset` pixels at the bottom that a sheet covers and the
-// `insetRight` pixels at the right that a side panel covers; { key, home: true } goes back to all of Australia. onViewChange({ lat, lng, zoom }) says where the map is looking after each move.
+// focus: { key, lat, lng, id, inset, insetRight }: bring this place into view, clear of the `inset` pixels at the bottom that a sheet covers and the
+// `insetRight` pixels at the right that a side panel covers, and (with `id`, the mark's own) zoomed in far enough for that mark to be drawn on its own and not
+// inside a cluster; { key, home: true } goes back to all of Australia. onViewChange({ lat, lng, zoom }) says where the map is looking after each move.
+// previewAt: { lat, lng } and previewCard: the compact preview of the open mark, which is drawn beside that mark and follows it as the map moves (previewKey says when it is a different
+// card, so it is placed again).
 export default function MapView({
   markers = NO_MARKERS, areas = NO_AREAS, onSelectStartup, onViewArea, selectedName, trackedNames, vcPins = NO_VCS, showVcs = false,
-  institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, basemap = 'dark', onOpenInternal, onReportRoleClosed,
-  onSelectPin, onClearPin, scope = '', focus = null, onViewChange,
+  institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, onOpenInternal, onReportRoleClosed,
+  onSelectPin, onClearPin, scope = '', focus = null, onViewChange, previewAt = null, previewCard = null, previewKey = '',
 }) {
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
@@ -355,7 +360,7 @@ export default function MapView({
   // What the index holds: the companies' pins and the investors' marks, whichever layers are on. A cluster counts both.
   const items = useMemo(() => [...(showCompanies ? markers : NO_MARKERS), ...(showVcs ? vcMarks(vcPins) : NO_MARKERS)], [markers, vcPins, showCompanies, showVcs]);
   const latest = useRef({});
-  latest.current = { markers: items, areas, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, basemap, onOpenInternal, onReportRoleClosed, onSelectPin, onClearPin, onViewChange };
+  latest.current = { markers: items, areas, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, onOpenInternal, onReportRoleClosed, onSelectPin, onClearPin, onViewChange };
   const scopeRef = useRef(scope);
   const wantsFit = useRef(Boolean(scope)); // the map opened on a city: it goes there once the pins are in
   const homeRef = useRef(HOME);
@@ -497,13 +502,11 @@ export default function MapView({
       maxBoundsViscosity: 1.0,
     }).setView(narrow ? HOME_NARROW.center : HOME.center, narrow ? HOME_NARROW.zoom : HOME.zoom);
     homeRef.current = narrow ? HOME_NARROW : HOME;
-    const start = latest.current.basemap;
-    mapElRef.current.dataset.basemap = start;
     if (mapboxToken) {
-      tilesRef.current = L.tileLayer(mapboxUrl(start), { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }).addTo(map);
+      tilesRef.current = L.tileLayer(mapboxUrl, { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }).addTo(map);
     } else {
-      // No Mapbox token: the OpenStreetMap tiles of mapTiles.js, made quiet by the class of the basemap.
-      mapElRef.current.classList.add(quietClass(start));
+      // No Mapbox token: the OpenStreetMap tiles of mapTiles.js, made quiet by a class.
+      mapElRef.current.classList.add(quietClass());
       tilesRef.current = L.tileLayer(TILE_URL, TILE_OPTIONS).addTo(map);
     }
     L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -531,17 +534,6 @@ export default function MapView({
       shownRef.current = new Map(); labelsRef.current = new Map(); clustersRef.current = new Map();
     };
   }, [draw]);
-
-  // The basemap was changed: Mapbox's styles are a new address for the tiles; the free tiles are the same, inverted or not.
-  const basemapSeen = useRef(false);
-  useEffect(() => {
-    if (!basemapSeen.current) { basemapSeen.current = true; return; }
-    const root = mapElRef.current;
-    if (!root) return;
-    root.dataset.basemap = basemap;
-    if (mapboxToken) tilesRef.current?.setUrl?.(mapboxUrl(basemap));
-    else { root.classList.remove(quietClass('dark'), quietClass('light')); root.classList.add(quietClass(basemap)); }
-  }, [basemap]);
 
   // The groups (a filter changed, or the companies' layer was switched): they are few and do not depend on the window or the zoom, so all
   // are drawn each time.
@@ -598,19 +590,29 @@ export default function MapView({
     if (wantsFit.current && (items.length || latest.current.areas.length)) { wantsFit.current = false; fitToPins(); }
   }, [items, draw, fitToPins]);
 
-  // A place to bring into view (a company picked from the sheet, or a pin that a panel would cover): left alone if it is already clear of the edges,
-  // of the `inset` pixels at the bottom (a sheet) and of the `insetRight` pixels at the right (a side panel); otherwise the map flies there, a little
-  // way past it so it sits clear of them.
+  // A place to bring into view (a company picked from the results or the sheet, or a pin that a panel would cover): left alone if it is already clear of
+  // the edges, of the `inset` pixels at the bottom (a sheet) and of the `insetRight` pixels at the right (a side panel), and its mark is drawn on its own
+  // (one inside a cluster is not in sight: the map goes in to it); otherwise the map flies there, a little way past it so it sits clear of them.
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !focus) return;
     if (focus.home) { map.setView(homeRef.current.center, homeRef.current.zoom); return; }
-    const { lat, lng, inset = 0, insetRight = 0 } = focus;
+    const { lat, lng, id, inset = 0, insetRight = 0 } = focus;
     const size = map.getSize();
     const at = map.latLngToContainerPoint([lat, lng]);
     const clear = at.x >= FOCUS_EDGE && at.x <= size.x - insetRight - FOCUS_EDGE && at.y >= FOCUS_EDGE + 40 && at.y <= size.y - inset - FOCUS_EDGE;
-    if (clear) return;
-    const zoom = map.getBounds().contains([lat, lng]) ? map.getZoom() : Math.max(map.getZoom(), FOCUS_ZOOM);
+    // Its own mark is in sight at this zoom, or not: it may be inside a cluster, and then the map goes in until the mark stands on its own (a mark the index
+    // does not hold, an investor in a city's group, gets the zoom of a street map's neighbourhood).
+    const zoomNow = map.getZoom();
+    let hidden = false;
+    let goal = FOCUS_ZOOM;
+    if (id != null) {
+      const i = latest.current.markers.findIndex((t) => String(t[0]) === String(id));
+      if (i >= 0 && indexRef.current) { goal = indexRef.current.aloneZoom(i, Math.floor(zoomNow)); hidden = goal > Math.floor(zoomNow); }
+      else hidden = zoomNow < FOCUS_ZOOM && ![...shownRef.current.keys()].some((key) => key.startsWith(`p:${id}:`));
+    }
+    if (clear && !hidden) return;
+    const zoom = hidden ? Math.max(zoomNow, goal) : map.getBounds().contains([lat, lng]) ? zoomNow : Math.max(zoomNow, FOCUS_ZOOM);
     map.flyTo(map.unproject(map.project([lat, lng], zoom).add([insetRight / 2, inset / 2]), zoom), zoom, { duration: 0.6 });
   }, [focus]);
 
@@ -647,5 +649,38 @@ export default function MapView({
     placeLabels();
   }, [institutionPins, showInstitutions, placeLabels]);
 
-  return <div id="map" ref={mapElRef} />;
+  // The open mark's preview card, beside the mark: on its right when there is room and on its left when not, kept inside the map and clear of the zoom buttons,
+  // and moved with the map. It is not inside the map's own element, so a press on it is not a press on the bare map.
+  const previewRef = useRef(null);
+  useEffect(() => {
+    const map = mapRef.current;
+    const box = previewRef.current;
+    if (!map || !box || !previewAt) return undefined;
+    const place = () => {
+      const at = map.latLngToContainerPoint([previewAt.lat, previewAt.lng]);
+      const size = map.getSize();
+      const w = box.offsetWidth || 300;
+      const h = box.offsetHeight || 150;
+      let x = at.x + PREVIEW_GAP;
+      let side = 'right';
+      if (x + w > size.x - 12) { x = at.x - PREVIEW_GAP - w; side = 'left'; }
+      x = Math.max(12, Math.min(x, size.x - w - 12));
+      let y = Math.max(12, Math.min(at.y - 26, size.y - h - 12));
+      if (x + w > size.x - 74 && y + h > size.y - ZOOM_CLEARANCE) y = Math.max(12, size.y - ZOOM_CLEARANCE - h);
+      box.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+      box.dataset.side = side;
+    };
+    place();
+    map.on('move zoom viewreset resize', place);
+    const watcher = typeof ResizeObserver === 'function' ? new ResizeObserver(place) : null;
+    watcher?.observe(box);
+    return () => { map.off('move zoom viewreset resize', place); watcher?.disconnect(); };
+  }, [previewAt?.lat, previewAt?.lng, previewKey, Boolean(previewCard)]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <>
+      <div id="map" ref={mapElRef} />
+      {previewAt && previewCard && <div className="pin-preview" ref={previewRef}>{previewCard}</div>}
+    </>
+  );
 }

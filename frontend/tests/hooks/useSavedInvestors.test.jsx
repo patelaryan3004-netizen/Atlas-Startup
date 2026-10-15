@@ -1,7 +1,6 @@
 ﻿import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { useSavedInvestors } from '../../src/hooks/useSavedInvestors.js';
-import { useInvestorTheme } from '../../src/hooks/useInvestorTheme.js';
 
 describe('useSavedInvestors', () => {
   beforeEach(() => { localStorage.clear(); vi.restoreAllMocks(); });
@@ -39,36 +38,5 @@ describe('useSavedInvestors', () => {
     const { result } = renderHook(() => useSavedInvestors());
     act(() => result.current.toggle('blackbird'));
     expect(result.current.isSaved('blackbird')).toBe(true);
-  });
-});
-
-describe('useInvestorTheme', () => {
-  beforeEach(() => { localStorage.clear(); vi.restoreAllMocks(); });
-
-  it('opens light, and switches to dark and back, keeping the choice in this browser', () => {
-    const { result } = renderHook(() => useInvestorTheme());
-    expect(result.current.theme).toBe('light');
-    act(() => result.current.toggle());
-    expect(result.current.theme).toBe('dark');
-    expect(localStorage.getItem('auStartupInvestorTheme')).toBe('dark');
-    act(() => result.current.toggle());
-    expect(result.current.theme).toBe('light');
-    expect(localStorage.getItem('auStartupInvestorTheme')).toBe('light');
-  });
-
-  it('opens as it was left, and opens light for anything else that was kept', () => {
-    localStorage.setItem('auStartupInvestorTheme', 'dark');
-    expect(renderHook(() => useInvestorTheme()).result.current.theme).toBe('dark');
-    localStorage.setItem('auStartupInvestorTheme', 'sepia');
-    expect(renderHook(() => useInvestorTheme()).result.current.theme).toBe('light');
-  });
-
-  it('still switches for the visit when the browser will not keep anything', () => {
-    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('blocked'); });
-    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('blocked'); });
-    const { result } = renderHook(() => useInvestorTheme());
-    expect(result.current.theme).toBe('light');
-    act(() => result.current.toggle());
-    expect(result.current.theme).toBe('dark');
   });
 });

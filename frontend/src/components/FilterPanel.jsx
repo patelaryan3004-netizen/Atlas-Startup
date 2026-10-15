@@ -36,7 +36,7 @@ function startsOpen(defaultOpen) {
 // aside while the panel is open on a wide screen.
 // Controlled by the page when `open` is given: the Filters button is then in the toolbar, `toggleRef` is that button (so focus returns to it
 // when the panel closes) and the panel has no button of its own. Otherwise it keeps its own state and its own button. `mapTools`, when given,
-// is a fifth tab, Map, for the map's layers, its basemap and its key.
+// is a fifth tab, Map, for the map's layers and its key.
 export default function FilterPanel({ filters, onChange, onReset, meta, resultCount, summary, defaultOpen = false, onOpenChange, open: openProp, toggleRef: outerToggleRef, mapTools = null }) {
   const controlled = openProp !== undefined;
   const [ownOpen, setOwnOpen] = useState(() => (controlled ? false : startsOpen(defaultOpen)));

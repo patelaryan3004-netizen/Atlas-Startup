@@ -171,11 +171,11 @@ describe('an index of names, a way to nominate, and a way to ask for more', () =
     expect(await screen.findByRole('heading', { name: 'Person 1' })).toBeInTheDocument();
   });
 
-  it('goes back to the map from its bar', async () => {
-    const onClose = vi.fn();
-    mount({ onClose });
-    await userEvent.click(await screen.findByRole('button', { name: '← Back to map' }));
-    expect(onClose).toHaveBeenCalledTimes(1);
+  it('goes back to the map from the shared header', async () => {
+    const explore = vi.fn();
+    mount({ chrome: { go: { explore } } });
+    await userEvent.click(await screen.findByRole('link', { name: 'Explore' }));
+    expect(explore).toHaveBeenCalledTimes(1);
   });
 
   it('opens an investor\'s own page in the app, through the app\'s own hand-off', async () => {
