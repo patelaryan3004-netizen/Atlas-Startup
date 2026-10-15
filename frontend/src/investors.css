@@ -411,6 +411,8 @@
 .inv-facts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin: 0; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
 .inv-facts dt { margin: 0 0 4px; font-size: var(--t-small); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
 .inv-facts dd { margin: 0; font-size: var(--t-body); line-height: 1.45; }
+.inv-addresses { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.inv-addresses b { font-weight: 600; }
 .inv-fact-note { display: block; margin-top: 2px; font-size: var(--t-small); color: var(--muted); }
 /* In the panel the facts have the width of the panel: two to a row, and a list of chips has the whole row. */
 .inv-panel .inv-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 16px; }

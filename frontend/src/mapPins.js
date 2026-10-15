@@ -26,16 +26,20 @@ export function locationQuality(precision, checked = false) {
 
 // ---------- investors on the map ----------
 
-// An investor's record states a city and the cities of its offices, and never an address, so what is drawn for one is the reference point of
-// a city, and every such mark says so: a dashed edge, "VC" on the tile, and these words wherever its place is told.
+// An investor's record states the cities of its offices and, for the offices whose own page gives one, a street address. An office with an address
+// the geocoder has placed is drawn there (precision EXACT: a solid edge, the address in its words); every other is drawn at the reference point of its
+// city (precision CITY) and says so: a dashed edge, "VC" on the tile, and these words wherever its place is told.
 export const KIND_VC = 'vc';
-export const vcQuality = (role) => (role === 'office' ? 'City-level: it has an office in this city, no address on file' : 'City-level: its headquarters city, no address on file');
+export function vcQuality(role, precision = 'CITY') {
+  if (precision === 'EXACT') return 'Office address from its own website';
+  return role === 'office' ? 'City-level: it has an office in this city, no address on file' : 'City-level: its headquarters city, no address on file';
+}
 
 // An investor's mark (an item of /api/investors/pins) as a tuple that reads like a company's, with the kind and the address of its page after it:
 // [id, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo, 'vc', slug, role]. The id is the investor's address and the
 // city (an investor with an office in two cities is two marks), the sector the first one it states, and hiring is never claimed.
 export function vcTuple(pin) {
-  return [pin.id, pin.name, pin.lat, pin.lng, pin.sectors?.[0] ?? '', pin.city, 0, pin.domain ?? '', 'CITY', pin.place, 0, pin.logo ?? null, KIND_VC, pin.slug, pin.role ?? 'headquarters'];
+  return [pin.id, pin.name, pin.lat, pin.lng, pin.sectors?.[0] ?? '', pin.city, 0, pin.domain ?? '', pin.precision === 'EXACT' ? 'EXACT' : 'CITY', pin.place, 0, pin.logo ?? null, KIND_VC, pin.slug, pin.role ?? 'headquarters'];
 }
 export const isVc = (tuple) => tuple[12] === KIND_VC;
 
@@ -54,7 +58,9 @@ export function vcMarks(pins) {
   for (const group of byPoint.values()) {
     if (group.length === 1) { marks.push(vcTuple(group[0])); continue; }
     const first = group[0];
-    marks.push([`vcgroup:${first.city}`, `${group.length} VCs in ${first.city}`, first.lat, first.lng, '', first.city, 0, '', 'CITY', first.place, 0, null, KIND_VC_GROUP, group]);
+    // firms at one street address (the same building) are a group too, but a group of an address, not of a city
+    const atAddress = group.every((p) => p.precision === 'EXACT');
+    marks.push([`vcgroup:${atAddress ? first.id : first.city}`, `${group.length} VCs ${atAddress ? 'at one address' : `in ${first.city}`}`, first.lat, first.lng, '', first.city, 0, '', atAddress ? 'EXACT' : 'CITY', first.place, 0, null, KIND_VC_GROUP, group]);
   }
   return marks;
 }
@@ -68,7 +74,7 @@ export function pinPayload(tuple) {
   if (isVc(tuple)) {
     return {
       kind: KIND_VC, slug: tuple[13], id: slug, name, lat, lng, city, sector, role: tuple[14], verified: true, website: domain ? `https://${domain}` : '',
-      location: { precision: 'CITY', place: place || city, quality: vcQuality(tuple[14]) },
+      location: { precision: precision === 'EXACT' ? 'EXACT' : 'CITY', place: place || city, quality: vcQuality(tuple[14], precision) },
     };
   }
   const company = { slug, name, lat, lng, sector, city, hiring: hiring === 1 || hiring === true, verified: true, website: domain ? `https://${domain}` : '' };

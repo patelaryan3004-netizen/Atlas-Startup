@@ -6521,5 +6521,252 @@
     },
     "fetched_at": "2026-10-13T13:35:25.800Z",
     "expires_at": "2027-10-13T13:35:25.800Z"
+  },
+  {
+    "id": "nominatim:15 dover st cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "15 Dover St, Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8259572,
+      "lng": 144.9923239,
+      "display_name": "15, Dover Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 1270839039,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "15",
+        "road": "Dover Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8259925",
+        "-37.8259219",
+        "144.9921871",
+        "144.9924606"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:18:59.427Z",
+    "expires_at": "2027-10-15T07:18:59.427Z"
+  },
+  {
+    "id": "nominatim:111 albion street surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "111 Albion Street, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8834107,
+      "lng": 151.2125508,
+      "display_name": "Ghost Autonomy Inc., 111, Albion Street, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "node",
+      "osm_id": 11069798749,
+      "class": "office",
+      "type": "company",
+      "addresstype": "office",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "111",
+        "road": "Albion Street",
+        "suburb": "Surry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8834607",
+        "-33.8833607",
+        "151.2125008",
+        "151.2126008"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:18:59.673Z",
+    "expires_at": "2027-10-15T07:18:59.673Z"
+  },
+  {
+    "id": "nominatim:19-21 yorkshire street richmond vic 3121 australia",
+    "provider": "nominatim",
+    "query": "19-21 Yorkshire Street, Richmond, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8315886,
+      "lng": 144.9978504,
+      "display_name": "19-21, Yorkshire Street, Richmond, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "node",
+      "osm_id": 12411524956,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "19-21",
+        "road": "Yorkshire Street",
+        "suburb": "Richmond",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8316386",
+        "-37.8315386",
+        "144.9978004",
+        "144.9979004"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:19:00.571Z",
+    "expires_at": "2027-10-15T07:19:00.571Z"
+  },
+  {
+    "id": "nominatim:44a foveaux street surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "44a Foveaux Street, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8841637,
+      "lng": 151.2106113,
+      "display_name": "44A, Foveaux Street, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "way",
+      "osm_id": 586432200,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "44A",
+        "road": "Foveaux Street",
+        "suburb": "Surry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8842631",
+        "-33.8839874",
+        "151.2105045",
+        "151.2107740"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:19:01.682Z",
+    "expires_at": "2027-10-15T07:19:01.682Z"
+  },
+  {
+    "id": "nominatim:11-13 cubitt street cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "11-13 Cubitt Street, Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8265888,
+      "lng": 144.9929762,
+      "display_name": "11-13, Cubitt Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 946747641,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "11-13",
+        "road": "Cubitt Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8267026",
+        "-37.8264752",
+        "144.9927974",
+        "144.9931549"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:19:02.784Z",
+    "expires_at": "2027-10-15T07:19:02.784Z"
+  },
+  {
+    "id": "nominatim:88 phillip st sydney nsw 2000 australia",
+    "provider": "nominatim",
+    "query": "88 Phillip St, Sydney, NSW, 2000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.864733,
+      "lng": 151.211912,
+      "display_name": "McKinsey & Company, 88, Phillip Street, Quay Quarter, Sydney, New South Wales, 2000, Australia",
+      "osm_type": "node",
+      "osm_id": 6535029834,
+      "class": "office",
+      "type": "consulting",
+      "addresstype": "office",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "88",
+        "road": "Phillip Street",
+        "suburb": "Sydney",
+        "neighbourhood": "Quay Quarter",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8647830",
+        "-33.8646830",
+        "151.2118620",
+        "151.2119620"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:19:03.901Z",
+    "expires_at": "2027-10-15T07:19:03.901Z"
+  },
+  {
+    "id": "nominatim:1 york street sydney nsw 2000 australia",
+    "provider": "nominatim",
+    "query": "1 York Street, Sydney, NSW, 2000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.8636149,
+      "lng": 151.2049515,
+      "display_name": "Emirates House, 1, York Street, Wynyard, Sydney, New South Wales, 2000, Australia",
+      "osm_type": "way",
+      "osm_id": 85690888,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "1",
+        "road": "York Street",
+        "suburb": "Sydney",
+        "neighbourhood": "Wynyard",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8638073",
+        "-33.8634541",
+        "151.2047806",
+        "151.2051242"
+      ]
+    },
+    "fetched_at": "2026-10-15T07:19:05.000Z",
+    "expires_at": "2027-10-15T07:19:05.000Z"
   }
 ]

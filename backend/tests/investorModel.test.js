@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { migrateDataset, validateDataset, serializeDataset, COLLECTION_FILES } from '../src/models/dataset.js';
-import { migrateInvestorRecord, investorProblems, INVESTOR_TYPES, INVESTOR_STATUSES, PUBLIC_STATUSES, typeLabel } from '../src/models/investor.js';
+import { migrateInvestorRecord, investorProblems, parseOfficeAddress, INVESTOR_TYPES, INVESTOR_STATUSES, PUBLIC_STATUSES, typeLabel } from '../src/models/investor.js';
 import {
   claimsWithoutRecords, checkProblems, identityGaps, detectInvestorConflicts, valuesEqualFor, RECORD_FIELDS, makeRecordRow,
 } from '../src/models/investorEvidence.js';
@@ -14,7 +14,7 @@ describe('an investor organisation, as the dataset stores it', () => {
     const ds = withExtra([bare('blackbird')]);
     expect(ds.investors[0]).toEqual({
       id: 'blackbird', name: 'Blackbird', slug: 'blackbird', aliases: [], logo: null, website: null, investor_type: null, description: null,
-      investment_thesis: null, headquarters_city: null, state: null, country: null, other_offices: [], stages: [], sectors: [], geographies: [],
+      investment_thesis: null, headquarters_city: null, state: null, country: null, other_offices: [], office_addresses: [], stages: [], sectors: [], geographies: [],
       typical_cheque_min: null, typical_cheque_max: null, cheque_currency: null, lead_or_follow: null, active_status: null, application_url: null,
       jobs_url: null, inclusion_basis: null, verification_status: 'candidate', last_verified_at: null, created_at: null, updated_at: null,
     });
@@ -56,6 +56,19 @@ describe('what an investor record may hold', () => {
   const say = (over) => investorProblems({ ...base, ...over });
 
   it('accepts a candidate with nothing in it', () => expect(say({})).toEqual([]));
+
+  it('keeps an office\'s street address as "City: address", for a city that is the headquarters or one of the other offices, and refuses one that floats free', () => {
+    expect(parseOfficeAddress('Melbourne: 15 Dover St, Cremorne VIC 3121')).toEqual({ city: 'Melbourne', address: '15 Dover St, Cremorne VIC 3121' });
+    expect(parseOfficeAddress('Level 3: 55 Collins Street')).toEqual({ city: 'Level 3', address: '55 Collins Street' }); // the shape only: the city is checked against the offices
+    expect(parseOfficeAddress('15 Dover St, Cremorne VIC 3121')).toBeNull();
+    expect(parseOfficeAddress('Melbourne:')).toBeNull();
+    expect(parseOfficeAddress(null)).toBeNull();
+    expect(say({ headquarters_city: 'Sydney', state: 'NSW', country: 'Australia', other_offices: ['Melbourne'], office_addresses: ['Melbourne: 15 Dover St, Cremorne VIC 3121', 'sydney: Level 19, 88 Phillip St, Sydney NSW 2000'] })).toEqual([]);
+    expect(say({ other_offices: ['Melbourne'], office_addresses: ['Brisbane: 1 Queen St, Brisbane QLD 4000'] })).toEqual([expect.stringMatching(/neither the headquarters nor one of the other offices/)]);
+    expect(say({ other_offices: ['Melbourne'], office_addresses: ['15 Dover St, Cremorne VIC 3121'] })).toEqual([expect.stringMatching(/must be written "City: street address"/)]);
+    expect(say({ other_offices: ['Melbourne'], office_addresses: ['Melbourne: 1 A St', 'Melbourne: 1 A St'] })).toEqual([expect.stringMatching(/office_addresses repeats/)]);
+    expect(say({ office_addresses: 'Melbourne: 1 A St' })).toEqual([expect.stringMatching(/office_addresses must be a list/)]);
+  });
 
   it('refuses a type, state, stage, lead or active value it does not know', () => {
     expect(say({ investor_type: 'hedge_fund' })[0]).toMatch(/invalid investor_type/);

@@ -144,6 +144,41 @@ describe('investors on the map', () => {
     expect(vcQuality('office')).toMatch(/office in this city, no address on file/);
   });
 
+  it('draws an office at the street address its own page gives as an exact place, in the address\'s words, and says where the address is from', () => {
+    const office = vc('blackbird', 'Melbourne', { name: 'Blackbird', lat: -37.8294, lng: 144.9922 });
+    const exact = { ...office, id: 'blackbird@Melbourne#1', precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121', address: '15 Dover St, Cremorne VIC 3121' };
+    const tuple = vcTuple(exact);
+    expect(tuple[8]).toBe('EXACT');
+    expect(tuple[9]).toBe('15 Dover St, Cremorne VIC 3121');
+    const payload = pinPayload(tuple);
+    expect(payload.location).toEqual({ precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121', quality: 'Office address from its own website' });
+    expect(vcQuality('office', 'EXACT')).toBe('Office address from its own website');
+    expect(vcQuality('headquarters', 'EXACT')).toBe(vcQuality('office', 'EXACT')); // an address is an address, whichever office it is
+    // anything that is not exactly EXACT stays a city, so a stray value can never claim an office
+    expect(vcTuple({ ...exact, precision: 'SUBURB' })[8]).toBe('CITY');
+    expect(vcTuple({ ...exact, precision: undefined })[8]).toBe('CITY');
+    expect(vcQuality('headquarters', 'SUBURB')).toMatch(/no address on file/);
+  });
+
+  it('keeps an office at its address apart from a city\'s mark, and groups firms only when they stand at one point', () => {
+    const exact = (slug, extra = {}) => ({ ...vc(slug, 'Melbourne', { lat: -37.8294, lng: 144.9922 }), id: `${slug}@Melbourne#1`, precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121', ...extra });
+    const city = vc('tidal', 'Melbourne', { lat: -37.8136, lng: 144.9631 });
+    const marks = vcMarks([exact('blackbird'), exact('other', { lat: -37.83, lng: 144.99, place: '1 Elsewhere St, Cremorne VIC 3121' }), city]);
+    expect(marks).toHaveLength(3); // an exact office and the city mark in one city never merge
+    expect(marks.filter(isVc).map((m) => m[8]).sort()).toEqual(['CITY', 'EXACT', 'EXACT']);
+    // two firms in one building: a group of an address, not of a city
+    const pair = vcMarks([exact('blackbird'), exact('rampersand')]);
+    expect(pair).toHaveLength(1);
+    expect(pair[0][1]).toBe('2 VCs at one address');
+    expect(pair[0][8]).toBe('EXACT');
+    expect(pair[0][9]).toBe('15 Dover St, Cremorne VIC 3121');
+    // an address that falls on the city's point shares the group, and the group then says only what all of it supports: a city
+    const mixed = vcMarks([exact('blackbird', { lat: -37.8136, lng: 144.9631 }), city]);
+    expect(mixed).toHaveLength(1);
+    expect(mixed[0][8]).toBe('CITY');
+    expect(mixed[0][1]).toBe('2 VCs in Melbourne');
+  });
+
   it('makes one mark of the investors that stand at one point (a city), and a mark of its own for a city with one', () => {
     const marks = vcMarks([vc('a', 'Sydney'), vc('b', 'Sydney'), vc('c', 'Melbourne', { lat: -37.8136, lng: 144.9631 })]);
     expect(marks).toHaveLength(2);

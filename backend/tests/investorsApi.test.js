@@ -10,7 +10,8 @@ import { createInvestorCatalog } from '../src/catalog/investors.js';
 import { createResponder } from '../src/catalog/respond.js';
 import { createInvestorsRouter } from '../src/routes/investors.js';
 import { tempDir, removeTempDirs } from './helpers/catalog.js';
-import { co, world, backed, source, investment, person, role } from './helpers/investors.js';
+import { co, world, backed, source, investment, person, role, record } from './helpers/investors.js';
+import { remember } from '../src/models/geocodeCache.js';
 
 afterEach(removeTempDirs);
 
@@ -351,7 +352,7 @@ describe('the investors on the map', () => {
     expect(skip).toMatchObject({ id: 'skip@Melbourne', name: 'Skip Capital', city: 'Melbourne', state: 'VIC', place: 'Melbourne, VIC', role: 'headquarters', precision: 'CITY', lat: -37.8136, lng: 144.9631 });
     expect(skip.stages).toEqual(['Series A', 'Series B']);
     expect(skip.type_label).toBe('Venture Capital');
-    expect(Object.keys(skip)).not.toContain('address');
+    expect(skip.address).toBeNull(); // a city has no address
     expect(body.items.every((i) => i.precision === 'CITY')).toBe(true);
   });
 
@@ -383,6 +384,60 @@ describe('the investors on the map', () => {
     expect((await pins(f, '?city=melbourne,brisbane')).items.map((i) => i.slug).sort()).toEqual(['angels', 'skip']);
     // The question has its own answer in the response cache: a city is part of it.
     expect((await pins(f, '?city=Perth')).items).toEqual([]);
+  });
+});
+
+describe('an investor\'s office at its street address', () => {
+  const ADDRESS = 'Melbourne: 19-21 Yorkshire Street, Richmond VIC 3121';
+  const QUERY = '19-21 Yorkshire Street, Richmond, VIC, 3121, Australia';
+  const answer = (over = {}) => ({
+    lat: -37.8244, lng: 144.9983, display_name: '19-21, Yorkshire Street, Richmond, Victoria, 3121, Australia', osm_type: 'way', osm_id: 1,
+    address: { house_number: '19-21', road: 'Yorkshire Street', suburb: 'Richmond', state: 'Victoria', postcode: '3121', country_code: 'au' }, ...over,
+  });
+  // Skip Capital (Melbourne, VIC) with the address its own page gives, the page behind it, and what the geocoder answered (or nothing).
+  const withAddress = (cache) => {
+    const ds = data();
+    ds.investors.find((o) => o.id === 'skip').office_addresses = [ADDRESS];
+    ds.verification_records.push(record('skip', 'office_addresses', ADDRESS, 'portfolio'));
+    ds.geocode_cache = cache ? [remember([], { provider: 'nominatim', query: QUERY, ...cache }, Date.parse('2026-10-15T00:00:00Z'))] : [];
+    return ds;
+  };
+  const skipPins = async (ds, query = '') => (await request((await app({ ds })).app).get(`/api/investors/pins${query}`)).body.items.filter((i) => i.slug === 'skip');
+
+  it('is drawn there, as an exact office with its address, when the geocoder found the street number where the address says', async () => {
+    const [mark, ...rest] = await skipPins(withAddress({ status: 'found', quality: 'house', result: answer() }));
+    expect(rest).toEqual([]);
+    expect(mark).toMatchObject({ id: 'skip@Melbourne', city: 'Melbourne', state: 'VIC', role: 'headquarters', precision: 'EXACT', lat: -37.8244, lng: 144.9983, address: '19-21 Yorkshire Street, Richmond VIC 3121', place: '19-21 Yorkshire Street, Richmond VIC 3121' });
+  });
+
+  it('stays a city when the geocoder has not been asked, found only the street, put it in another suburb or state, or put it far from the city', async () => {
+    const cases = [
+      null,
+      { status: 'found', quality: 'street', result: answer({ address: { road: 'Yorkshire Street', suburb: 'Richmond', state: 'Victoria', postcode: '3121', country_code: 'au' } }) },
+      { status: 'found', quality: 'house', result: answer({ address: { house_number: '19-21', road: 'Yorkshire Street', suburb: 'Richmond', state: 'New South Wales', postcode: '3121', country_code: 'au' } }) },
+      { status: 'found', quality: 'house', result: answer({ address: { house_number: '19-21', road: 'Yorkshire Street', suburb: 'Elsewhere', state: 'Victoria', postcode: '3977', country_code: 'au' } }) },
+      { status: 'found', quality: 'house', result: answer({ lat: -31.95, lng: 115.86 }) },
+      { status: 'none' },
+    ];
+    for (const cache of cases) {
+      const [mark] = await skipPins(withAddress(cache));
+      expect(mark, JSON.stringify(cache?.status)).toMatchObject({ precision: 'CITY', city: 'Melbourne', lat: -37.8136, lng: 144.9631, address: null });
+    }
+  });
+
+  it('says in the investor\'s page which addresses its pages give, and whether the geocoder has put each on the map', async () => {
+    const f = await app({ ds: withAddress({ status: 'found', quality: 'house', result: answer() }) });
+    const profile = (await request(f.app).get('/api/investors/skip')).body;
+    expect(profile.office_addresses).toEqual([{ city: 'Melbourne', address: '19-21 Yorkshire Street, Richmond VIC 3121', located: true }]);
+    const none = (await request((await app({ ds: withAddress(null) })).app).get('/api/investors/skip')).body;
+    expect(none.office_addresses).toEqual([{ city: 'Melbourne', address: '19-21 Yorkshire Street, Richmond VIC 3121', located: false }]);
+    expect((await request(f.app).get('/api/investors/oif')).body.office_addresses).toEqual([]);
+  });
+
+  it('is kept by the city filter like any other mark of that city, and the investors of other cities are as they were', async () => {
+    const ds = withAddress({ status: 'found', quality: 'house', result: answer() });
+    expect((await skipPins(ds, '?city=Melbourne')).map((i) => i.precision)).toEqual(['EXACT']);
+    expect(await skipPins(ds, '?city=Sydney')).toEqual([]);
   });
 });
 

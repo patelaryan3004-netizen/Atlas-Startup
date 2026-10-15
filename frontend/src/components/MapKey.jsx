@@ -34,7 +34,8 @@ export default function MapKey({ showInstitutions = false }) {
 
       <div className="mk-group">
         <h3 className="mk-label">A venture capital firm</h3>
-        <Row mark={<Pin extra="pin-vc pin-approx"><span className="pin-vc-badge">VC</span></Pin>}>A square with VC on it and a dashed edge: the firm&rsquo;s city. Its record gives a city, never a street address, so it is drawn at the city&rsquo;s centre and is not an office.</Row>
+        <Row mark={<Pin extra="pin-vc"><span className="pin-vc-badge">VC</span></Pin>}>A square with VC on it and a solid edge: an office, drawn at the street address the firm&rsquo;s own page gives.</Row>
+        <Row mark={<Pin extra="pin-vc pin-approx"><span className="pin-vc-badge">VC</span></Pin>}>A square with VC on it and a dashed edge: only the firm&rsquo;s city. Its record gives no street address for it that could be placed, so it is drawn at the city&rsquo;s centre and is not an office.</Row>
       </div>
 
       <div className="mk-group">

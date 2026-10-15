@@ -75,6 +75,46 @@ describe('moving an investor through its lifecycle', () => {
   });
 });
 
+describe('an office\'s street address', () => {
+  const CONTACT = { url: 'https://oif.example/contact', quote: 'Melbourne 15 Dover St, Cremorne, VIC, Australia, 3121' };
+  const melbourne = () => copy(one({ verification_status: 'candidate', last_verified_at: null, other_offices: ['Melbourne'] }, [['other_offices', 'Melbourne']]));
+
+  it('is a claim like any other: it needs the page that states it, and says what the page says', () => {
+    const work = melbourne();
+    expect(() => editInvestor(work, 'oif', { office_addresses: ['Melbourne: 15 Dover St, Cremorne VIC 3121'] }, { ...ctx })).toThrow(/name the page that states it/);
+    const { org, recorded } = editInvestor(work, 'oif', { office_addresses: ['Melbourne: 15 Dover St, Cremorne VIC 3121'] }, { ...ctx, source: CONTACT });
+    expect(org.office_addresses).toEqual(['Melbourne: 15 Dover St, Cremorne VIC 3121']);
+    expect(recorded).toEqual(['office_addresses']);
+    const row = work.verification_records.find((r) => r.field === 'office_addresses');
+    expect(row).toMatchObject({ subject_id: 'oif', value: 'Melbourne: 15 Dover St, Cremorne VIC 3121', status: 'active', confidence: 'high', note: CONTACT.quote });
+    expect(work.sources.some((s) => s.url === CONTACT.url)).toBe(true);
+    expect(valid(work)).toEqual([]);
+  });
+
+  it('adds up with the others of the same firm: each address has its own record, and the first is kept when a second is added', () => {
+    const work = melbourne(); // the helper's firm is headquartered in Sydney, NSW
+    editInvestor(work, 'oif', { office_addresses: ['Melbourne: 15 Dover St, Cremorne VIC 3121'] }, { ...ctx, source: CONTACT });
+    editInvestor(work, 'oif', { office_addresses: ['Melbourne: 15 Dover St, Cremorne VIC 3121', 'Sydney: Level 19, 88 Phillip St, Sydney NSW 2000'] }, { ...ctx, source: { url: 'https://oif.example/', quote: 'Tidal Sydney Level 19, 88 Phillip St Sydney, NSW 2000' } });
+    expect(work.investors[0].office_addresses).toHaveLength(2);
+    expect(work.verification_records.filter((r) => r.field === 'office_addresses' && r.status === 'active')).toHaveLength(2);
+    expect(valid(work)).toEqual([]);
+  });
+
+  it('is refused for a city that is not one of the firm\'s offices, and a checked firm cannot be left with an address no page backs', () => {
+    const work = melbourne();
+    expect(() => editInvestor(work, 'oif', { office_addresses: ['Brisbane: 1 Queen St, Brisbane QLD 4000'] }, { ...ctx, source: CONTACT })).toThrow(/neither the headquarters nor one of the other offices/);
+    expect(work.investors[0].office_addresses).toEqual([]);
+  });
+
+  it('is superseded, not deleted, when it is taken off', () => {
+    const work = melbourne();
+    editInvestor(work, 'oif', { office_addresses: ['Melbourne: 15 Dover St, Cremorne VIC 3121'] }, { ...ctx, source: CONTACT });
+    editInvestor(work, 'oif', { office_addresses: [] }, { ...ctx });
+    expect(work.investors[0].office_addresses).toEqual([]);
+    expect(work.verification_records.find((r) => r.field === 'office_addresses')).toMatchObject({ status: 'superseded', note: expect.stringContaining('Removed on') });
+  });
+});
+
 describe('editing an investor', () => {
   it('needs the page that states a claim, and what it says, before it will record one', () => {
     const work = copy(one({ verification_status: 'candidate', last_verified_at: null }));

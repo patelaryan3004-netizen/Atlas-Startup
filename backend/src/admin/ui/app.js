@@ -120,7 +120,7 @@ const FIELD = {
   last_funding_date: 'Last round date', funding_total: 'Funding total', abn: 'ABN', acn: 'ACN',
   remote_policy: 'Remote policy', tech_stack: 'Tech stack', team_size: 'Team size', last_role_seen_at: 'Last role seen',
   name: 'Name', aliases: 'Other names', investor_type: 'Type', inclusion_basis: 'Why it is listed', headquarters_city: 'Headquarters', country: 'Country',
-  other_offices: 'Other offices', stages: 'Stages', sectors: 'Sectors', geographies: 'Geographies', typical_cheque: 'Cheque size', typical_cheque_min: 'Cheque, from',
+  other_offices: 'Other offices', office_addresses: 'Office addresses', stages: 'Stages', sectors: 'Sectors', geographies: 'Geographies', typical_cheque: 'Cheque size', typical_cheque_min: 'Cheque, from',
   typical_cheque_max: 'Cheque, to', cheque_currency: 'Cheque currency', lead_or_follow: 'Lead or follow', active_status: 'Investing', application_url: 'How to apply',
   jobs_url: 'Portfolio jobs board', investment_thesis: 'Investment thesis', verification_status: 'Status',
 };
@@ -1611,6 +1611,7 @@ async function editInvestorDialog(row) {
     state: selectInput([['', 'No state'], ...AU_STATES.map((s) => [s, s])], d.state ?? ''),
     country: textInput({ value: d.country ?? '', maxlength: 120, placeholder: 'For example: Australia' }),
     other_offices: textArea({ value: d.other_offices.join('\n'), rows: 2 }),
+    office_addresses: textArea({ value: (d.office_addresses ?? []).join('\n'), rows: 2 }),
     sectors: textArea({ value: d.sectors.join('\n'), rows: 2 }),
     geographies: textArea({ value: d.geographies.join('\n'), rows: 2 }),
     cheque_min: textInput({ inputmode: 'numeric', value: cheque.min ?? '', placeholder: 'For example: 250000' }),
@@ -1633,6 +1634,7 @@ async function editInvestorDialog(row) {
       rowOf(fieldOf('Type of investor', f.investor_type), fieldOf('Why it is listed', f.inclusion_basis)),
       rowOf(fieldOf('Headquarters city', f.headquarters_city), fieldOf('State', f.state), fieldOf('Country', f.country)),
       fieldOf('Other offices', f.other_offices, { hint: 'One per line.' }),
+      fieldOf('Office addresses', f.office_addresses, { hint: 'One per line, as “City: street address”. The city must be its headquarters or one of its other offices. Only an address its own page states; the map draws the office there once it is checked (npm run investors -- offices --geocode).', optional: true }),
       h('fieldset', {}, h('legend', {}, 'Stages it invests at'), h('div', { class: 'checks' }, stageBoxes.map((b) => b.node))),
       rowOf(fieldOf('Sectors', f.sectors, { hint: 'One per line, as the page words them.' }), fieldOf('Where it invests', f.geographies, { hint: 'One per line.' })),
       h('div', { class: 'block' }, h('p', { class: 'field__label' }, 'Cheque size'), h('p', { class: 'field__hint' }, 'Only an amount a page states. It is shown on the site only for a stated Australian-dollar range.'),
@@ -1659,7 +1661,7 @@ async function editInvestorDialog(row) {
       if (!norm(f.name.value)) { f.name.focus(); throw new Error('The name cannot be empty.'); }
       text('name', d.name); text('website', d.website); pick('investor_type', d.investor_type); pick('inclusion_basis', d.inclusion_basis);
       text('headquarters_city', d.headquarters_city); pick('state', d.state); text('country', d.country);
-      list('other_offices', d.other_offices); list('sectors', d.sectors); list('geographies', d.geographies);
+      list('other_offices', d.other_offices); list('office_addresses', d.office_addresses ?? []); list('sectors', d.sectors); list('geographies', d.geographies);
       const chosen = stageBoxes.filter((b) => b.input.checked).map((b) => b.s);
       if (JSON.stringify(chosen) !== JSON.stringify(vocab.stages.filter((s) => d.stages.includes(s)))) patch.stages = chosen;
       amount('cheque_min', cheque.min); amount('cheque_max', cheque.max);
@@ -1960,6 +1962,7 @@ function investorDrawerContent(d) {
       claim('inclusion_basis', d.inclusion_basis),
       claim('headquarters_city', place || null, place, placed, 'Headquarters'),
       claim('other_offices', d.other_offices),
+      claim('office_addresses', d.office_addresses ?? []),
       claim('stages', d.stages),
       claim('sectors', d.sectors),
       claim('geographies', d.geographies),

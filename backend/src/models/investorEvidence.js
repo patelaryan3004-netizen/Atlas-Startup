@@ -41,6 +41,7 @@ export const RECORD_FIELDS = {
     state: single('state'),
     country: single('string'),
     other_offices: multi('string'),
+    office_addresses: multi('string'),
     stages: multi('enum', { values: INVESTOR_STAGES }),
     sectors: multi('string'),
     geographies: multi('string'),

@@ -138,7 +138,7 @@ function setClaim(org, field, value) {
     org.typical_cheque_min = value?.min ?? null;
     org.typical_cheque_max = value?.max ?? null;
     org.cheque_currency = value ? value.currency : null;
-  } else if (['other_offices', 'stages', 'sectors', 'geographies'].includes(field)) org[field] = value ?? [];
+  } else if (['other_offices', 'office_addresses', 'stages', 'sectors', 'geographies'].includes(field)) org[field] = value ?? [];
   else org[field] = value ?? null;
 }
 
@@ -173,7 +173,7 @@ function readPatch(patch) {
       case 'lead_or_follow': out[key] = value || null; if (out[key] && !LEAD_OR_FOLLOW.includes(out[key])) fail(`lead or follow must be one of ${LEAD_OR_FOLLOW.join(', ')}`); break;
       case 'active_status': out[key] = value || null; if (out[key] && !ACTIVE_STATUSES.includes(out[key])) fail(`active status must be one of ${ACTIVE_STATUSES.join(', ')}`); break;
       case 'stages': out[key] = list(value, 'a stage'); for (const s of out[key]) if (!INVESTOR_STAGES.includes(s)) fail(`a stage must be one of ${INVESTOR_STAGES.join(', ')}`); break;
-      case 'sectors': case 'geographies': case 'other_offices': out[key] = list(value, key.replace('_', ' ')); break;
+      case 'sectors': case 'geographies': case 'other_offices': case 'office_addresses': out[key] = list(value, key.replace('_', ' ')); break;
       case 'typical_cheque_min': case 'typical_cheque_max': out[key] = amount(value, key.replace(/_/g, ' ')); break;
       case 'cheque_currency': out[key] = value ? String(value).toUpperCase() : null; break;
       case 'state': out[key] = value ? String(value).toUpperCase() : null; break;

@@ -985,6 +985,42 @@ describe('MapView', () => {
       expect(lastMarker().bindTooltip.mock.calls[0][0].textContent).toContain('it has an office in this city, no address on file');
     });
 
+    it('draws an office at the street address its page gives with a SOLID edge, and says in the tooltip that it is an address', () => {
+      const office = vc('blackbird', 'Blackbird', { id: 'blackbird@Melbourne#1', city: 'Melbourne', state: 'VIC', lat: -37.8294, lng: 144.9922, precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121', address: '15 Dover St, Cremorne VIC 3121' });
+      render(<MapView markers={[]} vcPins={[office]} showVcs onSelectStartup={noop} />);
+      const html = icons().at(-1).html;
+      expect(html.className).toBe('custom-pin-badge pin-tile pin-vc');
+      expect(html.className).not.toContain('pin-approx');
+      expect(html.querySelector('.pin-vc-badge').textContent).toBe('VC');
+      const [content] = lastMarker().bindTooltip.mock.calls[0];
+      expect(content.textContent).toBe('BlackbirdVenture capital · 15 Dover St, Cremorne VIC 3121Office address from its own website');
+      expect(content.querySelector('.tip-quality')).toHaveClass('tip-exact');
+      expect(content.querySelector('.tip-quality')).not.toHaveClass('tip-city');
+    });
+
+    it('draws a city\'s mark and an office at its address in one city as two marks, one dashed and one solid', () => {
+      const office = vc('blackbird', 'Blackbird', { id: 'blackbird@Melbourne#1', city: 'Melbourne', lat: -37.8294, lng: 144.9922, precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121' });
+      const city = vc('tidal', 'Tidal', { id: 'tidal@Melbourne', city: 'Melbourne', lat: -37.8136, lng: 144.9631 });
+      render(<MapView markers={[]} vcPins={[office, city]} showVcs onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(2);
+      const byName = Object.fromEntries(icons().map((i) => [named(i.html), i.html.className]));
+      expect(byName.Blackbird).toBe('custom-pin-badge pin-tile pin-vc');
+      expect(byName.Tidal).toBe('custom-pin-badge pin-tile pin-vc pin-approx');
+    });
+
+    it('draws firms at one street address as one mark that says it is an address, not a city', () => {
+      const at = (slug, name) => vc(slug, name, { id: `${slug}@Melbourne#1`, city: 'Melbourne', lat: -37.8294, lng: 144.9922, precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121' });
+      render(<MapView markers={[]} vcPins={[at('a', 'Alpha'), at('b', 'Beta')]} showVcs onSelectStartup={noop} />);
+      expect(L.marker).toHaveBeenCalledTimes(1);
+      const html = icons().at(-1).html;
+      expect(html.className).toBe('custom-pin-badge pin-tile pin-vc pin-vcgroup');
+      expect(named(html)).toBe('2 VCs at one address');
+      const text = lastMarker().bindTooltip.mock.calls[0][0];
+      expect(text.textContent).toContain('2 venture capital firms · 15 Dover St, Cremorne VIC 3121');
+      expect(text.textContent).not.toContain('no address on file');
+      expect(text.querySelector('.tip-quality')).toHaveClass('tip-exact');
+    });
+
     it('draws the investors of one city as ONE mark with their number, never a pile of marks on one spot, and says so in its tooltip', () => {
       render(<MapView markers={[]} vcPins={[vc('a', 'Alpha'), vc('b', 'Beta'), vc('c', 'Cee')]} showVcs onSelectStartup={noop} />);
       expect(L.marker).toHaveBeenCalledTimes(1);

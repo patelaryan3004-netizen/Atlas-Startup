@@ -19,6 +19,10 @@
       "Brisbane",
       "Orange"
     ],
+    "office_addresses": [
+      "Melbourne: 15 Dover St, Cremorne VIC 3121",
+      "Sydney: Level 1, 111 Albion Street, Surry Hills NSW 2010"
+    ],
     "stages": [],
     "sectors": [
       "Technology"
@@ -36,9 +40,9 @@
     "jobs_url": null,
     "inclusion_basis": "based_in_australia",
     "verification_status": "published",
-    "last_verified_at": "2026-10-10T16:26:24.529Z",
+    "last_verified_at": "2026-10-15T07:17:55.519Z",
     "created_at": "2026-10-10T16:26:24.529Z",
-    "updated_at": "2026-10-10T20:59:10.556Z"
+    "updated_at": "2026-10-15T07:17:55.519Z"
   },
   {
     "id": "airtree",
@@ -56,6 +60,7 @@
     "state": "NSW",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [
       "Seed",
       "Growth"
@@ -99,6 +104,10 @@
       "Singapore",
       "Tel Aviv"
     ],
+    "office_addresses": [
+      "Melbourne: 19-21 Yorkshire Street, Richmond VIC 3121",
+      "Sydney: 3/44a Foveaux Street, Surry Hills NSW 2010"
+    ],
     "stages": [],
     "sectors": [
       "Technology"
@@ -115,9 +124,9 @@
     "jobs_url": "https://squarepeg.getro.com/jobs",
     "inclusion_basis": "based_in_australia",
     "verification_status": "published",
-    "last_verified_at": "2026-10-10T16:26:24.529Z",
+    "last_verified_at": "2026-10-15T07:17:55.519Z",
     "created_at": "2026-10-10T16:26:24.529Z",
-    "updated_at": "2026-10-10T20:59:10.556Z"
+    "updated_at": "2026-10-15T07:17:55.519Z"
   },
   {
     "id": "rampersand",
@@ -137,6 +146,10 @@
     "other_offices": [
       "Sydney",
       "San Francisco"
+    ],
+    "office_addresses": [
+      "Melbourne: 11-13 Cubitt Street, Cremorne VIC 3121",
+      "Sydney: Level 1, 251 Riley Street, Surry Hills NSW 2010"
     ],
     "stages": [
       "Pre-seed",
@@ -161,9 +174,9 @@
     "jobs_url": null,
     "inclusion_basis": "based_in_australia",
     "verification_status": "published",
-    "last_verified_at": "2026-10-10T16:26:24.529Z",
+    "last_verified_at": "2026-10-15T07:17:55.519Z",
     "created_at": "2026-10-10T16:26:24.529Z",
-    "updated_at": "2026-10-10T20:59:10.556Z"
+    "updated_at": "2026-10-15T07:17:55.519Z"
   },
   {
     "id": "prosus-ventures",
@@ -179,6 +192,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -209,6 +223,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -243,6 +258,7 @@
     "other_offices": [
       "Melbourne"
     ],
+    "office_addresses": [],
     "stages": [
       "Growth"
     ],
@@ -278,6 +294,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -308,6 +325,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -338,6 +356,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -368,6 +387,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -398,6 +418,7 @@
     "state": "NSW",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [
       "Pre-seed",
       "Seed",
@@ -437,6 +458,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -469,6 +491,7 @@
     "state": null,
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [
       "Agtech",
@@ -507,6 +530,7 @@
     "state": null,
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [
       "Seed",
       "Series A",
@@ -543,6 +567,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -573,6 +598,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -603,6 +629,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -633,6 +660,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -663,6 +691,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -693,6 +722,7 @@
     "state": "QLD",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [
       "Pre-seed",
       "Seed",
@@ -729,6 +759,7 @@
     "state": null,
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [
@@ -764,6 +795,7 @@
     "state": "NSW",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [
       "Pre-seed",
       "Seed",
@@ -800,6 +832,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -830,6 +863,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -867,6 +901,9 @@
       "Brisbane",
       "Melbourne"
     ],
+    "office_addresses": [
+      "Sydney: Level 19, 88 Phillip St, Sydney NSW 2000"
+    ],
     "stages": [
       "Pre-seed",
       "Seed"
@@ -887,9 +924,9 @@
     "jobs_url": null,
     "inclusion_basis": "based_in_australia",
     "verification_status": "published",
-    "last_verified_at": "2026-10-10T16:26:24.529Z",
+    "last_verified_at": "2026-10-15T07:17:55.519Z",
     "created_at": "2026-10-10T16:26:24.529Z",
-    "updated_at": "2026-10-10T20:59:10.556Z"
+    "updated_at": "2026-10-15T07:17:55.519Z"
   },
   {
     "id": "common-sense",
@@ -905,6 +942,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -941,6 +979,7 @@
       "Denver",
       "New York"
     ],
+    "office_addresses": [],
     "stages": [],
     "sectors": [
       "Technology"
@@ -976,6 +1015,7 @@
     "state": "NSW",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [
       "Fintech"
@@ -1008,6 +1048,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1038,6 +1079,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1068,6 +1110,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1098,6 +1141,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1128,6 +1172,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1158,6 +1203,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1188,6 +1234,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1218,6 +1265,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1248,6 +1296,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1278,6 +1327,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1308,6 +1358,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1338,6 +1389,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1368,6 +1420,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1398,6 +1451,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1428,6 +1482,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1458,6 +1513,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1488,6 +1544,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1518,6 +1575,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1548,6 +1606,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1578,6 +1637,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1608,6 +1668,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1638,6 +1699,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1668,6 +1730,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1702,6 +1765,7 @@
       "Melbourne",
       "Brisbane"
     ],
+    "office_addresses": [],
     "stages": [
       "Pre-seed",
       "Series A"
@@ -1735,6 +1799,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1765,6 +1830,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1795,6 +1861,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1825,6 +1892,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1855,6 +1923,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1885,6 +1954,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1915,6 +1985,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -1945,6 +2016,7 @@
     "state": "NSW",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [
       "Software",
@@ -1984,6 +2056,7 @@
       "Sydney",
       "Melbourne"
     ],
+    "office_addresses": [],
     "stages": [],
     "sectors": [
       "Deep tech",
@@ -2025,6 +2098,10 @@
       "Melbourne",
       "Sydney"
     ],
+    "office_addresses": [
+      "Melbourne: Level 9, 31 Queen Street, Melbourne VIC 3000",
+      "Sydney: Suite 2.05, 1 York Street, Sydney NSW 2000"
+    ],
     "stages": [
       "Seed",
       "Growth"
@@ -2043,9 +2120,9 @@
     "jobs_url": null,
     "inclusion_basis": "based_in_australia",
     "verification_status": "published",
-    "last_verified_at": "2026-10-10T16:26:24.529Z",
+    "last_verified_at": "2026-10-15T07:17:55.519Z",
     "created_at": "2026-10-10T16:26:24.529Z",
-    "updated_at": "2026-10-10T20:59:10.556Z"
+    "updated_at": "2026-10-15T07:17:55.519Z"
   },
   {
     "id": "southern-cross-venture-partners",
@@ -2061,6 +2138,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2091,6 +2169,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2121,6 +2200,7 @@
     "state": "NSW",
     "country": "Australia",
     "other_offices": [],
+    "office_addresses": [],
     "stages": [
       "Series A"
     ],
@@ -2158,6 +2238,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2188,6 +2269,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2218,6 +2300,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2248,6 +2331,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2278,6 +2362,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2308,6 +2393,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2338,6 +2424,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2368,6 +2455,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2398,6 +2486,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2428,6 +2517,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2458,6 +2548,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2488,6 +2579,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2518,6 +2610,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],
@@ -2548,6 +2641,7 @@
     "state": null,
     "country": null,
     "other_offices": [],
+    "office_addresses": [],
     "stages": [],
     "sectors": [],
     "geographies": [],

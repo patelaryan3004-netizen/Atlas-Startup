@@ -21,12 +21,14 @@ import path from 'node:path';
 import { INVESTOR_STAGES, isPublicStatus, typeLabel } from '../models/investor.js';
 import { activeRecords } from '../models/investorEvidence.js';
 import { cityCentre, cityNamed } from '../geo/places.js';
+import { officesOf } from '../investors/offices.js';
 
 export const INVESTOR_SORTS = ['name', 'name_desc', 'portfolio', 'location'];
 export const INVESTOR_FACETS = ['type', 'stage', 'sector', 'location', 'lead', 'active'];
 export const INVESTOR_FILES = {
   investors: 'investors.json', people: 'investor_people.json', funds: 'funds.json', investments: 'investments.json',
   memberships: 'investor_people_organisations.json', records: 'verification_records.json', sources: 'sources.json', companies: 'startups.json',
+  geocodes: 'geocode_cache.json', // what the geocoder answered for an office's street address (investors/offices.js); read, never written, here
 };
 // How many related investors a profile lists, and how many recent investments.
 const RELATED = 6;
@@ -125,6 +127,9 @@ export function buildInvestorSnapshot(data, version) {
     };
   });
 
+  // Each investor's office addresses with where the geocoder put them (the cache is read as it is: an address nobody has asked about has no point).
+  const offices = new Map(orgs.map((o) => [o.slug, officesOf(o, data.geocodes ?? [])]));
+
   const profiles = new Map();
   orgs.forEach((o, i) => {
     const portfolio = portfolioOf.get(o.id) ?? [];
@@ -138,6 +143,8 @@ export function buildInvestorSnapshot(data, version) {
     for (const t of teamOf.get(o.id) ?? []) if (!sources.has(t.source.id)) sources.set(t.source.id, { ...t.source, backs: ['team'] }); else if (!sources.get(t.source.id).backs.includes('team')) sources.get(t.source.id).backs.push('team');
     profiles.set(o.slug, {
       ...cards[i], id: o.id, logo: o.logo ?? null, description: o.description, investment_thesis: o.investment_thesis, geographies: o.geographies, other_offices: o.other_offices,
+      // The street addresses its own pages give, each with the city it is under; `located` says whether the geocoder has put it on the map.
+      office_addresses: (offices.get(o.slug) ?? []).filter((x) => x.office).map((x) => ({ city: x.office.city, address: x.office.address, located: x.status === 'placed' })),
       cheque, lead_or_follow: o.lead_or_follow, application_url: o.application_url, jobs_url: o.jobs_url,
       team: teamOf.get(o.id) ?? [],
       funds: (fundsOf.get(o.id) ?? []).map((f) => ({
@@ -177,7 +184,7 @@ export function buildInvestorSnapshot(data, version) {
     });
   }
 
-  return { version, loadedAt: Date.now(), count: cards.length, cards, search, profiles, personProfiles, people: people.length };
+  return { version, loadedAt: Date.now(), count: cards.length, cards, search, profiles, personProfiles, offices, people: people.length };
 }
 
 // ---------- the catalog: loaded from the files, rebuilt when one changes ----------
@@ -286,10 +293,11 @@ export function sortInvestors(snap, matched, sort = 'name') {
   return [...matched].sort(compare);
 }
 
-// The investors on the map. An investor's record has a city (its headquarters) and a list of the cities it has offices in, and never a street
-// address, so what is drawn is a CITY: the reference point of that city (geo/places.js), labelled city-level, never an office. An investor with
-// a headquarters city and two offices is three marks; one with only a country ("Australia") has none, and is counted as unplaced. `cities`
-// (names) keeps only the marks in those cities. Like the companies' groups, nothing here is jittered or moved to tell two marks apart.
+// The investors on the map. An investor's record has a city (its headquarters), a list of the cities it has offices in, and, for the offices whose
+// own page states one, a street address. An office with an address the geocoder has placed (investors/offices.js) is drawn there: precision EXACT, the
+// address as the page gives it. Every other office is drawn as a CITY: the reference point of that city (geo/places.js), labelled city-level, never an
+// office. An investor with a headquarters city and two offices is three marks; one with only a country ("Australia") has none, and is counted as
+// unplaced. `cities` (names) keeps only the marks in those cities. Like the companies' groups, nothing here is jittered or moved to tell two apart.
 export function investorPins(snap, matched, { cities = null } = {}) {
   const wanted = cities ? new Set([...cities].map((c) => String(c).toLowerCase())) : null;
   const items = [];
@@ -306,12 +314,18 @@ export function investorPins(snap, matched, { cities = null } = {}) {
     }
     const shown = spots.filter(({ centre }) => !wanted || wanted.has(centre.name.toLowerCase()));
     if (spots.length) pinned += 1;
+    const placed = (snap.offices?.get(card.slug) ?? []).filter((x) => x.status === 'placed');
+    const common = { slug: card.slug, name: card.name, type: card.type, type_label: card.type_label, domain: card.domain, logo: profile.logo ?? null, stages: card.stages, sectors: card.sectors, portfolio_count: card.portfolio_count };
     for (const { role, centre } of shown) {
-      items.push({
-        id: `${card.slug}@${centre.name}`, slug: card.slug, name: card.name, type: card.type, type_label: card.type_label, domain: card.domain, logo: profile.logo ?? null,
-        lat: centre.lat, lng: centre.lng, city: centre.name, state: centre.state, place: `${centre.name}, ${centre.state}`, role, precision: 'CITY',
-        stages: card.stages, sectors: card.sectors, portfolio_count: card.portfolio_count,
-      });
+      const here = placed.filter((x) => x.office.city.toLowerCase() === centre.name.toLowerCase());
+      if (here.length) {
+        here.forEach((x, n) => items.push({
+          ...common, id: `${card.slug}@${centre.name}${n ? `#${n + 1}` : ''}`, lat: x.point.lat, lng: x.point.lng, city: centre.name, state: centre.state,
+          place: x.office.address, address: x.office.address, role, precision: 'EXACT',
+        }));
+      } else {
+        items.push({ ...common, id: `${card.slug}@${centre.name}`, lat: centre.lat, lng: centre.lng, city: centre.name, state: centre.state, place: `${centre.name}, ${centre.state}`, address: null, role, precision: 'CITY' });
+      }
     }
   }
   return { count: matched.length, pinned, unplaced: matched.length - pinned, items };

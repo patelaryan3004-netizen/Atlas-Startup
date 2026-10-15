@@ -12757,5 +12757,164 @@
         "to": "high"
       }
     ]
+  },
+  {
+    "id": "aud-20261015071755519-1",
+    "at": "2026-10-15T07:17:55.519Z",
+    "actor": "Claude (office addresses)",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "blackbird"
+    },
+    "summary": "Applied 19 claim(s) from the research file to Blackbird",
+    "reason": null,
+    "changes": [
+      {
+        "field": "office_addresses",
+        "from": [],
+        "to": [
+          "Melbourne: 15 Dover St, Cremorne VIC 3121",
+          "Sydney: Level 1, 111 Albion Street, Surry Hills NSW 2010"
+        ]
+      },
+      {
+        "field": "last_verified_at",
+        "from": "2026-10-10T16:26:24.529Z",
+        "to": "2026-10-15T07:17:55.519Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261015071755519-2",
+    "at": "2026-10-15T07:17:55.519Z",
+    "actor": "Claude (office addresses)",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "square-peg"
+    },
+    "summary": "Applied 16 claim(s) from the research file to Square Peg",
+    "reason": null,
+    "changes": [
+      {
+        "field": "office_addresses",
+        "from": [],
+        "to": [
+          "Melbourne: 19-21 Yorkshire Street, Richmond VIC 3121",
+          "Sydney: 3/44a Foveaux Street, Surry Hills NSW 2010"
+        ]
+      },
+      {
+        "field": "last_verified_at",
+        "from": "2026-10-10T16:26:24.529Z",
+        "to": "2026-10-15T07:17:55.519Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261015071755519-3",
+    "at": "2026-10-15T07:17:55.519Z",
+    "actor": "Claude (office addresses)",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "rampersand"
+    },
+    "summary": "Applied 22 claim(s) from the research file to Rampersand",
+    "reason": null,
+    "changes": [
+      {
+        "field": "office_addresses",
+        "from": [],
+        "to": [
+          "Melbourne: 11-13 Cubitt Street, Cremorne VIC 3121",
+          "Sydney: Level 1, 251 Riley Street, Surry Hills NSW 2010"
+        ]
+      },
+      {
+        "field": "last_verified_at",
+        "from": "2026-10-10T16:26:24.529Z",
+        "to": "2026-10-15T07:17:55.519Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261015071755519-4",
+    "at": "2026-10-15T07:17:55.519Z",
+    "actor": "Claude (office addresses)",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "tidal"
+    },
+    "summary": "Applied 20 claim(s) from the research file to Tidal Ventures",
+    "reason": null,
+    "changes": [
+      {
+        "field": "office_addresses",
+        "from": [],
+        "to": [
+          "Sydney: Level 19, 88 Phillip St, Sydney NSW 2000"
+        ]
+      },
+      {
+        "field": "last_verified_at",
+        "from": "2026-10-10T16:26:24.529Z",
+        "to": "2026-10-15T07:17:55.519Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261015071755519-5",
+    "at": "2026-10-15T07:17:55.519Z",
+    "actor": "Claude (office addresses)",
+    "role": "cli",
+    "via": "cli",
+    "action": "investor.import",
+    "target": {
+      "type": "investor",
+      "id": "brandon-capital"
+    },
+    "summary": "Applied 15 claim(s) from the research file to Brandon Capital",
+    "reason": null,
+    "changes": [
+      {
+        "field": "office_addresses",
+        "from": [],
+        "to": [
+          "Melbourne: Level 9, 31 Queen Street, Melbourne VIC 3000",
+          "Sydney: Suite 2.05, 1 York Street, Sydney NSW 2000"
+        ]
+      },
+      {
+        "field": "last_verified_at",
+        "from": "2026-10-10T16:26:24.529Z",
+        "to": "2026-10-15T07:17:55.519Z"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261015071906189-1",
+    "at": "2026-10-15T07:19:06.189Z",
+    "actor": "Claude (office addresses)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 7 investor office address(es), 2 answered from the cache",
+    "reason": null,
+    "changes": []
   }
 ]

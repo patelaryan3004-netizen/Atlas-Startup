@@ -202,6 +202,8 @@
 .xp-facts dt{color:var(--muted);}
 .xp-facts dd{margin:0;overflow-wrap:anywhere;}
 .xp-none{color:var(--muted);}
+.xp-addresses{margin:0;padding:0;list-style:none;display:grid;gap:6px;}
+.xp-addresses b{font-weight:600;}
 .xp-tabpanel .xp-facts{margin-top:10px;}
 .xp-card .verified-note{margin-top:12px;}
 .xp-note{margin:0;font-size:15px;line-height:1.5;color:#b9bfbd;}

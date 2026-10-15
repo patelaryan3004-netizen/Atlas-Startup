@@ -660,6 +660,30 @@
     "note": "Blackbird is an Australasian investment firm"
   },
   {
+    "id": "blackbird.office_addresses.melbourne-15-dover-st-cremorne-vic-3121.blackbird-vc-2104dbb8",
+    "subject_type": "investor_organisation",
+    "subject_id": "blackbird",
+    "field": "office_addresses",
+    "value": "Melbourne: 15 Dover St, Cremorne VIC 3121",
+    "source_id": "blackbird-vc-2104dbb8",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "15 Dover St, Cremorne, VIC, Australia, 3121"
+  },
+  {
+    "id": "blackbird.office_addresses.sydney-level-1-111-albion-street-surry-hills-nsw-2010.blackbird-vc-2104dbb8",
+    "subject_type": "investor_organisation",
+    "subject_id": "blackbird",
+    "field": "office_addresses",
+    "value": "Sydney: Level 1, 111 Albion Street, Surry Hills NSW 2010",
+    "source_id": "blackbird-vc-2104dbb8",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Level 1, 111 Albion Street, Surry Hills NSW, Australia 2010"
+  },
+  {
     "id": "blackbird.other_offices.auckland.blackbird-vc-2104dbb8",
     "subject_type": "investor_organisation",
     "subject_id": "blackbird",
@@ -814,6 +838,30 @@
     "verified_at": "2026-10-10T16:26:24.529Z",
     "status": "active",
     "note": "Brandon Capital is Australasia's leading life science venture capital firm"
+  },
+  {
+    "id": "brandon-capital.office_addresses.melbourne-level-9-31-queen-street-melbourne-vic-3000.brandoncapital-vc-5e89b1b6",
+    "subject_type": "investor_organisation",
+    "subject_id": "brandon-capital",
+    "field": "office_addresses",
+    "value": "Melbourne: Level 9, 31 Queen Street, Melbourne VIC 3000",
+    "source_id": "brandoncapital-vc-5e89b1b6",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Melbourne Level 9, 31 Queen Street Melbourne VIC 3000"
+  },
+  {
+    "id": "brandon-capital.office_addresses.sydney-suite-2-05-1-york-street-sydney-nsw-2000.brandoncapital-vc-5e89b1b6",
+    "subject_type": "investor_organisation",
+    "subject_id": "brandon-capital",
+    "field": "office_addresses",
+    "value": "Sydney: Suite 2.05, 1 York Street, Sydney NSW 2000",
+    "source_id": "brandoncapital-vc-5e89b1b6",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Sydney Suite 2.05, 1 York Street Sydney NSW 2000"
   },
   {
     "id": "brandon-capital.other_offices.melbourne.brandoncapital-vc-5e89b1b6",
@@ -2280,6 +2328,30 @@
     "note": "Rampersand – First to believe. First to invest."
   },
   {
+    "id": "rampersand.office_addresses.melbourne-11-13-cubitt-street-cremorne-vic-3121.rampersand-vc-7d498991",
+    "subject_type": "investor_organisation",
+    "subject_id": "rampersand",
+    "field": "office_addresses",
+    "value": "Melbourne: 11-13 Cubitt Street, Cremorne VIC 3121",
+    "source_id": "rampersand-vc-7d498991",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "11–13 Cubitt Street Cremorne VIC 3121"
+  },
+  {
+    "id": "rampersand.office_addresses.sydney-level-1-251-riley-street-surry-hills-nsw-2010.rampersand-vc-7d498991",
+    "subject_type": "investor_organisation",
+    "subject_id": "rampersand",
+    "field": "office_addresses",
+    "value": "Sydney: Level 1, 251 Riley Street, Surry Hills NSW 2010",
+    "source_id": "rampersand-vc-7d498991",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Level 1, 251 Riley Street Surry Hills NSW 2010"
+  },
+  {
     "id": "rampersand.other_offices.san-francisco.rampersand-vc-7afef80f",
     "subject_type": "investor_organisation",
     "subject_id": "rampersand",
@@ -2626,6 +2698,30 @@
     "verified_at": "2026-10-10T16:26:24.529Z",
     "status": "active",
     "note": "Learn about Square Peg, a venture capital firm founded in Australia in 2012"
+  },
+  {
+    "id": "square-peg.office_addresses.melbourne-19-21-yorkshire-street-richmond-vic-3121.squarepeg-vc-1f9d958f",
+    "subject_type": "investor_organisation",
+    "subject_id": "square-peg",
+    "field": "office_addresses",
+    "value": "Melbourne: 19-21 Yorkshire Street, Richmond VIC 3121",
+    "source_id": "squarepeg-vc-1f9d958f",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Melbourne, Australia 19-21 Yorkshire Street, Richmond, VIC, 3121"
+  },
+  {
+    "id": "square-peg.office_addresses.sydney-3-44a-foveaux-street-surry-hills-nsw-2010.squarepeg-vc-1f9d958f",
+    "subject_type": "investor_organisation",
+    "subject_id": "square-peg",
+    "field": "office_addresses",
+    "value": "Sydney: 3/44a Foveaux Street, Surry Hills NSW 2010",
+    "source_id": "squarepeg-vc-1f9d958f",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Sydney, Australia 3/44a Foveaux Street, Surry Hills, NSW, 2010"
   },
   {
     "id": "square-peg.other_offices.melbourne.squarepeg-vc-1f9d958f",
@@ -3122,6 +3218,18 @@
     "verified_at": "2026-10-10T16:26:24.529Z",
     "status": "active",
     "note": "Tidal Ventures is an Australian venture capital firm investing in early-stage AI companies across Australia and the US."
+  },
+  {
+    "id": "tidal.office_addresses.sydney-level-19-88-phillip-st-sydney-nsw-2000.tidalvc-com-4dedd90a",
+    "subject_type": "investor_organisation",
+    "subject_id": "tidal",
+    "field": "office_addresses",
+    "value": "Sydney: Level 19, 88 Phillip St, Sydney NSW 2000",
+    "source_id": "tidalvc-com-4dedd90a",
+    "confidence": "high",
+    "verified_at": "2026-10-15T07:17:55.519Z",
+    "status": "active",
+    "note": "Tidal Sydney Level 19, 88 Phillip St Sydney, NSW 2000"
   },
   {
     "id": "tidal.other_offices.brisbane.tidalvc-com-b264807d",

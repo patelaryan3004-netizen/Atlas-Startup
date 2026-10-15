@@ -67,6 +67,7 @@ const DEFAULTS = {
   state: null,
   country: null,
   other_offices: [],
+  office_addresses: [],
   stages: [],
   sectors: [],
   geographies: [],
@@ -84,7 +85,7 @@ const DEFAULTS = {
   updated_at: null,
 };
 export const INVESTOR_ADDED_FIELDS = Object.keys(DEFAULTS);
-const LIST_FIELDS = new Set(['other_offices', 'stages', 'sectors', 'geographies']);
+const LIST_FIELDS = new Set(['other_offices', 'office_addresses', 'stages', 'sectors', 'geographies']);
 
 export const emptyInvestorFields = () => Object.fromEntries(Object.entries(DEFAULTS).map(([k, v]) => [k, Array.isArray(v) ? [] : v]));
 
@@ -101,13 +102,13 @@ export function migrateInvestorRecord(record) {
 // The claims about an investor that a source has to back before a person can call the record checked. A field that is
 // null or empty is not a claim and needs nothing.
 export const CLAIM_FIELDS = [
-  'name', 'website', 'investor_type', 'inclusion_basis', 'headquarters_city', 'state', 'country', 'other_offices', 'stages', 'sectors',
+  'name', 'website', 'investor_type', 'inclusion_basis', 'headquarters_city', 'state', 'country', 'other_offices', 'office_addresses', 'stages', 'sectors',
   'geographies', 'typical_cheque', 'lead_or_follow', 'active_status', 'application_url', 'jobs_url', 'description', 'investment_thesis',
 ];
 
 // The fields a person may change on an investor (the Command Center's Edit, and the CLI). Each claim field changed needs a source.
 export const EDITABLE_INVESTOR_FIELDS = [
-  'website', 'investor_type', 'inclusion_basis', 'headquarters_city', 'state', 'country', 'other_offices', 'stages', 'sectors',
+  'website', 'investor_type', 'inclusion_basis', 'headquarters_city', 'state', 'country', 'other_offices', 'office_addresses', 'stages', 'sectors',
   'geographies', 'typical_cheque_min', 'typical_cheque_max', 'cheque_currency', 'lead_or_follow', 'active_status',
   'application_url', 'jobs_url', 'description', 'investment_thesis',
 ];
@@ -119,9 +120,17 @@ export function claimValue(org, field) {
       if (org.typical_cheque_min == null && org.typical_cheque_max == null) return null;
       return { min: org.typical_cheque_min ?? null, max: org.typical_cheque_max ?? null, currency: org.cheque_currency ?? null };
     }
-    case 'other_offices': case 'stages': case 'sectors': case 'geographies': return org[field]?.length ? org[field] : null;
+    case 'other_offices': case 'office_addresses': case 'stages': case 'sectors': case 'geographies': return org[field]?.length ? org[field] : null;
     default: return org[field] === undefined || org[field] === '' ? null : org[field];
   }
+}
+
+// An office's street address, as the record keeps it: "Melbourne: 15 Dover St, Cremorne VIC 3121", the city the page puts it under (one of the
+// investor's offices) and the address, written plainly so it can be looked up. What the page itself says, word for word, is the evidence row's note.
+// Null for anything that is not that shape.
+export function parseOfficeAddress(entry) {
+  const m = /^([^:]{2,60}):\s*(\S.*)$/.exec(String(entry ?? '').trim());
+  return m ? { city: m[1].trim(), address: m[2].trim() } : null;
 }
 
 // ---------- validation ----------
@@ -152,6 +161,16 @@ export function investorProblems(org) {
     else if (duplicates(org[key]).length) bad(`${key} repeats ${JSON.stringify(duplicates(org[key])[0])}`);
   }
   if (Array.isArray(org.stages)) for (const s of org.stages) if (!INVESTOR_STAGES.includes(s)) bad(`invalid stage ${JSON.stringify(s)}`);
+  // An office address belongs to an office: its city is the headquarters or one of the other offices, so an address never floats free of a place.
+  if (Array.isArray(org.office_addresses)) {
+    const cities = [org.headquarters_city, ...(Array.isArray(org.other_offices) ? org.other_offices : [])].filter(Boolean).map((c) => String(c).toLowerCase());
+    for (const entry of org.office_addresses) {
+      if (typeof entry !== 'string') continue;
+      const parsed = parseOfficeAddress(entry);
+      if (!parsed) bad(`office address ${JSON.stringify(entry)} must be written "City: street address"`);
+      else if (!cities.includes(parsed.city.toLowerCase())) bad(`office address ${JSON.stringify(entry)} is for a city that is neither the headquarters nor one of the other offices`);
+    }
+  }
 
   for (const key of ['typical_cheque_min', 'typical_cheque_max']) {
     if (org[key] != null && (!isNum(org[key]) || org[key] < 0)) bad(`${key} must be a number >= 0 or null`);

@@ -488,6 +488,34 @@ describe('the VC\'s panel', () => {
     expect(fetchInvestor).toHaveBeenCalledWith('oif', expect.objectContaining({ signal: expect.any(AbortSignal) }));
   });
 
+  it('lists the street addresses its pages give, each under its city, and shows none when the record gives none', async () => {
+    fetchInvestor.mockResolvedValue({
+      ...RECORD,
+      office_addresses: [
+        { city: 'Melbourne', address: '15 Dover St, Cremorne VIC 3121', located: true },
+        { city: 'Sydney', address: 'Level 1, 111 Albion Street, Surry Hills NSW 2010', located: false },
+      ],
+    });
+    const { unmount } = setup();
+    const term = await screen.findByText('Addresses', { selector: 'dt' });
+    const list = term.parentElement.querySelector('ul.xp-addresses');
+    expect([...list.querySelectorAll('li')].map((li) => li.textContent)).toEqual(['Melbourne 15 Dover St, Cremorne VIC 3121', 'Sydney Level 1, 111 Albion Street, Surry Hills NSW 2010']);
+    unmount();
+    fetchInvestor.mockResolvedValue({ ...RECORD, office_addresses: [] });
+    setup();
+    await screen.findByText('Melbourne · Brisbane');
+    expect(screen.queryByText('Addresses', { selector: 'dt' })).toBeNull();
+  });
+
+  it('shows the address a mark stands at in its place line, in the words of its page, with the exact-address wording', () => {
+    fetchInvestor.mockImplementation(() => new Promise(() => {}));
+    setup({ pin: { ...PIN, id: 'oif@Melbourne#1', city: 'Melbourne', location: { precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121', quality: 'Office address from its own website' } } });
+    const panel = screen.getByRole('region', { name: 'OIF Ventures' });
+    expect(within(panel).getByText('15 Dover St, Cremorne VIC 3121')).toBeInTheDocument();
+    expect(within(panel).getByText('Office address from its own website')).toBeInTheDocument();
+    expect(within(panel).queryByText(/no address on file/)).toBeNull();
+  });
+
   it('lists the companies a page says it backed, each once, and opens one from its name', async () => {
     const { props } = setup();
     expect(await screen.findByRole('heading', { name: 'Portfolio (2)' })).toBeInTheDocument();

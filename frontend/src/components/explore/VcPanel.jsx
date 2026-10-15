@@ -37,6 +37,7 @@ export default function VcPanel({ pin, saved = false, onToggleSaved, onClose, on
   const focus = listOf(record?.sectors);
   const stages = listOf(record?.stages);
   const offices = listOf(record?.other_offices);
+  const addresses = record?.office_addresses ?? []; // the street addresses its own pages give, each under its city
   const portfolio = record?.portfolio ?? [];
   const connected = [...new Map(portfolio.map((row) => [row.company.slug, row.company])).values()];
   const description = record?.description || record?.investment_thesis;
@@ -68,6 +69,12 @@ export default function VcPanel({ pin, saved = false, onToggleSaved, onClose, on
         {focus && <div><dt>Focus</dt><dd>{focus}</dd></div>}
         {stages && <div><dt>Stages</dt><dd>{stages}</dd></div>}
         {offices && <div><dt>Other offices</dt><dd>{offices}</dd></div>}
+        {addresses.length > 0 && (
+          <div>
+            <dt>Addresses</dt>
+            <dd><ul className="xp-addresses">{addresses.map((a) => <li key={`${a.city}: ${a.address}`}><b>{a.city}</b> {a.address}</li>)}</ul></dd>
+          </div>
+        )}
         {record && !focus && !stages && <div><dt>Focus</dt><dd className="xp-none">Not stated</dd></div>}
       </dl>
 

@@ -87,9 +87,9 @@ export function quoteFound(pageText, quote) {
 // ---------- applying a research entry ----------
 
 // The order claims are applied in, so a record is valid after each one (a state needs its country first).
-const ORDER = ['name', 'website', 'inclusion_basis', 'investor_type', 'country', 'headquarters_city', 'state', 'other_offices', 'stages', 'sectors', 'geographies',
+const ORDER = ['name', 'website', 'inclusion_basis', 'investor_type', 'country', 'headquarters_city', 'state', 'other_offices', 'office_addresses', 'stages', 'sectors', 'geographies',
   'typical_cheque', 'lead_or_follow', 'active_status', 'application_url', 'jobs_url', 'description', 'investment_thesis'];
-const MULTI = new Set(['other_offices', 'stages', 'sectors', 'geographies']);
+const MULTI = new Set(['other_offices', 'office_addresses', 'stages', 'sectors', 'geographies']);
 
 // One investor's entry from the research file, applied to a working copy. `pages` maps a page key to { url, text, kind? }.
 // Returns what was done: { id, applied, refused: [{ field, value, why }], created, merged, approved }.

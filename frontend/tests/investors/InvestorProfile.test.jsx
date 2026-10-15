@@ -86,6 +86,25 @@ describe('an investor profile with everything a page backs', () => {
     expect(facts.getByText('Investing now')).toBeInTheDocument();
   });
 
+  it('lists the street addresses its own pages give, each under its city, and shows no such fact when none is stated', async () => {
+    const addresses = [
+      { city: 'Melbourne', address: '15 Dover St, Cremorne VIC 3121', located: true },
+      { city: 'Sydney', address: 'Level 1, 111 Albion Street, Surry Hills NSW 2010', located: false },
+    ];
+    serve(api, { profiles: { blackbird: { ...full(), other_offices: ['Melbourne'], office_addresses: addresses } } });
+    const { unmount } = open('blackbird');
+    const facts = within(await screen.findByRole('complementary', { name: 'Facts' }));
+    const list = facts.getByRole('list', { name: 'Office addresses' });
+    expect(within(list).getAllByRole('listitem').map((li) => li.textContent)).toEqual(['Melbourne 15 Dover St, Cremorne VIC 3121', 'Sydney Level 1, 111 Albion Street, Surry Hills NSW 2010']);
+    expect(facts.getByText('As its own pages state them')).toBeInTheDocument();
+    unmount();
+    serve(api, { profiles: { blackbird: { ...full(), office_addresses: [] } } });
+    open('blackbird');
+    const bare = within(await screen.findByRole('complementary', { name: 'Facts' }));
+    expect(bare.queryByRole('list', { name: 'Office addresses' })).toBeNull();
+    expect(bare.queryByText('Office addresses')).toBeNull();
+  });
+
   it('lists the portfolio with the round, the date as far as a page gives it, an amount only if stated, who led, and a link to the page that says so', async () => {
     serve(api, { profiles: { blackbird: full() } });
     open('blackbird');

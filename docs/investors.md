@@ -34,6 +34,17 @@ same thing. Closing keeps the list where it was: the card the visitor was lookin
 An investor is found under both its state and its country, so `location=Australia` lists every Australian investor and `location=NSW` only the
 ones in NSW. The menu's counts follow the same rule (an investor counts once under each).
 
+## Office addresses
+
+An investor can state the street address of an office: `office_addresses`, one `"City: street address"` per entry, where the city is its headquarters
+city or one of `other_offices`. Like every claim it needs a page that states it and the page's words (the Command Center's edit form asks for both; the
+research file `backend/scripts/investors/research.json` takes `["office_addresses", "Melbourne: 15 Dover St, Cremorne VIC 3121", "contact", "<the
+words on the page>"]` and `npm run investors -- fetch` then `import --apply` applies it only if those words are on the cached page). A pasted address that
+no page of the firm's own states is not entered: it goes in the file's `unconfirmed` list with the reason (Artesian's, for instance).
+
+The page shows the addresses under "Office addresses". `npm run investors -- offices [--geocode] [--only slug,slug]` reports where each address stands and
+asks the geocoder for the ones not asked yet; the map draws an office at its address only once that answer is confirmed (see `docs/map.md`).
+
 ## API used by the page
 
 `GET /api/investors` (search, type, stage, sector, location, lead, active, chequeMin, chequeMax, **slug**; sort `name | name_desc | portfolio |

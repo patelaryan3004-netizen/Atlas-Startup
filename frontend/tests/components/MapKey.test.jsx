@@ -14,7 +14,7 @@ describe('MapKey', () => {
 
   it('says what every mark on the map means', () => {
     render(<MapKey />);
-    for (const words of [/rounded square with the company.s logo, or its first letter/, /mint dot: hiring now/i, /A star: a company you saved/i, /dashed edge: placed at the suburb/i, /square with VC on it and a dashed edge/i, /never a street address/i, /numbered ring/i, /dashed ring/i, /Names appear under the pins/]) {
+    for (const words of [/rounded square with the company.s logo, or its first letter/, /mint dot: hiring now/i, /A star: a company you saved/i, /dashed edge: placed at the suburb/i, /square with VC on it and a solid edge: an office/i, /square with VC on it and a dashed edge: only the firm.s city/i, /gives no street address for it that could be placed/i, /numbered ring/i, /dashed ring/i, /Names appear under the pins/]) {
       expect(within(key()).getByText(words)).toBeInTheDocument();
     }
   });
@@ -22,10 +22,12 @@ describe('MapKey', () => {
   it('draws the marks with the map\'s own classes, so the key cannot drift from the map', () => {
     render(<MapKey />);
     const k = key();
-    expect(k.querySelectorAll('.custom-pin-badge').length).toBe(5);
-    expect(k.querySelectorAll('.custom-pin-badge.pin-tile').length).toBe(5); // every mark is a tile: there is no dot
+    expect(k.querySelectorAll('.custom-pin-badge').length).toBe(6);
+    expect(k.querySelectorAll('.custom-pin-badge.pin-tile').length).toBe(6); // every mark is a tile: there is no dot
     expect(k.querySelector('.pin-dot')).toBeNull();
     expect(k.querySelectorAll('.custom-pin-badge.pin-approx').length).toBe(2); // a suburb, and a VC (a city)
+    expect(k.querySelectorAll('.custom-pin-badge.pin-vc').length).toBe(2);
+    expect(k.querySelectorAll('.custom-pin-badge.pin-vc:not(.pin-approx)').length).toBe(1); // a VC at its office address has a solid edge
     expect(k.querySelector('.custom-pin-badge.pin-vc .pin-vc-badge')).toHaveTextContent('VC');
     expect(k.querySelector('.pin-hiring-dot')).not.toBeNull();
     expect(k.querySelector('.pin-tracked-star')).not.toBeNull();

@@ -12,7 +12,7 @@ import { investorHref, personHref } from './route.js';
 // What a page backs, in the words a visitor uses.
 const BACKS = {
   name: 'its name', website: 'its website', investor_type: 'its type', inclusion_basis: 'why it is listed', headquarters_city: 'where it is based', state: 'where it is based',
-  country: 'where it is based', other_offices: 'its offices', stages: 'its stages', sectors: 'its sectors', geographies: 'where it invests', typical_cheque: 'its cheque size',
+  country: 'where it is based', other_offices: 'its offices', office_addresses: 'its office addresses', stages: 'its stages', sectors: 'its sectors', geographies: 'where it invests', typical_cheque: 'its cheque size',
   lead_or_follow: 'whether it leads', active_status: 'whether it is investing', application_url: 'how to apply', jobs_url: 'its jobs page', description: 'its description',
   investment_thesis: 'its thesis', portfolio: 'its portfolio', team: 'its team',
 };
@@ -152,7 +152,7 @@ export function SourceRows({ sources }) {
 
 // What the profile states about the investor, as a list of labelled facts. `d` is the profile; `skip` names facts the page already shows elsewhere.
 export function profileHasFacts(d) {
-  return Boolean(d.type_label || d.location?.label || d.other_offices.length || d.stages.length || d.sectors.length || d.geographies.length || chequeText(d.cheque) || d.lead_or_follow || d.active_status);
+  return Boolean(d.type_label || d.location?.label || d.other_offices.length || d.office_addresses?.length || d.stages.length || d.sectors.length || d.geographies.length || chequeText(d.cheque) || d.lead_or_follow || d.active_status);
 }
 
 export function FactList({ d, skip = [] }) {
@@ -164,6 +164,14 @@ export function FactList({ d, skip = [] }) {
       {show('type') && d.type_label && <Fact label="Type">{d.type_label}</Fact>}
       {show('location') && d.location?.label && <Fact label="Based in">{d.location.label}</Fact>}
       {d.other_offices.length > 0 && <Fact label="Other offices" wide><Chips items={d.other_offices} label="Other offices" /></Fact>}
+      {d.office_addresses?.length > 0 && (
+        <Fact label="Office addresses" wide>
+          <ul className="inv-addresses" aria-label="Office addresses">
+            {d.office_addresses.map((a) => <li key={`${a.city}: ${a.address}`}><b>{a.city}</b> {a.address}</li>)}
+          </ul>
+          <span className="inv-fact-note">As its own pages state them</span>
+        </Fact>
+      )}
       {show('stages') && d.stages.length > 0 && <Fact label="Stages" wide><Chips items={d.stages} label="Stages" /></Fact>}
       {show('sectors') && d.sectors.length > 0 && <Fact label="Sectors" wide><Chips items={d.sectors} label="Sectors" /></Fact>}
       {d.geographies.length > 0 && <Fact label="Where it invests" wide><Chips items={d.geographies} label="Where it invests" /></Fact>}

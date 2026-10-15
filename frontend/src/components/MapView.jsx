@@ -108,8 +108,8 @@ function tooltipContent(tuple) {
     what.className = 'tip-place';
     what.textContent = `${tuple[13].length} venture capital firms · ${place || city}`;
     const quality = document.createElement('div');
-    quality.className = 'tip-quality tip-city';
-    quality.textContent = 'City-level: the city, no address on file. Press to list them.';
+    quality.className = `tip-quality tip-${precision === 'EXACT' ? 'exact' : 'city'}`;
+    quality.textContent = precision === 'EXACT' ? 'Office address from their own websites. Press to list them.' : 'City-level: the city, no address on file. Press to list them.';
     box.append(strong, what, quality);
     return box;
   }
@@ -118,7 +118,7 @@ function tooltipContent(tuple) {
     what.className = 'tip-place';
     what.textContent = `Venture capital · ${place || city}`;
     const quality = document.createElement('div');
-    quality.className = 'tip-quality tip-city';
+    quality.className = `tip-quality tip-${precision === 'EXACT' ? 'exact' : 'city'}`;
     quality.textContent = pinPayload(tuple).location.quality;
     box.append(strong, what, quality);
     return box;

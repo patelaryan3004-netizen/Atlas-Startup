@@ -10,6 +10,10 @@
 //   npm run investors -- portfolio [--only id,id] [--apply]     match the investors' cached portfolio pages to the directory's companies
 //   npm run investors -- link    [--apply]                      record the investments that evidence and funding rounds the directory already holds state
 //   npm run investors -- publish <id>... | --all-verified --by <name> [--apply]     publish verified records (a person's act)
+//   npm run investors -- offices [--geocode] [--only id,id]     the street addresses the investors' pages give (office_addresses) and where the geocoder
+//                                puts each; with --geocode the ones it has not been asked about are asked (OpenStreetMap's Nominatim: one request a
+//                                second, answers kept in geocode_cache.json). A good answer puts the office on the map at that address; a doubtful one
+//                                is reported and the office stays a city.
 //
 // import, portfolio, link and publish show what they would do and write nothing unless given --apply. Add --data <dir> to work on a
 // copy of the data files, --cache <dir> for the page cache (default backend/.investor-cache, not committed) and --research <file>
@@ -24,6 +28,9 @@ import { publishInvestor, addInvestment } from '../src/models/investorActions.js
 import { createFetcher, DEFAULT_USER_AGENT, FetchPolicyError } from '../src/discovery/http.js';
 import { pageFacts, suggestPages, applyResearchEntry, matchPortfolio } from '../src/investors/research.js';
 import { diffChanges } from '../src/models/auditTrail.js';
+import { createGeocoder, geocodeCached, mergeCache, PROVIDER } from '../src/geo/geocode.js';
+import { lookup } from '../src/models/geocodeCache.js';
+import { officeQuestion, officeVerdict } from '../src/investors/offices.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_DATA_DIR = path.join(HERE, '..', 'src', 'data');
@@ -128,7 +135,7 @@ export async function main(argv, deps = {}) {
   const apply = Boolean(flags.apply);
   const only = text(flags, 'only') ? new Set(text(flags, 'only').split(',').map((s) => s.trim()).filter(Boolean)) : null;
 
-  if (!command || command === 'help') { out('Commands: status, review, fetch, digest, import, portfolio, link, publish. See scripts/investors.js and docs/investors.md.'); return 0; }
+  if (!command || command === 'help') { out('Commands: status, review, fetch, digest, import, portfolio, link, publish, offices. See scripts/investors.js and docs/investors.md.'); return 0; }
 
   switch (command) {
     case 'status': {
@@ -143,6 +150,44 @@ export async function main(argv, deps = {}) {
         `Team: ${r.team.records} role(s), ${r.team.stale} not checked for a year`, `Possible duplicate firms: ${r.duplicates.firms.length}, people: ${r.duplicates.people.length}`, `Sources disagree on: ${r.conflicts.count} field(s)`, '',
         `Review queue: ${r.rows.length} organisation(s)`, ...Object.entries(INVESTOR_ISSUES).filter(([code]) => r.counts[code]).map(([code, spec]) => `  ${pad(r.counts[code])}  ${spec.label} (${spec.severity}) [${code}]`)].join('\n'));
       return 0;
+    }
+
+    case 'offices': {
+      const { ds } = await snapshot(dir, { now });
+      const firms = (ds.investors ?? []).filter((o) => (o.office_addresses ?? []).length && (!only || only.has(o.id)));
+      const rows = structuredClone(ds.geocode_cache ?? []);
+      let asked = 0; let spared = 0; let stopped = null;
+      if (flags.geocode) {
+        const gc = deps.geocoder ?? createGeocoder({ fetchImpl: deps.fetchImpl, now, sleep: deps.sleep });
+        for (const o of firms) {
+          for (const entry of o.office_addresses) {
+            const q = officeQuestion(entry);
+            if (!q) continue;
+            if (lookup(rows, PROVIDER, q.query, now())) { spared += 1; continue; }
+            asked += 1;
+            const { row } = await geocodeCached(gc, rows, q.query, now());
+            if (row.status === 'error') out(`  ${o.name}: ${row.error}`);
+            if (gc.stopped) { stopped = gc.stopped; break; }
+          }
+          if (stopped) break;
+        }
+        if (asked) {
+          await transact(dir, (work) => ({
+            result: (work.geocode_cache = mergeCache(work.geocode_cache ?? [], rows)),
+            audit: [{ actor: { name: by, role: 'cli' }, via: 'cli', action: 'location.geocode', target: { type: 'system', id: 'geocoder' }, summary: `Asked the geocoder about ${asked} investor office address(es), ${spared} answered from the cache${stopped ? `; stopped: ${stopped}` : ''}` }],
+          }), { now });
+        }
+      }
+      const tally = { placed: 0, conflict: 0, unsettled: 0, 'not asked': 0, 'no street': 0 };
+      for (const o of firms) {
+        for (const entry of o.office_addresses) {
+          const v = officeVerdict(entry, rows);
+          tally[v.status] += 1;
+          out(`${o.name.padEnd(22)} ${v.office?.city.padEnd(10) ?? ''.padEnd(10)} ${v.status.padEnd(10)} ${v.office?.address ?? entry}${v.point ? `  -> ${v.point.lat.toFixed(5)}, ${v.point.lng.toFixed(5)}` : ''}${v.reason && v.status !== 'placed' ? `  (${v.reason})` : ''}`);
+        }
+      }
+      out(`${firms.length} investor(s) with an address: ${Object.entries(tally).filter(([, n]) => n).map(([k, n]) => `${n} ${k}`).join(', ') || 'none'}${flags.geocode ? `; ${asked} asked of the geocoder, ${spared} answered from the cache${stopped ? `; stopped early: ${stopped}` : ''}` : ''}`);
+      return stopped ? 2 : 0;
     }
 
     case 'review': {
