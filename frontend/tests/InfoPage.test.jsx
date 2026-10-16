@@ -30,7 +30,7 @@ describe('the plain pages', () => {
   describe('About', () => {
     it('says who runs it and why it exists, in five sentences, and claims nothing it has not done', () => {
       const { container } = render(<InfoPage page="about" />);
-      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('About AU Startup Map');
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('About Still Early');
       const text = [...container.querySelectorAll('.info-body > p:not(.info-links)')].map((p) => p.textContent).join(' ');
       expect(text).toContain('run by Aryan, a Monash University student who builds it alone');
       expect(text).toContain('founders ghost good candidates');

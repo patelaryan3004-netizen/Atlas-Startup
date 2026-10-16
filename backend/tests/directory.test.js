@@ -70,9 +70,11 @@ describe('GET /directory, who is hiring', () => {
     }
   });
 
-  it('is on the site\'s dark ground, with no paper or ochre left', async () => {
+  it('is on the site\'s white page with the forest green, and says Still Early: no dark ground, neon or ochre left', async () => {
     const res = await request(app).get('/directory');
-    expect(res.text).toContain('--bg:#0a0e0f');
-    expect(res.text).not.toMatch(/Georgia|#c05a2e|#f6f3ec|#d8d2c2/i);
+    expect(res.text).toContain('--bg:#ffffff');
+    expect(res.text).toContain('--accent:#234b3a');
+    expect(res.text).toContain('Still Early directory');
+    expect(res.text).not.toMatch(/AU Startup|#0a0e0f|#3ecf6e|#7ee8a0|Georgia|#c05a2e|#f6f3ec|#d8d2c2/i);
   });
 });

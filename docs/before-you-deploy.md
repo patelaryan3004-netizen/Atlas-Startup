@@ -60,7 +60,7 @@ Open http://localhost:5173 and look at: `/` (map), `/?view=list`, `/jobs`, `/lis
 ## Design (Stage 9), checked by machine; look at it too
 
 - [ ] Tab through `/welcome`, `/jobs`, `/investors` and the company panel with the keyboard only: every control shows a green focus ring, the dialogs keep focus inside and give it back.
-- [ ] Switch your system's animations off (Windows: Settings, Accessibility, Visual effects, Animation effects). The landing page shows everything at once, the picture stops, the map still zooms.
+- [ ] Switch your system's animations off (Windows: Settings, Accessibility, Visual effects, Animation effects). The welcome page shows everything at once, the picture stops, the map still zooms.
 - [ ] The company panel opens on the company's own colour. It is a light colour for most sectors, so its text is dark; check two or three sectors.
 - [ ] The text sizes beyond a headline are 15px and 13px on every content page (the line under a headline is 17px). The map's own controls (header, search, filters, key, tooltips) keep their compact sizes on purpose.
 

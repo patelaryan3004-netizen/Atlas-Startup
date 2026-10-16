@@ -9,7 +9,7 @@ export default function AboutSources({ onClose }) {
         <button className="modal-close" aria-label="Close" onClick={onClose}>✕</button>
         <h2>About &amp; sources</h2>
         <p className="modal-sub">
-          AU Startup Map is an independent, unofficial directory of Australian startups. It is not
+          Still Early is an independent, unofficial directory of Australian startups. It is not
           affiliated with, endorsed by, or operated on behalf of any company listed.
         </p>
 

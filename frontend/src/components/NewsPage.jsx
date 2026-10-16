@@ -16,7 +16,7 @@ export default function NewsPage({ chrome = {} }) {
   const [state, setState] = useState({ status: 'loading', deals: [], source: null });
   const [refreshing, setRefreshing] = useState(false);
   usePageMeta({
-    title: 'Australian startup news · AU Startup Map',
+    title: 'Australian startup news · Still Early',
     description: 'Recent funding rounds, acquisitions and ecosystem news about Australian startups, each linked to the publisher.',
     path: '/news',
   });

@@ -1,4 +1,4 @@
-/* AU Startup Map: the shared components. The tokens they read are at the top of styles.css; BRAND_GUIDELINES.md says how to use both.
+/* Still Early: the shared components. The tokens they read are at the top of styles.css; BRAND_GUIDELINES.md says how to use both.
    Nothing here belongs to one page: the header, the buttons, the search field, the segmented switch, the badges, the company row, the
    bookmark, the tabs, the empty state and the headings are the same on every route, so a page that needs one uses it and does not restyle it. */
 
@@ -73,8 +73,9 @@
 }
 .sh-brand{display:flex;align-items:center;gap:12px;flex:none;min-width:0;color:var(--text);text-decoration:none;border-radius:var(--r-sm);}
 .sh-brand:focus-visible{outline:var(--focus);outline-offset:4px;}
-.sh-mark{color:var(--green);flex:none;}
-.sh-name{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:-.025em;line-height:1;white-space:nowrap;}
+.wordmark{font-family:var(--font-serif);font-weight:400;letter-spacing:-.015em;line-height:1;white-space:nowrap;}
+.wordmark-dot{color:var(--coral);}
+.sh-wordmark{font-size:2rem;}
 .sh-nav{margin:0 auto;display:flex;align-items:center;height:52px;padding:0 8px;border:1px solid var(--border);border-radius:var(--radius-pill);}
 .sh-link{
   position:relative;display:inline-flex;align-items:center;gap:8px;height:100%;padding:0 20px;border:0;background:none;color:var(--text);
@@ -166,12 +167,12 @@
 @media (max-width:899px){
   .sh{gap:var(--space-2);height:64px;}
   .sh-nav{display:none;}
-  .sh-name{font-size:1.25rem;}
+  .sh-wordmark{font-size:1.75rem;}
   .sh-end{margin-left:auto;}
   .hdr-menu-mobile-nav{display:flex;flex-direction:column;gap:2px;}
 }
 @media (max-width:420px){
-  .sh-name{font-size:1.0625rem;}
+  .sh-wordmark{font-size:1.625rem;}
   .sh-brand{gap:8px;}
 }
 @media (min-width:900px){

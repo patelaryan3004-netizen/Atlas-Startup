@@ -48,7 +48,7 @@ export function project(lat, lng) {
   return { x: MARGIN_LEFT + (lng - WEST) * COS * SCALE, y: MARGIN_TOP + (NORTH - lat) * SCALE };
 }
 
-const OUTLINES = [MAINLAND, TASMANIA].map((ring) => ring.map(([lat, lng]) => project(lat, lng)));
+export const OUTLINES = [MAINLAND, TASMANIA].map((ring) => ring.map(([lat, lng]) => project(lat, lng)));
 
 function insideOutline(x, y) {
   let inside = false;

@@ -25,7 +25,7 @@ export const STARTER_LISTS = [
   { id: 'investors-people', title: 'Investors (people)', description: 'The people who back Australian startups, each with the page that backs it.', type: 'people', roleType: 'investor' },
   { id: 'investors-firms', title: 'Investors (firms)', description: 'The firms that back Australian startups.', type: 'institutions', roleType: null },
 ];
-const STARTER_CURATOR = 'AU Startup Map';
+const STARTER_CURATOR = 'Still Early';
 
 export function buildCommunity({ seed, investors = null, production = false, version = 'v0', institutionSeed = null, geocodeRows = [] }) {
   const checked = checkSeed(seed, { production });

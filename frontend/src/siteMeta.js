@@ -5,13 +5,14 @@
 // The address the site is served from. Canonical addresses, the sitemap and the preview image are made from it, so a site moved to its own
 // domain sets VITE_SITE_URL (a build setting on Vercel) and nothing else changes.
 export const SITE_URL = String(import.meta.env.VITE_SITE_URL || 'https://au-startup-map.vercel.app').replace(/\/$/, '');
-export const SITE_NAME = 'AU Startup Map';
+import { BRAND } from './brand.js';
+export const SITE_NAME = BRAND.name;
 
 // The owner's own profile: a link to it, shown in the footer and on About. Nothing is read from it.
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/aryaninspires';
 
 // The preview image links show (1200 x 630), made by scripts/make-og-image.mjs.
-export const OG_IMAGE = { path: '/og-image.png', width: 1200, height: 630, alt: 'AU Startup Map: Australia’s startup ecosystem, mapped.' };
+export const OG_IMAGE = { path: '/og-image.png', width: 1200, height: 630, alt: 'still early. The next big thing is someone. Australia’s startup community.' };
 
 // path -> { title, description }. Each title is its own; none repeats another page's.
 export const PAGE_META = {
@@ -20,8 +21,8 @@ export const PAGE_META = {
     description: 'Australian startups on a map and in a list: where they are, who is hiring now, and the page each fact came from. A beta, independent project.',
   },
   '/welcome': {
-    title: `${SITE_NAME} · Australia’s startup ecosystem, mapped`,
-    description: 'Discover Australian startups, founders, investors and jobs in one place, each with the page its facts came from and the date it was checked.',
+    title: `${SITE_NAME} · Australia’s startup community`,
+    description: 'Meet the founders, operators and investors of Australia, and see what they are building. A community in the making, with a directory of startups and investors you can use today.',
   },
   '/lists': {
     title: `Curated lists of Australian startups · ${SITE_NAME}`,
@@ -37,11 +38,11 @@ export const PAGE_META = {
   },
   '/about': {
     title: `About · ${SITE_NAME}`,
-    description: 'Who runs AU Startup Map, why it exists, and what is live and what is not yet.',
+    description: 'Who runs Still Early, why it exists, and what is live and what is not yet.',
   },
   '/contact': {
     title: `Contact · ${SITE_NAME}`,
-    description: 'Send a correction, a removal request or a question about AU Startup Map. A person reads every message.',
+    description: 'Send a correction, a removal request or a question about Still Early. A person reads every message.',
   },
 };
 

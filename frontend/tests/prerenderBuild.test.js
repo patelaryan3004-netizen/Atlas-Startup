@@ -71,20 +71,29 @@ describe('the built pages carry their own HTML, head and address', () => {
     const html = await file('app.html');
     expect(html).not.toContain('rel="canonical"');
     expect(html).not.toContain('property="og:url"');
-    expect(html).toContain('<div id="root" data-prerender="shell"><div class="static-shell"><h1>AU Startup Map</h1>');
+    expect(html).toContain('<div id="root" data-prerender="shell"><div class="static-shell"><h1>Still Early</h1>');
     expect(tag(html, /<meta property="og:image" content="([^"]+)"/)).toBe(`${SITE}/og-image.png`);
   });
 
-  it('writes the landing page as hydratable HTML with its heading, figures, hiring companies, calls to action and footer, in the file itself', async () => {
+  it('writes the welcome page as hydratable HTML with its heading, sections, forms and foot in the file itself, and asks for its picture at once', async () => {
     const html = await file('welcome/index.html');
-    expect(html).toMatch(/<div id="root" data-prerender="landing" data-snapshot="[^"]+">/);
-    expect(html).toMatch(/<h1[^>]*>Australia’s startup ecosystem, <em>mapped\.<\/em><\/h1>/);
-    expect(html.match(/class="hero-stat-num">[\d,]+</g)).toHaveLength(3);
-    expect(html.match(/class="entity-name">/g).length).toBeGreaterThanOrEqual(6);
-    expect(html).toContain('Explore the map');
-    expect(html).toContain('Submit a startup');
-    expect(html).toContain('An example entry');
-    for (const href of ['/methodology', '/about', '/contact', 'https://www.linkedin.com/in/aryaninspires']) expect(html).toContain(`href="${href}"`);
+    expect(html).toContain('<div id="root" data-prerender="landing">');
+    expect(html).toMatch(/<h1[^>]*>The next big thing<br\/>is <em>someone<span class="se-stop">\.<\/span><\/em><\/h1>/);
+    expect(html.match(/<input[^>]*type="email"/g)).toHaveLength(2);
+    expect(html).toContain('Explore the community');
+    expect(html).toContain('Stay inspired. Keep building.');
+    expect(html).toContain('Product preview · Illustrative content');
+    for (const href of ['/about', '/contact', '/news', '#join', '#privacy']) expect(html).toContain(`href="${href}"`);
+    // the opening's picture, asked for in the head: the wide one for a wide screen and the narrow one for a phone, at high priority, and not on any other page
+    expect(html).toContain('<link rel="preload" as="image" href="/img/hero-night.webp" media="(min-width: 701px)" fetchpriority="high">');
+    expect(html).toContain('<link rel="preload" as="image" href="/img/hero-night-sm.webp" media="(max-width: 700px)" fetchpriority="high">');
+    // and the two cuts of the serif its headline is set in (regular and italic), so the headline is not first drawn in another face
+    expect(html.match(/<link rel="preload" as="font" type="font\/woff2" href="\/assets\/instrument-serif-latin-400-(normal|italic)-[^"]+\.woff2" crossorigin>/g)).toHaveLength(2);
+    expect(await file('about/index.html')).not.toContain('instrument-serif');
+    expect(await file('about/index.html')).not.toContain('hero-night');
+    expect(await file('index.html')).not.toContain('hero-night');
+    // it reads no data, so it is not sent the snapshot the map and the jobs board draw from
+    expect(html).toContain("path === '' || path === '/jobs'");
   });
 
   it('keeps the no-script fallback to the plain list of every company, and shows the "rising" content to a visitor with no scripts', async () => {

@@ -477,9 +477,9 @@ export default function App() {
         return loaded && loaded.slug === route.slug
           ? { title: `${loaded.name} · Australian Startup Map`, description: startupDescription(loaded), path: appPath(route), jsonLd: startupJsonLd(loaded) }
           : { path: appPath(route) };
-      case 'jobs': return { title: 'Australian startups hiring now · AU Startup Map', description: 'Companies hiring now, each with open roles checked against its own pages.', path: '/jobs' };
-      case 'lists': return { title: 'Curated lists of Australian startups · AU Startup Map', description: 'Lists of Australian startups by industry, city and what they are doing now.', path: '/lists' };
-      case 'list': return activeList ? { title: `${activeList.name} · AU Startup Map`, description: activeList.description, path: appPath(route) } : null;
+      case 'jobs': return { title: 'Australian startups hiring now · Still Early', description: 'Companies hiring now, each with open roles checked against its own pages.', path: '/jobs' };
+      case 'lists': return { title: 'Curated lists of Australian startups · Still Early', description: 'Lists of Australian startups by industry, city and what they are doing now.', path: '/lists' };
+      case 'list': return activeList ? { title: `${activeList.name} · Still Early`, description: activeList.description, path: appPath(route) } : null;
       case 'explore': return { path: '/' };
       default: return null;
     }

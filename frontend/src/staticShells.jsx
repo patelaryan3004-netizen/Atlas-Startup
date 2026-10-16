@@ -7,7 +7,7 @@ import { curatedLists } from './curatedLists.js';
 // over it. It says only what the data says, and links to the plain list of every company.
 
 const KEY_LINKS = [
-  ['What AU Startup Map is', '/welcome'],
+  ['What Still Early is', '/welcome'],
   ['Curated lists', '/lists'],
   ['Investors', '/investors'],
   ['How we verify', '/methodology'],
@@ -28,7 +28,7 @@ function Links() {
 export function MapShell() {
   return (
     <div className="static-shell">
-      <h1>AU Startup Map</h1>
+      <h1>Still Early</h1>
       <p>
         A map and a list of Australian startups: where they are, who is hiring now, and the page each fact came from. The map needs
         JavaScript; the plain list does not.

@@ -950,7 +950,7 @@ describe('App', () => {
       render(<App />);
       const home = screen.getByRole('link', { name: 'Go to home' });
       expect(home).toHaveAttribute('href', '/welcome');
-      expect(home).toHaveTextContent('AU Startup Map');
+      expect(home).toHaveTextContent('still early.');
       expect(screen.getByRole('link', { name: 'Explore' })).toHaveAttribute('aria-current', 'page');
       expect(screen.getByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
     });

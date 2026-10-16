@@ -82,7 +82,7 @@ export default function PeopleView({ chrome = {}, onOpenCompany, onOpenInternal,
   const current = TABS.find((t) => t.id === shownTab);
 
   usePageMeta({
-    title: 'People worth following · AU Startup Map',
+    title: 'People worth following · Still Early',
     description: 'Founders, operators and investors in Australian startups, and the firms behind them, each with the pages that back it.',
     path: '/people',
   });

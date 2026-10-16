@@ -24,7 +24,7 @@ const NOOP = () => {};
 export default function InvestorPanel({ slug, card, mode = 'side', saved, onToggleSaved, onClose, onOpenFull, onOpenInvestor, onOpenPerson, onOpenCompany }) {
   const { status, data: d } = useLoaded(fetchInvestor, slug);
   // The tab names the investor that is open, and gives the directory's name back when it is shut.
-  usePageTitle(status === 'ready' ? `${d.name} · Australian Startup Investors · AU Startup Map` : null);
+  usePageTitle(status === 'ready' ? `${d.name} · Australian Startup Investors · Still Early` : null);
   const [tab, setTab] = useState('overview');
   const [suggesting, setSuggesting] = useState(false);
   const [claiming, setClaiming] = useState(false);

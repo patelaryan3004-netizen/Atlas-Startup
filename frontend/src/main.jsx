@@ -4,7 +4,6 @@ import { lazyView, Lazy } from './lazyLoad.jsx';
 import { HOME_PATH, INFO_PATHS } from './paths.js';
 import { opensOnMap } from './mapPrefetch.js';
 import { loadSnapshot } from './snapshot.js';
-import { setPrerenderClock } from './clock.js';
 import '@fontsource-variable/inter'; // the sans, served with the site (it was a stylesheet from Google that every page waited for)
 import '@fontsource/instrument-serif/latin-400.css'; // the serif of the big headings, regular and italic (the italic word in "Find your people.")
 import '@fontsource/instrument-serif/latin-400-italic.css';
@@ -40,9 +39,8 @@ const tree = (
 );
 
 // A page the build drew as HTML (scripts/prerender.mjs) is hydrated, so the text that was already on screen is kept and made live. That needs
-// the first render to come out exactly as the HTML did: the plain pages have nothing that differs; the landing page reads its figures from the
-// snapshot, so it is hydrated only once the browser has the very snapshot it was made from (the build writes its time on the root). A page of the
-// app (or any other) is drawn over the plain version the HTML carries for search engines, which a visitor with scripts never sees.
+// the first render to come out exactly as the HTML did: the plain pages and the welcome page have nothing that differs (the welcome page reads nothing from
+// the server on load). A page of the app (or any other) is drawn over the plain version the HTML carries for search engines, which a visitor with scripts never sees.
 //
 // Hydrating takes the main thread for a good while, and the page's scripts arrive before the browser has painted the HTML: left to itself the
 // browser would not paint until it was done. So hydration waits for the first paint of the HTML (a frame, or a short wait if the tab is in
@@ -52,16 +50,7 @@ const afterFirstPaint = () => Promise.race([new Promise((resolve) => requestAnim
 
 async function start() {
   if (root.dataset.prerender === 'info') { await afterFirstPaint(); ReactDOM.hydrateRoot(root, tree); return; }
-  if (root.dataset.prerender === 'landing' && root.dataset.snapshot) {
-    loadLanding(); // the page's file downloads while the snapshot is awaited
-    const snapshot = await Promise.race([loadSnapshot(), sleep(1500).then(() => null)]);
-    if (snapshot && snapshot.generatedAt === root.dataset.snapshot) {
-      await afterFirstPaint();
-      setPrerenderClock(Date.parse(snapshot.generatedAt));
-      ReactDOM.hydrateRoot(root, tree);
-      return;
-    }
-  }
+  if (root.dataset.prerender === 'landing') { loadLanding(); await afterFirstPaint(); ReactDOM.hydrateRoot(root, tree); return; }
   ReactDOM.createRoot(root).render(tree);
 }
 start();

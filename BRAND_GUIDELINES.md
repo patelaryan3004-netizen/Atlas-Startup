@@ -1,4 +1,6 @@
-# AU Startup Map: brand guidelines
+# Still Early: brand guidelines
+
+The site is **Still Early** (it was called AU Startup Map until October 2026). Written out it is "Still Early"; as a logo it is the lowercase wordmark **still early.**, with the full stop in coral. It is text, not a picture: `components/brand/Wordmark.jsx`, Instrument Serif, no symbol. The names are in `frontend/src/brand.js`.
 
 The look of the site is one design, set once in `frontend/src/styles.css` (the tokens) and `frontend/src/brand.css` (the shared components). A page uses them and never carries a colour, a font or a button of its own. A new page or component follows this file.
 
@@ -20,6 +22,8 @@ Defined as custom properties on `:root` in `styles.css`. Use the names, never th
 | `--coral` | `#E98369` | Warmth, used sparingly: the shapes on the Collections card |
 | `--peach` | `#FFF1EA` | The soft surface of an editorial moment (the Collections card, the lists of people) and the **selected row** |
 | `--border` | `#E2E5E0` | Every thin line |
+
+| `--navy` | `#071822` | **The night of the welcome page**: its ground and the cinematic opening. Text on it is `--on-navy` (`#FAFAF7`-ish, 17:1) or `--on-navy-2` (74%). Only the welcome page stands on it; every other page is white. |
 
 Derived: `--green-tint` (a tint of the green for hovers and selected chips), `--on-green` (white, the ink on a green fill), `--danger` (`#B3382A`, errors only).
 
@@ -76,12 +80,24 @@ All are in `frontend/src/components/brand/` (React) and `brand.css` (styles).
 | Collections card | `.collections-card` | The peach, coral-accented card, linked to `/lists`. |
 | Surfaces | `.surface`, `.surface-subtle` | A bordered box and a tinted band. |
 
+## The welcome page (the night)
+
+`/welcome` is the one dark page, and it is the front door: `frontend/src/LandingPage.jsx`, `components/landing/`, `welcome.css`. Its order is fixed by the approved design: a cinematic opening, the butter-yellow introduction, the editorial showcase (white, coral, forest green and yellow panels of different sizes), the off-white hiring preview, and the updates sign-up with the foot.
+
+- **The opening** is a night sky over Australia with a person looking up (`public/img/hero-night.webp`, and `hero-night-sm.webp` for a phone). **There are no words in the picture**: the capsule, the headline, the email field, the copy and the buttons are live text over it, and the gold constellation is a live drawing (`Constellation.jsx`, from the coast the site already has), so a phone can move it clear of the headline. Do not put text in the picture.
+- **The headline** is Instrument Serif at one weight, large and tight, with one italic word. The full stop of a headline on the navy is quieter (`.se-stop`).
+- **Panels** are set into the night with a radius of 18 to 34px. Dark text on yellow, coral and the off-white; white only on the forest green.
+- **Product previews are previews.** Each one (`components/landing/previews.jsx`) is wrapped by `<Preview>`, which hides it from a screen reader, takes it out of the keyboard and the pointer (`inert`), and holds nothing that could be pressed. The names and work in them are illustrations: nothing is a member, nothing is in a database. Every group says so in words (`.se-demo-note`, "Product preview · Illustrative content" at the foot) and has one sentence for a screen reader. Never put an invented testimonial, count, score or endorsement in one. Pictures in them are SVG scenes (`scenes.jsx`), not photographs of anyone's work.
+- **Honest about what is not there**: hiring is labelled "Coming next"; the buttons in its preview do nothing and the page says so; there are no accounts, so "Log in" goes to a note saying so; "Explore the feed" goes to the news feed that exists and says the community feed is still being built.
+- **The two email forms are one implementation** (`SubscribeForm.jsx`, `hooks/useSubscribe.js`): validated in the browser, sent to `POST /api/feedback` with `type: "subscribe"`, and they say it worked only after the server has said it stored it.
+- Previews size themselves in `em` from the panel that holds them (container query units) and never go under 9.5px.
+
 ## Pages
 
 Every page has the header, the same buttons and fields, and the same spacing. Layout follows the content:
 
 - **Explore**: the heading and the main search, then one workspace (toolbar, results column, map). The map is the largest thing on the page.
-- **Welcome**: the dot map of Australia drawn from real pins, the figures (a figure that is zero is left out), the hiring cards.
+- **Welcome**: the night page above. It reads nothing from the server on load.
 - **Investors**: cards or a table of the same results, with a profile panel beside them. The kind of investor is a butter badge.
 - **Jobs**: a serif heading, filters, and one card per company that is hiring.
 - **Collections**: editorial cards; the lists of people are the peach ones.
@@ -97,7 +113,7 @@ Every page has the header, the same buttons and fields, and the same spacing. La
 
 ## Accessibility
 
-- A visible focus ring on everything that can be pressed: `outline: 2px solid var(--green)`, offset 2px.
+- A visible focus ring on everything that can be pressed: `outline: 2px solid var(--green)`, offset 2px (butter yellow on the navy of the welcome page).
 - Every control is reachable and usable from the keyboard; Escape closes a menu, a preview and a dialog.
 - State is in the markup (`aria-pressed`, `aria-current`, `aria-expanded`), not only the look.
 - The page never scrolls sideways, at 320px and up.

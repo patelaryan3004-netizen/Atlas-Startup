@@ -317,7 +317,7 @@ function frame(s, index) {
 function topbar() {
   return h('header', { class: 'topbar' },
     h('div', { class: 'topbar__row' },
-      h('div', { class: 'brand' }, h('span', { class: 'brand__name' }, 'Data Command Center'), h('span', { class: 'brand__sub' }, 'AU Startup Map')),
+      h('div', { class: 'brand' }, h('span', { class: 'brand__name' }, 'Data Command Center'), h('span', { class: 'brand__sub' }, 'Still Early')),
       h('nav', { class: 'nav', id: 'nav', 'aria-label': 'Sections' }, SECTIONS.map((s) => h('a', { href: `#${s.id}`, 'data-section': s.id, on: { click: (e) => { e.preventDefault(); goTo(s.id); } } }, s.nav, h('span', { class: 'nav__count', hidden: true })))),
       h('div', { class: 'who' },
         h('span', { class: 'chip chip--plain', title: 'This page is served from your own computer and nowhere else' }, icon('lock', 12), h('span', { class: 'wide-only' }, 'This machine only')),
@@ -2523,7 +2523,7 @@ function renderLogin(notice) {
   });
   $('#app').replaceChildren(h('div', { class: 'login' }, h('div', { class: 'login__box' },
     h('h1', { class: 'login__title' }, 'Data Command Center'),
-    h('p', { class: 'login__lead' }, 'AU Startup Map. Private to this computer.'),
+    h('p', { class: 'login__lead' }, 'Still Early. Private to this computer.'),
     form,
     h('div', { class: 'login__help', id: 'token-help' },
       h('p', {}, 'No token yet? In a terminal, in ', h('code', {}, 'backend/'), ', run ', h('code', {}, 'npm run admin -- init --name "Your name"'), '. It prints a token once.'),

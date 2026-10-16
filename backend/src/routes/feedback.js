@@ -9,7 +9,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = path.join(__dirname, '..', 'data', 'feedback.json');
 
 // 'investor' is a suggestion for the investor directory (an investor to add); a person checks it against pages the investor publishes itself.
-const TYPES = ['feedback', 'feature', 'bug', 'investor'];
+// 'subscribe' is an address left on the welcome page to hear from the site: it needs a valid email and no message (the page says where it was left).
+const TYPES = ['feedback', 'feature', 'bug', 'investor', 'subscribe'];
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const SUBSCRIBE_NOTE = 'Signed up to hear from Still Early';
 
 async function loadFeedback() {
   const raw = await readFile(DATA_PATH, 'utf-8');
@@ -41,7 +44,10 @@ router.post('/', async (req, res, next) => {
     if (!TYPES.includes(type)) {
       return res.status(400).json({ error: `type must be one of: ${TYPES.join(', ')}` });
     }
-    if (!message || !message.trim()) {
+    if (type === 'subscribe') {
+      const address = typeof email === 'string' ? email.trim() : '';
+      if (!address || address.length > 254 || !EMAIL.test(address)) return res.status(400).json({ error: 'a valid email is required' });
+    } else if (!message || !message.trim()) {
       return res.status(400).json({ error: 'message is required' });
     }
 
@@ -49,8 +55,8 @@ router.post('/', async (req, res, next) => {
     const item = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       type,
-      message: message.trim(),
-      email: email.trim(),
+      message: typeof message === 'string' && message.trim() ? message.trim().slice(0, 200) : SUBSCRIBE_NOTE,
+      email: String(email).trim(),
       status: 'pending',
       submittedAt: new Date().toISOString(),
     };

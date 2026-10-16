@@ -13,7 +13,7 @@ import ClaimProfile from './ClaimProfile.jsx';
 // something a page backs fills it: there are no empty headings, and a blank means no public page says it.
 export default function InvestorProfile({ slug, onBack, onOpenInvestor, onOpenPerson, onOpenCompany }) {
   const { status, data: d } = useLoaded(fetchInvestor, slug);
-  usePageTitle(status === 'ready' ? `${d.name} · Australian Startup Investors · AU Startup Map` : null);
+  usePageTitle(status === 'ready' ? `${d.name} · Australian Startup Investors · Still Early` : null);
   const [suggesting, setSuggesting] = useState(false);
   const [claiming, setClaiming] = useState(false);
   const heading = useRef(null);

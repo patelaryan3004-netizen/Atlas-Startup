@@ -168,7 +168,7 @@ describe.skipIf(!hasOwnersSeed)('the seed file that ships', () => {
     expect(community.lists.map((l) => l.title)).toEqual(['Founders to follow', 'Operators to learn from', 'Investors (people)']);
     const founders = community.lists.find((l) => l.id === 'founders-to-follow');
     expect(founders.itemIds).toEqual(shipped.people.filter((p) => p.roleType === 'founder').map((p) => p.id));
-    expect(founders).toMatchObject({ type: 'people', curator: 'AU Startup Map' });
+    expect(founders).toMatchObject({ type: 'people', curator: 'Still Early' });
   });
 });
 
@@ -428,8 +428,8 @@ describe('curated lists', () => {
       { id: 'founders-to-follow', title: 'Founders to follow', description: 'Worth watching.', curator: null, type: 'people', count: 2 },
       { id: 'firms', title: 'Firms', description: 'Worth watching.', curator: null, type: 'institutions', count: 2 },
       // the starter lists made from the investor directory (no operator is listed, so no list of operators)
-      { id: 'investors-people', title: 'Investors (people)', description: expect.any(String), curator: 'AU Startup Map', type: 'people', count: 1 },
-      { id: 'investors-firms', title: 'Investors (firms)', description: expect.any(String), curator: 'AU Startup Map', type: 'institutions', count: 2 },
+      { id: 'investors-people', title: 'Investors (people)', description: expect.any(String), curator: 'Still Early', type: 'people', count: 1 },
+      { id: 'investors-firms', title: 'Investors (firms)', description: expect.any(String), curator: 'Still Early', type: 'institutions', count: 2 },
     ]); // the list of companies names one the directory does not have, and the last has no one
   });
 

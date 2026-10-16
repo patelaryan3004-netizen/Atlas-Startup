@@ -13,7 +13,7 @@ const code = (name) => readFileSync(path.join(src, name), 'utf8').replace(/\r\n/
 const styles = css('styles.css');
 const brand = css('brand.css');
 const landing = css('landing.css');
-const hero = css('landing-hero.css');
+const welcome = css('welcome.css');
 const investors = css('investors.css');
 const explore = css('explore.css');
 const people = css('people.css');
@@ -119,7 +119,7 @@ describe('the colours', () => {
 
   it('has no dark ground left in any stylesheet, and no second accent: the old neon, the old amber, the old orange and the old mint', () => {
     const OLD = /#0a0e0f|#3ecf6e|#7ee8a0|#5fdc8a|#f5a623|#ffb84d|#d4430d|#c2410c|#9fd8bc|#b4e3cc|232, ?230, ?222|color-scheme:\s*dark|\[data-theme=['"]dark/i;
-    for (const [name, sheet] of [['styles.css', styles], ['brand.css', brand], ['landing.css', landing], ['landing-hero.css', hero], ['explore.css', explore], ['investors.css', investors], ['people.css', people], ['info.css', info]]) {
+    for (const [name, sheet] of [['styles.css', styles], ['brand.css', brand], ['landing.css', landing], ['welcome.css', welcome], ['explore.css', explore], ['investors.css', investors], ['people.css', people], ['info.css', info]]) {
       expect(withoutComments(sheet), name).not.toMatch(OLD);
     }
   });
@@ -141,15 +141,19 @@ describe('the type', () => {
       expect(body, selector).toContain('text-wrap:balance');
     }
     expect(rule(brand, '.display em,.serif-h1 em,.serif-h2 em')).toMatch(/font-style:italic;color:var\(--green\)/);
-    expect(rule(hero, '.hero-title em')).toMatch(/font-style: italic[^}]*color: var\(--green\)/);
-    expect(rule(hero, '.hero-title')).toContain('font-family: var(--font-serif)');
+    // the welcome page sets its headings in the same serif, at one weight, with its italic word in the page's own white (the night is not green)
+    for (const selector of ['.se-hero-title', '.se-display', '.se-h2', '.se-tile-title']) {
+      expect(rule(welcome, selector), selector).toContain('font-family:var(--font-serif)');
+      expect(rule(welcome, selector), selector).toContain('font-weight:400');
+    }
+    expect(rule(welcome, '.se-hero-title em')).toContain('font-style:italic');
   });
 
   it('has fluid sizes for them, the display at most 6rem, and no tracking tighter than -0.04em anywhere', () => {
     expect(token(styles, '--fs-display')).toBe('clamp(3rem,1.6rem + 5.4vw,6rem)');
     expect(token(styles, '--fs-h1')).toBe('clamp(2.5rem,1.7rem + 3vw,4rem)');
     expect(token(styles, '--fs-h2')).toBe('clamp(2rem,1.5rem + 1.5vw,2.75rem)');
-    for (const [name, sheet] of [['styles.css', styles], ['brand.css', brand], ['explore.css', explore], ['landing.css', landing], ['landing-hero.css', hero], ['investors.css', investors], ['info.css', info]]) {
+    for (const [name, sheet] of [['styles.css', styles], ['brand.css', brand], ['explore.css', explore], ['landing.css', landing], ['welcome.css', welcome], ['investors.css', investors], ['info.css', info]]) {
       for (const [, em] of withoutComments(sheet).matchAll(/letter-spacing:\s*(-[\d.]+)em/g)) expect(parseFloat(em), `${name}: ${em}em`).toBeGreaterThanOrEqual(-0.04);
     }
   });
@@ -247,7 +251,8 @@ describe('the shared components (brand.css)', () => {
   });
 
   it('is on every page: the pages, the landing page and the plain pages share one header and none draws its own', () => {
-    for (const file of ['App.jsx', 'LandingPage.jsx', 'InfoPage.jsx', 'components/JobsView.jsx', 'components/NewsPage.jsx', 'components/CuratedLists.jsx', 'components/people/PeopleView.jsx', 'components/investors/InvestorsView.jsx']) {
+    // (the welcome page has its own capsule over the night sky: components/landing/Hero.jsx, with the same wordmark)
+    for (const file of ['App.jsx', 'InfoPage.jsx', 'components/JobsView.jsx', 'components/NewsPage.jsx', 'components/CuratedLists.jsx', 'components/people/PeopleView.jsx', 'components/investors/InvestorsView.jsx']) {
       expect(code(file), file).toContain('<SiteHeader');
     }
     expect(code('main.jsx')).toContain("import './brand.css'");
@@ -357,7 +362,7 @@ describe('the one card', () => {
     expect(styles).toMatch(/\.entity-blurb\{[^}]*-webkit-line-clamp:2/);
     expect(styles).toMatch(/\.meta-row li:not\(:last-child\)::after\{[^}]*content:'\\00b7'/);
     expect(styles).toMatch(/\n\.sr-only\{[^}]*clip-path:inset\(50%\)/);
-    for (const file of ['components/ListView.jsx', 'components/JobsView.jsx', 'components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx', 'LandingPage.jsx']) {
+    for (const file of ['components/ListView.jsx', 'components/JobsView.jsx', 'components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx']) {
       expect(code(file), file).toContain('<EntityCard');
     }
   });
@@ -390,41 +395,72 @@ describe('the one card', () => {
   });
 });
 
-describe('the Welcome page', () => {
-  it('has the serif headline at the display size, with its one italic word in the green, over twelve columns', () => {
-    expect(rule(hero, '.hero-title')).toMatch(/font-size: var\(--fs-display\)[^}]*line-height: \.98/);
-    expect(landing).toMatch(/\.l-grid\{[^}]*grid-template-columns: repeat\(12, minmax\(0, 1fr\)\)/);
-    expect(hero).toMatch(/\.hero-copy\{ grid-column: 1 \/ span 5; \}/);
-    expect(hero).toMatch(/\.hero \.eco\{ grid-column: 6 \/ -1; \}/);
-    expect(landing).toMatch(/\.landing-job-grid > \*, \.landing-list-grid > \*, \.landing-people-grid > \*\{ grid-column: span 4; \}/);
+describe('the Welcome page (Still Early)', () => {
+  const nav = (text) => token(text, '--navy');
+
+  it('has the night: the midnight navy of the brand and an off-white to read on it, and the page and its sections stand on them', () => {
+    expect(nav(styles)).toBe('#071822');
+    expect(token(styles, '--on-navy')).toBe('#faf9f5');
+    expect(contrast(token(styles, '--on-navy'), nav(styles))).toBeGreaterThanOrEqual(7);
+    expect(contrast('#f2c871', nav(styles))).toBeGreaterThanOrEqual(7); // the gold of the constellation on the night
+    expect(rule(welcome, '.se')).toMatch(/background:var\(--navy\);color:var\(--on-navy\)/);
+    expect(withoutComments(welcome)).not.toMatch(/gradient\([^)]*#(?!fff)/i); // no colour of its own in a gradient: the picture carries the sky
   });
 
-  it('draws the map of Australia in the brand: green dots and routes, a white chip with a soft shadow, the labels in the text colour', () => {
-    expect(rule(hero, '.eco-dot')).toMatch(/fill: var\(--green\)/);
-    expect(rule(hero, '.eco-route')).toMatch(/stroke: rgb\(var\(--green-rgb\)/);
-    expect(rule(hero, '.eco-chip-link')).toMatch(/background: var\(--bg\); box-shadow: var\(--shadow-1\)/);
-    expect(hero).toMatch(/--eco-fs: clamp\(12px, 2\.1cqi, 13\.5px\)/);
-    expect(hero).toMatch(/@media \(max-width: 639px\)\{\s*\.eco\{ width: 82%/); // room on a phone for the names of the cities on the right
+  it('puts dark text on the yellow, the coral and the off-white panels and white on the green, never the other way', () => {
+    for (const selector of ['.se-intro-panel', '.se-tile-people', '.se-tile-keep', '.se-tile-work', '.se-hiring-panel']) expect(rule(welcome, selector), selector).toMatch(/color:var\(--text\)/);
+    expect(rule(welcome, '.se-tile-follow')).toMatch(/background:var\(--green\);color:var\(--on-green\)/);
+    expect(rule(welcome, '.se-tile-people')).toMatch(/background:var\(--coral\)/);
+    expect(rule(welcome, '.se-intro-panel')).toMatch(/background:var\(--butter\)/);
+    expect(rule(welcome, '.se-hiring-panel')).toMatch(/background:var\(--bg-subtle\)/);
   });
 
-  it('has no section numbers and no mono labels: a section is its serif heading', () => {
-    expect(withoutComments(landing)).not.toMatch(/sec-rule|sec-no|--l-mono/);
-    expect(landing).toMatch(/\.landing-section-head h2, \.landing-final-cta h2\{[^}]*font-family: var\(--font-serif\)/);
-    expect(withoutComments(landing + hero + info)).not.toMatch(/var\(--mono\)|--l-mono/);
+  it('sets the opening over a picture with no words in it: the picture fills the hero, the person stays in view on a phone', () => {
+    expect(rule(welcome, '.se-hero')).toMatch(/height:clamp\(660px,67\.5vw,1300px\)/);
+    expect(rule(welcome, '.se-hero-art img')).toMatch(/object-fit:cover/);
+    const phone = welcome.slice(welcome.indexOf('@media (max-width: 700px)'));
+    expect(phone).toMatch(/\.se-hero-art img\{object-position:46% 100%;\}/);
+    expect(phone).toMatch(/\.se-hero-constellation\{[^}]*top:76px/); // the constellation is moved clear of the headline
   });
 
-  it('closes on a tinted band with a border, and the plain pages read as one column in the same type', () => {
-    expect(rule(landing, '.landing-final-cta')).toMatch(/border-radius: var\(--r-xl\); background: var\(--bg-subtle\)/);
+  it('keeps every control at 44px or more: the links of the capsule, the menu button, the arrow, the footer links', () => {
+    expect(rule(welcome, '.se-nav-links a,.se-nav-login')).toMatch(/min-height:44px/);
+    expect(rule(welcome, '.se-nav-join')).toMatch(/min-height:44px/);
+    expect(rule(welcome, '.se-sub-go')).toMatch(/width:44px;height:44px/);
+    expect(rule(welcome, '.se-footer-links a')).toMatch(/min-height:44px/);
+    expect(rule(welcome, '.se-feed a')).toMatch(/min-height:44px/);
+  });
+
+  it('sizes the previews in em, from the panel that holds them, and never below 9.5px', () => {
+    expect(rule(welcome, '.se-tile')).toMatch(/container-type:inline-size/);
+    expect(rule(welcome, '.se-intro-art')).toMatch(/container-type:inline-size/);
+    // (every size of the whole preview is set on its wrapper, in px with a floor: the parts inside are in em of it)
+    const sizes = [...withoutComments(welcome).matchAll(/(?:^|\n)([^{}\n]*\.wp)\{[^}]*font-size:([^;}]+)/g)].map(([, selector, size]) => [selector, size]);
+    expect(sizes.length).toBeGreaterThan(4);
+    for (const [selector, size] of sizes) {
+      if (/var\(--wp/.test(size)) continue;
+      expect(size, selector).toMatch(/^max\(\s*[\d.]+px,/);
+      expect(parseFloat(/max\(\s*([\d.]+)px/.exec(size)[1]), selector).toBeGreaterThanOrEqual(9.5);
+    }
+    expect(rule(welcome, '.wp')).toMatch(/pointer-events:none/);
+  });
+
+  it('rises into place only for a visitor who has not asked for less, and has no motion of its own for one who has', () => {
+    expect(styles).toMatch(/@media \(prefers-reduced-motion: no-preference\)\{\n  \.reveal\{/);
+    expect(welcome).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\s*\.se \*,\.se \*::before,\.se \*::after\{transition:none!important;animation:none!important;scroll-behavior:auto!important;\}/);
+    expect(welcome).toMatch(/@media \(prefers-reduced-motion: no-preference\)\{\s*html:has\(\.se\)\{scroll-behavior:smooth;\}/);
+    expect(`${styles}${welcome}`).not.toMatch(/<video|autoplay/i);
+  });
+
+  it('is the one page with a dark ground: no other stylesheet sets a page to the navy', () => {
+    for (const [name, sheet] of [['brand.css', brand], ['explore.css', explore], ['investors.css', investors], ['people.css', people], ['info.css', info]]) {
+      expect(withoutComments(sheet), name).not.toMatch(/var\(--navy\)/);
+    }
+  });
+
+  it('closes the plain pages on one column in the same type', () => {
     expect(rule(info, '.info-body h2')).toMatch(/font-family: var\(--font-serif\)/);
     expect(rule(info, '.info-body')).toMatch(/max-width: 64ch/);
-  });
-
-  it('rises into place only for a visitor who has not asked for less, and the picture\'s animations stop for one who has', () => {
-    expect(styles).toMatch(/@media \(prefers-reduced-motion: no-preference\)\{\n  \.reveal\{/);
-    expect(styles).toMatch(/@media \(prefers-reduced-motion: no-preference\)\{[^@]*\.reveal:not\(\.is-in\)\{ opacity:0; transform:translateY\(14px\); \}/);
-    expect(hero).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.eco \*, \.eco-chip\{ animation: none !important/);
-    expect(landing).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n  \.landing-btn-primary/);
-    expect(`${styles}${landing}${hero}`).not.toMatch(/<video|autoplay/i);
   });
 });
 
@@ -513,7 +549,7 @@ describe('the company\'s panel and the dialogs', () => {
 
   it('stops every animation and transition for a visitor who has asked for less motion, as a net under the rules that stop their own', () => {
     expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\n\s*\*, \*::before, \*::after\{ animation-duration:\.01ms !important; animation-iteration-count:1 !important; transition-duration:\.01ms !important; scroll-behavior:auto !important; \}/);
-    expect(`${styles}${brand}${explore}${landing}${hero}${investors}${people}`).not.toMatch(/<video|autoplay/i);
+    expect(`${styles}${brand}${explore}${landing}${welcome}${investors}${people}`).not.toMatch(/<video|autoplay/i);
     expect(explore).toMatch(/@media \(prefers-reduced-motion: reduce\)\{\s*\.pin-face,\.marker-cluster-inner\{transition:none;\}/);
     expect(explore).toMatch(/@media \(prefers-reduced-motion: no-preference\)\{\s*\.pv\{animation:pv-in/);
   });

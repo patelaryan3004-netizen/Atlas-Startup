@@ -78,7 +78,7 @@ describe('NewsPage', () => {
     fetchNews.mockResolvedValue({ source: 'live', deals });
     const view = render(<NewsPage onClose={() => {}} />);
     await screen.findByRole('link', { name: /Eight ANZ/ });
-    expect(document.title).toBe('Australian startup news · AU Startup Map');
+    expect(document.title).toBe('Australian startup news · Still Early');
     expect(document.querySelector('link[rel="canonical"]').getAttribute('href')).toBe(`${window.location.origin}/news`);
     view.unmount();
   });

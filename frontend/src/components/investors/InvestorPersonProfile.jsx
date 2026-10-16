@@ -33,7 +33,7 @@ const span = (start, end) => [start, end].map((d) => partialDateText(d)).filter(
 // Never a phone number or an email address: this page holds none, and links only to pages the person publishes themselves.
 export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, onOpenCompany }) {
   const { status, data: p } = useLoaded(fetchInvestorPerson, slug);
-  usePageTitle(status === 'ready' ? `${p.name} · Australian Startup Investors · AU Startup Map` : null);
+  usePageTitle(status === 'ready' ? `${p.name} · Australian Startup Investors · Still Early` : null);
   const heading = useRef(null);
   useEffect(() => { if (status !== 'loading') heading.current?.focus({ preventScroll: true }); }, [status]);
 

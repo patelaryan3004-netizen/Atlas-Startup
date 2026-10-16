@@ -1,4 +1,4 @@
-/* AU Startup Map: the design tokens. This block is the one place the brand's colours, type, spacing, radii and shadows are decided
+/* Still Early: the design tokens. This block is the one place the brand's colours, type, spacing, radii and shadows are decided
    (BRAND_GUIDELINES.md says how to use them); every page and component reads them, so a page never carries a colour of its own.
    The older names further down (--ink, --paper, --line, --accent ...) are the same values under the names the older rules use. */
 :root{
@@ -14,6 +14,11 @@
   --coral:#e98369;
   --peach:#fff1ea;
   --border:#e2e5e0;
+  /* The night of the welcome page: a midnight navy for the page and the cinematic opening, with an off-white for text on it. */
+  --navy:#071822;
+  --navy-2:#0d2430;
+  --on-navy:#faf9f5;
+  --on-navy-2:rgb(250 250 245 / .74);
   /* What is derived from them: a tint of the green (a hover, a selection), the green as text on white (9.9:1), and the ink on a green fill. */
   --green-rgb:35 75 58;
   --green-tint:rgb(var(--green-rgb) / .08);

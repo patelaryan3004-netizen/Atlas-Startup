@@ -28,7 +28,7 @@ describe('SiteHeader', () => {
     render(<SiteHeader />);
     const home = screen.getByRole('link', { name: 'Go to home' });
     expect(home).toHaveAttribute('href', '/welcome');
-    expect(home).toHaveTextContent('AU Startup Map');
+    expect(home).toHaveTextContent('still early.');
     const nav = within(screen.getByRole('navigation', { name: 'Main' }));
     expect(nav.getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([
       ['Explore', '/'], ['Collections', '/lists'], ['Investors', '/investors'], ['Jobs', '/jobs'], ['Saved', '/?view=saved'],
@@ -115,7 +115,8 @@ describe('the header on each page', () => {
     needs('components/CuratedLists.jsx', '<SiteHeader active="collections"');
     needs('components/investors/InvestorsView.jsx', '<SiteHeader active="investors"');
     needs('App.jsx', '<SiteHeader active="explore"');
-    needs('LandingPage.jsx', '<SiteHeader />');
+    needs('components/landing/Hero.jsx', '<NavCapsule />'); // the welcome page's own capsule over the night sky, with the same wordmark
+    needs('components/landing/Hero.jsx', '<Wordmark />');
     needs('InfoPage.jsx', '<SiteHeader />');
     for (const file of ['components/JobsView.jsx', 'components/NewsPage.jsx', 'components/people/PeopleView.jsx', 'components/investors/InvestorsView.jsx', 'App.jsx']) {
       expect(read(file), file).not.toContain('ExploreHeader');

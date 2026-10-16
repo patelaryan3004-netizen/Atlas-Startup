@@ -51,7 +51,7 @@ export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLin
   }, []);
 
   // The tab names the directory for the whole visit; a profile names itself over it once it has loaded, and gives it back on leaving.
-  usePageTitle('Australian Startup Investors · AU Startup Map');
+  usePageTitle('Australian Startup Investors · Still Early');
 
   const go = useCallback((next, options) => {
     if (inDirectory(route.kind) && !inDirectory(next.kind)) listScroll.current = scroller.current?.scrollTop ?? 0;

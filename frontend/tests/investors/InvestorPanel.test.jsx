@@ -33,7 +33,7 @@ const world = () => serve(api, {
   people: { sam: person() },
 });
 
-beforeEach(() => { vi.clearAllMocks(); localStorage.clear(); document.title = 'AU Startup Map'; });
+beforeEach(() => { vi.clearAllMocks(); localStorage.clear(); document.title = 'Still Early'; });
 afterEach(() => { window.history.pushState({}, '', '/'); vi.unstubAllGlobals(); });
 
 describe('an investor opened beside the results', () => {
@@ -221,12 +221,12 @@ describe('an investor opened beside the results', () => {
     world();
     renderView();
     await screen.findByRole('link', { name: 'Blackbird' });
-    expect(document.title).toBe('Australian Startup Investors · AU Startup Map');
+    expect(document.title).toBe('Australian Startup Investors · Still Early');
     await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
     await panel();
-    await waitFor(() => expect(document.title).toBe('Blackbird · Australian Startup Investors · AU Startup Map'));
+    await waitFor(() => expect(document.title).toBe('Blackbird · Australian Startup Investors · Still Early'));
     await userEvent.click(screen.getByRole('button', { name: /Close/ }));
-    await waitFor(() => expect(document.title).toBe('Australian Startup Investors · AU Startup Map'));
+    await waitFor(() => expect(document.title).toBe('Australian Startup Investors · Still Early'));
   });
 
   it('says an investor is not in the directory (a mistyped link), and says it could not load one when the server fails: not the same thing', async () => {

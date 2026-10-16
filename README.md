@@ -1,4 +1,4 @@
-# AU Startup Map
+# Still Early
 
 Interactive map of VC-backed Australian startups, split into a backend API and a React frontend.
 

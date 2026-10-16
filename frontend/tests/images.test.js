@@ -26,7 +26,9 @@ describe('the app owns no picture files to optimise', () => {
     expect(pictures(src)).toEqual([]);
     // (the two pictures the site serves are the tab icon, favicon.svg, and the preview a link to it shows, og-image.png: no page draws either,
     // so there is nothing to optimise in the app)
-    expect(pictures(publicDir).sort()).toEqual(['favicon.svg', 'og-image.png']);
+    // The welcome page's night sky is the other artwork the site owns: two webp files (img/), a wide one and a narrow one for a phone, made from the approved
+    // design with every word taken out of them (scripts/art). They are drawn by one image tag (components/landing/Hero.jsx), tested below.
+    expect(pictures(publicDir).map((f) => String(f).replace(/\\/g, '/')).sort()).toEqual(['favicon.svg', 'img/hero-night-sm.webp', 'img/hero-night.webp', 'og-image.png']);
     for (const file of sources()) {
       expect(text(file), rel(file)).not.toMatch(/(?:import|url\()\s*\(?['"]?[^'")\s]*\.(png|jpe?g|gif|webp|avif|bmp)/i);
     }
@@ -62,7 +64,7 @@ describe('every image tag', () => {
 
   it('is found where the logos are drawn (this test would otherwise check nothing)', () => {
     // the logos beside a name are drawn in one place now, the shared avatar (EntityCard: the cards, the rows, the previews and the company's panel); the investors' own are the other
-    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx']);
+    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx', 'components/landing/Hero.jsx']);
   });
 
   it('has an alt (empty: the name is beside it), and decodes off the main thread', () => {
@@ -72,8 +74,18 @@ describe('every image tag', () => {
     }
   });
 
-  it('waits until it is near the screen (loading="lazy")', () => {
-    for (const { file, tag } of all) expect(tag, file).toContain('loading="lazy"');
+  it('waits until it is near the screen (loading="lazy"), except the picture of the welcome page\'s opening, which is the first thing on it', () => {
+    for (const { file, tag } of all.filter((i) => i.file !== 'components/landing/Hero.jsx')) expect(tag, file).toContain('loading="lazy"');
+    const hero = all.find((i) => i.file === 'components/landing/Hero.jsx').tag;
+    expect(hero).not.toContain('lazy');
+    expect(hero).toContain('fetchPriority="high"');
+    expect(hero).toContain('alt=""'); // the picture says nothing a screen reader needs: the words on it are live text
+  });
+
+  it('gives the opening\'s picture its size and a narrower file for a phone, so the page does not move and a phone does not download the wide one', () => {
+    const hero = text(path.join(src, 'components', 'landing', 'Hero.jsx'));
+    expect(hero).toMatch(/<img src="\/img\/hero-night\.webp" width="2000" height="1349"/);
+    expect(hero).toMatch(/<source media="\(max-width: 700px\)" srcSet="\/img\/hero-night-sm\.webp"/);
   });
 
   it('is given its size, where it sits in a box that is the same on every screen, so the page does not move as logos arrive', () => {

@@ -15,7 +15,7 @@ function About() {
   return (
     <>
       <p className="info-lede">
-        AU Startup Map is run by Aryan, a Monash University student who builds it alone. It exists because founders ghost good candidates, and
+        Still Early (formerly AU Startup Map) is run by Aryan, a Monash University student who builds it alone. It exists because founders ghost good candidates, and
         because Australian startups are hard to find in one place.
       </p>
       <p>
@@ -118,7 +118,7 @@ function Contact() {
 
 // The pages by name: the heading and the text.
 export const INFO_PAGES = {
-  about: { name: 'About', heading: 'About AU Startup Map', Body: About },
+  about: { name: 'About', heading: 'About Still Early', Body: About },
   methodology: { name: 'Methodology', heading: 'How we verify', Body: Methodology },
   contact: { name: 'Contact', heading: 'Contact', Body: Contact },
 };

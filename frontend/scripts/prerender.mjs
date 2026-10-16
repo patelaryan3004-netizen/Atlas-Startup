@@ -7,11 +7,10 @@
 //   dist/lists/index.html, dist/investors/index.html   plain versions of the app's pages, for search engines and visitors with no scripts
 //   dist/app.html              the same shell with no address of its own: what vercel.json serves for a company, the jobs board, the news...
 //
-// What it reads: dist/index.html (the template), public/data/snapshot.json (the figures, made by `npm run snapshot` in backend/) and
-// prerender-data.json (the lists' counts and the investors, made by the same command). A missing or too old snapshot does not stop the build:
-// the landing page is then made without figures and the browser draws it afresh.
+// What it reads: dist/index.html (the template) and prerender-data.json (the lists' counts and the investors, made by `npm run snapshot` in backend/).
+// The welcome page reads no data: its words are fixed.
 import path from 'node:path';
-import { readFile, writeFile, mkdir, unlink } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, unlink, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 process.env.NODE_ENV = 'production'; // React's production build for the server render too
@@ -32,8 +31,8 @@ try {
   const { SITE_URL, SITE_NAME, absolute } = site;
   // (index.html names the preview image and the address of the site as __SITE_URL__, which is only known here.)
   const template = (await readFile(path.join(dist, 'index.html'), 'utf8')).replaceAll('__SITE_URL__', SITE_URL);
-  const data = { snapshot: await readJson(path.join(root, 'public', 'data', 'snapshot.json')), prerenderData: await readJson(path.join(root, 'prerender-data.json')) };
-  if (!data.snapshot) console.warn('prerender: no public/data/snapshot.json: the landing page is made without figures.');
+  const assets = await readdir(path.join(dist, 'assets')).catch(() => []); // (the fonts a page asks for at once are found here: their names carry a hash)
+  const data = { prerenderData: await readJson(path.join(root, 'prerender-data.json')) };
   if (!data.prerenderData) console.warn('prerender: no prerender-data.json: the lists and investors pages are made without their counts and names.');
 
   // The head of one page: its title and description in every place they are said, its address, and the preview image.
@@ -56,6 +55,12 @@ try {
         `<meta property="og:url" content="${escapeAttr(url)}">`,
       ];
       if (route.json) extra.push(`<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': route.json, name: SITE_NAME, url: `${SITE_URL}/` }).replace(/</g, '\\u003c')}</script>`);
+      // the picture of the opening, asked for at once (and only the one the screen will use), on the page that has one
+      for (const prefix of route.fonts ?? []) {
+        const file = assets.find((name) => name.startsWith(`${prefix}-`) && name.endsWith('.woff2'));
+        if (file) extra.push(`<link rel="preload" as="font" type="font/woff2" href="/assets/${file}" crossorigin>`);
+      }
+      for (const [href, media] of route.preload ?? []) extra.push(`<link rel="preload" as="image" href="${escapeAttr(href)}" media="${escapeAttr(media)}" fetchpriority="high">`);
       html = html.replace('</head>', `${extra.join('\n')}\n</head>`);
     }
     return html;

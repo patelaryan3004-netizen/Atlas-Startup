@@ -4,8 +4,6 @@ import { Lazy } from './lazyLoad.jsx';
 import LandingPage from './LandingPage.jsx';
 import InfoPage from './InfoPage.jsx';
 import { MapShell, ListsShell, InvestorsShell } from './staticShells.jsx';
-import { primeSnapshot } from './snapshot.js';
-import { setPrerenderClock } from './clock.js';
 import { PAGE_META } from './siteMeta.js';
 
 // The pages that ship real HTML (scripts/prerender.mjs writes them at build; this file only draws them). Two kinds:
@@ -16,7 +14,7 @@ import { PAGE_META } from './siteMeta.js';
 // /people has none: with VITE_SHOW_PEOPLE off (as it is live) there is no such page, and its content is not in any file the build has.
 export const ROUTES = [
   { path: '/', file: 'index.html', shell: 'map', json: 'WebSite' },
-  { path: '/welcome', file: 'welcome/index.html', hydrate: 'landing', json: 'WebSite' },
+  { path: '/welcome', file: 'welcome/index.html', hydrate: 'landing', json: 'WebSite', preload: [['/img/hero-night.webp', '(min-width: 701px)'], ['/img/hero-night-sm.webp', '(max-width: 700px)']], fonts: ['instrument-serif-latin-400-normal', 'instrument-serif-latin-400-italic'] },
   { path: '/lists', file: 'lists/index.html', shell: 'lists' },
   { path: '/investors', file: 'investors/index.html', shell: 'investors' },
   { path: '/methodology', file: 'methodology/index.html', hydrate: 'info', page: 'methodology' },
@@ -27,20 +25,11 @@ export const ROUTES = [
 // The same page for every address the app draws that has no HTML of its own (a company, the jobs board, the news): app.html.
 export const GENERIC_SHELL = 'map';
 
-// { html, attributes }: the markup that goes inside <div id="root"> and the attributes that go on it. `data` is { snapshot, prerenderData }.
+// { html, attributes }: the markup that goes inside <div id="root"> and the attributes that go on it. `data` is { prerenderData }.
 export function renderRoute(route, data = {}) {
   const wrap = (page) => <React.StrictMode><Lazy>{page}</Lazy></React.StrictMode>;
-  if (route.hydrate === 'landing') {
-    const snapshot = primeSnapshot(data.snapshot);
-    // The landing page reads its figures from the snapshot, so a build with none (too old to use) makes a page with none; main.jsx hydrates
-    // only a page made from the snapshot it has itself, and draws the page afresh otherwise.
-    setPrerenderClock(snapshot ? Date.parse(snapshot.generatedAt) : null);
-    try {
-      return { html: renderToString(wrap(<LandingPage />)), attributes: { 'data-prerender': 'landing', ...(snapshot ? { 'data-snapshot': snapshot.generatedAt } : {}) } };
-    } finally {
-      setPrerenderClock(null);
-    }
-  }
+  // The welcome page reads nothing from the server on load, so the HTML is the same whatever the data: the browser hydrates it as it is (main.jsx).
+  if (route.hydrate === 'landing') return { html: renderToString(wrap(<LandingPage />)), attributes: { 'data-prerender': 'landing' } };
   if (route.hydrate === 'info') return { html: renderToString(wrap(<InfoPage page={route.page} />)), attributes: { 'data-prerender': 'info' } };
   const answers = data.prerenderData?.answers ?? {};
   const counts = Object.entries(answers).find(([key]) => key.startsWith('/api/startups/counts'))?.[1]?.counts;

@@ -46,11 +46,11 @@ function pageHtml(snap, page) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AU Startup Directory — full list${pages > 1 ? ` (page ${page})` : ''}</title>
+<title>Still Early directory — full list${pages > 1 ? ` (page ${page})` : ''}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ${rel}
 <style>
-  :root{--bg:#0a0e0f;--surface:#14181a;--border:#22282a;--text:#e8e6de;--muted:#8a8f8c;--accent:#3ecf6e;--accent-ink:#7ee8a0;}
+  :root{--bg:#ffffff;--surface:#fafaf7;--border:#e2e5e0;--text:#171c19;--muted:#626a65;--accent:#234b3a;--accent-ink:#234b3a;}
   body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:1120px;margin:0 auto;padding:24px 16px;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;}
   h1{font-size:22px;letter-spacing:-.01em;} p{color:var(--muted);font-size:15px;}
   table{width:100%;border-collapse:collapse;}
@@ -61,7 +61,7 @@ ${rel}
 </style>
 </head>
 <body>
-<h1>AU Startup Directory — full list (${snap.count} companies)</h1>
+<h1>Still Early directory — full list (${snap.count} companies)</h1>
 <p>Static, no-JavaScript list. For the interactive map, filters, and pins, see <a href="/">the map</a>.</p>
 ${nav}
 <table>

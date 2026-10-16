@@ -10,7 +10,7 @@ function Page({ meta }) {
 const content = (selector, attr = 'content') => document.head.querySelector(selector)?.getAttribute(attr) ?? null;
 
 beforeEach(() => {
-  document.title = 'AU Startup Map';
+  document.title = 'Still Early';
   document.head.querySelectorAll('meta[name="description"], meta[property^="og:"], link[rel="canonical"], script[data-page-jsonld]').forEach((el) => el.remove());
 });
 afterEach(() => { document.head.querySelectorAll('meta[name="description"], meta[property^="og:"], link[rel="canonical"], script[data-page-jsonld]').forEach((el) => el.remove()); });
@@ -25,7 +25,7 @@ describe('what a page says about itself', () => {
     expect(content('meta[property="og:description"]')).toBe('Design for everyone');
     expect(content('meta[property="og:url"]')).toBe(`${window.location.origin}/startup/canva`);
     view.unmount();
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
     expect(document.head.querySelector('meta[name="description"]')).toBeNull();
     expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
     expect(document.head.querySelector('meta[property="og:title"]')).toBeNull();
@@ -48,19 +48,19 @@ describe('what a page says about itself', () => {
     inner.unmount();
     expect(document.title).toBe('Investors');
     outer.unmount();
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
   });
 
   it('follows a page whose meta changes, and does nothing for none', () => {
     const view = render(<Page meta={null} />);
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
     view.rerender(<Page meta={{ title: 'Loaded' }} />);
     expect(document.title).toBe('Loaded');
     view.rerender(<Page meta={{ title: 'Other', description: 'Changed' }} />);
     expect(document.title).toBe('Other');
     expect(content('meta[name="description"]')).toBe('Changed');
     view.rerender(<Page meta={null} />);
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
   });
 
   it('writes structured data as JSON that cannot close its own tag, and takes it away with the page', () => {
@@ -81,6 +81,6 @@ describe('what a page says about itself', () => {
     expect(document.title).toBe('Only a title');
     expect(document.head.querySelector('meta[name="description"]')).toBeNull();
     view.unmount();
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
   });
 });

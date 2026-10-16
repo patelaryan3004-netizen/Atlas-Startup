@@ -52,6 +52,39 @@ describe('POST /api/feedback', () => {
   });
 });
 
+describe('POST /api/feedback, type subscribe, the email forms of the welcome page', () => {
+  it('stores a valid address as a pending item with a note of where it came from, and answers 201 only once it is stored', async () => {
+    const res = await request(app).post('/api/feedback').send({ type: 'subscribe', email: ' ada@example.com ', message: 'Signup: hero' });
+    expect(res.status).toBe(201);
+    expect(res.body).toMatchObject({ type: 'subscribe', email: 'ada@example.com', message: 'Signup: hero', status: 'pending' });
+    const stored = JSON.parse(await readFile(DATA_PATH, 'utf-8'));
+    expect(stored).toHaveLength(1);
+    expect(stored[0].email).toBe('ada@example.com');
+  });
+
+  it('needs no message, and says what it is when there is none', async () => {
+    const res = await request(app).post('/api/feedback').send({ type: 'subscribe', email: 'ada@example.com' });
+    expect(res.status).toBe(201);
+    expect(res.body.message).toBe('Signed up to hear from Still Early');
+  });
+
+  it('refuses a missing, malformed or over-long address, and stores nothing', async () => {
+    for (const email of [undefined, '', '   ', 'not an email', 'a@b', 'two words@example.com', 'x@exam\nple.com', `${'a'.repeat(250)}@example.com`, 12345, ['a@example.com']]) {
+      const res = await request(app).post('/api/feedback').send({ type: 'subscribe', email });
+      expect(res.status).toBe(400);
+      expect(res.body.error).toMatch(/valid email/);
+    }
+    expect(JSON.parse(await readFile(DATA_PATH, 'utf-8'))).toHaveLength(0);
+  });
+
+  it('keeps the message short, and the other types still need theirs', async () => {
+    const long = await request(app).post('/api/feedback').send({ type: 'subscribe', email: 'ada@example.com', message: 'x'.repeat(500) });
+    expect(long.body.message).toHaveLength(200);
+    const bug = await request(app).post('/api/feedback').send({ type: 'bug', email: 'ada@example.com' });
+    expect(bug.status).toBe(400);
+  });
+});
+
 describe('GET /api/feedback', () => {
   it('rejects a request with no admin key', async () => {
     const res = await request(app).get('/api/feedback');

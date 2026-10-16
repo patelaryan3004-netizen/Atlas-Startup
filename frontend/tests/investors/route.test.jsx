@@ -123,32 +123,32 @@ describe('the tab says which page it is', () => {
   }
 
   it('shows a title while its page is there, and gives the tab back after', () => {
-    document.title = 'AU Startup Map';
+    document.title = 'Still Early';
     const view = render(<Page title="Investors" />);
     expect(document.title).toBe('Investors');
     view.unmount();
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
   });
 
   it('lets the newest page win, and hands the tab to the one under it as each goes', () => {
-    document.title = 'AU Startup Map';
+    document.title = 'Still Early';
     const outer = render(<Page title="Directory" />);
     const inner = render(<Page title="Blackbird" />);
     expect(document.title).toBe('Blackbird');
     inner.unmount();
     expect(document.title).toBe('Directory');
     outer.unmount();
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
   });
 
   it('follows a title that changes, and leaves the tab alone when there is none', () => {
-    document.title = 'AU Startup Map';
+    document.title = 'Still Early';
     const view = render(<Page title={null} />);
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
     view.rerender(<Page title="Loaded" />);
     expect(document.title).toBe('Loaded');
     view.rerender(<Page title={null} />);
-    expect(document.title).toBe('AU Startup Map');
+    expect(document.title).toBe('Still Early');
   });
 });
 

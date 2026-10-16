@@ -1,5 +1,6 @@
 import HeaderMenu from '../HeaderMenu.jsx';
-import { AustraliaMark, PlusIcon, ArrowRight } from '../explore/icons.jsx';
+import { PlusIcon, ArrowRight } from '../explore/icons.jsx';
+import Wordmark from './Wordmark.jsx';
 import { HOME_PATH } from '../../paths.js';
 import { NAV, ADD_HREF, isPlainClick } from './nav.js';
 
@@ -10,8 +11,7 @@ export default function SiteHeader({ active = null, go = {}, counts = {}, onAdd,
   return (
     <header className="sh">
       <a className="sh-brand" href={HOME_PATH} aria-label="Go to home">
-        <AustraliaMark size={38} className="sh-mark" />
-        <span className="sh-name">AU Startup Map</span>
+        <Wordmark className="sh-wordmark" />
       </a>
 
       <nav className="sh-nav" aria-label="Main">

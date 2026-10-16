@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="description" content="Australia's startup ecosystem on a map: startups, founders, investors and jobs, each with where the facts came from.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AU Startup Map">
+<meta property="og:site_name" content="Still Early">
 <meta property="og:title" content="Australian Startup Map">
 <meta property="og:description" content="Australia's startup ecosystem on a map: startups, founders, investors and jobs, each with where the facts came from.">
 <meta property="og:image" content="__SITE_URL__/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="AU Startup Map: Australia’s startup ecosystem, mapped.">
+<meta property="og:image:alt" content="still early. The next big thing is someone. Australia’s startup community.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Australian Startup Map">
 <meta name="twitter:description" content="Australia's startup ecosystem on a map: startups, founders, investors and jobs, each with where the facts came from.">
@@ -25,7 +25,7 @@
   (function () {
     document.documentElement.classList.add('js'); // the page's scripts run: the plain HTML written for search engines and no-script visitors (.static-shell) is not shown
     var path = location.pathname.replace(/\/$/, ''), search = location.search, files = /*ROUTE_FILES*/{};
-    if (path === '' || path === '/welcome' || path === '/jobs') {
+    if (path === '' || path === '/jobs') {
       window.__auSnapshot = fetch('/data/snapshot.json').then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; });
     }
     var kinds = path === '/welcome' || /^\/(about|methodology|contact)$/.test(path) ? []
