@@ -32,8 +32,8 @@ describe('the welcome page', () => {
     const art = container.querySelector('.se-hero-art img');
     expect(art).toHaveAttribute('src', '/img/hero-night.webp');
     expect(art).toHaveAttribute('alt', '');
-    expect(art).toHaveAttribute('width', '2000');
-    expect(art).toHaveAttribute('height', '1349');
+    expect(art).toHaveAttribute('width', '3200');
+    expect(art).toHaveAttribute('height', '2158');
     expect(art).toHaveAttribute('fetchpriority', 'high');
     expect(container.querySelector('.se-hero-art source')).toHaveAttribute('srcset', '/img/hero-night-sm.webp'); // the narrow file for a phone
     const constellation = container.querySelector('.se-hero-constellation');

@@ -46,8 +46,8 @@ export default function Hero() {
   return (
     <header className="se-hero" id="top">
       <picture className="se-hero-art">
-        <source media="(max-width: 700px)" srcSet="/img/hero-night-sm.webp" width="900" height="1482" />
-        <img src="/img/hero-night.webp" width="2000" height="1349" alt="" fetchPriority="high" decoding="async" />
+        <source media="(max-width: 700px)" srcSet="/img/hero-night-sm.webp" width="1312" height="2158" />
+        <img src="/img/hero-night.webp" width="3200" height="2158" alt="" fetchPriority="high" decoding="async" />
       </picture>
       <div className="se-hero-shade" aria-hidden="true" />
       <Constellation className="se-hero-constellation" />

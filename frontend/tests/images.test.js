@@ -84,7 +84,7 @@ describe('every image tag', () => {
 
   it('gives the opening\'s picture its size and a narrower file for a phone, so the page does not move and a phone does not download the wide one', () => {
     const hero = text(path.join(src, 'components', 'landing', 'Hero.jsx'));
-    expect(hero).toMatch(/<img src="\/img\/hero-night\.webp" width="2000" height="1349"/);
+    expect(hero).toMatch(/<img src="\/img\/hero-night\.webp" width="3200" height="2158"/);
     expect(hero).toMatch(/<source media="\(max-width: 700px\)" srcSet="\/img\/hero-night-sm\.webp"/);
   });
 

@@ -13,14 +13,18 @@
 | The email forms | `components/landing/SubscribeForm.jsx`, `hooks/useSubscribe.js` |
 | Styles | `frontend/src/welcome.css` (tokens in `styles.css`) |
 | The night-sky pictures | `frontend/public/img/hero-night.webp`, `hero-night-sm.webp` (phone) |
-| How the pictures were made | `frontend/scripts/art/make-hero-art.mjs` |
+| How the pictures are made | `frontend/scripts/art/upscale-hero.mjs` from `scripts/art/hero-night-source.webp` |
 | The link-preview picture | `frontend/scripts/make-og-image.mjs` writes `public/og-image.png` |
 
 It is pre-rendered at build (`scripts/prerender.mjs`) and hydrated: the build also asks, in the head, for the picture that the screen will use and for the two Instrument Serif files, and the page is not sent the snapshot the map draws from.
 
-## The artwork is a stand-in
+## The artwork
 
-Only the composed design (793 px wide) was supplied, not the clean hero picture it mentions. `make-hero-art.mjs` takes the opening out of it, removes every baked-in word, control and the constellation, refills those places from the sky around them, and writes a 2000 px picture and a 900 px phone crop. Every word on the page is live text and the constellation is a live drawing. Because the source is small, the picture is softer than an original would be (most visible on a large retina screen). **To finish it, replace the two files with a clean, text-free, full-size original of the same scene** (about 2400 x 1620, and about 1000 x 1650 with the person in the middle); nothing else needs to change. The pictures inside the product previews are SVG illustrations (`scenes.jsx`), not photographs.
+The night sky is the clean, text-free original the owner supplied (1527 x 1030, kept as `scripts/art/hero-night-source.webp`), enlarged to **3200 x 2158** by `scripts/art/upscale-hero.mjs`: Lanczos-3 resampling in floats, an anti-ringing clamp, a soft-thresholded unsharp mask on the luminance only, and a fine dither, exported as a lossy WebP (quality .92, about 630 KB). The phone's file (`hero-night-sm.webp`, 1312 x 2158, about 190 KB) is the same slice of that picture as always (29.6% to 70.6% of its width, the person in the middle), cut from the enlarged picture, not enlarged again. The framing is the original's and the same as the page had before (checked by an alignment test: best match at zero shift and scale), so nothing in the layout moved. The picture is never stretched by CSS: it is drawn at or below its own size on every screen up to 3200 px wide (a 1440 px screen at 2x draws it at 0.9x).
+
+It is a classical resampler, not a trained model: it makes edges and stars crisp but cannot invent detail the 1527 px original does not have, so a larger original would still be better. Every word on the page is live text and the constellation is a live drawing; none is in the picture. The pictures inside the product previews are SVG illustrations (`scenes.jsx`), not photographs.
+
+To change the picture: replace `scripts/art/hero-night-source.webp` with a new original of the same framing and run `node scripts/art/upscale-hero.mjs` (add a third argument, a folder, to also write sharpness comparisons). If its aspect ratio is not 1527:1030, update the `width`/`height` of the two image tags in `Hero.jsx`.
 
 ## Previews are previews
 
