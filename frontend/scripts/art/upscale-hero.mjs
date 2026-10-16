@@ -1,4 +1,4 @@
-// Makes public/img/hero-night.webp (3200 px wide) and hero-night-sm.webp (the phone's slice of it), the night-sky pictures of the welcome page, from the clean
+// FALLBACK (no trained model): makes public/img/hero-night.webp (3200 px wide) and hero-night-sm.webp (the phone slice of it) from the clean
 // original in scripts/art/hero-night-source.webp.
 //   node scripts/art/upscale-hero.mjs [source, default scripts/art/hero-night-source.webp] [out folder, default public/img] [report folder: also writes the comparisons]
 // The original is 1527 x 1030, so it is enlarged 2.1 times. That is done here and not by the browser's CSS stretch:
