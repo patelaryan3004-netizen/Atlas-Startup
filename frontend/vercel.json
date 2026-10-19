@@ -4,6 +4,12 @@
   "buildCommand": "npm run build",
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "au-startup-map.vercel.app" }],
+      "destination": "https://stillearly-au.vercel.app/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "au-startup-map.vercel.app" }],
       "destination": "https://stillearly-au.vercel.app/:path*",

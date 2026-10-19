@@ -31,20 +31,26 @@ describe('the site\'s address', () => {
 describe('the old address', () => {
   const redirects = config.redirects ?? [];
 
-  it('has one redirect, a permanent one, to the same path and query on the new address', () => {
-    expect(redirects).toHaveLength(1);
-    const [rule] = redirects;
-    expect(rule.permanent).toBe(true);
-    expect(rule.source).toBe('/:path*'); // every path, the root included
-    expect(rule.destination).toBe(`https://${NEW_HOST}/:path*`); // Vercel carries the query string over by itself, so none is named here
-    expect(rule.destination).not.toContain('?');
+  it('has two redirects, both permanent, to the same path and query on the new address: one for the root and one for every other path', () => {
+    // (the pattern for every other path does not catch the bare root on Vercel: the old address's "/" answered 200 until it had a rule of its own, found when it was checked live)
+    expect(redirects).toHaveLength(2);
+    const [root, rest] = redirects;
+    expect(root.source).toBe('/');
+    expect(root.destination).toBe(`https://${NEW_HOST}/`);
+    expect(rest.source).toBe('/:path*');
+    expect(rest.destination).toBe(`https://${NEW_HOST}/:path*`);
+    for (const rule of redirects) {
+      expect(rule.permanent).toBe(true);
+      expect(rule.destination).not.toContain('?'); // Vercel carries the query string over by itself, so none is named here
+    }
   });
 
   it('applies to the old host and to no other, so the new address can never redirect to itself', () => {
-    const [rule] = redirects;
-    expect(rule.has).toEqual([{ type: 'host', value: OLD_HOST }]);
-    expect(new URL(rule.destination.replace(':path*', '')).hostname).toBe(NEW_HOST);
-    expect(rule.destination).not.toContain(OLD_HOST);
+    for (const rule of redirects) {
+      expect(rule.has).toEqual([{ type: 'host', value: OLD_HOST }]);
+      expect(new URL(rule.destination.replace(':path*', '')).hostname).toBe(NEW_HOST);
+      expect(rule.destination).not.toContain(OLD_HOST);
+    }
     expect(NEW_HOST).not.toBe(OLD_HOST);
   });
 
