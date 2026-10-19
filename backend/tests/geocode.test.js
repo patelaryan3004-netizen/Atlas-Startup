@@ -55,7 +55,7 @@ describe('asking the geocoder', () => {
     await gc.search('c');
     expect(web.asked()).toEqual(['a', 'b', 'c']);
     expect(web.calls[0].userAgent).toBe(DEFAULT_USER_AGENT);
-    expect(DEFAULT_USER_AGENT).toMatch(/^AUStartupMapBot\/1\.0 \(\+https:\/\/au-startup-map\.vercel\.app\//);
+    expect(DEFAULT_USER_AGENT).toMatch(/^AUStartupMapBot\/1\.0 \(\+https:\/\/stillearly-au\.vercel\.app\//);
     expect(web.calls[0].countrycodes).toBe('au');
     const url = new URL(web.calls[0].url);
     expect(url.origin + url.pathname).toBe('https://nominatim.openstreetmap.org/search');

@@ -32,7 +32,7 @@ All three are short, link to each other, and are linked from the landing page's 
 
 ## Search and sharing
 
-- Every pre-rendered page has its own `<title>`, description, `og:*` and `twitter:*` tags, and a canonical address (`src/siteMeta.js` holds the text and the address, `https://au-startup-map.vercel.app`; set `VITE_SITE_URL` if the site moves to its own domain).
+- Every pre-rendered page has its own `<title>`, description, `og:*` and `twitter:*` tags, and a canonical address (`src/siteMeta.js` holds the text and the address, `https://stillearly-au.vercel.app`; set `VITE_SITE_URL` if the site moves to its own domain; the old address, `au-startup-map.vercel.app`, redirects to it, see README).
 - `og-image.png` (1200 × 630) is drawn by `node scripts/make-og-image.mjs` (needs Chrome or Edge) from the site's own type and the country in dots; it makes no claim. Remake it if the headline changes.
 - `robots.txt` and `sitemap.xml` are written by the build and list the seven pre-rendered addresses (not `/people`).
 - `vercel.json` serves each pre-rendered address from its file and every other app address from `app.html`.

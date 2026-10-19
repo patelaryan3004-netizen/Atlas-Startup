@@ -20,7 +20,7 @@ import { lookup, remember, normalizeQuery } from '../models/geocodeCache.js';
 
 export const PROVIDER = 'nominatim';
 export const DEFAULT_BASE_URL = 'https://nominatim.openstreetmap.org';
-export const DEFAULT_USER_AGENT = 'AUStartupMapBot/1.0 (+https://au-startup-map.vercel.app/; geocoding)';
+export const DEFAULT_USER_AGENT = 'AUStartupMapBot/1.0 (+https://stillearly-au.vercel.app/; geocoding)';
 export const MIN_INTERVAL_MS = 1100; // Nominatim allows one request a second at most
 
 // A point within this of the one on file is the same place: the geocoder's replaces it (it can be traced).

@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 // The whole of it, as `npm run build` does it: the site is built, then scripts/prerender.mjs writes the HTML into the build. What is checked is
 // the files a visitor with no scripts, a search engine and a link preview are given.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://au-startup-map.vercel.app';
+const SITE = 'https://stillearly-au.vercel.app';
 let dist;
 const file = (name) => readFile(path.join(dist, name), 'utf8');
 const tag = (html, re) => re.exec(html)?.[1] ?? null;

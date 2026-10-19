@@ -4,7 +4,7 @@
 
 // The address the site is served from. Canonical addresses, the sitemap and the preview image are made from it, so a site moved to its own
 // domain sets VITE_SITE_URL (a build setting on Vercel) and nothing else changes.
-export const SITE_URL = String(import.meta.env.VITE_SITE_URL || 'https://au-startup-map.vercel.app').replace(/\/$/, '');
+export const SITE_URL = String(import.meta.env.VITE_SITE_URL || 'https://stillearly-au.vercel.app').replace(/\/$/, '');
 import { BRAND } from './brand.js';
 export const SITE_NAME = BRAND.name;
 

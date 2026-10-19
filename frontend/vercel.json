@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "au-startup-map.vercel.app" }],
+      "destination": "https://stillearly-au.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/welcome", "destination": "/welcome/index.html" },
     { "source": "/welcome/", "destination": "/welcome/index.html" },

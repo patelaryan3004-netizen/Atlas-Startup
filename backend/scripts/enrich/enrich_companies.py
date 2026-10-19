@@ -52,7 +52,7 @@ HERE = Path(__file__).resolve().parent
 DATA = HERE.parent.parent / 'src' / 'data'
 DEFAULT_OUT = HERE / 'companies_enriched.json'
 
-UA = 'AUStartupMapBot/1.0 (+https://au-startup-map.vercel.app/; enrichment)'
+UA = 'AUStartupMapBot/1.0 (+https://stillearly-au.vercel.app/; enrichment)'
 PRODUCT = 'austartupmapbot'
 MAX_STORED_JOBS = 50
 

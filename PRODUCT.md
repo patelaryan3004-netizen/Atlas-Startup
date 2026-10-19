@@ -13,7 +13,7 @@ web
 ## Users
 
 - **Public visitors** find and explore Australian VC-backed startups on a map and in lists: jobs, news,
-  curated lists, tracked companies, startup submission (`frontend/`, live at au-startup-map.vercel.app).
+  curated lists, tracked companies, startup submission (`frontend/`, live at stillearly-au.vercel.app; formerly au-startup-map.vercel.app, which redirects there).
 - **The operator of the data** is the owner of the project, working alone at their own machine, deciding what
   is true enough to publish. The Data Command Center is for them. *(inferred: "internal tool for one
   operator"; the roles viewer, reviewer and admin exist so colleagues can be added later.)*
