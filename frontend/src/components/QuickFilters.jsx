@@ -22,7 +22,7 @@ function Pick({ label, filters, field, options, onChange }) {
 export default function QuickFilters({ filters, meta, onChange }) {
   const toggle = (field, on) => () => onChange({ ...filters, [field]: filters[field] === on ? '' : on });
   const switchChip = (field, on, text) => (
-    <button type="button" className={filters[field] === on ? 'qf-chip qf-chip-on' : 'qf-chip'} aria-pressed={filters[field] === on} onClick={toggle(field, on)}>{text}</button>
+    <button key={`${field}:${on}`} type="button" className={filters[field] === on ? 'qf-chip qf-chip-on' : 'qf-chip'} aria-pressed={filters[field] === on} onClick={toggle(field, on)}>{text}</button>
   );
   return (
     <div className="qf" role="group" aria-label="Quick filters">
@@ -32,6 +32,7 @@ export default function QuickFilters({ filters, meta, onChange }) {
       {switchChip('stage', SEED_TO_SERIES_A, 'Seed to Series A')}
       <Pick label="City" field="city" options={meta?.cities ?? []} filters={filters} onChange={onChange} />
       {switchChip('events', 'week', 'Events this week')}
+      {(meta?.cohorts ?? []).map((c) => switchChip('cohort', c.id, c.label))}
     </div>
   );
 }

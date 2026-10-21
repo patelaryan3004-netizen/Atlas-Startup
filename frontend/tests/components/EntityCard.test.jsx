@@ -80,8 +80,18 @@ describe('the avatar', () => {
     expect(img).toHaveAttribute('width', '40');
     expect(img.getAttribute('src')).toContain('zeller.example');
     expect(img).not.toHaveClass('is-loaded');
+    Object.defineProperty(img, 'naturalWidth', { value: 64, configurable: true });
     fireEvent.load(img);
     expect(img).toHaveClass('is-loaded');
+  });
+
+  it('counts the service\'s 16-pixel globe (what it sends for a site it does not know) as no logo, leaving the letter', () => {
+    const { container } = render(<Avatar name="Antares" website="https://antares.example" />);
+    const img = container.querySelector('img');
+    Object.defineProperty(img, 'naturalWidth', { value: 16, configurable: true });
+    fireEvent.load(img);
+    expect(container.querySelector('img')).toBeNull();
+    expect(container.querySelector('.entity-initial')).toHaveTextContent('A');
   });
 
   it('takes the logo away again if it cannot be loaded, leaving the letter', () => {

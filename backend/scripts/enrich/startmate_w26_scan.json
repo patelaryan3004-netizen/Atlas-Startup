@@ -1,0 +1,1894 @@
+{
+ "generated_at": "2026-10-21T04:47:39Z",
+ "note": "What each company's OWN website says (startmate_w26_scan.py scan): the address asked, where it ended after redirects, the pages read, the places/entities/numbers each page names with its sentence, founders on its own pages, the icons it declares. extra_results are the follow-up reads of yourquarter.au and trustcoco.ai (a second site of Quarter, the site Coco moved to).",
+ "results": [
+  {
+   "id": "ansight",
+   "name": "Ansight",
+   "website_asked": "https://www.ansight.ai",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.ansight.ai",
+   "pages_read": [
+    "https://www.ansight.ai",
+    "https://www.ansight.ai/team",
+    "https://www.ansight.ai/privacy",
+    "https://www.ansight.ai/terms"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Ansight | Let your coding agent check its mobile changes",
+   "description": "Ansight lets coding agents try changed flows in a connected mobile app, inspect what happened, and leave a captured session for review.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.ansight.ai/assets/icon.png"
+    }
+   ],
+   "og_image": "https://www.ansight.ai/assets/og.png",
+   "ld_logo": "https://www.ansight.ai/assets/logo.png",
+   "places": [
+    {
+     "place": "United States",
+     "quote": "@ansight.ai with Privacy request in the subject line, or write to Ansight, Inc., 131 Continental Dr, Suite 305, Newark, DE 19713, United States . Our support page explains how to contact us without sending unnecessary sensitive information. 2. Our role and your organisatio",
+     "source_url": "https://www.ansight.ai/privacy"
+    },
+    {
+     "place": "United States",
+     "quote": "l capture and workspace execution have different security boundaries from our cloud services. Information may be processed in the United States and other countries where relevant providers or authorised personnel operate. Delaware incorporation does not establish where all",
+     "source_url": "https://www.ansight.ai/privacy"
+    },
+    {
+     "place": "California",
+     "quote": "scribe from optional marketing through its mechanism or contact us; necessary service messages may continue. European, UK, Swiss, California and other US state laws can differ. Applicability depends on actual activities, individuals and legal thresholds, not solely inco",
+     "source_url": "https://www.ansight.ai/privacy"
+    },
+    {
+     "place": "United States",
+     "quote": "troactively authorise an incompatible use of information. Contact Ansight, Inc., 131 Continental Dr, Suite 305, Newark, DE 19713, United States , or support@ansight.ai . Build and test your mobile app from anywhere with live runtime evidence and guarded developer tools. Pr",
+     "source_url": "https://www.ansight.ai/privacy"
+    },
+    {
+     "place": "United States",
+     "quote": "govern access to services provided by Ansight, Inc., a Delaware corporation , at 131 Continental Dr, Suite 305, Newark, DE 19713, United States (“Ansight,” “we,” “us”). “Customer” or “you” means the person or legal entity agreeing to use the services. If accepting for an o",
+     "source_url": "https://www.ansight.ai/terms"
+    },
+    {
+     "place": "United States",
+     "quote": "ble notice, cancellation and contract requirements apply. Contact Ansight, Inc., 131 Continental Dr, Suite 305, Newark, DE 19713, United States , or support@ansight.ai . Notices affecting an organisation should identify the relevant account and be sent by an authorised per",
+     "source_url": "https://www.ansight.ai/terms"
+    }
+   ],
+   "entities": [],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Martin Mora": [
+     "https://www.ansight.ai/team"
+    ],
+    "Matthew Robbins": [
+     "https://www.ansight.ai/team"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "antares-aerospace",
+   "name": "Antares Aerospace",
+   "website_asked": "http://antaresaerospace.com.au",
+   "read": true,
+   "refused": [],
+   "final_url": "https://antaresaerospace.com.au",
+   "pages_read": [
+    "https://antaresaerospace.com.au",
+    "https://antaresaerospace.com.au/about"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Antares Aerospace | Reusable Small Satellite Launch",
+   "description": "Antares Aerospace is an Australian aerospace company developing reusable launch vehicles for dedicated small satellite missions and responsive access to orbit.",
+   "site_name": "Antares Aerospace",
+   "icons": [
+    {
+     "rel": "shortcut icon",
+     "href": "https://antaresaerospace.com.au/favicon.svg"
+    },
+    {
+     "rel": "icon",
+     "href": "https://antaresaerospace.com.au/favicon.svg"
+    }
+   ],
+   "og_image": null,
+   "ld_logo": "https://antaresaerospace.com.au/antares-assets/antares-mark.svg",
+   "places": [
+    {
+     "place": "Sydney",
+     "quote": "n t , v i b r a t i o n , m i c r o g r a v i t y , a n d r e c o v e r y e n v i r o n m e n t s . B e g i n t h e m i s s i o n Sydney, Australia Est. 2025 © 2026 Antares Aerospace Systems Pty Ltd • H o m e A b o u t • L i n k e d I n",
+     "source_url": "https://antaresaerospace.com.au"
+    },
+    {
+     "place": "Australia",
+     "quote": "i b r a t i o n , m i c r o g r a v i t y , a n d r e c o v e r y e n v i r o n m e n t s . B e g i n t h e m i s s i o n Sydney, Australia Est. 2025 © 2026 Antares Aerospace Systems Pty Ltd • H o m e A b o u t • L i n k e d I n",
+     "source_url": "https://antaresaerospace.com.au"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Antares Aerospace Systems Pty Ltd",
+     "source_url": "https://antaresaerospace.com.au"
+    },
+    {
+     "entity": "Antares Aerospace Systems Pty Ltd",
+     "source_url": "https://antaresaerospace.com.au/about"
+    }
+   ],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Lachlan Bramble": [
+     "https://antaresaerospace.com.au/about"
+    ],
+    "Ronan Kohlhoff": [
+     "https://antaresaerospace.com.au/about"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "brandviz-ai",
+   "name": "BrandViz.AI",
+   "website_asked": "http://brandviz.ai",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.brandviz.ai/",
+   "pages_read": [
+    "https://www.brandviz.ai/",
+    "https://www.brandviz.ai/about",
+    "https://www.brandviz.ai/setup-call",
+    "https://www.brandviz.ai/privacy",
+    "https://www.brandviz.ai/terms"
+   ],
+   "redirected": true,
+   "site_changed": false,
+   "title": "BrandViz.AI - Get Cited and Recommended by AI Engines",
+   "description": "AI is recommending your competitors, not you. BrandViz ships the fixes and on-brand content straight to your site - you review and approve.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.brandviz.ai/favicon.ico"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://www.brandviz.ai/apple-touch-icon.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.brandviz.ai/favicon-32x32.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.brandviz.ai/favicon-16x16.png"
+    }
+   ],
+   "og_image": "https://www.brandviz.ai/og-brandviz.png",
+   "ld_logo": "https://www.brandviz.ai/authors/brandviz-logo.png",
+   "places": [
+    {
+     "place": "United States",
+     "quote": "s FinTech · UK & Ireland · 12 weeks Read case study ↗ 58× pages shown in Google's AI answers each week Developer Infrastructure · United States · 90 days Read case study ↗ 45.9% United States LTR category mention share GovTech · United States · 8 weeks Read case study ↗ 0",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "United States",
+     "quote": "udy ↗ 58× pages shown in Google's AI answers each week Developer Infrastructure · United States · 90 days Read case study ↗ 45.9% United States LTR category mention share GovTech · United States · 8 weeks Read case study ↗ 0 → #1 sign-ups kept climbing with zero ad spend H",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "United States",
+     "quote": "eek Developer Infrastructure · United States · 90 days Read case study ↗ 45.9% United States LTR category mention share GovTech · United States · 8 weeks Read case study ↗ 0 → #1 sign-ups kept climbing with zero ad spend HealthTech · Australia · 30 days Read case study ↗ ~",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": "y mention share GovTech · United States · 8 weeks Read case study ↗ 0 → #1 sign-ups kept climbing with zero ad spend HealthTech · Australia · 30 days Read case study ↗ ~3× on-site conversion to 5 generations (~1.5% → 4.5–5%) Consumer AI · Australia · 90 days Read case",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": "d spend HealthTech · Australia · 30 days Read case study ↗ ~3× on-site conversion to 5 generations (~1.5% → 4.5–5%) Consumer AI · Australia · 90 days Read case study ↗ 10× early-stage AI visibility (3.3% → 33.1%) FinTech · Australia & New Zealand · 4 months Confidentia",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": "tions (~1.5% → 4.5–5%) Consumer AI · Australia · 90 days Read case study ↗ 10× early-stage AI visibility (3.3% → 33.1%) FinTech · Australia & New Zealand · 4 months Confidential client Read case study ↗ 2× AI Visibility Score (7.3% → 14.8%) Data Privacy · Global · 3 mo",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "→ 4.5–5%) Consumer AI · Australia · 90 days Read case study ↗ 10× early-stage AI visibility (3.3% → 33.1%) FinTech · Australia & New Zealand · 4 months Confidential client Read case study ↗ 2× AI Visibility Score (7.3% → 14.8%) Data Privacy · Global · 3 months nook Read",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": ".8%) Data Privacy · Global · 3 months nook Read case study ↗ 28.8× more often mentioned by Claude (0.5% → 14.4%) Wellbeing Tech · Australia & United States · 60 days AI Search Is Already Here Your buyers are already searching with AI The question isn’t whether AI searc",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "United States",
+     "quote": "ivacy · Global · 3 months nook Read case study ↗ 28.8× more often mentioned by Claude (0.5% → 14.4%) Wellbeing Tech · Australia & United States · 60 days AI Search Is Already Here Your buyers are already searching with AI The question isn’t whether AI search is coming. It’",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": "BrandViz is providing. … BrandViz fixed it in 30 days. OpenPharmacy went from zero AI citations to the #1 cited eScript source in Australia . … I got more value than I paid for. You should charge more. ” Marty Jaynes , Head of Marketing, LOIS Leasing “ Fully branded, r",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Brisbane",
+     "quote": "rces Blog Industry Rankings Website tech checker FAQ Docs Company About Contact Sign in © BrandViz.AI 2026 Privacy Terms Built in Brisbane, Australia",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": "Industry Rankings Website tech checker FAQ Docs Company About Contact Sign in © BrandViz.AI 2026 Privacy Terms Built in Brisbane, Australia",
+     "source_url": "https://www.brandviz.ai/"
+    },
+    {
+     "place": "Australia",
+     "quote": "Resources Sign in Get Started About BrandViz.AI Enabling brands to win in the AI search era Built by ex- engineers Backed by From Australia to the world. With happy clients across Australia, New Zealand, the US, the UK and Ireland. The founding team brings deep experti",
+     "source_url": "https://www.brandviz.ai/about"
+    },
+    {
+     "place": "Australia",
+     "quote": "abling brands to win in the AI search era Built by ex- engineers Backed by From Australia to the world. With happy clients across Australia, New Zealand, the US, the UK and Ireland. The founding team brings deep expertise from years at Google. In the room with marketer",
+     "source_url": "https://www.brandviz.ai/about"
+    }
+   ],
+   "entities": [],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Rushana Maksudova": [
+     "https://www.brandviz.ai/about"
+    ],
+    "David Andersen": [
+     "https://www.brandviz.ai/about"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "clausifai",
+   "name": "Clausifai",
+   "website_asked": "https://clausifai.com",
+   "read": true,
+   "refused": [
+    {
+     "url": "https://clausifai.com/login?redirect=%2Fabout",
+     "code": "access_controlled"
+    },
+    {
+     "url": "https://clausifai.com/login?redirect=%2Fcontact",
+     "code": "access_controlled"
+    }
+   ],
+   "final_url": "https://clausifai.com",
+   "pages_read": [
+    "https://clausifai.com",
+    "https://clausifai.com/terms",
+    "https://clausifai.com/privacy"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Clausifai - from first draft to signed and sorted",
+   "description": "Clausifai helps businesses handle contracts from beginning to end: create an agreement, review the terms in plain English, negotiate with the other party, sign, and stay ahead of renewals.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://clausifai.com/favicon.ico?favicon.a150dc8d.ico"
+    }
+   ],
+   "og_image": null,
+   "ld_logo": null,
+   "places": [
+    {
+     "place": "Australian",
+     "quote": "aid in the preceding 12 months capped at the fees paid in the preceding 3 months “Agreed - three months, net 21.” Checked against Australian Consumer Law Sent as a proposal. The clause changes when Vertex accepts the wording. Both sides, one conversation They join by li",
+     "source_url": "https://clausifai.com"
+    },
+    {
+     "place": "Australian",
+     "quote": "very term shows where it came from Each change carries the line it was agreed in — re-checked against the transcript, and against Australian law where it matters. It proposes, you both accept Nothing is rewritten behind your back. The last clause agreed writes the new v",
+     "source_url": "https://clausifai.com"
+    },
+    {
+     "place": "Australia",
+     "quote": "nts. We treat them that way. AES-256 at rest Every document, every version, every time. AU data residency Your agreements stay in Australia. Full audit trail Who opened what, when, and for how long. You choose what’s shared Nothing leaves your workspace until you send",
+     "source_url": "https://clausifai.com"
+    },
+    {
+     "place": "Australian",
+     "quote": "ing. Their policy is theirs to change, so it is worth checking. Access, correction, deletion and export are your rights under the Australian Privacy Principles, answered within thirty days. Read the full privacy policy Create. Review. Negotiate. Sign. Stay on top of it.",
+     "source_url": "https://clausifai.com"
+    },
+    {
+     "place": "Australian",
+     "quote": "signature Pricing COMPANY Security Contact us Book a walkthrough LEGAL Terms of service Privacy policy © 2026 Clausifai Pty Ltd · Australian built AES-256 encrypted AU data residency Not a law firm",
+     "source_url": "https://clausifai.com"
+    },
+    {
+     "place": "Australia",
+     "quote": "acy Policy · Home Legal Documents Package Terms of Service AI-Powered Contract Generation Platform Governing Law: Commonwealth of Australia Effective Date: 4/04/26 | Last Updated: 4/04/26 clausifai Pty Ltd · ABN: 18696797627 · 10 Pulteney Street Contact: support@clausi",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "latform. 1. Definitions and Interpretation 1.1 Definitions In these Terms, unless the context requires otherwise: \"ABR\" means the Australian Business Register operated by the Australian Taxation Office. \"AI-Generated Content\" means any contract, clause, text, analysis,",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "1 Definitions In these Terms, unless the context requires otherwise: \"ABR\" means the Australian Business Register operated by the Australian Taxation Office. \"AI-Generated Content\" means any contract, clause, text, analysis, or other output produced by the Platform usin",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "alysis, or other output produced by the Platform using artificial intelligence, including outputs from the Anthropic Claude API. \"Australian Consumer Law\" or \"ACL\" means Schedule 2 to the Competition and Consumer Act 2010 (Cth). \"Contract\" means a document generated, up",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "uses artificial intelligence to generate contract documents. AI-Generated Content is not a substitute for advice from a qualified Australian legal practitioner. You should seek independent legal advice before signing any legally binding agreement. 2.1 No Legal Advice or",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "-Generated Content may contain errors, omissions, or inaccuracies. AI-Generated Content may not reflect the most current state of Australian law. AI-Generated Content is a starting point for drafting, not a finalised, legally verified document. The suitability of any AI",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "orceable, or appropriate for your circumstances. 2.5 Recommendation to Seek Legal Advice We strongly recommend that you engage an Australian-qualified solicitor to review any Contract generated or facilitated by the Platform before execution, particularly where: the Con",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "nt Registration 3.1 Eligibility You must be at least 18 years of age and legally capable of entering into binding contracts under Australian law. By registering, you represent and warrant that you meet these requirements. The Platform is intended for use in Australia on",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "place": "Australia",
+     "quote": "r Australian law. By registering, you represent and warrant that you meet these requirements. The Platform is intended for use in Australia only. Clausifai makes no representations regarding suitability outside Australia. 3.2 Business Users If you are registering on be",
+     "source_url": "https://clausifai.com/terms"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Clausifai Pty Ltd",
+     "source_url": "https://clausifai.com"
+    },
+    {
+     "entity": "Pty Ltd",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "entity": "Pty Ltd",
+     "source_url": "https://clausifai.com/privacy"
+    },
+    {
+     "entity": "Who We Are Clausifai Pty Ltd",
+     "source_url": "https://clausifai.com/privacy"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ABN",
+     "number": "18696797627",
+     "source_url": "https://clausifai.com/terms"
+    },
+    {
+     "kind": "ABN",
+     "number": "18696797627",
+     "source_url": "https://clausifai.com/privacy"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Arshita Dewan": [],
+    "Karisa Mahroukh": [],
+    "Riniki Das Barman": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "coco",
+   "name": "Coco",
+   "website_asked": "https://www.cocothecreator.com",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.trustcoco.ai/",
+   "pages_read": [
+    "https://www.trustcoco.ai/"
+   ],
+   "redirected": true,
+   "site_changed": true,
+   "title": "Coco AI — Permission enforcement for agents",
+   "description": "Coco enforces your policy on every AI agent action in high-stakes financial workflows.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.trustcoco.ai/favicon.svg"
+    }
+   ],
+   "og_image": null,
+   "ld_logo": null,
+   "places": [],
+   "entities": [
+    {
+     "entity": "KYC Resources Documentation Coco AI Pty Ltd",
+     "source_url": "https://www.trustcoco.ai/"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ABN",
+     "number": "94 699 746 720",
+     "source_url": "https://www.trustcoco.ai/"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [
+    {
+     "quote": "Backed by Startmate, State Library of Victoria",
+     "source_url": "https://www.trustcoco.ai/"
+    }
+   ],
+   "founders_on_own_pages": {
+    "Nguyen Nguyen": [],
+    "Khoa Pham": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "derive",
+   "name": "Derive",
+   "website_asked": "https://www.derivenotes.com",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.derivenotes.com",
+   "pages_read": [
+    "https://www.derivenotes.com",
+    "https://www.derivenotes.com/about",
+    "https://www.derivenotes.com/privacy",
+    "https://www.derivenotes.com/terms"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Derive | The intelligent notebook that checks your maths as you write",
+   "description": "Derive understands everything on your canvas: handwriting, maths, diagrams. It checks your work line by line as you write.",
+   "site_name": "Derive",
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.derivenotes.com/icon.ico"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://www.derivenotes.com/favicon_io/apple-touch-icon.png"
+    }
+   ],
+   "og_image": "https://derive-website-git-worktree-ga-site-dev-edens-projects-62d66e14.vercel.app/opengraph-image.png?opengraph-image.b5fd80db.png",
+   "ld_logo": "https://www.derivenotes.com/favicon_io/apple-touch-icon.png",
+   "places": [
+    {
+     "place": "Melbourne",
+     "quote": "EY AUSTRALIAN NATIONAL UNIVERSITY ANU THE UNIVERSITY OF QUEENSLAND THE UNIVERSITY OF ADELAIDE THE UNIVERSITY OF WESTERN AUSTRALIA Melbourne, Monash, UNSW, Sydney, ANU, Queensland, Adelaide, and Western Australia. Everything on the canvas , understood . Understand Tools",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Sydney",
+     "quote": "IVERSITY ANU THE UNIVERSITY OF QUEENSLAND THE UNIVERSITY OF ADELAIDE THE UNIVERSITY OF WESTERN AUSTRALIA Melbourne, Monash, UNSW, Sydney, ANU, Queensland, Adelaide, and Western Australia. Everything on the canvas , understood . Understand Tools Search Understand Too",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Adelaide",
+     "quote": "TY OF QUEENSLAND THE UNIVERSITY OF ADELAIDE THE UNIVERSITY OF WESTERN AUSTRALIA Melbourne, Monash, UNSW, Sydney, ANU, Queensland, Adelaide, and Western Australia. Everything on the canvas , understood . Understand Tools Search Understand Tools Search Understand Pen, s",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Australia",
+     "quote": "NIVERSITY OF ADELAIDE THE UNIVERSITY OF WESTERN AUSTRALIA Melbourne, Monash, UNSW, Sydney, ANU, Queensland, Adelaide, and Western Australia. Everything on the canvas , understood . Understand Tools Search Understand Tools Search Understand Pen, shapes, text. An infinit",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "semester. “ It flagged a dropped negative on line three. I’d have carried it all the way to the answer. ” Sarah L. · Calculus 2 , Melbourne “ Finally no more typing LaTeX :) now i solve problem sets by hand, export as LaTeX and I’m done ” Mia W. · Pure Mathematics , Mo",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Adelaide",
+     "quote": "han the real one. ” Priya N. · Actuarial Studies , UNSW “ I haven’t recopied a page of notes since March. ” Nina S. · Chemistry , Adelaide “ I run the Python check on the same page as the working instead of switching apps. ” Sam O. · Computer Science , UNSW “ I import",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Australia",
+     "quote": "at matt@derivenotes.com . Is Derive free? No. Derive is free for 7 days, then A$8.99/mo billed annually or A$12.99/mo monthly in Australia, and US$6.99/mo billed annually or US$9.99/mo monthly in the United States. Same features either way, and a full 30-day refund on",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "United States",
+     "quote": "s, then A$8.99/mo billed annually or A$12.99/mo monthly in Australia, and US$6.99/mo billed annually or US$9.99/mo monthly in the United States. Same features either way, and a full 30-day refund on top if it’s not for you. What do I need to run it? An iPad with Apple Penc",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Australia",
+     "quote": ", Windows, and the web as soon as you’re back online. Who makes Derive? Derive Notes Pty Ltd, a company registered in Queensland, Australia (ACN 696 859 597). Derive launched in Australia in August 2026 and is now available in the United States, with the rest of the wo",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Australia",
+     "quote": "line. Who makes Derive? Derive Notes Pty Ltd, a company registered in Queensland, Australia (ACN 696 859 597). Derive launched in Australia in August 2026 and is now available in the United States, with the rest of the world next on the roadmap. More detail lives on th",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "United States",
+     "quote": "ny registered in Queensland, Australia (ACN 696 859 597). Derive launched in Australia in August 2026 and is now available in the United States, with the rest of the world next on the roadmap. More detail lives on the pages themselves: pricing for the plans and the trial,",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Australia",
+     "quote": "what has shipped and what is being built, and about for the company behind it. Derive Notes Pty Ltd is registered in Queensland, Australia. Bring it to your next problem set . Download for Mac & Windows Derive . Download Pricing FAQ Roadmap About Privacy Terms Refund",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "place": "Australia",
+     "quote": ", PDF, PNG, and SVG. Who builds it Derive is built by Derive Notes Pty Ltd (ACN 696 859 597), a company registered in Queensland, Australia. The product launched in Australia in August 2026 and is used by students at Melbourne, Monash, UNSW, Sydney, ANU, Queensland, Ad",
+     "source_url": "https://www.derivenotes.com/about"
+    },
+    {
+     "place": "Australia",
+     "quote": "Derive is built by Derive Notes Pty Ltd (ACN 696 859 597), a company registered in Queensland, Australia. The product launched in Australia in August 2026 and is used by students at Melbourne, Monash, UNSW, Sydney, ANU, Queensland, Adelaide, and Western Australia. What",
+     "source_url": "https://www.derivenotes.com/about"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Derive Notes Pty Ltd",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "entity": "Derive Notes Pty Ltd",
+     "source_url": "https://www.derivenotes.com/about"
+    },
+    {
+     "entity": "Derive Notes Pty Ltd",
+     "source_url": "https://www.derivenotes.com/privacy"
+    },
+    {
+     "entity": "Prighter Ltd",
+     "source_url": "https://www.derivenotes.com/privacy"
+    },
+    {
+     "entity": "Derive Notes Pty Ltd",
+     "source_url": "https://www.derivenotes.com/terms"
+    },
+    {
+     "entity": "Contact Derive Notes Pty Ltd",
+     "source_url": "https://www.derivenotes.com/terms"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ACN",
+     "number": "696 859 597",
+     "source_url": "https://www.derivenotes.com"
+    },
+    {
+     "kind": "ACN",
+     "number": "696 859 597",
+     "source_url": "https://www.derivenotes.com/about"
+    },
+    {
+     "kind": "ACN",
+     "number": "696 859 597",
+     "source_url": "https://www.derivenotes.com/privacy"
+    },
+    {
+     "kind": "ACN",
+     "number": "696 859 597",
+     "source_url": "https://www.derivenotes.com/terms"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Matthew Martin": [],
+    "Eden Gibson": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "develpr",
+   "name": "develpr",
+   "website_asked": "http://develpr.com.au",
+   "read": true,
+   "refused": [],
+   "final_url": "https://develpr.com.au",
+   "pages_read": [
+    "https://develpr.com.au",
+    "https://develpr.com.au/about",
+    "https://develpr.com.au/contact"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Develpr — Keep preconstruction moving",
+   "description": "Develpr is the development management platform for preconstruction. It briefs your consultants, tracks every deliverable, request and decision, and shows you what needs your attention next.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "shortcut icon",
+     "href": "https://develpr.com.au/favicon.ico"
+    },
+    {
+     "rel": "icon",
+     "href": "https://develpr.com.au/favicon.svg"
+    },
+    {
+     "rel": "icon",
+     "href": "https://develpr.com.au/favicon-96x96.png"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://develpr.com.au/apple-touch-icon.png"
+    }
+   ],
+   "og_image": null,
+   "ld_logo": null,
+   "places": [
+    {
+     "place": "Sydney",
+     "quote": "subdivision Commercial and mixed use Enterprise Homeowners Company About News Talk to us Log in © 2026 Develpr Pty Ltd. Built in Sydney. hello@develpr.com.au",
+     "source_url": "https://develpr.com.au"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Develpr Pty Ltd.",
+     "source_url": "https://develpr.com.au"
+    },
+    {
+     "entity": "Develpr Pty Ltd.",
+     "source_url": "https://develpr.com.au/about"
+    },
+    {
+     "entity": "Develpr Pty Ltd.",
+     "source_url": "https://develpr.com.au/contact"
+    }
+   ],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Liam Taylorwood-Roe": [
+     "https://develpr.com.au/about"
+    ],
+    "Connor Jones": [
+     "https://develpr.com.au/about"
+    ],
+    "James Baker": [
+     "https://develpr.com.au/about"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "estimate",
+   "name": "EstiMate",
+   "website_asked": "http://estimateai.com.au",
+   "read": true,
+   "refused": [],
+   "final_url": "https://estimateai.com.au",
+   "pages_read": [
+    "https://estimateai.com.au",
+    "https://estimateai.com.au/about/",
+    "https://estimateai.com.au/contact/",
+    "https://estimateai.com.au/privacy/",
+    "https://estimateai.com.au/terms/"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "AI Construction Estimating Software Australia | EstiMate",
+   "description": "Estimating software for Australian builders, trades and estimators. EstiMate reads your drawing set, measures the job by trade and prices it on your rates.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://estimateai.com.au/favicon.png"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://estimateai.com.au/favicon.png"
+    }
+   ],
+   "og_image": "https://estimateai.com.au/og-image.png",
+   "ld_logo": null,
+   "places": [
+    {
+     "place": "Australia",
+     "quote": "AI Construction Estimating Software Australia | EstiMate EstiMate Menu Pricing Take a tour Free trial / Log in Quote without measuring every plan yourself. EstiMate reads your",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "place": "Australia",
+     "quote": "lumbing & Excavation, Hotondo Homes, DoneRite Construction . Integrates with The numbers . $200M+ in projects quoted users across Australia estimating time decreased by up to 80% From a set of plans to a priced estimate . 0 1 / 03 Your documents go in. Architectural, s",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "place": "Australia",
+     "quote": "89 lm × $12.40 $2,344 48 line items · priced on your rates · all editable Export PDF Meet the team . We are two best friends from Australia, one a qualified carpenter, the other from a civil engineering background. We teamed up to solve the estimating bottleneck for th",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "en worth it. ” Matt Reynolds Builder & Chippy Bring it to your next project . $250/month · Cancel anytime · No lock-in · Built in Melbourne Start free trial Straight answers . The things builders ask before they put a job through. Something we missed? Email contact@est",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "place": "Australian",
+     "quote": ", personalised setup and onboarding included. It carries on at $250 a month for Basic or $850 for Pro, with no lock-in. Prices in Australian dollars plus GST. Who is EstiMate for? Builders and trades pricing their own work, and the estimators, quantity surveyors and arc",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "place": "Australian",
+     "quote": "About EstiMate | Australian Construction Estimating EstiMate Menu Pricing Take a tour Free trial / Log in Every construction project starts with an estimate.",
+     "source_url": "https://estimateai.com.au/about/"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "iMate exists to help builders quote projects faster without giving up control of their pricing. Measured takeoffs, your own rates Melbourne-based team Australian-owned & operated Before a contract is signed, materials are ordered or anyone steps onto site, a builder ha",
+     "source_url": "https://estimateai.com.au/about/"
+    },
+    {
+     "place": "Australian",
+     "quote": "builders quote projects faster without giving up control of their pricing. Measured takeoffs, your own rates Melbourne-based team Australian-owned & operated Before a contract is signed, materials are ordered or anyone steps onto site, a builder has to work out what the",
+     "source_url": "https://estimateai.com.au/about/"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "tools. He knows what a good estimate looks like because he grew up seeing what a bad one costs. Civil Engineering Infrastructure Melbourne, VIC Connect on LinkedIn Start with a month, not a contract. $250 for 30 days, set up personally around how you quote, your first",
+     "source_url": "https://estimateai.com.au/about/"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "about our services or technology? We are here to help. Email Us For general enquiries and support. contact@estimateaus.com Office Melbourne, Victoria Australia Follow Us Stay updated on our progress. Instagram LinkedIn Send a Message Full Name Email Address Phone (Opti",
+     "source_url": "https://estimateai.com.au/contact/"
+    },
+    {
+     "place": "Australia",
+     "quote": "r technology? We are here to help. Email Us For general enquiries and support. contact@estimateaus.com Office Melbourne, Victoria Australia Follow Us Stay updated on our progress. Instagram LinkedIn Send a Message Full Name Email Address Phone (Optional) Company (Optio",
+     "source_url": "https://estimateai.com.au/contact/"
+    },
+    {
+     "place": "Australian",
+     "quote": "se a Plan, receive a human-reviewed estimate, contact support or otherwise interact with us. Where the Privacy Act 1988 (Cth) and Australian Privacy Principles apply to us, we comply with them. We also use the Australian Privacy Principles as the framework for this Poli",
+     "source_url": "https://estimateai.com.au/privacy/"
+    },
+    {
+     "place": "Australian",
+     "quote": "act with us. Where the Privacy Act 1988 (Cth) and Australian Privacy Principles apply to us, we comply with them. We also use the Australian Privacy Principles as the framework for this Policy and aim to handle personal information consistently with them even where an e",
+     "source_url": "https://estimateai.com.au/privacy/"
+    },
+    {
+     "place": "Australian",
+     "quote": "cy and aim to handle personal information consistently with them even where an exemption may apply. The Services are intended for Australian construction businesses and professionals aged 18 or older. 2 . What information we collect 2.1 Account and business information",
+     "source_url": "https://estimateai.com.au/privacy/"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "EstiMate AI Pty Ltd",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "entity": "EstiMate AI Pty Ltd.",
+     "source_url": "https://estimateai.com.au/about/"
+    },
+    {
+     "entity": "EstiMate AI Pty Ltd",
+     "source_url": "https://estimateai.com.au/privacy/"
+    },
+    {
+     "entity": "EstiMate AI Pty Ltd",
+     "source_url": "https://estimateai.com.au/terms/"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ABN",
+     "number": "46 695 711 883",
+     "source_url": "https://estimateai.com.au"
+    },
+    {
+     "kind": "ABN",
+     "number": "46 695 711 883",
+     "source_url": "https://estimateai.com.au/about/"
+    },
+    {
+     "kind": "ABN",
+     "number": "46 695 711 883",
+     "source_url": "https://estimateai.com.au/privacy/"
+    },
+    {
+     "kind": "ACN",
+     "number": "695 711 883 45",
+     "source_url": "https://estimateai.com.au/privacy/"
+    },
+    {
+     "kind": "ABN",
+     "number": "46 695 711 883",
+     "source_url": "https://estimateai.com.au/terms/"
+    },
+    {
+     "kind": "ACN",
+     "number": "695 711 883 45",
+     "source_url": "https://estimateai.com.au/terms/"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Baylin Spencer": [
+     "https://estimateai.com.au",
+     "https://estimateai.com.au/about/"
+    ],
+    "Ashton Dobbin": [
+     "https://estimateai.com.au",
+     "https://estimateai.com.au/about/"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "forward",
+   "name": "Forward",
+   "website_asked": "http://useforward.co",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.useforward.co/",
+   "pages_read": [
+    "https://www.useforward.co/",
+    "https://www.useforward.co/company",
+    "https://www.useforward.co/contact",
+    "https://www.useforward.co/terms",
+    "https://www.useforward.co/privacy"
+   ],
+   "redirected": true,
+   "site_changed": false,
+   "title": "Forward | AI Driven Origination for Private Credit",
+   "description": "Forward converts unstructured borrower materials into structured private credit deals and routes them to the funds most likely to close.",
+   "site_name": "Forward",
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.useforward.co/favicon.svg"
+    }
+   ],
+   "og_image": "https://useforward.co/images/og/forward-og.png",
+   "ld_logo": "https://useforward.co/favicon.svg",
+   "places": [
+    {
+     "place": "San Francisco",
+     "quote": "ready opportunities Request a Demo Company About Careers Contact Terms and Conditions Privacy Policy Direct inquiry@useforward.co San Francisco, CA | Sydney, NSW Copyright © 2026 Forward Flow Pty Ltd T/A Forward. All rights reserved. Terms and Conditions Privacy Policy",
+     "source_url": "https://www.useforward.co/"
+    },
+    {
+     "place": "Sydney",
+     "quote": "Request a Demo Company About Careers Contact Terms and Conditions Privacy Policy Direct inquiry@useforward.co San Francisco, CA | Sydney, NSW Copyright © 2026 Forward Flow Pty Ltd T/A Forward. All rights reserved. Terms and Conditions Privacy Policy",
+     "source_url": "https://www.useforward.co/"
+    },
+    {
+     "place": "San Francisco",
+     "quote": "arryl Luo Daniel Yoon Riley Janjis Company About Careers Contact Terms and Conditions Privacy Policy Direct inquiry@useforward.co San Francisco, CA | Sydney, NSW Copyright © 2026 Forward Flow Pty Ltd T/A Forward. All rights reserved. Terms and Conditions Privacy Policy",
+     "source_url": "https://www.useforward.co/company"
+    },
+    {
+     "place": "Sydney",
+     "quote": "n Riley Janjis Company About Careers Contact Terms and Conditions Privacy Policy Direct inquiry@useforward.co San Francisco, CA | Sydney, NSW Copyright © 2026 Forward Flow Pty Ltd T/A Forward. All rights reserved. Terms and Conditions Privacy Policy",
+     "source_url": "https://www.useforward.co/company"
+    },
+    {
+     "place": "Australian",
+     "quote": "out limiting paragraph ‎3.1 , you acknowledge and agree that: 3.2.1 neither Forward nor any of its Related Entities holds: (a) an Australian Credit Licence issued under the National Consumer Credit Protection Act 2009 (Cth) (‘ NCCP Act ’); or (b) an Australian Financial",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "s: (a) an Australian Credit Licence issued under the National Consumer Credit Protection Act 2009 (Cth) (‘ NCCP Act ’); or (b) an Australian Financial Services Licence issued under the Corporations Act; 3.2.2 the Forward Platform must not be used to arrange consumer cre",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "litate any ‘credit activity’ as that term is defined in the NCCP Act or any other activity which would require Forward to hold an Australian Credit Licence issued under the NCCP Act; 3.2.4 the Forward Platform must not be used to arrange or facilitate: (a) the provision",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "ancial product’ as that term is defined in the Corporations Act; or (c) any other activity which would require Forward to hold an Australian Financial Services Licence issued under the Corporations Act. 4. Your responsibilities 4.1 You must ensure that access to the For",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "5.1 , ‎15.2 , ‎15.7 and ‎15.8 will continue to apply. 15.5 Unless stated otherwise or required by law, a reference to money means Australian currency and payments must be made without set off or deduction. All payments must be made in immediately available funds being p",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Australia",
+     "quote": "South Wales govern the Applicable Terms. You submit to the jurisdiction of the Courts of New South Wales and the Federal Court of Australia (Sydney Registry). 16. Email Policy 16.1 Forward does not send unsolicited bulk email. We do not allow anyone to advertise the We",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Sydney",
+     "quote": "govern the Applicable Terms. You submit to the jurisdiction of the Courts of New South Wales and the Federal Court of Australia (Sydney Registry). 16. Email Policy 16.1 Forward does not send unsolicited bulk email. We do not allow anyone to advertise the Website or",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "San Francisco",
+     "quote": "tified to Users from time to time. Company About Careers Contact Terms and Conditions Privacy Policy Direct inquiry@useforward.co San Francisco, CA | Sydney, NSW Copyright © 2026 Forward Flow Pty Ltd T/A Forward. All rights reserved. Terms and Conditions Privacy Policy",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Sydney",
+     "quote": "time to time. Company About Careers Contact Terms and Conditions Privacy Policy Direct inquiry@useforward.co San Francisco, CA | Sydney, NSW Copyright © 2026 Forward Flow Pty Ltd T/A Forward. All rights reserved. Terms and Conditions Privacy Policy",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "lated bodies corporate (referred to as Forward, we, our, us) are bound by the Privacy Act 1988 ('the Privacy Act'), including the Australian Privacy Principles ('APPs'), and recognise the importance of ensuring the confidentiality and security of your personal informati",
+     "source_url": "https://www.useforward.co/privacy"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Forward Flow Pty Ltd",
+     "source_url": "https://www.useforward.co/"
+    },
+    {
+     "entity": "Forward Flow Pty Ltd",
+     "source_url": "https://www.useforward.co/company"
+    },
+    {
+     "entity": "Forward Flow Pty Ltd",
+     "source_url": "https://www.useforward.co/contact"
+    },
+    {
+     "entity": "Forward Flow Pty Ltd",
+     "source_url": "https://www.useforward.co/terms"
+    },
+    {
+     "entity": "Forward Flow Pty Ltd",
+     "source_url": "https://www.useforward.co/privacy"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ACN",
+     "number": "698 574 051",
+     "source_url": "https://www.useforward.co/terms"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Daniel Yoon": [
+     "https://www.useforward.co/company"
+    ],
+    "Riley Janjis": [
+     "https://www.useforward.co/company"
+    ],
+    "Darryl Luo": [
+     "https://www.useforward.co/company"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "glowback",
+   "name": "Glowback",
+   "website_asked": "http://www.glowback.tech",
+   "read": true,
+   "refused": [],
+   "final_url": "https://glowback.com.au/",
+   "pages_read": [
+    "https://glowback.com.au/"
+   ],
+   "redirected": true,
+   "site_changed": true,
+   "title": "GlowBack | Fill the gaps in your salon's books",
+   "description": "GlowBack helps salons turn \"I've been meaning to book\" into real appointments, bringing clients back without chasing a single one.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://glowback.com.au/images/logo.png"
+    }
+   ],
+   "og_image": "https://glowback.com.au/images/basin.jpg",
+   "ld_logo": null,
+   "places": [
+    {
+     "place": "Melbourne",
+     "quote": "d see how many appointments you've been missing. Get started Book a call More bookings from the clients you already have. Made in Melbourne for Australian salons and clinics. Explore What it does Reviews FAQ Get started Contact Instagram Book a call © 2026 GlowBack Pty",
+     "source_url": "https://glowback.com.au/"
+    },
+    {
+     "place": "Australian",
+     "quote": "appointments you've been missing. Get started Book a call More bookings from the clients you already have. Made in Melbourne for Australian salons and clinics. Explore What it does Reviews FAQ Get started Contact Instagram Book a call © 2026 GlowBack Pty Ltd",
+     "source_url": "https://glowback.com.au/"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "GlowBack Pty Ltd",
+     "source_url": "https://glowback.com.au/"
+    }
+   ],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Madeleine Coleman": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "hyperlocalise",
+   "name": "Hyperlocalise",
+   "website_asked": "https://www.hyperlocalise.com",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.hyperlocalise.com/en",
+   "pages_read": [
+    "https://www.hyperlocalise.com/en",
+    "https://www.hyperlocalise.com/en/company",
+    "https://www.hyperlocalise.com/en/contact",
+    "https://www.hyperlocalise.com/en/terms",
+    "https://www.hyperlocalise.com/en/privacy"
+   ],
+   "redirected": true,
+   "site_changed": false,
+   "title": "Hyperlocalise | AI-native infrastructure for multilingual content operations",
+   "description": "Create, orchestrate, publish, and optimise multilingual content with Content Studio, Automation Workflow, Domains, Hyperlab, Guidelines, and AI agents.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.hyperlocalise.com/images/logo/logomark-light-mode.svg"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.hyperlocalise.com/images/logo/logomark-dark-mode.svg"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://www.hyperlocalise.com/images/logo/logomark-dark-mode.png"
+    }
+   ],
+   "og_image": "https://www.hyperlocalise.com/en/opengraph-image-1fzwx8?b2e0d468a3bc6e0e",
+   "ld_logo": "https://www.hyperlocalise.com/images/logo/logomark-dark-mode.svg",
+   "places": [
+    {
+     "place": "Sydney",
+     "quote": "create content. Brand · 法 Move faster → without losing control 1/5 Previous slide Next slide Case Study Industry Tourism Location Sydney, Australia Ship apps that speak every market from day one We experienced a 21x increase in traffic and 5x AI Assistant-originated",
+     "source_url": "https://www.hyperlocalise.com/en"
+    },
+    {
+     "place": "Australia",
+     "quote": "ontent. Brand · 法 Move faster → without losing control 1/5 Previous slide Next slide Case Study Industry Tourism Location Sydney, Australia Ship apps that speak every market from day one We experienced a 21x increase in traffic and 5x AI Assistant-originated sessions s",
+     "source_url": "https://www.hyperlocalise.com/en"
+    },
+    {
+     "place": "Sydney",
+     "quote": "Contact Status Legal Terms Privacy Trust Center Social LinkedIn © 2026 Hyperlocalise Pty Ltd - ACN 698 557 667 Built with ♥ from Sydney, Australia",
+     "source_url": "https://www.hyperlocalise.com/en"
+    },
+    {
+     "place": "Australia",
+     "quote": "Status Legal Terms Privacy Trust Center Social LinkedIn © 2026 Hyperlocalise Pty Ltd - ACN 698 557 667 Built with ♥ from Sydney, Australia",
+     "source_url": "https://www.hyperlocalise.com/en"
+    },
+    {
+     "place": "Australia",
+     "quote": "lps teams launch product content globally with market nuance, translation, and first-class human review. Request a demo Backed by Australia and New Zealand's leading startup accelerator. A note from the founders One of us had the privilege of seeing localisation at its",
+     "source_url": "https://www.hyperlocalise.com/en/company"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "ch product content globally with market nuance, translation, and first-class human review. Request a demo Backed by Australia and New Zealand's leading startup accelerator. A note from the founders One of us had the privilege of seeing localisation at its best. Working a",
+     "source_url": "https://www.hyperlocalise.com/en/company"
+    },
+    {
+     "place": "Australia",
+     "quote": "atures, and related hosted offerings described in the Documentation or an Order Form. Governing Law: the laws of New South Wales, Australia, without regard to conflict of laws rules. Chosen Courts: the state and federal courts sitting in New South Wales, Australia. Not",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "Australia",
+     "quote": "les, Australia, without regard to conflict of laws rules. Chosen Courts: the state and federal courts sitting in New South Wales, Australia. Notice Address: minh@hyperlocalise.com (or another address Provider designates in writing). Effective Date: the earlier of the d",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "ssor, unless an Order Form specifies invoicing. Currency: the currency shown at checkout or in the Order Form. If none is stated, Australian Dollars (AUD). Technical Support: standard support via the Notice Address during Provider’s ordinary business hours, unless an Or",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "misconduct; and liability that cannot be limited or excluded under Applicable Laws (including non-excludable guarantees under the Australian Consumer Law, where it applies). Provider Covered Claims: third-party claims that the Product infringes or misappropriates the th",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "icable Laws. Nothing in this Agreement excludes, restricts, or modifies any consumer guarantee, right, or remedy conferred by the Australian Consumer Law or any other Applicable Laws that cannot be excluded, restricted, or modified by agreement. Where such a guarantee a",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "Australia",
+     "quote": "s. 12.13 Export Controls and Sanctions. Customer may not use, export, or re-export the Product in violation of Applicable Laws of Australia, the United States, or other applicable jurisdictions, including sanctions administered by DFAT, OFAC, or similar authorities. Cu",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "United States",
+     "quote": "Controls and Sanctions. Customer may not use, export, or re-export the Product in violation of Applicable Laws of Australia, the United States, or other applicable jurisdictions, including sanctions administered by DFAT, OFAC, or similar authorities. Customer represents t",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "place": "Australian",
+     "quote": "r the laws of an Embargoed Country; (c) designated on any list of prohibited, restricted, or sanctioned parties maintained by the Australian, U.S., UN, or other applicable governments or agencies; nor (d) 50% or more owned by any party designated on any of the above lis",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Hyperlocalise Pty Ltd",
+     "source_url": "https://www.hyperlocalise.com/en"
+    },
+    {
+     "entity": "Hyperlocalise Pty Ltd",
+     "source_url": "https://www.hyperlocalise.com/en/company"
+    },
+    {
+     "entity": "Hyperlocalise Pty Ltd",
+     "source_url": "https://www.hyperlocalise.com/en/contact"
+    },
+    {
+     "entity": "Hyperlocalise Pty Ltd",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "entity": "General Cap Amount. Inc",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "entity": "Hyperlocalise Pty Ltd",
+     "source_url": "https://www.hyperlocalise.com/en/privacy"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ACN",
+     "number": "698 557 667",
+     "source_url": "https://www.hyperlocalise.com/en"
+    },
+    {
+     "kind": "ACN",
+     "number": "698 557 667",
+     "source_url": "https://www.hyperlocalise.com/en/company"
+    },
+    {
+     "kind": "ACN",
+     "number": "698 557 667",
+     "source_url": "https://www.hyperlocalise.com/en/contact"
+    },
+    {
+     "kind": "ACN",
+     "number": "698 557 667",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "kind": "ABN",
+     "number": "87698557667",
+     "source_url": "https://www.hyperlocalise.com/en/terms"
+    },
+    {
+     "kind": "ACN",
+     "number": "698 557 667",
+     "source_url": "https://www.hyperlocalise.com/en/privacy"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Minh Cung": [
+     "https://www.hyperlocalise.com/en/company"
+    ],
+    "Hans Bui": [
+     "https://www.hyperlocalise.com/en/company"
+    ],
+    "Michael Levot": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "orva",
+   "name": "Orva",
+   "website_asked": "https://www.tryorva.io",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.tryorva.io",
+   "pages_read": [
+    "https://www.tryorva.io",
+    "https://www.tryorva.io/contact"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Orva - Helping clinicians and patients have valuable conversations",
+   "description": "Orva helps clinicians become better communicators by providing communication feedback and automatically doing the admin created by every patient conversation.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://framerusercontent.com/images/C7Y5aUIZWL771GuW2cypevsplvA.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://framerusercontent.com/images/C7Y5aUIZWL771GuW2cypevsplvA.png"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://framerusercontent.com/images/C7Y5aUIZWL771GuW2cypevsplvA.png"
+    }
+   ],
+   "og_image": "https://framerusercontent.com/assets/V5viorQXbmcQicV2ObSAeLXQ.png",
+   "ld_logo": null,
+   "places": [
+    {
+     "place": "New Zealand",
+     "quote": "ng Proposals Tasks Download Get Started Contact us Contact us Get in touch with us Name Clinic Name Email Location Select… Canada New Zealand Australia UK USA Drop us a message :) Send a message Talk to our Founder Company Friends of Orva Contact Resources Terms and cond",
+     "source_url": "https://www.tryorva.io/contact"
+    },
+    {
+     "place": "Australia",
+     "quote": "Tasks Download Get Started Contact us Contact us Get in touch with us Name Clinic Name Email Location Select… Canada New Zealand Australia UK USA Drop us a message :) Send a message Talk to our Founder Company Friends of Orva Contact Resources Terms and conditions Pri",
+     "source_url": "https://www.tryorva.io/contact"
+    },
+    {
+     "place": "USA",
+     "quote": "ad Get Started Contact us Contact us Get in touch with us Name Clinic Name Email Location Select… Canada New Zealand Australia UK USA Drop us a message :) Send a message Talk to our Founder Company Friends of Orva Contact Resources Terms and conditions Privacy po",
+     "source_url": "https://www.tryorva.io/contact"
+    }
+   ],
+   "entities": [],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Akash Mokashi": [],
+    "Erika Orogo": [],
+    "Saurabh Bachawe": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "securitybreak",
+   "name": "SecurityBreak",
+   "website_asked": "https://securitybreak.io",
+   "read": true,
+   "refused": [],
+   "final_url": "https://securitybreak.io",
+   "pages_read": [
+    "https://securitybreak.io",
+    "https://securitybreak.io/company",
+    "https://securitybreak.io/contact",
+    "https://securitybreak.io/legal/privacy",
+    "https://securitybreak.io/legal/terms"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "SecurityBreak · Threat Intelligence for AI Systems",
+   "description": "SecurityBreak is the first AI Threat Intelligence company: detect, investigate, and hunt adversarial activity across your AI ecosystem with AI agent monitoring, prompt threat intelligence, and AI supply-chain scanning.",
+   "site_name": "SecurityBreak",
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://securitybreak.io/icon.png?icon.3kgkxlkj43q9b.png"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://securitybreak.io/apple-icon.png?apple-icon.3kgkxlkj43q9b.png"
+    }
+   ],
+   "og_image": "https://securitybreak.io/opengraph-image?eb0fa6541adeb2b0",
+   "ld_logo": "https://securitybreak.io/logos/secbreak-header-logo.png",
+   "places": [
+    {
+     "place": "Brisbane",
+     "quote": "what's targeting your AI systems Book a demo Take the quiz Let's go! SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Po",
+     "source_url": "https://securitybreak.io"
+    },
+    {
+     "place": "Australia",
+     "quote": "our AI systems Book a demo Take the quiz Let's go! SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Policy Terms of Servic",
+     "source_url": "https://securitybreak.io"
+    },
+    {
+     "place": "Brisbane",
+     "quote": "s, set new standards, and build what lasts.” - Thomas Roccia, Founder SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Po",
+     "source_url": "https://securitybreak.io/company"
+    },
+    {
+     "place": "Australia",
+     "quote": "s, and build what lasts.” - Thomas Roccia, Founder SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Policy Terms of Servic",
+     "source_url": "https://securitybreak.io/company"
+    },
+    {
+     "place": "Brisbane",
+     "quote": "ill have questions? Don't hesitate to reach out using the form above. SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Po",
+     "source_url": "https://securitybreak.io/contact"
+    },
+    {
+     "place": "Australia",
+     "quote": "Don't hesitate to reach out using the form above. SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Policy Terms of Servic",
+     "source_url": "https://securitybreak.io/contact"
+    },
+    {
+     "place": "Brisbane",
+     "quote": "9 July 2026 1. Who we are SecurityBreak Pty Ltd (“ SecurityBreak ”, “we”, “us”, or “our”), of 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia, operates the website at securitybreak.io and publishes security research and tools for the AI security commu",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "place": "Australia",
+     "quote": "we are SecurityBreak Pty Ltd (“ SecurityBreak ”, “we”, “us”, or “our”), of 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia, operates the website at securitybreak.io and publishes security research and tools for the AI security community. This policy ap",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "place": "Brisbane",
+     "quote": "bout this policy or your information, please contact us , or write to: SecurityBreak Pty Ltd, 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia. SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHuntin",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "place": "Australia",
+     "quote": "your information, please contact us , or write to: SecurityBreak Pty Ltd, 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia. SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "place": "Brisbane",
+     "quote": "td, 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia. SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Po",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "place": "Australia",
+     "quote": "Street, Spring Hill, Brisbane QLD 4000, Australia. SecurityBreak Pty Ltd · 2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia Products NovaHunting Proximity Research Blog Talks Projects Company Company Training Contact Legal Privacy Policy Terms of Servic",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "place": "Australia",
+     "quote": "ter changes take effect means you accept the revised terms. 12. Governing law These terms are governed by the laws of Queensland, Australia, without regard to conflict-of-laws principles. Any disputes will be subject to the exclusive jurisdiction of the courts of Queen",
+     "source_url": "https://securitybreak.io/legal/terms"
+    },
+    {
+     "place": "Australia",
+     "quote": "ut regard to conflict-of-laws principles. Any disputes will be subject to the exclusive jurisdiction of the courts of Queensland, Australia. 13. Contact us Questions about these terms? Please contact us , or write to: SecurityBreak Pty Ltd, 2/290 Boundary Street, Sprin",
+     "source_url": "https://securitybreak.io/legal/terms"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io"
+    },
+    {
+     "entity": "Founder SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io/company"
+    },
+    {
+     "entity": "SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io/contact"
+    },
+    {
+     "entity": "SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "entity": "Australia. SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io/legal/privacy"
+    },
+    {
+     "entity": "SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io/legal/terms"
+    },
+    {
+     "entity": "Australia. SecurityBreak Pty Ltd",
+     "source_url": "https://securitybreak.io/legal/terms"
+    }
+   ],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Thomas Roccia": [
+     "https://securitybreak.io",
+     "https://securitybreak.io/company"
+    ]
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "sunburnt-space-co",
+   "name": "Sunburnt Space Co",
+   "website_asked": "http://www.sunburntspace.com.au",
+   "read": true,
+   "refused": [],
+   "final_url": "https://sunburntspace.com.au/",
+   "pages_read": [
+    "https://sunburntspace.com.au/",
+    "https://sunburntspace.com.au/company/contact",
+    "https://sunburntspace.com.au/privacy",
+    "https://sunburntspace.com.au/terms"
+   ],
+   "redirected": true,
+   "site_changed": false,
+   "title": "Sunburnt Space Co — We're Building a Bigger Rocket",
+   "description": "Space needs more small launch capability. Sunburnt Space Co is building a bigger rocket, launching in 2027.",
+   "site_name": null,
+   "icons": [],
+   "og_image": null,
+   "ld_logo": null,
+   "places": [
+    {
+     "place": "Australia",
+     "quote": "Invest in us Regular Updates Work with us Something else Anything else? Send Office Unit 12, 7-9 Rhodes Street West Ryde NSW 2114 Australia help@sunburntspace.com.au Links Home Contact Privacy Policy Terms of Service Cookie Policy Regular Updates Launches, milestones,",
+     "source_url": "https://sunburntspace.com.au/"
+    },
+    {
+     "place": "Australia",
+     "quote": "the deck Looking for a role? See Careers Press? Download the media kit Location Where We Are Sunburnt Space Co, New South Wales, Australia. Our launch site is at White Cliffs, NSW. See What Is Flying Browse the Manifest Office Unit 12, 7-9 Rhodes Street West Ryde NSW",
+     "source_url": "https://sunburntspace.com.au/company/contact"
+    },
+    {
+     "place": "Australia",
+     "quote": "launch site is at White Cliffs, NSW. See What Is Flying Browse the Manifest Office Unit 12, 7-9 Rhodes Street West Ryde NSW 2114 Australia help@sunburntspace.com.au Links Home Contact Privacy Policy Terms of Service Cookie Policy Regular Updates Launches, milestones,",
+     "source_url": "https://sunburntspace.com.au/company/contact"
+    },
+    {
+     "place": "Australia",
+     "quote": "y Policy | Sunburnt Space Manifest Login Manifest Login Legal Privacy Policy Office Unit 12, 7-9 Rhodes Street West Ryde NSW 2114 Australia help@sunburntspace.com.au Links Home Contact Privacy Policy Terms of Service Cookie Policy Regular Updates Launches, milestones,",
+     "source_url": "https://sunburntspace.com.au/privacy"
+    },
+    {
+     "place": "Australia",
+     "quote": "ervice | Sunburnt Space Manifest Login Manifest Login Legal Terms of Service Office Unit 12, 7-9 Rhodes Street West Ryde NSW 2114 Australia help@sunburntspace.com.au Links Home Contact Privacy Policy Terms of Service Cookie Policy Regular Updates Launches, milestones,",
+     "source_url": "https://sunburntspace.com.au/terms"
+    }
+   ],
+   "entities": [],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Brad Younger": [],
+    "Sam Cain": [],
+    "Robin Biskupic": [],
+    "Samuel Cain-Copnall": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "quarter",
+   "name": "Quarter",
+   "website_asked": "http://quarter.nz",
+   "read": true,
+   "refused": [],
+   "final_url": "https://quarter.nz",
+   "pages_read": [
+    "https://quarter.nz",
+    "https://quarter.nz/about",
+    "https://quarter.nz/privacy-policy"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Get things done with your neighbours. Quarter",
+   "description": "Propose. Discuss. Budget. Deliver. Quarter helps owners and committees improve the health and value of their buildings, a better way to run your body corporate.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://quarter.nz/apple-touch-icon.png"
+    },
+    {
+     "rel": "shortcut icon",
+     "href": "https://quarter.nz/favicon.png"
+    }
+   ],
+   "og_image": "https://quarter.nz/opengraph.png",
+   "ld_logo": "https://quarter.nz/apple-touch-icon.png",
+   "places": [
+    {
+     "place": "Australia",
+     "quote": "Get things done with your neighbours. Quarter \"> In Australia? Visit yourquarter.au for owners corporations. dropdown#hide\"> Quarter dropdown#hide\"> Made for Owners Committees Developers Buil",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Wellington",
+     "quote": "from wearing only pink, but we can give everyone a say in which color to paint the building. We can't stop it raining all week in Wellington, but we can make sure your insurance covers the gutters. We can't exorcise ghosts, but we can get an electrician to fix flickerin",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "e wished we'd had: transparent by default, owned by the people who live there, and backed by real humans when it matters. Made in New Zealand for New Zealand Body Corporates. How we got here → Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-manag",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "d: transparent by default, owned by the people who live there, and backed by real humans when it matters. Made in New Zealand for New Zealand Body Corporates. How we got here → Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole t",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Wellington",
+     "quote": "d by real humans when it matters. Made in New Zealand for New Zealand Body Corporates. How we got here → Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "mans when it matters. Made in New Zealand for New Zealand Body Corporates. How we got here → Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at home. Book a",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "ment for sole traders. Would rather walk to the cafe for an iced latte than make it at home. Book a time → Matt Cowley Co-founder Melbourne, Australia Built tech-enabled self-management for aged care. Can't understand why you'd drive a car when you can catch a tram. Bo",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Australia",
+     "quote": "le traders. Would rather walk to the cafe for an iced latte than make it at home. Book a time → Matt Cowley Co-founder Melbourne, Australia Built tech-enabled self-management for aged care. Can't understand why you'd drive a car when you can catch a tram. Book a time →",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Australia",
+     "quote": "works → Quarter Helping owners and committees improve the health and value of their buildings. Find your home, free to start → In Australia? Visit yourquarter.au Software Overview Ask Quarter WhatsApp, email and web Working with your manager Preferred suppliers Action",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Auckland",
+     "quote": "Developers Building Services Pricing Overview If you self-manage If you're paying a manager If you use Xero or QuickBooks Cities Auckland Hamilton Tauranga Wellington Christchurch Dunedin Queenstown Company About us Blog Privacy Book a consult hello@quarter.nz Illust",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Wellington",
+     "quote": "es Pricing Overview If you self-manage If you're paying a manager If you use Xero or QuickBooks Cities Auckland Hamilton Tauranga Wellington Christchurch Dunedin Queenstown Company About us Blog Privacy Book a consult hello@quarter.nz Illustrations by Storyset .",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Christchurch",
+     "quote": "Overview If you self-manage If you're paying a manager If you use Xero or QuickBooks Cities Auckland Hamilton Tauranga Wellington Christchurch Dunedin Queenstown Company About us Blog Privacy Book a consult hello@quarter.nz Illustrations by Storyset .",
+     "source_url": "https://quarter.nz"
+    },
+    {
+     "place": "Australia",
+     "quote": "About Quarter \"> In Australia? Visit yourquarter.au for owners corporations. dropdown#hide\"> Quarter dropdown#hide\"> Made for Owners Committees Developers Buil",
+     "source_url": "https://quarter.nz/about"
+    },
+    {
+     "place": "Wellington",
+     "quote": "t's fine. We don't do twelve-month contracts, exit fees, or holding your records hostage. Meet the team. Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at",
+     "source_url": "https://quarter.nz/about"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Quarter NZ Limited",
+     "source_url": "https://quarter.nz/privacy-policy"
+    }
+   ],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Michael Dowse": [
+     "https://quarter.nz",
+     "https://quarter.nz/about"
+    ],
+    "Matt Cowley": [
+     "https://quarter.nz",
+     "https://quarter.nz/about"
+    ],
+    "Matthew Cowley": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  },
+  {
+   "id": "veltora",
+   "name": "Veltora",
+   "website_asked": "https://www.veltora.net",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.veltora.net",
+   "pages_read": [
+    "https://www.veltora.net"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Veltora — Predictive Intelligence for AI Infrastructure",
+   "description": "Veltora predicts what will delay or interrupt AI compute, so data centre operators and neoclouds get capacity live and keep it dependable.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon.ico"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon.svg"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon-192.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon-144.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon-96.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon-48.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon-32.png"
+    },
+    {
+     "rel": "icon",
+     "href": "https://www.veltora.net/favicon-16.png"
+    },
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://www.veltora.net/favicon-180.png"
+    }
+   ],
+   "og_image": null,
+   "ld_logo": null,
+   "places": [],
+   "entities": [],
+   "company_numbers": [],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Aan Mehta": []
+   },
+   "last_verified_at": "2026-10-21T04:47:39Z"
+  }
+ ],
+ "extra_generated_at": "2026-10-21T04:49:34Z",
+ "extra_results": [
+  {
+   "id": "quarter-au",
+   "name": "Quarter (Australia site)",
+   "website_asked": "https://yourquarter.au",
+   "read": true,
+   "refused": [],
+   "final_url": "https://yourquarter.au",
+   "pages_read": [
+    "https://yourquarter.au",
+    "https://yourquarter.au/about",
+    "https://yourquarter.au/privacy-policy"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Get things done with your neighbours. Quarter",
+   "description": "Propose. Discuss. Budget. Deliver. Quarter helps owners and committees improve the health and value of their buildings, a better way to run your owners corporation.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "apple-touch-icon",
+     "href": "https://yourquarter.au/apple-touch-icon.png"
+    },
+    {
+     "rel": "shortcut icon",
+     "href": "https://yourquarter.au/favicon.png"
+    }
+   ],
+   "og_image": "https://yourquarter.au/opengraph.png",
+   "ld_logo": "https://yourquarter.au/apple-touch-icon.png",
+   "places": [
+    {
+     "place": "Melbourne",
+     "quote": "from wearing only pink, but we can give everyone a say in which color to paint the building. We can't stop it raining all week in Melbourne, but we can make sure your insurance covers the gutters. We can't exorcise ghosts, but we can get an electrician to fix flickerin",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Wellington",
+     "quote": "efault, owned by the people who live there, and backed by real humans when it matters. How we got here → Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "d by the people who live there, and backed by real humans when it matters. How we got here → Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at home. Book a",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Melbourne",
+     "quote": "ment for sole traders. Would rather walk to the cafe for an iced latte than make it at home. Book a time → Matt Cowley Co-founder Melbourne, Australia Built tech-enabled self-management for aged care. Can't understand why you'd drive a car when you can catch a tram. Bo",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Australia",
+     "quote": "le traders. Would rather walk to the cafe for an iced latte than make it at home. Book a time → Matt Cowley Co-founder Melbourne, Australia Built tech-enabled self-management for aged care. Can't understand why you'd drive a car when you can catch a tram. Book a time →",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "works → Quarter Helping owners and committees improve the health and value of their buildings. Find your home, free to start → In New Zealand? Visit quarter.nz Software Overview Ask Quarter WhatsApp, email and web Working with your manager Preferred suppliers Action item",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Australia",
+     "quote": "anage If you're paying a manager If you use Xero or QuickBooks States and territories New South Wales Victoria Queensland Western Australia South Australia Tasmania Australian Capital Territory Northern Territory Company About us Blog Privacy Book a consult hello@yourq",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Australia",
+     "quote": "paying a manager If you use Xero or QuickBooks States and territories New South Wales Victoria Queensland Western Australia South Australia Tasmania Australian Capital Territory Northern Territory Company About us Blog Privacy Book a consult hello@yourquarter.au Quarte",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Australian",
+     "quote": "you use Xero or QuickBooks States and territories New South Wales Victoria Queensland Western Australia South Australia Tasmania Australian Capital Territory Northern Territory Company About us Blog Privacy Book a consult hello@yourquarter.au Quarter AU Pty Ltd, ABN 29",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "place": "Wellington",
+     "quote": "t's fine. We don't do twelve-month contracts, exit fees, or holding your records hostage. Meet the team. Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at",
+     "source_url": "https://yourquarter.au/about"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "don't do twelve-month contracts, exit fees, or holding your records hostage. Meet the team. Michael Dowse Co-founder Wellington, New Zealand Built tech-enabled self-management for sole traders. Would rather walk to the cafe for an iced latte than make it at home. Book a",
+     "source_url": "https://yourquarter.au/about"
+    },
+    {
+     "place": "New Zealand",
+     "quote": "inkedIn Quarter Helping owners and committees improve the health and value of their buildings. Find your home, free to start → In New Zealand? Visit quarter.nz Software Overview Ask Quarter WhatsApp, email and web Working with your manager Preferred suppliers Action item",
+     "source_url": "https://yourquarter.au/about"
+    },
+    {
+     "place": "Australia",
+     "quote": "ices Pricing About Sign in Find your home Privacy policy Quarter AU Pty Ltd (we, us, our; ABN 29 702 639 709) provides Quarter in Australia. This policy explains how we handle personal information, in line with the Australian Privacy Principles in the Privacy Act 1988",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    },
+    {
+     "place": "Australian",
+     "quote": "our; ABN 29 702 639 709) provides Quarter in Australia. This policy explains how we handle personal information, in line with the Australian Privacy Principles in the Privacy Act 1988 (Cth). Quarter is built and run for us by Quarter NZ Limited, a New Zealand company, w",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    }
+   ],
+   "entities": [
+    {
+     "entity": "Quarter AU Pty Ltd",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "entity": "Quarter AU Pty Ltd",
+     "source_url": "https://yourquarter.au/about"
+    },
+    {
+     "entity": "Quarter AU Pty Ltd",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    },
+    {
+     "entity": "Quarter NZ Limited",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    },
+    {
+     "entity": "Basiq Pty Ltd",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    },
+    {
+     "entity": "Cuscal Limited",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ABN",
+     "number": "29 702 639 709",
+     "source_url": "https://yourquarter.au"
+    },
+    {
+     "kind": "ABN",
+     "number": "29 702 639 709",
+     "source_url": "https://yourquarter.au/about"
+    },
+    {
+     "kind": "ABN",
+     "number": "29 702 639 709",
+     "source_url": "https://yourquarter.au/privacy-policy"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [],
+   "founders_on_own_pages": {
+    "Michael Dowse": [
+     "https://yourquarter.au",
+     "https://yourquarter.au/about"
+    ],
+    "Matt Cowley": [
+     "https://yourquarter.au",
+     "https://yourquarter.au/about"
+    ],
+    "Matthew Cowley": []
+   },
+   "last_verified_at": "2026-10-21T04:49:34Z"
+  },
+  {
+   "id": "coco-trust",
+   "name": "Coco (trustcoco.ai)",
+   "website_asked": "https://www.trustcoco.ai",
+   "read": true,
+   "refused": [],
+   "final_url": "https://www.trustcoco.ai",
+   "pages_read": [
+    "https://www.trustcoco.ai"
+   ],
+   "redirected": false,
+   "site_changed": false,
+   "title": "Coco AI — Permission enforcement for agents",
+   "description": "Coco enforces your policy on every AI agent action in high-stakes financial workflows.",
+   "site_name": null,
+   "icons": [
+    {
+     "rel": "icon",
+     "href": "https://www.trustcoco.ai/favicon.svg"
+    }
+   ],
+   "og_image": null,
+   "ld_logo": null,
+   "places": [],
+   "entities": [
+    {
+     "entity": "KYC Resources Documentation Coco AI Pty Ltd",
+     "source_url": "https://www.trustcoco.ai"
+    }
+   ],
+   "company_numbers": [
+    {
+     "kind": "ABN",
+     "number": "94 699 746 720",
+     "source_url": "https://www.trustcoco.ai"
+    }
+   ],
+   "phones": [],
+   "startmate_mentions": [
+    {
+     "quote": "Backed by Startmate, State Library of Victoria",
+     "source_url": "https://www.trustcoco.ai"
+    }
+   ],
+   "founders_on_own_pages": {
+    "Nguyen Nguyen": [],
+    "Khoa Pham": []
+   },
+   "last_verified_at": "2026-10-21T04:49:34Z"
+  }
+ ]
+}

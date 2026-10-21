@@ -178,6 +178,7 @@
 .xp-facts div:first-child{border-top:0;}
 .xp-facts dt{color:var(--text-2);}
 .xp-facts dd{margin:0;overflow-wrap:anywhere;}
+.xp-facts a{color:var(--green);}
 .xp-none{color:var(--text-2);}
 .xp-addresses{margin:0;padding:0;list-style:none;display:grid;gap:6px;}
 .xp-addresses b{font-weight:600;}

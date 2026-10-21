@@ -248,7 +248,7 @@ describe('suggestions for the search box', () => {
   it('says nothing for empty text', async () => {
     const f = await fixture(20);
     const snap = await f.catalog.snapshot();
-    expect(suggest(snap, '   ')).toEqual({ companies: [], people: [], investors: [], industries: [], locations: [] });
+    expect(suggest(snap, '   ')).toEqual({ companies: [], people: [], investors: [], industries: [], locations: [], cohorts: [] });
   });
 });
 

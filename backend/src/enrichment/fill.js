@@ -32,6 +32,7 @@ const SETTERS = {
   team_size: (c, v) => [['team_size', c.team_size ?? null, v]],
   last_role_seen_at: (c, v) => [['last_role_seen_at', c.last_role_seen_at ?? null, v]],
   tech_stack: (c, v) => [['tech_stack', c.tech_stack ?? null, unique([...(c.tech_stack ?? []), ...[].concat(v)])]],
+  cohorts: (c, v) => [['cohorts', c.cohorts ?? null, unique([...(c.cohorts ?? []), ...[].concat(v)])]],
   sector: (c, v) => [['sector', c.sector, v], ...(isStr(c.sectorFull) && c.sectorFull !== 'Unknown' ? [] : [['sectorFull', c.sectorFull, v]])],
   founders: (c, v) => [['founders', c.founders ?? [], unique([...(c.founders ?? []), ...[].concat(v)])]],
   investors: (c, v) => [['investors', c.investors ?? [], unique([...(c.investors ?? []), ...[].concat(v)])]],

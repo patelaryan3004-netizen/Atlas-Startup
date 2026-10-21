@@ -9,7 +9,7 @@ import ExploreHero from '../../src/components/explore/ExploreHero.jsx';
 import ResultsColumn from '../../src/components/explore/ResultsColumn.jsx';
 import PreviewCard from '../../src/components/explore/PreviewCard.jsx';
 
-const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', fresh: '' };
+const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '' };
 
 describe('the heading and the main search', () => {
   beforeEach(() => { fetchSuggestions.mockResolvedValue({ companies: [], people: [], investors: [], industries: [], locations: [] }); });

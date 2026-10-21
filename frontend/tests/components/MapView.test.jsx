@@ -195,6 +195,16 @@ describe('MapView', () => {
     expect(empty.classList.contains('pin-logo-ready')).toBe(false);
   });
 
+  it('treats the favicon service\'s 16-pixel globe, its answer for a site it does not know, as no logo: the letter stays', () => {
+    render(<MapView markers={[pin('g', 'Globe Co', -33.87, 151.21, { domain: 'no-favicon.example' })]} onSelectStartup={noop} />);
+    const img = icons().at(-1).html.querySelector('img');
+    Object.defineProperty(img, 'naturalWidth', { value: 16, configurable: true });
+    img.onload();
+    expect(img.style.display).toBe('none');
+    expect(img.classList.contains('pin-logo-ready')).toBe(false);
+    expect(icons().at(-1).html.querySelector('.pin-fallback').textContent).toBe('G');
+  });
+
   it('draws no picture for a company that has no logo and no website: its first letter', () => {
     render(<MapView markers={[pin('z', 'Zeta'), pin('y', 'Yarra', -37.81, 144.96, { hiring: 1 })]} onSelectStartup={noop} />);
     const [zeta, yarra] = icons().map((i) => i.html);

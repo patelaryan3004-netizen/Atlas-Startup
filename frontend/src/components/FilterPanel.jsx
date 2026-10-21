@@ -167,6 +167,22 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
                     </div>
                   </div>
 
+                  {/* The accelerator cohorts some company is in (a page backs it): shown once there is one. */}
+                  {meta.cohorts?.length > 0 && (
+                    <div className="fsection">
+                      <div className="fsection-label">Accelerator</div>
+                      <div className="fgroup">
+                        <label htmlFor="fCohort">Cohort</label>
+                        <select id="fCohort" value={filters.cohort ?? ''} onChange={set('cohort')}>
+                          <option value="">Any</option>
+                          {meta.cohorts.map(({ id, label, count }) => (
+                            <option key={id} value={id}>{label}{count != null ? ` (${count})` : ''}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
                   {/* The three filters below are for facts a page has to give a company, so each shows only once some company has one. */}
                   {meta.remotePolicies?.length > 0 && (
                     <div className="fsection">

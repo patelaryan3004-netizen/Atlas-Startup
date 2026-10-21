@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { logoUrl } from '../logo.js';
+import { logoUrl, isRealLogo } from '../logo.js';
 import { present } from '../freshness.js';
 
 const domainOf = (website) => {
@@ -17,10 +17,11 @@ export function Avatar({ name, website = null, domain = null, size = 40, classNa
   const [state, setState] = useState('pending');
   const img = useRef(null);
   // A picture of a page that was pre-rendered may have finished loading before the page was hydrated, and then its load event has come and
-  // gone: ask the picture itself once the page is up. (One that failed stays invisible over the letter, which is what a failed one does.)
+  // gone: ask the picture itself once the page is up. (One that failed stays invisible over the letter, which is what a failed one does.) A picture
+// too small to be a logo is the service's stand-in for a site it does not know (logo.js): it counts as a failure, so the letter stays.
   useEffect(() => {
     const el = img.current;
-    if (el?.complete && el.naturalWidth > 0) setState('loaded');
+    if (el?.complete && el.naturalWidth > 0) setState(isRealLogo(el) ? 'loaded' : 'failed');
   }, []);
   return (
     <span className={className ? `entity-avatar ${className}` : 'entity-avatar'} aria-hidden="true">
@@ -35,7 +36,7 @@ export function Avatar({ name, website = null, domain = null, size = 40, classNa
           alt=""
           loading="lazy"
           decoding="async"
-          onLoad={() => setState('loaded')}
+          onLoad={(e) => setState(isRealLogo(e.currentTarget) ? 'loaded' : 'failed')}
           onError={() => setState('failed')}
         />
       )}

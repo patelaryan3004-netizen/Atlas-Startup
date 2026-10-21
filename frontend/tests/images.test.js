@@ -100,11 +100,11 @@ describe('the map\'s pins, built as elements', () => {
   it('decode their logos off the main thread, show one only once it has loaded, and ask nobody else\'s service for it', () => {
     const map = text(path.join(src, 'components', 'MapView.jsx'));
     expect(map).toContain("img.decoding = 'async'");
-    expect(map).toContain('img.naturalWidth > 0');
+    expect(map).toContain('isRealLogo(img)'); // a picture too small to be a logo (the service's 16-pixel globe) is not drawn
     expect(map).toContain("img.onerror = () => { img.style.display = 'none'; }");
     // a pin\'s logo is the company\'s own `logo` address when the record has one, else the picture its website gives, from the one source every card on
     // the site uses (logo.js); the map names no other service
-    expect(map).toContain("import { logoUrl } from '../logo.js';");
+    expect(map).toContain("import { logoUrl, isRealLogo } from '../logo.js';");
     expect(map).toContain('logo || (domain ? logoUrl(domain, 96) : null)');
     expect(map).not.toMatch(/gstatic|clearbit|favicon/i);
   });

@@ -36,6 +36,7 @@ const BACKS = {
   hiring_status: 'whether it is hiring', founders: 'its founders', investors: 'its investors', stage: 'its stage', company_status: 'whether it is operating',
   last_funding_date: 'its funding', last_funding_round: 'its funding', funding_total: 'its funding', employee_range: 'its team size',
   team_size: 'its team size', remote_policy: 'how it works remotely', tech_stack: 'what it builds with', last_role_seen_at: 'when it last had a role',
+  cohorts: 'its accelerator cohort',
 };
 const backsText = (fields) => [...new Set(fields.map((f) => BACKS[f] ?? f))].join(', ');
 
@@ -167,6 +168,17 @@ export default function StartupDetailPanel({ startup: s, isTracked, onToggleTrac
               <div className="sdp-meta-cell">
                 <div className="pc-section-label">Stage</div>
                 <div className="sdp-meta-value">{s.stage}</div>
+              </div>
+            )}
+            {s.programs?.length > 0 && (
+              <div className="sdp-meta-cell">
+                <div className="pc-section-label">Accelerator</div>
+                {s.programs.map((p) => (
+                  <div key={p.id}>
+                    <div className="sdp-meta-value">{p.label}</div>
+                    <FactSource fact={p} />
+                  </div>
+                ))}
               </div>
             )}
             <div className="sdp-meta-cell">

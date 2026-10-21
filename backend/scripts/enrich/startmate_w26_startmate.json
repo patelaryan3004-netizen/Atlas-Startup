@@ -1,0 +1,430 @@
+{
+ "fetched_at": "2026-10-21T04:43:27.000Z",
+ "note": "Startmate pages as served on fetched_at (robots.txt allows everything). Parsed from the raw HTML, nothing retyped: the announcement lists the cohort, each profile page gives the tagline, tags, website and founders, and the portfolio page lists the same 16 as W26 Accelerator companies.",
+ "article_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+ "portfolio_url": "https://www.startmate.com/portfolio",
+ "portfolio_w26_count": 16,
+ "companies": [
+  {
+   "slug": "ansight",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ansight",
+   "article": {
+    "name": "Ansight",
+    "one_liner": "Ansight connects coding agents to live apps so they can inspect, debug, and verify their own work in real time.",
+    "founders": "Martin Mora & Matthew Robbins",
+    "website_text": "ansight.ai/",
+    "website_href": "https://www.ansight.ai/",
+    "location": "Brisbane, Australia",
+    "founded_by_paragraph": "Founded by Matt and Martin, who lived this problem firsthand building Red-Point, a complex 3D mobile. Matt is a long-time Microsoft MVP with 15+ years building mobile developer tools like MFractor; Martin led GTM, product and fundraising at Red-Point, growing it to 70,000 users across five continents. Their vision is for Ansight to be built into every serious app, hunting down regressions overnight and delivering fixes by morning, so nothing ships until it’s Ansight Verified."
+   },
+   "profile": {
+    "tagline": "Putting mobile app maintenance on autopilot.",
+    "tags": [
+     "AI",
+     "Dev Tools"
+    ],
+    "website": "https://www.ansight.ai/",
+    "founders": [
+     "Matthew Robbins",
+     "Martin Mora"
+    ],
+    "name": "Ansight"
+   }
+  },
+  {
+   "slug": "antares-aerospace",
+   "profile_url": "https://www.startmate.com/portfolio-companies/antares-aerospace",
+   "article": {
+    "name": "Antares Aerospace",
+    "one_liner": "Antares Aerospace is building reusable rockets to make getting a satellite into orbit as routine as overnight shipping.",
+    "founders": "Lachlan Bramble & Ronan Kohlhoff",
+    "website_text": "antaresaerospace.com.au",
+    "website_href": "http://antaresaerospace.com.au",
+    "location": "Sydney, Australia",
+    "founded_by_paragraph": "Founded by Lachlan Bramble and Ronan Kohlhoff, who met building rockets together at UNSW, taking a student program from a 1,000 ft model flight to a 70,000 ft vehicle. Their vision is to make responsive orbital launch real, turning access to space into dependable infrastructure rather than a rare campaign planned years in advance."
+   },
+   "profile": {
+    "tagline": "Reusable launch vehicles bringing rideshare economics to dedicated small satellite missions.",
+    "tags": [
+     "Aerospace",
+     "Deeptech"
+    ],
+    "website": "https://www.antaresaerospace.com.au/",
+    "founders": [
+     "Lachlan Bramble",
+     "Ronan Kohlhoff"
+    ],
+    "name": "Antares Aerospace"
+   }
+  },
+  {
+   "slug": "brandviz-ai",
+   "profile_url": "https://www.startmate.com/portfolio-companies/brandviz-ai",
+   "article": {
+    "name": "BrandViz.AI",
+    "one_liner": "BrandViz.AI gets you recommended by ChatGPT, Claude, and Gemini by fixing your site and publishing content in your voice, so organic pipeline shows up in weeks.",
+    "founders": "Rushana Maksudova & David Andersen",
+    "website_text": "brandviz.ai",
+    "website_href": "http://brandviz.ai",
+    "location": "Brisbane, Australia",
+    "founded_by_paragraph": "Founded by ex-Google engineers Rushana Maksudova and David Andersen, BrandViz has grown new contract value 77x in three months with no paid acquisition. Their vision is for BrandViz to become the default execution layer for AI search visibility: the standard for how B2B brands get recommended when buyers ask AI."
+   },
+   "profile": {
+    "tagline": "The platform that gets brands recommended in AI search, with the work done for you.",
+    "tags": [
+     "AI",
+     "Marketing"
+    ],
+    "website": "https://www.brandviz.ai/",
+    "founders": [
+     "Rushana Maksudova",
+     "David Andersen"
+    ],
+    "name": "BrandViz.AI"
+   }
+  },
+  {
+   "slug": "clausifai",
+   "profile_url": "https://www.startmate.com/portfolio-companies/clausifai",
+   "article": {
+    "name": "Clausifai",
+    "one_liner": "Clausifai helps small businesses create, review, and sign contracts without a lawyer.",
+    "founders": "Arshita Dewan, Karisa Mahroukh & Riniki Das Barman",
+    "website_text": "[[https://clausifai.com clausifai.com]]",
+    "website_href": "https://clausifai.com/",
+    "location": "Adelaide, Australia",
+    "founded_by_paragraph": "Founded by Arshita Dewan, Riniki Das Barman, and Karisa Mahroukh, three friends from Assam now building together in Adelaide. Clausifai reached nine paying customers within 13 days of launch with zero paid acquisition. Their vision is to become the default contract layer for the global economy — where no freelancer, founder, or small business owner needs a lawyer just to sign safely."
+   },
+   "profile": {
+    "tagline": "The contract platform for modern businesses.",
+    "tags": [
+     "AI",
+     "Legal"
+    ],
+    "website": "https://clausifai.com",
+    "founders": [
+     "Arshita Dewan",
+     "Riniki Das Barman",
+     "Karisa Mahroukh"
+    ],
+    "name": "Clausifai"
+   }
+  },
+  {
+   "slug": "coco",
+   "profile_url": "https://www.startmate.com/portfolio-companies/coco",
+   "article": {
+    "name": "Coco",
+    "one_liner": "Coco is the trust layer stopping AI agents from executing actions enterprises haven’t approved.",
+    "founders": "Nguyen Nguyen & Khoa Pham",
+    "website_text": "cocothecreator.com/",
+    "website_href": "https://www.cocothecreator.com/",
+    "location": "Melbourne, Australia",
+    "founded_by_paragraph": "Founded by Nguyen Nguyen and Khoa Pham, who hit this exact problem building agents themselves. Their vision is for every enterprise deploying AI agents to run them through Coco first, making trust between agents and the systems they touch the default, not the exception."
+   },
+   "profile": {
+    "tagline": "Coco provides preventive controls for AI agents in regulated finance.",
+    "tags": [
+     "AI",
+     "Fintech",
+     "Dev Tools"
+    ],
+    "website": "https://www.cocothecreator.com/",
+    "founders": [
+     "Nguyen Nguyen",
+     "Khoa Pham"
+    ],
+    "name": "Coco"
+   }
+  },
+  {
+   "slug": "derive",
+   "profile_url": "https://www.startmate.com/portfolio-companies/derive",
+   "article": {
+    "name": "Derive",
+    "one_liner": "Derive is the intelligent notebook that understands reasoning, building the data layer for the future of AI education.",
+    "founders": "Matthew Martin & Eden Gibson",
+    "website_text": "derivenotes.com/",
+    "website_href": "https://www.derivenotes.com/",
+    "location": "Brisbane, Australia",
+    "founded_by_paragraph": null
+   },
+   "profile": {
+    "tagline": "Redefining personalised learning through data-backed intelligence.",
+    "tags": [
+     "Edtech"
+    ],
+    "website": "https://www.derivenotes.com/",
+    "founders": [
+     "Matthew Martin",
+     "Eden Gibson"
+    ],
+    "name": "Derive"
+   }
+  },
+  {
+   "slug": "develpr",
+   "profile_url": "https://www.startmate.com/portfolio-companies/develpr",
+   "article": {
+    "name": "develpr",
+    "one_liner": null,
+    "founders": "Liam Taylorwood-Roe, Connor Jones & James Baker",
+    "website_text": "develpr.com.au",
+    "website_href": "http://develpr.com.au",
+    "location": "Sydney, Australia",
+    "founded_by_paragraph": "Founded by Liam Taylorwood-Roe, Connor Jones, and James Baker, who combine deep technical, operational, and planning expertise. Their vision is to become the global source of truth for planning intelligence, structuring the world’s most fragmented planning data so every council, developer, and consultant builds on top of develpr."
+   },
+   "profile": {
+    "tagline": "The operating system for property developers to assess sites, coordinate consultants and get projects approval-ready faster.",
+    "tags": [
+     "AI",
+     "Construction",
+     "Property"
+    ],
+    "website": "https://develpr.com.au",
+    "founders": [
+     "Liam Taylorwood-Roe",
+     "Connor Jones",
+     "James Baker"
+    ],
+    "name": "develpr"
+   }
+  },
+  {
+   "slug": "estimate",
+   "profile_url": "https://www.startmate.com/portfolio-companies/estimate",
+   "article": {
+    "name": "EstiMate",
+    "one_liner": "EstiMate AI helps construction teams quickly generate accurate construction estimates.",
+    "founders": "Baylin Spencer & Ashton Dobbin",
+    "website_text": "estimateai.com.au",
+    "website_href": "http://estimateai.com.au",
+    "location": "Melbourne, Australia",
+    "founded_by_paragraph": "Founded by Ashton Dobbin and Baylin Spencer, who bring real construction industry grounding to the build. Their vision is for EstiMate AI to become the default estimating platform for the construction industry globally, expanding into budgeting, procurement, project intelligence and cost tracking to become the financial operating system for construction from first estimate to final invoice."
+   },
+   "profile": {
+    "tagline": "The AI-native construction quoting platform for the global construction industry.",
+    "tags": [
+     "AI",
+     "Construction"
+    ],
+    "website": "https://estimateai.com.au/",
+    "founders": [
+     "Baylin Spencer",
+     "Ashton Dobbin"
+    ],
+    "name": "EstiMate"
+   }
+  },
+  {
+   "slug": "forward",
+   "profile_url": "https://www.startmate.com/portfolio-companies/forward",
+   "article": {
+    "name": "Forward",
+    "one_liner": "Forward sources borrowers globally, structures their documents, and matches them to the best private credit fund, providing everything needed to kickstart the transaction from the minute a deal is submitted.",
+    "founders": "Daniel Yoon, Riley Janjis & Darryl Luo",
+    "website_text": "useforward.co",
+    "website_href": "http://useforward.co",
+    "location": "San Francisco, CA",
+    "founded_by_paragraph": "Founded by Daniel Yoon, Riley Janjis and Darryl Luo, Forward combines private-credit dealmaking experience with the technical capability to build a new origination system for the industry. Their vision is for Forward to become the global origination layer for private credit: structuring and routing every deal to the right source of capital from the moment it is submitted."
+   },
+   "profile": {
+    "tagline": "Forward is an AI platform that standardises scattered borrower financials into structured deal proposals, saving time and generating more revenue for commercial lenders.",
+    "tags": [
+     "AI",
+     "Fintech",
+     "Finance"
+    ],
+    "website": "https://useforward.co/",
+    "founders": [
+     "Riley Janjis",
+     "Daniel Yoon",
+     "Darryl Luo"
+    ],
+    "name": "Forward"
+   }
+  },
+  {
+   "slug": "glowback",
+   "profile_url": "https://www.startmate.com/portfolio-companies/glowback",
+   "article": {
+    "name": "Glowback",
+    "one_liner": "GlowBack puts client retention and rebookings on autopilot for beauty and wellness businesses.",
+    "founders": "Madeleine Coleman",
+    "website_text": "[[http://www.glowback.tech glowback.tech]]",
+    "website_href": "http://www.glowback.tech/",
+    "location": "Melbourne, Australia",
+    "founded_by_paragraph": "Founded by Maddi Coleman, a former commercial lawyer who experienced the problem firsthand as a client who quietly stopped booking after being forgotten. Her vision is for GlowBack to become the autonomous operating layer for service businesses worldwide, managing client relationships end-to-end from the world’s largest behavioural dataset on the service economy."
+   },
+   "profile": {
+    "tagline": "GlowBack puts client retention and rebookings on autopilot for beauty and wellness businesses",
+    "tags": [
+     "AI",
+     "Productivity",
+     "Marketing"
+    ],
+    "website": "https://glowback.tech/",
+    "founders": [
+     "Madeleine Coleman"
+    ],
+    "name": "GlowBack"
+   }
+  },
+  {
+   "slug": "hyperlocalise",
+   "profile_url": "https://www.startmate.com/portfolio-companies/hyperlocalise",
+   "article": {
+    "name": "Hyperlocalise",
+    "one_liner": "Hyperlocalise lets product teams launch globally in days using AI agents to localise every customer touchpoint.",
+    "founders": "Minh Cung & Hans Bui",
+    "website_text": "[[https://www.hyperlocalise.com hyperlocalise.com]]",
+    "website_href": "https://www.hyperlocalise.com/",
+    "location": "Sydney, Australia",
+    "founded_by_paragraph": "Founded by Minh Cung and Hans Bui, a team with proven global expansion experience. Minh spent years living this exact problem: four years building global localisation infrastructure at Canva, including its Magic Translate feature, and recently leading localisation engineering at Heidi Health. Hans anchors the product side, drawing on his work managing payment solutions and partnerships at Samsung, where he contributes to global flagship launches, and his earlier experience developing eCommerce solutions at Tyro Payments. Their vision is for Hyperlocalise to become the intelligence and execution layer for global growth - the platform every company uses to launch successfully in every market with hyper-local elements, not just translate into it."
+   },
+   "profile": {
+    "tagline": "Agentic localisation platform for teams to launch globally in days.",
+    "tags": [
+     "AI",
+     "Marketing"
+    ],
+    "website": "https://www.hyperlocalise.com",
+    "founders": [
+     "Minh Cung",
+     "Hans Bui",
+     "Michael Levot"
+    ],
+    "name": "Hyperlocalise"
+   }
+  },
+  {
+   "slug": "orva",
+   "profile_url": "https://www.startmate.com/portfolio-companies/orva",
+   "article": {
+    "name": "Orva",
+    "one_liner": "Orva is building the agentic layer for healthcare systems, starting with dental operation rooms.",
+    "founders": "Akash Mokashi, Erika Orogo & Saurabh Bachawe",
+    "website_text": "tryorva.io/",
+    "website_href": "https://www.tryorva.io/",
+    "location": "Christchurch, New Zealand & India",
+    "founded_by_paragraph": "Founded by Akash Mokashi, Erika Orogo, and Saurabh Bachawe, a team combining dental expertise with real technical firepower. Their vision is to make healthcare interoperable for every clinician, patient and system. They are starting with API infrastructure  and intelligent digital assistants in the operating room."
+   },
+   "profile": {
+    "tagline": "The AI assistant that charts gum disease by voice, so it’s caught before it reaches the rest of the body.",
+    "tags": [
+     "AI",
+     "Health"
+    ],
+    "website": "https://www.tryorva.io",
+    "founders": [
+     "Akash Mokashi",
+     "Erika Orogo",
+     "Saurabh Bachawe"
+    ],
+    "name": "Orva"
+   }
+  },
+  {
+   "slug": "securitybreak",
+   "profile_url": "https://www.startmate.com/portfolio-companies/securitybreak",
+   "article": {
+    "name": "SecurityBreak",
+    "one_liner": "SecurityBreak is the AI Threat Intelligence company that helps organisations detect, investigate, and stop attacks against AI systems.",
+    "founders": "Thomas Roccia",
+    "website_text": "securitybreak.io",
+    "website_href": "https://securitybreak.io/",
+    "location": "Brisbane, Australia",
+    "founded_by_paragraph": "Founded by Thomas Roccia, who has spent more than 15 years in cybersecurity, including at Microsoft and McAfee. Thomas is the author of a best-selling cybersecurity book, a regular speaker at leading conferences including BlackHat, DEFCON, and BSides, and the creator of several widely used open-source security projects. His work has been recognised with multiple industry awards, including the SANS Difference Makers Award for Innovation. His vision is for SecurityBreak to become the trusted source of AI Threat Intelligence and the early-warning system for attacks targeting the AI ecosystem."
+   },
+   "profile": {
+    "tagline": "We monitor, detect and stop threats across your AI ecosystem.",
+    "tags": [
+     "Cybersecurity"
+    ],
+    "website": "https://securitybreak.io",
+    "founders": [
+     "Thomas Roccia"
+    ],
+    "name": "SecurityBreak"
+   }
+  },
+  {
+   "slug": "sunburnt-space-co",
+   "profile_url": "https://www.startmate.com/portfolio-companies/sunburnt-space-co",
+   "article": {
+    "name": "Sunburnt Space Co",
+    "one_liner": "Sunburnt Space lets researchers test in zero gravity quickly and affordably using reusable rockets.",
+    "founders": "Brad Younger, Sam Cain & Robin Biskupic",
+    "website_text": "[[http://www.sunburntspace.com.au sunburntspace.com.au]]",
+    "website_href": "http://www.sunburntspace.com.au/",
+    "location": "Sydney, Australia",
+    "founded_by_paragraph": "Founded by Brad Younger, Sam Cain, and Robin Biskupic, a team pairing proven commercial execution with genuine engineering firsts. Brad exited his software company in 2023, while Sam and Robin became the first Australian students to build a liquid rocket engine. Their vision is for Sunburnt Space to become the testing ground for the future space economy - the platform anyone building space hardware turns to, from benchtop to orbit."
+   },
+   "profile": {
+    "tagline": "Round-trip rockets for regular satellite testing",
+    "tags": [
+     "Aerospace",
+     "Deeptech"
+    ],
+    "website": "https://sunburntspace.com.au/",
+    "founders": [
+     "Samuel Cain-Copnall",
+     "Brad Younger",
+     "Robin Biskupic"
+    ],
+    "name": "Sunburnt Space Co."
+   }
+  },
+  {
+   "slug": "quarter",
+   "profile_url": "https://www.startmate.com/portfolio-companies/quarter",
+   "article": {
+    "name": "Quarter",
+    "one_liner": "Quarter is the way modern body corporate management should work - best in class software and people supporting owners, not vested interests.",
+    "founders": "Michael Dowse & Matt Cowley",
+    "website_text": "quarter.nz",
+    "website_href": "http://quarter.nz",
+    "location": "Wellington, New Zealand & Melbourne, Australia",
+    "founded_by_paragraph": "Founded by Michael Dowse and Matt Cowley, Quarter combines deep domain experience with proven execution. Michael chaired a self-managed body corporate for six years and built Hnry’s payments and banking technology. Matt scaled Five Good Friends into one of Australia’s 15 largest home care providers (KPMG, FY24) and its sister platform, The Lookout Way, which processes over $1 billion in home care funding annually."
+   },
+   "profile": {
+    "tagline": "Quarter automates finances and compliance for body corporates",
+    "tags": [
+     "AI",
+     "Property"
+    ],
+    "website": "https://quarter.nz",
+    "founders": [
+     "Michael Dowse",
+     "Matthew Cowley"
+    ],
+    "name": "Quarter"
+   }
+  },
+  {
+   "slug": "veltora",
+   "profile_url": "https://www.startmate.com/portfolio-companies/veltora",
+   "article": {
+    "name": "Veltora",
+    "one_liner": "Veltora allows data centres to optimise their operations by predicting data centre failures before they happen .",
+    "founders": "Aan Mehta",
+    "website_text": "veltora.net/",
+    "website_href": "https://www.veltora.net/",
+    "location": "Melbourne, Australia",
+    "founded_by_paragraph": "Founded by Aan Mehta, a Computer Science student at UNSW who has been coding since age 10 and built Veltora’s entire multi-agent architecture and MVP solo. Her vision is for Veltora to become the predictive intelligence layer running underneath data centres worldwide, covering the entire facility lifecycle from planning through ongoing operations."
+   },
+   "profile": {
+    "tagline": "We predict what will delay or interrupt AI compute, so data centre operators and neoclouds get capacity live and keep it dependable.",
+    "tags": [
+     "AI",
+     "Enterprise Software"
+    ],
+    "website": "https://www.veltora.net/",
+    "founders": [
+     "Aan Mehta"
+    ],
+    "name": "Veltora"
+   }
+  }
+ ]
+}

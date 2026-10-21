@@ -132,6 +132,8 @@ npm run discovery -- resolve --name "Leonardo.Ai" --website https://leonardo.ai 
 
 Finds candidate Australian startups from licensed or public sources, checks each against the companies already here (by website, ABN/ACN and name, including aliases and former names), checks it is Australian and a startup, reads the company's own website, scores it, and queues it for a person. Candidates are staging data: they enter as `candidate`, no route serves them, and only a named person can approve, merge or publish one. It never reads LinkedIn or a proprietary database, obeys `robots.txt` and refuses access-controlled pages. See [docs/discovery.md](docs/discovery.md).
 
+A company can also say which accelerator intake it was in (`cohorts`, for example Startmate Winter 2026): an optional fact served only where the accelerator's own page backs it, with a filter (`?cohort=startmate-w26`), search words (`W26`, `Startmate`) and the page it comes from on the company. The first cohort, Startmate Winter 2026, was added from Startmate's pages and each company's own site: see [docs/accelerator-cohorts.md](docs/accelerator-cohorts.md).
+
 ### Data Command Center
 
 ```bash

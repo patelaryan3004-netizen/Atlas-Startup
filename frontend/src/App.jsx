@@ -78,10 +78,10 @@ function useWhenIdle() {
 
 // precision (EXACT, SUBURB, CITY, STATE) is how well a company's place is known, and state its state: a group on the
 // map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
-// remote (a remote policy), tech (tools it builds with, several), team (a bucket of team size) and fresh ("week": new this week) filter by the
-// optional facts a page may give a company.
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', fresh: '' };
-const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], hasFresh: false };
+// remote (a remote policy), tech (tools it builds with, several), team (a bucket of team size), cohort (an accelerator intake, such as
+// "startmate-w26") and fresh ("week": new this week) filter by the optional facts a page may give a company.
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '' };
+const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], hasFresh: false };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
 // The phone's sheet holds a panel at most 58% of the screen tall (explore.css .xs-detail) and no more than 520px: a pin picked on the map is brought clear of
@@ -91,7 +91,7 @@ const sheetInset = () => Math.round(Math.min(window.innerHeight * 0.58, 520));
 const SHOWN = ['all', 'startups', 'vcs'];
 // The filters that are about a startup alone (whether it is hiring, its remote policy, how it is placed...): an investor has none of them, so with one on
 // the VCs are left off the map when both are shown, and ignored when only they are.
-const STARTUP_ONLY = ['hiring', 'taskGate', 'events', 'remote', 'tech', 'team', 'fresh', 'investor', 'precision', 'state', 'verified'];
+const STARTUP_ONLY = ['hiring', 'taskGate', 'events', 'remote', 'tech', 'team', 'cohort', 'fresh', 'investor', 'precision', 'state', 'verified'];
 const NO_VCS = { items: [], unplaced: 0, count: 0, ready: false };
 const ALL_AUSTRALIA_ZOOM = 6.5; // zoomed in past this, the map offers the way back to all of Australia even with no city chosen
 
@@ -411,7 +411,7 @@ export default function App() {
   // The city is not a chip: the toolbar's breadcrumb already says it (and takes it off).
   const chipFilters = { ...filters, city: '' };
   const chipsShown = !activeList && activeChips(chipFilters).length > 0;
-  const chips = chipsShown ? <ActiveFilters filters={chipFilters} onChange={(next) => setFilters({ ...next, city: filters.city })} onClear={() => setFilters({ ...EMPTY_FILTERS, city: filters.city })} /> : null;
+  const chips = chipsShown ? <ActiveFilters filters={chipFilters} cohorts={meta.cohorts} onChange={(next) => setFilters({ ...next, city: filters.city })} onClear={() => setFilters({ ...EMPTY_FILTERS, city: filters.city })} /> : null;
 
   const resultCount = summary?.count ?? 0;
   const unverifiedCount = summary?.unverified ?? 0;

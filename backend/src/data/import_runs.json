@@ -55,5 +55,31 @@
       }
     ],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261021051640993",
+    "started_at": "2026-10-21T05:16:40.818Z",
+    "finished_at": "2026-10-21T05:16:40.993Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "startmate-w26-2026-10-21",
+        "leads": 16,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 16,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 0
+    },
+    "refused": [],
+    "acknowledged": []
   }
 ]

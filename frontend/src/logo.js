@@ -8,4 +8,10 @@
 // company's initial then.
 //
 // `size` is the picture's side in pixels: the box it is drawn in, twice over for a sharp picture on a high-density screen.
+// The smallest picture that is a logo. For a site the service has nothing for, it answers 404 with a 16-pixel grey globe, and a browser draws that
+// as if it were the logo (an <img> reports no error), so the globe is told by its size: a picture narrower than this is no logo, and the callers
+// show the initial. (A real answer is the size asked for, 64 pixels or more.)
+export const MIN_LOGO_PX = 24;
+export const isRealLogo = (img) => img.naturalWidth >= MIN_LOGO_PX;
+
 export const logoUrl = (domain, size = 64) => `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=${size}`;

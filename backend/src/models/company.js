@@ -39,13 +39,15 @@ export const EMPLOYEE_RANGES = ['1-10', '11-50', '51-200', '201-500', '501-1000'
 //   team_size           how many people work there: a whole number, as a page states it
 //   last_funding_date   (a field of every record) when it last raised, YYYY, YYYY-MM or YYYY-MM-DD
 //   last_role_seen_at   when a role of its was posted on a page of its own: the posting's date (YYYY-MM-DD) or an ISO-8601 UTC time
+//   cohorts             the accelerator intakes it took part in, a list of ids from cohorts.js ("startmate-w26"): membership of a programme and
+//                       nothing more (no funding, stage, hiring or tie to this site is implied)
 // Each is served only where an evidence row from a public page backs it, with that page's address and the date it was checked
 // (catalog.js, provenance.js): a value no page backs is not public.
 export const REMOTE_POLICIES = ['remote-global', 'remote-au', 'hybrid', 'onsite'];
 export const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 // A time that may be given only to the day: a posting says "2026-10-11", and a day is not made into a time it never had.
 export const isWhen = (v) => typeof v === 'string' && (DAY_RE.test(v) ? !Number.isNaN(Date.parse(v)) : ISO_RE.test(v));
-export const FACT_FIELDS = ['remote_policy', 'tech_stack', 'team_size', 'last_funding_date', 'last_role_seen_at'];
+export const FACT_FIELDS = ['remote_policy', 'tech_stack', 'team_size', 'last_funding_date', 'last_role_seen_at', 'cohorts'];
 // Team size in the buckets the directory filters by. A bucket ends where the next begins: 10 is "10-29", not also "under 10".
 export const TEAM_BUCKETS = [
   { code: 'lt10', label: 'Under 10', min: 1, max: 9 },

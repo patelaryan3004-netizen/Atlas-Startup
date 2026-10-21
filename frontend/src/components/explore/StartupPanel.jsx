@@ -103,8 +103,17 @@ export default function StartupPanel({ pin, saved = false, onToggleSaved, onOpen
               <GlobeIcon size={20} /><span>{hostOf(website) || website}</span><ExternalIcon size={16} className="xp-site-out" />
             </a>
           )}
-          {record && present(record.stage).length > 0 && (
-            <dl className="xp-facts"><div><dt>Stage</dt><dd>{record.stage}</dd></div></dl>
+          {record && (record.founders?.length > 0 || record.programs?.length > 0 || present(record.stage).length > 0) && (
+            <dl className="xp-facts">
+              {record.founders?.length > 0 && <div><dt>{record.founders.length === 1 ? 'Founder' : 'Founders'}</dt><dd>{record.founders.join(', ')}</dd></div>}
+              {record.programs?.map((p) => (
+                <div key={p.id}>
+                  <dt>Accelerator</dt>
+                  <dd>{p.label}{p.source_url && <> · <a href={p.source_url} target="_blank" rel="noopener noreferrer">{p.accelerator} page</a></>}</dd>
+                </div>
+              ))}
+              {present(record.stage).length > 0 && <div><dt>Stage</dt><dd>{record.stage}</dd></div>}
+            </dl>
           )}
           {record && <VerifiedNote at={record.last_verified_at} />}
         </div>

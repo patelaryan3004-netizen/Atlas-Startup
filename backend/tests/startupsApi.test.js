@@ -125,7 +125,7 @@ describe('what the page needs besides a page', () => {
       sectors: uniqueSorted(f.rows.map((r) => r.sector)), cities: uniqueSorted(f.rows.map((r) => r.city)),
       investors: uniqueSorted(f.rows.flatMap((r) => r.investors)), stages: uniqueSorted(f.rows.map((r) => r.stage)),
       // the options for the optional facts: none, while no page gives one
-      remotePolicies: [], techStack: [], teamSizes: [], hasFresh: false,
+      remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], hasFresh: false,
     });
   });
 
@@ -170,7 +170,7 @@ describe('what the page needs besides a page', () => {
     const person = company.founders[0];
     const s = await request(f.app).get(`/api/search?q=${encodeURIComponent(company.name.slice(0, 5))}`);
     expect(s.body.companies.length).toBeGreaterThan(0);
-    expect(Object.keys(s.body).sort()).toEqual(['companies', 'industries', 'investors', 'locations', 'people']);
+    expect(Object.keys(s.body).sort()).toEqual(['cohorts', 'companies', 'industries', 'investors', 'locations', 'people']);
     const p = await request(f.app).get(`/api/people/${encodeURIComponent(person)}`);
     expect(p.body.name).toBe(person);
     expect(p.body.companies.map((c) => c.name)).toContain(company.name);

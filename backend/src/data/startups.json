@@ -12361,6 +12361,9 @@
       "Darryl Luo"
     ],
     "foundedYear": 2026,
+    "cohorts": [
+      "startmate-w26"
+    ],
     "id": "forward",
     "slug": "forward",
     "logo": null,
@@ -12385,8 +12388,8 @@
     "verification_status": "unverified",
     "confidence_score": 0.71,
     "created_at": "2026-10-05T03:59:04.292Z",
-    "updated_at": "2026-10-05T08:28:49.954Z",
-    "last_verified_at": "2026-10-05T08:22:51.720Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
     "founder_ids": [
       "daniel-yoon",
       "riley-janjis",
@@ -12406,7 +12409,9 @@
       "forward-careers",
       "smartcompany-latitude-37",
       "startupdaily-startmate-winter-26",
-      "nextgen-ventures-portfolio"
+      "nextgen-ventures-portfolio",
+      "www-startmate-com-portfolio-companies-forward",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort"
     ]
   },
   {
@@ -14228,6 +14233,865 @@
       "www-usealloy-ai-privacy-policy",
       "www-usealloy-ai",
       "user-supplied-supplied-by-a-reviewer-2"
+    ]
+  },
+  {
+    "name": "Ansight",
+    "sector": "DevTools",
+    "sectorFull": "DevTools / Mobile app testing for AI coding agents",
+    "city": "Brisbane",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.ansight.ai",
+    "blurb": "Tooling that lets AI coding agents try a changed flow in a connected mobile app, inspect what happened and leave a captured session for review, so a mobile change can be checked without a person at the device.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Martin Mora",
+      "Matthew Robbins"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "ansight",
+    "slug": "ansight",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "credible_profile",
+    "location_source_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "location_verified_at": "2026-10-21T04:43:27.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "martin-mora",
+      "matthew-robbins"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-ansight",
+      "www-ansight-ai",
+      "www-ansight-ai-team"
+    ]
+  },
+  {
+    "name": "Antares Aerospace",
+    "sector": "Space",
+    "sectorFull": "Space / Reusable small-satellite launch",
+    "city": "Sydney",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://antaresaerospace.com.au",
+    "blurb": "Sydney aerospace company developing reusable launch vehicles for dedicated small-satellite missions, aiming for responsive, routine access to orbit.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Lachlan Bramble",
+      "Ronan Kohlhoff"
+    ],
+    "foundedYear": 2025,
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "antares-aerospace",
+    "slug": "antares-aerospace",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://antaresaerospace.com.au",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.78,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "lachlan-bramble",
+      "ronan-kohlhoff"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "antaresaerospace-com-au",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-antares-aerospace",
+      "antaresaerospace-com-au-about"
+    ]
+  },
+  {
+    "name": "BrandViz.AI",
+    "sector": "Martech",
+    "sectorFull": "Martech / AI search visibility",
+    "city": "Brisbane",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.brandviz.ai",
+    "blurb": "Platform that aims to get brands recommended by AI assistants such as ChatGPT, Claude and Gemini: it fixes a customer's website and publishes on-brand content for the customer to review and approve.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Rushana Maksudova",
+      "David Andersen"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "brandviz-ai",
+    "slug": "brandviz-ai",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "credible_profile",
+    "location_source_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "location_verified_at": "2026-10-21T04:43:27.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "rushana-maksudova",
+      "david-andersen"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-brandviz-ai",
+      "www-brandviz-ai",
+      "www-brandviz-ai-about"
+    ]
+  },
+  {
+    "name": "Clausifai",
+    "sector": "Legal tech",
+    "sectorFull": "Legal tech / Contract management",
+    "city": "Adelaide",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://clausifai.com",
+    "blurb": "Contract software for small businesses: create an agreement, review its terms in plain English, negotiate, sign and keep track of it in one place, with data held in Australia.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Arshita Dewan",
+      "Riniki Das Barman",
+      "Karisa Mahroukh"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "clausifai",
+    "slug": "clausifai",
+    "logo": null,
+    "subsector": null,
+    "state": "SA",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "credible_profile",
+    "location_source_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "location_verified_at": "2026-10-21T04:43:27.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "arshita-dewan",
+      "riniki-das-barman",
+      "karisa-mahroukh"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-clausifai",
+      "clausifai-com"
+    ]
+  },
+  {
+    "name": "Coco",
+    "sector": "AI",
+    "sectorFull": "AI / Agent controls for regulated finance",
+    "city": "Melbourne",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.trustcoco.ai",
+    "blurb": "Permission layer for AI agents in regulated finance: it checks each agent action against the organisation's policy before it runs, so actions an enterprise has not approved are stopped.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Nguyen Nguyen",
+      "Khoa Pham"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "coco",
+    "slug": "coco",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "credible_profile",
+    "location_source_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "location_verified_at": "2026-10-21T04:43:27.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "nguyen-nguyen",
+      "khoa-pham"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-coco",
+      "www-trustcoco-ai"
+    ]
+  },
+  {
+    "name": "Derive",
+    "sector": "EdTech",
+    "sectorFull": "EdTech / AI notebook for maths",
+    "city": "Brisbane",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.derivenotes.com",
+    "blurb": "Digital notebook that reads handwriting, maths and diagrams on its canvas and checks a student's working line by line as they write; it aims to build the data layer for AI-supported education.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Matthew Martin",
+      "Eden Gibson"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "derive",
+    "slug": "derive",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "credible_profile",
+    "location_source_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "location_verified_at": "2026-10-21T04:43:27.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "matthew-martin",
+      "eden-gibson"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-derive",
+      "www-derivenotes-com"
+    ]
+  },
+  {
+    "name": "Develpr",
+    "sector": "PropTech",
+    "sectorFull": "PropTech / Development management",
+    "city": "Sydney",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://develpr.com.au",
+    "blurb": "Development-management platform for property developers and their consultants: it briefs consultants and tracks every deliverable, request and decision through preconstruction, aiming to get projects approval-ready faster.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Liam Taylorwood-Roe",
+      "Connor Jones",
+      "James Baker"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "develpr",
+    "slug": "develpr",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://develpr.com.au",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "liam-taylorwood-roe",
+      "connor-jones",
+      "james-baker"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "develpr-com-au",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-develpr",
+      "develpr-com-au-about"
+    ]
+  },
+  {
+    "name": "EstiMate",
+    "sector": "Construction SaaS",
+    "sectorFull": "Construction SaaS / AI estimating",
+    "city": "Melbourne",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://estimateai.com.au",
+    "blurb": "Construction estimating software for builders, trades and estimators: it reads a drawing set, measures the job by trade and prices it from the user's own rates.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Baylin Spencer",
+      "Ashton Dobbin"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "estimate",
+    "slug": "estimate",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://estimateai.com.au",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "baylin-spencer",
+      "ashton-dobbin"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "estimateai-com-au",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-estimate"
+    ]
+  },
+  {
+    "name": "GlowBack",
+    "sector": "SaaS",
+    "sectorFull": "SaaS / Salon client retention",
+    "city": "Melbourne",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://glowback.com.au",
+    "blurb": "Software for salons and other beauty and wellness businesses that brings lapsed clients back to book again, automating client retention and rebooking.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Madeleine Coleman"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "glowback",
+    "slug": "glowback",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://glowback.com.au/",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "madeleine-coleman"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "glowback-com-au",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-glowback"
+    ]
+  },
+  {
+    "name": "Hyperlocalise",
+    "sector": "SaaS",
+    "sectorFull": "SaaS / AI localisation",
+    "city": "Sydney",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.hyperlocalise.com",
+    "blurb": "AI-agent platform for localising a product and its marketing content, for teams that want to launch in new markets in days: it covers creating, organising, publishing and checking content across languages.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Minh Cung",
+      "Hans Bui"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "hyperlocalise",
+    "slug": "hyperlocalise",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://www.hyperlocalise.com/en",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "minh-cung",
+      "hans-bui"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-hyperlocalise-com-en",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-hyperlocalise",
+      "www-hyperlocalise-com-en-company"
+    ]
+  },
+  {
+    "name": "SecurityBreak",
+    "sector": "Cybersecurity",
+    "sectorFull": "Cybersecurity / AI threat intelligence",
+    "city": "Brisbane",
+    "lat": -27.4615198,
+    "lng": 153.027551,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://securitybreak.io",
+    "blurb": "Threat-intelligence company focused on attacks against AI systems: it monitors AI agents and prompts and helps security teams detect, investigate and hunt adversarial activity across their AI ecosystem.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Thomas Roccia"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "address": "2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia",
+    "id": "securitybreak",
+    "slug": "securitybreak",
+    "logo": null,
+    "subsector": null,
+    "state": "QLD",
+    "country": "Australia",
+    "suburb": "Spring Hill",
+    "postcode": "4000",
+    "location_precision": "EXACT",
+    "location_source": "company_website",
+    "location_source_url": "https://securitybreak.io",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "high",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:51.172Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "thomas-roccia"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "securitybreak-io",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-securitybreak"
+    ]
+  },
+  {
+    "name": "Sunburnt Space Co",
+    "sector": "Space",
+    "sectorFull": "Space / Reusable microgravity launch",
+    "city": "Sydney",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://sunburntspace.com.au",
+    "blurb": "New South Wales space company building reusable, round-trip rockets so researchers can test in microgravity quickly and affordably; its own site says a larger rocket is due to launch in 2027.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Brad Younger",
+      "Robin Biskupic"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "sunburnt-space-co",
+    "slug": "sunburnt-space-co",
+    "logo": null,
+    "subsector": null,
+    "state": "NSW",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://sunburntspace.com.au/",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "brad-younger",
+      "robin-biskupic"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "sunburntspace-com-au",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-sunburnt-space-co"
+    ]
+  },
+  {
+    "name": "Quarter",
+    "sector": "PropTech",
+    "sectorFull": "PropTech / Body corporate management",
+    "city": "Melbourne",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://quarter.nz",
+    "blurb": "Body-corporate (owners-corporation) software and service in New Zealand and Australia: it automates finances and compliance and helps owners and committees propose, discuss, budget and deliver improvements to their buildings.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Michael Dowse",
+      "Matt Cowley"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "quarter",
+    "slug": "quarter",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "company_website",
+    "location_source_url": "https://quarter.nz",
+    "location_verified_at": "2026-10-21T04:47:39.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "michael-dowse",
+      "matt-cowley"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "quarter-nz",
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-quarter"
+    ]
+  },
+  {
+    "name": "Veltora",
+    "sector": "AI infrastructure",
+    "sectorFull": "AI infrastructure / Data centre reliability",
+    "city": "Melbourne",
+    "lat": null,
+    "lng": null,
+    "investors": [],
+    "stage": "Unknown",
+    "hiring": false,
+    "verified": true,
+    "website": "https://www.veltora.net",
+    "blurb": "Predictive-intelligence software for AI data centres and neoclouds, aimed at forecasting what will delay or interrupt compute capacity so operators can bring capacity online and keep it dependable.",
+    "taskGate": {
+      "enabled": false,
+      "type": null
+    },
+    "founders": [
+      "Aan Mehta"
+    ],
+    "cohorts": [
+      "startmate-w26"
+    ],
+    "id": "veltora",
+    "slug": "veltora",
+    "logo": null,
+    "subsector": null,
+    "state": "VIC",
+    "country": "Australia",
+    "suburb": null,
+    "postcode": null,
+    "location_precision": "CITY",
+    "location_source": "credible_profile",
+    "location_source_url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "location_verified_at": "2026-10-21T04:43:27.000Z",
+    "location_confidence": "medium",
+    "company_status": null,
+    "hiring_status": null,
+    "hiring_verified_at": null,
+    "website_status": null,
+    "employee_range": null,
+    "funding_total": null,
+    "last_funding_date": null,
+    "last_funding_round": null,
+    "verification_status": "location_verified",
+    "confidence_score": 0.79,
+    "created_at": "2026-10-21T05:16:41.582Z",
+    "updated_at": "2026-10-21T05:16:41.582Z",
+    "last_verified_at": "2026-10-21T04:47:39.000Z",
+    "founder_ids": [
+      "aan-mehta"
+    ],
+    "investor_ids": [],
+    "source_ids": [
+      "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+      "www-startmate-com-portfolio-companies-veltora",
+      "www-veltora-net"
     ]
   }
 ]

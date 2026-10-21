@@ -3,6 +3,7 @@ import { fetchStartupPage, exportUrl } from '../api.js';
 import ConceptPreview from './ConceptPreview.jsx';
 import EntityCard, { Avatar } from './EntityCard.jsx';
 import HiringBadge from './HiringBadge.jsx';
+import { Badge } from './brand/parts.jsx';
 import QuickFilters from './QuickFilters.jsx';
 import NewThisWeek from './NewThisWeek.jsx';
 import StartupTable from './StartupTable.jsx';
@@ -154,6 +155,7 @@ export default function ListView({ filters, sectorColors, onSelectStartup, selec
             >
               <div className="startup-card-tags">
                 <HiringBadge company={s} />
+                {s.programs?.map((p) => <Badge key={p.id} tone="quiet" className="cohort-badge">{p.label}</Badge>)}
                 <ConceptPreview company={s} />
                 <UnverifiedBadge company={s} />
               </div>

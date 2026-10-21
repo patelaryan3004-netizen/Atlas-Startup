@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css'; // with the map's own file, not the page's: only the map needs it (it used to be a stylesheet every page waited for)
 import { fetchStartup } from '../api.js';
-import { logoUrl } from '../logo.js';
+import { logoUrl, isRealLogo } from '../logo.js';
 import { TILE_URL, TILE_OPTIONS, quietClass } from '../mapTiles.js';
 import { companyPopup, institutionPopup } from '../mapPopups.js';
 import { createPinIndex } from '../pinIndex.js';
@@ -17,7 +17,7 @@ function logoImg(src) {
   img.className = 'pin-logo';
   img.alt = '';
   img.decoding = 'async';
-  img.onload = () => { if (img.naturalWidth > 0) img.classList.add('pin-logo-ready'); else img.style.display = 'none'; };
+  img.onload = () => { if (isRealLogo(img)) img.classList.add('pin-logo-ready'); else img.style.display = 'none'; }; // (the service's 16-pixel globe for an unknown site is no logo: logo.js)
   img.onerror = () => { img.style.display = 'none'; };
   img.src = src;
   return img;

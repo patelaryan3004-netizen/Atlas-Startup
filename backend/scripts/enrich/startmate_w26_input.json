@@ -1,0 +1,151 @@
+[
+ {
+  "id": "ansight",
+  "name": "Ansight",
+  "website": "https://www.ansight.ai",
+  "founders": [
+   "Martin Mora",
+   "Matthew Robbins"
+  ]
+ },
+ {
+  "id": "antares-aerospace",
+  "name": "Antares Aerospace",
+  "website": "http://antaresaerospace.com.au",
+  "founders": [
+   "Lachlan Bramble",
+   "Ronan Kohlhoff"
+  ]
+ },
+ {
+  "id": "brandviz-ai",
+  "name": "BrandViz.AI",
+  "website": "http://brandviz.ai",
+  "founders": [
+   "Rushana Maksudova",
+   "David Andersen"
+  ]
+ },
+ {
+  "id": "clausifai",
+  "name": "Clausifai",
+  "website": "https://clausifai.com",
+  "founders": [
+   "Arshita Dewan",
+   "Karisa Mahroukh",
+   "Riniki Das Barman"
+  ]
+ },
+ {
+  "id": "coco",
+  "name": "Coco",
+  "website": "https://www.cocothecreator.com",
+  "founders": [
+   "Nguyen Nguyen",
+   "Khoa Pham"
+  ]
+ },
+ {
+  "id": "derive",
+  "name": "Derive",
+  "website": "https://www.derivenotes.com",
+  "founders": [
+   "Matthew Martin",
+   "Eden Gibson"
+  ]
+ },
+ {
+  "id": "develpr",
+  "name": "develpr",
+  "website": "http://develpr.com.au",
+  "founders": [
+   "Liam Taylorwood-Roe",
+   "Connor Jones",
+   "James Baker"
+  ]
+ },
+ {
+  "id": "estimate",
+  "name": "EstiMate",
+  "website": "http://estimateai.com.au",
+  "founders": [
+   "Baylin Spencer",
+   "Ashton Dobbin"
+  ]
+ },
+ {
+  "id": "forward",
+  "name": "Forward",
+  "website": "http://useforward.co",
+  "founders": [
+   "Daniel Yoon",
+   "Riley Janjis",
+   "Darryl Luo"
+  ]
+ },
+ {
+  "id": "glowback",
+  "name": "Glowback",
+  "website": "http://www.glowback.tech",
+  "founders": [
+   "Madeleine Coleman"
+  ]
+ },
+ {
+  "id": "hyperlocalise",
+  "name": "Hyperlocalise",
+  "website": "https://www.hyperlocalise.com",
+  "founders": [
+   "Minh Cung",
+   "Hans Bui",
+   "Michael Levot"
+  ]
+ },
+ {
+  "id": "orva",
+  "name": "Orva",
+  "website": "https://www.tryorva.io",
+  "founders": [
+   "Akash Mokashi",
+   "Erika Orogo",
+   "Saurabh Bachawe"
+  ]
+ },
+ {
+  "id": "securitybreak",
+  "name": "SecurityBreak",
+  "website": "https://securitybreak.io",
+  "founders": [
+   "Thomas Roccia"
+  ]
+ },
+ {
+  "id": "sunburnt-space-co",
+  "name": "Sunburnt Space Co",
+  "website": "http://www.sunburntspace.com.au",
+  "founders": [
+   "Brad Younger",
+   "Sam Cain",
+   "Robin Biskupic",
+   "Samuel Cain-Copnall"
+  ]
+ },
+ {
+  "id": "quarter",
+  "name": "Quarter",
+  "website": "http://quarter.nz",
+  "founders": [
+   "Michael Dowse",
+   "Matt Cowley",
+   "Matthew Cowley"
+  ]
+ },
+ {
+  "id": "veltora",
+  "name": "Veltora",
+  "website": "https://www.veltora.net",
+  "founders": [
+   "Aan Mehta"
+  ]
+ }
+]

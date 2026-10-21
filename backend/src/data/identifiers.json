@@ -32,6 +32,14 @@
     "note": null
   },
   {
+    "id": "antares-aerospace.legal_name.antares-aerospace-systems-pty-ltd",
+    "company_id": "antares-aerospace",
+    "scheme": "legal_name",
+    "value": "Antares Aerospace Systems Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-antares-aerospace",
+    "note": null
+  },
+  {
     "id": "apromore.abn.51635938760",
     "company_id": "apromore",
     "scheme": "abn",
@@ -64,11 +72,91 @@
     "note": null
   },
   {
+    "id": "brandviz-ai.alias.brandviz",
+    "company_id": "brandviz-ai",
+    "scheme": "alias",
+    "value": "BrandViz",
+    "source_id": "www-startmate-com-portfolio-companies-brandviz-ai",
+    "note": null
+  },
+  {
     "id": "ceres-tag.abn.51614436467",
     "company_id": "ceres-tag",
     "scheme": "abn",
     "value": "51614436467",
     "source_id": "cerestag-com",
+    "note": null
+  },
+  {
+    "id": "clausifai.abn.18696797627",
+    "company_id": "clausifai",
+    "scheme": "abn",
+    "value": "18696797627",
+    "source_id": "www-startmate-com-portfolio-companies-clausifai",
+    "note": null
+  },
+  {
+    "id": "clausifai.legal_name.clausifai-pty-ltd",
+    "company_id": "clausifai",
+    "scheme": "legal_name",
+    "value": "Clausifai Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-clausifai",
+    "note": null
+  },
+  {
+    "id": "coco.abn.94699746720",
+    "company_id": "coco",
+    "scheme": "abn",
+    "value": "94699746720",
+    "source_id": "www-startmate-com-portfolio-companies-coco",
+    "note": null
+  },
+  {
+    "id": "coco.alias.coco-ai",
+    "company_id": "coco",
+    "scheme": "alias",
+    "value": "Coco AI",
+    "source_id": "www-startmate-com-portfolio-companies-coco",
+    "note": null
+  },
+  {
+    "id": "coco.domain.cocothecreator-com",
+    "company_id": "coco",
+    "scheme": "domain",
+    "value": "cocothecreator.com",
+    "source_id": "www-startmate-com-portfolio-companies-coco",
+    "note": null
+  },
+  {
+    "id": "coco.legal_name.coco-ai-pty-ltd",
+    "company_id": "coco",
+    "scheme": "legal_name",
+    "value": "Coco AI Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-coco",
+    "note": null
+  },
+  {
+    "id": "derive.acn.696859597",
+    "company_id": "derive",
+    "scheme": "acn",
+    "value": "696859597",
+    "source_id": "www-startmate-com-portfolio-companies-derive",
+    "note": null
+  },
+  {
+    "id": "derive.legal_name.derive-notes-pty-ltd",
+    "company_id": "derive",
+    "scheme": "legal_name",
+    "value": "Derive Notes Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-derive",
+    "note": null
+  },
+  {
+    "id": "develpr.legal_name.develpr-pty-ltd",
+    "company_id": "develpr",
+    "scheme": "legal_name",
+    "value": "Develpr Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-develpr",
     "note": null
   },
   {
@@ -88,6 +176,30 @@
     "note": null
   },
   {
+    "id": "estimate.abn.46695711883",
+    "company_id": "estimate",
+    "scheme": "abn",
+    "value": "46695711883",
+    "source_id": "www-startmate-com-portfolio-companies-estimate",
+    "note": null
+  },
+  {
+    "id": "estimate.alias.estimate-ai",
+    "company_id": "estimate",
+    "scheme": "alias",
+    "value": "EstiMate AI",
+    "source_id": "www-startmate-com-portfolio-companies-estimate",
+    "note": null
+  },
+  {
+    "id": "estimate.legal_name.estimate-ai-pty-ltd",
+    "company_id": "estimate",
+    "scheme": "legal_name",
+    "value": "EstiMate AI Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-estimate",
+    "note": null
+  },
+  {
     "id": "fastlane.acn.690900497",
     "company_id": "fastlane",
     "scheme": "acn",
@@ -104,6 +216,14 @@
     "note": null
   },
   {
+    "id": "forward.acn.698574051",
+    "company_id": "forward",
+    "scheme": "acn",
+    "value": "698574051",
+    "source_id": "www-startmate-com-portfolio-companies-forward",
+    "note": null
+  },
+  {
     "id": "forward.legal_name.forward-flow-pty-ltd",
     "company_id": "forward",
     "scheme": "legal_name",
@@ -112,11 +232,43 @@
     "note": null
   },
   {
+    "id": "glowback.domain.glowback-tech",
+    "company_id": "glowback",
+    "scheme": "domain",
+    "value": "glowback.tech",
+    "source_id": "www-startmate-com-portfolio-companies-glowback",
+    "note": null
+  },
+  {
+    "id": "glowback.legal_name.glowback-pty-ltd",
+    "company_id": "glowback",
+    "scheme": "legal_name",
+    "value": "GlowBack Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-glowback",
+    "note": null
+  },
+  {
     "id": "hello-clever.abn.69637950497",
     "company_id": "hello-clever",
     "scheme": "abn",
     "value": "69637950497",
     "source_id": "helloclever-co",
+    "note": null
+  },
+  {
+    "id": "hyperlocalise.acn.698557667",
+    "company_id": "hyperlocalise",
+    "scheme": "acn",
+    "value": "698557667",
+    "source_id": "www-startmate-com-portfolio-companies-hyperlocalise",
+    "note": null
+  },
+  {
+    "id": "hyperlocalise.legal_name.hyperlocalise-pty-ltd",
+    "company_id": "hyperlocalise",
+    "scheme": "legal_name",
+    "value": "Hyperlocalise Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-hyperlocalise",
     "note": null
   },
   {
@@ -224,6 +376,30 @@
     "note": null
   },
   {
+    "id": "quarter.abn.29702639709",
+    "company_id": "quarter",
+    "scheme": "abn",
+    "value": "29702639709",
+    "source_id": "www-startmate-com-portfolio-companies-quarter",
+    "note": null
+  },
+  {
+    "id": "quarter.alias.quarter-nz-limited",
+    "company_id": "quarter",
+    "scheme": "alias",
+    "value": "Quarter NZ Limited",
+    "source_id": "www-startmate-com-portfolio-companies-quarter",
+    "note": null
+  },
+  {
+    "id": "quarter.legal_name.quarter-au-pty-ltd",
+    "company_id": "quarter",
+    "scheme": "legal_name",
+    "value": "Quarter AU Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-quarter",
+    "note": null
+  },
+  {
     "id": "reejig.abn.75631012318",
     "company_id": "reejig",
     "scheme": "abn",
@@ -261,6 +437,14 @@
     "scheme": "legal_name",
     "value": "Roller Networks Pty Ltd",
     "source_id": "www-roller-software",
+    "note": null
+  },
+  {
+    "id": "securitybreak.legal_name.securitybreak-pty-ltd",
+    "company_id": "securitybreak",
+    "scheme": "legal_name",
+    "value": "SecurityBreak Pty Ltd",
+    "source_id": "www-startmate-com-portfolio-companies-securitybreak",
     "note": null
   },
   {

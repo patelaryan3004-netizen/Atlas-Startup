@@ -40,6 +40,7 @@ import {
   ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum, slugify,
 } from './company.js';
 import { sameAddress } from './identity.js';
+import { COHORT_IDS } from './cohorts.js';
 
 export const CONFIDENCE_LEVELS = ['high', 'medium', 'low'];
 export const EVIDENCE_STATUSES = ['active', 'rejected', 'superseded'];
@@ -72,6 +73,8 @@ export const EVIDENCE_FIELDS = {
   last_funding_date: { cardinality: 'single', type: 'date' },
   remote_policy: { cardinality: 'single', type: 'enum', values: REMOTE_POLICIES },
   tech_stack: { cardinality: 'multi', type: 'string' },
+  // Each row says the company took part in one accelerator intake (cohorts.js); the value is the intake's id.
+  cohorts: { cardinality: 'multi', type: 'enum', values: COHORT_IDS },
   team_size: { cardinality: 'single', type: 'count' },
   last_role_seen_at: { cardinality: 'single', type: 'timestamp' },
   description: { cardinality: 'text', type: 'string' },
@@ -131,6 +134,7 @@ export function storedValue(company, field) {
     case 'funding_total': return nothing(company.funding_total) ? null : { amount: company.funding_total, currency: null };
     case 'founders':
     case 'investors':
+    case 'cohorts':
     case 'tech_stack': return Array.isArray(company[field]) && company[field].length ? company[field] : null;
     default: {
       const v = company[STORED_KEY[field] ?? field];

@@ -6768,5 +6768,74 @@
     },
     "fetched_at": "2026-10-15T07:19:05.000Z",
     "expires_at": "2027-10-15T07:19:05.000Z"
+  },
+  {
+    "id": "nominatim:290 boundary street spring hill qld 4000 australia",
+    "provider": "nominatim",
+    "query": "290 Boundary Street, Spring Hill, QLD, 4000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -27.4615198,
+      "lng": 153.027551,
+      "display_name": "290, Boundary Street, Spring Hill, Brisbane, Queensland, 4000, Australia",
+      "osm_type": "way",
+      "osm_id": 235566955,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00007694132906076169,
+      "address": {
+        "house_number": "290",
+        "road": "Boundary Street",
+        "suburb": "Spring Hill",
+        "city": "Brisbane",
+        "state": "Queensland",
+        "postcode": "4000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-27.4616224",
+        "-27.4613885",
+        "153.0273521",
+        "153.0276666"
+      ]
+    },
+    "fetched_at": "2026-10-21T05:16:47.986Z",
+    "expires_at": "2027-10-21T05:16:47.986Z"
+  },
+  {
+    "id": "nominatim:7-9 rhodes street west ryde nsw 2114 australia",
+    "provider": "nominatim",
+    "query": "7-9 Rhodes Street, West Ryde, NSW, 2114, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -33.8122756,
+      "lng": 151.0918866,
+      "display_name": "Rhodes Street, Meadowbank, Sydney, New South Wales, 2114, Australia",
+      "osm_type": "way",
+      "osm_id": 148897047,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.05341579385061414,
+      "address": {
+        "road": "Rhodes Street",
+        "suburb": "Meadowbank",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2114",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8130810",
+        "-33.8114226",
+        "151.0907386",
+        "151.0930642"
+      ]
+    },
+    "fetched_at": "2026-10-21T05:16:49.872Z",
+    "expires_at": "2027-10-21T05:16:49.872Z"
   }
 ]

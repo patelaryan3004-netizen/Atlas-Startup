@@ -1,0 +1,259 @@
+{
+  "source_id": "startmate-w26-2026-10-21",
+  "cohort": "startmate-w26",
+  "note": "The decisions made about the 16 companies Startmate lists for its Winter 2026 accelerator cohort, written after reading Startmate's announcement and each profile (startmate_w26_startmate.json) and each company's OWN website (startmate_w26_scan.json). startmate_w26_import.mjs applies them; nothing here is a fact no page states, except the choices marked as ours (sector, description wording).",
+  "startmate_checked_at": "2026-10-21T04:43:27.000Z",
+  "own_site_checked_at": "2026-10-21T04:47:39.000Z",
+  "companies": {
+    "ansight": {
+      "plan": "add",
+      "name": "Ansight",
+      "website": "https://www.ansight.ai",
+      "blurb": "Tooling that lets AI coding agents try a changed flow in a connected mobile app, inspect what happened and leave a captured session for review, so a mobile change can be checked without a person at the device.",
+      "sector": "DevTools",
+      "sectorFull": "DevTools / Mobile app testing for AI coding agents",
+      "founders": ["Martin Mora", "Matthew Robbins"],
+      "place": { "city": "Brisbane", "state": "QLD", "precision": "CITY", "from": "startmate", "quote": "Brisbane, Australia" },
+      "flags": [
+        "Brisbane is Startmate's listing only. Ansight's own legal pages name Ansight, Inc. at 131 Continental Dr, Newark, Delaware, United States, and give no Australian office or address, so it is placed at city level from Startmate's word and should be re-checked."
+      ]
+    },
+    "antares-aerospace": {
+      "plan": "add",
+      "name": "Antares Aerospace",
+      "website": "https://antaresaerospace.com.au",
+      "legal_names": ["Antares Aerospace Systems Pty Ltd"],
+      "blurb": "Sydney aerospace company developing reusable launch vehicles for dedicated small-satellite missions, aiming for responsive, routine access to orbit.",
+      "sector": "Space",
+      "sectorFull": "Space / Reusable small-satellite launch",
+      "foundedYear": { "value": 2025, "quote": "Est. 2025" },
+      "founders": ["Lachlan Bramble", "Ronan Kohlhoff"],
+      "place": { "city": "Sydney", "state": "NSW", "precision": "CITY", "from": "own", "quote": "Sydney, Australia" },
+      "flags": [
+        "No logo picture: the favicon service has none for this domain and the icon the company publishes (favicon.svg) is white on transparent, so it cannot be drawn on a white tile. Initials are shown."
+      ]
+    },
+    "brandviz-ai": {
+      "plan": "add",
+      "name": "BrandViz.AI",
+      "website": "https://www.brandviz.ai",
+      "aliases": ["BrandViz"],
+      "blurb": "Platform that aims to get brands recommended by AI assistants such as ChatGPT, Claude and Gemini: it fixes a customer's website and publishes on-brand content for the customer to review and approve.",
+      "sector": "Martech",
+      "sectorFull": "Martech / AI search visibility",
+      "founders": ["Rushana Maksudova", "David Andersen"],
+      "place": { "city": "Brisbane", "state": "QLD", "precision": "CITY", "from": "startmate", "quote": "Brisbane, Australia" },
+      "flags": [
+        "Brisbane is Startmate's listing only. BrandViz's own pages name no office or city (they show customer case studies in the US, the UK and Ireland, and Australia)."
+      ]
+    },
+    "clausifai": {
+      "plan": "add",
+      "name": "Clausifai",
+      "website": "https://clausifai.com",
+      "legal_names": ["Clausifai Pty Ltd"],
+      "abn": "18696797627",
+      "blurb": "Contract software for small businesses: create an agreement, review its terms in plain English, negotiate, sign and keep track of it in one place, with data held in Australia.",
+      "sector": "Legal tech",
+      "sectorFull": "Legal tech / Contract management",
+      "founders": ["Arshita Dewan", "Riniki Das Barman", "Karisa Mahroukh"],
+      "place": { "city": "Adelaide", "state": "SA", "precision": "CITY", "from": "startmate", "quote": "Adelaide, Australia" },
+      "flags": [
+        "Adelaide is Startmate's listing only: Clausifai's own pages say its data stays in Australia and give an ABN, but no city.",
+        "Two Clausifai pages answered 'access controlled' and were not read, and its founders are not named on the pages that were read, so their names come from Startmate (the announcement and the profile agree)."
+      ]
+    },
+    "coco": {
+      "plan": "add",
+      "name": "Coco",
+      "website": "https://www.trustcoco.ai",
+      "listed_website": "https://www.cocothecreator.com",
+      "aliases": ["Coco AI"],
+      "legal_names": ["Coco AI Pty Ltd"],
+      "abn": "94699746720",
+      "old_domains": ["cocothecreator.com"],
+      "blurb": "Permission layer for AI agents in regulated finance: it checks each agent action against the organisation's policy before it runs, so actions an enterprise has not approved are stopped.",
+      "sector": "AI",
+      "sectorFull": "AI / Agent controls for regulated finance",
+      "founders": ["Nguyen Nguyen", "Khoa Pham"],
+      "place": { "city": "Melbourne", "state": "VIC", "precision": "CITY", "from": "startmate", "quote": "Melbourne, Australia" },
+      "flags": [
+        "Startmate lists www.cocothecreator.com, which now redirects to www.trustcoco.ai (read 21 Oct 2026). The directory links the working address; the old domain is kept as an identifier so the company is not added twice.",
+        "'Coco' is a common name: it was matched on its domain and ABN, not on the name.",
+        "Melbourne is Startmate's listing only (the new site names no city), and the founders are not named on the page read, so their names come from Startmate (the announcement and the profile agree)."
+      ]
+    },
+    "derive": {
+      "plan": "add",
+      "name": "Derive",
+      "website": "https://www.derivenotes.com",
+      "legal_names": ["Derive Notes Pty Ltd"],
+      "acn": "696859597",
+      "blurb": "Digital notebook that reads handwriting, maths and diagrams on its canvas and checks a student's working line by line as they write; it aims to build the data layer for AI-supported education.",
+      "sector": "EdTech",
+      "sectorFull": "EdTech / AI notebook for maths",
+      "founders": ["Matthew Martin", "Eden Gibson"],
+      "place": { "city": "Brisbane", "state": "QLD", "precision": "CITY", "from": "startmate", "quote": "Brisbane, Australia" },
+      "flags": [
+        "Brisbane is Startmate's listing only: Derive's own pages name no office (they list the universities it is used at, in several cities).",
+        "'Derive' is a common name: it was matched on its domain and ACN, not on the name. Its founders are not named on the pages read, so their names come from Startmate (the announcement and the profile agree)."
+      ]
+    },
+    "develpr": {
+      "plan": "add",
+      "name": "Develpr",
+      "website": "https://develpr.com.au",
+      "legal_names": ["Develpr Pty Ltd"],
+      "blurb": "Development-management platform for property developers and their consultants: it briefs consultants and tracks every deliverable, request and decision through preconstruction, aiming to get projects approval-ready faster.",
+      "sector": "PropTech",
+      "sectorFull": "PropTech / Development management",
+      "founders": ["Liam Taylorwood-Roe", "Connor Jones", "James Baker"],
+      "place": { "city": "Sydney", "state": "NSW", "precision": "CITY", "from": "own", "quote": "Built in Sydney" },
+      "flags": [
+        "Startmate and the brief write the name 'develpr'; the company's own site and legal name write 'Develpr', which is used here."
+      ]
+    },
+    "estimate": {
+      "plan": "add",
+      "name": "EstiMate",
+      "website": "https://estimateai.com.au",
+      "aliases": ["EstiMate AI"],
+      "legal_names": ["EstiMate AI Pty Ltd"],
+      "abn": "46695711883",
+      "blurb": "Construction estimating software for builders, trades and estimators: it reads a drawing set, measures the job by trade and prices it from the user's own rates.",
+      "sector": "Construction SaaS",
+      "sectorFull": "Construction SaaS / AI estimating",
+      "founders": ["Baylin Spencer", "Ashton Dobbin"],
+      "place": { "city": "Melbourne", "state": "VIC", "precision": "CITY", "from": "own", "quote": "Built in Melbourne" },
+      "flags": []
+    },
+    "forward": {
+      "plan": "update",
+      "name": "Forward",
+      "website": "https://www.useforward.co",
+      "legal_names": ["Forward Flow Pty Ltd"],
+      "acn": "698574051",
+      "founders": ["Daniel Yoon", "Riley Janjis", "Darryl Luo"],
+      "flags": [
+        "Forward is already in the directory (a record without a confirmed Australian place). It is only given its Startmate cohort and evidence; its place, sector, description and hiring answer are not touched.",
+        "Startmate lists San Francisco, CA. Forward's own footer reads 'San Francisco, CA | Sydney, NSW' and its legal entity, Forward Flow Pty Ltd (ACN 698 574 051), is Australian, but no street address or Australian office page is given. It stays off the Australian map until a person confirms a current Australian business location.",
+        "'Forward' is a common name: it was matched on its domain, not on the name."
+      ]
+    },
+    "glowback": {
+      "plan": "add",
+      "name": "GlowBack",
+      "website": "https://glowback.com.au",
+      "listed_website": "http://www.glowback.tech",
+      "legal_names": ["GlowBack Pty Ltd"],
+      "old_domains": ["glowback.tech"],
+      "blurb": "Software for salons and other beauty and wellness businesses that brings lapsed clients back to book again, automating client retention and rebooking.",
+      "sector": "SaaS",
+      "sectorFull": "SaaS / Salon client retention",
+      "founders": ["Madeleine Coleman"],
+      "place": { "city": "Melbourne", "state": "VIC", "precision": "CITY", "from": "own", "quote": "Made in Melbourne for Australian salons" },
+      "flags": [
+        "Startmate lists www.glowback.tech, which now redirects to glowback.com.au (read 21 Oct 2026). The directory links the working address; the old domain is kept as an identifier.",
+        "Startmate writes the name 'Glowback' in the brief and 'GlowBack' in its profile; the company's own site and legal name write 'GlowBack', which is used here.",
+        "The founder's name comes from Startmate (the announcement and the profile agree); it is not on the page read."
+      ]
+    },
+    "hyperlocalise": {
+      "plan": "add",
+      "name": "Hyperlocalise",
+      "website": "https://www.hyperlocalise.com",
+      "legal_names": ["Hyperlocalise Pty Ltd"],
+      "acn": "698557667",
+      "blurb": "AI-agent platform for localising a product and its marketing content, for teams that want to launch in new markets in days: it covers creating, organising, publishing and checking content across languages.",
+      "sector": "SaaS",
+      "sectorFull": "SaaS / AI localisation",
+      "founders": ["Minh Cung", "Hans Bui"],
+      "founder_review": [
+        { "name": "Michael Levot", "from": "profile", "why": "Startmate's profile page names him as a third founder; the announcement and the company's own pages name only Minh Cung and Hans Bui." }
+      ],
+      "place": { "city": "Sydney", "state": "NSW", "precision": "CITY", "from": "own", "quote": "Built with ♥ from Sydney, Australia" },
+      "flags": [
+        "Michael Levot is named as a founder on Startmate's profile page only; he is not on the record until a page that says so is found (the claim is kept as low-confidence evidence)."
+      ]
+    },
+    "orva": {
+      "plan": "hold",
+      "name": "Orva",
+      "website": "https://www.tryorva.io",
+      "blurb": null,
+      "founders": ["Akash Mokashi", "Erika Orogo", "Saurabh Bachawe"],
+      "place": { "city": "Christchurch", "state": null, "precision": "CITY", "from": "startmate", "quote": "Christchurch, New Zealand & India" },
+      "hold_reason": "Startmate lists Orva in Christchurch, New Zealand, and India. Orva's own pages name no location (its contact form lists Canada, New Zealand, Australia, the UK and the USA as places to choose from). No Australian business location is verified, so it is held here and is not on the Australian map or in the directory.",
+      "flags": []
+    },
+    "securitybreak": {
+      "plan": "add",
+      "name": "SecurityBreak",
+      "website": "https://securitybreak.io",
+      "legal_names": ["SecurityBreak Pty Ltd"],
+      "blurb": "Threat-intelligence company focused on attacks against AI systems: it monitors AI agents and prompts and helps security teams detect, investigate and hunt adversarial activity across their AI ecosystem.",
+      "sector": "Cybersecurity",
+      "sectorFull": "Cybersecurity / AI threat intelligence",
+      "founders": ["Thomas Roccia"],
+      "place": { "city": "Brisbane", "state": "QLD", "precision": "CITY", "from": "own", "quote": "2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia" },
+      "address": { "text": "2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia", "quote": "2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia" },
+      "flags": [
+        "Its own page gives a street address (2/290 Boundary Street, Spring Hill). It is kept as evidence and put on the map as an exact pin only once the geocoder finds the house (locations geocode, then promote)."
+      ]
+    },
+    "sunburnt-space-co": {
+      "plan": "add",
+      "name": "Sunburnt Space Co",
+      "website": "https://sunburntspace.com.au",
+      "listed_website": "http://www.sunburntspace.com.au",
+      "aliases": ["Sunburnt Space"],
+      "blurb": "New South Wales space company building reusable, round-trip rockets so researchers can test in microgravity quickly and affordably; its own site says a larger rocket is due to launch in 2027.",
+      "sector": "Space",
+      "sectorFull": "Space / Reusable microgravity launch",
+      "founders": ["Brad Younger", "Robin Biskupic"],
+      "founder_review": [
+        { "name": "Sam Cain", "from": "article", "why": "Startmate's announcement names a founder 'Sam Cain'; its profile page names 'Samuel Cain-Copnall'. They may be one person, but the two official pages do not write the name the same way and the company's own pages name neither." },
+        { "name": "Samuel Cain-Copnall", "from": "profile", "why": "See 'Sam Cain': the profile page's spelling of the third founder's name." }
+      ],
+      "place": { "city": "Sydney", "state": "NSW", "precision": "CITY", "from": "own", "quote": "Unit 12, 7-9 Rhodes Street West Ryde NSW 2114 Australia" },
+      "address": { "text": "Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114, Australia", "quote": "Unit 12, 7-9 Rhodes Street West Ryde NSW 2114 Australia" },
+      "flags": [
+        "The third founder is not on the record: Startmate's two pages spell the name differently ('Sam Cain', 'Samuel Cain-Copnall'). Both spellings are kept as low-confidence evidence for a person to settle.",
+        "Its own page gives an office at Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114 (Sydney). It is kept as evidence and put on the map as an exact pin only once the geocoder finds the house.",
+        "No logo picture: the favicon service has none and the logo on its site is white on transparent. Initials are shown."
+      ]
+    },
+    "quarter": {
+      "plan": "add",
+      "name": "Quarter",
+      "website": "https://quarter.nz",
+      "legal_names": ["Quarter NZ Limited", "Quarter AU Pty Ltd"],
+      "abn": "29702639709",
+      "blurb": "Body-corporate (owners-corporation) software and service in New Zealand and Australia: it automates finances and compliance and helps owners and committees propose, discuss, budget and deliver improvements to their buildings.",
+      "sector": "PropTech",
+      "sectorFull": "PropTech / Body corporate management",
+      "founders": ["Michael Dowse", "Matt Cowley"],
+      "founder_variants": { "Matt Cowley": ["Matthew Cowley"] },
+      "place": { "city": "Melbourne", "state": "VIC", "precision": "CITY", "from": "own", "quote": "Matt Cowley Co-founder Melbourne, Australia" },
+      "office": { "label": "Wellington, New Zealand", "city": "Wellington", "country": "New Zealand", "precision": "CITY", "from": "startmate", "quote": "Wellington, New Zealand & Melbourne, Australia" },
+      "flags": [
+        "Startmate lists two places: Wellington, New Zealand and Melbourne, Australia. The Australian map uses Melbourne (its Australian entity, Quarter AU Pty Ltd, ABN 29 702 639 709, and its Australia site, yourquarter.au, which shows Matt Cowley in Melbourne), at city level only. Wellington is recorded as a second office and is not drawn.",
+        "The record has one headquarters block, which is the place the map uses; it does not say that Melbourne is Quarter's head office.",
+        "Startmate's profile writes the co-founder 'Matthew Cowley'; its announcement and Quarter's own site write 'Matt Cowley', which is used here."
+      ]
+    },
+    "veltora": {
+      "plan": "add",
+      "name": "Veltora",
+      "website": "https://www.veltora.net",
+      "blurb": "Predictive-intelligence software for AI data centres and neoclouds, aimed at forecasting what will delay or interrupt compute capacity so operators can bring capacity online and keep it dependable.",
+      "sector": "AI infrastructure",
+      "sectorFull": "AI infrastructure / Data centre reliability",
+      "founders": ["Aan Mehta"],
+      "place": { "city": "Melbourne", "state": "VIC", "precision": "CITY", "from": "startmate", "quote": "Melbourne, Australia" },
+      "flags": [
+        "Melbourne is Startmate's listing only: Veltora's own home page names no location and its /about page returned an error when read. The founder's name comes from Startmate (the announcement and the profile agree)."
+      ]
+    }
+  }
+}

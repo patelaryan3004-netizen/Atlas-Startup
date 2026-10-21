@@ -11,7 +11,7 @@ const MAX_COUNTS = 50;
 const MAX_FILTER_CHARS = 2000;
 
 // GET /api/startups?search=&sector=&city=&investor=&stage=&hiring=yes|no&taskGate=yes|no&verified=yes|no&name=
-//                   &precision=EXACT,SUBURB,CITY,STATE,UNKNOWN&state=NSW,VIC
+//                   &precision=EXACT,SUBURB,CITY,STATE,UNKNOWN&state=NSW,VIC&cohort=startmate-w26
 //
 // Always one page: `limit` (1 to 200, 20 unless asked) from `offset` (0 unless asked), offset paging because the list is
 // sorted by a column the visitor picks, filtered, and small enough to slice in memory. The answer is

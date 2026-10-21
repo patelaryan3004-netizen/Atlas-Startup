@@ -3337,5 +3337,320 @@
     "publisher": "emesent.com",
     "retrieved_at": "2026-10-13T12:56:29Z",
     "note": "The company's Lever job board, which its careers page links to, read through the board's public feed."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-ansight",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/ansight",
+    "title": "Ansight | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-startmate-com-writing-meet-our-winter-26-accelerator-cohort",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort",
+    "title": "Meet our Winter ’26 accelerator cohort | Startmate",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's announcement of the cohort, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-ansight-ai",
+    "kind": "company_website",
+    "url": "https://www.ansight.ai",
+    "title": "Ansight | Let your coding agent check its mobile changes",
+    "publisher": "ansight.ai",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-ansight-ai-team",
+    "kind": "company_website",
+    "url": "https://www.ansight.ai/team",
+    "title": "Ansight: ansight.ai/team",
+    "publisher": "ansight.ai",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-antares-aerospace",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/antares-aerospace",
+    "title": "Antares Aerospace | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "antaresaerospace-com-au",
+    "kind": "company_website",
+    "url": "https://antaresaerospace.com.au",
+    "title": "Antares Aerospace | Reusable Small Satellite Launch",
+    "publisher": "Antares Aerospace Systems Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "antaresaerospace-com-au-about",
+    "kind": "company_website",
+    "url": "https://antaresaerospace.com.au/about",
+    "title": "Antares Aerospace: antaresaerospace.com.au/about",
+    "publisher": "Antares Aerospace Systems Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-brandviz-ai",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/brandviz-ai",
+    "title": "BrandViz.AI | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-brandviz-ai",
+    "kind": "company_website",
+    "url": "https://www.brandviz.ai/",
+    "title": "BrandViz.AI - Get Cited and Recommended by AI Engines",
+    "publisher": "brandviz.ai",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-brandviz-ai-about",
+    "kind": "company_website",
+    "url": "https://www.brandviz.ai/about",
+    "title": "BrandViz.AI: brandviz.ai/about",
+    "publisher": "brandviz.ai",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-clausifai",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/clausifai",
+    "title": "Clausifai | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "clausifai-com",
+    "kind": "company_website",
+    "url": "https://clausifai.com",
+    "title": "Clausifai - from first draft to signed and sorted",
+    "publisher": "Clausifai Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-coco",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/coco",
+    "title": "Coco | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-trustcoco-ai",
+    "kind": "company_website",
+    "url": "https://www.trustcoco.ai/",
+    "title": "Coco AI — Permission enforcement for agents",
+    "publisher": "Coco AI Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-derive",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/derive",
+    "title": "Derive | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-derivenotes-com",
+    "kind": "company_website",
+    "url": "https://www.derivenotes.com",
+    "title": "Derive | The intelligent notebook that checks your maths as you write",
+    "publisher": "Derive Notes Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-develpr",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/develpr",
+    "title": "develpr | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "develpr-com-au",
+    "kind": "company_website",
+    "url": "https://develpr.com.au",
+    "title": "Develpr — Keep preconstruction moving",
+    "publisher": "Develpr Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "develpr-com-au-about",
+    "kind": "company_website",
+    "url": "https://develpr.com.au/about",
+    "title": "Develpr: develpr.com.au/about",
+    "publisher": "Develpr Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-estimate",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/estimate",
+    "title": "EstiMate | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "estimateai-com-au",
+    "kind": "company_website",
+    "url": "https://estimateai.com.au",
+    "title": "AI Construction Estimating Software Australia | EstiMate",
+    "publisher": "EstiMate AI Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-forward",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/forward",
+    "title": "Forward | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-glowback",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/glowback",
+    "title": "Glowback | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "glowback-com-au",
+    "kind": "company_website",
+    "url": "https://glowback.com.au/",
+    "title": "GlowBack | Fill the gaps in your salon's books",
+    "publisher": "GlowBack Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-hyperlocalise",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/hyperlocalise",
+    "title": "Hyperlocalise | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-hyperlocalise-com-en",
+    "kind": "company_website",
+    "url": "https://www.hyperlocalise.com/en",
+    "title": "Hyperlocalise | AI-native infrastructure for multilingual content operations",
+    "publisher": "Hyperlocalise Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-hyperlocalise-com-en-company",
+    "kind": "company_website",
+    "url": "https://www.hyperlocalise.com/en/company",
+    "title": "Hyperlocalise: hyperlocalise.com/en/company",
+    "publisher": "Hyperlocalise Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-securitybreak",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/securitybreak",
+    "title": "SecurityBreak | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "securitybreak-io",
+    "kind": "company_website",
+    "url": "https://securitybreak.io",
+    "title": "SecurityBreak · Threat Intelligence for AI Systems",
+    "publisher": "SecurityBreak Pty Ltd",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-sunburnt-space-co",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/sunburnt-space-co",
+    "title": "Sunburnt Space Co | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "sunburntspace-com-au",
+    "kind": "company_website",
+    "url": "https://sunburntspace.com.au/",
+    "title": "Sunburnt Space Co — We're Building a Bigger Rocket",
+    "publisher": "sunburntspace.com.au",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-quarter",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/quarter",
+    "title": "Quarter | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "quarter-nz",
+    "kind": "company_website",
+    "url": "https://quarter.nz",
+    "title": "Get things done with your neighbours. Quarter",
+    "publisher": "Quarter NZ Limited",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-veltora",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/veltora",
+    "title": "Veltora | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-21T04:43:27.000Z",
+    "note": "Startmate's own page for the company, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-veltora-net",
+    "kind": "company_website",
+    "url": "https://www.veltora.net",
+    "title": "Veltora — Predictive Intelligence for AI Infrastructure",
+    "publisher": "veltora.net",
+    "retrieved_at": "2026-10-21T04:47:39.000Z",
+    "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
   }
 ]

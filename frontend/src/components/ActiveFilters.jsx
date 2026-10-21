@@ -7,7 +7,8 @@ const HIRING_WORDS = { yes: 'Hiring now', no: 'Not verified as hiring' };
 // The filters that are on, one chip each (a filter of several values has a chip for each value): [{ key, value, group, text }]. `group`
 // is what kind of filter it is (for the screen reader), `text` what it says. The concept filter taskGate is never shown: it is not one.
 // The stages "Seed to Series A" are one chip, since that is what was chosen.
-export function activeChips(filters) {
+// `cohorts` is the directory's list of accelerator cohorts ({ id, label }, from the filter options), so a chip says "Startmate · Winter 2026" and not the id.
+export function activeChips(filters, cohorts = []) {
   const chips = [];
   const add = (key, group, values, words = (v) => v) => values.forEach((value) => chips.push({ key, value, group, text: words(value) }));
   add('sector', 'Sector', splitValues(filters.sector));
@@ -20,6 +21,7 @@ export function activeChips(filters) {
   add('remote', 'Remote policy', splitValues(filters.remote), (v) => remoteLabel(v) ?? v);
   add('tech', 'Tech stack', splitValues(filters.tech));
   add('team', 'Team size', splitValues(filters.team), (v) => teamLabel(v) ?? v);
+  add('cohort', 'Accelerator', splitValues(filters.cohort), (v) => cohorts.find((c) => c.id === v)?.label ?? v);
   add('events', 'Events', filters.events ? [filters.events] : [], () => 'Events this week');
   add('fresh', 'New', filters.fresh ? [filters.fresh] : [], () => 'New this week');
   add('search', 'Search', filters.search?.trim() ? [filters.search.trim()] : [], (v) => `“${v}”`);
@@ -29,14 +31,14 @@ export function activeChips(filters) {
 // Each chip takes its filter off, and only that value of it.
 export function withoutChip(filters, { key, value }) {
   if (key === 'stage' && value === SEED_TO_SERIES_A) return { ...filters, stage: '' };
-  if (key === 'sector' || key === 'city' || key === 'state' || key === 'precision' || key === 'stage' || key === 'remote' || key === 'tech' || key === 'team') {
+  if (key === 'sector' || key === 'city' || key === 'state' || key === 'precision' || key === 'stage' || key === 'remote' || key === 'tech' || key === 'team' || key === 'cohort') {
     return { ...filters, [key]: joinValues(splitValues(filters[key]).filter((v) => v.toUpperCase() !== String(value).toUpperCase())) };
   }
   return { ...filters, [key]: '' };
 }
 
-export default function ActiveFilters({ filters, onChange, onClear }) {
-  const chips = activeChips(filters);
+export default function ActiveFilters({ filters, cohorts = [], onChange, onClear }) {
+  const chips = activeChips(filters, cohorts);
   if (!chips.length) return null;
   return (
     <ul className="active-filters" aria-label="Filters that are on">

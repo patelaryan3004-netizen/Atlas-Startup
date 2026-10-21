@@ -13,7 +13,7 @@ import VcPanel from '../../src/components/explore/VcPanel.jsx';
 import ResultsSheet from '../../src/components/explore/ResultsSheet.jsx';
 import { Avatar } from '../../src/components/EntityCard.jsx';
 
-const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', fresh: '' };
+const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '' };
 
 describe('the words for a place', () => {
   it('says Australia, a city, or how many cities', () => {

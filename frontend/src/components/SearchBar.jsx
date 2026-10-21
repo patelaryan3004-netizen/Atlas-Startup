@@ -40,7 +40,7 @@ export default function SearchBar({ filters, onApplyFilters, placeholder = 'Sear
 
   const hasResults = !!groups && (
     groups.companies.length || groups.people.length || groups.investors.length
-    || groups.industries.length || groups.locations.length
+    || groups.industries.length || groups.locations.length || groups.cohorts?.length
   );
 
   const selectText = (text) => {
@@ -112,6 +112,17 @@ export default function SearchBar({ filters, onApplyFilters, placeholder = 'Sear
                 <div className="search-group-label">Industries</div>
                 {groups.industries.map((s) => (
                   <button key={s} className="search-result" onClick={() => selectField('sector', s)}>{s}</button>
+                ))}
+              </div>
+            )}
+
+            {groups?.cohorts?.length > 0 && (
+              <div className="search-group">
+                <div className="search-group-label">Accelerators</div>
+                {groups.cohorts.map((c) => (
+                  <button key={c.id} className="search-result" onClick={() => selectField('cohort', c.id)}>
+                    {c.label}<span className="search-result-meta">{c.count} {c.count === 1 ? 'company' : 'companies'}</span>
+                  </button>
                 ))}
               </div>
             )}

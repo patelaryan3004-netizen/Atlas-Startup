@@ -12916,5 +12916,1396 @@
     "summary": "Asked the geocoder about 7 investor office address(es), 2 answered from the cache",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261021051640997-1",
+    "at": "2026-10-21T05:16:40.997Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "import.run",
+    "target": {
+      "type": "import_run",
+      "id": "run-20261021051640993"
+    },
+    "summary": "Ran discovery: 16 new candidate(s), 0 attached, 0 seen before",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-1",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ansight"
+    },
+    "summary": "Put what Startmate's pages and Ansight's own pages say on Ansight as evidence (13 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-2",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-antares-aerospace"
+    },
+    "summary": "Put what Startmate's pages and Antares Aerospace's own pages say on Antares Aerospace as evidence (15 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-3",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-brandviz-ai"
+    },
+    "summary": "Put what Startmate's pages and BrandViz.AI's own pages say on BrandViz.AI as evidence (13 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-4",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-clausifai"
+    },
+    "summary": "Put what Startmate's pages and Clausifai's own pages say on Clausifai as evidence (13 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-5",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-coco"
+    },
+    "summary": "Put what Startmate's pages and Coco's own pages say on Coco as evidence (10 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-6",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-derive"
+    },
+    "summary": "Put what Startmate's pages and Derive's own pages say on Derive as evidence (11 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-7",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-develpr"
+    },
+    "summary": "Put what Startmate's pages and Develpr's own pages say on Develpr as evidence (17 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-8",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-estimate"
+    },
+    "summary": "Put what Startmate's pages and EstiMate's own pages say on EstiMate as evidence (14 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-9",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-forward"
+    },
+    "summary": "Put what Startmate's pages and Forward's own pages say on Forward as evidence (15 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-10",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-glowback"
+    },
+    "summary": "Put what Startmate's pages and GlowBack's own pages say on GlowBack as evidence (9 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-11",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-hyperlocalise"
+    },
+    "summary": "Put what Startmate's pages and Hyperlocalise's own pages say on Hyperlocalise as evidence (15 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-12",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-orva"
+    },
+    "summary": "Put what Startmate's pages and Orva's own pages say on Orva as evidence (13 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-13",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-securitybreak"
+    },
+    "summary": "Put what Startmate's pages and SecurityBreak's own pages say on SecurityBreak as evidence (11 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-14",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-sunburnt-space-co"
+    },
+    "summary": "Put what Startmate's pages and Sunburnt Space Co's own pages say on Sunburnt Space Co as evidence (14 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-15",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-quarter"
+    },
+    "summary": "Put what Startmate's pages and Quarter's own pages say on Quarter as evidence (14 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641224-16",
+    "at": "2026-10-21T05:16:41.224Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.enrich",
+    "target": {
+      "type": "candidate",
+      "id": "cand-veltora"
+    },
+    "summary": "Put what Startmate's pages and Veltora's own pages say on Veltora as evidence (9 rows)",
+    "reason": "Startmate Winter 2026 cohort import: read 2026-10-21, see startmate_w26_startmate.json and startmate_w26_scan.json",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-1",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ansight"
+    },
+    "summary": "Approved Ansight",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-2",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-ansight"
+    },
+    "summary": "Published Ansight as ansight (city-level: a group in Brisbane, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-3",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "ansight"
+    },
+    "summary": "Ansight: Startmate Winter 2026 import (cohorts, website, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "website",
+        "from": "https://ansight.ai",
+        "to": "https://www.ansight.ai"
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Tooling that lets AI coding agents try a changed flow in a connected mobile app, inspect what happened and leave a captured session for review, so a mobile change can be checked without a person at the device."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "DevTools"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "DevTools / Mobile app testing for AI coding agents"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-4",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-antares-aerospace"
+    },
+    "summary": "Approved Antares Aerospace",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-5",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-antares-aerospace"
+    },
+    "summary": "Published Antares Aerospace as antares-aerospace (city-level: a group in Sydney, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-6",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "antares-aerospace"
+    },
+    "summary": "Antares Aerospace: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Sydney aerospace company developing reusable launch vehicles for dedicated small-satellite missions, aiming for responsive, routine access to orbit."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "Space"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "Space / Reusable small-satellite launch"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-7",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-brandviz-ai"
+    },
+    "summary": "Approved BrandViz.AI",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-8",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-brandviz-ai"
+    },
+    "summary": "Published BrandViz.AI as brandviz-ai (city-level: a group in Brisbane, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-9",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "brandviz-ai"
+    },
+    "summary": "BrandViz.AI: Startmate Winter 2026 import (cohorts, website, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "website",
+        "from": "https://brandviz.ai",
+        "to": "https://www.brandviz.ai"
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Platform that aims to get brands recommended by AI assistants such as ChatGPT, Claude and Gemini: it fixes a customer's website and publishes on-brand content for the customer to review and approve."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "Martech"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "Martech / AI search visibility"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-10",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-clausifai"
+    },
+    "summary": "Approved Clausifai",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-11",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-clausifai"
+    },
+    "summary": "Published Clausifai as clausifai (city-level: a group in Adelaide, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-12",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "clausifai"
+    },
+    "summary": "Clausifai: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Contract software for small businesses: create an agreement, review its terms in plain English, negotiate, sign and keep track of it in one place, with data held in Australia."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "Legal tech"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "Legal tech / Contract management"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-13",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-coco"
+    },
+    "summary": "Approved Coco",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-14",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-coco"
+    },
+    "summary": "Published Coco as coco (city-level: a group in Melbourne, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-15",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "coco"
+    },
+    "summary": "Coco: Startmate Winter 2026 import (cohorts, website, blurb, sector, sectorFull, evidence, identifiers)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "website",
+        "from": "https://trustcoco.ai",
+        "to": "https://www.trustcoco.ai"
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Permission layer for AI agents in regulated finance: it checks each agent action against the organisation's policy before it runs, so actions an enterprise has not approved are stopped."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "AI"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "AI / Agent controls for regulated finance"
+      },
+      {
+        "field": "evidence",
+        "from": null,
+        "to": "1 row(s): website"
+      },
+      {
+        "field": "identifiers",
+        "from": null,
+        "to": "domain: cocothecreator.com"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-16",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-derive"
+    },
+    "summary": "Approved Derive",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-17",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-derive"
+    },
+    "summary": "Published Derive as derive (city-level: a group in Brisbane, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-18",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "derive"
+    },
+    "summary": "Derive: Startmate Winter 2026 import (cohorts, website, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "website",
+        "from": "https://derivenotes.com",
+        "to": "https://www.derivenotes.com"
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Digital notebook that reads handwriting, maths and diagrams on its canvas and checks a student's working line by line as they write; it aims to build the data layer for AI-supported education."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "EdTech"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "EdTech / AI notebook for maths"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-19",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-develpr"
+    },
+    "summary": "Approved Develpr",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-20",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-develpr"
+    },
+    "summary": "Published Develpr as develpr (city-level: a group in Sydney, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-21",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "develpr"
+    },
+    "summary": "Develpr: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Development-management platform for property developers and their consultants: it briefs consultants and tracks every deliverable, request and decision through preconstruction, aiming to get projects approval-ready faster."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "PropTech"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "PropTech / Development management"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-22",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-estimate"
+    },
+    "summary": "Approved EstiMate",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-23",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-estimate"
+    },
+    "summary": "Published EstiMate as estimate (city-level: a group in Melbourne, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-24",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "estimate"
+    },
+    "summary": "EstiMate: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Construction estimating software for builders, trades and estimators: it reads a drawing set, measures the job by trade and prices it from the user's own rates."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "Construction SaaS"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "Construction SaaS / AI estimating"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-25",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.merge",
+    "target": {
+      "type": "candidate",
+      "id": "cand-forward"
+    },
+    "summary": "Merged cand-forward into forward: 11 evidence, 1 identifier(s)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-26",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "forward"
+    },
+    "summary": "Forward: Startmate Winter 2026 import (cohorts)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-27",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-glowback"
+    },
+    "summary": "Approved GlowBack",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-28",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-glowback"
+    },
+    "summary": "Published GlowBack as glowback (city-level: a group in Melbourne, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-29",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "glowback"
+    },
+    "summary": "GlowBack: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull, evidence, identifiers)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Software for salons and other beauty and wellness businesses that brings lapsed clients back to book again, automating client retention and rebooking."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "SaaS"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "SaaS / Salon client retention"
+      },
+      {
+        "field": "evidence",
+        "from": null,
+        "to": "1 row(s): website"
+      },
+      {
+        "field": "identifiers",
+        "from": null,
+        "to": "domain: glowback.tech"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-30",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-hyperlocalise"
+    },
+    "summary": "Approved Hyperlocalise",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-31",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-hyperlocalise"
+    },
+    "summary": "Published Hyperlocalise as hyperlocalise (city-level: a group in Sydney, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-32",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "hyperlocalise"
+    },
+    "summary": "Hyperlocalise: Startmate Winter 2026 import (cohorts, website, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "website",
+        "from": "https://hyperlocalise.com",
+        "to": "https://www.hyperlocalise.com"
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "AI-agent platform for localising a product and its marketing content, for teams that want to launch in new markets in days: it covers creating, organising, publishing and checking content across languages."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "SaaS"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "SaaS / AI localisation"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-33",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-securitybreak"
+    },
+    "summary": "Approved SecurityBreak",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-34",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-securitybreak"
+    },
+    "summary": "Published SecurityBreak as securitybreak (city-level: a group in Brisbane, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-35",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "securitybreak"
+    },
+    "summary": "SecurityBreak: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull, evidence)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Threat-intelligence company focused on attacks against AI systems: it monitors AI agents and prompts and helps security teams detect, investigate and hunt adversarial activity across their AI ecosystem."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "Cybersecurity"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "Cybersecurity / AI threat intelligence"
+      },
+      {
+        "field": "evidence",
+        "from": null,
+        "to": "1 row(s): address"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-36",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-sunburnt-space-co"
+    },
+    "summary": "Approved Sunburnt Space Co",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-37",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-sunburnt-space-co"
+    },
+    "summary": "Published Sunburnt Space Co as sunburnt-space-co (city-level: a group in Sydney, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-38",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "sunburnt-space-co"
+    },
+    "summary": "Sunburnt Space Co: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull, evidence)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "New South Wales space company building reusable, round-trip rockets so researchers can test in microgravity quickly and affordably; its own site says a larger rocket is due to launch in 2027."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "Space"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "Space / Reusable microgravity launch"
+      },
+      {
+        "field": "evidence",
+        "from": null,
+        "to": "1 row(s): address"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-39",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-quarter"
+    },
+    "summary": "Approved Quarter",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-40",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-quarter"
+    },
+    "summary": "Published Quarter as quarter (city-level: a group in Melbourne, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-41",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "quarter"
+    },
+    "summary": "Quarter: Startmate Winter 2026 import (cohorts, blurb, sector, sectorFull, company_locations)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Body-corporate (owners-corporation) software and service in New Zealand and Australia: it automates finances and compliance and helps owners and committees propose, discuss, budget and deliver improvements to their buildings."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "PropTech"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "PropTech / Body corporate management"
+      },
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Wellington, New Zealand (an office, not drawn on the map)"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051641582-42",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.approve",
+    "target": {
+      "type": "candidate",
+      "id": "cand-veltora"
+    },
+    "summary": "Approved Veltora",
+    "reason": "Added from Startmate's Winter 2026 cohort (https://www.startmate.com/writing/meet-our-winter-26-accelerator-cohort), checked 2026-10-21; see startmate_w26_judgements.json for what was decided and why.",
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-43",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "candidate.publish",
+    "target": {
+      "type": "candidate",
+      "id": "cand-veltora"
+    },
+    "summary": "Published Veltora as veltora (city-level: a group in Melbourne, not a pin)",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051641582-44",
+    "at": "2026-10-21T05:16:41.582Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "veltora"
+    },
+    "summary": "Veltora: Startmate Winter 2026 import (cohorts, website, blurb, sector, sectorFull)",
+    "reason": "Startmate Winter 2026 cohort import; the choices of sector and description wording are ours, see startmate_w26_judgements.json",
+    "changes": [
+      {
+        "field": "cohorts",
+        "from": null,
+        "to": [
+          "startmate-w26"
+        ]
+      },
+      {
+        "field": "website",
+        "from": "https://veltora.net",
+        "to": "https://www.veltora.net"
+      },
+      {
+        "field": "blurb",
+        "from": "",
+        "to": "Predictive-intelligence software for AI data centres and neoclouds, aimed at forecasting what will delay or interrupt compute capacity so operators can bring capacity online and keep it dependable."
+      },
+      {
+        "field": "sector",
+        "from": "Unknown",
+        "to": "AI infrastructure"
+      },
+      {
+        "field": "sectorFull",
+        "from": "Unknown",
+        "to": "AI infrastructure / Data centre reliability"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261021051648988-1",
+    "at": "2026-10-21T05:16:48.988Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 1 address(es), 0 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051650383-1",
+    "at": "2026-10-21T05:16:50.383Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 1 address(es), 0 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261021051651172-1",
+    "at": "2026-10-21T05:16:51.172Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "securitybreak"
+    },
+    "summary": "Gave SecurityBreak the address its own website states (2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Spring Hill"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "4000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -27.4615198
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 153.027551
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "2/290 Boundary Street, Spring Hill, Brisbane QLD 4000, Australia"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
   }
 ]
