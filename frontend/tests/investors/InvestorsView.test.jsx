@@ -3,21 +3,25 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
-  fetchInvestors: vi.fn(), fetchInvestorMeta: vi.fn(), fetchInvestor: vi.fn(), fetchInvestorPerson: vi.fn(), submitInvestorCorrection: vi.fn(), submitFeedback: vi.fn(),
+  fetchInvestors: vi.fn(), fetchInvestorMeta: vi.fn(), fetchInvestor: vi.fn(), fetchInvestorPerson: vi.fn(), submitInvestorCorrection: vi.fn(), submitPersonCorrection: vi.fn(), submitFeedback: vi.fn(),
 }));
 
 import * as api from '../../src/api.js';
 import InvestorsView from '../../src/components/investors/InvestorsView.jsx';
-import { card, metaOf, profile, serve } from './helpers.js';
+import { card, personCard, metaOf, profile, person, serve } from './helpers.js';
 
 const renderView = (props = {}) => render(<InvestorsView onClose={() => {}} onOpenCompany={() => {}} {...props} />);
 const cards = (n) => Array.from({ length: n }, (_, i) => card({ slug: `fund-${i}`, name: `Fund ${String(i).padStart(2, '0')}` }));
-const names = () => screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
+// The names of the investors listed, in order, whichever view they are in.
+const names = () => [...document.querySelectorAll('.inv-item-link, .inv-card-link')].map((a) => a.firstChild.textContent);
 const menuButton = (name) => screen.getByRole('button', { name: new RegExp(`^${name}`) });
 const tick = async (menu, option) => {
   await userEvent.click(menuButton(menu));
   await userEvent.click(within(screen.getByRole('group', { name: menu })).getByRole('checkbox', { name: new RegExp(`^${option}`) }));
 };
+// What the page asks the server: every list is of firms and people (kind all), in Australia unless the visitor says global.
+const asked = (extra = {}) => ({ kind: 'all', scope: 'au', ...extra });
+const phone = () => vi.stubGlobal('matchMedia', vi.fn((query) => ({ matches: query === '(max-width: 639px)', addEventListener: () => {}, removeEventListener: () => {} })));
 
 beforeEach(() => { vi.clearAllMocks(); localStorage.clear(); });
 afterEach(() => { window.history.pushState({}, '', '/'); vi.unstubAllGlobals(); });
@@ -27,37 +31,59 @@ describe('the investor directory', () => {
     serve(api);
     renderView();
     expect(await screen.findByRole('heading', { level: 1, name: 'Find your next backer.' })).toBeInTheDocument();
-    expect(screen.getByText('Explore investors by stage, sector and location.')).toBeInTheDocument();
+    expect(screen.getByText('Explore investors, understand their focus, and build your shortlist.')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Investors' })).toHaveAttribute('aria-current', 'page');
     expect(screen.getByRole('link', { name: 'Explore' })).not.toHaveAttribute('aria-current');
   });
 
-  it('shows each investor as a card: logo, name, type, focus, stage, place, how many companies a page says it backed, and the way in', async () => {
+  it('lists each firm as a row: its logo, name, type, the number of companies a page says it backed, place, at most two tags, the bookmark and the way in', async () => {
     serve(api, { cards: [card()] });
     renderView();
     const link = await screen.findByRole('link', { name: 'Blackbird' });
     const item = link.closest('li');
-    expect(item).toHaveClass('card', 'entity-card', 'inv-card'); // the app's one card
-    expect(item.querySelector('.entity-initial')).toHaveTextContent('B');
+    expect(item).toHaveClass('inv-item');
+    expect(link).toHaveAttribute('href', '/investors/blackbird');
+    expect(item.querySelector('.inv-logo-initial')).toHaveTextContent('B');
     expect(within(item).getByText('Venture Capital')).toBeInTheDocument();
-    // the three facts the mockup has, each with its label
-    const facts = Object.fromEntries([...item.querySelectorAll('.inv-card-facts > div')].map((row) => [row.querySelector('dt').textContent, row.querySelector('dd').textContent]));
-    expect(facts).toEqual({ Focus: 'Software', Stage: 'Seed → Series A', Location: 'Sydney, NSW' });
+    expect(within(item).getByText('blackbird.example')).toBeInTheDocument(); // the website its record holds
     expect(within(item).getByText('3 connected companies')).toBeInTheDocument();
+    expect(within(item).getByText('Sydney, NSW')).toBeInTheDocument();
+    expect([...item.querySelectorAll('.inv-chip')].map((c) => c.textContent)).toEqual(['Software', 'Seed → Series A']);
     expect(within(item).getByText('View profile')).toBeInTheDocument();
-    expect(within(item).getByText('Verified')).toBeInTheDocument();
-    expect(within(item).getByTitle(/Verified 8 Oct 2026/)).toBeInTheDocument();
     expect(within(item).getByRole('button', { name: 'Save Blackbird' })).toHaveAttribute('aria-pressed', 'false');
   });
 
-  it('shows a dash, read out as "Not stated", for what nobody states, and no count and no empty line', async () => {
+  it('lists a person as a row too: initials, name, role, their firm (a way to its page, not theirs), place and tags, and says a firm\'s focus is the firm\'s', async () => {
+    serve(api, { cards: [card()], peopleCards: [personCard({ slug: 'ben', name: 'Ben Sample', title: 'Principal', focus_from: 'firm', sectors: ['Health'], stages: [] })] });
+    renderView();
+    const link = await screen.findByRole('link', { name: 'Ben Sample' });
+    const item = link.closest('li');
+    expect(link).toHaveAttribute('href', '/investors/people/ben');
+    expect(item.querySelector('.inv-person-initials')).toHaveTextContent('BS');
+    expect(within(item).getByText('Principal')).toBeInTheDocument();
+    expect(within(item).getByRole('link', { name: 'Blackbird' })).toHaveAttribute('href', '/investors/blackbird');
+    expect(within(item).getByText('Sydney, NSW')).toBeInTheDocument();
+    expect(item.querySelector('.inv-item-tags')).toHaveAttribute('title', 'Health (the focus of Blackbird)');
+    expect(within(item).getByRole('list', { name: 'Focus of Blackbird' })).toBeInTheDocument();
+    expect(within(item).queryByText('Investing')).not.toBeInTheDocument(); // an investing role needs no tag
+  });
+
+  it('says what role a person has when it is not an investing one, so a scout or a platform role is never taken for an investor', async () => {
+    serve(api, { cards: [], peopleCards: [personCard({ slug: 'cal', name: 'Cal Scout', title: 'Scout', role_class: 'scout', role_label: 'Scout' }), personCard({ slug: 'dee', name: 'Dee Platform', title: 'Platform Partner', role_class: 'platform', role_label: 'Platform' })], meta: metaOf([], {}, [personCard(), personCard({ slug: 'x' })]) });
+    renderView();
+    const scout = (await screen.findByRole('link', { name: 'Cal Scout' })).closest('li');
+    expect(within(scout).getByText('Scout', { selector: '.inv-tag' })).toBeInTheDocument();
+    expect(within(screen.getByRole('link', { name: 'Dee Platform' }).closest('li')).getByText('Platform', { selector: '.inv-tag' })).toBeInTheDocument();
+  });
+
+  it('shows a dash, read out as "Not stated", for what nobody states', async () => {
     serve(api, { cards: [card({ portfolio_count: 0, stages: [], sectors: [], location: { city: null, state: null, country: null, label: null } })] });
     renderView();
     const item = (await screen.findByRole('link', { name: 'Blackbird' })).closest('li');
-    expect(within(item).getAllByText('Not stated')).toHaveLength(3);
-    expect([...item.querySelectorAll('.inv-card-facts dd')].map((d) => d.textContent)).toEqual(['–Not stated', '–Not stated', '–Not stated']);
+    expect(within(item).getAllByText('Not stated')).toHaveLength(2); // the place and the focus
     expect(within(item).queryByText(/connected compan/)).not.toBeInTheDocument();
-    expect(within(item).getByText('View profile')).toBeInTheDocument(); // the card is still a way in
+    expect(within(item).getByText('blackbird.example')).toBeInTheDocument();
+    expect(within(item).getByText('View profile')).toBeInTheDocument(); // the row is still a way in
   });
 
   it('labels an investor that has stopped investing, and shows a single company in the singular', async () => {
@@ -68,22 +94,112 @@ describe('the investor directory', () => {
     expect(within(item).getByText('1 connected company')).toBeInTheDocument();
   });
 
-  it('names a long focus by its first three, and says what else there is on hover', async () => {
-    serve(api, { cards: [card({ sectors: ['AI', 'Climate', 'Health', 'Space', 'Fintech'] })] });
+  it('names at most two tags of what an investor invests in, counts the rest, and says all of them on hover', async () => {
+    serve(api, { cards: [card({ sectors: ['AI', 'Climate', 'Health'], stages: ['Seed'] })] });
     renderView();
     const item = (await screen.findByRole('link', { name: 'Blackbird' })).closest('li');
-    const focus = item.querySelector('.inv-card-facts dd');
-    expect(focus).toHaveTextContent('AI · Climate · Health · +2 more');
-    expect(focus).toHaveAttribute('title', 'AI, Climate, Health, Space, Fintech');
+    expect([...item.querySelectorAll('.inv-chip')].map((c) => c.textContent)).toEqual(['AI', 'Climate', '+2']);
+    expect(item.querySelector('.inv-item-tags')).toHaveAttribute('title', 'AI, Climate, Health, Seed');
   });
 
-  it('asks for the first page in alphabetical order with no filters, and says how many investors there are', async () => {
+  it('asks for the first page, of firms and people, in Australia and in alphabetical order, and says how many investors there are', async () => {
     serve(api, { cards: cards(3) });
     renderView();
-    expect(await screen.findByText('3 investors')).toBeInTheDocument();
-    expect(api.fetchInvestors).toHaveBeenCalledWith({}, expect.objectContaining({ limit: 24, offset: 0, sort: 'name' }));
+    expect(await screen.findByText('3 investors in Australia')).toBeInTheDocument();
+    expect(api.fetchInvestors).toHaveBeenCalledWith(asked(), expect.objectContaining({ limit: 24, offset: 0, sort: 'name' }));
     expect(screen.getByText('Showing 3 of 3 investors')).toBeInTheDocument();
     expect(screen.getByText(/no order is a ranking/)).toBeInTheDocument();
+  });
+
+  describe('Australia and global', () => {
+    const mixed = [card({ slug: 'a', name: 'Alpha' }), card({ slug: 'z', name: 'Zed Capital', location: { city: 'San Francisco', state: null, country: 'United States', label: 'San Francisco, United States' } })];
+
+    it('starts on Australia, and Global lists everyone, in the address, with the options and the count following it', async () => {
+      serve(api, { cards: mixed });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha' });
+      expect(screen.getByRole('button', { name: 'Australia' })).toHaveAttribute('aria-pressed', 'true');
+      expect(screen.getByRole('button', { name: 'Global' })).toHaveAttribute('aria-pressed', 'false');
+      expect(api.fetchInvestorMeta).toHaveBeenLastCalledWith(expect.objectContaining({ kind: 'all', scope: 'au' }));
+      expect(screen.getByText('1 investor in Australia')).toBeInTheDocument();
+      expect(screen.queryByRole('link', { name: 'Zed Capital' })).not.toBeInTheDocument();
+
+      await userEvent.click(screen.getByRole('button', { name: 'Global' }));
+      expect(await screen.findByRole('link', { name: 'Zed Capital' })).toBeInTheDocument();
+      expect(api.fetchInvestors).toHaveBeenLastCalledWith({ kind: 'all' }, expect.objectContaining({ offset: 0 }));
+      expect(api.fetchInvestorMeta).toHaveBeenLastCalledWith(expect.objectContaining({ kind: 'all', scope: undefined }));
+      expect(screen.getByText('2 investors worldwide')).toBeInTheDocument();
+      expect(window.location.search).toBe('?scope=global');
+
+      await userEvent.click(screen.getByRole('button', { name: 'Australia' }));
+      await waitFor(() => expect(screen.queryByRole('link', { name: 'Zed Capital' })).not.toBeInTheDocument());
+      expect(window.location.search).toBe('');
+    });
+
+    it('opens on Global from a link that says so', async () => {
+      window.history.pushState({}, '', '/investors?scope=global');
+      serve(api, { cards: mixed });
+      renderView();
+      expect(await screen.findByRole('link', { name: 'Zed Capital' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Global' })).toHaveAttribute('aria-pressed', 'true');
+      expect(api.fetchInvestors).toHaveBeenCalledWith({ kind: 'all' }, expect.anything());
+    });
+
+    it('says when nothing in Australia matches, and offers to look worldwide when the rest of the world has more', async () => {
+      serve(api, { cards: mixed });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha' });
+      await userEvent.type(screen.getByRole('searchbox'), 'Zed');
+      expect(await screen.findByText(/No investors match those filters in Australia\. Global also lists investors based elsewhere\./)).toBeInTheDocument();
+      await userEvent.click(screen.getByRole('button', { name: 'Look worldwide' }));
+      expect(await screen.findByRole('link', { name: 'Zed Capital' })).toBeInTheDocument();
+    });
+
+    it('leaves the Saved tab to show what was saved wherever it is, whichever scope is on', async () => {
+      localStorage.setItem('auStartupSavedInvestors', JSON.stringify(['z']));
+      serve(api, { cards: mixed });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha' });
+      await userEvent.click(screen.getByRole('tab', { name: 'Saved 1' }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ kind: 'all', slug: 'z' }, expect.anything()));
+      expect(await screen.findByRole('link', { name: 'Zed Capital' })).toBeInTheDocument();
+    });
+  });
+
+  describe('people and firms', () => {
+    const firms = [card()];
+    const people = [personCard(), personCard({ slug: 'ben', name: 'Ben Sample', title: 'Scout', role_class: 'scout', role_label: 'Scout' })];
+
+    it('offers no choice between people and firms while the directory has no people', async () => {
+      serve(api, { cards: firms });
+      renderView();
+      await screen.findByRole('link', { name: 'Blackbird' });
+      expect(screen.queryByRole('group', { name: 'Who is listed' })).not.toBeInTheDocument();
+    });
+
+    it('offers everyone, people or firms once it has people, and asks the server for the one chosen', async () => {
+      serve(api, { cards: firms, peopleCards: people });
+      renderView();
+      await screen.findByRole('link', { name: 'Sam Rivera' });
+      expect(names()).toEqual(['Blackbird', 'Ben Sample', 'Sam Rivera'].sort((a, b) => a.localeCompare(b)));
+      const group = within(screen.getByRole('group', { name: 'Who is listed' }));
+      expect(group.getByRole('button', { name: 'Everyone' })).toHaveAttribute('aria-pressed', 'true');
+      await userEvent.click(group.getByRole('button', { name: 'People' }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ kind: 'person' }), expect.anything()));
+      await waitFor(() => expect(names()).toEqual(['Ben Sample', 'Sam Rivera']));
+      await userEvent.click(group.getByRole('button', { name: 'Firms' }));
+      await waitFor(() => expect(names()).toEqual(['Blackbird']));
+    });
+
+    it('filters people by the kind of role they have, in More filters', async () => {
+      serve(api, { cards: firms, peopleCards: people, meta: metaOf(firms, { roles: [{ value: 'investment', count: 1, label: 'Investing' }, { value: 'scout', count: 1, label: 'Scout' }] }, people) });
+      renderView();
+      await screen.findByRole('link', { name: 'Sam Rivera' });
+      await userEvent.click(menuButton('More filters'));
+      await userEvent.selectOptions(within(screen.getByRole('group', { name: 'More filters' })).getByRole('combobox', { name: 'Role' }), 'scout');
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ role: 'scout' }), expect.anything()));
+      await waitFor(() => expect(names()).toEqual(['Ben Sample']));
+    });
   });
 
   describe('searching and filtering', () => {
@@ -93,13 +209,13 @@ describe('the investor directory', () => {
       card({ slug: 'c', name: 'Charlie Ventures', stages: ['Seed', 'Series A'], sectors: ['Software', 'Climate'] }),
     ];
 
-    it('has one search box, and three small filters that each offer only what some investor has, with how many', async () => {
+    it('has one search box, and four small filters that each offer only what some investor has, with how many', async () => {
       serve(api, { cards: three });
       renderView();
       await screen.findByRole('link', { name: 'Alpha Angels' });
       expect(screen.getAllByRole('searchbox')).toHaveLength(1);
-      expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Search investors, sectors or portfolio companies');
-      for (const name of ['Stage', 'Sector', 'Location', 'More filters']) expect(menuButton(name)).toHaveAttribute('aria-haspopup', 'true');
+      expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Search by name, firm or investment interest');
+      for (const name of ['Location', 'Type', 'Sector', 'Stage', 'More filters']) expect(menuButton(name)).toHaveAttribute('aria-haspopup', 'true');
       await userEvent.click(menuButton('Stage'));
       const stage = within(screen.getByRole('group', { name: 'Stage' }));
       expect(stage.getAllByRole('checkbox').map((c) => c.closest('label').textContent)).toEqual(['Pre-seed1', 'Seed2', 'Series A1']);
@@ -111,15 +227,15 @@ describe('the investor directory', () => {
       renderView();
       await screen.findByRole('link', { name: 'Alpha Angels' });
       await tick('Stage', 'Seed');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ stage: 'Seed' }, expect.objectContaining({ offset: 0 })));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ stage: 'Seed' }), expect.objectContaining({ offset: 0 })));
       await waitFor(() => expect(screen.queryByRole('link', { name: 'Alpha Angels' })).not.toBeInTheDocument());
-      expect(screen.getByText('2 of 3 investors')).toBeInTheDocument();
+      expect(screen.getByText('2 of 3 investors in Australia')).toBeInTheDocument();
       expect(menuButton('Stage')).toHaveTextContent('Stage 1');
       await userEvent.click(within(screen.getByRole('group', { name: 'Stage' })).getByRole('checkbox', { name: /^Pre-seed/ }));
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ stage: 'Seed,Pre-seed' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ stage: 'Seed,Pre-seed' }), expect.anything()));
       expect(await screen.findByRole('link', { name: 'Alpha Angels' })).toBeInTheDocument();
       await userEvent.click(screen.getByRole('button', { name: 'Clear stages' }));
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({}, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked(), expect.anything()));
     });
 
     it('filters by sector and by location, together, and the results are the investors that match both', async () => {
@@ -128,11 +244,23 @@ describe('the investor directory', () => {
       await screen.findByRole('link', { name: 'Alpha Angels' });
       await tick('Sector', 'Software');
       await tick('Location', 'NSW');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ sector: 'Software', location: 'NSW' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ sector: 'Software', location: 'NSW' }), expect.anything()));
       await waitFor(() => expect(names()).toEqual(['Bravo Capital', 'Charlie Ventures']));
       await tick('Stage', 'Series A');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ stage: 'Series A', sector: 'Software', location: 'NSW' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ stage: 'Series A', sector: 'Software', location: 'NSW' }), expect.anything()));
       await waitFor(() => expect(names()).toEqual(['Charlie Ventures']));
+    });
+
+    it('filters by the kind of investor, from the Type menu', async () => {
+      serve(api, { cards: three });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha Angels' });
+      await userEvent.click(menuButton('Type'));
+      const type = within(screen.getByRole('group', { name: 'Type' }));
+      expect(type.getAllByRole('checkbox').map((c) => c.closest('label').textContent).sort()).toEqual(['Angel Network1', 'Venture Capital2']);
+      await userEvent.click(type.getByRole('checkbox', { name: /^Angel Network/ }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ type: 'angel_network' }), expect.anything()));
+      await waitFor(() => expect(names()).toEqual(['Alpha Angels']));
     });
 
     it('leaves out a menu that has nothing to offer', async () => {
@@ -157,40 +285,28 @@ describe('the investor directory', () => {
       expect(screen.queryByRole('group', { name: 'Sector' })).not.toBeInTheDocument();
     });
 
-    it('keeps the filters beyond the three behind "More filters": the investor type, whether it is still investing, and the rest when an investor states them', async () => {
+    it('keeps the filters beyond the four behind "More filters": whether it leads, whether it is still investing, a cheque size and a role, when an investor states them', async () => {
       serve(api, { cards: three, meta: metaOf(three, { lead: [{ value: 'lead', count: 2 }, { value: 'both', count: 1 }], active: [{ value: 'active', count: 2 }, { value: 'inactive', count: 1 }] }) });
       renderView();
       await screen.findByRole('link', { name: 'Alpha Angels' });
-      expect(screen.queryByRole('combobox', { name: 'Investor type' })).not.toBeInTheDocument();
       await userEvent.click(menuButton('More filters'));
       const more = within(screen.getByRole('group', { name: 'More filters' }));
-      const type = more.getByRole('combobox', { name: 'Investor type' });
-      expect(within(type).getByRole('option', { name: 'Venture Capital (2)' })).toBeInTheDocument();
-      expect(within(type).getByRole('option', { name: 'Angel Network (1)' })).toBeInTheDocument();
-      expect(within(type).queryByRole('option', { name: /Corporate VC/ })).not.toBeInTheDocument();
+      expect(more.queryByRole('combobox', { name: 'Role' })).not.toBeInTheDocument(); // no person has a role to filter by
       expect(within(more.getByRole('combobox', { name: 'Leads or follows' })).getByRole('option', { name: 'Leads rounds (2)' })).toBeInTheDocument();
       const active = more.getByRole('combobox', { name: 'Investing' });
       expect(within(active).getByRole('option', { name: 'Investing now (2)' })).toBeInTheDocument();
       expect(within(active).getByRole('option', { name: 'No longer investing (1)' })).toBeInTheDocument();
-
-      await userEvent.selectOptions(type, 'angel_network');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ type: 'angel_network' }, expect.objectContaining({ offset: 0 })));
-      await waitFor(() => expect(screen.queryByRole('link', { name: 'Bravo Capital' })).not.toBeInTheDocument());
-      expect(screen.getByRole('link', { name: 'Alpha Angels' })).toBeInTheDocument();
-      expect(menuButton('More filters')).toHaveTextContent('More filters 1');
+      expect(screen.getByText(/a person is not listed when one of them is on/)).toBeInTheDocument();
       await userEvent.selectOptions(active, 'inactive');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ type: 'angel_network', active: 'inactive' }, expect.anything()));
-      expect(menuButton('More filters')).toHaveTextContent('More filters 2');
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ active: 'inactive' }), expect.anything()));
+      expect(menuButton('More filters')).toHaveTextContent('More filters 1');
     });
 
-    it('offers no filter that no investor can be filtered by: no leads or follows, no cheque size', async () => {
-      serve(api, { cards: three });
+    it('offers no filter that no investor can be filtered by: no role, no leads or follows, no still-investing, no cheque size', async () => {
+      serve(api, { cards: three, meta: metaOf(three, { lead: [], active: [], cheque: null }) });
       renderView();
       await screen.findByRole('link', { name: 'Alpha Angels' });
-      await userEvent.click(menuButton('More filters'));
-      expect(screen.queryByRole('combobox', { name: 'Leads or follows' })).not.toBeInTheDocument();
-      expect(screen.queryByRole('combobox', { name: 'Cheque size' })).not.toBeInTheDocument();
-      expect(screen.queryByText(/Cheque size matches only/)).not.toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /^More filters/ })).not.toBeInTheDocument();
     });
 
     it('filters by cheque size when one is stated, as the range it covers, and says an investor with none stated is unknown, not out of range', async () => {
@@ -201,9 +317,9 @@ describe('the investor directory', () => {
       expect(screen.getByText(/Cheque size matches only investors that state a range in Australian dollars \(1 investor does\)/)).toBeInTheDocument();
       const cheque = screen.getByRole('combobox', { name: 'Cheque size' });
       await userEvent.selectOptions(cheque, '$100,000 to $500,000');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ chequeMin: '100000', chequeMax: '500000' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ chequeMin: '100000', chequeMax: '500000' }), expect.anything()));
       await userEvent.selectOptions(cheque, '$2 million and over');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ chequeMin: '2000000' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ chequeMin: '2000000' }), expect.anything()));
     });
 
     it('asks again once typing in the search box pauses, not for every letter', async () => {
@@ -212,7 +328,7 @@ describe('the investor directory', () => {
       await screen.findByRole('link', { name: 'Alpha Angels' });
       api.fetchInvestors.mockClear();
       await userEvent.type(screen.getByRole('searchbox'), 'bravo');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ search: 'bravo' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ search: 'bravo' }), expect.anything()));
       expect(api.fetchInvestors.mock.calls.map(([f]) => f.search)).not.toContain('br');
       await waitFor(() => expect(screen.queryByRole('link', { name: 'Alpha Angels' })).not.toBeInTheDocument());
       expect(screen.getByRole('link', { name: 'Bravo Capital' })).toBeInTheDocument();
@@ -221,11 +337,11 @@ describe('the investor directory', () => {
     it('says what is searched for in words a person can read, and names only the first things in the box on a phone, where the whole line does not fit', async () => {
       serve(api, { cards: three });
       const first = renderView();
-      expect(await screen.findByRole('searchbox')).toHaveAccessibleName(/name, person, sector, stage, location or portfolio company/);
+      expect(await screen.findByRole('searchbox')).toHaveAccessibleName(/name, firm or investment interest/);
       first.unmount();
-      vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: true, addEventListener: () => {}, removeEventListener: () => {} })));
+      phone();
       renderView();
-      expect(await screen.findByRole('searchbox')).toHaveAttribute('placeholder', 'Search investors, sectors…');
+      expect(await screen.findByRole('searchbox')).toHaveAttribute('placeholder', 'Search investors…');
     });
 
     it('shows Clear filters only once a filter is on, and it puts every investor back with every menu empty', async () => {
@@ -246,9 +362,47 @@ describe('the investor directory', () => {
       renderView();
       await screen.findByRole('link', { name: 'Alpha Angels' });
       await userEvent.type(screen.getByRole('searchbox'), 'zzzz');
-      expect(await screen.findByText('No investors match those filters.')).toBeInTheDocument();
+      expect(await screen.findByText(/No investors match those filters in Australia\./)).toBeInTheDocument();
       await userEvent.click(screen.getAllByRole('button', { name: 'Clear filters' })[0]);
       expect(await screen.findByRole('link', { name: 'Bravo Capital' })).toBeInTheDocument();
+    });
+  });
+
+  describe('starting points', () => {
+    const many = [
+      card({ slug: 'a', name: 'Alpha', stages: ['Pre-seed'], sectors: ['Health'], location: { city: 'Melbourne', state: 'VIC', country: 'Australia', label: 'Melbourne, VIC' } }),
+      card({ slug: 'b', name: 'Bravo', stages: ['Pre-seed'], sectors: ['Software'], location: { city: 'Melbourne', state: 'VIC', country: 'Australia', label: 'Melbourne, VIC' } }),
+      card({ slug: 'c', name: 'Charlie', stages: ['Seed'], sectors: ['Software'] }),
+      card({ slug: 'd', name: 'Delta', stages: ['Seed'], sectors: ['Software'] }),
+      card({ slug: 'e', name: 'Echo', stages: ['Growth'], sectors: ['Climate'] }),
+    ];
+
+    it('offers lists the records really make, each a filter with how many investors it holds, and none that is everyone or only one', async () => {
+      serve(api, { cards: many });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha' });
+      const lists = within(screen.getByRole('region', { name: 'Start with' }));
+      // the biggest states first, then the biggest stages, then the biggest sector; Echo's Growth (one investor) and the lone Health are not collections
+      expect(lists.getAllByRole('button').map((b) => b.textContent)).toEqual(['New South Wales investors3', 'Victoria investors2', 'Pre-seed investors2', 'Seed investors2', 'Software investors3']);
+    });
+
+    it('applies a list as a filter, shows it on, and takes it off when pressed again', async () => {
+      serve(api, { cards: many });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha' });
+      await userEvent.click(screen.getByRole('button', { name: /^Pre-seed investors/ }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ stage: 'Pre-seed' }), expect.anything()));
+      expect(screen.getByRole('button', { name: /^Pre-seed investors/ })).toHaveAttribute('aria-pressed', 'true');
+      await waitFor(() => expect(names()).toEqual(['Alpha', 'Bravo']));
+      await userEvent.click(screen.getByRole('button', { name: /^Pre-seed investors/ }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked(), expect.anything()));
+    });
+
+    it('offers none when the records make no collection (one investor each, or everyone)', async () => {
+      serve(api, { cards: [card({ slug: 'a', name: 'Alpha' }), card({ slug: 'b', name: 'Bravo' })] });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha' });
+      expect(screen.queryByRole('region', { name: 'Start with' })).not.toBeInTheDocument();
     });
   });
 
@@ -263,65 +417,76 @@ describe('the investor directory', () => {
     it('starts A to Z, and offers Z to A, the most connected companies and the place, by a name or a number a page states', async () => {
       serve(api, { cards: four });
       renderView();
-      await screen.findByRole('link', { name: 'Alpha' });
+      await screen.findByRole('link', { name: 'Bravo' });
       const sort = screen.getByRole('combobox', { name: 'Sort by' });
       expect(sort).toHaveValue('name');
       expect([...sort.options].map((o) => o.textContent)).toEqual(['Name A–Z', 'Name Z–A', 'Most connected', 'Location A–Z']);
-      expect(names()).toEqual(['Alpha', 'Bravo', 'Charlie', 'Delta']);
+      expect(names()).toEqual(['Bravo', 'Charlie', 'Delta']); // the one in New Zealand is global, not in Australia
     });
 
     it('asks the server for the order chosen and shows the results in the order it sends', async () => {
       serve(api, { cards: four });
       renderView();
-      await screen.findByRole('link', { name: 'Alpha' });
+      await screen.findByRole('link', { name: 'Bravo' });
       const sort = screen.getByRole('combobox', { name: 'Sort by' });
       await userEvent.selectOptions(sort, 'name_desc');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({}, expect.objectContaining({ sort: 'name_desc', offset: 0 })));
-      await waitFor(() => expect(names()).toEqual(['Delta', 'Charlie', 'Bravo', 'Alpha']));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked(), expect.objectContaining({ sort: 'name_desc', offset: 0 })));
+      await waitFor(() => expect(names()).toEqual(['Delta', 'Charlie', 'Bravo']));
       await userEvent.selectOptions(sort, 'portfolio');
-      await waitFor(() => expect(names()).toEqual(['Bravo', 'Charlie', 'Alpha', 'Delta']));
+      await waitFor(() => expect(names()).toEqual(['Bravo', 'Charlie', 'Delta']));
       await userEvent.selectOptions(sort, 'location');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({}, expect.objectContaining({ sort: 'location' })));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked(), expect.objectContaining({ sort: 'location' })));
     });
 
     it('sorts the investors that match the filters, and keeps the sort when the filters change', async () => {
       serve(api, { cards: four });
       renderView();
-      await screen.findByRole('link', { name: 'Alpha' });
+      await screen.findByRole('link', { name: 'Bravo' });
       await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Sort by' }), 'name_desc');
       await tick('Location', 'NSW');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ location: 'NSW' }, expect.objectContaining({ sort: 'name_desc' })));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ location: 'NSW' }), expect.objectContaining({ sort: 'name_desc' })));
       await waitFor(() => expect(names()).toEqual(['Delta', 'Bravo']));
       expect(screen.getByRole('combobox', { name: 'Sort by' })).toHaveValue('name_desc');
     });
   });
 
-  describe('cards and a table', () => {
+  describe('a list and cards', () => {
     const two = [card(), card({ slug: 'bare', name: 'Bare Capital', type_label: 'Angel Network', stages: [], sectors: [], portfolio_count: 0, location: { city: null, state: null, country: null, label: null } })];
 
-    it('starts with cards, and the table shows the same investors in rows, and back', async () => {
-      serve(api, { cards: two, profiles: { blackbird: profile() } });
+    it('starts with the compact list, and the cards show the same investors, and back', async () => {
+      serve(api, { cards: [card()], profiles: { blackbird: profile() } });
       renderView();
       await screen.findByRole('link', { name: 'Blackbird' });
+      const listButton = screen.getByRole('button', { name: 'List' });
       const cardsButton = screen.getByRole('button', { name: 'Cards' });
-      const tableButton = screen.getByRole('button', { name: 'Table' });
-      expect(cardsButton).toHaveAttribute('aria-pressed', 'true');
-      expect(tableButton).toHaveAttribute('aria-pressed', 'false');
-      expect(screen.queryByRole('table')).not.toBeInTheDocument();
-
-      await userEvent.click(tableButton);
-      expect(tableButton).toHaveAttribute('aria-pressed', 'true');
+      expect(listButton).toHaveAttribute('aria-pressed', 'true');
       expect(cardsButton).toHaveAttribute('aria-pressed', 'false');
-      const table = screen.getByRole('table', { name: 'Investors' });
-      expect(within(table).getAllByRole('columnheader').map((h) => h.textContent)).toEqual(['Investor', 'Focus', 'Stage', 'Location', 'Connected companies', 'Save']);
-      const row = within(table).getByRole('row', { name: /Blackbird/ });
-      expect(within(row).getByRole('link', { name: 'Blackbird' })).toHaveAttribute('href', '/investors/blackbird');
-      for (const text of ['Venture Capital', 'Seed → Series A', 'Software', 'Sydney, NSW', '3 companies']) expect(within(row).getByText(text)).toBeInTheDocument();
-      expect(screen.queryByText('View profile')).not.toBeInTheDocument(); // the cards' way in is not the table's
+      expect(screen.getByRole('list', { name: 'Investors' })).toBeInTheDocument();
 
       await userEvent.click(cardsButton);
-      expect(screen.queryByRole('table')).not.toBeInTheDocument();
-      expect(screen.getByRole('link', { name: 'Blackbird' }).closest('li')).toBeInTheDocument();
+      expect(cardsButton).toHaveAttribute('aria-pressed', 'true');
+      expect(screen.queryByRole('list', { name: 'Investors' })).not.toBeInTheDocument();
+      const item = screen.getByRole('link', { name: 'Blackbird' }).closest('li');
+      expect(item).toHaveClass('card', 'entity-card', 'inv-card'); // the app's one card
+      const facts = Object.fromEntries([...item.querySelectorAll('.inv-card-facts > div')].map((row) => [row.querySelector('dt').textContent, row.querySelector('dd').textContent]));
+      expect(facts).toEqual({ Focus: 'Software', Stage: 'Seed → Series A', Location: 'Sydney, NSW' });
+      expect(within(item).getByText('3 connected companies')).toBeInTheDocument();
+      expect(within(item).getByTitle(/Verified 8 Oct 2026/)).toBeInTheDocument();
+
+      await userEvent.click(listButton);
+      expect(screen.getByRole('list', { name: 'Investors' })).toBeInTheDocument();
+    });
+
+    it('draws a person on a card too: their role, their firm and where they are, with a dash for what nobody states', async () => {
+      serve(api, { cards: [], peopleCards: [personCard({ stages: [], sectors: [], location: { city: null, state: null, country: null, label: null }, scope: 'au' })], meta: metaOf([], {}, [personCard(), personCard({ slug: 'x' })]) });
+      renderView();
+      await userEvent.click(await screen.findByRole('button', { name: 'Cards' }));
+      const item = screen.getByRole('link', { name: 'Sam Rivera' }).closest('li');
+      expect(item.querySelector('.inv-person-initials')).toHaveTextContent('SR');
+      const facts = Object.fromEntries([...item.querySelectorAll('.inv-card-facts > div')].map((row) => [row.querySelector('dt').textContent, row.querySelector('dd').textContent]));
+      expect(Object.keys(facts)).toEqual(['Firm', 'Focus', 'Stage', 'Location']);
+      expect(facts).toMatchObject({ Focus: '–Not stated', Stage: '–Not stated', Location: '–Not stated' });
+      expect(within(item).getByRole('link', { name: 'Blackbird' })).toHaveAttribute('href', '/investors/blackbird');
     });
 
     it('is the same data in both: the same count, filters, sort and results, whichever view it is in', async () => {
@@ -331,74 +496,61 @@ describe('the investor directory', () => {
       await tick('Stage', 'Seed');
       await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Sort by' }), 'name_desc');
       await waitFor(() => expect(names()).toEqual(['Charlie', 'Alpha']));
-      const asked = api.fetchInvestors.mock.calls.length;
-      await userEvent.click(screen.getByRole('button', { name: 'Table' }));
-      const rows = () => within(screen.getByRole('table')).getAllByRole('row').slice(1).map((r) => within(r).getByRole('link').textContent);
-      expect(rows()).toEqual(['Charlie', 'Alpha']);
-      expect(screen.getByText('2 of 3 investors')).toBeInTheDocument();
+      const was = api.fetchInvestors.mock.calls.length;
+      await userEvent.click(screen.getByRole('button', { name: 'Cards' }));
+      expect(names()).toEqual(['Charlie', 'Alpha']);
+      expect(screen.getByText('2 of 3 investors in Australia')).toBeInTheDocument();
       expect(screen.getByText('Showing 2 of 2 investors')).toBeInTheDocument();
       expect(menuButton('Stage')).toHaveTextContent('Stage 1');
       expect(screen.getByRole('combobox', { name: 'Sort by' })).toHaveValue('name_desc');
-      expect(api.fetchInvestors.mock.calls.length).toBe(asked); // switching the view asks for nothing
+      expect(api.fetchInvestors.mock.calls.length).toBe(was); // switching the view asks for nothing
     });
 
-    it('says in the table too that an investor has stopped investing', async () => {
-      serve(api, { cards: [card(), card({ slug: 'old', name: 'Old Gum Fund', status: 'inactive', active_status: 'inactive' })] });
-      renderView();
-      await userEvent.click(await screen.findByRole('button', { name: 'Table' }));
-      const table = screen.getByRole('table', { name: 'Investors' });
-      expect(within(within(table).getByRole('row', { name: /Old Gum Fund/ })).getByText('No longer investing')).toBeInTheDocument();
-      expect(within(within(table).getByRole('row', { name: /Blackbird/ })).queryByText('No longer investing')).not.toBeInTheDocument();
-    });
-
-    it('writes what nobody states as "Not stated" in the table, and never as a guess', async () => {
+    it('writes what nobody states as "Not stated" in the list, and never as a guess', async () => {
       serve(api, { cards: two });
       renderView();
-      await screen.findByRole('link', { name: 'Bare Capital' });
-      await userEvent.click(screen.getByRole('button', { name: 'Table' }));
-      const row = within(screen.getByRole('table', { name: 'Investors' })).getByRole('row', { name: /Bare Capital/ });
-      expect(within(row).getAllByText('Not stated')).toHaveLength(4); // focus, stage, place and connected companies
-      expect(within(row).getByText('Angel Network')).toBeInTheDocument();
+      const item = (await screen.findByRole('link', { name: 'Bare Capital' })).closest('li');
+      expect(within(item).getAllByText('Not stated')).toHaveLength(2);
+      expect(within(item).getByText('Angel Network')).toBeInTheDocument();
     });
 
-    it('opens an investor from the table the way a card does: from its name, and from anywhere in its row', async () => {
+    it('opens an investor from its name and from anywhere in its row, and lights the open one', async () => {
       serve(api, { cards: two, profiles: { blackbird: profile(), bare: profile({ slug: 'bare', name: 'Bare Capital' }) } });
       renderView();
-      await userEvent.click(await screen.findByRole('button', { name: 'Table' }));
-      await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
+      await userEvent.click(await screen.findByRole('link', { name: 'Blackbird' }));
       expect(await screen.findByRole('complementary', { name: 'Blackbird' })).toBeInTheDocument();
       expect(window.location.pathname).toBe('/investors/blackbird');
-      expect(screen.getByRole('row', { name: /Blackbird/ })).toHaveClass('inv-row-on');
-      await userEvent.click(within(screen.getByRole('row', { name: /Bare Capital/ })).getByText('Angel Network'));
+      expect(screen.getByRole('link', { name: 'Blackbird' }).closest('li')).toHaveClass('inv-item-on');
+      expect(screen.getByRole('link', { name: 'Blackbird' })).toHaveAttribute('aria-current', 'true');
+      await userEvent.click(screen.getByRole('link', { name: 'Bare Capital' }));
       expect(await screen.findByRole('complementary', { name: 'Bare Capital' })).toBeInTheDocument();
-      expect(screen.getByRole('row', { name: /Bare Capital/ })).toHaveClass('inv-row-on');
-      expect(screen.getByRole('row', { name: /Blackbird/ })).not.toHaveClass('inv-row-on');
+      expect(screen.getByRole('link', { name: 'Bare Capital' }).closest('li')).toHaveClass('inv-item-on');
+      expect(screen.getByRole('link', { name: 'Blackbird' }).closest('li')).not.toHaveClass('inv-item-on');
     });
 
-    it('keeps the view it was in when the filters change, and the table when an investor is opened', async () => {
+    it('keeps the view it was in when the filters change, and when an investor is opened', async () => {
       serve(api, { cards: two, profiles: { blackbird: profile() } });
       renderView();
-      await userEvent.click(await screen.findByRole('button', { name: 'Table' }));
+      await userEvent.click(await screen.findByRole('button', { name: 'Cards' }));
       await tick('Stage', 'Seed');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ stage: 'Seed' }, expect.anything()));
-      expect(screen.getByRole('table', { name: 'Investors' })).toBeInTheDocument();
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ stage: 'Seed' }), expect.anything()));
+      expect(screen.queryByRole('list', { name: 'Investors' })).not.toBeInTheDocument();
       await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
       await screen.findByRole('complementary', { name: 'Blackbird' });
-      expect(screen.getByRole('table', { name: 'Investors' })).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: 'Table' })).toHaveAttribute('aria-pressed', 'true');
+      expect(screen.getByRole('button', { name: 'Cards' })).toHaveAttribute('aria-pressed', 'true');
     });
   });
 
   describe('saving investors', () => {
     const three = [card({ slug: 'a', name: 'Alpha' }), card({ slug: 'b', name: 'Bravo' }), card({ slug: 'c', name: 'Charlie' })];
 
-    it('saves an investor from its card without opening it, says so, and keeps it in this browser', async () => {
+    it('saves an investor from its row without opening it, says so, and keeps it in this browser', async () => {
       serve(api, { cards: three });
       renderView();
       await screen.findByRole('link', { name: 'Alpha' });
       await userEvent.click(screen.getByRole('button', { name: 'Save Bravo' }));
       expect(screen.getByRole('button', { name: 'Remove Bravo from saved' })).toHaveAttribute('aria-pressed', 'true');
-      expect(screen.queryByRole('complementary')).not.toBeInTheDocument(); // the bookmark is not the card
+      expect(screen.queryByRole('complementary')).not.toBeInTheDocument(); // the bookmark is not the row
       expect(window.location.pathname).toBe('/investors');
       expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual(['b']);
       expect(screen.getByRole('tab', { name: 'Saved 1' })).toBeInTheDocument();
@@ -406,6 +558,16 @@ describe('the investor directory', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Remove Bravo from saved' }));
       expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual([]);
       expect(screen.getByRole('tab', { name: 'Saved' })).toBeInTheDocument();
+    });
+
+    it('saves a person by their own key, which no firm\'s address can be', async () => {
+      serve(api, { cards: [card()], peopleCards: [personCard()] });
+      renderView();
+      await userEvent.click(await screen.findByRole('button', { name: 'Save Sam Rivera' }));
+      expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual(['people/sam']);
+      await userEvent.click(screen.getByRole('tab', { name: 'Saved 1' }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ kind: 'all', slug: 'people/sam' }, expect.anything()));
+      expect(await screen.findByRole('link', { name: 'Sam Rivera' })).toBeInTheDocument();
     });
 
     it('finds what was saved on an earlier visit', async () => {
@@ -423,15 +585,15 @@ describe('the investor directory', () => {
       await screen.findByRole('link', { name: 'Alpha' });
       await userEvent.click(screen.getByRole('tab', { name: 'Saved 2' }));
       expect(screen.getByRole('tab', { name: 'Saved 2' })).toHaveAttribute('aria-selected', 'true');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ slug: 'a,c' }, expect.objectContaining({ offset: 0 })));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ kind: 'all', slug: 'a,c' }, expect.objectContaining({ offset: 0 })));
       await waitFor(() => expect(names()).toEqual(['Alpha', 'Charlie']));
       expect(screen.getByText('2 saved investors')).toBeInTheDocument();
       await userEvent.type(screen.getByRole('searchbox'), 'char');
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ search: 'char', slug: 'a,c' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ search: 'char', kind: 'all', slug: 'a,c' }, expect.anything()));
       await waitFor(() => expect(names()).toEqual(['Charlie']));
       expect(screen.getByText('1 of 2 saved investors')).toBeInTheDocument();
       await userEvent.click(screen.getByRole('tab', { name: 'All investors' }));
-      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith({ search: 'char' }, expect.anything()));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ search: 'char' }), expect.anything()));
     });
 
     it('takes an investor off the Saved tab when it is unsaved there', async () => {
@@ -480,6 +642,50 @@ describe('the investor directory', () => {
       await userEvent.click(screen.getByRole('link', { name: 'Saved 1' }));
       expect(screen.getByRole('tab', { name: 'Saved 1' })).toHaveAttribute('aria-selected', 'true');
       await waitFor(() => expect(names()).toEqual(['Alpha']));
+    });
+  });
+
+  describe('on a phone', () => {
+    const three = [
+      card({ slug: 'a', name: 'Alpha Angels', type: 'angel_network', type_label: 'Angel Network', stages: ['Pre-seed'], sectors: ['Health'] }),
+      card({ slug: 'b', name: 'Bravo Capital', stages: ['Seed'], sectors: ['Software'] }),
+      card({ slug: 'c', name: 'Charlie Ventures', stages: ['Seed', 'Series A'], sectors: ['Software', 'Climate'] }),
+    ];
+
+    it('has one Filters button in place of the menus, which opens a sheet with every filter in it and the number of investors it would show', async () => {
+      phone();
+      serve(api, { cards: three });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha Angels' });
+      expect(screen.queryByRole('button', { name: /^Stage/ })).not.toBeInTheDocument();
+      const open = screen.getByRole('button', { name: /^Filters/ });
+      await userEvent.click(open);
+      const sheet = screen.getByRole('dialog', { name: 'Filters' });
+      for (const group of ['Location', 'Investor type', 'Sector', 'Stage']) expect(within(sheet).getByRole('group', { name: new RegExp(`^${group}`) })).toBeInTheDocument();
+      await userEvent.click(within(within(sheet).getByRole('group', { name: /^Stage/ })).getByRole('checkbox', { name: /^Seed/ }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked({ stage: 'Seed' }), expect.anything()));
+      expect(await within(sheet).findByRole('button', { name: 'Show 2 investors' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /^Filters 1/ })).toBeInTheDocument();
+      await userEvent.click(within(sheet).getByRole('button', { name: 'Clear all' }));
+      await waitFor(() => expect(api.fetchInvestors).toHaveBeenLastCalledWith(asked(), expect.anything()));
+    });
+
+    it('closes with its button, with Escape and with a press outside it, and gives focus back to the Filters button', async () => {
+      phone();
+      serve(api, { cards: three });
+      renderView();
+      await screen.findByRole('link', { name: 'Alpha Angels' });
+      const open = screen.getByRole('button', { name: /^Filters/ });
+      await userEvent.click(open);
+      await userEvent.click(screen.getByRole('button', { name: 'Close the filters' }));
+      expect(screen.queryByRole('dialog', { name: 'Filters' })).not.toBeInTheDocument();
+      expect(open).toHaveFocus();
+      await userEvent.click(open);
+      await userEvent.keyboard('{Escape}');
+      expect(screen.queryByRole('dialog', { name: 'Filters' })).not.toBeInTheDocument();
+      await userEvent.click(open);
+      await userEvent.click(screen.getByRole('button', { name: /^Show 3 investors/ }));
+      expect(screen.queryByRole('dialog', { name: 'Filters' })).not.toBeInTheDocument();
     });
   });
 

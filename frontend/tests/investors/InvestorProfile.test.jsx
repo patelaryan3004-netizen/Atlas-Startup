@@ -293,7 +293,7 @@ describe('a person who invests', () => {
 
   const openPerson = (p = full()) => {
     serve(api, { profiles: { blackbird: profile() }, people: { sam: p } });
-    return render(<InvestorsView initialRoute={{ kind: 'person', slug: 'sam' }} onClose={() => {}} onOpenCompany={() => {}} />);
+    return render(<InvestorsView initialRoute={{ kind: 'personProfile', slug: 'sam' }} onClose={() => {}} onOpenCompany={() => {}} />);
   };
 
   it('shows their role at the firm (a link to it), their focus, their background, their roles, what a page attributes to them, and where it comes from', async () => {
@@ -301,7 +301,9 @@ describe('a person who invests', () => {
     expect(await screen.findByRole('heading', { level: 1, name: 'Sam Rivera' })).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: 'Blackbird' })[0]).toHaveAttribute('href', '/investors/blackbird');
     const titles = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
-    expect(titles).toEqual(['About', 'Focus', 'Background', 'Roles', 'Verified public investments (1)', 'Connected companies (1)', 'Public links', 'Sources']);
+    expect(titles).toEqual(['About', 'Focus', 'Background', 'Roles', 'Verified public investments (1)', 'Connected companies (1)', 'Public links', 'Sources', 'Not right, or not you?']);
+    expect(screen.getByText('Directory profile')).toBeInTheDocument(); // a listing, never a member, partner or endorser
+    expect(screen.getByText(/not a Still Early member, partner or endorsement/)).toBeInTheDocument();
     expect(screen.getByText('Analyst · former · 2017 to 2020')).toBeInTheDocument();
     expect(screen.getByText('An Old Startup')).toBeInTheDocument();
     expect(screen.getByText('Seed · May 2024')).toBeInTheDocument();
@@ -311,8 +313,10 @@ describe('a person who invests', () => {
     openPerson();
     await screen.findByRole('heading', { level: 1, name: 'Sam Rivera' });
     const links = within((await screen.findByRole('heading', { level: 2, name: 'Public links' })).closest('section'));
-    expect(links.getByRole('link', { name: /LinkedIn/ })).toHaveAttribute('href', 'https://www.linkedin.com/in/sam-rivera');
+    expect(links.getByRole('link', { name: /Professional profile/ })).toHaveAttribute('href', 'https://www.linkedin.com/in/sam-rivera');
     expect(links.getByRole('link', { name: /Personal website/ })).toHaveAttribute('href', 'https://sam.example/');
+    expect(links.getByRole('link', { name: /Blackbird website/ })).toHaveAttribute('href', expect.stringMatching(/^https:\/\//)); // the firm's own page
+    for (const a of links.getAllByRole('link')) expect(a).toHaveAttribute('rel', 'noopener noreferrer');
     expect(document.body.textContent).not.toMatch(/@|\+61|phone|mailto/i);
     expect(document.querySelector('a[href^="mailto:"], a[href^="tel:"]')).toBeNull();
   });
@@ -320,12 +324,14 @@ describe('a person who invests', () => {
   it('leaves out the sections with nothing in them', async () => {
     openPerson(person());
     await screen.findByRole('heading', { level: 1, name: 'Sam Rivera' });
-    expect(screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent)).toEqual(['Sources']);
+    // only what a page backs: the firm's own website, the pages the record is built from, and the way to ask for a correction or removal
+    expect(screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent)).toEqual(['Public links', 'Sources', 'Not right, or not you?']);
+    expect(screen.queryByRole('link', { name: /Professional profile|Personal website/ })).not.toBeInTheDocument();
   });
 
   it('says a person is not in the directory when they have not been published', async () => {
     serve(api, { people: {} });
-    render(<InvestorsView initialRoute={{ kind: 'person', slug: 'nobody' }} onClose={() => {}} onOpenCompany={() => {}} />);
+    render(<InvestorsView initialRoute={{ kind: 'personProfile', slug: 'nobody' }} onClose={() => {}} onOpenCompany={() => {}} />);
     expect(await screen.findByRole('heading', { level: 1, name: 'This person is not in the directory.' })).toBeInTheDocument();
   });
 });

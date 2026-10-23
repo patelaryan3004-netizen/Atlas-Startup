@@ -1,6 +1,6 @@
 /* The investor directory, and the pages that share its page (News, People): a page of its own, like Jobs, in the site's one design. The tokens are the site's
    (styles.css), the header, the field, the switch and the badges are the shared ones (brand.css); this file is the layout of the page: the heading and the search,
-   the tabs and the sort, the cards and the table, the panel beside them, and an investor's full page.
+   the tabs and the sort, the list and the cards, the panel beside them, and an investor's or a person's full page.
    Everything is scoped to #investorsView so it can leak nowhere. A few names the page's rules read are set below from the site's tokens. */
 
 #investorsView {
@@ -17,8 +17,9 @@
   --inv-chev: var(--text-2);
   --inv-shadow: none;
   position: absolute; inset: 0; z-index: 1000; overflow-y: auto;
-  background: var(--paper); color: var(--ink); color-scheme: light;
-  scrollbar-width: thin; scrollbar-color: var(--inv-edge) var(--paper);
+  /* The page is the off-white of the brand; what sits on it (rows, cards, the panel) is white. */
+  background: var(--bg-subtle); color: var(--ink); color-scheme: light;
+  scrollbar-width: thin; scrollbar-color: var(--inv-edge) var(--bg-subtle);
 }
 
 #investorsView ::selection { background: rgb(var(--accent-rgb) / 0.3); }
@@ -45,9 +46,14 @@
 
 /* ---------- search and filters ---------- */
 
-.inv-tools { display: flex; align-items: center; gap: 12px; margin-top: 32px; }
+.inv-tools { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
 #investorsView .inv-search { flex: 1 1 320px; min-width: 0; max-width: none; }
-.inv-filters { display: flex; align-items: center; gap: 10px; flex: none; }
+/* Australia or global: which investors are listed, by where they are based. */
+#investorsView .inv-scope { flex: none; height: var(--control); }
+#investorsView .inv-scope .seg-item { padding: 0 18px; font-size: var(--t-body); }
+.inv-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 14px; }
+#investorsView .inv-kind { height: var(--control-sm); margin-left: auto; }
+#investorsView .inv-kind .seg-item { padding: 0 14px; font-size: var(--t-body); }
 /* (The map's toolbar hides its sector menu on a phone, because the sectors are in its filters: here the menus are the filters, on every screen.) */
 #investorsView .xt-menu { display: block; }
 #investorsView .xt-btn { height: var(--control); border-radius: var(--r-md); font-size: var(--t-body); border-color: var(--border); }
@@ -151,48 +157,75 @@
 .inv-showing { margin: 0; font-size: var(--t-body); color: var(--muted); }
 .inv-showmore { min-width: 180px; }
 
-/* ---------- the table ---------- */
+/* ---------- the list ---------- */
 
-.inv-table-wrap { overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: var(--inv-radius); }
-.inv-table { width: 100%; border-collapse: collapse; font-size: var(--t-body); }
-.inv-table th, .inv-table td { padding: 14px 16px; text-align: left; vertical-align: middle; }
-.inv-table thead th { padding-block: 16px; font-size: var(--t-small); font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--line); background: var(--bg-subtle); }
-.inv-table tbody tr { cursor: pointer; transition: background-color 0.12s ease; }
-.inv-table tbody tr + tr > * { border-top: 1px solid var(--line); }
-.inv-table tbody tr:hover { background: var(--bg-subtle); }
-.inv-table td { color: var(--inv-soft); }
-.inv-table-name { font-weight: 650; color: var(--ink); }
-.inv-table-id { display: flex; align-items: center; gap: 14px; min-width: 190px; }
-.inv-table .inv-logo { width: 40px; height: 40px; border-radius: var(--r-sm); }
-.inv-table-who { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; }
-.inv-table-link { color: var(--ink); text-decoration: none; }
-.inv-table-link:hover { color: var(--green); }
-.inv-table-type { font-size: var(--t-small); font-weight: 400; color: var(--muted); }
-.inv-col-stage { white-space: nowrap; }
-.inv-col-save { width: 1%; text-align: right; }
-/* The open investor's row: lit in the peach, with a thin edge of the green on its left. */
-.inv-table tbody tr.inv-row-on { background: var(--inv-tint); }
-.inv-table tbody tr.inv-row-on > :first-child { box-shadow: inset 2px 0 0 var(--accent); }
-/* With the panel open the results are narrow: the focus and the companies give way, so the table never scrolls sideways. */
-@container (max-width: 760px) { .inv-col-focus, .inv-col-companies { display: none; } }
-@container (max-width: 520px) { .inv-table th, .inv-table td { padding-inline: 12px; } .inv-col-stage { display: none; } }
-
-/* A table needs about 800px, and there is no choice of view under 900px (cards only). A table that is still open when the window narrows
-   stacks its rows into blocks, so the page never scrolls sideways. */
-@media (max-width: 899px) {
-  .inv-views { display: none !important; }
-  .inv-table-wrap { overflow: visible; background: none; border: 0; }
-  .inv-table, .inv-table tbody, .inv-table tr, .inv-table th, .inv-table td { display: block; }
-  .inv-table thead { display: none; }
-  .inv-table tr { position: relative; margin-bottom: 12px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--inv-radius); }
-  .inv-table th, .inv-table td { padding: 3px 0; border: 0 !important; }
-  .inv-table td::before { content: attr(data-label) ': '; color: var(--muted); }
-  .inv-table td.inv-col-save::before { content: none; }
-  .inv-table td.inv-col-save { position: absolute; top: 10px; right: 10px; width: auto; }
-  .inv-table .inv-col-focus, .inv-table .inv-col-companies, .inv-table .inv-col-stage { display: block; }
-  .inv-table-id { min-width: 0; margin-bottom: 4px; }
-  .inv-table tbody tr.inv-row-on > :first-child { box-shadow: none; }
+/* One investor to a row: who they are (a face or initials, the name, the role), the firm, where, at most two tags of what they invest in, the bookmark and the
+   way in. The columns follow the width of the RESULTS, not the screen, so a panel open beside them narrows them the same way a phone does. */
+.inv-list-head, .inv-item { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr) minmax(0, 1.1fr) minmax(0, 1.5fr) auto; align-items: center; gap: 16px; }
+.inv-list-head { padding: 0 20px 10px; font-size: var(--t-small); font-weight: 600; color: var(--muted); }
+.inv-list { margin: 0; padding: 0; list-style: none; background: var(--bg); border: 1px solid var(--line); border-radius: var(--inv-radius); overflow: hidden; }
+.inv-item { position: relative; padding: 14px 20px; transition: background-color 0.12s ease; }
+.inv-item + .inv-item { border-top: 1px solid var(--line); }
+.inv-item:hover { background: var(--bg-subtle); }
+/* The one that is open beside the results: lit in the peach with a thin green line. */
+.inv-item-on, .inv-item-on:hover { background: var(--inv-tint); box-shadow: inset 0 0 0 1px rgb(var(--green-rgb) / .3); }
+.inv-item-who { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.inv-item-id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.inv-item-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: var(--t-body); font-weight: 650; line-height: 1.3; }
+.inv-item-link { color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+/* The name's link reaches over the whole row: one target to press, one stop for the keyboard. */
+.inv-item-link::after { content: ''; position: absolute; inset: 0; }
+#investorsView .inv-item-link:focus-visible { outline: none; }
+.inv-item-link:focus-visible::after { outline: 2px solid var(--accent); outline-offset: -2px; }
+.inv-item-sub { font-size: var(--t-small); line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
+.inv-item-firm { display: flex; align-items: center; gap: 10px; min-width: 0; font-size: var(--t-body); color: var(--inv-soft); }
+.inv-item-firm .inv-logo { width: 28px; height: 28px; border-radius: var(--r-sm); }
+.inv-item-firm .inv-logo-initial { font-size: var(--t-small); }
+.inv-item-firmlink, .inv-card-firmlink { position: relative; z-index: 2; color: var(--ink); font-weight: 500; text-decoration: none; overflow-wrap: anywhere; }
+.inv-item-firmlink:hover, .inv-card-firmlink:hover { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.inv-item-kind, .inv-item-where { font-size: var(--t-body); line-height: 1.4; color: var(--inv-soft); overflow-wrap: anywhere; }
+/* A firm's own row: the website its record holds, and under it how many of its portfolio companies a page backs. */
+.inv-item-kind { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.inv-item-count { font-size: var(--t-small); color: var(--muted); }
+.inv-item-tags { min-width: 0; font-size: var(--t-body); color: var(--inv-soft); }
+.inv-item-end { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.inv-item-cta { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-body); font-weight: 600; color: var(--ink); white-space: nowrap; transition: color 0.15s ease; }
+.inv-item:hover .inv-item-cta { color: var(--green); }
+.inv-item:hover .inv-card-arrow { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) { .inv-item, .inv-item-cta { transition: none; } .inv-item:hover .inv-card-arrow { transform: none; } }
+/* Beside an open panel the results are narrow: the tags and the words of the way in give way, then the row stacks. */
+@container (max-width: 860px) {
+  .inv-list-head, .inv-item { grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr) minmax(0, 1fr) auto; }
+  .inv-list-head span:nth-child(4), .inv-item-tags { display: none; }
+  .inv-item-cta { display: none; }
 }
+@container (max-width: 600px) {
+  .inv-list-head { display: none; }
+  .inv-item { grid-template-columns: minmax(0, 1fr) auto; gap: 10px 12px; padding: 14px 16px; }
+  .inv-item-who { grid-column: 1; }
+  .inv-item-end { grid-column: 2; grid-row: 1; align-self: start; }
+  .inv-item-firm, .inv-item-where, .inv-item-tags { grid-column: 1 / -1; }
+  .inv-item-tags { display: block; }
+  .inv-item-where::before { content: attr(data-label) ': '; color: var(--muted); }
+}
+
+/* A person's initials (or their picture, when the record holds one): a round tint of the brand's colours, the same for the same name. */
+.inv-person { position: relative; flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; overflow: hidden; border-radius: 999px; border: 1px solid var(--line); }
+.inv-person-initials { font-size: var(--t-small); font-weight: 700; letter-spacing: .02em; }
+.inv-person-card { width: 60px; height: 60px; }
+.inv-person-card .inv-person-initials { font-size: var(--t-body); }
+.inv-person-lg { width: 72px; height: 72px; }
+.inv-person-lg .inv-person-initials { font-size: 1.5rem; }
+.inv-person.tint-green { background: var(--green-tint); color: var(--green); }
+.inv-person.tint-butter { background: var(--butter); color: var(--text); border-color: transparent; }
+.inv-person.tint-peach { background: var(--peach); color: var(--text); }
+.inv-person.tint-sand { background: var(--bg-subtle); color: var(--text); }
+.inv-person-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.inv-person-img-ready { opacity: 1; transition: opacity 0.2s ease-out; }
+.inv-inline-firm { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.inv-inline-firm .inv-logo { width: 24px; height: 24px; border-radius: 6px; }
+.inv-inline-firm .inv-logo-initial { font-size: var(--t-small); }
+.inv-card-role { color: var(--ink); font-size: var(--t-body); }
 
 .inv-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .inv-chip { padding: 3px 12px; font-size: var(--t-small); line-height: 1.4; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
@@ -251,6 +284,9 @@
 .inv-panel-facts > div + div { border-left: 1px solid var(--line); }
 .inv-panel-facts dt { margin: 0 0 4px; font-size: var(--t-small); font-weight: 500; color: var(--muted); }
 .inv-panel-facts dd { margin: 0; font-size: var(--t-body); line-height: 1.4; overflow-wrap: anywhere; }
+/* A person's: their role and place side by side, and their firm, which can have a long name, on a row of its own. */
+.inv-panel-facts-person { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.inv-panel-facts-person > .inv-fact-firm { grid-column: 1 / -1; margin-top: 14px; padding: 14px 0 0; border-left: 0; border-top: 1px solid var(--line); }
 
 .inv-panel .inv-tabs { gap: 24px; margin-top: 8px; border-bottom: 1px solid var(--line); }
 .inv-tabpanel { padding-top: 20px; }
@@ -364,9 +400,8 @@
 /* ---------- narrower screens ---------- */
 
 @media (max-width: 1199px) {
-  .inv-filters { flex-wrap: wrap; }
-  .inv-tools { flex-wrap: wrap; }
   #investorsView .inv-search { flex-basis: 100%; }
+  .inv-tools { flex-wrap: wrap; }
 }
 @media (max-width: 899px) {
   .inv-main { padding-top: var(--space-4); padding-bottom: 72px; }
@@ -379,11 +414,19 @@
   /* One column, not a wrapping one: a wrapping column makes every item as wide as the widest, which pushed the search past the screen. */
   .inv-tools { flex-direction: column; flex-wrap: nowrap; align-items: stretch; margin-top: 20px; }
   #investorsView .inv-search { flex: none; }
-  .inv-filters { flex-wrap: nowrap; margin-inline: -16px; padding-inline: 16px; overflow-x: auto; scrollbar-width: none; }
-  .inv-filters::-webkit-scrollbar { display: none; }
-  .inv-filters > * { flex: none; }
+  #investorsView .inv-scope { width: 100%; }
+  #investorsView .inv-scope .seg-item { flex: 1 1 0; justify-content: center; }
+  .inv-filters { margin-top: 12px; }
+  #investorsView .inv-kind { margin-left: 0; flex: 1 1 auto; }
+  #investorsView .inv-kind .seg-item { flex: 1 1 0; justify-content: center; padding: 0 8px; }
   .inv-bar { margin-top: 18px; }
-  .inv-bar-end { width: 100%; justify-content: space-between; padding-bottom: 10px; }
+  /* The sort and the view share the row: the sort gives way (its label goes, its select shrinks) so the two never push the page wider than the screen. */
+  .inv-bar-end { width: 100%; justify-content: space-between; gap: 8px; padding-bottom: 10px; }
+  .inv-sort { flex: 1 1 0; min-width: 0; }
+  .inv-sort-label { display: none; }
+  .inv-sort .inv-select { min-width: 0; width: 100%; padding-left: 0; }
+  #investorsView .inv-views { flex: none; }
+  #investorsView .inv-views .seg-item { padding: 0 12px; }
   .inv-row-side { align-items: flex-start; text-align: left; }
   .inv-foot { flex-direction: column; align-items: stretch; text-align: center; }
   .inv-showmore { width: 100%; }
@@ -404,3 +447,43 @@
   .inv-panel-facts > div, .inv-panel-facts > div:first-child { padding: 10px 0; }
   .inv-panel-facts > div + div { border-left: 0; border-top: 1px solid var(--line); }
 }
+
+/* ---------- starting points, notes and the phone's filter sheet ---------- */
+
+.inv-lists { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 18px; }
+.inv-lists-title { margin: 0; font-size: var(--t-small); font-weight: 600; color: var(--muted); }
+.inv-lists-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.inv-list-chip {
+  display: inline-flex; align-items: center; gap: 8px; height: var(--control-sm); padding: 0 14px; font: inherit; font-size: var(--t-body); color: var(--ink); cursor: pointer;
+  background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-pill); transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.inv-list-chip:hover { border-color: rgb(var(--ink-rgb) / .35); }
+.inv-list-chip-on { color: var(--green); background: var(--green-tint); border-color: var(--accent); }
+.inv-list-count { font-size: var(--t-small); font-variant-numeric: tabular-nums; color: var(--muted); }
+.inv-list-chip-on .inv-list-count { color: var(--green); }
+
+.inv-notes { display: grid; gap: 6px; margin-top: 24px; }
+.inv-notes .inv-panel-note { font-size: var(--t-small); color: var(--muted); }
+.inv-none-actions { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+/* On a phone the filters are one button and a sheet that rises from the foot of the screen, with the number of investors it would show. */
+.inv-sheet-overlay { position: fixed; inset: 0; z-index: 1600; display: flex; align-items: flex-end; background: rgb(var(--ink-rgb) / .4); animation: inv-fade 0.18s ease-out; }
+.inv-sheet { display: flex; flex-direction: column; width: 100%; max-height: 90dvh; background: var(--bg); border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: var(--shadow-float); animation: inv-rise 0.22s cubic-bezier(0.16, 1, 0.3, 1); }
+.inv-sheet:focus { outline: none; }
+@keyframes inv-fade { from { opacity: 0; } }
+@keyframes inv-rise { from { transform: translateY(24px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .inv-sheet-overlay, .inv-sheet { animation: none; } }
+.inv-sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 12px 12px 20px; border-bottom: 1px solid var(--line); }
+.inv-sheet-head h2 { margin: 0; font-size: var(--t-lede); font-weight: 700; }
+.inv-sheet-close { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; color: var(--ink); background: none; border: 0; border-radius: var(--r-md); cursor: pointer; }
+.inv-sheet-close:hover { background: var(--bg-subtle); }
+.inv-sheet-body { flex: 1 1 auto; overflow-y: auto; padding: 16px 20px 8px; }
+.inv-sheet-group { min-width: 0; margin: 0 0 18px; padding: 0; border: 0; }
+.inv-sheet-group legend { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; padding: 0; font-size: var(--t-body); font-weight: 600; }
+.inv-sheet-list { display: grid; gap: 2px; max-height: 232px; margin: 0; padding: 0; overflow-y: auto; list-style: none; }
+.inv-sheet-list .xt-check { min-height: 44px; }
+div.inv-sheet-group { display: grid; gap: 14px; }
+.inv-sheet-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+.inv-sheet-clear { padding: 0; font: inherit; font-size: var(--t-body); font-weight: 600; color: var(--muted); background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.inv-sheet-clear:hover { color: var(--ink); }
+.inv-sheet-done { margin-left: auto; min-height: var(--control); padding: 0 24px; }

@@ -64,7 +64,8 @@ describe('every image tag', () => {
 
   it('is found where the logos are drawn (this test would otherwise check nothing)', () => {
     // the logos beside a name are drawn in one place now, the shared avatar (EntityCard: the cards, the rows, the previews and the company's panel); the investors' own are the other
-    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx', 'components/landing/Hero.jsx']);
+    // (components/investors/common.jsx draws two: a firm's logo and a person's picture, which is drawn only from a secure address a record holds)
+    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx', 'components/investors/common.jsx', 'components/landing/Hero.jsx']);
   });
 
   it('has an alt (empty: the name is beside it), and decodes off the main thread', () => {

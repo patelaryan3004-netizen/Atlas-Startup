@@ -152,7 +152,9 @@ describe('what each page downloads', () => {
     const biggest = rest.sort((a, b) => Buffer.byteLength(files[b]) - Buffer.byteLength(files[a]))[0];
     // (The app's shell is the biggest: it grew by the VC layer, the entity switch and the sheet's VC rows; the panels and the VC list are files of their own. It is
     // 6 kB bigger since the welcome page stopped sharing the header, the cards and the skeletons with it: they are the app's alone again, not more code.)
-    expect(Buffer.byteLength(files[biggest])).toBeLessThan(72_000);
+    // The investors page is the next, and is lazy like the rest (loaded only on /investors): it grew by the compact list, the people layer, the filter sheet and
+    // the person panel, and is the biggest piece now.
+    expect(Buffer.byteLength(files[biggest])).toBeLessThan(80_000);
     expect(sizeOf(called('InvestorsView'))).toBeGreaterThan(0);
   });
 });

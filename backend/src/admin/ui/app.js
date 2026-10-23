@@ -1213,6 +1213,7 @@ const INVESTOR_FILTERS = [
 ];
 const BASIS = {
   based_in_australia: 'Based in Australia', invests_in_australian_startups: 'Invests in Australian-founded startups', australian_startup_network: 'Runs a recognised Australian startup network',
+  international: 'Based outside Australia (listed for global discovery; no Australian link claimed)',
 };
 const PAGE_CHOICES = [
   ['investor_website', 'The investor’s own website'], ['investor_document', 'An investor document (a report or a PDF)'], ['investor_post', 'An investor’s announcement or post'],

@@ -3,7 +3,8 @@
 //   /investors                       the directory
 //   /investors/<slug>                the directory with one investor open beside the results (a full-screen drawer on a phone)
 //   /investors/<slug>/profile        that investor's own full page
-//   /investors/people/<slug>         one person who invests
+//   /investors/people/<slug>         the directory with one person who invests open beside the results (a full-screen drawer on a phone)
+//   /investors/people/<slug>/profile that person's own full page
 // ("people" is the one word an investor's own address cannot be.) The first version of these pages lived at
 // ?view=investors[&investor=<slug>|&investorPerson=<slug>]: those addresses still open the same pages, and the address bar is
 // then written in the new form. Anything else in the query (a filter the map was opened with) is left as it was.
@@ -17,9 +18,9 @@ const decode = (part) => { try { return decodeURIComponent(part); } catch (e) { 
 
 // `where` is { pathname, search }, the shape of window.location.
 export function readRoute({ pathname = window.location.pathname, search = window.location.search } = {}) {
-  const [first, second, third] = pathname.split('/').filter(Boolean).map(decode);
+  const [first, second, third, fourth] = pathname.split('/').filter(Boolean).map(decode);
   if (first === 'investors') {
-    if (second === PEOPLE) return third ? { kind: 'person', slug: third } : { kind: 'list' };
+    if (second === PEOPLE) return third ? { kind: third && fourth === FULL ? 'personProfile' : 'person', slug: third } : { kind: 'list' };
     if (second && third === FULL) return { kind: 'profile', slug: second };
     return second ? { kind: 'investor', slug: second } : { kind: 'list' };
   }
@@ -34,6 +35,7 @@ const pathOf = (route) => {
   if (route.kind === 'investor') return `${HOME}/${encodeURIComponent(route.slug)}`;
   if (route.kind === 'profile') return `${HOME}/${encodeURIComponent(route.slug)}/${FULL}`;
   if (route.kind === 'person') return `${HOME}/${PEOPLE}/${encodeURIComponent(route.slug)}`;
+  if (route.kind === 'personProfile') return `${HOME}/${PEOPLE}/${encodeURIComponent(route.slug)}/${FULL}`;
   return HOME;
 };
 
@@ -53,6 +55,7 @@ export function routeUrl(route, { search = window.location.search } = {}) {
 export const investorHref = (slug) => routeUrl({ kind: 'investor', slug });
 export const personHref = (slug) => routeUrl({ kind: 'person', slug });
 export const profileHref = (slug) => routeUrl({ kind: 'profile', slug });
+export const personProfileHref = (slug) => routeUrl({ kind: 'personProfile', slug });
 
 function put(url, replace, state = null) {
   try {

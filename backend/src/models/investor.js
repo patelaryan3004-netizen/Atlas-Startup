@@ -54,7 +54,9 @@ export const ACTIVE_STATUSES = ['active', 'inactive'];
 
 // Why an investor is in the directory at all (the inclusion criteria): it is based in Australia, it invests in
 // Australian-founded startups, or it runs a recognised Australian startup investment network. A record needs one.
-export const INCLUSION_BASES = ['based_in_australia', 'invests_in_australian_startups', 'australian_startup_network'];
+// `international` is for global discovery: the investor is based outside Australia and is listed as that. It says nothing about whether it backs
+// Australian startups, and the pages never imply it does.
+export const INCLUSION_BASES = ['based_in_australia', 'invests_in_australian_startups', 'australian_startup_network', 'international'];
 
 // The record's keys in the order they are written, with what each is when nothing is known.
 const DEFAULTS = {

@@ -14,12 +14,13 @@ import '../../investors.css';
 export const SIDE_BY_SIDE = '(min-width: 1000px)';
 // The step in the history that opened an investor's panel from the directory (see writeRoute): closing the panel goes Back over it.
 const PANEL_STEP = { investors: 'panel' };
-const inDirectory = (kind) => kind === 'list' || kind === 'investor';
+const inDirectory = (kind) => kind === 'list' || kind === 'investor' || kind === 'person';
+const isPanel = (kind) => kind === 'investor' || kind === 'person';
 
 // The investor directory as a page of its own, as Jobs is. It holds four views and keeps the address bar in step, so each can be linked to and
 // the back button goes where a person expects: the directory (/investors), the directory with one investor open beside the results
-// (/investors/<slug>), that investor's own full page (/investors/<slug>/profile) and a person (/investors/people/<slug>). The directory stays
-// mounted behind the two full pages: coming back finds the same search, filters, sort, view, tab and place.
+// (/investors/<slug>) or one person (/investors/people/<slug>), and the full page of either (/investors/<slug>/profile, /investors/people/<slug>/profile).
+// The directory stays mounted behind the two full pages: coming back finds the same search, filters, scope, sort, view, tab and place.
 //
 // `chrome` is what the shared header needs from the app: the places it goes to (go), the counts beside them, the action and the menu's own props.
 export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLink = false, onClose, onOpenCompany, chrome = {} }) {
@@ -80,40 +81,44 @@ export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLin
   // A company opens over the map, so the investor pages leave the address as they do when closed.
   const openCompany = (company) => { clearRoute(); onOpenCompany(company); };
 
-  // An investor's panel: a step of its own from the directory, and a replace of the open one from another investor (so Back is the directory, not
+  // An investor's or a person's panel: a step of its own from the directory, and a replace of the open one from another (so Back is the directory, not
   // every investor looked at). Closing it goes Back over the step it made, or, from a link, puts the directory in its place.
-  const openInvestor = (slug) => {
-    if (route.kind === 'investor') {
-      if (route.slug !== slug) go({ kind: 'investor', slug }, { replace: true, state: window.history.state });
+  const openPanel = (next) => {
+    if (isPanel(route.kind)) {
+      if (route.kind !== next.kind || route.slug !== next.slug) go(next, { replace: true, state: window.history.state });
     } else {
-      go({ kind: 'investor', slug }, { state: route.kind === 'list' ? PANEL_STEP : null });
+      go(next, { state: route.kind === 'list' ? PANEL_STEP : null });
     }
   };
+  const openInvestor = (slug) => openPanel({ kind: 'investor', slug });
+  const openPerson = (slug) => openPanel({ kind: 'person', slug });
+  // The list's rows are opened by key: a firm's address, or people/<slug> for a person.
+  const openEntry = (key) => (key.startsWith('people/') ? openPerson(key.slice('people/'.length)) : openInvestor(key));
   const closePanel = () => {
     if (window.history.state?.investors === 'panel') { window.history.back(); return; }
     go({ kind: 'list' }, { replace: true });
   };
   const openProfile = (slug) => go({ kind: 'profile', slug });
-  const openPerson = (slug) => go({ kind: 'person', slug });
+  const openPersonProfile = (slug) => go({ kind: 'personProfile', slug });
   const toList = () => go({ kind: 'list' });
 
   // The shared header's places, as this page has them: Investors is where it is (the directory, with nothing open), and Saved is the saved tab.
   const showDirectory = () => {
     setTab('all');
-    if (route.kind === 'investor') closePanel();
+    if (isPanel(route.kind)) closePanel();
     else if (route.kind !== 'list') toList();
     scroller.current?.scrollTo?.({ top: 0 });
   };
   const showSaved = () => {
     setTab('saved');
-    if (route.kind !== 'list' && route.kind !== 'investor') toList();
+    if (!inDirectory(route.kind)) toList();
     scroller.current?.scrollTo?.({ top: 0 });
   };
 
   // The header is the app's, with the three places that mean something else here: Explore leaves for the map, Investors is this page, and Saved is the saved tab.
   const places = { ...chrome.go, explore: close, investors: showDirectory, saved: showSaved };
   const counts = { ...chrome.counts, saved: saved.saved.length };
-  const drawerOpen = route.kind === 'investor' && !sideBySide;
+  const drawerOpen = isPanel(route.kind) && !sideBySide;
 
   return (
     <div id="investorsView" ref={scroller} className={drawerOpen ? 'inv-locked' : undefined}>
@@ -121,27 +126,27 @@ export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLin
       <main className="inv-main" id="inv-main">
         <div hidden={!inDirectory(route.kind)} ref={title}>
           <InvestorDirectory
-            selected={route.kind === 'investor' ? route.slug : null}
+            selected={route.kind === 'investor' ? route.slug : route.kind === 'person' ? `people/${route.slug}` : null}
             panelMode={sideBySide ? 'side' : 'drawer'}
             tab={tab}
             onTab={setTab}
             saved={saved.saved}
             isSaved={saved.isSaved}
             onToggleSaved={saved.toggle}
-            onOpen={openInvestor}
+            onOpen={openEntry}
             onClosePanel={closePanel}
             onOpenFull={openProfile}
+            onOpenPersonFull={openPersonProfile}
             onOpenInvestor={openInvestor}
-            onOpenPerson={openPerson}
             onOpenCompany={openCompany}
             onClose={close}
           />
         </div>
         {route.kind === 'profile' && (
-          <InvestorProfile key={route.slug} slug={route.slug} onBack={() => go({ kind: 'investor', slug: route.slug })} onOpenInvestor={openProfile} onOpenPerson={openPerson} onOpenCompany={openCompany} />
+          <InvestorProfile key={route.slug} slug={route.slug} onBack={() => go({ kind: 'investor', slug: route.slug })} onOpenInvestor={openProfile} onOpenPerson={openPersonProfile} onOpenCompany={openCompany} />
         )}
-        {route.kind === 'person' && (
-          <InvestorPersonProfile key={route.slug} slug={route.slug} onBack={toList} onOpenInvestor={openProfile} onOpenCompany={openCompany} />
+        {route.kind === 'personProfile' && (
+          <InvestorPersonProfile key={route.slug} slug={route.slug} onBack={() => go({ kind: 'person', slug: route.slug })} onOpenInvestor={openProfile} onOpenCompany={openCompany} />
         )}
       </main>
       {suggesting && <SuggestInvestor onClose={() => setSuggesting(false)} />}

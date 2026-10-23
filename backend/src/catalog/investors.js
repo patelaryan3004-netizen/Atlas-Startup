@@ -22,9 +22,14 @@ import { INVESTOR_STAGES, isPublicStatus, typeLabel } from '../models/investor.j
 import { activeRecords } from '../models/investorEvidence.js';
 import { cityCentre, cityNamed } from '../geo/places.js';
 import { officesOf } from '../investors/offices.js';
+import { geoOfLocation, roleClassOf, roleClassLabel, ROLE_CLASSES } from '../investors/people.js';
 
 export const INVESTOR_SORTS = ['name', 'name_desc', 'portfolio', 'location'];
-export const INVESTOR_FACETS = ['type', 'stage', 'sector', 'location', 'lead', 'active'];
+export const INVESTOR_FACETS = ['type', 'stage', 'sector', 'location', 'lead', 'active', 'role', 'scope', 'kind'];
+// What a list may hold: firms (the default, as it always was), people, or both. Firms come first in `entries`, so a firm's number is the same in `entries`
+// and in `cards`. `scope` is where an investor is based: 'au' (Australia) or 'global' (every investor, Australian or not).
+export const ENTRY_KINDS = ['firm', 'person', 'all'];
+export const SCOPES = ['au', 'global'];
 export const INVESTOR_FILES = {
   investors: 'investors.json', people: 'investor_people.json', funds: 'funds.json', investments: 'investments.json',
   memberships: 'investor_people_organisations.json', records: 'verification_records.json', sources: 'sources.json', companies: 'startups.json',
@@ -49,13 +54,21 @@ const locationOf = (o) => {
 };
 // The places an investor is found under: its state and its country, so "Australia" lists every Australian investor and "NSW" only the ones in NSW.
 const placesOf = (c) => [...new Set([c.location.state, c.location.country].filter(Boolean))];
+// Where an entry is based: a person's listing is read by geoOfLocation; a firm is Australian when its record says Australia or names an Australian state. A place
+// nobody states is never Australia.
+const scopeOf = (e) => (e.kind === 'person' ? e.scope : (e.location.country === 'Australia' || e.location.state ? 'au' : 'global'));
+const kindOf = (e) => e.kind ?? 'firm';
+// A picture of a person is served only when the record holds an https address for one: a page served over https must not load an http picture.
+const httpsOnly = (url) => (typeof url === 'string' && /^https:\/\/\S+$/i.test(url.trim()) ? url.trim() : null);
+const keyOf = (e) => e.key ?? e.slug;
 
 export function buildInvestorSnapshot(data, version) {
   const companyById = new Map(data.companies.map((c) => [c.id, c]));
   const sourceById = new Map(data.sources.map((s) => [s.id, s]));
   const orgs = data.investors.filter((o) => isPublicStatus(o.verification_status));
   const orgById = new Map(orgs.map((o) => [o.id, o]));
-  const people = data.people.filter((p) => p.verification_status === 'published');
+  // A person is public only when published AND beside a public organisation: a published person whose firm is not public has no page.
+  const people = data.people.filter((p) => p.verification_status === 'published' && orgById.has(p.current_organisation_id));
   const personById = new Map(people.map((p) => [p.id, p]));
   const funds = data.funds.filter((f) => isPublicStatus(f.verification_status) && orgById.has(f.organisation_id));
   const fundById = new Map(funds.map((f) => [f.id, f]));
@@ -142,7 +155,7 @@ export function buildInvestorSnapshot(data, version) {
     for (const r of portfolio) if (!sources.has(r.source.id)) sources.set(r.source.id, { ...r.source, backs: ['portfolio'] }); else if (!sources.get(r.source.id).backs.includes('portfolio')) sources.get(r.source.id).backs.push('portfolio');
     for (const t of teamOf.get(o.id) ?? []) if (!sources.has(t.source.id)) sources.set(t.source.id, { ...t.source, backs: ['team'] }); else if (!sources.get(t.source.id).backs.includes('team')) sources.get(t.source.id).backs.push('team');
     profiles.set(o.slug, {
-      ...cards[i], id: o.id, logo: o.logo ?? null, description: o.description, investment_thesis: o.investment_thesis, geographies: o.geographies, other_offices: o.other_offices,
+      ...cards[i], id: o.id, logo: o.logo ?? null, inclusion_basis: o.inclusion_basis ?? null, description: o.description, investment_thesis: o.investment_thesis, geographies: o.geographies, other_offices: o.other_offices,
       // The street addresses its own pages give, each with the city it is under; `located` says whether the geocoder has put it on the map.
       office_addresses: (offices.get(o.slug) ?? []).filter((x) => x.office).map((x) => ({ city: x.office.city, address: x.office.address, located: x.status === 'placed' })),
       cheque, lead_or_follow: o.lead_or_follow, application_url: o.application_url, jobs_url: o.jobs_url,
@@ -164,6 +177,7 @@ export function buildInvestorSnapshot(data, version) {
     ...(teamOf.get(orgs[i].id) ?? []).map((t) => t.person.name), ...(portfolioOf.get(orgs[i].id) ?? []).map((r) => r.company.name),
   ].join('\n').toLowerCase());
 
+  const cardOfOrg = new Map(orgs.map((o, i) => [o.id, cards[i]]));
   const personProfiles = new Map();
   for (const p of people) {
     const rolesOf = (rolesOfPerson.get(p.id) ?? []).map((m) => ({
@@ -174,17 +188,45 @@ export function buildInvestorSnapshot(data, version) {
     const attributed = (investmentsOfPerson.get(p.id) ?? []).map((i) => plain(rowOf.get(i.id))).sort(byDateDesc);
     const sources = claimSources('investor_person', p.id);
     for (const r of rolesOf) if (!sources.has(r.source.id)) sources.set(r.source.id, { ...r.source, backs: ['role'] });
+    const org = orgById.get(p.current_organisation_id);
+    const roleClass = p.role_class ?? roleClassOf(p.current_title);
+    const geo = geoOfLocation(p.location);
     personProfiles.set(p.slug, {
-      slug: p.slug, name: p.name, photo: p.photo ?? null, current_title: p.current_title ?? null,
-      organisation: orgById.has(p.current_organisation_id) ? { slug: orgById.get(p.current_organisation_id).slug, name: orgById.get(p.current_organisation_id).name } : null,
-      location: p.location ?? null, biography: p.biography ?? null, previous_companies: p.previous_companies, previous_investor_organisations: p.previous_investor_organisations,
+      slug: p.slug, name: p.name, photo: httpsOnly(p.photo), current_title: p.current_title ?? null, role_class: roleClass, role_label: roleClassLabel(roleClass),
+      organisation: { slug: org.slug, name: org.name, domain: domainOf(org.website), website: org.website ?? null, type_label: typeLabel(org.investor_type), country: org.country ?? null, inclusion_basis: org.inclusion_basis ?? null, sectors: cardOfOrg.get(org.id).sectors, stages: cardOfOrg.get(org.id).stages, scope: scopeOf({ location: locationOf(org) }) },
+      location: p.location ?? null, scope: geo.scope, biography: p.biography ?? null, previous_companies: p.previous_companies, previous_investor_organisations: p.previous_investor_organisations,
       sector_focus: p.sector_focus, stage_focus: p.stage_focus, linkedin_url: p.linkedin_url ?? null, personal_website: p.personal_website ?? null,
       roles: rolesOf, investments: attributed, companies: [...new Map(attributed.map((r) => [r.company.slug, r.company])).values()],
       last_verified_at: p.last_verified_at ?? null, sources: [...sources.values()].sort((a, b) => collator.compare(a.title ?? '', b.title ?? '')),
     });
   }
 
-  return { version, loadedAt: Date.now(), count: cards.length, cards, search, profiles, personProfiles, offices, people: people.length };
+  // The people as the cards of a list. A person's focus is what the record states for them; where it states none, the firm's focus is shown and `focus_from` says
+  // so, so a firm's focus is never passed off as the person's own.
+  const peopleSearch = [];
+  const peopleCards = people.map((p) => {
+    const firm = cardOfOrg.get(p.current_organisation_id);
+    const org = orgById.get(p.current_organisation_id);
+    const roleClass = p.role_class ?? roleClassOf(p.current_title);
+    const geo = geoOfLocation(p.location);
+    const ownStages = p.stage_focus.length > 0;
+    const ownSectors = p.sector_focus.length > 0;
+    const card = {
+      kind: 'person', key: `people/${p.slug}`, slug: p.slug, name: p.name, photo: httpsOnly(p.photo), title: p.current_title ?? null, role_class: roleClass, role_label: roleClassLabel(roleClass),
+      organisation: { slug: org.slug, name: org.name, domain: domainOf(org.website), logo: org.logo ?? null },
+      domain: domainOf(org.website), type: firm.type, type_label: firm.type_label,
+      stages: ownStages ? p.stage_focus : firm.stages, sectors: ownSectors ? p.sector_focus : firm.sectors,
+      focus_from: ownStages || ownSectors ? 'person' : (firm.stages.length || firm.sectors.length ? 'firm' : null),
+      location: { city: geo.city, state: geo.state, country: geo.country, label: geo.label }, scope: geo.scope,
+      portfolio_count: (investmentsOfPerson.get(p.id) ?? []).length, active_status: null, status: p.verification_status, verified_at: p.last_verified_at ?? null,
+    };
+    peopleSearch.push([card.name, card.title ?? '', card.role_label ?? '', org.name, ...(org.aliases ?? []), card.location.label ?? '', card.location.state ?? '', card.location.country ?? '', ...card.sectors, ...card.stages].join('\n').toLowerCase());
+    return card;
+  });
+  // Firms first, so a firm has the same number in `entries` as in `cards`; people follow.
+  const entries = [...cards, ...peopleCards];
+
+  return { version, loadedAt: Date.now(), count: cards.length, cards, entries, search: [...search, ...peopleSearch], profiles, personProfiles, offices, people: people.length };
 }
 
 // ---------- the catalog: loaded from the files, rebuilt when one changes ----------
@@ -238,7 +280,7 @@ const list = (v) => (v == null || v === '' ? null : new Set(String(Array.isArray
 const nameKey = (s) => String(s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
 export function readInvestorFilters(query = {}) {
   const f = {};
-  for (const key of ['search', 'type', 'stage', 'sector', 'location', 'lead', 'active', 'slug']) if (query[key]) f[key] = String(Array.isArray(query[key]) ? query[key].join(',') : query[key]);
+  for (const key of ['search', 'type', 'stage', 'sector', 'location', 'lead', 'active', 'slug', 'kind', 'scope', 'role']) if (query[key]) f[key] = String(Array.isArray(query[key]) ? query[key].join(',') : query[key]);
   // Exact names (repeat the parameter: a name can hold a comma). It is how a company's investors are matched to their pages.
   if (query.name !== undefined && query.name !== '') f.name = [].concat(query.name).map(String).slice(0, 100);
   for (const key of ['chequeMin', 'chequeMax']) if (query[key] !== undefined && query[key] !== '') f[key] = Number(query[key]);
@@ -254,6 +296,17 @@ const chequeFits = (cheque, min, max) => {
   return (min == null || high >= min) && (max == null || low <= max);
 };
 
+// The entries a question is about: the firms alone (the default, which is what the list was before people were in it), the people alone, or both.
+// `kind` is not validated here: an unknown word is the firms, and the route refuses it before it gets this far.
+const rangeOf = (snap, kind) => (kind === 'person' ? [snap.cards.length, snap.entries.length] : kind === 'all' ? [0, snap.entries.length] : [0, snap.cards.length]);
+
+// How many entries a list of this kind is drawn from: the firms, the people, or both.
+export const entryTotal = (snap, kind = 'firm') => { const [from, to] = rangeOf(snap, kind); return to - from; };
+
+// Whether a question has been asked about people (a `kind` of person or all): the answer then carries `kind` and `key` on every entry, so a firm can be told from a
+// person. A question that does not name a kind is answered as it always was.
+export const asksForPeople = (f) => f.kind === 'person' || f.kind === 'all';
+
 export function selectInvestors(snap, f) {
   const types = list(f.type);
   const stages = list(f.stage);
@@ -261,29 +314,40 @@ export function selectInvestors(snap, f) {
   const places = list(f.location);
   const leads = list(f.lead);
   const actives = list(f.active);
+  const roles = list(f.role);
+  const scope = f.scope === 'au' ? 'au' : null; // 'global' (and no scope) is every investor
+  const firmOnly = Boolean(leads || actives || f.chequeMin !== undefined || f.chequeMax !== undefined || f.name); // these describe a firm: a person has none of them
   const names = f.name ? new Set(f.name.map(nameKey).filter(Boolean)) : null;
-  const slugs = list(f.slug); // the investors a visitor saved, by their addresses
+  const slugs = list(f.slug); // the investors a visitor saved, by their addresses (a person's is people/<slug>)
   const q = f.search ? f.search.toLowerCase().replace(/\n/g, ' ') : null;
+  const [from, to] = rangeOf(snap, f.kind);
   const out = [];
-  snap.cards.forEach((c, i) => {
-    if (q && !snap.search[i].includes(q)) return;
-    if (slugs && !slugs.has(c.slug)) return;
-    if (names && ![c.name, ...c.aliases].some((n) => names.has(nameKey(n)))) return;
-    if (types && !types.has(c.type)) return;
-    if (stages && !c.stages.some((s) => stages.has(s))) return;
-    if (sectors && !c.sectors.some((s) => [...sectors].some((w) => w.toLowerCase() === s.toLowerCase()))) return;
-    if (places && !placesOf(c).some((p) => places.has(p))) return;
-    const profile = snap.profiles.get(c.slug);
-    if (leads && !(leads.has(profile.lead_or_follow) || (profile.lead_or_follow === 'both' && (leads.has('lead') || leads.has('follow'))))) return;
-    if (actives && !(actives.has(c.active_status) || (actives.has('inactive') && c.status === 'inactive'))) return;
-    if ((f.chequeMin !== undefined || f.chequeMax !== undefined) && !chequeFits(profile.cheque, f.chequeMin, f.chequeMax)) return;
+  for (let i = from; i < to; i += 1) {
+    const c = snap.entries[i];
+    const person = c.kind === 'person';
+    if (q && !snap.search[i].includes(q)) continue;
+    if (slugs && !slugs.has(keyOf(c))) continue;
+    if (scope && scopeOf(c) !== scope) continue;
+    if (person && firmOnly) continue;
+    if (roles && !(person && roles.has(c.role_class))) continue;
+    if (names && ![c.name, ...c.aliases].some((n) => names.has(nameKey(n)))) continue;
+    if (types && !types.has(c.type)) continue;
+    if (stages && !c.stages.some((s) => stages.has(s))) continue;
+    if (sectors && !c.sectors.some((s) => [...sectors].some((w) => w.toLowerCase() === s.toLowerCase()))) continue;
+    if (places && !placesOf(c).some((p) => places.has(p))) continue;
+    if (!person) {
+      const profile = snap.profiles.get(c.slug);
+      if (leads && !(leads.has(profile.lead_or_follow) || (profile.lead_or_follow === 'both' && (leads.has('lead') || leads.has('follow'))))) continue;
+      if (actives && !(actives.has(c.active_status) || (actives.has('inactive') && c.status === 'inactive'))) continue;
+      if ((f.chequeMin !== undefined || f.chequeMax !== undefined) && !chequeFits(profile.cheque, f.chequeMin, f.chequeMax)) continue;
+    }
     out.push(i);
-  });
+  }
   return out;
 }
 
 export function sortInvestors(snap, matched, sort = 'name') {
-  const cards = snap.cards;
+  const cards = snap.entries;
   const compare = {
     name: (a, b) => collator.compare(cards[a].name, cards[b].name) || a - b,
     name_desc: (a, b) => collator.compare(cards[b].name, cards[a].name) || a - b,
@@ -292,6 +356,14 @@ export function sortInvestors(snap, matched, sort = 'name') {
   }[sort];
   return [...matched].sort(compare);
 }
+
+// The entry as the API serves it. A question that asked for people gets `kind` and `key` on every entry (a firm's key is its address, a person's is people/<slug>);
+// one that did not gets the card exactly as it always was.
+export const entryOf = (snap, i, f = {}) => {
+  const e = snap.entries[i];
+  if (!asksForPeople(f) || e.kind) return e;
+  return { kind: 'firm', key: e.slug, scope: scopeOf(e), ...e };
+};
 
 // The investors on the map. An investor's record has a city (its headquarters), a list of the cities it has offices in, and, for the offices whose
 // own page states one, a street address. An office with an address the geocoder has placed (investors/offices.js) is drawn there: precision EXACT, the
@@ -304,6 +376,7 @@ export function investorPins(snap, matched, { cities = null } = {}) {
   let pinned = 0;
   for (const i of matched) {
     const card = snap.cards[i];
+    if (!card) continue; // a person (entries after the firms) is never a mark: a place a person lists is not an office
     const profile = snap.profiles.get(card.slug);
     const spots = [];
     const hq = card.location.city ? (cityCentre(card.location.city, card.location.state) ?? cityNamed(card.location.city)) : null;
@@ -339,30 +412,46 @@ export function investorFacets(snap, matched, names) {
   for (const name of names) {
     const counts = new Map();
     for (const i of matched) {
-      const c = snap.cards[i];
-      const p = snap.profiles.get(c.slug);
+      const c = snap.entries[i];
+      const person = c.kind === 'person';
+      const p = person ? null : snap.profiles.get(c.slug);
       const values = {
-        type: [c.type], stage: c.stages, sector: c.sectors, location: placesOf(c), lead: [p.lead_or_follow],
-        active: [c.status === 'inactive' ? 'inactive' : c.active_status],
+        type: [c.type], stage: c.stages, sector: c.sectors, location: placesOf(c), lead: person ? [] : [p.lead_or_follow],
+        active: person ? [] : [c.status === 'inactive' ? 'inactive' : c.active_status],
+        role: person && c.role_class ? [c.role_class] : [], scope: [scopeOf(c)], kind: [kindOf(c)],
       }[name];
       for (const v of values) if (v) counts.set(v, (counts.get(v) ?? 0) + 1);
     }
-    const rows = sorted(counts, name === 'stage' ? INVESTOR_STAGES : null);
-    out[name] = { distinct: rows.length, values: rows.map(([value, count]) => ({ value, count, ...(name === 'type' ? { label: typeLabel(value) } : {}) })) };
+    const rows = sorted(counts, name === 'stage' ? INVESTOR_STAGES : name === 'role' ? ROLE_CLASSES : null);
+    out[name] = {
+      distinct: rows.length,
+      values: rows.map(([value, count]) => ({ value, count, ...(name === 'type' ? { label: typeLabel(value) } : {}), ...(name === 'role' ? { label: roleClassLabel(value) } : {}) })),
+    };
   }
   return out;
 }
 // Stages in the order an investor's own site would list them, which the facet counts follow.
 export { INVESTOR_STAGES };
 
-// The filter vocabulary of the whole public directory, for the dropdowns, and whether any investor states a cheque size.
-export function investorMeta(snap) {
-  const all = snap.cards.map((_, i) => i);
-  const facets = investorFacets(snap, all, INVESTOR_FACETS);
+// The filter vocabulary of the public directory, for the dropdowns, and whether any investor states a cheque size. `kind` is what the list is of (firm, the
+// default; person; all): the options are counted over those, so every option offered is one some entry of that kind has. `kinds` and `scopes` always say how many
+// of each there are (scopes: au is the Australian ones, global is all of them), so the page can tell whether to offer the choice at all. With `scope` au the
+// options are counted over the Australian ones only.
+export function investorMeta(snap, kind = 'firm', scope = null) {
+  const [from, to] = rangeOf(snap, kind);
+  const inRange = Array.from({ length: to - from }, (_, k) => from + k);
+  const mine = scope === 'au' ? inRange.filter((i) => scopeOf(snap.entries[i]) === 'au') : inRange; // with scope=au the options are the Australian ones: every option offered finds something
+  const facets = investorFacets(snap, mine, INVESTOR_FACETS);
+  const everyone = snap.entries.map((_, i) => i);
+  const overall = investorFacets(snap, everyone, ['kind', 'scope']);
+  const count = (facet, value) => overall[facet].values.find((v) => v.value === value)?.count ?? 0;
   const cheques = snap.cards.map((c) => snap.profiles.get(c.slug).cheque).filter((x) => x && x.currency === 'AUD');
   return {
-    total: snap.count,
+    total: mine.length,
     types: facets.type.values, stages: facets.stage.values, sectors: facets.sector.values, locations: facets.location.values, lead: facets.lead.values, active: facets.active.values,
+    roles: facets.role.values,
+    kinds: { firm: count('kind', 'firm'), person: count('kind', 'person') },
+    scopes: { au: count('scope', 'au'), global: snap.entries.length },
     cheque: cheques.length ? { currency: 'AUD', count: cheques.length, min: Math.min(...cheques.map((x) => x.min ?? 0)), max: Math.max(...cheques.map((x) => x.max ?? x.min ?? 0)) } : null,
   };
 }

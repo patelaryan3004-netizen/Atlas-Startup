@@ -54,6 +54,7 @@ cd frontend && npm install && npm run dev
 - `GET /api/startups/:slug` — one company in full, with where its facts came from: `sources` (the public pages behind them: title, address, publisher, what each backs and when it was read), `checked_at` (when the newest was read) and, for a company that is hiring, `hiring_source` (the page that backs it). Only pages anyone can open are served: a source a person supplied, a page with no web address and any note are never served (`src/catalog/provenance.js`); `GET /api/people/:name` — the companies a person founded
 - `GET /api/search?q=` — name suggestions for the search box
 - `GET /api/people`, `GET /api/institutions`, `GET /api/lists` and `GET /api/lists/:id` — the people and firms worth following, and the curated lists that gather them (the People page, `/people`). Typed in by the owner in `people_seed.json`, with the published investors added: see [docs/people.md](docs/people.md)
+- `GET /api/investors` (`kind=firm|person|all`, `scope=au|global`, `role=`, plus the search and filters), `GET /api/investors/meta`, `GET /api/investors/:slug`, `GET /api/investor-people/:slug` and their `…/corrections` posts — the investor directory (`/investors`): firms and, once published, the people at them, in Australia or worldwide. `backend/scripts/investors/people_import.mjs` imports a list of people from a file (a dry run first, candidates only, undoable); see [docs/investors.md](docs/investors.md)
 - `GET /directory?page=n` — the no-JavaScript list, 250 companies a page
 
 ### Paging

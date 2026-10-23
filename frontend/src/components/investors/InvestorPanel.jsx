@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { fetchInvestor } from '../../api.js';
 import { useEscapeClose } from '../../hooks/useEscapeClose.js';
-import { InvestorLogo, SaveButton, VerifiedMark, listText, plural, safeUrl, stageText } from './common.jsx';
+import { DIRECTORY_NOTE, GLOBAL_NOTE, InvestorLogo, SaveButton, VerifiedMark, listText, needsGlobalNote, plural, safeUrl, stageText } from './common.jsx';
 import { useLoaded } from './useLoaded.js';
 import { usePageTitle } from './usePageTitle.js';
 import {
@@ -74,6 +74,8 @@ export default function InvestorPanel({ slug, card, mode = 'side', saved, onTogg
   const showRecent = Boolean(d) && d.recent.length > 0 && d.portfolio.length > d.recent.length;
   const counts = { portfolio: d ? portfolio.length : p.portfolio_count, people: d ? team.length : null };
   const ready = status === 'ready';
+  // Based in Australia when the record says so; a place nobody states is never Australia.
+  const scope = p.location?.country === 'Australia' || p.location?.state ? 'au' : 'global';
 
   return (
     <aside
@@ -138,6 +140,10 @@ export default function InvestorPanel({ slug, card, mode = 'side', saved, onTogg
                   <SourceRows sources={d.sources} />
                 </Section>
               )}
+              <div className="inv-notes">
+                <p className="inv-panel-note">{DIRECTORY_NOTE}</p>
+                {needsGlobalNote(scope, d.inclusion_basis ?? null) && <p className="inv-panel-note">{GLOBAL_NOTE}</p>}
+              </div>
               <div className="inv-correct inv-panel-correct">
                 <h3>Something wrong or missing?</h3>
                 <p>Tell us what, and give a page that shows it. A person checks every suggestion against a page before anything changes.</p>

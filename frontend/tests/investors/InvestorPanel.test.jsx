@@ -47,7 +47,7 @@ describe('an investor opened beside the results', () => {
     expect(side.getByText('Software · Sydney, NSW')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Skip Capital' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Blackbird' })).toHaveAttribute('aria-current', 'true');
-    expect(screen.getByRole('link', { name: 'Blackbird' }).closest('li')).toHaveClass('inv-card-on');
+    expect(screen.getByRole('link', { name: 'Blackbird' }).closest('li')).toHaveClass('inv-item-on');
     expect(screen.getByRole('link', { name: 'Skip Capital' })).not.toHaveAttribute('aria-current');
   });
 
@@ -151,7 +151,7 @@ describe('an investor opened beside the results', () => {
     expect(side.getByText(/No one from Skip Capital has been published yet/)).toBeInTheDocument();
   });
 
-  it('lists the people a page names in its People tab, each a way to open their page, which is a step of its own', async () => {
+  it('lists the people a page names in its People tab, each a way to open their panel, which is a step of its own', async () => {
     world();
     renderView();
     await userEvent.click(await screen.findByRole('link', { name: 'Blackbird' }));
@@ -159,10 +159,13 @@ describe('an investor opened beside the results', () => {
     await userEvent.click(await side.findByRole('tab', { name: 'People 1' }));
     expect(side.getByText('Partner')).toBeInTheDocument();
     await userEvent.click(side.getByRole('link', { name: 'Sam Rivera' }));
-    expect(await screen.findByRole('heading', { level: 1, name: 'Sam Rivera' })).toBeInTheDocument();
+    expect(await panel('Sam Rivera')).toBeInTheDocument(); // the person beside the results, as an investor is
     expect(window.location.pathname).toBe('/investors/people/sam');
+    expect(screen.queryByRole('complementary', { name: 'Blackbird' })).not.toBeInTheDocument(); // one panel at a time
     window.history.back();
-    expect(await panel()).toBeInTheDocument(); // Back is the panel it came from
+    // Looking from one panel to another replaces it, so Back is the directory and not every investor looked at
+    await waitFor(() => expect(screen.queryByRole('complementary')).not.toBeInTheDocument());
+    expect(window.location.pathname).toBe('/investors');
   });
 
   it('moves between its tabs with the arrow keys, and each tab names the panel it controls', async () => {
@@ -358,7 +361,7 @@ describe('an investor opened beside the results', () => {
       let top = 0;
       Object.defineProperty(scroller, 'scrollTop', { configurable: true, get: () => top, set: (v) => { top = v; } });
       await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Sort by' }), 'name_desc');
-      await waitFor(() => expect(screen.getAllByRole('heading', { level: 2 })[0]).toHaveTextContent('Skip Capital'));
+      await waitFor(() => expect(document.querySelector('.inv-item-link').firstChild).toHaveTextContent('Skip Capital'));
       top = 310;
       await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
       await userEvent.click(within(await panel()).getByRole('button', { name: /Open full profile/ }));
@@ -608,20 +611,33 @@ describe('moving between the directory, an investor and a person', () => {
     expect(window.history.length).toBe(before);
   });
 
-  it('opens a person from a link, and goes back to the directory from their page', async () => {
+  it('opens a person from a link as a panel beside the results, which Close takes away', async () => {
     world();
     window.history.pushState({}, '', '/investors/people/sam');
     renderView({ fromLink: true, initialRoute: { kind: 'person', slug: 'sam' } });
+    const side = within(await panel('Sam Rivera'));
+    expect(side.getByText('Directory profile')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { level: 1, name: 'Find your next backer.' })).toBeInTheDocument(); // the directory is there too
+    await userEvent.click(side.getByRole('button', { name: /^Close/ }));
+    expect(screen.queryByRole('complementary', { name: 'Sam Rivera' })).not.toBeInTheDocument();
+    expect(window.location.pathname).toBe('/investors');
+  });
+
+  it('opens a person\'s own page from a link, and "All investors" comes back to the directory with their panel, as an investor\'s does', async () => {
+    world();
+    window.history.pushState({}, '', '/investors/people/sam/profile');
+    renderView({ fromLink: true, initialRoute: { kind: 'personProfile', slug: 'sam' } });
     expect(await screen.findByRole('heading', { level: 1, name: 'Sam Rivera' })).toBeInTheDocument();
     await userEvent.click(screen.getByRole('button', { name: '← All investors' }));
     expect(await screen.findByRole('heading', { level: 1, name: 'Find your next backer.' })).toBeInTheDocument();
-    expect(window.location.pathname).toBe('/investors');
+    expect(await panel('Sam Rivera')).toBeInTheDocument();
+    expect(window.location.pathname).toBe('/investors/people/sam');
   });
 
   it('opens an investor from a person\'s page as that investor\'s full profile', async () => {
     world();
-    renderView({ initialRoute: { kind: 'person', slug: 'sam' } });
-    await userEvent.click(await screen.findByRole('link', { name: /Blackbird/ }));
+    renderView({ initialRoute: { kind: 'personProfile', slug: 'sam' } });
+    await userEvent.click(await screen.findByRole('link', { name: /^Blackbird$/ }));
     expect(await screen.findByRole('article')).toBeInTheDocument();
     expect(window.location.pathname).toBe('/investors/blackbird/profile');
   });

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { fetchInvestorPerson } from '../../api.js';
-import { AppLink, Chips, Fact, amountText, dateText, partialDateText, plural, safeUrl } from './common.jsx';
+import { AppLink, Chips, DIRECTORY_NOTE, Fact, GLOBAL_NOTE, PersonAvatar, VerifiedMark, amountText, dateText, needsGlobalNote, partialDateText, plural, safeUrl } from './common.jsx';
+import SuggestPersonCorrection from './SuggestPersonCorrection.jsx';
 import { investorHref } from './route.js';
 import { useLoaded } from './useLoaded.js';
 import { usePageTitle } from './usePageTitle.js';
@@ -33,7 +34,8 @@ const span = (start, end) => [start, end].map((d) => partialDateText(d)).filter(
 // Never a phone number or an email address: this page holds none, and links only to pages the person publishes themselves.
 export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, onOpenCompany }) {
   const { status, data: p } = useLoaded(fetchInvestorPerson, slug);
-  usePageTitle(status === 'ready' ? `${p.name} · Australian Startup Investors · Still Early` : null);
+  usePageTitle(status === 'ready' ? `${p.name} · Investors · Still Early` : null);
+  const [suggesting, setSuggesting] = useState(false);
   const heading = useRef(null);
   useEffect(() => { if (status !== 'loading') heading.current?.focus({ preventScroll: true }); }, [status]);
 
@@ -50,7 +52,8 @@ export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, on
     );
   }
 
-  const links = [['LinkedIn', p.linkedin_url], ['Personal website', p.personal_website]].filter(([, url]) => safeUrl(url));
+  const links = [['Professional profile', p.linkedin_url], ['Personal website', p.personal_website], [p.organisation ? `${p.organisation.name} website` : 'Firm website', p.organisation?.website]].filter(([, url]) => safeUrl(url));
+  const roleTag = p.role_class && p.role_class !== 'investment' ? p.role_label : null;
   const hasFocus = p.sector_focus.length > 0 || p.stage_focus.length > 0;
   const hasBackground = p.previous_companies.length > 0 || p.previous_investor_organisations.length > 0;
   const where = [p.current_title, p.organisation?.name].filter(Boolean);
@@ -61,7 +64,7 @@ export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, on
     <article className="inv-profile" aria-labelledby="inv-person-title">
       <button type="button" className="inv-back" onClick={onBack}>← All investors</button>
       <div className="inv-profile-head">
-        <span className="inv-logo inv-logo-lg" aria-hidden="true"><span className="inv-logo-initial">{p.name.trim().charAt(0).toUpperCase()}</span></span>
+        <PersonAvatar name={p.name} photo={p.photo} size="lg" />
         <div className="inv-profile-id">
           <h1 id="inv-person-title" tabIndex={-1} ref={heading}>{p.name}</h1>
           {(where.length > 0 || p.location) && (
@@ -72,6 +75,11 @@ export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, on
               {p.location && ` · ${p.location}`}
             </p>
           )}
+          <p className="inv-profile-flags">
+            <span className="inv-panel-type">Directory profile</span>
+            {roleTag && <span className="inv-tag">{roleTag}</span>}
+            <VerifiedMark at={p.last_verified_at} />
+          </p>
         </div>
       </div>
 
@@ -171,6 +179,11 @@ export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, on
             </Section>
           )}
 
+          <div className="inv-notes">
+            <p className="inv-panel-note">{DIRECTORY_NOTE}</p>
+            {needsGlobalNote(p.scope, p.organisation?.inclusion_basis ?? null) && <p className="inv-panel-note">{GLOBAL_NOTE}</p>}
+          </div>
+
           {p.sources.length > 0 && (
             <Section title="Sources" note="The pages this profile is built from.">
               <ul className="inv-rows">
@@ -186,8 +199,16 @@ export default function InvestorPersonProfile({ slug, onBack, onOpenInvestor, on
               </ul>
             </Section>
           )}
+          <div className="inv-correct inv-after">
+            <h2>Not right, or not you?</h2>
+            <p>Tell us what is wrong, or ask for this profile to be corrected or removed. A person checks it before anything changes.</p>
+            <div className="inv-correct-actions">
+              <button type="button" className="hdrbtn" onClick={() => setSuggesting(true)}>Suggest a correction or removal</button>
+            </div>
+          </div>
         </div>
       </div>
+      {suggesting && <SuggestPersonCorrection person={p} onClose={() => setSuggesting(false)} />}
     </article>
   );
 }

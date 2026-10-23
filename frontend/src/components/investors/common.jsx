@@ -185,3 +185,69 @@ export function AppLink({ href, onOpen, className, children, ...rest }) {
     </a>
   );
 }
+
+// ---------- what a list entry is: a firm or a person ----------
+
+// The entries of the list are firms and people. A firm card has no `kind` (it is the card it always was); a person's says so. An entry's key is how it is saved and
+// told apart: a firm's address, or people/<slug> for a person.
+export const isPerson = (e) => e?.kind === 'person';
+export const entryKey = (e) => e.key ?? (isPerson(e) ? `people/${e.slug}` : e.slug);
+
+// "Anas Biad" -> "AB". The first letters of the first and the last word of the name.
+export function initialsOf(name) {
+  const words = String(name ?? '').trim().split(/\s+/).filter(Boolean);
+  if (!words.length) return '?';
+  return (words.length === 1 ? words[0].slice(0, 2) : words[0][0] + words[words.length - 1][0]).toUpperCase();
+}
+
+// A person's picture when the record has one, and otherwise their initials on a soft tint of the brand's own colours (the same tint for the same name,
+// so a person is recognised at a glance). No picture is ever made for a person: only one the record holds, which is the person's or their firm's own. A
+// picture that does not load, or is too small to be one, leaves the initials.
+const TINTS = ['tint-green', 'tint-butter', 'tint-peach', 'tint-sand'];
+const tintOf = (name) => TINTS[[...String(name)].reduce((n, ch) => (n * 31 + ch.charCodeAt(0)) % 997, 7) % TINTS.length];
+export function PersonAvatar({ name, photo = null, size = 'md' }) {
+  const [state, setState] = useState('loading');
+  return (
+    <span className={`inv-person inv-person-${size} ${tintOf(name)}`} aria-hidden="true">
+      <span className="inv-person-initials">{initialsOf(name)}</span>
+      {photo && state !== 'none' && (
+        <img
+          className={`inv-person-img${state === 'ready' ? ' inv-person-img-ready' : ''}`}
+          src={photo}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          onLoad={(e) => setState(e.currentTarget.naturalWidth >= 24 ? 'ready' : 'none')}
+          onError={() => setState('none')}
+        />
+      )}
+    </span>
+  );
+}
+
+// At most two tags of what an entry invests in, from what a record states: sectors first, then the stages. `from` is whose focus it is: a person's own, or
+// (where the record states none for them) their firm's, which the tag says in its title.
+export function focusTags(entry, max = 2) {
+  const out = [...(entry.sectors ?? []), ...(entry.stages?.length ? [stageText(entry.stages)] : [])];
+  return { tags: out.slice(0, max), more: Math.max(0, out.length - max), from: entry.focus_from ?? null };
+}
+
+// The role a person has, when it is not an investing one: said, so a talent or platform role is never taken for an investor.
+export const roleTagOf = (entry) => (isPerson(entry) && entry.role_class && entry.role_class !== 'investment' ? entry.role_label : null);
+
+// What every investor page says about what it is: a directory profile, and nothing more. (Not a member, a partner, an endorsement or an introduction.)
+export const DIRECTORY_NOTE = 'A directory profile, built from public pages. It is not a Still Early member, partner or endorsement, and nobody here is available for introductions through this site.';
+// An investor based outside Australia is listed for global discovery, and nothing here says it backs Australian startups unless a source does.
+export const GLOBAL_NOTE = 'Based outside Australia. This profile does not say it invests in Australian startups.';
+export const needsGlobalNote = (scope, basis) => scope === 'global' && (basis == null || basis === 'international');
+
+// What nobody states is a dash, read out as what it is: nothing is known, which is not the same as none.
+export function Stated({ children }) {
+  return children ? <>{children}</> : (
+    <>
+      <span aria-hidden="true">–</span>
+      <span className="sr-only">Not stated</span>
+    </>
+  );
+}

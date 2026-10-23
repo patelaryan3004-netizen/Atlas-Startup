@@ -97,8 +97,8 @@ export function fetchInvestors(filters = {}, { limit = 20, offset = 0, sort = 'n
 
 // What the whole directory offers to filter by, with how many investors have each: { total, types, stages, sectors,
 // locations, lead, active, cheque }. `cheque` is null until some investor states a cheque size in Australian dollars.
-export function fetchInvestorMeta({ signal } = {}) {
-  return getJson(`${BASE}/investors/meta`, { signal, failure: 'Failed to fetch the investor filters' });
+export function fetchInvestorMeta({ kind, scope, signal } = {}) {
+  return getJson(`${BASE}/investors/meta${toQuery({ kind, scope })}`, { signal, failure: 'Failed to fetch the investor filters' });
 }
 
 // The investors as marks for the map: { total, count, pinned, unplaced, items: [{ id, slug, name, type_label, domain, logo, lat, lng, city, state, place,
@@ -107,6 +107,18 @@ export function fetchInvestorMeta({ signal } = {}) {
 export function fetchInvestorPins(filters = {}, { signal } = {}) {
   const { search, sector, stage, city } = filters;
   return getJson(`${BASE}/investors/pins${toQuery({ search, sector, stage, city })}`, { signal, failure: 'Failed to fetch the investors for the map' });
+}
+
+// A correction (or a request to remove them) a visitor suggests for a published person. Staged for a person to check against a page, never applied.
+export async function submitPersonCorrection(slug, data) {
+  const res = await fetch(`${BASE}/investor-people/${encodeURIComponent(slug)}/corrections`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(body.error || 'Failed to send the correction');
+  return body;
 }
 
 // One published investor in full, by slug.

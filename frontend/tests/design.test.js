@@ -628,9 +628,17 @@ describe('the investors page (investors.css): one design, one theme', () => {
     expect(rule(investors, '#investorsView.inv-locked')).toMatch(/overflow: hidden/);
   });
 
-  it('lets the focus and the companies give way when the results are narrow, so a table never scrolls sideways beside the panel, and stacks it on a phone', () => {
-    expect(investors).toMatch(/@container \(max-width: 760px\) \{ \.inv-col-focus, \.inv-col-companies \{ display: none; \} \}/);
-    expect(investors).toMatch(/@media \(max-width: 899px\) \{\s*\.inv-views \{ display: none !important; \}/);
+  it('lets the tags and the words of the way in give way when the results are narrow, so a row never scrolls sideways beside the panel, and stacks it on a phone', () => {
+    expect(investors).toMatch(/@container \(max-width: 860px\) \{[^@]*\.inv-item-tags \{ display: none; \}[^@]*\.inv-item-cta \{ display: none; \}/);
+    expect(investors).toMatch(/@container \(max-width: 600px\) \{[^@]*\.inv-list-head \{ display: none; \}[^@]*\.inv-item \{ grid-template-columns: minmax\(0, 1fr\) auto;/);
+  });
+
+  it('sets the page on the brand\'s off-white with white rows, cards and panel on it, and the scope and the filter sheet are the page\'s own parts', () => {
+    expect(rule(investors, '#investorsView')).toMatch(/background: var\(--bg-subtle\)/);
+    expect(rule(investors, '.inv-list')).toMatch(/background: var\(--bg\)/);
+    expect(rule(investors, '.inv-sheet')).toMatch(/border-radius: var\(--r-xl\) var\(--r-xl\) 0 0/);
+    expect(code('components/investors/InvestorDirectory.jsx')).toContain('inv-scope');
+    expect(code('components/investors/InvestorDirectory.jsx')).toContain('FilterSheet');
   });
 
   it('stops its motion for a visitor who has asked for less: the panel, the drawer and the cards', () => {

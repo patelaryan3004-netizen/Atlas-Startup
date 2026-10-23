@@ -54,7 +54,7 @@ export function createApp({
   app.get('/api/health', (req, res) => res.json({ ok: true }));
   app.use('/api/startups', createStartupsRouter({ respond }));
   app.use('/api/investors', createInvestorsRouter({ respond: respondInvestors, catalog: investorCatalog, correctionsFile }));
-  app.use('/api/investor-people', createInvestorPeopleRouter({ respond: respondInvestors }));
+  app.use('/api/investor-people', createInvestorPeopleRouter({ respond: respondInvestors, catalog: investorCatalog, correctionsFile }));
   app.use('/api', createCommunityRouter({ respond: respondCommunity, companyCatalog: catalog, enabled: showPeople })); // before the search router: /api/people here, /api/people/:name there
   app.use('/api', createSearchRouter({ respond }));
   app.use('/api/news', newsRouter);

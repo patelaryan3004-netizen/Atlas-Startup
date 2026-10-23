@@ -3,7 +3,9 @@
 //   investor_people.json                 a person who invests, kept apart from the firm they work at
 //                                        { id, name, slug, photo, current_title, current_organisation_id, location, biography,
 //                                          previous_companies[], previous_investor_organisations[], sector_focus[], stage_focus[],
-//                                          linkedin_url, personal_website, verification_status, last_verified_at, created_at, updated_at }
+//                                          linkedin_url, personal_website, role_class, verification_status, last_verified_at, created_at, updated_at }
+//                                        role_class (investment | scout | talent | platform | other, or null) overrides what the title says; with null it is worked
+//                                        out from the title (investors/people.js), and a person with no title has none: a firm alone does not make an investor
 //   funds.json                           one fund of one organisation
 //                                        { id, name, slug, organisation_id, vintage_year, publicly_disclosed_size, size_currency,
 //                                          stage_focus[], sector_focus[], active_status, verification_status, last_verified_at, created_at, updated_at }
@@ -26,12 +28,13 @@
 // field at all, and a record that carries one is refused.
 import { ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum } from './company.js';
 import { INVESTOR_STATUSES, INVESTOR_STAGES, ACTIVE_STATUSES, CHECKED_STATUSES } from './investor.js';
+import { ROLE_CLASSES } from '../investors/people.js';
 
 // What a person and a fund are when nothing about them is known. A record that has less than this gets the rest filled in
 // (pure and idempotent), in this order.
 const PERSON_DEFAULTS = {
   photo: null, current_title: null, current_organisation_id: null, location: null, biography: null, previous_companies: [],
-  previous_investor_organisations: [], sector_focus: [], stage_focus: [], linkedin_url: null, personal_website: null,
+  previous_investor_organisations: [], sector_focus: [], stage_focus: [], linkedin_url: null, personal_website: null, role_class: null,
   verification_status: 'candidate', last_verified_at: null, created_at: null, updated_at: null,
 };
 const FUND_DEFAULTS = {
@@ -122,6 +125,7 @@ export function validateInvestorGraph(ds) {
     for (const key of ['current_title', 'location', 'biography']) if (p[key] != null && !isStr(p[key])) bad(at, `${key} must be text or null`);
     if (p.current_organisation_id != null && !orgs.has(p.current_organisation_id)) bad(at, `unknown current_organisation_id "${p.current_organisation_id}"`);
     list(at, p, 'previous_companies'); list(at, p, 'previous_investor_organisations'); list(at, p, 'sector_focus'); list(at, p, 'stage_focus', INVESTOR_STAGES);
+    if (p.role_class != null && !ROLE_CLASSES.includes(p.role_class)) bad(at, `role_class must be one of ${ROLE_CLASSES.join(', ')} or null`);
     if (!INVESTOR_STATUSES.includes(p.verification_status)) bad(at, `invalid verification_status "${p.verification_status}"`);
     stamp(at, p, ['last_verified_at', 'created_at', 'updated_at']);
     if (CHECKED_STATUSES.includes(p.verification_status) && p.last_verified_at == null) bad(at, `is ${p.verification_status} but has no last_verified_at`);
