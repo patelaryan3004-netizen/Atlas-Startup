@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchInvestors, fetchStartup, fetchStartupsByName, fetchPerson, DIRECTORY_URL } from './api.js';
+import { fetchMeta, fetchSummary, fetchMarkers, fetchInstitutionPins, fetchInvestorPins, fetchInvestorMeta, fetchStartup, fetchPerson, DIRECTORY_URL } from './api.js';
 import FilterPanel from './components/FilterPanel.jsx';
 import { splitValues } from './components/MultiSelect.jsx';
 import MapKey from './components/MapKey.jsx';
 import MapLayers from './components/MapLayers.jsx';
 import SiteHeader from './components/brand/SiteHeader.jsx';
+import SectionTabs from './components/brand/SectionTabs.jsx';
+import { DISCOVER_TABS } from './components/brand/nav.js';
+import { useSavedCount } from './savedStore.js';
 import ExploreHero from './components/explore/ExploreHero.jsx';
 import ResultsColumn from './components/explore/ResultsColumn.jsx';
 import ExploreToolbar, { placeLabel } from './components/explore/ExploreToolbar.jsx';
@@ -41,7 +44,14 @@ const StartupPanel = lazyView(() => import('./components/explore/StartupPanel.js
 const PreviewCard = lazyView(() => import('./components/explore/PreviewCard.jsx'));
 const VcPanel = lazyView(() => import('./components/explore/VcPanel.jsx'));
 const VcList = lazyView(() => import('./components/explore/VcList.jsx'));
-const JobsView = lazyView(() => import('./components/JobsView.jsx'));
+const JobsBoard = lazyView(() => import('./components/network/JobsBoard.jsx'));
+const EventsBoard = lazyView(() => import('./components/network/EventsBoard.jsx'));
+const HomeFeed = lazyView(() => import('./components/network/HomeFeed.jsx'));
+const DiscoverPeople = lazyView(() => import('./components/network/DiscoverPeople.jsx'));
+const SavedPage = lazyView(() => import('./components/network/SavedPage.jsx'));
+const MemberProfile = lazyView(() => import('./components/network/MemberProfile.jsx'));
+const ProfileEditor = lazyView(() => import('./components/network/ProfileEditor.jsx'));
+const ModerationPage = lazyView(() => import('./components/network/ModerationPage.jsx'));
 const InvestorsView = lazyView(() => import('./components/investors/InvestorsView.jsx'));
 const NewsPage = lazyView(() => import('./components/NewsPage.jsx'));
 const PeopleView = lazyView(() => import('./components/people/PeopleView.jsx'));
@@ -54,7 +64,6 @@ const WaitlistForm = lazyView(() => import('./components/WaitlistForm.jsx'));
 const AboutSources = lazyView(() => import('./components/AboutSources.jsx'));
 const PrivacyPolicy = lazyView(() => import('./components/PrivacyPolicy.jsx'));
 const UnverifiedList = lazyView(() => import('./components/UnverifiedList.jsx'));
-const StartupListView = lazyView(() => import('./components/StartupListView.jsx'));
 const CuratedLists = lazyView(() => import('./components/CuratedLists.jsx'));
 
 // What shows while a page's file arrives: the page's own words, over the dark background the page already has.
@@ -185,11 +194,14 @@ export default function App() {
   const peopleOn = showPeople(); // VITE_SHOW_PEOPLE: without it the People page, its links and the firms on the map do not exist (flags.js)
   // The page is in the address bar (appRoute.js): a link opens it, Back leaves it.
   const [route, setRoute] = useState(readAppRoute);
+  // The app is on the page, so a link inside it (a post's author, a tab) can move to another page of it without loading the site again (navigate.js).
+  useEffect(() => { window.__stillEarlyApp = true; return () => { window.__stillEarlyApp = false; }; }, []);
   const [filters, setFilters] = useState(() => initialFilters(route));
   const applied = useAppliedFilters(filters);
   // What the snapshot already holds is what the first paint has (peek.js): the filters' options, the counts and, on the map, the pins. An
   // address with filters asks something the snapshot does not hold, so those start empty and the API answers, as before.
-  const startsOnMap = !(initialView === 'list' || route.kind === 'list');
+  // The map is one way to look at startups, not the first: a visit starts on the list, and the map is asked for (?view=map).
+  const startsOnMap = initialView === 'map' && route.kind !== 'list';
   const [first] = useState(() => ({ meta: peek.meta(), stats: peek.summary({}), summary: peek.summary(applied), pins: startsOnMap ? peek.markers(applied) : null }));
   const [meta, setMeta] = useState(first.meta ?? EMPTY_META);
   const [summary, setSummary] = useState(first.summary);
@@ -213,16 +225,13 @@ export default function App() {
   const [sheetOpen, setSheetOpen] = useState(false); // the phone's sheet: its list is showing
   const [showSubmitForm, setShowSubmitForm] = useState(initialView === 'submit');
   const [showUnverified, setShowUnverified] = useState(false);
-  const [viewMode, setViewMode] = useState(initialView === 'list' || route.kind === 'list' ? 'list' : 'map');
-  const [showTracked, setShowTracked] = useState(initialView === 'saved'); // /?view=saved: the header's Saved link from a page that is not the app
+  const [viewMode, setViewMode] = useState(startsOnMap ? 'map' : 'list');
   const { tracked, toggleTracked, isTracked } = useTrackedStartups();
-  const [trackedStartups, setTrackedStartups] = useState([]);
-  const [savedInvestorCards, setSavedInvestorCards] = useState([]); // the investors saved, for the Saved dialog
+  const savedCount = useSavedCount();
   const [showAbout, setShowAbout] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [showWaitlist, setShowWaitlist] = useState(initialView === 'waitlist');
-  const showJobs = route.kind === 'jobs';
   const showInvestors = route.kind === 'investors';
   const showCuratedLists = route.kind === 'lists';
   const [investorsStart, setInvestorsStart] = useState(() => readInvestorsRoute() ?? { kind: 'list' });
@@ -266,7 +275,7 @@ export default function App() {
       if (next.kind === 'explore' || next.kind === 'startup') {
         const from = loadFiltersFromUrl();
         setFilters((now) => (sameFilters(now, from) ? now : from));
-        setViewMode(new URLSearchParams(window.location.search).get('view') === 'list' ? 'list' : 'map');
+        setViewMode(new URLSearchParams(window.location.search).get('view') === 'map' ? 'map' : 'list');
         setShown(loadShown());
       } else if (next.kind === 'list') {
         const list = filterList(next.slug);
@@ -375,30 +384,6 @@ export default function App() {
     return next;
   });
 
-  // The companies a visitor tracks are looked up by name when the list is opened.
-  useEffect(() => {
-    if (!showTracked) return undefined;
-    const names = [...tracked];
-    if (!names.length) { setTrackedStartups([]); return undefined; }
-    const ctrl = new AbortController();
-    fetchStartupsByName(names, { signal: ctrl.signal })
-      .then(({ results }) => { if (!ctrl.signal.aborted) setTrackedStartups(results); })
-      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setTrackedStartups([]); });
-    return () => ctrl.abort();
-  }, [showTracked, tracked]);
-
-  // The investors saved are looked up by their addresses when the Saved dialog is opened.
-  const savedSlugs = savedVcs.saved.join(',');
-  useEffect(() => {
-    if (!showTracked) return undefined;
-    if (!savedSlugs) { setSavedInvestorCards([]); return undefined; }
-    const ctrl = new AbortController();
-    fetchInvestors({ slug: savedSlugs }, { limit: 100, offset: 0, sort: 'name', signal: ctrl.signal })
-      .then(({ results }) => { if (!ctrl.signal.aborted) setSavedInvestorCards(results ?? []); })
-      .catch((err) => { if (!ctrl.signal.aborted && !aborted(err)) setSavedInvestorCards([]); });
-    return () => ctrl.abort();
-  }, [showTracked, savedSlugs]);
-
   const sectorColors = useMemo(() => {
     const colors = {};
     [...meta.sectors].sort().forEach((sector, i) => {
@@ -457,11 +442,19 @@ export default function App() {
     });
   };
 
-  const goExplore = () => { if (route.kind !== 'explore') leave(); };
-  const showNews = () => goTo({ kind: 'news' });
-  const openPeople = () => goTo({ kind: 'people' });
-  const showJobsPage = () => goTo({ kind: 'jobs' });
-  const showLists = () => goTo({ kind: 'lists' });
+  // The three places, and the pages under a person's avatar. Each is a step of its own in the history (the Back button returns to where the visitor was), and the page
+  // the app is already on is not stepped to again. Discover keeps the search, filters and view it was left with: the app does not forget them.
+  const goPlace = (next) => () => {
+    setSelectedStartup(null);
+    setMissing(null);
+    if (route.kind === next.kind) return;
+    if (route.kind === 'investors') setInvestorsFromLink(false);
+    goTo(next);
+  };
+  const showNews = goPlace({ kind: 'news' });
+  const openPeople = goPlace({ kind: 'people' });
+  const showJobsPage = goPlace({ kind: 'jobs' });
+  const showLists = goPlace({ kind: 'lists' });
   // A list is chosen: its filters apply, the list view shows them, and the address is the list's own.
   const openList = (list) => {
     setFilters(listFilters(list));
@@ -477,10 +470,9 @@ export default function App() {
         return loaded && loaded.slug === route.slug
           ? { title: `${loaded.name} · Australian Startup Map`, description: startupDescription(loaded), path: appPath(route), jsonLd: startupJsonLd(loaded) }
           : { path: appPath(route) };
-      case 'jobs': return { title: 'Australian startups hiring now · Still Early', description: 'Companies hiring now, each with open roles checked against its own pages.', path: '/jobs' };
       case 'lists': return { title: 'Curated lists of Australian startups · Still Early', description: 'Lists of Australian startups by industry, city and what they are doing now.', path: '/lists' };
       case 'list': return activeList ? { title: `${activeList.name} · Still Early`, description: activeList.description, path: appPath(route) } : null;
-      case 'explore': return { path: '/' };
+      case 'explore': return { title: 'Discover Australian startups · Still Early', description: 'Search and filter Australian startups, on a list or a map.', path: '/discover' };
       default: return null;
     }
   }, [route, loaded, activeList]);
@@ -595,17 +587,25 @@ export default function App() {
   const where = placeLabel(splitValues(filters.city));
   const sheetMode = preview ? 'detail' : sheetOpen ? 'open' : 'peek';
 
-  // The header's menu is the same on the map's page and the investors' page (which takes it as `chrome`, and swaps the few items that mean something
-  // else there: Explore, Investors and Saved).
+  // The header: the three places (Home, Discover, Opportunities) and what is under the avatar (your profile, what you saved). `tabs` are the pages inside Discover
+  // (People, Startups, Investors) and inside Opportunities (Jobs, Events). Every page of the app takes them as `chrome`.
   const go = {
-    explore: goExplore,
-    collections: showLists,
-    investors: () => openInvestors(),
-    jobs: showJobsPage,
-    saved: () => setShowTracked(true),
+    home: goPlace({ kind: 'home' }),
+    discover: goPlace({ kind: 'explore' }),
+    opportunities: showJobsPage,
+    me: goPlace({ kind: 'me' }),
+    saved: goPlace({ kind: 'saved' }),
   };
-  const counts = { jobs: hiringCount, saved: tracked.size };
+  const tabs = {
+    people: goPlace({ kind: 'discoverPeople' }),
+    startups: goPlace({ kind: 'explore' }),
+    investors: () => { if (route.kind !== 'investors') { setSelectedStartup(null); openInvestors(); } },
+    jobs: showJobsPage,
+    events: goPlace({ kind: 'events' }),
+  };
+  const counts = { jobs: hiringCount, saved: savedCount };
   const menuProps = {
+    onShowLists: showLists,
     onShowPeople: peopleOn ? openPeople : undefined,
     onShowNews: showNews,
     newsVisible,
@@ -628,37 +628,28 @@ export default function App() {
       {showPrivacy && <Lazy><PrivacyPolicy onClose={() => setShowPrivacy(false)} /></Lazy>}
       {showFeedback && <Lazy><FeedbackForm onClose={() => setShowFeedback(false)} /></Lazy>}
       {showWaitlist && <Lazy><WaitlistForm onClose={() => setShowWaitlist(false)} /></Lazy>}
-      {showTracked && (
-        <Lazy>
-          <StartupListView
-            startups={trackedStartups}
-            investors={savedInvestorCards}
-            onClose={() => setShowTracked(false)}
-            isTracked={isTracked}
-            onToggleTracked={toggleTracked}
-            isSavedInvestor={savedVcs.isSaved}
-            onToggleInvestor={savedVcs.toggle}
-            onOpenStartup={(startup) => { setShowTracked(false); openStartup(startup); }}
-            onOpenInvestor={(slug) => { setShowTracked(false); openInvestors({ kind: 'investor', slug }); }}
-            title={`Saved (${tracked.size + savedVcs.saved.length})`}
-            subtitle={
-              trackedStartups.length < tracked.size
-                ? `${trackedStartups.length} of ${tracked.size} saved companies are still in the directory. What you save stays in this browser.`
-                : 'The companies and investors you saved. They stay in this browser.'
-            }
-          />
-        </Lazy>
-      )}
     </>
   );
 
-  // The header and its menu, for every page of the app: the places, the counts beside them, the one action and everything else.
-  const chrome = { go, counts, menu: menuProps, onAdd: () => setShowSubmitForm(true) };
+  // The header and its menu, for every page of the app: the places, the tabs inside them, the counts beside them and everything else. A page that has an action
+  // of its own (add a company, suggest a role) draws it itself.
+  const chrome = { go, tabs, counts, menu: menuProps, onAdd: () => setShowSubmitForm(true) };
 
-  if (showJobs) {
+  // The community's pages: Home, the profile pages, what was saved, Opportunities and the moderators' page. Each draws the header itself.
+  const community = {
+    home: () => <HomeFeed chrome={chrome} />,
+    discoverPeople: () => <DiscoverPeople chrome={chrome} />,
+    jobs: () => <JobsBoard chrome={chrome} />,
+    events: () => <EventsBoard chrome={chrome} />,
+    saved: () => <SavedPage chrome={chrome} />,
+    me: () => <ProfileEditor chrome={chrome} onViewPublic={(id) => goTo({ kind: 'member', slug: id })} />,
+    member: () => <MemberProfile id={route.slug} chrome={chrome} onEdit={() => goTo({ kind: 'me' })} />,
+    moderation: () => <ModerationPage chrome={chrome} />,
+  };
+  if (community[route.kind]) {
     return (
       <>
-        <Lazy fallback={loading('jobs')}><JobsView onClose={leave} chrome={chrome} /></Lazy>
+        <Lazy fallback={loading('the page')} key={route.kind === 'member' ? `member-${route.slug}` : route.kind}>{community[route.kind]()}</Lazy>
         {sharedDialogs}
       </>
     );
@@ -725,7 +716,8 @@ export default function App() {
 
   return (
     <div id="app" className={['xp', activeList && 'has-list-banner', filtersOpen && 'panel-open'].filter(Boolean).join(' ')}>
-      <SiteHeader active="explore" go={go} counts={counts} onAdd={chrome.onAdd} menu={menuProps} />
+      <SiteHeader active="discover" go={go} counts={counts} onAdd={chrome.onAdd} addLabel="Add company" menu={menuProps} />
+      <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={tabs} className="st-page" />
 
       <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />
 

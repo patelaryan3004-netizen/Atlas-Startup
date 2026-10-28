@@ -1,38 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useMemo } from 'react';
+import { useSavedKind } from '../savedStore.js';
 
-const STORAGE_KEY = 'auStartupTracked';
-
-function loadTracked() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? new Set(JSON.parse(raw)) : new Set();
-  } catch (e) {
-    return new Set();
-  }
-}
-
-function saveTracked(tracked) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...tracked]));
-  } catch (e) {
-    // ignore
-  }
-}
-
+// The startups a visitor saved, by name (savedStore.js): in this browser until they sign in, with their account after.
 export function useTrackedStartups() {
-  const [tracked, setTracked] = useState(loadTracked);
-
-  const toggleTracked = useCallback((name) => {
-    setTracked((prev) => {
-      const next = new Set(prev);
-      if (next.has(name)) next.delete(name);
-      else next.add(name);
-      saveTracked(next);
-      return next;
-    });
-  }, []);
-
-  const isTracked = useCallback((name) => tracked.has(name), [tracked]);
-
-  return { tracked, toggleTracked, isTracked };
+  const { items, toggle, has } = useSavedKind('startup');
+  const tracked = useMemo(() => new Set(items), [items]);
+  return { tracked, toggleTracked: toggle, isTracked: has };
 }

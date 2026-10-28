@@ -29,7 +29,9 @@ describe('the Command Center is not part of the public app', () => {
     const graph = await importGraph(path.join(BACKEND, 'src', 'server.js'));
     expect(graph).toContain('src/app.js');
     expect(graph.filter((f) => /^src\/(admin|enrichment|scheduler)\//.test(f) || f.startsWith('scripts/'))).toEqual([]);
-    expect(graph.filter((f) => /store\.js|auditTrail|enrichmentQueue|importRuns|refreshState|jobRuns/.test(f))).toEqual([]);
+    // The community's own store (src/network/store.js) is public on purpose: it keeps members' posts. Every other store stays out.
+    expect(graph.filter((f) => /store\.js|auditTrail|enrichmentQueue|importRuns|refreshState|jobRuns/.test(f) && f !== 'src/network/store.js')).toEqual([]);
+    expect(graph.filter((f) => f.startsWith('src/network/')).every((f) => /^src\/network\/[a-z]+\.js$/.test(f))).toBe(true);
   });
 
   it('is started only by its own command, and `start` is still the public server', async () => {

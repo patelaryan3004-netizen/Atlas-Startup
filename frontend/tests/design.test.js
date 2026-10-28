@@ -252,7 +252,7 @@ describe('the shared components (brand.css)', () => {
 
   it('is on every page: the pages, the landing page and the plain pages share one header and none draws its own', () => {
     // (the welcome page has its own capsule over the night sky: components/landing/Hero.jsx, with the same wordmark)
-    for (const file of ['App.jsx', 'InfoPage.jsx', 'components/JobsView.jsx', 'components/NewsPage.jsx', 'components/CuratedLists.jsx', 'components/people/PeopleView.jsx', 'components/investors/InvestorsView.jsx']) {
+    for (const file of ['App.jsx', 'InfoPage.jsx', 'components/network/JobsBoard.jsx', 'components/NewsPage.jsx', 'components/CuratedLists.jsx', 'components/people/PeopleView.jsx', 'components/investors/InvestorsView.jsx']) {
       expect(code(file), file).toContain('<SiteHeader');
     }
     expect(code('main.jsx')).toContain("import './brand.css'");
@@ -362,7 +362,7 @@ describe('the one card', () => {
     expect(styles).toMatch(/\.entity-blurb\{[^}]*-webkit-line-clamp:2/);
     expect(styles).toMatch(/\.meta-row li:not\(:last-child\)::after\{[^}]*content:'\\00b7'/);
     expect(styles).toMatch(/\n\.sr-only\{[^}]*clip-path:inset\(50%\)/);
-    for (const file of ['components/ListView.jsx', 'components/JobsView.jsx', 'components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx']) {
+    for (const file of ['components/ListView.jsx', 'components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx']) {
       expect(code(file), file).toContain('<EntityCard');
     }
   });

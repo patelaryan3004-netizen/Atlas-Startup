@@ -32,7 +32,7 @@ export default function NewsPage({ chrome = {} }) {
 
   return (
     <div id="investorsView" className="news-page">
-      <SiteHeader go={chrome.go} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
+      <SiteHeader go={chrome.go} counts={chrome.counts} menu={chrome.menu} />
       <main className="inv-main" id="news-main">
         <section className="inv-intro" aria-labelledby="news-title">
           <h1 id="news-title">Australian startup news</h1>

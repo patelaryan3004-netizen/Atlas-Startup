@@ -55,6 +55,7 @@ cd frontend && npm install && npm run dev
 - `GET /api/search?q=` — name suggestions for the search box
 - `GET /api/people`, `GET /api/institutions`, `GET /api/lists` and `GET /api/lists/:id` — the people and firms worth following, and the curated lists that gather them (the People page, `/people`). Typed in by the owner in `people_seed.json`, with the published investors added: see [docs/people.md](docs/people.md)
 - `GET /api/investors` (`kind=firm|person|all`, `scope=au|global`, `role=`, plus the search and filters), `GET /api/investors/meta`, `GET /api/investors/:slug`, `GET /api/investor-people/:slug` and their `…/corrections` posts — the investor directory (`/investors`): firms and, once published, the people at them, in Australia or worldwide. `backend/scripts/investors/people_import.mjs` imports a list of people from a file (a dry run first, candidates only, undoable); see [docs/investors.md](docs/investors.md)
+- `GET /api/feed`, `/api/members`, `/api/events`, `/api/jobs`, `/api/account…`, `/api/auth/…`, `/api/suggestions` and `/api/admin/network/…` — the community: accounts, the Home feed (short posts, replies, likes, bookmarks, reports), members, curated events and roles, saved items, and the moderators' queue. Closed (503) on a host with no durable disk until `NETWORK_DATA_DIR` is set: see [docs/network.md](docs/network.md)
 - `GET /directory?page=n` — the no-JavaScript list, 250 companies a page
 
 ### Paging

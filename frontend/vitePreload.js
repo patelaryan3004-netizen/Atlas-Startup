@@ -28,7 +28,8 @@ const PAGES = {
   app: ['App'],
   map: ['MapView'],
   list: ['ListView'],
-  jobs: ['JobsView'],
+  jobs: ['JobsBoard'],
+  home: ['HomeFeed'],
 };
 
 export function preloadPages() {

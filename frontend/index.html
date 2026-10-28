@@ -25,14 +25,19 @@
   (function () {
     document.documentElement.classList.add('js'); // the page's scripts run: the plain HTML written for search engines and no-script visitors (.static-shell) is not shown
     var path = location.pathname.replace(/\/$/, ''), search = location.search, files = /*ROUTE_FILES*/{};
-    if (path === '' || path === '/jobs') {
+    // Discover (the list of startups, or the map with ?view=map) draws its first views from the snapshot; so does a company's page and an older link to the map (/?sector=AI).
+    var filters = /[?&](search|sector|city|investor|stage|hiring|taskGate|events|precision|state|remote|tech|team|cohort|fresh|view|show)=/;
+    var discover = path === '/discover' || /^\/startup\//.test(path) || (path === '' && filters.test(search));
+    if (discover) {
       window.__auSnapshot = fetch('/data/snapshot.json').then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; });
     }
     var kinds = path === '/welcome' || /^\/(about|methodology|contact)$/.test(path) ? []
-      : path === '/jobs' ? ['app', 'jobs']
-      : /^\/(investors|news|people)(\/|$)|^\/lists$|[?&]view=(jobs|lists|investors)\b/.test(path + search) ? ['app']
-      : /^\/lists\/|[?&]view=list\b/.test(path + search) ? ['app', 'list']
-      : ['app', 'map'];
+      : discover ? (/[?&]view=map/.test(search) ? ['app', 'map'] : ['app', 'list'])
+      : path === '/jobs' || path === '/opportunities' ? ['app', 'jobs']
+      : path === '' || path === '/home' ? ['app', 'home']
+      : /^\/(investors|news|people|events|saved|me|members|moderation|discover)(\/|$)|^\/lists$|[?&]view=(jobs|lists|investors|saved)/.test(path + search) ? ['app']
+      : /^\/lists\//.test(path) ? ['app', 'list']
+      : ['app', 'list'];
     function add(rel, href, as) {
       var link = document.createElement('link');
       link.rel = rel; link.href = href; link.crossOrigin = '';

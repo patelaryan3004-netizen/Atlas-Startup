@@ -11,6 +11,8 @@ import { createSearchRouter } from './routes/search.js';
 import { createDirectoryRouter } from './routes/directory.js';
 import { createInvestorsRouter, createInvestorPeopleRouter } from './routes/investors.js';
 import { createCommunityRouter } from './routes/community.js';
+import { createNetwork } from './network/index.js';
+import { createNetworkRouter } from './network/router.js';
 import newsRouter from './routes/news.js';
 import submissionsRouter from './routes/submissions.js';
 import editsRouter from './routes/edits.js';
@@ -41,6 +43,8 @@ export function createApp({
     investorCatalog, production: process.env.SHOW_PLACEHOLDERS !== '1',
   }),
   showPeople = peopleShown(),
+  // The members' side: accounts, the feed, saved things, events, jobs, suggestions (network/index.js). It opens only where it has a place to keep things.
+  network = createNetwork(),
 } = {}) {
   const respond = createResponder(catalog, cache);
   // The investor directory is answered from its own snapshot (several files, one version) with its own kept answers.
@@ -50,8 +54,10 @@ export function createApp({
 
   app.use(cors());
   app.use(express.json());
+  if (process.env.RENDER) app.set('trust proxy', 1); // behind Render's one proxy: the address a visitor comes from, for the limits on sign-ups and sign-ins
 
   app.get('/api/health', (req, res) => res.json({ ok: true }));
+  app.use('/api', createNetworkRouter({ network, catalog }));
   app.use('/api/startups', createStartupsRouter({ respond }));
   app.use('/api/investors', createInvestorsRouter({ respond: respondInvestors, catalog: investorCatalog, correctionsFile }));
   app.use('/api/investor-people', createInvestorPeopleRouter({ respond: respondInvestors, catalog: investorCatalog, correctionsFile }));
@@ -73,6 +79,7 @@ export function createApp({
   app.locals.catalog = catalog;
   app.locals.investorCatalog = investorCatalog;
   app.locals.communityCatalog = communityCatalog;
+  app.locals.network = network;
   app.locals.respond = respond;
   return app;
 }

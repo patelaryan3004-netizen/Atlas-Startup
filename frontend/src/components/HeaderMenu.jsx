@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { useEscapeClose } from '../hooks/useEscapeClose.js';
 import { MoreIcon } from './explore/icons.jsx';
-import { NAV } from './brand/nav.js';
 
 // An item is a button when the page has something to do for it, and a link when it only has an address (the plain pages, which are not the app, have
 // no dialogs to open: they have the addresses). With neither it is left out.
@@ -12,10 +11,10 @@ function Item({ onClick, href, children, accent = false }) {
   return null;
 }
 
-// The menu behind the three dots at the end of the header: everything the header has no room for. On a phone it also holds the five places the header
-// names (Explore, Collections, Investors, Jobs, Saved), which the narrow header leaves out.
+// The menu behind the three dots at the end of the header: everything the header has no room for. (The three places are in the header, and on a phone in the
+// bar along the bottom; what belongs to a person is under their avatar.)
 export default function HeaderMenu({
-  go = {}, onShowPeople, onShowNews, newsVisible, onToggleNews, onShowWaitlist, onShowUnverified, unverifiedCount, hiringCount, trackedCount,
+  onShowLists, onShowPeople, onShowNews, newsVisible, onToggleNews, onShowWaitlist, onShowUnverified, unverifiedCount, 
   onShowAbout, onShowPrivacy, onShowFeedback, directoryUrl,
 }) {
   const [open, setOpen] = useState(false);
@@ -25,12 +24,6 @@ export default function HeaderMenu({
   // An item shuts the menu, and the item is gone with it: focus goes to the menu's own button first, so a dialog the item opens gives focus back
   // to something that is still there when it closes.
   const run = (fn) => (fn ? () => { toggle.current?.focus(); fn(); setOpen(false); } : undefined);
-  // A place of the header: a handler when the app has one (the link is then followed inside it), else its address.
-  const place = (id) => {
-    const { href } = NAV.find((n) => n.id === id);
-    return go[id] ? { onClick: run(go[id]) } : { href };
-  };
-
   return (
     <div className="hdr-menu">
       <button ref={toggle} type="button" className="sh-more" aria-label="Menu" aria-expanded={open} aria-haspopup="true" onClick={() => setOpen((v) => !v)}>
@@ -40,15 +33,7 @@ export default function HeaderMenu({
         <>
           <div className="hdr-menu-scrim" onClick={() => setOpen(false)} />
           <div className="hdr-menu-panel" role="menu">
-            {/* Phones only: the header's own links are hidden there, so they live here too. */}
-            <div className="hdr-menu-mobile-nav">
-              <Item {...place('explore')}>Explore</Item>
-              <Item {...place('collections')}>Collections</Item>
-              <Item {...place('investors')}>Investors</Item>
-              <Item {...place('jobs')}>Jobs{hiringCount > 0 && <span className="nav-hiring-hint"> &middot; {hiringCount} hiring now</span>}</Item>
-              <Item {...place('saved')}>Saved{trackedCount > 0 ? ` (${trackedCount})` : ''}</Item>
-              <div className="hdr-menu-sep" />
-            </div>
+            <Item onClick={run(onShowLists)} href="/lists">Collections</Item>
             <Item onClick={run(onShowPeople)}>People</Item>
             <Item onClick={run(onShowNews)} href="/news">News</Item>
             <Item onClick={run(onShowWaitlist)}>Join waitlist</Item>

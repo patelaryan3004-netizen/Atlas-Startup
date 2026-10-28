@@ -4,6 +4,8 @@ import InvestorProfile from './InvestorProfile.jsx';
 import InvestorPersonProfile from './InvestorPersonProfile.jsx';
 import SuggestInvestor from './SuggestInvestor.jsx';
 import SiteHeader from '../brand/SiteHeader.jsx';
+import SectionTabs from '../brand/SectionTabs.jsx';
+import { DISCOVER_TABS } from '../brand/nav.js';
 import { clearRoute, readRoute, writeRoute } from './route.js';
 import { usePageTitle } from './usePageTitle.js';
 import { useMediaQuery } from '../../hooks/useMediaQuery.js';
@@ -102,27 +104,22 @@ export default function InvestorsView({ initialRoute = { kind: 'list' }, fromLin
   const openPersonProfile = (slug) => go({ kind: 'personProfile', slug });
   const toList = () => go({ kind: 'list' });
 
-  // The shared header's places, as this page has them: Investors is where it is (the directory, with nothing open), and Saved is the saved tab.
+  // The Investors tab, from this page: the directory with nothing open (and the saved tab off).
   const showDirectory = () => {
     setTab('all');
     if (isPanel(route.kind)) closePanel();
     else if (route.kind !== 'list') toList();
     scroller.current?.scrollTo?.({ top: 0 });
   };
-  const showSaved = () => {
-    setTab('saved');
-    if (!inDirectory(route.kind)) toList();
-    scroller.current?.scrollTo?.({ top: 0 });
-  };
 
-  // The header is the app's, with the three places that mean something else here: Explore leaves for the map, Investors is this page, and Saved is the saved tab.
-  const places = { ...chrome.go, explore: close, investors: showDirectory, saved: showSaved };
-  const counts = { ...chrome.counts, saved: saved.saved.length };
+  // The header is the app's: Home, Discover and Opportunities, and what is under the avatar. The Investors tab, pressed here, takes you back to the directory.
+  const tabsHere = { ...chrome.tabs, investors: showDirectory };
   const drawerOpen = isPanel(route.kind) && !sideBySide;
 
   return (
     <div id="investorsView" ref={scroller} className={drawerOpen ? 'inv-locked' : undefined}>
-      <SiteHeader active="investors" go={places} counts={counts} addLabel="Add investor" onAdd={() => setSuggesting(true)} menu={chrome.menu} />
+      <SiteHeader active="discover" go={chrome.go} counts={chrome.counts} addLabel="Add investor" onAdd={() => setSuggesting(true)} menu={chrome.menu} />
+      <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="investors" go={tabsHere} className="st-page" />
       <main className="inv-main" id="inv-main">
         <div hidden={!inDirectory(route.kind)} ref={title}>
           <InvestorDirectory

@@ -59,7 +59,7 @@ describe('what the first visit downloads', () => {
     const text = [...initial].map((n) => files[n]).join('\n');
     expect(called('react').some((n) => initial.has(n))).toBe(true);
     for (const library of ['leaflet-container', 'leaflet-tile-pane']) expect(text, library).not.toContain(library);
-    for (const piece of ['MapView', 'JobsView', 'InvestorsView', 'StartupDetailPanel', 'LandingPage', 'InfoPage', 'NewsPage', 'SubmitStartupForm']) {
+    for (const piece of ['MapView', 'JobsBoard', 'InvestorsView', 'StartupDetailPanel', 'LandingPage', 'InfoPage', 'NewsPage', 'SubmitStartupForm']) {
       expect(called(piece).length, `${piece} is a file of its own`).toBe(1);
       expect(initial.has(called(piece)[0]), `${piece} is not fetched at once`).toBe(false);
     }
@@ -80,8 +80,8 @@ describe('what the first paint waits for', () => {
 
   it('names the files of the page an address opens, so the browser asks for them with the app\'s own instead of a round trip later', async () => {
     const files = JSON.parse(/files = (\{.*?\});/s.exec(html)[1]);
-    // the app, the map, the list and the jobs board; not the landing page (measured: preloading its files made its largest paint later)
-    expect(Object.keys(files).sort()).toEqual(['app', 'jobs', 'list', 'map']);
+    // the app, Home, the map, the list and the jobs board; not the landing page (measured: preloading its files made its largest paint later)
+    expect(Object.keys(files).sort()).toEqual(['app', 'home', 'jobs', 'list', 'map']);
     const names = await readdir(path.join(dist, 'assets'));
     for (const [kind, { js, css }] of Object.entries(files)) {
       for (const file of [...js, ...css]) expect(names, `${kind}: ${file}`).toContain(file.replace('/assets/', ''));
@@ -89,7 +89,7 @@ describe('what the first paint waits for', () => {
     }
     expect(files.map.js.some((f) => /leaflet-.*\.js$/.test(f)) && files.map.css.some((f) => /leaflet-.*\.css$/.test(f))).toBe(true);
     expect(files.list.js.some((f) => /ListView-/.test(f))).toBe(true);
-    expect(files.jobs.js.some((f) => /JobsView-/.test(f))).toBe(true);
+    expect(files.jobs.js.some((f) => /JobsBoard-/.test(f))).toBe(true);
     expect(Object.values(files).flatMap((f) => f.js).some((f) => /react-/.test(f))).toBe(false); // React is index.html's own
   });
 
@@ -109,7 +109,7 @@ describe('what each page downloads', () => {
     const leaflet = called('leaflet');
     expect(leaflet).toHaveLength(1);
     expect(closure(called('MapView')[0]).has(leaflet[0])).toBe(true);
-    for (const piece of ['App', 'LandingPage', 'JobsView', 'InvestorsView', 'ListView', 'StartupDetailPanel']) {
+    for (const piece of ['App', 'LandingPage', 'JobsBoard', 'InvestorsView', 'ListView', 'StartupDetailPanel']) {
       expect(closure(called(piece)[0]).has(leaflet[0]), `${piece} would load Leaflet`).toBe(false);
     }
     expect(closure(entry()).has(leaflet[0])).toBe(false);
@@ -129,7 +129,7 @@ describe('what each page downloads', () => {
     const carrier = Object.keys(files).filter((n) => files[n].includes('getClusterExpansionZoom'));
     expect(carrier, 'one file carries Supercluster').toHaveLength(1);
     expect(closure(called('MapView')[0]).has(carrier[0])).toBe(true);
-    for (const piece of ['App', 'LandingPage', 'ListView', 'JobsView', 'StartupDetailPanel']) {
+    for (const piece of ['App', 'LandingPage', 'ListView', 'JobsBoard', 'StartupDetailPanel']) {
       expect(closure(called(piece)[0]).has(carrier[0]), `${piece} would load Supercluster`).toBe(false);
     }
     expect(closure(entry()).has(carrier[0])).toBe(false);

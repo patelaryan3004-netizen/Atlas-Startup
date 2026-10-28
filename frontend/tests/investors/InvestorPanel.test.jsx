@@ -465,25 +465,20 @@ describe('an investor on a phone', () => {
 });
 
 describe('the shared header and the theme', () => {
-  it('leaves for the map from Explore, with the investor pages taken out of the address', async () => {
+  it('goes to Discover from the shared header, by the app\'s own hand-off', async () => {
     world();
-    const onClose = vi.fn();
-    window.history.pushState({}, '', '/investors?city=Sydney');
-    renderView({ onClose });
-    await userEvent.click(await screen.findByRole('link', { name: 'Explore' }));
-    expect(onClose).toHaveBeenCalledTimes(1);
-    expect(window.location.pathname).toBe('/');
-    expect(window.location.search).toBe('?city=Sydney');
+    const discover = vi.fn();
+    renderView({ chrome: { go: { discover }, counts: {}, menu: {} } });
+    await userEvent.click(within(await screen.findByRole('navigation', { name: 'Main' })).getByRole('link', { name: 'Discover' }));
+    expect(discover).toHaveBeenCalledTimes(1);
   });
 
-  it('goes to the jobs page from Jobs, and says how many are hiring', async () => {
+  it('goes to Opportunities from the shared header', async () => {
     world();
-    const onShowJobs = vi.fn();
-    renderView({ chrome: { go: { jobs: onShowJobs }, counts: { jobs: 25 }, menu: {} } });
-    const jobs = await screen.findByRole('link', { name: 'Jobs' });
-    expect(jobs).toHaveAttribute('title', '25 hiring now');
-    await userEvent.click(jobs);
-    expect(onShowJobs).toHaveBeenCalledTimes(1);
+    const opportunities = vi.fn();
+    renderView({ chrome: { go: { opportunities }, counts: { jobs: 25 }, menu: {} } });
+    await userEvent.click(within(await screen.findByRole('navigation', { name: 'Main' })).getByRole('link', { name: 'Opportunities' }));
+    expect(opportunities).toHaveBeenCalledTimes(1);
   });
 
   it('is the directory again from Investors: the panel shut, the tab All, and the page at its top', async () => {
@@ -494,28 +489,18 @@ describe('the shared header and the theme', () => {
     await userEvent.click(screen.getByRole('link', { name: 'Blackbird' }));
     await panel();
     await userEvent.click(screen.getByRole('tab', { name: 'Saved' }));
-    await userEvent.click(screen.getByRole('link', { name: 'Investors' }));
+    await userEvent.click(within(screen.getByRole('navigation', { name: 'Discover' })).getByRole('link', { name: 'Investors' }));
     await waitFor(() => expect(screen.queryByRole('complementary', { name: 'Blackbird' })).not.toBeInTheDocument());
     expect(screen.getByRole('tab', { name: 'All investors' })).toHaveAttribute('aria-selected', 'true');
   });
 
-  it('puts the app\'s menu in the header, with Explore, Investors and Saved meaning what they mean on this page', async () => {
+  it('puts the app\'s menu in the header, with its own items working on this page', async () => {
     world();
-    localStorage.setItem('auStartupSavedInvestors', JSON.stringify(['blackbird']));
-    const onClose = vi.fn();
     const onShowAbout = vi.fn();
-    renderView({ onClose, chrome: { counts: { jobs: 0, saved: 9 }, menu: { onShowAbout, directoryUrl: '/directory/' } } });
+    renderView({ chrome: { counts: { jobs: 0, saved: 9 }, menu: { onShowAbout, directoryUrl: '/directory/' } } });
     await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
-    const menu = within(document.querySelector('.hdr-menu-panel'));
-    expect(menu.getByText('Saved (1)')).toBeInTheDocument(); // the investors saved, not the companies
-    await userEvent.click(menu.getByText('Saved (1)'));
-    expect(screen.getByRole('tab', { name: 'Saved 1' })).toHaveAttribute('aria-selected', 'true');
-    await userEvent.click(screen.getByRole('button', { name: 'Menu' }));
     await userEvent.click(within(document.querySelector('.hdr-menu-panel')).getByText('About & sources'));
     expect(onShowAbout).toHaveBeenCalledTimes(1);
-    await userEvent.click(screen.getByRole('button', { name: 'Menu' }));
-    await userEvent.click(within(document.querySelector('.hdr-menu-panel')).getByRole('button', { name: 'Explore' }));
-    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   describe('Add investor', () => {

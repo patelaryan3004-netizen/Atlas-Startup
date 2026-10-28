@@ -180,7 +180,7 @@ export default function PeopleView({ chrome = {}, onOpenCompany, onOpenInternal,
 
   return (
     <div id="investorsView" className="people-page">
-      <SiteHeader go={chrome.go} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
+      <SiteHeader active="discover" go={chrome.go} counts={chrome.counts} menu={chrome.menu} />
       <main className="inv-main" id="people-main">
         <section className="inv-intro" aria-labelledby="people-title">
           <h1 id="people-title" tabIndex={-1}>People worth following</h1>

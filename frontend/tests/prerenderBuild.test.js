@@ -93,7 +93,8 @@ describe('the built pages carry their own HTML, head and address', () => {
     expect(await file('about/index.html')).not.toContain('hero-night');
     expect(await file('index.html')).not.toContain('hero-night');
     // it reads no data, so it is not sent the snapshot the map and the jobs board draw from
-    expect(html).toContain("path === '' || path === '/jobs'");
+    expect(html).toContain("var discover = path === '/discover' ||");
+    expect(html).toContain("path === '/welcome' || /^\\/(about|methodology|contact)$/.test(path) ? []");
   });
 
   it('keeps the no-script fallback to the plain list of every company, and shows the "rising" content to a visitor with no scripts', async () => {

@@ -3,6 +3,8 @@ import { fetchCounts } from '../api.js';
 import { curatedLists } from '../curatedLists.js';
 import { appUrl } from '../appRoute.js';
 import SiteHeader from './brand/SiteHeader.jsx';
+import SectionTabs from './brand/SectionTabs.jsx';
+import { DISCOVER_TABS } from './brand/nav.js';
 import { LinkIcon } from './explore/icons.jsx';
 
 export const LISTS_AT_FIRST = 6;
@@ -47,7 +49,8 @@ export default function CuratedLists({ currentFilters, onApply, chrome = {} }) {
 
   return (
     <div id="collectionsView" className="view-page">
-      <SiteHeader active="collections" go={{ ...chrome.go, collections: () => {} }} counts={chrome.counts} onAdd={chrome.onAdd} menu={chrome.menu} />
+      <SiteHeader active="discover" go={chrome.go} counts={chrome.counts} menu={chrome.menu} />
+      <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={chrome.tabs} className="st-page" />
       <main className="page collections-main" id="collections-main">
         <div className="page-head">
           <h1 className="serif-h1">Curated <em>collections</em></h1>

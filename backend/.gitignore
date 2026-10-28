@@ -7,3 +7,6 @@ coverage/
 
 # Backups, reports and manifests of investor-people imports (scripts/investors/people_import.mjs): they hold people's names
 .import-runs/
+
+# The members' side of the site (accounts, posts, saved things) when it runs on a developer's own computer: people's emails and password hashes
+.network/

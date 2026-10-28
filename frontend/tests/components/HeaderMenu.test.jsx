@@ -5,14 +5,13 @@ import HeaderMenu from '../../src/components/HeaderMenu.jsx';
 
 function setup(overrides = {}) {
   const props = {
-    go: { explore: vi.fn(), collections: vi.fn(), investors: vi.fn(), jobs: vi.fn(), saved: vi.fn() },
+    onShowLists: vi.fn(),
     onShowPeople: vi.fn(),
     newsVisible: true,
     onToggleNews: vi.fn(),
     onShowWaitlist: vi.fn(),
     onShowUnverified: vi.fn(),
     unverifiedCount: 3,
-    trackedCount: 2,
     onShowAbout: vi.fn(),
     onShowPrivacy: vi.fn(),
     onShowFeedback: vi.fn(),
@@ -31,19 +30,15 @@ describe('HeaderMenu', () => {
     expect(screen.queryByText('News')).not.toBeInTheDocument();
   });
 
-  it('opens to show the five places the header names (for a phone) and the secondary actions with live counts', async () => {
+  it('opens to show what the header has no room for, with live counts, and not the three places (they are in the header and, on a phone, along the bottom)', async () => {
     setup();
     await userEvent.click(screen.getByLabelText('Menu'));
 
-    for (const place of ['Explore', 'Collections', 'Investors', 'Jobs']) expect(screen.getByText(place)).toBeInTheDocument();
-    expect(screen.getByText('Saved (2)')).toBeInTheDocument();
-    expect(screen.getByText('News')).toBeInTheDocument();
-    expect(screen.getByText('Hide news ticker')).toBeInTheDocument();
-    expect(screen.getByText('Join waitlist')).toBeInTheDocument();
-    expect(screen.getByText('Unconfirmed (3)')).toBeInTheDocument();
+    for (const item of ['Collections', 'News', 'Hide news ticker', 'Join waitlist', 'Unconfirmed (3)']) expect(screen.getByText(item)).toBeInTheDocument();
+    for (const place of ['Home', 'Discover', 'Opportunities', 'Explore', 'Jobs', 'Saved']) expect(screen.queryByText(place)).not.toBeInTheDocument();
   });
 
-  it('holds what the header has no room for: the about, privacy and feedback dialogs, the pages about the project, and the list that needs no scripts', async () => {
+  it('holds the about, privacy and feedback dialogs, the pages about the project, and the list that needs no scripts', async () => {
     const { onShowAbout, onShowPrivacy, onShowFeedback } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
     expect(screen.getByRole('link', { name: 'Methodology' })).toHaveAttribute('href', '/methodology');
@@ -61,17 +56,6 @@ describe('HeaderMenu', () => {
     expect(onShowFeedback).toHaveBeenCalledTimes(1);
   });
 
-  it('shows a subtle hiring-count hint on the Jobs item when given one, omitting it otherwise', async () => {
-    const { unmount } = setup({ hiringCount: 5 });
-    await userEvent.click(screen.getByLabelText('Menu'));
-    expect(screen.getByText('Jobs', { exact: false })).toHaveTextContent('Jobs · 5 hiring now');
-    unmount();
-
-    setup({ hiringCount: 0 });
-    await userEvent.click(screen.getByLabelText('Menu'));
-    expect(screen.getByText('Jobs').textContent).toBe('Jobs');
-  });
-
   it('offers the news ticker as "Show news ticker" when it is hidden, and News as the page either way', async () => {
     setup({ newsVisible: false });
     await userEvent.click(screen.getByLabelText('Menu'));
@@ -86,22 +70,13 @@ describe('HeaderMenu', () => {
     expect(onShowNews).toHaveBeenCalledTimes(1);
   });
 
-  it('calls the matching handler and closes itself when a place is chosen', async () => {
-    const { go } = setup();
+  it('opens the collections, and closes itself, when Collections is clicked', async () => {
+    const { onShowLists } = setup();
     await userEvent.click(screen.getByLabelText('Menu'));
     await userEvent.click(screen.getByText('Collections'));
 
-    expect(go.collections).toHaveBeenCalledTimes(1);
+    expect(onShowLists).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Collections')).not.toBeInTheDocument();
-  });
-
-  it('opens the investor directory, and closes itself, when Investors is clicked', async () => {
-    const { go } = setup();
-    await userEvent.click(screen.getByLabelText('Menu'));
-    await userEvent.click(screen.getByText('Investors'));
-
-    expect(go.investors).toHaveBeenCalledTimes(1);
-    expect(screen.queryByText('Investors')).not.toBeInTheDocument();
   });
 
   it('opens the people page, and closes itself, when People is clicked', async () => {
@@ -113,23 +88,10 @@ describe('HeaderMenu', () => {
     expect(screen.queryByText('People')).not.toBeInTheDocument();
   });
 
-  it('opens the saved companies and closes when the Saved item is clicked', async () => {
-    const { go } = setup();
-    await userEvent.click(screen.getByLabelText('Menu'));
-    await userEvent.click(screen.getByText('Saved (2)'));
-
-    expect(go.saved).toHaveBeenCalledTimes(1);
-    expect(screen.queryByText('Saved (2)')).not.toBeInTheDocument();
-  });
-
   it('is only links on a page that is not the app (no handlers): the places are their addresses, and what needs a dialog is left out', async () => {
     render(<HeaderMenu />);
     await userEvent.click(screen.getByLabelText('Menu'));
-    expect(screen.getByRole('link', { name: 'Explore' })).toHaveAttribute('href', '/');
     expect(screen.getByRole('link', { name: 'Collections' })).toHaveAttribute('href', '/lists');
-    expect(screen.getByRole('link', { name: 'Investors' })).toHaveAttribute('href', '/investors');
-    expect(screen.getByRole('link', { name: 'Jobs' })).toHaveAttribute('href', '/jobs');
-    expect(screen.getByRole('link', { name: 'Saved' })).toHaveAttribute('href', '/?view=saved');
     expect(screen.getByRole('link', { name: 'News' })).toHaveAttribute('href', '/news');
     expect(screen.queryByText('Join waitlist')).not.toBeInTheDocument();
     expect(screen.queryByText('Feedback')).not.toBeInTheDocument();

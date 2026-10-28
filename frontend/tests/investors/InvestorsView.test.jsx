@@ -32,8 +32,9 @@ describe('the investor directory', () => {
     renderView();
     expect(await screen.findByRole('heading', { level: 1, name: 'Find your next backer.' })).toBeInTheDocument();
     expect(screen.getByText('Explore investors, understand their focus, and build your shortlist.')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Investors' })).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('link', { name: 'Explore' })).not.toHaveAttribute('aria-current');
+    expect(within(screen.getByRole('navigation', { name: 'Main' })).getByRole('link', { name: 'Discover' })).toHaveAttribute('aria-current', 'page');
+    expect(within(screen.getByRole('navigation', { name: 'Discover' })).getByRole('link', { name: 'Investors' })).toHaveAttribute('aria-current', 'page');
+    expect(within(screen.getByRole('navigation', { name: 'Discover' })).getByRole('link', { name: 'Startups' })).not.toHaveAttribute('aria-current');
   });
 
   it('lists each firm as a row: its logo, name, type, the number of companies a page says it backed, place, at most two tags, the bookmark and the way in', async () => {
@@ -554,7 +555,6 @@ describe('the investor directory', () => {
       expect(window.location.pathname).toBe('/investors');
       expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual(['b']);
       expect(screen.getByRole('tab', { name: 'Saved 1' })).toBeInTheDocument();
-      expect(screen.getByRole('link', { name: 'Saved 1' })).toBeInTheDocument(); // the header's own place
       await userEvent.click(screen.getByRole('button', { name: 'Remove Bravo from saved' }));
       expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual([]);
       expect(screen.getByRole('tab', { name: 'Saved' })).toBeInTheDocument();
@@ -633,13 +633,12 @@ describe('the investor directory', () => {
       expect(all).toHaveFocus();
     });
 
-    it('shows Saved in the header as the saved tab, with how many, from any page of the directory', async () => {
+    it('keeps what was saved on an earlier visit on its tab, with how many, and lists exactly those', async () => {
       localStorage.setItem('auStartupSavedInvestors', JSON.stringify(['a']));
       serve(api, { cards: three });
       renderView();
       await screen.findByRole('link', { name: 'Alpha' });
-      expect(screen.getByRole('link', { name: 'Saved 1' })).toBeInTheDocument();
-      await userEvent.click(screen.getByRole('link', { name: 'Saved 1' }));
+      await userEvent.click(screen.getByRole('tab', { name: 'Saved 1' }));
       expect(screen.getByRole('tab', { name: 'Saved 1' })).toHaveAttribute('aria-selected', 'true');
       await waitFor(() => expect(names()).toEqual(['Alpha']));
     });

@@ -34,3 +34,15 @@ export const SunIcon = icon(<><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2
 export const MoonIcon = icon(<path d="M20 14.5A8 8 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />);
 export const ChevronLeft = icon(<path d="m14.5 6-6 6 6 6" />);
 export const GlobeIcon = icon(<><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5S9.6 5.9 12 3.5z" /></>);
+
+// The community's: home, discover, opportunities (the three places), and what a post and a profile need.
+export const HomeIcon = icon(<path d="M4 11.2 12 4l8 7.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" />);
+export const CompassIcon = icon(<><circle cx="12" cy="12" r="8.5" /><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z" /></>);
+export const BriefcaseIcon = icon(<><rect x="3.5" y="7.5" width="17" height="12" rx="2" /><path d="M9 7.5V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v1.5M3.5 12.5h17" /></>);
+export const CalendarIcon = icon(<><rect x="3.5" y="5.5" width="17" height="15" rx="2" /><path d="M3.5 10h17M8 3.5v4M16 3.5v4" /></>);
+export const UserIcon = icon(<><circle cx="12" cy="8.5" r="3.6" /><path d="M5 20c.6-3.6 3.4-5.6 7-5.6s6.4 2 7 5.6" /></>);
+export const HeartIcon = icon(<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z" />);
+export const ChatIcon = icon(<path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H11l-4.5 3.5V16.5h0a2 2 0 0 1-2-2z" />);
+export const FlagIcon = icon(<path d="M5.5 20.5V4.5M5.5 5h11l-2 3.5 2 3.5h-11" />);
+export const PencilIcon = icon(<path d="M4.5 19.5 5.3 15 15.8 4.5a1.8 1.8 0 0 1 2.5 0l1.2 1.2a1.8 1.8 0 0 1 0 2.5L9 18.7z" />);
+export const TrashIcon = icon(<path d="M5 7h14M9.5 7V5h5v2M7 7l.8 12.5h8.4L17 7M10.5 10.5v6M13.5 10.5v6" />);

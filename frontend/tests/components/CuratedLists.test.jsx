@@ -105,7 +105,8 @@ describe('CuratedLists', () => {
     await screen.findByText('Startups Hiring Now');
     expect(screen.getByRole('banner')).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1, name: 'Curated collections' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Collections' })).toHaveAttribute('aria-current', 'page');
+    expect(within(screen.getByRole('navigation', { name: 'Main' })).getByRole('link', { name: 'Discover' })).toHaveAttribute('aria-current', 'page'); // collections are under Discover
+    expect(within(screen.getByRole('navigation', { name: 'Discover' })).getByRole('link', { name: 'Startups' })).toHaveAttribute('aria-current', 'page');
     expect(screen.queryByRole('dialog')).toBeNull();
   });
 
