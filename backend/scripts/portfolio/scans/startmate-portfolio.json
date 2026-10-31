@@ -1,0 +1,930 @@
+{
+ "source_id": "startmate-portfolio",
+ "publisher": "Startmate",
+ "kind": "accelerator_portfolio",
+ "investor": "Startmate",
+ "list_url": "https://www.startmate.com/portfolio",
+ "retrieved_at": "2026-10-30T23:37:51.481Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "puralink",
+   "name": "Puralink",
+   "website": "https://www.puralink.com.au/",
+   "description": "Puralink provides autonomous robots for pipe inspection, mapping, and repair.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/puralink",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "andromeda-2",
+   "name": "Andromeda",
+   "website": "https://andromedarobotics.ai/",
+   "description": "Where technology meets empathy – pioneering the future of human-robot interaction.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/andromeda-2",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ansight",
+   "name": "Ansight",
+   "website": "https://www.ansight.ai/",
+   "description": "Putting mobile app maintenance on autopilot.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ansight",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "antares-aerospace",
+   "name": "Antares Aerospace",
+   "website": "https://www.antaresaerospace.com.au/",
+   "description": "Reusable launch vehicles bringing rideshare economics to dedicated small satellite missions.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/antares-aerospace",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "brandviz-ai",
+   "name": "BrandViz.AI",
+   "website": "https://www.brandviz.ai/",
+   "description": "The platform that gets brands recommended in AI search, with the work done for you.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/brandviz-ai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "clausifai",
+   "name": "Clausifai",
+   "website": "https://clausifai.com/",
+   "description": "The contract platform for modern businesses.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/clausifai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "coco",
+   "name": "Coco",
+   "website": "https://www.cocothecreator.com/",
+   "description": "Coco provides preventive controls for AI agents in regulated finance.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/coco",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "derive",
+   "name": "Derive",
+   "website": "https://www.derivenotes.com/",
+   "description": "Redefining personalised learning through data-backed intelligence.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/derive",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "develpr",
+   "name": "develpr",
+   "website": "https://develpr.com.au/",
+   "description": "The operating system for property developers to assess sites, coordinate consultants and get projects approval-ready faster.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/develpr",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "estimate",
+   "name": "EstiMate",
+   "website": "https://estimateai.com.au/",
+   "description": "The AI-native construction quoting platform for the global construction industry.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/estimate",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "forward",
+   "name": "Forward",
+   "website": "https://useforward.co/",
+   "description": "Forward is an AI platform that standardises scattered borrower financials into structured deal proposals, saving time and generating more revenue for commercial lenders.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/forward",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "glowback",
+   "name": "GlowBack",
+   "website": "https://glowback.tech/",
+   "description": "GlowBack puts client retention and rebookings on autopilot for beauty and wellness businesses",
+   "profile_url": "https://www.startmate.com/portfolio-companies/glowback",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "hyperlocalise",
+   "name": "Hyperlocalise",
+   "website": "https://www.hyperlocalise.com/",
+   "description": "Agentic localisation platform for teams to launch globally in days.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/hyperlocalise",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "orva",
+   "name": "Orva",
+   "website": "https://www.tryorva.io/",
+   "description": "The AI assistant that charts gum disease by voice, so it's caught before it reaches the rest of the body.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/orva",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "quarter",
+   "name": "Quarter",
+   "website": "https://quarter.nz/",
+   "description": "Quarter automates finances and compliance for body corporates",
+   "profile_url": "https://www.startmate.com/portfolio-companies/quarter",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "securitybreak",
+   "name": "SecurityBreak",
+   "website": "https://securitybreak.io/",
+   "description": "We monitor, detect and stop threats across your AI ecosystem.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/securitybreak",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "sunburnt-space-co",
+   "name": "Sunburnt Space Co.",
+   "website": "https://sunburntspace.com.au/",
+   "description": "Round-trip rockets for regular satellite testing",
+   "profile_url": "https://www.startmate.com/portfolio-companies/sunburnt-space-co",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "veltora",
+   "name": "Veltora",
+   "website": "https://www.veltora.net/",
+   "description": "We predict what will delay or interrupt AI compute, so data centre operators and neoclouds get capacity live and keep it dependable.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/veltora",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "alloovium",
+   "name": "Alloovium",
+   "website": "https://www.alloovium.com/",
+   "description": "The collaborative AI workspace for construction and heavy industry.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/alloovium",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ascenda",
+   "name": "Ascenda",
+   "website": "https://ascenda.one/",
+   "description": "Ascenda is an AI-augmented platform that helps therapists deliver continuous mental health care, reduce care gaps and drop outs to safely scale mental health support.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ascenda",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "brainwaves",
+   "name": "Brainwaves",
+   "website": "https://www.brain-waves.io/",
+   "description": "Brainwaves is the strategic intelligence OS for modern brand teams.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/brainwaves",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "cascayd",
+   "name": "cascayd",
+   "website": "https://cascayd.app/",
+   "description": "Create A/B tests with words, in seconds",
+   "profile_url": "https://www.startmate.com/portfolio-companies/cascayd",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "checkgen",
+   "name": "CheckGen",
+   "website": "https://www.checkgen.com.au/",
+   "description": "Take the Guesswork out of Skin Care",
+   "profile_url": "https://www.startmate.com/portfolio-companies/checkgen",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "crosscourtai",
+   "name": "CrossCourtAI",
+   "website": "https://crosscourtai.com/",
+   "description": "AI Agents for APAC Real Estate & Private Credit",
+   "profile_url": "https://www.startmate.com/portfolio-companies/crosscourtai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "deeligence",
+   "name": "Deeligence",
+   "website": "https://www.deeligence.com/",
+   "description": "Deeligence delivers accurate legal diligence for deal professionals in hours instead of weeks",
+   "profile_url": "https://www.startmate.com/portfolio-companies/deeligence",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "draper",
+   "name": "Draper",
+   "website": "https://draper.chat/",
+   "description": "The autonomous operating system for the one-person company.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/draper",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "evatto",
+   "name": "evatto",
+   "website": "https://evatto.ai/",
+   "description": "The all-in-one AI operating system for events. Automating planning, reducing costs, saving time and seamlessly connecting the event ecosystem.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/evatto",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "flowgo",
+   "name": "FlowGo",
+   "website": "https://www.flowgoai.com/",
+   "description": "The chat-native financial automation layer for SMEs",
+   "profile_url": "https://www.startmate.com/portfolio-companies/flowgo",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "guin",
+   "name": "Guin",
+   "website": "https://guin.ai/",
+   "description": "AI video-aware soundtrack generation",
+   "profile_url": "https://www.startmate.com/portfolio-companies/guin",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ibnk",
+   "name": "Ibnk",
+   "website": "https://ibnk.xyz/",
+   "description": "iBnk is the regulated FX liquidity layer for stablecoins, aggregating institutional OTC and LP pricing to power cross-border payments.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ibnk",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "lockii",
+   "name": "Lockii",
+   "website": "https://lockii.app/",
+   "description": "Creating the future of short term rentals through automation.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/lockii",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "neuralindex-ai",
+   "name": "Neuralindex.ai",
+   "website": "https://neuralindex.ai/",
+   "description": "Neuralindex turns property data into insight - fuelling next-generation property technology.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/neuralindex-ai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "superstat",
+   "name": "Superstat",
+   "website": "https://superstat.com.au/",
+   "description": "AI Sports stats and highlights platform",
+   "profile_url": "https://www.startmate.com/portfolio-companies/superstat",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "tendor",
+   "name": "Tendor",
+   "website": "https://www.tendor.ai/",
+   "description": "AI-Powered Government Tender & Grant Automation",
+   "profile_url": "https://www.startmate.com/portfolio-companies/tendor",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "thermal-dawn",
+   "name": "Thermal Dawn",
+   "website": "https://www.thermaldawn.com/",
+   "description": "Thermal energy storage that enables homes to use daytime solar for evening heating and cooling – 10× cheaper than batteries for HVAC loads.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/thermal-dawn",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "vixia",
+   "name": "Vixia",
+   "website": "https://www.vixia.ai/",
+   "description": "An AI co-pilot for your production line.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/vixia",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "zabidou",
+   "name": "Zabidou",
+   "website": "https://www.zabidou.com/",
+   "description": "Ultra-vision for manufacturing at 1/10th the cost, 10x faster.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/zabidou",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "caregp",
+   "name": "CareGP",
+   "website": "https://caregp.com.au/",
+   "description": "Building the AI infrastructure for Healthcare provider admin.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/caregp",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "heystu",
+   "name": "HeySTU",
+   "website": "https://heystu.io/",
+   "description": "STU is a personal desk companion robot that helps people with ADHD stay focused, organised, and on track.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/heystu",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "integuide",
+   "name": "Integuide",
+   "website": "https://integuide.com/",
+   "description": "AI to guide technicians through maintenance & servicing tasks.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/integuide",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "june",
+   "name": "June",
+   "website": "https://www.heyjune.com.au/",
+   "description": "Australia’s first at-home STI and cervical screening kits for women and people with a cervix.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/june",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "leakster",
+   "name": "Leakster",
+   "website": "https://www.leakster.com.au/",
+   "description": "Leakster detects and pinpoints water pipeline leaks by listening to the water network in real time.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/leakster",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "luck-ai",
+   "name": "Luck AI",
+   "website": "https://www.getluck.ai/",
+   "description": "Luck kills copy-pasting into chatbots with an AI workspace that edits, writes, and thinks with you - inside your tools.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/luck-ai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "matchbox",
+   "name": "Matchbox",
+   "website": "https://www.trymatchbox.com/",
+   "description": "Startup recruitment platform to de-risk hiring and fill critical roles faster.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/matchbox",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "medlo",
+   "name": "Medlo & Doccy",
+   "website": "https://medlo.com.au/",
+   "description": "Medlo & Doccy solves healthcare access with AI-powered staffing and hybrid care delivery.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/medlo",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ninja-ai",
+   "name": "Ninja AI",
+   "website": "https://ninja.ai/",
+   "description": "Ninja gives anyone the power to equip AI agents with connected apps.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ninja-ai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "on-the-house",
+   "name": "On The House",
+   "website": "https://www.onthehousegroup.com/",
+   "description": "World's first free period products, funded by ads, not women.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/on-the-house",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "on-zero",
+   "name": "On Zero",
+   "website": "https://on0.com/",
+   "description": "Building affordable and open haptic gloves for virtual reality.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/on-zero",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "promosync",
+   "name": "Promosync",
+   "website": "https://www.promosync.ai/",
+   "description": "Automating retail promotions for FMCG brands to maximise their ROI.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/promosync",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "rave",
+   "name": "Rave",
+   "website": "https://www.go-rave.com/",
+   "description": "Discovering and sharing recommendations with people who get your taste.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/rave",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "chirp",
+   "name": "Chirp",
+   "website": "https://www.trychirp.com/",
+   "description": "Chirp orchestrates data and automates the entire sales pipeline from lead research to closed won, empowering sales teams to focus on their relationship building and time selling.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/chirp",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "circular-sourcing",
+   "name": "Circular Sourcing",
+   "website": "https://www.circularsourcing.world/",
+   "description": "Circular Sourcing connects businesses to source and sell quality surplus textiles, increasing profit while reducing waste.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/circular-sourcing",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "duohub",
+   "name": "Duohub",
+   "website": "https://duohub.ai/",
+   "description": "Duohub helps non-technical people build AI agents with just a conversation.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/duohub",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "edsemble",
+   "name": "Edsemble",
+   "website": "https://edsemble.com/",
+   "description": "Improving early childhood development through personalised learning.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/edsemble",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "evidentful",
+   "name": "Evidentful",
+   "website": "https://www.evidentful.co.uk/",
+   "description": "Evidentful addresses the police shortage by automating the witness interview process, removing the need to deploy a human resource.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/evidentful",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "fluency",
+   "name": "Fluency",
+   "website": "https://usefluency.com/",
+   "description": "Fluency makes enterprise process documentation 50x faster through automation.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/fluency",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "gloss-guide",
+   "name": "Gloss Guide",
+   "website": "https://glossguide.com.au/",
+   "description": "Gloss Guide is the trusted beauty services directory connecting independent providers and customers with a quality-service guarantee.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/gloss-guide",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "landid",
+   "name": "Landid",
+   "website": "https://heylandid.com/",
+   "description": "Landid harnesses AI to digitise every detail of any property, automating project scoping, planning and costing with high accuracy and reliability to save Tradies hours of lost time with improved project conversion and profit margins.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/landid",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "luniate",
+   "name": "Luniate",
+   "website": "https://luniate.ai/",
+   "description": "Luniate enables financial firms to accelerate content creation to reach the next-gen investor.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/luniate",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "nod",
+   "name": "NOD",
+   "website": "https://www.getnod.io/",
+   "description": "NOD connects parents with trusted childcare professionals, instantly.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/nod",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "o3",
+   "name": "O3",
+   "website": "https://www.o3space.org/",
+   "description": "A physical social network to help Gen Z reconnect in a lonely world.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/o3",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "pentacue",
+   "name": "Pentacue",
+   "website": "https://www.pentacue.com/",
+   "description": "AI platform that lets electronics manufacturers discover qualified leads instantly by analysing their product components.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/pentacue",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "slice",
+   "name": "Slice",
+   "website": "https://www.slicetobuy.com/",
+   "description": "A marketplace that automates the home buying process for buyers, brokers and lawyers.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/slice",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "vulnetix",
+   "name": "Vulnetix",
+   "website": "https://www.vulnetix.com/",
+   "description": "Vulnetix is making cyber security resilient to an ever-changing future by building an intelligent monitoring layer that prioritises security issues with business context such as coverage, analytics, and impact to reduce risk with less effort.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/vulnetix",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "zipline",
+   "name": "Zipline",
+   "website": "https://www.zipline-ai.com/",
+   "description": "Powering the future of commerce by enabling brands and consumers to collaborate on products.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/zipline",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "borne",
+   "name": "Borne",
+   "website": "https://www.borne.au/",
+   "description": "Australia’s first mother-centric postpartum hotel and wellness platform ensuring every mother’s health is well-supported, deeply understood and expertly navigated following childbirth.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/borne",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "bugster",
+   "name": "Bugster",
+   "website": "https://www.bugster.app/",
+   "description": "Find bugs before your users do. Automated end-to-end testing powered by AI, generated directly from real user interactions – so you can move fast without breaking things.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/bugster",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "fairgo-ai",
+   "name": "Fairgo.ai",
+   "website": "https://www.fairgo.ai/",
+   "description": "Live, AI-powered recruitment interviews that cut through noise, eliminate bias, and find the best candidates, faster.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/fairgo-ai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "hurtec",
+   "name": "Hurtec",
+   "website": "https://hurtec.com.au/",
+   "description": "Hurtec makes firefighting safer and more effective through automated software, powerful electric pumps and data driven decisions.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/hurtec",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "inbox-agents",
+   "name": "InboxAgents.ai",
+   "website": "https://inboxagents.ai/recant",
+   "description": "Recant.ai combats abusive messages and harassment on social media.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/inbox-agents",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ne-tech",
+   "name": "NE Tech",
+   "website": "https://naturalextech.com/",
+   "description": "Food oil extraction technology that produces additive-free oils 85% cheaper.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ne-tech",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "preve",
+   "name": "PREVE",
+   "website": "https://preve.co/",
+   "description": "Helping physiotherapy clinics deliver the best and most affordable patient treatment programs.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/preve",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "tendl",
+   "name": "Tendl",
+   "website": "https://www.tendl.ai/",
+   "description": "Respond to tenders and grants faster with Tendl.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/tendl",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "totex",
+   "name": "TOTEX",
+   "website": "https://www.totex.com.au/",
+   "description": "Next gen sustainable all in one heating, cooling and hot water system that cuts energy cost and emissions in half.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/totex",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "trova",
+   "name": "Trova",
+   "website": "https://www.trova.health/",
+   "description": "Trova enables rapid global expansion for digital health companies.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/trova",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "zello",
+   "name": "Zello",
+   "website": "https://www.zellostudio.co/",
+   "description": "Reinventing the way shoppers try on clothes to improve retailers decision making.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/zello",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "carbonaught",
+   "name": "Carbonaught",
+   "website": "https://www.carbonaught.io/",
+   "description": "Carbonaught uses basalt as a synthetic fertiliser replacement to grow more food, on less land at lower cost with lower emissions.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/carbonaught",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "everbility",
+   "name": "Everbility",
+   "website": "https://www.everbility.com/",
+   "description": "AI powered report writing co-pilot for allied health professionals.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/everbility",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "graphics-et-al",
+   "name": "Graphics et al",
+   "website": "https://graphicsetal.com/",
+   "description": "Software which lets health professionals create accessible health information diagrams and animations in minutes, ie. Canva for medicine.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/graphics-et-al",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "keeyu",
+   "name": "Keeyu",
+   "website": "https://www.keeyu.com/",
+   "description": "Keeyu predicts and prevents post-purchase e-commerce customer complaints.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/keeyu",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "kite-therapy",
+   "name": "Kite Therapy",
+   "website": "https://www.kitetherapy.com.au/",
+   "description": "Kite Therapy is on a mission to make evidence based therapy for autism more affordable and accessible by combining best practice therapy with world-class technology.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/kite-therapy",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "kiwifibre",
+   "name": "Kiwifibre",
+   "website": "https://www.kiwifibre.com/",
+   "description": "KiwiFibre composite materials solve technical and ecological problems of global industries.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/kiwifibre",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "learna",
+   "name": "Learna",
+   "website": "https://www.learna-app.com/",
+   "description": "Learna is a microlearning app for people skills at work, and it uses the platform data to provide unique insight into an organisations’ workforce.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/learna",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "noathebrand",
+   "name": "NoaTheBrand",
+   "website": "https://www.noathebrand.com/",
+   "description": "Developing next gen wireless charging technology to power up industrial devices.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/noathebrand",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "telemattica",
+   "name": "Telemattica",
+   "website": "https://www.telemattica.com/",
+   "description": "Providing heavy industry customers with real-time data on the condition of their critical infrastructure to increase reliability, reduce cost and improve safety across their operations.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/telemattica",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "venu",
+   "name": "Venu",
+   "website": "https://www.venuhq.com/",
+   "description": "One rewards programme for every restaurant, bar, and café, seamlessly linked with your payment card.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/venu",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "alt-leather",
+   "name": "Alt.leather",
+   "website": "https://www.alt-leather.com/",
+   "description": "High-performance, 100% bio-based leather alternative. Turning waste streams and plants into next-gen materials.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/alt-leather",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "astrix-astronautics",
+   "name": "Astrix Astronautics",
+   "website": "https://astrix.space/",
+   "description": "Inflatable solar panels for satellites.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/astrix-astronautics",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "asyncbrain",
+   "name": "AsyncBrain",
+   "website": "https://www.asyncbrain.com/",
+   "description": "Where teams log, track, and make better decisions.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/asyncbrain",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "bioticsai",
+   "name": "BioticsAI",
+   "website": "https://www.biotics.ai/",
+   "description": "AI for 10x improvement in fetal abnormality detection.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/bioticsai",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ddloop",
+   "name": "DDLoop",
+   "website": "https://ddloop.app/",
+   "description": "Faster, more reliable legal analysis of government registers for M&A, financing and investment deals.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ddloop",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "defy-hi",
+   "name": "Defy-Hi",
+   "website": "https://www.defyhi.com/",
+   "description": "Safer, smarter facade inspection for tall city buildings",
+   "profile_url": "https://www.startmate.com/portfolio-companies/defy-hi",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "empathix",
+   "name": "Empathix",
+   "website": "https://www.empathix.xyz/",
+   "description": "Top quality, interview ready candidates in under a week.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/empathix",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "flohh",
+   "name": "Flohh",
+   "website": "https://www.flohh.com.au/",
+   "description": "Flohh reduces teacher marking time by 40%",
+   "profile_url": "https://www.startmate.com/portfolio-companies/flohh",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "lumos",
+   "name": "LUMOS",
+   "website": "https://spotlumos.com/",
+   "description": "A data-first ad platform built for every advertiser to streamline transparent media buying, planning, and measurement processes.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/lumos",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "lyrebird-health",
+   "name": "Lyrebird Health",
+   "website": "https://www.lyrebirdhealth.com/",
+   "description": "Saving clinicians 6 minutes every consult through automated medical document generation*",
+   "profile_url": "https://www.startmate.com/portfolio-companies/lyrebird-health",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "misti",
+   "name": "Misti",
+   "website": "https://www.misti.com.au/",
+   "description": "Nebulliser to deliver medicines directly to your lungs.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/misti",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "rainstick",
+   "name": "Rainstick",
+   "website": "https://www.rainstick.com.au/",
+   "description": "We mimic lightning to grow plants and fungi bigger, faster and more sustainably.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/rainstick",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ubiquetherm",
+   "name": "Ubiquetherm",
+   "website": "https://ubiquetherm.com/",
+   "description": "Harnessing naturally occurring thermal energy for heating and cooling solutions with up to 50x increased efficiency.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ubiquetherm",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "ai-nc",
+   "name": "AI-NC",
+   "website": "https://www.ai-nc.com/",
+   "description": "AI-NC brings a 'Grammarly-like' experience to engineering designs to reduce the cost to manufacture",
+   "profile_url": "https://www.startmate.com/portfolio-companies/ai-nc",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "flux-robotics",
+   "name": "Flux Robotics",
+   "website": "https://www.fluxrobotics.ai/",
+   "description": "We are removing pesticide use by building robots to manage weeds",
+   "profile_url": "https://www.startmate.com/portfolio-companies/flux-robotics",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  },
+  {
+   "key": "gridmo",
+   "name": "gridmo",
+   "website": "https://www.gridmo.io/",
+   "description": "gridmo accelerates the connection of renewable generation to the grid.",
+   "profile_url": "https://www.startmate.com/portfolio-companies/gridmo",
+   "list_url": "https://www.startmate.com/portfolio",
+   "retrieved_at": "2026-10-30T23:37:51.481Z"
+  }
+ ],
+ "problems": []
+}

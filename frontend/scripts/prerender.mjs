@@ -2,8 +2,8 @@
 // puts the markup into the built index.html (so the page keeps the same scripts and styles, and is hydrated or drawn over by the browser),
 // gives each page its own title, description, canonical address and link-preview tags, and writes robots.txt and sitemap.xml.
 //
-//   dist/index.html            the map: a heading, a sentence and the way to the plain list (the app draws over it)
-//   dist/welcome/index.html    the landing page, hydrated by the browser   (also about/, methodology/, contact/)
+//   dist/index.html            the welcome page (the homepage), hydrated by the browser   (also about/, methodology/, contact/)
+//   dist/map/index.html        the map page: a heading, a sentence and the way to the plain list (the app draws over it)
 //   dist/lists/index.html, dist/investors/index.html   plain versions of the app's pages, for search engines and visitors with no scripts
 //   dist/app.html              the same shell with no address of its own: what vercel.json serves for a company, the jobs board, the news...
 //

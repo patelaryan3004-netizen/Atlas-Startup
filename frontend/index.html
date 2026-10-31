@@ -27,14 +27,16 @@
     var path = location.pathname.replace(/\/$/, ''), search = location.search, files = /*ROUTE_FILES*/{};
     // Discover (the list of startups, or the map with ?view=map) draws its first views from the snapshot; so does a company's page and an older link to the map (/?sector=AI).
     var filters = /[?&](search|sector|city|investor|stage|hiring|taskGate|events|precision|state|remote|tech|team|cohort|fresh|view|show)=/;
-    var discover = path === '/discover' || /^\/startup\//.test(path) || (path === '' && filters.test(search));
+    // The root is the welcome page (the homepage), which reads no data; an older link to the root with a filter or a view in its query opens the app, as before.
+    var welcome = (path === '' || path === '/welcome') && !filters.test(search);
+    var discover = path === '/discover' || path === '/map' || /^\/startup\//.test(path) || (path === '' && filters.test(search));
     if (discover) {
       window.__auSnapshot = fetch('/data/snapshot.json').then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; });
     }
-    var kinds = path === '/welcome' || /^\/(about|methodology|contact)$/.test(path) ? []
-      : discover ? (/[?&]view=map/.test(search) ? ['app', 'map'] : ['app', 'list'])
+    var kinds = welcome || /^\/(about|methodology|contact)$/.test(path) ? []
+      : discover ? (path === '/map' || /[?&]view=map/.test(search) ? ['app', 'map'] : ['app', 'list'])
       : path === '/jobs' || path === '/opportunities' ? ['app', 'jobs']
-      : path === '' || path === '/home' ? ['app', 'home']
+      : path === '/home' ? ['app', 'home']
       : /^\/(investors|news|people|events|saved|me|members|moderation|discover)(\/|$)|^\/lists$|[?&]view=(jobs|lists|investors|saved)/.test(path + search) ? ['app']
       : /^\/lists\//.test(path) ? ['app', 'list']
       : ['app', 'list'];

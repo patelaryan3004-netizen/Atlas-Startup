@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, within, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-vi.mock('../../src/api.js', () => ({ fetchStartupPage: vi.fn(), fetchSuggestions: vi.fn() }));
+vi.mock('../../src/api.js', () => ({ fetchStartupPage: vi.fn(), fetchSuggestions: vi.fn(), fetchStartup: vi.fn(() => Promise.reject(new Error('offline'))) }));
 
 import { fetchStartupPage, fetchSuggestions } from '../../src/api.js';
 import ExploreHero from '../../src/components/explore/ExploreHero.jsx';

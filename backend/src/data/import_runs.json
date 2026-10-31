@@ -81,5 +81,1438 @@
     },
     "refused": [],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261030233433595",
+    "started_at": "2026-10-30T23:30:59.861Z",
+    "finished_at": "2026-10-30T23:34:33.595Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "cicada-residents",
+        "leads": 41,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 41,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 184
+    },
+    "refused": [
+      {
+        "url": "https://calumino.com/privacy-policy/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://calumino.com/terms-conditions/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://mawsonrovers.com/cdn-cgi/l/email-protection",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://platypusvision.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://quantummotion.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://ruxenergy.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.speedxpcr.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://starboundsolutions.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://sustinent.com/privacy_policy/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://sustinent.com/terms/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://telemattica.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://vxbaerospace.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://vxbaerospace.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261030233701027",
+    "started_at": "2026-10-30T23:34:33.856Z",
+    "finished_at": "2026-10-30T23:37:01.027Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "folklore-portfolio",
+        "leads": 29,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 28,
+      "attached": 0,
+      "seen": 1,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 147
+    },
+    "refused": [
+      {
+        "url": "https://zencheck.ai/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.freelancer.com/hire/legal",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://support.shippingeasy.com/hc/en-us/articles/4407014947739",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261030233910463",
+    "started_at": "2026-10-30T23:37:01.269Z",
+    "finished_at": "2026-10-30T23:39:10.463Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "giantleap-portfolio",
+        "leads": 28,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 27,
+      "attached": 1,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 95
+    },
+    "refused": [
+      {
+        "url": "https://academyxi.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve academyxi.com"
+      },
+      {
+        "url": "https://beapplied.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://beapplied.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://changefoods.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.conservingbeauty.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://fullcyclebioplastics.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fullcyclebioplastics.com"
+      },
+      {
+        "url": "https://greatwrap.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve greatwrap.co"
+      },
+      {
+        "url": "https://meetmodo.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve meetmodo.com"
+      },
+      {
+        "url": "https://musichealth.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve musichealth.ai"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261030233929930",
+    "started_at": "2026-10-30T23:39:10.949Z",
+    "finished_at": "2026-10-30T23:39:29.930Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "oneventures-portfolio",
+        "leads": 5,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 5,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 17
+    },
+    "refused": [
+      {
+        "url": "https://goo.gl/",
+        "code": "http_error",
+        "message": "HTTP 400"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261030234750869",
+    "started_at": "2026-10-30T23:44:35.399Z",
+    "finished_at": "2026-10-30T23:47:50.869Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "airtree-portfolio",
+        "leads": 38,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 38,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 159
+    },
+    "refused": [
+      {
+        "url": "https://mitti.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://www.brosa.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://cardly.net/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://cardly.net/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://chemist2u.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://futureverse.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://futureverse.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261030235349079",
+    "started_at": "2026-10-30T23:47:51.139Z",
+    "finished_at": "2026-10-30T23:53:49.079Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "blackbird-portfolio",
+        "leads": 78,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 73,
+      "attached": 5,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 334
+    },
+    "refused": [
+      {
+        "url": "https://mitti.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://apizeus777xs.com/privacy_policy",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://apizeus777xs.com/terms",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.carted.com/",
+        "code": "http_error",
+        "message": "HTTP 525"
+      },
+      {
+        "url": "https://chuffed.org/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://cyble.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.godaddy.com/pro-connect",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://enhancelabs.ai/privacy-policy",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://enhancelabs.ai/terms-conditions",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://entrylevel.net/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://excellent.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve excellent.io"
+      },
+      {
+        "url": "https://www.generalcompute.com/privacy",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.generalcompute.com/terms",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.lifx.com/policies/privacy-policy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /policies/privacy-policy"
+      },
+      {
+        "url": "https://www.lifx.com/policies/terms-of-service",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /policies/terms-of-service"
+      },
+      {
+        "url": "https://magicbrief.com/privacy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /privacy"
+      },
+      {
+        "url": "https://magicbrief.com/terms",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /terms"
+      },
+      {
+        "url": "https://movus.com.au/?page_id=3",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://myagi.rallyware.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://onefuturefootball.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve onefuturefootball.com"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261031001016902",
+    "started_at": "2026-10-30T23:53:49.455Z",
+    "finished_at": "2026-10-31T00:10:16.902Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "investible-portfolio",
+        "leads": 88,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 86,
+      "attached": 2,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 98
+    },
+    "refused": [
+      {
+        "url": "https://booksy.com/en-au/p/privacy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /en-au/p/privacy"
+      },
+      {
+        "url": "https://booksy.com/en-au/p/terms",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /en-au/p/terms"
+      },
+      {
+        "url": "https://bygen.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://bygen.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://getcape.io/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://getcape.io/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://carnextdoor.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve carnextdoor.com.au"
+      },
+      {
+        "url": "https://consultmed.co/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://emmi.io/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://emmi.io/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://espersatellites.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve espersatellites.co"
+      },
+      {
+        "url": "https://evidentli.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve evidentli.com"
+      },
+      {
+        "url": "https://withfaye.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve withfaye.com"
+      },
+      {
+        "url": "https://fifthdomain.pro/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fifthdomain.pro"
+      },
+      {
+        "url": "https://file.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve file.ai"
+      },
+      {
+        "url": "https://fivegoodfriends.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fivegoodfriends.com.au"
+      },
+      {
+        "url": "https://frntlne.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve frntlne.com"
+      },
+      {
+        "url": "https://fugu.energy/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fugu.energy"
+      },
+      {
+        "url": "https://functionly.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve functionly.com"
+      },
+      {
+        "url": "https://geosnapshot.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve geosnapshot.com"
+      },
+      {
+        "url": "https://getsolar.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve getsolar.ai"
+      },
+      {
+        "url": "https://goodheat.energy/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve goodheat.energy"
+      },
+      {
+        "url": "https://gradability.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve gradability.com.au"
+      },
+      {
+        "url": "https://grw.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve grw.ai"
+      },
+      {
+        "url": "https://hachiko.energy/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve hachiko.energy"
+      },
+      {
+        "url": "https://headsafe.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve headsafe.com"
+      },
+      {
+        "url": "https://heyyou.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve heyyou.com.au"
+      },
+      {
+        "url": "https://hoopscrm.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve hoopscrm.com"
+      },
+      {
+        "url": "https://iluminr.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve iluminr.io"
+      },
+      {
+        "url": "https://inspace.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve inspace.ai"
+      },
+      {
+        "url": "https://iif.today/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve iif.today"
+      },
+      {
+        "url": "https://ipsy.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ipsy.com"
+      },
+      {
+        "url": "https://talktoivy.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve talktoivy.com"
+      },
+      {
+        "url": "https://jugglestreet.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve jugglestreet.com.au"
+      },
+      {
+        "url": "https://kara.tech/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve kara.tech"
+      },
+      {
+        "url": "https://kitemagnetics.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve kitemagnetics.com"
+      },
+      {
+        "url": "https://languageconfidence.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve languageconfidence.ai"
+      },
+      {
+        "url": "https://lawpath.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lawpath.com.au"
+      },
+      {
+        "url": "https://ledgerowl.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ledgerowl.com"
+      },
+      {
+        "url": "https://ligrsystems.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ligrsystems.com"
+      },
+      {
+        "url": "https://literalapp.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve literalapp.com"
+      },
+      {
+        "url": "https://ecdev.org/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ecdev.org"
+      },
+      {
+        "url": "https://lumonus.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lumonus.com"
+      },
+      {
+        "url": "https://manettas.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve manettas.com.au"
+      },
+      {
+        "url": "https://merchantspring.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve merchantspring.io"
+      },
+      {
+        "url": "https://gomist.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve gomist.co"
+      },
+      {
+        "url": "https://mize.tech/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve mize.tech"
+      },
+      {
+        "url": "https://mosaic-solutions.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve mosaic-solutions.com"
+      },
+      {
+        "url": "https://mozo.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve mozo.com.au"
+      },
+      {
+        "url": "https://myrobin.id/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve myrobin.id"
+      },
+      {
+        "url": "https://nrn.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nrn.com.au"
+      },
+      {
+        "url": "https://nexl.cloud/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nexl.cloud"
+      },
+      {
+        "url": "https://nextworldenterprises.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nextworldenterprises.com"
+      },
+      {
+        "url": "https://novalith.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve novalith.com.au"
+      },
+      {
+        "url": "https://parcelperform.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve parcelperform.com"
+      },
+      {
+        "url": "https://plasmaleap.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve plasmaleap.com"
+      },
+      {
+        "url": "https://programa.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve programa.com.au"
+      },
+      {
+        "url": "https://prospus.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve prospus.com"
+      },
+      {
+        "url": "https://protoslabs.sg/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve protoslabs.sg"
+      },
+      {
+        "url": "https://purposebureau.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve purposebureau.com"
+      },
+      {
+        "url": "https://rakamin.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rakamin.com"
+      },
+      {
+        "url": "https://purple.telstra.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve purple.telstra.com"
+      },
+      {
+        "url": "https://reheroes.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve reheroes.ai"
+      },
+      {
+        "url": "https://renewable-metals.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve renewable-metals.com"
+      },
+      {
+        "url": "https://restoplus.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve restoplus.com"
+      },
+      {
+        "url": "https://revibecollective.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve revibecollective.com"
+      },
+      {
+        "url": "https://sidekick.software/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sidekick.software"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261031001018795",
+    "started_at": "2026-10-31T00:10:17.252Z",
+    "finished_at": "2026-10-31T00:10:18.795Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "squarepeg-portfolio",
+        "leads": 64,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 59,
+      "attached": 5,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 0
+    },
+    "refused": [
+      {
+        "url": "https://aidoc.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve aidoc.com"
+      },
+      {
+        "url": "https://ai-hay.vn/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ai-hay.vn"
+      },
+      {
+        "url": "https://usebyron.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve usebyron.com"
+      },
+      {
+        "url": "https://caisgroup.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve caisgroup.com"
+      },
+      {
+        "url": "https://chroniclehq.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve chroniclehq.com"
+      },
+      {
+        "url": "https://desty.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve desty.app"
+      },
+      {
+        "url": "https://doctoranywhere.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve doctoranywhere.com"
+      },
+      {
+        "url": "https://earlywork.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve earlywork.co"
+      },
+      {
+        "url": "https://exodigo.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve exodigo.com"
+      },
+      {
+        "url": "https://feedvisor.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve feedvisor.com"
+      },
+      {
+        "url": "https://fiverr.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fiverr.com"
+      },
+      {
+        "url": "https://goodwork.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve goodwork.ai"
+      },
+      {
+        "url": "https://hud.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve hud.io"
+      },
+      {
+        "url": "https://joyoushq.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve joyoushq.com"
+      },
+      {
+        "url": "https://kredivocorp.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve kredivocorp.com"
+      },
+      {
+        "url": "https://kula.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve kula.ai"
+      },
+      {
+        "url": "https://lightbitslabs.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lightbitslabs.com"
+      },
+      {
+        "url": "https://limitless-labs.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve limitless-labs.ai"
+      },
+      {
+        "url": "https://lottiefiles.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lottiefiles.com"
+      },
+      {
+        "url": "https://about.lounge.live/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve about.lounge.live"
+      },
+      {
+        "url": "https://lysto.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lysto.io"
+      },
+      {
+        "url": "https://manifest.inc/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve manifest.inc"
+      },
+      {
+        "url": "https://mindos.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve mindos.com"
+      },
+      {
+        "url": "https://rideneuron.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rideneuron.com"
+      },
+      {
+        "url": "https://nexusmd.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nexusmd.com.au"
+      },
+      {
+        "url": "https://nimbleway.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nimbleway.com"
+      },
+      {
+        "url": "https://octen.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve octen.ai"
+      },
+      {
+        "url": "https://pandai-group.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve pandai-group.com"
+      },
+      {
+        "url": "https://paper.id/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve paper.id"
+      },
+      {
+        "url": "https://pluang.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve pluang.com"
+      },
+      {
+        "url": "https://qodo.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve qodo.ai"
+      },
+      {
+        "url": "https://relay.link/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve relay.link"
+      },
+      {
+        "url": "https://retrain.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve retrain.ai"
+      },
+      {
+        "url": "https://saasguru.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve saasguru.co"
+      },
+      {
+        "url": "https://source.shop/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve source.shop"
+      },
+      {
+        "url": "https://spiritt.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve spiritt.io"
+      },
+      {
+        "url": "https://stashaway.sg/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve stashaway.sg"
+      },
+      {
+        "url": "https://sternumiot.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sternumiot.com"
+      },
+      {
+        "url": "https://stripe.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve stripe.com"
+      },
+      {
+        "url": "https://sumble.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sumble.com"
+      },
+      {
+        "url": "https://supabase.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve supabase.com"
+      },
+      {
+        "url": "https://thinkingmachines.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve thinkingmachines.ai"
+      },
+      {
+        "url": "https://tomorrow.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tomorrow.io"
+      },
+      {
+        "url": "https://traildsoftware.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve traildsoftware.com"
+      },
+      {
+        "url": "https://upguard.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve upguard.com"
+      },
+      {
+        "url": "https://getvero.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve getvero.com"
+      },
+      {
+        "url": "https://vi.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve vi.co"
+      },
+      {
+        "url": "https://voyantis.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve voyantis.ai"
+      },
+      {
+        "url": "https://wego.com.sg/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve wego.com.sg"
+      },
+      {
+        "url": "https://xflowpay.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve xflowpay.com"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261031001020783",
+    "started_at": "2026-10-31T00:10:19.040Z",
+    "finished_at": "2026-10-31T00:10:20.783Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "startmate-portfolio",
+        "leads": 73,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 73,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 0
+    },
+    "refused": [
+      {
+        "url": "https://alloovium.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve alloovium.com"
+      },
+      {
+        "url": "https://ascenda.one/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ascenda.one"
+      },
+      {
+        "url": "https://brain-waves.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve brain-waves.io"
+      },
+      {
+        "url": "https://cascayd.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve cascayd.app"
+      },
+      {
+        "url": "https://checkgen.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve checkgen.com.au"
+      },
+      {
+        "url": "https://crosscourtai.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve crosscourtai.com"
+      },
+      {
+        "url": "https://deeligence.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve deeligence.com"
+      },
+      {
+        "url": "https://draper.chat/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve draper.chat"
+      },
+      {
+        "url": "https://evatto.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve evatto.ai"
+      },
+      {
+        "url": "https://flowgoai.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve flowgoai.com"
+      },
+      {
+        "url": "https://guin.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve guin.ai"
+      },
+      {
+        "url": "https://ibnk.xyz/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ibnk.xyz"
+      },
+      {
+        "url": "https://lockii.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lockii.app"
+      },
+      {
+        "url": "https://neuralindex.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve neuralindex.ai"
+      },
+      {
+        "url": "https://tendor.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tendor.ai"
+      },
+      {
+        "url": "https://thermaldawn.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve thermaldawn.com"
+      },
+      {
+        "url": "https://vixia.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve vixia.ai"
+      },
+      {
+        "url": "https://zabidou.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve zabidou.com"
+      },
+      {
+        "url": "https://heystu.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve heystu.io"
+      },
+      {
+        "url": "https://integuide.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve integuide.com"
+      },
+      {
+        "url": "https://heyjune.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve heyjune.com.au"
+      },
+      {
+        "url": "https://leakster.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve leakster.com.au"
+      },
+      {
+        "url": "https://getluck.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve getluck.ai"
+      },
+      {
+        "url": "https://trymatchbox.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve trymatchbox.com"
+      },
+      {
+        "url": "https://medlo.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve medlo.com.au"
+      },
+      {
+        "url": "https://ninja.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ninja.ai"
+      },
+      {
+        "url": "https://onthehousegroup.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve onthehousegroup.com"
+      },
+      {
+        "url": "https://on0.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve on0.com"
+      },
+      {
+        "url": "https://promosync.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve promosync.ai"
+      },
+      {
+        "url": "https://go-rave.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve go-rave.com"
+      },
+      {
+        "url": "https://evidentful.co.uk/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve evidentful.co.uk"
+      },
+      {
+        "url": "https://luniate.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve luniate.ai"
+      },
+      {
+        "url": "https://getnod.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve getnod.io"
+      },
+      {
+        "url": "https://o3space.org/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve o3space.org"
+      },
+      {
+        "url": "https://slicetobuy.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve slicetobuy.com"
+      },
+      {
+        "url": "https://zipline-ai.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve zipline-ai.com"
+      },
+      {
+        "url": "https://borne.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve borne.au"
+      },
+      {
+        "url": "https://bugster.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve bugster.app"
+      },
+      {
+        "url": "https://fairgo.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fairgo.ai"
+      },
+      {
+        "url": "https://hurtec.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve hurtec.com.au"
+      },
+      {
+        "url": "https://inboxagents.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve inboxagents.ai"
+      },
+      {
+        "url": "https://naturalextech.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve naturalextech.com"
+      },
+      {
+        "url": "https://preve.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve preve.co"
+      },
+      {
+        "url": "https://totex.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve totex.com.au"
+      },
+      {
+        "url": "https://trova.health/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve trova.health"
+      },
+      {
+        "url": "https://zellostudio.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve zellostudio.co"
+      },
+      {
+        "url": "https://carbonaught.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve carbonaught.io"
+      },
+      {
+        "url": "https://everbility.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve everbility.com"
+      },
+      {
+        "url": "https://graphicsetal.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve graphicsetal.com"
+      },
+      {
+        "url": "https://kiwifibre.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve kiwifibre.com"
+      },
+      {
+        "url": "https://learna-app.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve learna-app.com"
+      },
+      {
+        "url": "https://noathebrand.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve noathebrand.com"
+      },
+      {
+        "url": "https://venuhq.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve venuhq.com"
+      },
+      {
+        "url": "https://alt-leather.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve alt-leather.com"
+      },
+      {
+        "url": "https://astrix.space/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve astrix.space"
+      },
+      {
+        "url": "https://asyncbrain.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve asyncbrain.com"
+      },
+      {
+        "url": "https://biotics.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve biotics.ai"
+      },
+      {
+        "url": "https://ddloop.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ddloop.app"
+      },
+      {
+        "url": "https://defyhi.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve defyhi.com"
+      },
+      {
+        "url": "https://empathix.xyz/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve empathix.xyz"
+      },
+      {
+        "url": "https://flohh.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve flohh.com.au"
+      },
+      {
+        "url": "https://spotlumos.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve spotlumos.com"
+      },
+      {
+        "url": "https://misti.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve misti.com.au"
+      },
+      {
+        "url": "https://rainstick.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rainstick.com.au"
+      },
+      {
+        "url": "https://ubiquetherm.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ubiquetherm.com"
+      },
+      {
+        "url": "https://ai-nc.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ai-nc.com"
+      },
+      {
+        "url": "https://fluxrobotics.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fluxrobotics.ai"
+      },
+      {
+        "url": "https://gridmo.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve gridmo.io"
+      }
+    ],
+    "acknowledged": []
   }
 ]

@@ -1,0 +1,327 @@
+{
+ "source_id": "giantleap-portfolio",
+ "publisher": "Giant Leap",
+ "kind": "vc_portfolio",
+ "investor": "Giant Leap",
+ "list_url": "https://www.giantleap.com.au/portfolio",
+ "retrieved_at": "2026-10-30T23:25:43.739Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "Academy Xi",
+   "name": "Academy Xi",
+   "website": "https://academyxi.com/",
+   "description": "Practical, skill-specific courses to create a future-ready workforce.",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Amber",
+   "name": "Amber",
+   "website": "https://www.amber.com.au/",
+   "description": "Energy retailer empowering customers to shift their energy use to times when it’s green and cheap, and export their stored battery and EV energy at the full market value",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Applied",
+   "name": "Applied",
+   "website": "https://www.beapplied.com/",
+   "description": "Behavioural science-backed, AI-driven recruitment platform that reduces bias, improves quality of hire and increases diversity",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Change Foods",
+   "name": "Change Foods",
+   "website": "https://www.changefoods.com/",
+   "description": "Alternative proteins company producing nutritionally and functionally equivalent cheese products from precision fermentation",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Clean Slate",
+   "name": "Clean Slate",
+   "website": "https://cleanslateclinic.com/",
+   "description": "Clean Slate is a fully virtual, medically supervised alcohol, stimulant or cannabis detoxification and recovery program that combines clinical care, ongoing support and digital tools to make evidence-based addiction treatment accessible, affordable and stigma-free.",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Conserving Beauty",
+   "name": "Conserving Beauty",
+   "website": "https://www.conservingbeauty.com/",
+   "description": "Waterless beauty innovation to help your skin and save water, carbon and waste in the process",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Coviu",
+   "name": "Coviu",
+   "website": "https://www.coviu.com/",
+   "description": "Telehealth platform enabling doctors to effectively, remotely and securely consult with patients",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Driven",
+   "name": "Driven",
+   "website": "https://home.hellodriven.com/",
+   "description": "AI-enabled virtual coach to build resilience and mental health via daily habits",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Evrnu",
+   "name": "Evrnu",
+   "website": "https://www.evrnu.com/",
+   "description": "Advanced material innovation company reshaping resource utilisation and reducing negative environmental impact from the textile industry",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "FlyORO",
+   "name": "FlyORO",
+   "website": "https://www.flyoro.co/",
+   "description": "A modular, on-demand solution for blending sustainable aviation fuel (SAF) and jet fuel, streamlining SAF distribution in the supply chain",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Foremind",
+   "name": "Foremind",
+   "website": "https://foremind.com.au/",
+   "description": "Wellbeing and safety platform that combines mental health support with compliance tools to help businesses manage psychosocial hazards.",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Full Cycle",
+   "name": "Full Cycle",
+   "website": "https://fullcyclebioplastics.com/",
+   "description": "Transforms organic waste into compostable, biodegradable PHA bioplastics, providing a circular, sustainable alternative to petroleum-based plastics",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Future Super",
+   "name": "Future Super",
+   "website": "https://www.futuresuper.com.au/",
+   "description": "Australia’s first ethical, diversified superannuation portfolio that completely excludes fossil fuels.",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "GlamCorner",
+   "name": "GlamCorner",
+   "website": "https://www.glamcorner.com.au/",
+   "description": "Designer clothing rental platform revolutionising sustainable fashion consumption through the ultimate endless wardrobe",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Goterra",
+   "name": "Goterra",
+   "website": "https://goterra.com.au/",
+   "description": "Modular waste management solution using insects to process food and organic waste, converting it to sustainable protein, livestock feed and fertiliser",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Great Wrap",
+   "name": "Great Wrap",
+   "website": "https://www.greatwrap.co/",
+   "description": "Material science company revolutionising packaging with bio-based stretch wrap made from food waste",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "HEX",
+   "name": "HEX",
+   "website": "https://www.startwithhex.com/",
+   "description": "Edtech platform improving education and employment pathways for high school leavers and university drop-outs, preparing them for in-demand innovation and startup careers",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Kernl",
+   "name": "Kernl",
+   "website": "https://www.kernl.com.au/",
+   "description": "An AI-native system for the care economy simplifying workflows with AI, automating compliance, incident reporting and insights to empower frontline and back-office teams.",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Like Family",
+   "name": "Like Family",
+   "website": "https://likefamily.com.au/",
+   "description": "Connecting people living with disability and the elderly with social carers for community connection",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Loop+",
+   "name": "Loop+",
+   "website": "https://www.loopplus.com.au/",
+   "description": "Pressure sensing technology to help wheelchair users avoid pressure sores and improve independence",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Mindset",
+   "name": "Mindset",
+   "website": "https://www.mindsethealth.com/",
+   "description": "Digital therapeutics company that develops evidence-based hypnotherapy apps to help people manage chronic health conditions, including IBS, menopause, and anxiety",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Modo",
+   "name": "Modo",
+   "website": "https://www.meetmodo.com/",
+   "description": "Mental health and productivity app to declutter your mind and help you find focus in the flow of everyday life",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "MoreGoodDays",
+   "name": "MoreGoodDays",
+   "website": "https://www.moregooddays.com/",
+   "description": "Psychology-based pain management digital therapeutic for fibromyalgia and chronic pain",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Music Health",
+   "name": "Music Health",
+   "website": "https://www.musichealth.ai/",
+   "description": "Music-based platform that improves quality of life for people living with dementia",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Perx Health",
+   "name": "Perx Health",
+   "website": "https://perxhealth.com/",
+   "description": "Behavioural health platform using gamification to drive medication and care plan adherence, improving health outcomes for people with chronic conditions",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Project Indi",
+   "name": "Project Indi",
+   "website": "https://projectindi.com/",
+   "description": "Co-pilot app for parents navigating their child’s health journey — supporting advocacy, mental health, and uniting the village of care.",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Seer Medical",
+   "name": "Seer Medical",
+   "website": "https://seermedical.com/",
+   "description": "Australia's largest epilepsy diagnostics service providing home-based video-EEG-ECG monitoring",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Sendle",
+   "name": "Sendle",
+   "website": "https://www.sendle.com/",
+   "description": "Carbon-neutral, low-cost, door-to-door parcel delivery platform",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "SPEC Toolbox",
+   "name": "SPEC Toolbox",
+   "website": "https://clttoolbox.com/",
+   "description": "Software for structural engineers and architects that simplifies the process for designing with zero- and low-carbon materials (previously known as CLT Toolbox)",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Switch Automation",
+   "name": "Switch Automation",
+   "website": "https://www.switchautomation.com/",
+   "description": "Smart building platform that enables building managers to reduce electricity and water consumption",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Swoop Aero",
+   "name": "Swoop Aero",
+   "website": "https://swoop.aero/",
+   "description": "Drone OEM and network operator serving the healthcare, disaster relief and logistics needs of remote populations",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Trace",
+   "name": "Trace",
+   "website": "https://www.our-trace.com/",
+   "description": "Behavioural-change driven carbon footprint assessment, management and reduction tool for small and medium enterprises",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Who Gives a Crap",
+   "name": "Who Gives a Crap",
+   "website": "https://au.whogivesacrap.org/",
+   "description": "Sustainable toilet paper company that creates 100% recycled and bamboo-based products, donating 50% of profits to improve access to clean water and toilets worldwide",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "en-au",
+   "name": "WORK 180",
+   "website": "https://work180.com/en-au",
+   "description": "Vibrant community platform empowering women and marginalized groups with the information they need to make informed career choices, helping them discover workplaces that work for them",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  },
+  {
+   "key": "Your Grocer",
+   "name": "Your Grocer",
+   "website": "https://www.yourgrocer.com.au/",
+   "description": "Online grocery delivery supporting independent local businesses and their communities",
+   "profile_url": null,
+   "list_url": "https://www.giantleap.com.au/portfolio",
+   "retrieved_at": "2026-10-30T23:25:43.739Z"
+  }
+ ],
+ "problems": []
+}

@@ -7,14 +7,14 @@ import { MapShell, ListsShell, InvestorsShell } from './staticShells.jsx';
 import { PAGE_META } from './siteMeta.js';
 
 // The pages that ship real HTML (scripts/prerender.mjs writes them at build; this file only draws them). Two kinds:
-//   hydrate  the page is the same one the browser draws (/welcome, About, How we verify, Contact): its HTML is what the browser's first render
+//   hydrate  the page is the same one the browser draws (the welcome page at /, About, How we verify, Contact): its HTML is what the browser's first render
 //            makes, so the browser hydrates it (main.jsx) instead of drawing it again;
 //   shell    a page the app draws itself (the map, the curated lists, the investors): the HTML is a plain version of its content for search
 //            engines, link previews and visitors with no scripts, and the app draws over it (a visitor with scripts never sees it).
 // /people has none: with VITE_SHOW_PEOPLE off (as it is live) there is no such page, and its content is not in any file the build has.
 export const ROUTES = [
-  { path: '/', file: 'index.html', shell: 'map', json: 'WebSite' },
-  { path: '/welcome', file: 'welcome/index.html', hydrate: 'landing', json: 'WebSite', preload: [['/img/hero-night.webp', '(min-width: 701px)'], ['/img/hero-night-sm.webp', '(max-width: 700px)']], fonts: ['instrument-serif-latin-400-normal', 'instrument-serif-latin-400-italic'] },
+  { path: '/', file: 'index.html', hydrate: 'landing', json: 'WebSite', preload: [['/img/hero-night.webp', '(min-width: 701px)'], ['/img/hero-night-sm.webp', '(max-width: 700px)']], fonts: ['instrument-serif-latin-400-normal', 'instrument-serif-latin-400-italic'] },
+  { path: '/map', file: 'map/index.html', shell: 'map' },
   { path: '/lists', file: 'lists/index.html', shell: 'lists' },
   { path: '/investors', file: 'investors/index.html', shell: 'investors' },
   { path: '/methodology', file: 'methodology/index.html', hydrate: 'info', page: 'methodology' },

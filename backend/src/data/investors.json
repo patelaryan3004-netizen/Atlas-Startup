@@ -2159,7 +2159,9 @@
     "id": "investible",
     "name": "investible",
     "slug": "investible",
-    "aliases": [],
+    "aliases": [
+      "Investible"
+    ],
     "logo": null,
     "website": null,
     "investor_type": null,

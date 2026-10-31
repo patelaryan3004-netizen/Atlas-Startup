@@ -5,6 +5,7 @@ import { hiringLabel, present, shortDate } from '../../freshness.js';
 import { Avatar } from '../EntityCard.jsx';
 import HiringBadge from '../HiringBadge.jsx';
 import VerifiedNote, { UnverifiedBadge } from '../VerifiedNote.jsx';
+import SourceNote from './SourceNote.jsx';
 import { PinIcon, GlobeIcon, BookmarkIcon, ArrowRight, ExternalIcon, CloseIcon } from './icons.jsx';
 
 // The panel for the company that was picked on the map (or in the list under the phone's sheet): on a wide screen it is docked on the map's right, on a
@@ -115,6 +116,7 @@ export default function StartupPanel({ pin, saved = false, onToggleSaved, onOpen
               {present(record.stage).length > 0 && <div><dt>Stage</dt><dd>{record.stage}</dd></div>}
             </dl>
           )}
+          {record && <SourceNote record={record} />}
           {record && <VerifiedNote at={record.last_verified_at} />}
         </div>
       ) : (

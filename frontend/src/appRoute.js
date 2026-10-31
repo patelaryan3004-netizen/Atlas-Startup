@@ -2,7 +2,9 @@ import { readRoute as readInvestorsRoute } from './components/investors/route.js
 import { showPeople } from './flags.js';
 
 // The addresses of the app's pages, so every page can be linked to, opened in a new tab and come back to with the back button:
-//   /home (and /)            Home: the community feed
+//   /                        the welcome page (the homepage): not the app, main.jsx shows it. An older link to / with filters or a view in its query still opens the app
+//   /home                    Home: the community feed
+//   /map                     the map: a large street map of every company (the filters in the query, as on Discover)
 //   /discover                Discover, Startups: the list of startups (with ?view=map, the map), the filters in the query: /discover?sector=AI&city=Sydney
 //   /discover/people         Discover, People: members who chose to be listed, and people named on public pages
 //   /investors...            Discover, Investors (components/investors/route.js)
@@ -29,6 +31,7 @@ export function readAppRoute({ pathname = window.location.pathname, search = win
   if (first === 'jobs' || first === 'opportunities') return { kind: 'jobs' };
   if (first === 'events') return { kind: 'events' };
   if (first === 'home') return { kind: 'home' };
+  if (first === 'map') return { kind: 'map' };
   if (first === 'discover') return second === 'people' ? { kind: 'discoverPeople' } : { kind: 'explore' };
   if (first === 'me') return { kind: 'me' };
   if (first === 'saved') return { kind: 'saved' };
@@ -49,10 +52,20 @@ export function readAppRoute({ pathname = window.location.pathname, search = win
   return { kind: 'explore' };
 }
 
+// Whether the address is the welcome page: the root with none of the older query words that opened the app there (a filter, a view). main.jsx and the
+// first-load script in index.html (which repeats these words) both ask.
+export function opensWelcome({ pathname = window.location.pathname, search = window.location.search } = {}) {
+  const path = pathname.replace(/\/$/, '');
+  if (path !== '') return false;
+  const params = new URLSearchParams(search);
+  return !params.get('view') && !EXPLORE_KEYS.some((key) => params.get(key));
+}
+
 export function appPath(route) {
   switch (route.kind) {
     case 'startup': return `/startup/${encodeURIComponent(route.slug)}`;
     case 'home': return '/home';
+    case 'map': return '/map';
     case 'discoverPeople': return '/discover/people';
     case 'jobs': return '/jobs';
     case 'events': return '/events';
@@ -84,5 +97,6 @@ export function exploreSearch(filters, viewMode, entity = 'all') {
 // the filter); the others stand alone.
 export function appUrl(route, { filters = {}, viewMode = 'list', entity = 'all' } = {}) {
   const path = appPath(route);
+  if (route.kind === 'map') return `${path}${exploreSearch(filters, 'list', entity)}`; // the map page is the map: its address needs no view word
   return route.kind === 'explore' || route.kind === 'startup' ? `${path}${exploreSearch(filters, viewMode, entity)}` : path;
 }

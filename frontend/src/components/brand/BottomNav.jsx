@@ -1,9 +1,9 @@
-import { HomeIcon, CompassIcon, BriefcaseIcon } from '../explore/icons.jsx';
+import { HomeIcon, CompassIcon, MapIcon, BriefcaseIcon } from '../explore/icons.jsx';
 import { NAV, linkProps } from './nav.js';
 
-const ICONS = { home: HomeIcon, discover: CompassIcon, opportunities: BriefcaseIcon };
+const ICONS = { home: HomeIcon, discover: CompassIcon, map: MapIcon, opportunities: BriefcaseIcon };
 
-// The three places as a bar along the bottom of a phone, where a thumb reaches: the same links as the header's pill, which a phone does not have room for.
+// The places as a bar along the bottom of a phone, where a thumb reaches: the same links as the header's pill, which a phone does not have room for.
 export default function BottomNav({ active = null, go = {} }) {
   return (
     <nav className="bn" aria-label="Main (phone)">

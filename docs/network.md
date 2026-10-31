@@ -14,7 +14,7 @@ Added 2026-10-28 (not yet committed or deployed). One small layer on top of the 
 
 ## Addresses (frontend)
 
-`/` and `/home` Home; `/discover` Startups (list; `?view=map` the map); `/discover/people`; `/investors…`; `/startup/<slug>`; `/jobs` (also `/opportunities`); `/events`; `/me` your profile; `/members/<id>`; `/saved`; `/moderation` (linked from nowhere). The welcome page (`/welcome`) is unchanged. Three places in the header and on a phone's bottom bar: Home, Discover, Opportunities; profile, saved and sign out are under the avatar.
+`/` the welcome page (the homepage; `/welcome` is redirected to it); `/home` Home; `/map` the map page; `/discover` Startups (list; `?view=map` the map); `/discover/people`; `/investors…`; `/startup/<slug>`; `/jobs` (also `/opportunities`); `/events`; `/me` your profile; `/members/<id>`; `/saved`; `/moderation` (linked from nowhere). The welcome page (`/welcome`) is unchanged. Three places in the header and on a phone's bottom bar: Home, Discover, Opportunities; profile, saved and sign out are under the avatar.
 
 ## API (all under `/api`)
 

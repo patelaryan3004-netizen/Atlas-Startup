@@ -3652,5 +3652,2597 @@
     "publisher": "veltora.net",
     "retrieved_at": "2026-10-21T04:47:39.000Z",
     "note": "The company's own page, read by startmate_w26_scan.py (robots.txt obeyed)."
+  },
+  {
+    "id": "abyssfabric-com",
+    "kind": "company_website",
+    "url": "https://abyssfabric.com/",
+    "title": "The Asset Operating Environment for critical infrastructure | ABYSS",
+    "publisher": "ABYSS",
+    "retrieved_at": "2026-10-30T23:45:00.663Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "abyssfabric-com-privacy",
+    "kind": "company_document",
+    "url": "https://abyssfabric.com/privacy",
+    "title": "Privacy Policy | ABYSS",
+    "publisher": "HubSpot United States VentraIP Australia Pty Ltd",
+    "retrieved_at": "2026-10-30T23:45:00.663Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-abyss-solutions",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/abyss-solutions",
+    "title": "Abyss Solutions | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-accelo-com",
+    "kind": "company_website",
+    "url": "https://www.accelo.com/?",
+    "title": "AI-Powered PSA Software for Professional Services | Accelo",
+    "publisher": "Accelo, Inc.",
+    "retrieved_at": "2026-10-30T23:48:23.083Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-accelo",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/accelo",
+    "title": "Accelo | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-adviserratings-com-au",
+    "kind": "company_website",
+    "url": "https://www.adviserratings.com.au/",
+    "title": "Adviser Ratings: Find, Rate and Review a Financial Adviser - Adviser Ratings",
+    "publisher": "Adviser Ratings Pty Ltd",
+    "retrieved_at": "2026-10-30T23:36:15.628Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-adviserratings-com-au-privacy",
+    "kind": "company_document",
+    "url": "https://www.adviserratings.com.au/privacy/",
+    "title": "Privacy - Adviser Ratings",
+    "publisher": "Adviser Ratings Pty Ltd",
+    "retrieved_at": "2026-10-30T23:36:15.628Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-adviserratings-com-au-terms-of-use",
+    "kind": "company_document",
+    "url": "https://www.adviserratings.com.au/terms-of-use/",
+    "title": "Terms of Use - Adviser Ratings",
+    "publisher": "Adviser Ratings Pty Limited",
+    "retrieved_at": "2026-10-30T23:36:15.628Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-folklore-vc-companies",
+    "kind": "investor_website",
+    "url": "https://www.folklore.vc/companies",
+    "title": "Adviser Ratings | Folklore Ventures portfolio",
+    "publisher": "Folklore Ventures",
+    "retrieved_at": "2026-10-30T23:25:44.181Z",
+    "note": "Folklore Ventures's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-airrobe-com",
+    "kind": "company_website",
+    "url": "https://www.airrobe.com/",
+    "title": "AirRobe - Be Circular. Buy, Sell and Rent Your Wardrobe.",
+    "publisher": "airrobe.com",
+    "retrieved_at": "2026-10-30T23:53:55.343Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airrobe-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.airrobe.com/privacy-policy",
+    "title": "Privacy Policy",
+    "publisher": "AirRobe Pty Ltd",
+    "retrieved_at": "2026-10-30T23:53:55.343Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-investible-com-company-airrobe",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/airrobe",
+    "title": "AirRobe | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "alts-co",
+    "kind": "company_website",
+    "url": "https://alts.co/",
+    "title": "Alts | Discover And Invest In The Best Alternative Assets",
+    "publisher": "Alts.co",
+    "retrieved_at": "2026-10-30T23:48:28.405Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-alts",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/alts",
+    "title": "Alts | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-amentum-io",
+    "kind": "company_website",
+    "url": "https://www.amentum.io/",
+    "title": "Amentum Scientific - environment intelligence layers for AI and autonomous systems",
+    "publisher": "Amentum Pty Ltd",
+    "retrieved_at": "2026-10-30T23:31:03.872Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-cicadainnovations-com-incubator-residents",
+    "kind": "accelerator_profile",
+    "url": "https://www.cicadainnovations.com/incubator/residents",
+    "title": "Amentum Scientific | Cicada Innovations portfolio",
+    "publisher": "Cicada Innovations",
+    "retrieved_at": "2026-10-30T23:25:43.186Z",
+    "note": "Cicada Innovations's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-ansarada-com",
+    "kind": "company_website",
+    "url": "https://www.ansarada.com/",
+    "title": "Ansarada - AI-Powered Virtual Data Rooms & Dealmaking Tools",
+    "publisher": "Ansarada Pty Ltd",
+    "retrieved_at": "2026-10-30T23:36:10.723Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-ansarada-com-legal-policies-privacy",
+    "kind": "company_document",
+    "url": "https://www.ansarada.com/legal-policies/privacy",
+    "title": "Privacy Policy",
+    "publisher": "Ansarada Pty Ltd",
+    "retrieved_at": "2026-10-30T23:36:10.723Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-archerx-com-au",
+    "kind": "company_website",
+    "url": "https://www.archerx.com.au/",
+    "title": "Archer Materials (ASX: AXE) | Australian Quantum Technology Company",
+    "publisher": "archerx.com.au",
+    "retrieved_at": "2026-10-30T23:31:16.075Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "arkeus-com",
+    "kind": "company_website",
+    "url": "https://arkeus.com/",
+    "title": "Arkeus | Optics & Autonomy through Artificial Intelligence",
+    "publisher": "arkeus.com",
+    "retrieved_at": "2026-10-30T23:34:38.970Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-atrium-me",
+    "kind": "company_website",
+    "url": "https://www.atrium.me/",
+    "title": "Atrium - A calmer inbox. A stronger network. | Atrium",
+    "publisher": "atrium.me",
+    "retrieved_at": "2026-10-30T23:45:19.847Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-atrium-me-tos",
+    "kind": "company_website",
+    "url": "https://www.atrium.me/tos",
+    "title": "Terms of Service | Atrium",
+    "publisher": "Atrium Official Pty Ltd",
+    "retrieved_at": "2026-10-30T23:45:19.847Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-atrium",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/atrium",
+    "title": "Atrium | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-atticus-tech-au",
+    "kind": "company_website",
+    "url": "https://www.atticus.tech/au",
+    "title": "Atticus | The trusted platform for critical documents",
+    "publisher": "Assemble Technologies Pty Ltd",
+    "retrieved_at": "2026-10-30T23:48:51.663Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-atticus",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/atticus",
+    "title": "Atticus | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "azaneo-au",
+    "kind": "company_website",
+    "url": "https://azaneo.au/",
+    "title": "Azaneo – Pulsed Electric Field Weed Control",
+    "publisher": "azaneo.au",
+    "retrieved_at": "2026-10-30T23:31:21.739Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "black-ai",
+    "kind": "company_website",
+    "url": "https://black.ai/",
+    "title": "Black.ai",
+    "publisher": "Black.ai",
+    "retrieved_at": "2026-10-30T23:49:22.599Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-black-ai",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/black-ai",
+    "title": "Black.ai | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-blunge-ai",
+    "kind": "company_website",
+    "url": "https://www.blunge.ai/",
+    "title": "AI Design Agent for On-Brand Creative | Blunge",
+    "publisher": "Service Blunge Pty Ltd",
+    "retrieved_at": "2026-10-30T23:34:56.878Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-3",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:15:20.805Z",
+    "note": ""
+  },
+  {
+    "id": "www-borne-au",
+    "kind": "company_website",
+    "url": "https://www.borne.au/",
+    "title": "BORNE",
+    "publisher": "BORNE",
+    "retrieved_at": "2026-10-31T00:15:24.529Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-4",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:15:20.805Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-borne",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/borne",
+    "title": "Borne | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "breakerindustries-com",
+    "kind": "company_website",
+    "url": "https://breakerindustries.com/",
+    "title": "Breaker Industries: Voice-Controlled Robot Teams",
+    "publisher": "Breaker Industries",
+    "retrieved_at": "2026-10-30T23:31:27.059Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-5",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:15:32.228Z",
+    "note": ""
+  },
+  {
+    "id": "www-bygen-com-au",
+    "kind": "company_website",
+    "url": "https://www.bygen.com.au/",
+    "title": "Bygen: Activated Carbon Producer and Supplier in Australia",
+    "publisher": "CannPro Pty Ltd",
+    "retrieved_at": "2026-10-31T00:15:38.859Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-6",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:15:32.228Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-bygen",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/bygen",
+    "title": "Bygen | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-7",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:15:54.301Z",
+    "note": ""
+  },
+  {
+    "id": "www-getcape-io",
+    "kind": "company_website",
+    "url": "https://www.getcape.io/",
+    "title": "Cape | Business Credit Cards for Australian SMEs | 0% APR",
+    "publisher": "ANNA Money Solutions Pty Ltd",
+    "retrieved_at": "2026-10-31T00:16:01.040Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-8",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:15:54.301Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-cape",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/cape",
+    "title": "Cape | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-9",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:16.823Z",
+    "note": ""
+  },
+  {
+    "id": "cascayd-app",
+    "kind": "company_website",
+    "url": "https://cascayd.app/",
+    "title": "Cascayd: Performance A/B testing for Shopify stores",
+    "publisher": "Cascayd",
+    "retrieved_at": "2026-10-31T00:16:23.875Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-10",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:16.823Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-cascayd",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/cascayd",
+    "title": "cascayd | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-11",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:25.715Z",
+    "note": ""
+  },
+  {
+    "id": "www-checkgen-com-au",
+    "kind": "company_website",
+    "url": "https://www.checkgen.com.au/",
+    "title": "CheckGen",
+    "publisher": "CheckGen",
+    "retrieved_at": "2026-10-31T00:16:36.472Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-12",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:25.715Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-checkgen",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/checkgen",
+    "title": "CheckGen | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "clutchglue-com",
+    "kind": "company_website",
+    "url": "https://clutchglue.com/",
+    "title": "CLUTCH Glue | The World's First Patented Fashion Glue",
+    "publisher": "AHAY Society Pty Ltd",
+    "retrieved_at": "2026-10-30T23:50:01.130Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-clutch-glue",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/clutch-glue",
+    "title": "CLUTCH Glue | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-coinjar-com-au",
+    "kind": "company_website",
+    "url": "https://www.coinjar.com/au/",
+    "title": "Australian Crypto Exchange | Buy & Trade Crypto | CoinJar",
+    "publisher": "CoinJar Australia Pty Ltd",
+    "retrieved_at": "2026-10-30T23:50:15.971Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-coinjar",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/coinjar",
+    "title": "CoinJar | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-13",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:50.381Z",
+    "note": ""
+  },
+  {
+    "id": "crosscourtai-com",
+    "kind": "company_website",
+    "url": "https://crosscourtai.com/",
+    "title": "Harper by CrossCourtAI | AI for Real Estate & Private Credit Investors",
+    "publisher": "CrossCourtAI",
+    "retrieved_at": "2026-10-31T00:16:55.555Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-14",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:50.381Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-crosscourtai",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/crosscourtai",
+    "title": "CrossCourtAI | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "cruxml-com-au",
+    "kind": "company_website",
+    "url": "https://cruxml.com.au/",
+    "title": "Real-time, Flexible Machine Learning​ Solutions - CruxML",
+    "publisher": "CruxML",
+    "retrieved_at": "2026-10-30T23:31:45.649Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "cruxml-com-au-contact",
+    "kind": "company_website",
+    "url": "https://cruxml.com.au/contact/",
+    "title": "Contact - CruxML",
+    "publisher": "CruxML Pty Ltd",
+    "retrieved_at": "2026-10-30T23:31:45.649Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-darwinium-com",
+    "kind": "company_website",
+    "url": "https://www.darwinium.com/",
+    "title": "Digital Security and Fraud Prevention | Darwinium",
+    "publisher": "darwinium.com",
+    "retrieved_at": "2026-10-30T23:45:52.357Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-darwinium",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/darwinium",
+    "title": "Darwinium | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-darwinium",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/darwinium",
+    "title": "Darwinium | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "datafarming-com-au",
+    "kind": "company_website",
+    "url": "https://datafarming.com.au/",
+    "title": "DataFarming | Digital agronomy, without the hassle™",
+    "publisher": "datafarming.com.au",
+    "retrieved_at": "2026-10-30T23:55:42.457Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-investible-com-company-datafarming",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/datafarming",
+    "title": "DataFarming | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-15",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:58.999Z",
+    "note": ""
+  },
+  {
+    "id": "ddloop-app",
+    "kind": "company_website",
+    "url": "https://ddloop.app/",
+    "title": "DDLoop – Easy, Reliable Legal Due Diligence | DDLoop",
+    "publisher": "DDLoop Pty Ltd",
+    "retrieved_at": "2026-10-31T00:17:04.630Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-16",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:16:58.999Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-ddloop",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/ddloop",
+    "title": "DDLoop | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "decarice-com-au",
+    "kind": "company_website",
+    "url": "https://decarice.com.au/",
+    "title": "DeCarice",
+    "publisher": "DeCarice Pty Ltd",
+    "retrieved_at": "2026-10-30T23:55:44.542Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-investible-com-company-decarice",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/decarice",
+    "title": "DeCarice | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-17",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:17:05.091Z",
+    "note": ""
+  },
+  {
+    "id": "www-deeligence-com",
+    "kind": "company_website",
+    "url": "https://www.deeligence.com/",
+    "title": "Deeligence | Deals Have Changed. Diligence Hasn't. Until Now.",
+    "publisher": "deeligence.com",
+    "retrieved_at": "2026-10-31T00:17:12.097Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-18",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:17:05.091Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-deeligence",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/deeligence",
+    "title": "Deeligence | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-denebspace-com-au",
+    "kind": "company_website",
+    "url": "https://www.denebspace.com.au/",
+    "title": "Home | Deneb Space",
+    "publisher": "Deneb Space Pty Ltd",
+    "retrieved_at": "2026-10-30T23:31:52.175Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-denebspace-com-au-contact",
+    "kind": "company_website",
+    "url": "https://www.denebspace.com.au/contact",
+    "title": "contact | Deneb Space",
+    "publisher": "Deneb Space Pty Ltd",
+    "retrieved_at": "2026-10-30T23:31:52.175Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-design-com",
+    "kind": "company_website",
+    "url": "https://www.design.com/",
+    "title": "Design anything with AI | Design.com",
+    "publisher": "Design.com",
+    "retrieved_at": "2026-10-30T23:45:57.992Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-design-com-maker-legals-termsofuse",
+    "kind": "company_document",
+    "url": "https://www.design.com/maker/legals/termsofuse",
+    "title": "Legal | Design.com",
+    "publisher": "DesignCrowd Pty Ltd",
+    "retrieved_at": "2026-10-30T23:45:57.992Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-design-crowd",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/design-crowd",
+    "title": "Design.com | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-dimplecontacts-com",
+    "kind": "company_website",
+    "url": "https://www.dimplecontacts.com/",
+    "title": "Dimple™ | Affordable Daily Contact Lenses on Subscription",
+    "publisher": "Dimple",
+    "retrieved_at": "2026-10-30T23:56:16.899Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-investible-com-company-dimple",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/dimple",
+    "title": "Dimple | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "home-hellodriven-com",
+    "kind": "company_website",
+    "url": "https://home.hellodriven.com/",
+    "title": "Driven: Resilience Courses, Certifications & Research",
+    "publisher": "Hello Driven Pty Ltd",
+    "retrieved_at": "2026-10-30T23:37:24.751Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-giantleap-com-au-portfolio",
+    "kind": "investor_website",
+    "url": "https://www.giantleap.com.au/portfolio",
+    "title": "Driven | Giant Leap portfolio",
+    "publisher": "Giant Leap",
+    "retrieved_at": "2026-10-30T23:25:43.739Z",
+    "note": "Giant Leap's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-19",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:18:03.876Z",
+    "note": ""
+  },
+  {
+    "id": "www-earlywork-co",
+    "kind": "company_website",
+    "url": "https://www.earlywork.co/",
+    "title": "Earlywork | Helping Aussies build 6 figure sales careers",
+    "publisher": "earlywork.co",
+    "retrieved_at": "2026-10-31T00:18:11.802Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-20",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:18:03.876Z",
+    "note": ""
+  },
+  {
+    "id": "www-squarepeg-vc-portfolio-earlywork",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/portfolio/earlywork",
+    "title": "Earlywork | Square Peg portfolio",
+    "publisher": "Square Peg",
+    "retrieved_at": "2026-10-30T23:33:16.660Z",
+    "note": "Square Peg's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-ebest-com-au",
+    "kind": "company_website",
+    "url": "https://www.ebest.com.au/",
+    "title": "Australia's largest online supermarket for Asian groceries and Asian supermarket – eBest",
+    "publisher": "eBest",
+    "retrieved_at": "2026-10-30T23:46:23.185Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-ebest-2",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/ebest-2",
+    "title": "eBest | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "effi-com-au",
+    "kind": "company_website",
+    "url": "https://effi.com.au/",
+    "title": "Mortgage Broker CRM & Software | Effi",
+    "publisher": "Effi Technologies",
+    "retrieved_at": "2026-10-30T23:56:29.143Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-investible-com-company-effi",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/effi",
+    "title": "Effi | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "elev-io",
+    "kind": "company_website",
+    "url": "https://elev.io/",
+    "title": "More Customers, Less Support. Reduce Customer Effort with Elevio - Elevio",
+    "publisher": "Elevio Pty Ltd",
+    "retrieved_at": "2026-10-30T23:46:40.277Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "elev-io-legal-privacy-policy",
+    "kind": "company_document",
+    "url": "https://elev.io/legal/privacy-policy",
+    "title": "Privacy Policy - Elevio",
+    "publisher": "Elevio Pty Ltd",
+    "retrieved_at": "2026-10-30T23:46:40.277Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-elevio",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/elevio",
+    "title": "Elevio | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-elevio",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/elevio",
+    "title": "Elevio | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-21",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:18:50.359Z",
+    "note": ""
+  },
+  {
+    "id": "www-espersatellites-co",
+    "kind": "company_website",
+    "url": "https://www.espersatellites.co/",
+    "title": "Esper | Hyperspectral Satellite Imagery for Critical Mineral Exploration",
+    "publisher": "espersatellites.co",
+    "retrieved_at": "2026-10-31T00:18:58.507Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-22",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:18:50.359Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-esper-satellites",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/esper-satellites",
+    "title": "Esper Satellite Imagery | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-23",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:19:06.536Z",
+    "note": ""
+  },
+  {
+    "id": "www-everbility-com",
+    "kind": "company_website",
+    "url": "https://www.everbility.com/",
+    "title": "Everbility",
+    "publisher": "Everbility",
+    "retrieved_at": "2026-10-31T00:19:13.985Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-24",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:19:06.536Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-everbility",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/everbility",
+    "title": "Everbility | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "xmo-au",
+    "kind": "company_website",
+    "url": "https://xmo.au/",
+    "title": "Extraordinary Money · XMO",
+    "publisher": "xmo.au",
+    "retrieved_at": "2026-10-30T23:46:58.631Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-extraordinary-money",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/extraordinary-money",
+    "title": "Extraordinary Money | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-25",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:19:42.215Z",
+    "note": ""
+  },
+  {
+    "id": "www-fairgo-ai",
+    "kind": "company_website",
+    "url": "https://www.fairgo.ai/",
+    "title": "fairgo.ai | AI-Powered Video Interviews",
+    "publisher": "fairgo.ai",
+    "retrieved_at": "2026-10-31T00:19:50.928Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-26",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:19:42.215Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-fairgo-ai",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/fairgo-ai",
+    "title": "Fairgo.ai | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-firstaml-com-au",
+    "kind": "company_website",
+    "url": "https://www.firstaml.com/au",
+    "title": "Global Leading AML & KYC Software | First AML",
+    "publisher": "First AML Pty Limited",
+    "retrieved_at": "2026-10-30T23:51:06.200Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-firstaml-com-au-about-help-contact",
+    "kind": "company_website",
+    "url": "https://www.firstaml.com/au/about/help/contact/",
+    "title": "Contact | First AML",
+    "publisher": "First AML Pty Limited",
+    "retrieved_at": "2026-10-30T23:51:06.200Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-first-aml",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/first-aml",
+    "title": "First AML | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-27",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:20:38.312Z",
+    "note": ""
+  },
+  {
+    "id": "flowgoai-com",
+    "kind": "company_website",
+    "url": "https://flowgoai.com/",
+    "title": "AI Sales Order & Invoice Automation for Distributors and SMEs | FlowGo",
+    "publisher": "flowgoai.com",
+    "retrieved_at": "2026-10-31T00:20:47.717Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "flowgoai-com-about",
+    "kind": "company_website",
+    "url": "https://flowgoai.com/about",
+    "title": "About FlowGo — AI Agents for Accounting Workflows",
+    "publisher": "Entity Registration Jurisdiction FlowGo Pty Ltd",
+    "retrieved_at": "2026-10-31T00:20:47.717Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-28",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:20:38.312Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-flowgo",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/flowgo",
+    "title": "FlowGo | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-foremind-com-au",
+    "kind": "company_website",
+    "url": "https://www.foremind.com.au/",
+    "title": "EAP & Psychosocial Safety, One Platform | Foremind",
+    "publisher": "Morcare Services Pty Ltd",
+    "retrieved_at": "2026-10-30T23:37:42.129Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-29",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:20:51.244Z",
+    "note": ""
+  },
+  {
+    "id": "www-frntlne-com",
+    "kind": "company_website",
+    "url": "https://www.frntlne.com/",
+    "title": "frntlne - Frontline Training That Drives Sales",
+    "publisher": "frntlne",
+    "retrieved_at": "2026-10-31T00:20:57.895Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-frntlne-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.frntlne.com/privacy-policy",
+    "title": "Privacy Policy | frntlne",
+    "publisher": "frntlne.com",
+    "retrieved_at": "2026-10-31T00:20:57.895Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-30",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:20:51.244Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-frntlne",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/frntlne",
+    "title": "Frntlne | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-futuresuper-com-au",
+    "kind": "company_website",
+    "url": "https://www.futuresuper.com.au/",
+    "title": "Sustainable Super | Future Super",
+    "publisher": "Stewarda Pty Ltd",
+    "retrieved_at": "2026-10-30T23:37:47.413Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-futuresuper-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.futuresuper.com.au/privacy-policy",
+    "title": "Privacy Policy | Future Super",
+    "publisher": "Stewarda Pty Ltd",
+    "retrieved_at": "2026-10-30T23:37:47.413Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "gelion-com",
+    "kind": "company_website",
+    "url": "https://gelion.com/",
+    "title": "Next-Generation Sulfur Battery Technologies | Gelion",
+    "publisher": "Gelion",
+    "retrieved_at": "2026-10-30T23:32:09.664Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "gelion-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://gelion.com/privacy-policy/",
+    "title": "Gelion Privacy Policy | Gelion",
+    "publisher": "Gelion Technologies Pty Ltd",
+    "retrieved_at": "2026-10-30T23:32:09.664Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-31",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:21:11.441Z",
+    "note": ""
+  },
+  {
+    "id": "geosnapshot-com",
+    "kind": "company_website",
+    "url": "https://geosnapshot.com/",
+    "title": "GeoSnapShot | Smart Photo Sharing for Sports, Schools & Events",
+    "publisher": "GeoSnapShot Pty Ltd",
+    "retrieved_at": "2026-10-31T00:21:16.753Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-32",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:21:11.441Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-geosnapshot",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/geosnapshot",
+    "title": "Geosnapshot | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-glamcorner-com-au",
+    "kind": "company_website",
+    "url": "https://www.glamcorner.com.au/",
+    "title": "Dress Hire | Designer Dress Rental Australia",
+    "publisher": "glamcorner.com.au",
+    "retrieved_at": "2026-10-30T23:37:52.193Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-33",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:23:51.503Z",
+    "note": ""
+  },
+  {
+    "id": "www-gradability-com-au",
+    "kind": "company_website",
+    "url": "https://www.gradability.com.au/",
+    "title": "Gradability | Revolutionising graduate employability.",
+    "publisher": "Gradability Pty Ltd",
+    "retrieved_at": "2026-10-31T00:24:02.861Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-34",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:23:51.503Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-gradability",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/gradability",
+    "title": "Gradability | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-grow-inc",
+    "kind": "company_website",
+    "url": "https://www.grow.inc/",
+    "title": "Grow Inc",
+    "publisher": "grow.inc",
+    "retrieved_at": "2026-10-30T23:47:34.641Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-grow-inc-legal-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.grow.inc/legal/privacy-policy",
+    "title": "GROW INC Website",
+    "publisher": "grow.inc",
+    "retrieved_at": "2026-10-30T23:47:34.641Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-airtree-vc-companies-grow",
+    "kind": "investor_website",
+    "url": "https://www.airtree.vc/companies/grow",
+    "title": "Grow Inc | AirTree portfolio",
+    "publisher": "AirTree",
+    "retrieved_at": "2026-10-30T23:31:45.463Z",
+    "note": "AirTree's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "hullbot-com",
+    "kind": "company_website",
+    "url": "https://hullbot.com/",
+    "title": "Hullbot | Frequent cleaning saves fuel",
+    "publisher": "Hullbot Pty Ltd",
+    "retrieved_at": "2026-10-30T23:34:50.167Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-35",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:25:03.027Z",
+    "note": ""
+  },
+  {
+    "id": "www-hurtec-com-au",
+    "kind": "company_website",
+    "url": "https://www.hurtec.com.au/",
+    "title": "Hurtec | Enhance Fireground Response Now",
+    "publisher": "Hurtec Pty Ltd",
+    "retrieved_at": "2026-10-31T00:25:12.417Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-36",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:25:03.027Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-hurtec",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/hurtec",
+    "title": "Hurtec | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-37",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:25:25.002Z",
+    "note": ""
+  },
+  {
+    "id": "iluminr-io",
+    "kind": "company_website",
+    "url": "https://iluminr.io/",
+    "title": "Scenario exercises that prove organizational resilience | iluminr",
+    "publisher": "iluminr.io",
+    "retrieved_at": "2026-10-31T00:25:30.047Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "iluminr-io-privacy-policy",
+    "kind": "company_document",
+    "url": "https://iluminr.io/privacy-policy",
+    "title": "Privacy Policy",
+    "publisher": "Catalyst Technologies Pty Ltd",
+    "retrieved_at": "2026-10-31T00:25:30.047Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-38",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:25:25.002Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-iluminr",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/iluminr",
+    "title": "Iluminr | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "inventialifescience-com",
+    "kind": "company_website",
+    "url": "https://inventialifescience.com/",
+    "title": "RASTRUM Platform for Reproducible, Scalable 3D Cell Models",
+    "publisher": "inventia.com.au",
+    "retrieved_at": "2026-10-30T23:52:06.001Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "inventialifescience-com-company-about",
+    "kind": "company_website",
+    "url": "https://inventialifescience.com/company/about",
+    "title": "About Inventia Life Science | Innovators in 3D Cell Models",
+    "publisher": "LinkedIn Close Panel Locations Inventia Life Science Pty Ltd",
+    "retrieved_at": "2026-10-30T23:52:06.001Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-inventia-life-sciences",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/inventia-life-sciences",
+    "title": "Inventia Life Sciences | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-39",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:25:46.575Z",
+    "note": ""
+  },
+  {
+    "id": "iif-today",
+    "kind": "company_website",
+    "url": "https://iif.today/",
+    "title": "Home - Invest Inya Farmer",
+    "publisher": "Invest Inya Farmer",
+    "retrieved_at": "2026-10-31T00:25:52.290Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-40",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:25:46.575Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-invest-inya-farmer",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/invest-inya-farmer",
+    "title": "Invest Inya Farmer | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-41",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:10.433Z",
+    "note": ""
+  },
+  {
+    "id": "heyjune-com-au",
+    "kind": "company_website",
+    "url": "https://heyjune.com.au/",
+    "title": "June Health",
+    "publisher": "June ",
+    "retrieved_at": "2026-10-31T00:26:16.266Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-42",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:10.433Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-june",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/june",
+    "title": "June | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "kanopicover-com",
+    "kind": "company_website",
+    "url": "https://kanopicover.com/",
+    "title": "Kanopi | Modular Full-Stack Insurance Platform",
+    "publisher": "Kanopi Expense Check Pty Ltd",
+    "retrieved_at": "2026-10-30T23:35:43.192Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "kernl-com-au",
+    "kind": "company_website",
+    "url": "https://kernl.com.au/",
+    "title": "Kernl | AI for Disability and Aged Care Providers",
+    "publisher": "Kernl Pty Ltd",
+    "retrieved_at": "2026-10-30T23:37:57.813Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-kinde-com",
+    "kind": "company_website",
+    "url": "https://www.kinde.com/",
+    "title": "Kinde Auth, billing and access management for modern SaaS products.",
+    "publisher": "Kinde Australia Pty Ltd",
+    "retrieved_at": "2026-10-30T23:52:19.862Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-kinde",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/kinde",
+    "title": "Kinde | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-investible-com-company-kinde",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/kinde",
+    "title": "Kinde | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-43",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:18.321Z",
+    "note": ""
+  },
+  {
+    "id": "kitemagnetics-com",
+    "kind": "company_website",
+    "url": "https://kitemagnetics.com/",
+    "title": "Nanocrystalline stator cores | Motor efficiency | Kite Magnetics",
+    "publisher": "Kite Magnetics",
+    "retrieved_at": "2026-10-31T00:26:24.347Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "kitemagnetics-com-about",
+    "kind": "company_website",
+    "url": "https://kitemagnetics.com/about",
+    "title": "About Us | Kite Magnetics",
+    "publisher": "Founding of Kite Magnetics Pty Ltd",
+    "retrieved_at": "2026-10-31T00:26:24.347Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-44",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:18.321Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-kite-magnetics",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/kite-magnetics",
+    "title": "Kite Magnetics | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-45",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:49.701Z",
+    "note": ""
+  },
+  {
+    "id": "lawpath-com-au",
+    "kind": "company_website",
+    "url": "https://lawpath.com.au/",
+    "title": "Lawpath | Legal, Tax & Compliance for Australian Businesses",
+    "publisher": "Lawpath Operations Pty Ltd",
+    "retrieved_at": "2026-10-31T00:26:55.488Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-46",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:49.701Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-lawpath",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/lawpath",
+    "title": "Lawpath | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-47",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:55.576Z",
+    "note": ""
+  },
+  {
+    "id": "www-leakster-com-au",
+    "kind": "company_website",
+    "url": "https://www.leakster.com.au/",
+    "title": "Water Pipelines & Leak Detection | Leakster Pty Ltd",
+    "publisher": "Leakster Pty Ltd",
+    "retrieved_at": "2026-10-31T00:27:03.917Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-48",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:26:55.576Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-leakster",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/leakster",
+    "title": "Leakster | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-lexer-io",
+    "kind": "company_website",
+    "url": "https://www.lexer.io/",
+    "title": "Lexer | The Agentic Customer Data Platform",
+    "publisher": "lexer.io",
+    "retrieved_at": "2026-10-30T23:52:27.430Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-lexer",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/lexer",
+    "title": "Lexer | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-49",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:27:17.641Z",
+    "note": ""
+  },
+  {
+    "id": "www-ligrsystems-com",
+    "kind": "company_website",
+    "url": "https://www.ligrsystems.com/",
+    "title": "LIGR | The Operating System for Sports Broadcasts",
+    "publisher": "Live Graphic Systems Pty Ltd",
+    "retrieved_at": "2026-10-31T00:27:24.153Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-50",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:27:17.641Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-ligr",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/ligr",
+    "title": "LIGR | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "likefamily-com-au",
+    "kind": "company_website",
+    "url": "https://likefamily.com.au/",
+    "title": "Like Family | NDIS Disability Support & Aged Care With Heart",
+    "publisher": "Like Family",
+    "retrieved_at": "2026-10-30T23:38:02.832Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-51",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:28:31.343Z",
+    "note": ""
+  },
+  {
+    "id": "spotlumos-com",
+    "kind": "company_website",
+    "url": "https://spotlumos.com/",
+    "title": "Lumos — Omni-Channel Audience Intelligence, Planning, Measurement & Attribution",
+    "publisher": "Spot Lumos Pty Ltd",
+    "retrieved_at": "2026-10-31T00:28:36.424Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-52",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:28:31.343Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-lumos",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/lumos",
+    "title": "LUMOS | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-marloo-com-au",
+    "kind": "company_website",
+    "url": "https://www.marloo.com/au",
+    "title": "AI for Financial Advisers in Australia | Marloo",
+    "publisher": "gomarloo.com",
+    "retrieved_at": "2026-10-30T23:52:44.602Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-marloo-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.marloo.com/au/privacy-policy",
+    "title": "Privacy policy | Marloo AI",
+    "publisher": "Marloo AU Pty Ltd",
+    "retrieved_at": "2026-10-30T23:52:44.602Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-marloo",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/marloo",
+    "title": "Marloo | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-53",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:29:07.052Z",
+    "note": ""
+  },
+  {
+    "id": "merchantspring-io",
+    "kind": "company_website",
+    "url": "https://merchantspring.io/",
+    "title": "Marketplace Analytics for Agencies and Brands - MerchantSpring",
+    "publisher": "merchantspring.io",
+    "retrieved_at": "2026-10-31T00:29:16.074Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "merchantspring-io-mm-privacy-policy",
+    "kind": "company_document",
+    "url": "https://merchantspring.io/mm-privacy-policy",
+    "title": "Privacy Policy - MerchantSpring",
+    "publisher": "Swift Image Pty Ltd",
+    "retrieved_at": "2026-10-31T00:29:16.074Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-54",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:29:07.052Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-merchantspring",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/merchantspring",
+    "title": "MerchantSpring | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "millibeam-com",
+    "kind": "company_website",
+    "url": "https://millibeam.com/",
+    "title": "MILLIBEAM — From semiconductor chip to fielded system",
+    "publisher": "millibeam.com",
+    "retrieved_at": "2026-10-30T23:32:37.167Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "millibeam-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://millibeam.com/privacy-policy",
+    "title": "MILLIBEAM - Privacy Policy",
+    "publisher": "Millibeam Pty Ltd",
+    "retrieved_at": "2026-10-30T23:32:37.167Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-55",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:29:42.310Z",
+    "note": ""
+  },
+  {
+    "id": "misti-com-au",
+    "kind": "company_website",
+    "url": "https://misti.com.au/",
+    "title": "Pulmonary Drug Delivery Technology Australia | Misti®",
+    "publisher": "Misti",
+    "retrieved_at": "2026-10-31T00:29:51.381Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-56",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:29:42.310Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-misti",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/misti",
+    "title": "Misti | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "movus-com-au",
+    "kind": "company_website",
+    "url": "https://movus.com.au/",
+    "title": "MOVUS – Smarter Machine Monitoring",
+    "publisher": "MOVUS Australia Pty Ltd",
+    "retrieved_at": "2026-10-30T23:52:58.727Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "movus-com-au-about-us",
+    "kind": "company_website",
+    "url": "https://movus.com.au/about-us/",
+    "title": "About Us – MOVUS",
+    "publisher": "MOVUS Australia Pty Ltd",
+    "retrieved_at": "2026-10-30T23:52:58.727Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-movus",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/movus",
+    "title": "Movus | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-57",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:29:57.351Z",
+    "note": ""
+  },
+  {
+    "id": "www-mozo-com-au",
+    "kind": "company_website",
+    "url": "https://www.mozo.com.au/",
+    "title": "Mozo - The Money Saving Zone",
+    "publisher": "Mozo Pty Ltd",
+    "retrieved_at": "2026-10-31T00:30:03.292Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-mozo-com-au-privacy",
+    "kind": "company_document",
+    "url": "https://www.mozo.com.au/privacy",
+    "title": "Mozo Privacy Policy | Mozo",
+    "publisher": "Mozo Pty Ltd",
+    "retrieved_at": "2026-10-31T00:30:03.292Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-58",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:29:57.351Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-mozo",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/mozo",
+    "title": "Mozo | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "navbit-com",
+    "kind": "company_website",
+    "url": "https://navbit.com/",
+    "title": "Navbit | Sophisticated technology, simplified.",
+    "publisher": "Navbit Pty Ltd",
+    "retrieved_at": "2026-10-30T23:32:41.179Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-59",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:30:16.579Z",
+    "note": ""
+  },
+  {
+    "id": "neuralindex-ai",
+    "kind": "company_website",
+    "url": "https://neuralindex.ai/",
+    "title": "NeuralIndex | AI search for property agencies",
+    "publisher": "NeuralIndex IP Holding Company Pty Ltd",
+    "retrieved_at": "2026-10-31T00:30:22.145Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-60",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:30:16.579Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-neuralindex-ai",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/neuralindex-ai",
+    "title": "Neuralindex.ai | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-61",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:30:53.944Z",
+    "note": ""
+  },
+  {
+    "id": "nexusmd-com-au",
+    "kind": "company_website",
+    "url": "https://nexusmd.com.au/",
+    "title": "NexusMD.ai | The AI Layer for Australian Healthcare.",
+    "publisher": "NexusMD.ai",
+    "retrieved_at": "2026-10-31T00:30:58.312Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-62",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:30:53.944Z",
+    "note": ""
+  },
+  {
+    "id": "www-squarepeg-vc-portfolio-nexusmd",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/portfolio/nexusmd",
+    "title": "NexusMD | Square Peg portfolio",
+    "publisher": "Square Peg",
+    "retrieved_at": "2026-10-30T23:33:16.660Z",
+    "note": "Square Peg's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-nomadatomics-com",
+    "kind": "company_website",
+    "url": "https://www.nomadatomics.com/",
+    "title": "Nomad Atomics",
+    "publisher": "nomadatomics.com",
+    "retrieved_at": "2026-10-30T23:53:31.256Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-blackbird-vc-portfolio-nomad-atomics",
+    "kind": "investor_website",
+    "url": "https://www.blackbird.vc/portfolio/nomad-atomics",
+    "title": "Nomad Atomics | Blackbird portfolio",
+    "publisher": "Blackbird",
+    "retrieved_at": "2026-10-30T23:29:13.954Z",
+    "note": "Blackbird's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-63",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:31:23.514Z",
+    "note": ""
+  },
+  {
+    "id": "novalith-com-au",
+    "kind": "company_website",
+    "url": "https://novalith.com.au/",
+    "title": "Novalith | REFINING INNOVATED",
+    "publisher": "Novalith Technologies Pty Ltd",
+    "retrieved_at": "2026-10-31T00:31:29.364Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-64",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:31:23.514Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-novalith",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/novalith",
+    "title": "Novalith | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-65",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:31:29.453Z",
+    "note": ""
+  },
+  {
+    "id": "o3space-org",
+    "kind": "company_website",
+    "url": "https://o3space.org/",
+    "title": "O3",
+    "publisher": "o3space.org",
+    "retrieved_at": "2026-10-31T00:31:35.945Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "o3space-org-privacy-policy",
+    "kind": "company_document",
+    "url": "https://o3space.org/privacy-policy",
+    "title": "O3",
+    "publisher": "o3space.org",
+    "retrieved_at": "2026-10-31T00:31:35.945Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-66",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:31:29.453Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-o3",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/o3",
+    "title": "O3 | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "octopusbot-ai",
+    "kind": "company_website",
+    "url": "https://octopusbot.ai/",
+    "title": "Home - Octopusbot",
+    "publisher": "Octopusbot",
+    "retrieved_at": "2026-10-30T23:34:44.989Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "octopusbot-ai-privacy-policy",
+    "kind": "company_document",
+    "url": "https://octopusbot.ai/privacy-policy/",
+    "title": "Privacy Policy - Octopusbot",
+    "publisher": "Octopusbot",
+    "retrieved_at": "2026-10-30T23:34:44.989Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-67",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:31:43.681Z",
+    "note": ""
+  },
+  {
+    "id": "onthehousegroup-com",
+    "kind": "company_website",
+    "url": "https://onthehousegroup.com/",
+    "title": "ON THE HOUSE",
+    "publisher": "onthehousegroup.com",
+    "retrieved_at": "2026-10-31T00:31:49.570Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "onthehousegroup-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://onthehousegroup.com/privacy-policy",
+    "title": "ON THE HOUSE | Privacy policy",
+    "publisher": "On The House Group Pty Ltd",
+    "retrieved_at": "2026-10-31T00:31:49.570Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-68",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:31:43.681Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-on-the-house",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/on-the-house",
+    "title": "On The House | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "perxhealth-com",
+    "kind": "company_website",
+    "url": "https://perxhealth.com/",
+    "title": "Perx Health. Better health, every day.",
+    "publisher": "Perx Health Pty Ltd",
+    "retrieved_at": "2026-10-30T23:38:08.417Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-photonfoundry-com-au",
+    "kind": "company_website",
+    "url": "https://www.photonfoundry.com.au/",
+    "title": "Photon Foundry | hBN quantum photonics",
+    "publisher": "PHOTON FOUNDRY Photon Foundry Pty Ltd",
+    "retrieved_at": "2026-10-30T23:33:06.191Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-presien-com",
+    "kind": "company_website",
+    "url": "https://www.presien.com/",
+    "title": "Presien",
+    "publisher": "presien.com",
+    "retrieved_at": "2026-10-30T23:33:13.992Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-presien-com-terms-conditions",
+    "kind": "company_document",
+    "url": "https://www.presien.com/terms-conditions",
+    "title": "Terms & Conditions",
+    "publisher": "PFP Robotics Pty Ltd",
+    "retrieved_at": "2026-10-30T23:33:13.992Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-69",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:32:25.490Z",
+    "note": ""
+  },
+  {
+    "id": "preve-co",
+    "kind": "company_website",
+    "url": "https://preve.co/",
+    "title": "Preve AI for Physical Therapies",
+    "publisher": "preve.co",
+    "retrieved_at": "2026-10-31T00:32:30.863Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-70",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:32:25.490Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-preve",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/preve",
+    "title": "PREVE | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-71",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:32:30.881Z",
+    "note": ""
+  },
+  {
+    "id": "programa-design",
+    "kind": "company_website",
+    "url": "https://programa.design/",
+    "title": "Interior Design Project Management Software | Programa",
+    "publisher": "Programa",
+    "retrieved_at": "2026-10-31T00:32:37.994Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-72",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:32:30.881Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-programa",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/programa",
+    "title": "Programa | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-73",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:32:42.320Z",
+    "note": ""
+  },
+  {
+    "id": "www-promosync-ai",
+    "kind": "company_website",
+    "url": "https://www.promosync.ai/",
+    "title": "Home | PromoSync",
+    "publisher": "promosync.ai",
+    "retrieved_at": "2026-10-31T00:32:49.005Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-74",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:32:42.320Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-promosync",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/promosync",
+    "title": "Promosync | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-prospection-com",
+    "kind": "company_website",
+    "url": "https://www.prospection.com/",
+    "title": "Prospection | Uplift Care-and-Share",
+    "publisher": "Prospection",
+    "retrieved_at": "2026-10-30T23:33:27.283Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-prospection-com-get-in-touch",
+    "kind": "company_website",
+    "url": "https://www.prospection.com/get-in-touch/",
+    "title": "Get in Touch - Prospection",
+    "publisher": "Prospection",
+    "retrieved_at": "2026-10-30T23:33:27.283Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-75",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:33:17.319Z",
+    "note": ""
+  },
+  {
+    "id": "www-rainstick-com-au",
+    "kind": "company_website",
+    "url": "https://www.rainstick.com.au/",
+    "title": "Rainstick",
+    "publisher": "Rainstick IP Holdings Pty Ltd",
+    "retrieved_at": "2026-10-31T00:33:25.395Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-76",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:33:17.319Z",
+    "note": ""
+  },
+  {
+    "id": "www-startmate-com-portfolio-companies-rainstick",
+    "kind": "accelerator_profile",
+    "url": "https://www.startmate.com/portfolio-companies/rainstick",
+    "title": "Rainstick | Startmate portfolio",
+    "publisher": "Startmate",
+    "retrieved_at": "2026-10-30T23:37:51.481Z",
+    "note": "Startmate's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-77",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:33:37.173Z",
+    "note": ""
+  },
+  {
+    "id": "www-restoplus-com",
+    "kind": "company_website",
+    "url": "https://www.restoplus.com/",
+    "title": "Restoplus: Home",
+    "publisher": "Restoplus Pty Ltd",
+    "retrieved_at": "2026-10-31T00:33:44.502Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-78",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:33:37.173Z",
+    "note": ""
+  },
+  {
+    "id": "www-investible-com-company-restoplus",
+    "kind": "investor_website",
+    "url": "https://www.investible.com/company/restoplus",
+    "title": "Restoplus | Investible portfolio",
+    "publisher": "Investible",
+    "retrieved_at": "2026-10-30T23:35:19.990Z",
+    "note": "Investible's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-simconverse-com",
+    "kind": "company_website",
+    "url": "https://www.simconverse.com/",
+    "title": "Simconverse | Home",
+    "publisher": "SimConverse",
+    "retrieved_at": "2026-10-30T23:35:06.156Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "snug-com",
+    "kind": "company_website",
+    "url": "https://snug.com/",
+    "title": "Snug - Making Renting Easy",
+    "publisher": "Snug Technologies Pty Ltd",
+    "retrieved_at": "2026-10-30T23:35:56.213Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "spectoolbox-com",
+    "kind": "company_website",
+    "url": "https://spectoolbox.com/",
+    "title": "SPEC Toolbox | Mass Timber Design Software for Structural Engineers",
+    "publisher": "SPEC Toolbox",
+    "retrieved_at": "2026-10-30T23:38:20.001Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "spectoolbox-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://spectoolbox.com/privacy-policy/",
+    "title": "Privacy Policy - Timber Software - CLT Tool Box",
+    "publisher": "CLT Concepts Pty Ltd",
+    "retrieved_at": "2026-10-30T23:38:20.001Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "summ-com",
+    "kind": "company_website",
+    "url": "https://summ.com/",
+    "title": "Summ | Crypto Tax Software for DeFi, NFTs & Exchanges",
+    "publisher": "Summ",
+    "retrieved_at": "2026-10-30T23:35:02.522Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "ternarynet-com",
+    "kind": "company_website",
+    "url": "https://ternarynet.com/",
+    "title": "TernaryNet – The world's most energy efficient AI processor",
+    "publisher": "ternarynet.com",
+    "retrieved_at": "2026-10-30T23:34:13.615Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "ternarynet-com-2",
+    "kind": "company_website",
+    "url": "https://ternarynet.com/?page_id=42",
+    "title": "Contact – TernaryNet",
+    "publisher": "ternarynet.com",
+    "retrieved_at": "2026-10-30T23:34:13.615Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-79",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:35:20.796Z",
+    "note": ""
+  },
+  {
+    "id": "traildsoftware-com",
+    "kind": "company_website",
+    "url": "https://traildsoftware.com/",
+    "title": "Traild - Finance Process Automation Software",
+    "publisher": "Traild",
+    "retrieved_at": "2026-10-31T00:35:42.182Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-80",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:35:20.796Z",
+    "note": ""
+  },
+  {
+    "id": "www-squarepeg-vc-portfolio-traild",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/portfolio/traild",
+    "title": "Traild | Square Peg portfolio",
+    "publisher": "Square Peg",
+    "retrieved_at": "2026-10-30T23:33:16.660Z",
+    "note": "Square Peg's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-81",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:35:51.380Z",
+    "note": ""
+  },
+  {
+    "id": "www-upguard-com",
+    "kind": "company_website",
+    "url": "https://www.upguard.com/",
+    "title": "The #1 Cyber Risk Posture Management Platform | UpGuard",
+    "publisher": "UpGuard",
+    "retrieved_at": "2026-10-31T00:35:56.299Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-82",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:35:51.380Z",
+    "note": ""
+  },
+  {
+    "id": "www-squarepeg-vc-portfolio-upguard",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/portfolio/upguard",
+    "title": "UpGuard | Square Peg portfolio",
+    "publisher": "Square Peg",
+    "retrieved_at": "2026-10-30T23:33:16.660Z",
+    "note": "Square Peg's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-83",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:36:06.067Z",
+    "note": ""
+  },
+  {
+    "id": "www-getvero-com",
+    "kind": "company_website",
+    "url": "https://www.getvero.com/",
+    "title": "Vero Customer Engagement Platform",
+    "publisher": "Vero Holdings Australia Pty Ltd",
+    "retrieved_at": "2026-10-31T00:36:13.584Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-84",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-10-31T00:36:06.067Z",
+    "note": ""
+  },
+  {
+    "id": "www-squarepeg-vc-portfolio-vero",
+    "kind": "investor_website",
+    "url": "https://www.squarepeg.vc/portfolio/vero",
+    "title": "Vero | Square Peg portfolio",
+    "publisher": "Square Peg",
+    "retrieved_at": "2026-10-30T23:33:16.660Z",
+    "note": "Square Peg's public portfolio page, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-xcentric-tech",
+    "kind": "company_website",
+    "url": "https://www.xcentric.tech/",
+    "title": "X-Centric® – AgTech Hardware",
+    "publisher": "xcentric.tech",
+    "retrieved_at": "2026-10-30T23:34:19.133Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "yourgrocer-com-au",
+    "kind": "company_website",
+    "url": "https://yourgrocer.com.au/",
+    "title": "YourGrocer",
+    "publisher": "YourGrocer",
+    "retrieved_at": "2026-10-30T23:39:10.359Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "zendir-io",
+    "kind": "company_website",
+    "url": "https://zendir.io/",
+    "title": "Home",
+    "publisher": "zendir.io",
+    "retrieved_at": "2026-10-30T23:34:33.544Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "zendir-io-privacy",
+    "kind": "company_document",
+    "url": "https://zendir.io/privacy",
+    "title": "Privacy Policy",
+    "publisher": "Space Services Australia Pty Ltd",
+    "retrieved_at": "2026-10-30T23:34:33.544Z",
+    "note": "Read by the discovery engine."
   }
 ]

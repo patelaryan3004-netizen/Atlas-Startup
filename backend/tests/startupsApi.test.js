@@ -3,6 +3,7 @@ import request from 'supertest';
 import { fixture, removeTempDirs } from './helpers/catalog.js';
 import { CARD_FIELDS, MARKER_FIELDS } from '../src/catalog/catalog.js';
 import { INTERNAL_FIELDS } from '../src/models/company.js';
+import { metroOf } from '../src/geo/metro.js';
 
 afterEach(removeTempDirs);
 
@@ -101,7 +102,7 @@ describe('GET /api/startups with no paging parameters is still a page, never the
   it('pages a filter the same way, and says how many match', async () => {
     const f = await fixture(300);
     const res = await request(f.app).get('/api/startups?sector=Fintech&city=Sydney');
-    const expected = f.rows.filter((r) => r.sector === 'Fintech' && r.city === 'Sydney').map((r) => r.id);
+    const expected = f.rows.filter((r) => r.sector === 'Fintech' && (r.city === 'Sydney' || metroOf(r) === 'Sydney')).map((r) => r.id);
     expect(res.body.count).toBe(expected.length);
     expect(res.body.results.map((r) => r.id)).toEqual(expected.slice(0, 20));
   });

@@ -16,7 +16,7 @@ const OLD_HOST = 'au-startup-map.vercel.app';
 describe('the site\'s address', () => {
   it('is the new one, for the canonical address, the sitemap and the preview picture (unless a build setting names another)', () => {
     expect(SITE_URL).toBe(`https://${NEW_HOST}`);
-    expect(absolute('/welcome')).toBe(`https://${NEW_HOST}/welcome`);
+    expect(absolute('/map')).toBe(`https://${NEW_HOST}/map`);
     expect(absolute('/')).toBe(`https://${NEW_HOST}/`);
     expect(`${SITE_URL}${OG_IMAGE.path}`).toBe(`https://${NEW_HOST}/og-image.png`);
   });
@@ -29,7 +29,8 @@ describe('the site\'s address', () => {
 });
 
 describe('the old address', () => {
-  const redirects = config.redirects ?? [];
+  const all = config.redirects ?? [];
+  const redirects = all.filter((rule) => rule.has); // the ones for the old host (the welcome page's own redirect is checked below)
 
   it('has two redirects, both permanent, to the same path and query on the new address: one for the root and one for every other path', () => {
     // (the pattern for every other path does not catch the bare root on Vercel: the old address's "/" answered 200 until it had a rule of its own, found when it was checked live)
@@ -54,9 +55,19 @@ describe('the old address', () => {
     expect(NEW_HOST).not.toBe(OLD_HOST);
   });
 
-  it('leaves the pages\' own rewrites and headers as they were: /welcome, /investors and the rest still have an address', () => {
+  it('sends the old address of the welcome page to the homepage for good, with the query kept, and has no page left at it', () => {
+    const welcome = all.filter((rule) => !rule.has);
+    expect(welcome.map((rule) => rule.source)).toEqual(['/welcome', '/welcome/']);
+    for (const rule of welcome) {
+      expect(rule.destination).toBe('/');
+      expect(rule.permanent).toBe(true);
+    }
+    expect(config.rewrites.map((r) => r.source)).not.toContain('/welcome');
+  });
+
+  it('leaves the own rewrites and headers of the pages as they were: /map, /investors and the rest still have an address', () => {
     const sources = config.rewrites.map((r) => r.source);
-    for (const page of ['/welcome', '/investors', '/about', '/lists', '/jobs', '/news', '/startup/:path*', '/investors/:path*']) expect(sources, page).toContain(page);
+    for (const page of ['/map', '/investors', '/about', '/lists', '/jobs', '/news', '/startup/:path*', '/investors/:path*']) expect(sources, page).toContain(page);
     expect(config.headers.map((h) => h.source)).toEqual(['/assets/(.*)', '/img/(.*)', '/data/(.*)']);
   });
 });

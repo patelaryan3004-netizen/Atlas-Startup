@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { lazyView, Lazy } from './lazyLoad.jsx';
-import { HOME_PATH, INFO_PATHS } from './paths.js';
+import { OLD_WELCOME_PATH, INFO_PATHS } from './paths.js';
+import { opensWelcome } from './appRoute.js';
 import { opensOnMap } from './mapPrefetch.js';
 import { loadSnapshot } from './snapshot.js';
 import '@fontsource-variable/inter'; // the sans, served with the site (it was a stylesheet from Google that every page waited for)
@@ -24,8 +25,13 @@ const InfoPage = lazyView(loadInfo);
 // time the page first draws (snapshot.js, peek.js).
 if (window.__auSnapshot) loadSnapshot();
 
+// The welcome page is the homepage now. Its old address is sent to it by the host (a permanent redirect, vercel.json); this does the same where the site runs
+// without the host's rules, keeping the query and the anchor.
+if (window.location.pathname.replace(/\/$/, '') === OLD_WELCOME_PATH) {
+  try { window.history.replaceState(null, '', `/${window.location.search}${window.location.hash}`); } catch (e) { /* the page still opens */ }
+}
 const path = window.location.pathname.replace(/\/$/, '');
-const isLanding = path === HOME_PATH;
+const isLanding = opensWelcome();
 const infoPage = INFO_PATHS[path];
 
 // The map is what the app opens on, and it is the biggest piece (Leaflet and Supercluster): ask for it beside the app's own file instead
@@ -51,7 +57,8 @@ const afterFirstPaint = () => Promise.race([new Promise((resolve) => requestAnim
 
 async function start() {
   if (root.dataset.prerender === 'info') { await afterFirstPaint(); ReactDOM.hydrateRoot(root, tree); return; }
-  if (root.dataset.prerender === 'landing') { loadLanding(); await afterFirstPaint(); ReactDOM.hydrateRoot(root, tree); return; }
+  // The HTML at the root is the welcome page: it is hydrated for the welcome page, and drawn over for an older link to / that opens the app.
+  if (root.dataset.prerender === 'landing' && isLanding) { loadLanding(); await afterFirstPaint(); ReactDOM.hydrateRoot(root, tree); return; }
   ReactDOM.createRoot(root).render(tree);
 }
 start();

@@ -451,3 +451,62 @@
   .xt-entity .seg-item{font-size:var(--t-small);padding:0 6px;}
   .xt-entity .badge-vc{display:none;}
 }
+
+/* ---------- the map page (/map) ---------- */
+/* The map and a compact bar above it, and nothing else: no heading, no results column. The window is the page (the header, the bar, then the map to the
+   bottom), so the map is as large as the screen allows. Names: mt the bar, mt-search its search, mt-row2 the filters, the switch and the count beside it. */
+.xp-mappage{height:100vh;height:100dvh;min-height:0;overflow:hidden;}
+.xp-mappage .xw{flex:1;min-height:0;width:100%;max-width:none;height:auto;margin:0;border-width:1px 0 0;border-radius:0;scroll-margin-top:0;}
+.xp-mappage .xb{grid-template-columns:minmax(0,1fr);}
+.xp-mappage .xm,.xp-mappage .xb[data-view="map"] .xm{border-radius:0;}
+.mt{position:relative;z-index:740;flex:none;display:flex;align-items:center;gap:var(--space-2);padding:10px var(--page-pad);border-bottom:1px solid var(--border);background:var(--bg);}
+.mt .xt-locbtn{min-width:176px;height:44px;}
+.mt .xt-btn,.mt .seg-item{height:44px;}
+.mt-search{position:relative;display:flex;align-items:center;gap:8px;flex:1 1 240px;min-width:150px;max-width:380px;height:44px;padding:0 12px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg);transition:border-color .15s var(--ease);}
+.mt-search:hover{border-color:rgb(var(--ink-rgb) / .35);}
+.mt-search:focus-within{border-color:var(--green);outline:var(--focus);outline-offset:2px;}
+.mt-search-icon{flex:none;color:var(--text-2);}
+.mt-search input{flex:1;min-width:0;height:100%;border:0;background:transparent;color:var(--text);font:inherit;font-size:var(--t-body);outline:none;}
+.mt-search input::placeholder{color:var(--text-2);}
+.mt-search input[type="search"]::-webkit-search-cancel-button{display:none;}
+.mt-row2{display:flex;align-items:center;gap:var(--space-2);flex:1 1 auto;min-width:0;}
+.mt-count{flex:0 1 auto;min-width:0;margin:0 0 0 auto;color:var(--text-2);font-size:var(--t-small);line-height:1.3;text-align:right;}
+.mt-list{display:inline-flex;align-items:center;gap:8px;flex:none;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:var(--r-md);color:var(--text);font:500 var(--t-body)/1 var(--font);text-decoration:none;}
+.mt-list:hover{background:var(--bg-subtle);}
+.mt .seg-item{padding:0 14px;}
+.mt-list:focus-visible,.mt-search input:focus-visible{outline:var(--focus);outline-offset:2px;}
+.mt .xt-menu .xt-btn{border-color:var(--border);}
+.panel-entity{display:none;} /* the switch is in the bar on a wide screen and with the map's other tools in the filter panel on a narrower one */
+@media (max-width:1499px){
+  .mt-list span{display:none;}
+  .mt-list{width:44px;justify-content:center;padding:0;}
+}
+@media (max-width:1199px){
+  .mt{gap:10px;padding:10px var(--space-3);}
+  .mt .xt-locbtn{min-width:148px;}
+  .mt-entity{display:none;}
+  .panel-entity{display:block;margin-bottom:var(--space-2);}
+}
+@media (max-width:899px){
+  .xp-mappage .xw{height:auto;min-height:0;}
+  .mt{flex-wrap:wrap;padding:10px 12px;gap:8px;border-radius:0;}
+  .mt .xt-loc{flex:none;max-width:46vw;}
+  .mt .xt-locbtn{min-width:0;width:100%;}
+  .mt-search{flex:1 1 0;min-width:0;max-width:none;}
+  .mt-row2{flex:0 0 100%;gap:8px;}
+  .mt-entity,.mt-list,.mt-count{display:none;} /* the phone's sheet says how many are on the map */
+  .mt .xt-pop{left:0;}
+  .mt .xt-citypop{width:min(300px,calc(100vw - 32px));}
+}
+
+/* What the card beside a mark and the company's panel add as the record arrives: the description, the official website and where the facts came from. */
+.pv-blurb{margin:10px 0 0;color:var(--text);font-size:var(--t-small);line-height:1.45;}
+.pv-site{display:inline-flex;align-items:center;gap:6px;min-height:32px;margin-top:6px;color:var(--green);font-size:var(--t-small);font-weight:600;text-decoration:none;overflow-wrap:anywhere;}
+.pv-site:hover{text-decoration:underline;text-underline-offset:3px;}
+.pv-sources,.xp-sources{margin:8px 0 0;color:var(--text-2);font-size:var(--t-micro);line-height:1.45;}
+.xp-sources{font-size:var(--t-small);margin-top:12px;}
+.pv-sources a,.xp-sources a{color:inherit;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere;}
+.pv-sources a:hover,.xp-sources a:hover{color:var(--green);}
+.pv-site:focus-visible,.pv-sources a:focus-visible,.xp-sources a:focus-visible{outline:var(--focus);outline-offset:2px;border-radius:2px;}
+
+.xt-note{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);color:var(--text-2);font-size:var(--t-micro);line-height:1.4;}

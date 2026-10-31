@@ -6,11 +6,12 @@ import { appPath } from '../../appRoute.js';
 import { showPeople } from '../../flags.js';
 import { BRAND } from '../../brand.js';
 
-// Where the three places of the capsule go. People is the people page when it is switched on, and the investors' directory (the one directory of people
-// that is live) while it is not; Companies is the map; Our story is About.
+// Where the places of the capsule go. People is the people page when it is switched on, and the investors' directory (the one directory of people
+// that is live) while it is not; Companies is the list of startups; Map is the map page; Our story is About.
 export const navLinks = (people = showPeople()) => [
   ['People', people ? appPath({ kind: 'people' }) : '/investors'],
-  ['Companies', MAP_PATH],
+  ['Companies', '/discover'],
+  ['Map', MAP_PATH],
   ['Our story', '/about'],
 ];
 

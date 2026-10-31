@@ -6,7 +6,7 @@
 
 | Address | File | Kind |
 |---|---|---|
-| `/welcome` | `welcome/index.html` | the welcome page (Still Early), **hydrated** by the browser (headline, the four sections, both email forms, the foot). It reads no data, so its HTML is the same whatever the snapshot is; the build asks for its night-sky picture and its two serif files in the head, and it is not sent the snapshot. See [welcome-page.md](welcome-page.md) |
+| `/` | `index.html` | the welcome page (Still Early), **hydrated** by the browser (headline, the four sections, both email forms, the foot). It reads no data, so its HTML is the same whatever the snapshot is; the build asks for its night-sky picture and its two serif files in the head, and it is not sent the snapshot. See [welcome-page.md](welcome-page.md) |
 | `/about`, `/methodology`, `/contact` | `about/`, `methodology/`, `contact/` | new plain pages (`src/InfoPage.jsx`), hydrated |
 | `/` | `index.html` | the map: a heading, a sentence and the link to the plain list of every company (`/directory`) |
 | `/lists`, `/investors` | `lists/`, `investors/` | a plain version of the page (every list with its count; every published investor), for search engines and visitors with no scripts |

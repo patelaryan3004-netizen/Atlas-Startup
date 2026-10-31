@@ -11,6 +11,9 @@ import { useSavedCount } from './savedStore.js';
 import ExploreHero from './components/explore/ExploreHero.jsx';
 import ResultsColumn from './components/explore/ResultsColumn.jsx';
 import ExploreToolbar, { placeLabel } from './components/explore/ExploreToolbar.jsx';
+import MapToolbar, { ENTITY_OPTIONS } from './components/explore/MapToolbar.jsx';
+import { Segmented } from './components/brand/parts.jsx';
+import { MAP_CITIES } from './cityViews.js';
 import AllAustralia from './components/explore/AllAustralia.jsx';
 import ResultsSheet from './components/explore/ResultsSheet.jsx';
 import { getPersonProfile } from './people.js';
@@ -201,7 +204,7 @@ export default function App() {
   // What the snapshot already holds is what the first paint has (peek.js): the filters' options, the counts and, on the map, the pins. An
   // address with filters asks something the snapshot does not hold, so those start empty and the API answers, as before.
   // The map is one way to look at startups, not the first: a visit starts on the list, and the map is asked for (?view=map).
-  const startsOnMap = initialView === 'map' && route.kind !== 'list';
+  const startsOnMap = (initialView === 'map' && route.kind !== 'list') || route.kind === 'map';
   const [first] = useState(() => ({ meta: peek.meta(), stats: peek.summary({}), summary: peek.summary(applied), pins: startsOnMap ? peek.markers(applied) : null }));
   const [meta, setMeta] = useState(first.meta ?? EMPTY_META);
   const [summary, setSummary] = useState(first.summary);
@@ -272,10 +275,10 @@ export default function App() {
       setRoute((now) => (now.kind === next.kind && now.slug === next.slug ? now : next));
       if (next.kind !== 'startup') setSelectedStartup(null);
       setMissing(null);
-      if (next.kind === 'explore' || next.kind === 'startup') {
+      if (next.kind === 'explore' || next.kind === 'startup' || next.kind === 'map') {
         const from = loadFiltersFromUrl();
         setFilters((now) => (sameFilters(now, from) ? now : from));
-        setViewMode(new URLSearchParams(window.location.search).get('view') === 'map' ? 'map' : 'list');
+        setViewMode(next.kind === 'map' || new URLSearchParams(window.location.search).get('view') === 'map' ? 'map' : 'list');
         setShown(loadShown());
       } else if (next.kind === 'list') {
         const list = filterList(next.slug);
@@ -289,7 +292,7 @@ export default function App() {
   // The address follows the filters and the view (so any view can be shared), and an old ?view= address is written as the page.
   useEffect(() => {
     try {
-      if (route.kind === 'explore' || route.kind === 'startup') {
+      if (route.kind === 'explore' || route.kind === 'startup' || route.kind === 'map') {
         const url = appUrl(route, { filters: applied, viewMode, entity: shown });
         if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
       } else if (route.kind !== 'investors' && window.location.pathname !== appPath(route)) {
@@ -360,7 +363,7 @@ export default function App() {
   const vcOn = shown === 'vcs' || (shown === 'all' && !STARTUP_ONLY.some((key) => applied[key]));
   const vcFilters = useMemo(() => ({ search: applied.search, sector: applied.sector, stage: applied.stage, city: applied.city }), [applied.search, applied.sector, applied.stage, applied.city]);
   useEffect(() => {
-    if (!vcOn || route.kind !== 'explore') { setVcData((was) => (was === NO_VCS ? was : NO_VCS)); return undefined; }
+    if (!vcOn || (route.kind !== 'explore' && route.kind !== 'map')) { setVcData((was) => (was === NO_VCS ? was : NO_VCS)); return undefined; }
     const ctrl = new AbortController();
     fetchInvestorPins(vcFilters, { signal: ctrl.signal })
       .then((found) => { if (!ctrl.signal.aborted) setVcData({ items: found.items ?? [], unplaced: found.unplaced ?? 0, count: found.count ?? 0, ready: true }); })
@@ -449,8 +452,13 @@ export default function App() {
     setMissing(null);
     if (route.kind === next.kind) return;
     if (route.kind === 'investors') setInvestorsFromLink(false);
+    // The map page is the map, and Discover opens on its list: moving between them changes the view with the page.
+    if (next.kind === 'map') setViewMode('map');
+    else if (next.kind === 'explore' && route.kind === 'map') setViewMode('list');
     goTo(next);
   };
+  // The map page shows the map and nothing else (an address with another view word is still the map).
+  useEffect(() => { if (route.kind === 'map' && viewMode !== 'map') setViewMode('map'); }, [route.kind, viewMode]);
   const showNews = goPlace({ kind: 'news' });
   const openPeople = goPlace({ kind: 'people' });
   const showJobsPage = goPlace({ kind: 'jobs' });
@@ -473,6 +481,7 @@ export default function App() {
       case 'lists': return { title: 'Curated lists of Australian startups · Still Early', description: 'Lists of Australian startups by industry, city and what they are doing now.', path: '/lists' };
       case 'list': return activeList ? { title: `${activeList.name} · Still Early`, description: activeList.description, path: appPath(route) } : null;
       case 'explore': return { title: 'Discover Australian startups · Still Early', description: 'Search and filter Australian startups, on a list or a map.', path: '/discover' };
+      case 'map': return { title: 'Map of Australian startups · Still Early', description: 'Australian startups on a map, with a logo for every company.', path: '/map' };
       default: return null;
     }
   }, [route, loaded, activeList]);
@@ -505,6 +514,13 @@ export default function App() {
       .map((city) => ({ city, count: counts.get(city) ?? null }))
       .sort((a, b) => (b.count ?? -1) - (a.count ?? -1) || a.city.localeCompare(b.city));
   }, [meta.cities, stats]);
+
+  // The map page's menu: the ten cities it lists, in that order, with how many companies each has where the directory says (the busiest cities' counts are in
+  // stats.topCities; a city with none says nothing, and picking it still takes the map there).
+  const mapCityOptions = useMemo(() => {
+    const counts = new Map((stats?.topCities ?? []).map(({ city, count }) => [city, count]));
+    return MAP_CITIES.map((city) => ({ city, count: counts.get(city) ?? null }));
+  }, [stats]);
 
   const applyFilters = useCallback((partial) => setFilters((now) => ({ ...now, ...partial })), []);
   const showAustralia = useCallback(() => {
@@ -592,6 +608,7 @@ export default function App() {
   const go = {
     home: goPlace({ kind: 'home' }),
     discover: goPlace({ kind: 'explore' }),
+    map: goPlace({ kind: 'map' }),
     opportunities: showJobsPage,
     me: goPlace({ kind: 'me' }),
     saved: goPlace({ kind: 'saved' }),
@@ -702,6 +719,7 @@ export default function App() {
 
   // The open mark's compact preview (a wide screen: beside its mark, MapView draws it there) and, on a phone, the panel in the bottom sheet.
   const wideMap = viewMode === 'map' && desktop;
+  const isMapPage = route.kind === 'map';
   const previewCard = wideMap && preview ? (
     <Lazy><PreviewCard
       key={preview.id ?? preview.slug}
@@ -715,27 +733,47 @@ export default function App() {
   ) : null;
 
   return (
-    <div id="app" className={['xp', activeList && 'has-list-banner', filtersOpen && 'panel-open'].filter(Boolean).join(' ')}>
-      <SiteHeader active="discover" go={go} counts={counts} onAdd={chrome.onAdd} addLabel="Add company" menu={menuProps} />
-      <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={tabs} className="st-page" />
+    <div id="app" className={['xp', isMapPage && 'xp-mappage', activeList && 'has-list-banner', filtersOpen && 'panel-open'].filter(Boolean).join(' ')}>
+      <SiteHeader active={isMapPage ? 'map' : 'discover'} go={go} counts={counts} onAdd={chrome.onAdd} addLabel="Add company" menu={menuProps} />
+      {!isMapPage && <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={tabs} className="st-page" />}
 
-      <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />
+      {!isMapPage && <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />}
 
       <div className="xw" ref={workspace}>
-        <ExploreToolbar
-          filters={filters}
-          onFilterChange={applyFilters}
-          cities={cityOptions}
-          total={stats?.count}
-          filtersOpen={filtersOpen}
-          onToggleFilters={() => setFiltersOpen((open) => !open)}
-          filtersRef={filtersButton}
-          viewMode={viewMode}
-          onSetViewMode={setViewMode}
-          entity={shown}
-          onEntityChange={setShown}
-          vcOptions={vcOptions}
-        />
+        {isMapPage ? (
+          <MapToolbar
+            filters={filters}
+            onFilterChange={applyFilters}
+            cities={mapCityOptions}
+            sectors={meta.sectors}
+            stages={meta.stages}
+            companies={summary?.count}
+            unplaced={summary?.byPrecision?.UNKNOWN ?? 0}
+            vcs={vcOn ? vcRows.length : 0}
+            entity={shown}
+            onEntityChange={setShown}
+            filtersOpen={filtersOpen}
+            onToggleFilters={() => setFiltersOpen((open) => !open)}
+            filtersRef={filtersButton}
+            listHref={appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown })}
+            onList={() => { setViewMode('list'); goTo({ kind: 'explore' }); }}
+          />
+        ) : (
+          <ExploreToolbar
+            filters={filters}
+            onFilterChange={applyFilters}
+            cities={cityOptions}
+            total={stats?.count}
+            filtersOpen={filtersOpen}
+            onToggleFilters={() => setFiltersOpen((open) => !open)}
+            filtersRef={filtersButton}
+            viewMode={viewMode}
+            onSetViewMode={setViewMode}
+            entity={shown}
+            onEntityChange={setShown}
+            vcOptions={vcOptions}
+          />
+        )}
 
         {activeList && (
           <ListBanner
@@ -747,7 +785,7 @@ export default function App() {
         )}
 
         <div className="xb" data-view={viewMode}>
-          {wideMap && (
+          {wideMap && !isMapPage && (
             <ResultsColumn
               where={where}
               entity={shown}
@@ -859,6 +897,7 @@ export default function App() {
             toggleRef={filtersButton}
             mapTools={viewMode === 'map' ? (
               <>
+                {isMapPage && <div className="panel-entity"><Segmented className="xt-entity" label="What the map shows" options={ENTITY_OPTIONS} value={shown} onChange={setShown} /></div>}
                 <MapLayers
                   institutionCount={institutionPins.length}
                   showInstitutions={layers.institutions}

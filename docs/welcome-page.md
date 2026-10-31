@@ -1,6 +1,6 @@
 # The welcome page (Still Early)
 
-`/welcome` is the site's front door, built from the approved design (a composed picture of the whole page). The brand is **Still Early** (lowercase wordmark "still early."); the site was called AU Startup Map until October 2026. The rules for keeping other pages consistent are in `BRAND_GUIDELINES.md`.
+The welcome page, now the homepage at `/` (`/welcome` is redirected to it), is the site's front door, built from the approved design (a composed picture of the whole page). The brand is **Still Early** (lowercase wordmark "still early."); the site was called AU Startup Map until October 2026. The rules for keeping other pages consistent are in `BRAND_GUIDELINES.md`.
 
 ## Where it is
 

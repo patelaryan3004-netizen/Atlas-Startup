@@ -26,7 +26,7 @@ export function nextCity(current, city) {
   return !city || (chosen.length === 1 && chosen[0] === city) ? '' : city;
 }
 
-function LocationMenu({ cities, selected, total, onSelect }) {
+export function LocationMenu({ cities, selected, total, onSelect, allLabel = 'All of Australia' }) {
   const { open, setOpen, close, ref } = usePopover();
   const known = new Set(cities.map((c) => c.city));
   const extra = selected.filter((city) => !known.has(city));
@@ -41,7 +41,7 @@ function LocationMenu({ cities, selected, total, onSelect }) {
       {open && (
         <div className="xt-pop xt-citypop" role="group" aria-label="Choose a city">
           <button type="button" className={selected.length === 0 ? 'xt-opt xt-opt-on' : 'xt-opt'} aria-pressed={selected.length === 0} onClick={() => { onSelect(''); close(); }}>
-            <span>All of Australia</span>
+            <span>{allLabel}</span>
             {Number.isFinite(total) && <span className="xt-optcount">{total}</span>}
             {selected.length === 0 && <CheckIcon size={16} className="xt-tick" />}
           </button>

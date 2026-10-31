@@ -1,0 +1,291 @@
+{
+ "source_id": "folklore-portfolio",
+ "publisher": "Folklore Ventures",
+ "kind": "vc_portfolio",
+ "investor": "Folklore Ventures",
+ "list_url": "https://www.folklore.vc/companies",
+ "retrieved_at": "2026-10-30T23:25:44.181Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "Arkeus",
+   "name": "Arkeus",
+   "website": "https://arkeus.com",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Octopusbot",
+   "name": "Octopusbot",
+   "website": "https://octopusbot.ai/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Hullbot",
+   "name": "Hullbot",
+   "website": "https://www.hullbot.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Blunge",
+   "name": "Blunge",
+   "website": "https://www.blunge.ai/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "au",
+   "name": "SUMM",
+   "website": "https://summ.com/au",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Strong Compute",
+   "name": "Strong Compute",
+   "website": "https://strongcompute.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "SimConverse",
+   "name": "SimConverse",
+   "website": "https://www.simconverse.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Kry10",
+   "name": "Kry10",
+   "website": "https://www.kry10.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Auror",
+   "name": "Auror",
+   "website": "https://www.auror.co/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "ZenCheck",
+   "name": "ZenCheck",
+   "website": "https://www.zencheck.ai/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "au",
+   "name": "Wonde",
+   "website": "https://www.wonde.com/au",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Swoop Aero",
+   "name": "Swoop Aero",
+   "website": "https://swoop.aero/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Sphere",
+   "name": "Sphere",
+   "website": "https://www.getsphere.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Komodo",
+   "name": "Komodo",
+   "website": "https://www.komodowellbeing.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "ProductEngine",
+   "name": "ProductEngine",
+   "website": "https://www.productengine.app/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Kanopi",
+   "name": "Kanopi",
+   "website": "https://www.kanopicover.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "HealthMatch",
+   "name": "HealthMatch",
+   "website": "https://healthmatch.io/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Forever Network",
+   "name": "Forever Network",
+   "website": "https://forevernetwork.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Snug",
+   "name": "Snug",
+   "website": "https://snug.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Visionary Machines",
+   "name": "Visionary Machines",
+   "website": "https://www.visionarymachines.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Ansarada",
+   "name": "Ansarada",
+   "website": "https://www.ansarada.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Adviser Ratings",
+   "name": "Adviser Ratings",
+   "website": "https://www.adviserratings.com.au/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Mentorloop",
+   "name": "Mentorloop",
+   "website": "https://mentorloop.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Featureflow",
+   "name": "Featureflow",
+   "website": "https://www.featureflow.com",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Uptick",
+   "name": "Uptick",
+   "website": "https://uptickhq.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "HappyCo",
+   "name": "HappyCo",
+   "website": "https://happy.co/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Freelancer",
+   "name": "Freelancer",
+   "website": "http://www.freelancer.com",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "HealthEngine",
+   "name": "HealthEngine",
+   "website": "https://healthengine.com.au/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "Vend",
+   "name": "Vend",
+   "website": "https://www.vendhq.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "ShippingEasy",
+   "name": "ShippingEasy",
+   "website": "https://shippingeasy.com/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  },
+  {
+   "key": "SEQTA",
+   "name": "SEQTA",
+   "website": "https://seqta.com.au/",
+   "description": null,
+   "profile_url": null,
+   "list_url": "https://www.folklore.vc/companies",
+   "retrieved_at": "2026-10-30T23:25:44.181Z"
+  }
+ ],
+ "problems": []
+}

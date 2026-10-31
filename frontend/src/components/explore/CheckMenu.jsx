@@ -8,7 +8,8 @@ const FIND_FROM = 8; // a list longer than this gets a box to narrow it
 // A filter of several values as a small button with a menu of checkboxes under it (Stage, Sector, Location). The button says how many are chosen,
 // each choice says how many investors have it, and a value that is on but no longer offered stays in the list, so it can be unticked.
 // `options` are [{ value, label?, count? }]; `value` is the chosen ones joined with commas, which is how the server takes several.
-export default function CheckMenu({ label, options, value, onChange, noun = label.toLowerCase() }) {
+// `note` is a line of small print under the list (what the values are, and are not).
+export default function CheckMenu({ label, options, value, onChange, noun = label.toLowerCase(), note = null }) {
   const { open, setOpen, ref } = usePopover();
   const [find, setFind] = useState('');
   const chosen = splitValues(value);
@@ -40,6 +41,7 @@ export default function CheckMenu({ label, options, value, onChange, noun = labe
             ))}
             {shown.length === 0 && <li className="xt-none">None match.</li>}
           </ul>
+          {note && <p className="xt-note">{note}</p>}
           {chosen.length > 0 && <button type="button" className="xt-clear" onClick={() => onChange('')}>Clear {noun}</button>}
         </div>
       )}

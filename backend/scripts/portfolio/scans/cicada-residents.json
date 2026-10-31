@@ -1,0 +1,390 @@
+{
+ "source_id": "cicada-residents",
+ "publisher": "Cicada Innovations",
+ "kind": "accelerator_portfolio",
+ "investor": null,
+ "list_url": "https://www.cicadainnovations.com/incubator/residents",
+ "retrieved_at": "2026-10-30T23:25:43.186Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "Amentum Scientific",
+   "name": "Amentum Scientific",
+   "website": "https://amentum.com.au/",
+   "description": "Earth science analytics for efficient, safe, and sustainable industries.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "ANT61",
+   "name": "ANT61",
+   "website": "https://www.ant61.com/",
+   "description": "Leader in spacecraft reliability. Increasing mission success by 60% through persistent access in orbit.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Aquila",
+   "name": "Aquila",
+   "website": "https://www.aquila.earth/",
+   "description": "Re-imagining and building new energy systems.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Archer Materials",
+   "name": "Archer Materials",
+   "website": "https://archerx.com.au/",
+   "description": "Archer is developing a qubit processor chip to operate at room temperature and integrate with modern electronics.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Azaneo",
+   "name": "Azaneo",
+   "website": "https://azaneo.au/",
+   "description": "Herbicide free weed management.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Breaker Industries",
+   "name": "Breaker Industries",
+   "website": "https://www.breakerindustries.com/",
+   "description": "Building Robots that act like humans.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Calumino",
+   "name": "Calumino",
+   "website": "https://calumino.com/",
+   "description": "AI-enabled smart thermal sensors for industrial applications.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Clarity Pharmaceuticals",
+   "name": "Clarity Pharmaceuticals",
+   "website": "https://www.claritypharmaceuticals.com",
+   "description": "Next-generation targeted radiopharmaceutical oncology solutions.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Contactile",
+   "name": "Contactile",
+   "website": "https://contactile.com",
+   "description": "Tactile sensor solutions for robotic applications.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "CruxML",
+   "name": "CruxML",
+   "website": "https://cruxml.com.au/",
+   "description": "Enabling real-time machine learning fusing Integrated Circuits & low precision deep neural networks.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Deneb Space",
+   "name": "Deneb Space",
+   "website": "https://www.denebspace.com.au/",
+   "description": "Autonomous technologies to enhance satellite manoeuvrability and operations.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Emergentia",
+   "name": "Emergentia",
+   "website": "https://www.emergentia.tech/",
+   "description": "Scalable, Neuromorphic, Nanowire networks for Low-power Adaptive Learning.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Extraterrestrial Power",
+   "name": "Extraterrestrial Power",
+   "website": "https://www.extraterrestrialpower.com",
+   "description": "Next-gen solar cell technology for space operations.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Gega Elements",
+   "name": "Gega Elements",
+   "website": "https://www.gegaelements.com/",
+   "description": "Advanced Refining Technology for Germanium and Gallium.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Gelion Technologies",
+   "name": "Gelion Technologies",
+   "website": "https://www.gelion.com",
+   "description": "Renewable energy grid-scale batteries.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "LeoLabs",
+   "name": "LeoLabs",
+   "website": "https://leolabs.space",
+   "description": "World’s first mapping platform for space.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Liora",
+   "name": "Liora",
+   "website": "https://www.liora.health/",
+   "description": "Illuminating a precision medicine future for psychiatry.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "LLEAF",
+   "name": "LLEAF",
+   "website": "https://lleaf.com/",
+   "description": "Luminescent diffusers to improve crop growth and yield.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Mawson Rovers",
+   "name": "Mawson Rovers",
+   "website": "https://mawsonrovers.com",
+   "description": "Robotic logistics for space exploration.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "milliBeam",
+   "name": "milliBeam",
+   "website": "https://www.millibeam.com/",
+   "description": "Energy-efficient 5G wave chipsets.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "MP Space",
+   "name": "MP Space",
+   "website": "https://www.mpspace.io/",
+   "description": "Next gen battery energy systems for satellites.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Navbit",
+   "name": "Navbit",
+   "website": "https://navbit.com/",
+   "description": "AI enabled sensor medtech navigation device for surgical applications.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Newera Bio",
+   "name": "Newera Bio",
+   "website": "https://www.newera.bio/",
+   "description": "Newera.bio is developing next-generation eco sustainable water and energy efficient textile dyes.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Osara Health",
+   "name": "Osara Health",
+   "website": "https://www.canceraid.com/",
+   "description": "Cancer support programs that actually improve health.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Photon Foundry",
+   "name": "Photon Foundry",
+   "website": "https://www.photonfoundry.com.au/",
+   "description": "Building quantum-light sources for practical systems.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Platypus Vision",
+   "name": "Platypus Vision",
+   "website": "https://www.platypusvision.com/",
+   "description": "Machine vision grain inspection & grading systems.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Presien",
+   "name": "Presien",
+   "website": "https://www.presien.com/",
+   "description": "AI vision systems for heavy industry.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Prospection",
+   "name": "Prospection",
+   "website": "https://www.prospection.com/",
+   "description": "Unlock patient-centric intelligence to drive better care outcomes, capture market share, and achieve precision in your brand strategies.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Quantum Motion",
+   "name": "Quantum Motion",
+   "website": "https://quantummotion.com/",
+   "description": "Full-Stack Silicon CMOS Quantum Computing.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "RUX Energy",
+   "name": "RUX Energy",
+   "website": "https://ruxenergy.com/",
+   "description": "Hydrogen storage solutions for industry.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Space Research Network (SRN)",
+   "name": "Space Research Network (SRN)",
+   "website": "https://www.spaceresearchnetwork.org.au/",
+   "description": "The NSW Space Research Network (SRN) is a university-led initiative of the NSW Government designed to enhance NSW space industry capability through collaboration with government and academic research institutions.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "SpeeDx",
+   "name": "SpeeDx",
+   "website": "https://plexpcr.com",
+   "description": "Molecular diagnostics for detection of viral and bacterial infections and antibiotic resistance markers.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Spiral Blue",
+   "name": "Spiral Blue",
+   "website": "https://spiralblue.space/",
+   "description": "Edge computing hardware built for space.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Starbound Space Solutions",
+   "name": "Starbound Space Solutions",
+   "website": "https://www.starboundsolutions.com/",
+   "description": "Streamlining space specific technological and regulatory compliance.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Sustinent",
+   "name": "Sustinent",
+   "website": "https://sustinent.com/",
+   "description": "Transforming agricultural waste into new resources.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Syenta",
+   "name": "Syenta",
+   "website": "https://www.syenta.com.au/",
+   "description": "Fabrication solution enabling 3D printing of multi-material electronics.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Telemattica",
+   "name": "Telemattica",
+   "website": "https://www.telemattica.com",
+   "description": "Realtime overhead wiring condition monitoring of electric rail and tram systems.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "TernaryNet",
+   "name": "TernaryNet",
+   "website": "https://www.ternarynet.com/",
+   "description": "The World’s Most Energy Efficient AI Processor.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "VXB Aerospace",
+   "name": "VXB Aerospace",
+   "website": "https://www.vxbaerospace.com/",
+   "description": "In-space propulsion systems for satellite operations.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "X-Centric Sciences",
+   "name": "X-Centric Sciences",
+   "website": "https://www.xcentric.tech/",
+   "description": "Comprehensive portable soil measurement spanning beyond carbon.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Xefco",
+   "name": "Xefco",
+   "website": "https://www.xefco.com",
+   "description": "Water-free sustainable textile manufacturing.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  },
+  {
+   "key": "Zendir",
+   "name": "Zendir",
+   "website": "https://zendir.io/",
+   "description": "Digital twin platform for aerospace mission success.",
+   "profile_url": null,
+   "list_url": "https://www.cicadainnovations.com/incubator/residents",
+   "retrieved_at": "2026-10-30T23:25:43.186Z"
+  }
+ ],
+ "problems": []
+}

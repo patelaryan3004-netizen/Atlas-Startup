@@ -22,7 +22,7 @@ npm test
 npm run build --prefix frontend
 ```
 
-Open http://localhost:5173 and look at: `/` (map), `/?view=list`, `/jobs`, `/lists`, `/news`, `/investors`, `/investors/airtree`, `/people`, `/startup/canva`, `/welcome`. Try each at 375px wide (browser dev tools, device toolbar) as well as full width.
+Open http://localhost:5173 and look at: `/` (the welcome page), `/map`, `/discover`, `/jobs`, `/lists`, `/news`, `/investors`, `/investors/airtree`, `/people`, `/startup/canva`, `/welcome`. Try each at 375px wide (browser dev tools, device toolbar) as well as full width.
 
 ## Pins (the map)
 
@@ -59,7 +59,7 @@ Open http://localhost:5173 and look at: `/` (map), `/?view=list`, `/jobs`, `/lis
 
 ## Design (Stage 9), checked by machine; look at it too
 
-- [ ] Tab through `/welcome`, `/jobs`, `/investors` and the company panel with the keyboard only: every control shows a green focus ring, the dialogs keep focus inside and give it back.
+- [ ] Tab through `/`, `/map`, `/jobs`, `/investors` and the company panel with the keyboard only: every control shows a green focus ring, the dialogs keep focus inside and give it back.
 - [ ] Switch your system's animations off (Windows: Settings, Accessibility, Visual effects, Animation effects). The welcome page shows everything at once, the picture stops, the map still zooms.
 - [ ] The company panel opens on the company's own colour. It is a light colour for most sectors, so its text is dark; check two or three sectors.
 - [ ] The text sizes beyond a headline are 15px and 13px on every content page (the line under a headline is 17px). The map's own controls (header, search, filters, key, tooltips) keep their compact sizes on purpose.
@@ -81,5 +81,5 @@ git add frontend/public/data/snapshot.json
 1. Look at what changes: `git status` and `git diff --stat` (about 50 files changed, 1,100 lines added, 600 removed, plus new files). Say "commit" and it is committed; nothing is pushed until you say "push".
 2. Pushing to `main` deploys the API on Render by itself. Leave `SHOW_PEOPLE` unset.
 3. The site: `vercel deploy --prod --cwd frontend`, from a clean copy (the command uploads the working copy, so uncommitted scratch files would go too). Leave `VITE_SHOW_PEOPLE` unset.
-4. Check the live site: the map, `/jobs`, `/investors`, `/welcome`, the waitlist, the submit form, `/people` (must open the map), and the 404 above.
+4. Check the live site: `/`, `/map` (pick Hobart: the map goes there), `/welcome` (must redirect to `/`), `/jobs`, `/investors`, the waitlist, the submit form, `/people` (must open the map), and the 404 above.
 5. When the people have been told: set both switches, redeploy the site (the Vercel one is read at build), and check `/people` live.

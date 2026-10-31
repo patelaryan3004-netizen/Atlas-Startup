@@ -20,7 +20,7 @@ const dom = (html) => { const d = document.createElement('div'); d.innerHTML = h
 const text = (el) => el.textContent.replace(/\s+/g, ' ');
 
 describe('the welcome page as HTML (what a browser without scripts, a search engine and a link preview get)', () => {
-  const { html, attributes } = renderRoute(route('/welcome'), data);
+  const { html, attributes } = renderRoute(route('/'), data);
   const page = dom(html);
 
   it('has one h1, the four sections, the email forms, the way into the community and the foot, all in the file itself', () => {
@@ -30,9 +30,10 @@ describe('the welcome page as HTML (what a browser without scripts, a search eng
     expect(page.querySelectorAll('input[type="email"]')).toHaveLength(2);
     expect(page.querySelectorAll('form')).toHaveLength(2);
     const explore = [...page.querySelectorAll('a')].filter((a) => /Explore the community/.test(a.textContent)).map((a) => a.getAttribute('href'));
-    expect(explore).toEqual(['/', '/']);
+    expect(explore).toEqual(['/map', '/map']);
     const nav = [...page.querySelectorAll('.se-nav-links a')].map((a) => [a.textContent, a.getAttribute('href')]);
-    expect(nav.map(([label]) => label)).toEqual(['People', 'Companies', 'Our story']);
+    expect(nav.map(([label]) => label)).toEqual(['People', 'Companies', 'Map', 'Our story']);
+    expect(Object.fromEntries(nav)).toMatchObject({ Companies: '/discover', Map: '/map', 'Our story': '/about' });
     for (const href of ['/about', '/contact', '/news', '#join', '#login', '#privacy']) expect([...page.querySelectorAll('a')].map((a) => a.getAttribute('href')), href).toContain(href);
   });
 
@@ -53,13 +54,13 @@ describe('the welcome page as HTML (what a browser without scripts, a search eng
 
   it('reads no data: the root says only that it is to be hydrated, whatever the snapshot is', () => {
     expect(attributes).toEqual({ 'data-prerender': 'landing' });
-    const again = renderRoute(route('/welcome'), data).html;
-    expect(renderRoute(route('/welcome'), {}).html).toBe(again);
-    expect(renderRoute(route('/welcome'), { ...data, snapshot: { generatedAt: '2020-01-01T00:00:00.000Z', answers: {} } }).html).toBe(again);
+    const again = renderRoute(route('/'), data).html;
+    expect(renderRoute(route('/'), {}).html).toBe(again);
+    expect(renderRoute(route('/'), { ...data, snapshot: { generatedAt: '2020-01-01T00:00:00.000Z', answers: {} } }).html).toBe(again);
   });
 
   it('asks for the opening\'s picture in the head, the one the screen will use', () => {
-    expect(route('/welcome').preload).toEqual([['/img/hero-night.webp', '(min-width: 701px)'], ['/img/hero-night-sm.webp', '(max-width: 700px)']]);
+    expect(route('/').preload).toEqual([['/img/hero-night.webp', '(min-width: 701px)'], ['/img/hero-night-sm.webp', '(max-width: 700px)']]);
   });
 
   it('leaves the people out while they are switched off', () => {
@@ -81,7 +82,7 @@ describe('the plain pages as HTML', () => {
 
 describe('the pages the app draws itself, as plain HTML for those who do not run it', () => {
   it('the map has a heading and the way to the plain list of every company', () => {
-    const page = dom(renderRoute(route('/'), data).html);
+    const page = dom(renderRoute(route('/map'), data).html);
     expect(page.querySelector('h1').textContent).toBe('Still Early');
     expect([...page.querySelectorAll('a')].map((a) => a.getAttribute('href'))).toContain('/directory');
   });
@@ -110,7 +111,7 @@ describe('the pages the app draws itself, as plain HTML for those who do not run
 
 describe('what each pre-rendered page says about itself', () => {
   it('has its own title and description, each of a length a search engine shows, and none repeated', () => {
-    expect(ROUTES.map((r) => r.path)).toEqual(['/', '/welcome', '/lists', '/investors', '/methodology', '/about', '/contact']);
+    expect(ROUTES.map((r) => r.path)).toEqual(['/', '/map', '/lists', '/investors', '/methodology', '/about', '/contact']);
     const titles = ROUTES.map((r) => r.meta.title);
     const descriptions = ROUTES.map((r) => r.meta.description);
     expect(new Set(titles).size).toBe(titles.length);
@@ -142,7 +143,7 @@ describe('hydration: the first render in the browser is the HTML the server wrot
   const complaints = () => errors.mock.calls.map((c) => String(c[0])).filter((m) => /hydrat|did not match|Text content|server HTML/i.test(m));
 
   it('the welcome page: same markup, no complaint, and the content rises into place once the page is up', async () => {
-    const { html } = renderRoute(route('/welcome'), data);
+    const { html } = renderRoute(route('/'), data);
     const rootEl = await hydrate('landing', <React.StrictMode><Lazy><LandingPage /></Lazy></React.StrictMode>, html);
     expect(complaints()).toEqual([]);
     expect(rootEl.querySelector('h1').textContent).toBe('The next big thingis someone.');

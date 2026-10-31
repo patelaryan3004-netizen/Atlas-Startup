@@ -1,4 +1,4 @@
-/* The /welcome page and the plain pages (About, How we verify, Contact). The tokens, the header and the buttons are the site's own (styles.css, brand.css); what is set here
+/* The welcome page (the homepage, /) and the plain pages (About, How we verify, Contact). The tokens, the header and the buttons are the site's own (styles.css, brand.css); what is set here
    is the page's layout: a strict 12-column grid, so every section sits on the same columns and the edges line up from the headline to the last card. Headings are the
    serif, the text is Inter in the body scale (--t-lede, --t-body, --t-small), and the page is white with the one green. */
 

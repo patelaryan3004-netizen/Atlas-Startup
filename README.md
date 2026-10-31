@@ -15,7 +15,7 @@ backend/            Express API
   scripts/             command lines: discovery, admin, scheduler, scale test tools
 frontend/            React (Vite) app
   src/App.jsx          top-level layout/state
-  src/LandingPage.jsx  the /welcome page; its navigation, headline and dot picture of Australia are in src/components/landing/ (see docs/landing.md)
+  src/LandingPage.jsx  the welcome page (the homepage, /); its navigation, headline and dot picture of Australia are in src/components/landing/ (see docs/landing.md)
   src/components/      MapView, ListView, FilterPanel, JobsView, Leaderboard, NewsTicker
   src/mapPins.js       groups pins for the map (only what is in view is drawn), and the words for how well a place is known
 ```
@@ -133,6 +133,8 @@ npm run discovery -- resolve --name "Leonardo.Ai" --website https://leonardo.ai 
 ```
 
 Finds candidate Australian startups from licensed or public sources, checks each against the companies already here (by website, ABN/ACN and name, including aliases and former names), checks it is Australian and a startup, reads the company's own website, scores it, and queues it for a person. Candidates are staging data: they enter as `candidate`, no route serves them, and only a named person can approve, merge or publish one. It never reads LinkedIn or a proprietary database, obeys `robots.txt` and refuses access-controlled pages. See [docs/discovery.md](docs/discovery.md).
+
+Companies can also be added in bulk from the public portfolio pages of venture-capital firms and accelerators (`backend/scripts/portfolio/`: scan the pages, then `plan`, `run`, `reread`, `propose`, `publish`, `report`). It runs on the discovery engine, so a company already here is never added twice (website domain, then name), a company's own website must be read and show it is Australian, a person writes each sector and description, and a company is placed at its city only (approximate) unless an address is confirmed. See [docs/portfolio-import.md](docs/portfolio-import.md).
 
 A company can also say which accelerator intake it was in (`cohorts`, for example Startmate Winter 2026): an optional fact served only where the accelerator's own page backs it, with a filter (`?cohort=startmate-w26`), search words (`W26`, `Startmate`) and the page it comes from on the company. The first cohort, Startmate Winter 2026, was added from Startmate's pages and each company's own site: see [docs/accelerator-cohorts.md](docs/accelerator-cohorts.md).
 

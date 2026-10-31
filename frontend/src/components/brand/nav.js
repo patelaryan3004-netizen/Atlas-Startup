@@ -1,6 +1,7 @@
 import { navigate } from '../../navigate.js';
 
-// The three places the site has, in the order the header names them. Each is a real link (so it opens in a new tab and a search engine can follow it);
+// The places the site has, in the order the header names them. Map is a page of its own (a large street map with a logo for every company), apart from the
+// Startups tab of Discover, which is the list. Each is a real link (so it opens in a new tab and a search engine can follow it);
 // a page that is the app passes a handler for it and the link then moves inside the app without loading it again.
 //   Home           the community: a short feed of ideas, questions and things people are building
 //   Discover       people, startups and investors (the tabs below), and the map as one way to look at startups
@@ -9,6 +10,7 @@ import { navigate } from '../../navigate.js';
 export const NAV = [
   { id: 'home', label: 'Home', href: '/home' },
   { id: 'discover', label: 'Discover', href: '/discover' },
+  { id: 'map', label: 'Map', href: '/map' },
   { id: 'opportunities', label: 'Opportunities', href: '/jobs' },
 ];
 

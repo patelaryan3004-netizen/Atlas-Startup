@@ -6,24 +6,26 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import SiteHeader from '../src/components/brand/SiteHeader.jsx';
 import { NAV, DISCOVER_TABS, OPPORTUNITY_TABS } from '../src/components/brand/nav.js';
-import { HOME_PATH, MAP_PATH } from '../src/paths.js';
+import { HOME_PATH, MAP_PATH, OLD_WELCOME_PATH } from '../src/paths.js';
 import { closeAuth } from '../src/authUi.js';
 
 const src = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'src');
 const read = (file) => readFileSync(path.join(src, file), 'utf8').replace(/\r\n/g, '\n');
 
 describe('where the brand goes', () => {
-  it('is the landing page for the name, the app for the way in, and main.jsx shows the landing page at the home address', () => {
-    expect(HOME_PATH).toBe('/welcome');
-    expect(MAP_PATH).toBe('/');
-    expect(read('main.jsx')).toContain('const isLanding = path === HOME_PATH;');
+  it('is the welcome page (the homepage) for the name, the map page for the way in, and main.jsx shows the welcome page at the root and sends its old address there', () => {
+    expect(HOME_PATH).toBe('/');
+    expect(OLD_WELCOME_PATH).toBe('/welcome');
+    expect(MAP_PATH).toBe('/map');
+    expect(read('main.jsx')).toContain('const isLanding = opensWelcome();');
+    expect(read('main.jsx')).toContain('=== OLD_WELCOME_PATH');
     expect(read('main.jsx')).toContain("from './paths.js'");
   });
 });
 
-describe('the three places', () => {
-  it('are Home, Discover and Opportunities, each with an address of its own, and what is inside them is tabs', () => {
-    expect(NAV.map((n) => [n.label, n.href])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Opportunities', '/jobs']]);
+describe('the places', () => {
+  it('are Home, Discover, Map and Opportunities, each with an address of its own, and what is inside Discover and Opportunities is tabs', () => {
+    expect(NAV.map((n) => [n.label, n.href])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
     expect(DISCOVER_TABS.map((t) => [t.label, t.href])).toEqual([['People', '/discover/people'], ['Startups', '/discover'], ['Investors', '/investors']]);
     expect(OPPORTUNITY_TABS.map((t) => [t.label, t.href])).toEqual([['Jobs', '/jobs'], ['Events', '/events']]);
   });
@@ -35,12 +37,12 @@ describe('SiteHeader', () => {
   const header = () => screen.getByRole('banner');
   const places = () => within(screen.getByRole('navigation', { name: 'Main' }));
 
-  it('has the name as a link to the welcome page ("Go to home"), and a navigation of the three places, each a real link', () => {
+  it('has the name as a link to the welcome page ("Go to home"), and a navigation of the places, each a real link', () => {
     render(<SiteHeader />);
     const home = screen.getByRole('link', { name: 'Go to home' });
-    expect(home).toHaveAttribute('href', '/welcome');
+    expect(home).toHaveAttribute('href', '/');
     expect(home).toHaveTextContent('still early.');
-    expect(places().getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Opportunities', '/jobs']]);
+    expect(places().getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
   });
 
   it('says which place the page is (aria-current) and only that one', () => {
@@ -49,11 +51,11 @@ describe('SiteHeader', () => {
     expect(places().getAllByRole('link').filter((a) => a.hasAttribute('aria-current'))).toHaveLength(1);
   });
 
-  it('is reached by the keyboard: the name first, then the three places, then Sign in and the menu', async () => {
+  it('is reached by the keyboard: the name first, then the places, then Sign in and the menu', async () => {
     render(<SiteHeader />);
     await userEvent.tab();
     expect(screen.getByRole('link', { name: 'Go to home' })).toHaveFocus();
-    for (const place of ['Home', 'Discover', 'Opportunities']) {
+    for (const place of ['Home', 'Discover', 'Map', 'Opportunities']) {
       await userEvent.tab();
       expect(places().getByRole('link', { name: place })).toHaveFocus();
     }
@@ -100,10 +102,10 @@ describe('SiteHeader', () => {
     expect(await screen.findByRole('dialog', { name: 'Sign in' })).toBeInTheDocument();
   });
 
-  it('has the three places along the bottom of a phone too, the same links, with the open one marked', () => {
+  it('has the places along the bottom of a phone too, the same links, with the open one marked', () => {
     render(<SiteHeader active="home" />);
     const bar = within(screen.getByRole('navigation', { name: 'Main (phone)' }));
-    expect(bar.getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Opportunities', '/jobs']]);
+    expect(bar.getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
     expect(bar.getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page');
   });
 
@@ -141,7 +143,7 @@ describe('the header on each page', () => {
     needs('components/people/PeopleView.jsx', '<SiteHeader');
     needs('components/CuratedLists.jsx', '<SiteHeader active="discover"');
     needs('components/investors/InvestorsView.jsx', '<SiteHeader active="discover"');
-    needs('App.jsx', '<SiteHeader active="discover"');
+    needs('App.jsx', "<SiteHeader active={isMapPage ? 'map' : 'discover'}");
     needs('components/landing/Hero.jsx', '<NavCapsule />'); // the welcome page's own capsule over the night sky, with the same wordmark
     needs('components/landing/Hero.jsx', '<Wordmark />');
     needs('InfoPage.jsx', '<SiteHeader />');

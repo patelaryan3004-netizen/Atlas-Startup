@@ -1,4 +1,4 @@
-/* Still Early: the welcome page (/welcome). The page is the night (--navy) with panels set into it: a butter yellow one, a row of four of different sizes (white, coral,
+/* Still Early: the welcome page (the homepage, /). The page is the night (--navy) with panels set into it: a butter yellow one, a row of four of different sizes (white, coral,
    forest green, yellow) and an off-white one. Headings are Instrument Serif (the italic word is the voice), everything else Inter. The colours are the shared tokens
    (styles.css). The product previews inside the panels are drawn in em, and each scales with the panel that holds it (container query units), so a preview looks the
    same at any width: the type in it is never smaller than 9.5px. BRAND_GUIDELINES.md says how to keep the other pages consistent with this one. */

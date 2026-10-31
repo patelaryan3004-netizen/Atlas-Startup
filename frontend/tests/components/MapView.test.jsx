@@ -561,28 +561,47 @@ describe('MapView', () => {
       expect(attributionInstance.addTo).toHaveBeenCalledWith(mapInstance);
     });
 
-    it('moves to the pins of a city when the city is picked, once they arrive, and not before', () => {
+    // The ten cities of the map page go straight to the city's own view, with or without companies there; any other place (several cities, a city the page does
+    // not list) is fitted to its pins once they arrive.
+    it('goes to the view of the city at once when one of the ten cities is picked, and does not wait for pins', () => {
+      const { rerender } = render(<MapView markers={ALL} scope="" />);
+      expect(mapInstance.flyTo).not.toHaveBeenCalled();
+      rerender(<MapView markers={ALL} scope="Hobart" />); // no company there yet: the map still goes to Hobart
+      expect(mapInstance.flyTo).toHaveBeenCalledTimes(1);
+      expect(mapInstance.flyTo).toHaveBeenCalledWith([-42.8821, 147.3272], 12, expect.objectContaining({ duration: expect.any(Number) }));
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+      rerender(<MapView markers={MELBOURNE} scope="Hobart" />); // pins arriving afterwards do not move it
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+    });
+
+    it('opens on the city the address names (/map?city=Darwin) without flying, with or without companies', () => {
+      render(<MapView markers={[]} scope="Darwin" />);
+      expect(mapInstance.setView).toHaveBeenCalledWith([-12.4634, 130.8456], 12);
+      expect(mapInstance.fitBounds).not.toHaveBeenCalled();
+    });
+
+    it('moves to the pins of a place that has no view of its own when it is picked, once they arrive, and not before', () => {
       const { rerender } = render(<MapView markers={ALL} scope="" />);
       expect(mapInstance.fitBounds).not.toHaveBeenCalled();
-      rerender(<MapView markers={ALL} scope="Melbourne" />); // the city is picked: the pins of the city are not here yet
+      rerender(<MapView markers={ALL} scope="Geelong" />); // picked: the pins of the place are not here yet
       expect(mapInstance.fitBounds).not.toHaveBeenCalled();
-      rerender(<MapView markers={MELBOURNE} scope="Melbourne" />);
+      rerender(<MapView markers={MELBOURNE} scope="Geelong" />);
       expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1);
       expect(mapInstance.fitBounds).toHaveBeenCalledWith({ points: [[-37.81, 144.96], [-37.9, 145.1]] }, expect.objectContaining({ maxZoom: 13 }));
     });
 
     it('leaves the map where the visitor put it when something else about the pins changes', () => {
-      const { rerender } = render(<MapView markers={ALL} scope="Melbourne" />);
-      expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1); // it opened on the city
+      const { rerender } = render(<MapView markers={ALL} scope="Geelong" />);
+      expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1); // it opened on the place
       mapInstance.fitBounds.mockClear();
-      rerender(<MapView markers={[...MELBOURNE]} scope="Melbourne" />); // a sector was picked, say: new pins, the same city
+      rerender(<MapView markers={[...MELBOURNE]} scope="Geelong" />); // a sector was picked, say: new pins, the same place
       expect(mapInstance.fitBounds).not.toHaveBeenCalled();
     });
 
-    it('opens on the city the address names, once its pins are in', () => {
-      const { rerender } = render(<MapView markers={[]} scope="Melbourne" />);
+    it('opens on a place with no view of its own once its pins are in', () => {
+      const { rerender } = render(<MapView markers={[]} scope="Geelong" />);
       expect(mapInstance.fitBounds).not.toHaveBeenCalled(); // nothing to fit yet
-      rerender(<MapView markers={MELBOURNE} scope="Melbourne" />);
+      rerender(<MapView markers={MELBOURNE} scope="Geelong" />);
       expect(mapInstance.fitBounds).toHaveBeenCalledTimes(1);
     });
 
@@ -593,10 +612,10 @@ describe('MapView', () => {
       expect(mapInstance.setView).toHaveBeenCalledWith([-33, 145], 5);
     });
 
-    it('shows a city known only as a group where there are no pins to fit, never closer than the city', () => {
-      const { rerender } = render(<MapView markers={[]} areas={[]} scope="Perth" />);
-      rerender(<MapView markers={[]} areas={[{ ...SYDNEY_GROUP, label: 'Perth', city: 'Perth', lat: -31.95, lng: 115.86 }]} scope="Perth" />);
-      expect(mapInstance.fitBounds).toHaveBeenCalledWith({ points: [[-31.95, 115.86]] }, expect.objectContaining({ maxZoom: 10 }));
+    it('shows a place known only as a group where there are no pins to fit, never closer than the city', () => {
+      const { rerender } = render(<MapView markers={[]} areas={[]} scope="Geelong" />);
+      rerender(<MapView markers={[]} areas={[{ ...SYDNEY_GROUP, label: 'Geelong', city: 'Geelong', lat: -38.15, lng: 144.36 }]} scope="Geelong" />);
+      expect(mapInstance.fitBounds).toHaveBeenCalledWith({ points: [[-38.15, 144.36]] }, expect.objectContaining({ maxZoom: 10 }));
     });
 
     it('brings a company into view when asked, a little way up from the bottom sheet, and leaves one that is already clear', () => {

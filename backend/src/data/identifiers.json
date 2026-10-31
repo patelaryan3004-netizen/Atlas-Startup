@@ -1,5 +1,53 @@
 [
   {
+    "id": "abyss-solutions.abn.66602698457",
+    "company_id": "abyss-solutions",
+    "scheme": "abn",
+    "value": "66602698457",
+    "source_id": "abyssfabric-com",
+    "note": null
+  },
+  {
+    "id": "abyss-solutions.acn.602698457",
+    "company_id": "abyss-solutions",
+    "scheme": "acn",
+    "value": "602698457",
+    "source_id": "abyssfabric-com",
+    "note": null
+  },
+  {
+    "id": "abyss-solutions.alias.abyss",
+    "company_id": "abyss-solutions",
+    "scheme": "alias",
+    "value": "ABYSS",
+    "source_id": "abyssfabric-com",
+    "note": null
+  },
+  {
+    "id": "abyss-solutions.legal_name.hubspot-location-united-states-recipient-ventraip-australia-pty-ltd",
+    "company_id": "abyss-solutions",
+    "scheme": "legal_name",
+    "value": "HubSpot Location United States Recipient VentraIP Australia Pty Ltd",
+    "source_id": "abyssfabric-com",
+    "note": null
+  },
+  {
+    "id": "abyss-solutions.legal_name.hubspot-united-states-ventraip-australia-pty-ltd",
+    "company_id": "abyss-solutions",
+    "scheme": "legal_name",
+    "value": "HubSpot United States VentraIP Australia Pty Ltd",
+    "source_id": "abyssfabric-com",
+    "note": null
+  },
+  {
+    "id": "accelo.alias.affinitylive",
+    "company_id": "accelo",
+    "scheme": "alias",
+    "value": "AffinityLive",
+    "source_id": "www-accelo-com",
+    "note": null
+  },
+  {
     "id": "adora.acn.671450650",
     "company_id": "adora",
     "scheme": "acn",
@@ -13,6 +61,46 @@
     "scheme": "legal_name",
     "value": "Adora Software Pty Ltd",
     "source_id": "www-adora-ai",
+    "note": null
+  },
+  {
+    "id": "adviser-ratings.abn.18154273640",
+    "company_id": "adviser-ratings",
+    "scheme": "abn",
+    "value": "18154273640",
+    "source_id": "www-adviserratings-com-au",
+    "note": null
+  },
+  {
+    "id": "adviser-ratings.acn.154273640",
+    "company_id": "adviser-ratings",
+    "scheme": "acn",
+    "value": "154273640",
+    "source_id": "www-adviserratings-com-au",
+    "note": null
+  },
+  {
+    "id": "adviser-ratings.legal_name.adviser-ratings-pty-ltd",
+    "company_id": "adviser-ratings",
+    "scheme": "legal_name",
+    "value": "Adviser Ratings Pty Ltd",
+    "source_id": "www-adviserratings-com-au",
+    "note": null
+  },
+  {
+    "id": "airrobe.acn.628335713",
+    "company_id": "airrobe",
+    "scheme": "acn",
+    "value": "628335713",
+    "source_id": "www-airrobe-com",
+    "note": null
+  },
+  {
+    "id": "airrobe.legal_name.airrobe-pty-ltd",
+    "company_id": "airrobe",
+    "scheme": "legal_name",
+    "value": "AirRobe Pty Ltd",
+    "source_id": "www-airrobe-com",
     "note": null
   },
   {
@@ -32,6 +120,38 @@
     "note": null
   },
   {
+    "id": "amentum-scientific.abn.68612699984",
+    "company_id": "amentum-scientific",
+    "scheme": "abn",
+    "value": "68612699984",
+    "source_id": "www-amentum-io",
+    "note": null
+  },
+  {
+    "id": "amentum-scientific.legal_name.amentum-pty-ltd",
+    "company_id": "amentum-scientific",
+    "scheme": "legal_name",
+    "value": "Amentum Pty Ltd",
+    "source_id": "www-amentum-io",
+    "note": null
+  },
+  {
+    "id": "ansarada.alias.privacy-policy",
+    "company_id": "ansarada",
+    "scheme": "alias",
+    "value": "Privacy Policy",
+    "source_id": "www-ansarada-com",
+    "note": null
+  },
+  {
+    "id": "ansarada.legal_name.ansarada-pty-ltd",
+    "company_id": "ansarada",
+    "scheme": "legal_name",
+    "value": "Ansarada Pty Ltd",
+    "source_id": "www-ansarada-com",
+    "note": null
+  },
+  {
     "id": "antares-aerospace.legal_name.antares-aerospace-systems-pty-ltd",
     "company_id": "antares-aerospace",
     "scheme": "legal_name",
@@ -45,6 +165,86 @@
     "scheme": "abn",
     "value": "51635938760",
     "source_id": "apromore-com",
+    "note": null
+  },
+  {
+    "id": "archer-materials.abn.64123993233",
+    "company_id": "archer-materials",
+    "scheme": "abn",
+    "value": "64123993233",
+    "source_id": "www-archerx-com-au",
+    "note": null
+  },
+  {
+    "id": "archer-materials.alias.archer",
+    "company_id": "archer-materials",
+    "scheme": "alias",
+    "value": "Archer",
+    "source_id": "www-archerx-com-au",
+    "note": null
+  },
+  {
+    "id": "archer-materials.alias.axe",
+    "company_id": "archer-materials",
+    "scheme": "alias",
+    "value": "AXE",
+    "source_id": "www-archerx-com-au",
+    "note": null
+  },
+  {
+    "id": "arkeus.abn.91638881286",
+    "company_id": "arkeus",
+    "scheme": "abn",
+    "value": "91638881286",
+    "source_id": "arkeus-com",
+    "note": null
+  },
+  {
+    "id": "arkeus.legal_name.arkeus-pty-ltd",
+    "company_id": "arkeus",
+    "scheme": "legal_name",
+    "value": "Arkeus Pty Ltd",
+    "source_id": "arkeus-com",
+    "note": null
+  },
+  {
+    "id": "atrium.acn.677925192",
+    "company_id": "atrium",
+    "scheme": "acn",
+    "value": "677925192",
+    "source_id": "www-atrium-me",
+    "note": null
+  },
+  {
+    "id": "atrium.legal_name.atrium-official-pty-ltd",
+    "company_id": "atrium",
+    "scheme": "legal_name",
+    "value": "Atrium Official Pty Ltd",
+    "source_id": "www-atrium-me",
+    "note": null
+  },
+  {
+    "id": "atticus.acn.620609430",
+    "company_id": "atticus",
+    "scheme": "acn",
+    "value": "620609430",
+    "source_id": "www-atticus-tech-au",
+    "note": null
+  },
+  {
+    "id": "atticus.legal_name.assemble-technologies-pty-ltd",
+    "company_id": "atticus",
+    "scheme": "legal_name",
+    "value": "Assemble Technologies Pty Ltd",
+    "source_id": "www-atticus-tech-au",
+    "note": null
+  },
+  {
+    "id": "black-ai.acn.617152851",
+    "company_id": "black-ai",
+    "scheme": "acn",
+    "value": "617152851",
+    "source_id": "black-ai",
     "note": null
   },
   {
@@ -72,11 +272,163 @@
     "note": null
   },
   {
+    "id": "blunge.acn.678475011",
+    "company_id": "blunge",
+    "scheme": "acn",
+    "value": "678475011",
+    "source_id": "www-blunge-ai",
+    "note": null
+  },
+  {
+    "id": "blunge.legal_name.blunge-pty-ltd",
+    "company_id": "blunge",
+    "scheme": "legal_name",
+    "value": "Blunge Pty Ltd",
+    "source_id": "www-blunge-ai",
+    "note": null
+  },
+  {
+    "id": "blunge.legal_name.introduction-blunge-pty-ltd",
+    "company_id": "blunge",
+    "scheme": "legal_name",
+    "value": "Introduction Blunge Pty Ltd",
+    "source_id": "www-blunge-ai",
+    "note": null
+  },
+  {
+    "id": "blunge.legal_name.service-blunge-pty-ltd",
+    "company_id": "blunge",
+    "scheme": "legal_name",
+    "value": "Service Blunge Pty Ltd",
+    "source_id": "www-blunge-ai",
+    "note": null
+  },
+  {
     "id": "brandviz-ai.alias.brandviz",
     "company_id": "brandviz-ai",
     "scheme": "alias",
     "value": "BrandViz",
     "source_id": "www-startmate-com-portfolio-companies-brandviz-ai",
+    "note": null
+  },
+  {
+    "id": "breaker-industries.abn.29667485305",
+    "company_id": "breaker-industries",
+    "scheme": "abn",
+    "value": "29667485305",
+    "source_id": "breakerindustries-com",
+    "note": null
+  },
+  {
+    "id": "breaker-industries.alias.breaker",
+    "company_id": "breaker-industries",
+    "scheme": "alias",
+    "value": "Breaker",
+    "source_id": "breakerindustries-com",
+    "note": null
+  },
+  {
+    "id": "breaker-industries.legal_name.breaker-industries-pty-ltd",
+    "company_id": "breaker-industries",
+    "scheme": "legal_name",
+    "value": "Breaker Industries Pty Ltd",
+    "source_id": "breakerindustries-com",
+    "note": null
+  },
+  {
+    "id": "bygen.abn.80623524792",
+    "company_id": "bygen",
+    "scheme": "abn",
+    "value": "80623524792",
+    "source_id": "user-supplied-supplied-by-a-reviewer-6",
+    "note": null
+  },
+  {
+    "id": "bygen.acn.621132394",
+    "company_id": "bygen",
+    "scheme": "acn",
+    "value": "621132394",
+    "source_id": "user-supplied-supplied-by-a-reviewer-6",
+    "note": null
+  },
+  {
+    "id": "bygen.legal_name.bygen-pty-ltd",
+    "company_id": "bygen",
+    "scheme": "legal_name",
+    "value": "Bygen Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-6",
+    "note": null
+  },
+  {
+    "id": "bygen.legal_name.cannpro-pty-ltd",
+    "company_id": "bygen",
+    "scheme": "legal_name",
+    "value": "CannPro Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-6",
+    "note": null
+  },
+  {
+    "id": "cape.abn.83654770199",
+    "company_id": "cape",
+    "scheme": "abn",
+    "value": "83654770199",
+    "source_id": "user-supplied-supplied-by-a-reviewer-8",
+    "note": null
+  },
+  {
+    "id": "cape.alias.cape-business-credit-cards",
+    "company_id": "cape",
+    "scheme": "alias",
+    "value": "Cape Business Credit Cards",
+    "source_id": "user-supplied-supplied-by-a-reviewer-8",
+    "note": null
+  },
+  {
+    "id": "cape.alias.cape-expense-management",
+    "company_id": "cape",
+    "scheme": "alias",
+    "value": "Cape Expense Management",
+    "source_id": "user-supplied-supplied-by-a-reviewer-8",
+    "note": null
+  },
+  {
+    "id": "cape.alias.cape-from-anna-money",
+    "company_id": "cape",
+    "scheme": "alias",
+    "value": "Cape from ANNA Money",
+    "source_id": "user-supplied-supplied-by-a-reviewer-8",
+    "note": null
+  },
+  {
+    "id": "cape.legal_name.anna-money-solutions-pty-ltd",
+    "company_id": "cape",
+    "scheme": "legal_name",
+    "value": "ANNA Money Solutions Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-8",
+    "note": null
+  },
+  {
+    "id": "cape.legal_name.introduction-anna-money-solutions-pty-ltd",
+    "company_id": "cape",
+    "scheme": "legal_name",
+    "value": "Introduction ANNA Money Solutions Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-8",
+    "note": null
+  },
+  {
+    "id": "cascayd.abn.43693630974",
+    "company_id": "cascayd",
+    "scheme": "abn",
+    "value": "43693630974",
+    "source_id": "user-supplied-supplied-by-a-reviewer-10",
+    "note": null
+  },
+  {
+    "id": "cascayd.legal_name.cascayd-pty-ltd",
+    "company_id": "cascayd",
+    "scheme": "legal_name",
+    "value": "Cascayd Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-10",
     "note": null
   },
   {
@@ -101,6 +453,22 @@
     "scheme": "legal_name",
     "value": "Clausifai Pty Ltd",
     "source_id": "www-startmate-com-portfolio-companies-clausifai",
+    "note": null
+  },
+  {
+    "id": "clutch-glue.abn.61652694454",
+    "company_id": "clutch-glue",
+    "scheme": "abn",
+    "value": "61652694454",
+    "source_id": "clutchglue-com",
+    "note": null
+  },
+  {
+    "id": "clutch-glue.legal_name.ahay-society-pty-ltd",
+    "company_id": "clutch-glue",
+    "scheme": "legal_name",
+    "value": "AHAY Society Pty Ltd",
+    "source_id": "clutchglue-com",
     "note": null
   },
   {
@@ -136,6 +504,190 @@
     "note": null
   },
   {
+    "id": "coinjar.abn.30131436532",
+    "company_id": "coinjar",
+    "scheme": "abn",
+    "value": "30131436532",
+    "source_id": "www-coinjar-com-au",
+    "note": null
+  },
+  {
+    "id": "coinjar.acn.648570807",
+    "company_id": "coinjar",
+    "scheme": "acn",
+    "value": "648570807",
+    "source_id": "www-coinjar-com-au",
+    "note": null
+  },
+  {
+    "id": "coinjar.legal_name.coinjar-australia-pty-ltd",
+    "company_id": "coinjar",
+    "scheme": "legal_name",
+    "value": "CoinJar Australia Pty Ltd",
+    "source_id": "www-coinjar-com-au",
+    "note": null
+  },
+  {
+    "id": "crosscourtai.abn.86684463134",
+    "company_id": "crosscourtai",
+    "scheme": "abn",
+    "value": "86684463134",
+    "source_id": "user-supplied-supplied-by-a-reviewer-14",
+    "note": null
+  },
+  {
+    "id": "crosscourtai.alias.harper",
+    "company_id": "crosscourtai",
+    "scheme": "alias",
+    "value": "Harper",
+    "source_id": "user-supplied-supplied-by-a-reviewer-14",
+    "note": null
+  },
+  {
+    "id": "crosscourtai.alias.harper-2-0",
+    "company_id": "crosscourtai",
+    "scheme": "alias",
+    "value": "Harper 2.0",
+    "source_id": "user-supplied-supplied-by-a-reviewer-14",
+    "note": null
+  },
+  {
+    "id": "crosscourtai.legal_name.crosscourtai-pty-limited",
+    "company_id": "crosscourtai",
+    "scheme": "legal_name",
+    "value": "CrossCourtAI Pty Limited",
+    "source_id": "user-supplied-supplied-by-a-reviewer-14",
+    "note": null
+  },
+  {
+    "id": "cruxml.legal_name.cruxml-pty-ltd",
+    "company_id": "cruxml",
+    "scheme": "legal_name",
+    "value": "CruxML Pty Ltd",
+    "source_id": "cruxml-com-au",
+    "note": null
+  },
+  {
+    "id": "darwinium.abn.69648623867",
+    "company_id": "darwinium",
+    "scheme": "abn",
+    "value": "69648623867",
+    "source_id": "www-darwinium-com",
+    "note": null
+  },
+  {
+    "id": "darwinium.legal_name.australia-darwinium-operations-pty-limited",
+    "company_id": "darwinium",
+    "scheme": "legal_name",
+    "value": "Australia Darwinium Operations Pty Limited",
+    "source_id": "www-darwinium-com",
+    "note": null
+  },
+  {
+    "id": "darwinium.legal_name.darwinium-operations-pty-limited",
+    "company_id": "darwinium",
+    "scheme": "legal_name",
+    "value": "Darwinium Operations Pty Limited",
+    "source_id": "www-darwinium-com",
+    "note": null
+  },
+  {
+    "id": "darwinium.legal_name.darwium-operations-pty-ltd",
+    "company_id": "darwinium",
+    "scheme": "legal_name",
+    "value": "Darwium Operations Pty Ltd",
+    "source_id": "www-darwinium-com",
+    "note": null
+  },
+  {
+    "id": "darwinium.legal_name.operations-pty-limited",
+    "company_id": "darwinium",
+    "scheme": "legal_name",
+    "value": "Operations Pty Limited",
+    "source_id": "www-darwinium-com",
+    "note": null
+  },
+  {
+    "id": "datafarming.abn.56619577150",
+    "company_id": "datafarming",
+    "scheme": "abn",
+    "value": "56619577150",
+    "source_id": "datafarming-com-au",
+    "note": null
+  },
+  {
+    "id": "datafarming.legal_name.data-farming-pty-ltd",
+    "company_id": "datafarming",
+    "scheme": "legal_name",
+    "value": "Data Farming Pty Ltd",
+    "source_id": "datafarming-com-au",
+    "note": null
+  },
+  {
+    "id": "ddloop.acn.658895624",
+    "company_id": "ddloop",
+    "scheme": "acn",
+    "value": "658895624",
+    "source_id": "user-supplied-supplied-by-a-reviewer-16",
+    "note": null
+  },
+  {
+    "id": "ddloop.legal_name.ddloop-pty-ltd",
+    "company_id": "ddloop",
+    "scheme": "legal_name",
+    "value": "DDLoop Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-16",
+    "note": null
+  },
+  {
+    "id": "ddloop.legal_name.legal-entities-australia-ddloop-pty-ltd",
+    "company_id": "ddloop",
+    "scheme": "legal_name",
+    "value": "Legal Entities Australia DDLoop Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-16",
+    "note": null
+  },
+  {
+    "id": "decarice.legal_name.decarice-pty-ltd",
+    "company_id": "decarice",
+    "scheme": "legal_name",
+    "value": "DeCarice Pty Ltd",
+    "source_id": "decarice-com-au",
+    "note": null
+  },
+  {
+    "id": "deeligence.acn.665609307",
+    "company_id": "deeligence",
+    "scheme": "acn",
+    "value": "665609307",
+    "source_id": "user-supplied-supplied-by-a-reviewer-18",
+    "note": null
+  },
+  {
+    "id": "deeligence.legal_name.deeligence-pty-ltd",
+    "company_id": "deeligence",
+    "scheme": "legal_name",
+    "value": "Deeligence Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-18",
+    "note": null
+  },
+  {
+    "id": "deneb-space.abn.79661818364",
+    "company_id": "deneb-space",
+    "scheme": "abn",
+    "value": "79661818364",
+    "source_id": "www-denebspace-com-au",
+    "note": null
+  },
+  {
+    "id": "deneb-space.legal_name.deneb-space-pty-ltd",
+    "company_id": "deneb-space",
+    "scheme": "legal_name",
+    "value": "Deneb Space Pty Ltd",
+    "source_id": "www-denebspace-com-au",
+    "note": null
+  },
+  {
     "id": "derive.acn.696859597",
     "company_id": "derive",
     "scheme": "acn",
@@ -152,11 +704,67 @@
     "note": null
   },
   {
+    "id": "design-com.acn.127272315",
+    "company_id": "design-com",
+    "scheme": "acn",
+    "value": "127272315",
+    "source_id": "www-design-com",
+    "note": null
+  },
+  {
+    "id": "design-com.legal_name.designcrowd-pty-ltd",
+    "company_id": "design-com",
+    "scheme": "legal_name",
+    "value": "DesignCrowd Pty Ltd",
+    "source_id": "www-design-com",
+    "note": null
+  },
+  {
+    "id": "design-com.legal_name.introduction-designcrowd-pty-ltd",
+    "company_id": "design-com",
+    "scheme": "legal_name",
+    "value": "Introduction DesignCrowd Pty Ltd",
+    "source_id": "www-design-com",
+    "note": null
+  },
+  {
     "id": "develpr.legal_name.develpr-pty-ltd",
     "company_id": "develpr",
     "scheme": "legal_name",
     "value": "Develpr Pty Ltd",
     "source_id": "www-startmate-com-portfolio-companies-develpr",
+    "note": null
+  },
+  {
+    "id": "dimple.abn.50625221543",
+    "company_id": "dimple",
+    "scheme": "abn",
+    "value": "50625221543",
+    "source_id": "www-dimplecontacts-com",
+    "note": null
+  },
+  {
+    "id": "dimple.acn.625221543",
+    "company_id": "dimple",
+    "scheme": "acn",
+    "value": "625221543",
+    "source_id": "www-dimplecontacts-com",
+    "note": null
+  },
+  {
+    "id": "dimple.alias.dimpletm",
+    "company_id": "dimple",
+    "scheme": "alias",
+    "value": "Dimple™",
+    "source_id": "www-dimplecontacts-com",
+    "note": null
+  },
+  {
+    "id": "dimple.legal_name.dimple-optics-pty-limited",
+    "company_id": "dimple",
+    "scheme": "legal_name",
+    "value": "Dimple Optics Pty Limited",
+    "source_id": "www-dimplecontacts-com",
     "note": null
   },
   {
@@ -168,11 +776,123 @@
     "note": null
   },
   {
+    "id": "driven.abn.94607545175",
+    "company_id": "driven",
+    "scheme": "abn",
+    "value": "94607545175",
+    "source_id": "home-hellodriven-com",
+    "note": null
+  },
+  {
+    "id": "driven.alias.driven-resilience",
+    "company_id": "driven",
+    "scheme": "alias",
+    "value": "Driven Resilience",
+    "source_id": "home-hellodriven-com",
+    "note": null
+  },
+  {
+    "id": "driven.legal_name.hello-driven-pty-ltd",
+    "company_id": "driven",
+    "scheme": "legal_name",
+    "value": "Hello Driven Pty Ltd",
+    "source_id": "home-hellodriven-com",
+    "note": null
+  },
+  {
+    "id": "driven.legal_name.our-key-functions-hello-driven-pty-ltd",
+    "company_id": "driven",
+    "scheme": "legal_name",
+    "value": "Our Key Functions Hello Driven Pty Ltd",
+    "source_id": "home-hellodriven-com",
+    "note": null
+  },
+  {
+    "id": "earlywork.abn.16653993956",
+    "company_id": "earlywork",
+    "scheme": "abn",
+    "value": "16653993956",
+    "source_id": "user-supplied-supplied-by-a-reviewer-20",
+    "note": null
+  },
+  {
+    "id": "earlywork.legal_name.earlywork-careers-pty-ltd",
+    "company_id": "earlywork",
+    "scheme": "legal_name",
+    "value": "Earlywork Careers Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-20",
+    "note": null
+  },
+  {
+    "id": "ebest.abn.42618200427",
+    "company_id": "ebest",
+    "scheme": "abn",
+    "value": "42618200427",
+    "source_id": "www-ebest-com-au",
+    "note": null
+  },
+  {
+    "id": "ebest.legal_name.legalvision-ilp-pty-ltd",
+    "company_id": "ebest",
+    "scheme": "legal_name",
+    "value": "LegalVision ILP Pty Ltd",
+    "source_id": "www-ebest-com-au",
+    "note": null
+  },
+  {
+    "id": "effi.acn.635443088",
+    "company_id": "effi",
+    "scheme": "acn",
+    "value": "635443088",
+    "source_id": "effi-com-au",
+    "note": null
+  },
+  {
+    "id": "effi.alias.effi-technologies",
+    "company_id": "effi",
+    "scheme": "alias",
+    "value": "Effi Technologies",
+    "source_id": "effi-com-au",
+    "note": null
+  },
+  {
+    "id": "effi.legal_name.effi-technologies-pty-ltd",
+    "company_id": "effi",
+    "scheme": "legal_name",
+    "value": "EFFI Technologies Pty Ltd",
+    "source_id": "effi-com-au",
+    "note": null
+  },
+  {
+    "id": "elevio.abn.46609441116",
+    "company_id": "elevio",
+    "scheme": "abn",
+    "value": "46609441116",
+    "source_id": "elev-io",
+    "note": null
+  },
+  {
+    "id": "elevio.legal_name.elevio-pty-ltd",
+    "company_id": "elevio",
+    "scheme": "legal_name",
+    "value": "Elevio Pty Ltd",
+    "source_id": "elev-io",
+    "note": null
+  },
+  {
     "id": "emesent.abn.95626502350",
     "company_id": "emesent",
     "scheme": "abn",
     "value": "95626502350",
     "source_id": "www-emesent-com",
+    "note": null
+  },
+  {
+    "id": "esper-satellite-imagery.alias.esper",
+    "company_id": "esper-satellite-imagery",
+    "scheme": "alias",
+    "value": "Esper",
+    "source_id": "user-supplied-supplied-by-a-reviewer-22",
     "note": null
   },
   {
@@ -200,6 +920,54 @@
     "note": null
   },
   {
+    "id": "everbility.acn.668055669",
+    "company_id": "everbility",
+    "scheme": "acn",
+    "value": "668055669",
+    "source_id": "user-supplied-supplied-by-a-reviewer-24",
+    "note": null
+  },
+  {
+    "id": "extraordinary-money.abn.67691548124",
+    "company_id": "extraordinary-money",
+    "scheme": "abn",
+    "value": "67691548124",
+    "source_id": "xmo-au",
+    "note": null
+  },
+  {
+    "id": "extraordinary-money.legal_name.cdr-representative-of-fiskil-pty-ltd",
+    "company_id": "extraordinary-money",
+    "scheme": "legal_name",
+    "value": "CDR Representative of Fiskil Pty Ltd",
+    "source_id": "xmo-au",
+    "note": null
+  },
+  {
+    "id": "extraordinary-money.legal_name.extraordinary-money-pty-ltd",
+    "company_id": "extraordinary-money",
+    "scheme": "legal_name",
+    "value": "Extraordinary Money Pty Ltd",
+    "source_id": "xmo-au",
+    "note": null
+  },
+  {
+    "id": "fairgo-ai.abn.78679284854",
+    "company_id": "fairgo-ai",
+    "scheme": "abn",
+    "value": "78679284854",
+    "source_id": "user-supplied-supplied-by-a-reviewer-26",
+    "note": null
+  },
+  {
+    "id": "fairgo-ai.legal_name.fairgo-ai-pty-ltd",
+    "company_id": "fairgo-ai",
+    "scheme": "legal_name",
+    "value": "Fairgo.ai Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-26",
+    "note": null
+  },
+  {
     "id": "fastlane.acn.690900497",
     "company_id": "fastlane",
     "scheme": "acn",
@@ -213,6 +981,62 @@
     "scheme": "legal_name",
     "value": "Possibility Studios Pty Ltd",
     "source_id": "fastlane-privacy-policy",
+    "note": null
+  },
+  {
+    "id": "first-aml.legal_name.first-aml-pty-limited",
+    "company_id": "first-aml",
+    "scheme": "legal_name",
+    "value": "First AML Pty Limited",
+    "source_id": "www-firstaml-com-au",
+    "note": null
+  },
+  {
+    "id": "flowgo.acn.691432292",
+    "company_id": "flowgo",
+    "scheme": "acn",
+    "value": "691432292",
+    "source_id": "user-supplied-supplied-by-a-reviewer-28",
+    "note": null
+  },
+  {
+    "id": "flowgo.alias.flowgo-ai",
+    "company_id": "flowgo",
+    "scheme": "alias",
+    "value": "FlowGo AI",
+    "source_id": "user-supplied-supplied-by-a-reviewer-28",
+    "note": null
+  },
+  {
+    "id": "flowgo.legal_name.entity-registration-jurisdiction-flowgo-pty-ltd",
+    "company_id": "flowgo",
+    "scheme": "legal_name",
+    "value": "Entity Registration Jurisdiction FlowGo Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-28",
+    "note": null
+  },
+  {
+    "id": "foremind.abn.38615400612",
+    "company_id": "foremind",
+    "scheme": "abn",
+    "value": "38615400612",
+    "source_id": "www-foremind-com-au",
+    "note": null
+  },
+  {
+    "id": "foremind.legal_name.foremind-pty-ltd",
+    "company_id": "foremind",
+    "scheme": "legal_name",
+    "value": "Foremind Pty Ltd",
+    "source_id": "www-foremind-com-au",
+    "note": null
+  },
+  {
+    "id": "foremind.legal_name.morcare-services-pty-ltd",
+    "company_id": "foremind",
+    "scheme": "legal_name",
+    "value": "Morcare Services Pty Ltd",
+    "source_id": "www-foremind-com-au",
     "note": null
   },
   {
@@ -232,6 +1056,158 @@
     "note": null
   },
   {
+    "id": "frntlne.abn.31630578004",
+    "company_id": "frntlne",
+    "scheme": "abn",
+    "value": "31630578004",
+    "source_id": "user-supplied-supplied-by-a-reviewer-30",
+    "note": null
+  },
+  {
+    "id": "frntlne.acn.630578004",
+    "company_id": "frntlne",
+    "scheme": "acn",
+    "value": "630578004",
+    "source_id": "user-supplied-supplied-by-a-reviewer-30",
+    "note": null
+  },
+  {
+    "id": "future-super.abn.50055641757",
+    "company_id": "future-super",
+    "scheme": "abn",
+    "value": "50055641757",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.authorised-representative-of-future-group-financial-services-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Authorised Representative of Future Group Financial Services Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.authorised-representatives-of-future-group-financial-services-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Authorised Representatives of Future Group Financial Services Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.future-group-australia-holdings-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Future Group Australia Holdings Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.future-group-financial-services-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Future Group Financial Services Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.future-group-investment-management-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Future Group Investment Management Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.future-super-services-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Future Super Services Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "future-super.legal_name.stewarda-pty-ltd",
+    "company_id": "future-super",
+    "scheme": "legal_name",
+    "value": "Stewarda Pty Ltd",
+    "source_id": "www-futuresuper-com-au",
+    "note": null
+  },
+  {
+    "id": "gelion-technologies.acn.604926098",
+    "company_id": "gelion-technologies",
+    "scheme": "acn",
+    "value": "604926098",
+    "source_id": "gelion-com",
+    "note": null
+  },
+  {
+    "id": "gelion-technologies.alias.gelion",
+    "company_id": "gelion-technologies",
+    "scheme": "alias",
+    "value": "Gelion",
+    "source_id": "gelion-com",
+    "note": null
+  },
+  {
+    "id": "gelion-technologies.legal_name.gelion-technologies-pty-ltd",
+    "company_id": "gelion-technologies",
+    "scheme": "legal_name",
+    "value": "Gelion Technologies Pty Ltd",
+    "source_id": "gelion-com",
+    "note": null
+  },
+  {
+    "id": "geosnapshot.abn.62163982189",
+    "company_id": "geosnapshot",
+    "scheme": "abn",
+    "value": "62163982189",
+    "source_id": "user-supplied-supplied-by-a-reviewer-32",
+    "note": null
+  },
+  {
+    "id": "geosnapshot.legal_name.geosnapshot-at-geosnapshot-pty-ltd",
+    "company_id": "geosnapshot",
+    "scheme": "legal_name",
+    "value": "GEOSNAPSHOT At GeoSnapShot Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-32",
+    "note": null
+  },
+  {
+    "id": "geosnapshot.legal_name.geosnapshot-geosnapshot-pty-ltd",
+    "company_id": "geosnapshot",
+    "scheme": "legal_name",
+    "value": "GEOSNAPSHOT GeoSnapShot Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-32",
+    "note": null
+  },
+  {
+    "id": "geosnapshot.legal_name.geosnapshot-pty-ltd",
+    "company_id": "geosnapshot",
+    "scheme": "legal_name",
+    "value": "GeoSnapShot Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-32",
+    "note": null
+  },
+  {
+    "id": "glamcorner.acn.155435788",
+    "company_id": "glamcorner",
+    "scheme": "acn",
+    "value": "155435788",
+    "source_id": "www-glamcorner-com-au",
+    "note": null
+  },
+  {
+    "id": "glamcorner.legal_name.glam-corner-pty-ltd",
+    "company_id": "glamcorner",
+    "scheme": "legal_name",
+    "value": "Glam Corner Pty Ltd",
+    "source_id": "www-glamcorner-com-au",
+    "note": null
+  },
+  {
     "id": "glowback.domain.glowback-tech",
     "company_id": "glowback",
     "scheme": "domain",
@@ -248,11 +1224,99 @@
     "note": null
   },
   {
+    "id": "gradability.abn.86117850281",
+    "company_id": "gradability",
+    "scheme": "abn",
+    "value": "86117850281",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "gradability.legal_name.ezypay-pty-ltd",
+    "company_id": "gradability",
+    "scheme": "legal_name",
+    "value": "Ezypay Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "gradability.legal_name.gradability-pty-ltd",
+    "company_id": "gradability",
+    "scheme": "legal_name",
+    "value": "Gradability Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "gradability.legal_name.if-gradability-pty-ltd",
+    "company_id": "gradability",
+    "scheme": "legal_name",
+    "value": "If Gradability Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "gradability.legal_name.purpose-and-scope-gradability-pty-ltd",
+    "company_id": "gradability",
+    "scheme": "legal_name",
+    "value": "Purpose and Scope Gradability Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "gradability.legal_name.use-of-gradability-pty-ltd",
+    "company_id": "gradability",
+    "scheme": "legal_name",
+    "value": "Use of Gradability Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "gradability.legal_name.where-gradability-pty-ltd",
+    "company_id": "gradability",
+    "scheme": "legal_name",
+    "value": "Where Gradability Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-34",
+    "note": null
+  },
+  {
+    "id": "grow-inc.acn.615049691",
+    "company_id": "grow-inc",
+    "scheme": "acn",
+    "value": "615049691",
+    "source_id": "www-grow-inc",
+    "note": null
+  },
+  {
     "id": "hello-clever.abn.69637950497",
     "company_id": "hello-clever",
     "scheme": "abn",
     "value": "69637950497",
     "source_id": "helloclever-co",
+    "note": null
+  },
+  {
+    "id": "hullbot.acn.608638642",
+    "company_id": "hullbot",
+    "scheme": "acn",
+    "value": "608638642",
+    "source_id": "hullbot-com",
+    "note": null
+  },
+  {
+    "id": "hullbot.legal_name.hullbot-pty-ltd",
+    "company_id": "hullbot",
+    "scheme": "legal_name",
+    "value": "Hullbot Pty Ltd",
+    "source_id": "hullbot-com",
+    "note": null
+  },
+  {
+    "id": "hurtec.legal_name.hurtec-pty-ltd",
+    "company_id": "hurtec",
+    "scheme": "legal_name",
+    "value": "Hurtec Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-36",
     "note": null
   },
   {
@@ -285,6 +1349,14 @@
     "scheme": "legal_name",
     "value": "Practice Ignition Pty Ltd",
     "source_id": "www-ignitionapp-com",
+    "note": null
+  },
+  {
+    "id": "iluminr.legal_name.catalyst-technologies-pty-ltd",
+    "company_id": "iluminr",
+    "scheme": "legal_name",
+    "value": "Catalyst Technologies Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-38",
     "note": null
   },
   {
@@ -360,6 +1432,278 @@
     "note": null
   },
   {
+    "id": "inventia-life-sciences.alias.inventia",
+    "company_id": "inventia-life-sciences",
+    "scheme": "alias",
+    "value": "Inventia",
+    "source_id": "inventialifescience-com",
+    "note": null
+  },
+  {
+    "id": "inventia-life-sciences.alias.inventia-life-science",
+    "company_id": "inventia-life-sciences",
+    "scheme": "alias",
+    "value": "Inventia Life Science",
+    "source_id": "inventialifescience-com",
+    "note": null
+  },
+  {
+    "id": "inventia-life-sciences.legal_name.linkedin-close-panel-locations-inventia-life-science-pty-ltd",
+    "company_id": "inventia-life-sciences",
+    "scheme": "legal_name",
+    "value": "LinkedIn Close Panel Locations Inventia Life Science Pty Ltd",
+    "source_id": "inventialifescience-com",
+    "note": null
+  },
+  {
+    "id": "june.acn.678271871",
+    "company_id": "june",
+    "scheme": "acn",
+    "value": "678271871",
+    "source_id": "user-supplied-supplied-by-a-reviewer-42",
+    "note": null
+  },
+  {
+    "id": "june.alias.june-health",
+    "company_id": "june",
+    "scheme": "alias",
+    "value": "June Health",
+    "source_id": "user-supplied-supplied-by-a-reviewer-42",
+    "note": null
+  },
+  {
+    "id": "june.legal_name.june-health-pty-ltd",
+    "company_id": "june",
+    "scheme": "legal_name",
+    "value": "June Health Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-42",
+    "note": null
+  },
+  {
+    "id": "kanopi.abn.34163634946",
+    "company_id": "kanopi",
+    "scheme": "abn",
+    "value": "34163634946",
+    "source_id": "kanopicover-com",
+    "note": null
+  },
+  {
+    "id": "kanopi.legal_name.expense-check-pty-ltd",
+    "company_id": "kanopi",
+    "scheme": "legal_name",
+    "value": "Expense Check Pty Ltd",
+    "source_id": "kanopicover-com",
+    "note": null
+  },
+  {
+    "id": "kanopi.legal_name.kanopi-expense-check-pty-ltd",
+    "company_id": "kanopi",
+    "scheme": "legal_name",
+    "value": "Kanopi Expense Check Pty Ltd",
+    "source_id": "kanopicover-com",
+    "note": null
+  },
+  {
+    "id": "kernl.abn.23690390884",
+    "company_id": "kernl",
+    "scheme": "abn",
+    "value": "23690390884",
+    "source_id": "kernl-com-au",
+    "note": null
+  },
+  {
+    "id": "kernl.acn.690390884",
+    "company_id": "kernl",
+    "scheme": "acn",
+    "value": "690390884",
+    "source_id": "kernl-com-au",
+    "note": null
+  },
+  {
+    "id": "kernl.legal_name.kernl-pty-ltd",
+    "company_id": "kernl",
+    "scheme": "legal_name",
+    "value": "Kernl Pty Ltd",
+    "source_id": "kernl-com-au",
+    "note": null
+  },
+  {
+    "id": "kernl.legal_name.services-of-kernl-pty-ltd",
+    "company_id": "kernl",
+    "scheme": "legal_name",
+    "value": "Services of Kernl Pty Ltd",
+    "source_id": "kernl-com-au",
+    "note": null
+  },
+  {
+    "id": "kernl.legal_name.when-kernl-pty-ltd",
+    "company_id": "kernl",
+    "scheme": "legal_name",
+    "value": "When Kernl Pty Ltd",
+    "source_id": "kernl-com-au",
+    "note": null
+  },
+  {
+    "id": "kinde.abn.11655096263",
+    "company_id": "kinde",
+    "scheme": "abn",
+    "value": "11655096263",
+    "source_id": "www-kinde-com",
+    "note": null
+  },
+  {
+    "id": "kinde.acn.655096263",
+    "company_id": "kinde",
+    "scheme": "acn",
+    "value": "655096263",
+    "source_id": "www-kinde-com",
+    "note": null
+  },
+  {
+    "id": "kinde.alias.kinde-docs",
+    "company_id": "kinde",
+    "scheme": "alias",
+    "value": "Kinde docs",
+    "source_id": "www-kinde-com",
+    "note": null
+  },
+  {
+    "id": "kinde.legal_name.kinde-australia-pty-ltd",
+    "company_id": "kinde",
+    "scheme": "legal_name",
+    "value": "Kinde Australia Pty Ltd",
+    "source_id": "www-kinde-com",
+    "note": null
+  },
+  {
+    "id": "kite-magnetics.legal_name.founding-of-kite-magnetics-pty-ltd",
+    "company_id": "kite-magnetics",
+    "scheme": "legal_name",
+    "value": "Founding of Kite Magnetics Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-44",
+    "note": null
+  },
+  {
+    "id": "lawpath.abn.74163055954",
+    "company_id": "lawpath",
+    "scheme": "abn",
+    "value": "74163055954",
+    "source_id": "user-supplied-supplied-by-a-reviewer-46",
+    "note": null
+  },
+  {
+    "id": "lawpath.acn.163055954",
+    "company_id": "lawpath",
+    "scheme": "acn",
+    "value": "163055954",
+    "source_id": "user-supplied-supplied-by-a-reviewer-46",
+    "note": null
+  },
+  {
+    "id": "lawpath.legal_name.amplus-global-pty-ltd",
+    "company_id": "lawpath",
+    "scheme": "legal_name",
+    "value": "Amplus Global Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-46",
+    "note": null
+  },
+  {
+    "id": "lawpath.legal_name.lawpath-operations-pty-ltd",
+    "company_id": "lawpath",
+    "scheme": "legal_name",
+    "value": "Lawpath Operations Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-46",
+    "note": null
+  },
+  {
+    "id": "leakster.legal_name.leakster-pty-ltd",
+    "company_id": "leakster",
+    "scheme": "legal_name",
+    "value": "Leakster Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-48",
+    "note": null
+  },
+  {
+    "id": "lexer.abn.59146105320",
+    "company_id": "lexer",
+    "scheme": "abn",
+    "value": "59146105320",
+    "source_id": "www-lexer-io",
+    "note": null
+  },
+  {
+    "id": "lexer.legal_name.lexer-pty-ltd",
+    "company_id": "lexer",
+    "scheme": "legal_name",
+    "value": "Lexer Pty Ltd",
+    "source_id": "www-lexer-io",
+    "note": null
+  },
+  {
+    "id": "ligr.abn.38616093237",
+    "company_id": "ligr",
+    "scheme": "abn",
+    "value": "38616093237",
+    "source_id": "user-supplied-supplied-by-a-reviewer-50",
+    "note": null
+  },
+  {
+    "id": "ligr.alias.ligr-live",
+    "company_id": "ligr",
+    "scheme": "alias",
+    "value": "LIGR Live",
+    "source_id": "user-supplied-supplied-by-a-reviewer-50",
+    "note": null
+  },
+  {
+    "id": "ligr.alias.ligr-studio",
+    "company_id": "ligr",
+    "scheme": "alias",
+    "value": "LIGR Studio",
+    "source_id": "user-supplied-supplied-by-a-reviewer-50",
+    "note": null
+  },
+  {
+    "id": "ligr.alias.ligr-systems",
+    "company_id": "ligr",
+    "scheme": "alias",
+    "value": "LIGR Systems",
+    "source_id": "user-supplied-supplied-by-a-reviewer-50",
+    "note": null
+  },
+  {
+    "id": "ligr.alias.live-graphic-systems",
+    "company_id": "ligr",
+    "scheme": "alias",
+    "value": "Live Graphic Systems",
+    "source_id": "user-supplied-supplied-by-a-reviewer-50",
+    "note": null
+  },
+  {
+    "id": "ligr.legal_name.live-graphic-systems-pty-ltd",
+    "company_id": "ligr",
+    "scheme": "legal_name",
+    "value": "Live Graphic Systems Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-50",
+    "note": null
+  },
+  {
+    "id": "like-family.abn.30609427349",
+    "company_id": "like-family",
+    "scheme": "abn",
+    "value": "30609427349",
+    "source_id": "likefamily-com-au",
+    "note": null
+  },
+  {
+    "id": "like-family.legal_name.home-care-heroes-pty-ltd",
+    "company_id": "like-family",
+    "scheme": "legal_name",
+    "value": "Home Care Heroes Pty Ltd",
+    "source_id": "likefamily-com-au",
+    "note": null
+  },
+  {
     "id": "lombard.alias.lombard-finance",
     "company_id": "lombard",
     "scheme": "alias",
@@ -368,11 +1712,451 @@
     "note": null
   },
   {
+    "id": "lumos.abn.93638135636",
+    "company_id": "lumos",
+    "scheme": "abn",
+    "value": "93638135636",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.alias.lumos-id",
+    "company_id": "lumos",
+    "scheme": "alias",
+    "value": "LUMOS ID",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.alias.lumos-mediaos",
+    "company_id": "lumos",
+    "scheme": "alias",
+    "value": "Lumos mediaOS",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.alias.lumos-technology",
+    "company_id": "lumos",
+    "scheme": "alias",
+    "value": "LUMOS Technology",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.alias.mediaos",
+    "company_id": "lumos",
+    "scheme": "alias",
+    "value": "mediaOS",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.alias.spot-lumos",
+    "company_id": "lumos",
+    "scheme": "alias",
+    "value": "Spot Lumos",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.legal_name.leggo-studio-pty-ltd",
+    "company_id": "lumos",
+    "scheme": "legal_name",
+    "value": "Leggo Studio Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "lumos.legal_name.spot-lumos-pty-ltd",
+    "company_id": "lumos",
+    "scheme": "legal_name",
+    "value": "Spot Lumos Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-52",
+    "note": null
+  },
+  {
+    "id": "marloo.acn.700023454",
+    "company_id": "marloo",
+    "scheme": "acn",
+    "value": "700023454",
+    "source_id": "www-marloo-com-au",
+    "note": null
+  },
+  {
+    "id": "marloo.legal_name.marloo-au-pty-ltd",
+    "company_id": "marloo",
+    "scheme": "legal_name",
+    "value": "Marloo AU Pty Ltd",
+    "source_id": "www-marloo-com-au",
+    "note": null
+  },
+  {
+    "id": "merchantspring.acn.613105481",
+    "company_id": "merchantspring",
+    "scheme": "acn",
+    "value": "613105481",
+    "source_id": "user-supplied-supplied-by-a-reviewer-54",
+    "note": null
+  },
+  {
+    "id": "merchantspring.legal_name.entity-swift-image-pty-ltd",
+    "company_id": "merchantspring",
+    "scheme": "legal_name",
+    "value": "Entity Swift Image Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-54",
+    "note": null
+  },
+  {
+    "id": "merchantspring.legal_name.swift-image-pty-ltd",
+    "company_id": "merchantspring",
+    "scheme": "legal_name",
+    "value": "Swift Image Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-54",
+    "note": null
+  },
+  {
+    "id": "millibeam.abn.15646980529",
+    "company_id": "millibeam",
+    "scheme": "abn",
+    "value": "15646980529",
+    "source_id": "millibeam-com",
+    "note": null
+  },
+  {
+    "id": "millibeam.legal_name.at-millibeam-pty-ltd",
+    "company_id": "millibeam",
+    "scheme": "legal_name",
+    "value": "At Millibeam Pty Ltd",
+    "source_id": "millibeam-com",
+    "note": null
+  },
+  {
+    "id": "millibeam.legal_name.millibeam-holdings-pty-ltd",
+    "company_id": "millibeam",
+    "scheme": "legal_name",
+    "value": "Millibeam Holdings Pty Ltd",
+    "source_id": "millibeam-com",
+    "note": null
+  },
+  {
+    "id": "millibeam.legal_name.millibeam-pty-ltd",
+    "company_id": "millibeam",
+    "scheme": "legal_name",
+    "value": "Millibeam Pty Ltd",
+    "source_id": "millibeam-com",
+    "note": null
+  },
+  {
+    "id": "misti.abn.55659820818",
+    "company_id": "misti",
+    "scheme": "abn",
+    "value": "55659820818",
+    "source_id": "user-supplied-supplied-by-a-reviewer-56",
+    "note": null
+  },
+  {
+    "id": "misti.legal_name.misti-pty-ltd",
+    "company_id": "misti",
+    "scheme": "legal_name",
+    "value": "Misti Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-56",
+    "note": null
+  },
+  {
+    "id": "movus.abn.91612415611",
+    "company_id": "movus",
+    "scheme": "abn",
+    "value": "91612415611",
+    "source_id": "movus-com-au",
+    "note": null
+  },
+  {
+    "id": "movus.legal_name.movus-australia-pty-ltd",
+    "company_id": "movus",
+    "scheme": "legal_name",
+    "value": "MOVUS Australia Pty Ltd",
+    "source_id": "movus-com-au",
+    "note": null
+  },
+  {
+    "id": "mozo.abn.68128199208",
+    "company_id": "mozo",
+    "scheme": "abn",
+    "value": "68128199208",
+    "source_id": "user-supplied-supplied-by-a-reviewer-58",
+    "note": null
+  },
+  {
+    "id": "mozo.legal_name.mozo-pty-ltd",
+    "company_id": "mozo",
+    "scheme": "legal_name",
+    "value": "Mozo Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-58",
+    "note": null
+  },
+  {
+    "id": "navbit.abn.13610581005",
+    "company_id": "navbit",
+    "scheme": "abn",
+    "value": "13610581005",
+    "source_id": "navbit-com",
+    "note": null
+  },
+  {
+    "id": "navbit.legal_name.navbit-pty-ltd",
+    "company_id": "navbit",
+    "scheme": "legal_name",
+    "value": "Navbit Pty Ltd",
+    "source_id": "navbit-com",
+    "note": null
+  },
+  {
+    "id": "neuralindex-ai.abn.75693790251",
+    "company_id": "neuralindex-ai",
+    "scheme": "abn",
+    "value": "75693790251",
+    "source_id": "user-supplied-supplied-by-a-reviewer-60",
+    "note": null
+  },
+  {
+    "id": "neuralindex-ai.alias.neuralindex",
+    "company_id": "neuralindex-ai",
+    "scheme": "alias",
+    "value": "NeuralIndex",
+    "source_id": "user-supplied-supplied-by-a-reviewer-60",
+    "note": null
+  },
+  {
+    "id": "neuralindex-ai.legal_name.neuralindex-ip-holding-company-pty-ltd",
+    "company_id": "neuralindex-ai",
+    "scheme": "legal_name",
+    "value": "NeuralIndex IP Holding Company Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-60",
+    "note": null
+  },
+  {
+    "id": "nexusmd.alias.nexusmd-ai",
+    "company_id": "nexusmd",
+    "scheme": "alias",
+    "value": "NexusMD.ai",
+    "source_id": "user-supplied-supplied-by-a-reviewer-62",
+    "note": null
+  },
+  {
+    "id": "nomad-atomics.abn.90635715785",
+    "company_id": "nomad-atomics",
+    "scheme": "abn",
+    "value": "90635715785",
+    "source_id": "www-nomadatomics-com",
+    "note": null
+  },
+  {
+    "id": "nomad-atomics.acn.635715785",
+    "company_id": "nomad-atomics",
+    "scheme": "acn",
+    "value": "635715785",
+    "source_id": "www-nomadatomics-com",
+    "note": null
+  },
+  {
+    "id": "novalith.alias.novalith-technologies",
+    "company_id": "novalith",
+    "scheme": "alias",
+    "value": "Novalith Technologies",
+    "source_id": "user-supplied-supplied-by-a-reviewer-64",
+    "note": null
+  },
+  {
+    "id": "novalith.legal_name.at-novalith-technologies-pty-ltd",
+    "company_id": "novalith",
+    "scheme": "legal_name",
+    "value": "At Novalith Technologies Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-64",
+    "note": null
+  },
+  {
+    "id": "novalith.legal_name.novalith-technologies-pty-ltd",
+    "company_id": "novalith",
+    "scheme": "legal_name",
+    "value": "Novalith Technologies Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-64",
+    "note": null
+  },
+  {
+    "id": "novalith.legal_name.who-we-are-novalith-technologies-pty-ltd",
+    "company_id": "novalith",
+    "scheme": "legal_name",
+    "value": "Who We Are Novalith Technologies Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-64",
+    "note": null
+  },
+  {
     "id": "nutromics.legal_name.nutromics-technology-pty-ltd",
     "company_id": "nutromics",
     "scheme": "legal_name",
     "value": "Nutromics Technology Pty Ltd",
     "source_id": "www-nutromics-com",
+    "note": null
+  },
+  {
+    "id": "o3.abn.83680939253",
+    "company_id": "o3",
+    "scheme": "abn",
+    "value": "83680939253",
+    "source_id": "user-supplied-supplied-by-a-reviewer-66",
+    "note": null
+  },
+  {
+    "id": "on-the-house.abn.60674655175",
+    "company_id": "on-the-house",
+    "scheme": "abn",
+    "value": "60674655175",
+    "source_id": "user-supplied-supplied-by-a-reviewer-68",
+    "note": null
+  },
+  {
+    "id": "on-the-house.acn.674655175",
+    "company_id": "on-the-house",
+    "scheme": "acn",
+    "value": "674655175",
+    "source_id": "user-supplied-supplied-by-a-reviewer-68",
+    "note": null
+  },
+  {
+    "id": "on-the-house.legal_name.on-the-house-group-pty-ltd",
+    "company_id": "on-the-house",
+    "scheme": "legal_name",
+    "value": "On The House Group Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-68",
+    "note": null
+  },
+  {
+    "id": "perx-health.abn.69008651232",
+    "company_id": "perx-health",
+    "scheme": "abn",
+    "value": "69008651232",
+    "source_id": "perxhealth-com",
+    "note": null
+  },
+  {
+    "id": "perx-health.legal_name.perx-health-pty-ltd",
+    "company_id": "perx-health",
+    "scheme": "legal_name",
+    "value": "Perx Health Pty Ltd",
+    "source_id": "perxhealth-com",
+    "note": null
+  },
+  {
+    "id": "photon-foundry.abn.23688749420",
+    "company_id": "photon-foundry",
+    "scheme": "abn",
+    "value": "23688749420",
+    "source_id": "www-photonfoundry-com-au",
+    "note": null
+  },
+  {
+    "id": "photon-foundry.legal_name.photon-foundry-photon-foundry-pty-ltd",
+    "company_id": "photon-foundry",
+    "scheme": "legal_name",
+    "value": "PHOTON FOUNDRY Photon Foundry Pty Ltd",
+    "source_id": "www-photonfoundry-com-au",
+    "note": null
+  },
+  {
+    "id": "photon-foundry.legal_name.photon-foundry-pty-ltd",
+    "company_id": "photon-foundry",
+    "scheme": "legal_name",
+    "value": "Photon Foundry Pty Ltd",
+    "source_id": "www-photonfoundry-com-au",
+    "note": null
+  },
+  {
+    "id": "presien.acn.623308289",
+    "company_id": "presien",
+    "scheme": "acn",
+    "value": "623308289",
+    "source_id": "www-presien-com",
+    "note": null
+  },
+  {
+    "id": "presien.legal_name.further-subscription-pfp-robotics-pty-ltd",
+    "company_id": "presien",
+    "scheme": "legal_name",
+    "value": "Further Subscription PFP Robotics Pty Ltd",
+    "source_id": "www-presien-com",
+    "note": null
+  },
+  {
+    "id": "presien.legal_name.pfp-robotics-pty-ltd",
+    "company_id": "presien",
+    "scheme": "legal_name",
+    "value": "PFP Robotics Pty Ltd",
+    "source_id": "www-presien-com",
+    "note": null
+  },
+  {
+    "id": "preve.abn.85676649513",
+    "company_id": "preve",
+    "scheme": "abn",
+    "value": "85676649513",
+    "source_id": "user-supplied-supplied-by-a-reviewer-70",
+    "note": null
+  },
+  {
+    "id": "preve.legal_name.preve-pty-ltd",
+    "company_id": "preve",
+    "scheme": "legal_name",
+    "value": "Preve Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-70",
+    "note": null
+  },
+  {
+    "id": "programa.abn.79637366084",
+    "company_id": "programa",
+    "scheme": "abn",
+    "value": "79637366084",
+    "source_id": "user-supplied-supplied-by-a-reviewer-72",
+    "note": null
+  },
+  {
+    "id": "programa.legal_name.denpro-pty-ltd",
+    "company_id": "programa",
+    "scheme": "legal_name",
+    "value": "Denpro Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-72",
+    "note": null
+  },
+  {
+    "id": "programa.legal_name.us-denpro-pty-ltd",
+    "company_id": "programa",
+    "scheme": "legal_name",
+    "value": "Us Denpro Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-72",
+    "note": null
+  },
+  {
+    "id": "promosync.abn.95687264160",
+    "company_id": "promosync",
+    "scheme": "abn",
+    "value": "95687264160",
+    "source_id": "user-supplied-supplied-by-a-reviewer-74",
+    "note": null
+  },
+  {
+    "id": "promosync.legal_name.introduction-promosync-pty-ltd",
+    "company_id": "promosync",
+    "scheme": "legal_name",
+    "value": "Introduction PROMOSYNC Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-74",
+    "note": null
+  },
+  {
+    "id": "promosync.legal_name.promosync-pty-ltd",
+    "company_id": "promosync",
+    "scheme": "legal_name",
+    "value": "PROMOSYNC Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-74",
     "note": null
   },
   {
@@ -400,6 +2184,22 @@
     "note": null
   },
   {
+    "id": "rainstick.abn.18664525062",
+    "company_id": "rainstick",
+    "scheme": "abn",
+    "value": "18664525062",
+    "source_id": "user-supplied-supplied-by-a-reviewer-76",
+    "note": null
+  },
+  {
+    "id": "rainstick.legal_name.rainstick-ip-holdings-pty-ltd",
+    "company_id": "rainstick",
+    "scheme": "legal_name",
+    "value": "Rainstick IP Holdings Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-76",
+    "note": null
+  },
+  {
     "id": "reejig.abn.75631012318",
     "company_id": "reejig",
     "scheme": "abn",
@@ -424,6 +2224,22 @@
     "note": null
   },
   {
+    "id": "restoplus.acn.609488271",
+    "company_id": "restoplus",
+    "scheme": "acn",
+    "value": "609488271",
+    "source_id": "user-supplied-supplied-by-a-reviewer-78",
+    "note": null
+  },
+  {
+    "id": "restoplus.legal_name.restoplus-pty-ltd",
+    "company_id": "restoplus",
+    "scheme": "legal_name",
+    "value": "Restoplus Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-78",
+    "note": null
+  },
+  {
     "id": "roller.alias.roller-software",
     "company_id": "roller",
     "scheme": "alias",
@@ -445,6 +2261,94 @@
     "scheme": "legal_name",
     "value": "SecurityBreak Pty Ltd",
     "source_id": "www-startmate-com-portfolio-companies-securitybreak",
+    "note": null
+  },
+  {
+    "id": "simconverse.acn.645573066",
+    "company_id": "simconverse",
+    "scheme": "acn",
+    "value": "645573066",
+    "source_id": "www-simconverse-com",
+    "note": null
+  },
+  {
+    "id": "simconverse.legal_name.dymaxion-technologies-pty-ltd",
+    "company_id": "simconverse",
+    "scheme": "legal_name",
+    "value": "Dymaxion Technologies Pty Ltd",
+    "source_id": "www-simconverse-com",
+    "note": null
+  },
+  {
+    "id": "simconverse.legal_name.how-dymaxion-technologies-pty-ltd",
+    "company_id": "simconverse",
+    "scheme": "legal_name",
+    "value": "How Dymaxion Technologies Pty Ltd",
+    "source_id": "www-simconverse-com",
+    "note": null
+  },
+  {
+    "id": "snug.abn.82616484292",
+    "company_id": "snug",
+    "scheme": "abn",
+    "value": "82616484292",
+    "source_id": "snug-com",
+    "note": null
+  },
+  {
+    "id": "snug.acn.616484292",
+    "company_id": "snug",
+    "scheme": "acn",
+    "value": "616484292",
+    "source_id": "snug-com",
+    "note": null
+  },
+  {
+    "id": "snug.legal_name.snug-technologies-pty-ltd",
+    "company_id": "snug",
+    "scheme": "legal_name",
+    "value": "Snug Technologies Pty Ltd",
+    "source_id": "snug-com",
+    "note": null
+  },
+  {
+    "id": "spec-toolbox.legal_name.clt-concepts-pty-ltd",
+    "company_id": "spec-toolbox",
+    "scheme": "legal_name",
+    "value": "CLT Concepts Pty Ltd",
+    "source_id": "spectoolbox-com",
+    "note": null
+  },
+  {
+    "id": "summ.abn.53655951812",
+    "company_id": "summ",
+    "scheme": "abn",
+    "value": "53655951812",
+    "source_id": "summ-com",
+    "note": null
+  },
+  {
+    "id": "summ.acn.655951812",
+    "company_id": "summ",
+    "scheme": "acn",
+    "value": "655951812",
+    "source_id": "summ-com",
+    "note": null
+  },
+  {
+    "id": "summ.alias.crypto-tax-calculator",
+    "company_id": "summ",
+    "scheme": "alias",
+    "value": "Crypto Tax Calculator",
+    "source_id": "summ-com",
+    "note": null
+  },
+  {
+    "id": "summ.legal_name.ctc-ledger-pty-ltd",
+    "company_id": "summ",
+    "scheme": "legal_name",
+    "value": "CTC Ledger Pty Ltd",
+    "source_id": "summ-com",
     "note": null
   },
   {
@@ -496,6 +2400,46 @@
     "note": null
   },
   {
+    "id": "upguard.legal_name.upguard-pty-ltd",
+    "company_id": "upguard",
+    "scheme": "legal_name",
+    "value": "UpGuard Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-82",
+    "note": null
+  },
+  {
+    "id": "vero.acn.618607613",
+    "company_id": "vero",
+    "scheme": "acn",
+    "value": "618607613",
+    "source_id": "user-supplied-supplied-by-a-reviewer-84",
+    "note": null
+  },
+  {
+    "id": "vero.alias.vero-customer-engagement-platform",
+    "company_id": "vero",
+    "scheme": "alias",
+    "value": "Vero Customer Engagement Platform",
+    "source_id": "user-supplied-supplied-by-a-reviewer-84",
+    "note": null
+  },
+  {
+    "id": "vero.legal_name.vero-holdings-australia-pty-ltd",
+    "company_id": "vero",
+    "scheme": "legal_name",
+    "value": "Vero Holdings Australia Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-84",
+    "note": null
+  },
+  {
+    "id": "vero.legal_name.vero-holdings-pty-ltd",
+    "company_id": "vero",
+    "scheme": "legal_name",
+    "value": "Vero Holdings Pty Ltd",
+    "source_id": "user-supplied-supplied-by-a-reviewer-84",
+    "note": null
+  },
+  {
     "id": "vivi.legal_name.vivi-international-pty-ltd",
     "company_id": "vivi",
     "scheme": "legal_name",
@@ -517,6 +2461,38 @@
     "scheme": "acn",
     "value": "633007860",
     "source_id": "www-wemoney-com-au",
+    "note": null
+  },
+  {
+    "id": "x-centric-sciences.abn.30660925977",
+    "company_id": "x-centric-sciences",
+    "scheme": "abn",
+    "value": "30660925977",
+    "source_id": "www-xcentric-tech",
+    "note": null
+  },
+  {
+    "id": "x-centric-sciences.alias.x-centric",
+    "company_id": "x-centric-sciences",
+    "scheme": "alias",
+    "value": "X-Centric®",
+    "source_id": "www-xcentric-tech",
+    "note": null
+  },
+  {
+    "id": "zendir.abn.40637380057",
+    "company_id": "zendir",
+    "scheme": "abn",
+    "value": "40637380057",
+    "source_id": "zendir-io",
+    "note": null
+  },
+  {
+    "id": "zendir.legal_name.space-services-australia-pty-ltd",
+    "company_id": "zendir",
+    "scheme": "legal_name",
+    "value": "Space Services Australia Pty Ltd",
+    "source_id": "zendir-io",
     "note": null
   }
 ]

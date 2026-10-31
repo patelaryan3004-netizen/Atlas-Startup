@@ -7,7 +7,8 @@ import { curatedLists } from './curatedLists.js';
 // over it. It says only what the data says, and links to the plain list of every company.
 
 const KEY_LINKS = [
-  ['What Still Early is', '/welcome'],
+  ['What Still Early is', '/'],
+  ['The map', '/map'],
   ['Curated lists', '/lists'],
   ['Investors', '/investors'],
   ['How we verify', '/methodology'],

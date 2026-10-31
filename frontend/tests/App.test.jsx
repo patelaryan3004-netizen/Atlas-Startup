@@ -929,7 +929,7 @@ describe('App', () => {
     it('has the brand as a link to the home page on the map page, and Explore, the map, as the page it is on', async () => {
       render(<App />);
       const home = screen.getByRole('link', { name: 'Go to home' });
-      expect(home).toHaveAttribute('href', '/welcome');
+      expect(home).toHaveAttribute('href', '/');
       expect(home).toHaveTextContent('still early.');
       expect(place('Discover')).toHaveAttribute('aria-current', 'page');
       expect(screen.getByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
@@ -939,7 +939,7 @@ describe('App', () => {
       render(<App />);
       await userEvent.click((await openMenu()).getByText('News'));
       await screen.findByRole('heading', { level: 1, name: 'Australian startup news' });
-      expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/welcome');
+      expect(screen.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/');
       await userEvent.click(place('Discover'));
       await waitFor(() => expect(screen.getByTestId('map-view')).toBeInTheDocument());
       await waitFor(() => expect(window.location.pathname).toBe('/discover'));
@@ -1235,7 +1235,9 @@ describe('App', () => {
         expect(within(card).getByText('Hiring')).toBeInTheDocument(); // the pin says so
         expect(screen.getByTestId('map-view').dataset.selected).toBe('Canva'); // its mark is drawn as the open one
         await waitFor(() => expect(container.querySelector('.xc-list [aria-current="true"]')).toHaveTextContent('Canva')); // and its row beside the map
-        expect(fetchStartup).not.toHaveBeenCalled(); // a preview is the pin: the record is asked for when the company is opened
+        // a preview opens as the pin (above) and adds what the record says (its description, its website, its sources) as it arrives; it is never waited for
+        await waitFor(() => expect(fetchStartup).toHaveBeenCalledWith('canva', expect.anything()));
+        expect(fetchStartup).toHaveBeenCalledTimes(1);
         expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument(); // a pin opens a preview, not the company
       });
 
@@ -1319,7 +1321,8 @@ describe('App', () => {
         await userEvent.click(screen.getByText('trigger-pin-quiet'));
         const quiet = await screen.findByRole('region', { name: 'Zeller' });
         expect(within(quiet).queryByText(/hiring|Roles unverified|No open roles/i)).not.toBeInTheDocument();
-        expect(fetchStartup).not.toHaveBeenCalled();
+        // (each preview asks for its company's record to add the description and the sources: 'Canva' and 'Zeller')
+        await waitFor(() => expect(fetchStartup).toHaveBeenCalledTimes(2));
       });
     });
 

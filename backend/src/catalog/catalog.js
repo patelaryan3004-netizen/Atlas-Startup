@@ -27,6 +27,7 @@ import { valuesEqual } from '../models/evidence.js';
 import { COHORTS, COHORT_IDS, cohortTerms, programOf } from '../models/cohorts.js';
 import { describeLocation, PRECISIONS } from '../models/location.js';
 import { cityCentre, stateCentre } from '../geo/places.js';
+import { metroOf } from '../geo/metro.js';
 
 export const SORTS = ['file', 'name', 'hiring', 'location', 'industry', 'stage', 'verified', 'team', 'remote'];
 
@@ -246,10 +247,12 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   for (const r of records) for (const t of r.tech_stack ?? []) techCounts.set(t, (techCounts.get(t) ?? 0) + 1);
   const cohortCounts = new Map();
   for (const r of records) for (const id of r.cohorts ?? []) cohortCounts.set(id, (cohortCounts.get(id) ?? 0) + 1);
+  const metros = records.map(metroOf); // the big city each company is in by its postcode (null for most outside the ten)
   const snap = {
-    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance, flags, buckets,
+    version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance, flags, buckets, metros,
     idx: {
-      sector: postings(records, (r) => [r.sector]), city: postings(records, (r) => [r.city]), stage: postings(records, (r) => [r.stage]),
+      // a company is found under its own city and under the big city its postcode puts it in (a suburb's company is in the city too)
+      sector: postings(records, (r) => [r.sector]), city: postings(records, (r) => new Set([r.city, metroOf(r)].filter(Boolean))), stage: postings(records, (r) => [r.stage]),
       investor: postings(records, (r) => new Set(r.investors || [])),
       remote: postings(records, (r) => (r.remote_policy ? [r.remote_policy] : [])),
       tech: postings(records, (r) => new Set(r.tech_stack ?? [])),
@@ -426,7 +429,7 @@ export function select(snap, f) {
     const r = records[i];
     if (q && !snap.search[i].includes(q)) return false;
     if (sectors && !sectors.has(r.sector)) return false;
-    if (cities && !cities.has(r.city)) return false;
+    if (cities && !cities.has(r.city) && !cities.has(snap.metros[i])) return false;
     if (precisions && !precisions.has(snap.precisions[i])) return false;
     if (states && !states.has(r.state)) return false;
     if (f.investor && !(r.investors || []).includes(f.investor)) return false;
@@ -507,7 +510,8 @@ export function summary(snap, matched) {
     if (r.taskGate?.enabled) taskGated += 1;
     const checked = Date.parse(r.last_verified_at);
     if (checked > lastVerifiedAt) lastVerifiedAt = checked;
-    cities.set(r.city, (cities.get(r.city) ?? 0) + 1);
+    const place = snap.metros[i] ?? r.city; // a suburb's company is counted in its big city
+    cities.set(place, (cities.get(place) ?? 0) + 1);
     for (const person of r.founders || []) founders.add(person);
     if (r.foundedYear) notable.push(i);
     if (r.vouches?.length > 0) vouched.push(i);

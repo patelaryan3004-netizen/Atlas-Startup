@@ -1,6 +1,6 @@
 # The landing page
 
-`/welcome` is the page a new visitor lands on (`frontend/vercel.json` serves it). It is `frontend/src/LandingPage.jsx`: a navigation bar, the hero, then the sections that were there before (companies that are hiring, curated lists, how the data is reviewed, closing links, privacy and terms).
+The welcome page is the homepage, `/` (`frontend/vercel.json` serves it; its old address, `/welcome`, is sent there with a permanent redirect, and `main.jsx` does the same where the site runs without the host's rules). It is `frontend/src/LandingPage.jsx`: a navigation bar, the hero, then the sections that were there before (companies that are hiring, curated lists, how the data is reviewed, closing links, privacy and terms).
 
 ## The hero
 

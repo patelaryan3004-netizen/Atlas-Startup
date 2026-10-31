@@ -1,0 +1,922 @@
+{
+ "source_id": "investible-portfolio",
+ "publisher": "Investible",
+ "kind": "vc_portfolio",
+ "investor": "Investible",
+ "list_url": "https://www.investible.com/portfolio",
+ "retrieved_at": "2026-10-30T23:35:19.990Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "airrobe",
+   "name": "AirRobe",
+   "website": "https://airrobe.com/",
+   "description": "Startup founded by Hannon Comazzetto in Australia.",
+   "profile_url": "https://www.investible.com/company/airrobe",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "akin",
+   "name": "Akin",
+   "website": "https://www.akin.com/",
+   "description": "Startup founded by Liesl Yearsley in U.S.",
+   "profile_url": "https://www.investible.com/company/akin",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "apate-ai",
+   "name": "Apate AI",
+   "website": "https://www.apate.ai/",
+   "description": "Startup founded by Dali Kaafar, Brad Joffe and Peter Eckermann in Australia.",
+   "profile_url": "https://www.investible.com/company/apate-ai",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "applied-ev",
+   "name": "Applied EV",
+   "website": "https://appliedev.com/",
+   "description": "Startup founded by Julian Broadbent, Shane Ambry in Australia.",
+   "profile_url": "https://www.investible.com/company/applied-ev",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "baskit",
+   "name": "Baskit",
+   "website": "https://www.baskit.app/",
+   "description": "Startup founded by Yann Schuermans in Indonesia.",
+   "profile_url": "https://www.investible.com/company/baskit",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "betterdata",
+   "name": "Betterdata",
+   "website": "https://www.betterdata.ai/",
+   "description": "Startup founded by Uzair Javaid, Kevin Yee in Singapore.",
+   "profile_url": "https://www.investible.com/company/betterdata",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "booksy",
+   "name": "Booksy",
+   "website": "https://booksy.com/",
+   "description": "Startup founded by Stefan Batory and Konrad Howard in Poland.",
+   "profile_url": "https://www.investible.com/company/booksy",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "bspkl",
+   "name": "BSpkl",
+   "website": "https://www.bspkl.co/",
+   "description": "Startup founded by Christina Houlihan, Jérôme Leveneur in New Zealand.",
+   "profile_url": "https://www.investible.com/company/bspkl",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "bygen",
+   "name": "Bygen",
+   "website": "https://www.bygen.com.au/",
+   "description": "Startup founded by Dr. Lewis Dunnigan in Melbourne, Australia.",
+   "profile_url": "https://www.investible.com/company/bygen",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "calreply",
+   "name": "CalReply",
+   "website": "https://www.rokt.com/",
+   "description": "Startup founded by Brad Lindenberg in New York, USA.",
+   "profile_url": "https://www.investible.com/company/calreply",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "canva",
+   "name": "Canva",
+   "website": "https://www.canva.com/",
+   "description": "Startup founded by Cliff Obrecht, Melanie Perkins, Cameron Adams in Australia.",
+   "profile_url": "https://www.investible.com/company/canva",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "cape",
+   "name": "Cape",
+   "website": "https://www.getcape.io/",
+   "description": "Startup founded by Ryan Edwards-Pritchard in Australia.",
+   "profile_url": "https://www.investible.com/company/cape",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "carbonclick",
+   "name": "CarbonClick",
+   "website": "https://www.carbonclick.com/",
+   "description": "Startup founded by Dave Rouse, Paul Brady, Jan Czaplicki, Michelle Noordermeer in New Zealand.",
+   "profile_url": "https://www.investible.com/company/carbonclick",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "carbonhq",
+   "name": "CarbonHQ",
+   "website": "https://www.carbonhq.earth/",
+   "description": "Startup founded by Allen Fan, Eugene Datsky in Australia.",
+   "profile_url": "https://www.investible.com/company/carbonhq",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "car-next-door",
+   "name": "Car Next Door",
+   "website": "https://www.carnextdoor.com.au/",
+   "description": "Startup founded by Will Davies in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/car-next-door",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "cim",
+   "name": "CIM",
+   "website": "https://www.cim.io/",
+   "description": "Startup founded by David Walsh in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/cim",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "comet-cx",
+   "name": "Comet CX",
+   "website": "https://comet.cx/",
+   "description": "Startup founded by Robert Scott, Nathan Spataro in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/comet-cx",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "consultmed",
+   "name": "Consultmed",
+   "website": "https://www.consultmed.co/",
+   "description": "Startup founded by Dr. Vikram Palit, Stephanie Hodgson in Australia.",
+   "profile_url": "https://www.investible.com/company/consultmed",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "countercurrent",
+   "name": "CounterCurrent",
+   "website": "https://countercurrent.ai/",
+   "description": "Startup founded by Shane Keating in Sydney.",
+   "profile_url": "https://www.investible.com/company/countercurrent",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "datafarming",
+   "name": "DataFarming",
+   "website": "https://www.datafarming.com.au/",
+   "description": "Startup founded by Tim Neale, Peta Neale in Queensland, Australia.",
+   "profile_url": "https://www.investible.com/company/datafarming",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "decarice",
+   "name": "DeCarice",
+   "website": "https://www.decarice.com.au/",
+   "description": "Startup founded by Goran Bozic, Shawn Kook in Australia.",
+   "profile_url": "https://www.investible.com/company/decarice",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "dexibit",
+   "name": "Dexibit",
+   "website": "https://dexibit.com/",
+   "description": "Startup founded by Angie Judge, Justin Kearney in New Zealand.",
+   "profile_url": "https://www.investible.com/company/dexibit",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "digital-harvest",
+   "name": "Digital Harvest",
+   "website": "https://www.digitalharvest.farm/",
+   "description": "Startup founded by Young Kim in U.S..",
+   "profile_url": "https://www.investible.com/company/digital-harvest",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "dimple",
+   "name": "Dimple",
+   "website": "https://www.dimplecontacts.com/",
+   "description": "Startup founded by Shaun Polovin in Australia.",
+   "profile_url": "https://www.investible.com/company/dimple",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "directo",
+   "name": "Directo",
+   "website": "http://www.directoau.com/",
+   "description": "Startup founded by Gavin Upiter in Australia.",
+   "profile_url": "https://www.investible.com/company/directo",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "disrupt-sports",
+   "name": "Disrupt Sports",
+   "website": "https://www.disruptsports.com/",
+   "description": "Startup founded by Gary Elphick in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/disrupt-sports",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "earthodic",
+   "name": "Earthodic",
+   "website": "https://www.earthodic.com/",
+   "description": "Startup founded by Albert Tietz, Melissa Mail, Fiona Donaghey, Anthony Musumeci in Australia.",
+   "profile_url": "https://www.investible.com/company/earthodic",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "effi",
+   "name": "Effi",
+   "website": "https://www.effi.com.au/",
+   "description": "Startup founded by Mandeep Sodhi in Australia.",
+   "profile_url": "https://www.investible.com/company/effi",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "emmi",
+   "name": "Emmi",
+   "website": "https://www.emmi.io/",
+   "description": "Startup founded by Ben McNeil, Michael Lebbon in Australia.",
+   "profile_url": "https://www.investible.com/company/emmi",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "esper-satellites",
+   "name": "Esper Satellite Imagery",
+   "website": "https://espersatellites.co/",
+   "description": "Startup founded by Shoaib Iqbal, Przemyslaw Lorenczak in Melbourne.",
+   "profile_url": "https://www.investible.com/company/esper-satellites",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "evidentli",
+   "name": "Evidentli",
+   "website": "https://www.evidentli.com/",
+   "description": "Startup founded by Dr. Guy Tsafnat, Greg Miner, Prof. Enrico Coeira, Alison Gartner in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/evidentli",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "factory",
+   "name": "Factory.app",
+   "website": "https://factory.app/",
+   "description": "Startup founded by Paul Lutkajtis & Michael Lutkajtis in Australia.",
+   "profile_url": "https://www.investible.com/company/factory",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "faye",
+   "name": "Faye",
+   "website": "https://www.withfaye.com/",
+   "description": "Startup founded by Daniel Green, Elad Schaffer in Israel.",
+   "profile_url": "https://www.investible.com/company/faye",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "fifth-domain",
+   "name": "Fifth Domain",
+   "website": "https://www.fifthdomain.pro/",
+   "description": "Startup founded by Matt Wilcox in Australia.",
+   "profile_url": "https://www.investible.com/company/fifth-domain",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "fileai",
+   "name": "FileAI",
+   "website": "https://www.file.ai/",
+   "description": "Startup founded by Christian Schneider, Clare Leighton in Singapore.",
+   "profile_url": "https://www.investible.com/company/fileai",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "five-good-friends",
+   "name": "Five Good Friends",
+   "website": "https://www.fivegoodfriends.com.au/",
+   "description": "Startup founded by Simon Lockyer and Nathan Betteridge in Brisbane, Australia.",
+   "profile_url": "https://www.investible.com/company/five-good-friends",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "flyoro",
+   "name": "FlyORO",
+   "website": "https://www.flyoro.co/",
+   "description": "Startup founded by in Singapore.",
+   "profile_url": "https://www.investible.com/company/flyoro",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "frntlne",
+   "name": "Frntlne",
+   "website": "https://www.frntlne.com/",
+   "description": "Startup founded by Mark John in Melbourne, Australia.",
+   "profile_url": "https://www.investible.com/company/frntlne",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "fugu-carbon",
+   "name": "Fugu Carbon",
+   "website": "https://fugu.energy/",
+   "description": "Startup founded by Luke Marshall & Mac Thompson in Sydney.",
+   "profile_url": "https://www.investible.com/company/fugu-carbon",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "functionly",
+   "name": "Functionly",
+   "website": "https://www.functionly.com/",
+   "description": "Startup founded by Damian Bramanis, Tim Brewer in Australia.",
+   "profile_url": "https://www.investible.com/company/functionly",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "gega-elements",
+   "name": "Gega Elements",
+   "website": "https://www.gegaelements.com/",
+   "description": "Startup founded by Mohammad Assefi and Oliver Nighjoy in Sydney.",
+   "profile_url": "https://www.investible.com/company/gega-elements",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "geosnapshot",
+   "name": "Geosnapshot",
+   "website": "https://geosnapshot.com/",
+   "description": "Startup founded by Andy Edwards in Australia.",
+   "profile_url": "https://www.investible.com/company/geosnapshot",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "solar-ai",
+   "name": "GetSolar",
+   "website": "https://getsolar.ai/",
+   "description": "Startup founded by Bolong Chew, Gerald Chablowski in Singapore.",
+   "profile_url": "https://www.investible.com/company/solar-ai",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "good-heat",
+   "name": "Good Heat",
+   "website": "https://www.goodheat.energy/",
+   "description": "Startup founded by Bauke van Gent, Tom Geiser and Bruis van Vlijmen in Sydney.",
+   "profile_url": "https://www.investible.com/company/good-heat",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "gradability",
+   "name": "Gradability",
+   "website": "https://www.gradability.com.au/",
+   "description": "Startup founded by Matt Reede, Owen Firth in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/gradability",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "grw-ai",
+   "name": "Grw AI",
+   "website": "https://www.grw.ai/",
+   "description": "Startup founded by Alex McNaughten, Alistair McLeay, Daniel Ash in San Francisco, US.",
+   "profile_url": "https://www.investible.com/company/grw-ai",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "hachiko",
+   "name": "Hachiko",
+   "website": "https://www.hachiko.energy/",
+   "description": "Startup founded by Rakhesh Martyn in Sydney.",
+   "profile_url": "https://www.investible.com/company/hachiko",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "harvest-b",
+   "name": "Harvest B",
+   "website": "https://www.harvestb.io/",
+   "description": "Startup founded by Kristi Riordan, Alfred Lo in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/harvest-b",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "hatch",
+   "name": "Hatch",
+   "website": "https://www.hatch.team/",
+   "description": "Startup founded by Adam Jacobs, Chaz Heitner in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/hatch",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "headsafe",
+   "name": "Headsafe",
+   "website": "https://headsafe.com/nurochek-system",
+   "description": "Startup founded by Adrian Cohen, Kay Trippner in Australia.",
+   "profile_url": "https://www.investible.com/company/headsafe",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "hey-you",
+   "name": "Hey You",
+   "website": "https://heyyou.com.au/",
+   "description": "Startup founded by Rebekah Campbell, Adam Theobald in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/hey-you",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "hoops",
+   "name": "Hoops",
+   "website": "https://hoopscrm.com/",
+   "description": "Startup founded by Brad Pengelly in Australia.",
+   "profile_url": "https://www.investible.com/company/hoops",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "iluminr",
+   "name": "Iluminr",
+   "website": "https://iluminr.io/",
+   "description": "Startup founded by Josh Shields, Marcus Vaughn in Australia.",
+   "profile_url": "https://www.investible.com/company/iluminr",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "inspace",
+   "name": "Inspace",
+   "website": "https://www.inspace.ai/",
+   "description": "Startup founded by Justin Liang in Australia.",
+   "profile_url": "https://www.investible.com/company/inspace",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "invest-inya-farmer",
+   "name": "Invest Inya Farmer",
+   "website": "https://iif.today/",
+   "description": "Startup founded by Nathan MacPhee in Australia.",
+   "profile_url": "https://www.investible.com/company/invest-inya-farmer",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "invigo",
+   "name": "Invigo",
+   "website": null,
+   "description": "Startup founded by Corrie Hassan, Andy Hilton in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/invigo",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "ipsy",
+   "name": "Ipsy",
+   "website": "https://www.ipsy.com/",
+   "description": "Startup founded by Michelle Phan, Marcelo Camberos, Jennifer Jaconetti Goldfarb in California, USA.",
+   "profile_url": "https://www.investible.com/company/ipsy",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "ivy-labs",
+   "name": "I V Y Labs",
+   "website": "https://talktoivy.com/",
+   "description": "Startup founded by Mandy Silverman in United States.",
+   "profile_url": "https://www.investible.com/company/ivy-labs",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "jigspace",
+   "name": "Jigspace",
+   "website": "https://jig.space/",
+   "description": "Startup founded by Numa Bertron, Zac Duff in Australia.",
+   "profile_url": "https://www.investible.com/company/jigspace",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "juggle-street",
+   "name": "Juggle Street",
+   "website": "https://www.jugglestreet.com.au/",
+   "description": "Startup founded by David James in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/juggle-street",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "kanopi",
+   "name": "Kanopi",
+   "website": "https://www.kanopicover.com/",
+   "description": "Startup founded by Nigel Fellowes-Freeman in Melbourne, Australia.",
+   "profile_url": "https://www.investible.com/company/kanopi",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "kara-technologies",
+   "name": "Kara Technologies",
+   "website": "https://www.kara.tech/",
+   "description": "Startup founded by Arash Tayebi, Farmehr Farhour, Sahar Zadi, Ken Erskine in Auckland, New Zealand.",
+   "profile_url": "https://www.investible.com/company/kara-technologies",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "kinde",
+   "name": "Kinde",
+   "website": "https://kinde.com/",
+   "description": "Startup founded by Ross Chaldecott, David Berner, Evgeny Komarevtsev in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/kinde",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "kite-magnetics",
+   "name": "Kite Magnetics",
+   "website": "https://kitemagnetics.com/",
+   "description": "Startup founded by Dr. Richard Parsons in Melbourne, Australia.",
+   "profile_url": "https://www.investible.com/company/kite-magnetics",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "language-confidence",
+   "name": "Language Confidence",
+   "website": "https://languageconfidence.ai/",
+   "description": "Startup founded by Nicholas Jenkins, Swahn Fraye in Australia.",
+   "profile_url": "https://www.investible.com/company/language-confidence",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "lawpath",
+   "name": "Lawpath",
+   "website": "https://lawpath.com.au/",
+   "description": "Startup founded by Dominic Woolrych in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/lawpath",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "ledgerowl",
+   "name": "Ledgerowl",
+   "website": "https://ledgerowl.com/",
+   "description": "Startup founded by Rey Kamal, Adrian Yasin in Indonesia.",
+   "profile_url": "https://www.investible.com/company/ledgerowl",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "ligr",
+   "name": "LIGR",
+   "website": "https://www.ligrsystems.com/",
+   "description": "Startup founded by Adam Burke, Luke McCoy in Australia.",
+   "profile_url": "https://www.investible.com/company/ligr",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "literal",
+   "name": "Literal",
+   "website": "https://www.literalapp.com/",
+   "description": "Startup founded by Lawton Smith in U.S..",
+   "profile_url": "https://www.investible.com/company/literal",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "localintel",
+   "name": "LocalIntel",
+   "website": "https://www.ecdev.org/",
+   "description": "Startup founded by Dave Parsell,Mehdi Amoui in Canada.",
+   "profile_url": "https://www.investible.com/company/localintel",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "lumonus",
+   "name": "Lumonus",
+   "website": "https://www.lumonus.com/",
+   "description": "Startup founded by Keith Hansen, Tim Fox, Jamie Nash, Fraser Hughes, Rebecca Edwards in Sydney.",
+   "profile_url": "https://www.investible.com/company/lumonus",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "manettas-seafood",
+   "name": "Manettas Seafood",
+   "website": "https://www.manettas.com.au/",
+   "description": "Startup founded by Peter Manettas in Australia.",
+   "profile_url": "https://www.investible.com/company/manettas-seafood",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "market-engine",
+   "name": "Market Engine",
+   "website": null,
+   "description": "Startup founded by Roy Hui in Melbourne, Australia.",
+   "profile_url": "https://www.investible.com/company/market-engine",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "mastt",
+   "name": "Mastt",
+   "website": "https://www.mastt.com.au/",
+   "description": "Startup founded by Doug Vincent, James Cerexhe, Raman Nambiar in Australia.",
+   "profile_url": "https://www.investible.com/company/mastt",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "merchantspring",
+   "name": "MerchantSpring",
+   "website": "https://merchantspring.io/",
+   "description": "Startup founded by James Dihardjo, Paul Sonneveld in Australia.",
+   "profile_url": "https://www.investible.com/company/merchantspring",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "mist",
+   "name": "Mist",
+   "website": "https://www.gomist.co/",
+   "description": "Startup founded by Dave Malcolm, John Crutchley in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/mist",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "hotelmize",
+   "name": "Mize",
+   "website": "https://mize.tech/",
+   "description": "Startup founded by Don Krubiner, Guy Levitan, Omry Litvak in Israel.",
+   "profile_url": "https://www.investible.com/company/hotelmize",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "mosaic",
+   "name": "Mosaic",
+   "website": "https://www.mosaic-solutions.com/",
+   "description": "Startup founded by Brett Doyle in Philippines.",
+   "profile_url": "https://www.investible.com/company/mosaic",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "mozo",
+   "name": "Mozo",
+   "website": "https://mozo.com.au/",
+   "description": "Startup founded by Rohan Gamble in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/mozo",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "myrobin",
+   "name": "MyRobin",
+   "website": "https://myrobin.id/",
+   "description": "Startup founded by Siddharth Kumar, Ardy Hasanuddin in Indonesia.",
+   "profile_url": "https://www.investible.com/company/myrobin",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "national-renewable-network",
+   "name": "National Renewable Network",
+   "website": "https://nrn.com.au/",
+   "description": "Startup founded by Alan Hunter in Sydney.",
+   "profile_url": "https://www.investible.com/company/national-renewable-network",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "nexl",
+   "name": "NEXL",
+   "website": "https://nexl.cloud/product/",
+   "description": "Startup founded by Philipp Thurner in Australia.",
+   "profile_url": "https://www.investible.com/company/nexl",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "next-world",
+   "name": "Next World",
+   "website": "https://nextworldenterprises.com/",
+   "description": "Startup founded by Michael O'Reilly in Brisbane, Australia.",
+   "profile_url": "https://www.investible.com/company/next-world",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "novalith",
+   "name": "Novalith",
+   "website": "https://www.novalith.com.au/",
+   "description": "Startup founded by Steven Vassiloudis, Christiaan Jordaan, Andrew Harris in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/novalith",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "outlier-space",
+   "name": "Outlier Space",
+   "website": "https://www.outlier.space/",
+   "description": "Startup founded by Jamie France in New Zealand.",
+   "profile_url": "https://www.investible.com/company/outlier-space",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "parcel-perform",
+   "name": "Parcel Perform",
+   "website": "https://www.parcelperform.com/",
+   "description": "Startup founded by Arne Jeroschewski, Dana von der Heide in Singapore.",
+   "profile_url": "https://www.investible.com/company/parcel-perform",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "plasmaleap",
+   "name": "Plasmaleap",
+   "website": "https://www.plasmaleap.com/",
+   "description": "Startup founded by Frere Byrne, PJ Cullen, Samantha Cullen in Sydney.",
+   "profile_url": "https://www.investible.com/company/plasmaleap",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "programa",
+   "name": "Programa",
+   "website": "https://www.programa.com.au/",
+   "description": "Startup founded by Claudio Oyarce, Traviss Orr in Australia.",
+   "profile_url": "https://www.investible.com/company/programa",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "prospus",
+   "name": "Prospus",
+   "website": "https://prospus.com/",
+   "description": "Startup founded by Marc Ragsdale in California, USA.",
+   "profile_url": "https://www.investible.com/company/prospus",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "protos-labs",
+   "name": "Protos Labs",
+   "website": "https://www.protoslabs.sg/",
+   "description": "Startup founded by Joel Lee, Simeon Tan in Singapore.",
+   "profile_url": "https://www.investible.com/company/protos-labs",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "purpose-bureau",
+   "name": "Purpose Bureau",
+   "website": "https://purposebureau.com/",
+   "description": "Startup founded by Nick Kamper in Sydney, Australia.",
+   "profile_url": "https://www.investible.com/company/purpose-bureau",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "quantum-brilliance",
+   "name": "Quantum Brilliance",
+   "website": "https://quantumbrilliance.com/",
+   "description": "Startup founded by Marcus Doherty, Andrew Horsley, Mark Luo in Australia.",
+   "profile_url": "https://www.investible.com/company/quantum-brilliance",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "rakamin",
+   "name": "Rakamin",
+   "website": "https://www.rakamin.com/",
+   "description": "Startup founded by Andika Deni Prasetya, Ilham Adi Pratama in Indonesia.",
+   "profile_url": "https://www.investible.com/company/rakamin",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "readify",
+   "name": "Readify",
+   "website": "https://purple.telstra.com/",
+   "description": "Startup founded by Christine Mingins in Melbourne, Australia.",
+   "profile_url": "https://www.investible.com/company/readify",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "reheroes",
+   "name": "ReHeroes",
+   "website": "https://www.reheroes.ai/",
+   "description": "Startup founded by Ben Burton, Dom Chmielewski in Australia.",
+   "profile_url": "https://www.investible.com/company/reheroes",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "renewable-metals",
+   "name": "Renewable Metals",
+   "website": "https://www.renewable-metals.com/",
+   "description": "Startup founded by Luan Atkinson (CEO & Director), Mark Urbani (Founder & CTO) in Perth, Australia.",
+   "profile_url": "https://www.investible.com/company/renewable-metals",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "restoplus",
+   "name": "Restoplus",
+   "website": "https://www.restoplus.com/",
+   "description": "Startup founded by Ezhil Mohan, Nish Sowdri in Australia.",
+   "profile_url": "https://www.investible.com/company/restoplus",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "revibe",
+   "name": "Revibe",
+   "website": "https://www.revibecollective.com/",
+   "description": "Startup founded by Shanya Suppasiritad in Australia.",
+   "profile_url": "https://www.investible.com/company/revibe",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  },
+  {
+   "key": "runthru-software",
+   "name": "Runthru Software",
+   "website": "https://sidekick.software/",
+   "description": "Startup founded by Nigel Wilson, Mark Lewis in Australia.",
+   "profile_url": "https://www.investible.com/company/runthru-software",
+   "list_url": "https://www.investible.com/portfolio",
+   "retrieved_at": "2026-10-30T23:35:19.990Z"
+  }
+ ],
+ "problems": [
+  {
+   "profile_url": "https://www.linkedin.com/company/investiblem_source=inv-website&utm_medium=nav-menu",
+   "reason": "blocked_host: www.linkedin.com is blocked: LinkedIn forbids scraping and this engine never reads it"
+  },
+  {
+   "profile_url": "https://www.investible.com/company/invigo",
+   "name": "Invigo",
+   "reason": "no website found on the page"
+  },
+  {
+   "profile_url": "https://www.investible.com/company/market-engine",
+   "name": "Market Engine",
+   "reason": "no website found on the page"
+  },
+  {
+   "profile_url": "https://www.investible.com/company/safetyculture",
+   "reason": "http_error: HTTP 404"
+  }
+ ]
+}

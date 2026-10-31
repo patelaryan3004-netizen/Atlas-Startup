@@ -1,0 +1,741 @@
+{
+ "source_id": "squarepeg-portfolio",
+ "publisher": "Square Peg",
+ "kind": "vc_portfolio",
+ "investor": "Square Peg",
+ "list_url": "https://www.squarepeg.vc/portfolio",
+ "retrieved_at": "2026-10-30T23:33:16.660Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "agridigital",
+   "name": "AgriDigital",
+   "website": "http://agridigital.io/",
+   "description": "AgriDigital is Australia’s fastest growing agricultural supply chain innovator committed to building the agriculture industry of the future. A unique blend of fintech and agritech, AgriDigital is an integrated commodity management solution for the global grains industry.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/agridigital",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "aidoc",
+   "name": "Aidoc",
+   "website": "https://www.aidoc.com/",
+   "description": "Aidoc is the leading full-body imaging AI software. Their products help detect and pinpoint critical anomalies for radiologists through deep learning and AI algorithms that analyse medical images and patient data. Aidoc eases up the work list and frees up time and attention to what matters.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/aidoc",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "ai-hay",
+   "name": "AI Hay",
+   "website": "https://ai-hay.vn/",
+   "description": "Al Hay, a consumer AI startup based in Ho Chi Minh City, Vietnam, is an AI-driven Knowledge Discovery Platform. Leveraging its proprietary Generative Answer Engine and integrated social features, Al Hay aims to democratise access to collective intelligence for speakers of low-to-medium-resource languages, starting with Vietnamese.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/ai-hay",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "airwallex",
+   "name": "Airwallex",
+   "website": "https://www.airwallex.com/",
+   "description": "Airwallex is a global payments platform with a mission to empower businesses of all sizes to grow without borders, and by doing so, contribute to the global economy. With technology at its core, Airwallex has built a financial infrastructure and platform to help businesses manage online payments, treasury and payout globally, without the constraints of the traditional financial system.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/airwallex",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "amber",
+   "name": "Amber",
+   "website": "https://www.amber.com.au/",
+   "description": "Amber is a new kind of electricity company designed to unlock the value of renewables for everyone. For just $10/month, Amber gives Australian households direct access to 30-minute wholesale electricity prices - the same prices that all the big retailers are paying.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/amber",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "athena-home-loans",
+   "name": "Athena Home Loans",
+   "website": "https://www.athena.com.au/",
+   "description": "Athena is on a mission to save Australians a whole lot of money and pay off their home loan faster. Athena was founded to revolutionise the home loans industry and make it better in every way. Athena built an innovative digital home loan platform to deliver savings to borrowers, backed by local home loan experts, seven days a week.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/athena-home-loans",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "blinq",
+   "name": "Blinq",
+   "website": "https://blinq.me/",
+   "description": "Blinq is a live-updating contacts layer for the internet that can reunify our fragmented identities and give us control over what info we want to share with whom. Users get an \"always up to date\" address book and the ability to create layers of their identity for sharing. For example you might want to share all your contact details with close friends but just work details with work contacts. Shari",
+   "profile_url": "https://www.squarepeg.vc/portfolio/blinq",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "bugcrowd",
+   "name": "Bugcrowd",
+   "website": "https://www.bugcrowd.com/",
+   "description": "Bugcrowd connects companies and their applications to a crowd of tens of thousands of security researchers to identify critical software vulnerabilities. Powered by Bugcrowd's platform, companies of all sizes can run both private and public bounty programs to efficiently test their applications and reward valid vulnerabilities.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/bugcrowd",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "byron",
+   "name": "Byron",
+   "website": "https://usebyron.com/",
+   "description": "Byron is a developer of AI agents for tax preparation. The platform helps CPA firms automate manual business tax workflows from document intake through generated workpapers and review-ready output, enabling accountants to focus on review, judgment and client service instead of manual preparation. Byron’s AI agents process complex tax documents, reconcile data and generate source-linked outputs whi",
+   "profile_url": "https://www.squarepeg.vc/portfolio/byron",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "cais",
+   "name": "CAIS",
+   "website": "https://www.caisgroup.com/",
+   "description": "CAIS provides wealth management professionals with unmatched access, oversight and execution by centralising and streamlining all aspects of the investment process.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/cais",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "calreply",
+   "name": "CalReply (Acquired)",
+   "website": "https://www.calreply.com/",
+   "description": "CalReply is a platform that enables marketers to create a dynamic and real-time relationship with native smartphone calendars, driving timely action through the calendar. In 2017, Rokt acquired CalReply.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/calreply",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "canva",
+   "name": "Canva",
+   "website": "https://www.canva.com/",
+   "description": "Canva is an online design and publishing tool with a mission to empower everyone in the world to design anything and publish anywhere. Their world-leading graphic design and video editing software helps people to design presentations, social media graphics, and more with various layouts, images, videos, photo filters, icons and shapes, and fonts.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/canva",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "chope",
+   "name": "Chope (Acquired)",
+   "website": "https://www.chope.co/",
+   "description": "The Chope Group creates memorable dining experiences for more people, more often. As Southeast Asia's leading dining platform, Chope provides a suite of cutting-edge technologies that seamlessly connect millions of people to thousands of restaurants. With Chope, diners can discover, book, and save more in their daily eating adventures. Chope was acquired by Grab in 2024.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/chope",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "chronicle",
+   "name": "Chronicle",
+   "website": "https://chroniclehq.com/",
+   "description": "Chronicle is a new form of storytelling software that will make creating and consuming presentations an easy, powerful, delightful, and collaborative experience. How can you make beautiful presentations quickly without skill or lots of effort? Chronicle gives users superpowers with “blocks”. Instead of aligning text boxes and tweaking charts, Chronicle allows users to drop data or text into a bloc",
+   "profile_url": "https://www.squarepeg.vc/portfolio/chronicle",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "constantinople",
+   "name": "Constantinople",
+   "website": "https://www.cxnpl.com/",
+   "description": "Constantinople provides an entirely new category of software-as-a-service that radically simplifies how banks run and operate. The all-in-one solution fully manages the infrastructure and operational aspects for their client banks, including customer experience, banking products and features, operations, servicing, and compliance.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/constantinople",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "cuttable",
+   "name": "Cuttable",
+   "website": "https://www.cuttable.com/",
+   "description": "Cuttable is an automated content agency that combines the science of marketing with the craft of advertising and the power of AI.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/cuttable",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "deci",
+   "name": "Deci (Acquired)",
+   "website": "https://deci.ai/",
+   "description": "Deci, which means “tenth” (decimus in Latin), is ushering in a new AI paradigm by using AI to build and operate AI models. Deci’s deep learning platform enables data scientists to transform their AI models into production-grade solutions on any hardware, crafting the next generation of AI for enterprises across the board. Deci was acquired by Nvidia in 2024.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/deci",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "deputy",
+   "name": "Deputy",
+   "website": "https://www.deputy.com/",
+   "description": "Deputy is the ultimate employee management tool, simplifying scheduling, timesheets, tasks and workplace communication, helping businesses to transform operations and empowering employees to work the way they want.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/deputy",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "desty",
+   "name": "Desty",
+   "website": "https://www.desty.app/",
+   "description": "Desty is Indonesia’s leading full stack merchant enablement platform, to bring sellers online and operate seamlessly across Southeast Asia’s burgeoning yet fragmented e-commerce space.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/desty",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "doctor-anywhere",
+   "name": "Doctor Anywhere",
+   "website": "https://doctoranywhere.com/",
+   "description": "Doctor Anywhere is a regional tech-led healthcare company headquartered in Singapore. With a strong network of established healthcare providers and experienced doctors, users can consult a licensed local doctor anytime, anywhere, and get medication delivered to their doorsteps within hours through the Doctor Anywhere mobile app.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/doctor-anywhere",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "earlywork",
+   "name": "Earlywork",
+   "website": "https://www.earlywork.co/",
+   "description": "Earlywork is the home for young people in Australia & New Zealand creating the careers of tomorrow in tech, startups & social impact. Starting off as a weekly newsletter in September 2020, the community has grown to provide thousands of university students and early-career professionals with the resources and necessary support to find work. This investment for Square Peg is from our balance sheet.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/earlywork",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "excelero",
+   "name": "Excelero (Acquired)",
+   "website": "https://www.excelero.com/",
+   "description": "Excelero delivers low-latency distributed block storage for web-scale applications. NVMesh enables shared NVMe across any network and supports any local or distributed file system. Being a 100% software-based solution, NVmesh was built to give customers maximum flexibility in designing storage infrastructures. NVMesh is deployed as a virtual, distributed non-volatile array and supports both conver",
+   "profile_url": "https://www.squarepeg.vc/portfolio/excelero",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "exodigo",
+   "name": "Exodigo",
+   "website": "https://www.exodigo.com/",
+   "description": "Exodigo aspires to become the gold standard of the underground world mapping, providing accurate comprehensive 3D visibility through an advanced AI and non-intrusive technology. By that, Exodigo provides an updated, more scalable and efficient solution that offers time and money savings and benefits to the environment.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/exodigo",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "feedvisor",
+   "name": "Feedvisor",
+   "website": "https://feedvisor.com/",
+   "description": "Feedvisor is the \"AI-first\" optimization and intelligence platform for large sellers and brands on Amazon. Feedvisor's solution offers best-in-class algorithmic repricing, strategic advertising campaign optimization, and brand management. Together, these features drive demand, profit, and revenue growth on Amazon.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/feedvisor",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "fiverr",
+   "name": "Fiverr (IPO)",
+   "website": "https://www.fiverr.com/",
+   "description": "Fiverr® is a leading marketplace that connects businesses with freelancers offering digital services, including graphic design, copywriting, voice-over, and music and film editing. We operate a unique service-as-a-product model that fundamentally transforms the traditional freelancer staffing model into e-commerce like experience. Our global marketplace is built with a comprehensive SKU-like Gig c",
+   "profile_url": "https://www.squarepeg.vc/portfolio/fiverr",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "goodwork-ai",
+   "name": "GoodWork.ai",
+   "website": "https://www.goodwork.ai/",
+   "description": "GoodWork.ai is working with a group of global retailers to build the most powerful analytics AI ever created for the retail sector. They're building it specifically for the merchandise, finance and operations teams to make trade performance analysis fast and easy. The AI analyses the impact of everything from promotion changes to the weather on a retailer’s performance. It surfaces clear answers o",
+   "profile_url": "https://www.squarepeg.vc/portfolio/goodwork-ai",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "healthmatch",
+   "name": "HealthMatch",
+   "website": "https://www.healthmatch.io/",
+   "description": "HealthMatch’s mission is to dramatically accelerate patient recruitment to clinical trials allowing for faster and more efficient access to life-saving medication. By employing innovative technology, HealthMatch is able to match patients to clinical trials in a matter of minutes. By presenting simplified questions, one at a time, in a language that patients can understand, HealthMatch doesn't just",
+   "profile_url": "https://www.squarepeg.vc/portfolio/healthmatch",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "hud",
+   "name": "Hud",
+   "website": "https://www.hud.io/",
+   "description": "Hud is a new platform for software engineers. It strives to bridge the crucial gap between the engineering team and the reality in which their code runs.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/hud",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "joyous",
+   "name": "Joyous",
+   "website": "https://joyoushq.com/",
+   "description": "Joyous is an employee feedback SaaS tool designed for large corporates with thousands of employees. It is a markedly different approach from anonymous, survey-based, tools like Culture Amp and Qualtrics in that the feedback is owned, centred around business outcomes, focused on small, actionable areas, and made available all over the org (not just at the top).",
+   "profile_url": "https://www.squarepeg.vc/portfolio/joyous",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "kredivo",
+   "name": "Kredivo",
+   "website": "https://kredivocorp.com/",
+   "description": "FinAccel is a financial technology company focused on re-inventing financial services in Southeast Asia. Its flagship product, Kredivo, is the leading digital credit card in Indonesia that gives customers instant credit financing for e-commerce purchases and personal loans, based on real-time decision-making powered by proprietary technology. Kredivo users can buy now and pay later with the lowest",
+   "profile_url": "https://www.squarepeg.vc/portfolio/kredivo",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "kula",
+   "name": "Kula",
+   "website": "https://www.kula.ai/",
+   "description": "Kula is building the recruitment tools needed to find and hire exceptional talent. With Kula, recruiters can automate their workflows and teams can leverage their existing networks to bring the best and brightest to their organisation.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/kula",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "lightbits-labs",
+   "name": "Lightbits Labs",
+   "website": "https://www.lightbitslabs.com/",
+   "description": "Lightbits Labs was purpose-built for cloud infrastructure. It was founded with the belief that hyperscale data centres require disaggregation of storage and compute, and by separating the two, Lightbits' solution allows storage and compute to scale independently. Based in Israel and Silicon Valley, Lightbits' team led the development of the NVMe/TCP standard and includes key contributors to the NV",
+   "profile_url": "https://www.squarepeg.vc/portfolio/lightbits-labs",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "limitless-labs",
+   "name": "Limitless Labs",
+   "website": "https://www.limitless-labs.ai/",
+   "description": "Limitless Labs is the developer of the world’s first Agentic Physical AI platform for CAD/CAM in mechanical parts manufacturing. Its Physical AI Foundation Model powers an Agent that helps automate CNC programming inside the CAM systems engineers already use, including Siemens NX CAM, Mastercam, and PTC Creo. The platform is deployed across cloud, private VPC, and AWS GovCloud environments with fu",
+   "profile_url": "https://www.squarepeg.vc/portfolio/limitless-labs",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "lorikeet",
+   "name": "Lorikeet",
+   "website": "https://www.lorikeetcx.ai/",
+   "description": "Lorikeet is an AI agent for customer-obsessed companies. WIth unique AI architecture and a powerful workflow engine, Lorikeet works just like a human customer support agent and unlike any other AI agent – enabling fintech, healthtech and other customer-focused organisations to truly scale exceptional service.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/lorikeet",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "lottiefiles",
+   "name": "LottieFiles",
+   "website": "https://lottiefiles.com/",
+   "description": "LottieFiles is an industry leading motion graphics platform on a mission to streamline the animation workflow and create a new realm of possibilities with Lottie animations. The team are leading a revolution in motion through a powerful new format, Lottie, that is 600% smaller than GIFs and 10x faster to ship. The company serves a large community of over 135’000 companies worldwide including Googl",
+   "profile_url": "https://www.squarepeg.vc/portfolio/lottiefiles",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "lounge",
+   "name": "Lounge",
+   "website": "https://www.about.lounge.live/",
+   "description": "Lounge is on a mission to bring people together by giving them a space to organise groups and events, without distractions or irrelevant content. Lounge allows you to easily create groups and events, add key details, and invite others with a simple link. With Lounge you can easily communicate with your members, manage RSVPs, create shared albums, and more.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/lounge",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "lysto",
+   "name": "Lysto",
+   "website": "https://lysto.io/",
+   "description": "Lysto is building the AI harness for gaming, with specialised agents that helps game teams make, run and sell games",
+   "profile_url": "https://www.squarepeg.vc/portfolio/lysto",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "manifest-global",
+   "name": "Manifest Global",
+   "website": "https://www.manifest.inc/",
+   "description": "Manifest Global is a global education investment firm headquartered in Singapore, specializing in building companies that connect the world towards growth, prosperity, and innovation. With a portfolio of brands including Cialfo, Explore, and Kaaiser, Manifest Global is dedicated to enhancing global student mobility and fostering an interconnected education ecosystem.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/manifest-global",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "mindverse",
+   "name": "Mindverse",
+   "website": "https://www.mindos.com/",
+   "description": "Mindverse is pioneering Artificial Diversified Intelligence (ADI) with products that personalise AI. With MindOS, it enables businesses to create AI-native websites with personalised interfaces. Meanwhile, Mebot acts as a digital second brain – memorising user thoughts and preferences to enhance individual productivity.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/mindverse",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "neara",
+   "name": "Neara",
+   "website": "https://neara.com/",
+   "description": "Neara is a cloud-based enterprise platform making the most complex analysis, design and application accessible at every level of the infrastructure industry. Their platform delivers a true digital twin, performing complex engineering-grade analysis automatically and at a whole-of-network scale.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/neara",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "neuron",
+   "name": "Neuron",
+   "website": "https://www.rideneuron.com/",
+   "description": "Neuron Mobility is a leading shared mobility service. It provides short-distance mobility solutions to connect neighbourhoods with a focus on safety and sustainability. It is based in Singapore, with operations across Australia, New Zealand, the UK and Canada.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/neuron",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "nexusmd",
+   "name": "NexusMD",
+   "website": "https://nexusmd.com.au/",
+   "description": "NexusMD provides customised AI agents for hospitals. NexusMD’s enterprise-grade AI agents help automate administrative tasks for doctors, nurses, and medical staff, integrating directly with existing hospital systems to save clinicians time, reduce costs, and empower healthcare professionals to focus on what matters most: delivering exceptional patient care.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/nexusmd",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "nimble",
+   "name": "Nimble",
+   "website": "https://nimbleway.com/",
+   "description": "Nimble is building a world where businesses can easily create artificial intelligence & business intelligence applications using real-time public web data to make better decisions, solve problems, and enhance their operations. Nimble’s novel AI-agents harness LLM technology to deliver unrivaled data accuracy, empowering data leaders across various sectors to effortlessly provide precise data, and ",
+   "profile_url": "https://www.squarepeg.vc/portfolio/nimble",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "octen",
+   "name": "Octen",
+   "website": "https://octen.ai/",
+   "description": "Founded in 2025 and headquartered in California and Singapore, Octen is an AI-native search infrastructure company dedicated to building the ultimate retrieval layer for the LLM era. Octen provide world-class search infrastructure services to developers and enterprises globally, powering the next generation of AI-driven applications and agentic workflows.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/octen",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "ownhome",
+   "name": "OwnHome",
+   "website": "https://www.ownhome.com/",
+   "description": "Founded in March 2021 OwnHome is Australia’s fastest-growing rent-to-buy platform helping Australians get into their home and onto the property ladder. OwnHome’s mission is to make homeownership more accessible by removing the largest barrier - the hundreds of thousands of dollars required for a deposit. Over the next 18 months, OwnHome plans to support $500M in home purchases. OwnHome provides a ",
+   "profile_url": "https://www.squarepeg.vc/portfolio/ownhome",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "pandai-group",
+   "name": "Pandai Group",
+   "website": "https://pandai-group.com/",
+   "description": "Pandai Group is Indonesia's leading employment platform with an integrated financial services ecosystem. The company connects job seekers with employment opportunities, side income gigs, and financial service products. Through partnerships with asset-backed lenders, Pandai provides secured loan access to hundreds of thousands of users, with collateral options including gold, electronics, and motor",
+   "profile_url": "https://www.squarepeg.vc/portfolio/pandai-group",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "paper-id",
+   "name": "Paper.id",
+   "website": "https://www.paper.id/",
+   "description": "Paper.id is transforming how businesses manage accounts, invoicing and payments in Indonesia.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/paper-id",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "partly",
+   "name": "Partly",
+   "website": "https://www.partly.com/",
+   "description": "Partly's mission is to connect the world's parts by building the first global platform for replacement parts, starting with auto parts. Partly's big vision is to accelerate the world towards a sustainable future where waste is eliminated and all replacement parts are universally searchable, accessible and available to all.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/partly",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "pluang",
+   "name": "Pluang",
+   "website": "https://www.pluang.com/",
+   "description": "Co-founders, Claudia and Richard saw an opportunity to empower a generation of millennials in Indonesia to create wealth via investing. Two years after graduating, Claudia and Richard started Pluang, an all-in-one investment platform, that enables Indonesian's to invest in a range of diverse asset classes such as US Stocks, US Indexes Gold, Crypto, and Mutual Funds.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/pluang",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "propertyguru",
+   "name": "PropertyGuru (IPO)",
+   "website": "https://www.propertyguru.com.sg/",
+   "description": "PropertyGuru Group is Asia's leading property technology company and the preferred destination for over 25 million property seekers to find their dream home, every month. PropertyGuru and its group companies empower the property seekers with the widest option of more than 2 million homes, in-depth insights and solutions that enable them to make confident property decision across Singapore, Malaysi",
+   "profile_url": "https://www.squarepeg.vc/portfolio/propertyguru",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "prospa",
+   "name": "Prospa",
+   "website": "https://www.prospa.com/",
+   "description": "Prospa helps small businesses get access to finance by using a smart proprietary technology platform and a simple online application process to offer unsecured business loans.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/prospa",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "puresec",
+   "name": "Puresec (Acquired)",
+   "website": "https://www.puresec.io/",
+   "description": "PureSec is the global leader and a pioneer of the serverless security market. PureSec's end-to-end serverless security solution is the industry's first and most comprehensive security protection for serverless architectures, allowing organisations to detect, prevent and respond to suspicious activity and attacks. PureSec was acquired by Palo Alto Networks in 2019.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/puresec",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "q-ctrl",
+   "name": "Q-CTRL",
+   "website": "https://q-ctrl.com/",
+   "description": "Q-CTRL’s mission is to be the trusted provider of quantum control solutions across all applications. Spanning quantum computing, quantum sensing, quantum metrology, and quantum-enabled medical imaging, the emerging market for quantum tech has been valued in the multi-billion-dollar range by 2023, but contributes to the $50Bn/yr supercomputing market and $22Bn/yr defense sensing market.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/q-ctrl",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "qodo",
+   "name": "Qodo",
+   "website": "https://www.qodo.ai/",
+   "description": "Qodo is a quality-first generative AI coding platform, offering busy developers tools for writing, testing, and reviewing code. Using Qodo, developers can leverage the power of AI directly within their IDE and Git, ensuring that generated code is accurate and high quality. Our platform focuses on code integrity, with features like automated code reviews, contextual code suggestions, and comprehens",
+   "profile_url": "https://www.squarepeg.vc/portfolio/qodo",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "relay",
+   "name": "Relay",
+   "website": "https://relay.link/bridge",
+   "description": "Relay is building the future of multichain payments, enabling value to move seamlessly across blockchains in a single step. Through its App, API, Protocol, and Vaults, Relay delivers fast, low-cost cross-chain swaps and empowers wallets, marketplaces, and apps with frictionless payments.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/relay",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "retrain-ai",
+   "name": "Retrain.ai",
+   "website": "https://www.retrain.ai/",
+   "description": "retrain.ai is developing the world’s leading AI platform for knowledge, skills and qualifications assessment, jobs and workforce retraining in order to upskill today’s workforce for the jobs of tomorrow. By leveraging the power of artificial intelligence we help employers unlock effective talent management leading to higher productivity, cost reduction, and improved employees’ engagement.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/retrain-ai",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "rokt",
+   "name": "Rokt",
+   "website": "https://rokt.com/",
+   "description": "Rokt is a marketing technology company whose core mission is to make the e-commerce transaction smarter by optimizing the checkout for each individual across products, UX and campaigns. Rokt's product solutions include Commerce that helps brands get smarter in the transaction, Acquire that helps marketers acquire customers in the Transaction Moment and CalReply that helps brands drive timely actio",
+   "profile_url": "https://www.squarepeg.vc/portfolio/rokt",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "saasguru",
+   "name": "Saasguru",
+   "website": "https://www.saasguru.co/",
+   "description": "Saasguru is a workforce and skills-focused ed-tech focused on helping individuals learn cloud skills and pass their certification with a tailored learning journey that matches their speed and proficiency. They combine personalised learning with 1:1 mentoring from a global community of gurus.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/saasguru",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "shipping-easy",
+   "name": "Shipping Easy (Acquired)",
+   "website": "https://shippingeasy.com/",
+   "description": "Shipping Easy helps individuals and small businesses send packages internationally and domestically via the world's leading express courier companies without complex contracts and paperwork. Compare the costs of FedEx, UPS, DHL, and more on one site with get discounted rates. The Shipping Easy API lets merchants integrate Shipping Easy directly with their online shopfront. Shipping Easy was acquir",
+   "profile_url": "https://www.squarepeg.vc/portfolio/shipping-easy",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "source",
+   "name": "Source",
+   "website": "https://www.source.shop/",
+   "description": "Source is building the AI ordering system for traditional business, helping retail buying teams know what they need to buy and when with agentic AI. Source plugs into email, sales, inventory and social campaign data feeds, and generates suggested orders with AI that buyers can edit, approve, and send autonomously to suppliers in a few clicks.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/source",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "spiritt",
+   "name": "Spiritt",
+   "website": "https://spiritt.io/",
+   "description": "SPIRITT is a generative AI platform that lets you build complex apps, by simply describing them.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/spiritt",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "stashaway",
+   "name": "StashAway",
+   "website": "https://www.stashaway.sg/",
+   "description": "StashAway is a data-driven digital wealth management platform that personalises financial planning and portfolio management for the vast range of needs of both retail and accredited investors. It was founded on the belief that redefining wealth management is more than creating an app and a modern user experience; it’s about making sophisticated investment strategies accessible to the mass affluent",
+   "profile_url": "https://www.squarepeg.vc/portfolio/stashaway",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "sternum",
+   "name": "Sternum",
+   "website": "https://www.sternumiot.com/",
+   "description": "Sternum was founded in 2018, by a team of highly experienced research, development and business leaders with a mission to fundamentally change the world of IoT security. Bringing profound knowledge in embedded systems, the joint perspectives of the defender and the attacker, and an aspiration to alleviate the medical security standard, Sternum not only set out to build uncompromising innovative te",
+   "profile_url": "https://www.squarepeg.vc/portfolio/sternum",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "stripe",
+   "name": "Stripe",
+   "website": "https://stripe.com/",
+   "description": "Stripe is a global technology company that builds economic infrastructure for the internet. Businesses of every size--from new startups to public companies like Salesforce and Facebook--use the company's software to accept online payments and run complex global operations.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/stripe",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "sumble",
+   "name": "Sumble",
+   "website": "https://sumble.com/",
+   "description": "Sumble provides AI-powered account intelligence to drive pipeline for enterprise sales teams. Its platform offers a continuously updated knowledge graph built from job postings and professional profiles, enabling sales and go-to-market teams to identify and engage target companies with actionable insights.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/sumble",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "supabase",
+   "name": "Supabase",
+   "website": "https://supabase.com/",
+   "description": "Supabase is a backend-as-a-service platform built on Postgres. It is fully open source and allows enterprise-grade use cases to be built on the platform.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/supabase",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "talonone",
+   "name": "Talon.One (Acquired)",
+   "website": "https://talon.one/",
+   "description": "Talon.One is a powerful API that enables businesses to build tailored and high-performing promotional campaigns with a state-of-the-art Rule Engine, without requiring development resources. Talon.One was acquired by Adyen in 2026.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/talonone",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "thinking-machines-lab",
+   "name": "Thinking Machines Lab",
+   "website": "https://thinkingmachines.ai/",
+   "description": "Thinking Machines Lab is an artificial intelligence research and product company. They're building a future where everyone has access to the knowledge and tools to make AI work for their unique needs and goals.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/thinking-machines-lab",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "timo",
+   "name": "Timo (Acquired)",
+   "website": "https://timo.vn/",
+   "description": "Timo is Vietnam's very first digital banking platform which has rapidly developed to become the country's No.1 digital bank. Timo's commitment to continuous innovation and its customer-centric approach has positioned it as a true digital banking pioneer and as a leader in redefining modern banking services in Vietnam and beyond. Timo was acquired by Kredivo in 2026.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/timo",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "tomorrow-io",
+   "name": "Tomorrow.io",
+   "website": "https://www.tomorrow.io/",
+   "description": "Selected by TIME Magazine as one of the TOP 100 Most Influential Companies in the world, Tomorrow.io is the world’s leading Resilience Platform™, helping organisations put systems in place to manage all of their weather challenges and opportunities. Supercharged by next-generation space technology and predictive AI-powered insights, global leaders, including the United States Air Force, NASA, Uber",
+   "profile_url": "https://www.squarepeg.vc/portfolio/tomorrow-io",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "traild",
+   "name": "Traild",
+   "website": "https://traildsoftware.com/",
+   "description": "Traild streamlines, automates and protects businesses' Accounts Payable. The Traild user-friendly cloud Accounts Payable platform deeply integrates into a business’ ERP or accounting system and embeds AI & Machine Learning to unlock greater operational efficiency and financial control.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/traild",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "uhg",
+   "name": "UHG (Acquired)",
+   "website": "https://www.uhg.com.au/",
+   "description": "Over the past two decades, Unified Healthcare Group (UHG) has built Australia's leading marketplace connecting business and healthcare providers, improving efficiency and security of healthcare information exchange and the ordering of services. Its business customer base is focused on the life and personal injury insurance industries, assisting in the facilitation of underwriting and claims proces",
+   "profile_url": "https://www.squarepeg.vc/portfolio/uhg",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "upguard",
+   "name": "UpGuard",
+   "website": "https://www.upguard.com/",
+   "description": "UpGuard is a cybersecurity company that helps businesses manage security risks across their information technology supply chain. UpGuard's integrated risk platform combines third-party security ratings, security assessment questionnaires, and threat intelligence capabilities to give businesses a full and comprehensive view of their risk surface.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/upguard",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "vend",
+   "name": "Vend (Acquired)",
+   "website": "https://www.vendhq.com/",
+   "description": "Vend is a cloud-based point-of-sale and retail platform that enables retailers to accept payments, sell in-store and online, manage their inventory, reward customer loyalty, and report on their business in real time. Vend was acquired by Lightspeed in 2021.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/vend",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "vero",
+   "name": "Vero",
+   "website": "https://www.getvero.com/",
+   "description": "Vero enables businesses to coordinate their customer messaging and create better customer experiences. It gives them tools to engage their customers, empowers engineering and marketing teams to focus where they are most valuable and ensures messages are centrally co-ordinated for a more seamless end-to-end experience.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/vero",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "vi",
+   "name": "Vi",
+   "website": "https://vi.co/",
+   "description": "Vi is the market-leading Enterprise-AI for digital health, providing AI-as-a-Service for health and wellness enterprises. Vi works with the world’s largest digital health companies— from direct to consumer brands to Fortune 500 health providers—helping them increase engagement, retention, LTV, and health outcomes. The Vi platform serves over 30 million members daily.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/vi",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "vow",
+   "name": "Vow",
+   "website": "https://www.vowfood.com/",
+   "description": "Vow is a cultivated meat company, founded and operated by a team of scientists, technologists and designers, working together in the relentless pursuit of better food.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/vow",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "voyantis",
+   "name": "Voyantis",
+   "website": "https://www.voyantis.ai/",
+   "description": "Voyantis is building the first predictive growth platform to enable brands to acquire and retain customers based on their future lifetime value.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/voyantis",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "wego",
+   "name": "Wego",
+   "website": "https://www.wego.com.sg/",
+   "description": "Wego is an online travel marketplace. Operating across the Middle East and the Asia Pacific regions, Wego is used by travellers to shop for flights and hotels offered by 1000+ online travel service providers including airlines, hotel chains and online travel agencies. Wego automates the search process and presents travellers with an unbiased comparison of all products and price points available in",
+   "profile_url": "https://www.squarepeg.vc/portfolio/wego",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "xflow",
+   "name": "XFlow",
+   "website": "https://www.xflowpay.com/",
+   "description": "XFlow is a technology company that builds cross-border payments infrastructure that enables businesses to send and receive money globally in a simple, reliable, transparent and compliant way.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/xflow",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  },
+  {
+   "key": "zeller",
+   "name": "Zeller",
+   "website": "http://myzeller.com/",
+   "description": "Zeller is a better alternative to business banking. We believe business banking is broken. Accepting payments and managing your businesses finances should be simple, so with Zeller you get everything you need to get paid, manage your cash flow, and access your money - all without setting foot in a bank.",
+   "profile_url": "https://www.squarepeg.vc/portfolio/zeller",
+   "list_url": "https://www.squarepeg.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:33:16.660Z"
+  }
+ ],
+ "problems": []
+}

@@ -6,6 +6,7 @@ import { logoUrl, isRealLogo } from '../logo.js';
 import { TILE_URL, TILE_OPTIONS, quietClass } from '../mapTiles.js';
 import { companyPopup, institutionPopup } from '../mapPopups.js';
 import { createPinIndex } from '../pinIndex.js';
+import { cityView } from '../cityViews.js';
 import { paddedWindow, pinPayload, vcTuple, vcMarks, isVc, isVcGroup, clusterSize, CLUSTER_PX, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM, AREA_CHIP_ZOOM } from '../mapPins.js';
 
 // A pin's logo, over the plain initial-letter badge rendered underneath this <img>. It is the company's OWN picture (its `logo` address) when the
@@ -502,6 +503,9 @@ export default function MapView({
       maxBoundsViscosity: 1.0,
     }).setView(narrow ? HOME_NARROW.center : HOME.center, narrow ? HOME_NARROW.zoom : HOME.zoom);
     homeRef.current = narrow ? HOME_NARROW : HOME;
+    // A map opened on one of the map page's cities (/map?city=Hobart) starts there, with or without companies to fit to.
+    const opening = cityView(scopeRef.current);
+    if (opening) { map.setView([opening.lat, opening.lng], opening.zoom); wantsFit.current = false; }
     if (mapboxToken) {
       tilesRef.current = L.tileLayer(mapboxUrl, { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }).addTo(map);
     } else {
@@ -571,12 +575,20 @@ export default function MapView({
     map.fitBounds(L.latLngBounds(points), { ...(narrow ? FIT_PADDING.narrow : FIT_PADDING.desktop), maxZoom: tuples.length ? FIT_MAX_ZOOM : AREA_FIT_MAX_ZOOM });
   }, []);
 
-  // The scope changed (a city was picked, or cleared): the pins of that city are not here yet, so the fit waits for them (below).
+  // The scope changed (a city was picked, or cleared). One of the cities the map page lists goes straight to that city's view, whether or not it has companies to
+  // fit to; any other scope waits for its pins (below), and no scope goes back to Australia.
   useEffect(() => {
     if (scopeRef.current === scope) return;
     scopeRef.current = scope;
+    const map = mapRef.current;
+    const view = cityView(scope);
+    if (view) {
+      wantsFit.current = false;
+      if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) map?.setView([view.lat, view.lng], view.zoom); else map?.flyTo([view.lat, view.lng], view.zoom, { duration: 0.8 });
+      return;
+    }
     wantsFit.current = Boolean(scope);
-    if (!scope) mapRef.current?.setView(homeRef.current.center, homeRef.current.zoom);
+    if (!scope) map?.setView(homeRef.current.center, homeRef.current.zoom);
   }, [scope]);
 
   // New pins (a filter changed, or a layer was switched): start from nothing, because a cluster's number belongs to the index that made it.

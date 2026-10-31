@@ -1,0 +1,552 @@
+{
+ "source_id": "airtree-portfolio",
+ "publisher": "AirTree",
+ "kind": "vc_portfolio",
+ "investor": "AirTree",
+ "list_url": "https://www.airtree.vc/companies",
+ "retrieved_at": "2026-10-30T23:31:45.463Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "a-cloud-guru",
+   "name": "A Cloud Guru",
+   "website": "https://www.pluralsight.com/cloud-guru",
+   "description": "Ryan and Sam are helping people all over the world retrain for the digital age. Partnered in Series A, 2019",
+   "profile_url": "https://www.airtree.vc/companies/a-cloud-guru",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "airwallex",
+   "name": "Airwallex",
+   "website": "https://www.airwallex.com/",
+   "description": "Jack, Xijing, Lucy and Max are building a global financial platform for modern businesses Partnered in Series F, 2025",
+   "profile_url": "https://www.airtree.vc/companies/airwallex",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "canva",
+   "name": "Canva",
+   "website": "https://www.canva.com/",
+   "description": "Mel, Cliff and Cam are making it possible for everyone in the world to create beautiful designs. Partnered in Series A, 2015",
+   "profile_url": "https://www.airtree.vc/companies/canva",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "employment-hero",
+   "name": "Employment Hero",
+   "website": "https://www.employmenthero.com/",
+   "description": "Ben and Dave are making employment easier and more rewarding for everyone. Partnered in Seed, 2016",
+   "profile_url": "https://www.airtree.vc/companies/employment-hero",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "eucalyptus",
+   "name": "Eucalyptus",
+   "website": "https://eucalyptus.vc/",
+   "description": "Tim, Benny, Alexey and Charlie are dreaming, building and running digital healthcare companies. Partnered in Series B, 2021",
+   "profile_url": "https://www.airtree.vc/companies/eucalyptus",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "go1",
+   "name": "Go1",
+   "website": "https://www.go1.com/en-au/",
+   "description": "Andrew, Chris E, Vu and Chris H are helping companies upskill their workforce with on-demand training and dynamic learning resources. Partnered in Growth, 2020",
+   "profile_url": "https://www.airtree.vc/companies/go1",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "immutable",
+   "name": "Immutable",
+   "website": "https://www.immutable.com/",
+   "description": "Robbie and James are making asset ownership and commerce in digital worlds real, through the power of NFTs. Partnered in Series B, 2021",
+   "profile_url": "https://www.airtree.vc/companies/immutable",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "linktree",
+   "name": "Linktree",
+   "website": "https://linktr.ee/",
+   "description": "Alex, Anthony and Nick are helping creators share and manage their online content. Partnered in Seed, 2020",
+   "profile_url": "https://www.airtree.vc/companies/linktree",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "mr-yum",
+   "name": "me&u",
+   "website": "https://www.meandu.com/",
+   "description": "Kim, Adrian, Kerry and Andrei are building beautifully designed mobile menus for hospitality and entertainment. Partnered in Seed, 2021",
+   "profile_url": "https://www.airtree.vc/companies/mr-yum",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "safetyculture",
+   "name": "Mitti",
+   "website": "https://mitti.com/",
+   "description": "Luke is empowering working teams to drive daily, AI powered improvements across their organisation. Partnered in Growth, 2024",
+   "profile_url": "https://www.airtree.vc/companies/safetyculture",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "outlier-space",
+   "name": "Outlier Space",
+   "website": "https://outlier.space/",
+   "description": "Jamie is building the infrastructure to make microgravity accessible, scalable and reliable. Partnered in Pre-seed, July 2026",
+   "profile_url": "https://www.airtree.vc/companies/outlier-space",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "pet-circle",
+   "name": "Pet Circle",
+   "website": "https://www.petcircle.com.au/",
+   "description": "Mike and James make caring for your pets easy. Partnered in Series A, 2017",
+   "profile_url": "https://www.airtree.vc/companies/pet-circle",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "secure-code-warrior",
+   "name": "Secure Code Warrior",
+   "website": "https://www.securecodewarrior.com/",
+   "description": "Pieter, Matias and Fatemah are empowering developers to write more secure code. Partnered in Series A, 2018",
+   "profile_url": "https://www.airtree.vc/companies/secure-code-warrior",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "90-seconds",
+   "name": "90 Seconds",
+   "website": "https://90seconds.com/",
+   "description": "Tim has democratised video creation, enabling brands to create high-quality videos from anywhere in the world. Partnered in Series A, 2016",
+   "profile_url": "https://www.airtree.vc/companies/90-seconds",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "abyss-solutions",
+   "name": "Abyss Solutions",
+   "website": "https://abysssolutions.co/",
+   "description": "Abraham, Hina, Masood and Nasir are combining AI and robotics to automate risky and repetitive work in fields like energy, oil and gas, and defence. Partnered in Series A, 2020",
+   "profile_url": "https://www.airtree.vc/companies/abyss-solutions",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "advanced-navigation",
+   "name": "Advanced Navigation",
+   "website": "https://www.advancednavigation.com/",
+   "description": "Chris is building autonomous navigation solutions. Partnered in Series C, 2026",
+   "profile_url": "https://www.airtree.vc/companies/advanced-navigation",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "alloy",
+   "name": "Alloy",
+   "website": "https://www.usealloy.ai/",
+   "description": "Joe is building data infrastructure for modern robotics teams. Partnered in Pre-Seed, 2025",
+   "profile_url": "https://www.airtree.vc/companies/alloy",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "ambience-healthcare",
+   "name": "Ambience Healthcare",
+   "website": "https://www.ambiencehealthcare.com/",
+   "description": "Mike and Nikhil are on mission to supercharge healthcare providers with advanced ambient AI technology. Partnered in Seed, 2020",
+   "profile_url": "https://www.airtree.vc/companies/ambience-healthcare",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "archistar",
+   "name": "Archistar",
+   "website": "https://archistar.ai/",
+   "description": "Benjamin and Robert are revolutionising the way property professionals plan, design, build and sell. Partnered in Seed, 2020",
+   "profile_url": "https://www.airtree.vc/companies/archistar",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "arinex",
+   "name": "Arinex",
+   "website": "https://arinex.com.au/",
+   "description": "Jacob and Jordan are creating unique virtual experiences for delegates with their highly customisable, end-to-end event platform. Partnered in Seed, 2021",
+   "profile_url": "https://www.airtree.vc/companies/arinex",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "askable",
+   "name": "Askable",
+   "website": "https://www.askable.com/",
+   "description": "Scott and John are revolutionising research with their on-demand insights platform. Partnered in Series A, 2024",
+   "profile_url": "https://www.airtree.vc/companies/askable",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "athena",
+   "name": "Athena",
+   "website": "https://www.athena.com.au/",
+   "description": "Nathan and Michael are helping Aussies pay down their home loans faster. Partnered in Series B, 2018",
+   "profile_url": "https://www.airtree.vc/companies/athena",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "atrium",
+   "name": "Atrium",
+   "website": "https://www.atrium.me/",
+   "description": "Kevin, Gerry and Daniel are on a mission to reimagine relationship management. Partnered in Pre-seed, 2025",
+   "profile_url": "https://www.airtree.vc/companies/atrium",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "brighte",
+   "name": "Brighte",
+   "website": "https://brighte.com.au/",
+   "description": "Katherine is on a mission to make sustainability affordable and accessible for everyone. Partnered in Series B, 2018",
+   "profile_url": "https://www.airtree.vc/companies/brighte",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "brosa",
+   "name": "Brosa",
+   "website": "https://www.brosa.com.au/",
+   "description": "Ivan, Richard and David want to make practical, trending furniture from global craftsmen accessible for Aussies without the inflated price tag. Partnered in Seed, 2015",
+   "profile_url": "https://www.airtree.vc/companies/brosa",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "build-club",
+   "name": "Build Club",
+   "website": "https://www.buildclub.ai/",
+   "description": "Annie is empowering builders through hands-on, gamified AI education. Partnered in Pre-Seed, 2024",
+   "profile_url": "https://www.airtree.vc/companies/build-club",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "buildkite",
+   "name": "Buildkite",
+   "website": "https://buildkite.com/",
+   "description": "Buildkite is on a mission to unblock every software developer on the planet through a powerful and flexible CI/CD platform. Partnered in Series B, 2022",
+   "profile_url": "https://www.airtree.vc/companies/buildkite",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "calven",
+   "name": "Calven",
+   "website": "https://www.calven.com/",
+   "description": "Dan and Jeremy want to power the future of work through their employee experience and workplace operations platform. Partnered in Seed, 2021",
+   "profile_url": "https://www.airtree.vc/companies/calven",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "cardly",
+   "name": "Cardly",
+   "website": "https://www.cardly.net/",
+   "description": "Patrick and Tom are helping you send handwritten cards from anywhere in the world without lifting a pen. Partnered in Pre-Seed, 2017",
+   "profile_url": "https://www.airtree.vc/companies/cardly",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "chemist2u",
+   "name": "Chemist2U",
+   "website": "https://chemist2u.com.au/",
+   "description": "Matthew is making it easier to fill medical scripts through online ordering and delivery to your door. Partnered in Seed, 2020",
+   "profile_url": "https://www.airtree.vc/companies/chemist2u",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "cipherstash",
+   "name": "Cipherstash",
+   "website": "https://cipherstash.com/",
+   "description": "Dan is building a data storage platform that keeps data secure by ensuring it's always encrypted. Partnered in Pre-Seed, 2021",
+   "profile_url": "https://www.airtree.vc/companies/cipherstash",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "circular",
+   "name": "Circular",
+   "website": "https://nowcircular.com.au/",
+   "description": "Nick, George, Pantha and Yaniv are on a mission to help the world embrace the circular economy through subscriptions to high-end electronics. Partnered in Seed, 2022",
+   "profile_url": "https://www.airtree.vc/companies/circular",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "constantinople",
+   "name": "Constantinople",
+   "website": "https://www.cxnpl.com/",
+   "description": "Macgregor and Dianne are on a mission to radically simplify how banks run and operate. Partnered in Seed, 2022",
+   "profile_url": "https://www.airtree.vc/companies/constantinople",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "cuttable",
+   "name": "Cuttable",
+   "website": "https://www.cuttable.com/",
+   "description": "Sam and Ed are helping creative teams build digital campaigns fast. Partnered in Seed, 2026",
+   "profile_url": "https://www.airtree.vc/companies/cuttable",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "darwinium",
+   "name": "Darwinium",
+   "website": "https://www.darwinium.com/",
+   "description": "Alisdair, Ben and Reed are building a new approach to customer interactions, providing security and protection at scale. Partnered in Seed, 2021",
+   "profile_url": "https://www.airtree.vc/companies/darwinium",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "design-crowd",
+   "name": "Design.com",
+   "website": "https://www.design.com/",
+   "description": "Alec helps businesses find the best designs in the world, faster. Partnered in Seed, 2015",
+   "profile_url": "https://www.airtree.vc/companies/design-crowd",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "dgraph",
+   "name": "Dgraph",
+   "website": "https://dgraph.io/",
+   "description": "Manish has built the world's most advanced graph database. Partnered in Seed, 2017",
+   "profile_url": "https://www.airtree.vc/companies/dgraph",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "different",
+   "name": "Different",
+   "website": "https://www.different.com.au/",
+   "description": "Mina and Ruwin are using smart tech solutions to deliver the best property management experiences to agencies, owners, and tenants. Partnered in Seed, 2017",
+   "profile_url": "https://www.airtree.vc/companies/different",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "dronedeploy",
+   "name": "DroneDeploy",
+   "website": "https://www.dronedeploy.com/",
+   "description": "Jono, Mike and Nick are making the power of aerial data accessible and productive for everyone. Partnered in Series B, 2018",
+   "profile_url": "https://www.airtree.vc/companies/dronedeploy",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "earth-ai",
+   "name": "Earth AI",
+   "website": "https://www.earth-ai.com/",
+   "description": "Roman is revolutionising the mineral exploration process. Partnered in Pre-Seed, 2017",
+   "profile_url": "https://www.airtree.vc/companies/earth-ai",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "ebest-2",
+   "name": "eBest",
+   "website": "https://ebest.com.au/",
+   "description": "Sam is building the ultimate online grocery destination with the best products from all cultures and regions. Partnered in Series A, 2021",
+   "profile_url": "https://www.airtree.vc/companies/ebest-2",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "edrolo",
+   "name": "Edrolo",
+   "website": "https://www.edrolo.com.au/",
+   "description": "Ben, Duncan and Jeremy are making learning fun for high school students. Partnered in Seed, 2015",
+   "profile_url": "https://www.airtree.vc/companies/edrolo",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "eesel",
+   "name": "eesel",
+   "website": "https://www.eesel.ai/",
+   "description": "Amogh is building an oracle that can instantly answer any question. Partnered in Pre-Seed, 2020",
+   "profile_url": "https://www.airtree.vc/companies/eesel",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "elevio",
+   "name": "Elevio",
+   "website": "https://elev.io/",
+   "description": "Chris and Matt are making your product easier to learn and use through their continuous user education platform. Partnered in Seed, 2016",
+   "profile_url": "https://www.airtree.vc/companies/elevio",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "ento",
+   "name": "Ento",
+   "website": "https://www.ento.com/",
+   "description": "Aulay has taken the pain out of managing a large workforce. Partnered in Seed, 2015",
+   "profile_url": "https://www.airtree.vc/companies/ento",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "eql",
+   "name": "EQL",
+   "website": "https://eql.xyz/en-GB/",
+   "description": "Andrew, James and Patrick are building a Hype Commerce platform for retailers to manage the launch of scarce products. Partnered in Seed, 2021",
+   "profile_url": "https://www.airtree.vc/companies/eql",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "everlab",
+   "name": "Everlab",
+   "website": "https://www.everlab.com.au/",
+   "description": "Marc, Sam, Anshul and Steven are on a mission to help people live longer, healthier lives. Partnered in Series A, 2026",
+   "profile_url": "https://www.airtree.vc/companies/everlab",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "expert360",
+   "name": "Expert360",
+   "website": "https://www.expert360.com/",
+   "description": "Bridget connects amazing people with great companies to get important work done. Partnered in Series B, 2017",
+   "profile_url": "https://www.airtree.vc/companies/expert360",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "extraordinary-money",
+   "name": "Extraordinary Money",
+   "website": "https://xmo.au/",
+   "description": "Sam and Anson are exploring AI-native consumer finance. Partnered in Pre-seed, 2025",
+   "profile_url": "https://www.airtree.vc/companies/extraordinary-money",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "fairsupply",
+   "name": "Fair Supply",
+   "website": "https://fairsupply.com.au/",
+   "description": "Kim and Arne are accelerating the world’s transition to sustainable supply chains. Partnered in Series A, 2022",
+   "profile_url": "https://www.airtree.vc/companies/fairsupply",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "fetch",
+   "name": "Fetch",
+   "website": "https://www.fetchpet.com.au/",
+   "description": "Phil, George and Foo are making caring for your pets easier with accessible pet insurance. Partnered in Seed, 2023",
+   "profile_url": "https://www.airtree.vc/companies/fetch",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "firmable",
+   "name": "Firmable",
+   "website": "https://firmable.com/",
+   "description": "Leigh, Paul and Karthik are helping every B2B business in Australia grow as fast as they can with the definitive B2B database. Partnered in Seed, 2023",
+   "profile_url": "https://www.airtree.vc/companies/firmable",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "foremark",
+   "name": "Foremark",
+   "website": "https://foremarklegal.com/",
+   "description": "Chia, Thomas and Viren are democratising access to legal representation for millions of people. Partnered in Seed, 2026",
+   "profile_url": "https://www.airtree.vc/companies/foremark",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "frankieone",
+   "name": "FrankieOne",
+   "website": "https://www.frankieone.com/",
+   "description": "Aaron and Simon are automating data capture and decision-making for customer onboarding and ongoing monitoring through their cloud-native platform. Partnered in Series A, 2021",
+   "profile_url": "https://www.airtree.vc/companies/frankieone",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "futureverse",
+   "name": "Futureverse",
+   "website": "https://www.futureverse.com/",
+   "description": "Aaron, Shara, Marco and Daniel are shaping the next generation of NFTs by embedding them with artificial intelligence. Partnered in Seed, 2022",
+   "profile_url": "https://www.airtree.vc/companies/futureverse",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "glamcorner",
+   "name": "GlamCorner",
+   "website": "https://www.glamcorner.com.au/",
+   "description": "Audrey and Dean are making the fashion industry more sustainable. Partnered in Seed, 2015",
+   "profile_url": "https://www.airtree.vc/companies/glamcorner",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "gridsight",
+   "name": "Gridsight",
+   "website": "https://www.gridsight.ai/",
+   "description": "Brendan, Kurt and Hugh are building AI-powered grid flexibility platform designed to help grid operators transition from traditional “pole and wires” companies to distribution system operators. Partnered in Series A, 2024",
+   "profile_url": "https://www.airtree.vc/companies/gridsight",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "grow",
+   "name": "Grow Inc",
+   "website": "https://www.grow.inc/",
+   "description": "Mat is creating the future of finance by developing innovative technology solutions that improve people's financial wellbeing. Partnered in Growth, 2020",
+   "profile_url": "https://www.airtree.vc/companies/grow",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "haast",
+   "name": "Haast",
+   "website": "https://haast.io/",
+   "description": "Kunal, Liam and Jason are helping organisations manage digital risk Partnered in Seed, 2024",
+   "profile_url": "https://www.airtree.vc/companies/haast",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  },
+  {
+   "key": "happy-or-not",
+   "name": "Happy or Not",
+   "website": "https://www.happy-or-not.com/en/",
+   "description": "Heikki and Villei have created a frictionless feedback tool to help companies engage with their customers by simply pressing a smiley button. Partnered in Series A, 2017",
+   "profile_url": "https://www.airtree.vc/companies/happy-or-not",
+   "list_url": "https://www.airtree.vc/companies",
+   "retrieved_at": "2026-10-30T23:31:45.463Z"
+  }
+ ],
+ "problems": []
+}

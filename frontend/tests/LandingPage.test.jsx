@@ -16,7 +16,7 @@ describe('the welcome page', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     submitFeedback.mockResolvedValue({ id: '1', type: 'subscribe' });
-    window.history.replaceState(null, '', '/welcome');
+    window.history.replaceState(null, '', '/');
   });
   afterEach(() => { vi.unstubAllEnvs(); });
 
@@ -61,14 +61,15 @@ describe('the welcome page', () => {
   });
 
   describe('the capsule', () => {
-    it('has the wordmark, the three places and the two ways in, each going somewhere real', () => {
+    it('has the wordmark, the places (with the map as one of them) and the two ways in, each going somewhere real', () => {
       vi.stubEnv('VITE_SHOW_PEOPLE', '');
       render(<LandingPage />);
       const nav = within(screen.getAllByRole('navigation', { name: 'Main' })[0]);
-      expect(nav.getByRole('link', { name: 'Still Early, home' })).toHaveAttribute('href', '/welcome');
+      expect(nav.getByRole('link', { name: 'Still Early, home' })).toHaveAttribute('href', '/');
       expect(nav.getByRole('link', { name: 'Still Early, home' })).toHaveTextContent('still early.');
       expect(nav.getAllByRole('link', { name: 'People' })[0]).toHaveAttribute('href', '/investors'); // the people page is switched off: the directory of investors is the live one
-      expect(nav.getAllByRole('link', { name: 'Companies' })[0]).toHaveAttribute('href', '/');
+      expect(nav.getAllByRole('link', { name: 'Companies' })[0]).toHaveAttribute('href', '/discover');
+      expect(nav.getAllByRole('link', { name: 'Map' })[0]).toHaveAttribute('href', '/map');
       expect(nav.getAllByRole('link', { name: 'Our story' })[0]).toHaveAttribute('href', '/about');
       expect(nav.getAllByRole('link', { name: 'Log in' })[0]).toHaveAttribute('href', '#login');
       expect(nav.getByRole('link', { name: 'Join us' })).toHaveAttribute('href', '#join');
@@ -85,7 +86,7 @@ describe('the welcome page', () => {
       const menu = container.querySelector('details.se-nav-menu');
       expect(menu).toBeInTheDocument();
       expect(menu.querySelector('summary')).toHaveAttribute('aria-label', 'Menu');
-      expect([...menu.querySelectorAll('a')].map((a) => a.textContent)).toEqual(['People', 'Companies', 'Our story', 'Log in']);
+      expect([...menu.querySelectorAll('a')].map((a) => a.textContent)).toEqual(['People', 'Companies', 'Map', 'Our story', 'Log in']);
     });
   });
 
@@ -94,7 +95,7 @@ describe('the welcome page', () => {
       render(<LandingPage />);
       const links = screen.getAllByRole('link', { name: /Explore the community/ });
       expect(links).toHaveLength(2);
-      for (const link of links) expect(link).toHaveAttribute('href', '/');
+      for (const link of links) expect(link).toHaveAttribute('href', '/map');
     });
 
     it('says the feed is not there yet, and sends "Explore the feed" to the news feed that is', () => {

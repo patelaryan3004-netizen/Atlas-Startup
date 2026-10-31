@@ -31,7 +31,7 @@ beforeAll(async () => {
 
 afterAll(() => rm(dist, { recursive: true, force: true }));
 
-const PAGES = { '/': 'index.html', '/welcome': 'welcome/index.html', '/lists': 'lists/index.html', '/investors': 'investors/index.html', '/methodology': 'methodology/index.html', '/about': 'about/index.html', '/contact': 'contact/index.html' };
+const PAGES = { '/': 'index.html', '/map': 'map/index.html', '/lists': 'lists/index.html', '/investors': 'investors/index.html', '/methodology': 'methodology/index.html', '/about': 'about/index.html', '/contact': 'contact/index.html' };
 
 describe('the built pages carry their own HTML, head and address', () => {
   it('writes a file for every page, and the generic one', async () => {
@@ -75,12 +75,13 @@ describe('the built pages carry their own HTML, head and address', () => {
     expect(tag(html, /<meta property="og:image" content="([^"]+)"/)).toBe(`${SITE}/og-image.png`);
   });
 
-  it('writes the welcome page as hydratable HTML with its heading, sections, forms and foot in the file itself, and asks for its picture at once', async () => {
-    const html = await file('welcome/index.html');
+  it('writes the welcome page at the root as hydratable HTML with its heading, sections, forms and foot in the file itself, and asks for its picture at once', async () => {
+    const html = await file('index.html');
     expect(html).toContain('<div id="root" data-prerender="landing">');
     expect(html).toMatch(/<h1[^>]*>The next big thing<br\/>is <em>someone<span class="se-stop">\.<\/span><\/em><\/h1>/);
     expect(html.match(/<input[^>]*type="email"/g)).toHaveLength(2);
     expect(html).toContain('Explore the community');
+    expect(html).toContain('href="/map"');
     expect(html).toContain('Stay inspired. Keep building.');
     expect(html).toContain('Product preview · Illustrative content');
     for (const href of ['/about', '/contact', '/news', '#join', '#privacy']) expect(html).toContain(`href="${href}"`);
@@ -91,10 +92,13 @@ describe('the built pages carry their own HTML, head and address', () => {
     expect(html.match(/<link rel="preload" as="font" type="font\/woff2" href="\/assets\/instrument-serif-latin-400-(normal|italic)-[^"]+\.woff2" crossorigin>/g)).toHaveLength(2);
     expect(await file('about/index.html')).not.toContain('instrument-serif');
     expect(await file('about/index.html')).not.toContain('hero-night');
-    expect(await file('index.html')).not.toContain('hero-night');
+    expect(await file('map/index.html')).not.toContain('hero-night');
+    expect(await file('app.html')).not.toContain('hero-night');
+    // the old address of the welcome page has no file: the host sends it to the root (vercel.json)
+    await expect(file('welcome/index.html')).rejects.toThrow();
     // it reads no data, so it is not sent the snapshot the map and the jobs board draw from
-    expect(html).toContain("var discover = path === '/discover' ||");
-    expect(html).toContain("path === '/welcome' || /^\\/(about|methodology|contact)$/.test(path) ? []");
+    expect(html).toContain("var welcome = (path === '' || path === '/welcome') && !filters.test(search);");
+    expect(html).toContain('var kinds = welcome ||');
   });
 
   it('keeps the no-script fallback to the plain list of every company, and shows the "rising" content to a visitor with no scripts', async () => {

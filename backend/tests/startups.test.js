@@ -6,6 +6,7 @@ import sources from '../src/data/sources.json' with { type: 'json' };
 import candidates from '../src/data/candidates.json' with { type: 'json' };
 import identifiers from '../src/data/identifiers.json' with { type: 'json' };
 import { INTERNAL_FIELDS } from '../src/models/company.js';
+import { metroOf } from '../src/geo/metro.js';
 
 // Derived from the data file so adding a company never breaks these tests; the
 // "don't silently lose companies" floor lives in dataIntegrity.test.js.
@@ -66,7 +67,9 @@ describe('GET /api/startups', () => {
     }
     // No source id appears anywhere in the payload.
     const payload = JSON.stringify(every);
-    for (const { id } of sources) expect(payload, `source "${id}" leaked`).not.toContain(id);
+    // (a source's id is made from its address, so one can equal a company's own public slug: that one is not a leak)
+    const publicIds = new Set(every.flatMap((s) => [s.id, s.slug]));
+    for (const { id } of sources) if (!publicIds.has(id)) expect(payload, `source "${id}" leaked`).not.toContain(id);
     // A company that has sources still comes back with its public facts.
     const superstat = every.find((s) => s.name === 'Superstat');
     // Its roles were read by hand from a page's text on 5 Oct: a check with a date, not a confirmation, so it is not "hiring now".
@@ -89,7 +92,8 @@ describe('GET /api/startups', () => {
     }
     for (const i of identifiers) expect(every.every((s) => !('identifiers' in s)), `identifier ${i.id}`).toBe(true);
     const directory = (await request(app).get('/directory')).text;
-    for (const c of candidates) if (!companyNames.has(c.name)) expect(directory, `candidate "${c.name}" is in /directory`).not.toContain(c.name);
+    // (a name is a table cell of its own: a candidate called "Andromeda" is not the company "Andromeda Robotics")
+    for (const c of candidates) if (!companyNames.has(c.name)) expect(directory, `candidate "${c.name}" is in /directory`).not.toContain(`<td>${c.name}</td>`);
   });
 
   it('includes the three companies added from the owner-supplied research, findable by name and by founder', async () => {
@@ -201,14 +205,18 @@ describe('GET /api/startups', () => {
   it('filters by a comma-separated city list, matching any one of them', async () => {
     const res = await request(app).get('/api/startups?limit=200&city=Sydney,Sydney (Chippendale)');
     expect(res.status).toBe(200);
-    expect(res.body.results.every((s) => s.city === 'Sydney' || s.city === 'Sydney (Chippendale)')).toBe(true);
+    // a company is found under its own city and under the big city its postcode puts it in (src/geo/metro.js)
+    const inSydney = startups.filter((s) => ['Sydney', 'Sydney (Chippendale)'].includes(s.city) || metroOf(s) === 'Sydney');
+    expect(res.body.count).toBe(inSydney.length);
+    expect(res.body.results.every((s) => inSydney.some((x) => x.name === s.name))).toBe(true);
     expect(res.body.count).toBeGreaterThan(0);
   });
 
   it('combines multiple filters', async () => {
     const res = await request(app).get('/api/startups?limit=200&sector=Fintech&city=Sydney');
     expect(res.status).toBe(200);
-    expect(res.body.results.every((s) => s.sector === 'Fintech' && s.city === 'Sydney')).toBe(true);
+    expect(res.body.results.every((s) => s.sector === 'Fintech' && (s.city === 'Sydney' || metroOf(startups.find((x) => x.name === s.name)) === 'Sydney'))).toBe(true);
+    expect(res.body.count).toBeGreaterThan(0);
   });
 
   it('filters by search matching a founder name, not just the company name', async () => {

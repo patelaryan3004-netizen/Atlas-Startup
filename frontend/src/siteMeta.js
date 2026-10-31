@@ -17,12 +17,12 @@ export const OG_IMAGE = { path: '/og-image.png', width: 1200, height: 630, alt: 
 // path -> { title, description }. Each title is its own; none repeats another page's.
 export const PAGE_META = {
   '/': {
-    title: `${SITE_NAME} · Australian startups on a map`,
-    description: 'Australian startups on a map and in a list: where they are, who is hiring now, and the page each fact came from. A beta, independent project.',
-  },
-  '/welcome': {
     title: `${SITE_NAME} · Australia’s startup community`,
     description: 'Meet the founders, operators and investors of Australia, and see what they are building. A community in the making, with a directory of startups and investors you can use today.',
+  },
+  '/map': {
+    title: `Map of Australian startups · ${SITE_NAME}`,
+    description: 'Australian startups on a map, a logo for every company. A pin is exact only where a public page gives the address; otherwise the company is shown at its city.',
   },
   '/lists': {
     title: `Curated lists of Australian startups · ${SITE_NAME}`,

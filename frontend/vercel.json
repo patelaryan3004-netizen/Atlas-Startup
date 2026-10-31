@@ -3,6 +3,8 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "redirects": [
+    { "source": "/welcome", "destination": "/", "permanent": true },
+    { "source": "/welcome/", "destination": "/", "permanent": true },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "au-startup-map.vercel.app" }],
@@ -17,8 +19,8 @@
     }
   ],
   "rewrites": [
-    { "source": "/welcome", "destination": "/welcome/index.html" },
-    { "source": "/welcome/", "destination": "/welcome/index.html" },
+    { "source": "/map", "destination": "/map/index.html" },
+    { "source": "/map/", "destination": "/map/index.html" },
     { "source": "/about", "destination": "/about/index.html" },
     { "source": "/about/", "destination": "/about/index.html" },
     { "source": "/methodology", "destination": "/methodology/index.html" },

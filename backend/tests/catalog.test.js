@@ -6,6 +6,7 @@ import { generateCompanies } from '../scripts/scale/fixtures.js';
 import { fixture, tempDir, removeTempDirs } from './helpers/catalog.js';
 import { co } from './helpers/locations.js';
 import { INTERNAL_FIELDS } from '../src/models/company.js';
+import { metroOf } from '../src/geo/metro.js';
 
 afterEach(removeTempDirs);
 
@@ -22,7 +23,8 @@ function legacyFilter(startups, query) {
       if (!nameMatch && !founderMatch) return false;
     }
     if (!matchesAny(s.sector, sector)) return false;
-    if (!matchesAny(s.city, city)) return false;
+    // a company is found under its own city and under the big city its postcode puts it in (src/geo/metro.js): the one change from the filter the catalog replaced
+    if (!(matchesAny(s.city, city) || matchesAny(metroOf(s), city))) return false;
     if (investor && !s.investors.includes(investor)) return false;
     if (stage && s.stage !== stage) return false;
     if (hiring === 'yes' && !s.hiring) return false;

@@ -1,0 +1,455 @@
+{
+ "checked_at": "2026-10-31",
+ "note": "Decisions by a person (owner, via Claude) after reading each company's own pages and the portfolio pages that name it. The line is a plain description in our words of what those pages say; a hold says why the company is not published.",
+ "companies": {
+  "abysssolutions.co": {
+   "sector": "AI",
+   "blurb": "AI and robotics that inspect industrial assets in 3D and grade their condition"
+  },
+  "accelo.com": {
+   "sector": "SaaS",
+   "blurb": "Software for professional services firms that runs pipeline, projects and billing in one place"
+  },
+  "adviserratings.com.au": {
+   "sector": "Fintech",
+   "blurb": "Ratings and reviews of Australian financial advisers"
+  },
+  "airrobe.com": {
+   "sector": "Marketplace",
+   "blurb": "A platform for buying and selling pre-loved designer clothing"
+  },
+  "alts.co": {
+   "sector": "Fintech",
+   "blurb": "An investing community and platform for alternative and private-market assets"
+  },
+  "amentum.com.au": {
+   "sector": "Data",
+   "blurb": "Earth-science analytics and APIs for the blue economy, aviation and geospatial systems"
+  },
+  "ansarada.com": {
+   "sector": "SaaS",
+   "blurb": "Virtual data rooms and dealmaking software"
+  },
+  "archerx.com.au": {
+   "sector": "Quantum",
+   "blurb": "Developing a quantum processor chip designed to run at room temperature"
+  },
+  "arinex.com.au": {
+   "hold": "Its own page describes an events business and the portfolio page's description does not clearly match it: a person should check"
+  },
+  "arkeus.com": {
+   "sector": "Robotics",
+   "blurb": "Wide-area autonomous optical systems for search and surveillance"
+  },
+  "ascenda.one": {
+   "hold": "Its own site and Startmate's profile describe different products under the same name: a person should check which company this is"
+  },
+  "atrium.me": {
+   "sector": "AI",
+   "blurb": "An AI inbox and CRM for managing a professional network"
+  },
+  "atticus.tech": {
+   "sector": "Legal tech",
+   "blurb": "Tools that verify critical documents for law firms and listed companies"
+  },
+  "azaneo.au": {
+   "sector": "AgTech",
+   "blurb": "Weed management without herbicides"
+  },
+  "black.ai": {
+   "sector": "AI",
+   "blurb": "An autonomous retail platform that maps and monitors stores with 3D sensors"
+  },
+  "blunge.ai": {
+   "sector": "AI",
+   "blurb": "An AI design agent that creates on-brand designs from a first direction"
+  },
+  "borne.au": {
+   "sector": "Consumer",
+   "blurb": "A postpartum hotel and wellness platform built around the mother"
+  },
+  "breakerindustries.com": {
+   "sector": "Robotics",
+   "blurb": "An AI agent that lets one operator command drones, ground vehicles and vessels by voice"
+  },
+  "bygen.com.au": {
+   "sector": "Climate",
+   "blurb": "A manufacturer of sustainable activated carbon"
+  },
+  "getcape.io": {
+   "sector": "Fintech",
+   "blurb": "A business credit card for SMEs, with virtual cards and automated expense management"
+  },
+  "cascayd.app": {
+   "sector": "Martech",
+   "blurb": "Finds, builds and runs A/B tests for Shopify stores"
+  },
+  "checkgen.com.au": {
+   "sector": "Consumer",
+   "blurb": "A skin-care tool that takes the guesswork out of choosing products"
+  },
+  "clutchglue.com": {
+   "sector": "Consumer",
+   "blurb": "A liquid fashion tape that holds clothes in place and washes out"
+  },
+  "coinjar.com": {
+   "sector": "Fintech",
+   "blurb": "A cryptocurrency exchange to buy, sell, store and spend digital assets"
+  },
+  "comet.cx": {
+   "hold": "Its own page describes a consultancy, not a product company"
+  },
+  "crosscourtai.com": {
+   "sector": "AI",
+   "blurb": "AI agents for real estate and private credit investment teams"
+  },
+  "cruxml.com.au": {
+   "sector": "AI",
+   "blurb": "Real-time machine learning on integrated circuits and low-precision neural networks"
+  },
+  "darwinium.com": {
+   "sector": "Cybersecurity",
+   "blurb": "A digital security and fraud prevention platform"
+  },
+  "datafarming.com.au": {
+   "sector": "AgTech",
+   "blurb": "Software for managing crops and pastures"
+  },
+  "dataweavers.com": {
+   "hold": "Its own page describes a services business (website platform operations), not a product company"
+  },
+  "ddloop.app": {
+   "sector": "Legal tech",
+   "blurb": "A due-diligence platform for M&A, financing and investment deals"
+  },
+  "decarice.com.au": {
+   "sector": "Energy",
+   "blurb": "Diesel displacement for heavy industry, for emissions compliance and energy security"
+  },
+  "deeligence.com": {
+   "sector": "Legal tech",
+   "blurb": "An AI due-diligence platform for M&A law firms, in-house legal teams and funds"
+  },
+  "denebspace.com.au": {
+   "sector": "Space",
+   "blurb": "Autonomous technology that helps satellites navigate and manoeuvre"
+  },
+  "design.com": {
+   "sector": "SaaS",
+   "blurb": "An AI design platform for logos, websites, business cards and social posts"
+  },
+  "dimplecontacts.com": {
+   "sector": "Consumer",
+   "blurb": "A subscription service that delivers daily contact lenses online"
+  },
+  "hellodriven.com": {
+   "sector": "HealthTech",
+   "blurb": "An AI-enabled virtual coach that builds resilience and mental health through daily habits"
+  },
+  "earlywork.co": {
+   "sector": "EdTech",
+   "blurb": "A careers platform for young people in Australia and New Zealand"
+  },
+  "ebest.com.au": {
+   "sector": "Retail",
+   "blurb": "An online grocery store with Asian and Australian products and next-day delivery"
+  },
+  "effi.com.au": {
+   "sector": "Fintech",
+   "blurb": "CRM and software for Australian mortgage brokers"
+  },
+  "elev.io": {
+   "sector": "SaaS",
+   "blurb": "A customer education and help platform that raises engagement and lowers support load"
+  },
+  "espersatellites.co": {
+   "sector": "Space",
+   "blurb": "Hyperspectral satellite imagery for critical-mineral exploration"
+  },
+  "everbility.com": {
+   "sector": "HealthTech",
+   "blurb": "An AI report-writing assistant for occupational therapists and allied health professionals"
+  },
+  "xmo.au": {
+   "sector": "Fintech",
+   "blurb": "An early team exploring AI-native consumer finance"
+  },
+  "fairgo.ai": {
+   "sector": "HR Tech",
+   "blurb": "AI-powered live video interviews that screen candidates"
+  },
+  "firstaml.com": {
+   "sector": "Fintech",
+   "blurb": "AML and KYC software for customer onboarding in financial and professional services"
+  },
+  "fivegoodfriends.com.au": {
+   "hold": "Its own page describes a home-care and disability services provider, not a product company"
+  },
+  "foremind.com.au": {
+   "sector": "HealthTech",
+   "blurb": "A wellbeing and safety platform that pairs mental-health support with workplace compliance tools"
+  },
+  "freelancer.com": {
+   "hold": "An established, publicly listed company rather than an early-stage startup"
+  },
+  "frntlne.com": {
+   "sector": "EdTech",
+   "blurb": "A mobile-first learning platform for frontline workers"
+  },
+  "futuresuper.com.au": {
+   "sector": "Fintech",
+   "blurb": "A superannuation fund that excludes fossil fuels"
+  },
+  "gelion.com": {
+   "sector": "Energy",
+   "blurb": "Sulfur battery technologies for grid-scale and portable storage"
+  },
+  "geosnapshot.com": {
+   "sector": "SaaS",
+   "blurb": "AI-powered search, galleries and delivery of photos for photographers, schools and sports clubs"
+  },
+  "glamcorner.com.au": {
+   "sector": "Fashion",
+   "blurb": "A designer dress rental service"
+  },
+  "gradability.com.au": {
+   "sector": "EdTech",
+   "blurb": "Internships that give students and graduates Australian work experience"
+  },
+  "grow.inc": {
+   "sector": "Fintech",
+   "blurb": "Technology and services for super funds and fund managers"
+  },
+  "hullbot.com": {
+   "sector": "Robotics",
+   "blurb": "An autonomous hull-cleaning service that prevents fouling to cut drag and fuel use"
+  },
+  "inventia.com.au": {
+   "sector": "Biotech",
+   "blurb": "3D bioprinting platforms that build cell models for biomedical research"
+  },
+  "flowgoai.com": {
+   "sector": "Fintech",
+   "blurb": "AI document automation that turns invoices and receipts from chat and email into accounting entries"
+  },
+  "usehall.com": {
+   "hold": "Its own page says Hall is now part of Tracksuit"
+  },
+  "kanopicover.com": {
+   "sector": "Insurtech",
+   "blurb": "A full-stack insurance platform for launching new insurance products"
+  },
+  "kernl.com.au": {
+   "sector": "HealthTech",
+   "blurb": "AI tools for aged-care and disability care providers: workflows, compliance and incident reporting"
+  },
+  "kinde.com": {
+   "sector": "DevTools",
+   "blurb": "A developer platform for authentication, access management and billing"
+  },
+  "lexer.io": {
+   "sector": "SaaS",
+   "blurb": "An agentic customer data platform for retail and hospitality brands"
+  },
+  "likefamily.com.au": {
+   "sector": "HealthTech",
+   "blurb": "Connects social support workers with people who want disability or aged-care support"
+  },
+  "gomarloo.com": {
+   "sector": "AI",
+   "blurb": "An AI assistant that helps financial advisers take meeting notes and stay organised"
+  },
+  "millibeam.com": {
+   "sector": "Hardware",
+   "blurb": "RF and mmWave chips, antennas and radio architecture for defence, autonomous systems and communications"
+  },
+  "movus.com.au": {
+   "sector": "AI",
+   "blurb": "Prescriptive AI for industrial plant operations that detects asset issues earlier"
+  },
+  "navbit.com": {
+   "sector": "Medtech",
+   "blurb": "Planning software and single-use navigation devices for hip replacement surgery"
+  },
+  "nomadatomics.com": {
+   "sector": "Quantum",
+   "blurb": "High-precision quantum sensors for safer underground mining"
+  },
+  "octopusbot.ai": {
+   "sector": "AgTech",
+   "blurb": "AI forecasts for wheat, corn, grains and oilseeds"
+  },
+  "perxhealth.com": {
+   "sector": "HealthTech",
+   "blurb": "A behavioural health platform that uses gamification to improve adherence to medication and care plans"
+  },
+  "photonfoundry.com.au": {
+   "sector": "Quantum",
+   "blurb": "Room-temperature single-photon emitters for quantum communications and sensing"
+  },
+  "presien.com": {
+   "sector": "AI",
+   "blurb": "Physical AI that gives situational awareness in complex industrial environments"
+  },
+  "prospection.com": {
+   "sector": "Data",
+   "blurb": "Patient-centric data and intelligence for pharmaceutical brand teams"
+  },
+  "seqta.com.au": {
+   "hold": "Its own page says it is now part of Tes"
+  },
+  "simconverse.com": {
+   "sector": "EdTech",
+   "blurb": "A simulation platform that uses generative AI to play a patient, colleague or casualty"
+  },
+  "snug.com": {
+   "sector": "PropTech",
+   "blurb": "A renting platform for renters, owners and property managers"
+  },
+  "spaceresearchnetwork.org.au": {
+   "hold": "A university-led initiative of the NSW Government, not a company"
+  },
+  "clttoolbox.com": {
+   "sector": "SaaS",
+   "blurb": "Browser-based software for designing with mass timber: CLT, glulam and connection checks"
+  },
+  "summ.com": {
+   "sector": "Fintech",
+   "blurb": "Tax software for cryptocurrency, DeFi and NFTs"
+  },
+  "ternarynet.com": {
+   "sector": "Hardware",
+   "blurb": "An AI processor designed for energy efficiency"
+  },
+  "xcentric.tech": {
+   "sector": "AgTech",
+   "blurb": "Portable X-ray fluorescence instruments for soil testing"
+  },
+  "yourgrocer.com.au": {
+   "sector": "Retail",
+   "blurb": "Online grocery delivery that supports independent local businesses"
+  },
+  "zendir.io": {
+   "sector": "Space",
+   "blurb": "A digital twin platform for satellite mission teams: operator training and mission rehearsal"
+  },
+  "hachiko.energy": {
+   "hold": "Nothing on its own pages or the portfolio page says what it does"
+  },
+  "headsafe.com": {
+   "hold": "Nothing on its own pages or the portfolio page says what it does"
+  },
+  "heyyou.com.au": {
+   "hold": "Nothing on its own pages or the portfolio page says what it does"
+  },
+  "languageconfidence.ai": {
+   "hold": "Nothing on its own pages or the portfolio page says what it does"
+  },
+  "hurtec.com.au": {
+   "sector": "Hardware",
+   "blurb": "Electric pump systems and connected software for firefighting operations"
+  },
+  "iluminr.io": {
+   "sector": "SaaS",
+   "blurb": "Microsimulations that turn scenario testing into continuous evidence of resilience"
+  },
+  "inboxagents.ai": {
+   "hold": "Its own site and Startmate's profile describe different products under the same name: a person should check"
+  },
+  "iif.today": {
+   "sector": "AgTech",
+   "blurb": "A way of investing in agriculture that brings farmers and consumers closer together"
+  },
+  "heyjune.com.au": {
+   "sector": "HealthTech",
+   "blurb": "At-home STI and cervical screening kits"
+  },
+  "kitemagnetics.com": {
+   "sector": "Hardware",
+   "blurb": "Nanocrystalline stator cores that make electric motors more efficient"
+  },
+  "lawpath.com.au": {
+   "sector": "Legal tech",
+   "blurb": "Company registration, legal documents and compliance in one place"
+  },
+  "leakster.com.au": {
+   "sector": "Hardware",
+   "blurb": "Listens to water networks in real time to detect and pinpoint pipeline leaks"
+  },
+  "ligrsystems.com": {
+   "sector": "Media",
+   "blurb": "A cloud broadcast graphics platform for live sports"
+  },
+  "spotlumos.com": {
+   "sector": "Martech",
+   "blurb": "A customer intelligence and advertising platform for understanding and engaging audiences"
+  },
+  "merchantspring.io": {
+   "sector": "SaaS",
+   "blurb": "Performance analytics across eCommerce and retail media channels"
+  },
+  "misti.com.au": {
+   "sector": "Medtech",
+   "blurb": "A breath-actuated nebuliser that delivers inhaled medicines directly to the lungs"
+  },
+  "mozo.com.au": {
+   "sector": "Fintech",
+   "blurb": "Comparisons and reviews of home loans, banking and insurance products"
+  },
+  "neuralindex.ai": {
+   "sector": "PropTech",
+   "blurb": "Turns property data into insight for property technology"
+  },
+  "nexusmd.com.au": {
+   "sector": "HealthTech",
+   "blurb": "AI agents for hospitals that automate administrative work for doctors and nurses"
+  },
+  "novalith.com.au": {
+   "sector": "Climate",
+   "blurb": "Refines hard-rock lithium without sulfuric acid, recovering and recycling CO2"
+  },
+  "o3space.org": {
+   "sector": "Consumer",
+   "blurb": "Cafes that open around the clock and are unlocked with an app"
+  },
+  "onthehousegroup.com": {
+   "sector": "Consumer",
+   "blurb": "Free period products funded by advertising"
+  },
+  "preve.co": {
+   "sector": "HealthTech",
+   "blurb": "Admin software for physiotherapists: clinical notes, treatment plans and home rehab programs"
+  },
+  "programa.com.au": {
+   "sector": "SaaS",
+   "blurb": "Interior design software covering specification, client presentations, projects and invoicing"
+  },
+  "promosync.ai": {
+   "sector": "SaaS",
+   "blurb": "Automates trade promotions for FMCG brands and retailers"
+  },
+  "rainstick.com.au": {
+   "sector": "AgTech",
+   "blurb": "Uses electrokinetics to grow plants and fungi bigger and faster"
+  },
+  "restoplus.com": {
+   "sector": "Hospitality Tech",
+   "blurb": "Point of sale, online ordering and table booking for restaurants"
+  },
+  "slicetobuy.com": {
+   "hold": "Its own page serves home buyers in New Zealand: a person should confirm where it is based"
+  },
+  "traildsoftware.com": {
+   "sector": "Fintech",
+   "blurb": "A cloud platform that automates accounts payable"
+  },
+  "upguard.com": {
+   "sector": "Cybersecurity",
+   "blurb": "A cyber risk management platform across vendors, attack surface and workforce"
+  },
+  "getvero.com": {
+   "sector": "Martech",
+   "blurb": "Behaviour-triggered email, push and SMS messages for product teams"
+  }
+ }
+}

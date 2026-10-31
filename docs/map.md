@@ -1,6 +1,29 @@
 # The map
 
-The map page (`/`, App.jsx with `components/MapView.jsx` and `components/explore/`) is the Explore page of the design system (`BRAND_GUIDELINES.md`): the shared header, a
+## The map page, `/map`
+
+A page of its own, with its own button (Map) in the header and on a phone's bottom bar: a large street map and a compact bar above it, and nothing else (no heading, no
+results column). The bar, left to right: the **city** (top left: All of Australia, Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Gold Coast, Newcastle, Hobart,
+Darwin), the **search**, **Sector**, **Stage**, **More** (the other filters), what the map shows (All / Startups / VCs), the **count** ("266 companies (17 not on the map) and
+19 investors": the companies that match every filter, how many of them have no place on record and so are not on the map, and the investors drawn) and a link to the same companies as a list. On a phone the bar is two rows (the city and the search, then the menus), the
+switch moves into the filter sheet and the count is the bottom sheet's first line. `components/explore/MapToolbar.jsx`, `cityViews.js` and the `.mt` rules of `explore.css`.
+
+- **A city picked moves the map there** (`cityViews.js`: the middle of the city and how far in; `MapView` flies to it, or jumps if the visitor asks for less motion), whether or
+  not it has companies; a city with none says "0 companies" and does not pretend. The city is the `city` filter: `/map?city=Hobart` opens there, and the address follows
+  the filters (`/map?city=Sydney&sector=Fintech`). The ten cities find the companies in their suburbs too (below).
+- **Clusters and logos** are the ones below: numbered rings zoomed out, a logo tile each zoomed in (initials when there is no logo or it fails to load). A company known only to
+  its city is a dashed group labelled "city-level", never a pin; a pin is a street address a public page gives.
+- **A company pressed on the map** opens a card beside its mark with its name, sector, city (and how well the place is known), and, as its record arrives, its description,
+  its official website and **where the facts came from** (its own site first, then the portfolio pages that list it, each with the day it was read:
+  `explore/SourceNote.jsx`). The same lines are in the company's panel. Nothing is shown that the record does not hold.
+- **Stage** offers only the stages on record (not "Unknown"): a company with no stage on record has none, and none is filled in.
+- **The ten cities and suburbs.** A company's `city` is often its suburb ("North Sydney", "Richmond"). `backend/src/geo/metro.js` says which of the ten a company is in from its
+  state and postcode (only inside the city's own postcode range), and the catalog finds it under that city as well as under its own `city`; the counts of the busiest cities
+  count it there. No record is changed.
+
+## The Explore page, `/discover`
+
+The Explore page (`/discover`; with `?view=map` its map is the same map, App.jsx with `components/MapView.jsx` and `components/explore/`) is the Explore page of the design system (`BRAND_GUIDELINES.md`): the shared header, a
 heading with the main search (`explore/ExploreHero`), and one workspace under it: the toolbar (city, All / Startups / VCs, Filters, Map / List), a results column on the
 left (`explore/ResultsColumn`: one row per company or investor, "View all results", the Collections card) and the map on the right. It draws startups and venture capital
 firms on one Leaflet map. On a phone the column is the bottom sheet (`explore/ResultsSheet`).

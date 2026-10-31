@@ -1,0 +1,912 @@
+{
+ "source_id": "blackbird-portfolio",
+ "publisher": "Blackbird",
+ "kind": "vc_portfolio",
+ "investor": "Blackbird",
+ "list_url": "https://www.blackbird.vc/portfolio",
+ "retrieved_at": "2026-10-30T23:29:13.954Z",
+ "robots": "robots.txt read and obeyed by the fetcher before every page",
+ "leads": [
+  {
+   "key": "airwallex",
+   "name": "Airwallex",
+   "website": "https://www.airwallex.com/",
+   "description": "Airwallex is a leading global financial platform for modern businesses, offering trusted solutions to manage everything from business accounts, payments, and spend management to embedded finance.",
+   "profile_url": "https://www.blackbird.vc/portfolio/airwallex",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "baseten",
+   "name": "Baseten",
+   "website": "https://www.baseten.co/",
+   "description": "Baseten is a San Francisco-based AI infrastructure platform that specializes in high-performance model inference. Baseten gives teams the infrastructure and engineering depth to run AI systems in production at scale.",
+   "profile_url": "https://www.blackbird.vc/portfolio/baseten",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "canva",
+   "name": "Canva",
+   "website": "https://www.canva.com/",
+   "description": "Since launching in August 2013, Canva has been changing the way in which we communicate. Today, more than 60 million users across 190 countries use Canva every month, with more than 7 billion designs created.",
+   "profile_url": "https://www.blackbird.vc/portfolio/canva",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "culture-amp",
+   "name": "Culture Amp",
+   "website": "http://cultureamp.com/",
+   "description": "Culture Amp is the leading People & Culture Platform helping companies take action to improve employee engagement, retention and performance. Culture Amp is a Culture First certified B Corporation used by 2,750+ customers including Aegon, Airbnb, Go Cardless, KIND Snacks, McDonald’s and many more.",
+   "profile_url": "https://www.blackbird.vc/portfolio/culture-amp",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "eucalyptus",
+   "name": "Eucalyptus",
+   "website": "http://eucalyptus.vc/",
+   "description": "Eucalyptus is setting out to build a conglomerate of direct-to-consumer healthcare brands.The company’s first product is Pilot, a medical advisor for a generation of young men that are poorly served by the medical community.",
+   "profile_url": "https://www.blackbird.vc/portfolio/eucalyptus",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "fleet-space-technologies",
+   "name": "Fleet Space Technologies",
+   "website": "http://fleet.space/",
+   "description": "Fleet is an agile space company connecting the Internet of Things around the world using a massive fleet of small low-cost satellites. They're making it faster, simpler and cheaper to connect the world’s devices.",
+   "profile_url": "https://www.blackbird.vc/portfolio/fleet-space-technologies",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "gilmour-space-technologies",
+   "name": "Gilmour Space Technologies",
+   "website": "http://gspacetech.com/",
+   "description": "Gilmour Space Technologies is a leading Australian rocket company that is developing and launching low cost hybrid launch vehicles for small satellites to LEO from 2021.",
+   "profile_url": "https://www.blackbird.vc/portfolio/gilmour-space-technologies",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "halter",
+   "name": "Halter",
+   "website": "https://halterhq.com/",
+   "description": "Halter is an AgTech startup designing and building advanced technology to remotely guide animals. The team is working rapidly to push the boundaries of what it is possible for our technology to achieve, with the vision is to enable a future of fence-less farming which is more efficient for farmers.",
+   "profile_url": "https://www.blackbird.vc/portfolio/halter",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "heidi-health",
+   "name": "Heidi Health",
+   "website": "https://www.heidihealth.com.au/",
+   "description": "Heidi is changing the way students learn clinical reasoning with innovative tools like AI virtual patients. Every student that uses Oscer is helping the company build its medical knowledge graph that will help patients around the world.",
+   "profile_url": "https://www.blackbird.vc/portfolio/heidi-health",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "mitti",
+   "name": "Mitti",
+   "website": "https://mitti.com/",
+   "description": "Mitti is the operations system for the frontline, used by more than two million workers across 80,000 organizations worldwide. Mitti helps teams see what's happening across their operations and turn it into answers and action.",
+   "profile_url": "https://www.blackbird.vc/portfolio/mitti",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "partly",
+   "name": "Partly",
+   "website": "https://www.partly.com/",
+   "description": "Partly's mission is to reimagine how the world interacts with vehicle parts in smarter ways that build a more connected and lasting world. Partly offers three solutions: PartsPal, Partly Marketplace, UVDB - the Universal Vehicle Database.",
+   "profile_url": "https://www.blackbird.vc/portfolio/partly",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "psiquantum",
+   "name": "PsiQuantum",
+   "website": "https://psiquantum.com/",
+   "description": "Powered by breakthroughs in silicon photonics and quantum architecture, PsiQuantum is on course to build the world’s first commercially viable quantum computer to solve some of the world’s most important challenges.",
+   "profile_url": "https://www.blackbird.vc/portfolio/psiquantum",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "accelo",
+   "name": "Accelo",
+   "website": "http://accelo.com/",
+   "description": "Accelo is the smart technology platform that gets you back to doing the work you love by automating and streamlining work into one, integrated system. With Accelo client accounts, projects, timesheets and more, everything is tracked for you - so you can spend less time in meetings.",
+   "profile_url": "https://www.blackbird.vc/portfolio/accelo",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "adora",
+   "name": "Adora",
+   "website": "https://www.adora.so/",
+   "description": "Adora maps your entire live product experience in real time. Every screen, every journey, every interaction across all languages, devices, and user types. AI analyses your entire experience and flags the issues that matter, like frustration points, broken flows, and hidden friction.",
+   "profile_url": "https://www.blackbird.vc/portfolio/adora",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "alloy-index",
+   "name": "Alloy",
+   "website": "http://alloy.app/",
+   "description": "Index is the new product planning and discovery tool for Product Managers. Collect ideas, manage feedback, and build product plans. Blackbird invested in Index in 2024. Read more on our portfolio page.",
+   "profile_url": "https://www.blackbird.vc/portfolio/alloy-index",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "alloy",
+   "name": "Alloy Robotics",
+   "website": "https://www.usealloy.ai/",
+   "description": "Alloy builds data infrastructure for modern robotics teams, enabling them to spend more time improving robots and less time handling data. Alloy's platform allows teams to automatically organize, search, and analyze robot data using natural language.",
+   "profile_url": "https://www.blackbird.vc/portfolio/alloy",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "alts",
+   "name": "Alts",
+   "website": "http://alts.co/",
+   "description": "Alts is the world's largest alternative investing community, with 50,000+ members (and growing) across its newsletter, podcast, and Discord. Where there are investible assets, there are markets.",
+   "profile_url": "https://www.blackbird.vc/portfolio/alts",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "ao-air",
+   "name": "Ao Air",
+   "website": "https://www.ao-air.com/",
+   "description": "Ao Air’s mission is simple: to empower the world to live, work, and play without fear of the air they breathe. Ao Air is building the next generation of respiratory protection starting with the ATMOS wearable to replace the cloth-based N95 masks.",
+   "profile_url": "https://www.blackbird.vc/portfolio/ao-air",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "applied",
+   "name": "Applied",
+   "website": "http://beapplied.com/",
+   "description": "Applied is a recruitment platform that gives you world leading behavioural science to remove bias and improve predictive validity in hiring. The platform makes hiring smart, fair, and easy, using research and analytics to ensure you hire the best person for the job, irrespective of their background.",
+   "profile_url": "https://www.blackbird.vc/portfolio/applied",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "aquila",
+   "name": "Aquila",
+   "website": "https://www.aquila.earth/",
+   "description": "Aquila Is a Deep Tech Australasian Start-Up Based Out Of Australia and New Zealand Building a Scalable Energy Network via Light-Beams and Solar Technology",
+   "profile_url": "https://www.blackbird.vc/portfolio/aquila",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "ask-nicely",
+   "name": "Ask Nicely",
+   "website": "http://asknicely.com/",
+   "description": "AskNicely is the customer experience platform for front-line teams in people-powered businesses.It's mission is to help businesses drive customer happiness by collecting feedback directly after an experience (based on the NPS framework) and enabling your people to take action immediately.",
+   "profile_url": "https://www.blackbird.vc/portfolio/ask-nicely",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "atticus",
+   "name": "Atticus",
+   "website": "https://atticus.tech/",
+   "description": "Atticus builds premium tools to support professionals working in regulated environments. The team has a vision to create a more trusted world of business, backed by a team and community that people love being a part of.",
+   "profile_url": "https://www.blackbird.vc/portfolio/atticus",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "august-robotics",
+   "name": "August Robotics",
+   "website": "http://augustrobotics.com/",
+   "description": "August Robotics’ mission is to build a suite of application-specific robots to automate workflows for businesses. August Robotics believes in the potential for robots and humans to collaborate and co-operate, enhancing business workflows in a manner that benefits people and businesses everywhere.",
+   "profile_url": "https://www.blackbird.vc/portfolio/august-robotics",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "authsignal",
+   "name": "AuthSignal",
+   "website": "https://www.authsignal.com/",
+   "description": "Authsignal is a B2C consumer authentication and orchestration platform. Powered by a single API, enterprise and mid-market teams can deploy omnichannel authentication and verification flows in lightning-fast times.",
+   "profile_url": "https://www.blackbird.vc/portfolio/authsignal",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "azonic",
+   "name": "Azonic",
+   "website": "https://azonic.ai/",
+   "description": "Azonic is a unified intelligence platform for law enforcement and intelligence agencies investigating online crime. It brings the data, tools and analysis an investigation needs into one system, so a single analyst can do work that used to take a team.",
+   "profile_url": "https://www.blackbird.vc/portfolio/azonic",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "baraja-1",
+   "name": "Baraja",
+   "website": "http://baraja.com/",
+   "description": "Self-driving is hard, your choice of LiDAR shouldn't be. Baraja has invented a new type of LiDAR called Spectrum-Scan™ which delivers the highest performance available to address the challenge of self-driving cars.",
+   "profile_url": "https://www.blackbird.vc/portfolio/baraja-1",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "bellish",
+   "name": "Bellish",
+   "website": "http://www.bellish.co/",
+   "description": "A full set of digital tools for interactive knitting and crochet patterns. Bellish had 60,000 downloads on Apple devices (80 per cent in North America) with more than 115,000 designs created by June 2020. Bellish is a free tool created to help make knitting as accessible as possible.",
+   "profile_url": "https://www.blackbird.vc/portfolio/bellish",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "black-ai",
+   "name": "Black.ai",
+   "website": "http://black.ai/",
+   "description": "Black.ai's autonomous retail platform maps and monitors retail stores in real-time using a small number of discrete 3D sensors that are built into the ceiling space.Their technology maintains a virtual 'cart' for each customer, reliably detecting all product interactions by customers in store.",
+   "profile_url": "https://www.blackbird.vc/portfolio/black-ai",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "blinq",
+   "name": "Blinq",
+   "website": "https://blinq.me/",
+   "description": "Blinq makes it easy for anyone to share their professional identity instantly online or in person, via a digital business card, email signature or video call background. With Blinq, you can quickly create multiple profiles to control which information you share, and with whom.",
+   "profile_url": "https://www.blackbird.vc/portfolio/blinq",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "bugcrowd",
+   "name": "Bugcrowd",
+   "website": "http://bugcrowd.com/",
+   "description": "Bugcrowd is the #1 crowdsourced security platform. More enterprise organizations trust Bugcrowd to manage their bug bounty, vulnerability disclosure, attack surface management and next-gen pen test programs.",
+   "profile_url": "https://www.blackbird.vc/portfolio/bugcrowd",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "build-club",
+   "name": "Build Club",
+   "website": "https://www.buildclub.ai/",
+   "description": "Build Club, founded by Annie Liao, is an AI e-learning platform empowering builders through hands-on, gamified AI education. With 4,500+ APAC members, it offers a cutting-edge curriculum, exclusive perks, and a bounty marketplace for real-world AI challenges.",
+   "profile_url": "https://www.blackbird.vc/portfolio/build-club",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "caligra",
+   "name": "Caligra",
+   "website": "https://caligra.com/",
+   "description": "Caligra is building a new brand of developer-first computing. By removing consumer features and distractions, we give you more power, speed, and control. Our goal is to empower millions of creative developers to deliver progress sooner.",
+   "profile_url": "https://www.blackbird.vc/portfolio/caligra",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "carbonchain",
+   "name": "CarbonChain",
+   "website": "https://carbonchain.com/",
+   "description": "CarbonChain is the world’s first platform for companies in the extractive industries to track the carbon emissions of their supply chains. The platform supports a wide range of hard and soft commodities thanks to a database of greenhouse gas emissions factors collected from over 10,000 assets.",
+   "profile_url": "https://www.blackbird.vc/portfolio/carbonchain",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "carepatron",
+   "name": "Carepatron",
+   "website": "https://www.carepatron.com/",
+   "description": "We help small health practices do more of what they love. Carepatron is your Healthcare Workspace - Manage your clients, scheduling, and billing from one secure app.",
+   "profile_url": "https://www.blackbird.vc/portfolio/carepatron",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "carted",
+   "name": "Carted",
+   "website": "https://www.carted.com/",
+   "description": "Carted is building the future of commerce. Carted enables developers to make commerce seamless by connecting them to millions of merchants and billions of products with a single API.",
+   "profile_url": "https://www.blackbird.vc/portfolio/carted",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "checkmate",
+   "name": "Checkmate",
+   "website": "https://joincheckmate.com/",
+   "description": "Checkmate is a personalized tool that helps smart shoppers get more savings and enjoyment out of online shopping. Checkmate streamlines the entire eCommerce experience.",
+   "profile_url": "https://www.blackbird.vc/portfolio/checkmate",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "chuffed",
+   "name": "Chuffed",
+   "website": "http://chuffed.org/",
+   "description": "Chuffed.org is a global crowdfunding platform for social cause projects. Since launching in October 2013, Chuffed.org has raised over $27M from for more than 8000 social cause projects from supporter in 152 countries.",
+   "profile_url": "https://www.blackbird.vc/portfolio/chuffed",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "clove",
+   "name": "Clove",
+   "website": "https://clove.kitchen/",
+   "description": "We are excited to announce that Blackbird has led a US$2.75M pre-Seed round in Clove. Clove is a smart platform for creating, sharing and discovering recipes with ease.",
+   "profile_url": "https://www.blackbird.vc/portfolio/clove",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "clutch-glue",
+   "name": "CLUTCH Glue",
+   "website": "https://clutchglue.com/",
+   "description": "CLUTCH is a liquid fashion tape that holds clothes in place and comes out in the wash. A first-of-its-kind, patented product, CLUTCH is hypoallergenic, vegan, cruelty free and palm oil free and packaged in 100% recyclable and recycled packaging. Blackbird invested in 2024.",
+   "profile_url": "https://www.blackbird.vc/portfolio/clutch-glue",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "coherence-neuro",
+   "name": "Coherence Neuro",
+   "website": "https://coherenceneuro.com/",
+   "description": "Coherence is led by cofounders, Ben Woodington (ex-medical device engineer and neurotech researcher) and Elise Jenkins (electrical engineer turned neuro-oncology researcher) who undertook their PhDs in the Bioelectronics Laboratory at the University of Cambridge.",
+   "profile_url": "https://www.blackbird.vc/portfolio/coherence-neuro",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "coinjar",
+   "name": "CoinJar",
+   "website": "http://coinjar.com/",
+   "description": "CoinJar is one of the longest-running cryptocurrency exchanges. Their services allow users to buy, sell, store and spend digital assets.As an award-winning startup, they're known for our simple and easy-to-use products.",
+   "profile_url": "https://www.blackbird.vc/portfolio/coinjar",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "cortical-labs",
+   "name": "Cortical Labs",
+   "website": "https://corticallabs.com/",
+   "description": "Cortical Labs is building a neural computing platform that uses biological systems in the hope of allowing computers to achieve a level of fluid intelligence, a type of intelligence beyond the reach of conventional processors.",
+   "profile_url": "https://www.blackbird.vc/portfolio/cortical-labs",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "cotiss",
+   "name": "Cotiss",
+   "website": "https://www.cotiss.com/",
+   "description": "Cotiss is the world's easiest to use, end-to-end procurement software, specifically built for small and medium procurement teams. It's also one of our portfolio companies here at Blackbird. Learn more about the team and what they're building here.",
+   "profile_url": "https://www.blackbird.vc/portfolio/cotiss",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "cyble",
+   "name": "Cyble",
+   "website": "https://cyble.io/",
+   "description": "Cyble is an AI-powered cyber intelligence company that empowers organisations with dark web cybercrime monitoring and migration services. The mission is ultimately to pick up threats far earlier in the cyber attack cycle.",
+   "profile_url": "https://www.blackbird.vc/portfolio/cyble",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "darwinium",
+   "name": "Darwinium",
+   "website": "https://www.darwinium.com/",
+   "description": "Darwinium is a new approach to customer interaction, designed to delight not insult, detect not disable and automate not overload. It is security and protection at scale, with low-touch integration and immediate control. A decision control platform that is future-proofed against new and evolving bus",
+   "profile_url": "https://www.blackbird.vc/portfolio/darwinium",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "dgraph",
+   "name": "Dgraph",
+   "website": "http://dgraph.io/",
+   "description": "Dgraph is an open source, low-latency, high throughput, native and distributed graph database. Designed to easily scale, DGraph can handle terabytes of structured data running on commodity hardware with low latency for real time user queries.",
+   "profile_url": "https://www.blackbird.vc/portfolio/dgraph",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "dovetail",
+   "name": "Dovetail",
+   "website": "https://dovetail.com/",
+   "description": "Dovetail was created in 2017 by two ex-Atlassians: Benjamin Humphrey and Bradley Ayers. They started Dovetail because they believe that deeply understanding one’s customers is the secret ingredient to making great products.",
+   "profile_url": "https://www.blackbird.vc/portfolio/dovetail",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "earth-ai",
+   "name": "EARTH AI",
+   "website": "http://earth-ai.com/",
+   "description": "EARTH AI invented breakthrough mineral targeting technology that found copper, zinc and vanadium mineral prospects >100X cheaper and faster than traditional mineral exploration.",
+   "profile_url": "https://www.blackbird.vc/portfolio/earth-ai",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "edrolo",
+   "name": "Edrolo",
+   "website": "http://edrolo.com/",
+   "description": "Edrolo brings high-quality digital content from global partnerships with top educators to thousands of classrooms, priced on a subject-based subscription model.",
+   "profile_url": "https://www.blackbird.vc/portfolio/edrolo",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "elevio",
+   "name": "Elevio",
+   "website": "http://elev.io/",
+   "description": "Elevio is a Customer Education Platform, that drives up engagement while reducing support loads for sites, by delivering the relevant help they need where and when they need it.",
+   "profile_url": "https://www.blackbird.vc/portfolio/elevio",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "elto",
+   "name": "Elto",
+   "website": "http://elto.com/",
+   "description": "Elto is a curated marketplace of expert marketers and developers who help small business owners grow their businesses online.Elto connected non-technical business owners to a curated pool of developers & marketers, and then helped manage their projects to completion.",
+   "profile_url": "https://www.blackbird.vc/portfolio/elto",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "elyos",
+   "name": "Elyos",
+   "website": "https://elyos.ai/",
+   "description": "Elyos provides AI agents for plumbers, electricians, and other field services. Our agents answer calls, reply to emails and WhatsApp messages, make bookings, take payments, and operate the CRM in the same way a human would.",
+   "profile_url": "https://www.blackbird.vc/portfolio/elyos",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "energybank",
+   "name": "EnergyBank",
+   "website": "https://www.energybank.nz/",
+   "description": "EnergyBank is a New Zealand startup pioneering a novel battery technology for medium and long-duration energy storage. EnergyBank will allow energy generators and owners to smooth the supply and demand of renewable energy.",
+   "profile_url": "https://www.blackbird.vc/portfolio/energybank",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "enhance-labs",
+   "name": "Enhance Labs",
+   "website": "https://enhancelabs.ai/",
+   "description": "Enhance Labs builds software for people who think out loud.Knowledge work has a clarity problem, not a speed problem. Hours disappear into circling drafts and second-guessing decisions. Most tools make it faster to produce words. None of them help you think.",
+   "profile_url": "https://www.blackbird.vc/portfolio/enhance-labs",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "entrylevel",
+   "name": "EntryLevel",
+   "website": "https://www.entrylevel.net/",
+   "description": "EntryLevel was set up with one goal: help people find meaningful employment. The company offers guaranteed experiences at the best companies, so you can break out of the no-experience, no job cycle.",
+   "profile_url": "https://www.blackbird.vc/portfolio/entrylevel",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "excellent",
+   "name": "Excellent",
+   "website": "https://www.excellent.io/",
+   "description": "Designing impactful experiences with employee’s input as the foundation takes skills, process, and talent. Excellent exists for the people who are charged with taking that input and making it real in their workplace communities.",
+   "profile_url": "https://www.blackbird.vc/portfolio/excellent",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "fable",
+   "name": "Fable",
+   "website": "https://fablefood.co/",
+   "description": "Fable are creating delicious alternatives to meat. Their food is created using ingredients that are as minimally processed as possible. Fable is based on shiitake mushrooms which make up 2/3 of the ingredient list.",
+   "profile_url": "https://www.blackbird.vc/portfolio/fable",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "factor",
+   "name": "Factor",
+   "website": "https://usefactor.com/",
+   "description": "Factor is a SaaS energy pricing and forecasting toolkit that replaces slow, manual processes with precise, real-time modelling for even the most complex energy contracts. We give modern energy companies the speed and flexibility to bring market-responsive products to scale.",
+   "profile_url": "https://www.blackbird.vc/portfolio/factor",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "factor-house",
+   "name": "Factor House",
+   "website": "https://factorhouse.io/",
+   "description": "Built for Engineers. Trusted by Enterprises. Made for Real-Time Data. Factor House delivers Kpow for Apache Kafka and Flex for Apache Flink, providing visibility, control, and governance to streamline real-time data management.",
+   "profile_url": "https://www.blackbird.vc/portfolio/factor-house",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "first-aml",
+   "name": "First AML",
+   "website": "https://www.firstaml.com/",
+   "description": "First AML wants to own the end-to-end customer onboarding journey for financial and professional services. Its ultimate vision is to be the ‘buy now’ button for the checkouts for the world’s most expensive goods and services, those sold by financial institutions and professional services.",
+   "profile_url": "https://www.blackbird.vc/portfolio/first-aml",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "fl0",
+   "name": "FL0",
+   "website": "https://fl0.com/",
+   "description": "FL0 (pronounced “flow”) is a startup pioneering a new category in software engineering, “Dev Acceleration” or “Dev Acceleration as a Service” (DAAS). Through its Dev Acceleration platform, FL0 supercharges back-end engineers with the power of coding in a low-code format.",
+   "profile_url": "https://www.blackbird.vc/portfolio/fl0",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "forage",
+   "name": "Forage",
+   "website": "https://www.theforage.com/",
+   "description": "Forage believes that talent is evenly distributed, but opportunity is not. It wants to build a world where every student has the opportunity to build vital career skills and industry knowledge for free, and in so doing, give everyone the chance to discover and land their dream job.",
+   "profile_url": "https://www.blackbird.vc/portfolio/forage",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "forte",
+   "name": "Forte",
+   "website": "https://forteofficial.com/",
+   "description": "Forte is a new, better way to invest in human potential. It is a way to finance re-skilling at no cost to either individuals or governments, and without needing philanthropy.",
+   "profile_url": "https://www.blackbird.vc/portfolio/forte",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "foundry-lab",
+   "name": "Foundry Lab",
+   "website": "https://www.foundry-lab.com/",
+   "description": "Based in Wellington, New Zealand, Foundry Lab has developed microwave casting technology that makes same-day turnaround of metal castings possible. These production-identical parts have applications in mass manufacturing industries where metal 3D printing cannot reach.",
+   "profile_url": "https://www.blackbird.vc/portfolio/foundry-lab",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "general-compute-inc",
+   "name": "General Compute Inc.",
+   "website": "https://www.generalcompute.com/",
+   "description": "General Compute is the deployment arm for heterogeneous AI compute, helping inference clouds serve tokens up to 40x faster at a lower blended cost than GPU-only infrastructure.",
+   "profile_url": "https://www.blackbird.vc/portfolio/general-compute-inc",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "hall",
+   "name": "Hall",
+   "website": "https://usehall.com/",
+   "description": "Hall is building the infrastructure for AI marketing as conversational platforms become the next major customer acquisition channel. Hall enables businesses to understand, measure, and optimise their presence across these platforms.",
+   "profile_url": "https://www.blackbird.vc/portfolio/hall",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "harrisonai",
+   "name": "HarrisonAI",
+   "website": "https://www.harrison.ai/",
+   "description": "Harrison.ai is developing artificial intelligence tools for the healthcare industry. Unlike many medical AI companies, Harrison does not work on single point solutions but rather partners with large private healthcare providers.",
+   "profile_url": "https://www.blackbird.vc/portfolio/harrisonai",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "hypr",
+   "name": "HYPR",
+   "website": "https://hypr.co/",
+   "description": "Founded in 2020 by Tim Kentley Klay, who previously founded Zoox, HYPRLABS, based in San Francisco and Paris, creates novel, paradigm shifting AI-native robots that learn at run-time, in-situ. From city streets to racetracks, our systems adapt through immersive, live learning.",
+   "profile_url": "https://www.blackbird.vc/portfolio/hypr",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "iceberg-quantum",
+   "name": "Iceberg Quantum",
+   "website": "https://iceberg-quantum.com/",
+   "description": "Iceberg Quantum is designing the next generation of fault-tolerant quantum architectures to accelerate the advent of useful quantum computing. Founded by Sam Smith, Larry Cohen and Felix Thomsen, the company was founded in 2024 and we first met the founders through our Foundry program.",
+   "profile_url": "https://www.blackbird.vc/portfolio/iceberg-quantum",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "instant",
+   "name": "Instant",
+   "website": "https://www.instantcheckout.com.au/",
+   "description": "In just 18 months, Instant has delivered tens of millions of dollars in returns to Australia, Asia, and US-based online retail SMBs. They’ve done this by tackling what SMBs retailers cite as their biggest challenge in 2024: skyrocketing customer acquisition costs.",
+   "profile_url": "https://www.blackbird.vc/portfolio/instant",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "inventia-life-sciences",
+   "name": "Inventia Life Sciences",
+   "website": "http://inventia.com.au/",
+   "description": "Inventia Life Science is advancing 3D bioprinting technology to revolutionise biomedical research and regenerative medicine. Their strong foundation of fundamental research has led to the development of a proprietary platform encompassing bioprinting technology.",
+   "profile_url": "https://www.blackbird.vc/portfolio/inventia-life-sciences",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "ivo",
+   "name": "Ivo",
+   "website": "https://www.ivo.ai/",
+   "description": "Ivo is the leading contract intelligence platform for enterprise legal and business teams - reviewing, negotiating, and extracting the intelligence businesses run on. Trusted by IBM, Uber, and Intel, Ivo turns every agreement into a competitive asset.",
+   "profile_url": "https://www.blackbird.vc/portfolio/ivo",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "juno",
+   "name": "Juno",
+   "website": "https://heyjuno.co/",
+   "description": "Juno's founders (Michelle and Josh) have spent over a decade investigating human behaviour and making valuable meaning from human experiences. After years of human-led behavioural research, they knew there had to be a faster, more effective way to do this. So they built Juno.",
+   "profile_url": "https://www.blackbird.vc/portfolio/juno",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "karbon",
+   "name": "Karbon",
+   "website": "http://karbonhq.com/",
+   "description": "Practice management for modern accounting firms. Karbon provides a truly collaborative platform for accounting firms to manage workflows, communicate with teams and deliver exceptional client work.",
+   "profile_url": "https://www.blackbird.vc/portfolio/karbon",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "kiki",
+   "name": "Kiki",
+   "website": "https://kiki.club/",
+   "description": "Kiki, is a private peer-to-peer subletting club that is unlocking friendship and a new way of living. Born in Wellington, battle-hardened in Sydney, and now conquering New York City, we’re excited to back Toby, Jack and Alex as they rewrite the playbook on subletting.",
+   "profile_url": "https://www.blackbird.vc/portfolio/kiki",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "kinde",
+   "name": "Kinde",
+   "website": "https://kinde.com/",
+   "description": "Kinde is a software company that builds beautifully simple dev-acceleration infrastructure for SaaS teams. We are on a mission to reinvent the way software companies get started.",
+   "profile_url": "https://www.blackbird.vc/portfolio/kinde",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "kwetta",
+   "name": "Kwetta",
+   "website": "https://kwetta.com/",
+   "description": "Kwetta has built a grid-first EV charging solution that unlocks up to 10x more power at constrained sites—without waiting years (or spending millions) on grid upgrades. Kwetta’s Prime Grid Gateway connects directly to high-voltage networks, delivering megawatt-scale charging for less.",
+   "profile_url": "https://www.blackbird.vc/portfolio/kwetta",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "leonardo-ai",
+   "name": "Leonardo AI",
+   "website": "https://leonardo.ai/",
+   "description": "Leonardo is a Sydney based generative AI art platform, initially targeting game creators. Leonardo is a fast growing startup, with 100,000+ signups on their waitlist and 8 million images generated in just 3 months.",
+   "profile_url": "https://www.blackbird.vc/portfolio/leonardo-ai",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "lexer",
+   "name": "Lexer",
+   "website": "https://lexer.io/",
+   "description": "Lexer is a SaaS business with a customer data platform (CDP) that allows brands and retailers of all sizes to better understand their customers and then use that data to drive growth.Lexer is the central record of customer data, which then makes that data actionable across a suite of analytics and w",
+   "profile_url": "https://www.blackbird.vc/portfolio/lexer",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "lifx",
+   "name": "LIFX",
+   "website": "http://lifx.com/",
+   "description": "Introducing Smarter Light. Our Wi-fi connected, voice-enabled, simple, smart lighting can change the way you light your home.LIFX is innovating new ways to bring you simplicity and sophistication in how you light your home.",
+   "profile_url": "https://www.blackbird.vc/portfolio/lifx",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "lorikeet",
+   "name": "Lorikeet",
+   "website": "https://www.lorikeetcx.ai/",
+   "description": "In a world where responsive, personalised, and effective customer support is table stakes, businesses with the highest CX standards deploy Lorikeet's AI agents to solve the most complicated cases in the most complex industries.",
+   "profile_url": "https://www.blackbird.vc/portfolio/lorikeet",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "magicbrief",
+   "name": "MagicBrief",
+   "website": "https://magicbrief.com/",
+   "description": "MagicBrief, an AdTech software company aiming to inspire a new generation of brands to find their voice and aesthetic, concepting to build advertising ideas that win, and briefing to give creators a suite of brand knowledge, values, as well as creative guidelines, all in the one place.",
+   "profile_url": "https://www.blackbird.vc/portfolio/magicbrief",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "marloo",
+   "name": "Marloo",
+   "website": "http://www.gomarloo.com/",
+   "description": "Marloo is an AI-assistant that empowers financial advisers to focus on what matters: building client relationships and growing revenue. We start by automating the tedious task of creating meeting file notes, saving advisers one hour per day.",
+   "profile_url": "https://www.blackbird.vc/portfolio/marloo",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "marqo",
+   "name": "Marqo",
+   "website": "https://www.marqo.ai/",
+   "description": "Search the way you think. Marqo is a tensor-based search and analytics engine that seamlessly integrates with your applications, websites, and workflows.",
+   "profile_url": "https://www.blackbird.vc/portfolio/marqo",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "mentorloop",
+   "name": "Mentorloop",
+   "website": "http://mentorloop.com/",
+   "description": "Mentorloop is a cloud-based mentoring software platform which enables organisations to match their people into effective mentorships at any scale - improving mentoring outcomes and saving program coordinators time.",
+   "profile_url": "https://www.blackbird.vc/portfolio/mentorloop",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "mint-innovation",
+   "name": "Mint",
+   "website": "https://www.mint.bio/",
+   "description": "Mint's vision is to provide a low cost, sustainable solution to recover precious metals from the urban mine, by having a biorefinery in every major city around the world.",
+   "profile_url": "https://www.blackbird.vc/portfolio/mint-innovation",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "moregooddays",
+   "name": "MoreGoodDays",
+   "website": "https://www.moregooddays.com/",
+   "description": "The vision for MoreGoodDays is to make the best chronic pain treatment accessible to everyone that needs it, and to do so with a product that is affordable and scalable. Founded by Neala Fulia, it is creating the future of chronic pain management.",
+   "profile_url": "https://www.blackbird.vc/portfolio/moregooddays",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "morse-micro",
+   "name": "Morse Micro",
+   "website": "http://www.morsemicro.com/",
+   "description": "Morse Micro is a fast-growing fabless semiconductor company developing Wi-Fi HaLow solutions for the Internet of Things (IoT) market that can reach 10x the range of conventional Wi-Fi technology and last many years on a single battery.",
+   "profile_url": "https://www.blackbird.vc/portfolio/morse-micro",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "movus",
+   "name": "Movus",
+   "website": "http://movus.com.au/",
+   "description": "Movus' goal is to bring consumer simplicity, combined with artificial intelligence to enable smarter machines. MOVUS is transforming dumb machines into ‘smarter machines’.",
+   "profile_url": "https://www.blackbird.vc/portfolio/movus",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "multitudes",
+   "name": "Multitudes",
+   "website": "https://www.multitudes.co/",
+   "description": "Multitudes provides insights and coaching to unlock happier, higher-performing teams. They integrate with the tools you already use at work – starting with GitHub and Slack – to highlight blind spots and to provide recommendations on how to improve.",
+   "profile_url": "https://www.blackbird.vc/portfolio/multitudes",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "myagi",
+   "name": "Myagi",
+   "website": "http://myagi.com/",
+   "description": "Myagi is a Channel Sales Enablement platform that lets you deliver the right knowledge to the right people at the right time across multiple employees, teams, regions, and even other companies.",
+   "profile_url": "https://www.blackbird.vc/portfolio/myagi",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "nextwork",
+   "name": "NextWork",
+   "website": "http://www.nextwork.org/",
+   "description": "NextWork is building the world's largest platform for learning workforce skills, by transforming the way people learn online. NextWork has reimagined the way people learn by delivering courses that match each person’s unique learning style and adjust on-the-fly according to their prior knowledge.",
+   "profile_url": "https://www.blackbird.vc/portfolio/nextwork",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "nomad-atomics",
+   "name": "Nomad Atomics",
+   "website": "https://www.nomadatomics.com/",
+   "description": "Nomad Atomics specialises in the development of high-precision quantum sensors for the application of supporting safe underground mining operations and have built a sensor that can create a detailed and accurate map of the deep underground while its user stands at the Earth’s surface.",
+   "profile_url": "https://www.blackbird.vc/portfolio/nomad-atomics",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "nura",
+   "name": "Nura",
+   "website": "http://nuraphone.com/",
+   "description": "We all hear differently and this is the secret to sound clarity that is perfect for you. Nuraphones are personalised to you, understanding how you hear the moment you put them on and filling the gaps in your hearing.",
+   "profile_url": "https://www.blackbird.vc/portfolio/nura",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "one-future-football",
+   "name": "One Future Football",
+   "website": "https://onefuturefootball.com/",
+   "description": "One Future Football is a New Global Football League Designed for the New Generation of Football Fan Founded by Rohit Bhargava and Peter Davis and funded by Blackbird VC",
+   "profile_url": "https://www.blackbird.vc/portfolio/one-future-football",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "opendebt",
+   "name": "OpenDebt",
+   "website": "https://opendebt.ai/",
+   "description": "OpenDebt is building an AI-native approach to debt collection that responds to people’s circumstances and fundamentally improves the economics of recovery. Its vision is to make every collection conversation an opportunity to understand, adapt and find a sustainable way forward.",
+   "profile_url": "https://www.blackbird.vc/portfolio/opendebt",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "openstar",
+   "name": "OpenStar",
+   "website": "https://www.openstar.tech/",
+   "description": "OpenStar is an energy startup pursuing the development of fusion reactors for baseload power to the grid. Building upon the groundbreaking experiments of the levitated dipole pioneered by LDX at MIT, OpenStar embraces the natural stability inherent to the dipole field.",
+   "profile_url": "https://www.blackbird.vc/portfolio/openstar",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "autopilot",
+   "name": "Ortto",
+   "website": "https://ortto.com/",
+   "description": "Autopilot is simple and visual marketing automation software trusted and loved by thousands of teams around the world. It helps marketers capture and convert new leads, connect with customers and create loyal repeat buyers.",
+   "profile_url": "https://www.blackbird.vc/portfolio/autopilot",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "polymath",
+   "name": "Polymath",
+   "website": "https://polymath.how/",
+   "description": "Polymath imagines a world where the most exciting digital experience is one where kids can learn in a meaningful, expansive, and exciting way. Starting with maths (because the world needs it), we’re creating self-directed, engaging experiences that empower kids to learn on their own terms.",
+   "profile_url": "https://www.blackbird.vc/portfolio/polymath",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  },
+  {
+   "key": "process-street",
+   "name": "Process Street",
+   "website": "http://process.st/",
+   "description": "Process Street is a SaaS application for businesses to build and track their processes using superpowered checklists. Businesses need processes to scale.",
+   "profile_url": "https://www.blackbird.vc/portfolio/process-street",
+   "list_url": "https://www.blackbird.vc/portfolio",
+   "retrieved_at": "2026-10-30T23:29:13.954Z"
+  }
+ ],
+ "problems": []
+}
