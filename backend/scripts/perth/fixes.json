@@ -1,0 +1,98 @@
+{
+  "note": "Corrections a person made after reading a company's own pages, applied by `import.mjs fixes`. Each is recorded in the audit trail. An evidence row is never deleted: a row that is wrong is marked rejected, or superseded, with the reason.",
+  "companies": {
+    "roborigger": {
+      "reject_evidence": [
+        {
+          "id": "roborigger.address.www-roborigger-com-au-contact",
+          "status": "rejected",
+          "note": "The address of a Roborigger agent in Victoria (Victoria National Site Services), listed under 'Roborigger agents' on the page: not the company's own place."
+        }
+      ],
+      "add_evidence": [
+        {
+          "field": "address",
+          "value": "1131 Hay Street, West Perth, 6005, WA, Australia",
+          "url": "https://www.roborigger.com.au/contact",
+          "confidence": "high",
+          "note": "Its own contact page: 'Head Office'."
+        }
+      ]
+    },
+    "amlab": {
+      "reject_evidence": [
+        {
+          "id": "amlab.address.amlab-com-au-contact.2",
+          "status": "superseded",
+          "note": "The company's R&D facility, recorded as a location of its own (company_locations): the head office is the address of the record."
+        }
+      ],
+      "add_locations": [
+        {
+          "id": "amlab.facility.osborne-park",
+          "kind": "OTHER",
+          "label": "R&D facility",
+          "address": "26 Collingwood Street, Osborne Park, WA, 6017",
+          "suburb": "Osborne Park",
+          "city": "Perth",
+          "state": "WA",
+          "postcode": "6017",
+          "url": "https://amlab.com.au/contact"
+        }
+      ]
+    },
+    "vitruvian-form": {
+      "reject_evidence": [
+        {
+          "id": "vitruvian-form.address.vitruvianform-com-en-au-policies-terms-of-service",
+          "status": "superseded",
+          "note": "The same address as the privacy policy's, with a clause number run into it ('483 of 15 Gordon Street')."
+        }
+      ]
+    },
+    "plancare": {
+      "reject_evidence": [
+        {
+          "id": "plancare.address.plancare-com-au-get-in-touch.2",
+          "status": "superseded",
+          "note": "PlanCare's Parramatta office, recorded as a location of its own (company_locations): the Perth address is the address of the record."
+        }
+      ],
+      "add_locations": [
+        {
+          "id": "plancare.office.parramatta",
+          "kind": "OFFICE",
+          "label": "Parramatta office",
+          "address": "Level 5, 91 Phillip Street, Parramatta, NSW 2150",
+          "suburb": "Parramatta",
+          "city": "Sydney",
+          "state": "NSW",
+          "postcode": "2150",
+          "url": "https://plancare.com.au/get-in-touch"
+        }
+      ]
+    },
+    "hyprfire": {
+      "reject_evidence": [
+        {
+          "id": "hyprfire.address.www-hyprfire-com-contact-us.2",
+          "status": "superseded",
+          "note": "The Perth address with the Sydney office's address run into it; the Sydney office is recorded as a location of its own (company_locations)."
+        }
+      ],
+      "add_locations": [
+        {
+          "id": "hyprfire.office.sydney",
+          "kind": "OFFICE",
+          "label": "Sydney office",
+          "address": "1 Sussex Street, Barangaroo, NSW 2000",
+          "suburb": "Barangaroo",
+          "city": "Sydney",
+          "state": "NSW",
+          "postcode": "2000",
+          "url": "https://www.hyprfire.com/contact-us"
+        }
+      ]
+    }
+  }
+}

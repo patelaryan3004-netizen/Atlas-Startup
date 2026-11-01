@@ -1,0 +1,2351 @@
+{
+  "title": "Still Early — Perth startup research list",
+  "researched_on": "2026-10-31",
+  "geography": "Greater Perth, including Fremantle and metropolitan suburbs; additional WA-linked leads are separated.",
+  "completeness": "Non-exhaustive research list, not a verified census of active Perth startups.",
+  "counts": {
+    "total": 210,
+    "perth_location_evidence": 34,
+    "perth_directory_only": 40,
+    "established_tech": 10,
+    "additional_leads": 126
+  },
+  "import_guidance": [
+    "Do not publish every row as a confirmed Perth startup. Retain group and perth_relationship fields.",
+    "Confirm operating status, company identity, official domain, logo and location before publication.",
+    "No street coordinates were collected. Do not pin every company at the Perth CBD centroid or invent addresses.",
+    "Website links are included only when identified in consulted sources. Null means not independently identified here.",
+    "Investor portfolios, awards and programme membership establish association, not headquarters.",
+    "Research date is the date consulted; it is not a claim that each source was updated that day.",
+    "No user website or database was modified."
+  ],
+  "group_definitions": {
+    "perth_evidence": "Perth location reported in company, partner, registry, or other named source. This does not always prove headquarters or current trading status.",
+    "perth_directory_listing": "Listed in a Perth directory. Location and trading status need independent confirmation.",
+    "wa_portfolio_lead": "Named in a WA investor portfolio. Investment by a WA fund does not establish a Perth location.",
+    "plus_eight_alumni": "Earlier Plus Eight alumni. Current business identity, trading status and Perth location need checking.",
+    "venture_uwa_2025_2026": "Venture UWA incubator listing. Includes early concepts. Confirm entity and Perth location.",
+    "curtin_accelerate_2026": "Curtin Accelerate cohort. WA programme participation does not establish a Perth office.",
+    "plus_eight_2026": "2026 Plus Eight cohort. Confirm current entity, domain and Perth office.",
+    "perth_pre_accelerator_2026": "City of Perth pre-accelerator cohort. Includes concepts, services and brands rather than only incorporated technology startups.",
+    "wa_awards_2026": "WA innovation award finalist. Confirm Greater Perth location; WA is not synonymous with Perth.",
+    "biodesign_lead": "Perth Biodesign association. Confirm current location and business identity.",
+    "established_or_listed_tech": "Established, acquired or listed technology business to keep separate from early-stage startups."
+  },
+  "companies": [
+    {
+      "name": "Absolute VR",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Access Beyond",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "AchieveAble",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Agent Anorak",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Agora Livestock",
+      "sector": "Industry / climate / agriculture",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Agworld",
+      "sector": "Agriculture software",
+      "website": "https://www.agworld.com/",
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.startupblink.com/top-startups/perth-au"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "Airclinix",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "aisembl",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "AiSpanner",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "AMLab",
+      "sector": "Industrial automation",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://techboard.com.au/company-profile/amlab/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Anticipa",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Appbot",
+      "sector": "Software",
+      "website": "https://appbot.co/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://abr.business.gov.au/ABN/View?id=601945715"
+      ],
+      "note": null
+    },
+    {
+      "name": "Arbela",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "ArchitectIQ",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Ari Save",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "ArthroLase",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Artrya",
+      "sector": "Health / AI",
+      "website": null,
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "Ascend Labs",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "AshForge Structures",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Asset Workflows",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Atherid Therapeutics",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Atliis Studio",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Augment Technologies",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Auto Scraper Maker",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Avicena Systems",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Bamboo",
+      "sector": "Fintech",
+      "website": "https://www.getbamboo.io/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://au.linkedin.com/company/getbambooapp"
+      ],
+      "note": null
+    },
+    {
+      "name": "Biotome",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Black Swan Biotech",
+      "sector": "Health / biotech",
+      "website": "https://www.blackswanbio.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.blackswanbio.com/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Blest Pets",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Bobbleware",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Brew Network",
+      "sector": "Consumer / marketplaces",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Bucket Lyst",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "CAD Spectral Technologies",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Caligra",
+      "sector": "Computing hardware",
+      "website": "https://caligra.com/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.purpose.ventures/our-portfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "Capability X",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Capsule Labs",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Cars Like",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "CaseMate",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "Catalyst",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Chironix",
+      "sector": "Robotics",
+      "website": "https://chironix.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://chironix.com/contact-us/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Common Fate",
+      "sector": "Cybersecurity",
+      "website": "https://www.commonfate.io/",
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Contec Australia",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "CoraMetix",
+      "sector": "Health / biotech",
+      "website": "https://corametix.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://au.linkedin.com/company/corametix"
+      ],
+      "note": null
+    },
+    {
+      "name": "Cordially",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "CorePlan",
+      "sector": "Mining technology",
+      "website": "https://www.coreplan.io/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.coreplan.io/newsroom/springtech-rebrands-to-coreplan"
+      ],
+      "note": null
+    },
+    {
+      "name": "Cortical Dynamics",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Coursebox",
+      "sector": "Education",
+      "website": "https://www.coursebox.ai/",
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Cribber",
+      "sector": "Workplace communication",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://techboard.com.au/company-profile/cribber/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Crossover App",
+      "sector": "Consumer / marketplaces",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Cupflick",
+      "sector": "Consumer / marketplaces",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "CYNDR",
+      "sector": "Software",
+      "website": "https://www.cyndr.ai/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://au.linkedin.com/company/capabilityintelligence"
+      ],
+      "note": null
+    },
+    {
+      "name": "Cytophenix",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Database for Buildings",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Dayworkbook",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Déjà Vu",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Detail Earth",
+      "sector": "Geospatial imagery",
+      "website": "https://detail.earth/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.fundwa.com.au/fundwaportfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "DUG Technology",
+      "sector": "Computing / data",
+      "website": "https://www.dug.com/",
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.startupblink.com/top-startups/perth-au"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "Earflo",
+      "sector": null,
+      "website": null,
+      "group": "biodesign_lead",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet"
+      ],
+      "note": null
+    },
+    {
+      "name": "EarnOS",
+      "sector": "Consumer / marketplaces",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Easy Property Listings",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "EchoNova",
+      "sector": null,
+      "website": null,
+      "group": "biodesign_lead",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet"
+      ],
+      "note": null
+    },
+    {
+      "name": "Edible Cutlery",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Eikonic",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Einsen Innovations",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Ekion",
+      "sector": "Industry / climate / agriculture",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Elastik",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Enrola",
+      "sector": "Sales software",
+      "website": "https://getenrola.com/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.purpose.ventures/our-portfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "Enzide Technologies",
+      "sector": "Climate / materials",
+      "website": "https://www.enzidetech.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.enzidetech.com/contact"
+      ],
+      "note": null
+    },
+    {
+      "name": "eQua Design",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Flowbat",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Fly High Digital",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "FlyOnE",
+      "sector": "Industry / climate / agriculture",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Gawawater",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Gene S",
+      "sector": "Health / biotech",
+      "website": "https://www.gene-s.com/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.purpose.ventures/our-portfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "GenLearn",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Genvis",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "GeoMoby",
+      "sector": "Location technology",
+      "website": "https://geomoby.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://geomoby.com/technology/"
+      ],
+      "note": null
+    },
+    {
+      "name": "GlowDry",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "GrainMarket",
+      "sector": "Industry / climate / agriculture",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Gridcog",
+      "sector": "Energy software",
+      "website": "https://www.gridcog.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_office_uk_headquarters",
+      "sources": [
+        "https://www.verbund.com/en/group/news-press/press-releases/2026/7/14/verbund-x-ventures-invests-in-clean-tech-startup-gridcog"
+      ],
+      "note": "Investor announcement dated July 2026 identifies UK headquarters and a Perth office."
+    },
+    {
+      "name": "groundpath",
+      "sector": "Consumer / marketplaces",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Healthengine",
+      "sector": "Healthcare software",
+      "website": "https://healthengine.com.au/",
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://au.linkedin.com/company/healthengine"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "HealthMesh",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Hola Health",
+      "sector": "Health / biotech",
+      "website": "https://hola.health/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://au.linkedin.com/company/holahealth",
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Hyperion Systems",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Hyprfire",
+      "sector": "Cybersecurity",
+      "website": "https://www.hyprfire.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.hyprfire.com/contact-us"
+      ],
+      "note": null
+    },
+    {
+      "name": "i-screen",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "icetana",
+      "sector": "Video analytics",
+      "website": null,
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "IDEAcademy",
+      "sector": "Education",
+      "website": "https://ideacademy.com.au/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.purpose.ventures/our-portfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "Inspiring Holdings",
+      "sector": "Health / biotech",
+      "website": "https://irdd.com.au/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.fundwa.com.au/fundwaportfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "InterEarth",
+      "sector": "Climate / carbon",
+      "website": "https://www.inter.earth/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.inter.earth/our-team/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Iron Flow Solutions",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "iyarn",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "K3-Team",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Kin Childcare",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Knode",
+      "sector": "Industry / climate / agriculture",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Komo",
+      "sector": null,
+      "website": "https://www.komo.tech/",
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": "Previously QuizJam / Komo Digital; one company record."
+    },
+    {
+      "name": "Kooda",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Ksatria Medical Systems",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Law Captain",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Lera",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Lily and Fox",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "LITT",
+      "sector": "Consumer / marketplaces",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Lixa",
+      "sector": "Health / biotech",
+      "website": "https://www.lixa.life/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.lixa.life/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Materia Health",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Matilda Health",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Menuzen",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Micromine",
+      "sector": "Mining software",
+      "website": null,
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "Minerva",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Mole-Clue",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Momentify",
+      "sector": null,
+      "website": "https://peachie.au/",
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": "Programme source links the venture to peachie.au; verify current brand/domain."
+    },
+    {
+      "name": "Moodle",
+      "sector": "Education software",
+      "website": "https://moodle.com/",
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.startupblink.com/top-startups/perth-au"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "Multi-Coached",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Mureus",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Musify",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "My Mirror",
+      "sector": "Health / biotech",
+      "website": "https://www.mymirror.com.au/",
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "NeuroAnalyse",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Next Generation Sensors",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "North Australian SeaCulture",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Ocean Hex",
+      "sector": null,
+      "website": "https://oceanhex.com.au/",
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "Ocean Planet",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Omni Biotech",
+      "sector": "Health / wearables",
+      "website": "https://omnibiotech.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://omnibiotech.com.au/"
+      ],
+      "note": null
+    },
+    {
+      "name": "On The House",
+      "sector": "Consumer / social enterprise",
+      "website": "https://onthehousegroup.com/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.purpose.ventures/our-portfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "OncoRes Medical",
+      "sector": "Health / biotech",
+      "website": "https://www.oncoresmedical.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.oncoresmedical.com/"
+      ],
+      "note": null
+    },
+    {
+      "name": "OnDuty",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "OneBase",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "OreNova Engineering",
+      "sector": null,
+      "website": "https://www.orenovaengineering.com/",
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "Orijin Plus",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Oto Medicines",
+      "sector": null,
+      "website": null,
+      "group": "wa_awards_2026",
+      "perth_relationship": "wa_award_not_location_proof",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Paperly",
+      "sector": "Education software",
+      "website": "https://paperly.education/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://paperly.education/pages/locations",
+        "https://www.purpose.ventures/our-portfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "PaySpread",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Peolia",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Personr",
+      "sector": "Identity / compliance",
+      "website": "https://personr.co/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://personr.co/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Pharmacy Halo",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Pigeon Tales",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Pikko",
+      "sector": "Pet food",
+      "website": "https://pikko.com.au/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.fundwa.com.au/fundwaportfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "Piksort",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "PlanCare",
+      "sector": "Health / biotech",
+      "website": "https://plancare.com.au/",
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Plico",
+      "sector": "Energy",
+      "website": "https://www.plicoenergy.com.au/",
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.startupblink.com/top-startups/perth-au"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "PoliHomes",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Portable PPB",
+      "sector": "Mineral analysis",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://techboard.com.au/company-profile/portable-ppb/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Powerledger",
+      "sector": "Energy software",
+      "website": "https://powerledger.io/",
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://international.austrade.gov.au/content/dam/austrade-assets/international/documents/reports/australian-clean-energy-equipment-technology-services.pdf"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "Pretect Devices",
+      "sector": null,
+      "website": null,
+      "group": "biodesign_lead",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet"
+      ],
+      "note": null
+    },
+    {
+      "name": "Quarterback",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "RateIt",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Ready Team One",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "RealtyAssist Australia",
+      "sector": "Fintech / property",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "RecruitMate AI",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "Reinvention Bestie",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Relait",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Renewable Metals",
+      "sector": "Battery recycling",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.third-derivative.org/portfolio/renewable-metals"
+      ],
+      "note": null
+    },
+    {
+      "name": "Respiradigm",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Rhizo Tech (Canopy)",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Rise-X",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Roborigger",
+      "sector": "Robotics",
+      "website": "https://www.roborigger.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.roborigger.com.au/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Romi",
+      "sector": null,
+      "website": "https://www.hikewithromi.com/",
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "Safe Call Up",
+      "sector": null,
+      "website": "https://www.safecallup.com.au/",
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "SavvyWise",
+      "sector": "Accounting software",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://startupnews.com.au/news/savvywise-closes-1-56-million-crowdfunding-raise-backed-by-accountants/"
+      ],
+      "note": null
+    },
+    {
+      "name": "SeaStock",
+      "sector": "Seaweed biotechnology",
+      "website": "https://www.seastock.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.seastock.com.au/perth-company-seastock-granted-licence-to-sell-livestock-feed-supplement-asparagopsis/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Semester Student Planner",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "Shiine Media",
+      "sector": "Advertising technology",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.ventureuwa.com.au/event-details/how-i-built-this-hear-from-nathan-wipane-founder-of-shiine-media"
+      ],
+      "note": null
+    },
+    {
+      "name": "Simplafy",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "SMYL",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Snackr",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "SolaH20",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": "Spelling as published by the programme; confirm official brand."
+    },
+    {
+      "name": "SONEVO",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Sonowest Healthcare",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "SpaceDraft",
+      "sector": "Software",
+      "website": "https://spacedraft.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://au.linkedin.com/company/spacedraft"
+      ],
+      "note": null
+    },
+    {
+      "name": "SpacetoCo",
+      "sector": "Consumer / marketplaces",
+      "website": "https://www.spacetoco.com/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://walga.asn.au/suppliers/preferred-supplier-directory/spacetoco",
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "StayOnHire",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": "Previously Idle Australia; one company record."
+    },
+    {
+      "name": "Stryd",
+      "sector": "Fintech / property",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Success Meter",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Sunfish Robotics",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Suss Beauty",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Syqei",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Takedown Sports Nutrition",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Talk2View",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Teleios",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Tender Relief",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Terra15",
+      "sector": "Industrial sensing",
+      "website": "https://terra15.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://terra15.com.au/contact/"
+      ],
+      "note": null
+    },
+    {
+      "name": "That's Brave",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "The Khüsh Place",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "The Tooth Market",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "The UNCØMMN",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "The Volte",
+      "sector": "Consumer / marketplaces",
+      "website": "https://www.thevolte.com/",
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Themba",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "THF Engineered Solutions",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Thor AI",
+      "sector": "Professional services AI",
+      "website": "https://www.thoraigroup.com.au/",
+      "group": "wa_portfolio_lead",
+      "perth_relationship": "wa_investor_portfolio_not_location_proof",
+      "sources": [
+        "https://www.fundwa.com.au/fundwaportfolio"
+      ],
+      "note": null
+    },
+    {
+      "name": "Three Little Pixels",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Three Springs Technology",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Tradable",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "TradieScribe",
+      "sector": null,
+      "website": "https://tradiescribe.com.au/",
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "TRUXE",
+      "sector": null,
+      "website": "https://www.truxe.com.au/",
+      "group": "plus_eight_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+      ],
+      "note": null
+    },
+    {
+      "name": "TutorsGrid",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "uDrew",
+      "sector": null,
+      "website": null,
+      "group": "plus_eight_alumni",
+      "perth_relationship": "perth_programme_history",
+      "sources": [
+        "https://pluseight.spacecubed.com/accelerator/alumni"
+      ],
+      "note": null
+    },
+    {
+      "name": "Uluu",
+      "sector": "Biomaterials",
+      "website": "https://www.uluu.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.uluu.com.au/about"
+      ],
+      "note": null
+    },
+    {
+      "name": "UnderlandEX",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Vacancee",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    },
+    {
+      "name": "Vedi",
+      "sector": "Health / biotech",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "VeinTech",
+      "sector": "Health / biotech",
+      "website": "https://www.veintech.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.veintech.com.au/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Velora",
+      "sector": null,
+      "website": null,
+      "group": "biodesign_lead",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet"
+      ],
+      "note": null
+    },
+    {
+      "name": "VGW",
+      "sector": "Gaming",
+      "website": null,
+      "group": "established_or_listed_tech",
+      "perth_relationship": "perth_listing_or_business_presence",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": "Separate from early-stage startups; check ownership/listing and current office before publication."
+    },
+    {
+      "name": "VitalTrace",
+      "sector": "Health / biotech",
+      "website": "https://vitaltrace.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://vitaltrace.com.au/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Vitruvian Form",
+      "sector": "Consumer / marketplaces",
+      "website": "https://vitruvianform.com/",
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "Vyklow Analytics",
+      "sector": "Software / AI",
+      "website": null,
+      "group": "perth_directory_listing",
+      "perth_relationship": "directory_lists_perth",
+      "sources": [
+        "https://www.remjobs.works/startups/australia/perth"
+      ],
+      "note": null
+    },
+    {
+      "name": "WaveX",
+      "sector": "Wave energy",
+      "website": null,
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists"
+      ],
+      "note": null
+    },
+    {
+      "name": "Wevolt",
+      "sector": "EV charging software",
+      "website": "https://wevolt.com.au/",
+      "group": "perth_evidence",
+      "perth_relationship": "perth_location_reported",
+      "sources": [
+        "https://wevolt.com.au/"
+      ],
+      "note": null
+    },
+    {
+      "name": "Wristband",
+      "sector": null,
+      "website": null,
+      "group": "venture_uwa_2025_2026",
+      "perth_relationship": "uwa_programme_not_location_proof",
+      "sources": [
+        "https://www.ventureuwa.com.au/business-directory"
+      ],
+      "note": null
+    },
+    {
+      "name": "Yalkarang Consulting",
+      "sector": null,
+      "website": null,
+      "group": "curtin_accelerate_2026",
+      "perth_relationship": "wa_programme_not_location_proof",
+      "sources": [
+        "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/"
+      ],
+      "note": null
+    },
+    {
+      "name": "ZapSplit",
+      "sector": null,
+      "website": null,
+      "group": "perth_pre_accelerator_2026",
+      "perth_relationship": "perth_programme_not_location_proof",
+      "sources": [
+        "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator"
+      ],
+      "note": null
+    }
+  ]
+}
+

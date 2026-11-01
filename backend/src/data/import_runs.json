@@ -1514,5 +1514,57 @@
       }
     ],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261031013903039",
+    "started_at": "2026-10-31T01:29:32.733Z",
+    "finished_at": "2026-10-31T01:39:03.039Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "perth-research-2026-10-31",
+        "leads": 198,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 198,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 575
+    },
+    "refused": [
+      {
+        "url": "https://arbela.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve arbela.io"
+      },
+      {
+        "url": "https://cyndr.ai/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://cyndr.ai/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://syqei.com/studio/privacy",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://terra15.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      }
+    ],
+    "acknowledged": []
   }
 ]

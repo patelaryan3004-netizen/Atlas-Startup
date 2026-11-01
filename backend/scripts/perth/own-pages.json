@@ -1,0 +1,4432 @@
+{
+ "rows": {
+  "achieveable": {
+   "website": "https://www.achieve-able.com.au",
+   "pages": [
+    {
+     "url": "https://www.achieve-able.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.achieve-able.com.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.achieve-able.com.au/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:21.128Z"
+  },
+  "agentanorak": {
+   "website": "https://agentanorak.com",
+   "pages": [
+    {
+     "url": "https://agentanorak.com/",
+     "status": 200
+    },
+    {
+     "url": "https://agentanorak.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://agentanorak.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://agentanorak.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://agentanorak.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://agentanorak.com/terms",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "au Post: GPO Box 5218, Sydney NSW 2001",
+     "url": "https://agentanorak.com/privacy",
+     "state": "NSW"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:28.647Z"
+  },
+  "agoralivestock": {
+   "website": "https://agoralivestock.com.au",
+   "pages": [
+    {
+     "url": "https://agoralivestock.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://agoralivestock.com.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://agoralivestock.com.au/about-marketplace/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au 191 St Georges Terrace, Perth WA 6000",
+     "url": "https://agoralivestock.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth WA",
+     "url": "https://agoralivestock.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:34.564Z"
+  },
+  "airclinix": {
+   "website": "https://airclinix.com.au",
+   "pages": [
+    {
+     "url": "https://airclinix.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:36.132Z"
+  },
+  "aispanner": {
+   "website": "https://aispanner.com.au",
+   "pages": [
+    {
+     "url": "https://aispanner.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://aispanner.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "res Execution About OFFICE 300 Murray Street, Level 2 East, The Wentworth Building, Perth WA 6000",
+     "url": "https://aispanner.com.au/about",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "OFFICE 300 Murray Street, Level 2 East, The Wentworth Building, Perth WA 6000 Australia Ph: +61 (0)",
+     "url": "https://aispanner.com.au/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "OFFICE 300 Murray Street, Level 2 East, The Wentworth Building, Perth WA 6000 Australia Ph: +61 (0)",
+     "url": "https://aispanner.com.au/about",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:38.140Z"
+  },
+  "amlab": {
+   "website": "https://amlab.com.au",
+   "pages": [
+    {
+     "url": "https://amlab.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://amlab.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://amlab.com.au/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "‍ Head office: 24 Hasler Road, Osborne Park, WA, 6017",
+     "url": "https://amlab.com.au/contact",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "R&D Facility: 26 Collingwood Street, Osborne Park, WA, 6017",
+     "url": "https://amlab.com.au/contact",
+     "kind": "OTHER"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Lab team met with ECU students at their Joondalup campus as part of the Get Con",
+     "url": "https://amlab.com.au/",
+     "kind": "OTHER"
+    },
+    {
+     "text": "Head office: 24 Hasler Road, Osborne Park, WA, 6017 R&D Facility: 26 Co",
+     "url": "https://amlab.com.au/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:41.475Z"
+  },
+  "anticipa": {
+   "website": "https://anticipa.com",
+   "pages": [
+    {
+     "url": "https://anticipa.com/",
+     "status": 200
+    },
+    {
+     "url": "https://anticipa.com/aviso-legal",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:44.453Z"
+  },
+  "appbot": {
+   "website": "https://appbot.co/",
+   "pages": [
+    {
+     "url": "https://appbot.co/",
+     "status": 200
+    },
+    {
+     "url": "https://appbot.co/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://appbot.co/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://appbot.co/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Officer Appbot Pty Ltd Unit 7, Level 1, 1050 Hay St, West Perth, Australia dataprotectionoffi",
+     "url": "https://appbot.co/privacy/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://appbot.co/terms/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:49.199Z"
+  },
+  "arbela": {
+   "website": "https://www.arbela.io/",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://arbela.io/",
+     "code": "dns_failed"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:08:59.417Z"
+  },
+  "arthrolase": {
+   "website": "https://www.arthrolase.com",
+   "pages": [
+    {
+     "url": "https://www.arthrolase.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.arthrolase.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.arthrolase.com/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "HQ, Perth Australia 30 Glyde St Mosman Park 6012 Australia Email enquirie",
+     "url": "https://www.arthrolase.com/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:53.340Z"
+  },
+  "ascendlabs": {
+   "website": "https://ascendlabs.com.au",
+   "pages": [
+    {
+     "url": "https://ascendlabs.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/agreement",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Headquarters Perth, WA UTC+8 Social Twitter Inst",
+     "url": "https://ascendlabs.com.au/company/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:58.724Z"
+  },
+  "atliisstudio": {
+   "website": "https://atliisstudio.com",
+   "pages": [
+    {
+     "url": "https://atliisstudio.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:11:59.740Z"
+  },
+  "augmenttechnologies": {
+   "website": "https://augmenttechnologies.ai",
+   "pages": [
+    {
+     "url": "https://augmenttechnologies.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://augmenttechnologies.ai/contacts/",
+     "status": 200
+    },
+    {
+     "url": "https://augmenttechnologies.ai/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ribe Now Contact Us For More Information Contact Details Address: 100 Hay Street, Subiaco WA 6008",
+     "url": "https://augmenttechnologies.ai/contacts/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Subiaco WA",
+     "url": "https://augmenttechnologies.ai/contacts/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:03.472Z"
+  },
+  "avicenasystems": {
+   "website": "https://avicenasystems.com",
+   "pages": [
+    {
+     "url": "https://avicenasystems.com/",
+     "status": 200
+    },
+    {
+     "url": "https://avicenasystems.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://avicenasystems.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://avicenasystems.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ms Limited ABN 70 643 590 078 Phone +61 8 6117 5828 Address 30 Coolgardie St, West Perth, WA 6005",
+     "url": "https://avicenasystems.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth, WA",
+     "url": "https://avicenasystems.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:10.658Z"
+  },
+  "bamboo": {
+   "website": "https://www.getbamboo.io/",
+   "pages": [
+    {
+     "url": "https://www.getbamboo.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.getbamboo.io/legal/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.getbamboo.io/legal/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://www.getbamboo.io/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Bamboo 61 Pty Ltd ABN 86 626 100 981 G/45 St Georges Terrace, Perth WA 6000",
+     "url": "https://www.getbamboo.io/legal/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "provided to you by Bamboo 61 Pty Ltd ABN 86 626 100 981, G/45 St Georges Terrace, Perth, WA 6000",
+     "url": "https://www.getbamboo.io/legal/terms/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth WA",
+     "url": "https://www.getbamboo.io/legal/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://www.getbamboo.io/legal/terms/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:16.855Z"
+  },
+  "biotome": {
+   "website": "https://www.biotome.com.au",
+   "pages": [
+    {
+     "url": "https://www.biotome.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.biotome.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.biotome.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.biotome.com.au/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "\") is based at the Harry Perkins Institute of Medical Research, 6 Verdun Street, Nedlands WA 6009",
+     "url": "https://www.biotome.com.au/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Nedlands, WA",
+     "url": "https://www.biotome.com.au/",
+     "kind": null
+    },
+    {
+     "text": "based at the Harry Perkins Institute of Medical Research, 6 Verdun Street, Nedlands WA 6009, Australia",
+     "url": "https://www.biotome.com.au/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Nedlands, WA",
+     "url": "https://www.biotome.com.au/contact",
+     "kind": null
+    },
+    {
+     "text": "Nedlands, WA",
+     "url": "https://www.biotome.com.au/about-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:23.482Z"
+  },
+  "blackswanbiotech": {
+   "website": "https://www.blackswanbio.com/",
+   "pages": [
+    {
+     "url": "https://www.blackswanbio.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.blackswanbio.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.blackswanbio.com/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth-based",
+     "url": "https://www.blackswanbio.com/about-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:28.108Z"
+  },
+  "bobbleware": {
+   "website": "https://www.bobbleware.com/",
+   "pages": [
+    {
+     "url": "https://www.bobbleware.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.bobbleware.com/policies/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.bobbleware.com/pages/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.bobbleware.com/pages/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Address 15/16 Yampi Way Willetton WA 6155",
+     "url": "https://www.bobbleware.com/pages/contact-us",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:34.195Z"
+  },
+  "caligra": {
+   "website": "https://caligra.com/",
+   "pages": [
+    {
+     "url": "https://caligra.com/",
+     "status": 200
+    },
+    {
+     "url": "https://caligra.com/legal/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://caligra.com/legal/terms-of-sale/",
+     "status": 200
+    },
+    {
+     "url": "https://caligra.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:43.596Z"
+  },
+  "capabilityx": {
+   "website": "https://www.capabilityx.com",
+   "pages": [
+    {
+     "url": "https://www.capabilityx.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.capabilityx.com/corporate-team",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "nce Board and Management Contact Control Centre and HQ 620, Gnangara Rd - Cullacabardee - WA 6067",
+     "url": "https://www.capabilityx.com/corporate-team",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:46.771Z"
+  },
+  "capsulelabs": {
+   "website": "https://capsulelabs.io",
+   "pages": [
+    {
+     "url": "https://capsulelabs.io/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:47.005Z"
+  },
+  "carslike": {
+   "website": "https://www.carslike.com.au",
+   "pages": [
+    {
+     "url": "https://www.carslike.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.carslike.com.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.carslike.com.au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.carslike.com.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://www.carslike.com.au/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:52.238Z"
+  },
+  "casemate": {
+   "website": "https://casemate.ai",
+   "pages": [
+    {
+     "url": "https://casemate.ai/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:12:53.009Z"
+  },
+  "catalyst": {
+   "website": "https://www.catalyst.com.au",
+   "pages": [
+    {
+     "url": "https://www.catalyst.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.catalyst.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.catalyst.com.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.catalyst.com.au/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "ct the Privacy Officer on the information below: Level 4, 2 Bligh Street SYDNEY NSW 2000",
+     "url": "https://www.catalyst.com.au/privacy-policy/",
+     "state": "NSW"
+    },
+    {
+     "text": "The contact details for OAIC are: Mail GPO box 5218 Sydney NSW 2001",
+     "url": "https://www.catalyst.com.au/privacy-policy/",
+     "state": "NSW"
+    },
+    {
+     "text": "The contact details for AFCA are: Mail GPO Box 3, Melbourne, VIC 3001",
+     "url": "https://www.catalyst.com.au/privacy-policy/",
+     "state": "VIC"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:01.329Z"
+  },
+  "chironix": {
+   "website": "https://chironix.com/",
+   "pages": [
+    {
+     "url": "https://chironix.com/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/terms-of-service/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Our Partners [email protected] Contact Us 3/33 Millrose Drive Malaga, WA, 6090",
+     "url": "https://chironix.com/",
+     "kind": null
+    },
+    {
+     "text": "com/privacy-policy [email protected] Contact Us 3/33 Millrose Drive Malaga, WA, 6090",
+     "url": "https://chironix.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "[email protected] Contact Us 3/33 Millrose Drive Malaga, WA, 6090",
+     "url": "https://chironix.com/terms-of-service/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Malaga, WA",
+     "url": "https://chironix.com/",
+     "kind": null
+    },
+    {
+     "text": "Malaga, WA",
+     "url": "https://chironix.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Malaga, WA",
+     "url": "https://chironix.com/terms-of-service/",
+     "kind": null
+    },
+    {
+     "text": "Head Office Unit 3/33 Millrose Dr, Malaga WA 6090 US Office Suite 200 1",
+     "url": "https://chironix.com/contact-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:06.549Z"
+  },
+  "commonfate": {
+   "website": "https://www.commonfate.io/",
+   "pages": [
+    {
+     "url": "https://www.commonfate.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.commonfate.io/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.commonfate.io/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.commonfate.io/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:11.582Z"
+  },
+  "corametix": {
+   "website": "https://corametix.com/",
+   "pages": [
+    {
+     "url": "https://corametix.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Subject Line Message Submit Or reach out through Linkedin Unit 3/4 Gould St, Osborne Park WA 6017",
+     "url": "https://corametix.com/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Osborne Park WA",
+     "url": "https://corametix.com/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:11.914Z"
+  },
+  "cordially": {
+   "website": "https://www.cordially.io",
+   "pages": [
+    {
+     "url": "https://www.cordially.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.cordially.io/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.cordially.io/terms-and-conditions",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:16.866Z"
+  },
+  "coreplan": {
+   "website": "https://www.coreplan.io/",
+   "pages": [
+    {
+     "url": "https://www.coreplan.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.coreplan.io/legal",
+     "status": 200
+    },
+    {
+     "url": "https://www.coreplan.io/personas/data-teams-mining-and-explorations",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:20.630Z"
+  },
+  "corticaldynamics": {
+   "website": "https://corticaldynamics.com",
+   "pages": [
+    {
+     "url": "https://corticaldynamics.com/",
+     "status": 200
+    },
+    {
+     "url": "https://corticaldynamics.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://corticaldynamics.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://corticaldynamics.com/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Head office Level 4, RPH Research and Innovation Centre 56 Murray Street Perth, WA 6000",
+     "url": "https://corticaldynamics.com/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head office Level 4, RPH Research and Innovation Centre 56 Murray Street Perth, WA 6000, Australia Get direc",
+     "url": "https://corticaldynamics.com/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:27.565Z"
+  },
+  "coursebox": {
+   "website": "https://www.coursebox.ai/",
+   "pages": [
+    {
+     "url": "https://www.coursebox.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://www.coursebox.ai/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.coursebox.ai/user-agreement",
+     "status": 200
+    },
+    {
+     "url": "https://www.coursebox.ai/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:33.405Z"
+  },
+  "cribber": {
+   "website": "https://cribber.ai",
+   "pages": [
+    {
+     "url": "https://cribber.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://cribber.ai/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://cribber.ai/terms",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:36.979Z"
+  },
+  "cyndr": {
+   "website": "https://www.cyndr.ai/",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://cyndr.ai/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:38.730Z"
+  },
+  "cytophenix": {
+   "website": "https://cytophenix.com",
+   "pages": [
+    {
+     "url": "https://cytophenix.com/",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "based in WA's research corridor in Perth",
+     "url": "https://cytophenix.com/",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://cytophenix.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://cytophenix.com/terms-of-service",
+     "kind": null
+    },
+    {
+     "text": "headquartered in Perth, WA — at the heart of Austral",
+     "url": "https://cytophenix.com/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:44.668Z"
+  },
+  "dayworkbook": {
+   "website": "https://dayworkbook.com",
+   "pages": [
+    {
+     "url": "https://dayworkbook.com/",
+     "status": 200
+    },
+    {
+     "url": "https://dayworkbook.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://dayworkbook.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://dayworkbook.com/about/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Contact Us DWB Technologies Pty Ltd T/A Dayworkbook, 79 St Georges Terrace Perth WA 6000",
+     "url": "https://dayworkbook.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "ontact Us DWB Technologies Pty Ltd T/A Dayworkbook, Level 1, 79 St Georges Terrace, Perth WA 6000",
+     "url": "https://dayworkbook.com/terms",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "based in Perth, WA, and we comply with the P",
+     "url": "https://dayworkbook.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "Perth WA",
+     "url": "https://dayworkbook.com/terms",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:49.808Z"
+  },
+  "detailearth": {
+   "website": "https://detail.earth/",
+   "pages": [
+    {
+     "url": "https://detail.earth/",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Suite 3, 128 Main Street, Osborne Park, WA, 6017",
+     "url": "https://detail.earth/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Osborne Park, WA",
+     "url": "https://detail.earth/privacy-policy",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:13:55.074Z"
+  },
+  "easypropertylistings": {
+   "website": "https://easypropertylistings.com.au",
+   "pages": [
+    {
+     "url": "https://easypropertylistings.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://easypropertylistings.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://codex.easypropertylistings.com.au/article/64-extensions-terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://easypropertylistings.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:03.368Z"
+  },
+  "echonova": {
+   "website": "https://echonova.com",
+   "pages": [
+    {
+     "url": "https://echonova.com/",
+     "status": 200
+    },
+    {
+     "url": "https://echonova.com/team-enablement",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:05.182Z"
+  },
+  "ediblecutlery": {
+   "website": "https://ediblecutlery.au",
+   "pages": [
+    {
+     "url": "https://ediblecutlery.au/",
+     "status": 200
+    },
+    {
+     "url": "https://ediblecutlery.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://ediblecutlery.au/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://ediblecutlery.au/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Level 1 Unit 7/25 Walters Dr, Osborne Park WA 6017",
+     "url": "https://ediblecutlery.au/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Osborne Park WA",
+     "url": "https://ediblecutlery.au/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:17.851Z"
+  },
+  "ekion": {
+   "website": "https://ekion.com.au",
+   "pages": [
+    {
+     "url": "https://ekion.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:18.097Z"
+  },
+  "elastik": {
+   "website": "https://elastik.com.au",
+   "pages": [
+    {
+     "url": "https://elastik.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://elastik.com.au/legal-information.html",
+     "status": 200
+    },
+    {
+     "url": "https://elastik.com.au/contact-us.html",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://elastik.com.au/about-us",
+     "code": "unsupported_content"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:24.089Z"
+  },
+  "enrola": {
+   "website": "https://getenrola.com/",
+   "pages": [
+    {
+     "url": "https://getenrola.com/",
+     "status": 200
+    },
+    {
+     "url": "https://getenrola.com/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://getenrola.com/legal/terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://getenrola.com/about-us/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "au Post: GPO Box 5288, Sydney NSW 2001",
+     "url": "https://getenrola.com/legal/privacy-policy",
+     "state": "NSW"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:29.071Z"
+  },
+  "enzidetechnologies": {
+   "website": "https://www.enzidetech.com/",
+   "pages": [
+    {
+     "url": "https://www.enzidetech.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Clayton 3800 Victoria Australia Get Directions Perth Level 2, 10 Outram Street West Perth WA 6005",
+     "url": "https://www.enzidetech.com/contact",
+     "kind": null
+    },
+    {
+     "text": "yton 3800 Victoria Australia Get Directions Perth Level 2, 10 Outram Street West Perth WA 6005 WA",
+     "url": "https://www.enzidetech.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth WA",
+     "url": "https://www.enzidetech.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "ce of the Australian Information Commissioner at: Address: GPO Box 5288, Sydney NSW 2001",
+     "url": "https://www.enzidetech.com/privacy",
+     "state": "NSW"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:34.845Z"
+  },
+  "flyhighdigital": {
+   "website": "https://www.flyhighdigital.com.au",
+   "pages": [
+    {
+     "url": "https://www.flyhighdigital.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "based in Perth, WA",
+     "url": "https://www.flyhighdigital.com.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T02:14:36.243Z"
+  },
+  "flyone": {
+   "website": "https://flyone.com.au",
+   "pages": [
+    {
+     "url": "https://flyone.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://flyone.com.au/investors/pvacy-policy/",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://flyone.com.au/shop/terms/",
+     "code": "network_error"
+    },
+    {
+     "url": "https://flyone.com.au/privacy-and-cookies-policy",
+     "code": "dns_failed"
+    }
+   ],
+   "addresses": [
+    {
+     "text": "Y INVESTORS EMPLOYMENT EOI Australia Head Office 3 Baron Way, Jandakot Airport, Jandakot, WA 6140",
+     "url": "https://flyone.com.au/investors/pvacy-policy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "au or contact us at U6, 320 Great Eastern highway, Ascot, WA, 6140",
+     "url": "https://flyone.com.au/investors/pvacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head Office 3 Baron Way, Jandakot Airport, Jandakot, WA 6140 CASA PART 119, 135,",
+     "url": "https://flyone.com.au/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head Office 3 Baron Way, Jandakot Airport, Jandakot, WA 6140 CASA PART 119, 135,",
+     "url": "https://flyone.com.au/investors/pvacy-policy/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-10-31T06:44:44.857Z"
+  },
+  "genes": {
+   "website": "https://www.gene-s.com/",
+   "pages": [
+    {
+     "url": "https://gene-s.com/",
+     "status": 200
+    },
+    {
+     "url": "https://gene-s.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://gene-s.com/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com 1st Fl, M Block, QEII Medical Centre, Nedlands WA 6009",
+     "url": "https://gene-s.com/about-us/",
+     "kind": null
+    },
+    {
+     "text": "PO Box 4056, Woodlands WA 6018",
+     "url": "https://gene-s.com/about-us/",
+     "kind": null
+    },
+    {
+     "text": "com Our Location 1st FI, M Block, QEIl Medical Centre, Nedlands WA 6009",
+     "url": "https://gene-s.com/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Nedlands WA",
+     "url": "https://gene-s.com/",
+     "kind": null
+    },
+    {
+     "text": "Nedlands WA",
+     "url": "https://gene-s.com/contact-us/",
+     "kind": null
+    },
+    {
+     "text": "Nedlands WA",
+     "url": "https://gene-s.com/about-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:03.986Z"
+  },
+  "genlearn": {
+   "website": "https://genlearn.ai",
+   "pages": [
+    {
+     "url": "https://genlearn.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://genlearn.ai/legal/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://genlearn.ai/legal/terms",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:09.771Z"
+  },
+  "genvis": {
+   "website": "https://genvis.co",
+   "pages": [
+    {
+     "url": "https://genvis.co/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:10.277Z"
+  },
+  "geomoby": {
+   "website": "https://geomoby.com/",
+   "pages": [
+    {
+     "url": "https://geomoby.com/",
+     "status": 200
+    },
+    {
+     "url": "https://geomoby.com/lp-contact-tracing/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com L1 1109 Hay St, West Perth WA 6005",
+     "url": "https://geomoby.com/lp-contact-tracing/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth WA",
+     "url": "https://geomoby.com/",
+     "kind": null
+    },
+    {
+     "text": "West Perth WA",
+     "url": "https://geomoby.com/lp-contact-tracing/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:12.490Z"
+  },
+  "gridcog": {
+   "website": "https://www.gridcog.com/",
+   "pages": [
+    {
+     "url": "https://www.gridcog.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.gridcog.com/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.gridcog.com/legal/user-terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.gridcog.com/energy-majors",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:17.496Z"
+  },
+  "groundpath": {
+   "website": "https://groundpath.com.au",
+   "pages": [
+    {
+     "url": "https://groundpath.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://groundpath.com.au/trust",
+     "status": 200
+    },
+    {
+     "url": "https://groundpath.com.au/terms",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:23.987Z"
+  },
+  "healthmesh": {
+   "website": "https://healthmesh.io",
+   "pages": [
+    {
+     "url": "https://healthmesh.io/",
+     "status": 200
+    },
+    {
+     "url": "https://healthmesh.io/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://healthmesh.io/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://healthmesh.io/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:34.660Z"
+  },
+  "holahealth": {
+   "website": "https://hola.health/",
+   "pages": [
+    {
+     "url": "https://hola.health/",
+     "status": 200
+    },
+    {
+     "url": "https://hola.health/about-hola-health/faq/how-is-hola-protecting-my-information-privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://hola.health/consult-terms/",
+     "status": 200
+    },
+    {
+     "url": "https://hola.health/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Head office: 9 The Esplanade, Perth WA 6000",
+     "url": "https://hola.health/contact/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "health Facebook Linkedin Instagram Youtube Head office: 9 The Esplanade, Perth WA 6000",
+     "url": "https://hola.health/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head office: 9 The Esplanade, Perth WA 6000 ABN 62 634 507 949 We",
+     "url": "https://hola.health/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head office: 9 The Esplanade, Perth WA 6000 ABN 62 634 507 949 We",
+     "url": "https://hola.health/about-hola-health/faq/how-is-hola-protecting-my-information-privacy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head office: 9 The Esplanade, Perth WA 6000 ABN 62 634 507 949 We",
+     "url": "https://hola.health/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:39.584Z"
+  },
+  "hyperionsystems": {
+   "website": "https://www.hyperionsystems.com.au",
+   "pages": [
+    {
+     "url": "https://www.hyperionsystems.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperionsystems.com.au/hyperion-systems/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperionsystems.com.au/hyperion-systems/legal/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperionsystems.com.au/hyperion-systems/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Offices Australia - Perth, WA | Sydney, NSW United Stat",
+     "url": "https://www.hyperionsystems.com.au/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Offices Australia - Perth, WA | Sydney, NSW United Stat",
+     "url": "https://www.hyperionsystems.com.au/hyperion-systems/legal/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Offices Australia - Perth, WA | Sydney, NSW United Stat",
+     "url": "https://www.hyperionsystems.com.au/hyperion-systems/legal/terms-of-service",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Offices Australia - Perth, WA | Sydney, NSW United Stat",
+     "url": "https://www.hyperionsystems.com.au/hyperion-systems/contact",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:44.846Z"
+  },
+  "hyprfire": {
+   "website": "https://www.hyprfire.com/",
+   "pages": [
+    {
+     "url": "https://www.hyprfire.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/website-terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Perth: Lv 32, 152 St George’s Terrace, Perth WA 6000",
+     "url": "https://www.hyprfire.com/contact-us",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth WA",
+     "url": "https://www.hyprfire.com/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "32, 152 St George’s Terrace, Perth WA 6000 Sydney: 1 Sussex Street, Barangaroo, NSW 2000",
+     "url": "https://www.hyprfire.com/contact-us",
+     "state": "WA"
+    },
+    {
+     "text": "Melbourne: 114 William Street, Melbourne VIC 3000",
+     "url": "https://www.hyprfire.com/contact-us",
+     "state": "VIC"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:50.611Z"
+  },
+  "iscreen": {
+   "website": "https://www.i-screen.com.au",
+   "pages": [
+    {
+     "url": "https://www.i-screen.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.i-screen.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.i-screen.com.au/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.i-screen.com.au/app/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "(D) Our Registered Office: 202/37 Barrack St, Perth WA 6000",
+     "url": "https://www.i-screen.com.au/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": ", Australia (E) Postal Address: PO Box 8441, South Perth WA 6151",
+     "url": "https://www.i-screen.com.au/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "au (b) Phone: 0290606208 (c) Mail: PO Box 8441, South Perth WA 6151",
+     "url": "https://www.i-screen.com.au/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office: 202/37 Barrack St, Perth WA 6000, Australia (E) Postal",
+     "url": "https://www.i-screen.com.au/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "office is at 202/37 Barrack St, Perth WA 6000, Australia",
+     "url": "https://www.i-screen.com.au/terms-and-conditions",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "au (b) Phone: 1300 363 992 (c) Mail: GPO Box 5218, Sydney NSW 2001",
+     "url": "https://www.i-screen.com.au/privacy-policy",
+     "state": "NSW"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:09:55.942Z"
+  },
+  "ideacademy": {
+   "website": "https://ideacademy.com.au/",
+   "pages": [
+    {
+     "url": "https://ideacademy.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://ideacademy.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://ideacademy.com.au/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://ideacademy.com.au/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au IDEA HQ FLUX Basement 191 St Georges Terrace Perth WA 6000",
+     "url": "https://ideacademy.com.au/about-us/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "IDEA HQ LOCATION IDEA HQ FLUX Basement, 191 St Georges Terrace, Perth WA 6000",
+     "url": "https://ideacademy.com.au/contact-us/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "(Click for Map) IDEA William Street LOCATION IDEA William Street 3/10 William St, Perth, WA, 6000",
+     "url": "https://ideacademy.com.au/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "HQ FLUX Basement 191 St Georges Terrace Perth WA 6000 1300 354 872 Facebook",
+     "url": "https://ideacademy.com.au/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "HQ FLUX Basement 191 St Georges Terrace Perth WA 6000 1300 354 872 Facebook",
+     "url": "https://ideacademy.com.au/privacy-policy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "HQ LOCATION IDEA HQ FLUX Basement, 191 St Georges Terrace, Perth WA 6000 When you enter the bu",
+     "url": "https://ideacademy.com.au/contact-us/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "HQ FLUX Basement 191 St Georges Terrace Perth WA 6000 1300 354 872 Facebook",
+     "url": "https://ideacademy.com.au/about-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:04.406Z"
+  },
+  "inspiringholdings": {
+   "website": "https://irdd.com.au/",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://irdd.com.au/",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:07.825Z"
+  },
+  "interearth": {
+   "website": "https://www.inter.earth/",
+   "pages": [
+    {
+     "url": "https://www.inter.earth/",
+     "status": 200
+    },
+    {
+     "url": "https://www.inter.earth/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://www.inter.earth/our-team/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "s & insights Are you ready to make an impact? InterEarth 147 Samson St, White Gum Valley, WA 6162",
+     "url": "https://www.inter.earth/",
+     "kind": null
+    },
+    {
+     "text": "earth InterEarth 147 Samson St, White Gum Valley, WA 6162",
+     "url": "https://www.inter.earth/contact-us/",
+     "kind": null
+    },
+    {
+     "text": "ast Name Email * Message * UTM UTM GCLID Send InterEarth 147 Samson St, White Gum Valley, WA 6162",
+     "url": "https://www.inter.earth/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:12.627Z"
+  },
+  "ironflowsolutions": {
+   "website": "https://ironflowsolutions.com.au",
+   "pages": [
+    {
+     "url": "https://ironflowsolutions.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://ironflowsolutions.com.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:13.307Z"
+  },
+  "iyarn": {
+   "website": "https://iyarn.com",
+   "pages": [
+    {
+     "url": "https://iyarn.com/",
+     "status": 200
+    },
+    {
+     "url": "https://iyarn.com/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://iyarn.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://iyarn.com/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:18.172Z"
+  },
+  "kinchildcare": {
+   "website": "https://www.kinchildcare.org",
+   "pages": [
+    {
+     "url": "https://www.kinchildcare.org/",
+     "status": 200
+    },
+    {
+     "url": "https://www.kinchildcare.org/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.kinchildcare.org/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:24.024Z"
+  },
+  "komo": {
+   "website": "https://www.komo.tech/",
+   "pages": [
+    {
+     "url": "https://www.komo.tech/",
+     "status": 200
+    },
+    {
+     "url": "https://www.komo.tech/compliance-security",
+     "status": 200
+    },
+    {
+     "url": "https://www.komo.tech/crm",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://www.komo.tech/us/terms-of-service",
+     "code": "unsupported_content"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:31.028Z"
+  },
+  "kooda": {
+   "website": "https://kooda.ai/en",
+   "pages": [
+    {
+     "url": "https://kooda.ai/en",
+     "status": 200
+    },
+    {
+     "url": "https://kooda.ai/en/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://kooda.ai/en/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://kooda.ai/en/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:40.009Z"
+  },
+  "lera": {
+   "website": "https://lera.com.au",
+   "pages": [
+    {
+     "url": "https://lera.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://lera.com.au/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://lera.com.au/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "au Unit 6, 50 Lawrence Drive, Nerang QLD 4211",
+     "url": "https://lera.com.au/contact-us/",
+     "state": "QLD"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:43.384Z"
+  },
+  "litt": {
+   "website": "https://litt.com.au/password",
+   "pages": [
+    {
+     "url": "https://litt.com.au/password",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:46.054Z"
+  },
+  "lixa": {
+   "website": "https://www.lixa.life/",
+   "pages": [
+    {
+     "url": "https://www.lixa.life/",
+     "status": 200
+    },
+    {
+     "url": "https://www.lixa.life/privacy-policy",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Home Science Pipeline Mission Invest Office: 22 Stirling Hwy, Nedlands, WA WA, 6009",
+     "url": "https://www.lixa.life/privacy-policy",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office: 22 Stirling Hwy, Nedlands, WA WA, 6009 Contact: info@li",
+     "url": "https://www.lixa.life/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office: 22 Stirling Hwy, Nedlands, WA WA, 6009 Contact: info@li",
+     "url": "https://www.lixa.life/privacy-policy",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:48.825Z"
+  },
+  "materiahealth": {
+   "website": "https://www.materiahealth.com.au",
+   "pages": [
+    {
+     "url": "https://www.materiahealth.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.materiahealth.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.materiahealth.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:53.652Z"
+  },
+  "matildahealth": {
+   "website": "https://matildahealth.org",
+   "pages": [
+    {
+     "url": "https://matildahealth.org/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:10:54.931Z"
+  },
+  "menuzen": {
+   "website": "https://www.menuzen.com",
+   "pages": [
+    {
+     "url": "https://www.menuzen.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.menuzen.com/policy-documents/core-site-privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.menuzen.com/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.menuzen.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "is Application is provided by: Menuzen Holdings Pty Ltd - Level 2/1 Prowse St, West Perth WA 6005",
+     "url": "https://www.menuzen.com/terms-of-service",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth WA",
+     "url": "https://www.menuzen.com/terms-of-service",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:04.314Z"
+  },
+  "minerva": {
+   "website": "https://minerva.com.au",
+   "pages": [
+    {
+     "url": "https://minerva.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://minerva.com.au/team/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "au Level 17, 400 George Street, Sydney NSW 2000",
+     "url": "https://minerva.com.au/team/",
+     "state": "NSW"
+    },
+    {
+     "text": "Level 18, Suite 1/60 Albert Road, South Melbourne VIC 3205",
+     "url": "https://minerva.com.au/team/",
+     "state": "VIC"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:07.464Z"
+  },
+  "moleclue": {
+   "website": "https://www.moleclue.com.au",
+   "pages": [
+    {
+     "url": "https://www.moleclue.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.moleclue.com.au/english-privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.moleclue.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.moleclue.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:13.532Z"
+  },
+  "momentify": {
+   "website": "https://peachie.au/",
+   "pages": [
+    {
+     "url": "https://peachie.au/",
+     "status": 200
+    },
+    {
+     "url": "https://peachie.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://peachie.au/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:18.358Z"
+  },
+  "musify": {
+   "website": "https://www.musify.au",
+   "pages": [
+    {
+     "url": "https://www.musify.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:18.912Z"
+  },
+  "mymirror": {
+   "website": "https://www.mymirror.com.au/",
+   "pages": [
+    {
+     "url": "https://www.mymirror.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.mymirror.com.au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.mymirror.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.mymirror.com.au/join-our-psychologists",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "fullest extent permitted by law, determined by arbitration in 160 Stirling Hwy, Nedlands WA 6009",
+     "url": "https://www.mymirror.com.au/terms",
+     "kind": null
+    },
+    {
+     "text": "9090 4730 Live chat Refer to us Address: My Mirror Level 1 160 Stirling Highway Nedlands WA 6009",
+     "url": "https://www.mymirror.com.au/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Nedlands, WA",
+     "url": "https://www.mymirror.com.au/terms",
+     "kind": null
+    },
+    {
+     "text": "Nedlands WA",
+     "url": "https://www.mymirror.com.au/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:24.278Z"
+  },
+  "oceanhex": {
+   "website": "https://oceanhex.com.au/",
+   "pages": [
+    {
+     "url": "https://oceanhex.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://oceanhex.com.au/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://oceanhex.com.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:27.078Z"
+  },
+  "oceanplanet": {
+   "website": "https://oceanplanet.com",
+   "pages": [
+    {
+     "url": "https://oceanplanet.com/",
+     "status": 200
+    },
+    {
+     "url": "https://oceanplanet.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:31.944Z"
+  },
+  "omnibiotech": {
+   "website": "https://omnibiotech.com.au/",
+   "pages": [
+    {
+     "url": "https://omnibiotech.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://privacy.omnibiotech.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "\"Us\" or \"Our\" in this Agreement) refers to Omni Industry Pty Ltd, 25 Money Street, Perth, 6000, WA",
+     "url": "https://privacy.omnibiotech.com.au/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://omnibiotech.com.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:33.580Z"
+  },
+  "onthehouse": {
+   "website": "https://onthehousegroup.com/",
+   "pages": [
+    {
+     "url": "https://onthehousegroup.com/",
+     "status": 200
+    },
+    {
+     "url": "https://onthehousegroup.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://onthehousegroup.com/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://onthehousegroup.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": ": Remy Tucker, On The House Group Pty Ltd Address: 23 Iris Place, Acacia Ridge, QLD 4110",
+     "url": "https://onthehousegroup.com/terms-and-conditions",
+     "state": "QLD"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:38.577Z"
+  },
+  "oncoresmedical": {
+   "website": "https://www.oncoresmedical.com/",
+   "pages": [
+    {
+     "url": "https://www.oncoresmedical.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.oncoresmedical.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.oncoresmedical.com/management",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ONCORES MEDICAL 24 Leura Street, Nedlands WA 6009",
+     "url": "https://www.oncoresmedical.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "based in Perth, WA",
+     "url": "https://www.oncoresmedical.com/",
+     "kind": null
+    },
+    {
+     "text": "Nedlands WA",
+     "url": "https://www.oncoresmedical.com/contact",
+     "kind": null
+    },
+    {
+     "text": "Perth based",
+     "url": "https://www.oncoresmedical.com/management",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:42.891Z"
+  },
+  "onduty": {
+   "website": "https://onduty.com.au",
+   "pages": [
+    {
+     "url": "https://onduty.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:43.195Z"
+  },
+  "onebase": {
+   "website": "https://www.onebasehealth.com/",
+   "pages": [
+    {
+     "url": "https://onebasehealth.com/en-au",
+     "status": 200
+    },
+    {
+     "url": "https://onebasehealth.com/en-au/pages/contact",
+     "status": 200
+    },
+    {
+     "url": "https://onebasehealth.com/en-au/pages/our-story",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:48.673Z"
+  },
+  "orenovaengineering": {
+   "website": "https://www.orenovaengineering.com/",
+   "pages": [
+    {
+     "url": "https://www.orenovaengineering.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.orenovaengineering.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.orenovaengineering.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.orenovaengineering.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Office Perth, WA © 2026 OreNova Engineerin",
+     "url": "https://www.orenovaengineering.com/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Perth, WA © 2026 OreNova Engineerin",
+     "url": "https://www.orenovaengineering.com/privacy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Based in Perth",
+     "url": "https://www.orenovaengineering.com/contact",
+     "kind": null
+    },
+    {
+     "text": "HEADQUARTERS Perth, WA REACH Engineering teams a",
+     "url": "https://www.orenovaengineering.com/about",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:11:53.743Z"
+  },
+  "orijinplus": {
+   "website": "https://www.orijinplus.global",
+   "pages": [
+    {
+     "url": "https://www.orijinplus.global/",
+     "status": 200
+    },
+    {
+     "url": "https://www.orijinplus.global/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.orijinplus.global/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.orijinplus.global/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:00.656Z"
+  },
+  "otomedicines": {
+   "website": "https://www.otomedicines.com",
+   "pages": [
+    {
+     "url": "https://www.otomedicines.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ss Oto Medicines Pty Ltd The Kids Research Institute Australia ​15 Hospital Ave ​Nedlands WA 6009",
+     "url": "https://www.otomedicines.com/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Nedlands WA",
+     "url": "https://www.otomedicines.com/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:01.874Z"
+  },
+  "paperly": {
+   "website": "https://paperly.education/",
+   "pages": [
+    {
+     "url": "https://au.paperly.education/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:04.863Z"
+  },
+  "payspread": {
+   "website": "https://payspread.com.au",
+   "pages": [
+    {
+     "url": "https://payspread.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://payspread.com.au/legal",
+     "status": 200
+    },
+    {
+     "url": "https://payspread.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://payspread.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:10.508Z"
+  },
+  "personr": {
+   "website": "https://personr.co/",
+   "pages": [
+    {
+     "url": "https://personr.co/",
+     "status": 200
+    },
+    {
+     "url": "https://personr.co/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://personr.co/legal-centre",
+     "status": 200
+    },
+    {
+     "url": "https://personr.co/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Services Accounting Real Estate DNFBPs Law Personr L32 152-158 St Georges Terrace, Perth, WA 6000",
+     "url": "https://personr.co/about-us",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://personr.co/",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://personr.co/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Based in Perth, WA, we aim to fight identity",
+     "url": "https://personr.co/legal-centre",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://personr.co/about-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:15.366Z"
+  },
+  "pharmacyhalo": {
+   "website": "https://www.pharmacyhalo.com.au",
+   "pages": [
+    {
+     "url": "https://www.pharmacyhalo.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.pharmacyhalo.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.pharmacyhalo.com.au/zephyr/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://www.pharmacyhalo.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:20.720Z"
+  },
+  "pikko": {
+   "website": "https://pikko.com.au/",
+   "pages": [
+    {
+     "url": "https://pikko.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://pikko.com.au/pages/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://pikko.com.au/pages/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:24.757Z"
+  },
+  "piksort": {
+   "website": "https://www.piksort.com",
+   "pages": [
+    {
+     "url": "https://www.piksort.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.piksort.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.piksort.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.piksort.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com Address: 13 Petrea Place, Canning Vale WA 6155",
+     "url": "https://www.piksort.com/terms",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "based in Perth and serve Western Australian",
+     "url": "https://www.piksort.com/",
+     "kind": null
+    },
+    {
+     "text": "based in Perth, WA",
+     "url": "https://www.piksort.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "based in Perth, WA",
+     "url": "https://www.piksort.com/terms",
+     "kind": null
+    },
+    {
+     "text": "based in Perth, WA",
+     "url": "https://www.piksort.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:30.944Z"
+  },
+  "plancare": {
+   "website": "https://plancare.com.au/",
+   "pages": [
+    {
+     "url": "https://plancare.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://plancare.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://plancare.com.au/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://plancare.com.au/get-in-touch",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ed by PlanCare Group Pty Ltd (ACN 658 231 157) of Level 17, 109 St Georges Terrace, Perth WA 6000",
+     "url": "https://plancare.com.au/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "au Perth office Level 17, 109 St Georges Terrace, Perth WA 6000",
+     "url": "https://plancare.com.au/get-in-touch",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Officer, PO Box Z5202, St Georges Tce Perth WA 6831 We will acknowledge y",
+     "url": "https://plancare.com.au/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Perth WA",
+     "url": "https://plancare.com.au/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "office Level 17, 109 St Georges Terrace, Perth WA 6000, Australia Sydney off",
+     "url": "https://plancare.com.au/get-in-touch",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "au Post: Privacy Officer, PO Box Z5202, St Georges Tce Perth WA 6831",
+     "url": "https://plancare.com.au/privacy-policy",
+     "state": "WA"
+    },
+    {
+     "text": "Perth WA 6000, Australia Sydney office Level 5, 91 Phillip Street, Parramatta, NSW 2150",
+     "url": "https://plancare.com.au/get-in-touch",
+     "state": "WA"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:36.008Z"
+  },
+  "portableppb": {
+   "website": "https://portableppb.com",
+   "pages": [
+    {
+     "url": "https://portableppb.com/",
+     "status": 200
+    },
+    {
+     "url": "https://portableppb.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://portableppb.com/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Headquarters and Research & Development in Perth, WA",
+     "url": "https://portableppb.com/about-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:42.719Z"
+  },
+  "pretectdevices": {
+   "website": "https://www.pretectdevices.com",
+   "pages": [
+    {
+     "url": "https://www.pretectdevices.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://www.pretectdevices.com/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:44.219Z"
+  },
+  "quarterback": {
+   "website": "http://www.quarterback.com",
+   "pages": [
+    {
+     "url": "http://www.quarterback.com/",
+     "status": 200
+    },
+    {
+     "url": "http://www.quarterback.com/digimedia_privacy_policy.html",
+     "status": 200
+    },
+    {
+     "url": "http://www.quarterback.com/digimedia-terms.html",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:50.024Z"
+  },
+  "rateit": {
+   "website": "https://rateit.com",
+   "pages": [
+    {
+     "url": "https://rateit.com/",
+     "status": 200
+    },
+    {
+     "url": "https://rateit.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://rateit.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://rateit.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:12:55.455Z"
+  },
+  "readyteamone": {
+   "website": "https://readyteamone.com",
+   "pages": [
+    {
+     "url": "https://readyteamone.com/",
+     "status": 200
+    },
+    {
+     "url": "https://readyteamone.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://readyteamone.com/game/firstcontact/",
+     "status": 200
+    },
+    {
+     "url": "https://readyteamone.com/event/vr-corporate-events-team-building-perth/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Perth, WA, 6000",
+     "url": "https://readyteamone.com/event/vr-corporate-events-team-building-perth/",
+     "kind": null
+    },
+    {
+     "text": "dy Team One, and is there VR near Northbridge? We’re at Level 1, 255 Murray Street, Perth WA 6000",
+     "url": "https://readyteamone.com/",
+     "kind": null
+    },
+    {
+     "text": "rthday Parties Bucks & Hens Private Events Get in Touch Level 1/255 Murray Street, Perth, WA, 6000",
+     "url": "https://readyteamone.com/event/vr-corporate-events-team-building-perth/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "studio in Perth, so you can only play them he",
+     "url": "https://readyteamone.com/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://readyteamone.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Located in the heart of Perth CBD, First Contact was design",
+     "url": "https://readyteamone.com/game/firstcontact/",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://readyteamone.com/event/vr-corporate-events-team-building-perth/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:00.288Z"
+  },
+  "relait": {
+   "website": "https://relait.io",
+   "pages": [
+    {
+     "url": "https://relait.io/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:01.032Z"
+  },
+  "respiradigm": {
+   "website": "https://www.respiradigm.health",
+   "pages": [
+    {
+     "url": "https://www.respiradigm.health/",
+     "status": 200
+    },
+    {
+     "url": "https://www.respiradigm.health/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.respiradigm.health/contact",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://www.respiradigm.health/about",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:08.846Z"
+  },
+  "roborigger": {
+   "website": "https://www.roborigger.com.au/",
+   "pages": [
+    {
+     "url": "https://www.roborigger.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.roborigger.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.roborigger.com.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.roborigger.com.au/company-about-us/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "lication Products Rental Downloads About Us Contact Get In Touch 1131 Hay St, West Perth, 6005 WA",
+     "url": "https://www.roborigger.com.au/company-about-us/about-us/",
+     "kind": null
+    },
+    {
+     "text": "Customised Solution Ludwig Hook Enquiry Message Head Office: 1131 Hay Street, West Perth, 6005, WA",
+     "url": "https://www.roborigger.com.au/contact/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": ", Australia Production Facility: 49 Distinction Road, Wangara, 6065, WA",
+     "url": "https://www.roborigger.com.au/contact/",
+     "kind": "OTHER"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head Office: 1131 Hay Street, West Perth, 6005, WA, Australia Producti",
+     "url": "https://www.roborigger.com.au/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "ROBORIGGER AGENTS: Victoria National Site Services Pty Ltd 26 Buch Ave, Epping VIC 3076",
+     "url": "https://www.roborigger.com.au/contact/",
+     "state": "VIC"
+    },
+    {
+     "text": "au New South Wales (service only) Enzo's Auto Electrics Eastern Creek, NSW 2766",
+     "url": "https://www.roborigger.com.au/contact/",
+     "state": "NSW"
+    },
+    {
+     "text": "au Cairns/FNQ Pasma Electrical Portsmith, QLD 4870",
+     "url": "https://www.roborigger.com.au/contact/",
+     "state": "QLD"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:16.042Z"
+  },
+  "romi": {
+   "website": "https://www.hikewithromi.com/",
+   "pages": [
+    {
+     "url": "https://www.hikewithromi.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.hikewithromi.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.hikewithromi.com/terms",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:22.720Z"
+  },
+  "safecallup": {
+   "website": "https://www.safecallup.com.au/",
+   "pages": [
+    {
+     "url": "https://safecallup.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://safecallup.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:25.437Z"
+  },
+  "savvywise": {
+   "website": "https://www.savvywise.com.au",
+   "pages": [
+    {
+     "url": "https://www.savvywise.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.savvywise.com.au/legal-policies",
+     "status": 200
+    },
+    {
+     "url": "https://www.savvywise.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.savvywise.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au Business Address: 45 St Georges Tce, PERTH WA 6000",
+     "url": "https://www.savvywise.com.au/about",
+     "kind": null
+    },
+    {
+     "text": "Business Address: 45 St Georges Tce, PERTH WA 6000",
+     "url": "https://www.savvywise.com.au/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "PERTH WA",
+     "url": "https://www.savvywise.com.au/",
+     "kind": null
+    },
+    {
+     "text": "PERTH WA",
+     "url": "https://www.savvywise.com.au/contact",
+     "kind": null
+    },
+    {
+     "text": "Headquarters Perth, Australia Founded 2025 Our M",
+     "url": "https://www.savvywise.com.au/about",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:30.878Z"
+  },
+  "seastock": {
+   "website": "https://www.seastock.com.au/",
+   "pages": [
+    {
+     "url": "https://www.seastock.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.seastock.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.seastock.com.au/terms-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://www.seastock.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "CONTACT US 6 Molfetta Quays, Fremantle Fishing Boat Harbour Fremantle WA 6160",
+     "url": "https://www.seastock.com.au/contact/",
+     "kind": null
+    },
+    {
+     "text": "CONTACT US 6 Molfetta Quays, Fremantle Fishing Boat Harbour Fremantle WA 6160 WA",
+     "url": "https://www.seastock.com.au/contact/",
+     "kind": null
+    },
+    {
+     "text": "au 6 Molfetta Quays, Fremantle Fishing Boat Harbour Fremantle WA 6160",
+     "url": "https://www.seastock.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Fremantle WA",
+     "url": "https://www.seastock.com.au/",
+     "kind": null
+    },
+    {
+     "text": "Fremantle WA",
+     "url": "https://www.seastock.com.au/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Fremantle WA",
+     "url": "https://www.seastock.com.au/terms-conditions/",
+     "kind": null
+    },
+    {
+     "text": "Fremantle WA",
+     "url": "https://www.seastock.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:42.505Z"
+  },
+  "simplafy": {
+   "website": "https://simplafy.com.au",
+   "pages": [
+    {
+     "url": "https://simplafy.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://simplafy.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://simplafy.com.au/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://simplafy.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Suite 5/531 Hay Street SUBIACO WA 6008",
+     "url": "https://simplafy.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "SUBIACO WA",
+     "url": "https://simplafy.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:47.492Z"
+  },
+  "smyl": {
+   "website": "https://www.smyl.com.au",
+   "pages": [
+    {
+     "url": "https://www.smyl.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Contact Us Address L1/46 Mews Road Fremantle, WA 6160",
+     "url": "https://www.smyl.com.au/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Fremantle WA",
+     "url": "https://www.smyl.com.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:48.752Z"
+  },
+  "snackr": {
+   "website": "https://www.snackr.com.au/",
+   "pages": [
+    {
+     "url": "https://snackr.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://snackr.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://snackr.com.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://snackr.com.au/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "Brisbane: 6 Common Causes and DIY Fixes 16 April 2026 Contact 77 Barker Street, Coblinine WA 6317",
+     "url": "https://snackr.com.au/about-us/",
+     "state": "WA"
+    },
+    {
+     "text": "y of the following channels: (08) 9026 1072 [email protected] 77 Barker Street, Coblinine WA 6317",
+     "url": "https://snackr.com.au/contact/",
+     "state": "WA"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:13:56.660Z"
+  },
+  "sonevo": {
+   "website": "https://sonevo.au",
+   "pages": [
+    {
+     "url": "https://sonevo.au/",
+     "status": 200
+    },
+    {
+     "url": "https://sonevo.au/privacy.html",
+     "status": 200
+    },
+    {
+     "url": "https://sonevo.au/terms.html",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:00.954Z"
+  },
+  "spacedraft": {
+   "website": "https://spacedraft.com/",
+   "pages": [
+    {
+     "url": "https://spacedraft.com/",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "lease write to: The Data Protection Manager SpaceDraft Pty Ltd 183 Stirling Hwy, Nedlands WA 6009",
+     "url": "https://spacedraft.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "ng address: Attn: Copyright Notice SpaceDraft Pty Ltd Address: 183 Stirling Hwy Nedlands, WA 6009",
+     "url": "https://spacedraft.com/terms-conditions",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Nedlands WA",
+     "url": "https://spacedraft.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Nedlands, WA",
+     "url": "https://spacedraft.com/terms-conditions",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:05.795Z"
+  },
+  "spacetoco": {
+   "website": "https://www.spacetoco.com/",
+   "pages": [
+    {
+     "url": "https://www.spacetoco.com/",
+     "status": 200
+    },
+    {
+     "url": "https://support.spacetoco.com/spacetoco-privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://support.spacetoco.com/spacetoco-terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://platform.spacetoco.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com Postal Address: 525 Falls Road, Hovea WA 6070",
+     "url": "https://support.spacetoco.com/spacetoco-privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:08.573Z"
+  },
+  "stayonhire": {
+   "website": "https://www.stayonhire.com",
+   "pages": [
+    {
+     "url": "https://www.stayonhire.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.stayonhire.com/au/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.stayonhire.com/au/legal/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.stayonhire.com/au/request-a-demo",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "au GPO Box 5218 Sydney NSW 2001",
+     "url": "https://www.stayonhire.com/au/legal/privacy-policy",
+     "state": "NSW"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:16.118Z"
+  },
+  "stryd": {
+   "website": "https://stryd.au",
+   "pages": [
+    {
+     "url": "https://stryd.au/",
+     "status": 200
+    },
+    {
+     "url": "https://stryd.au/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://stryd.au/legal/software-licence-terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://stryd.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au Mail: Flux, L1 191 St George's Terrace, Perth WA 6000",
+     "url": "https://stryd.au/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Moneycatcha Ltd 609 308 661 of Flux, L1 191 St George's Terrace, Perth WA 6000",
+     "url": "https://stryd.au/legal/software-licence-terms-and-conditions",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth WA",
+     "url": "https://stryd.au/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Perth WA",
+     "url": "https://stryd.au/legal/software-licence-terms-and-conditions",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "au Fax: +61 2 9284 9666 Mail: GPO Box 5218, Sydney NSW 2001",
+     "url": "https://stryd.au/legal/privacy-policy",
+     "state": "NSW"
+    },
+    {
+     "text": "or GPO Box 2999 Canberra ACT 2601",
+     "url": "https://stryd.au/legal/privacy-policy",
+     "state": "ACT"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:22.392Z"
+  },
+  "successmeter": {
+   "website": "https://successmeter.tech",
+   "pages": [
+    {
+     "url": "https://successmeter.tech/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:23.673Z"
+  },
+  "syqei": {
+   "website": "https://syqei.com",
+   "pages": [
+    {
+     "url": "https://syqei.com/",
+     "status": 200
+    },
+    {
+     "url": "https://syqei.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://syqei.com/studio/privacy",
+     "code": "http_error"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:28.105Z"
+  },
+  "talk2view": {
+   "website": "https://talk2view.com",
+   "pages": [
+    {
+     "url": "https://talk2view.com/",
+     "status": 200
+    },
+    {
+     "url": "https://talk2view.com/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://talk2view.com/legal/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://talk2view.com/resources/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Contact us Australia Level 2, Unit 8 9 Bonner Drive, Malaga WA, 6090",
+     "url": "https://talk2view.com/",
+     "kind": null
+    },
+    {
+     "text": "Policy Effective Date : 24 October 2026 Australia Level 2, Unit 8 9 Bonner Drive, Malaga WA, 6090",
+     "url": "https://talk2view.com/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "of Use Last updated : 30 September 2025 Australia Level 2, Unit 8 9 Bonner Drive, Malaga WA, 6090",
+     "url": "https://talk2view.com/legal/terms-of-use",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Malaga WA",
+     "url": "https://talk2view.com/",
+     "kind": null
+    },
+    {
+     "text": "Malaga WA",
+     "url": "https://talk2view.com/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Malaga WA",
+     "url": "https://talk2view.com/legal/terms-of-use",
+     "kind": null
+    },
+    {
+     "text": "Malaga WA",
+     "url": "https://talk2view.com/resources/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:34.458Z"
+  },
+  "teleios": {
+   "website": "https://teleios.au",
+   "pages": [
+    {
+     "url": "https://teleios.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://teleios.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:34.691Z"
+  },
+  "tenderrelief": {
+   "website": "https://tenderrelief.com.au",
+   "pages": [
+    {
+     "url": "https://tenderrelief.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://tenderrelief.com.au/where-winning-tenders-begin/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Tender Relief HQ 79 St Georges Terrace Perth, WA, 6001",
+     "url": "https://tenderrelief.com.au/where-winning-tenders-begin/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "HQ 79 St Georges Terrace Perth, WA, 6001 0487 158 426 info@t",
+     "url": "https://tenderrelief.com.au/where-winning-tenders-begin/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:36.457Z"
+  },
+  "terra15": {
+   "website": "https://terra15.com.au/",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://terra15.com.au/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:36.706Z"
+  },
+  "thatsbrave": {
+   "website": "https://www.thatsbrave.com.au",
+   "pages": [
+    {
+     "url": "https://www.thatsbrave.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.thatsbrave.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:39.354Z"
+  },
+  "volte": {
+   "website": "https://www.thevolte.com/",
+   "pages": [
+    {
+     "url": "https://thevolte.com/",
+     "status": 200
+    },
+    {
+     "url": "https://thevolte.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://thevolte.com/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://help.thevolte.com/en",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "please contact us at: Email : [email protected] Postal Address : 1/4 Gugeri St, Claremont WA 6010",
+     "url": "https://thevolte.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Claremont WA",
+     "url": "https://thevolte.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:45.565Z"
+  },
+  "themba": {
+   "website": "https://themba.ai",
+   "pages": [
+    {
+     "url": "https://themba.ai/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:46.895Z"
+  },
+  "thorai": {
+   "website": "https://www.thoraigroup.com.au/",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://thoraigroup.com.au/",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:50.288Z"
+  },
+  "threespringstechnology": {
+   "website": "https://threespringstechnology.com",
+   "pages": [
+    {
+     "url": "https://threespringstechnology.com/",
+     "status": 200
+    },
+    {
+     "url": "https://threespringstechnology.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://threespringstechnology.com/our-team/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Our Team Contact Us Connect +61 (0) 450 432 304 Level 2, 35 Havelock Street, West Perth, WA, 6005",
+     "url": "https://threespringstechnology.com/our-team/",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA 6005",
+     "url": "https://threespringstechnology.com/our-team/",
+     "kind": null
+    },
+    {
+     "text": "essage * Submit Get in touch +61 (0) 450 432 304 Level 2, 35 Havelock Street, West Perth, WA, 6005",
+     "url": "https://threespringstechnology.com/our-team/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth, WA",
+     "url": "https://threespringstechnology.com/",
+     "kind": null
+    },
+    {
+     "text": "West Perth, WA",
+     "url": "https://threespringstechnology.com/contact-us/",
+     "kind": null
+    },
+    {
+     "text": "West Perth, WA",
+     "url": "https://threespringstechnology.com/our-team/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:53.550Z"
+  },
+  "tradable": {
+   "website": "https://tradable.app",
+   "pages": [
+    {
+     "url": "https://tradable.app/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:53.765Z"
+  },
+  "tradiescribe": {
+   "website": "https://tradiescribe.com.au/",
+   "pages": [
+    {
+     "url": "https://tradiescribe.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:56.381Z"
+  },
+  "truxe": {
+   "website": "https://www.truxe.com.au/",
+   "pages": [
+    {
+     "url": "https://www.truxe.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.truxe.com.au/what-is-truxe",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "based in Perth, WA",
+     "url": "https://www.truxe.com.au/what-is-truxe",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:14:59.808Z"
+  },
+  "tutorsgrid": {
+   "website": "https://tutorsgrid.com",
+   "pages": [
+    {
+     "url": "https://tutorsgrid.com/",
+     "status": 200
+    },
+    {
+     "url": "https://tutorsgrid.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://tutorsgrid.com/terms-conditions",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:03.465Z"
+  },
+  "uluu": {
+   "website": "https://www.uluu.com.au/",
+   "pages": [
+    {
+     "url": "https://www.uluu.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.uluu.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://www.uluu.com.au/",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://www.uluu.com.au/about",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:06.958Z"
+  },
+  "underlandex": {
+   "website": "https://underlandex.com",
+   "pages": [
+    {
+     "url": "https://underlandex.com/",
+     "status": 200
+    },
+    {
+     "url": "https://underlandex.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://underlandex.com/terms",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:11.923Z"
+  },
+  "vacancee": {
+   "website": "https://vacancee.com.au",
+   "pages": [
+    {
+     "url": "https://vacancee.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:13.245Z"
+  },
+  "vedi": {
+   "website": "https://www.vedi.com",
+   "pages": [
+    {
+     "url": "https://www.vedi.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:16.736Z"
+  },
+  "veintech": {
+   "website": "https://www.veintech.com.au/",
+   "pages": [
+    {
+     "url": "https://www.veintech.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "PERTH, AUSTRALIA Unit 3 / 4 Gould Street, Osborne Park WA 6017",
+     "url": "https://www.veintech.com.au/contact",
+     "kind": null
+    },
+    {
+     "text": "s How to Get Involved Email Us OUR LOCATIONS Perth, WA Unit 3/4 Gould Street Osborne Park WA 6017",
+     "url": "https://www.veintech.com.au/contact",
+     "kind": null
+    },
+    {
+     "text": "Manager VeinTech Pty Ltd Herdsman MedTech Innovation Hub, 4/4 Gould Street, Osborne Park WA 6017",
+     "url": "https://www.veintech.com.au/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Osborne Park WA",
+     "url": "https://www.veintech.com.au/",
+     "kind": null
+    },
+    {
+     "text": "Perth-based",
+     "url": "https://www.veintech.com.au/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://www.veintech.com.au/terms-of-service",
+     "kind": null
+    },
+    {
+     "text": "headquarters Location Mail Unit 3/4 Gould Street Osborne Park WA 6017, AU ​​ info@veintech",
+     "url": "https://www.veintech.com.au/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:22.593Z"
+  },
+  "velora": {
+   "website": "https://velora.com",
+   "pages": [
+    {
+     "url": "https://velora.com/",
+     "status": 200
+    },
+    {
+     "url": "https://velora.com/velora-network-privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://velora.com/velora-network-terms/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:26.201Z"
+  },
+  "vitaltrace": {
+   "website": "https://vitaltrace.com.au/",
+   "pages": [
+    {
+     "url": "https://vitaltrace.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://vitaltrace.com.au/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:26.744Z"
+  },
+  "vitruvianform": {
+   "website": "https://vitruvianform.com/",
+   "pages": [
+    {
+     "url": "https://vitruvianform.com/en-au",
+     "status": 200
+    },
+    {
+     "url": "https://vitruvianform.com/en-au/policies/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://vitruvianform.com/en-au/policies/terms-of-service",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "s all privacy complaints and/or requests to: Team Vitruvian 15 Gordon Street, West Perth, WA 6005",
+     "url": "https://vitruvianform.com/en-au/policies/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "contract with Vitruvian Products Pty Ltd ACN 653 355 483 of 15 Gordon Street, West Perth, WA, 6005",
+     "url": "https://vitruvianform.com/en-au/policies/terms-of-service",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth, WA",
+     "url": "https://vitruvianform.com/en-au/policies/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "West Perth, WA",
+     "url": "https://vitruvianform.com/en-au/policies/terms-of-service",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:32.383Z"
+  },
+  "wavex": {
+   "website": "https://wavex.com",
+   "pages": [
+    {
+     "url": "https://wavex.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:34.300Z"
+  },
+  "wevolt": {
+   "website": "https://wevolt.com.au/",
+   "pages": [
+    {
+     "url": "https://wevolt.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://wevolt.com.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://wevolt.com.au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://wevolt.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au Bentley Technology Park, 8/8 Sarich Way, Bentley WA 6102",
+     "url": "https://wevolt.com.au/about",
+     "kind": null
+    },
+    {
+     "text": "Contact us Wevolt Pty Ltd (ABN 80 658 807 615), Unit 8, 8 Sarich Way, Bentley WA 6102",
+     "url": "https://wevolt.com.au/privacy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Bentley WA",
+     "url": "https://wevolt.com.au/",
+     "kind": null
+    },
+    {
+     "text": "Bentley WA",
+     "url": "https://wevolt.com.au/privacy",
+     "kind": null
+    },
+    {
+     "text": "Bentley WA",
+     "url": "https://wevolt.com.au/terms",
+     "kind": null
+    },
+    {
+     "text": "headquartered in Perth, building the software that h",
+     "url": "https://wevolt.com.au/about",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:39.032Z"
+  },
+  "wristband": {
+   "website": "https://www.wristband.com",
+   "pages": [
+    {
+     "url": "https://www.wristband.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.wristband.com/pages/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.wristband.com/pages/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.wristband.com/pages/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:45.787Z"
+  },
+  "zapsplit": {
+   "website": "https://zapsplit.com.au",
+   "pages": [
+    {
+     "url": "https://zapsplit.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-01T16:15:46.544Z"
+  }
+ }
+}

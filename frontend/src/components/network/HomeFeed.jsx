@@ -21,7 +21,7 @@ const EMPTY_WORDS = {
   questions: ['No questions yet.', 'Ask the one you have been wondering about.'],
 };
 
-// Home: the community. One feed of short, text-first posts (ideas, questions, things people are building, requests for feedback, small wins), filtered four ways.
+// Community (at /home): the community. One feed of short, text-first posts (ideas, questions, things people are building, requests for feedback, small wins), filtered four ways.
 // Everything on it was written by a signed-in person and is kept on the server; where the server cannot keep things it says so and shows none.
 export default function HomeFeed({ chrome = {} }) {
   const { member, open, reason: closedBecause } = useSession();
@@ -33,7 +33,7 @@ export default function HomeFeed({ chrome = {} }) {
   const [more, setMore] = useState(false);
   const generation = useRef(0);
 
-  usePageMeta({ title: 'Home · Still Early', description: 'Ideas, questions and things Australian founders and builders are working on.', path: '/home' });
+  usePageMeta({ title: 'Community · Still Early', description: 'Ideas, questions and things Australian founders and builders are working on.', path: '/home' });
   useEffect(() => { ensureStatus(); }, []);
 
   const load = useCallback(() => {
@@ -70,7 +70,7 @@ export default function HomeFeed({ chrome = {} }) {
       <SiteHeader active="home" go={chrome.go} counts={chrome.counts} menu={chrome.menu} />
       <main className="home" id="main">
         <header className="home-head">
-          <p className="kicker">Home</p>
+          <p className="kicker">Community</p>
           <h1 className="serif-h1">What are you <em>working on?</em></h1>
           <p className="lede">A small, text-first space for Australia&rsquo;s founders and builders: ideas, questions, and things people are making.</p>
         </header>

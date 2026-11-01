@@ -35,7 +35,7 @@ describe('HeaderMenu', () => {
     await userEvent.click(screen.getByLabelText('Menu'));
 
     for (const item of ['Collections', 'News', 'Hide news ticker', 'Join waitlist', 'Unconfirmed (3)']) expect(screen.getByText(item)).toBeInTheDocument();
-    for (const place of ['Home', 'Discover', 'Opportunities', 'Explore', 'Jobs', 'Saved']) expect(screen.queryByText(place)).not.toBeInTheDocument();
+    for (const place of ['Community', 'Discover', 'Opportunities', 'Explore', 'Jobs', 'Saved']) expect(screen.queryByText(place)).not.toBeInTheDocument();
   });
 
   it('holds the about, privacy and feedback dialogs, the pages about the project, and the list that needs no scripts', async () => {

@@ -1328,5 +1328,30 @@
     "id": "mike-baukes",
     "name": "Mike Baukes",
     "slug": "mike-baukes"
+  },
+  {
+    "id": "stuart-hall",
+    "name": "Stuart Hall",
+    "slug": "stuart-hall"
+  },
+  {
+    "id": "claire-mcgregor",
+    "name": "Claire McGregor",
+    "slug": "claire-mcgregor"
+  },
+  {
+    "id": "yuri-cartland",
+    "name": "Yuri Cartland",
+    "slug": "yuri-cartland"
+  },
+  {
+    "id": "bernadette-olivier",
+    "name": "Bernadette Olivier",
+    "slug": "bernadette-olivier"
+  },
+  {
+    "id": "jade-hirniak",
+    "name": "Jade Hirniak",
+    "slug": "jade-hirniak"
   }
 ]

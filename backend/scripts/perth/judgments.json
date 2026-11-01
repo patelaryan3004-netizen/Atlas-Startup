@@ -1,0 +1,303 @@
+{
+ "checked_at": "2026-10-31",
+ "note": "Decisions by a person (owner, via Claude) after reading each company's own pages and the lists that name it. The line is a plain description in our words of what those pages say; a hold keeps the row in the review queue with the reason; an exclusion says why the row is not added.",
+ "rows": {
+  "agentanorak": {
+   "hold": "Its own pages do not say what it does"
+  },
+  "amlab": {
+   "sector": "Industrial Automation",
+   "blurb": "Software that automates and monitors container-terminal cranes, for safety and productivity"
+  },
+  "appbot": {
+   "sector": "SaaS",
+   "blurb": "Review and ratings monitoring, replies and analysis"
+  },
+  "ascendlabs": {
+   "sector": "Sports",
+   "blurb": "Strength assessment data to improve performance, monitor fatigue and guide rehabilitation"
+  },
+  "bamboo": {
+   "sector": "Fintech",
+   "blurb": "A microinvestment platform for buying digital assets and gold"
+  },
+  "blackswanbiotech": {
+   "sector": "Biotech",
+   "blurb": "Precision medicine for ALS: highly targeted therapies built on genomic research"
+  },
+  "bobbleware": {
+   "sector": "Consumer",
+   "blurb": "Reusable borosilicate glass tumblers and licensed lifestyle goods"
+  },
+  "carslike": {
+   "sector": "Consumer",
+   "blurb": "An independent car-comparison platform with specs, pricing and like-for-like comparisons"
+  },
+  "chironix": {
+   "sector": "Robotics",
+   "blurb": "Robotic and autonomous solutions for industry, defence, mining and oil and gas"
+  },
+  "corametix": {
+   "sector": "Medtech",
+   "blurb": "A bioinspired heart valve made by 3D printing and shaped to the patient"
+  },
+  "dayworkbook": {
+   "sector": "SaaS",
+   "blurb": "Captures daywork on site with a signature and turns it into an invoice, for construction subcontractors"
+  },
+  "detailearth": {
+   "sector": "Geospatial",
+   "blurb": "Geospatial imagery streamed instantly through web server technology"
+  },
+  "ediblecutlery": {
+   "sector": "Consumer",
+   "blurb": "Edible cutlery as an eco-friendly alternative to plastic utensils"
+  },
+  "holahealth": {
+   "sector": "HealthTech",
+   "blurb": "Online doctor and health-practitioner consults by telehealth, with scripts, referrals and medical certificates"
+  },
+  "hyperionsystems": {
+   "sector": "Manufacturing",
+   "blurb": "Large-format additive manufacturing systems: robotic, gantry and containerised cells"
+  },
+  "ideacademy": {
+   "hold": "An education provider for 15 to 18 year olds; the place its page gives is a street name without a city: a person should confirm it is in Greater Perth"
+  },
+  "interearth": {
+   "sector": "Climate",
+   "blurb": "Removes atmospheric CO2 through photosynthesis and sells carbon dioxide removal credits"
+  },
+  "ironflowsolutions": {
+   "hold": "Its own page describes an operations automation consultancy, not a product company"
+  },
+  "lixa": {
+   "sector": "Biotech",
+   "blurb": "NeoX, an antimicrobial resistance breaker that restores antibiotic effectiveness"
+  },
+  "omnibiotech": {
+   "sector": "Wearables",
+   "blurb": "Turns wearable data into continuous heat-strain, hydration and core-temperature insight for teams in extreme environments"
+  },
+  "oncoresmedical": {
+   "sector": "Medtech",
+   "blurb": "Imaging technology that gives surgeons information during an operation"
+  },
+  "orenovaengineering": {
+   "hold": "Its own page describes a mineral processing engineering consultancy, not a product company"
+  },
+  "otomedicines": {
+   "sector": "Biotech",
+   "blurb": "Developing therapies to prevent and treat childhood ear infections"
+  },
+  "personr": {
+   "sector": "Fintech",
+   "blurb": "AML compliance software for regulated businesses: KYC, KYB, screening and monitoring"
+  },
+  "piksort": {
+   "sector": "SaaS",
+   "blurb": "One searchable record of site photos, camera frames and forms for construction, mining and industrial teams"
+  },
+  "roborigger": {
+   "sector": "Industrial Automation",
+   "blurb": "Radio-controlled crane load orientation with a linked cloud platform for lifting logistics"
+  },
+  "simplafy": {
+   "sector": "HR Tech",
+   "blurb": "A digital employee wellbeing platform to boost retention and productivity"
+  },
+  "spacedraft": {
+   "sector": "SaaS",
+   "blurb": "Turns project plans, documents and Gantt charts into interactive visual storyboards"
+  },
+  "spacetoco": {
+   "sector": "Marketplace",
+   "blurb": "A marketplace for booking community halls, meeting rooms and spaces by the hour"
+  },
+  "tenderrelief": {
+   "sector": "SaaS",
+   "blurb": "AI tender-writing software, with bid and tender writing consultants"
+  },
+  "volte": {
+   "sector": "Fashion",
+   "blurb": "A designer dress hire service"
+  },
+  "truxe": {
+   "sector": "Logistics",
+   "blurb": "3D load-planning software for manufacturers, distributors and transport operators"
+  },
+  "uluu": {
+   "sector": "Climate",
+   "blurb": "Materials made from seaweed that replace plastic"
+  },
+  "vitaltrace": {
+   "sector": "Medtech",
+   "blurb": "Continuous lactate monitoring for clinicians and consumers"
+  },
+  "vitruvianform": {
+   "sector": "Sports",
+   "blurb": "An AI fitness platform with expert coaching that builds personalised training programs"
+  },
+  "wevolt": {
+   "sector": "Energy",
+   "blurb": "EV charging software: charge point management, load management, white-label apps and driver payments"
+  },
+  "gridcog": {
+   "hold": "Investor announcement and its research row say its headquarters are in the UK with a Perth office: the directory lists Australian companies, so a person decides whether to list a Perth office"
+  },
+  "oceanhex": {
+   "sector": "Climate",
+   "blurb": "Nature-tech that turns coastal infrastructure into living, regenerative assets with autonomous monitoring"
+  },
+  "portableppb": {
+   "sector": "Mining Tech",
+   "blurb": "Detects low-level (ppb) gold on site with portable X-ray fluorescence",
+   "confirm_site": true,
+   "confirm_note": "portableppb.com: its title is the company name and its about page says \"Headquarters and Research & Development in Perth, WA\"."
+  },
+  "savvywise": {
+   "sector": "SaaS",
+   "blurb": "AI-assisted tax research built for Australian accounting firms",
+   "confirm_site": true,
+   "confirm_note": "savvywise.com.au: its title is the company name, its meta says tax research for Australian accounting firms, and its pages say PERTH WA."
+  },
+  "veintech": {
+   "sector": "Medtech",
+   "blurb": "Felix, a device that takes the guesswork out of vascular access for any clinician"
+  },
+  "enzidetechnologies": {
+   "sector": "Climate",
+   "blurb": "Super enzyme technology to make plastic that is harmless and goes away when it is no longer needed"
+  },
+  "seastock": {
+   "sector": "Biotech",
+   "blurb": "Produces and extracts compounds from seaweed and algae, including Asparagopsis for livestock feed"
+  },
+  "hyprfire": {
+   "sector": "Cybersecurity",
+   "blurb": "Network detection and response for security teams",
+   "distinct_from": "cand-hypr",
+   "distinct_note": "Hyprfire (hyprfire.com, network detection and response) is not HYPR (hypr.co): different name, different website."
+  },
+  "cribber": {
+   "hold": "Its own domain by name (cribber.ai) is another business, and cribber.com refuses automated reads (robots.txt), so nothing about the workplace-communication company could be checked"
+  },
+  "agoralivestock": {
+   "sector": "AgTech",
+   "blurb": "A marketplace app for current livestock prices, connecting buyers and sellers",
+   "confirm_site": true,
+   "confirm_note": "agoralivestock.com.au: its title is the company name, it describes the Agora Livestock Markets app, and its contact page gives 191 St Georges Terrace, Perth WA 6000."
+  },
+  "aispanner": {
+   "sector": "SaaS",
+   "blurb": "Maintenance-management software that connects data, stakeholders and workflow across the maintenance lifecycle",
+   "confirm_site": true,
+   "confirm_note": "aispanner.com.au: its title is the company name, and its home and about pages give its office as 300 Murray Street, Perth WA 6000."
+  },
+  "augmenttechnologies": {
+   "sector": "Mining Tech",
+   "blurb": "An AI-driven 3D blast-movement model that predicts where ore lands after a blast in open pit mines",
+   "confirm_site": true,
+   "confirm_note": "augmenttechnologies.ai: its title is the company name, it describes the Muckpile Block Model (the blast-movement solution the WA Innovators finalist list describes), and its contact page gives 100 Hay Street, Subiaco WA 6008."
+  },
+  "avicenasystems": {
+   "sector": "Biotech",
+   "blurb": "Biosecurity platforms for swift detection of and response to outbreaks",
+   "confirm_site": true,
+   "confirm_note": "avicenasystems.com: Avicena Systems Limited, its contact page gives 30 Coolgardie St, West Perth WA 6005 and a +61 8 telephone number."
+  },
+  "biotome": {
+   "sector": "Biotech",
+   "blurb": "Peptide-based antibody diagnostics that read the immune system at high resolution",
+   "confirm_site": true,
+   "confirm_note": "biotome.com.au: its pages say it is based at the Harry Perkins Institute of Medical Research, 6 Verdun Street, Nedlands WA 6009."
+  },
+  "capabilityx": {
+   "sector": "Industrial Automation",
+   "blurb": "Technology for safer, more resilient operations in high-risk environments, including the CX Protect workplace-safety platform",
+   "confirm_site": true,
+   "confirm_note": "capabilityx.com: its title is the company name with 620 Gnangara Rd, Cullacabardee WA, and its corporate page gives \"Control Centre and HQ 620, Gnangara Rd, Cullacabardee, WA 6067\"."
+  },
+  "corticaldynamics": {
+   "sector": "Medtech",
+   "blurb": "BARM brain monitoring in theatre and CORDYAN clinical AI for perioperative care",
+   "confirm_site": true,
+   "confirm_note": "corticaldynamics.com: its contact page gives \"Head office, Level 4, RPH Research and Innovation Centre, 56 Murray Street, Perth WA 6000\"."
+  },
+  "cytophenix": {
+   "sector": "Medtech",
+   "blurb": "FloCAST, rapid antimicrobial susceptibility testing with same-day results to guide antibiotic treatment",
+   "confirm_site": true,
+   "confirm_note": "cytophenix.com: its contact page says it is \"headquartered in Perth, WA\" (no street address is given)."
+  },
+  "flyone": {
+   "sector": "Mobility",
+   "blurb": "Electric-aircraft flying made as accessible as driving a car, flown from Jandakot Airport",
+   "confirm_site": true,
+   "confirm_note": "flyone.com.au: its pages give \"Australia Head Office, 3 Baron Way, Jandakot Airport, Jandakot WA 6140\"."
+  },
+  "geomoby": {
+   "sector": "Geospatial",
+   "blurb": "A location-intelligence platform for health and safety, including real-time location for underground mining",
+   "confirm_site": true,
+   "confirm_note": "geomoby.com: its title is the company name and its pages give L1, 1109 Hay St, West Perth WA 6005."
+  },
+  "genes": {
+   "sector": "Biotech",
+   "blurb": "Next-generation-sequencing gene testing and reporting software that matches patients to drugs for laboratories and doctors"
+  },
+  "iscreen": {
+   "sector": "HealthTech",
+   "blurb": "Health-check analytics and pathology services",
+   "confirm_site": true,
+   "confirm_note": "i-screen.com.au: its pages give 202/37 Barrack St, Perth WA 6000."
+  },
+  "menuzen": {
+   "sector": "Hospitality Tech",
+   "blurb": "Real-time digital menu boards for quick-service restaurants, synced to the point of sale",
+   "confirm_site": true,
+   "confirm_note": "menuzen.com: its pages give 2/1 Prowse St, West Perth WA 6005."
+  },
+  "plancare": {
+   "sector": "HealthTech",
+   "blurb": "A healthcare-at-home service and platform that gives people who need support at home more choice and control"
+  },
+  "pretectdevices": {
+   "sector": "Medtech",
+   "blurb": "A data-driven monitoring solution for intravenous lines in neonatal critical care"
+  },
+  "readyteamone": {
+   "sector": "Gaming",
+   "blurb": "Free-roam virtual-reality games in the Perth CBD, made in Perth",
+   "confirm_site": true,
+   "confirm_note": "readyteamone.com: its pages give 255 Murray Street, Perth WA 6000 and say its games are made in Perth; Plus Eight lists \"Ready Team One\" as a virtual-reality company."
+  },
+  "talk2view": {
+   "sector": "AI",
+   "blurb": "Lets people operate software by talking to it, in more than 100 languages",
+   "confirm_site": true,
+   "confirm_note": "talk2view.com: its title is the company name, it says \"Simply talk to your software\" (the list: an AI platform that clinicians use by talking), and its pages give Level 2, Unit 8, 9 Bonner Drive, Malaga WA 6090."
+  },
+  "threespringstechnology": {
+   "sector": "HealthTech",
+   "blurb": "Algorithms for medical imaging",
+   "confirm_site": true,
+   "confirm_note": "threespringstechnology.com: its pages give Level 2, 35 Havelock Street, West Perth WA 6005."
+  },
+  "flyhighdigital": {
+   "hold": "An app-development agency and venture studio in Perth; its own pages do not show a product company of its own, so whether it is an early-stage startup is not established"
+  },
+  "inspiringholdings": {
+   "hold": "irdd.com.au gives 160 Stirling Highway, Nedlands but no description of what Inspiring Holdings does"
+  },
+  "smyl": {
+   "hold": "smyl.com.au is a youth community-services organisation in Fremantle, not the orthodontic-retainer-case venture the Venture UWA list describes: the right website is not identified"
+  },
+  "stryd": {
+   "hold": "The stryd.au pages do not belong to the company the Perth directory lists; the official website is not identified"
+  },
+  "teleios": {
+   "hold": "teleios.au is a Perth consultancy; nothing ties it to the Venture UWA venture of the same name"
+  }
+ }
+}

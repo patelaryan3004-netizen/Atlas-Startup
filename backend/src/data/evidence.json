@@ -352,6 +352,61 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "agora-livestock.address.agoralivestock-com-au-contact",
+    "company_id": "agora-livestock",
+    "field": "address",
+    "value": "191 St Georges Terrace, Perth WA 6000",
+    "source_id": "agoralivestock-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "agora-livestock.city.agoralivestock-com-au-contact",
+    "company_id": "agora-livestock",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "agoralivestock-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "agora-livestock.description.agoralivestock-com-au",
+    "company_id": "agora-livestock",
+    "field": "description",
+    "value": "Find today's current livestock prices, connect with buyers and sellers. The Agora Livestock Markets app is the new way to sell your livestock",
+    "source_id": "agoralivestock-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "agora-livestock.state.agoralivestock-com-au-contact",
+    "company_id": "agora-livestock",
+    "field": "state",
+    "value": "WA",
+    "source_id": "agoralivestock-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "agora-livestock.website.agoralivestock-com-au",
+    "company_id": "agora-livestock",
+    "field": "website",
+    "value": "https://agoralivestock.com.au",
+    "source_id": "agoralivestock-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:29:54.376Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "agridigital.description.agridigital-website",
     "company_id": "agridigital",
     "field": "description",
@@ -513,6 +568,28 @@
     "source_id": "airwallex-en-au",
     "confidence": "high",
     "verified_at": "2026-10-05T15:06:30.463Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "aispanner.address.aispanner-com-au-about",
+    "company_id": "aispanner",
+    "field": "address",
+    "value": "300 Murray Street, Level 2 East, The Wentworth Building, Perth WA 6000",
+    "source_id": "aispanner-com-au-about",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:11:38.140Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "aispanner.website.aispanner-com-au",
+    "company_id": "aispanner",
+    "field": "website",
+    "value": "https://aispanner.com.au",
+    "source_id": "aispanner-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:29:58.554Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -746,6 +823,61 @@
     "verified_at": "2026-10-30T23:25:43.186Z",
     "status": "active",
     "note": "The website Cicada Innovations lists for the company."
+  },
+  {
+    "id": "amlab.address.amlab-com-au-contact",
+    "company_id": "amlab",
+    "field": "address",
+    "value": "24 Hasler Road, Osborne Park, WA, 6017",
+    "source_id": "amlab-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:52:19.924Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "amlab.address.amlab-com-au-contact.2",
+    "company_id": "amlab",
+    "field": "address",
+    "value": "26 Collingwood Street, Osborne Park, WA, 6017",
+    "source_id": "amlab-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:52:19.924Z",
+    "status": "superseded",
+    "note": "The company's R&D facility, recorded as a location of its own (company_locations): the head office is the address of the record."
+  },
+  {
+    "id": "amlab.description.amlab-com-au",
+    "company_id": "amlab",
+    "field": "description",
+    "value": "Cutting-Edge Software Solutions for Container Terminal Cranes - Increase Safety and Productivity",
+    "source_id": "amlab-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "amlab.website.amlab-com-au",
+    "company_id": "amlab",
+    "field": "website",
+    "value": "https://amlab.com.au",
+    "source_id": "amlab-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:02.804Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "amlab.website.techboard-com-au-company-profile-amlab",
+    "company_id": "amlab",
+    "field": "website",
+    "value": "https://amlab.com.au",
+    "source_id": "techboard-com-au-company-profile-amlab",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (perth evidence); the page is not proof of a Perth office."
   },
   {
     "id": "andisor.address.andisor-legal-privacy-policy",
@@ -1243,6 +1375,83 @@
     "note": "The site itself."
   },
   {
+    "id": "appbot.city.appbot-co-privacy",
+    "company_id": "appbot",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "appbot-co-privacy",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:52:28.792Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Officer Appbot Pty Ltd Unit 7, Level 1, 1050 Hay St, West Perth, Australia dataprotectionoffi\"."
+  },
+  {
+    "id": "appbot.description.appbot-co",
+    "company_id": "appbot",
+    "field": "description",
+    "value": "Appbot provides world class review & ratings monitoring, replies and analysis.",
+    "source_id": "appbot-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "appbot.founded_year.appbot-co",
+    "company_id": "appbot",
+    "field": "founded_year",
+    "value": 2014,
+    "source_id": "appbot-co",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:10.983Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "appbot.founders.claire-mcgregor.appbot-co",
+    "company_id": "appbot",
+    "field": "founders",
+    "value": "Claire McGregor",
+    "source_id": "appbot-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "appbot.founders.stuart-hall.appbot-co",
+    "company_id": "appbot",
+    "field": "founders",
+    "value": "Stuart Hall",
+    "source_id": "appbot-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "appbot.website.abr-business-gov-au-abn-view",
+    "company_id": "appbot",
+    "field": "website",
+    "value": "https://appbot.co",
+    "source_id": "abr-business-gov-au-abn-view",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (perth evidence); the page is not proof of a Perth office."
+  },
+  {
+    "id": "appbot.website.appbot-co",
+    "company_id": "appbot",
+    "field": "website",
+    "value": "https://appbot.co",
+    "source_id": "appbot-co",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:10.983Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "apromore.company_status.apromore-com",
     "company_id": "apromore",
     "field": "company_status",
@@ -1450,6 +1659,50 @@
     "verified_at": "2026-10-30T23:25:44.181Z",
     "status": "active",
     "note": "The website Folklore Ventures lists for the company."
+  },
+  {
+    "id": "ascend-labs.city.ascendlabs-com-au-company-contact",
+    "company_id": "ascend-labs",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "ascendlabs-com-au-company-contact",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:52:37.723Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Headquarters Perth, WA UTC+8 Social Twitter Inst\"."
+  },
+  {
+    "id": "ascend-labs.description.ascendlabs-com-au",
+    "company_id": "ascend-labs",
+    "field": "description",
+    "value": "Get the data you need to improve performance, monitor fatigue and guide rehabilitation.",
+    "source_id": "ascendlabs-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ascend-labs.website.ascendlabs-com-au",
+    "company_id": "ascend-labs",
+    "field": "website",
+    "value": "https://ascendlabs.com.au",
+    "source_id": "ascendlabs-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:21.522Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "ascend-labs.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "ascend-labs",
+    "field": "website",
+    "value": "https://ascendlabs.com.au",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
   },
   {
     "id": "askable.address.askable-company-about",
@@ -1826,6 +2079,50 @@
     "note": "The site itself."
   },
   {
+    "id": "augment-technologies.address.augmenttechnologies-ai-contacts",
+    "company_id": "augment-technologies",
+    "field": "address",
+    "value": "100 Hay Street, Subiaco WA 6008",
+    "source_id": "augmenttechnologies-ai-contacts",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:12:03.472Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "augment-technologies.description.augmenttechnologies-ai",
+    "company_id": "augment-technologies",
+    "field": "description",
+    "value": "Welcome to Augment Technologies",
+    "source_id": "augmenttechnologies-ai",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "augment-technologies.website.augmenttechnologies-ai",
+    "company_id": "augment-technologies",
+    "field": "website",
+    "value": "https://augmenttechnologies.ai",
+    "source_id": "augmenttechnologies-ai",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:26.777Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "augment-technologies.website.www-wa-gov-au-organisation-department-of-energy-and-economic-div",
+    "company_id": "augment-technologies",
+    "field": "website",
+    "value": "https://augmenttechnologies.ai",
+    "source_id": "www-wa-gov-au-organisation-department-of-energy-and-economic-div",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (wa awards 2026); the page is not proof of a Perth office."
+  },
+  {
     "id": "avarni.address.avarni-website",
     "company_id": "avarni",
     "field": "address",
@@ -1881,6 +2178,39 @@
     "note": "The site itself."
   },
   {
+    "id": "avicena-systems.address.avicenasystems-com-contact-us",
+    "company_id": "avicena-systems",
+    "field": "address",
+    "value": "30 Coolgardie St, West Perth, WA 6005",
+    "source_id": "avicenasystems-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:12:10.658Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "avicena-systems.description.avicenasystems-com",
+    "company_id": "avicena-systems",
+    "field": "description",
+    "value": "Advanced biosecurity platforms designed to safeguard communities and economies, enabling swift detection and response to outbreaks.",
+    "source_id": "avicenasystems-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "avicena-systems.website.avicenasystems-com",
+    "company_id": "avicena-systems",
+    "field": "website",
+    "value": "https://avicenasystems.com",
+    "source_id": "avicenasystems-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:32.916Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "azaneo.website.azaneo-au",
     "company_id": "azaneo",
     "field": "website",
@@ -1901,6 +2231,72 @@
     "verified_at": "2026-10-30T23:25:43.186Z",
     "status": "active",
     "note": "The website Cicada Innovations lists for the company."
+  },
+  {
+    "id": "bamboo.address.www-getbamboo-io-legal-terms",
+    "company_id": "bamboo",
+    "field": "address",
+    "value": "45 St Georges Terrace, Perth WA 6000",
+    "source_id": "www-getbamboo-io-legal-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "bamboo.address.www-getbamboo-io-legal-terms.2",
+    "company_id": "bamboo",
+    "field": "address",
+    "value": "provided to you by Bamboo 61 Pty Ltd ABN 86 626 100 981, G/45 St Georges Terrace, Perth, WA 6000",
+    "source_id": "www-getbamboo-io-legal-terms",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:52:53.984Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "bamboo.city.www-getbamboo-io-legal-terms",
+    "company_id": "bamboo",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-getbamboo-io-legal-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "bamboo.description.www-getbamboo-io",
+    "company_id": "bamboo",
+    "field": "description",
+    "value": "Microinvestments platform for purchase digital assets, Bitcoin cryptocurrency and Gold.",
+    "source_id": "www-getbamboo-io",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "bamboo.state.www-getbamboo-io-legal-terms",
+    "company_id": "bamboo",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-getbamboo-io-legal-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "bamboo.website.www-getbamboo-io",
+    "company_id": "bamboo",
+    "field": "website",
+    "value": "https://getbamboo.io",
+    "source_id": "www-getbamboo-io",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:38.232Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "bare.address.bare-terms-privacy-policy",
@@ -2042,6 +2438,61 @@
     "source_id": "bellroy-com-2",
     "confidence": "high",
     "verified_at": "2026-10-13T13:18:34.041Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "biotome.address.www-biotome-com-au",
+    "company_id": "biotome",
+    "field": "address",
+    "value": "6 Verdun Street, Nedlands WA 6009",
+    "source_id": "www-biotome-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:44.352Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "biotome.address.www-biotome-com-au-privacy-policy",
+    "company_id": "biotome",
+    "field": "address",
+    "value": "6 Verdun Street, Nedlands WA 6009",
+    "source_id": "www-biotome-com-au-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:12:23.482Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "biotome.description.www-biotome-com-au",
+    "company_id": "biotome",
+    "field": "description",
+    "value": "Using peptides, we create next generation antibody diagnostics that unlock the high-resolution of the immune system. \nWe make peptides work!",
+    "source_id": "www-biotome-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "biotome.state.www-biotome-com-au",
+    "company_id": "biotome",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-biotome-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:44.352Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "biotome.website.www-biotome-com-au",
+    "company_id": "biotome",
+    "field": "website",
+    "value": "https://biotome.com.au",
+    "source_id": "www-biotome-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:44.352Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -2222,6 +2673,39 @@
     "note": "The website Blackbird lists for the company."
   },
   {
+    "id": "black-swan-biotech.city.www-blackswanbio-com-about-us",
+    "company_id": "black-swan-biotech",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-blackswanbio-com-about-us",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:53:04.454Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth-based\"."
+  },
+  {
+    "id": "black-swan-biotech.description.www-blackswanbio-com",
+    "company_id": "black-swan-biotech",
+    "field": "description",
+    "value": "Advancing Precision Medicine for ALS and Beyond.",
+    "source_id": "www-blackswanbio-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "black-swan-biotech.website.www-blackswanbio-com",
+    "company_id": "black-swan-biotech",
+    "field": "website",
+    "value": "https://blackswanbio.com",
+    "source_id": "www-blackswanbio-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:50.127Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "blinq.description.blinq-website",
     "company_id": "blinq",
     "field": "description",
@@ -2396,6 +2880,50 @@
     "verified_at": "2026-10-30T23:25:44.181Z",
     "status": "active",
     "note": "The website Folklore Ventures lists for the company."
+  },
+  {
+    "id": "bobbleware.address.www-bobbleware-com-pages-contact-us",
+    "company_id": "bobbleware",
+    "field": "address",
+    "value": "15/16 Yampi Way Willetton WA 6155",
+    "source_id": "www-bobbleware-com-pages-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:10.641Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "bobbleware.description.www-bobbleware-com",
+    "company_id": "bobbleware",
+    "field": "description",
+    "value": "Reusable borosilicate glass tumblers & licensed lifestyle goods. One Piece, Sanrio & more. 40,000+ customers. Free AUS shipping over $90.",
+    "source_id": "www-bobbleware-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "bobbleware.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "bobbleware",
+    "field": "website",
+    "value": "https://bobbleware.com",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
+  },
+  {
+    "id": "bobbleware.website.www-bobbleware-com",
+    "company_id": "bobbleware",
+    "field": "website",
+    "value": "https://bobbleware.com",
+    "source_id": "www-bobbleware-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:56.296Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "bookipi.description.bookipi-website",
@@ -3080,6 +3608,28 @@
     "note": "1 open role in the page's structured data, such as \"Research MLE (Training Optimization）大模型训练优化工程师\"."
   },
   {
+    "id": "capability-x.website.www-capabilityx-com",
+    "company_id": "capability-x",
+    "field": "website",
+    "value": "https://capabilityx.com",
+    "source_id": "www-capabilityx-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:30:59.721Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "capability-x.website.www-wa-gov-au-organisation-department-of-energy-and-economic-div",
+    "company_id": "capability-x",
+    "field": "website",
+    "value": "https://capabilityx.com",
+    "source_id": "www-wa-gov-au-organisation-department-of-energy-and-economic-div",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (wa awards 2026); the page is not proof of a Perth office."
+  },
+  {
     "id": "cape.address.www-getcape-io",
     "company_id": "cape",
     "field": "address",
@@ -3208,6 +3758,61 @@
     "source_id": "care-gp-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:02:52.371Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "cars-like.city.www-carslike-com-au-contact",
+    "company_id": "cars-like",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-carslike-com-au-contact",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:53:28.337Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth, WA\"."
+  },
+  {
+    "id": "cars-like.description.www-carslike-com-au",
+    "company_id": "cars-like",
+    "field": "description",
+    "value": "Cars Like is an independent car-comparison platform for the Australian market, publishing specs, pricing and like-for-like comparisons backed by sourced, verified data.",
+    "source_id": "www-carslike-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cars-like.founders.yuri-cartland.www-carslike-com-au",
+    "company_id": "cars-like",
+    "field": "founders",
+    "value": "Yuri Cartland",
+    "source_id": "www-carslike-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "cars-like.website.blog-spacecubed-com-20-founders-six-weeks-and-big-ideas-inside-t",
+    "company_id": "cars-like",
+    "field": "website",
+    "value": "https://carslike.com.au",
+    "source_id": "blog-spacecubed-com-20-founders-six-weeks-and-big-ideas-inside-t",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (perth pre accelerator 2026); the page is not proof of a Perth office."
+  },
+  {
+    "id": "cars-like.website.www-carslike-com-au",
+    "company_id": "cars-like",
+    "field": "website",
+    "value": "https://carslike.com.au",
+    "source_id": "www-carslike-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:04.770Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -3397,6 +4002,83 @@
     "verified_at": "2026-10-30T23:37:51.481Z",
     "status": "active",
     "note": "The website Startmate lists for the company."
+  },
+  {
+    "id": "chironix.address.chironix-com",
+    "company_id": "chironix",
+    "field": "address",
+    "value": "3/33 Millrose Drive Malaga, WA, 6090",
+    "source_id": "chironix-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:41.512Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "chironix.address.chironix-com-contact-us",
+    "company_id": "chironix",
+    "field": "address",
+    "value": "3/33 Millrose Dr, Malaga Western Australia 6090",
+    "source_id": "chironix-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:41.512Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "chironix.address.chironix-com-contact-us.2",
+    "company_id": "chironix",
+    "field": "address",
+    "value": "Phone Message (Required) Connect [email protected] Contact Us 3/33 Millrose Drive Malaga, Western Australia, 6090",
+    "source_id": "chironix-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:41.512Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "chironix.address.chironix-com-privacy-policy",
+    "company_id": "chironix",
+    "field": "address",
+    "value": "3/33 Millrose Drive Malaga, WA, 6090",
+    "source_id": "chironix-com-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:41.512Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "chironix.address.chironix-com-terms-of-service",
+    "company_id": "chironix",
+    "field": "address",
+    "value": "3/33 Millrose Drive Malaga, WA, 6090",
+    "source_id": "chironix-com-terms-of-service",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:41.512Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "chironix.description.chironix-com",
+    "company_id": "chironix",
+    "field": "description",
+    "value": "Chironix empowers your operations with robotic & autonomous solutions. Drive efficiency in Industry, Defence, Mining, Oil & Gas, and more.",
+    "source_id": "chironix-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "chironix.website.chironix-com",
+    "company_id": "chironix",
+    "field": "website",
+    "value": "https://chironix.com",
+    "source_id": "chironix-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:10.201Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "chirp.description.chirp-website",
@@ -3916,6 +4598,116 @@
     "note": "The site itself."
   },
   {
+    "id": "corametix.address.corametix-com",
+    "company_id": "corametix",
+    "field": "address",
+    "value": "3/4 Gould St, Osborne Park WA 6017",
+    "source_id": "corametix-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "corametix.address.corametix-com.2",
+    "company_id": "corametix",
+    "field": "address",
+    "value": "Subject Line Message Submit Or reach out through Linkedin Unit 3/4 Gould St, Osborne Park WA 6017",
+    "source_id": "corametix-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:53:46.703Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "corametix.description.corametix-com",
+    "company_id": "corametix",
+    "field": "description",
+    "value": "Pioneering bioinspired heart valve with enhanced performance and durability, crafted through advanced 3D printing for cost-effective, patient-specific solutions.",
+    "source_id": "corametix-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "corametix.state.corametix-com",
+    "company_id": "corametix",
+    "field": "state",
+    "value": "WA",
+    "source_id": "corametix-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "corametix.website.corametix-com",
+    "company_id": "corametix",
+    "field": "website",
+    "value": "https://corametix.com",
+    "source_id": "corametix-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:16.652Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "cortical-dynamics.address.corticaldynamics-com-contact",
+    "company_id": "cortical-dynamics",
+    "field": "address",
+    "value": "56 Murray Street, Perth WA 6000",
+    "source_id": "corticaldynamics-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "cortical-dynamics.city.corticaldynamics-com-contact",
+    "company_id": "cortical-dynamics",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "corticaldynamics-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "cortical-dynamics.description.corticaldynamics-com",
+    "company_id": "cortical-dynamics",
+    "field": "description",
+    "value": "Cortical Dynamics builds medical devices and clinical AI for perioperative care: BARM™ brain monitoring in theatre and CORDYAN™ patient management.",
+    "source_id": "corticaldynamics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cortical-dynamics.state.corticaldynamics-com-contact",
+    "company_id": "cortical-dynamics",
+    "field": "state",
+    "value": "WA",
+    "source_id": "corticaldynamics-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "cortical-dynamics.website.corticaldynamics-com",
+    "company_id": "cortical-dynamics",
+    "field": "website",
+    "value": "https://corticaldynamics.com",
+    "source_id": "corticaldynamics-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:35.310Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "cortical-labs.description.corticallabs-com",
     "company_id": "cortical-labs",
     "field": "description",
@@ -4202,6 +4994,50 @@
     "note": "The site itself."
   },
   {
+    "id": "cytophenix.city.cytophenix-com",
+    "company_id": "cytophenix",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "cytophenix-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T02:13:44.668Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"based in WA's research corridor in Perth\"."
+  },
+  {
+    "id": "cytophenix.description.cytophenix-com",
+    "company_id": "cytophenix",
+    "field": "description",
+    "value": "Cytophenix develops rapid antimicrobial susceptibility testing (AST) technology — Cytophenix FloCAST™ — delivering same-day results to guide antibiotic treatment decisions and combat antimicrobial resistance.",
+    "source_id": "cytophenix-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cytophenix.founded_year.cytophenix-com",
+    "company_id": "cytophenix",
+    "field": "founded_year",
+    "value": 2020,
+    "source_id": "cytophenix-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:53.147Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "cytophenix.website.cytophenix-com",
+    "company_id": "cytophenix",
+    "field": "website",
+    "value": "https://cytophenix.com",
+    "source_id": "cytophenix-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:53.147Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "darwinium.description.www-darwinium-com",
     "company_id": "darwinium",
     "field": "description",
@@ -4332,6 +5168,83 @@
     "verified_at": "2026-10-30T23:35:19.990Z",
     "status": "active",
     "note": "The website Investible lists for the company."
+  },
+  {
+    "id": "dayworkbook.address.dayworkbook-com-privacy",
+    "company_id": "dayworkbook",
+    "field": "address",
+    "value": "79 St Georges Terrace, Perth WA 6000",
+    "source_id": "dayworkbook-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "dayworkbook.address.dayworkbook-com-terms",
+    "company_id": "dayworkbook",
+    "field": "address",
+    "value": "Level 1, 79 St Georges Terrace, Perth WA 6000",
+    "source_id": "dayworkbook-com-terms",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:54:24.012Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "dayworkbook.city.dayworkbook-com-privacy",
+    "company_id": "dayworkbook",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "dayworkbook-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "dayworkbook.description.dayworkbook-com",
+    "company_id": "dayworkbook",
+    "field": "description",
+    "value": "Capture daywork on site, get a signature, and turn it into an invoice before the crew packs up. RICS-aligned daywork management for construction subcontractors and clients.",
+    "source_id": "dayworkbook-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "dayworkbook.state.dayworkbook-com-privacy",
+    "company_id": "dayworkbook",
+    "field": "state",
+    "value": "WA",
+    "source_id": "dayworkbook-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "dayworkbook.website.dayworkbook-com",
+    "company_id": "dayworkbook",
+    "field": "website",
+    "value": "https://dayworkbook.com",
+    "source_id": "dayworkbook-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:31:57.768Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "dayworkbook.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "dayworkbook",
+    "field": "website",
+    "value": "https://dayworkbook.com",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
   },
   {
     "id": "ddloop.description.ddloop-app",
@@ -4794,6 +5707,50 @@
     "verified_at": "2026-10-30T23:45:57.992Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "detail-earth.address.detail-earth-privacy-policy",
+    "company_id": "detail-earth",
+    "field": "address",
+    "value": "Suite 3, 128 Main Street, Osborne Park, WA, 6017",
+    "source_id": "detail-earth-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:54:28.856Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "detail-earth.description.detail-earth",
+    "company_id": "detail-earth",
+    "field": "description",
+    "value": "Incredible content, streamed instantly through next-gen web server technology",
+    "source_id": "detail-earth",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "detail-earth.website.detail-earth",
+    "company_id": "detail-earth",
+    "field": "website",
+    "value": "https://detail.earth",
+    "source_id": "detail-earth",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:32:02.836Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "detail-earth.website.www-fundwa-com-au-fundwaportfolio",
+    "company_id": "detail-earth",
+    "field": "website",
+    "value": "https://detail.earth",
+    "source_id": "www-fundwa-com-au-fundwaportfolio",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (wa portfolio lead); the page is not proof of a Perth office."
   },
   {
     "id": "develpr.city.develpr-com-au",
@@ -5489,6 +6446,50 @@
     "note": "The site itself."
   },
   {
+    "id": "edible-cutlery.address.ediblecutlery-au-contact-us",
+    "company_id": "edible-cutlery",
+    "field": "address",
+    "value": "7/25 Walters Dr, Osborne Park WA 6017",
+    "source_id": "ediblecutlery-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:54:44.283Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "edible-cutlery.description.ediblecutlery-au",
+    "company_id": "edible-cutlery",
+    "field": "description",
+    "value": "Edible Cutlery: Your tasty Eco-Friendly alternative for greener dining. Discover sustainable living with our delectable edible utensils.",
+    "source_id": "ediblecutlery-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "edible-cutlery.website.ediblecutlery-au",
+    "company_id": "edible-cutlery",
+    "field": "website",
+    "value": "https://ediblecutlery.au",
+    "source_id": "ediblecutlery-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:32:17.828Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "edible-cutlery.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "edible-cutlery",
+    "field": "website",
+    "value": "https://ediblecutlery.au",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
+  },
+  {
     "id": "edsemble.description.edsemble-website",
     "company_id": "edsemble",
     "field": "description",
@@ -5848,6 +6849,39 @@
     "source_id": "enboarder-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:11:02.846Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "enzide-technologies.address.www-enzidetech-com-contact",
+    "company_id": "enzide-technologies",
+    "field": "address",
+    "value": "Level 2, 10 Outram Street West Perth WA 6005",
+    "source_id": "www-enzidetech-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:14:34.845Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "enzide-technologies.description.www-enzidetech-com",
+    "company_id": "enzide-technologies",
+    "field": "description",
+    "value": "Enzide is an Australian company solving plastic pollution with new super enzyme technology based on years of research",
+    "source_id": "www-enzidetech-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "enzide-technologies.website.www-enzidetech-com",
+    "company_id": "enzide-technologies",
+    "field": "website",
+    "value": "https://enzidetech.com",
+    "source_id": "www-enzidetech-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:32:34.071Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -6908,6 +7942,39 @@
     "note": "The website Startmate lists for the company."
   },
   {
+    "id": "flyone.address.flyone-com-au-investors-pvacy-policy",
+    "company_id": "flyone",
+    "field": "address",
+    "value": "3 Baron Way, Jandakot Airport, Jandakot, WA 6140",
+    "source_id": "flyone-com-au-investors-pvacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T06:44:44.857Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "flyone.description.flyone-com-au",
+    "company_id": "flyone",
+    "field": "description",
+    "value": "FlyOnE is making flying an electric aircraft as accessible to you as driving a car or booking a rideshare. Your Pipistrel, AirOne, and Electron Aerospace brand representative, now flying in Australia.",
+    "source_id": "flyone-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "flyone.website.flyone-com-au",
+    "company_id": "flyone",
+    "field": "website",
+    "value": "https://flyone.com.au",
+    "source_id": "flyone-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:32:39.291Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "foremind.description.www-foremind-com-au",
     "company_id": "foremind",
     "field": "description",
@@ -7588,6 +8655,72 @@
     "verified_at": "2026-10-30T23:25:43.186Z",
     "status": "active",
     "note": "The website Cicada Innovations lists for the company."
+  },
+  {
+    "id": "gene-s.description.gene-s-com",
+    "company_id": "gene-s",
+    "field": "description",
+    "value": "Gene S is an Australian bio technology company with novel gene testing technology. Our Next Generation Sequencing (NGS) solution, featuring advanced gene testing and reporting software, empowers laboratories and doctors to deliver faster and more accurate pharmacogenomic results, optimising patient care.",
+    "source_id": "gene-s-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "gene-s.founded_year.gene-s-com-about-us",
+    "company_id": "gene-s",
+    "field": "founded_year",
+    "value": 2020,
+    "source_id": "gene-s-com-about-us",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "gene-s.website.gene-s-com",
+    "company_id": "gene-s",
+    "field": "website",
+    "value": "https://gene-s.com",
+    "source_id": "gene-s-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:32:48.815Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "gene-s.website.www-purpose-ventures-our-portfolio",
+    "company_id": "gene-s",
+    "field": "website",
+    "value": "https://gene-s.com",
+    "source_id": "www-purpose-ventures-our-portfolio",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (wa portfolio lead); the page is not proof of a Perth office."
+  },
+  {
+    "id": "geomoby.address.geomoby-com-lp-contact-tracing",
+    "company_id": "geomoby",
+    "field": "address",
+    "value": "Level 1, 1109 Hay St, West Perth WA 6005",
+    "source_id": "geomoby-com-lp-contact-tracing",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:09:12.490Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "geomoby.website.geomoby-com",
+    "company_id": "geomoby",
+    "field": "website",
+    "value": "https://geomoby.com",
+    "source_id": "geomoby-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:32:56.288Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "geosnapshot.description.geosnapshot-com",
@@ -8360,6 +9493,50 @@
     "note": "The site itself."
   },
   {
+    "id": "hola-health.address.hola-health-contact",
+    "company_id": "hola-health",
+    "field": "address",
+    "value": "9 The Esplanade, Perth WA 6000",
+    "source_id": "hola-health-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:55:41.701Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "hola-health.address.hola-health-contact.2",
+    "company_id": "hola-health",
+    "field": "address",
+    "value": "health Facebook Linkedin Instagram Youtube Head office: 9 The Esplanade, Perth WA 6000",
+    "source_id": "hola-health-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:55:41.701Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "hola-health.description.hola-health",
+    "company_id": "hola-health",
+    "field": "description",
+    "value": "Access online doctor or health practitioner consults via telehealth in 15 minutes. Get scripts, referrals & medical certificates online in Australia.",
+    "source_id": "hola-health",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "hola-health.website.hola-health",
+    "company_id": "hola-health",
+    "field": "website",
+    "value": "https://hola.health",
+    "source_id": "hola-health",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:21.555Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "home-in.description.home-in-website",
     "company_id": "home-in",
     "field": "description",
@@ -8613,6 +9790,61 @@
     "note": "The website Startmate lists for the company."
   },
   {
+    "id": "hyperion-systems.address.www-hyperionsystems-com-au",
+    "company_id": "hyperion-systems",
+    "field": "address",
+    "value": "20 Egmont Rd, Henderson WA 6166",
+    "source_id": "www-hyperionsystems-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:26.227Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "hyperion-systems.description.www-hyperionsystems-com-au",
+    "company_id": "hyperion-systems",
+    "field": "description",
+    "value": "Hyperion Systems designs and deploys large format additive manufacturing systems — robotic, gantry, and containerised cells — that let organisations produce critical parts and infrastructure closer to the point of need.",
+    "source_id": "www-hyperionsystems-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "hyperion-systems.state.www-hyperionsystems-com-au",
+    "company_id": "hyperion-systems",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-hyperionsystems-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:26.227Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "hyperion-systems.website.www-hyperionsystems-com-au",
+    "company_id": "hyperion-systems",
+    "field": "website",
+    "value": "https://hyperionsystems.com.au",
+    "source_id": "www-hyperionsystems-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:26.227Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "hyperion-systems.website.www-wa-gov-au-organisation-department-of-energy-and-economic-div",
+    "company_id": "hyperion-systems",
+    "field": "website",
+    "value": "https://hyperionsystems.com.au",
+    "source_id": "www-wa-gov-au-organisation-department-of-energy-and-economic-div",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (wa awards 2026); the page is not proof of a Perth office."
+  },
+  {
     "id": "hyperlocalise.city.www-hyperlocalise-com-en",
     "company_id": "hyperlocalise",
     "field": "city",
@@ -8776,6 +10008,83 @@
     "verified_at": "2026-10-21T04:43:27.000Z",
     "status": "active",
     "note": "The website Startmate lists."
+  },
+  {
+    "id": "hyprfire.address.www-hyprfire-com-contact-us",
+    "company_id": "hyprfire",
+    "field": "address",
+    "value": "152 St George’s Terrace, Perth WA 6000",
+    "source_id": "www-hyprfire-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:09:50.611Z",
+    "status": "active",
+    "note": "Its own contact page: 152 St George’s Terrace, Perth WA 6000."
+  },
+  {
+    "id": "hyprfire.address.www-hyprfire-com-contact-us.2",
+    "company_id": "hyprfire",
+    "field": "address",
+    "value": "152 St George’s Terrace, Perth WA 6000 Sydney: 1 Sussex Street, Barangaroo, NSW 2000",
+    "source_id": "www-hyprfire-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:09:50.611Z",
+    "status": "superseded",
+    "note": "The Perth address with the Sydney office's address run into it; the Sydney office is recorded as a location of its own (company_locations)."
+  },
+  {
+    "id": "i-screen.address.www-i-screen-com-au-privacy-policy",
+    "company_id": "i-screen",
+    "field": "address",
+    "value": "202/37 Barrack St, Perth WA 6000",
+    "source_id": "www-i-screen-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "i-screen.city.www-i-screen-com-au-privacy-policy",
+    "company_id": "i-screen",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-i-screen-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "i-screen.description.www-i-screen-com-au",
+    "company_id": "i-screen",
+    "field": "description",
+    "value": "i-screen provides health check analytics & pathology services to help you understand what's really going on in your body & take control of your health",
+    "source_id": "www-i-screen-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "i-screen.state.www-i-screen-com-au-privacy-policy",
+    "company_id": "i-screen",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-i-screen-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "i-screen.website.www-i-screen-com-au",
+    "company_id": "i-screen",
+    "field": "website",
+    "value": "https://i-screen.com.au",
+    "source_id": "www-i-screen-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:31.998Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "ignition.address.www-ignitionapp-com",
@@ -9280,6 +10589,94 @@
     "source_id": "intelligencebank-com-2",
     "confidence": "high",
     "verified_at": "2026-10-13T13:19:13.135Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "interearth.address.www-inter-earth",
+    "company_id": "interearth",
+    "field": "address",
+    "value": "147 Samson St, White Gum Valley WA 6162",
+    "source_id": "www-inter-earth",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:52.132Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "interearth.address.www-inter-earth-contact-us",
+    "company_id": "interearth",
+    "field": "address",
+    "value": "147 Samson St, White Gum Valley, WA 6162",
+    "source_id": "www-inter-earth-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:56:17.237Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "interearth.address.www-inter-earth-contact-us.2",
+    "company_id": "interearth",
+    "field": "address",
+    "value": "ame Email * Message * Campaign GCLID UTM Send InterEarth 147 Samson St, White Gum Valley, WA 6162",
+    "source_id": "www-inter-earth-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:56:17.237Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "interearth.address.www-inter-earth-our-team",
+    "company_id": "interearth",
+    "field": "address",
+    "value": "147 Samson St, White Gum Valley, WA 6162",
+    "source_id": "www-inter-earth-our-team",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:56:17.237Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "interearth.address.www-inter-earth.2",
+    "company_id": "interearth",
+    "field": "address",
+    "value": "s & insights Are you ready to make an impact? InterEarth 147 Samson St, White Gum Valley, WA 6162",
+    "source_id": "www-inter-earth",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:56:17.237Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "interearth.description.www-inter-earth",
+    "company_id": "interearth",
+    "field": "description",
+    "value": "InterEarth is focused on meaningful action to remove excess atmospheric CO2, now. Photosynthesis is a powerful technology to capture CO2 from the atmosphere",
+    "source_id": "www-inter-earth",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "interearth.state.www-inter-earth",
+    "company_id": "interearth",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-inter-earth",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:52.132Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "interearth.website.www-inter-earth",
+    "company_id": "interearth",
+    "field": "website",
+    "value": "https://inter.earth",
+    "source_id": "www-inter-earth",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:33:52.132Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -10428,6 +11825,72 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "lixa.address.www-lixa-life",
+    "company_id": "lixa",
+    "field": "address",
+    "value": "22 Stirling Highway, Nedlands WA 6009",
+    "source_id": "www-lixa-life",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:34:17.115Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "lixa.address.www-lixa-life-privacy-policy",
+    "company_id": "lixa",
+    "field": "address",
+    "value": "22 Stirling Hwy, Nedlands, WA WA, 6009",
+    "source_id": "www-lixa-life-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:56:52.065Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "lixa.address.www-lixa-life.2",
+    "company_id": "lixa",
+    "field": "address",
+    "value": "Home Science Pipeline Mission Invest Office: 22 Stirling Hwy, Nedlands, Western Australia WA, 6009",
+    "source_id": "www-lixa-life",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:56:52.065Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "lixa.description.www-lixa-life",
+    "company_id": "lixa",
+    "field": "description",
+    "value": "Lixa is pioneering NeoX™, a universal antimicrobial resistance breaker that switches off AMR. Restoring antibiotic effectiveness across human health, industry and agriculture",
+    "source_id": "www-lixa-life",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "lixa.state.www-lixa-life",
+    "company_id": "lixa",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-lixa-life",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:34:17.115Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "lixa.website.www-lixa-life",
+    "company_id": "lixa",
+    "field": "website",
+    "value": "https://lixa.life",
+    "source_id": "www-lixa-life",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:34:17.115Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "lombard.description.www-lombard-finance",
     "company_id": "lombard",
     "field": "description",
@@ -10941,6 +12404,50 @@
     "source_id": "mentorloop-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:08:34.894Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "menuzen.address.www-menuzen-com-terms-of-service",
+    "company_id": "menuzen",
+    "field": "address",
+    "value": "2/1 Prowse St, West Perth WA 6005",
+    "source_id": "www-menuzen-com-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "menuzen.description.www-menuzen-com",
+    "company_id": "menuzen",
+    "field": "description",
+    "value": "Design and deploy real-time digital menu boards for QSRs. POS-synced items & pricing, instant updates for drive-thru and in-store screens.\"",
+    "source_id": "www-menuzen-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "menuzen.state.www-menuzen-com-terms-of-service",
+    "company_id": "menuzen",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-menuzen-com-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "menuzen.website.www-menuzen-com",
+    "company_id": "menuzen",
+    "field": "website",
+    "value": "https://menuzen.com",
+    "source_id": "www-menuzen-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:34:33.741Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -12023,6 +13530,50 @@
     "note": "The website Startmate lists for the company."
   },
   {
+    "id": "ocean-hex.city.oceanhex-com-au",
+    "company_id": "ocean-hex",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "oceanhex-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:57:26.604Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth, WA\"."
+  },
+  {
+    "id": "ocean-hex.description.oceanhex-com-au",
+    "company_id": "ocean-hex",
+    "field": "description",
+    "value": "Ocean health, for people. Ocean Hex is nature-tech for a regenerative blue economy, turning grey coastal infrastructure into living, regenerative assets with autonomous monitoring and decision-grade data.",
+    "source_id": "oceanhex-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ocean-hex.website.blog-spacecubed-com-plus-eight-investment-pool-reaches-1m-as-nin",
+    "company_id": "ocean-hex",
+    "field": "website",
+    "value": "https://oceanhex.com.au",
+    "source_id": "blog-spacecubed-com-plus-eight-investment-pool-reaches-1m-as-nin",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight 2026); the page is not proof of a Perth office."
+  },
+  {
+    "id": "ocean-hex.website.oceanhex-com-au",
+    "company_id": "ocean-hex",
+    "field": "website",
+    "value": "https://oceanhex.com.au",
+    "source_id": "oceanhex-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:34:59.816Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "octopus-deploy.address.octopus-deploy-company-contact",
     "company_id": "octopus-deploy",
     "field": "address",
@@ -12177,6 +13728,39 @@
     "note": "The website Folklore Ventures lists for the company."
   },
   {
+    "id": "omni-biotech.city.omnibiotech-com-au",
+    "company_id": "omni-biotech",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "omnibiotech-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:57:32.386Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth, WA\"."
+  },
+  {
+    "id": "omni-biotech.description.omnibiotech-com-au",
+    "company_id": "omni-biotech",
+    "field": "description",
+    "value": "Omni turns the wearables already on 500M+ wrists into continuous, individualised heat-strain, hydration and core-temperature insight — so teams see physiological risk build before it's felt.",
+    "source_id": "omnibiotech-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "omni-biotech.website.omnibiotech-com-au",
+    "company_id": "omni-biotech",
+    "field": "website",
+    "value": "https://omnibiotech.com.au",
+    "source_id": "omnibiotech-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:35:06.107Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "on-the-house.address.onthehousegroup-com-privacy-policy",
     "company_id": "on-the-house",
     "field": "address",
@@ -12254,6 +13838,72 @@
     "note": "The website Startmate lists for the company."
   },
   {
+    "id": "oncores-medical.address.www-oncoresmedical-com-contact",
+    "company_id": "oncores-medical",
+    "field": "address",
+    "value": "24 Leura Street, Nedlands WA 6009",
+    "source_id": "www-oncoresmedical-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "oncores-medical.address.www-oncoresmedical-com-contact.2",
+    "company_id": "oncores-medical",
+    "field": "address",
+    "value": "ONCORES MEDICAL 24 Leura Street, Nedlands WA 6009",
+    "source_id": "www-oncoresmedical-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:57:41.340Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "oncores-medical.description.www-oncoresmedical-com",
+    "company_id": "oncores-medical",
+    "field": "description",
+    "value": "OncoRes Medical is developing an imaging technology to provide intraoperative information available to surgeons. ",
+    "source_id": "www-oncoresmedical-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "oncores-medical.founded_year.www-oncoresmedical-com",
+    "company_id": "oncores-medical",
+    "field": "founded_year",
+    "value": 2016,
+    "source_id": "www-oncoresmedical-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "oncores-medical.state.www-oncoresmedical-com-contact",
+    "company_id": "oncores-medical",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-oncoresmedical-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "oncores-medical.website.www-oncoresmedical-com",
+    "company_id": "oncores-medical",
+    "field": "website",
+    "value": "https://oncoresmedical.com",
+    "source_id": "www-oncoresmedical-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:35:11.479Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "onemri.description.onemri-website",
     "company_id": "onemri",
     "field": "description",
@@ -12329,6 +13979,50 @@
     "verified_at": "2026-10-05T15:12:13.980Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "oto-medicines.address.www-otomedicines-com",
+    "company_id": "oto-medicines",
+    "field": "address",
+    "value": "15 Hospital Ave Nedlands WA 6009",
+    "source_id": "www-otomedicines-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:57:58.435Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "oto-medicines.description.www-otomedicines-com",
+    "company_id": "oto-medicines",
+    "field": "description",
+    "value": "Oto Medicines | developing therapies to prevent and treat childhood ear infections | Spritz-Om",
+    "source_id": "www-otomedicines-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "oto-medicines.website.www-otomedicines-com",
+    "company_id": "oto-medicines",
+    "field": "website",
+    "value": "https://otomedicines.com",
+    "source_id": "www-otomedicines-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:35:32.261Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "oto-medicines.website.www-wa-gov-au-organisation-department-of-energy-and-economic-div-2",
+    "company_id": "oto-medicines",
+    "field": "website",
+    "value": "https://otomedicines.com",
+    "source_id": "www-wa-gov-au-organisation-department-of-energy-and-economic-div-2",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (wa awards 2026); the page is not proof of a Perth office."
   },
   {
     "id": "ownhome.address.ownhome-legal-ownhome-contact",
@@ -12496,6 +14190,83 @@
     "note": "The site itself."
   },
   {
+    "id": "personr.address.personr-co",
+    "company_id": "personr",
+    "field": "address",
+    "value": "152-158 St Georges Terrace, Perth WA 6000",
+    "source_id": "personr-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "personr.address.personr-co-about-us",
+    "company_id": "personr",
+    "field": "address",
+    "value": "Level 32, 152-158 St Georges Terrace, Perth, WA 6000",
+    "source_id": "personr-co-about-us",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:58:11.811Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "personr.address.personr-co.2",
+    "company_id": "personr",
+    "field": "address",
+    "value": "L32 152-158 St Georges Terrace, Perth, WA 6000",
+    "source_id": "personr-co",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:58:11.811Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "personr.city.personr-co",
+    "company_id": "personr",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "personr-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "personr.description.personr-co",
+    "company_id": "personr",
+    "field": "description",
+    "value": "AML compliance software for regulated businesses across Asia-Pacific: KYC, KYB, AML screening, ongoing monitoring and compliance management in one platform.",
+    "source_id": "personr-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "personr.state.personr-co",
+    "company_id": "personr",
+    "field": "state",
+    "value": "WA",
+    "source_id": "personr-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "personr.website.personr-co",
+    "company_id": "personr",
+    "field": "website",
+    "value": "https://personr.co",
+    "source_id": "personr-co",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:35:41.815Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "perx-health.description.perxhealth-com",
     "company_id": "perx-health",
     "field": "description",
@@ -12595,6 +14366,182 @@
     "note": "The site itself."
   },
   {
+    "id": "piksort.address.www-piksort-com-terms",
+    "company_id": "piksort",
+    "field": "address",
+    "value": "13 Petrea Place, Canning Vale WA 6155",
+    "source_id": "www-piksort-com-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "piksort.address.www-piksort-com-terms.2",
+    "company_id": "piksort",
+    "field": "address",
+    "value": "com Address: 13 Petrea Place, Canning Vale WA 6155",
+    "source_id": "www-piksort-com-terms",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:58:27.344Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "piksort.description.www-piksort-com",
+    "company_id": "piksort",
+    "field": "description",
+    "value": "One searchable record of every site photo, camera frame and form, so construction, mining and industrial teams can find proof fast.",
+    "source_id": "www-piksort-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "piksort.state.www-piksort-com-terms",
+    "company_id": "piksort",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-piksort-com-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "piksort.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "piksort",
+    "field": "website",
+    "value": "https://piksort.com",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
+  },
+  {
+    "id": "piksort.website.www-piksort-com",
+    "company_id": "piksort",
+    "field": "website",
+    "value": "https://piksort.com",
+    "source_id": "www-piksort-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:35:57.683Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "plancare.address.plancare-com-au-get-in-touch",
+    "company_id": "plancare",
+    "field": "address",
+    "value": "Level 17, 109 St Georges Terrace, Perth WA 6000",
+    "source_id": "plancare-com-au-get-in-touch",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:12:36.008Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "plancare.address.plancare-com-au-get-in-touch.2",
+    "company_id": "plancare",
+    "field": "address",
+    "value": "Level 5, 91 Phillip Street, Parramatta, NSW 2150",
+    "source_id": "plancare-com-au-get-in-touch",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:12:36.008Z",
+    "status": "superseded",
+    "note": "PlanCare's Parramatta office, recorded as a location of its own (company_locations): the Perth address is the address of the record."
+  },
+  {
+    "id": "plancare.address.plancare-com-au-terms-and-conditions",
+    "company_id": "plancare",
+    "field": "address",
+    "value": "109 St Georges Terrace, Perth WA 6000",
+    "source_id": "plancare-com-au-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "plancare.city.plancare-com-au-terms-and-conditions",
+    "company_id": "plancare",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "plancare-com-au-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "plancare.description.plancare-com-au",
+    "company_id": "plancare",
+    "field": "description",
+    "value": "PlanCare is a healthcare-at-home service & platform that provides greater choice and control for those who require support at home",
+    "source_id": "plancare-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "plancare.state.plancare-com-au-terms-and-conditions",
+    "company_id": "plancare",
+    "field": "state",
+    "value": "WA",
+    "source_id": "plancare-com-au-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "plancare.website.plancare-com-au",
+    "company_id": "plancare",
+    "field": "website",
+    "value": "https://plancare.com.au",
+    "source_id": "plancare-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:36:02.661Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "portable-ppb.city.portableppb-com-about-us",
+    "company_id": "portable-ppb",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "portableppb-com-about-us",
+    "confidence": "medium",
+    "verified_at": "2026-11-01T16:12:42.719Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Headquarters and Research & Development in Perth, WA\"."
+  },
+  {
+    "id": "portable-ppb.website.portableppb-com",
+    "company_id": "portable-ppb",
+    "field": "website",
+    "value": "https://portableppb.com",
+    "source_id": "portableppb-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:36:09.674Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "portable-ppb.website.techboard-com-au-company-profile-portable-ppb",
+    "company_id": "portable-ppb",
+    "field": "website",
+    "value": "https://portableppb.com",
+    "source_id": "techboard-com-au-company-profile-portable-ppb",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (perth evidence); the page is not proof of a Perth office."
+  },
+  {
     "id": "presien.address.www-presien-com-terms-conditions",
     "company_id": "presien",
     "field": "address",
@@ -12646,6 +14593,39 @@
     "source_id": "www-presien-com",
     "confidence": "high",
     "verified_at": "2026-10-30T23:33:13.992Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "pretect-devices.city.www-pretectdevices-com",
+    "company_id": "pretect-devices",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-pretectdevices-com",
+    "confidence": "medium",
+    "verified_at": "2026-11-01T16:12:44.219Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth, WA\"."
+  },
+  {
+    "id": "pretect-devices.website.www-biodesign-au-post-introducing-wa-s-latest-health-innovators",
+    "company_id": "pretect-devices",
+    "field": "website",
+    "value": "https://pretectdevices.com",
+    "source_id": "www-biodesign-au-post-introducing-wa-s-latest-health-innovators",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (biodesign lead); the page is not proof of a Perth office."
+  },
+  {
+    "id": "pretect-devices.website.www-pretectdevices-com",
+    "company_id": "pretect-devices",
+    "field": "website",
+    "value": "https://pretectdevices.com",
+    "source_id": "www-pretectdevices-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:36:10.899Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -13552,6 +15532,83 @@
     "note": "The site itself."
   },
   {
+    "id": "ready-team-one.address.readyteamone-com",
+    "company_id": "ready-team-one",
+    "field": "address",
+    "value": "255 Murray Street, Perth WA 6000",
+    "source_id": "readyteamone-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "ready-team-one.address.readyteamone-com-event-vr-corporate-events-team-building-perth",
+    "company_id": "ready-team-one",
+    "field": "address",
+    "value": "1/255 Murray Street, Perth, WA, 6000",
+    "source_id": "readyteamone-com-event-vr-corporate-events-team-building-perth",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:13:00.288Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "ready-team-one.city.readyteamone-com",
+    "company_id": "ready-team-one",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "readyteamone-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "ready-team-one.description.readyteamone-com",
+    "company_id": "ready-team-one",
+    "field": "description",
+    "value": "Free-roam VR in Perth CBD, opposite Perth Station. Open to the public on weekends, with private weekday sessions 9am–6pm. Five games made in Perth.",
+    "source_id": "readyteamone-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ready-team-one.state.readyteamone-com",
+    "company_id": "ready-team-one",
+    "field": "state",
+    "value": "WA",
+    "source_id": "readyteamone-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "ready-team-one.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "ready-team-one",
+    "field": "website",
+    "value": "https://readyteamone.com",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
+  },
+  {
+    "id": "ready-team-one.website.readyteamone-com",
+    "company_id": "ready-team-one",
+    "field": "website",
+    "value": "https://readyteamone.com",
+    "source_id": "readyteamone-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:36:20.164Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "reejig.description.www-reejig-com",
     "company_id": "reejig",
     "field": "description",
@@ -13702,6 +15759,72 @@
     "source_id": "www-restoplus-com",
     "confidence": "high",
     "verified_at": "2026-10-31T00:33:44.502Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "roborigger.address.www-roborigger-com-au-contact",
+    "company_id": "roborigger",
+    "field": "address",
+    "value": "26 Buch Ave, Epping VIC 3076",
+    "source_id": "www-roborigger-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "The address of a Roborigger agent in Victoria (Victoria National Site Services), listed under 'Roborigger agents' on the page: not the company's own place."
+  },
+  {
+    "id": "roborigger.address.www-roborigger-com-au-contact-2",
+    "company_id": "roborigger",
+    "field": "address",
+    "value": "1131 Hay Street, West Perth, 6005, WA, Australia",
+    "source_id": "www-roborigger-com-au-contact-2",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:59:11.978Z",
+    "status": "active",
+    "note": "Its own contact page: 'Head Office'."
+  },
+  {
+    "id": "roborigger.city.www-roborigger-com-au-contact",
+    "company_id": "roborigger",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-roborigger-com-au-contact",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T01:59:11.978Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Head Office: 1131 Hay Street, West Perth, 6005, WA, Australia Producti\"."
+  },
+  {
+    "id": "roborigger.description.www-roborigger-com-au",
+    "company_id": "roborigger",
+    "field": "description",
+    "value": "Roborigger products control the crane load orientation using radio control. A linked cloud data platform updates all logistics information automatically as the loads are lifted.",
+    "source_id": "www-roborigger-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "roborigger.state.www-roborigger-com-au-contact",
+    "company_id": "roborigger",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-roborigger-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "roborigger.website.www-roborigger-com-au",
+    "company_id": "roborigger",
+    "field": "website",
+    "value": "https://roborigger.com.au",
+    "source_id": "www-roborigger-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:36:34.784Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -13944,6 +16067,94 @@
     "source_id": "sapia-ai-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:03:34.241Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "savvywise.address.www-savvywise-com-au",
+    "company_id": "savvywise",
+    "field": "address",
+    "value": "45 St Georges Tce, PERTH WA 6000",
+    "source_id": "www-savvywise-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "savvywise.address.www-savvywise-com-au-about",
+    "company_id": "savvywise",
+    "field": "address",
+    "value": "45 St Georges Tce, PERTH WA 6000",
+    "source_id": "www-savvywise-com-au-about",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:13:30.878Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "savvywise.address.www-savvywise-com-au-contact",
+    "company_id": "savvywise",
+    "field": "address",
+    "value": "45 St Georges Tce, PERTH WA 6000",
+    "source_id": "www-savvywise-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:13:30.878Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "savvywise.description.www-savvywise-com-au",
+    "company_id": "savvywise",
+    "field": "description",
+    "value": "AI-assisted tax research (and more) built specifically for Australian accounting firms. Start your free trial.",
+    "source_id": "www-savvywise-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "savvywise.state.www-savvywise-com-au",
+    "company_id": "savvywise",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-savvywise-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "savvywise.website.www-savvywise-com-au",
+    "company_id": "savvywise",
+    "field": "website",
+    "value": "https://savvywise.com.au",
+    "source_id": "www-savvywise-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:36:51.056Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "seastock.description.www-seastock-com-au",
+    "company_id": "seastock",
+    "field": "description",
+    "value": "SeaStock creates global marine science solutions to produce and extract compounds derived from seaweed and algae. Our products benefit the agriculture, cosmetic and pharmaceutical industries which require sustainably sourced and naturally derived raw materials.",
+    "source_id": "www-seastock-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "seastock.website.www-seastock-com-au",
+    "company_id": "seastock",
+    "field": "website",
+    "value": "https://seastock.com.au",
+    "source_id": "www-seastock-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:37:02.914Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -14399,6 +16610,50 @@
     "note": "The site itself."
   },
   {
+    "id": "simplafy.address.simplafy-com-au-contact",
+    "company_id": "simplafy",
+    "field": "address",
+    "value": "5/531 Hay Street SUBIACO WA 6008",
+    "source_id": "simplafy-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:59:44.398Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "simplafy.description.simplafy-com-au",
+    "company_id": "simplafy",
+    "field": "description",
+    "value": "Simplafy empowers organisations with an expert led digital wellbeing platform. Boost retention and productivity. Book a demo today!",
+    "source_id": "simplafy-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "simplafy.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "simplafy",
+    "field": "website",
+    "value": "https://simplafy.com.au",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
+  },
+  {
+    "id": "simplafy.website.simplafy-com-au",
+    "company_id": "simplafy",
+    "field": "website",
+    "value": "https://simplafy.com.au",
+    "source_id": "simplafy-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:37:11.298Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "simpro.website.www-simpro-com",
     "company_id": "simpro",
     "field": "website",
@@ -14604,6 +16859,138 @@
     "source_id": "sonder-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:07:01.280Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "spacedraft.address.spacedraft-com-privacy-policy",
+    "company_id": "spacedraft",
+    "field": "address",
+    "value": "183 Stirling Hwy, Nedlands WA 6009",
+    "source_id": "spacedraft-com-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "spacedraft.address.spacedraft-com-privacy-policy.2",
+    "company_id": "spacedraft",
+    "field": "address",
+    "value": "Ltd 183 Stirling Hwy, Nedlands WA 6009",
+    "source_id": "spacedraft-com-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:00:01.711Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "spacedraft.address.spacedraft-com-terms-conditions",
+    "company_id": "spacedraft",
+    "field": "address",
+    "value": "183 Stirling Hwy Nedlands, WA 6009",
+    "source_id": "spacedraft-com-terms-conditions",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:00:01.711Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "spacedraft.description.spacedraft-com",
+    "company_id": "spacedraft",
+    "field": "description",
+    "value": "SpaceDraft turns project plans, documents, work instructions and Gantt charts into interactive visual storyboards everyone can share and understand",
+    "source_id": "spacedraft-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "spacedraft.state.spacedraft-com-privacy-policy",
+    "company_id": "spacedraft",
+    "field": "state",
+    "value": "WA",
+    "source_id": "spacedraft-com-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "spacedraft.website.spacedraft-com",
+    "company_id": "spacedraft",
+    "field": "website",
+    "value": "https://spacedraft.com",
+    "source_id": "spacedraft-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:37:30.703Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "spacetoco.address.support-spacetoco-com-spacetoco-privacy-policy",
+    "company_id": "spacetoco",
+    "field": "address",
+    "value": "525 Falls Road, Hovea WA 6070",
+    "source_id": "support-spacetoco-com-spacetoco-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "spacetoco.address.support-spacetoco-com-spacetoco-privacy-policy.2",
+    "company_id": "spacetoco",
+    "field": "address",
+    "value": "com Postal Address: 525 Falls Road, Hovea WA 6070",
+    "source_id": "support-spacetoco-com-spacetoco-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:00:04.583Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "spacetoco.description.www-spacetoco-com",
+    "company_id": "spacetoco",
+    "field": "description",
+    "value": "Australia & New Zealand's favourite way to book spaces, community halls and meeting rooms by the hour.",
+    "source_id": "www-spacetoco-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "spacetoco.state.support-spacetoco-com-spacetoco-privacy-policy",
+    "company_id": "spacetoco",
+    "field": "state",
+    "value": "WA",
+    "source_id": "support-spacetoco-com-spacetoco-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "spacetoco.website.walga-asn-au-suppliers-preferred-supplier-directory-spacetoco",
+    "company_id": "spacetoco",
+    "field": "website",
+    "value": "https://spacetoco.com",
+    "source_id": "walga-asn-au-suppliers-preferred-supplier-directory-spacetoco",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (perth evidence); the page is not proof of a Perth office."
+  },
+  {
+    "id": "spacetoco.website.www-spacetoco-com",
+    "company_id": "spacetoco",
+    "field": "website",
+    "value": "https://spacetoco.com",
+    "source_id": "www-spacetoco-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:37:33.880Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -15288,6 +17675,105 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "talk2view.address.talk2view-com",
+    "company_id": "talk2view",
+    "field": "address",
+    "value": "Unit 8 9 Bonner Drive, Malaga WA, 6090",
+    "source_id": "talk2view-com",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:14:34.458Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "talk2view.address.talk2view-com-legal-privacy-policy",
+    "company_id": "talk2view",
+    "field": "address",
+    "value": "Unit 8 9 Bonner Drive, Malaga WA, 6090",
+    "source_id": "talk2view-com-legal-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:14:34.458Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "talk2view.address.talk2view-com-legal-terms-of-use",
+    "company_id": "talk2view",
+    "field": "address",
+    "value": "Unit 8 9 Bonner Drive, Malaga WA, 6090",
+    "source_id": "talk2view-com-legal-terms-of-use",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:14:34.458Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "talk2view.website.www-ventureuwa-com-au-business-directory",
+    "company_id": "talk2view",
+    "field": "website",
+    "value": "https://talk2view.com",
+    "source_id": "www-ventureuwa-com-au-business-directory",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (venture uwa 2025 2026); the page is not proof of a Perth office."
+  },
+  {
+    "id": "tender-relief.address.tenderrelief-com-au-where-winning-tenders-begin",
+    "company_id": "tender-relief",
+    "field": "address",
+    "value": "79 St Georges Terrace Perth, WA, 6001",
+    "source_id": "tenderrelief-com-au-where-winning-tenders-begin",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:00:27.338Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "tender-relief.description.tenderrelief-com-au",
+    "company_id": "tender-relief",
+    "field": "description",
+    "value": "Choose Tender Relief's AI tender writing software or talk to our expert bid and tender writing consultants. Pick your path to get started.",
+    "source_id": "tenderrelief-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "tender-relief.founded_year.tenderrelief-com-au-where-winning-tenders-begin",
+    "company_id": "tender-relief",
+    "field": "founded_year",
+    "value": 2019,
+    "source_id": "tenderrelief-com-au-where-winning-tenders-begin",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "tender-relief.website.pluseight-spacecubed-com-accelerator-alumni",
+    "company_id": "tender-relief",
+    "field": "website",
+    "value": "https://tenderrelief.com.au",
+    "source_id": "pluseight-spacecubed-com-accelerator-alumni",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
+  },
+  {
+    "id": "tender-relief.website.tenderrelief-com-au",
+    "company_id": "tender-relief",
+    "field": "website",
+    "value": "https://tenderrelief.com.au",
+    "source_id": "tenderrelief-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:37:52.732Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "tendl.description.tendl-website",
     "company_id": "tendl",
     "field": "description",
@@ -15352,6 +17838,138 @@
     "verified_at": "2026-10-30T23:25:43.186Z",
     "status": "active",
     "note": "The website Cicada Innovations lists for the company."
+  },
+  {
+    "id": "the-volte.address.thevolte-com",
+    "company_id": "the-volte",
+    "field": "address",
+    "value": "1/4 Gugeri Street, Claremont WA 6010",
+    "source_id": "thevolte-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:00.641Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "the-volte.address.thevolte-com-privacy-policy",
+    "company_id": "the-volte",
+    "field": "address",
+    "value": "1/4 Gugeri St, Claremont WA 6010",
+    "source_id": "thevolte-com-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "the-volte.address.thevolte-com-privacy-policy.2",
+    "company_id": "the-volte",
+    "field": "address",
+    "value": "please contact us at: Email : [email protected] Postal Address : 1/4 Gugeri St, Claremont WA 6010",
+    "source_id": "thevolte-com-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:00:35.307Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "the-volte.description.thevolte-com",
+    "company_id": "the-volte",
+    "field": "description",
+    "value": "Dress hire grows your wardrobe with over 60,000 new, chic designer options. We help women get the perfect dress for every event on their calendar.",
+    "source_id": "thevolte-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "the-volte.founded_year.thevolte-com",
+    "company_id": "the-volte",
+    "field": "founded_year",
+    "value": 2016,
+    "source_id": "thevolte-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:00.641Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "the-volte.founders.bernadette-olivier.thevolte-com",
+    "company_id": "the-volte",
+    "field": "founders",
+    "value": "Bernadette Olivier",
+    "source_id": "thevolte-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "the-volte.founders.jade-hirniak.thevolte-com",
+    "company_id": "the-volte",
+    "field": "founders",
+    "value": "Jade Hirniak",
+    "source_id": "thevolte-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "the-volte.state.thevolte-com",
+    "company_id": "the-volte",
+    "field": "state",
+    "value": "WA",
+    "source_id": "thevolte-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:00.641Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "the-volte.website.thevolte-com",
+    "company_id": "the-volte",
+    "field": "website",
+    "value": "https://thevolte.com",
+    "source_id": "thevolte-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:00.641Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "three-springs-technology.address.threespringstechnology-com-our-team",
+    "company_id": "three-springs-technology",
+    "field": "address",
+    "value": "Level 2, 35 Havelock Street, West Perth, WA, 6005",
+    "source_id": "threespringstechnology-com-our-team",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:14:53.550Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "three-springs-technology.description.threespringstechnology-com",
+    "company_id": "three-springs-technology",
+    "field": "description",
+    "value": "Building world class algorithms in medical imaging",
+    "source_id": "threespringstechnology-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "three-springs-technology.website.threespringstechnology-com",
+    "company_id": "three-springs-technology",
+    "field": "website",
+    "value": "https://threespringstechnology.com",
+    "source_id": "threespringstechnology-com",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:14.365Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "tiliter.description.tiliter-website",
@@ -15574,6 +18192,50 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "truxe.city.www-truxe-com-au-what-is-truxe",
+    "company_id": "truxe",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-truxe-com-au-what-is-truxe",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T02:00:52.319Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"based in Perth, WA\"."
+  },
+  {
+    "id": "truxe.description.www-truxe-com-au",
+    "company_id": "truxe",
+    "field": "description",
+    "value": "TRUXE makes 3D load planning software for manufacturers, distributors and transport operators, built in Perth for Australian vehicles and freight.",
+    "source_id": "www-truxe-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "truxe.website.blog-spacecubed-com-plus-eight-investment-pool-reaches-1m-as-nin",
+    "company_id": "truxe",
+    "field": "website",
+    "value": "https://truxe.com.au",
+    "source_id": "blog-spacecubed-com-plus-eight-investment-pool-reaches-1m-as-nin",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (plus eight 2026); the page is not proof of a Perth office."
+  },
+  {
+    "id": "truxe.website.www-truxe-com-au",
+    "company_id": "truxe",
+    "field": "website",
+    "value": "https://truxe.com.au",
+    "source_id": "www-truxe-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:21.311Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "truyu.address.truyu-privacy-policy",
     "company_id": "truyu",
     "field": "address",
@@ -15625,6 +18287,39 @@
     "source_id": "truyu-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:09:32.457Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "uluu.city.www-uluu-com-au",
+    "company_id": "uluu",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "www-uluu-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T02:00:59.326Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth, WA\"."
+  },
+  {
+    "id": "uluu.description.www-uluu-com-au",
+    "company_id": "uluu",
+    "field": "description",
+    "value": "Uluu replaces plastic with materials that are good for the world. Our products act like plastic but are made from seaweed, not fossil fuels. They’re biodegradable and climate positive.",
+    "source_id": "www-uluu-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "uluu.website.www-uluu-com-au",
+    "company_id": "uluu",
+    "field": "website",
+    "value": "https://uluu.com.au",
+    "source_id": "www-uluu-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:25.576Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -15823,6 +18518,72 @@
     "source_id": "v2food-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:12:13.907Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "veintech.address.www-veintech-com-au",
+    "company_id": "veintech",
+    "field": "address",
+    "value": "4 Gould Street, Osborne Park WA 6017",
+    "source_id": "www-veintech-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:41.758Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "veintech.address.www-veintech-com-au-contact",
+    "company_id": "veintech",
+    "field": "address",
+    "value": "3 / 4 Gould Street, Osborne Park WA 6017",
+    "source_id": "www-veintech-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:15:22.593Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "veintech.address.www-veintech-com-au-privacy-policy",
+    "company_id": "veintech",
+    "field": "address",
+    "value": "4/4 Gould Street, Osborne Park WA 6017",
+    "source_id": "www-veintech-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "veintech.address.www-veintech-com-au-terms-of-service",
+    "company_id": "veintech",
+    "field": "address",
+    "value": "3/4 Gould Street, Osborne Park WA 6017",
+    "source_id": "www-veintech-com-au-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "veintech.state.www-veintech-com-au",
+    "company_id": "veintech",
+    "field": "state",
+    "value": "WA",
+    "source_id": "www-veintech-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:41.758Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "veintech.website.www-veintech-com-au",
+    "company_id": "veintech",
+    "field": "website",
+    "value": "https://veintech.com.au",
+    "source_id": "www-veintech-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:41.758Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -16113,6 +18874,83 @@
     "note": "The site itself."
   },
   {
+    "id": "vitaltrace.city.vitaltrace-com-au",
+    "company_id": "vitaltrace",
+    "field": "city",
+    "value": "Perth",
+    "source_id": "vitaltrace-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T02:01:17.842Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Perth: \"Perth, WA\"."
+  },
+  {
+    "id": "vitaltrace.description.vitaltrace-com-au",
+    "company_id": "vitaltrace",
+    "field": "description",
+    "value": "VitalTrace is pioneering continuous lactate monitoring, giving clinicians and consumers access to the body's chemistry in real time.",
+    "source_id": "vitaltrace-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "vitaltrace.website.vitaltrace-com-au",
+    "company_id": "vitaltrace",
+    "field": "website",
+    "value": "https://vitaltrace.com.au",
+    "source_id": "vitaltrace-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:42.379Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "vitruvian-form.address.vitruvianform-com-en-au-policies-privacy-policy",
+    "company_id": "vitruvian-form",
+    "field": "address",
+    "value": "15 Gordon Street, West Perth, WA 6005",
+    "source_id": "vitruvianform-com-en-au-policies-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:01:23.224Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "vitruvian-form.address.vitruvianform-com-en-au-policies-terms-of-service",
+    "company_id": "vitruvian-form",
+    "field": "address",
+    "value": "483 of 15 Gordon Street, West Perth, WA, 6005",
+    "source_id": "vitruvianform-com-en-au-policies-terms-of-service",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:01:23.224Z",
+    "status": "superseded",
+    "note": "The same address as the privacy policy's, with a clause number run into it ('483 of 15 Gordon Street')."
+  },
+  {
+    "id": "vitruvian-form.description.vitruvianform-com-en-au",
+    "company_id": "vitruvian-form",
+    "field": "description",
+    "value": "Trainer+ by Vitruvian is an all-in-one gym innovative fitness platform that combines AI technology and expert coaching to deliver personalized training programs. Trainer+ can help you achieve your fitness goals.",
+    "source_id": "vitruvianform-com-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "vitruvian-form.website.vitruvianform-com-en-au",
+    "company_id": "vitruvian-form",
+    "field": "website",
+    "value": "https://vitruvianform.com",
+    "source_id": "vitruvianform-com-en-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:49.585Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "vivi.description.www-vivi-io",
     "company_id": "vivi",
     "field": "description",
@@ -16221,6 +19059,72 @@
     "verified_at": "2026-10-13T13:26:26.345Z",
     "status": "active",
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "wevolt.address.wevolt-com-au",
+    "company_id": "wevolt",
+    "field": "address",
+    "value": "8/8 Sarich Way, Bentley WA 6102",
+    "source_id": "wevolt-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:55.995Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "wevolt.address.wevolt-com-au-about",
+    "company_id": "wevolt",
+    "field": "address",
+    "value": "8/8 Sarich Way, Bentley WA 6102",
+    "source_id": "wevolt-com-au-about",
+    "confidence": "high",
+    "verified_at": "2026-10-31T02:01:29.906Z",
+    "status": "active",
+    "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "wevolt.address.wevolt-com-au-privacy",
+    "company_id": "wevolt",
+    "field": "address",
+    "value": "8 Sarich Way, Bentley WA 6102",
+    "source_id": "wevolt-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "wevolt.description.wevolt-com-au",
+    "company_id": "wevolt",
+    "field": "description",
+    "value": "Australian-owned, hardware-agnostic EV charging software — charge point management, load management, white-label apps and driver payments.",
+    "source_id": "wevolt-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "wevolt.state.wevolt-com-au",
+    "company_id": "wevolt",
+    "field": "state",
+    "value": "WA",
+    "source_id": "wevolt-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:55.995Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "wevolt.website.wevolt-com-au",
+    "company_id": "wevolt",
+    "field": "website",
+    "value": "https://wevolt.com.au",
+    "source_id": "wevolt-com-au",
+    "confidence": "high",
+    "verified_at": "2026-10-31T01:38:55.995Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "x-centric-sciences.description.www-xcentric-tech",

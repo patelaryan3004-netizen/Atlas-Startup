@@ -44,7 +44,7 @@ describe('Home, for someone who is not signed in', () => {
     expect(screen.getByText(/text-first space for Australia/)).toBeInTheDocument();
     await screen.findByText('What if every city had a monthly prototype night?');
     expect(api.fetchFeed).toHaveBeenCalledWith({ filter: 'all', limit: 20 }, expect.objectContaining({ signal: expect.any(AbortSignal) }));
-    expect(document.title).toBe('Home · Still Early');
+    expect(document.title).toBe('Community · Still Early');
   });
 
   it('shows each post with its author, role and place, how long ago, its topic, and a link to the author\'s profile', async () => {

@@ -1,0 +1,3018 @@
+{
+ "read_at": "2026-10-31T01:16:26.771Z",
+ "sources": {
+  "https://pluseight.spacecubed.com/accelerator/alumni": {
+   "ok": true,
+   "final": "https://pluseight.spacecubed.com/accelerator/alumni",
+   "bytes": 89516
+  },
+  "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator": {
+   "ok": true,
+   "final": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+   "bytes": 41026
+  },
+  "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/": {
+   "ok": true,
+   "final": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+   "bytes": 293119
+  },
+  "https://www.remjobs.works/startups/australia/perth": {
+   "ok": true,
+   "final": "https://www.remjobs.works/startups/australia/perth",
+   "bytes": 100662
+  },
+  "https://www.startupblink.com/top-startups/perth-au": {
+   "ok": false,
+   "error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around"
+  },
+  "https://techboard.com.au/company-profile/amlab/": {
+   "ok": true,
+   "final": "https://techboard.com.au/company-profile/amlab/",
+   "bytes": 113409
+  },
+  "https://www.ventureuwa.com.au/business-directory": {
+   "ok": true,
+   "final": "https://www.ventureuwa.com.au/business-directory",
+   "bytes": 1875767
+  },
+  "https://abr.business.gov.au/ABN/View?id=601945715": {
+   "ok": true,
+   "final": "https://abr.business.gov.au/ABN/View?id=601945715",
+   "bytes": 15152
+  },
+  "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists": {
+   "ok": true,
+   "final": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+   "bytes": 88090
+  },
+  "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists": {
+   "ok": true,
+   "final": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists",
+   "bytes": 87619
+  },
+  "https://www.blackswanbio.com/": {
+   "ok": true,
+   "final": "https://www.blackswanbio.com/",
+   "bytes": 26908
+  },
+  "https://www.purpose.ventures/our-portfolio": {
+   "ok": true,
+   "final": "https://www.purpose.ventures/our-portfolio",
+   "bytes": 730251
+  },
+  "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two": {
+   "ok": true,
+   "final": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+   "bytes": 43258
+  },
+  "https://chironix.com/contact-us/": {
+   "ok": true,
+   "final": "https://chironix.com/contact-us/",
+   "bytes": 104425
+  },
+  "https://www.coreplan.io/newsroom/springtech-rebrands-to-coreplan": {
+   "ok": true,
+   "final": "https://www.coreplan.io/newsroom/springtech-rebrands-to-coreplan",
+   "bytes": 83070
+  },
+  "https://techboard.com.au/company-profile/cribber/": {
+   "ok": true,
+   "final": "https://techboard.com.au/company-profile/cribber/",
+   "bytes": 112720
+  },
+  "https://www.fundwa.com.au/fundwaportfolio": {
+   "ok": true,
+   "final": "https://www.fundwa.com.au/fundwaportfolio",
+   "bytes": 734586
+  },
+  "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet": {
+   "ok": true,
+   "final": "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet",
+   "bytes": 893565
+  },
+  "https://www.enzidetech.com/contact": {
+   "ok": true,
+   "final": "https://www.enzidetech.com/contact",
+   "bytes": 62387
+  },
+  "https://geomoby.com/technology/": {
+   "ok": true,
+   "final": "https://geomoby.com/technology/",
+   "bytes": 185780
+  },
+  "https://www.verbund.com/en/group/news-press/press-releases/2026/7/14/verbund-x-ventures-invests-in-clean-tech-startup-gridcog": {
+   "ok": true,
+   "final": "https://www.verbund.com/en/group/news-press/press-releases/2026/7/14/verbund-x-ventures-invests-in-clean-tech-startup-gridcog",
+   "bytes": 405414
+  },
+  "https://www.hyprfire.com/contact-us": {
+   "ok": true,
+   "final": "https://www.hyprfire.com/contact-us",
+   "bytes": 860073
+  },
+  "https://www.inter.earth/our-team/": {
+   "ok": true,
+   "final": "https://www.inter.earth/our-team/",
+   "bytes": 185745
+  },
+  "https://www.lixa.life/": {
+   "ok": true,
+   "final": "https://www.lixa.life/",
+   "bytes": 934440
+  },
+  "https://omnibiotech.com.au/": {
+   "ok": true,
+   "final": "https://omnibiotech.com.au/",
+   "bytes": 227026
+  },
+  "https://www.oncoresmedical.com/": {
+   "ok": true,
+   "final": "https://www.oncoresmedical.com/",
+   "bytes": 827405
+  },
+  "https://paperly.education/pages/locations": {
+   "ok": true,
+   "final": "https://au.paperly.education/",
+   "bytes": 2749
+  },
+  "https://personr.co/": {
+   "ok": true,
+   "final": "https://personr.co/",
+   "bytes": 950511
+  },
+  "https://techboard.com.au/company-profile/portable-ppb/": {
+   "ok": true,
+   "final": "https://techboard.com.au/company-profile/portable-ppb/",
+   "bytes": 115193
+  },
+  "https://international.austrade.gov.au/content/dam/austrade-assets/international/documents/reports/australian-clean-energy-equipment-technology-services.pdf": {
+   "ok": false,
+   "error": "unsupported_content: unexpected content type \"application/pdf\""
+  },
+  "https://www.third-derivative.org/portfolio/renewable-metals": {
+   "ok": true,
+   "final": "https://www.third-derivative.org/portfolio/renewable-metals",
+   "bytes": 47369
+  },
+  "https://www.roborigger.com.au/": {
+   "ok": true,
+   "final": "https://www.roborigger.com.au/",
+   "bytes": 103069
+  },
+  "https://startupnews.com.au/news/savvywise-closes-1-56-million-crowdfunding-raise-backed-by-accountants/": {
+   "ok": false,
+   "error": "dns_failed: could not resolve startupnews.com.au"
+  },
+  "https://www.seastock.com.au/perth-company-seastock-granted-licence-to-sell-livestock-feed-supplement-asparagopsis/": {
+   "ok": true,
+   "final": "https://www.seastock.com.au/perth-company-seastock-granted-licence-to-sell-livestock-feed-supplement-asparagopsis/",
+   "bytes": 104880
+  },
+  "https://www.ventureuwa.com.au/event-details/how-i-built-this-hear-from-nathan-wipane-founder-of-shiine-media": {
+   "ok": true,
+   "final": "https://www.ventureuwa.com.au/event-details/how-i-built-this-hear-from-nathan-wipane-founder-of-shiine-media",
+   "bytes": 2008740
+  },
+  "https://walga.asn.au/suppliers/preferred-supplier-directory/spacetoco": {
+   "ok": true,
+   "final": "https://walga.asn.au/suppliers/preferred-supplier-directory/spacetoco",
+   "bytes": 58618
+  },
+  "https://terra15.com.au/contact/": {
+   "ok": false,
+   "error": "robots_unavailable: robots.txt is access-controlled"
+  },
+  "https://www.uluu.com.au/about": {
+   "ok": true,
+   "final": "https://www.uluu.com.au/about",
+   "bytes": 63897
+  },
+  "https://www.veintech.com.au/": {
+   "ok": true,
+   "final": "https://www.veintech.com.au/",
+   "bytes": 1300992
+  },
+  "https://vitaltrace.com.au/": {
+   "ok": true,
+   "final": "https://vitaltrace.com.au/",
+   "bytes": 77469
+  },
+  "https://wevolt.com.au/": {
+   "ok": true,
+   "final": "https://wevolt.com.au/",
+   "bytes": 52482
+  }
+ },
+ "rows": {
+  "absolutevr": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "within the community pharmacy environment. 2022 Idle Australia provides services that enable business owners to freely advertise their assets for hire and rent advertised equipment directly from other local business. Providing virtual display homes, Absolute VR allows their clients to find their dream home and immersive training and education experiences that improve learning. Cordially App offers private rental sector technology to allow property owners to better manage their properties and ten"
+    }
+   ],
+   "links": []
+  },
+  "accessbeyond": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "uty - Vireena Koshal AI voice receptionist that answers calls, books appointments and handles patient enquiries for healthcare providers. Vacancee - Srdjan Kusmuk Marketplace enabling hotels to auction last-minute vacant rooms to maximise occupancy. Access Beyond - Carissa Lee Human-centred technology company building products that reduce everyday friction. Their first product, Dinner Done, simplifies meal planning and grocery shopping. The UNCØMMN - Elethea Webb Philosophy-led apparel and lifes"
+    }
+   ],
+   "links": []
+  },
+  "achieveable": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "egrated telehealth primary care model offering 24/7 support to improve health access for remote WA communities. Yalkarang Consulting — A Noongar-led service delivering culturally grounded learning to strengthen workplace and community understanding. AchieveAble — A fun and engaging maths tutoring program combining coaching, daily micro-practice and interactive lessons to boost student outcomes. aisembl — An intuitive design-to-documentation platform that streamlines material selection and projec"
+    }
+   ],
+   "links": []
+  },
+  "agentanorak": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "lian vehicle comparison platform combining specs, ownership costs and editorial insights. HealthMesh - Sophia Avery B2G platform connecting governments and health funders with trusted community organisations to deliver preventative health campaigns. Agent Anorak - Craig Rappeport Digital platform preserving the history, knowledge and stories behind vehicles for enthusiasts, clubs and automotive businesses. ZapSplit - Michael Cheneka Australian bill-splitting app that lets users scan a receipt, s"
+    }
+   ],
+   "links": []
+  },
+  "agoralivestock": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "agworld": {
+   "checks": [
+    {
+     "url": "https://www.startupblink.com/top-startups/perth-au",
+     "read": false,
+     "error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around"
+    }
+   ],
+   "links": []
+  },
+  "airclinix": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "aisembl": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " service delivering culturally grounded learning to strengthen workplace and community understanding. AchieveAble — A fun and engaging maths tutoring program combining coaching, daily micro-practice and interactive lessons to boost student outcomes. aisembl — An intuitive design-to-documentation platform that streamlines material selection and project planning for homeowners and professionals. NeuroAnalyse — A clinical decision tool integrating dementia risk prediction into GP software to suppor"
+    }
+   ],
+   "links": []
+  },
+  "aispanner": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "amlab": {
+   "checks": [
+    {
+     "url": "https://techboard.com.au/company-profile/amlab/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "AMLab - Techboard Skip to main content Toggle navigation Startup Data Techboard Funding Reports Report a Funding Event Techboard’s Fintech Funding Project Funding Data – for Subscribers Techboard Funding Data Subscriptions NEW Funding Event Search – Beta Techboard Directory Intro to Techboard for Companies Company Announcements Add a Company/Claim ownership How it works Techboard Listing Rules Roundtables About The Team Partners Sponsorship and P"
+    }
+   ],
+   "links": []
+  },
+  "anticipa": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "e opportunity to earn from their closets without the hassle. Whilst making sustainable shopping more accessible and aesthetically appealing. The fashion industry is environmentally poor, with a throwaway culture that is too prevalent. Read More 2026 Anticipa Laura Dondzilo Anticipa is a data-driven venture helping mental health and disability services use predictive analytics to anticipate future demand and inform strategic service planning. Co-founders Laura and Cayla both hold PhDs in Psycholo"
+    }
+   ],
+   "links": []
+  },
+  "appbot": {
+   "checks": [
+    {
+     "url": "https://abr.business.gov.au/ABN/View?id=601945715",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": true,
+     "context": "ity types Government agencies Search by ABN, ACN or name: ABN Lookup > Search > Current details for ABN 23 601 945 715 Current details for ABN 23 601 945 715 Version: 9.9.7 Current details Historical details Print Email ABN details help Entity name: APPBOT PTY LTD ABN status: Active from 22 Sep 2014 Entity type: Australian Private Company Goods & Services Tax (GST): Registered from 22 Sep 2014 Main business location: WA 6016 Business name(s) help A business name is the registered name a business"
+    }
+   ],
+   "links": []
+  },
+  "arbela": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "owners to better manage their properties and tenants to feel like they're living in their own homes. Ari Save will hold you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ Arbela is a decentralised autonomous organisation that invests in community generated ideas and provides strong incentives to contributors whilst maintaining full transparency. Bobbleware is a retail brand that sells reusable tumblers specifically de"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.arbela.io/",
+     "from": "https://pluseight.spacecubed.com/accelerator/alumni"
+    }
+   ]
+  },
+  "architectiq": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ices use predictive analytics to anticipate future demand and inform strategic service planning. Co-founders Laura and Cayla both hold PhDs in Psychology and have extensive experience across mental health research and health services. Read More 2026 ArchitectIQ Devansh Tikariha & Krishna Chaitanya Chilukuri ArchitectIQ is an AI-assisted platform that helps techie people design their IT infrastructure properly, upfront. It's important to get the IT design right, before you start coding anything. "
+    }
+   ],
+   "links": []
+  },
+  "arisave": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "home and immersive training and education experiences that improve learning. Cordially App offers private rental sector technology to allow property owners to better manage their properties and tenants to feel like they're living in their own homes. Ari Save will hold you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ Arbela is a decentralised autonomous organisation that invests in community generated ideas and provi"
+    }
+   ],
+   "links": []
+  },
+  "arthrolase": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "artrya": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "ascendlabs": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ed autonomous organisation that invests in community generated ideas and provides strong incentives to contributors whilst maintaining full transparency. Bobbleware is a retail brand that sells reusable tumblers specifically designed for bubble tea. Ascend Labs offers a small portable device in the sport science space that is used to perform isometric strength testing for athletic monitoring. Paperly is an all-encompassing, cloud based education platform which improves a school’s operational and"
+    }
+   ],
+   "links": []
+  },
+  "ashforgestructures": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Read More 2025 North Australian SeaCulture ​ North Australian SeaCulture is positioning Northern Australia as a global leader in regenerative seaweed agriculture, developing sustainable cultivation, processing, and product innovation. Read More 2025 AshForge Structures ​ AshForge Structures designs modular, rapidly deployable building systems for disaster-affected communities, enabling fast setup and flexible reconfiguration. Read More 2025 Auto Scraper Maker ​ Autoscrapermaker enables businesse"
+    }
+   ],
+   "links": []
+  },
+  "assetworkflows": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": " the flow of work with Microsoft 365. Remote: Australia, Denmark +1 Uluu Uluu replaces plastic with materials that are good for the world. Agworld Plan your crop, mitigate your risks, improve your profitability with Agworld farm management software. Asset Workflows AssetVoice™ helps teams automate asset tracking, change management, and operational visibility. Common Fate Access Management, faster and more secure. Elastik Curriculum-linked assessment data triangulation, analysis and learning gap "
+    }
+   ],
+   "links": []
+  },
+  "atheridtherapeutics": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "tal benefit to WA. The winner will receive a cash prize of $60,000 (excl. GST) and the benefits of a PhD student, with a runner-up to receive $15,000 (excl. GST). Meet our finalists In 2026, there are six finalists for the Emerging Innovation Award: Atherid Therapeutics Atherid Therapeutics' vision is to redefine the treatment of cardiovascular disease, transforming care from lifelong risk management to durable plaque clearance, preventing death and disability. We have developed a first-in-class"
+    }
+   ],
+   "links": []
+  },
+  "atliisstudio": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "augmenttechnologies": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ental benefit to WA. The winner will receive a cash prize of $60,000 (excl. GST) and the benefits of a PhD student, with a runner-up to receive $15,000 (excl. GST). Meet our finalists In 2026, there are six finalists for the Growth Innovation Award: Augment Technologies Augment Technologies’ cornerstone platform, Ore Movement Policy (OMP), incorporates the first and only blast movement solution in mining that combines a physics engine with machine learning to transform the in situ open pit grade"
+    }
+   ],
+   "links": []
+  },
+  "autoscrapermaker": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": true,
+     "context": "on, processing, and product innovation. Read More 2025 AshForge Structures ​ AshForge Structures designs modular, rapidly deployable building systems for disaster-affected communities, enabling fast setup and flexible reconfiguration. Read More 2025 Auto Scraper Maker ​ Autoscrapermaker enables businesses to extract large-scale web data without code, without maintenance, and without complexity. Read More Links Home About UWA Students About Venture UWA Industry UWA Alumni Our Founders Our Mentors"
+    }
+   ],
+   "links": []
+  },
+  "avicenasystems": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "bamboo": {
+   "checks": [],
+   "links": []
+  },
+  "biotome": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "blackswanbiotech": {
+   "checks": [
+    {
+     "url": "https://www.blackswanbio.com/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Black Swan Biotech Our technology About us News Contact Advancing Precision Medicine for ALS and Beyond Using the latest genomic research tools, we are developing highly targeted therapies that address the underlying genetic drivers of Amyotrophic Lateral Sclerosis (ALS). Explore our technology Advancing Precision Medicine for ALS and Beyond At Black Swan Biotech we combine next generation genomics research with precision oligonucleotide therapeu",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "blestpets": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ies behind vehicles for enthusiasts, clubs and automotive businesses. ZapSplit - Michael Cheneka Australian bill-splitting app that lets users scan a receipt, split costs instantly and share payment links. Live on iPhone with Android launching soon. Blest Pets - Antonio Mison Pet-focused startup developing products and services to improve the wellbeing of pets and simplify pet ownership. Bucket Lyst - Thuy My Trinh Truong AI-enabled solution focused on improving operational efficiency through in"
+    }
+   ],
+   "links": []
+  },
+  "bobbleware": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ng sure you never blow a budget and always achieve your savings goals. ‍ Arbela is a decentralised autonomous organisation that invests in community generated ideas and provides strong incentives to contributors whilst maintaining full transparency. Bobbleware is a retail brand that sells reusable tumblers specifically designed for bubble tea. Ascend Labs offers a small portable device in the sport science space that is used to perform isometric strength testing for athletic monitoring. Paperly "
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.bobbleware.com/",
+     "from": "https://pluseight.spacecubed.com/accelerator/alumni"
+    }
+   ]
+  },
+  "brewnetwork": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "bucketlyst": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "s scan a receipt, split costs instantly and share payment links. Live on iPhone with Android launching soon. Blest Pets - Antonio Mison Pet-focused startup developing products and services to improve the wellbeing of pets and simplify pet ownership. Bucket Lyst - Thuy My Trinh Truong AI-enabled solution focused on improving operational efficiency through intelligent automation and digital workflows. Success Meter - Saurabh Kumar Hospitality SaaS platform benchmarking website analytics and revenu"
+    }
+   ],
+   "links": []
+  },
+  "cadspectraltechnologies": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ne the treatment of cardiovascular disease, transforming care from lifelong risk management to durable plaque clearance, preventing death and disability. We have developed a first-in-class drug, ATH01, designed to clear this fatty build-up directly. CAD Spectral Technologies CAD Spectral technologies is manufacturing a special type of camera for heart disease monitoring. We call it SPECTRA-Mini. SPECTRA-Mini is a portable medical imaging device that screens for coronary artery disease (CAD) thro"
+    }
+   ],
+   "links": []
+  },
+  "caligra": {
+   "checks": [
+    {
+     "url": "https://www.purpose.ventures/our-portfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ional online psychologists. Visit Website Gene S DNA-based precision medicine matching patients with optimal drug treatments. Visit Website Paperly Modular management software simplifying and automating school administrative workflows. Visit Website Caligra Distraction-free computers built to boost developer and engineer focus. Visit Website CourseBox AI-powered platform enabling instant creation of interactive online courses. Visit Website SpacetoCo Community marketplace streamlining local shar"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://caligra.com/",
+     "from": "https://www.purpose.ventures/our-portfolio"
+    }
+   ]
+  },
+  "capabilityx": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ment Policy (OMP), incorporates the first and only blast movement solution in mining that combines a physics engine with machine learning to transform the in situ open pit grade control block model into an accurate post-blast Muckpile Block Model™. Capability X CX Protect is an intelligent workplace safety platform designed to prevent accidents before they occur by acting as a constantly aware digital safety co-worker. Contec Australia Contec Australia delivers structural concrete using large-sc"
+    }
+   ],
+   "links": []
+  },
+  "capsulelabs": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "carslike": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ame that helps workplaces build psychological safety by improving confidence, communication and decision-making. PaySpread - Harsh Deepakbhai Mistry Patent-pending RegTech API that calculates the true cost of employment across international markets. Cars Like - Yuri Cartland Independent Australian vehicle comparison platform combining specs, ownership costs and editorial insights. HealthMesh - Sophia Avery B2G platform connecting governments and health funders with trusted community organisation"
+    }
+   ],
+   "links": []
+  },
+  "casemate": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Student Planner | Founders: Nathan Marr and Joe Hilton Semester Student Planner partners with universities and colleges across Australia, the UK and the US to improve student retention, now expanding into an AI-powered personal development platform. CaseMate | Founder: Drishti Bindra CaseMate is a digital legal companion helping everyday people navigate court forms and legal processes with step-by-step support, improving access to justice for self-represented individuals. Looking forward, in Oct"
+    }
+   ],
+   "links": []
+  },
+  "catalyst": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " that lets clinicians work hands-free — simply by talking. Read More 2025 Musify ​ Musify is a gamified music learning platform that keeps students inspired and tracks their growth through interactive practice and measurable progress. Read More 2025 Catalyst ​ Catalyst helps people make meaningful, personalised connections at events using advanced personality and preference-based matching software. Read More 2025 Mole-clue ​ Mole-Clue is revolutionising chromatography–mass spectrometry workflows"
+    }
+   ],
+   "links": []
+  },
+  "chironix": {
+   "checks": [
+    {
+     "url": "https://chironix.com/contact-us/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Contact Chironix Australia | Robotics Solutions Skip to content Company About Chironix Education & Community Careers Solutions Applied Robotics Software Development Robotics Platforms Integration Consulting PilotOS Industries Mining Oil & Gas Utilities Defence Medical Products By Application Logistic Platforms Inspection Platforms Security Platforms Research Platforms By Manufacturer AgileX ScoutDI ClearPath Canadensys Unitree Anybotics Husarion Athena G",
+     "own_page": true,
+     "addresses": [
+      "Head Office Unit 3/33 Millrose Dr, Malaga Western Australia 6090",
+      "Phone Message (Required) Connect [email protected] Contact Us 3/33 Millrose Drive Malaga, Western Australia, 6090"
+     ]
+    }
+   ],
+   "links": []
+  },
+  "commonfate": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "t are good for the world. Agworld Plan your crop, mitigate your risks, improve your profitability with Agworld farm management software. Asset Workflows AssetVoice™ helps teams automate asset tracking, change management, and operational visibility. Common Fate Access Management, faster and more secure. Elastik Curriculum-linked assessment data triangulation, analysis and learning gap identification with artificially intelligent marking and feedback. Members only 172 more startups in Perth Unlock"
+    }
+   ],
+   "links": []
+  },
+  "contecaustralia": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ade control block model into an accurate post-blast Muckpile Block Model™. Capability X CX Protect is an intelligent workplace safety platform designed to prevent accidents before they occur by acting as a constantly aware digital safety co-worker. Contec Australia Contec Australia delivers structural concrete using large-scale 3D concrete printing, applying robotics, automated material placement and digital construction workflows to increase construction capacity in Western Australia through a "
+    }
+   ],
+   "links": []
+  },
+  "corametix": {
+   "checks": [],
+   "links": []
+  },
+  "cordially": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "heir assets for hire and rent advertised equipment directly from other local business. Providing virtual display homes, Absolute VR allows their clients to find their dream home and immersive training and education experiences that improve learning. Cordially App offers private rental sector technology to allow property owners to better manage their properties and tenants to feel like they're living in their own homes. Ari Save will hold you accountable to your spending and savings habits, makin"
+    }
+   ],
+   "links": []
+  },
+  "coreplan": {
+   "checks": [
+    {
+     "url": "https://www.coreplan.io/newsroom/springtech-rebrands-to-coreplan",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "CorePlan Products Products Mining Hub View product Use cases Drilling optimisation Contractor management Drilling cost management By Teams Data Teams Operations Teams Earthworks for mining Drilling Hub View product Use cases Client contract management Plod management Cost revenue management New Drilling Command Centre By Teams Finance Team (coming soon) Operations Teams (coming soon) For Mining & Exploration Standardise and centralise your drilli",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "corticaldynamics": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "coursebox": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "cribber": {
+   "checks": [
+    {
+     "url": "https://techboard.com.au/company-profile/cribber/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Cribber - Techboard Skip to main content Toggle navigation Startup Data Techboard Funding Reports Report a Funding Event Techboard’s Fintech Funding Project Funding Data – for Subscribers Techboard Funding Data Subscriptions NEW Funding Event Search – Beta Techboard Directory Intro to Techboard for Companies Company Announcements Add a Company/Claim ownership How it works Techboard Listing Rules Roundtables About The Team Partners Sponsorship and"
+    }
+   ],
+   "links": []
+  },
+  "crossoverapp": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "cupflick": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "cyndr": {
+   "checks": [],
+   "links": []
+  },
+  "cytophenix": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "databaseforbuildings": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "6 Themba Bamillidzi Tshuma & Lisa Nyoni Themba is looking to build an integrated, culturally informed supply chain logistics system serving culturally diverse small businesses - particularly African, Asian, and Indian retailers in WA. Read More 2026 Database for buildings Warren Kerr Database for Buildings is building a publicly accessible database for every building in Australia ... the \"Wikipedia for Buildings\". Amazingly, this does not exist at the moment. Every building covered would include"
+    }
+   ],
+   "links": []
+  },
+  "dayworkbook": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "culturally appropriate way. Edible Cutlery has a mission to revolutionise the way we eat on the go with their eco-friendly products. and are dedicated to raising awareness about the health and environmental impacts of traditional disposable cutlery. Dayworkbook completely digitises the traditional daywork process. Create sheets in seconds. Send instantly, get signatures faster, and compile month-end reports with a click. 2023 Personr is an all-in-one identity verification platform that allows co"
+    }
+   ],
+   "links": []
+  },
+  "dejavu": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ent platform purpose-built for heavy industry, such as crane hire, mining, and construction. The business already has two paying clients and is looking to develop a scalable digital solution to work alongside its consultancy services. Read More 2026 Déjà vu Eliza Wood Déjà Vu is a digital marketplace for preloved fashion, giving individuals the opportunity to earn from their closets without the hassle. Whilst making sustainable shopping more accessible and aesthetically appealing. The fashion in"
+    }
+   ],
+   "links": []
+  },
+  "detailearth": {
+   "checks": [
+    {
+     "url": "https://www.fundwa.com.au/fundwaportfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ding and monitoring through biometric checks, document authentication, and risk assessments. Targeting legal, accounting, real estate, and precious metals sectors. Read more + Personr Read more + A team of seasoned geospatial executives has launched Detail Earth to disrupt the $6 billion global mapping market in the Asia-Pacific region with ultra-high resolution imagery, AI features, and a game-changing distribution model. Read more + Detail Earth Read more + Black Swan Biotech is leveraging sop"
+    }
+   ],
+   "links": []
+  },
+  "dugtechnology": {
+   "checks": [
+    {
+     "url": "https://www.startupblink.com/top-startups/perth-au",
+     "read": false,
+     "error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around"
+    }
+   ],
+   "links": []
+  },
+  "earflo": {
+   "checks": [
+    {
+     "url": "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " highlights include: VeinTech – US$750k grant from Rhode Island Life Science Hub to open US office in addition to opening their Herdsman Medtech Hub; co-founder Nik Bappoo wins 2025 New Innovator Prize, one of the Prime Minister's Prizes for Science Earflo – TIME Magazine Best Inventions 2025; Best of Innovation at CES in Digital Health; Inaugural Winner at West Tech Fest Pitch 2025 VitalTrace – ABC called VitalTrace’s innovation \"the biggest breakthrough in fetal monitoring in 50 years\", and th"
+    }
+   ],
+   "links": []
+  },
+  "earnos": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "easypropertylistings": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "echonova": {
+   "checks": [
+    {
+     "url": "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "tor and co-founder of HealthEngine, one of Australia’s leading digital health platforms. Adam James — Director of Innovation at the WA Department of Health, overseeing statewide digital health, commercialisation and strategic innovation initiatives. EchoNova won on the night for their approach to heart failure management: development of a patch to provide daily, non-invasive monitoring and detection of acute decompensated heart failure using a gold-standard physiological marker of fluid overload"
+    }
+   ],
+   "links": []
+  },
+  "ediblecutlery": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "hildren, teens, and young adults. iyarn technology pulls in health metrics from wearable platforms to offer clinicians and researchers comprehensive health data, including psychological, social, and physical metrics, in a culturally appropriate way. Edible Cutlery has a mission to revolutionise the way we eat on the go with their eco-friendly products. and are dedicated to raising awareness about the health and environmental impacts of traditional disposable cutlery. Dayworkbook completely digit"
+    }
+   ],
+   "links": []
+  },
+  "eikonic": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "A clinical decision tool integrating dementia risk prediction into GP software to support earlier prevention. Safe Call Up — A discrete safety-monitoring app for family and domestic violence survivors using timed check-ins and silent alert features. Eikonic — Developing the world’s first menopause-focused Advanced Oral Crème, powered by regenerative gold-calcium technology to support women in the menopausal life stage. Gawawater – A whole-home water purification service delivering affordable, re"
+    }
+   ],
+   "links": []
+  },
+  "einseninnovations": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ale Up Events Impact Scholarship Accelerator Overview FAQ's About Who are we? Our Alumni Get Involved Partner With Us Contact Accelerator Alumni We're proud to have worked with some of Australia's best up and coming startups. Accelerator Alumni 2025 Einsen Innovations is bringing smart-home automation to the laundry room with the world’s first fully automated ironing device. GenLearn empowers course creators to embed AI-led, conversational learning into their content, transforming static online "
+    }
+   ],
+   "links": []
+  },
+  "ekion": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "elastik": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ate your risks, improve your profitability with Agworld farm management software. Asset Workflows AssetVoice™ helps teams automate asset tracking, change management, and operational visibility. Common Fate Access Management, faster and more secure. Elastik Curriculum-linked assessment data triangulation, analysis and learning gap identification with artificially intelligent marking and feedback. Members only 172 more startups in Perth Unlock the full list, every company on the map, and their fou"
+    }
+   ],
+   "links": []
+  },
+  "enrola": {
+   "checks": [
+    {
+     "url": "https://www.purpose.ventures/our-portfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "r simplified end-of-life care planning. Visit Website Andromeda Assistive humanoid robots delivering social support in healthcare settings. Visit Website Plancare Self-managed funding platform helping seniors receive quality home care. Visit Website Enrola Autonomous AI agents automating B2C sales via personalized SMS. Visit Website CYNDR Integrated strategic platform combining risk analysis and technology insights. Visit Website My Mirror Telehealth platform connecting Australians with professi"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://getenrola.com/",
+     "from": "https://www.purpose.ventures/our-portfolio"
+    }
+   ]
+  },
+  "enzidetechnologies": {
+   "checks": [
+    {
+     "url": "https://www.enzidetech.com/contact",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "l 2, 10 Outram Street West Perth 6005 Western Australia Australia Get Directions Contact Full Name Phone number Email Address Subject Message I have read and agree to Enzide's Privacy Policy . Submit LinkedIn Instagram General enquiries Contact us © ENZIDE TECHNOLOGIES 2025 All Rights Reserved Privacy Policy",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "equadesign": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "form that helps techie people design their IT infrastructure properly, upfront. It's important to get the IT design right, before you start coding anything. This is what ArchitectIT does (it's not about the architecture of buildings!) Read More 2026 eQua Design Paul Shillington, Genevieve Shillington, Deborah White & Imogen Shillington eQua Design is building a legal contract drafting and negotiation software solution that creates a single source of truth system for contract lawyers and their cl"
+    }
+   ],
+   "links": []
+  },
+  "flowbat": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "llowing live music fans a permanent, searchable, and shareable archive of every live event they've ever attended, filling a gap left by platforms that focus on upcoming events, not past experiences. A working prototype has been built. Read More 2026 Flowbat Hanrui Yu Flowbat is developing next-generation zinc-iron flow batteries designed to meet global demand for long-duration renewable energy storage. Read More 2025 UnderlandEX ​ UnderlandEX helps mining companies communicate the true value of "
+    }
+   ],
+   "links": []
+  },
+  "flyhighdigital": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "uilding products that reduce everyday friction. Their first product, Dinner Done, simplifies meal planning and grocery shopping. The UNCØMMN - Elethea Webb Philosophy-led apparel and lifestyle brand encouraging authenticity and independent thinking. Fly High Digital - Paul Manalac Perth-based venture studio building and commercialising technology products across mobile, XR, accessibility, gaming and e-commerce. Rhizo Tech (Canopy) - Ricky Gush Enterprise architecture management platform helping "
+    }
+   ],
+   "links": []
+  },
+  "flyone": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "gawawater": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "domestic violence survivors using timed check-ins and silent alert features. Eikonic — Developing the world’s first menopause-focused Advanced Oral Crème, powered by regenerative gold-calcium technology to support women in the menopausal life stage. Gawawater – A whole-home water purification service delivering affordable, reliable access to safe drinking water for households across Africa through a simple monthly subscription model. Respiradigm — A digital health companion to predict infant ast"
+    }
+   ],
+   "links": []
+  },
+  "genes": {
+   "checks": [
+    {
+     "url": "https://www.purpose.ventures/our-portfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "C sales via personalized SMS. Visit Website CYNDR Integrated strategic platform combining risk analysis and technology insights. Visit Website My Mirror Telehealth platform connecting Australians with professional online psychologists. Visit Website Gene S DNA-based precision medicine matching patients with optimal drug treatments. Visit Website Paperly Modular management software simplifying and automating school administrative workflows. Visit Website Caligra Distraction-free computers built t"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.gene-s.com/",
+     "from": "https://www.purpose.ventures/our-portfolio"
+    }
+   ]
+  },
+  "genlearn": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "celerator Alumni We're proud to have worked with some of Australia's best up and coming startups. Accelerator Alumni 2025 Einsen Innovations is bringing smart-home automation to the laundry room with the world’s first fully automated ironing device. GenLearn empowers course creators to embed AI-led, conversational learning into their content, transforming static online training into engaging, structured, and measurable experiences. THF is creating advanced software tools for the energy sector, h"
+    }
+   ],
+   "links": []
+  },
+  "genvis": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "hnologies is manufacturing a special type of camera for heart disease monitoring. We call it SPECTRA-Mini. SPECTRA-Mini is a portable medical imaging device that screens for coronary artery disease (CAD) through a four-second, non-invasive eye scan. Genvis Genvis has built the integrated technology response to one of the most persistent gaps in Australia's family and domestic violence (FDV) system. Materia Health MateriaPOD™ is a world-first universal preservation platform designed to safely tra"
+    }
+   ],
+   "links": []
+  },
+  "geomoby": {
+   "checks": [
+    {
+     "url": "https://geomoby.com/technology/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Technology – GeoMoby Solutions Industry Specific Health & Safety Mining & Underground Technology Geo Platform LTP Underground RTLS Products Health and Safety Underground Mining Real-Time Monitoring Cultural Heritage Protection Case Studies Altitude Canary Construction Productivity and Efficiency Underground Mining Case Study Careers News Contact GET STARTED Solutions Health and Safety Underground and Mining Underground RTLS Geo Platform LTP Products Contact T",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "glowdry": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "tic online training into engaging, structured, and measurable experiences. THF is creating advanced software tools for the energy sector, helping engineers surface critical information faster, automate complex workflows, and reduce operational risk. GlowDry has developed a self-tan setting powder that instantly dries and sets fake tan, removing the hassle from tanning routines. The Khüsh Place offers a holistic, evidence-based supplement targeting symptoms of PCOS, PMS, and hormonal imbalance. L"
+    }
+   ],
+   "links": []
+  },
+  "grainmarket": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "gridcog": {
+   "checks": [
+    {
+     "url": "https://www.verbund.com/en/group/news-press/press-releases/2026/7/14/verbund-x-ventures-invests-in-clean-tech-startup-gridcog",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "VERBUND X Ventures invests in Clean-Tech startup Gridcog Skip to content Business Careers Group Search Close VERBUND websites Power Plants Green Hydrogen Excursion Destinations Art Collection Energy Conference VERBUND X Albania Germany Italy Romania Spain Company Company About VERBUND Executive Board and Supervisory Board Introducing the VERBUND AG Executive Board and Supervisory Board. Purchasing and supplier portal Contractual terms for suppliers and access to the supplier portal. Company his"
+    }
+   ],
+   "links": []
+  },
+  "groundpath": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "healthengine": {
+   "checks": [],
+   "links": []
+  },
+  "healthmesh": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "pakbhai Mistry Patent-pending RegTech API that calculates the true cost of employment across international markets. Cars Like - Yuri Cartland Independent Australian vehicle comparison platform combining specs, ownership costs and editorial insights. HealthMesh - Sophia Avery B2G platform connecting governments and health funders with trusted community organisations to deliver preventative health campaigns. Agent Anorak - Craig Rappeport Digital platform preserving the history, knowledge and stor"
+    }
+   ],
+   "links": []
+  },
+  "holahealth": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "hyperionsystems": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-growth-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ncrete using large-scale 3D concrete printing, applying robotics, automated material placement and digital construction workflows to increase construction capacity in Western Australia through a faster, scalable and design-flexible delivery method. Hyperion Systems The TitanCell by Hyperion Systems is a deployable “factory-in-a-box” that allows large products to be manufactured almost anywhere using advanced robotic 3D printing technology. Wevolt Wevolt turns thousands of chargers from any vendo"
+    }
+   ],
+   "links": []
+  },
+  "hyprfire": {
+   "checks": [
+    {
+     "url": "https://www.hyprfire.com/contact-us",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "Contact | Hyprfire top of page Product Industries Why NDR Technology Firebug Technology FAQ Partners Resources Blog Company About Us Contact Search Start a Trial Partner Login Contact Us Want to get in touch with our team? Fill in our form and we will get in touch with you as soon as possible. Perth: Lv 32, 152 St George’s Terrace, Perth 6000 Sydney: 1 Sussex Street, Barangaroo, NSW 2000 Melbourne: 114 William Street, Melbourne VIC 3000 Office Hours: Mon -",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "iscreen": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "icetana": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "ideacademy": {
+   "checks": [
+    {
+     "url": "https://www.purpose.ventures/our-portfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "st developer and engineer focus. Visit Website CourseBox AI-powered platform enabling instant creation of interactive online courses. Visit Website SpacetoCo Community marketplace streamlining local shared space bookings and discovery. Visit Website IDEAcademy Alternative education pathway empowering young entrepreneurs through practical learning. Visit Website Sign up to our newsletter: First name Last name Email SUBSCRIBE Thanks for subscribing! Company Apply For Funding I nvestment Process Ge"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://ideacademy.com.au/",
+     "from": "https://www.purpose.ventures/our-portfolio"
+    }
+   ]
+  },
+  "inspiringholdings": {
+   "checks": [
+    {
+     "url": "https://www.fundwa.com.au/fundwaportfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "s revolutionising aortic heart valve replacement by developing a novel polymeric heart valve. Current valve replacements are made of biological tissue, which degrade over time. A polymeric valve could prove to be a single valve for life. Read more + Inspiring Holdings Inspiring Holdings is enhancing the delivery of inhaled therapies through the use of their universal spacer system. The device could change the lives of hundreds of millions of patients suffering from respiratory conditions. Read m"
+    }
+   ],
+   "links": []
+  },
+  "interearth": {
+   "checks": [
+    {
+     "url": "https://www.inter.earth/our-team/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Our Team – InterEarth Skip to content What we do Our Team Purchase CDR Premium Quality CDR For Landowners For Investors News & Updates Contact Us What we do Our Team Purchase CDR Premium Quality CDR For Landowners For Investors News & Updates Contact Us Our Team Meet the Team​ Management Team Dr Howard Carr Chief Executive Officer Peter Metcalfe Chief Operating Officer Leanne Dixon Office and Accounts Manager Alex van Oss Project Manager Dr Catherine Gangel",
+     "own_page": true,
+     "addresses": [
+      "l Repairs The Perenjori Hotel The Pohl Family InterEarth 147 Samson St, White Gum Valley, WA 6162"
+     ]
+    }
+   ],
+   "links": []
+  },
+  "ironflowsolutions": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "tureOn Cohort Our Mentors Industry Internships Entrepreneurs Entrepreneurial Support Incubator Program Accelerator Program Consultancy Events Resource Library Resources Resource Library Blog Jobs Contact Courses Venture UWA Incubator Businesses 2026 Iron Flow Solutions Tasveer Mann & Roshan Mann Iron Flow Solutions is a workforce and operations management platform purpose-built for heavy industry, such as crane hire, mining, and construction. The business already has two paying clients and is lo"
+    }
+   ],
+   "links": []
+  },
+  "iyarn": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "splays, ensuring their message takes centre stage on the move. Multi-Coached has carefully crafted a platform that is designed to deliver therapeutic activities, offering targeted occupational therapy solutions for children, teens, and young adults. iyarn technology pulls in health metrics from wearable platforms to offer clinicians and researchers comprehensive health data, including psychological, social, and physical metrics, in a culturally appropriate way. Edible Cutlery has a mission to re"
+    }
+   ],
+   "links": []
+  },
+  "k3team": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "s. SONEVO - Jasmin Kronewetter AI-first acoustic intelligence platform for local government that uses IoT sensors to automatically detect and log noise events—starting with barking dogs—to provide councils with objective evidence for investigations. K3-Team Pty Ltd - Pavel Kuksa AI-powered ERP, CRM and automation solutions helping SMEs streamline operations using Odoo and AI agents. Lera - Daisy Lyons Premium female-first strength and wellness brand developing weighted vests specifically designe"
+    }
+   ],
+   "links": []
+  },
+  "kinchildcare": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "speeches and job interviews, in just three simple steps. udrew is a platform for managing custom building projects to receive instant council approval. Mureus, is a modular art startup that creates customisable magnetic modular art for large spaces. Kin Childcare is an app facilitating the hiring of reliable, trustworthy and available carers‚ even at the last minute, from scheduling to payment. Art of Comms is an app designed to help you prepare and rehearse for presentations, meetings, speeches"
+    }
+   ],
+   "links": []
+  },
+  "knode": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "komo": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "cart is your all-in-one food app that learns and recommends the food you love, so you can spend more time eating, less time thinking. Best of all every time you book a table or order food delivery through the app, we donate a meal to someone in need Komo Digital (previously QuizJam) a digital engagement company working with creative agencies to increase exposure across different platforms At Humm, we envision a world where this new technology improves the daily lives of everyday people. Our miss"
+    }
+   ],
+   "links": []
+  },
+  "kooda": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "rs, to help guide their holidays and connect them to people in the same destination. Airguides (formally Hopolla), is a platform connecting travellers with influencers, to help guide their holidays and connect them to people in the same destination. Kooda is a crowdsourced organic-waste collection service using technology to make it clean, easy and efficient for every kitchen to divert food-scraps from landfill or burning. Lily and Fox have developed an alternative to nail polish that takes adva"
+    }
+   ],
+   "links": []
+  },
+  "ksatriamedicalsystems": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "lawcaptain": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " GlowDry has developed a self-tan setting powder that instantly dries and sets fake tan, removing the hassle from tanning routines. The Khüsh Place offers a holistic, evidence-based supplement targeting symptoms of PCOS, PMS, and hormonal imbalance. Law Captain is launching Australia’s first AI-powered law firm designed to deliver affordable, consumer-focused legal services. Relait is an AI-powered investor engagement platform that helps ASX-listed companies streamline how they manage updates, t"
+    }
+   ],
+   "links": []
+  },
+  "lera": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "20 Founders, Six Weeks, Big Ideas: Meet This Year's Plus Eight Pre-Accelerator Cohort | Spacecubed Locations Programs Ecosystem Capital Resources About Contact Member Login Locations Programs Ecosystem Capital Resources About Member Login ← Back to Blog Plus Eight Pre-Accelerator 20 Founders, Six Weeks, Big Ideas: Meet This Year's Plus Eight Pre-Accelerator Cohort By Ciaran Overend 20 August 2026 We’re excited to welcome 20 emerging entrepreneurs into our latest Plus Eight Pre-Accelerator, suppo"
+    }
+   ],
+   "links": []
+  },
+  "lilyandfox": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "guide their holidays and connect them to people in the same destination. Kooda is a crowdsourced organic-waste collection service using technology to make it clean, easy and efficient for every kitchen to divert food-scraps from landfill or burning. Lily and Fox have developed an alternative to nail polish that takes advantage of materials and chemical technologies and creates no drying time, no mess and can support very complex coatings. SpacetoCo is an online marketplace that allows you to sha"
+    }
+   ],
+   "links": []
+  },
+  "litt": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "lixa": {
+   "checks": [
+    {
+     "url": "https://www.lixa.life/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Lixa | Switch Off Antimicrobial Resistance top of page Home Science Pipeline Mission Invest More Use tab to navigate through the menu items. Resistance is futile The Antimicrobial Resistance crisis demands different thinking. By breaking with tradition, we found a new way forward. Antibiotics added 23 years to the human lifespan. Humanity is not ready to lose them. Antimicrobial resistance (AMR) means that microbes have developed the ability to o",
+     "own_page": true,
+     "addresses": [
+      "Home Science Pipeline Mission Invest Office: 22 Stirling Hwy, Nedlands, Western Australia WA, 6009"
+     ]
+    }
+   ],
+   "links": []
+  },
+  "materiahealth": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "vice that screens for coronary artery disease (CAD) through a four-second, non-invasive eye scan. Genvis Genvis has built the integrated technology response to one of the most persistent gaps in Australia's family and domestic violence (FDV) system. Materia Health MateriaPOD™ is a world-first universal preservation platform designed to safely transport living biological materials, including donor organs and tissues for transplantation, blood products for defence and emergency care, and reproduct"
+    }
+   ],
+   "links": []
+  },
+  "matildahealth": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "nies. Their platform helps CEOs attract and retain more investors. Tradable is a platform for traders to create, test and share automated trading systems with the cryptocurrency community, to help remedy each of the retail investor stumbling blocks. Matilda Health is a digital platform providing holistic, affordable care to improve symptoms for people with endometriosis through online courses, cohort-based learning, community support, and 1-on-1 telehealth appointments. Piksort is the perfect bl"
+    }
+   ],
+   "links": []
+  },
+  "menuzen": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "micromine": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "minerva": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": " Olivia Humphrey, renowned angel investor Bill Tai and experienced CEO and venture investor Rob Newman. The program has supported more than 180 founders develop early-stage companies, many of which continue to operate today. Among the 2026 cohort is Minerva, a virtual-reality platform able to turn CT and MRI scans into true-scale 3D images to help surgeons plan complex paediatric heart procedures, while Sunfish Robotics is a solar ocean robot engineered for long-duration, low-cost ocean data col"
+    }
+   ],
+   "links": []
+  },
+  "moleclue": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " their growth through interactive practice and measurable progress. Read More 2025 Catalyst ​ Catalyst helps people make meaningful, personalised connections at events using advanced personality and preference-based matching software. Read More 2025 Mole-clue ​ Mole-Clue is revolutionising chromatography–mass spectrometry workflows by digitising, automating, and accelerating one of the most time-consuming processes in analytical chemistry. Read More 2025 Peolia ​ Peoila uses AI-powered facial sc"
+    }
+   ],
+   "links": []
+  },
+  "momentify": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " AI | Founders: Zad Hossain , Jigar Mistry and Shreya Prajapati RecruitMate AI is an AI-powered Recruitment Operating System that automates sourcing, screening and business development, freeing up recruiters to focus on relationships and placements. Momentify | Founder: Imogen Blow Momentify is AI culling and delivery software for event content creators. One wedding produces 500+ clips and hours of sorting before anything reaches the client. Momentify cuts that to minutes. “ Plus Eight has guide"
+    }
+   ],
+   "links": []
+  },
+  "moodle": {
+   "checks": [
+    {
+     "url": "https://www.startupblink.com/top-startups/perth-au",
+     "read": false,
+     "error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around"
+    }
+   ],
+   "links": []
+  },
+  "multicoached": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "o be proactive on their health journey, through expert-led, evidence-based wellbeing content. Shiine enables clients to seamlessly integrate their own meticulously crafted ads onto LED displays, ensuring their message takes centre stage on the move. Multi-Coached has carefully crafted a platform that is designed to deliver therapeutic activities, offering targeted occupational therapy solutions for children, teens, and young adults. iyarn technology pulls in health metrics from wearable platform"
+    }
+   ],
+   "links": []
+  },
+  "mureus": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ". ‍ Art of Comms is an app designed to help you prepare and rehearse for presentations, meetings, speeches and job interviews, in just three simple steps. udrew is a platform for managing custom building projects to receive instant council approval. Mureus, is a modular art startup that creates customisable magnetic modular art for large spaces. Kin Childcare is an app facilitating the hiring of reliable, trustworthy and available carers‚ even at the last minute, from scheduling to payment. Art "
+    }
+   ],
+   "links": []
+  },
+  "musify": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "me, reduce manual research, and generate stronger revenue outcomes. Read More 2025 Talk2View ​ Talk2View is redefining the future of medical imaging with an agentic AI platform that lets clinicians work hands-free — simply by talking. Read More 2025 Musify ​ Musify is a gamified music learning platform that keeps students inspired and tracks their growth through interactive practice and measurable progress. Read More 2025 Catalyst ​ Catalyst helps people make meaningful, personalised connections"
+    }
+   ],
+   "links": []
+  },
+  "mymirror": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "neuroanalyse": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ng program combining coaching, daily micro-practice and interactive lessons to boost student outcomes. aisembl — An intuitive design-to-documentation platform that streamlines material selection and project planning for homeowners and professionals. NeuroAnalyse — A clinical decision tool integrating dementia risk prediction into GP software to support earlier prevention. Safe Call Up — A discrete safety-monitoring app for family and domestic violence survivors using timed check-ins and silent a"
+    }
+   ],
+   "links": []
+  },
+  "nextgenerationsensors": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "tion model. Respiradigm — A digital health companion to predict infant asthma risk and provide parent-friendly guidance and clinician insights. Suss Beauty — A waterless, powdered and refillable skincare range designed to reduce environmental waste. Next Generation Sensors — Portable electrochemical sensors using ionic liquid-based film and gel technology for fast, on-site detection of explosives and water pollutants. Sunfish Robotics — Solar ocean robot engineered for long-duration, low-cost oc"
+    }
+   ],
+   "links": []
+  },
+  "northaustralianseaculture": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "f the most time-consuming processes in analytical chemistry. Read More 2025 Peolia ​ Peoila uses AI-powered facial scanning to match individuals with the best cosmetic products for their skin, personalised to their features and needs. Read More 2025 North Australian SeaCulture ​ North Australian SeaCulture is positioning Northern Australia as a global leader in regenerative seaweed agriculture, developing sustainable cultivation, processing, and product innovation. Read More 2025 AshForge Struct"
+    }
+   ],
+   "links": []
+  },
+  "oceanhex": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ation services. “Plus Eight's support in driving growth and product development has been invaluable through Phase One. We're excited to carry that momentum into Phase Two, building toward San Francisco and OreNova's North America tour,” Brad shared. Ocean Hex | Founders: Oscar Backhouse and Jurgen Valckenaere Ocean Hex is a nature-tech startup transforming coastal infrastructure into regenerative environmental assets through habitat restoration hardware and autonomous monitoring systems. Semeste"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://oceanhex.com.au/",
+     "from": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+    }
+   ]
+  },
+  "oceanplanet": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ns, who may feel disconnected from social media. By pulling in events, photos and news from their extended family, a regular printed paper is produced. This helps address social isolation and digital exclusion among older Australians. Read More 2026 Ocean Planet Alexander Ross Jones, Wei Luo & Ryan McDiarmid Ocean Planet is a mobile app for divers and snorkellers to discover dive sites and access marine species information while enjoying ocean education. Read More 2026 PoliHomes Jack MacKinnon, "
+    }
+   ],
+   "links": []
+  },
+  "omnibiotech": {
+   "checks": [
+    {
+     "url": "https://omnibiotech.com.au/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Omni Biotech — Wearable physiological monitoring for extreme environments Omni Biotech Platform Concept Industry Results Licensing Team Request a demo CONTINUOUS PHYSIOLOGICAL MONITORING IN EXTREME ENVIRONMENTS Pushing the boundaries of wearable health analytics. Leveraging hardware already on > 500 million wrists worldwide. Request a demo See how it works Hydration index 74 / stable Core temp 36.8 °C Heat strain Low A SUITE OF NOVEL ALGORITHMS, ",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "onthehouse": {
+   "checks": [
+    {
+     "url": "https://www.purpose.ventures/our-portfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "TFOLIO FOUNDERS APPLY FOR FUNDING INVESTMENT FAQs INVESTMENT PROCESS INVESTORS More... Use tab to navigate through the menu items. APPLY Our Portfolio evatto AI platform streamlining regulation and administration of large-scale events. Visit Website On The House Smart dispensers delivering free, ad-supported biodegradable period products. Visit Website Gatheredhere Comprehensive online platform for simplified end-of-life care planning. Visit Website Andromeda Assistive humanoid robots delivering"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://onthehousegroup.com/",
+     "from": "https://www.purpose.ventures/our-portfolio"
+    }
+   ]
+  },
+  "oncoresmedical": {
+   "checks": [
+    {
+     "url": "https://www.oncoresmedical.com/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "OncoRes Medical | HOME top of page HOME TEAM TECHNOLOGY PUBLICATIONS CAREERS CONTACT NEWS More Use tab to navigate through the menu items. OncoRes Medical Play Video Facebook Twitter Pinterest Tumblr Copy Link Link Copied Novel Surgical Imaging Technology Play Video Facebook Twitter Pinterest Tumblr Copy Link Link Copied TRANSLATING THE SURGEON'S SENSE OF TOUCH OncoRes Medical is developing an intraoperative imaging technology to provide surgeons",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "onduty": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "culminate in a pitch night on Thursday 1 October 2026, where participants will have the opportunity to showcase their businesses, share what they’ve built and celebrate their progress with the wider Perth innovation community. Meet the cohort below. OnDuty - Vireena Koshal AI voice receptionist that answers calls, books appointments and handles patient enquiries for healthcare providers. Vacancee - Srdjan Kusmuk Marketplace enabling hotels to auction last-minute vacant rooms to maximise occupanc"
+    }
+   ],
+   "links": []
+  },
+  "onebase": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "owners to better manage their properties and tenants to feel like they're living in their own homes. Ari Save will hold you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ OneBase is an integrated software/IoT platform that develops customised treatment protocols holistically for clients. Three Little Pixels is an indie gaming marketplace where members come together to combine experience in broadcasting, content creati"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.onebasehealth.com/",
+     "from": "https://pluseight.spacecubed.com/accelerator/alumni"
+    }
+   ]
+  },
+  "orenovaengineering": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " shared. TRUXE | Founders: Srilekha Mucharla and Nishanth Tedla TRUXE is a logistics optimisation platform using intelligent load planning and 3D visualisation to help transport and supply chain businesses maximise vehicle and container utilisation. OreNova Engineering | Founder: Brad Skajko OreNova is transforming mineral processing engineering through automation, giving mining operators faster access to high-quality design and optimisation services. “Plus Eight's support in driving growth and "
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.orenovaengineering.com/",
+     "from": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+    }
+   ]
+  },
+  "orijinplus": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "otomedicines": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "rst universal preservation platform designed to safely transport living biological materials, including donor organs and tissues for transplantation, blood products for defence and emergency care, and reproductive cells for veterinary applications. Oto Medicines Spritz‑OM is a novel, patent‑protected nasal spray designed to prevent middle ear infections (otitis media) in children - one of the most common and burdensome childhood diseases worldwide. WaveX WaveX is a renewable energy technology ba"
+    }
+   ],
+   "links": []
+  },
+  "paperly": {
+   "checks": [
+    {
+     "url": "https://paperly.education/pages/locations",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Paperly: Revolutionising K-12 School Operations",
+     "own_page": true,
+     "addresses": []
+    },
+    {
+     "url": "https://www.purpose.ventures/our-portfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "lysis and technology insights. Visit Website My Mirror Telehealth platform connecting Australians with professional online psychologists. Visit Website Gene S DNA-based precision medicine matching patients with optimal drug treatments. Visit Website Paperly Modular management software simplifying and automating school administrative workflows. Visit Website Caligra Distraction-free computers built to boost developer and engineer focus. Visit Website CourseBox AI-powered platform enabling instant"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://paperly.education/",
+     "from": "https://www.purpose.ventures/our-portfolio"
+    }
+   ]
+  },
+  "payspread": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "kal Coaching platform helping millennial women navigate burnout and career reinvention. That's Brave - Sarah Royle Interactive learning game that helps workplaces build psychological safety by improving confidence, communication and decision-making. PaySpread - Harsh Deepakbhai Mistry Patent-pending RegTech API that calculates the true cost of employment across international markets. Cars Like - Yuri Cartland Independent Australian vehicle comparison platform combining specs, ownership costs and"
+    }
+   ],
+   "links": []
+  },
+  "peolia": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "-based matching software. Read More 2025 Mole-clue ​ Mole-Clue is revolutionising chromatography–mass spectrometry workflows by digitising, automating, and accelerating one of the most time-consuming processes in analytical chemistry. Read More 2025 Peolia ​ Peoila uses AI-powered facial scanning to match individuals with the best cosmetic products for their skin, personalised to their features and needs. Read More 2025 North Australian SeaCulture ​ North Australian SeaCulture is positioning Nor"
+    }
+   ],
+   "links": []
+  },
+  "personr": {
+   "checks": [
+    {
+     "url": "https://personr.co/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Personr | AML Compliance Software for Asia-Pacific New: Compass - navigate your compliance journey with ease. New: Compass - navigate your compliance journey with ease. Learn more Learn more Personr Products Solutions Resources Pricing Customers Sign in See a demo Start for free Personr Personr AML Infrastructure Powering APAC’s Most Compliant Businesses AML Infrastructure Powering APAC’s Most Compliant Businesses Personr gives your team everythi",
+     "own_page": true,
+     "addresses": [
+      "Services Accounting Real Estate DNFBPs Law Personr L32 152-158 St Georges Terrace, Perth, WA 6000"
+     ]
+    }
+   ],
+   "links": []
+  },
+  "pharmacyhalo": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ts. Piksort is the perfect blend between Snapchat and Dropbox, designed specifically for construction contractors. Streamline your project's photo management, keeping your team connected and on track, while showcasing progress and success with ease. Pharmacy Halo was founded by a pharmacist who finds niche tech solutions to time-consuming issues in pharmacies by creating applications to fix slow and inefficient systems within the community pharmacy environment. 2022 Idle Australia provides servi"
+    }
+   ],
+   "links": []
+  },
+  "pigeontales": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "t creates a single source of truth system for contract lawyers and their clients. Designed to integrate with existing office productivity tools like Word, this could be a huge time saver and reduce errors in legal contract situations. Read More 2026 Pigeon Tales Steven Hodgskin Pigeon Tales produces an individualised 'family newspaper' for elderly Australians, who may feel disconnected from social media. By pulling in events, photos and news from their extended family, a regular printed paper is"
+    }
+   ],
+   "links": []
+  },
+  "pikko": {
+   "checks": [
+    {
+     "url": "https://www.fundwa.com.au/fundwaportfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ging distribution model. Read more + Detail Earth Read more + Black Swan Biotech is leveraging sophisticated Antisense Oligonucleotides to address one of neurology’s most daunting challenges: Motor Neuron Disease. ​ ​ CHAT WITH US Black Swan Biotech Pikko Pikko is elevating feline health by bringing premium, human-grade cat food to the Australian market. Their direct-to-consumer subscription service delivers fresh, gently cooked, and vet-approved meals directly to customers' doors. By replacing "
+    }
+   ],
+   "links": [
+    {
+     "href": "http://pikko.com.au/",
+     "from": "https://www.fundwa.com.au/fundwaportfolio"
+    }
+   ]
+  },
+  "piksort": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "vestor stumbling blocks. Matilda Health is a digital platform providing holistic, affordable care to improve symptoms for people with endometriosis through online courses, cohort-based learning, community support, and 1-on-1 telehealth appointments. Piksort is the perfect blend between Snapchat and Dropbox, designed specifically for construction contractors. Streamline your project's photo management, keeping your team connected and on track, while showcasing progress and success with ease. Phar"
+    }
+   ],
+   "links": []
+  },
+  "plancare": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "plico": {
+   "checks": [
+    {
+     "url": "https://www.startupblink.com/top-startups/perth-au",
+     "read": false,
+     "error": "access_controlled: HTTP 403: access-controlled, so not retried or worked around"
+    }
+   ],
+   "links": []
+  },
+  "polihomes": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "stralians. Read More 2026 Ocean Planet Alexander Ross Jones, Wei Luo & Ryan McDiarmid Ocean Planet is a mobile app for divers and snorkellers to discover dive sites and access marine species information while enjoying ocean education. Read More 2026 PoliHomes Jack MacKinnon, Andrew Ellis & Tyler Cash PoliHomes makes modular, 3D-printed accommodation structures made from approximately 70% recycled polymers. Targets WA's acute housing shortage, particularly for tourism operators, regional landowne"
+    }
+   ],
+   "links": []
+  },
+  "portableppb": {
+   "checks": [
+    {
+     "url": "https://techboard.com.au/company-profile/portable-ppb/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Portable PPB - Techboard Skip to main content Toggle navigation Startup Data Techboard Funding Reports Report a Funding Event Techboard’s Fintech Funding Project Funding Data – for Subscribers Techboard Funding Data Subscriptions NEW Funding Event Search – Beta Techboard Directory Intro to Techboard for Companies Company Announcements Add a Company/Claim ownership How it works Techboard Listing Rules Roundtables About The Team Partners Sponsorshi"
+    }
+   ],
+   "links": []
+  },
+  "powerledger": {
+   "checks": [
+    {
+     "url": "https://international.austrade.gov.au/content/dam/austrade-assets/international/documents/reports/australian-clean-energy-equipment-technology-services.pdf",
+     "read": false,
+     "error": "unsupported_content: unexpected content type \"application/pdf\""
+    }
+   ],
+   "links": []
+  },
+  "pretectdevices": {
+   "checks": [
+    {
+     "url": "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "r at West Tech Fest Pitch 2025 VitalTrace – ABC called VitalTrace’s innovation \"the biggest breakthrough in fetal monitoring in 50 years\", and they have recently received another $500k from the FHRIF’s innovative solutions – precision health program Pretect Devices – $645k to commercialise continuous IV monitoring for critically ill babies, through the FHRIF’s Innovation Seed Fund and Innovation Fellowship, and participated in global accelerator, MedTech Innovator APAC Matilda Health – WA Innova"
+    }
+   ],
+   "links": []
+  },
+  "quarterback": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "erification platform that allows companies of all sizes to onboard and screen customers, clients and staff using AI. Their focus is providing a full-stack solution to provide context and visibility to the lifecycle of sensitive personal information. Quarterback is the answer to the changing landscape of investor relations for publicly listed companies. Their platform helps CEOs attract and retain more investors. Tradable is a platform for traders to create, test and share automated trading syste"
+    }
+   ],
+   "links": []
+  },
+  "rateit": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "readyteamone": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " simple online tool helping small business understand, and therefore submit, better tenders. Snackr is revolutionising the stadium experience with mobile concession & merchandise ordering solutions – so fans can skip the queues and enjoy the action! Ready Team One applies gamification principles to experiential learning and develops latest interactive Virtual Reality technologies to make entertainment and training engaging. The Tooth Market connects prospective dental patients to practices by he"
+    }
+   ],
+   "links": []
+  },
+  "realtyassistaustralia": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "recruitmateai": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ders: Kyan Jones , Kyle De Souza and Daniel Hardej TradieScribe is a voice-first AI platform that turns spoken job notes into professional reports, quotes and invoices within seconds, giving trades and construction businesses more time back on site. RecruitMate AI | Founders: Zad Hossain , Jigar Mistry and Shreya Prajapati RecruitMate AI is an AI-powered Recruitment Operating System that automates sourcing, screening and business development, freeing up recruiters to focus on relationships and p"
+    }
+   ],
+   "links": []
+  },
+  "reinventionbestie": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "and commercialising technology products across mobile, XR, accessibility, gaming and e-commerce. Rhizo Tech (Canopy) - Ricky Gush Enterprise architecture management platform helping organisations visualise and manage business and technology systems. Reinvention Bestie - Nadia Stejskal Coaching platform helping millennial women navigate burnout and career reinvention. That's Brave - Sarah Royle Interactive learning game that helps workplaces build psychological safety by improving confidence, com"
+    }
+   ],
+   "links": []
+  },
+  "relait": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "es. The Khüsh Place offers a holistic, evidence-based supplement targeting symptoms of PCOS, PMS, and hormonal imbalance. Law Captain is launching Australia’s first AI-powered law firm designed to deliver affordable, consumer-focused legal services. Relait is an AI-powered investor engagement platform that helps ASX-listed companies streamline how they manage updates, track investor engagement, and maintain transparency. 2024 Coursebox is an AI course creator that streamlines online course creat"
+    }
+   ],
+   "links": []
+  },
+  "renewablemetals": {
+   "checks": [
+    {
+     "url": "https://www.third-derivative.org/portfolio/renewable-metals",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Renewable Metals Skip to content Our Portfolio For Entrepreneurs Eligibility & Selection How to Apply Programs & Opportunities Innovation Cohorts & Partnerships Industrial Innovation Cohorts Future Industries Partnership Impact Archive Clean Mobile Power Initiative Cohort First Gigaton Captured Cooling Innovations Passive Daytime Radiative Cooling Insights & Events About Us Our Team Careers Our Partners Corporates Investors Mentors Renewable Meta"
+    }
+   ],
+   "links": []
+  },
+  "respiradigm": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ium technology to support women in the menopausal life stage. Gawawater – A whole-home water purification service delivering affordable, reliable access to safe drinking water for households across Africa through a simple monthly subscription model. Respiradigm — A digital health companion to predict infant asthma risk and provide parent-friendly guidance and clinician insights. Suss Beauty — A waterless, powdered and refillable skincare range designed to reduce environmental waste. Next Generat"
+    }
+   ],
+   "links": []
+  },
+  "rhizotech": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "y-led apparel and lifestyle brand encouraging authenticity and independent thinking. Fly High Digital - Paul Manalac Perth-based venture studio building and commercialising technology products across mobile, XR, accessibility, gaming and e-commerce. Rhizo Tech (Canopy) - Ricky Gush Enterprise architecture management platform helping organisations visualise and manage business and technology systems. Reinvention Bestie - Nadia Stejskal Coaching platform helping millennial women navigate burnout a"
+    }
+   ],
+   "links": []
+  },
+  "risex": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "roborigger": {
+   "checks": [
+    {
+     "url": "https://www.roborigger.com.au/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Roborigger - A new way of thinking for crane lifting and logistics IoT Login Extranet Home Products Why use Roborigger Roborigger Units Specialised Spreader & Lift Frames Hooks, Cameras, & Accessories Ludwig Hook IoT Application Projects Resources Training Downloads Crane Incidents Company About Us News Videos Careers Contact Home Products Why use Roborigger Roborigger Units Specialised Spreader & Lift Frames Hooks, Cameras, & Accessories Ludwig ",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "romi": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "rgy and Economic Diversification, BetterLabs, Kaizen West, CFC Group, Hawaiian, Entrepreneur Trainer Andy Ford, DFK Gooding Partners, Insight Advisory Group, and K&L Gates, whose ongoing support makes this program possible. Meet the Phase Two cohort Romi | Founder: Alice Abba Romi is a real-life social platform for women built around hiking, helping women connect in person through shared outdoor experiences and build meaningful, lasting friendships. “ Being part of the Plus Eight cohort has push"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.hikewithromi.com/",
+     "from": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+    }
+   ]
+  },
+  "safecallup": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " design-to-documentation platform that streamlines material selection and project planning for homeowners and professionals. NeuroAnalyse — A clinical decision tool integrating dementia risk prediction into GP software to support earlier prevention. Safe Call Up — A discrete safety-monitoring app for family and domestic violence survivors using timed check-ins and silent alert features. Eikonic — Developing the world’s first menopause-focused Advanced Oral Crème, powered by regenerative gold-cal"
+    }
+   ],
+   "links": []
+  },
+  "savvywise": {
+   "checks": [
+    {
+     "url": "https://startupnews.com.au/news/savvywise-closes-1-56-million-crowdfunding-raise-backed-by-accountants/",
+     "read": false,
+     "error": "dns_failed: could not resolve startupnews.com.au"
+    }
+   ],
+   "links": []
+  },
+  "seastock": {
+   "checks": [
+    {
+     "url": "https://www.seastock.com.au/perth-company-seastock-granted-licence-to-sell-livestock-feed-supplement-asparagopsis/",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "Perth company SeaStock granted licence to sell livestock feed supplement Asparagopsis. - Seastock Skip to content Latest News About Us Board & Management Partners The R-PE Supply Gap The Carbon Footprint Cultivation Asparagopsis Algae Locations Oakford The Abrolhos Islands Approvals Markets RubySea™ AlgaToro™ Biomass Investors News Community Contact About Us Board & Management Partners The R-PE Supply Gap The Carbon Footprint Cultivation Asparagopsis Algae Loc",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "semesterstudentplanner": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "hared. Ocean Hex | Founders: Oscar Backhouse and Jurgen Valckenaere Ocean Hex is a nature-tech startup transforming coastal infrastructure into regenerative environmental assets through habitat restoration hardware and autonomous monitoring systems. Semester Student Planner | Founders: Nathan Marr and Joe Hilton Semester Student Planner partners with universities and colleges across Australia, the UK and the US to improve student retention, now expanding into an AI-powered personal development p"
+    }
+   ],
+   "links": []
+  },
+  "shiinemedia": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/event-details/how-i-built-this-hear-from-nathan-wipane-founder-of-shiine-media",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "How I built this | Hear from Nathan Wipane Founder of Shiine Media | Venture UWA top of page About About Venture UWA VentureUp Incubator Cohort VentureOn Accelerator Cohort Our Mentors & Industry Experts Industry Internships Entrepreneurs Entrepreneurial Support Incubator Program Accelerator Program Consultancy Events Resources Resource Library Blog Jobs Log In Contact Us Menu Close Home About About Venture UWA VentureUp Cohort VentureOn Cohort Our Mentors Industry Internships Entrepreneurs Entr"
+    }
+   ],
+   "links": []
+  },
+  "simplafy": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "es streamline how they manage updates, track investor engagement, and maintain transparency. 2024 Coursebox is an AI course creator that streamlines online course creation, allowing its users to effortlessly design a course structure within seconds. Simplafy empowers teams to be proactive on their health journey, through expert-led, evidence-based wellbeing content. Shiine enables clients to seamlessly integrate their own meticulously crafted ads onto LED displays, ensuring their message takes c"
+    }
+   ],
+   "links": []
+  },
+  "smyl": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "s & Tyler Cash PoliHomes makes modular, 3D-printed accommodation structures made from approximately 70% recycled polymers. Targets WA's acute housing shortage, particularly for tourism operators, regional landowners and holiday parks. Read More 2026 SMYL Laura Castro SMYL has created an orthodontic retainer case that is stylish and fashionable, as opposed to the existing cases that are embarrassing or forgettable. Read More 2026 Syqei Taleena Watts Syqei is a digital eco-wellness app that encour"
+    }
+   ],
+   "links": []
+  },
+  "snackr": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ill hold you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ Tender Relief is a simple online tool helping small business understand, and therefore submit, better tenders. Snackr is revolutionising the stadium experience with mobile concession & merchandise ordering solutions – so fans can skip the queues and enjoy the action! Ready Team One applies gamification principles to experiential learning and develops latest i"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.snackr.com.au/",
+     "from": "https://pluseight.spacecubed.com/accelerator/alumni"
+    }
+   ]
+  },
+  "solah20": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "nal efficiency through intelligent automation and digital workflows. Success Meter - Saurabh Kumar Hospitality SaaS platform benchmarking website analytics and revenue performance against competitors, providing AI-powered recommendations for growth. SolaH20 - James Gardner Solar-powered atmospheric water generation system producing clean drinking water from humidity for remote and water-scarce environments. SONEVO - Jasmin Kronewetter AI-first acoustic intelligence platform for local government "
+    }
+   ],
+   "links": []
+  },
+  "sonevo": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "evenue performance against competitors, providing AI-powered recommendations for growth. SolaH20 - James Gardner Solar-powered atmospheric water generation system producing clean drinking water from humidity for remote and water-scarce environments. SONEVO - Jasmin Kronewetter AI-first acoustic intelligence platform for local government that uses IoT sensors to automatically detect and log noise events—starting with barking dogs—to provide councils with objective evidence for investigations. K3-"
+    }
+   ],
+   "links": []
+  },
+  "sonowesthealthcare": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "nomy – and we have no doubt our 2026 cohort will achieve this.” 2026 CURTIN ACCELERATE COHORT Minerva — A VR imaging platform that turns CT/MRI scans into life-sized 3D anatomy to help clinicians plan and practise complex paediatric heart surgeries. Sonowest Healthcare — An integrated telehealth primary care model offering 24/7 support to improve health access for remote WA communities. Yalkarang Consulting — A Noongar-led service delivering culturally grounded learning to strengthen workplace a"
+    }
+   ],
+   "links": []
+  },
+  "spacedraft": {
+   "checks": [],
+   "links": []
+  },
+  "spacetoco": {
+   "checks": [
+    {
+     "url": "https://walga.asn.au/suppliers/preferred-supplier-directory/spacetoco",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": true,
+     "context": "d news covering all things Local Government in Western Australia. Upcoming Events Latest News Newsletters Media Releases Resource Library Fuel Security Close Search Search View all results Home Preferred Supplier Program Preferred Supplier Directory Spacetoco Spacetoco On This Page Scroll to Contact Details Scroll to Company Summary Scroll to Preferred Supplier Contracts 6102 1191 45 St Georges Tce Perth, WA 6000 [email protected] http://www.spacetoco.com SpacetoCo is a full-service software pac"
+    },
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "stayonhire": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "owners to better manage their properties and tenants to feel like they're living in their own homes. Ari Save will hold you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ StayOnHire (formerly Idle Australia) helps wet and dry plant hire companies to digitise their fleet management, tracking and invoicing operations; with functionality that can network multiple businesses together. Providing virtual display homes, Abso"
+    }
+   ],
+   "links": []
+  },
+  "stryd": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "successmeter": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "up developing products and services to improve the wellbeing of pets and simplify pet ownership. Bucket Lyst - Thuy My Trinh Truong AI-enabled solution focused on improving operational efficiency through intelligent automation and digital workflows. Success Meter - Saurabh Kumar Hospitality SaaS platform benchmarking website analytics and revenue performance against competitors, providing AI-powered recommendations for growth. SolaH20 - James Gardner Solar-powered atmospheric water generation sy"
+    }
+   ],
+   "links": []
+  },
+  "sunfishrobotics": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "lop early-stage companies, many of which continue to operate today. Among the 2026 cohort is Minerva, a virtual-reality platform able to turn CT and MRI scans into true-scale 3D images to help surgeons plan complex paediatric heart procedures, while Sunfish Robotics is a solar ocean robot engineered for long-duration, low-cost ocean data collection. Curtin Director of Entrepreneurship Danelle Cross said Accelerate continued to demonstrate the University’s long-term commitment to building an entr"
+    }
+   ],
+   "links": []
+  },
+  "sussbeauty": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ble, reliable access to safe drinking water for households across Africa through a simple monthly subscription model. Respiradigm — A digital health companion to predict infant asthma risk and provide parent-friendly guidance and clinician insights. Suss Beauty — A waterless, powdered and refillable skincare range designed to reduce environmental waste. Next Generation Sensors — Portable electrochemical sensors using ionic liquid-based film and gel technology for fast, on-site detection of explo"
+    }
+   ],
+   "links": []
+  },
+  "syqei": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "m operators, regional landowners and holiday parks. Read More 2026 SMYL Laura Castro SMYL has created an orthodontic retainer case that is stylish and fashionable, as opposed to the existing cases that are embarrassing or forgettable. Read More 2026 Syqei Taleena Watts Syqei is a digital eco-wellness app that encourages users to build sustainable and wellbeing habits through gentle, non-punishing actions - no streaks, no penalties. Hydration, mindfulness and low-waste choices can nurture a digit"
+    }
+   ],
+   "links": []
+  },
+  "takedownsportsnutrition": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ourages users to build sustainable and wellbeing habits through gentle, non-punishing actions - no streaks, no penalties. Hydration, mindfulness and low-waste choices can nurture a digital cocoon that hatches into a digital butterfly. Read More 2026 Takedown Sports Nutrition Michael Fragomeni Michael Fragomeni has developed a non-caffeinated, jelly-based pre-workout product designed for all-day use across any sport. This addresses bloating, stomach discomfort, and sleep disruption caused by exis"
+    }
+   ],
+   "links": []
+  },
+  "talk2view": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ue engineering technology. Read More 2025 SavvyWise ​ SavvyWise is transforming the accounting sector with an AI-powered assistant designed to help accountants save time, reduce manual research, and generate stronger revenue outcomes. Read More 2025 Talk2View ​ Talk2View is redefining the future of medical imaging with an agentic AI platform that lets clinicians work hands-free — simply by talking. Read More 2025 Musify ​ Musify is a gamified music learning platform that keeps students inspired "
+    }
+   ],
+   "links": []
+  },
+  "teleios": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " meet global demand for long-duration renewable energy storage. Read More 2025 UnderlandEX ​ UnderlandEX helps mining companies communicate the true value of their projects to investors through a transparent, all-in-one SaaS platform. Read More 2025 Teleios ​ Teleios helps enterprises transform ideas into world-class AI-driven products by bridging the gap between strategy and technical execution. Read More 2025 George McColgan ​ George is pioneering the next generation of vascular bypass grafts "
+    }
+   ],
+   "links": []
+  },
+  "tenderrelief": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "owners to better manage their properties and tenants to feel like they're living in their own homes. Ari Save will hold you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ Tender Relief is a simple online tool helping small business understand, and therefore submit, better tenders. Snackr is revolutionising the stadium experience with mobile concession & merchandise ordering solutions – so fans can skip the queues and "
+    }
+   ],
+   "links": []
+  },
+  "terra15": {
+   "checks": [
+    {
+     "url": "https://terra15.com.au/contact/",
+     "read": false,
+     "error": "robots_unavailable: robots.txt is access-controlled"
+    }
+   ],
+   "links": []
+  },
+  "thatsbrave": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "icky Gush Enterprise architecture management platform helping organisations visualise and manage business and technology systems. Reinvention Bestie - Nadia Stejskal Coaching platform helping millennial women navigate burnout and career reinvention. That's Brave - Sarah Royle Interactive learning game that helps workplaces build psychological safety by improving confidence, communication and decision-making. PaySpread - Harsh Deepakbhai Mistry Patent-pending RegTech API that calculates the true "
+    }
+   ],
+   "links": []
+  },
+  "khushplace": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ector, helping engineers surface critical information faster, automate complex workflows, and reduce operational risk. GlowDry has developed a self-tan setting powder that instantly dries and sets fake tan, removing the hassle from tanning routines. The Khüsh Place offers a holistic, evidence-based supplement targeting symptoms of PCOS, PMS, and hormonal imbalance. Law Captain is launching Australia’s first AI-powered law firm designed to deliver affordable, consumer-focused legal services. Rela"
+    }
+   ],
+   "links": []
+  },
+  "toothmarket": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " ordering solutions – so fans can skip the queues and enjoy the action! Ready Team One applies gamification principles to experiential learning and develops latest interactive Virtual Reality technologies to make entertainment and training engaging. The Tooth Market connects prospective dental patients to practices by helping patients to diagnose, quote, book and fund the dental treatment that they need, when they need it. Idle Australia provides services that enable business owners to freely ad"
+    }
+   ],
+   "links": []
+  },
+  "uncmmn": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "to auction last-minute vacant rooms to maximise occupancy. Access Beyond - Carissa Lee Human-centred technology company building products that reduce everyday friction. Their first product, Dinner Done, simplifies meal planning and grocery shopping. The UNCØMMN - Elethea Webb Philosophy-led apparel and lifestyle brand encouraging authenticity and independent thinking. Fly High Digital - Paul Manalac Perth-based venture studio building and commercialising technology products across mobile, XR, ac"
+    }
+   ],
+   "links": []
+  },
+  "volte": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "themba": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "ael Fragomeni Michael Fragomeni has developed a non-caffeinated, jelly-based pre-workout product designed for all-day use across any sport. This addresses bloating, stomach discomfort, and sleep disruption caused by existing products. Read More 2026 Themba Bamillidzi Tshuma & Lisa Nyoni Themba is looking to build an integrated, culturally informed supply chain logistics system serving culturally diverse small businesses - particularly African, Asian, and Indian retailers in WA. Read More 2026 Da"
+    }
+   ],
+   "links": []
+  },
+  "thfengineeredsolutions": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "thorai": {
+   "checks": [
+    {
+     "url": "https://www.fundwa.com.au/fundwaportfolio",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "vented an additive that turns ordinary plastic into biodegradable plastic, which not only breaks down in compost but also rapidly in oceans. Enzide’s technology is based on a world-first breakthrough at CSIRO in creating a stable enzyme. Read more + Thor AI ThorAI's flagship solution, R&D AI Assist, helps companies quickly create accurate R&D tax incentive claims, saving valuable time + effort. The team is also working on PlanAi, a promising new product set to revolutionise financial advisory se"
+    }
+   ],
+   "links": []
+  },
+  "threelittlepixels": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "d you accountable to your spending and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ OneBase is an integrated software/IoT platform that develops customised treatment protocols holistically for clients. Three Little Pixels is an indie gaming marketplace where members come together to combine experience in broadcasting, content creation, games and esport journalism, and tech support and development. 2021 Idle Australia provides services that enable b"
+    }
+   ],
+   "links": []
+  },
+  "threespringstechnology": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "tradable": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": " provide context and visibility to the lifecycle of sensitive personal information. Quarterback is the answer to the changing landscape of investor relations for publicly listed companies. Their platform helps CEOs attract and retain more investors. Tradable is a platform for traders to create, test and share automated trading systems with the cryptocurrency community, to help remedy each of the retail investor stumbling blocks. Matilda Health is a digital platform providing holistic, affordable"
+    }
+   ],
+   "links": []
+  },
+  "tradiescribe": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "bal relationships and the blue sky thinking the trip will unlock - as well as our San Francisco/Bay Area launch for Romi. And of course, the countdown to Demo Night is well and truly on and I can't wait to see what's possible by then,” Alice shared. TradieScribe | Founders: Kyan Jones , Kyle De Souza and Daniel Hardej TradieScribe is a voice-first AI platform that turns spoken job notes into professional reports, quotes and invoices within seconds, giving trades and construction businesses more "
+    }
+   ],
+   "links": [
+    {
+     "href": "https://tradiescribe.com.au/",
+     "from": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+    }
+   ]
+  },
+  "truxe": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "at I thought was possible ” “I'm really excited for the mentorship from all the partners, and to go to San Fran with such an epic group of founders. Knowing I'll be part of the Plus Eight fam in many more years to come is reassuring,” Imogen shared. TRUXE | Founders: Srilekha Mucharla and Nishanth Tedla TRUXE is a logistics optimisation platform using intelligent load planning and 3D visualisation to help transport and supply chain businesses maximise vehicle and container utilisation. OreNova E"
+    }
+   ],
+   "links": [
+    {
+     "href": "https://www.truxe.com.au/",
+     "from": "https://blog.spacecubed.com/plus-eight-investment-pool-reaches-1m-as-nine-startups-enter-phase-two"
+    }
+   ]
+  },
+  "tutorsgrid": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "lding in Australia ... the \"Wikipedia for Buildings\". Amazingly, this does not exist at the moment. Every building covered would include design, construction history, renovation dates, architects, builders, and energy efficiency data. Read More 2026 TutorsGrid James Anderson TutorsGrid is a platform centralising scheduling, reporting, payment, and management for school and agency tutoring programs, with separate accounts for admins, tutors, students, and parents. Fully built, scalable, and with "
+    }
+   ],
+   "links": []
+  },
+  "udrew": {
+   "checks": [
+    {
+     "url": "https://pluseight.spacecubed.com/accelerator/alumni",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "g and savings habits, making sure you never blow a budget and always achieve your savings goals. ‍ Art of Comms is an app designed to help you prepare and rehearse for presentations, meetings, speeches and job interviews, in just three simple steps. udrew is a platform for managing custom building projects to receive instant council approval. Mureus, is a modular art startup that creates customisable magnetic modular art for large spaces. Kin Childcare is an app facilitating the hiring of reliab"
+    }
+   ],
+   "links": []
+  },
+  "uluu": {
+   "checks": [
+    {
+     "url": "https://www.uluu.com.au/about",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "About | Dr Julia Reisser – Michael Kingsbury – Uluu team – Board Products Impact Technology About FOR A PLASTIC-FREE FUTURE. An idea more than a decade in the making As an ecologist researching sea turtles in her native Brazil, Uluu co-founder Dr Julia Reisser saw that they were eating more plastic than anything else. She was driven to do a PhD in ocean plastics and was one of the earliest members of The Ocean Cleanup, a Dutch not-for-profit developing technology to remove plastic from the se",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "underlandex": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "ents, not past experiences. A working prototype has been built. Read More 2026 Flowbat Hanrui Yu Flowbat is developing next-generation zinc-iron flow batteries designed to meet global demand for long-duration renewable energy storage. Read More 2025 UnderlandEX ​ UnderlandEX helps mining companies communicate the true value of their projects to investors through a transparent, all-in-one SaaS platform. Read More 2025 Teleios ​ Teleios helps enterprises transform ideas into world-class AI-driven "
+    }
+   ],
+   "links": []
+  },
+  "vacancee": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "they’ve built and celebrate their progress with the wider Perth innovation community. Meet the cohort below. OnDuty - Vireena Koshal AI voice receptionist that answers calls, books appointments and handles patient enquiries for healthcare providers. Vacancee - Srdjan Kusmuk Marketplace enabling hotels to auction last-minute vacant rooms to maximise occupancy. Access Beyond - Carissa Lee Human-centred technology company building products that reduce everyday friction. Their first product, Dinner "
+    }
+   ],
+   "links": []
+  },
+  "vedi": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "veintech": {
+   "checks": [
+    {
+     "url": "https://www.veintech.com.au/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "VeinTech | Home top of page Home Products Felix Training Phantom About Our Team News Contact Careers More Use tab to navigate through the menu items. The right vein, first time, every time. For every clinician. Placing an IV is the most common procedure in medicine. It's also one of the most likely to fail. That is why VeinTech have built Felix. Felix takes the guess work out of vascular access, helping any clinician get it right the first time. ",
+     "own_page": true,
+     "addresses": [
+      "PERTH, AUSTRALIA Unit 3 / 4 Gould Street, Osborne Park WA 6017",
+      "volved Email Us OUR LOCATIONS Perth, Western Australia Unit 3/4 Gould Street Osborne Park WA 6017"
+     ]
+    }
+   ],
+   "links": []
+  },
+  "velora": {
+   "checks": [
+    {
+     "url": "https://www.biodesign.au/post/introducing-wa-s-latest-health-innovators-perth-biodesign-s-largest-showcase-yet",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "y ill babies, through the FHRIF’s Innovation Seed Fund and Innovation Fellowship, and participated in global accelerator, MedTech Innovator APAC Matilda Health – WA Innovators of the Year finalist; $671k from FHRIF and Commercialisation Bridge Grant Velora – awarded $50k Innovation Booster Grant Diag-Nose – Eldin Rostom's venture raised $6m+ for chronic respiratory disease management These companies collectively employ other Perth Biodesign alumni, mentor current cohorts, and attract internation"
+    }
+   ],
+   "links": []
+  },
+  "vgw": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "Western Australia, Australia as of Oct 26, 2026. That is 6% of the 3,143 it lists in Australia. Which startups in Perth are hiring remotely? 4 startups in Perth had open remote roles when their job boards were last read, including Zensai, CorePlan, VGW Holdings and Capricorn. Where are the startups in Perth on a map? 31 of them are pinned at a verified office address on the RemJobs map; the rest are placed in the city without a street address. Members see every pin and each company's founders. C"
+    }
+   ],
+   "links": []
+  },
+  "vitaltrace": {
+   "checks": [
+    {
+     "url": "https://vitaltrace.com.au/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "VitalTrace | Continuous Lactate Monitoring for Safer Childbirth Mission DelivAssure Platform Careers Contact Digitizing body chemistry for the AI era See how it works Lactate · Continuous Live 2.31 mmol/L Simulated readout · Factory-calibrated sensor The next generation of wearables gives clinicians and consumers access to the body's chemistry in real time. Critical decisions in medicine are made with blood tests, not heart rate alone. We make la",
+     "own_page": true,
+     "addresses": []
+    }
+   ],
+   "links": []
+  },
+  "vitruvianform": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "vyklowanalytics": {
+   "checks": [
+    {
+     "url": "https://www.remjobs.works/startups/australia/perth",
+     "read": true,
+     "names_it": false,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": ""
+    }
+   ],
+   "links": []
+  },
+  "wavex": {
+   "checks": [
+    {
+     "url": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification/wa-innovators-of-the-year-2026-emerging-innovation-finalists",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "roductive cells for veterinary applications. Oto Medicines Spritz‑OM is a novel, patent‑protected nasal spray designed to prevent middle ear infections (otitis media) in children - one of the most common and burdensome childhood diseases worldwide. WaveX WaveX is a renewable energy technology based in Perth. Recognising the significance of the State’s sovereign ocean resource, WaveX reimagined wave energy conversion through the development of its D‑Spar Power Platform – a reliable source of auto"
+    }
+   ],
+   "links": []
+  },
+  "wevolt": {
+   "checks": [
+    {
+     "url": "https://wevolt.com.au/",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "Wevolt — Australian software to manage, monetise and scale EV charging Skip to content Home Platform Drivers Electricians About Proof Support Sign in Talk to our team Australian EV charging software The operating system for EV charging Hardware-agnostic software that operators, networks and energy providers use to run, monetise and scale charging — on any hardware, under your brand. Powering 800+ charging ports and 20,000+ drivers across Australi",
+     "own_page": true,
+     "addresses": [
+      "au Bentley Technology Park, 8/8 Sarich Way, Bentley WA 6102"
+     ]
+    }
+   ],
+   "links": []
+  },
+  "wristband": {
+   "checks": [
+    {
+     "url": "https://www.ventureuwa.com.au/business-directory",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "g scheduling, reporting, payment, and management for school and agency tutoring programs, with separate accounts for admins, tutors, students, and parents. Fully built, scalable, and with one school already paying to use the platform. Read More 2026 Wristband Daniel Cartagena Nuñez & Michael Myers Wristband is developing a mobile app allowing live music fans a permanent, searchable, and shareable archive of every live event they've ever attended, filling a gap left by platforms that focus on upc"
+    }
+   ],
+   "links": []
+  },
+  "yalkarangconsulting": {
+   "checks": [
+    {
+     "url": "https://www.curtin.edu.au/news/media-release/curtin-accelerate-to-propel-wa-businesses-to-new-heights-in-2026/",
+     "read": true,
+     "names_it": true,
+     "says_perth": true,
+     "perth_postcode": false,
+     "context": "MRI scans into life-sized 3D anatomy to help clinicians plan and practise complex paediatric heart surgeries. Sonowest Healthcare — An integrated telehealth primary care model offering 24/7 support to improve health access for remote WA communities. Yalkarang Consulting — A Noongar-led service delivering culturally grounded learning to strengthen workplace and community understanding. AchieveAble — A fun and engaging maths tutoring program combining coaching, daily micro-practice and interactive"
+    }
+   ],
+   "links": []
+  },
+  "zapsplit": {
+   "checks": [
+    {
+     "url": "https://blog.spacecubed.com/20-founders-six-weeks-and-big-ideas-inside-the-2026-plus-eight-pre-accelerator",
+     "read": true,
+     "names_it": true,
+     "says_perth": false,
+     "perth_postcode": false,
+     "context": "th funders with trusted community organisations to deliver preventative health campaigns. Agent Anorak - Craig Rappeport Digital platform preserving the history, knowledge and stories behind vehicles for enthusiasts, clubs and automotive businesses. ZapSplit - Michael Cheneka Australian bill-splitting app that lets users scan a receipt, split costs instantly and share payment links. Live on iPhone with Android launching soon. Blest Pets - Antonio Mison Pet-focused startup developing products and"
+    }
+   ],
+   "links": []
+  }
+ }
+}

@@ -15,12 +15,14 @@ export function metroOfPostcode(state, postcode) {
   return RANGES.find(([s, from, to]) => s === state && code >= from && code <= to)?.[3] ?? null;
 }
 
-// { city, state, postcode } for an address that carries an Australian state and a four-digit postcode ("80 George St, The Rocks NSW 2000"): city is null when the
+// { city, state, postcode } for an address that carries an Australian state and a four-digit postcode, in either order ("80 George St, The Rocks NSW 2000", "West Perth 6005, WA"): city is null when the
 // postcode is outside the ten cities; the whole answer is null when the text has no state and postcode.
 export function placeOfAddress(address) {
-  const m = /\b(NSW|VIC|QLD|SA|WA|TAS|NT|ACT)\b[\s,]*(\d{4})\b/.exec(String(address ?? ''));
-  if (!m) return null;
-  return { city: metroOfPostcode(m[1], m[2]), state: m[1], postcode: m[2] };
+  const text = String(address ?? '');
+  const m = /\b(NSW|VIC|QLD|SA|WA|TAS|NT|ACT)\b[\s,]*(\d{4})\b/.exec(text);
+  if (m) return { city: metroOfPostcode(m[1], m[2]), state: m[1], postcode: m[2] };
+  const back = /\b(\d{4})\b[\s,]*\b(NSW|VIC|QLD|SA|WA|TAS|NT|ACT)\b/.exec(text); // the postcode first: "West Perth 6005, WA"
+  return back ? { city: metroOfPostcode(back[2], back[1]), state: back[2], postcode: back[1] } : null;
 }
 
 // The big city a company is in: by its own postcode, else by the postcode in its address, else the city it names if that is one of the ten.

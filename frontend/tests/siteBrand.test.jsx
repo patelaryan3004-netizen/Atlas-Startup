@@ -24,8 +24,8 @@ describe('where the brand goes', () => {
 });
 
 describe('the places', () => {
-  it('are Home, Discover, Map and Opportunities, each with an address of its own, and what is inside Discover and Opportunities is tabs', () => {
-    expect(NAV.map((n) => [n.label, n.href])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
+  it('are Community, Discover, Map and Opportunities, each with an address of its own, and what is inside Discover and Opportunities is tabs', () => {
+    expect(NAV.map((n) => [n.label, n.href])).toEqual([['Community', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
     expect(DISCOVER_TABS.map((t) => [t.label, t.href])).toEqual([['People', '/discover/people'], ['Startups', '/discover'], ['Investors', '/investors']]);
     expect(OPPORTUNITY_TABS.map((t) => [t.label, t.href])).toEqual([['Jobs', '/jobs'], ['Events', '/events']]);
   });
@@ -42,7 +42,7 @@ describe('SiteHeader', () => {
     const home = screen.getByRole('link', { name: 'Go to home' });
     expect(home).toHaveAttribute('href', '/');
     expect(home).toHaveTextContent('still early.');
-    expect(places().getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
+    expect(places().getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Community', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
   });
 
   it('says which place the page is (aria-current) and only that one', () => {
@@ -55,7 +55,7 @@ describe('SiteHeader', () => {
     render(<SiteHeader />);
     await userEvent.tab();
     expect(screen.getByRole('link', { name: 'Go to home' })).toHaveFocus();
-    for (const place of ['Home', 'Discover', 'Map', 'Opportunities']) {
+    for (const place of ['Community', 'Discover', 'Map', 'Opportunities']) {
       await userEvent.tab();
       expect(places().getByRole('link', { name: place })).toHaveFocus();
     }
@@ -105,8 +105,8 @@ describe('SiteHeader', () => {
   it('has the places along the bottom of a phone too, the same links, with the open one marked', () => {
     render(<SiteHeader active="home" />);
     const bar = within(screen.getByRole('navigation', { name: 'Main (phone)' }));
-    expect(bar.getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Home', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
-    expect(bar.getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page');
+    expect(bar.getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([['Community', '/home'], ['Discover', '/discover'], ['Map', '/map'], ['Opportunities', '/jobs']]);
+    expect(bar.getByRole('link', { name: 'Community' })).toHaveAttribute('aria-current', 'page');
   });
 
   it('has the name only once, as a span: the heading of a page is the page\'s own, not the header\'s', () => {

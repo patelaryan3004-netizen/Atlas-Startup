@@ -40,7 +40,7 @@ export function ensureSource(work, src) {
   }
   const taken = new Set(work.sources.map((s) => s.id));
   const label = src.url ? hostPath(src.url) : `${src.kind} ${src.title ?? ''}`;
-  const id = uniqueSlug(slugify(label).slice(0, 64) || 'source', taken);
+  const id = uniqueSlug(slugify(label).slice(0, 64).replace(/-+$/, '') || 'source', taken); // (cut at 64 characters, a hyphen is not a valid last character of an id)
   work.sources.push({
     id, kind: src.kind, url: src.url ?? null, title: src.title ?? null, publisher: src.publisher ?? null,
     retrieved_at: src.retrieved_at ?? null, note: src.note ?? '',

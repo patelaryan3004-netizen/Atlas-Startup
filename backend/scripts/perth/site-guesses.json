@@ -1,0 +1,3330 @@
+{
+ "rows": {
+  "absolutevr": {
+   "tried": 9,
+   "resolved": [
+    "absolutevr.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://absolutevr.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "accessbeyond": {
+   "tried": 9,
+   "resolved": [
+    "accessbeyond.com.au",
+    "accessbeyond.com",
+    "accessbeyond.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://accessbeyond.com.au/",
+     "title": "What's for dinner tonight? — Spudshed",
+     "names_it": false
+    },
+    {
+     "url": "https://accessbeyond.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://accessbeyond.org/",
+     "error": "blocked_host"
+    }
+   ]
+  },
+  "achieveable": {
+   "tried": 9,
+   "resolved": [
+    "achieveable.com.au",
+    "achieveable.com",
+    "achieveable.au",
+    "achieveable.co",
+    "achieveable.org"
+   ],
+   "found": {
+    "url": "https://www.achieve-able.com.au",
+    "title": "AchieveAble | Enabling Business Success"
+   },
+   "seen": [
+    {
+     "url": "https://www.achieve-able.com.au/",
+     "title": "AchieveAble | Enabling Business Success",
+     "names_it": true
+    },
+    {
+     "url": "https://achieveable.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.achieveable.au/",
+     "title": "AchieveAble | Maths Tutor for Better Results and Happier Kids AchieveAble Who says maths tutoring has to be boring?",
+     "names_it": true
+    },
+    {
+     "url": "https://www.achieveable.au/",
+     "title": "AchieveAble | Maths Tutor for Better Results and Happier Kids AchieveAble Who says maths tutoring has to be boring?",
+     "names_it": true
+    }
+   ]
+  },
+  "agentanorak": {
+   "tried": 9,
+   "resolved": [
+    "agentanorak.com"
+   ],
+   "found": {
+    "url": "https://agentanorak.com",
+    "title": "Agent Anorak - For Enthusiasts, By Enthusiasts Agent Anorak Welcome to"
+   },
+   "seen": [
+    {
+     "url": "https://agentanorak.com/",
+     "title": "Agent Anorak - For Enthusiasts, By Enthusiasts Agent Anorak Welcome to",
+     "names_it": true
+    }
+   ]
+  },
+  "agoralivestock": {
+   "tried": 9,
+   "resolved": [
+    "agoralivestock.com.au",
+    "agoralivestock.com",
+    "agoralivestock.au"
+   ],
+   "found": {
+    "url": "https://agoralivestock.com.au",
+    "title": "Agora Livestock Markets - Home Agora Livestock Australian cattle, sheep and goat markets."
+   },
+   "seen": [
+    {
+     "url": "https://agoralivestock.com.au/",
+     "title": "Agora Livestock Markets - Home Agora Livestock Australian cattle, sheep and goat markets.",
+     "names_it": true
+    },
+    {
+     "url": "https://agoralivestock.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://agoralivestock.com.au/",
+     "title": "Agora Livestock Markets - Home Agora Livestock Australian cattle, sheep and goat markets.",
+     "names_it": true
+    }
+   ]
+  },
+  "airclinix": {
+   "tried": 9,
+   "resolved": [
+    "airclinix.com.au"
+   ],
+   "found": {
+    "url": "https://airclinix.com.au",
+    "title": "Home - Airclinix Airclinix A next-gen Practice Management System is coming"
+   },
+   "seen": [
+    {
+     "url": "https://airclinix.com.au/",
+     "title": "Home - Airclinix Airclinix A next-gen Practice Management System is coming",
+     "names_it": true
+    }
+   ]
+  },
+  "aisembl": {
+   "tried": 9,
+   "resolved": [
+    "aisembl.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://aisembl.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "aispanner": {
+   "tried": 9,
+   "resolved": [
+    "aispanner.com.au",
+    "aispanner.com",
+    "aispanner.ai"
+   ],
+   "found": {
+    "url": "https://aispanner.com.au",
+    "title": "Home | AiSpanner"
+   },
+   "seen": [
+    {
+     "url": "https://aispanner.com.au/",
+     "title": "Home | AiSpanner",
+     "names_it": true
+    },
+    {
+     "url": "https://aispanner.com.au/",
+     "title": "Home | AiSpanner",
+     "names_it": true
+    },
+    {
+     "url": "https://aispanner.ai/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "amlab": {
+   "tried": 9,
+   "resolved": [
+    "amlab.com.au",
+    "amlab.com",
+    "amlab.au",
+    "amlab.co",
+    "amlab.app",
+    "amlab.tech",
+    "amlab.org"
+   ],
+   "found": {
+    "url": "https://amlab.com.au",
+    "title": "AMLab: Container Terminal Crane Automation SOFTWARE SOLUTIONS FOR CONTAINER TERMINAL CRANES"
+   },
+   "seen": [
+    {
+     "url": "https://amlab.com.au/",
+     "title": "AMLab: Container Terminal Crane Automation SOFTWARE SOLUTIONS FOR CONTAINER TERMINAL CRANES",
+     "names_it": true
+    },
+    {
+     "url": "https://amlab.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://amlab.au/",
+     "title": "AMLab: Container Terminal Crane Automation SOFTWARE SOLUTIONS FOR CONTAINER TERMINAL CRANES",
+     "names_it": true
+    },
+    {
+     "url": "https://amlab.co/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "anticipa": {
+   "tried": 9,
+   "resolved": [
+    "anticipa.com",
+    "anticipa.io",
+    "anticipa.app",
+    "anticipa.tech",
+    "anticipa.org"
+   ],
+   "found": {
+    "url": "https://anticipa.com",
+    "title": "Anticipa Real Estate | Gestión de activos inmobiliarios y financieros Líderes en asset management inmobiliario"
+   },
+   "seen": [
+    {
+     "url": "https://anticipa.com/",
+     "title": "Anticipa Real Estate | Gestión de activos inmobiliarios y financieros Líderes en asset management inmobiliario",
+     "names_it": true
+    },
+    {
+     "url": "https://anticipa.io/",
+     "title": "Anticipa - il tuo gestionale Così semplice, così straordinario.",
+     "names_it": true
+    },
+    {
+     "url": "https://anticipa.app/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://anticipa.tech/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "architectiq": {
+   "tried": 9,
+   "resolved": [
+    "architectiq.io",
+    "architectiq.tech"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://architectiq.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://architectiq.tech/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "arisave": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "arthrolase": {
+   "tried": 9,
+   "resolved": [
+    "arthrolase.com.au",
+    "arthrolase.com",
+    "arthrolase.au"
+   ],
+   "found": {
+    "url": "https://www.arthrolase.com",
+    "title": "Home | ArthroLase Shaping the future of orthopaedics with laser precision &trade;"
+   },
+   "seen": [
+    {
+     "url": "https://arthrolase.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.arthrolase.com/",
+     "title": "Home | ArthroLase Shaping the future of orthopaedics with laser precision &trade;",
+     "names_it": true
+    },
+    {
+     "url": "https://arthrolase.au/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "ascendlabs": {
+   "tried": 9,
+   "resolved": [
+    "ascendlabs.com.au",
+    "ascendlabs.com",
+    "ascendlabs.au",
+    "ascendlabs.ai",
+    "ascendlabs.co",
+    "ascendlabs.app",
+    "ascendlabs.tech",
+    "ascendlabs.org"
+   ],
+   "found": {
+    "url": "https://ascendlabs.com.au",
+    "title": "Ascend Labs - Next Generation Strength Assessment Level up your strength assessment."
+   },
+   "seen": [
+    {
+     "url": "https://ascendlabs.com.au/",
+     "title": "Ascend Labs - Next Generation Strength Assessment Level up your strength assessment.",
+     "names_it": true
+    },
+    {
+     "url": "https://ascendlabs.com/",
+     "error": "http_error"
+    },
+    {
+     "url": "https://ascendlabs.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://ascendlabs.ai/",
+     "title": "AI Enablement for Performance-Driven Companies | AscendAI AscendAI AI is already inside your business. The question is w",
+     "names_it": false
+    }
+   ]
+  },
+  "ashforgestructures": {
+   "tried": 9,
+   "resolved": [
+    "ashforgestructures.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://ashforgestructures.com/",
+     "error": "http_error"
+    }
+   ]
+  },
+  "assetworkflows": {
+   "tried": 9,
+   "resolved": [
+    "assetworkflows.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://assetworkflows.com/",
+     "title": "AssetVoice&trade; | Intelligent Asset Management Confident Asset Decisions. Safer Operations. Higher Utilisation.",
+     "names_it": false
+    }
+   ]
+  },
+  "atheridtherapeutics": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "atliisstudio": {
+   "tried": 9,
+   "resolved": [
+    "atliisstudio.com"
+   ],
+   "found": {
+    "url": "https://atliisstudio.com",
+    "title": "Atliis Studio - AI Image Editor and Design Studio Atliis Studio"
+   },
+   "seen": [
+    {
+     "url": "https://atliisstudio.com/",
+     "title": "Atliis Studio - AI Image Editor and Design Studio Atliis Studio",
+     "names_it": true
+    }
+   ]
+  },
+  "augmenttechnologies": {
+   "tried": 9,
+   "resolved": [
+    "augmenttechnologies.com.au",
+    "augmenttechnologies.com",
+    "augmenttechnologies.ai"
+   ],
+   "found": {
+    "url": "https://augmenttechnologies.ai",
+    "title": "Augment Technologies : Optimising your open pit ore recovery Augment Technologies - Welcome to Augment Technologies Opti"
+   },
+   "seen": [
+    {
+     "url": "https://augmenttechnologies.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://augmenttechnologies.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://augmenttechnologies.ai/",
+     "title": "Augment Technologies : Optimising your open pit ore recovery Augment Technologies - Welcome to Augment Technologies Opti",
+     "names_it": true
+    }
+   ]
+  },
+  "autoscrapermaker": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "avicenasystems": {
+   "tried": 9,
+   "resolved": [
+    "avicenasystems.com.au",
+    "avicenasystems.com",
+    "avicenasystems.au"
+   ],
+   "found": {
+    "url": "https://avicenasystems.com",
+    "title": "Avicena Systems – Biosecurity Platforms Avicena Cutting-Edge Biosecurity Platforms to Protect Human & Animal Health"
+   },
+   "seen": [
+    {
+     "url": "https://avicenasystems.com/",
+     "title": "Avicena Systems – Biosecurity Platforms Avicena Cutting-Edge Biosecurity Platforms to Protect Human & Animal Health",
+     "names_it": true
+    },
+    {
+     "url": "https://avicenasystems.com/",
+     "title": "Avicena Systems – Biosecurity Platforms Avicena Cutting-Edge Biosecurity Platforms to Protect Human & Animal Health",
+     "names_it": true
+    },
+    {
+     "url": "https://avicenasystems.com/",
+     "title": "Avicena Systems – Biosecurity Platforms Avicena Cutting-Edge Biosecurity Platforms to Protect Human & Animal Health",
+     "names_it": true
+    }
+   ]
+  },
+  "biotome": {
+   "tried": 9,
+   "resolved": [
+    "biotome.com.au",
+    "biotome.com",
+    "biotome.au"
+   ],
+   "found": {
+    "url": "https://www.biotome.com.au",
+    "title": "Next Generation Antibody Diagnostics | Biotome Biotome Next Generation Antibody Diagnostics"
+   },
+   "seen": [
+    {
+     "url": "https://www.biotome.com.au/",
+     "title": "Next Generation Antibody Diagnostics | Biotome Biotome Next Generation Antibody Diagnostics",
+     "names_it": true
+    },
+    {
+     "url": "https://biotome.com/",
+     "error": "access_controlled"
+    },
+    {
+     "url": "https://www.biotome.com.au/",
+     "title": "Next Generation Antibody Diagnostics | Biotome Biotome Next Generation Antibody Diagnostics",
+     "names_it": true
+    }
+   ]
+  },
+  "blestpets": {
+   "tried": 9,
+   "resolved": [
+    "blestpets.com.au",
+    "blestpets.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://blestpets.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://blestpets.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "brewnetwork": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "bucketlyst": {
+   "tried": 9,
+   "resolved": [
+    "bucketlyst.com.au",
+    "bucketlyst.co"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://bucketlyst.com.au/",
+     "error": "http_error"
+    },
+    {
+     "url": "https://bucketlyst.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "cadspectraltechnologies": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "capabilityx": {
+   "tried": 9,
+   "resolved": [
+    "capabilityx.com.au",
+    "capabilityx.com",
+    "capabilityx.au",
+    "capabilityx.io",
+    "capabilityx.ai",
+    "capabilityx.co"
+   ],
+   "found": {
+    "url": "https://www.capabilityx.com",
+    "title": "Capability X | Technology | 620 Gnangara Rd, Cullacabardee Western Australia, Australia Capability X"
+   },
+   "seen": [
+    {
+     "url": "https://capabilityx.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.capabilityx.com/",
+     "title": "Capability X | Technology | 620 Gnangara Rd, Cullacabardee Western Australia, Australia Capability X",
+     "names_it": true
+    },
+    {
+     "url": "https://capabilityx.au/",
+     "title": "capabilityx.au capabilityx.au Launching Soon",
+     "names_it": false
+    },
+    {
+     "url": "https://www.capabilityx.com/",
+     "title": "Capability X | Technology | 620 Gnangara Rd, Cullacabardee Western Australia, Australia Capability X",
+     "names_it": true
+    }
+   ]
+  },
+  "capsulelabs": {
+   "tried": 9,
+   "resolved": [
+    "capsulelabs.com",
+    "capsulelabs.io",
+    "capsulelabs.co",
+    "capsulelabs.tech"
+   ],
+   "found": {
+    "url": "https://capsulelabs.io",
+    "title": "Capsule Labs | A multi-venture ecosystem"
+   },
+   "seen": [
+    {
+     "url": "https://capsulelabs.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://capsulelabs.io/",
+     "title": "Capsule Labs | A multi-venture ecosystem",
+     "names_it": true
+    },
+    {
+     "url": "https://www.capsulelabs.co/",
+     "title": "Capsule — Rewire Your Brain",
+     "names_it": false
+    },
+    {
+     "url": "https://capsulelabs.tech/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "carslike": {
+   "tried": 9,
+   "resolved": [
+    "carslike.com.au",
+    "carslike.com",
+    "carslike.au"
+   ],
+   "found": {
+    "url": "https://www.carslike.com.au",
+    "title": "Cars Like — Australian Vehicle Comparison & Reviews Cars Like Compare Cars. Smarter."
+   },
+   "seen": [
+    {
+     "url": "https://www.carslike.com.au/",
+     "title": "Cars Like — Australian Vehicle Comparison & Reviews Cars Like Compare Cars. Smarter.",
+     "names_it": true
+    },
+    {
+     "url": "https://carslike.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://carslike.au/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "casemate": {
+   "tried": 9,
+   "resolved": [
+    "casemate.com.au",
+    "casemate.com",
+    "casemate.io",
+    "casemate.ai",
+    "casemate.co",
+    "casemate.app",
+    "casemate.tech",
+    "casemate.org"
+   ],
+   "found": {
+    "url": "https://casemate.ai",
+    "title": "Casemate.ai for sale | Spaceship.com Spaceship Casemate .ai"
+   },
+   "seen": [
+    {
+     "url": "https://casemate.com.au/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://casemate.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://casemate.io/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://casemate.ai/",
+     "title": "Casemate.ai for sale | Spaceship.com Spaceship Casemate .ai",
+     "names_it": true
+    }
+   ]
+  },
+  "catalyst": {
+   "tried": 9,
+   "resolved": [
+    "catalyst.com.au",
+    "catalyst.com",
+    "catalyst.io",
+    "catalyst.co",
+    "catalyst.app",
+    "catalyst.org"
+   ],
+   "found": {
+    "url": "https://www.catalyst.com.au",
+    "title": "Catalyst Advisers Catalyst Australia’s #1 Mortgage Broker"
+   },
+   "seen": [
+    {
+     "url": "https://www.catalyst.com.au/",
+     "title": "Catalyst Advisers Catalyst Australia’s #1 Mortgage Broker",
+     "names_it": true
+    },
+    {
+     "url": "https://catalyst.com/",
+     "title": "Catalyst Investors | Growth Equity | New York Catalyst Investors Catalyst Investors",
+     "names_it": true
+    },
+    {
+     "url": "https://www.catalyst.io/",
+     "title": "Catalyst | The Most Intuitive Customer Success Platform Catalyst is now a Totango product",
+     "names_it": true
+    },
+    {
+     "url": "https://catalyst.co/",
+     "error": "access_controlled"
+    }
+   ]
+  },
+  "contecaustralia": {
+   "tried": 9,
+   "resolved": [
+    "contecaustralia.com.au",
+    "contecaustralia.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://contecaustralia.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://contecaustralia.com/",
+     "title": "Contec",
+     "names_it": false
+    }
+   ]
+  },
+  "cordially": {
+   "tried": 9,
+   "resolved": [
+    "cordially.com.au",
+    "cordially.com",
+    "cordially.au",
+    "cordially.io",
+    "cordially.ai",
+    "cordially.co",
+    "cordially.app",
+    "cordially.org"
+   ],
+   "found": {
+    "url": "https://www.cordially.io",
+    "title": "Cordially Cordially Unlike any wedding website you've ever seen."
+   },
+   "seen": [
+    {
+     "url": "https://cordially.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://cordially.com/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://cordially.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.cordially.io/",
+     "title": "Cordially Cordially Unlike any wedding website you've ever seen.",
+     "names_it": true
+    }
+   ]
+  },
+  "corticaldynamics": {
+   "tried": 9,
+   "resolved": [
+    "corticaldynamics.com",
+    "corticaldynamics.au"
+   ],
+   "found": {
+    "url": "https://corticaldynamics.com",
+    "title": "Cortical Dynamics | Advanced Brain Monitoring Cortical Dynamics Every surgery more predictable, every recovery better."
+   },
+   "seen": [
+    {
+     "url": "https://corticaldynamics.com/",
+     "title": "Cortical Dynamics | Advanced Brain Monitoring Cortical Dynamics Every surgery more predictable, every recovery better.",
+     "names_it": true
+    },
+    {
+     "url": "https://corticaldynamics.au/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "cribber": {
+   "tried": 9,
+   "resolved": [
+    "cribber.com",
+    "cribber.ai",
+    "cribber.co",
+    "cribber.app"
+   ],
+   "found": {
+    "url": "https://cribber.ai",
+    "title": "Cribber — Who runs your neighborhood? Cribber Who runs your neighborhood?"
+   },
+   "seen": [
+    {
+     "url": "https://cribber.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://cribber.ai/",
+     "title": "Cribber — Who runs your neighborhood? Cribber Who runs your neighborhood?",
+     "names_it": true
+    },
+    {
+     "url": "https://cribber.co/",
+     "title": "Cribber",
+     "names_it": true
+    },
+    {
+     "url": "https://cribber.app/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "crossoverapp": {
+   "tried": 9,
+   "resolved": [
+    "crossoverapp.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://crossoverapp.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "cupflick": {
+   "tried": 9,
+   "resolved": [
+    "cupflick.com.au",
+    "cupflick.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://cupflick.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://cupflick.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "cytophenix": {
+   "tried": 9,
+   "resolved": [
+    "cytophenix.com"
+   ],
+   "found": {
+    "url": "https://cytophenix.com",
+    "title": "Cytophenix — Rapid Antimicrobial Susceptibility Testing Cytophenix Delivering the Right Antibiotic, at the Right Time, E"
+   },
+   "seen": [
+    {
+     "url": "https://cytophenix.com/",
+     "title": "Cytophenix — Rapid Antimicrobial Susceptibility Testing Cytophenix Delivering the Right Antibiotic, at the Right Time, E",
+     "names_it": true
+    }
+   ]
+  },
+  "databaseforbuildings": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "dayworkbook": {
+   "tried": 9,
+   "resolved": [
+    "dayworkbook.com",
+    "dayworkbook.ai"
+   ],
+   "found": {
+    "url": "https://dayworkbook.com",
+    "title": "Dayworkbook | Daywork Sheets, Sign-Off & Billing Reports Dayworkbook Finally, daywork that works!"
+   },
+   "seen": [
+    {
+     "url": "https://dayworkbook.com/",
+     "title": "Dayworkbook | Daywork Sheets, Sign-Off & Billing Reports Dayworkbook Finally, daywork that works!",
+     "names_it": true
+    },
+    {
+     "url": "https://dayworkbook.ai/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "dejavu": {
+   "tried": 9,
+   "resolved": [
+    "dejavu.com.au",
+    "dejavu.com",
+    "dejavu.au",
+    "dejavu.ai",
+    "dejavu.co",
+    "dejavu.app",
+    "dejavu.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://dejavusignature.com.au/",
+     "title": "Home New - Dejavu Signature Writing Dejavu Signature Writing",
+     "names_it": false
+    },
+    {
+     "url": "https://dejavu.com/",
+     "title": "Home - FIND YOUR LOCATION.",
+     "names_it": false
+    },
+    {
+     "url": "https://dejavu.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://dejavu.ai/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "earflo": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "earnos": {
+   "tried": 9,
+   "resolved": [
+    "earnos.com",
+    "earnos.io",
+    "earnos.co",
+    "earnos.app"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://earnos.com/",
+     "title": "ero: earn rewards online",
+     "names_it": false
+    },
+    {
+     "url": "https://earnos.com/",
+     "title": "ero: earn rewards online",
+     "names_it": false
+    },
+    {
+     "url": "https://earnos.co/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://earnos.com/",
+     "title": "ero: earn rewards online",
+     "names_it": false
+    }
+   ]
+  },
+  "easypropertylistings": {
+   "tried": 9,
+   "resolved": [
+    "easypropertylistings.com.au",
+    "easypropertylistings.com"
+   ],
+   "found": {
+    "url": "https://easypropertylistings.com.au",
+    "title": "Easy Property Listings WordPress Real Estate Plugin - Easy Property Listings WordPress Plugin Easy Property Listings Wor"
+   },
+   "seen": [
+    {
+     "url": "https://easypropertylistings.com.au/",
+     "title": "Easy Property Listings WordPress Real Estate Plugin - Easy Property Listings WordPress Plugin Easy Property Listings Wor",
+     "names_it": true
+    },
+    {
+     "url": "https://easypropertylistings.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "echonova": {
+   "tried": 9,
+   "resolved": [
+    "echonova.com.au",
+    "echonova.com",
+    "echonova.ai",
+    "echonova.co",
+    "echonova.app",
+    "echonova.org"
+   ],
+   "found": {
+    "url": "https://echonova.com",
+    "title": "EchoNova — The software you always assumed you couldn't afford EchoNova The software you always assumed you couldn’t aff"
+   },
+   "seen": [
+    {
+     "url": "https://echonova.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://echonova.com/",
+     "title": "EchoNova — The software you always assumed you couldn't afford EchoNova The software you always assumed you couldn’t aff",
+     "names_it": true
+    },
+    {
+     "url": "https://echonova.ai/",
+     "title": "Arabic Voice AI: Text to Speech, Transcription & Voice Agents | EchoNova EchoNova Understood in your dialect",
+     "names_it": true
+    },
+    {
+     "url": "https://echonova.co/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "ediblecutlery": {
+   "tried": 9,
+   "resolved": [
+    "ediblecutlery.com.au",
+    "ediblecutlery.com",
+    "ediblecutlery.au",
+    "ediblecutlery.org"
+   ],
+   "found": {
+    "url": "https://ediblecutlery.au",
+    "title": "Edible Cutlery Edible Cutlery The future of Edible Cutlery is here and it's delicious!"
+   },
+   "seen": [
+    {
+     "url": "https://ediblecutlery.au/",
+     "title": "Edible Cutlery Edible Cutlery The future of Edible Cutlery is here and it's delicious!",
+     "names_it": true
+    },
+    {
+     "url": "https://www.ediblecutlery.com/",
+     "title": "EdibleCutlery.com domain name is for sale. Inquire now. EdibleCutlery.com",
+     "names_it": false
+    },
+    {
+     "url": "https://ediblecutlery.au/",
+     "title": "Edible Cutlery Edible Cutlery The future of Edible Cutlery is here and it's delicious!",
+     "names_it": true
+    },
+    {
+     "url": "https://www.ediblecutlery.com/",
+     "title": "EdibleCutlery.com domain name is for sale. Inquire now. EdibleCutlery.com",
+     "names_it": false
+    }
+   ]
+  },
+  "eikonic": {
+   "tried": 9,
+   "resolved": [
+    "eikonic.com",
+    "eikonic.io",
+    "eikonic.ai",
+    "eikonic.co",
+    "eikonic.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://eikonic.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://eikonic.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://eikonic.ai/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://eikonic.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "einseninnovations": {
+   "tried": 9,
+   "resolved": [
+    "einseninnovations.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://einsen.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "ekion": {
+   "tried": 9,
+   "resolved": [
+    "ekion.com.au",
+    "ekion.com"
+   ],
+   "found": {
+    "url": "https://ekion.com.au",
+    "title": "Ekion | Electrokinetic Mining — EK-ISR Technology Ekion"
+   },
+   "seen": [
+    {
+     "url": "https://ekion.com.au/",
+     "title": "Ekion | Electrokinetic Mining — EK-ISR Technology Ekion",
+     "names_it": true
+    },
+    {
+     "url": "https://ekion.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "elastik": {
+   "tried": 9,
+   "resolved": [
+    "elastik.com.au",
+    "elastik.com",
+    "elastik.io",
+    "elastik.ai",
+    "elastik.app",
+    "elastik.org"
+   ],
+   "found": {
+    "url": "https://elastik.com.au",
+    "title": "elastik"
+   },
+   "seen": [
+    {
+     "url": "https://elastik.com.au/",
+     "title": "elastik",
+     "names_it": true
+    },
+    {
+     "url": "https://elastik.com/",
+     "title": "Elastik | Assessment data analysis Elastik Assessment data analysis for targeted teaching in English, Maths and Science",
+     "names_it": true
+    },
+    {
+     "url": "https://elastik.io/",
+     "error": "access_controlled"
+    },
+    {
+     "url": "https://elastik.ai/",
+     "error": "http_error"
+    }
+   ]
+  },
+  "equadesign": {
+   "tried": 9,
+   "resolved": [
+    "equadesign.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://equadesign.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "flowbat": {
+   "tried": 9,
+   "resolved": [
+    "flowbat.com.au",
+    "flowbat.com",
+    "flowbat.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://flowbat.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://flowbat.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://flowbat.com.au/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "flyhighdigital": {
+   "tried": 9,
+   "resolved": [
+    "flyhighdigital.com.au",
+    "flyhighdigital.com"
+   ],
+   "found": {
+    "url": "https://www.flyhighdigital.com.au",
+    "title": "Fly High Digital — Custom Web, Mobile & Wearable app Development Company Perth Fly High Digital We Build Extraordinary D"
+   },
+   "seen": [
+    {
+     "url": "https://www.flyhighdigital.com.au/",
+     "title": "Fly High Digital — Custom Web, Mobile & Wearable app Development Company Perth Fly High Digital We Build Extraordinary D",
+     "names_it": true
+    },
+    {
+     "url": "https://flyhighdigital.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "flyone": {
+   "tried": 9,
+   "resolved": [
+    "flyone.com.au",
+    "flyone.com",
+    "flyone.ai",
+    "flyone.co",
+    "flyone.tech",
+    "flyone.org"
+   ],
+   "found": {
+    "url": "https://flyone.com.au",
+    "title": "FlyOnE Sustainable Aviation Limo Services"
+   },
+   "seen": [
+    {
+     "url": "https://flyone.com.au/",
+     "title": "FlyOnE Sustainable Aviation Limo Services",
+     "names_it": true
+    },
+    {
+     "url": "http://iphome.com/",
+     "title": "IP Home IP Home",
+     "names_it": false
+    },
+    {
+     "url": "https://flyone.ai/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://flyone.co/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "gawawater": {
+   "tried": 9,
+   "resolved": [
+    "gawawater.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://gawawater.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "genlearn": {
+   "tried": 9,
+   "resolved": [
+    "genlearn.ai"
+   ],
+   "found": {
+    "url": "https://genlearn.ai",
+    "title": "GenLearn.ai is for sale — name.ai name.ai GenLearn.ai is for sale"
+   },
+   "seen": [
+    {
+     "url": "https://genlearn.ai/",
+     "title": "GenLearn.ai is for sale — name.ai name.ai GenLearn.ai is for sale",
+     "names_it": true
+    }
+   ]
+  },
+  "genvis": {
+   "tried": 9,
+   "resolved": [
+    "genvis.com",
+    "genvis.io",
+    "genvis.ai",
+    "genvis.co",
+    "genvis.org"
+   ],
+   "found": {
+    "url": "https://genvis.co",
+    "title": "Genvis - See good. Do good."
+   },
+   "seen": [
+    {
+     "url": "https://genvis.com/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://genvis.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://kui.ma/",
+     "title": "KUI MA",
+     "names_it": false
+    },
+    {
+     "url": "https://genvis.co/",
+     "title": "Genvis - See good. Do good.",
+     "names_it": true
+    }
+   ]
+  },
+  "glowdry": {
+   "tried": 9,
+   "resolved": [
+    "glowdry.com.au",
+    "glowdry.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://bembi.com.au/",
+     "title": "bembi Australia | Self Tan Setting Powder The step your tan is missing",
+     "names_it": false
+    },
+    {
+     "url": "https://glowdry.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "grainmarket": {
+   "tried": 9,
+   "resolved": [
+    "grainmarket.com.au",
+    "grainmarket.com",
+    "grainmarket.app",
+    "grainmarket.tech"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://grainmarket.com.au/",
+     "title": "About | Grain Market Trusted, Independent Market Intelligence",
+     "names_it": false
+    },
+    {
+     "url": "https://grainmarket.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://grainmarket.app/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://grainmarket.tech/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "groundpath": {
+   "tried": 9,
+   "resolved": [
+    "groundpath.com.au",
+    "groundpath.com",
+    "groundpath.ai",
+    "groundpath.app",
+    "groundpath.org"
+   ],
+   "found": {
+    "url": "https://groundpath.com.au",
+    "title": "if not. This page's title is a 100-character SEO string, which iOS truncates to about twelve — so without this the icon "
+   },
+   "seen": [
+    {
+     "url": "https://groundpath.com.au/",
+     "title": "if not. This page's title is a 100-character SEO string, which iOS truncates to about twelve — so without this the icon ",
+     "names_it": true
+    },
+    {
+     "url": "https://groundpath.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://groundpath.ai/",
+     "title": "Groundpath Auto-Router | Offline Route Planning for ATAK Groundpath Route planning for those on the ground.",
+     "names_it": true
+    },
+    {
+     "url": "https://groundpath.app/",
+     "title": "GroundPath GroundPath",
+     "names_it": true
+    }
+   ]
+  },
+  "healthmesh": {
+   "tried": 9,
+   "resolved": [
+    "healthmesh.com",
+    "healthmesh.io",
+    "healthmesh.ai",
+    "healthmesh.tech",
+    "healthmesh.org"
+   ],
+   "found": {
+    "url": "https://healthmesh.io",
+    "title": "HealthMesh | Continuous Care Infrastructure HealthMesh Continuous Care Infrastructure for the 99.9% of Life Between Visi"
+   },
+   "seen": [
+    {
+     "url": "https://healthmesh.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://healthmesh.io/",
+     "title": "HealthMesh | Continuous Care Infrastructure HealthMesh Continuous Care Infrastructure for the 99.9% of Life Between Visi",
+     "names_it": true
+    },
+    {
+     "url": "https://healthmesh.ai/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://healthmesh.tech/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "hyperionsystems": {
+   "tried": 9,
+   "resolved": [
+    "hyperionsystems.com.au",
+    "hyperionsystems.com",
+    "hyperionsystems.io",
+    "hyperionsystems.ai",
+    "hyperionsystems.co",
+    "hyperionsystems.tech"
+   ],
+   "found": {
+    "url": "https://www.hyperionsystems.com.au",
+    "title": "Hyperion Systems | Deployable Large Format 3D Printing Manufacturing closer to the point of need"
+   },
+   "seen": [
+    {
+     "url": "https://www.hyperionsystems.com.au/",
+     "title": "Hyperion Systems | Deployable Large Format 3D Printing Manufacturing closer to the point of need",
+     "names_it": true
+    },
+    {
+     "url": "https://hyperionsystems.com/",
+     "title": "HyperionSystems.com is for sale - Premium Domain DomainMarket.com - Claim Your Brand! HyperionSystems .com",
+     "names_it": false
+    },
+    {
+     "url": "https://hyperionsystems.io/",
+     "title": "Hyperion Systems Hyperion Systems Innovación para tu negocio",
+     "names_it": true
+    },
+    {
+     "url": "https://www.hyperionsystems.ai/",
+     "title": "Hyperion Systems | AI Automation for Growth Hyperion Systems Scale Your Operations. Without Scaling Headcount.",
+     "names_it": true
+    }
+   ]
+  },
+  "iscreen": {
+   "tried": 9,
+   "resolved": [
+    "iscreen.com.au",
+    "iscreen.com",
+    "iscreen.au",
+    "iscreen.io",
+    "iscreen.ai",
+    "iscreen.co",
+    "iscreen.app",
+    "iscreen.org"
+   ],
+   "found": {
+    "url": "https://www.i-screen.com.au",
+    "title": "Private Blood Tests Online Australia | No Referral Needed | i-screen i-screen Private blood tests & health screening onl"
+   },
+   "seen": [
+    {
+     "url": "https://iscreen.com.au/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://iscreen.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.i-screen.com.au/",
+     "title": "Private Blood Tests Online Australia | No Referral Needed | i-screen i-screen Private blood tests & health screening onl",
+     "names_it": true
+    },
+    {
+     "url": "https://iscreen.io/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "ironflowsolutions": {
+   "tried": 9,
+   "resolved": [
+    "ironflowsolutions.com.au",
+    "ironflowsolutions.com"
+   ],
+   "found": {
+    "url": "https://ironflowsolutions.com.au",
+    "title": "Iron Flow Solutions | Operations Automation for Mining & Heavy Industry | Perth, WA Iron Flow Solutions We Automate the "
+   },
+   "seen": [
+    {
+     "url": "https://ironflowsolutions.com.au/",
+     "title": "Iron Flow Solutions | Operations Automation for Mining & Heavy Industry | Perth, WA Iron Flow Solutions We Automate the ",
+     "names_it": true
+    },
+    {
+     "url": "https://ironflowsolutions.com/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "iyarn": {
+   "tried": 9,
+   "resolved": [
+    "iyarn.com.au",
+    "iyarn.com"
+   ],
+   "found": {
+    "url": "https://iyarn.com",
+    "title": "iyarn | Wellbeing check-ins that start a conversation iyarn Know how your people are really going."
+   },
+   "seen": [
+    {
+     "url": "https://iyarn.com/",
+     "title": "iyarn | Wellbeing check-ins that start a conversation iyarn Know how your people are really going.",
+     "names_it": true
+    },
+    {
+     "url": "https://iyarn.com/",
+     "title": "iyarn | Wellbeing check-ins that start a conversation iyarn Know how your people are really going.",
+     "names_it": true
+    }
+   ]
+  },
+  "k3team": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "kinchildcare": {
+   "tried": 9,
+   "resolved": [
+    "kinchildcare.org"
+   ],
+   "found": {
+    "url": "https://www.kinchildcare.org",
+    "title": "KIN Childcare KIN Childcare Growing through play at KIN"
+   },
+   "seen": [
+    {
+     "url": "https://www.kinchildcare.org/",
+     "title": "KIN Childcare KIN Childcare Growing through play at KIN",
+     "names_it": true
+    }
+   ]
+  },
+  "knode": {
+   "tried": 9,
+   "resolved": [
+    "knode.com",
+    "knode.ai",
+    "knode.co",
+    "knode.app",
+    "knode.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://knode.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://knode.ai/",
+     "error": "too_large"
+    },
+    {
+     "url": "https://knode.co/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://knode.app/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "kooda": {
+   "tried": 9,
+   "resolved": [
+    "kooda.com.au",
+    "kooda.com",
+    "kooda.io",
+    "kooda.ai",
+    "kooda.co",
+    "kooda.org"
+   ],
+   "found": {
+    "url": "https://kooda.ai/en",
+    "title": "KoodaAI | Engineering-First & Secure AI Infrastructure Zero-Noise Artificial Intelligence: Secure Your Data Sovereignty."
+   },
+   "seen": [
+    {
+     "url": "https://kooda.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://kooda.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://kooda.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://kooda.ai/en",
+     "title": "KoodaAI | Engineering-First & Secure AI Infrastructure Zero-Noise Artificial Intelligence: Secure Your Data Sovereignty.",
+     "names_it": true
+    }
+   ]
+  },
+  "ksatriamedicalsystems": {
+   "tried": 9,
+   "resolved": [
+    "ksatriamedicalsystems.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://ksatriamedicalsystems.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "lawcaptain": {
+   "tried": 9,
+   "resolved": [
+    "lawcaptain.com.au",
+    "lawcaptain.com",
+    "lawcaptain.ai"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://www.lawcaptain.com.au/",
+     "title": "Lawcaptain: Fixed-price family law & employment law help Lawcaptain Don't spend tens of thousands on lawyers.",
+     "names_it": false
+    },
+    {
+     "url": "https://lawcaptain.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.lawcaptain.com.au/",
+     "title": "Lawcaptain: Fixed-price family law & employment law help Lawcaptain Don't spend tens of thousands on lawyers.",
+     "names_it": false
+    }
+   ]
+  },
+  "lera": {
+   "tried": 9,
+   "resolved": [
+    "lera.com.au",
+    "lera.com",
+    "lera.au",
+    "lera.ai",
+    "lera.co",
+    "lera.app"
+   ],
+   "found": {
+    "url": "https://lera.com.au",
+    "title": "Construction Company - LERA Group LERA Group"
+   },
+   "seen": [
+    {
+     "url": "https://lera.com.au/",
+     "title": "Construction Company - LERA Group LERA Group",
+     "names_it": true
+    },
+    {
+     "url": "https://www.lera.com/",
+     "title": "LERA Consulting Structural Engineers lera - MASTER",
+     "names_it": true
+    },
+    {
+     "url": "https://lera.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://lera.ai/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "lilyandfox": {
+   "tried": 9,
+   "resolved": [
+    "lilyandfox.com.au",
+    "lilyandfox.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://lilyandfox.com.au/",
+     "title": "Lily & Fox - Best Nail Wraps & Nail Stickers Lily & Fox Shop our Fall Collection 🍂",
+     "names_it": false
+    },
+    {
+     "url": "https://lilyandfox.com.au/?shpxid=b5ae7425-7fda-4d6b-88c2-988a3b71559a",
+     "title": "Lily & Fox - Best Nail Wraps & Nail Stickers Lily & Fox Shop our Fall Collection 🍂",
+     "names_it": false
+    }
+   ]
+  },
+  "litt": {
+   "tried": 9,
+   "resolved": [
+    "litt.com.au",
+    "litt.com",
+    "litt.au",
+    "litt.io",
+    "litt.co"
+   ],
+   "found": {
+    "url": "https://litt.com.au/password",
+    "title": "Litt Lighting Co Litt Lighting Co Litt Lighting Co"
+   },
+   "seen": [
+    {
+     "url": "https://litt.com.au/password",
+     "title": "Litt Lighting Co Litt Lighting Co Litt Lighting Co",
+     "names_it": true
+    },
+    {
+     "url": "https://litt.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://litt.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://litt.io/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "materiahealth": {
+   "tried": 9,
+   "resolved": [
+    "materiahealth.com.au",
+    "materiahealth.com"
+   ],
+   "found": {
+    "url": "https://www.materiahealth.com.au",
+    "title": "Materia Health Revolutionising the global standard of care in organ and tissue transplantation."
+   },
+   "seen": [
+    {
+     "url": "https://www.materiahealth.com.au/",
+     "title": "Materia Health Revolutionising the global standard of care in organ and tissue transplantation.",
+     "names_it": true
+    },
+    {
+     "url": "https://www.hugedomains.com/domain_profile.cfm?d=materiahealth.com",
+     "title": "MateriaHealth.com is for sale | HugeDomains HugeDomains MateriaHealth.com",
+     "names_it": false
+    }
+   ]
+  },
+  "matildahealth": {
+   "tried": 9,
+   "resolved": [
+    "matildahealth.com",
+    "matildahealth.co",
+    "matildahealth.org"
+   ],
+   "found": {
+    "url": "https://matildahealth.org",
+    "title": "matildahealth.org Matilda Health Launching Soon"
+   },
+   "seen": [
+    {
+     "url": "https://matildahealth.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://matildahealth.co/",
+     "title": "Matilda Clinic | Walk-In & Same-Day Care in Mifflintown, PA",
+     "names_it": false
+    },
+    {
+     "url": "https://matildahealth.org/",
+     "title": "matildahealth.org Matilda Health Launching Soon",
+     "names_it": true
+    }
+   ]
+  },
+  "menuzen": {
+   "tried": 9,
+   "resolved": [
+    "menuzen.com.au",
+    "menuzen.com",
+    "menuzen.au"
+   ],
+   "found": {
+    "url": "https://www.menuzen.com",
+    "title": "Menuzen Digital Menu Boards | Real-Time Pricing + POS Sync The most powerful and intuitive menu board platform on the pl"
+   },
+   "seen": [
+    {
+     "url": "https://menuzen.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.menuzen.com/",
+     "title": "Menuzen Digital Menu Boards | Real-Time Pricing + POS Sync The most powerful and intuitive menu board platform on the pl",
+     "names_it": true
+    },
+    {
+     "url": "https://menuzen.au/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "minerva": {
+   "tried": 9,
+   "resolved": [
+    "minerva.com.au",
+    "minerva.com",
+    "minerva.au",
+    "minerva.io",
+    "minerva.ai",
+    "minerva.co",
+    "minerva.tech",
+    "minerva.org"
+   ],
+   "found": {
+    "url": "https://minerva.com.au",
+    "title": "Minerva Partners – Your Data Revolution Specialists - Minerva Minerva Less time planning. More time deciding"
+   },
+   "seen": [
+    {
+     "url": "https://minerva.com.au/",
+     "title": "Minerva Partners – Your Data Revolution Specialists - Minerva Minerva Less time planning. More time deciding",
+     "names_it": true
+    },
+    {
+     "url": "https://www.minerva.com/",
+     "title": "Minerva Fabrics | Dressmaking Fabric, Sewing Patterns & Haberdashery Save 10% off all orders for 12 months",
+     "names_it": true
+    },
+    {
+     "url": "https://minerva.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.minerva.io/",
+     "title": "Minerva | AI for marketing leaders Minerva AI for marketing leaders",
+     "names_it": true
+    }
+   ]
+  },
+  "moleclue": {
+   "tried": 9,
+   "resolved": [
+    "moleclue.com.au",
+    "moleclue.com",
+    "moleclue.app"
+   ],
+   "found": {
+    "url": "https://www.moleclue.com.au",
+    "title": "Mole-Clue | Chemical analysis services Mole Clue The Future of Chemical Testing, Today"
+   },
+   "seen": [
+    {
+     "url": "https://www.moleclue.com.au/",
+     "title": "Mole-Clue | Chemical analysis services Mole Clue The Future of Chemical Testing, Today",
+     "names_it": true
+    },
+    {
+     "url": "https://moleclue.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://moleclue.app/",
+     "title": "MoleClue — Be Your Best Advocate",
+     "names_it": false
+    }
+   ]
+  },
+  "multicoached": {
+   "tried": 9,
+   "resolved": [
+    "multicoached.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://multicoached.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "mureus": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "musify": {
+   "tried": 9,
+   "resolved": [
+    "musify.com",
+    "musify.au",
+    "musify.io",
+    "musify.ai",
+    "musify.co",
+    "musify.app",
+    "musify.org"
+   ],
+   "found": {
+    "url": "https://www.musify.au",
+    "title": "Musify"
+   },
+   "seen": [
+    {
+     "url": "https://musify.com/",
+     "title": "Join Our Waitlist Join Our Waitlist",
+     "names_it": false
+    },
+    {
+     "url": "https://www.musify.au/",
+     "title": "Musify",
+     "names_it": true
+    },
+    {
+     "url": "https://musify.io/",
+     "title": "musify.io musify.io",
+     "names_it": true
+    },
+    {
+     "url": "https://musify.ai/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "neuroanalyse": {
+   "tried": 9,
+   "resolved": [
+    "neuroanalyse.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://neuroanalyse.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "nextgenerationsensors": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "northaustralianseaculture": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "oceanplanet": {
+   "tried": 9,
+   "resolved": [
+    "oceanplanet.com.au",
+    "oceanplanet.com",
+    "oceanplanet.co",
+    "oceanplanet.org"
+   ],
+   "found": {
+    "url": "https://oceanplanet.com",
+    "title": "Ocean Planet – The Ocean Is Calling You The Ocean is Calling You"
+   },
+   "seen": [
+    {
+     "url": "https://oceanplanet.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://oceanplanet.com/",
+     "title": "Ocean Planet – The Ocean Is Calling You The Ocean is Calling You",
+     "names_it": true
+    },
+    {
+     "url": "https://oceanplanet.co/",
+     "error": "http_error"
+    },
+    {
+     "url": "https://oceanplanet.org/",
+     "title": "Home - Ocean Planet Ocean Planet - A Marine Odyssey Around the Globe Ocean Planet",
+     "names_it": true
+    }
+   ]
+  },
+  "onduty": {
+   "tried": 9,
+   "resolved": [
+    "onduty.com.au",
+    "onduty.com",
+    "onduty.io",
+    "onduty.ai",
+    "onduty.app",
+    "onduty.tech"
+   ],
+   "found": {
+    "url": "https://onduty.com.au",
+    "title": "onduty.com.au onduty .com.au"
+   },
+   "seen": [
+    {
+     "url": "https://onduty.com.au/",
+     "title": "onduty.com.au onduty .com.au",
+     "names_it": true
+    },
+    {
+     "url": "https://www.onduty.com/",
+     "title": "Security Alarms By Onduty Is Houston's #1 Best In Security OnDuty - Houston's Security, Alarms, Fire and Cameras Securit",
+     "names_it": true
+    },
+    {
+     "url": "https://onduty.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://onduty.ai/",
+     "title": "OnDuty.ai — AI Security Intelligence Platform OnDuty AI Security Operations ReAImagined.",
+     "names_it": true
+    }
+   ]
+  },
+  "orijinplus": {
+   "tried": 9,
+   "resolved": [
+    "orijinplus.com.au",
+    "orijinplus.com"
+   ],
+   "found": {
+    "url": "https://www.orijinplus.global",
+    "title": "Orijin Plus | QR Code & 2D Barcode Packaging for Modern CPG Brands Be Compliant. Don’t be Boring. Where 2D barcodes, Dig"
+   },
+   "seen": [
+    {
+     "url": "https://www.orijinplus.global/",
+     "title": "Orijin Plus | QR Code & 2D Barcode Packaging for Modern CPG Brands Be Compliant. Don’t be Boring. Where 2D barcodes, Dig",
+     "names_it": true
+    },
+    {
+     "url": "https://www.orijinplus.global/",
+     "title": "Orijin Plus | QR Code & 2D Barcode Packaging for Modern CPG Brands Be Compliant. Don’t be Boring. Where 2D barcodes, Dig",
+     "names_it": true
+    }
+   ]
+  },
+  "otomedicines": {
+   "tried": 9,
+   "resolved": [
+    "otomedicines.com"
+   ],
+   "found": {
+    "url": "https://www.otomedicines.com",
+    "title": "Oto Medicines Oto Medicines developing therapies to prevent and treat childhood ear infections"
+   },
+   "seen": [
+    {
+     "url": "https://www.otomedicines.com/",
+     "title": "Oto Medicines Oto Medicines developing therapies to prevent and treat childhood ear infections",
+     "names_it": true
+    }
+   ]
+  },
+  "payspread": {
+   "tried": 9,
+   "resolved": [
+    "payspread.com.au",
+    "payspread.com"
+   ],
+   "found": {
+    "url": "https://payspread.com.au",
+    "title": "PaySpread — Every Payslip Holds Unlimited Power PaySpread — Every Payslip Holds Unlimited Power"
+   },
+   "seen": [
+    {
+     "url": "https://payspread.com.au/",
+     "title": "PaySpread — Every Payslip Holds Unlimited Power PaySpread — Every Payslip Holds Unlimited Power",
+     "names_it": true
+    },
+    {
+     "url": "https://payspread.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "peolia": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "pharmacyhalo": {
+   "tried": 9,
+   "resolved": [
+    "pharmacyhalo.com.au"
+   ],
+   "found": {
+    "url": "https://www.pharmacyhalo.com.au",
+    "title": "Pharmacy Halo — Australian Pharmacy Workflow & Efficiency Software Pharmacy Halo One Halo around your whole pharmacy."
+   },
+   "seen": [
+    {
+     "url": "https://www.pharmacyhalo.com.au/",
+     "title": "Pharmacy Halo — Australian Pharmacy Workflow & Efficiency Software Pharmacy Halo One Halo around your whole pharmacy.",
+     "names_it": true
+    }
+   ]
+  },
+  "pigeontales": {
+   "tried": 9,
+   "resolved": [
+    "pigeontales.com.au"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://pigeontales.com.au/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "piksort": {
+   "tried": 9,
+   "resolved": [
+    "piksort.com"
+   ],
+   "found": {
+    "url": "https://www.piksort.com",
+    "title": "Piksort | One searchable record of every site photo, camera frame and form Piksort Every site photo, in one record you c"
+   },
+   "seen": [
+    {
+     "url": "https://www.piksort.com/",
+     "title": "Piksort | One searchable record of every site photo, camera frame and form Piksort Every site photo, in one record you c",
+     "names_it": true
+    }
+   ]
+  },
+  "polihomes": {
+   "tried": 9,
+   "resolved": [
+    "polihomes.com",
+    "polihomes.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://polihomes.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://polihomes.org/",
+     "error": "too_large"
+    }
+   ]
+  },
+  "portableppb": {
+   "tried": 9,
+   "resolved": [
+    "portableppb.com.au",
+    "portableppb.com",
+    "portableppb.org"
+   ],
+   "found": {
+    "url": "https://portableppb.com",
+    "title": "Portable PPB – Portable PPB Explore smarter, discover faster."
+   },
+   "seen": [
+    {
+     "url": "https://portableppb.com/",
+     "title": "Portable PPB – Portable PPB Explore smarter, discover faster.",
+     "names_it": true
+    },
+    {
+     "url": "https://portableppb.com/",
+     "title": "Portable PPB – Portable PPB Explore smarter, discover faster.",
+     "names_it": true
+    },
+    {
+     "url": "https://portableppb.com/",
+     "title": "Portable PPB – Portable PPB Explore smarter, discover faster.",
+     "names_it": true
+    }
+   ]
+  },
+  "pretectdevices": {
+   "tried": 9,
+   "resolved": [
+    "pretectdevices.com"
+   ],
+   "found": {
+    "url": "https://www.pretectdevices.com",
+    "title": "Home | Pretect Devices Pretect Devices"
+   },
+   "seen": [
+    {
+     "url": "https://www.pretectdevices.com/",
+     "title": "Home | Pretect Devices Pretect Devices",
+     "names_it": true
+    }
+   ]
+  },
+  "quarterback": {
+   "tried": 9,
+   "resolved": [
+    "quarterback.com",
+    "quarterback.au",
+    "quarterback.io",
+    "quarterback.ai",
+    "quarterback.co",
+    "quarterback.app",
+    "quarterback.org"
+   ],
+   "found": {
+    "url": "http://www.quarterback.com",
+    "title": "quarterback.com quarterback.com"
+   },
+   "seen": [
+    {
+     "url": "http://www.quarterback.com/",
+     "title": "quarterback.com quarterback.com",
+     "names_it": true
+    },
+    {
+     "url": "https://quarterback.au/",
+     "title": "quarterback.au quarterback.au",
+     "names_it": true
+    },
+    {
+     "url": "https://quarterback.io/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://quarterback.ai/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "rateit": {
+   "tried": 9,
+   "resolved": [
+    "rateit.com",
+    "rateit.au",
+    "rateit.ai",
+    "rateit.co",
+    "rateit.app"
+   ],
+   "found": {
+    "url": "https://rateit.com",
+    "title": "RateIt - Review Your Purchase Sign In"
+   },
+   "seen": [
+    {
+     "url": "https://rateit.com/",
+     "title": "RateIt - Review Your Purchase Sign In",
+     "names_it": true
+    },
+    {
+     "url": "https://rateit.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://rateit.ai/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://rateit.co/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "readyteamone": {
+   "tried": 9,
+   "resolved": [
+    "readyteamone.com.au",
+    "readyteamone.com"
+   ],
+   "found": {
+    "url": "https://readyteamone.com",
+    "title": "VR Perth | Free-Roam VR Arena in Perth CBD | Ready Team One Ready Team One VR FREE-ROAM VR IN PERTH CBD"
+   },
+   "seen": [
+    {
+     "url": "https://readyteamone.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://readyteamone.com/",
+     "title": "VR Perth | Free-Roam VR Arena in Perth CBD | Ready Team One Ready Team One VR FREE-ROAM VR IN PERTH CBD",
+     "names_it": true
+    }
+   ]
+  },
+  "realtyassistaustralia": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "recruitmateai": {
+   "tried": 9,
+   "resolved": [
+    "recruitmateai.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://recruitmateai.com/",
+     "title": "One Extra Placement Is an 11x Return | RecruitMateAI RecruitMateAI Fill your roles. Not your inbox.",
+     "names_it": false
+    }
+   ]
+  },
+  "reinventionbestie": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "relait": {
+   "tried": 9,
+   "resolved": [
+    "relait.com.au",
+    "relait.com",
+    "relait.io",
+    "relait.ai",
+    "relait.co"
+   ],
+   "found": {
+    "url": "https://relait.io",
+    "title": "Relait – Privacy-Preserving Data Relationship Discovery | DataJPS See how your data is connected – without it leaving yo"
+   },
+   "seen": [
+    {
+     "url": "https://relait.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://relait.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://relait.io/",
+     "title": "Relait – Privacy-Preserving Data Relationship Discovery | DataJPS See how your data is connected – without it leaving yo",
+     "names_it": true
+    },
+    {
+     "url": "https://relait.ai/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "renewablemetals": {
+   "tried": 9,
+   "resolved": [
+    "renewablemetals.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://renewablemetals.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "respiradigm": {
+   "tried": 9,
+   "resolved": [
+    "respiradigm.com"
+   ],
+   "found": {
+    "url": "https://www.respiradigm.health",
+    "title": "Respiradigm Respiradigm The Farm-Effect"
+   },
+   "seen": [
+    {
+     "url": "https://www.respiradigm.health/",
+     "title": "Respiradigm Respiradigm The Farm-Effect",
+     "names_it": true
+    }
+   ]
+  },
+  "rhizotech": {
+   "tried": 9,
+   "resolved": [
+    "rhizotech.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://rhizotech.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "risex": {
+   "tried": 9,
+   "resolved": [
+    "risex.com",
+    "risex.io",
+    "risex.ai",
+    "risex.app",
+    "risex.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://risex.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://risex.io/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://risex.ai/",
+     "title": "RiseX AI Automate Your Business. Amplify Your Growth.",
+     "names_it": false
+    },
+    {
+     "url": "https://risex.app/",
+     "title": "risex.app for sale | Spaceship.com Spaceship risex.app",
+     "names_it": false
+    }
+   ]
+  },
+  "savvywise": {
+   "tried": 9,
+   "resolved": [
+    "savvywise.com.au",
+    "savvywise.au",
+    "savvywise.ai",
+    "savvywise.org"
+   ],
+   "found": {
+    "url": "https://www.savvywise.com.au",
+    "title": "SavvyWise Tax AI Platform Profitable Tax Answers"
+   },
+   "seen": [
+    {
+     "url": "https://www.savvywise.com.au/",
+     "title": "SavvyWise Tax AI Platform Profitable Tax Answers",
+     "names_it": true
+    },
+    {
+     "url": "https://www.savvywise.com.au/",
+     "title": "SavvyWise Tax AI Platform Profitable Tax Answers",
+     "names_it": true
+    },
+    {
+     "url": "https://www.savvywise.com.au/",
+     "title": "SavvyWise Tax AI Platform Profitable Tax Answers",
+     "names_it": true
+    },
+    {
+     "url": "https://savvywise.org/",
+     "title": "savvywise.org savvywise.org",
+     "names_it": true
+    }
+   ]
+  },
+  "semesterstudentplanner": {
+   "tried": 9,
+   "resolved": [
+    "semesterstudentplanner.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://www.semesterstudentplanner.com/",
+     "title": "Semester - Making Student Success a Daily Habit A practical tool for student success, enhanced by AI",
+     "names_it": false
+    }
+   ]
+  },
+  "shiinemedia": {
+   "tried": 9,
+   "resolved": [
+    "shiinemedia.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://www.shiinemedia.com/",
+     "title": "Shiine | Mobile OOH Advertising Australia Where the City Moves, Your Message Follows",
+     "names_it": false
+    }
+   ]
+  },
+  "simplafy": {
+   "tried": 9,
+   "resolved": [
+    "simplafy.com.au",
+    "simplafy.com",
+    "simplafy.app"
+   ],
+   "found": {
+    "url": "https://simplafy.com.au",
+    "title": "Simplafy | Digital Employee Wellbeing Platform For Modern Workplaces Simplafy Simplafy"
+   },
+   "seen": [
+    {
+     "url": "https://simplafy.com.au/",
+     "title": "Simplafy | Digital Employee Wellbeing Platform For Modern Workplaces Simplafy Simplafy",
+     "names_it": true
+    },
+    {
+     "url": "https://simplafy.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://simplafy.app/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "smyl": {
+   "tried": 9,
+   "resolved": [
+    "smyl.com.au",
+    "smyl.com",
+    "smyl.au",
+    "smyl.ai",
+    "smyl.app",
+    "smyl.org"
+   ],
+   "found": {
+    "url": "https://www.smyl.com.au",
+    "title": "SMYL | community | 46 Mews Road, Fremantle WA, Australia SMYL"
+   },
+   "seen": [
+    {
+     "url": "https://www.smyl.com.au/",
+     "title": "SMYL | community | 46 Mews Road, Fremantle WA, Australia SMYL",
+     "names_it": true
+    },
+    {
+     "url": "https://smyl.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.jacksons.com.au/",
+     "title": "Art Supplies Store | Shop Jacksons Online Welcome to one of Australia’s Premier Art Supplies Store",
+     "names_it": false
+    },
+    {
+     "url": "https://smyl.ai/",
+     "title": "Lokale użytkowe Warszawy",
+     "names_it": false
+    }
+   ]
+  },
+  "solah20": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "sonevo": {
+   "tried": 9,
+   "resolved": [
+    "sonevo.com.au",
+    "sonevo.com",
+    "sonevo.au",
+    "sonevo.io",
+    "sonevo.co",
+    "sonevo.tech",
+    "sonevo.org"
+   ],
+   "found": {
+    "url": "https://sonevo.au",
+    "title": "SONEVO — Turning Sound into Structured Environmental Data Turning sound into structured environmental data"
+   },
+   "seen": [
+    {
+     "url": "https://sonevo.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://sonevo.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://sonevo.au/",
+     "title": "SONEVO — Turning Sound into Structured Environmental Data Turning sound into structured environmental data",
+     "names_it": true
+    },
+    {
+     "url": "https://sonevo.io/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "sonowesthealthcare": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "stayonhire": {
+   "tried": 9,
+   "resolved": [
+    "stayonhire.com"
+   ],
+   "found": {
+    "url": "https://www.stayonhire.com",
+    "title": "StayOnHire | Equipment Rental Management Software A System of Record for Your Fleet's Jobs, Billing and Maintenance"
+   },
+   "seen": [
+    {
+     "url": "https://www.stayonhire.com/",
+     "title": "StayOnHire | Equipment Rental Management Software A System of Record for Your Fleet's Jobs, Billing and Maintenance",
+     "names_it": true
+    }
+   ]
+  },
+  "stryd": {
+   "tried": 9,
+   "resolved": [
+    "stryd.com.au",
+    "stryd.com",
+    "stryd.au",
+    "stryd.io",
+    "stryd.ai",
+    "stryd.co",
+    "stryd.tech",
+    "stryd.org"
+   ],
+   "found": {
+    "url": "https://stryd.au",
+    "title": "The brokers retention engine | Serve every client better, automatically | Stryd The Brokers Retention Engine"
+   },
+   "seen": [
+    {
+     "url": "https://stryd.au/",
+     "title": "The brokers retention engine | Serve every client better, automatically | Stryd The Brokers Retention Engine",
+     "names_it": true
+    },
+    {
+     "url": "https://stryd.com/",
+     "error": "too_many_redirects"
+    },
+    {
+     "url": "https://stryd.au/",
+     "title": "The brokers retention engine | Serve every client better, automatically | Stryd The Brokers Retention Engine",
+     "names_it": true
+    },
+    {
+     "url": "https://stryd.io/",
+     "title": "stryd.io stryd.io Launching Soon",
+     "names_it": true
+    }
+   ]
+  },
+  "successmeter": {
+   "tried": 9,
+   "resolved": [
+    "successmeter.com",
+    "successmeter.tech"
+   ],
+   "found": {
+    "url": "https://successmeter.tech",
+    "title": "Success Meter — Restaurant Market Share & Benchmarking Platform The one & only revolutionary restaurant market share pro"
+   },
+   "seen": [
+    {
+     "url": "https://successmeter.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://successmeter.tech/",
+     "title": "Success Meter — Restaurant Market Share & Benchmarking Platform The one & only revolutionary restaurant market share pro",
+     "names_it": true
+    }
+   ]
+  },
+  "sunfishrobotics": {
+   "tried": 9,
+   "resolved": [
+    "sunfishrobotics.com.au",
+    "sunfishrobotics.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://infinrobotics.com/",
+     "title": "INFIN ROBOTICS INFIN ROBOTICS MAKING OCEAN DATA",
+     "names_it": false
+    },
+    {
+     "url": "https://infinrobotics.com/",
+     "title": "INFIN ROBOTICS INFIN ROBOTICS MAKING OCEAN DATA",
+     "names_it": false
+    }
+   ]
+  },
+  "sussbeauty": {
+   "tried": 9,
+   "resolved": [
+    "sussbeauty.com.au",
+    "sussbeauty.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://sussbeauty.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://sussbeauty.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "syqei": {
+   "tried": 9,
+   "resolved": [
+    "syqei.com"
+   ],
+   "found": {
+    "url": "https://syqei.com",
+    "title": "Syqei | Technology missions for secondary schools Syqei Technology missions for secondary schools."
+   },
+   "seen": [
+    {
+     "url": "https://syqei.com/",
+     "title": "Syqei | Technology missions for secondary schools Syqei Technology missions for secondary schools.",
+     "names_it": true
+    }
+   ]
+  },
+  "takedownsportsnutrition": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "talk2view": {
+   "tried": 9,
+   "resolved": [
+    "talk2view.com.au",
+    "talk2view.com"
+   ],
+   "found": {
+    "url": "https://talk2view.com",
+    "title": "Talk2View Simply talk to your software _"
+   },
+   "seen": [
+    {
+     "url": "https://talk2view.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://talk2view.com/",
+     "title": "Talk2View Simply talk to your software _",
+     "names_it": true
+    }
+   ]
+  },
+  "teleios": {
+   "tried": 9,
+   "resolved": [
+    "teleios.com.au",
+    "teleios.com",
+    "teleios.au",
+    "teleios.io",
+    "teleios.ai",
+    "teleios.co",
+    "teleios.tech"
+   ],
+   "found": {
+    "url": "https://teleios.au",
+    "title": "Teleios | Software & Systems Consulting Curiosity, scaled."
+   },
+   "seen": [
+    {
+     "url": "https://teleios.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://teleios.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://teleios.au/",
+     "title": "Teleios | Software & Systems Consulting Curiosity, scaled.",
+     "names_it": true
+    },
+    {
+     "url": "https://teleios.io/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "tenderrelief": {
+   "tried": 9,
+   "resolved": [
+    "tenderrelief.com.au",
+    "tenderrelief.com",
+    "tenderrelief.au",
+    "tenderrelief.ai",
+    "tenderrelief.org"
+   ],
+   "found": {
+    "url": "https://tenderrelief.com.au",
+    "title": "Tender Relief: Tender Software & Consulting Tender Relief landing page Give me the tools."
+   },
+   "seen": [
+    {
+     "url": "https://tenderrelief.com.au/",
+     "title": "Tender Relief: Tender Software & Consulting Tender Relief landing page Give me the tools.",
+     "names_it": true
+    },
+    {
+     "url": "https://tenderrelief.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://tenderrelief.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://tenderrelief.ai/",
+     "title": "tenderrelief.ai Tender Relief Launching Soon",
+     "names_it": true
+    }
+   ]
+  },
+  "thatsbrave": {
+   "tried": 9,
+   "resolved": [
+    "thatsbrave.com.au"
+   ],
+   "found": {
+    "url": "https://www.thatsbrave.com.au",
+    "title": "Home | That's Brave That's Brave Raising a safe voice to shift work place culture toward zero harm"
+   },
+   "seen": [
+    {
+     "url": "https://www.thatsbrave.com.au/",
+     "title": "Home | That's Brave That's Brave Raising a safe voice to shift work place culture toward zero harm",
+     "names_it": true
+    }
+   ]
+  },
+  "khushplace": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "toothmarket": {
+   "tried": 9,
+   "resolved": [
+    "toothmarket.com.au",
+    "toothmarket.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://fundmydental.com.au/",
+     "title": "Home - Fund My Dental Fund My Dental We Know Dentistry",
+     "names_it": false
+    },
+    {
+     "url": "https://toothmarket.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "uncmmn": {
+   "tried": 9,
+   "resolved": [
+    "uncmmn.com",
+    "uncmmn.io"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://uncmmn.com/",
+     "title": "Uncommon Projects World-Class Shopify Solutions",
+     "names_it": false
+    },
+    {
+     "url": "https://uncmmn.io/",
+     "title": "uncmmn",
+     "names_it": false
+    }
+   ]
+  },
+  "themba": {
+   "tried": 9,
+   "resolved": [
+    "themba.com",
+    "themba.ai",
+    "themba.co",
+    "themba.app",
+    "themba.org"
+   ],
+   "found": {
+    "url": "https://themba.ai",
+    "title": "themba.ai Themba Launching Soon"
+   },
+   "seen": [
+    {
+     "url": "https://themba.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://themba.ai/",
+     "title": "themba.ai Themba Launching Soon",
+     "names_it": true
+    },
+    {
+     "url": "https://themba.co/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://themba.app/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "thfengineeredsolutions": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "threelittlepixels": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "threespringstechnology": {
+   "tried": 9,
+   "resolved": [
+    "threespringstechnology.com"
+   ],
+   "found": {
+    "url": "https://threespringstechnology.com",
+    "title": "Australia's Artificial Intelligence specialists in Medical Imaging Three Springs Technology"
+   },
+   "seen": [
+    {
+     "url": "https://threespringstechnology.com/",
+     "title": "Australia's Artificial Intelligence specialists in Medical Imaging Three Springs Technology",
+     "names_it": true
+    }
+   ]
+  },
+  "tradable": {
+   "tried": 9,
+   "resolved": [
+    "tradable.com.au",
+    "tradable.com",
+    "tradable.io",
+    "tradable.co",
+    "tradable.app",
+    "tradable.org"
+   ],
+   "found": {
+    "url": "https://tradable.app",
+    "title": "Tradable | The AI Powered Crypto Trading Bot Marketplace Tradable"
+   },
+   "seen": [
+    {
+     "url": "https://tradable.app/",
+     "title": "Tradable | The AI Powered Crypto Trading Bot Marketplace Tradable",
+     "names_it": true
+    },
+    {
+     "url": "https://tradable.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://tradable.io/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://tradable.co/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "tutorsgrid": {
+   "tried": 9,
+   "resolved": [
+    "tutorsgrid.com.au",
+    "tutorsgrid.com"
+   ],
+   "found": {
+    "url": "https://tutorsgrid.com",
+    "title": "TutorsGrid | Find. Connect. Learn. Find. Connect. Learn"
+   },
+   "seen": [
+    {
+     "url": "https://tutorsgrid.com/",
+     "title": "TutorsGrid | Find. Connect. Learn. Find. Connect. Learn",
+     "names_it": true
+    },
+    {
+     "url": "https://tutorsgrid.com/",
+     "title": "TutorsGrid | Find. Connect. Learn. Find. Connect. Learn",
+     "names_it": true
+    }
+   ]
+  },
+  "udrew": {
+   "tried": 9,
+   "resolved": [
+    "udrew.com.au",
+    "udrew.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://udrew.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://udrew.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "underlandex": {
+   "tried": 9,
+   "resolved": [
+    "underlandex.com"
+   ],
+   "found": {
+    "url": "https://underlandex.com",
+    "title": "UnderlandEX — Mining intelligence reference UnderlandEX The world beneath, mapped."
+   },
+   "seen": [
+    {
+     "url": "https://underlandex.com/",
+     "title": "UnderlandEX — Mining intelligence reference UnderlandEX The world beneath, mapped.",
+     "names_it": true
+    }
+   ]
+  },
+  "vacancee": {
+   "tried": 9,
+   "resolved": [
+    "vacancee.com.au",
+    "vacancee.com",
+    "vacancee.ai",
+    "vacancee.org"
+   ],
+   "found": {
+    "url": "https://vacancee.com.au",
+    "title": "vacancee.com.au Vacancee Launching Soon"
+   },
+   "seen": [
+    {
+     "url": "https://vacancee.com.au/",
+     "title": "vacancee.com.au Vacancee Launching Soon",
+     "names_it": true
+    },
+    {
+     "url": "https://vacancee.com/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://vacancee.ai/",
+     "title": "vacancee.ai Vacancee Launching Soon",
+     "names_it": true
+    },
+    {
+     "url": "https://vacancee.org/",
+     "title": "Vacancee — Your next stay is closer than you think",
+     "names_it": true
+    }
+   ]
+  },
+  "vedi": {
+   "tried": 9,
+   "resolved": [
+    "vedi.com.au",
+    "vedi.com",
+    "vedi.au",
+    "vedi.io",
+    "vedi.co",
+    "vedi.app",
+    "vedi.org"
+   ],
+   "found": {
+    "url": "https://www.vedi.com",
+    "title": "vedi.com domain name may be for sale vedi.com"
+   },
+   "seen": [
+    {
+     "url": "https://vedi.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.vedi.com/",
+     "title": "vedi.com domain name may be for sale vedi.com",
+     "names_it": true
+    },
+    {
+     "url": "https://vedi.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.vedi.io/",
+     "title": "Vedi | Cloud Health Platform The cloud health platform, locked to the pet's microchip .",
+     "names_it": true
+    }
+   ]
+  },
+  "velora": {
+   "tried": 9,
+   "resolved": [
+    "velora.com.au",
+    "velora.com",
+    "velora.au",
+    "velora.ai",
+    "velora.app",
+    "velora.tech",
+    "velora.org"
+   ],
+   "found": {
+    "url": "https://velora.com",
+    "title": "Velora - A digital product design and development studio The Velora Network"
+   },
+   "seen": [
+    {
+     "url": "https://velora.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://velora.com/",
+     "title": "Velora - A digital product design and development studio The Velora Network",
+     "names_it": true
+    },
+    {
+     "url": "https://velora.au/",
+     "title": "velora.au velora.au Launching Soon",
+     "names_it": true
+    },
+    {
+     "url": "https://velora.ai/",
+     "title": "Velora — Project Intelligence for Contractors, running on WhatsApp Margin isn't lost in the accounts. It leaks on site. ",
+     "names_it": true
+    }
+   ]
+  },
+  "vyklowanalytics": {
+   "tried": 9,
+   "resolved": [
+    "vyklowanalytics.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://vyklowanalytics.com/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "wavex": {
+   "tried": 9,
+   "resolved": [
+    "wavex.com.au",
+    "wavex.com",
+    "wavex.io",
+    "wavex.ai",
+    "wavex.co",
+    "wavex.app",
+    "wavex.org"
+   ],
+   "found": {
+    "url": "https://wavex.com",
+    "title": "Wavex Home"
+   },
+   "seen": [
+    {
+     "url": "https://www.prestigeservicedoffices.com.au/",
+     "title": "Find Ideal Office Space in Melbourne | Prestige Serviced Offices Prestige Serviced Offices Melbourne SERVICED OFFICES ME",
+     "names_it": false
+    },
+    {
+     "url": "https://wavex.com/",
+     "title": "Wavex Home",
+     "names_it": true
+    },
+    {
+     "url": "https://wavex.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.wavex.ai/",
+     "title": "waveX — On-Prem AI Forecasting for Financial Institutions AI analytics that forecast the financial markets.",
+     "names_it": true
+    }
+   ]
+  },
+  "wristband": {
+   "tried": 9,
+   "resolved": [
+    "wristband.com.au",
+    "wristband.com",
+    "wristband.au",
+    "wristband.io",
+    "wristband.ai",
+    "wristband.co",
+    "wristband.app"
+   ],
+   "found": {
+    "url": "https://www.wristband.com",
+    "title": "Custom Wristbands and Bulk Wristbands | Wristband Resources wristband.com wristband.com"
+   },
+   "seen": [
+    {
+     "url": "https://wristband.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.wristband.com/",
+     "title": "Custom Wristbands and Bulk Wristbands | Wristband Resources wristband.com wristband.com",
+     "names_it": true
+    },
+    {
+     "url": "https://wristband.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://wristband.io/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "yalkarangconsulting": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "zapsplit": {
+   "tried": 9,
+   "resolved": [
+    "zapsplit.com.au",
+    "zapsplit.com"
+   ],
+   "found": {
+    "url": "https://zapsplit.com.au",
+    "title": "ZapSplit - Split Bills, Get Paid Back"
+   },
+   "seen": [
+    {
+     "url": "https://zapsplit.com.au/",
+     "title": "ZapSplit - Split Bills, Get Paid Back",
+     "names_it": true
+    },
+    {
+     "url": "https://zapsplit.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  }
+ }
+}

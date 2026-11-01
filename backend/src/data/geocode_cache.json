@@ -6837,5 +6837,1372 @@
     },
     "fetched_at": "2026-10-21T05:16:49.872Z",
     "expires_at": "2027-10-21T05:16:49.872Z"
+  },
+  {
+    "id": "nominatim:45 st georges terrace perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "45 St Georges Terrace, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9559491,
+      "lng": 115.8589846,
+      "display_name": "45, St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 147351049,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "45",
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9562489",
+        "-31.9556365",
+        "115.8587766",
+        "115.8592364"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:05.863Z",
+    "expires_at": "2027-10-31T02:05:05.863Z"
+  },
+  {
+    "id": "nominatim:4 gould st osborne park wa 6017 australia",
+    "provider": "nominatim",
+    "query": "4 Gould St, Osborne Park, WA, 6017, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9145909,
+      "lng": 115.8144805,
+      "display_name": "Gould Street, Osborne Park, Perth, Western Australia, 6017, Australia",
+      "osm_type": "way",
+      "osm_id": 25743958,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Gould Street",
+        "suburb": "Osborne Park",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6017",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9150424",
+        "-31.9137907",
+        "115.8134584",
+        "115.8152539"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:11.656Z",
+    "expires_at": "2027-10-31T02:05:11.656Z"
+  },
+  {
+    "id": "nominatim:79 st georges terrace perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "79 St Georges Terrace, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9561724,
+      "lng": 115.8611782,
+      "display_name": "St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 147667120,
+      "class": "highway",
+      "type": "primary",
+      "addresstype": "primary",
+      "importance": 0.32363080181052895,
+      "address": {
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9563723",
+        "-31.9559812",
+        "115.8605907",
+        "115.8617624"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:14.171Z",
+    "expires_at": "2027-10-31T02:05:14.171Z"
+  },
+  {
+    "id": "nominatim:128 main street osborne park wa 6017 australia",
+    "provider": "nominatim",
+    "query": "128 Main Street, Osborne Park, WA, 6017, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9119987,
+      "lng": 115.8282112,
+      "display_name": "Main Street, Osborne Park, Perth, Western Australia, 6017, Australia",
+      "osm_type": "way",
+      "osm_id": 666849817,
+      "class": "highway",
+      "type": "primary",
+      "addresstype": "primary",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Main Street",
+        "suburb": "Osborne Park",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6017",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9136556",
+        "-31.9103419",
+        "115.8282065",
+        "115.8282262"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:16.737Z",
+    "expires_at": "2027-10-31T02:05:16.737Z"
+  },
+  {
+    "id": "nominatim:20 egmont rd henderson wa 6166 australia",
+    "provider": "nominatim",
+    "query": "20 Egmont Rd, Henderson, WA, 6166, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -32.1513551,
+      "lng": 115.7732776,
+      "display_name": "Egmont Road, Henderson, Western Australia, 6166, Australia",
+      "osm_type": "way",
+      "osm_id": 50813722,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053382378118562564,
+      "address": {
+        "road": "Egmont Road",
+        "suburb": "Henderson",
+        "state": "Western Australia",
+        "postcode": "6166",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-32.1544700",
+        "-32.1508200",
+        "115.7732103",
+        "115.7758579"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:21.277Z",
+    "expires_at": "2027-10-31T02:05:21.277Z"
+  },
+  {
+    "id": "nominatim:147 samson st white gum valley wa 6162 australia",
+    "provider": "nominatim",
+    "query": "147 Samson St, White Gum Valley, WA, 6162, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -32.0613639,
+      "lng": 115.7618155,
+      "display_name": "Samson Street, White Gum Valley, Fremantle, Western Australia, 6162, Australia",
+      "osm_type": "way",
+      "osm_id": 27443336,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Samson Street",
+        "suburb": "White Gum Valley",
+        "town": "Fremantle",
+        "state": "Western Australia",
+        "postcode": "6162",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-32.0615105",
+        "-32.0613245",
+        "115.7598962",
+        "115.7637577"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:23.009Z",
+    "expires_at": "2027-10-31T02:05:23.009Z"
+  },
+  {
+    "id": "nominatim:22 stirling highway nedlands wa 6009 australia",
+    "provider": "nominatim",
+    "query": "22 Stirling Highway, Nedlands, WA, 6009, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9778965,
+      "lng": 115.811537,
+      "display_name": "22, Stirling Highway, Nedlands, Perth, Western Australia, 6009, Australia",
+      "osm_type": "node",
+      "osm_id": 9427341795,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "22",
+        "road": "Stirling Highway",
+        "suburb": "Nedlands",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6009",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9779465",
+        "-31.9778465",
+        "115.8114870",
+        "115.8115870"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:25.193Z",
+    "expires_at": "2027-10-31T02:05:25.193Z"
+  },
+  {
+    "id": "nominatim:24 leura street nedlands wa 6009 australia",
+    "provider": "nominatim",
+    "query": "24 Leura Street, Nedlands, WA, 6009, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9730271,
+      "lng": 115.8124173,
+      "display_name": "Leura Street, Nedlands, Perth, Western Australia, 6009, Australia",
+      "osm_type": "way",
+      "osm_id": 56725462,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Leura Street",
+        "suburb": "Nedlands",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6009",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9745184",
+        "-31.9715361",
+        "115.8124154",
+        "115.8124421"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:28.733Z",
+    "expires_at": "2027-10-31T02:05:28.733Z"
+  },
+  {
+    "id": "nominatim:152-158 st georges terrace perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "152-158 St Georges Terrace, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9537269,
+      "lng": 115.8555682,
+      "display_name": "Central Park, 152-158, St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 1133362752,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "152-158",
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9541114",
+        "-31.9533434",
+        "115.8552609",
+        "115.8558772"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:31.034Z",
+    "expires_at": "2027-10-31T02:05:31.034Z"
+  },
+  {
+    "id": "nominatim:13 petrea place canning vale wa 6155 australia",
+    "provider": "nominatim",
+    "query": "13 Petrea Place, Canning Vale, WA, 6155, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -32.0762009,
+      "lng": 115.9205842,
+      "display_name": "Petrea Place, Canning Vale, Perth, Western Australia, 6155, Australia",
+      "osm_type": "way",
+      "osm_id": 22790323,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Petrea Place",
+        "suburb": "Canning Vale",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6155",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-32.0762959",
+        "-32.0758520",
+        "115.9200769",
+        "115.9208388"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:32.847Z",
+    "expires_at": "2027-10-31T02:05:32.847Z"
+  },
+  {
+    "id": "nominatim:26 buch ave epping vic 3076 australia",
+    "provider": "nominatim",
+    "query": "26 Buch Ave, Epping, VIC, 3076, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.6578829,
+      "lng": 145.0251292,
+      "display_name": "26, Buch Avenue, Epping, Melbourne, Victoria, 3076, Australia",
+      "osm_type": "node",
+      "osm_id": 12418935443,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "26",
+        "road": "Buch Avenue",
+        "suburb": "Epping",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3076",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.6579329",
+        "-37.6578329",
+        "145.0250792",
+        "145.0251792"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:34.710Z",
+    "expires_at": "2027-10-31T02:05:34.710Z"
+  },
+  {
+    "id": "nominatim:531 hay street subiaco wa 6008 wa 6008 australia",
+    "provider": "nominatim",
+    "query": "531 Hay Street SUBIACO WA 6008, WA, 6008, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-10-31T02:05:36.207Z",
+    "expires_at": "2027-01-29T02:05:36.207Z"
+  },
+  {
+    "id": "nominatim:183 stirling hwy nedlands wa 6009 australia",
+    "provider": "nominatim",
+    "query": "183 Stirling Hwy, Nedlands, WA, 6009, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9782929,
+      "lng": 115.8085181,
+      "display_name": "Stirling Highway, Nedlands, Perth, Western Australia, 6009, Australia",
+      "osm_type": "way",
+      "osm_id": 776285706,
+      "class": "highway",
+      "type": "trunk",
+      "addresstype": "trunk",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Stirling Highway",
+        "suburb": "Nedlands",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6009",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9787461",
+        "-31.9778630",
+        "115.8059538",
+        "115.8110864"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:37.614Z",
+    "expires_at": "2027-10-31T02:05:37.614Z"
+  },
+  {
+    "id": "nominatim:525 falls road hovea wa 6070 australia",
+    "provider": "nominatim",
+    "query": "525 Falls Road, Hovea, WA, 6070, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.8785863,
+      "lng": 116.1230884,
+      "display_name": "Falls Road, Hovea, Western Australia, 6071, Australia",
+      "osm_type": "way",
+      "osm_id": 51134236,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.05338093156328676,
+      "address": {
+        "road": "Falls Road",
+        "suburb": "Hovea",
+        "state": "Western Australia",
+        "postcode": "6071",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.8795992",
+        "-31.8739668",
+        "116.1141591",
+        "116.1312171"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:39.472Z",
+    "expires_at": "2027-10-31T02:05:39.472Z"
+  },
+  {
+    "id": "nominatim:4 gugeri street claremont wa 6010 australia",
+    "provider": "nominatim",
+    "query": "4 Gugeri Street, Claremont, WA, 6010, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9809756,
+      "lng": 115.7817235,
+      "display_name": "Gugeri Street, Claremont, Perth, Western Australia, 6010, Australia",
+      "osm_type": "way",
+      "osm_id": 44963816,
+      "class": "highway",
+      "type": "primary",
+      "addresstype": "primary",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Gugeri Street",
+        "suburb": "Claremont",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9812046",
+        "-31.9807938",
+        "115.7812308",
+        "115.7822306"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:42.089Z",
+    "expires_at": "2027-10-31T02:05:42.089Z"
+  },
+  {
+    "id": "nominatim:8 sarich way bentley wa 6102 australia",
+    "provider": "nominatim",
+    "query": "8 Sarich Way, Bentley, WA, 6102, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9963835,
+      "lng": 115.8911717,
+      "display_name": "Sarich Way, Technology Park, Bentley, Perth, Western Australia, 6102, Australia",
+      "osm_type": "way",
+      "osm_id": 33613563,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Sarich Way",
+        "suburb": "Bentley",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6102",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9968230",
+        "-31.9961935",
+        "115.8897573",
+        "115.8925290"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:05:47.389Z",
+    "expires_at": "2027-10-31T02:05:47.389Z"
+  },
+  {
+    "id": "nominatim:24 hasler road osborne park wa 6017 australia",
+    "provider": "nominatim",
+    "query": "24 Hasler Road, Osborne Park, WA, 6017, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9126639,
+      "lng": 115.8115642,
+      "display_name": "Hasler Road, Osborne Park, Perth, Western Australia, 6017, Australia",
+      "osm_type": "way",
+      "osm_id": 25743941,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Hasler Road",
+        "suburb": "Osborne Park",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6017",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9170994",
+        "-31.9084425",
+        "115.8055367",
+        "115.8166288"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:07:21.277Z",
+    "expires_at": "2027-10-31T02:07:21.277Z"
+  },
+  {
+    "id": "nominatim:16 yampi way willetton wa 6155 wa 6155 australia",
+    "provider": "nominatim",
+    "query": "16 Yampi Way Willetton WA 6155, WA, 6155, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-10-31T02:07:31.566Z",
+    "expires_at": "2027-01-29T02:07:31.566Z"
+  },
+  {
+    "id": "nominatim:33 millrose drive malaga wa 6090 australia",
+    "provider": "nominatim",
+    "query": "33 Millrose Drive Malaga, WA, 6090, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.8662239,
+      "lng": 115.8978813,
+      "display_name": "Millrose Drive, Malaga, Perth, Western Australia, 6090, Australia",
+      "osm_type": "way",
+      "osm_id": 4828662,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Millrose Drive",
+        "suburb": "Malaga",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6090",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.8663245",
+        "-31.8636701",
+        "115.8963543",
+        "115.8989448"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:07:33.554Z",
+    "expires_at": "2027-10-31T02:07:33.554Z"
+  },
+  {
+    "id": "nominatim:25 walters dr osborne park wa 6017 australia",
+    "provider": "nominatim",
+    "query": "25 Walters Dr, Osborne Park, WA, 6017, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9122093,
+      "lng": 115.813156,
+      "display_name": "Walters Drive, Osborne Park, Perth, Western Australia, 6017, Australia",
+      "osm_type": "way",
+      "osm_id": 25743968,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Walters Drive",
+        "suburb": "Osborne Park",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6017",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9170981",
+        "-31.9083464",
+        "115.8055572",
+        "115.8190205"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:07:37.608Z",
+    "expires_at": "2027-10-31T02:07:37.608Z"
+  },
+  {
+    "id": "nominatim:9 the esplanade perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "9 The Esplanade, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9569773,
+      "lng": 115.857568,
+      "display_name": "9, The Esplanade, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 1566514457,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "9",
+        "road": "The Esplanade",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9572979",
+        "-31.9566566",
+        "115.8572714",
+        "115.8578646"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:07:39.270Z",
+    "expires_at": "2027-10-31T02:07:39.270Z"
+  },
+  {
+    "id": "nominatim:15 hospital ave nedlands wa 6009 wa 6009 australia",
+    "provider": "nominatim",
+    "query": "15 Hospital Ave Nedlands WA 6009, WA, 6009, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-10-31T02:07:44.635Z",
+    "expires_at": "2027-01-29T02:07:44.635Z"
+  },
+  {
+    "id": "nominatim:79 st georges terrace perth wa 6001 australia",
+    "provider": "nominatim",
+    "query": "79 St Georges Terrace Perth, WA, 6001, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9568383,
+      "lng": 115.8632028,
+      "display_name": "St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 4937170,
+      "class": "highway",
+      "type": "primary",
+      "addresstype": "primary",
+      "importance": 0.32363080181052895,
+      "address": {
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9573198",
+        "-31.9563723",
+        "115.8617624",
+        "115.8646383"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:07:49.222Z",
+    "expires_at": "2027-10-31T02:07:49.222Z"
+  },
+  {
+    "id": "nominatim:15 gordon street west perth wa 6005 australia",
+    "provider": "nominatim",
+    "query": "15 Gordon Street, West Perth, WA, 6005, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.948165,
+      "lng": 115.8468451,
+      "display_name": "15, Gordon Street, West Perth, Perth, Western Australia, 6005, Australia",
+      "osm_type": "way",
+      "osm_id": 44038989,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "15",
+        "road": "Gordon Street",
+        "suburb": "West Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6005",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9482547",
+        "-31.9480753",
+        "115.8466823",
+        "115.8470079"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:07:52.601Z",
+    "expires_at": "2027-10-31T02:07:52.601Z"
+  },
+  {
+    "id": "nominatim:1131 hay street west perth wa australia",
+    "provider": "nominatim",
+    "query": "1131 Hay Street, West Perth, WA, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9499834,
+      "lng": 115.845361,
+      "display_name": "1131, Hay Street, West Perth, Perth, Western Australia, 6005, Australia",
+      "osm_type": "way",
+      "osm_id": 44039030,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "1131",
+        "road": "Hay Street",
+        "suburb": "West Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6005",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9500539",
+        "-31.9499129",
+        "115.8452936",
+        "115.8454283"
+      ]
+    },
+    "fetched_at": "2026-10-31T02:09:30.869Z",
+    "expires_at": "2027-10-31T02:09:30.869Z"
+  },
+  {
+    "id": "nominatim:191 st georges terrace perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "191 St Georges Terrace, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9540062,
+      "lng": 115.8531557,
+      "display_name": "Parmelia House, 191, St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 147394398,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "191",
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9541840",
+        "-31.9538285",
+        "115.8529685",
+        "115.8533429"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:18:58.598Z",
+    "expires_at": "2027-11-01T16:18:58.598Z"
+  },
+  {
+    "id": "nominatim:300 murray street perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "300 Murray Street, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9515011,
+      "lng": 115.8572346,
+      "display_name": "300, Murray Street, Perth, Western Australia, 6000, Australia",
+      "osm_type": "relation",
+      "osm_id": 21814171,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "300",
+        "road": "Murray Street",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9519733",
+        "-31.9510171",
+        "115.8566909",
+        "115.8579152"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:00.689Z",
+    "expires_at": "2027-11-01T16:19:00.689Z"
+  },
+  {
+    "id": "nominatim:100 hay street subiaco wa 6008 australia",
+    "provider": "nominatim",
+    "query": "100 Hay Street, Subiaco, WA, 6008, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9467106,
+      "lng": 115.8345434,
+      "display_name": "100, Hay Street, Subiaco, Perth, Western Australia, 6008, Australia",
+      "osm_type": "way",
+      "osm_id": 152298719,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "100",
+        "road": "Hay Street",
+        "suburb": "Subiaco",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6008",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9469291",
+        "-31.9464508",
+        "115.8344063",
+        "115.8346815"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:02.391Z",
+    "expires_at": "2027-11-01T16:19:02.391Z"
+  },
+  {
+    "id": "nominatim:5828 address 30 coolgardie st west perth wa 6005 australia",
+    "provider": "nominatim",
+    "query": "5828 Address 30 Coolgardie St, West Perth, WA, 6005, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-01T16:19:03.809Z",
+    "expires_at": "2027-01-30T16:19:03.809Z"
+  },
+  {
+    "id": "nominatim:6 verdun street nedlands wa 6009 australia",
+    "provider": "nominatim",
+    "query": "6 Verdun Street, Nedlands, WA, 6009, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9672248,
+      "lng": 115.8113697,
+      "display_name": "Verdun Street, Nedlands, Perth, Western Australia, 6009, Australia",
+      "osm_type": "way",
+      "osm_id": 127525793,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Verdun Street",
+        "suburb": "Nedlands",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6009",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9672346",
+        "-31.9672189",
+        "115.8085412",
+        "115.8141981"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:05.724Z",
+    "expires_at": "2027-11-01T16:19:05.724Z"
+  },
+  {
+    "id": "nominatim:56 murray street perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "56 Murray Street, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9543381,
+      "lng": 115.8637401,
+      "display_name": "56, Murray Street, Perth, Western Australia, 6000, Australia",
+      "osm_type": "node",
+      "osm_id": 14231117193,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "56",
+        "road": "Murray Street",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9543881",
+        "-31.9542881",
+        "115.8636901",
+        "115.8637901"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:08.056Z",
+    "expires_at": "2027-11-01T16:19:08.056Z"
+  },
+  {
+    "id": "nominatim:10 outram street west perth wa 6005 wa 6005 australia",
+    "provider": "nominatim",
+    "query": "10 Outram Street West Perth WA 6005, WA, 6005, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-01T16:19:10.729Z",
+    "expires_at": "2027-01-30T16:19:10.729Z"
+  },
+  {
+    "id": "nominatim:3 baron way jandakot wa 6140 australia",
+    "provider": "nominatim",
+    "query": "3 Baron Way, Jandakot, WA, 6140, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -32.0919658,
+      "lng": 115.8807399,
+      "display_name": "Baron Way, Jandakot, Western Australia, 6164, Australia",
+      "osm_type": "way",
+      "osm_id": 264461399,
+      "class": "highway",
+      "type": "service",
+      "addresstype": "road",
+      "importance": 0.04007485389486533,
+      "address": {
+        "road": "Baron Way",
+        "suburb": "Jandakot",
+        "state": "Western Australia",
+        "postcode": "6164",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-32.0924241",
+        "-32.0913581",
+        "115.8803209",
+        "115.8808794"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:12.023Z",
+    "expires_at": "2027-11-01T16:19:12.023Z"
+  },
+  {
+    "id": "nominatim:152 st george’s terrace perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "152 St George’s Terrace, Perth, WA, 6000, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-01T16:19:15.032Z",
+    "expires_at": "2027-01-30T16:19:15.032Z"
+  },
+  {
+    "id": "nominatim:37 barrack st perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "37 Barrack St, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9549948,
+      "lng": 115.8599428,
+      "display_name": "iSeal Bathrooms, 37, Barrack Street, Perth, Western Australia, 6000, Australia",
+      "osm_type": "node",
+      "osm_id": 13081957184,
+      "class": "craft",
+      "type": "plumber",
+      "addresstype": "craft",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "37",
+        "road": "Barrack Street",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9550448",
+        "-31.9549448",
+        "115.8598928",
+        "115.8599928"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:17.602Z",
+    "expires_at": "2027-11-01T16:19:17.602Z"
+  },
+  {
+    "id": "nominatim:1 prowse st west perth wa 6005 australia",
+    "provider": "nominatim",
+    "query": "1 Prowse St, West Perth, WA, 6005, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9449129,
+      "lng": 115.8419639,
+      "display_name": "Prowse Street, West Perth, Perth, Western Australia, 6005, Australia",
+      "osm_type": "way",
+      "osm_id": 8112376,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Prowse Street",
+        "suburb": "West Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6005",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9449632",
+        "-31.9445531",
+        "115.8406166",
+        "115.8433502"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:19.270Z",
+    "expires_at": "2027-11-01T16:19:19.270Z"
+  },
+  {
+    "id": "nominatim:109 st georges terrace perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "109 St Georges Terrace, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9551096,
+      "lng": 115.8565732,
+      "display_name": "109, St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 147699168,
+      "class": "building",
+      "type": "commercial",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "109",
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9552688",
+        "-31.9549489",
+        "115.8563862",
+        "115.8567614"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:21.252Z",
+    "expires_at": "2027-11-01T16:19:21.252Z"
+  },
+  {
+    "id": "nominatim:255 murray street perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "255 Murray Street, Perth, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9527027,
+      "lng": 115.8578852,
+      "display_name": "Vodafone, 255, Murray Street Mall, Perth, Western Australia, 6000, Australia",
+      "osm_type": "node",
+      "osm_id": 14162065530,
+      "class": "shop",
+      "type": "mobile_phone",
+      "addresstype": "shop",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "255",
+        "road": "Murray Street Mall",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9527527",
+        "-31.9526527",
+        "115.8578352",
+        "115.8579352"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:24.487Z",
+    "expires_at": "2027-11-01T16:19:24.487Z"
+  },
+  {
+    "id": "nominatim:45 st georges tce perth wa 6000 australia",
+    "provider": "nominatim",
+    "query": "45 St Georges Tce, PERTH, WA, 6000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9559491,
+      "lng": 115.8589846,
+      "display_name": "45, St Georges Terrace, Perth, Western Australia, 6000, Australia",
+      "osm_type": "way",
+      "osm_id": 147351049,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "45",
+        "road": "St Georges Terrace",
+        "city_district": "Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9562489",
+        "-31.9556365",
+        "115.8587766",
+        "115.8592364"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:26.671Z",
+    "expires_at": "2027-11-01T16:19:26.671Z"
+  },
+  {
+    "id": "nominatim:9 bonner drive malaga wa 6090 australia",
+    "provider": "nominatim",
+    "query": "9 Bonner Drive, Malaga, WA, 6090, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.8501728,
+      "lng": 115.879359,
+      "display_name": "Bonner Drive, Malaga, Perth, Western Australia, 6090, Australia",
+      "osm_type": "way",
+      "osm_id": 31985210,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Bonner Drive",
+        "suburb": "Malaga",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6090",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.8509965",
+        "-31.8484706",
+        "115.8790512",
+        "115.8809907"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:29.725Z",
+    "expires_at": "2027-11-01T16:19:29.725Z"
+  },
+  {
+    "id": "nominatim:35 havelock street west perth wa 6005 australia",
+    "provider": "nominatim",
+    "query": "35 Havelock Street, West Perth, WA, 6005, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9503216,
+      "lng": 115.8435047,
+      "display_name": "35-37, Havelock Street, West Perth, Perth, Western Australia, 6005, Australia",
+      "osm_type": "way",
+      "osm_id": 44039164,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "35-37",
+        "road": "Havelock Street",
+        "suburb": "West Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6005",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9504841",
+        "-31.9501592",
+        "115.8432774",
+        "115.8437320"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:31.890Z",
+    "expires_at": "2027-11-01T16:19:31.890Z"
+  },
+  {
+    "id": "nominatim:4 gould street osborne park wa 6017 australia",
+    "provider": "nominatim",
+    "query": "4 Gould Street, Osborne Park, WA, 6017, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -31.9145909,
+      "lng": 115.8144805,
+      "display_name": "Gould Street, Osborne Park, Perth, Western Australia, 6017, Australia",
+      "osm_type": "way",
+      "osm_id": 25743958,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053408187228198636,
+      "address": {
+        "road": "Gould Street",
+        "suburb": "Osborne Park",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6017",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9150424",
+        "-31.9137907",
+        "115.8134584",
+        "115.8152539"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:19:33.986Z",
+    "expires_at": "2027-11-01T16:19:33.986Z"
+  },
+  {
+    "id": "nominatim:1109 hay st west perth wa 6005 australia",
+    "provider": "nominatim",
+    "query": "1109 Hay St, West Perth, WA, 6005, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9503032,
+      "lng": 115.8459046,
+      "display_name": "1109, Hay Street, West Perth, Perth, Western Australia, 6005, Australia",
+      "osm_type": "way",
+      "osm_id": 44039055,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "1109",
+        "road": "Hay Street",
+        "suburb": "West Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6005",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9505301",
+        "-31.9500763",
+        "115.8457460",
+        "115.8460632"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:21:54.272Z",
+    "expires_at": "2027-11-01T16:21:54.272Z"
+  },
+  {
+    "id": "nominatim:30 coolgardie st west perth wa 6005 australia",
+    "provider": "nominatim",
+    "query": "30 Coolgardie St, West Perth, WA, 6005, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -31.9485318,
+      "lng": 115.8483713,
+      "display_name": "30, Coolgardie Street, West Perth, Perth, Western Australia, 6005, Australia",
+      "osm_type": "way",
+      "osm_id": 44038655,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00007485389486529362,
+      "address": {
+        "house_number": "30",
+        "road": "Coolgardie Street",
+        "suburb": "West Perth",
+        "city": "Perth",
+        "state": "Western Australia",
+        "postcode": "6005",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-31.9486479",
+        "-31.9484156",
+        "115.8482179",
+        "115.8485246"
+      ]
+    },
+    "fetched_at": "2026-11-01T16:21:56.521Z",
+    "expires_at": "2027-11-01T16:21:56.521Z"
   }
 ]
