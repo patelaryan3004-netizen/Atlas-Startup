@@ -1,5 +1,170 @@
 [
   {
+    "id": "1breadcrumb.address.www-breadcrumb-co-en-au",
+    "company_id": "1breadcrumb",
+    "field": "address",
+    "value": "10-20 Gwynne St, Cremorne VIC 3121",
+    "source_id": "www-breadcrumb-co-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "1breadcrumb.address.www-breadcrumb-co-en-au-contact",
+    "company_id": "1breadcrumb",
+    "field": "address",
+    "value": "10-20 Gwynne St, Cremorne VIC 3121",
+    "source_id": "www-breadcrumb-co-en-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:14.890Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "1breadcrumb.address.www-breadcrumb-co-en-au-contact.2",
+    "company_id": "1breadcrumb",
+    "field": "address",
+    "value": "12 Gwynne St, Cremorne Melbourne, VIC 3122",
+    "source_id": "www-breadcrumb-co-en-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:14.890Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "1breadcrumb.description.www-breadcrumb-co-en-au",
+    "company_id": "1breadcrumb",
+    "field": "description",
+    "value": "Digital construction safety software for Australian teams. Speed up inductions, track live attendance, manage permits & SWMS, and integrate with Procore.",
+    "source_id": "www-breadcrumb-co-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "1breadcrumb.state.www-breadcrumb-co-en-au",
+    "company_id": "1breadcrumb",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-breadcrumb-co-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "1breadcrumb.website.melbournestartups-com",
+    "company_id": "1breadcrumb",
+    "field": "website",
+    "value": "https://1breadcrumb.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "1breadcrumb.website.www-breadcrumb-co-en-au",
+    "company_id": "1breadcrumb",
+    "field": "website",
+    "value": "https://1breadcrumb.com",
+    "source_id": "www-breadcrumb-co-en-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:11:30.238Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "1receipt.address.www-1receipt-io-contact",
+    "company_id": "1receipt",
+    "field": "address",
+    "value": "Suite 522, 1 Queens Rd, Melbourne, VIC 3004",
+    "source_id": "www-1receipt-io-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:20.429Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "1receipt.address.www-1receipt-io-contact.2",
+    "company_id": "1receipt",
+    "field": "address",
+    "value": "102 Victoria St, Carlton VIC 3053",
+    "source_id": "www-1receipt-io-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:20.429Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "1receipt.address.www-1receipt-io-legal-terms",
+    "company_id": "1receipt",
+    "field": "address",
+    "value": "1 Queens Rd, Melbourne VIC 3004",
+    "source_id": "www-1receipt-io-legal-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "1receipt.city.www-1receipt-io-legal-terms",
+    "company_id": "1receipt",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-1receipt-io-legal-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "1receipt.description.www-1receipt-io",
+    "company_id": "1receipt",
+    "field": "description",
+    "value": "1receipt® is a novel eReceipt platform to eliminate paper receipts and manage all your digital receipts through a single smartphone app paperlessly.",
+    "source_id": "www-1receipt-io",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "1receipt.state.www-1receipt-io-legal-terms",
+    "company_id": "1receipt",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-1receipt-io-legal-terms",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "1receipt.website.melbournestartups-com",
+    "company_id": "1receipt",
+    "field": "website",
+    "value": "https://1receipt.io",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "1receipt.website.www-1receipt-io",
+    "company_id": "1receipt",
+    "field": "website",
+    "value": "https://1receipt.io",
+    "source_id": "www-1receipt-io",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:11:38.394Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "6clicks.description.6clicks-website",
     "company_id": "6clicks",
     "field": "description",
@@ -330,6 +495,72 @@
     "note": "The website Folklore Ventures lists for the company."
   },
   {
+    "id": "aelo.address.www-aelo-com-au-policies-privacy-policy",
+    "company_id": "aelo",
+    "field": "address",
+    "value": "915 Collins Street, Melbourne VIC 3008",
+    "source_id": "www-aelo-com-au-policies-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "aelo.city.www-aelo-com-au-policies-privacy-policy",
+    "company_id": "aelo",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-aelo-com-au-policies-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "aelo.description.www-aelo-com-au",
+    "company_id": "aelo",
+    "field": "description",
+    "value": "Aelo is an Australian eye care brand based in Melbourne. It makes the Eyelid & Eyelash Wash, Self Heating Eye Masks and the Cooling Eye Roller.",
+    "source_id": "www-aelo-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "aelo.state.www-aelo-com-au-policies-privacy-policy",
+    "company_id": "aelo",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-aelo-com-au-policies-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "aelo.website.www-aelo-com-au",
+    "company_id": "aelo",
+    "field": "website",
+    "value": "https://aelo.com.au",
+    "source_id": "www-aelo-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:03.679Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "aelo.website.www-themap-co-startups",
+    "company_id": "aelo",
+    "field": "website",
+    "value": "https://aelo.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "affinda.description.www-affinda-com",
     "company_id": "affinda",
     "field": "description",
@@ -407,6 +638,83 @@
     "note": "The site itself."
   },
   {
+    "id": "agpay.address.agpay-com-au-about-contact",
+    "company_id": "agpay",
+    "field": "address",
+    "value": "Level 14, 1 Collins Street, Melbourne VIC 3000",
+    "source_id": "agpay-com-au-about-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:59.764Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "agpay.address.agpay-com-au-privacy",
+    "company_id": "agpay",
+    "field": "address",
+    "value": "1 Collins Street, Melbourne VIC 3000",
+    "source_id": "agpay-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "agpay.city.agpay-com-au-privacy",
+    "company_id": "agpay",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "agpay-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "agpay.description.agpay-com-au",
+    "company_id": "agpay",
+    "field": "description",
+    "value": "agPAY is an agricultural finance lender specialising in seasonal finance and equipment finance for cropping, horticulture, viticulture and livestock sectors",
+    "source_id": "agpay-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "agpay.state.agpay-com-au-privacy",
+    "company_id": "agpay",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "agpay-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "agpay.website.agpay-com-au",
+    "company_id": "agpay",
+    "field": "website",
+    "value": "https://agpay.com.au",
+    "source_id": "agpay-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:20.899Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "agpay.website.melbournestartups-com",
+    "company_id": "agpay",
+    "field": "website",
+    "value": "https://agpay.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "agridigital.description.agridigital-website",
     "company_id": "agridigital",
     "field": "description",
@@ -436,6 +744,50 @@
     "source_id": "agridigital-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:11:39.168Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "aibuild.city.www-aibuild-com",
+    "company_id": "aibuild",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-aibuild-com",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:13:12.374Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"BASED IN MELBOURNE, AUSTRALIA COMPANY ABOUT US O\"."
+  },
+  {
+    "id": "aibuild.description.www-aibuild-com",
+    "company_id": "aibuild",
+    "field": "description",
+    "value": "Melbourne-based AI commercialisation company. We turn industry problems into AI businesses, backed by $50M+ in government and industry investment and university research partnerships.",
+    "source_id": "www-aibuild-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "aibuild.website.melbournestartups-com",
+    "company_id": "aibuild",
+    "field": "website",
+    "value": "https://aibuild.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "aibuild.website.www-aibuild-com",
+    "company_id": "aibuild",
+    "field": "website",
+    "value": "https://aibuild.com",
+    "source_id": "www-aibuild-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:40.223Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -647,6 +999,50 @@
     "verified_at": "2026-10-13T13:26:26.778Z",
     "status": "active",
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "allume-energy.address.allumeenergy-com-en-au-about",
+    "company_id": "allume-energy",
+    "field": "address",
+    "value": "18 Studley St, Abbotsford VIC 3067",
+    "source_id": "allumeenergy-com-en-au-about",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:13:33.966Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "allume-energy.description.allumeenergy-com",
+    "company_id": "allume-energy",
+    "field": "description",
+    "value": "We’re unlocking rooftop solar for apartment residents with SolShare, our world-first technology. Choose your region to get started.",
+    "source_id": "allumeenergy-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "allume-energy.website.allumeenergy-com",
+    "company_id": "allume-energy",
+    "field": "website",
+    "value": "https://allumeenergy.com",
+    "source_id": "allumeenergy-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:12:51.889Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "allume-energy.website.www-themap-co-startups",
+    "company_id": "allume-energy",
+    "field": "website",
+    "value": "https://allumeenergy.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne location evidence); the page is not proof of a Melbourne office."
   },
   {
     "id": "alts.address.alts-co",
@@ -944,6 +1340,17 @@
     "verified_at": "2026-10-05T15:07:53.509Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "andromeda-robotics.website.andromedarobotics-ai",
+    "company_id": "andromeda-robotics",
+    "field": "website",
+    "value": "https://andromedarobotics.ai/",
+    "source_id": "andromedarobotics-ai",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:13:52.085Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
   },
   {
     "id": "ansarada.address.www-ansarada-com-legal-policies-privacy",
@@ -1452,6 +1859,28 @@
     "note": "The site itself."
   },
   {
+    "id": "applied-ev.city.www-appliedev-com-legal-privacy",
+    "company_id": "applied-ev",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-appliedev-com-legal-privacy",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:14:02.267Z",
+    "status": "active",
+    "note": "The company's own page gives a postal or registered address in Melbourne (com Postal address: 12 Lakeview Drive Scoresby VIC 3179): not an operating site, so no pin."
+  },
+  {
+    "id": "applied-ev.website.echai-ventures-melbourne-vcs",
+    "company_id": "applied-ev",
+    "field": "website",
+    "value": "https://appliedev.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "apromore.company_status.apromore-com",
     "company_id": "apromore",
     "field": "company_status",
@@ -1503,6 +1932,116 @@
     "source_id": "apromore-com-2",
     "confidence": "high",
     "verified_at": "2026-10-13T13:19:02.987Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "aravax.address.www-aravax-com-au-about-aravax",
+    "company_id": "aravax",
+    "field": "address",
+    "value": "Level 9, 31 Queen St, Melbourne, VIC, 3000",
+    "source_id": "www-aravax-com-au-about-aravax",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:03.351Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "aravax.address.www-aravax-com-au-contact",
+    "company_id": "aravax",
+    "field": "address",
+    "value": "31 Queen St, Melbourne VIC 3000",
+    "source_id": "www-aravax-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "aravax.city.www-aravax-com-au-contact",
+    "company_id": "aravax",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-aravax-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "aravax.founded_year.www-aravax-com-au-about-aravax",
+    "company_id": "aravax",
+    "field": "founded_year",
+    "value": 2015,
+    "source_id": "www-aravax-com-au-about-aravax",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "aravax.state.www-aravax-com-au-contact",
+    "company_id": "aravax",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-aravax-com-au-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "aravax.website.melbournestartups-com",
+    "company_id": "aravax",
+    "field": "website",
+    "value": "https://aravax.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "aravax.website.www-aravax-com-au",
+    "company_id": "aravax",
+    "field": "website",
+    "value": "https://aravax.com.au",
+    "source_id": "www-aravax-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:13:50.751Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "archa.city.www-archa-com-au",
+    "company_id": "archa",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-archa-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:15:08.776Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Melbourne-based\"."
+  },
+  {
+    "id": "archa.description.www-archa-com-au",
+    "company_id": "archa",
+    "field": "description",
+    "value": "Archa gives Australian businesses a smarter way to manage corporate spend. Issue cards, set budgets, and track expenses in real time. Book a demo today.",
+    "source_id": "www-archa-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "archa.website.www-archa-com-au",
+    "company_id": "archa",
+    "field": "website",
+    "value": "https://archa.com.au",
+    "source_id": "www-archa-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:13:56.361Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -1892,6 +2431,61 @@
     "note": "The site itself."
   },
   {
+    "id": "atmo-biosciences.address.www-atmobiosciences-com",
+    "company_id": "atmo-biosciences",
+    "field": "address",
+    "value": "436 Elgar Rd, Box Hill VIC 3128",
+    "source_id": "www-atmobiosciences-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "atmo-biosciences.address.www-atmobiosciences-com-contact",
+    "company_id": "atmo-biosciences",
+    "field": "address",
+    "value": "436 Elgar Rd, Box Hill VIC 3128",
+    "source_id": "www-atmobiosciences-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:15.710Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "atmo-biosciences.address.www-atmobiosciences-com-privacy",
+    "company_id": "atmo-biosciences",
+    "field": "address",
+    "value": "436 Elgar Road, Box Hill VIC, 3128",
+    "source_id": "www-atmobiosciences-com-privacy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:15.710Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "atmo-biosciences.state.www-atmobiosciences-com",
+    "company_id": "atmo-biosciences",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-atmobiosciences-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "atmo-biosciences.website.www-atmobiosciences-com",
+    "company_id": "atmo-biosciences",
+    "field": "website",
+    "value": "https://atmobiosciences.com",
+    "source_id": "www-atmobiosciences-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:14:04.610Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "atomi.description.atomi-website",
     "company_id": "atomi",
     "field": "description",
@@ -2123,6 +2717,50 @@
     "note": "Named on this page (wa awards 2026); the page is not proof of a Perth office."
   },
   {
+    "id": "aus-bios-labs.city.www-ausbioslabs-com",
+    "company_id": "aus-bios-labs",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-ausbioslabs-com",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:15:32.734Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"LABS | DeepTech company in Melbourne | Melbourne VIC, Australia top of page AU\"."
+  },
+  {
+    "id": "aus-bios-labs.description.www-ausbioslabs-com",
+    "company_id": "aus-bios-labs",
+    "field": "description",
+    "value": "AUS BIOS LABS is a DeepTech company based in Melbourne. They pioneer innovative solutions for the healthcare Industry through cutting-edge technology and innovation.",
+    "source_id": "www-ausbioslabs-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "aus-bios-labs.website.melbournestartups-com",
+    "company_id": "aus-bios-labs",
+    "field": "website",
+    "value": "https://ausbioslabs.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "aus-bios-labs.website.www-ausbioslabs-com",
+    "company_id": "aus-bios-labs",
+    "field": "website",
+    "value": "https://ausbioslabs.com",
+    "source_id": "www-ausbioslabs-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:14:16.540Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "avarni.address.avarni-website",
     "company_id": "avarni",
     "field": "address",
@@ -2231,6 +2869,50 @@
     "verified_at": "2026-10-30T23:25:43.186Z",
     "status": "active",
     "note": "The website Cicada Innovations lists for the company."
+  },
+  {
+    "id": "bae-juice.description.drinkbaejuice-com-au",
+    "company_id": "bae-juice",
+    "field": "description",
+    "value": "100% Korean pear juice",
+    "source_id": "drinkbaejuice-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "bae-juice.founded_year.drinkbaejuice-com-au",
+    "company_id": "bae-juice",
+    "field": "founded_year",
+    "value": 2018,
+    "source_id": "drinkbaejuice-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "bae-juice.website.drinkbaejuice-com-au",
+    "company_id": "bae-juice",
+    "field": "website",
+    "value": "https://drinkbaejuice.com",
+    "source_id": "drinkbaejuice-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:14:24.512Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "bae-juice.website.melbournestartups-com",
+    "company_id": "bae-juice",
+    "field": "website",
+    "value": "https://drinkbaejuice.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
   },
   {
     "id": "bamboo.address.www-getbamboo-io-legal-terms",
@@ -2385,6 +3067,17 @@
     "verified_at": "2026-10-05T15:04:01.437Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "bellroy.address.bellroy-com-customer-care-privacy-policy",
+    "company_id": "bellroy",
+    "field": "address",
+    "value": "5 Theatre Place Canterbury VIC 3126",
+    "source_id": "bellroy-com-customer-care-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:02.388Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
   },
   {
     "id": "bellroy.description.bellroy-com",
@@ -3355,6 +4048,83 @@
     "note": "The site itself."
   },
   {
+    "id": "brunswick-aces.address.brunswickaces-com",
+    "company_id": "brunswick-aces",
+    "field": "address",
+    "value": "124 Weston Street, Brunswick East VIC 3057",
+    "source_id": "brunswickaces-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "brunswick-aces.address.brunswickaces-com-pages-terms-of-service",
+    "company_id": "brunswick-aces",
+    "field": "address",
+    "value": "6/166 Victoria Street, Brunswick VIC 3056",
+    "source_id": "brunswickaces-com-pages-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "brunswick-aces.address.brunswickaces-com-pages-terms-of-service.2",
+    "company_id": "brunswick-aces",
+    "field": "address",
+    "value": "6/166 VIC Street, Brunswick, VIC 3056",
+    "source_id": "brunswickaces-com-pages-terms-of-service",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:35.938Z",
+    "status": "superseded",
+    "note": "The same street address as another row of this page, written with the page's label."
+  },
+  {
+    "id": "brunswick-aces.description.brunswickaces-com",
+    "company_id": "brunswick-aces",
+    "field": "description",
+    "value": "Award-winning Australian gin and vodka—alcoholic and non-alcoholic options for every palate, without compromise.",
+    "source_id": "brunswickaces-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "brunswick-aces.state.brunswickaces-com",
+    "company_id": "brunswick-aces",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "brunswickaces-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "brunswick-aces.website.brunswickaces-com",
+    "company_id": "brunswick-aces",
+    "field": "website",
+    "value": "https://brunswickaces.com",
+    "source_id": "brunswickaces-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:14:57.578Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "brunswick-aces.website.www-themap-co-startups",
+    "company_id": "brunswick-aces",
+    "field": "website",
+    "value": "https://brunswickaces.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "bugcrowd.description.bugcrowd-website",
     "company_id": "bugcrowd",
     "field": "description",
@@ -3507,6 +4277,17 @@
     "verified_at": "2026-10-31T00:15:38.859Z",
     "status": "active",
     "note": "Australian address on the page."
+  },
+  {
+    "id": "bygen.address.www-bygen-com-au-privacy-policy",
+    "company_id": "bygen",
+    "field": "address",
+    "value": "10 Platinum St Thomastown, VIC, 3074",
+    "source_id": "www-bygen-com-au-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:55.240Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
   },
   {
     "id": "bygen.description.www-bygen-com-au",
@@ -3729,6 +4510,72 @@
     "note": "The website Investible lists for the company."
   },
   {
+    "id": "carbar.address.www-carbar-com-au-melbourne",
+    "company_id": "carbar",
+    "field": "address",
+    "value": "20 Woodruff St, Port Melbourne VIC 3207",
+    "source_id": "www-carbar-com-au-melbourne",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:17:06.397Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "carbar.address.www-carbar-com-au-terms-and-conditions",
+    "company_id": "carbar",
+    "field": "address",
+    "value": "20 Woodruff St, Port Melbourne VIC 3207",
+    "source_id": "www-carbar-com-au-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "carbar.description.www-carbar-com-au",
+    "company_id": "carbar",
+    "field": "description",
+    "value": "Forget financing, insurance, rego & all the other variable costs of running a car. With a carbar subscription, we take care of that for you. No commitments.",
+    "source_id": "www-carbar-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "carbar.state.www-carbar-com-au-terms-and-conditions",
+    "company_id": "carbar",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-carbar-com-au-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "carbar.website.www-carbar-com-au",
+    "company_id": "carbar",
+    "field": "website",
+    "value": "https://carbar.com.au",
+    "source_id": "www-carbar-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:11.626Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "carbar.website.www-themap-co-startups",
+    "company_id": "carbar",
+    "field": "website",
+    "value": "https://carbar.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne location evidence); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "care-gp.description.care-gp-website",
     "company_id": "care-gp",
     "field": "description",
@@ -3815,6 +4662,72 @@
     "verified_at": "2026-10-31T01:31:04.770Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "cartherics.address.cartherics-com",
+    "company_id": "cartherics",
+    "field": "address",
+    "value": "12 Ferntree Place, Notting Hill VIC 3168",
+    "source_id": "cartherics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "cartherics.address.cartherics-com-contact",
+    "company_id": "cartherics",
+    "field": "address",
+    "value": "12 Ferntree Place, Notting Hill VIC 3168",
+    "source_id": "cartherics-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:17:10.019Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "cartherics.description.cartherics-com",
+    "company_id": "cartherics",
+    "field": "description",
+    "value": "Pioneering cellular medicines for women’s health We’re developing off-the-shelf cell therapies for high-impact women’s diseases, with lead programs in ovarian cancer and endometriosis      \r\nPioneering excellence in the field of immunotherapy \r\nCartherics creates precisely-defined immunotherapy treatments to combat a variety of cancers and endometriosis. We combine the best components of immune",
+    "source_id": "cartherics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cartherics.state.cartherics-com",
+    "company_id": "cartherics",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "cartherics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "cartherics.website.cartherics-com",
+    "company_id": "cartherics",
+    "field": "website",
+    "value": "https://cartherics.com",
+    "source_id": "cartherics-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:18.291Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "cartherics.website.melbournestartups-com",
+    "company_id": "cartherics",
+    "field": "website",
+    "value": "https://cartherics.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
   },
   {
     "id": "cascade.address.cascade-privacy-policy",
@@ -3958,6 +4871,61 @@
     "verified_at": "2026-10-13T13:19:48.279Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "certa-therapeutics.address.certatherapeutics-com-contact",
+    "company_id": "certa-therapeutics",
+    "field": "address",
+    "value": "31 Queen Street, Melbourne VIC 3000",
+    "source_id": "certatherapeutics-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "certa-therapeutics.city.certatherapeutics-com-contact",
+    "company_id": "certa-therapeutics",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "certatherapeutics-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "certa-therapeutics.state.certatherapeutics-com-contact",
+    "company_id": "certa-therapeutics",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "certatherapeutics-com-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "certa-therapeutics.website.certatherapeutics-com",
+    "company_id": "certa-therapeutics",
+    "field": "website",
+    "value": "https://certatherapeutics.com",
+    "source_id": "certatherapeutics-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:25.768Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "certa-therapeutics.website.echai-ventures-melbourne-vcs",
+    "company_id": "certa-therapeutics",
+    "field": "website",
+    "value": "https://certatherapeutics.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
   },
   {
     "id": "checkgen.investors.startmate.www-startmate-com-portfolio-companies-checkgen",
@@ -4334,6 +5302,61 @@
     "note": "The site itself."
   },
   {
+    "id": "cliniscribe-ai.address.www-cliniscribe-com-au",
+    "company_id": "cliniscribe-ai",
+    "field": "address",
+    "value": "946 Burke Road, Deepdene VIC 3103",
+    "source_id": "www-cliniscribe-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:51.279Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "cliniscribe-ai.description.www-cliniscribe-com-au",
+    "company_id": "cliniscribe-ai",
+    "field": "description",
+    "value": "CliniScribe is the AI scribe built for allied health. Turn consults into notes, reports, treatment plans and forms in seconds - Cliniko & Nookal integrated.",
+    "source_id": "www-cliniscribe-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "cliniscribe-ai.state.www-cliniscribe-com-au",
+    "company_id": "cliniscribe-ai",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-cliniscribe-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:51.279Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "cliniscribe-ai.website.www-cliniscribe-com-au",
+    "company_id": "cliniscribe-ai",
+    "field": "website",
+    "value": "https://cliniscribe.com.au",
+    "source_id": "www-cliniscribe-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:15:51.279Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "cliniscribe-ai.website.www-themap-co-startups",
+    "company_id": "cliniscribe-ai",
+    "field": "website",
+    "value": "https://cliniscribe.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "clutch-glue.address.clutchglue-com",
     "company_id": "clutch-glue",
     "field": "address",
@@ -4596,6 +5619,105 @@
     "verified_at": "2026-10-30T23:50:15.971Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "compass-education.city.policies-compass-education-privacy",
+    "company_id": "compass-education",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "policies-compass-education-privacy",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:18:05.629Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"office at Level 2, 36-38 Burwood Road, Hawthorn, VIC, Australia 3122\"."
+  },
+  {
+    "id": "compass-education.description.www-compass-education",
+    "company_id": "compass-education",
+    "field": "description",
+    "value": "Our web-based school management system connects every facet of your school community to simplify the complex. Access a comprehensive array of attendance, student management, events, reporting, assessment and payments tools so you can spend more time where it matters.",
+    "source_id": "www-compass-education",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "compass-education.website.echai-ventures-melbourne-vcs",
+    "company_id": "compass-education",
+    "field": "website",
+    "value": "https://compass.education",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "compass-education.website.www-compass-education",
+    "company_id": "compass-education",
+    "field": "website",
+    "value": "https://compass.education",
+    "source_id": "www-compass-education",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:01.841Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "conry-tech.address.www-conrytech-com",
+    "company_id": "conry-tech",
+    "field": "address",
+    "value": "2/69 Wonga Road, Ringwood North, Ringwood North, VIC, 3134",
+    "source_id": "www-conrytech-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:11.010Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "conry-tech.address.www-conrytech-com-contact-us",
+    "company_id": "conry-tech",
+    "field": "address",
+    "value": "2/69 Wonga Road, Ringwood North, Ringwood North, VIC, 3134",
+    "source_id": "www-conrytech-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:11.010Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "conry-tech.address.www-conrytech-com-our-team",
+    "company_id": "conry-tech",
+    "field": "address",
+    "value": "2/69 Wonga Road, Ringwood North, Ringwood North, VIC, 3134",
+    "source_id": "www-conrytech-com-our-team",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:11.010Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "conry-tech.website.echai-ventures-melbourne-vcs",
+    "company_id": "conry-tech",
+    "field": "website",
+    "value": "https://conrytech.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "conry-tech.website.user-supplied-supplied-by-a-reviewer-85",
+    "company_id": "conry-tech",
+    "field": "website",
+    "value": "https://conrytech.com",
+    "source_id": "user-supplied-supplied-by-a-reviewer-85",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by owner (via Claude)."
   },
   {
     "id": "corametix.address.corametix-com",
@@ -4948,6 +6070,61 @@
     "verified_at": "2026-10-05T15:06:32.946Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "curvecrete.address.www-curvecrete-com",
+    "company_id": "curvecrete",
+    "field": "address",
+    "value": "2D Indwe Street, West Footscray VIC 3012",
+    "source_id": "www-curvecrete-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:19.363Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "curvecrete.description.www-curvecrete-com",
+    "company_id": "curvecrete",
+    "field": "description",
+    "value": "Low carbon concrete products for urban seating, earth retaining walls, noise walls, and architectural facades.",
+    "source_id": "www-curvecrete-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "curvecrete.state.www-curvecrete-com",
+    "company_id": "curvecrete",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-curvecrete-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:19.363Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "curvecrete.website.www-curvecrete-com",
+    "company_id": "curvecrete",
+    "field": "website",
+    "value": "https://curvecrete.com",
+    "source_id": "www-curvecrete-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:19.363Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "curvecrete.website.www-themap-co-startups",
+    "company_id": "curvecrete",
+    "field": "website",
+    "value": "https://curvecrete.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "cuttable.address.cuttable-privacy-policy",
@@ -5344,6 +6521,28 @@
     "verified_at": "2026-10-30T23:35:19.990Z",
     "status": "active",
     "note": "The website Investible lists for the company."
+  },
+  {
+    "id": "deciphrai.city.www-deciphr-ai-privacy-policy",
+    "company_id": "deciphrai",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-deciphr-ai-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:18:28.807Z",
+    "status": "active",
+    "note": "The company's own page gives a postal or registered address in Melbourne (ai or by post to: Deciphr Corporation Pty Ltd Suite 109/3 Albert Coates Lane Mel): not an operating site, so no pin."
+  },
+  {
+    "id": "deciphrai.website.melbournestartups-com",
+    "company_id": "deciphrai",
+    "field": "website",
+    "value": "https://deciphr.ai",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
   },
   {
     "id": "deeligence.description.www-deeligence-com",
@@ -5940,6 +7139,39 @@
     "note": "The website Startmate lists."
   },
   {
+    "id": "dhi-ai.address.dhi-ai-com-contact-html",
+    "company_id": "dhi-ai",
+    "field": "address",
+    "value": "121 King Street, Melbourne VIC 3000",
+    "source_id": "dhi-ai-com-contact-html",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:41.698Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "dhi-ai.website.melbournestartups-com",
+    "company_id": "dhi-ai",
+    "field": "website",
+    "value": "https://dhi-ai.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "dhi-ai.website.user-supplied-supplied-by-a-reviewer-87",
+    "company_id": "dhi-ai",
+    "field": "website",
+    "value": "https://dhi-ai.com",
+    "source_id": "user-supplied-supplied-by-a-reviewer-87",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by owner (via Claude)."
+  },
+  {
     "id": "different.address.different-privacy-policy",
     "company_id": "different",
     "field": "address",
@@ -5982,6 +7214,83 @@
     "verified_at": "2026-10-05T15:02:59.000Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "digital-agriculture-services.address.digitalagricultureservices-com-privacy",
+    "company_id": "digital-agriculture-services",
+    "field": "address",
+    "value": "525 Collins Street, Melbourne VIC 3000",
+    "source_id": "digitalagricultureservices-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "digital-agriculture-services.address.info-digitalagricultureservices-com-en-au-contact-us",
+    "company_id": "digital-agriculture-services",
+    "field": "address",
+    "value": "Level 2 525 Collins Street, Melbourne VIC 3000",
+    "source_id": "info-digitalagricultureservices-com-en-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:54.228Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "digital-agriculture-services.city.digitalagricultureservices-com-privacy",
+    "company_id": "digital-agriculture-services",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "digitalagricultureservices-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "digital-agriculture-services.description.digitalagricultureservices-com",
+    "company_id": "digital-agriculture-services",
+    "field": "description",
+    "value": "Location Intelligence for decisions makers to lend, insure, invest, sell and serve customers.",
+    "source_id": "digitalagricultureservices-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "digital-agriculture-services.state.digitalagricultureservices-com-privacy",
+    "company_id": "digital-agriculture-services",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "digitalagricultureservices-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "digital-agriculture-services.website.digitalagricultureservices-com",
+    "company_id": "digital-agriculture-services",
+    "field": "website",
+    "value": "https://digitalagricultureservices.com",
+    "source_id": "digitalagricultureservices-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:16:48.986Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "digital-agriculture-services.website.echai-ventures-melbourne-vcs",
+    "company_id": "digital-agriculture-services",
+    "field": "website",
+    "value": "https://digitalagricultureservices.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
   },
   {
     "id": "dimple.description.www-dimplecontacts-com",
@@ -6158,6 +7467,39 @@
     "verified_at": "2026-10-13T13:17:43.739Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "dr-glitter.description.drglitter-com",
+    "company_id": "dr-glitter",
+    "field": "description",
+    "value": "Dr Glitter offers an effortless way to boost your iron intake, energy and well-being without digestive discomfort or taste changes. Made from natural, plant-derived ingredients, Dr Glitter’s unique red iron nutrient crystals blend seamlessly into your meals and drinks.",
+    "source_id": "drglitter-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "dr-glitter.website.drglitter-com",
+    "company_id": "dr-glitter",
+    "field": "website",
+    "value": "https://drglitter.com",
+    "source_id": "drglitter-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:17:02.835Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "dr-glitter.website.www-themap-co-startups",
+    "company_id": "dr-glitter",
+    "field": "website",
+    "value": "https://drglitter.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "drawboard.address.drawboard-privacy",
@@ -6490,6 +7832,17 @@
     "note": "Named on this page (plus eight alumni); the page is not proof of a Perth office."
   },
   {
+    "id": "edrolo.website.edrolo-com-au",
+    "company_id": "edrolo",
+    "field": "website",
+    "value": "https://edrolo.com.au/",
+    "source_id": "edrolo-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:19:16.267Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
     "id": "edsemble.description.edsemble-website",
     "company_id": "edsemble",
     "field": "description",
@@ -6820,6 +8173,39 @@
     "note": "The site itself."
   },
   {
+    "id": "ena-respiratory.city.enarespiratory-com-about",
+    "company_id": "ena-respiratory",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "enarespiratory-com-about",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:19:26.107Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"headquartered in Melbourne, Australia, with operations i\"."
+  },
+  {
+    "id": "ena-respiratory.website.enarespiratory-com",
+    "company_id": "ena-respiratory",
+    "field": "website",
+    "value": "https://enarespiratory.com",
+    "source_id": "enarespiratory-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:17:24.604Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "ena-respiratory.website.melbournestartups-com",
+    "company_id": "ena-respiratory",
+    "field": "website",
+    "value": "https://enarespiratory.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "enboarder.description.enboarder-website",
     "company_id": "enboarder",
     "field": "description",
@@ -6884,6 +8270,39 @@
     "verified_at": "2026-10-31T01:32:34.071Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "epiminder.address.epiminder-com",
+    "company_id": "epiminder",
+    "field": "address",
+    "value": "525 Collins Street, Melbourne VIC 3000",
+    "source_id": "epiminder-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:19:44.714Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "epiminder.address.epiminder-com-privacy-policy",
+    "company_id": "epiminder",
+    "field": "address",
+    "value": "525 Collins Street, Melbourne VIC 3000",
+    "source_id": "epiminder-com-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:19:44.714Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "epiminder.website.echai-ventures-melbourne-vcs",
+    "company_id": "epiminder",
+    "field": "website",
+    "value": "https://epiminder.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
   },
   {
     "id": "esper-satellite-imagery.address.www-espersatellites-co",
@@ -6961,6 +8380,17 @@
     "verified_at": "2026-10-30T23:35:19.990Z",
     "status": "active",
     "note": "The website Investible lists for the company."
+  },
+  {
+    "id": "estimate.address.estimateai-com-au-terms",
+    "company_id": "estimate",
+    "field": "address",
+    "value": "45B Douglas Parade, Yarra Junction VIC 3797",
+    "source_id": "estimateai-com-au-terms",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:19:55.116Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
   },
   {
     "id": "estimate.city.estimateai-com-au",
@@ -7249,6 +8679,72 @@
     "note": "The site itself."
   },
   {
+    "id": "eugene.address.eugenelabs-com",
+    "company_id": "eugene",
+    "field": "address",
+    "value": "41 Stewart St, Richmond VIC 3121",
+    "source_id": "eugenelabs-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "eugene.address.eugenelabs-com-pages-contact",
+    "company_id": "eugene",
+    "field": "address",
+    "value": "41 Stewart St, Richmond VIC 3121",
+    "source_id": "eugenelabs-com-pages-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:20:00.383Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "eugene.description.eugenelabs-com",
+    "company_id": "eugene",
+    "field": "description",
+    "value": "Take control of your health with Eugene. Doctor-recommended genetic tests for preconception, pregnancy, and preventive health. Shop now for genetic carrier testing, proactive cancer risk and heart health tests. Online education, free shipping and genetic counselling included.",
+    "source_id": "eugenelabs-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "eugene.state.eugenelabs-com",
+    "company_id": "eugene",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "eugenelabs-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "eugene.website.echai-ventures-melbourne-vcs",
+    "company_id": "eugene",
+    "field": "website",
+    "value": "https://eugenelabs.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "eugene.website.eugenelabs-com",
+    "company_id": "eugene",
+    "field": "website",
+    "value": "https://eugenelabs.com",
+    "source_id": "eugenelabs-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:17:57.062Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "everbility.description.www-everbility-com",
     "company_id": "everbility",
     "field": "description",
@@ -7302,6 +8798,94 @@
     "verified_at": "2026-10-30T23:37:51.481Z",
     "status": "active",
     "note": "The website Startmate lists for the company."
+  },
+  {
+    "id": "everlab.website.www-everlab-com-au",
+    "company_id": "everlab",
+    "field": "website",
+    "value": "https://www.everlab.com.au/",
+    "source_id": "www-everlab-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:20:05.525Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
+    "id": "exergenics.address.www-exergenics-com",
+    "company_id": "exergenics",
+    "field": "address",
+    "value": "10–20 Gwynne St, Cremorne VIC 3121",
+    "source_id": "www-exergenics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "exergenics.address.www-exergenics-com-about",
+    "company_id": "exergenics",
+    "field": "address",
+    "value": "10–20 Gwynne St, Cremorne VIC 3121",
+    "source_id": "www-exergenics-com-about",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:20:13.013Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "exergenics.address.www-exergenics-com-privacy-policy",
+    "company_id": "exergenics",
+    "field": "address",
+    "value": "4/333 Exhibition Street, Melbourne, VIC, 3000",
+    "source_id": "www-exergenics-com-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:20:13.013Z",
+    "status": "superseded",
+    "note": "The address its privacy policy gives for complaints (4/333 Exhibition Street): its home and about pages give 10-20 Gwynne Street, Cremorne as where it is."
+  },
+  {
+    "id": "exergenics.description.www-exergenics-com",
+    "company_id": "exergenics",
+    "field": "description",
+    "value": "Cloud-based machine learning tool for chilled water plant optimization, providing best-in-class control strategies programmed directly into existing Building Management Systems.",
+    "source_id": "www-exergenics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "exergenics.state.www-exergenics-com",
+    "company_id": "exergenics",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-exergenics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "exergenics.website.www-exergenics-com",
+    "company_id": "exergenics",
+    "field": "website",
+    "value": "https://exergenics.com.au",
+    "source_id": "www-exergenics-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:07.533Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "exergenics.website.www-themap-co-startups",
+    "company_id": "exergenics",
+    "field": "website",
+    "value": "https://exergenics.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "expert360.address.expert360-company-about",
@@ -7667,6 +9251,50 @@
     "note": null
   },
   {
+    "id": "ferguson-s-treatos.city.fergusonstreatos-com-au",
+    "company_id": "ferguson-s-treatos",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "fergusonstreatos-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:20:34.202Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Melbourne, VIC\"."
+  },
+  {
+    "id": "ferguson-s-treatos.description.fergusonstreatos-com-au",
+    "company_id": "ferguson-s-treatos",
+    "field": "description",
+    "value": "Looking for the best treats for your dog? The healthiest treats for puppies, adult and senior dogs are Ferguson's Australian single protein dog treats air dried to perfection. No additives, artificial ingredients or preservatives used, all natural. High in Protein, High in Deliciousness.",
+    "source_id": "fergusonstreatos-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "ferguson-s-treatos.website.fergusonstreatos-com-au",
+    "company_id": "ferguson-s-treatos",
+    "field": "website",
+    "value": "https://fergusonstreatos.com.au",
+    "source_id": "fergusonstreatos-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:24.704Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "ferguson-s-treatos.website.www-themap-co-startups",
+    "company_id": "ferguson-s-treatos",
+    "field": "website",
+    "value": "https://fergusonstreatos.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "first-aml.address.www-firstaml-com-au-about-help-contact",
     "company_id": "first-aml",
     "field": "address",
@@ -7971,6 +9599,50 @@
     "source_id": "flyone-com-au",
     "confidence": "high",
     "verified_at": "2026-10-31T01:32:39.291Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "focus-bear.address.www-focusbear-io-privacy-policy",
+    "company_id": "focus-bear",
+    "field": "address",
+    "value": "29 Melrose St, Sandringham VIC 3191",
+    "source_id": "www-focusbear-io-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "focus-bear.description.www-focusbear-io",
+    "company_id": "focus-bear",
+    "field": "description",
+    "value": "Focus Bear builds your routines, blocks distractions across all your devices, and nudges you back on track. Designed by and for people with ADHD.",
+    "source_id": "www-focusbear-io",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "focus-bear.state.www-focusbear-io-privacy-policy",
+    "company_id": "focus-bear",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-focusbear-io-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "focus-bear.website.www-focusbear-io",
+    "company_id": "focus-bear",
+    "field": "website",
+    "value": "https://focusbear.io",
+    "source_id": "www-focusbear-io",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:18:55.638Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -8404,6 +10076,61 @@
     "note": "The website Startmate lists."
   },
   {
+    "id": "frank-green.address.frankgreen-com-au-pages-contact-us",
+    "company_id": "frank-green",
+    "field": "address",
+    "value": "7 Raglan Street, South Melbourne, VIC 3205",
+    "source_id": "frankgreen-com-au-pages-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:21:45.214Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "frank-green.description.frankgreen-com-au",
+    "company_id": "frank-green",
+    "field": "description",
+    "value": "All of our reusable cups, bottles and stainless steel products are stain and odour resistant, featuring a spill proof screw lid and a one handed toggle button to drink and reseal.",
+    "source_id": "frankgreen-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "frank-green.website.echai-ventures-melbourne-vcs",
+    "company_id": "frank-green",
+    "field": "website",
+    "value": "https://frankgreen.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "frank-green.website.frankgreen-com-au",
+    "company_id": "frank-green",
+    "field": "website",
+    "value": "https://frankgreen.com",
+    "source_id": "frankgreen-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:19:03.183Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "frankieone.website.frankieone-com",
+    "company_id": "frankieone",
+    "field": "website",
+    "value": "https://frankieone.com/",
+    "source_id": "frankieone-com",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:21:53.061Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
     "id": "frntlne.address.www-frntlne-com",
     "company_id": "frntlne",
     "field": "address",
@@ -8776,6 +10503,50 @@
     "verified_at": "2026-10-30T23:35:19.990Z",
     "status": "active",
     "note": "The website Investible lists for the company."
+  },
+  {
+    "id": "get-it-fast.address.getitfast-com-au-privacy",
+    "company_id": "get-it-fast",
+    "field": "address",
+    "value": "2 Brandon Park Drive, Wheelers Hill VIC 3150",
+    "source_id": "getitfast-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "get-it-fast.state.getitfast-com-au-privacy",
+    "company_id": "get-it-fast",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "getitfast-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "get-it-fast.website.getitfast-com-au",
+    "company_id": "get-it-fast",
+    "field": "website",
+    "value": "https://getitfast.com.au",
+    "source_id": "getitfast-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:19:37.717Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "get-it-fast.website.www-themap-co-startups",
+    "company_id": "get-it-fast",
+    "field": "website",
+    "value": "https://getitfast.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "gilmour-space-technologies.address.gilmour-space-technologies-website",
@@ -9350,6 +11121,83 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "healthily.address.healthily-com-au",
+    "company_id": "healthily",
+    "field": "address",
+    "value": "492 St Kilda Rd, Melbourne VIC 3004",
+    "source_id": "healthily-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "healthily.address.healthily-com-au-contact-us",
+    "company_id": "healthily",
+    "field": "address",
+    "value": "Level 5, 492 St Kilda Rd, Melbourne VIC 3004",
+    "source_id": "healthily-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:23:06.001Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "healthily.city.healthily-com-au",
+    "company_id": "healthily",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "healthily-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "healthily.description.healthily-com-au",
+    "company_id": "healthily",
+    "field": "description",
+    "value": "Healthily is an Australian health technology company specialising in patient education. Healthily’s digital platforms and content library enable health professionals to provide their patients with self-management support, and to empower patients to play a more active role in their healthcare.",
+    "source_id": "healthily-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "healthily.state.healthily-com-au",
+    "company_id": "healthily",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "healthily-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "healthily.website.healthily-com-au",
+    "company_id": "healthily",
+    "field": "website",
+    "value": "https://healthily.com.au",
+    "source_id": "healthily-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:20:31.905Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "healthily.website.melbournestartups-com",
+    "company_id": "healthily",
+    "field": "website",
+    "value": "https://healthily.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "heaps-normal.address.heaps-normal-pages-health-club",
     "company_id": "heaps-normal",
     "field": "address",
@@ -9658,6 +11506,17 @@
     "note": "The site itself."
   },
   {
+    "id": "hotdoc.website.www-hotdoc-com-au",
+    "company_id": "hotdoc",
+    "field": "website",
+    "value": "https://www.hotdoc.com.au/",
+    "source_id": "www-hotdoc-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:23:34.614Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
     "id": "hullbot.description.hullbot-com",
     "company_id": "hullbot",
     "field": "description",
@@ -9731,6 +11590,61 @@
     "source_id": "human-health-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:07:20.046Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "hungryhungry.address.www-hungryhungry-com-contact-us",
+    "company_id": "hungryhungry",
+    "field": "address",
+    "value": "59 Fennell Street, Port Melbourne VIC 3207",
+    "source_id": "www-hungryhungry-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:23:47.360Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "hungryhungry.address.www-hungryhungry-com-terms-privacy-policy",
+    "company_id": "hungryhungry",
+    "field": "address",
+    "value": "59 Fennell Street, Port Melbourne VIC 3207",
+    "source_id": "www-hungryhungry-com-terms-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:23:47.360Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "hungryhungry.description.www-hungryhungry-com",
+    "company_id": "hungryhungry",
+    "field": "description",
+    "value": "HungryHungry is an online ordering and hospitality technology platform helping restaurants, cafes and venues take orders, manage payments and grow their business.",
+    "source_id": "www-hungryhungry-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "hungryhungry.website.echai-ventures-melbourne-vcs",
+    "company_id": "hungryhungry",
+    "field": "website",
+    "value": "https://hungryhungry.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "hungryhungry.website.www-hungryhungry-com",
+    "company_id": "hungryhungry",
+    "field": "website",
+    "value": "https://hungryhungry.com",
+    "source_id": "www-hungryhungry-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:21:06.197Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -10593,6 +12507,72 @@
     "note": "The site itself."
   },
   {
+    "id": "intellischool.address.intellischool-co-docs-46039050-terms-and-conditions",
+    "company_id": "intellischool",
+    "field": "address",
+    "value": "500 Collins St, Melbourne VIC 3000",
+    "source_id": "intellischool-co-docs-46039050-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "intellischool.city.intellischool-co-docs-46039050-terms-and-conditions",
+    "company_id": "intellischool",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "intellischool-co-docs-46039050-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "intellischool.description.intellischool-co",
+    "company_id": "intellischool",
+    "field": "description",
+    "value": "Intellischool brings data from your school's existing systems into one governed foundation: clearer insight, earlier action, and safer use of school-chosen AI.",
+    "source_id": "intellischool-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "intellischool.state.intellischool-co-docs-46039050-terms-and-conditions",
+    "company_id": "intellischool",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "intellischool-co-docs-46039050-terms-and-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "intellischool.website.intellischool-co",
+    "company_id": "intellischool",
+    "field": "website",
+    "value": "https://intellischool.co",
+    "source_id": "intellischool-co",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:21:44.901Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "intellischool.website.www-themap-co-startups",
+    "company_id": "intellischool",
+    "field": "website",
+    "value": "https://intellischool.co",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne location evidence); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "interearth.address.www-inter-earth",
     "company_id": "interearth",
     "field": "address",
@@ -10967,6 +12947,72 @@
     "note": "The site itself."
   },
   {
+    "id": "jet-charge.address.jetcharge-com-au-contact-us",
+    "company_id": "jet-charge",
+    "field": "address",
+    "value": "10/350 Bridge Street, Port Melbourne, VIC 3207",
+    "source_id": "jetcharge-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:24:45.918Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "jet-charge.address.jetcharge-com-au-privacy-policy",
+    "company_id": "jet-charge",
+    "field": "address",
+    "value": "350 Bridge St, Port Melbourne VIC 3207",
+    "source_id": "jetcharge-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "jet-charge.description.jetcharge-com-au",
+    "company_id": "jet-charge",
+    "field": "description",
+    "value": "We plan, deploy and maintain EV charging solutions to help you transition to electric with confidence. From your first pilot project to a large-scale infrastructure roll out.",
+    "source_id": "jetcharge-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "jet-charge.state.jetcharge-com-au-privacy-policy",
+    "company_id": "jet-charge",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "jetcharge-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "jet-charge.website.echai-ventures-melbourne-vcs",
+    "company_id": "jet-charge",
+    "field": "website",
+    "value": "https://jetcharge.com.au",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "jet-charge.website.jetcharge-com-au",
+    "company_id": "jet-charge",
+    "field": "website",
+    "value": "https://jetcharge.com.au",
+    "source_id": "jetcharge-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:21:52.501Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "jigspace.description.jigspace-website",
     "company_id": "jigspace",
     "field": "description",
@@ -11029,6 +13075,72 @@
     "source_id": "josef-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:11:10.060Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "july.address.july-com-au-privacy-policy",
+    "company_id": "july",
+    "field": "address",
+    "value": "69-71 Rupert St, Collingwood, VIC, 3066",
+    "source_id": "july-com-au-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:25:10.863Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "july.address.july-com-au-terms-conditions",
+    "company_id": "july",
+    "field": "address",
+    "value": "69-71 Rupert St, Collingwood VIC 3066",
+    "source_id": "july-com-au-terms-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "july.description.july-com-au",
+    "company_id": "july",
+    "field": "description",
+    "value": "Focus on the parts of travelling you love with July®️ luggage and travel accessories. Try us for 100 days.",
+    "source_id": "july-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "july.state.july-com-au-terms-conditions",
+    "company_id": "july",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "july-com-au-terms-conditions",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "july.website.echai-ventures-melbourne-vcs",
+    "company_id": "july",
+    "field": "website",
+    "value": "https://july.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "july.website.july-com-au",
+    "company_id": "july",
+    "field": "website",
+    "value": "https://july.com",
+    "source_id": "july-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:21:59.949Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -11385,6 +13497,61 @@
     "note": "The site itself."
   },
   {
+    "id": "kinoxis.city.kinoxistherapeutics-com",
+    "company_id": "kinoxis",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "kinoxistherapeutics-com",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:25:29.989Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Clinical Study for KNX100 in Treating Agitation Associated with Dementia MELBOURNE, AUSTRALIA, 23 December 2024\"."
+  },
+  {
+    "id": "kinoxis.description.kinoxistherapeutics-com",
+    "company_id": "kinoxis",
+    "field": "description",
+    "value": "Developing novel therapeutics for social dysfunction and substance use disorders.",
+    "source_id": "kinoxistherapeutics-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "kinoxis.website.kinoxistherapeutics-com",
+    "company_id": "kinoxis",
+    "field": "website",
+    "value": "https://kinoxistherapeutics.com",
+    "source_id": "kinoxistherapeutics-com",
+    "confidence": "high",
+    "verified_at": "2026-10-05T08:13:08.606Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "kinoxis.website.melbournestartups-com",
+    "company_id": "kinoxis",
+    "field": "website",
+    "value": "https://kinoxistherapeutics.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "kinoxis.website.user-supplied-supplied-by-a-reviewer-89",
+    "company_id": "kinoxis",
+    "field": "website",
+    "value": "https://kinoxistherapeutics.com",
+    "source_id": "user-supplied-supplied-by-a-reviewer-89",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "active",
+    "note": "Supplied by Claude, for the owner (site checked against its own page)."
+  },
+  {
     "id": "kit.description.kit-website",
     "company_id": "kit",
     "field": "description",
@@ -11471,6 +13638,138 @@
     "verified_at": "2026-10-30T23:35:19.990Z",
     "status": "active",
     "note": "The website Investible lists for the company."
+  },
+  {
+    "id": "lab-group.address.www-labgroup-com-au",
+    "company_id": "lab-group",
+    "field": "address",
+    "value": "Level 2, 91-93 Flinders Lane, Melbourne VIC 3000",
+    "source_id": "www-labgroup-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "lab-group.address.www-labgroup-com-au-contact-us",
+    "company_id": "lab-group",
+    "field": "address",
+    "value": "Level 2, 91-93 Flinders Ln, Melbourne, VIC 3000",
+    "source_id": "www-labgroup-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:25:37.516Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "lab-group.address.www-labgroup-com-au-contact-us.2",
+    "company_id": "lab-group",
+    "field": "address",
+    "value": "91-93 Flinders Ln, Melbourne, VIC 3000 Sydney Level 20, 135 King St, Sydney, NSW 2000",
+    "source_id": "www-labgroup-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:25:37.516Z",
+    "status": "superseded",
+    "note": "The Melbourne address with the Sydney office's address run into it; the Sydney office is recorded as a location of its own (company_locations)."
+  },
+  {
+    "id": "lab-group.address.www-labgroup-com-au-privacy-policy",
+    "company_id": "lab-group",
+    "field": "address",
+    "value": "Level 20, 135 King Street, Sydney NSW 2000",
+    "source_id": "www-labgroup-com-au-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "superseded",
+    "note": "The Sydney office's address, recorded as a location of its own (company_locations): the Melbourne address is the address of the record."
+  },
+  {
+    "id": "lab-group.city.www-labgroup-com-au",
+    "company_id": "lab-group",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-labgroup-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "lab-group.city.www-labgroup-com-au-privacy-policy",
+    "company_id": "lab-group",
+    "field": "city",
+    "value": "Sydney",
+    "source_id": "www-labgroup-com-au-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "lab-group.description.www-labgroup-com-au",
+    "company_id": "lab-group",
+    "field": "description",
+    "value": "Configurable, white-label onboarding journeys for individuals, companies, trusts and SMSFs, embedded in your brand and your workflows.",
+    "source_id": "www-labgroup-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "lab-group.founded_year.www-labgroup-com-au",
+    "company_id": "lab-group",
+    "field": "founded_year",
+    "value": 2010,
+    "source_id": "www-labgroup-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "lab-group.state.www-labgroup-com-au",
+    "company_id": "lab-group",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-labgroup-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "lab-group.state.www-labgroup-com-au-privacy-policy",
+    "company_id": "lab-group",
+    "field": "state",
+    "value": "NSW",
+    "source_id": "www-labgroup-com-au-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "lab-group.website.melbournestartups-com",
+    "company_id": "lab-group",
+    "field": "website",
+    "value": "https://labgroup.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "lab-group.website.www-labgroup-com-au",
+    "company_id": "lab-group",
+    "field": "website",
+    "value": "https://labgroup.com.au",
+    "source_id": "www-labgroup-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:22:23.580Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "lawpath.description.lawpath-com-au",
@@ -11891,6 +14190,61 @@
     "note": "The site itself."
   },
   {
+    "id": "loke.address.www-loke-global-privacy-policy-apac",
+    "company_id": "loke",
+    "field": "address",
+    "value": "5 Glasshouse Road, Collingwood VIC 3066",
+    "source_id": "www-loke-global-privacy-policy-apac",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "loke.address.www-loke-global-terms-of-use-au",
+    "company_id": "loke",
+    "field": "address",
+    "value": "5 Glasshouse Road, Collingwood VIC 3066",
+    "source_id": "www-loke-global-terms-of-use-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:27:13.455Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "loke.state.www-loke-global-privacy-policy-apac",
+    "company_id": "loke",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-loke-global-privacy-policy-apac",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "loke.website.melbournestartups-com",
+    "company_id": "loke",
+    "field": "website",
+    "value": "https://loke.global",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "loke.website.www-loke-global",
+    "company_id": "loke",
+    "field": "website",
+    "value": "https://loke.global",
+    "source_id": "www-loke-global",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:23:18.758Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "lombard.description.www-lombard-finance",
     "company_id": "lombard",
     "field": "description",
@@ -11968,6 +14322,28 @@
     "note": "The site itself."
   },
   {
+    "id": "looplearn.address.loopsafe-net-contact",
+    "company_id": "looplearn",
+    "field": "address",
+    "value": "1 Tripovich Street, Brunswick, VIC 3056",
+    "source_id": "loopsafe-net-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:27:23.123Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "looplearn.website.www-themap-co-startups",
+    "company_id": "looplearn",
+    "field": "website",
+    "value": "https://looplearn.net",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "lorikeet.description.lorikeet-website",
     "company_id": "lorikeet",
     "field": "description",
@@ -12043,6 +14419,105 @@
     "verified_at": "2026-10-30T23:37:51.481Z",
     "status": "active",
     "note": "The website Startmate lists for the company."
+  },
+  {
+    "id": "lyrebird-health.website.www-lyrebirdhealth-com-au",
+    "company_id": "lyrebird-health",
+    "field": "website",
+    "value": "https://www.lyrebirdhealth.com/",
+    "source_id": "www-lyrebirdhealth-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:27:31.921Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
+    "id": "mark-my-words.city.markmywords-au",
+    "company_id": "mark-my-words",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "markmywords-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:27:48.868Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Melbourne, VIC\"."
+  },
+  {
+    "id": "mark-my-words.description.markmywords-au",
+    "company_id": "mark-my-words",
+    "field": "description",
+    "value": "Mark My Words empowers every teacher to deliver personalised writing instruction with detailed feedback, data-driven literacy tracking, and contextual interventions.",
+    "source_id": "markmywords-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "mark-my-words.website.markmywords-au",
+    "company_id": "mark-my-words",
+    "field": "website",
+    "value": "https://markmywords.au",
+    "source_id": "markmywords-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:23:40.773Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "mark-my-words.website.www-themap-co-startups",
+    "company_id": "mark-my-words",
+    "field": "website",
+    "value": "https://markmywords.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "marketplacer.city.marketplacer-com-legal-global-privacy-policy",
+    "company_id": "marketplacer",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "marketplacer-com-legal-global-privacy-policy",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:27:53.604Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Williamstown VIC\"."
+  },
+  {
+    "id": "marketplacer.description.marketplacer-com",
+    "company_id": "marketplacer",
+    "field": "description",
+    "value": "Marketplacer is a marketplace platform and dropshipping solution that allows enterprise companies to scale and grow in today's evolving e-commerce environment.",
+    "source_id": "marketplacer-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "marketplacer.website.echai-ventures-melbourne-vcs",
+    "company_id": "marketplacer",
+    "field": "website",
+    "value": "https://marketplacer.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "marketplacer.website.marketplacer-com",
+    "company_id": "marketplacer",
+    "field": "website",
+    "value": "https://marketplacer.com",
+    "source_id": "marketplacer-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:23:46.522Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "marloo.address.www-marloo-com-au-privacy-policy",
@@ -12364,6 +14839,61 @@
     "note": "The site itself."
   },
   {
+    "id": "maxme.address.www-maxme-com-au",
+    "company_id": "maxme",
+    "field": "address",
+    "value": "10/20 Gwynne St., Cremorne VIC 3121",
+    "source_id": "www-maxme-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:24:05.880Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "maxme.description.www-maxme-com-au",
+    "company_id": "maxme",
+    "field": "description",
+    "value": "Invest in your company's future with our human skill development programs. Improve employee retention, drive innovation, and boost performance. Enrol today!",
+    "source_id": "www-maxme-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "maxme.state.www-maxme-com-au",
+    "company_id": "maxme",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-maxme-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:24:05.880Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "maxme.website.melbournestartups-com",
+    "company_id": "maxme",
+    "field": "website",
+    "value": "https://maxme.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "maxme.website.www-maxme-com-au",
+    "company_id": "maxme",
+    "field": "website",
+    "value": "https://maxme.com.au",
+    "source_id": "www-maxme-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:24:05.880Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "me-and-u.description.me-and-u-website",
     "company_id": "me-and-u",
     "field": "description",
@@ -12450,6 +14980,72 @@
     "verified_at": "2026-10-31T01:34:33.741Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "mercando.address.mercando-com-au",
+    "company_id": "mercando",
+    "field": "address",
+    "value": "80 Market St, South Melbourne VIC 3205",
+    "source_id": "mercando-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "mercando.address.mercando-com-au-terms-of-service",
+    "company_id": "mercando",
+    "field": "address",
+    "value": "Level 4 80 Market St, South Melbourne VIC 3205",
+    "source_id": "mercando-com-au-terms-of-service",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:28:26.147Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "mercando.description.mercando-com-au",
+    "company_id": "mercando",
+    "field": "description",
+    "value": "Explore household, commercial and funded gardening services across Melbourne, Sydney and Wollongong, with local availability checked before booking.",
+    "source_id": "mercando-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "mercando.state.mercando-com-au",
+    "company_id": "mercando",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "mercando-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "mercando.website.mercando-com-au",
+    "company_id": "mercando",
+    "field": "website",
+    "value": "https://mercando.com.au",
+    "source_id": "mercando-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:24:12.827Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "mercando.website.www-monash-edu-monash-innovation-impact-generator-founders",
+    "company_id": "mercando",
+    "field": "website",
+    "value": "https://mercando.com.au",
+    "source_id": "www-monash-edu-monash-innovation-impact-generator-founders",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "merchantspring.address.merchantspring-io-mm-privacy-policy",
@@ -13222,6 +15818,105 @@
     "note": "The site itself."
   },
   {
+    "id": "nebula-health.address.www-nebulahealth-com-contact-us",
+    "company_id": "nebula-health",
+    "field": "address",
+    "value": "1 / 333 Exhibition St, Melbourne VIC 3004",
+    "source_id": "www-nebulahealth-com-contact-us",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "nebula-health.city.www-nebulahealth-com-contact-us",
+    "company_id": "nebula-health",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-nebulahealth-com-contact-us",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "nebula-health.state.www-nebulahealth-com-contact-us",
+    "company_id": "nebula-health",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-nebulahealth-com-contact-us",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "nebula-health.website.www-nebulahealth-com",
+    "company_id": "nebula-health",
+    "field": "website",
+    "value": "https://nebulahealth.com",
+    "source_id": "www-nebulahealth-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:25:46.531Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "nebula-health.website.www-themap-co-startups",
+    "company_id": "nebula-health",
+    "field": "website",
+    "value": "https://nebulahealth.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "neo-bionica.city.neo-bionica-com-about-us",
+    "company_id": "neo-bionica",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "neo-bionica-com-about-us",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:30:13.740Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Headquartered in Melbourne, Australia with a team in the\"."
+  },
+  {
+    "id": "neo-bionica.description.neo-bionica-com",
+    "company_id": "neo-bionica",
+    "field": "description",
+    "value": "From idea to implant, Neo-Bionica helps neurotech innovators accelerate device development from early concept to First-in-Human clinical trials.",
+    "source_id": "neo-bionica-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "neo-bionica.website.melbournestartups-com",
+    "company_id": "neo-bionica",
+    "field": "website",
+    "value": "https://neo-bionica.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "neo-bionica.website.neo-bionica-com",
+    "company_id": "neo-bionica",
+    "field": "website",
+    "value": "https://neo-bionica.com",
+    "source_id": "neo-bionica-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:25:53.032Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "neuralindex-ai.investors.startmate.www-startmate-com-portfolio-companies-neuralindex-ai",
     "company_id": "neuralindex-ai",
     "field": "investors",
@@ -13264,6 +15959,83 @@
     "verified_at": "2026-10-30T23:37:51.481Z",
     "status": "active",
     "note": "The website Startmate lists for the company."
+  },
+  {
+    "id": "newsie.address.www-newsie-com-au-privacy",
+    "company_id": "newsie",
+    "field": "address",
+    "value": "65 Wellington St, Collingwood VIC 3066",
+    "source_id": "www-newsie-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "newsie.state.www-newsie-com-au-privacy",
+    "company_id": "newsie",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-newsie-com-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "newsie.website.www-newsie-com-au",
+    "company_id": "newsie",
+    "field": "website",
+    "value": "https://newsie.com.au",
+    "source_id": "www-newsie-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:26:02.965Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "newsie.website.www-themap-co-startups",
+    "company_id": "newsie",
+    "field": "website",
+    "value": "https://newsie.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "nextaero.city.nextaero-com-au-index-php-contact",
+    "company_id": "nextaero",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "nextaero-com-au-index-php-contact",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:30:40.880Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"based in Melbourne, Australia\"."
+  },
+  {
+    "id": "nextaero.website.nextaero-com-au",
+    "company_id": "nextaero",
+    "field": "website",
+    "value": "https://nextaero.com.au",
+    "source_id": "nextaero-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:26:17.160Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "nextaero.website.www-monash-edu-monash-innovation-impact-generator-founders",
+    "company_id": "nextaero",
+    "field": "website",
+    "value": "https://nextaero.com.au",
+    "source_id": "www-monash-edu-monash-innovation-impact-generator-founders",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "nexusmd.description.nexusmd-com-au",
@@ -13418,6 +16190,28 @@
     "verified_at": "2026-10-13T13:25:55.418Z",
     "status": "active",
     "note": "Australian address on the page."
+  },
+  {
+    "id": "nutromics.address.www-nutromics-com-who-we-are",
+    "company_id": "nutromics",
+    "field": "address",
+    "value": "420 VIC Street, Brunswick, VIC 3056",
+    "source_id": "www-nutromics-com-who-we-are",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:31:04.445Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "nutromics.address.www-nutromics-com-who-we-are.2",
+    "company_id": "nutromics",
+    "field": "address",
+    "value": "420 Victoria Street, Brunswick, VIC 3056",
+    "source_id": "www-nutromics-com-who-we-are",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:31:04.445Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
   },
   {
     "id": "nutromics.description.www-nutromics-com",
@@ -13981,6 +16775,72 @@
     "note": "The site itself."
   },
   {
+    "id": "operata.address.operata-com-platform-integrations",
+    "company_id": "operata",
+    "field": "address",
+    "value": "3/162 Collins Street, Melbourne, VIC 3000",
+    "source_id": "operata-com-platform-integrations",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:31:10.805Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "operata.address.operata-com-privacy",
+    "company_id": "operata",
+    "field": "address",
+    "value": "3/162 Collins Street, Melbourne, VIC, 3000",
+    "source_id": "operata-com-privacy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:31:10.805Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "operata.description.operata-com",
+    "company_id": "operata",
+    "field": "description",
+    "value": "Monitor, assure, diagnose and optimize performance across your AI and human-powered CX stack. In real time.",
+    "source_id": "operata-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "operata.website.echai-ventures-melbourne-vcs",
+    "company_id": "operata",
+    "field": "website",
+    "value": "https://operata.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "operata.website.operata-com",
+    "company_id": "operata",
+    "field": "website",
+    "value": "https://operata.com",
+    "source_id": "operata-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:26:48.362Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "orkestra.website.www-orkestra-energy",
+    "company_id": "orkestra",
+    "field": "website",
+    "value": "https://www.orkestra.energy/",
+    "source_id": "www-orkestra-energy",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:31:17.899Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
     "id": "oto-medicines.address.www-otomedicines-com",
     "company_id": "oto-medicines",
     "field": "address",
@@ -14023,6 +16883,72 @@
     "verified_at": "2026-10-31T00:00:00.000Z",
     "status": "active",
     "note": "Named on this page (wa awards 2026); the page is not proof of a Perth office."
+  },
+  {
+    "id": "outcoach.address.outcoach-io-privacy-policy",
+    "company_id": "outcoach",
+    "field": "address",
+    "value": "700 Swanston Street, Carlton VIC 3053",
+    "source_id": "outcoach-io-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "outcoach.description.outcoach-io",
+    "company_id": "outcoach",
+    "field": "description",
+    "value": "Outcoach is class and club management software for coaching businesses and sports clubs, including tennis and pickleball. It brings scheduling, online bookings, payments, makeup classes, court hire, messaging and player progress into one app, with a free app for players and families. Plans start from $0.70 per student a month.",
+    "source_id": "outcoach-io",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "outcoach.state.outcoach-io-privacy-policy",
+    "company_id": "outcoach",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "outcoach-io-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "outcoach.website.outcoach-io",
+    "company_id": "outcoach",
+    "field": "website",
+    "value": "https://outcoach.io",
+    "source_id": "outcoach-io",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:26:58.400Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "outcoach.website.www-monash-edu-monash-innovation-impact-generator-founders",
+    "company_id": "outcoach",
+    "field": "website",
+    "value": "https://outcoach.io",
+    "source_id": "www-monash-edu-monash-innovation-impact-generator-founders",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "outcoach.website.www-themap-co-startups",
+    "company_id": "outcoach",
+    "field": "website",
+    "value": "https://outcoach.io",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "ownhome.address.ownhome-legal-ownhome-contact",
@@ -14142,6 +17068,61 @@
     "source_id": "pairtree-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:08:53.204Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "pay-com-au.address.pay-com-au",
+    "company_id": "pay-com-au",
+    "field": "address",
+    "value": "196-206 High St, Windsor VIC 3181",
+    "source_id": "pay-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:27:17.998Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "pay-com-au.city.pay-com-au",
+    "company_id": "pay-com-au",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "pay-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:31:34.953Z",
+    "status": "active",
+    "note": "The company's own page gives a postal or registered address in Melbourne (Level 4/196-206 High St, Windsor VIC 3181): not an operating site, so no pin."
+  },
+  {
+    "id": "pay-com-au.description.pay-com-au",
+    "company_id": "pay-com-au",
+    "field": "description",
+    "value": "Earn credit card points on any business payment. ATO, suppliers, rent, super - pay by card when you usually can't. Expert advice and concierge service.",
+    "source_id": "pay-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "pay-com-au.state.pay-com-au",
+    "company_id": "pay-com-au",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "pay-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:27:17.998Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "pay-com-au.website.pay-com-au",
+    "company_id": "pay-com-au",
+    "field": "website",
+    "value": "https://pay.com.au",
+    "source_id": "pay-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:27:17.998Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -14509,6 +17490,83 @@
     "note": "The site itself."
   },
   {
+    "id": "polyactiva.address.polyactiva-com",
+    "company_id": "polyactiva",
+    "field": "address",
+    "value": "45-47 Normanby Road, Notting Hill VIC 3168",
+    "source_id": "polyactiva-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "polyactiva.address.polyactiva-com-contact",
+    "company_id": "polyactiva",
+    "field": "address",
+    "value": "Unit 21, 45-47 Normanby Road, Notting Hill VIC 3168",
+    "source_id": "polyactiva-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:31:57.873Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "polyactiva.address.polyactiva-com-privacy-policy",
+    "company_id": "polyactiva",
+    "field": "address",
+    "value": "Unit 21, 45-47 Normanby Road, Notting Hill VIC 3168",
+    "source_id": "polyactiva-com-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:31:57.873Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "polyactiva.description.polyactiva-com",
+    "company_id": "polyactiva",
+    "field": "description",
+    "value": "Delivering the future of ophthalmic medicine PolyActiva is focused on providing unique biodegradable implants with sustained drug delivery to improve patient outcomes and quality of life for patients suffering from ophthalmic diseases such as glaucoma. Learn more about PolyActiva PREZIATM The versatile PREZIA Sustained Drug Delivery Technology platform is based on extensive scientific research tha",
+    "source_id": "polyactiva-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "polyactiva.state.polyactiva-com",
+    "company_id": "polyactiva",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "polyactiva-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "polyactiva.website.echai-ventures-melbourne-vcs",
+    "company_id": "polyactiva",
+    "field": "website",
+    "value": "https://polyactiva.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "polyactiva.website.polyactiva-com",
+    "company_id": "polyactiva",
+    "field": "website",
+    "value": "https://polyactiva.com",
+    "source_id": "polyactiva-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:10:51.581Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "portable-ppb.city.portableppb-com-about-us",
     "company_id": "portable-ppb",
     "field": "city",
@@ -14839,6 +17897,83 @@
     "note": "The site itself."
   },
   {
+    "id": "prophet.address.www-prophet-ml-contact",
+    "company_id": "prophet",
+    "field": "address",
+    "value": "105-115 Dover Street, Cremorne VIC 3121",
+    "source_id": "www-prophet-ml-contact",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "prophet.address.www-prophet-ml-contact.2",
+    "company_id": "prophet",
+    "field": "address",
+    "value": "Level 12, 418A Elizabeth St, Surry Hills NSW 2010",
+    "source_id": "www-prophet-ml-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:51:04.076Z",
+    "status": "superseded",
+    "note": "The Sydney office (Surry Hills), recorded as a location of its own (company_locations): the Melbourne address is the address of the record."
+  },
+  {
+    "id": "prophet.address.www-prophet-ml-privacy",
+    "company_id": "prophet",
+    "field": "address",
+    "value": "110-115 Dover St, Cremorne VIC 3121",
+    "source_id": "www-prophet-ml-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "superseded",
+    "note": "The same Cremorne building as the contact page ('Melbourne Offices 1/105-115 Dover Street'), written 110-115 in the privacy policy."
+  },
+  {
+    "id": "prophet.description.www-prophet-ml",
+    "company_id": "prophet",
+    "field": "description",
+    "value": "Prophet is an AI-powered machine-learning platform that goes beyond market mix modelling, delivering real-time insights from marketing & organisational data. Optimise spend, fuel growth, and enhance ROI with advanced machine learning and custom analytics.",
+    "source_id": "www-prophet-ml",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "prophet.state.www-prophet-ml-privacy",
+    "company_id": "prophet",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-prophet-ml-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "prophet.website.melbournestartups-com",
+    "company_id": "prophet",
+    "field": "website",
+    "value": "https://goprophet.io",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "prophet.website.www-prophet-ml",
+    "company_id": "prophet",
+    "field": "website",
+    "value": "https://goprophet.io",
+    "source_id": "www-prophet-ml",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:11:07.011Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "prospa.description.prospa-website",
     "company_id": "prospa",
     "field": "description",
@@ -14945,6 +18080,61 @@
     "source_id": "www-prospection-com",
     "confidence": "high",
     "verified_at": "2026-10-30T23:33:27.283Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "prota-therapeutics.address.protatherapeutics-com-index-php-contact-us",
+    "company_id": "prota-therapeutics",
+    "field": "address",
+    "value": "201/697 Burke Road, Camberwell VIC 3124",
+    "source_id": "protatherapeutics-com-index-php-contact-us",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "prota-therapeutics.founded_year.protatherapeutics-com-index-php-about-us-company-background",
+    "company_id": "prota-therapeutics",
+    "field": "founded_year",
+    "value": 2016,
+    "source_id": "protatherapeutics-com-index-php-about-us-company-background",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "prota-therapeutics.state.protatherapeutics-com-index-php-contact-us",
+    "company_id": "prota-therapeutics",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "protatherapeutics-com-index-php-contact-us",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "prota-therapeutics.website.melbournestartups-com",
+    "company_id": "prota-therapeutics",
+    "field": "website",
+    "value": "https://protatherapeutics.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "prota-therapeutics.website.protatherapeutics-com",
+    "company_id": "prota-therapeutics",
+    "field": "website",
+    "value": "https://protatherapeutics.com",
+    "source_id": "protatherapeutics-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:11:11.795Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -15477,6 +18667,72 @@
     "note": "The website Startmate lists for the company."
   },
   {
+    "id": "raygen.address.raygen-com",
+    "company_id": "raygen",
+    "field": "address",
+    "value": "8 Cato Street, Hawthorn East VIC 3123",
+    "source_id": "raygen-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "raygen.address.raygen-com-contact",
+    "company_id": "raygen",
+    "field": "address",
+    "value": "8 Cato Street, Hawthorn East VIC 3123",
+    "source_id": "raygen-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:51:22.863Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "raygen.address.raygen-com-manufacturing",
+    "company_id": "raygen",
+    "field": "address",
+    "value": "8 Cato Street, Hawthorn East VIC 3123",
+    "source_id": "raygen-com-manufacturing",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:51:22.863Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "raygen.address.raygen-com-privacy",
+    "company_id": "raygen",
+    "field": "address",
+    "value": "8 Cato Street, Hawthorn East VIC 3123",
+    "source_id": "raygen-com-privacy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:51:22.863Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "raygen.state.raygen-com",
+    "company_id": "raygen",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "raygen-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "raygen.website.raygen-com",
+    "company_id": "raygen",
+    "field": "website",
+    "value": "https://raygen.com",
+    "source_id": "raygen-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:11:16.527Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "reach-alternative-investments.address.reach-alternative-investments-website",
     "company_id": "reach-alternative-investments",
     "field": "address",
@@ -15528,6 +18784,50 @@
     "source_id": "reach-alternative-investments-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:09:00.511Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "reach-and-match.city.www-reachandmatch-com-terms-and-conditions-of-use",
+    "company_id": "reach-and-match",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-reachandmatch-com-terms-and-conditions-of-use",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:51:37.354Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Melbourne, VIC\"."
+  },
+  {
+    "id": "reach-and-match.description.www-reachandmatch-com",
+    "company_id": "reach-and-match",
+    "field": "description",
+    "value": "Supporting inclusive education through multisensory kits, play-based activities and training to help children of all abilities learn, participate and belong.",
+    "source_id": "www-reachandmatch-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "reach-and-match.website.www-monash-edu-monash-innovation-impact-generator-founders",
+    "company_id": "reach-and-match",
+    "field": "website",
+    "value": "https://reachandmatch.com",
+    "source_id": "www-monash-edu-monash-innovation-impact-generator-founders",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "reach-and-match.website.www-reachandmatch-com",
+    "company_id": "reach-and-match",
+    "field": "website",
+    "value": "https://reachandmatch.com",
+    "source_id": "www-reachandmatch-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:11:25.935Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -15609,6 +18909,39 @@
     "note": "The site itself."
   },
   {
+    "id": "recime.address.www-recime-app-terms-and-conditions",
+    "company_id": "recime",
+    "field": "address",
+    "value": "12/3 Albert Coates Ln, Melbourne VIC 3000",
+    "source_id": "www-recime-app-terms-and-conditions",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:51:47.740Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "recime.description.recime-app",
+    "company_id": "recime",
+    "field": "description",
+    "value": "The ultimate platform to collect, organize, and cook recipes.",
+    "source_id": "recime-app",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "recime.website.recime-app",
+    "company_id": "recime",
+    "field": "website",
+    "value": "https://recime.app",
+    "source_id": "recime-app",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:11:31.901Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "reejig.description.www-reejig-com",
     "company_id": "reejig",
     "field": "description",
@@ -15629,6 +18962,50 @@
     "verified_at": "2026-10-13T13:26:08.277Z",
     "status": "active",
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "relectrify.address.www-relectrify-com-au-privacy-policy",
+    "company_id": "relectrify",
+    "field": "address",
+    "value": "113-117 Adderley Street, West Melbourne VIC 3003",
+    "source_id": "www-relectrify-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "relectrify.address.www-relectrify-com-us-privacy-policy",
+    "company_id": "relectrify",
+    "field": "address",
+    "value": "113-117 Adderley Street, West Melbourne, VIC 3003",
+    "source_id": "www-relectrify-com-us-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:52:20.282Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "relectrify.state.www-relectrify-com-au-privacy-policy",
+    "company_id": "relectrify",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-relectrify-com-au-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "relectrify.website.www-relectrify-com-au",
+    "company_id": "relectrify",
+    "field": "website",
+    "value": "https://relectrify.com",
+    "source_id": "www-relectrify-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:00.833Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "relevance-ai.description.relevanceai-com",
@@ -15708,6 +19085,83 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "resseptor.address.www-resseptor-com",
+    "company_id": "resseptor",
+    "field": "address",
+    "value": "360 Elizabeth St, Melbourne VIC 3000",
+    "source_id": "www-resseptor-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "resseptor.address.www-resseptor-com-blank-1",
+    "company_id": "resseptor",
+    "field": "address",
+    "value": "Level 35, 360 Elizabeth St, Melbourne VIC 3000",
+    "source_id": "www-resseptor-com-blank-1",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:52:24.183Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "resseptor.city.www-resseptor-com",
+    "company_id": "resseptor",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-resseptor-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "resseptor.state.www-resseptor-com",
+    "company_id": "resseptor",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-resseptor-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "resseptor.website.melbournestartups-com",
+    "company_id": "resseptor",
+    "field": "website",
+    "value": "https://resseptor.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "resseptor.website.www-resseptor-com",
+    "company_id": "resseptor",
+    "field": "website",
+    "value": "https://resseptor.com",
+    "source_id": "www-resseptor-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:03.854Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "restoke.website.www-restoke-ai",
+    "company_id": "restoke",
+    "field": "website",
+    "value": "https://www.restoke.ai/",
+    "source_id": "www-restoke-ai",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:52:30.266Z",
+    "status": "active",
+    "note": "The website the Melbourne research list gives for this company; its own page answered and was read (robots.txt obeyed)."
+  },
+  {
     "id": "restoplus.description.www-restoplus-com",
     "company_id": "restoplus",
     "field": "description",
@@ -15761,6 +19215,72 @@
     "verified_at": "2026-10-31T00:33:44.502Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "reswitch.address.reswitch-com-privacy",
+    "company_id": "reswitch",
+    "field": "address",
+    "value": "31 Queen St, Melbourne VIC 3000",
+    "source_id": "reswitch-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "reswitch.city.reswitch-com-privacy",
+    "company_id": "reswitch",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "reswitch-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "reswitch.description.reswitch-com",
+    "company_id": "reswitch",
+    "field": "description",
+    "value": "Connecting Australian communities with renewable energy benefits",
+    "source_id": "reswitch-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "reswitch.state.reswitch-com-privacy",
+    "company_id": "reswitch",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "reswitch-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "reswitch.website.reswitch-com",
+    "company_id": "reswitch",
+    "field": "website",
+    "value": "https://reswitch.com",
+    "source_id": "reswitch-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:08.109Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "reswitch.website.www-themap-co-startups",
+    "company_id": "reswitch",
+    "field": "website",
+    "value": "https://reswitch.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "roborigger.address.www-roborigger-com-au-contact",
@@ -15825,6 +19345,50 @@
     "source_id": "www-roborigger-com-au",
     "confidence": "high",
     "verified_at": "2026-10-31T01:36:34.784Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "rohlok.city.rohlok-com-contact",
+    "company_id": "rohlok",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "rohlok-com-contact",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:52:40.771Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Our offices Rohlok Pty Ltd Melbourne, Australia ACN: 670 952 342 A\"."
+  },
+  {
+    "id": "rohlok.description.rohlok-com",
+    "company_id": "rohlok",
+    "field": "description",
+    "value": "Patented, field-repairable oil-filled subsea cable system for work-class ROVs. Tested and certified to 3400 MSW. Made to order in Melbourne, Australia.",
+    "source_id": "rohlok-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "rohlok.website.melbournestartups-com",
+    "company_id": "rohlok",
+    "field": "website",
+    "value": "https://rohlok.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "rohlok.website.rohlok-com",
+    "company_id": "rohlok",
+    "field": "website",
+    "value": "https://rohlok.com",
+    "source_id": "rohlok-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:12.346Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -16071,6 +19635,94 @@
     "note": "The site itself."
   },
   {
+    "id": "sapyen.address.www-sapyen-co-policies-terms-of-service",
+    "company_id": "sapyen",
+    "field": "address",
+    "value": "120 Spencer Street, Melbourne VIC 3000",
+    "source_id": "www-sapyen-co-policies-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "sapyen.city.www-sapyen-co-policies-terms-of-service",
+    "company_id": "sapyen",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-sapyen-co-policies-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "sapyen.description.www-sapyen-co",
+    "company_id": "sapyen",
+    "field": "description",
+    "value": "Clinically accurate at-home male fertility testing and sperm freezing. Advanced semen analysis and DNA fragmentation testing trusted by leading fertility clinics worldwide.",
+    "source_id": "www-sapyen-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "sapyen.state.www-sapyen-co-policies-terms-of-service",
+    "company_id": "sapyen",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-sapyen-co-policies-terms-of-service",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "sapyen.website.www-sapyen-co",
+    "company_id": "sapyen",
+    "field": "website",
+    "value": "https://sapyen.co",
+    "source_id": "www-sapyen-co",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:18.126Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "sapyen.website.www-themap-co-startups",
+    "company_id": "sapyen",
+    "field": "website",
+    "value": "https://sapyen.co",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "savic-motorcycles.address.www-savicmotorcycles-com-pages-privacy-policy",
+    "company_id": "savic-motorcycles",
+    "field": "address",
+    "value": "19 Stanley Street, West Melbourne, VIC 3003",
+    "source_id": "www-savicmotorcycles-com-pages-privacy-policy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:53:02.409Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "savic-motorcycles.website.echai-ventures-melbourne-vcs",
+    "company_id": "savic-motorcycles",
+    "field": "website",
+    "value": "https://savicmotorcycles.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "savvywise.address.www-savvywise-com-au",
     "company_id": "savvywise",
     "field": "address",
@@ -16135,6 +19787,105 @@
     "verified_at": "2026-10-31T01:36:51.056Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "scratch.city.www-scratchpetfood-com-au",
+    "company_id": "scratch",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-scratchpetfood-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:53:08.279Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Collingwood, Vic\"."
+  },
+  {
+    "id": "scratch.description.www-scratchpetfood-com-au",
+    "company_id": "scratch",
+    "field": "description",
+    "value": "Scratch is the Australian subscription dog food delivery that 1000s of pups are switching too. See why dogs rate us 4.9/5 & why Mick Fanning invested!",
+    "source_id": "www-scratchpetfood-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "scratch.website.www-scratchpetfood-com-au",
+    "company_id": "scratch",
+    "field": "website",
+    "value": "https://scratchpetfood.com.au",
+    "source_id": "www-scratchpetfood-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:22.668Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "scratch.website.www-themap-co-startups",
+    "company_id": "scratch",
+    "field": "website",
+    "value": "https://scratchpetfood.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "scriibi.address.scriibi-com",
+    "company_id": "scriibi",
+    "field": "address",
+    "value": "700 Swanston Street, Carlton VIC 3053",
+    "source_id": "scriibi-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "scriibi.address.scriibi-com-contact",
+    "company_id": "scriibi",
+    "field": "address",
+    "value": "700 Swanston Street, Carlton, VIC 3053",
+    "source_id": "scriibi-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:53:23.388Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "scriibi.state.scriibi-com",
+    "company_id": "scriibi",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "scriibi-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "scriibi.website.scriibi-com",
+    "company_id": "scriibi",
+    "field": "website",
+    "value": "https://scriibi.com",
+    "source_id": "scriibi-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:33.442Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "scriibi.website.www-themap-co-startups",
+    "company_id": "scriibi",
+    "field": "website",
+    "value": "https://scriibi.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "seastock.description.www-seastock-com-au",
@@ -16698,6 +20449,182 @@
     "note": "The site itself."
   },
   {
+    "id": "smileyscope.address.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "address",
+    "value": "488 Victoria St, North Melbourne VIC 3000",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:59.752Z",
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "smileyscope.address.www-smileyscope-com-en-au-privacy",
+    "company_id": "smileyscope",
+    "field": "address",
+    "value": "1/333 Exhibition Street, Melbourne VIC 3000",
+    "source_id": "www-smileyscope-com-en-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "smileyscope.city.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:54:10.494Z",
+    "status": "active",
+    "note": "The company's own page gives a postal or registered address in Melbourne (488 Victoria St, North Melbourne VIC 3000): not an operating site, so no pin."
+  },
+  {
+    "id": "smileyscope.city.www-smileyscope-com-en-au-privacy",
+    "company_id": "smileyscope",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "www-smileyscope-com-en-au-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "smileyscope.description.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "description",
+    "value": "Medical-grade virtual reality for procedural pain and anxiety management in clinical settings.",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "smileyscope.founded_year.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "founded_year",
+    "value": 2017,
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:59.752Z",
+    "status": "active",
+    "note": "Stated on the page."
+  },
+  {
+    "id": "smileyscope.founders.dr-evelyn-chan.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "founders",
+    "value": "Dr Evelyn Chan",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "smileyscope.founders.dr-paul-leong.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "founders",
+    "value": "Dr Paul Leong",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "smileyscope.state.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:59.752Z",
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "smileyscope.website.www-smileyscope-com-en-au",
+    "company_id": "smileyscope",
+    "field": "website",
+    "value": "https://smileyscope.com",
+    "source_id": "www-smileyscope-com-en-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:12:59.752Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "smileyscope.website.www-themap-co-startups",
+    "company_id": "smileyscope",
+    "field": "website",
+    "value": "https://smileyscope.com",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne location evidence); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "snap-send-solve.address.snapsendsolve-com-privacy-policy",
+    "company_id": "snap-send-solve",
+    "field": "address",
+    "value": "3/15 Palmer Parade, Cremorne VIC 3161",
+    "source_id": "snapsendsolve-com-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "snap-send-solve.description.snapsendsolve-com",
+    "company_id": "snap-send-solve",
+    "field": "description",
+    "value": "Report potholes, dumped rubbish, illegal parking and other local issues to councils and utilities across Australia and New Zealand with Snap Send Solve.",
+    "source_id": "snapsendsolve-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "snap-send-solve.state.snapsendsolve-com-privacy-policy",
+    "company_id": "snap-send-solve",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "snapsendsolve-com-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "snap-send-solve.website.melbournestartups-com",
+    "company_id": "snap-send-solve",
+    "field": "website",
+    "value": "https://snapsendsolve.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "snap-send-solve.website.snapsendsolve-com",
+    "company_id": "snap-send-solve",
+    "field": "website",
+    "value": "https://snapsendsolve.com",
+    "source_id": "snapsendsolve-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:13:04.667Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "snug.address.snug-com",
     "company_id": "snug",
     "field": "address",
@@ -17180,6 +21107,50 @@
     "verified_at": "2026-10-05T15:09:16.412Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "strongroom-ai.address.strongroom-ai-contact",
+    "company_id": "strongroom-ai",
+    "field": "address",
+    "value": "32 Palermo Street, South Yarra, Melbourne, VIC, 3141",
+    "source_id": "strongroom-ai-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:55:20.547Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "strongroom-ai.description.strongroom-ai",
+    "company_id": "strongroom-ai",
+    "field": "description",
+    "value": "Software that enables high-strength care through streamlined workflows, continuous analytics, surfaced insights and safeguarded data.",
+    "source_id": "strongroom-ai",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "strongroom-ai.website.strongroom-ai",
+    "company_id": "strongroom-ai",
+    "field": "website",
+    "value": "https://strongroom.ai",
+    "source_id": "strongroom-ai",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:13:53.018Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "strongroom-ai.website.www-themap-co-startups",
+    "company_id": "strongroom-ai",
+    "field": "website",
+    "value": "https://strongroom.ai",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
   },
   {
     "id": "summ.description.summ-com",
@@ -17675,6 +21646,127 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "syncio.address.www-syncio-co-privacy-policy",
+    "company_id": "syncio",
+    "field": "address",
+    "value": "1707/241 Harbour Esplanade, Docklands VIC 3008",
+    "source_id": "www-syncio-co-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "syncio.description.www-syncio-co",
+    "company_id": "syncio",
+    "field": "description",
+    "value": "Syncio real-time syncs inventory, product updates, and orders across multiple Shopify stores, resulting in increased sales and customers while saving time.",
+    "source_id": "www-syncio-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "syncio.state.www-syncio-co-privacy-policy",
+    "company_id": "syncio",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-syncio-co-privacy-policy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "syncio.website.www-syncio-co",
+    "company_id": "syncio",
+    "field": "website",
+    "value": "https://syncio.co",
+    "source_id": "www-syncio-co",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:14:10.479Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "syncio.website.www-themap-co-startups",
+    "company_id": "syncio",
+    "field": "website",
+    "value": "https://syncio.co",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "syncrowin.city.syncrowin-com-au",
+    "company_id": "syncrowin",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "syncrowin-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:56:19.262Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"based in Melbourne\"."
+  },
+  {
+    "id": "syncrowin.description.syncrowin-com-au",
+    "company_id": "syncrowin",
+    "field": "description",
+    "value": "Australian-founded industrial AI company developing an AI operating system for critical infrastructure, deployed across energy and manufacturing.",
+    "source_id": "syncrowin-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "syncrowin.founders.aisshwarya-kansakaar.syncrowin-com-au",
+    "company_id": "syncrowin",
+    "field": "founders",
+    "value": "Aisshwarya Kansakaar",
+    "source_id": "syncrowin-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "syncrowin.founders.jaideep-upadhyay.syncrowin-com-au",
+    "company_id": "syncrowin",
+    "field": "founders",
+    "value": "Jaideep Upadhyay",
+    "source_id": "syncrowin-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Named as a founder in the page's structured data."
+  },
+  {
+    "id": "syncrowin.website.syncrowin-com-au",
+    "company_id": "syncrowin",
+    "field": "website",
+    "value": "https://syncrowin.com.au",
+    "source_id": "syncrowin-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:14:14.879Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "syncrowin.website.www-themap-co-startups",
+    "company_id": "syncrowin",
+    "field": "website",
+    "value": "https://syncrowin.com.au",
+    "source_id": "www-themap-co-startups",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (programme lead); the page is not proof of a Melbourne office."
+  },
+  {
     "id": "talk2view.address.talk2view-com",
     "company_id": "talk2view",
     "field": "address",
@@ -17717,6 +21809,83 @@
     "verified_at": "2026-10-31T00:00:00.000Z",
     "status": "active",
     "note": "Named on this page (venture uwa 2025 2026); the page is not proof of a Perth office."
+  },
+  {
+    "id": "tally-group.address.www-tally-co",
+    "company_id": "tally-group",
+    "field": "address",
+    "value": "11-13 Cubitt St, Cremorne VIC 3121",
+    "source_id": "www-tally-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "tally-group.address.www-tally-co-about",
+    "company_id": "tally-group",
+    "field": "address",
+    "value": "11-13 Cubitt St, Cremorne, VIC 3121",
+    "source_id": "www-tally-co-about",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:56:33.460Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "tally-group.address.www-tally-co-privacy",
+    "company_id": "tally-group",
+    "field": "address",
+    "value": "11-13 Cubitt St, Cremorne, VIC, 3121",
+    "source_id": "www-tally-co-privacy",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:56:33.460Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "tally-group.description.www-tally-co",
+    "company_id": "tally-group",
+    "field": "description",
+    "value": "Transform your business with Tally's innovative and trusted technology solutions. Get started today and see the results for yourself.",
+    "source_id": "www-tally-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "tally-group.state.www-tally-co",
+    "company_id": "tally-group",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-tally-co",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "tally-group.website.melbournestartups-com",
+    "company_id": "tally-group",
+    "field": "website",
+    "value": "https://tallygroup.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "tally-group.website.www-tally-co",
+    "company_id": "tally-group",
+    "field": "website",
+    "value": "https://tallygroup.com.au",
+    "source_id": "www-tally-co",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:14:24.177Z",
+    "status": "active",
+    "note": "The site itself."
   },
   {
     "id": "tender-relief.address.tenderrelief-com-au-where-winning-tenders-begin",
@@ -17972,6 +22141,50 @@
     "note": "The site itself."
   },
   {
+    "id": "tikpay.city.tikpay-com-terms-of-service",
+    "company_id": "tikpay",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "tikpay-com-terms-of-service",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:57:12.625Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Melbourne, VIC\"."
+  },
+  {
+    "id": "tikpay.description.tikpay-com",
+    "company_id": "tikpay",
+    "field": "description",
+    "value": "We’ve reimagined mobility to offer a contactless ticketing and payment solution for today’s operators.",
+    "source_id": "tikpay-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "tikpay.website.melbournestartups-com",
+    "company_id": "tikpay",
+    "field": "website",
+    "value": "https://tikpay.com",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "tikpay.website.tikpay-com",
+    "company_id": "tikpay",
+    "field": "website",
+    "value": "https://tikpay.com",
+    "source_id": "tikpay-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:15:24.190Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "tiliter.description.tiliter-website",
     "company_id": "tiliter",
     "field": "description",
@@ -17992,6 +22205,28 @@
     "verified_at": "2026-10-05T15:09:21.858Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "tixel.city.tixel-com-about",
+    "company_id": "tixel",
+    "field": "city",
+    "value": "Melbourne",
+    "source_id": "tixel-com-about",
+    "confidence": "medium",
+    "verified_at": "2026-11-02T02:57:16.218Z",
+    "status": "active",
+    "note": "The company's own page says it is based in Melbourne: \"Tixel HQ is based in Melbourne, Australia\"."
+  },
+  {
+    "id": "tixel.website.www-monash-edu-monash-innovation-impact-generator-founders",
+    "company_id": "tixel",
+    "field": "website",
+    "value": "https://tixel.com",
+    "source_id": "www-monash-edu-monash-innovation-impact-generator-founders",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne location evidence); the page is not proof of a Melbourne office."
   },
   {
     "id": "trace.address.trace-privacy-policy",
@@ -18819,6 +23054,72 @@
     "note": "The site itself."
   },
   {
+    "id": "vinomofo.address.www-vinomofo-com-contact",
+    "company_id": "vinomofo",
+    "field": "address",
+    "value": "Suite 103, 204 Ingles St, Port Melbourne, VIC 3207",
+    "source_id": "www-vinomofo-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-02T02:57:39.467Z",
+    "status": "active",
+    "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "vinomofo.address.www-vinomofo-com-privacy",
+    "company_id": "vinomofo",
+    "field": "address",
+    "value": "220 Ingles St, Port Melbourne VIC 3207",
+    "source_id": "www-vinomofo-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "Australian address on the page."
+  },
+  {
+    "id": "vinomofo.description.www-vinomofo-com",
+    "company_id": "vinomofo",
+    "field": "description",
+    "value": "Shop Vinomofo Australia for epic wine deals, top-rated drops, and handpicked bottles from the top 5% we taste. Delivered fast. Guaranteed damn good.",
+    "source_id": "www-vinomofo-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "vinomofo.state.www-vinomofo-com-privacy",
+    "company_id": "vinomofo",
+    "field": "state",
+    "value": "VIC",
+    "source_id": "www-vinomofo-com-privacy",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "From the address on the page."
+  },
+  {
+    "id": "vinomofo.website.echai-ventures-melbourne-vcs",
+    "company_id": "vinomofo",
+    "field": "website",
+    "value": "https://vinomofo.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "vinomofo.website.www-vinomofo-com",
+    "company_id": "vinomofo",
+    "field": "website",
+    "value": "https://vinomofo.com",
+    "source_id": "www-vinomofo-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:15:38.580Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
     "id": "vinyl.description.vinyl-website",
     "company_id": "vinyl",
     "field": "description",
@@ -18837,6 +23138,39 @@
     "source_id": "vinyl-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:03:40.296Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "virtetic.description.www-virtetic-com-au",
+    "company_id": "virtetic",
+    "field": "description",
+    "value": "Take the first step on your prosthetic journey with confidence, powered by immersive play in virtual reality. At Virtetic we believe the limb loss journey should be one of hope, confidence, and limitless potential.",
+    "source_id": "www-virtetic-com-au",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "virtetic.website.melbournestartups-com",
+    "company_id": "virtetic",
+    "field": "website",
+    "value": "https://virtetic.com.au",
+    "source_id": "melbournestartups-com",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "virtetic.website.www-virtetic-com-au",
+    "company_id": "virtetic",
+    "field": "website",
+    "value": "https://virtetic.com.au",
+    "source_id": "www-virtetic-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:15:43.872Z",
     "status": "active",
     "note": "The site itself."
   },
@@ -19299,6 +23633,39 @@
     "source_id": "zero-latency-website",
     "confidence": "high",
     "verified_at": "2026-10-05T15:10:12.044Z",
+    "status": "active",
+    "note": "The site itself."
+  },
+  {
+    "id": "zerocap.description.zerocap-com",
+    "company_id": "zerocap",
+    "field": "description",
+    "value": "Frictionless access to institutional-grade crypto investment services, with digital asset trading and liquidity across Web3 capital markets.",
+    "source_id": "zerocap-com",
+    "confidence": "medium",
+    "verified_at": null,
+    "status": "active",
+    "note": "The page's own description."
+  },
+  {
+    "id": "zerocap.website.echai-ventures-melbourne-vcs",
+    "company_id": "zerocap",
+    "field": "website",
+    "value": "https://zerocap.com",
+    "source_id": "echai-ventures-melbourne-vcs",
+    "confidence": "medium",
+    "verified_at": "2026-10-31T00:00:00.000Z",
+    "status": "active",
+    "note": "Named on this page (melbourne directory listing); the page is not proof of a Melbourne office."
+  },
+  {
+    "id": "zerocap.website.zerocap-com",
+    "company_id": "zerocap",
+    "field": "website",
+    "value": "https://zerocap.com",
+    "source_id": "zerocap-com",
+    "confidence": "high",
+    "verified_at": "2026-11-02T03:17:02.705Z",
     "status": "active",
     "note": "The site itself."
   },

@@ -25,7 +25,7 @@ describe('GET /directory', () => {
   });
 });
 
-// The page lists 250 companies at a time ("Page 1 of 2: next"), so a directory of more than 250 is read a page at a time, as a visitor would.
+// The page lists 250 companies at a time ("Page 1 of 3: next"), so a directory of more than 250 is read a page at a time, as a visitor would.
 async function wholeDirectory() {
   const pages = [];
   for (let n = 1; ; n += 1) {
@@ -64,9 +64,10 @@ describe('GET /directory, who is hiring', () => {
     expect(rows).toBe(startups.length);
     if (startups.length > 250) {
       const first = (await request(app).get('/directory')).text;
-      expect(first).toContain('Page 1 of 2');
+      const pages = Math.ceil(startups.length / 250);
+      expect(first).toContain(`Page 1 of ${pages}`);
       expect(first).toContain('href="/directory?page=2">next');
-      expect((await request(app).get('/directory?page=3')).status).toBe(404);
+      expect((await request(app).get(`/directory?page=${pages + 1}`)).status).toBe(404);
     }
   });
 

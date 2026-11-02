@@ -8204,5 +8204,2031 @@
     },
     "fetched_at": "2026-11-01T16:21:56.521Z",
     "expires_at": "2027-11-01T16:21:56.521Z"
+  },
+  {
+    "id": "nominatim:5 theatre place canterbury vic 3126 vic 3126 australia",
+    "provider": "nominatim",
+    "query": "5 Theatre Place Canterbury VIC 3126, VIC, 3126, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:17:49.271Z",
+    "expires_at": "2027-01-31T03:17:49.271Z"
+  },
+  {
+    "id": "nominatim:420 vic street brunswick vic 3056 australia",
+    "provider": "nominatim",
+    "query": "420 VIC Street, Brunswick, VIC, 3056, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:17:53.544Z",
+    "expires_at": "2027-01-31T03:17:53.544Z"
+  },
+  {
+    "id": "nominatim:45b douglas parade yarra junction vic 3797 australia",
+    "provider": "nominatim",
+    "query": "45B Douglas Parade, Yarra Junction, VIC, 3797, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.7882394,
+      "lng": 145.6214944,
+      "display_name": "45B, Douglas Parade, Melbourne, Victoria, 3797, Australia",
+      "osm_type": "node",
+      "osm_id": 12420367229,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "45B",
+        "road": "Douglas Parade",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3797",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.7882894",
+        "-37.7881894",
+        "145.6214444",
+        "145.6215444"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:00.174Z",
+    "expires_at": "2027-11-02T03:18:00.174Z"
+  },
+  {
+    "id": "nominatim:710 collins street docklands vic 3008 australia",
+    "provider": "nominatim",
+    "query": "710 Collins Street, Docklands, VIC, 3008, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8199126,
+      "lng": 144.9505437,
+      "display_name": "Degani Bakery Cafe, 710, Collins Street, Batman's Hill, Docklands, Melbourne, Victoria, 3008, Australia",
+      "osm_type": "node",
+      "osm_id": 3905904432,
+      "class": "amenity",
+      "type": "cafe",
+      "addresstype": "amenity",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "710",
+        "road": "Collins Street",
+        "suburb": "Docklands",
+        "neighbourhood": "Batman's Hill",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3008",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8199626",
+        "-37.8198626",
+        "144.9504937",
+        "144.9505937"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:05.260Z",
+    "expires_at": "2027-11-02T03:18:05.260Z"
+  },
+  {
+    "id": "nominatim:51 langridge street collingwood vic 3066 australia",
+    "provider": "nominatim",
+    "query": "51 Langridge Street, Collingwood, VIC, 3066, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8067647,
+      "lng": 144.9863399,
+      "display_name": "51 Langridge, 51, Langridge Street, Collingwood, Melbourne, Victoria, 3066, Australia",
+      "osm_type": "way",
+      "osm_id": 962927475,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "51",
+        "road": "Langridge Street",
+        "suburb": "Collingwood",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3066",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8068463",
+        "-37.8066831",
+        "144.9861532",
+        "144.9865265"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:07.364Z",
+    "expires_at": "2027-11-02T03:18:07.364Z"
+  },
+  {
+    "id": "nominatim:10 platinum street thomastown vic 3074 australia",
+    "provider": "nominatim",
+    "query": "10 Platinum Street, Thomastown, VIC, 3074, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.6910325,
+      "lng": 145.0371371,
+      "display_name": "10, Platinum Street, Thomastown, Melbourne, Victoria, 3074, Australia",
+      "osm_type": "node",
+      "osm_id": 11263516719,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "10",
+        "road": "Platinum Street",
+        "suburb": "Thomastown",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3074",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.6910825",
+        "-37.6909825",
+        "145.0370871",
+        "145.0371871"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:09.164Z",
+    "expires_at": "2027-11-02T03:18:09.164Z"
+  },
+  {
+    "id": "nominatim:525 collins st melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "525 Collins St, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8188486,
+      "lng": 144.9577825,
+      "display_name": "Securiton Data Centre, 525, Collins Street, Koreatown, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 474646359,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "525",
+        "road": "Collins Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "Koreatown",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8190731",
+        "-37.8186779",
+        "144.9575134",
+        "144.9580198"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:11.283Z",
+    "expires_at": "2027-11-02T03:18:11.283Z"
+  },
+  {
+    "id": "nominatim:585 blackburn road notting hill vic 3168 australia",
+    "provider": "nominatim",
+    "query": "585 Blackburn Road, Notting Hill, VIC, 3168, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.9033768,
+      "lng": 145.1422938,
+      "display_name": "585, Blackburn Road, Notting Hill, Melbourne, Victoria, 3168, Australia",
+      "osm_type": "node",
+      "osm_id": 1982773651,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "585",
+        "road": "Blackburn Road",
+        "suburb": "Notting Hill",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3168",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.9034268",
+        "-37.9033268",
+        "145.1422438",
+        "145.1423438"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:13.538Z",
+    "expires_at": "2027-11-02T03:18:13.538Z"
+  },
+  {
+    "id": "nominatim:55 collins street melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "55 Collins Street, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8142426,
+      "lng": 144.9720591,
+      "display_name": "ANZ Tower, 55, Collins Street, East End Theatre District, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 24530656,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "55",
+        "road": "Collins Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "East End Theatre District",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8144513",
+        "-37.8140370",
+        "144.9717944",
+        "144.9723201"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:16.404Z",
+    "expires_at": "2027-11-02T03:18:16.404Z"
+  },
+  {
+    "id": "nominatim:655 elizabeth st melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "655 Elizabeth St, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.8108661,
+      "lng": 144.9615325,
+      "display_name": "Elizabeth Street, Greek Precinct, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 715611143,
+      "class": "highway",
+      "type": "tertiary",
+      "addresstype": "tertiary",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Elizabeth Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "Greek Precinct",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8113239",
+        "-37.8104078",
+        "144.9613216",
+        "144.9617447"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:18.244Z",
+    "expires_at": "2027-11-02T03:18:18.244Z"
+  },
+  {
+    "id": "nominatim:87 queensbridge st southbank vic 3006 australia",
+    "provider": "nominatim",
+    "query": "87 Queensbridge St, Southbank, VIC, 3006, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:18:20.250Z",
+    "expires_at": "2027-01-31T03:18:20.250Z"
+  },
+  {
+    "id": "nominatim:6 nepean highway brighton vic 3186 australia",
+    "provider": "nominatim",
+    "query": "6 Nepean Highway, Brighton, VIC, 3186, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8850102,
+      "lng": 144.9975617,
+      "display_name": "6, Nepean Highway, Brighton, Melbourne, Victoria, 3186, Australia",
+      "osm_type": "node",
+      "osm_id": 12412085817,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "6",
+        "road": "Nepean Highway",
+        "suburb": "Brighton",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3186",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8850602",
+        "-37.8849602",
+        "144.9975117",
+        "144.9976117"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:22.027Z",
+    "expires_at": "2027-11-02T03:18:22.027Z"
+  },
+  {
+    "id": "nominatim:540b malvern road prahran vic 3181 australia",
+    "provider": "nominatim",
+    "query": "540B Malvern Road, Prahran, VIC, 3181, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.8489427,
+      "lng": 145.0096912,
+      "display_name": "Malvern Road, Toorak, Melbourne, Victoria, 3142, Australia",
+      "osm_type": "way",
+      "osm_id": 19979029,
+      "class": "highway",
+      "type": "secondary",
+      "addresstype": "secondary",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Malvern Road",
+        "suburb": "Toorak",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3142",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8492726",
+        "-37.8486130",
+        "145.0071713",
+        "145.0122111"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:24.279Z",
+    "expires_at": "2027-11-02T03:18:24.279Z"
+  },
+  {
+    "id": "nominatim:10-20 gwynne st cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "10-20 Gwynne St, Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8283479,
+      "lng": 144.9931954,
+      "display_name": "Gwynne Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 30859607,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Gwynne Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8299934",
+        "-37.8267224",
+        "144.9929166",
+        "144.9935123"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:26.016Z",
+    "expires_at": "2027-11-02T03:18:26.016Z"
+  },
+  {
+    "id": "nominatim:1 queens rd melbourne vic 3004 australia",
+    "provider": "nominatim",
+    "query": "1 Queens Rd, Melbourne, VIC, 3004, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8359217,
+      "lng": 144.9739128,
+      "display_name": "St Kilda Road Towers, 1, Queens Road, Melbourne, Victoria, 3004, Australia",
+      "osm_type": "way",
+      "osm_id": 306785089,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "1",
+        "road": "Queens Road",
+        "suburb": "Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3004",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8364046",
+        "-37.8353601",
+        "144.9736156",
+        "144.9742174"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:28.021Z",
+    "expires_at": "2027-11-02T03:18:28.021Z"
+  },
+  {
+    "id": "nominatim:915 collins street melbourne vic 3008 australia",
+    "provider": "nominatim",
+    "query": "915 Collins Street, Melbourne, VIC, 3008, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.820569,
+      "lng": 144.9396533,
+      "display_name": "No.1 Collins Wharf, 915-941, Collins Street, Victoria Harbour, Docklands, Melbourne, Victoria, 3008, Australia",
+      "osm_type": "way",
+      "osm_id": 720126098,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "915-941",
+        "road": "Collins Street",
+        "suburb": "Docklands",
+        "neighbourhood": "Victoria Harbour",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3008",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8208717",
+        "-37.8203087",
+        "144.9390725",
+        "144.9402031"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:29.955Z",
+    "expires_at": "2027-11-02T03:18:29.955Z"
+  },
+  {
+    "id": "nominatim:1 collins street melbourne vic 3000 vic 3000 australia",
+    "provider": "nominatim",
+    "query": "1 Collins Street Melbourne VIC 3000, VIC, 3000, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:18:32.414Z",
+    "expires_at": "2027-01-31T03:18:32.414Z"
+  },
+  {
+    "id": "nominatim:18 studley st abbotsford vic 3067 australia",
+    "provider": "nominatim",
+    "query": "18 Studley St, Abbotsford, VIC, 3067, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8011134,
+      "lng": 144.9938275,
+      "display_name": "18, Studley Street, Abbotsford, Melbourne, Victoria, 3067, Australia",
+      "osm_type": "way",
+      "osm_id": 260233595,
+      "class": "building",
+      "type": "commercial",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "18",
+        "road": "Studley Street",
+        "suburb": "Abbotsford",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3067",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8012540",
+        "-37.8009728",
+        "144.9937199",
+        "144.9939352"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:35.194Z",
+    "expires_at": "2027-11-02T03:18:35.194Z"
+  },
+  {
+    "id": "nominatim:436 elgar rd box hill vic 3128 vic 3128 australia",
+    "provider": "nominatim",
+    "query": "436 Elgar Rd Box Hill VIC 3128, VIC, 3128, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:18:39.803Z",
+    "expires_at": "2027-01-31T03:18:39.803Z"
+  },
+  {
+    "id": "nominatim:124 weston street brunswick east vic 3057 australia",
+    "provider": "nominatim",
+    "query": "124 Weston Street, Brunswick East, VIC, 3057, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.7762032,
+      "lng": 144.9719204,
+      "display_name": "Brunswick Aces, 124, Weston Street, Brunswick East, Melbourne, Victoria, 3057, Australia",
+      "osm_type": "node",
+      "osm_id": 7856558278,
+      "class": "amenity",
+      "type": "bar",
+      "addresstype": "amenity",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "124",
+        "road": "Weston Street",
+        "suburb": "Brunswick East",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3057",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.7762532",
+        "-37.7761532",
+        "144.9718704",
+        "144.9719704"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:43.608Z",
+    "expires_at": "2027-11-02T03:18:43.608Z"
+  },
+  {
+    "id": "nominatim:20 woodruff st port melbourne vic 3207 australia",
+    "provider": "nominatim",
+    "query": "20 Woodruff St, Port Melbourne, VIC, 3207, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8296318,
+      "lng": 144.9407107,
+      "display_name": "20, Woodruff Street, Port Melbourne, Melbourne, Victoria, 3207, Australia",
+      "osm_type": "node",
+      "osm_id": 12419336690,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "20",
+        "road": "Woodruff Street",
+        "suburb": "Port Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3207",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8296818",
+        "-37.8295818",
+        "144.9406607",
+        "144.9407607"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:45.723Z",
+    "expires_at": "2027-11-02T03:18:45.723Z"
+  },
+  {
+    "id": "nominatim:12 ferntree place notting hill vic 3168 vic 3168 australia",
+    "provider": "nominatim",
+    "query": "12 Ferntree Place Notting Hill VIC 3168, VIC, 3168, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:18:47.857Z",
+    "expires_at": "2027-01-31T03:18:47.857Z"
+  },
+  {
+    "id": "nominatim:946 burke road deepdene vic 3103 australia",
+    "provider": "nominatim",
+    "query": "946 Burke Road, Deepdene, VIC, 3103, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8110714,
+      "lng": 145.0607447,
+      "display_name": "946, Burke Road, Deepdene, Melbourne, Victoria, 3103, Australia",
+      "osm_type": "node",
+      "osm_id": 4322816465,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "946",
+        "road": "Burke Road",
+        "suburb": "Deepdene",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3103",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8111214",
+        "-37.8110214",
+        "145.0606947",
+        "145.0607947"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:50.321Z",
+    "expires_at": "2027-11-02T03:18:50.321Z"
+  },
+  {
+    "id": "nominatim:69 wonga road ringwood north ringwood north vic 3134 australia",
+    "provider": "nominatim",
+    "query": "69 Wonga Road Ringwood North, Ringwood North, VIC, 3134, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.7912455,
+      "lng": 145.243867,
+      "display_name": "69, Wonga Road, Ringwood North, Melbourne, Victoria, 3134, Australia",
+      "osm_type": "node",
+      "osm_id": 12419132624,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "69",
+        "road": "Wonga Road",
+        "suburb": "Ringwood North",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3134",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.7912955",
+        "-37.7911955",
+        "145.2438170",
+        "145.2439170"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:53.447Z",
+    "expires_at": "2027-11-02T03:18:53.447Z"
+  },
+  {
+    "id": "nominatim:2d indwe street west footscray vic 3012 australia",
+    "provider": "nominatim",
+    "query": "2D Indwe Street, West Footscray, VIC, 3012, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8025664,
+      "lng": 144.8680972,
+      "display_name": "2D, Indwe Street, West Footscray, Melbourne, Victoria, 3012, Australia",
+      "osm_type": "way",
+      "osm_id": 1526476668,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "2D",
+        "road": "Indwe Street",
+        "suburb": "West Footscray",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3012",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8026454",
+        "-37.8024874",
+        "144.8678547",
+        "144.8683397"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:18:55.001Z",
+    "expires_at": "2027-11-02T03:18:55.001Z"
+  },
+  {
+    "id": "nominatim:121 king street melbourne vic 3000 vic 3000 australia",
+    "provider": "nominatim",
+    "query": "121 King Street Melbourne VIC 3000, VIC, 3000, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:18:57.670Z",
+    "expires_at": "2027-01-31T03:18:57.670Z"
+  },
+  {
+    "id": "nominatim:525 collins street melbourne vic 3000 vic 3000 australia",
+    "provider": "nominatim",
+    "query": "525 Collins Street Melbourne VIC 3000, VIC, 3000, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:18:59.511Z",
+    "expires_at": "2027-01-31T03:18:59.511Z"
+  },
+  {
+    "id": "nominatim:41 stewart st richmond vic 3121 australia",
+    "provider": "nominatim",
+    "query": "41 Stewart St, Richmond, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8238283,
+      "lng": 144.991256,
+      "display_name": "41-43A, Stewart Street, Richmond, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 1493387852,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "41-43A",
+        "road": "Stewart Street",
+        "suburb": "Richmond",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8240493",
+        "-37.8236468",
+        "144.9910929",
+        "144.9914220"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:04.947Z",
+    "expires_at": "2027-11-02T03:19:04.947Z"
+  },
+  {
+    "id": "nominatim:10-20 gwynne st cremorne vic 3121 vic 3121 australia",
+    "provider": "nominatim",
+    "query": "10-20 Gwynne St Cremorne VIC 3121, VIC, 3121, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:19:06.948Z",
+    "expires_at": "2027-01-31T03:19:06.948Z"
+  },
+  {
+    "id": "nominatim:29 melrose st sandringham vic 3191 australia",
+    "provider": "nominatim",
+    "query": "29 Melrose St, Sandringham, VIC, 3191, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.9505316,
+      "lng": 145.0035776,
+      "display_name": "29, Melrose Street, Sandringham, Melbourne, Victoria, 3191, Australia",
+      "osm_type": "node",
+      "osm_id": 6172132101,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "29",
+        "road": "Melrose Street",
+        "suburb": "Sandringham",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3191",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.9505816",
+        "-37.9504816",
+        "145.0035276",
+        "145.0036276"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:09.788Z",
+    "expires_at": "2027-11-02T03:19:09.788Z"
+  },
+  {
+    "id": "nominatim:7 raglan street south melbourne vic 3205 australia",
+    "provider": "nominatim",
+    "query": "7 Raglan Street, South Melbourne, VIC, 3205, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8364538,
+      "lng": 144.9665392,
+      "display_name": "3-7, Raglan Street, South Melbourne, Melbourne, Victoria, 3205, Australia",
+      "osm_type": "node",
+      "osm_id": 12419075664,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "3-7",
+        "road": "Raglan Street",
+        "suburb": "South Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3205",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8365038",
+        "-37.8364038",
+        "144.9664892",
+        "144.9665892"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:11.906Z",
+    "expires_at": "2027-11-02T03:19:11.906Z"
+  },
+  {
+    "id": "nominatim:2 brandon park drive wheelers hill vic 3150 australia",
+    "provider": "nominatim",
+    "query": "2 Brandon Park Drive, Wheelers Hill, VIC, 3150, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.9045391,
+      "lng": 145.1638295,
+      "display_name": "2, Brandon Park Drive, Wheelers Hill, Melbourne, Victoria, 3150, Australia",
+      "osm_type": "node",
+      "osm_id": 12419399461,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "2",
+        "road": "Brandon Park Drive",
+        "suburb": "Wheelers Hill",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3150",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.9045891",
+        "-37.9044891",
+        "145.1637795",
+        "145.1638795"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:13.786Z",
+    "expires_at": "2027-11-02T03:19:13.786Z"
+  },
+  {
+    "id": "nominatim:492 st kilda rd melbourne vic 3004 australia",
+    "provider": "nominatim",
+    "query": "492 St Kilda Rd, Melbourne, VIC, 3004, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8437012,
+      "lng": 144.9775801,
+      "display_name": "492, St Kilda Road, Melbourne, Victoria, 3004, Australia",
+      "osm_type": "way",
+      "osm_id": 306784788,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "492",
+        "road": "St Kilda Road",
+        "suburb": "Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3004",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8438055",
+        "-37.8435969",
+        "144.9774574",
+        "144.9777027"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:15.922Z",
+    "expires_at": "2027-11-02T03:19:15.922Z"
+  },
+  {
+    "id": "nominatim:59 fennell street port melbourne vic 3207 australia",
+    "provider": "nominatim",
+    "query": "59 Fennell Street, Port Melbourne, VIC, 3207, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.8287768,
+      "lng": 144.9376501,
+      "display_name": "Fennell Street, Port Melbourne, Melbourne, Victoria, 3207, Australia",
+      "osm_type": "way",
+      "osm_id": 27855946,
+      "class": "highway",
+      "type": "unclassified",
+      "addresstype": "unclassified",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Fennell Street",
+        "suburb": "Port Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3207",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8300637",
+        "-37.8274590",
+        "144.9359379",
+        "144.9393391"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:18.376Z",
+    "expires_at": "2027-11-02T03:19:18.376Z"
+  },
+  {
+    "id": "nominatim:500 collins st melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "500 Collins St, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8174955,
+      "lng": 144.9574798,
+      "display_name": "500, Collins Street, Koreatown, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 306598338,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "500",
+        "road": "Collins Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "Koreatown",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8179686",
+        "-37.8171550",
+        "144.9571601",
+        "144.9578199"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:20.456Z",
+    "expires_at": "2027-11-02T03:19:20.456Z"
+  },
+  {
+    "id": "nominatim:350 bridge street port melbourne vic 3207 australia",
+    "provider": "nominatim",
+    "query": "350 Bridge Street, Port Melbourne, VIC, 3207, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8288574,
+      "lng": 144.9349176,
+      "display_name": "350, Bridge Street, Port Melbourne, Melbourne, Victoria, 3207, Australia",
+      "osm_type": "node",
+      "osm_id": 4446987255,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "350",
+        "road": "Bridge Street",
+        "suburb": "Port Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3207",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8289074",
+        "-37.8288074",
+        "144.9348676",
+        "144.9349676"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:22.693Z",
+    "expires_at": "2027-11-02T03:19:22.693Z"
+  },
+  {
+    "id": "nominatim:69-71 rupert st collingwood vic 3066 australia",
+    "provider": "nominatim",
+    "query": "69-71 Rupert St, Collingwood, VIC, 3066, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8063257,
+      "lng": 144.9890848,
+      "display_name": "Rupert Street, Collingwood, Melbourne, Victoria, 3066, Australia",
+      "osm_type": "way",
+      "osm_id": 187609426,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Rupert Street",
+        "suburb": "Collingwood",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3066",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8093354",
+        "-37.8033150",
+        "144.9885932",
+        "144.9895803"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:24.486Z",
+    "expires_at": "2027-11-02T03:19:24.486Z"
+  },
+  {
+    "id": "nominatim:91-93 flinders ln melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "91-93 Flinders Ln, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8154806,
+      "lng": 144.9712896,
+      "display_name": "Duckboard House, 91-93, Flinders Lane, East End Theatre District, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 1235297343,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "91-93",
+        "road": "Flinders Lane",
+        "suburb": "Melbourne",
+        "neighbourhood": "East End Theatre District",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8156798",
+        "-37.8152814",
+        "144.9711682",
+        "144.9714110"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:27.695Z",
+    "expires_at": "2027-11-02T03:19:27.695Z"
+  },
+  {
+    "id": "nominatim:5 glasshouse road collingwood vic 3066 australia",
+    "provider": "nominatim",
+    "query": "5 Glasshouse Road, Collingwood, VIC, 3066, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8055104,
+      "lng": 144.9871553,
+      "display_name": "5, Glasshouse Road, Collingwood, Melbourne, Victoria, 3066, Australia",
+      "osm_type": "way",
+      "osm_id": 961002044,
+      "class": "building",
+      "type": "industrial",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "5",
+        "road": "Glasshouse Road",
+        "suburb": "Collingwood",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3066",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8056837",
+        "-37.8053487",
+        "144.9869555",
+        "144.9873645"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:29.457Z",
+    "expires_at": "2027-11-02T03:19:29.457Z"
+  },
+  {
+    "id": "nominatim:1 tripovich street brunswick vic 3056 australia",
+    "provider": "nominatim",
+    "query": "1 Tripovich Street, Brunswick, VIC, 3056, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.7664112,
+      "lng": 144.9614773,
+      "display_name": "T.O.M.S Place, 1, Tripovich Street, Brunswick, Melbourne, Victoria, 3056, Australia",
+      "osm_type": "node",
+      "osm_id": 10694355383,
+      "class": "office",
+      "type": "coworking",
+      "addresstype": "office",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "1",
+        "road": "Tripovich Street",
+        "suburb": "Brunswick",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3056",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.7664612",
+        "-37.7663612",
+        "144.9614273",
+        "144.9615273"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:32.109Z",
+    "expires_at": "2027-11-02T03:19:32.109Z"
+  },
+  {
+    "id": "nominatim:20 gwynne st. cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "20 Gwynne St., Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.827609,
+      "lng": 144.9931099,
+      "display_name": "20, Gwynne Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 1290625051,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "20",
+        "road": "Gwynne Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8276598",
+        "-37.8275574",
+        "144.9929571",
+        "144.9932596"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:35.768Z",
+    "expires_at": "2027-11-02T03:19:35.768Z"
+  },
+  {
+    "id": "nominatim:80 market st south melbourne vic 3205 australia",
+    "provider": "nominatim",
+    "query": "80 Market St, South Melbourne, VIC, 3205, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8292942,
+      "lng": 144.9603131,
+      "display_name": "Market Street, South Melbourne, Melbourne, Victoria, 3205, Australia",
+      "osm_type": "way",
+      "osm_id": 217597349,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Market Street",
+        "suburb": "South Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3205",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8296393",
+        "-37.8289357",
+        "144.9591041",
+        "144.9615182"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:37.100Z",
+    "expires_at": "2027-11-02T03:19:37.100Z"
+  },
+  {
+    "id": "nominatim:333 exhibition st melbourne vic 3004 australia",
+    "provider": "nominatim",
+    "query": "333 Exhibition St, Melbourne, VIC, 3004, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.8160083,
+      "lng": 144.9723196,
+      "display_name": "Exhibition Street, East End Theatre District, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 711983626,
+      "class": "highway",
+      "type": "tertiary",
+      "addresstype": "tertiary",
+      "importance": 0.3095991533582804,
+      "address": {
+        "road": "Exhibition Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "East End Theatre District",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8160764",
+        "-37.8159404",
+        "144.9722861",
+        "144.9723525"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:39.459Z",
+    "expires_at": "2027-11-02T03:19:39.459Z"
+  },
+  {
+    "id": "nominatim:65 wellington st collingwood vic 3066 australia",
+    "provider": "nominatim",
+    "query": "65 Wellington St, Collingwood, VIC, 3066, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8067875,
+      "lng": 144.9853693,
+      "display_name": "65, Wellington Street, Collingwood, Melbourne, Victoria, 3066, Australia",
+      "osm_type": "node",
+      "osm_id": 12414148410,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "65",
+        "road": "Wellington Street",
+        "suburb": "Collingwood",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3066",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8068375",
+        "-37.8067375",
+        "144.9853193",
+        "144.9854193"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:42.225Z",
+    "expires_at": "2027-11-02T03:19:42.225Z"
+  },
+  {
+    "id": "nominatim:162 collins street melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "162 Collins Street Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8148221,
+      "lng": 144.9680024,
+      "display_name": "The George on Collins, 162, Collins Street, East End Theatre District, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "node",
+      "osm_id": 598049995,
+      "class": "amenity",
+      "type": "restaurant",
+      "addresstype": "amenity",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "162",
+        "road": "Collins Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "East End Theatre District",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8148721",
+        "-37.8147721",
+        "144.9679524",
+        "144.9680524"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:45.589Z",
+    "expires_at": "2027-11-02T03:19:45.589Z"
+  },
+  {
+    "id": "nominatim:196-206 high st windsor vic 3181 australia",
+    "provider": "nominatim",
+    "query": "196-206 High St, Windsor, VIC, 3181, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8522115,
+      "lng": 144.9948271,
+      "display_name": "196-206, High Street, Windsor, Melbourne, Victoria, 3181, Australia",
+      "osm_type": "node",
+      "osm_id": 12418961279,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "196-206",
+        "road": "High Street",
+        "suburb": "Windsor",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3181",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8522615",
+        "-37.8521615",
+        "144.9947771",
+        "144.9948771"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:49.218Z",
+    "expires_at": "2027-11-02T03:19:49.218Z"
+  },
+  {
+    "id": "nominatim:45-47 normanby road notting hill vic 3168 australia",
+    "provider": "nominatim",
+    "query": "45-47 Normanby Road, Notting Hill, VIC, 3168, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.9062991,
+      "lng": 145.1390576,
+      "display_name": "Normanby Road, Notting Hill, Melbourne, Victoria, 3168, Australia",
+      "osm_type": "way",
+      "osm_id": 1360294563,
+      "class": "highway",
+      "type": "tertiary",
+      "addresstype": "tertiary",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Normanby Road",
+        "suburb": "Notting Hill",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3168",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.9063625",
+        "-37.9062912",
+        "145.1387341",
+        "145.1393750"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:51.099Z",
+    "expires_at": "2027-11-02T03:19:51.099Z"
+  },
+  {
+    "id": "nominatim:418a elizabeth st surry hills nsw 2010 australia",
+    "provider": "nominatim",
+    "query": "418A Elizabeth St, Surry Hills, NSW, 2010, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -33.886444,
+      "lng": 151.208824,
+      "display_name": "418A, Elizabeth Street, Strawberry Hills, Surry Hills, Sydney, New South Wales, 2010, Australia",
+      "osm_type": "way",
+      "osm_id": 524288820,
+      "class": "building",
+      "type": "commercial",
+      "addresstype": "building",
+      "importance": 0.00008246051728079679,
+      "address": {
+        "house_number": "418A",
+        "road": "Elizabeth Street",
+        "suburb": "Surry Hills",
+        "neighbourhood": "Strawberry Hills",
+        "city": "Sydney",
+        "state": "New South Wales",
+        "postcode": "2010",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-33.8866066",
+        "-33.8863009",
+        "151.2085084",
+        "151.2090898"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:53.230Z",
+    "expires_at": "2027-11-02T03:19:53.230Z"
+  },
+  {
+    "id": "nominatim:697 burke road camberwell vic 3124 australia",
+    "provider": "nominatim",
+    "query": "697 Burke Road, Camberwell, VIC, 3124, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8320171,
+      "lng": 145.0563301,
+      "display_name": "697, Burke Road, Camberwell, Melbourne, Victoria, 3124, Australia",
+      "osm_type": "node",
+      "osm_id": 12418307929,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "697",
+        "road": "Burke Road",
+        "suburb": "Camberwell",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3124",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8320671",
+        "-37.8319671",
+        "145.0562801",
+        "145.0563801"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:55.404Z",
+    "expires_at": "2027-11-02T03:19:55.404Z"
+  },
+  {
+    "id": "nominatim:8 cato street hawthorn east vic 3123 australia",
+    "provider": "nominatim",
+    "query": "8 Cato Street, Hawthorn East, VIC, 3123, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8432852,
+      "lng": 145.042622,
+      "display_name": "8, Cato Street, Hawthorn East, Melbourne, Victoria, 3123, Australia",
+      "osm_type": "node",
+      "osm_id": 4270670077,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "8",
+        "road": "Cato Street",
+        "suburb": "Hawthorn East",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3123",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8433352",
+        "-37.8432352",
+        "145.0425720",
+        "145.0426720"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:19:57.631Z",
+    "expires_at": "2027-11-02T03:19:57.631Z"
+  },
+  {
+    "id": "nominatim:113-117 adderley street west melbourne vic 3003 australia",
+    "provider": "nominatim",
+    "query": "113-117 Adderley Street, West Melbourne, VIC, 3003, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8108727,
+      "lng": 144.9474407,
+      "display_name": "113-117, Adderley Street, West Melbourne, Melbourne, Victoria, 3003, Australia",
+      "osm_type": "node",
+      "osm_id": 12419133154,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "113-117",
+        "road": "Adderley Street",
+        "suburb": "West Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3003",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8109227",
+        "-37.8108227",
+        "144.9473907",
+        "144.9474907"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:01.946Z",
+    "expires_at": "2027-11-02T03:20:01.946Z"
+  },
+  {
+    "id": "nominatim:360 elizabeth st melbourne vic 3000 vic 3000 australia",
+    "provider": "nominatim",
+    "query": "360 Elizabeth St Melbourne VIC 3000, VIC, 3000, Australia",
+    "status": "none",
+    "quality": null,
+    "result": null,
+    "fetched_at": "2026-11-02T03:20:04.043Z",
+    "expires_at": "2027-01-31T03:20:04.043Z"
+  },
+  {
+    "id": "nominatim:19 stanley street west melbourne vic 3003 australia",
+    "provider": "nominatim",
+    "query": "19 Stanley Street, West Melbourne, VIC, 3003, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8076948,
+      "lng": 144.9502689,
+      "display_name": "19, Stanley Street, West Melbourne, Melbourne, Victoria, 3003, Australia",
+      "osm_type": "node",
+      "osm_id": 11301398039,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "19",
+        "road": "Stanley Street",
+        "suburb": "West Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3003",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8077448",
+        "-37.8076448",
+        "144.9502189",
+        "144.9503189"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:08.979Z",
+    "expires_at": "2027-11-02T03:20:08.979Z"
+  },
+  {
+    "id": "nominatim:488 victoria st north melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "488 Victoria St, North Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "street",
+    "result": {
+      "lat": -37.8060736,
+      "lng": 144.9584629,
+      "display_name": "Victoria Street, North Melbourne, Melbourne, Victoria, 3051, Australia",
+      "osm_type": "way",
+      "osm_id": 711611139,
+      "class": "highway",
+      "type": "primary",
+      "addresstype": "primary",
+      "importance": 0.31620884567581686,
+      "address": {
+        "road": "Victoria Street",
+        "suburb": "North Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3051",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8060855",
+        "-37.8060617",
+        "144.9583482",
+        "144.9585775"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:13.189Z",
+    "expires_at": "2027-11-02T03:20:13.189Z"
+  },
+  {
+    "id": "nominatim:15 palmer parade cremorne vic 3161 australia",
+    "provider": "nominatim",
+    "query": "15 Palmer Parade, Cremorne, VIC, 3161, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8311491,
+      "lng": 144.9931561,
+      "display_name": "Palmer Parade, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 30859614,
+      "class": "highway",
+      "type": "residential",
+      "addresstype": "residential",
+      "importance": 0.053413785763332534,
+      "address": {
+        "road": "Palmer Parade",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8321379",
+        "-37.8301606",
+        "144.9929761",
+        "144.9933374"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:15.728Z",
+    "expires_at": "2027-11-02T03:20:15.728Z"
+  },
+  {
+    "id": "nominatim:32 palermo street south yarra vic 3141 australia",
+    "provider": "nominatim",
+    "query": "32 Palermo Street, South Yarra, VIC, 3141, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8419826,
+      "lng": 144.9971625,
+      "display_name": "32, Palermo Street, South Yarra, Melbourne, Victoria, 3141, Australia",
+      "osm_type": "node",
+      "osm_id": 12411526566,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "32",
+        "road": "Palermo Street",
+        "suburb": "South Yarra",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3141",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8420326",
+        "-37.8419326",
+        "144.9971125",
+        "144.9972125"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:17.788Z",
+    "expires_at": "2027-11-02T03:20:17.788Z"
+  },
+  {
+    "id": "nominatim:241 harbour esplanade docklands vic 3008 australia",
+    "provider": "nominatim",
+    "query": "241 Harbour Esplanade, Docklands, VIC, 3008, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8134517,
+      "lng": 144.9433211,
+      "display_name": "241, Harbour Esplanade, Docklands, Melbourne, Victoria, 3008, Australia",
+      "osm_type": "way",
+      "osm_id": 306630587,
+      "class": "building",
+      "type": "residential",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "241",
+        "road": "Harbour Esplanade",
+        "suburb": "Docklands",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3008",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8135903",
+        "-37.8132901",
+        "144.9431369",
+        "144.9434950"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:20.498Z",
+    "expires_at": "2027-11-02T03:20:20.498Z"
+  },
+  {
+    "id": "nominatim:11-13 cubitt st cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "11-13 Cubitt St, Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8265888,
+      "lng": 144.9929762,
+      "display_name": "11-13, Cubitt Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 946747641,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "11-13",
+        "road": "Cubitt Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8267026",
+        "-37.8264752",
+        "144.9927974",
+        "144.9931549"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:23.644Z",
+    "expires_at": "2027-11-02T03:20:23.644Z"
+  },
+  {
+    "id": "nominatim:204 ingles st port melbourne vic 3207 australia",
+    "provider": "nominatim",
+    "query": "204 Ingles St, Port Melbourne, VIC, 3207, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8291052,
+      "lng": 144.9417187,
+      "display_name": "204, Ingles Street, Port Melbourne, Melbourne, Victoria, 3207, Australia",
+      "osm_type": "node",
+      "osm_id": 14202565405,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "204",
+        "road": "Ingles Street",
+        "suburb": "Port Melbourne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3207",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8291552",
+        "-37.8290552",
+        "144.9416687",
+        "144.9417687"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:20:27.634Z",
+    "expires_at": "2027-11-02T03:20:27.634Z"
+  },
+  {
+    "id": "nominatim:1 collins street melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "1 Collins Street, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.7961515,
+      "lng": 145.0285335,
+      "display_name": "1, Collins Street, Kew, Melbourne, Victoria, 3101, Australia",
+      "osm_type": "node",
+      "osm_id": 12418299817,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "1",
+        "road": "Collins Street",
+        "suburb": "Kew",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3101",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.7962015",
+        "-37.7961015",
+        "145.0284835",
+        "145.0285835"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:21:47.904Z",
+    "expires_at": "2027-11-02T03:21:47.904Z"
+  },
+  {
+    "id": "nominatim:436 elgar rd box hill vic 3128 australia",
+    "provider": "nominatim",
+    "query": "436 Elgar Rd, Box Hill, VIC, 3128, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8180931,
+      "lng": 145.1153604,
+      "display_name": "436, Elgar Road, Box Hill, Melbourne, Victoria, 3128, Australia",
+      "osm_type": "way",
+      "osm_id": 328660548,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "436",
+        "road": "Elgar Road",
+        "suburb": "Box Hill",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3128",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8182642",
+        "-37.8178768",
+        "145.1149747",
+        "145.1157460"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:21:54.088Z",
+    "expires_at": "2027-11-02T03:21:54.088Z"
+  },
+  {
+    "id": "nominatim:12 ferntree place notting hill vic 3168 australia",
+    "provider": "nominatim",
+    "query": "12 Ferntree Place, Notting Hill, VIC, 3168, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.9035917,
+      "lng": 145.134759,
+      "display_name": "12, Ferntree Place, Ferntree Business Park, Notting Hill, Melbourne, Victoria, 3168, Australia",
+      "osm_type": "node",
+      "osm_id": 12419130085,
+      "class": "place",
+      "type": "house",
+      "addresstype": "place",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "12",
+        "road": "Ferntree Place",
+        "suburb": "Notting Hill",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3168",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.9036417",
+        "-37.9035417",
+        "145.1347090",
+        "145.1348090"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:21:59.051Z",
+    "expires_at": "2027-11-02T03:21:59.051Z"
+  },
+  {
+    "id": "nominatim:121 king street melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "121 King Street, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8172349,
+      "lng": 144.9558607,
+      "display_name": "Envato, 121, King Street, Koreatown, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "node",
+      "osm_id": 4467962593,
+      "class": "office",
+      "type": "company",
+      "addresstype": "office",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "121",
+        "road": "King Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "Koreatown",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8172849",
+        "-37.8171849",
+        "144.9558107",
+        "144.9559107"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:22:02.443Z",
+    "expires_at": "2027-11-02T03:22:02.443Z"
+  },
+  {
+    "id": "nominatim:525 collins street melbourne vic 3000 australia",
+    "provider": "nominatim",
+    "query": "525 Collins Street, Melbourne, VIC, 3000, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8188486,
+      "lng": 144.9577825,
+      "display_name": "Securiton Data Centre, 525, Collins Street, Koreatown, Melbourne, Victoria, 3000, Australia",
+      "osm_type": "way",
+      "osm_id": 474646359,
+      "class": "building",
+      "type": "yes",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "525",
+        "road": "Collins Street",
+        "suburb": "Melbourne",
+        "neighbourhood": "Koreatown",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3000",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8190731",
+        "-37.8186779",
+        "144.9575134",
+        "144.9580198"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:22:04.860Z",
+    "expires_at": "2027-11-02T03:22:04.860Z"
+  },
+  {
+    "id": "nominatim:105-115 dover street cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "105-115 Dover Street, Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8286876,
+      "lng": 144.9918385,
+      "display_name": "The Royals, 105-115, Dover Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 727176503,
+      "class": "office",
+      "type": "it",
+      "addresstype": "office",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "105-115",
+        "road": "Dover Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8288627",
+        "-37.8285126",
+        "144.9916662",
+        "144.9920107"
+      ]
+    },
+    "fetched_at": "2026-11-02T03:23:33.483Z",
+    "expires_at": "2027-11-02T03:23:33.483Z"
   }
 ]

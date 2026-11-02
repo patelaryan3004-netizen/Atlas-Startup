@@ -4,7 +4,7 @@ The Perth research list (`backend/scripts/perth/research/perth-startups-research
 report a Perth location, directory listings, accelerator and award lists, investor portfolios and established businesses. This importer checks every row before it can
 be published, keeps what cannot be checked in a review queue with what is missing, and never lets a list, an award or a fund stand in for a Perth office.
 
-It sits on the [discovery engine](discovery.md) (robots.txt obeyed, LinkedIn and paid databases never read, a refusal is not worked around, nothing is public until a person
+The importer is shared by every city (`backend/scripts/places/import.mjs`, `--city perth`; `node scripts/perth/import.mjs <step>` still works): see [Melbourne](melbourne-import.md) for the second city. It sits on the [discovery engine](discovery.md) (robots.txt obeyed, LinkedIn and paid databases never read, a refusal is not worked around, nothing is public until a person
 approves it) and reuses the [portfolio importer](portfolio-import.md)'s rules: a company already in the directory is never added twice (website domain, then name), a company
 is placed at its **city only** (approximate) until its own page gives a street address that the geocoder confirms, and no stage or funding fact is filled in.
 
@@ -12,18 +12,18 @@ is placed at its **city only** (approximate) until its own page gives a street a
 
 ```bash
 cd backend
-node scripts/perth/import.mjs hubs                       # read the pages the research cites, once
-node scripts/perth/import.mjs sites                      # likely domains for rows with no website (DNS, then a homepage that names the company)
-node scripts/perth/import.mjs plan                       # DRY RUN: proposed additions, updates, duplicates, review items. Writes nothing
-node scripts/perth/import.mjs run     --by "name"        # candidates; each company's OWN website is read
-node scripts/perth/import.mjs reread  --by "name"        # read again the sites that could not be read
-node scripts/perth/import.mjs ownpages [--retry]         # read each row's OWN site (4 pages) for an address in Greater Perth or a "based in Perth" statement: own-pages.json
+node scripts/places/import.mjs hubs --city perth                       # read the pages the research cites, once
+node scripts/places/import.mjs sites --city perth                      # likely domains for rows with no website (DNS, then a homepage that names the company)
+node scripts/places/import.mjs plan --city perth                       # DRY RUN: proposed additions, updates, duplicates, review items. Writes nothing
+node scripts/places/import.mjs run --city perth     --by "name"        # candidates; each company's OWN website is read
+node scripts/places/import.mjs reread --city perth  --by "name"        # read again the sites that could not be read
+node scripts/places/import.mjs ownpages --city perth [--retry]         # read each row's OWN site (4 pages) for an address in Greater Perth or a "based in Perth" statement: own-pages.json
                                                          #   --retry reads again a site whose read failed on the network (a DNS blip, a timeout); a site that answered is not read again
-node scripts/perth/import.mjs propose                    # classify every row: proposals.json
-node scripts/perth/import.mjs apply   --by "name"        # publish what the rules clear and judgments.json accepts
-node scripts/perth/import.mjs tidy    --by "name"        # make each published company's address evidence the street address and not the page's wording around it
-node scripts/perth/import.mjs fixes   --by "name"        # a person's corrections from fixes.json (a wrong evidence row, a second office or facility as a location of its own)
-node scripts/perth/import.mjs report                     # the counts
+node scripts/places/import.mjs propose --city perth                    # classify every row: proposals.json
+node scripts/places/import.mjs apply --city perth   --by "name"        # publish what the rules clear and judgments.json accepts
+node scripts/places/import.mjs tidy --city perth    --by "name"        # make each published company's address evidence the street address and not the page's wording around it
+node scripts/places/import.mjs fixes --city perth   --by "name"        # a person's corrections from fixes.json (a wrong evidence row, a second office or facility as a location of its own)
+node scripts/places/import.mjs report --city perth                     # the counts
 npm run locations -- geocode --company <id> --apply      # then, for each new company: ask the geocoder about its own address
 npm run locations -- promote --company <id> --apply      # and give it a pin only where the geocoder confirms the house
 ```

@@ -1566,5 +1566,397 @@
       }
     ],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261102022720953",
+    "started_at": "2026-11-02T02:11:19.163Z",
+    "finished_at": "2026-11-02T02:27:20.953Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-research-2026-10-31",
+        "leads": 288,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 185,
+      "attached": 15,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 694
+    },
+    "refused": [
+      {
+        "url": "https://alterratech.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://boxedlogic.com/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://cp365.health/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve cp365.health"
+      },
+      {
+        "url": "https://carimedical.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve carimedical.com"
+      },
+      {
+        "url": "https://charitybay.org/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve charitybay.org"
+      },
+      {
+        "url": "https://childnation.org/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve childnation.org"
+      },
+      {
+        "url": "https://codello.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve codello.com.au"
+      },
+      {
+        "url": "https://cyban.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://cyban.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://getfirststep.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://getfirststep.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://fitfloapp.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve fitfloapp.com"
+      },
+      {
+        "url": "https://flowverse.co/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://flowverse.co/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://geckotraxx.com/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://georgerobotics.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://georgerobotics.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://hadeanenergy.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://hellocass.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.avocadotoken.io/charaf-el-bouhali/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.iammindfulco.com.au/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://insightinfra.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve insightinfra.com.au"
+      },
+      {
+        "url": "https://ipantry.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://lendforgood.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://listingloop.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 503)"
+      },
+      {
+        "url": "https://liven.com.au/",
+        "code": "robots_unavailable",
+        "message": "response is larger than 500000 bytes"
+      },
+      {
+        "url": "https://merrypeople.com/",
+        "code": "rate_limited",
+        "message": "HTTP 429: merrypeople.com asked us to slow down"
+      },
+      {
+        "url": "https://mybettersleep.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve mybettersleep.com"
+      },
+      {
+        "url": "https://heystu.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve heystu.com.au"
+      },
+      {
+        "url": "https://okkular.shop/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve okkular.shop"
+      },
+      {
+        "url": "https://onefuturefootball.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve onefuturefootball.com"
+      },
+      {
+        "url": "https://owltail.com/",
+        "code": "http_error",
+        "message": "HTTP 500"
+      },
+      {
+        "url": "https://www.linkedin.com/in/joshuaschoen/",
+        "code": "blocked_host",
+        "message": "www.linkedin.com is blocked: LinkedIn forbids scraping and this engine never reads it"
+      },
+      {
+        "url": "https://parkhound.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://payscript.io/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261102031433025",
+    "started_at": "2026-11-02T03:10:36.920Z",
+    "finished_at": "2026-11-02T03:14:33.025Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-research-2026-10-31",
+        "leads": 226,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 62,
+      "attached": 0,
+      "seen": 138,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 237
+    },
+    "refused": [
+      {
+        "url": "https://reflive.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://reflive.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://seminal.one/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve seminal.one"
+      },
+      {
+        "url": "https://shacky.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve shacky.co"
+      },
+      {
+        "url": "https://www.smartpaddock.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://solbari.com/",
+        "code": "rate_limited",
+        "message": "HTTP 429: solbari.com asked us to slow down"
+      },
+      {
+        "url": "https://soundsmith.io/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://spatialgpt.ai/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://subbix.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://supportsorted.com/",
+        "code": "http_error",
+        "message": "HTTP 402"
+      },
+      {
+        "url": "https://thingc.co/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://thingc.co/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261102031621258",
+    "started_at": "2026-11-02T03:15:12.700Z",
+    "finished_at": "2026-11-02T03:16:21.258Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-research-2026-10-31",
+        "leads": 205,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 19,
+      "attached": 2,
+      "seen": 179,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 68
+    },
+    "refused": [
+      {
+        "url": "https://thirdroc.ai/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://thirdroc.ai/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://tixel.com/au/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://tremolo.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tremolo.com.au"
+      },
+      {
+        "url": "https://umpshealth.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://vimi.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve vimi.com.au"
+      },
+      {
+        "url": "https://voli.global/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve voli.global"
+      },
+      {
+        "url": "https://wirl.app/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://wirl.app/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://workrex.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve workrex.io"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261102031702771",
+    "started_at": "2026-11-02T03:16:38.316Z",
+    "finished_at": "2026-11-02T03:17:02.771Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-research-2026-10-31",
+        "leads": 200,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 5,
+      "attached": 0,
+      "seen": 195,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 27
+    },
+    "refused": [],
+    "acknowledged": []
   }
 ]

@@ -1,0 +1,1297 @@
+{
+ "rows": {
+  "actimolabs": {
+   "tried": 9,
+   "resolved": [
+    "actimolabs.com"
+   ],
+   "found": {
+    "url": "https://actimolabs.com",
+    "title": "Actimo Labs Supercharge your protein."
+   },
+   "seen": [
+    {
+     "url": "https://actimolabs.com/",
+     "title": "Actimo Labs Supercharge your protein.",
+     "names_it": true
+    }
+   ]
+  },
+  "additiveassurance": {
+   "tried": 9,
+   "resolved": [
+    "additiveassurance.com.au",
+    "additiveassurance.com",
+    "additiveassurance.co"
+   ],
+   "found": {
+    "url": "https://www.additiveassurance.com",
+    "title": "Additive Assurance | In-Situ Quality Assurance for Metal 3D Printing Build with proof, not hope."
+   },
+   "seen": [
+    {
+     "url": "https://www.additiveassurance.com/",
+     "title": "Additive Assurance | In-Situ Quality Assurance for Metal 3D Printing Build with proof, not hope.",
+     "names_it": true
+    },
+    {
+     "url": "https://additiveassurance.com/",
+     "title": "Additive Assurance | In-Situ Quality Assurance for Metal 3D Printing Build with proof, not hope.",
+     "names_it": true
+    },
+    {
+     "url": "https://additiveassurance.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "adracard": {
+   "tried": 9,
+   "resolved": [
+    "adracard.com"
+   ],
+   "found": {
+    "url": "https://www.adracard.com",
+    "title": "Home | Adracard Copy / Landing Page Adracard Copy / Landing Page"
+   },
+   "seen": [
+    {
+     "url": "https://www.adracard.com/",
+     "title": "Home | Adracard Copy / Landing Page Adracard Copy / Landing Page",
+     "names_it": true
+    }
+   ]
+  },
+  "barelymylk": {
+   "tried": 9,
+   "resolved": [
+    "barelymylk.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://barelymylk.com/",
+     "error": "robots_disallow"
+    }
+   ]
+  },
+  "baresop": {
+   "tried": 9,
+   "resolved": [
+    "baresop.com.au",
+    "baresop.com"
+   ],
+   "found": {
+    "url": "https://baresop.com",
+    "title": "Plant-Based Skin Care | Plastic-free Products | Baresop – baresop baresop"
+   },
+   "seen": [
+    {
+     "url": "https://baresop.com/",
+     "title": "Plant-Based Skin Care | Plastic-free Products | Baresop – baresop baresop",
+     "names_it": true
+    },
+    {
+     "url": "https://baresop.com/",
+     "title": "Plant-Based Skin Care | Plastic-free Products | Baresop – baresop baresop",
+     "names_it": true
+    }
+   ]
+  },
+  "bolus": {
+   "tried": 9,
+   "resolved": [
+    "bolus.com.au",
+    "bolus.ai",
+    "bolus.app",
+    "bolus.org"
+   ],
+   "found": {
+    "url": "https://bolus.com.au",
+    "title": "Bolus · Exam revision in quick, concentrated doses bolus"
+   },
+   "seen": [
+    {
+     "url": "https://bolus.com.au/",
+     "title": "Bolus · Exam revision in quick, concentrated doses bolus",
+     "names_it": true
+    },
+    {
+     "url": "https://bolus.ai/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://bolus.health/",
+     "title": "Bolus | Food, exercise and weight support for diabetes Bolus Make looking after your health with diabetes less work.",
+     "names_it": true
+    },
+    {
+     "url": "https://bolus.org/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "bushride": {
+   "tried": 9,
+   "resolved": [
+    "bushride.com.au",
+    "bushride.com",
+    "bushride.au",
+    "bushride.co",
+    "bushride.app",
+    "bushride.org"
+   ],
+   "found": {
+    "url": "https://bushride.com",
+    "title": "Rideshare in Australia | Bushride Long distance rideshare in Australia"
+   },
+   "seen": [
+    {
+     "url": "https://bushride.com/",
+     "title": "Rideshare in Australia | Bushride Long distance rideshare in Australia",
+     "names_it": true
+    },
+    {
+     "url": "https://bushride.com/",
+     "title": "Rideshare in Australia | Bushride Long distance rideshare in Australia",
+     "names_it": true
+    },
+    {
+     "url": "https://bushride.com/",
+     "title": "Rideshare in Australia | Bushride Long distance rideshare in Australia",
+     "names_it": true
+    },
+    {
+     "url": "https://bushride.com/",
+     "title": "Rideshare in Australia | Bushride Long distance rideshare in Australia",
+     "names_it": true
+    }
+   ]
+  },
+  "cabaro": {
+   "tried": 9,
+   "resolved": [
+    "cabaro.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://cabaro.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "circadianhealthinnovations": {
+   "tried": 9,
+   "resolved": [
+    "circadianhealthinnovations.com"
+   ],
+   "found": {
+    "url": "https://circadianhealthinnovations.com",
+    "title": "Circadian Health Innovations Circadian Health Innovations Infrared sensing!"
+   },
+   "seen": [
+    {
+     "url": "https://circadianhealthinnovations.com/",
+     "title": "Circadian Health Innovations Circadian Health Innovations Infrared sensing!",
+     "names_it": true
+    }
+   ]
+  },
+  "circularkitchencore": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "clatics": {
+   "tried": 9,
+   "resolved": [
+    "clatics.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://clatics.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "dilicious": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "edapteducation": {
+   "tried": 9,
+   "resolved": [
+    "edapteducation.com"
+   ],
+   "found": {
+    "url": "https://edapteducation.com",
+    "title": "Edapt Education | Tutors edapting to different learning styles Our Vision"
+   },
+   "seen": [
+    {
+     "url": "https://edapteducation.com/",
+     "title": "Edapt Education | Tutors edapting to different learning styles Our Vision",
+     "names_it": true
+    }
+   ]
+  },
+  "escollate": {
+   "tried": 9,
+   "resolved": [
+    "escollate.com"
+   ],
+   "found": {
+    "url": "https://www.escollate.com",
+    "title": "esCollate | Software and Services for Manufacturing esCollate esCollate&trade; - the complete productivity solution for "
+   },
+   "seen": [
+    {
+     "url": "https://www.escollate.com/",
+     "title": "esCollate | Software and Services for Manufacturing esCollate esCollate&trade; - the complete productivity solution for ",
+     "names_it": true
+    }
+   ]
+  },
+  "espersatelliteimagery": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "flux": {
+   "tried": 9,
+   "resolved": [
+    "flux.com.au",
+    "flux.com",
+    "flux.au",
+    "flux.io",
+    "flux.ai",
+    "flux.co",
+    "flux.app",
+    "flux.tech",
+    "flux.org"
+   ],
+   "found": {
+    "url": "https://flux.com.au",
+    "title": "Menswear Melbourne | Japanese Denim | FLUX | Clothes Made in Melbourne Flux Clothing Melbourne Male Fashion | Mens Cloth"
+   },
+   "seen": [
+    {
+     "url": "https://flux.com.au/",
+     "title": "Menswear Melbourne | Japanese Denim | FLUX | Clothes Made in Melbourne Flux Clothing Melbourne Male Fashion | Mens Cloth",
+     "names_it": true
+    },
+    {
+     "url": "https://flux.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://flux.au/",
+     "title": "flux.au",
+     "names_it": true
+    },
+    {
+     "url": "https://flux.io/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "focusbear": {
+   "tried": 9,
+   "resolved": [
+    "focusbear.com",
+    "focusbear.io"
+   ],
+   "found": {
+    "url": "https://www.focusbear.io",
+    "title": "Focus Bear | Focus & Productivity App for ADHD Brains Built by AuDHDers for AuDHDers"
+   },
+   "seen": [
+    {
+     "url": "https://www.focusbear.io/",
+     "title": "Focus Bear | Focus & Productivity App for ADHD Brains Built by AuDHDers for AuDHDers",
+     "names_it": true
+    },
+    {
+     "url": "https://www.focusbear.io/",
+     "title": "Focus Bear | Focus & Productivity App for ADHD Brains Built by AuDHDers for AuDHDers",
+     "names_it": true
+    }
+   ]
+  },
+  "fora": {
+   "tried": 9,
+   "resolved": [
+    "fora.com.au",
+    "fora.com",
+    "fora.io",
+    "fora.ai",
+    "fora.co",
+    "fora.org"
+   ],
+   "found": {
+    "url": "https://fora.com.au",
+    "title": "fora.com.au We're getting things ready"
+   },
+   "seen": [
+    {
+     "url": "https://fora.com.au/",
+     "title": "fora.com.au We're getting things ready",
+     "names_it": true
+    },
+    {
+     "url": "https://www.fora.com/",
+     "title": "Fora: Powering your Hobbies",
+     "names_it": true
+    },
+    {
+     "url": "https://fora.io/",
+     "title": "Laconic Red Laconic Red",
+     "names_it": false
+    },
+    {
+     "url": "https://fora.northeastern.edu/",
+     "title": "Fora.ai – Reshaping collaborative modeling and decision-making for innovation, impact, and resilience J",
+     "names_it": true
+    }
+   ]
+  },
+  "innovaivf": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "inspiringchats": {
+   "tried": 9,
+   "resolved": [
+    "inspiringchats.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://inspiringchats.com/",
+     "error": "http_error"
+    }
+   ]
+  },
+  "mailtumble": {
+   "tried": 9,
+   "resolved": [
+    "mailtumble.com",
+    "mailtumble.co"
+   ],
+   "found": {
+    "url": "https://mailtumble.com",
+    "title": "MailTumble – Wrap up and relay your emails with privacy, compliance, analytics and statistics"
+   },
+   "seen": [
+    {
+     "url": "https://mailtumble.com/",
+     "title": "MailTumble – Wrap up and relay your emails with privacy, compliance, analytics and statistics",
+     "names_it": true
+    },
+    {
+     "url": "https://mailtumble.co/",
+     "error": "http_error"
+    }
+   ]
+  },
+  "mapleglassprinting": {
+   "tried": 9,
+   "resolved": [
+    "mapleglassprinting.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://mapleglassprinting.com/",
+     "error": "http_error"
+    }
+   ]
+  },
+  "mayacares": {
+   "tried": 9,
+   "resolved": [
+    "mayacares.com",
+    "mayacares.org"
+   ],
+   "found": {
+    "url": "https://mayacares.org",
+    "title": "Maya Cares | Patient Advocacy, Care Coordination, Housing Navigation"
+   },
+   "seen": [
+    {
+     "url": "https://mayacares.com/",
+     "error": "dns_failed"
+    },
+    {
+     "url": "https://mayacares.org/",
+     "title": "Maya Cares | Patient Advocacy, Care Coordination, Housing Navigation",
+     "names_it": true
+    }
+   ]
+  },
+  "medseekr": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "mercando": {
+   "tried": 9,
+   "resolved": [
+    "mercando.com.au",
+    "mercando.com",
+    "mercando.io"
+   ],
+   "found": {
+    "url": "https://mercando.com.au",
+    "title": "Find a Local Gardener | Garden Maintenance | Mercando Find a gardener who cares for more than the garden"
+   },
+   "seen": [
+    {
+     "url": "https://mercando.com.au/",
+     "title": "Find a Local Gardener | Garden Maintenance | Mercando Find a gardener who cares for more than the garden",
+     "names_it": true
+    },
+    {
+     "url": "https://mercando.com/",
+     "title": "Mercando Contracting Company",
+     "names_it": true
+    },
+    {
+     "url": "https://mercando.io/",
+     "title": "mercando - coming soon",
+     "names_it": true
+    }
+   ]
+  },
+  "mereo": {
+   "tried": 9,
+   "resolved": [
+    "mereo.com",
+    "mereo.io",
+    "mereo.ai",
+    "mereo.co",
+    "mereo.tech"
+   ],
+   "found": {
+    "url": "https://mereo.com",
+    "title": "Plataforma para Gestão de Pessoas | Mereo - Mereo Mereo Toda a gestão da sua empresa conectada com resultado Toda a gest"
+   },
+   "seen": [
+    {
+     "url": "https://mereo.com/",
+     "title": "Plataforma para Gestão de Pessoas | Mereo - Mereo Mereo Toda a gestão da sua empresa conectada com resultado Toda a gest",
+     "names_it": true
+    },
+    {
+     "url": "https://www.mereo.io/",
+     "title": "Make the world a better place with Mereo mereo.io",
+     "names_it": true
+    },
+    {
+     "url": "https://www.mereo.ai/",
+     "title": "Media Revenue Optimization - Mereo Mereo This is the game-changer they’ve been waiting for.",
+     "names_it": true
+    },
+    {
+     "url": "https://mereo.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "merrypeople": {
+   "tried": 9,
+   "resolved": [
+    "merrypeople.com.au",
+    "merrypeople.com"
+   ],
+   "found": {
+    "url": "https://merrypeople.com",
+    "title": "Merry People | Gumboots・Rain boots・Wellies・Ankle Boots Merry People Gumboots That Bring Fun To Every Forecast"
+   },
+   "seen": [
+    {
+     "url": "https://merrypeople.com/",
+     "title": "Merry People | Gumboots・Rain boots・Wellies・Ankle Boots Merry People Gumboots That Bring Fun To Every Forecast",
+     "names_it": true
+    },
+    {
+     "url": "https://merrypeople.com/",
+     "title": "Merry People | Gumboots・Rain boots・Wellies・Ankle Boots Merry People Gumboots That Bring Fun To Every Forecast",
+     "names_it": true
+    }
+   ]
+  },
+  "monsol": {
+   "tried": 9,
+   "resolved": [
+    "monsol.com.au",
+    "monsol.com",
+    "monsol.io",
+    "monsol.co"
+   ],
+   "found": {
+    "url": "https://monsolfoundation.org",
+    "title": "Home | Monsol Foundation Gestalten wir unsere Zukunft. Gemeinsam."
+   },
+   "seen": [
+    {
+     "url": "https://monsol.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://escspectrum.com/",
+     "title": "ESC Spectrum | CEMS and DAS Solutions for Clean Air Regulations ESC Spectrum | CEMS and DAS Solutions for Clean Air Regu",
+     "names_it": false
+    },
+    {
+     "url": "https://monsolfoundation.org/",
+     "title": "Home | Monsol Foundation Gestalten wir unsere Zukunft. Gemeinsam.",
+     "names_it": true
+    },
+    {
+     "url": "https://monsol.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "mylkemy": {
+   "tried": 9,
+   "resolved": [
+    "mylkemy.com.au",
+    "mylkemy.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://mylkemy.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://mylkemy.com/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "n0de": {
+   "tried": 9,
+   "resolved": [
+    "n0de.com.au",
+    "n0de.com",
+    "n0de.io",
+    "n0de.ai",
+    "n0de.co",
+    "n0de.app",
+    "n0de.tech",
+    "n0de.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://n0de.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://n0de.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://n0de.io/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://n0de.ai/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "nextaero": {
+   "tried": 9,
+   "resolved": [
+    "nextaero.com.au",
+    "nextaero.com"
+   ],
+   "found": {
+    "url": "https://nextaero.com.au",
+    "title": "NextAero – Fluid Engineering Services Your R&D Partners for Heat Transfer & Fluid Engineering"
+   },
+   "seen": [
+    {
+     "url": "https://nextaero.com.au/",
+     "title": "NextAero – Fluid Engineering Services Your R&D Partners for Heat Transfer & Fluid Engineering",
+     "names_it": true
+    },
+    {
+     "url": "https://nextaero.com/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "nooffencewines": {
+   "tried": 9,
+   "resolved": [
+    "nooffencewines.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://www.nooffencewines.com/",
+     "title": "Wine that causes No Offence Wine that causes No Offence",
+     "names_it": false
+    }
+   ]
+  },
+  "oss": {
+   "tried": 0,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "ourlegup": {
+   "tried": 9,
+   "resolved": [
+    "ourlegup.com.au",
+    "ourlegup.com"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://www.ourlegup.com/",
+     "title": "Backing Australia's growing pool of real estate capital Turn your home equity into extra income",
+     "names_it": false
+    },
+    {
+     "url": "https://www.ourlegup.com/",
+     "title": "Backing Australia's growing pool of real estate capital Turn your home equity into extra income",
+     "names_it": false
+    }
+   ]
+  },
+  "parcelpro": {
+   "tried": 9,
+   "resolved": [
+    "parcelpro.com.au",
+    "parcelpro.com",
+    "parcelpro.au",
+    "parcelpro.io",
+    "parcelpro.app"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://parcelpro.com.au/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://www.parcelpro.com/us/en/home.html",
+     "title": "Parcel Pro® Insured Shipping Services Protection & Peace of Mind for High-Value Shipments",
+     "names_it": false
+    },
+    {
+     "url": "https://parcelpro.au/",
+     "error": "http_error"
+    },
+    {
+     "url": "https://parcelpro.io/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "peaksleeptoelite": {
+   "tried": 9,
+   "resolved": [
+    "peaksleeptoelite.com"
+   ],
+   "found": {
+    "url": "https://peaksleeptoelite.com",
+    "title": "Peak Sleep to Elite"
+   },
+   "seen": [
+    {
+     "url": "https://peaksleeptoelite.com/",
+     "title": "Peak Sleep to Elite",
+     "names_it": true
+    }
+   ]
+  },
+  "pory": {
+   "tried": 9,
+   "resolved": [
+    "pory.com",
+    "pory.io",
+    "pory.ai",
+    "pory.co",
+    "pory.app",
+    "pory.org"
+   ],
+   "found": {
+    "url": "https://pory.io",
+    "title": "Pory — AI portal builder for programs, members and clients Pory A portal for your applicants"
+   },
+   "seen": [
+    {
+     "url": "https://pory.com/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://pory.io/",
+     "title": "Pory — AI portal builder for programs, members and clients Pory A portal for your applicants",
+     "names_it": true
+    },
+    {
+     "url": "https://www.pory.ai/",
+     "title": "Pory Labs: Effortless AI for Audio, Image, and Video Generation. The Future of Generative AI",
+     "names_it": true
+    },
+    {
+     "url": "https://pory.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "racerclublabs": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "reachandmatch": {
+   "tried": 9,
+   "resolved": [
+    "reachandmatch.com"
+   ],
+   "found": {
+    "url": "https://www.reachandmatch.com",
+    "title": "Reach & Match® | Inclusive education for early childhood Reach & Match Inclusive Early Education Through Multisensory Pl"
+   },
+   "seen": [
+    {
+     "url": "https://www.reachandmatch.com/",
+     "title": "Reach & Match® | Inclusive education for early childhood Reach & Match Inclusive Early Education Through Multisensory Pl",
+     "names_it": true
+    }
+   ]
+  },
+  "sendsand": {
+   "tried": 9,
+   "resolved": [],
+   "found": null,
+   "seen": []
+  },
+  "shiftit": {
+   "tried": 9,
+   "resolved": [
+    "shiftit.com.au",
+    "shiftit.com",
+    "shiftit.au",
+    "shiftit.io",
+    "shiftit.co",
+    "shiftit.app",
+    "shiftit.tech",
+    "shiftit.org"
+   ],
+   "found": {
+    "url": "https://www.shiftit.com",
+    "title": "ShiftIt Institute: Maureen Pelton and Charlie Hartwell Shift It"
+   },
+   "seen": [
+    {
+     "url": "https://shiftit.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://www.shiftit.com/",
+     "title": "ShiftIt Institute: Maureen Pelton and Charlie Hartwell Shift It",
+     "names_it": true
+    },
+    {
+     "url": "https://shiftit.au/",
+     "title": "Shift It - Australian's Helping Australian's to Move their Freight",
+     "names_it": false
+    },
+    {
+     "url": "https://shiftit.io/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "sleepsync": {
+   "tried": 9,
+   "resolved": [
+    "sleepsync.com.au",
+    "sleepsync.com",
+    "sleepsync.ai",
+    "sleepsync.co",
+    "sleepsync.app",
+    "sleepsync.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://sleepsync.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://sleepsync.com/",
+     "error": "too_large"
+    },
+    {
+     "url": "https://sleepsync.ai/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://sleepsync.co/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "sonorus": {
+   "tried": 9,
+   "resolved": [
+    "sonorus.com",
+    "sonorus.io",
+    "sonorus.ai",
+    "sonorus.co",
+    "sonorus.app",
+    "sonorus.tech",
+    "sonorus.org"
+   ],
+   "found": {
+    "url": "https://sonorus.com",
+    "title": "sonorus.com sonorus.com"
+   },
+   "seen": [
+    {
+     "url": "https://sonorus.com/",
+     "title": "sonorus.com sonorus.com",
+     "names_it": true
+    },
+    {
+     "url": "https://sonorus.io/",
+     "title": "jetlagged.app — iOS Apps iOS Apps",
+     "names_it": false
+    },
+    {
+     "url": "https://sonorus.ai/",
+     "title": "Sonorus.ai for sale | Spaceship.com Spaceship Sonorus.ai",
+     "names_it": true
+    },
+    {
+     "url": "https://sonorus.co/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "stackgo": {
+   "tried": 9,
+   "resolved": [
+    "stackgo.io"
+   ],
+   "found": {
+    "url": "https://stackgo.io",
+    "title": "StackGo | Onboarding and verification in your software StackGo Integrated workflows for regulated businesses"
+   },
+   "seen": [
+    {
+     "url": "https://stackgo.io/",
+     "title": "StackGo | Onboarding and verification in your software StackGo Integrated workflows for regulated businesses",
+     "names_it": true
+    }
+   ]
+  },
+  "swipe": {
+   "tried": 9,
+   "resolved": [
+    "swipe.com.au",
+    "swipe.com",
+    "swipe.io",
+    "swipe.ai",
+    "swipe.co",
+    "swipe.app",
+    "swipe.tech",
+    "swipe.org"
+   ],
+   "found": {
+    "url": "https://www.swipe.com.au",
+    "title": "SWIPE SWIPE"
+   },
+   "seen": [
+    {
+     "url": "https://www.swipe.com.au/",
+     "title": "SWIPE SWIPE",
+     "names_it": true
+    },
+    {
+     "url": "https://www.swipe.com/",
+     "title": "SWIPE DESIGN SWIPE DESIGN Designers in Swipe Looking at Books + Objects Episode Seven",
+     "names_it": true
+    },
+    {
+     "url": "https://swipe.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://swipe.ai/",
+     "error": "robots_unavailable"
+    }
+   ]
+  },
+  "dough": {
+   "tried": 9,
+   "resolved": [
+    "dough.com.au",
+    "dough.com",
+    "dough.au",
+    "dough.io",
+    "dough.ai",
+    "dough.co",
+    "dough.app",
+    "dough.tech",
+    "dough.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://dough.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://dough.com/",
+     "title": "Goodbye | dough a big thank you...",
+     "names_it": false
+    },
+    {
+     "url": "https://dough.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://dough.io/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "mindfulhub": {
+   "tried": 9,
+   "resolved": [
+    "mindfulhub.com.au",
+    "mindfulhub.com",
+    "mindfulhub.io",
+    "mindfulhub.ai",
+    "mindfulhub.co",
+    "mindfulhub.app",
+    "mindfulhub.org"
+   ],
+   "found": null,
+   "seen": [
+    {
+     "url": "https://mindfulhub.com.au/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.hugedomains.com/domain_profile.cfm?d=mindfulhub.com",
+     "title": "MindfulHub.com is for sale | HugeDomains HugeDomains MindfulHub.com",
+     "names_it": false
+    },
+    {
+     "url": "https://mindfulhub.io/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://mindfulhub.ai/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "trainstop": {
+   "tried": 9,
+   "resolved": [
+    "trainstop.com.au",
+    "trainstop.com",
+    "trainstop.au",
+    "trainstop.ai",
+    "trainstop.co",
+    "trainstop.app"
+   ],
+   "found": {
+    "url": "https://www.trainstop.com.au",
+    "title": "Trainstop RECRUIT SMARTER & FASTER."
+   },
+   "seen": [
+    {
+     "url": "https://www.trainstop.com.au/",
+     "title": "Trainstop RECRUIT SMARTER & FASTER.",
+     "names_it": true
+    },
+    {
+     "url": "https://www.trainstop.com/",
+     "title": "TrainStop.com domain name is for sale. Inquire now. TrainStop.com",
+     "names_it": true
+    },
+    {
+     "url": "https://trainstop.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://trainstop.ai/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "valenia": {
+   "tried": 9,
+   "resolved": [
+    "valenia.io",
+    "valenia.co",
+    "valenia.org"
+   ],
+   "found": {
+    "url": "https://www.valenia.io",
+    "title": "Valenia Tus tarjetas"
+   },
+   "seen": [
+    {
+     "url": "https://www.valenia.io/",
+     "title": "Valenia Tus tarjetas",
+     "names_it": true
+    },
+    {
+     "url": "https://valenia.co/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://valenia.org/",
+     "title": "Valenia Co. For Air Conditioning & Refrigerator Devices & Cont. Valenia Co. For Air Conditioning & Refrigerator Devices ",
+     "names_it": true
+    }
+   ]
+  },
+  "volomedical": {
+   "tried": 9,
+   "resolved": [
+    "volomedical.com.au",
+    "volomedical.com"
+   ],
+   "found": {
+    "url": "https://www.volomedical.com",
+    "title": "Volo Medical | Concierge Family Medicine in Palm Beach Gardens Volo Medical Personalized Care for the Whole Family - fro"
+   },
+   "seen": [
+    {
+     "url": "https://volomedical.com.au/",
+     "error": "robots_disallow"
+    },
+    {
+     "url": "https://www.volomedical.com/",
+     "title": "Volo Medical | Concierge Family Medicine in Palm Beach Gardens Volo Medical Personalized Care for the Whole Family - fro",
+     "names_it": true
+    }
+   ]
+  },
+  "werkling": {
+   "tried": 9,
+   "resolved": [
+    "werkling.com.au",
+    "werkling.com",
+    "werkling.co"
+   ],
+   "found": {
+    "url": "https://werkling.com",
+    "title": "Werkling | Connecting business leaders with on-demand talent Werkling"
+   },
+   "seen": [
+    {
+     "url": "https://werkling.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://werkling.com/",
+     "title": "Werkling | Connecting business leaders with on-demand talent Werkling",
+     "names_it": true
+    },
+    {
+     "url": "https://werkling.co/",
+     "title": "",
+     "names_it": false
+    }
+   ]
+  },
+  "whogivesacrap": {
+   "tried": 9,
+   "resolved": [
+    "whogivesacrap.com",
+    "whogivesacrap.au",
+    "whogivesacrap.app",
+    "whogivesacrap.org"
+   ],
+   "found": {
+    "url": "https://au.whogivesacrap.org",
+    "title": "Toilet paper that builds toilets | Who Gives A Crap AU Make your bathroom merry"
+   },
+   "seen": [
+    {
+     "url": "https://au.whogivesacrap.org/",
+     "title": "Toilet paper that builds toilets | Who Gives A Crap AU Make your bathroom merry",
+     "names_it": true
+    },
+    {
+     "url": "https://au.whogivesacrap.org/",
+     "title": "Toilet paper that builds toilets | Who Gives A Crap AU Make your bathroom merry",
+     "names_it": true
+    },
+    {
+     "url": "https://whogivesacrap.app/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://au.whogivesacrap.org/",
+     "title": "Toilet paper that builds toilets | Who Gives A Crap AU Make your bathroom merry",
+     "names_it": true
+    }
+   ]
+  },
+  "wiselist": {
+   "tried": 9,
+   "resolved": [
+    "wiselist.com",
+    "wiselist.co",
+    "wiselist.app"
+   ],
+   "found": {
+    "url": "https://www.wiselist.app",
+    "title": "WiseList App: Compare Grocery Prices in Australia & Plan Meals WiseList | Your Daily Life, Organised. Compare Coles, Woo"
+   },
+   "seen": [
+    {
+     "url": "https://wiselist.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://wiselist.co/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://www.wiselist.app/",
+     "title": "WiseList App: Compare Grocery Prices in Australia & Plan Meals WiseList | Your Daily Life, Organised. Compare Coles, Woo",
+     "names_it": true
+    }
+   ]
+  },
+  "wonki": {
+   "tried": 9,
+   "resolved": [
+    "wonki.com.au",
+    "wonki.com",
+    "wonki.io",
+    "wonki.ai",
+    "wonki.co",
+    "wonki.tech",
+    "wonki.org"
+   ],
+   "found": {
+    "url": "https://www.wonki.com.au",
+    "title": "Wonki Beverages Wonki"
+   },
+   "seen": [
+    {
+     "url": "https://www.wonki.com.au/",
+     "title": "Wonki Beverages Wonki",
+     "names_it": true
+    },
+    {
+     "url": "https://wonki.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://wonki.io/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://wonki.ai/",
+     "title": "Wonki",
+     "names_it": true
+    }
+   ]
+  },
+  "writestyler": {
+   "tried": 9,
+   "resolved": [
+    "writestyler.com"
+   ],
+   "found": {
+    "url": "https://www.writestyler.com",
+    "title": "Writestyler Writestyler"
+   },
+   "seen": [
+    {
+     "url": "https://www.writestyler.com/",
+     "title": "Writestyler Writestyler",
+     "names_it": true
+    }
+   ]
+  },
+  "xlabs": {
+   "tried": 9,
+   "resolved": [
+    "xlabs.com.au",
+    "xlabs.com",
+    "xlabs.au",
+    "xlabs.io",
+    "xlabs.ai",
+    "xlabs.co",
+    "xlabs.app",
+    "xlabs.tech",
+    "xlabs.org"
+   ],
+   "found": {
+    "url": "https://xlabs.au",
+    "title": "xlabs.au — Sensory Bio-Tools & 100% In-Browser Privacy Utilities Sensory tools, minus the overwhelm ."
+   },
+   "seen": [
+    {
+     "url": "https://xlabs.com.au/",
+     "title": "",
+     "names_it": false
+    },
+    {
+     "url": "https://xlabs.com/",
+     "error": "robots_unavailable"
+    },
+    {
+     "url": "https://xlabs.au/",
+     "title": "xlabs.au — Sensory Bio-Tools & 100% In-Browser Privacy Utilities Sensory tools, minus the overwhelm .",
+     "names_it": true
+    },
+    {
+     "url": "https://xlabs.io/",
+     "title": "xlabs — AI by trial and error, especially error xlabs AI by trial and error, especially error",
+     "names_it": true
+    }
+   ]
+  }
+ }
+}

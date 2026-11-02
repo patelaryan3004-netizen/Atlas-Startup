@@ -185,7 +185,9 @@ describe('the Startmate Winter 2026 import', () => {
   it('puts each at the place its pages support, never a city centre as an office', async () => {
     const { byId } = await load();
     expect(byId.get('securitybreak')).toMatchObject({ location_precision: 'EXACT', address: expect.stringContaining('290 Boundary Street'), city: 'Brisbane', state: 'QLD' });
-    for (const id of ADDED.filter((x) => x !== 'securitybreak')) {
+    // EstiMate's own terms of service give 45B Douglas Parade, Yarra Junction: the Melbourne import placed it there once the geocoder confirmed the house
+    expect(byId.get('estimate')).toMatchObject({ location_precision: 'EXACT', address: expect.stringContaining('Douglas Parade'), city: 'Melbourne', state: 'VIC' });
+    for (const id of ADDED.filter((x) => x !== 'securitybreak' && x !== 'estimate')) {
       const c = byId.get(id);
       expect(c.location_precision, id).toBe('CITY');
       expect(c.lat ?? null, id).toBeNull();

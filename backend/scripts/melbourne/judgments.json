@@ -1,0 +1,487 @@
+{
+ "checked_at": "2026-11-02",
+ "note": "Decisions by a person (owner, via Claude) after reading each company's own pages and the lists that name it. The line is a plain description in our words of what those pages say; a hold keeps the row in the review queue with the reason; an exclusion says why the row is not added.",
+ "rows": {
+  "1receipt": {
+   "sector": "SaaS",
+   "blurb": "An eReceipt app that replaces paper receipts and keeps all digital receipts in one place"
+  },
+  "aelo": {
+   "sector": "Consumer",
+   "blurb": "Eye-care products: an eyelid and eyelash wash, self-heating eye masks and a cooling eye roller"
+  },
+  "agpay": {
+   "sector": "Fintech",
+   "blurb": "Seasonal and equipment finance for cropping, horticulture, viticulture and livestock"
+  },
+  "aibuild": {
+   "sector": "AI",
+   "blurb": "Turns industry problems into AI businesses, including AI that automates large-scale 3D printing"
+  },
+  "allumeenergy": {
+   "sector": "Energy",
+   "blurb": "SolShare, technology that shares rooftop solar with apartment residents"
+  },
+  "archa": {
+   "sector": "Fintech",
+   "blurb": "Corporate cards, budgets and real-time expense tracking for Australian businesses"
+  },
+  "ausbioslabs": {
+   "sector": "HealthTech",
+   "blurb": "A deep-tech company building technology for the healthcare industry"
+  },
+  "baejuice": {
+   "sector": "Food",
+   "blurb": "Korean pear juice sold as a natural hangover remedy"
+  },
+  "brunswickaces": {
+   "sector": "Food",
+   "blurb": "Gin and vodka, alcoholic and non-alcoholic, distilled in Brunswick East"
+  },
+  "carbar": {
+   "sector": "Mobility",
+   "blurb": "Car subscription that bundles finance, insurance and registration with no commitment"
+  },
+  "cartherics": {
+   "sector": "Biotech",
+   "blurb": "Off-the-shelf cell therapies for women's diseases, led by ovarian cancer and endometriosis"
+  },
+  "cliniscribeai": {
+   "sector": "HealthTech",
+   "blurb": "An AI scribe for allied health that turns consults into notes, reports and treatment plans"
+  },
+  "compasseducation": {
+   "sector": "EdTech",
+   "blurb": "A web-based school management system: attendance, reporting, assessment, events and payments"
+  },
+  "curvecrete": {
+   "sector": "Climate",
+   "blurb": "Low-carbon concrete products for urban seating, retaining walls, noise walls and facades"
+  },
+  "digitalagricultureservices": {
+   "sector": "AgTech",
+   "blurb": "Location intelligence for lending, insuring, investing in and selling to agriculture"
+  },
+  "drglitter": {
+   "sector": "Consumer",
+   "blurb": "Plant-derived iron supplement crystals for energy and wellbeing without digestive discomfort"
+  },
+  "eugene": {
+   "sector": "HealthTech",
+   "blurb": "Doctor-recommended genetic tests for preconception, pregnancy and preventive health"
+  },
+  "exergenics": {
+   "sector": "Energy",
+   "blurb": "Cloud machine-learning control that optimises chilled-water plants through building management systems"
+  },
+  "fergusonstreatos": {
+   "sector": "Consumer",
+   "blurb": "Air-dried, single-protein Australian dog treats"
+  },
+  "frankgreen": {
+   "sector": "Consumer",
+   "blurb": "Reusable cups, bottles and stainless steel products"
+  },
+  "healthily": {
+   "sector": "HealthTech",
+   "blurb": "Patient-education platforms and a content library for health professionals"
+  },
+  "hungryhungry": {
+   "sector": "Hospitality Tech",
+   "blurb": "Online ordering and payments for restaurants, cafes and venues"
+  },
+  "intellischool": {
+   "sector": "EdTech",
+   "blurb": "Brings a school's existing systems' data into one governed foundation for insight and safer AI"
+  },
+  "jetcharge": {
+   "sector": "Energy",
+   "blurb": "Plans, deploys and maintains electric-vehicle charging, from pilots to large rollouts"
+  },
+  "july": {
+   "sector": "Consumer",
+   "blurb": "Luggage and travel accessories, sold with a 100-day trial"
+  },
+  "kinoxistherapeutics": {
+   "sector": "Biotech",
+   "blurb": "Novel therapeutics for social dysfunction and substance use disorders"
+  },
+  "labgroup": {
+   "sector": "Fintech",
+   "blurb": "White-label onboarding journeys for individuals, companies, trusts and SMSFs"
+  },
+  "markmywords": {
+   "sector": "EdTech",
+   "blurb": "Personalised writing feedback and literacy tracking for teachers"
+  },
+  "marketplacer": {
+   "sector": "Marketplace",
+   "blurb": "A marketplace platform and dropshipping solution for enterprise e-commerce"
+  },
+  "maxme": {
+   "sector": "EdTech",
+   "blurb": "Skill-development programs for employees to lift retention and performance"
+  },
+  "mercando": {
+   "sector": "Marketplace",
+   "blurb": "Booking for household, commercial and funded gardening services in Melbourne, Sydney and Wollongong"
+  },
+  "neobionica": {
+   "sector": "Medtech",
+   "blurb": "Helps neurotech innovators take implant devices from concept to first-in-human trials"
+  },
+  "operata": {
+   "sector": "SaaS",
+   "blurb": "Monitors and diagnoses the performance of AI and human customer-experience stacks in real time"
+  },
+  "outcoach": {
+   "sector": "SaaS",
+   "blurb": "Class and club management for coaching businesses: bookings, payments, scheduling and progress"
+  },
+  "paycomau": {
+   "sector": "Fintech",
+   "blurb": "Pay business bills by card to earn points, including the ATO, suppliers, rent and super",
+   "no_pin": true
+  },
+  "bookedai": {
+   "hold": "Its own pages give no place: the \"Melbourne\" match is a mention of the Melbourne Cricket Club"
+  },
+  "aubot": {
+   "hold": "Its own pages say it is registered in Queensland, with an R&D office in Melbourne: how it is listed needs a person"
+  },
+  "diaperrecycle": {
+   "hold": "Its pages describe a service area in metro Melbourne, not where the company is"
+  },
+  "enaccessmaps": {
+   "hold": "The address on its pages is a venue listed in its app (7 Mitchell St, Doncaster East), not the company's"
+  },
+  "furnishd": {
+   "hold": "An interior design and decoration studio, not a startup or product company"
+  },
+  "genero": {
+   "hold": "Its own pages give only a PO box in Elwood: a postal address is not an operating site"
+  },
+  "hammertech": {
+   "hold": "Its only Melbourne address on its own pages is labelled a postal address in its global privacy policy"
+  },
+  "homelycomau": {
+   "hold": "The only address on its home page is a property for sale; its own pages do not give its office"
+  },
+  "kepleranalytics": {
+   "hold": "The Melbourne mention is on a privacy page at kepleranalytics.com, not at its listed site: identity not confirmed"
+  },
+  "lockii": {
+   "hold": "Its own pages do not say where it is; the Melbourne place is only the accelerator's report"
+  },
+  "modusai": {
+   "hold": "Only \"Sandringham, Vic\" in a privacy policy; its pages do not say where it is"
+  },
+  "nudieglow": {
+   "hold": "A beauty retailer (shops in Chadstone and the CBD) whose only address is labelled a postal address"
+  },
+  "1breadcrumb": {
+   "sector": "SaaS",
+   "blurb": "Construction safety software: inductions, live attendance and permits, integrated with Procore",
+   "distinct_from": "ebest",
+   "distinct_note": "a different company with a similar name"
+  },
+  "aravax": {
+   "sector": "Biotech",
+   "blurb": "Treatments for food allergy, led by PVX108 for peanut allergy"
+  },
+  "atmobiosciences": {
+   "sector": "Medtech",
+   "blurb": "Ingestible capsule technology for gut-health diagnosis and clinical research"
+  },
+  "certatherapeutics": {
+   "sector": "Biotech",
+   "blurb": "Precision therapies for inflammatory and fibrotic diseases"
+  },
+  "conrytech": {
+   "sector": "Climate",
+   "blurb": "Reinvents air-conditioning to cut emissions and improve comfort",
+   "confirm_identity": true
+  },
+  "deciphrai": {
+   "sector": "AI",
+   "blurb": "Turns audio, video or text into podcast transcripts, summaries and show notes",
+   "no_pin": true,
+   "distinct_from": "cand-deci",
+   "distinct_note": "a different company with a similar name"
+  },
+  "dhiai": {
+   "sector": "AI",
+   "blurb": "Governed AI agents that cut false positives for compliance and surveillance teams",
+   "confirm_identity": true
+  },
+  "enarespiratory": {
+   "sector": "Biotech",
+   "blurb": "Host-defence enhancers (INNA-051) that reduce the impact of viral respiratory infections"
+  },
+  "epiminder": {
+   "sector": "Medtech",
+   "blurb": "Minder, an implantable continuous EEG monitor for drug-resistant epilepsy"
+  },
+  "focusbear": {
+   "sector": "SaaS",
+   "blurb": "An app that builds routines and blocks distractions across devices, designed by and for people with ADHD",
+   "confirm_site": true,
+   "confirm_note": "focusbear.io: its pages are the company's (Focus Bear Pty Ltd), and its privacy page gives 29 Melrose St, Sandringham VIC 3191."
+  },
+  "getitfast": {
+   "sector": "Logistics",
+   "blurb": "Same-day delivery for retailers, booked through their own platform"
+  },
+  "graceview": {
+   "sector": "Legal tech",
+   "blurb": "Helps legal, risk and compliance teams keep ahead of regulatory change",
+   "distinct_from": "cand-cotiss",
+   "distinct_note": "a different company with a similar name"
+  },
+  "loke": {
+   "sector": "SaaS",
+   "blurb": "Custom mobile apps for customer engagement"
+  },
+  "looplearn": {
+   "sector": "SaaS",
+   "blurb": "Visitor, contractor and staff sign-in with face ID, plus compliance and emergency management",
+   "distinct_from": "cand-loop",
+   "distinct_note": "a different company with a similar name"
+  },
+  "nebulahealth": {
+   "sector": "Martech",
+   "blurb": "Marketing services and an app that help medical practices attract and keep patients"
+  },
+  "newsie": {
+   "sector": "Media",
+   "blurb": "AI that clips live TV broadcasts into shareable video for newsrooms"
+  },
+  "nextaero": {
+   "sector": "Space",
+   "blurb": "Rocket-propulsion test setups and heat-transfer and fluid engineering services"
+  },
+  "polyactiva": {
+   "sector": "Medtech",
+   "blurb": "Biodegradable eye implants with sustained drug delivery for glaucoma"
+  },
+  "prophet": {
+   "sector": "Martech",
+   "blurb": "A machine-learning platform that models marketing and organisational data to guide spend"
+  },
+  "protatherapeutics": {
+   "sector": "Biotech",
+   "blurb": "A new approach to allergen immunotherapy for food allergy"
+  },
+  "raygen": {
+   "sector": "Energy",
+   "blurb": "Ultra-efficient solar paired with long-duration thermal storage"
+  },
+  "reachandmatch": {
+   "sector": "EdTech",
+   "blurb": "Multisensory kits and training for inclusive early-childhood education"
+  },
+  "recime": {
+   "sector": "Consumer",
+   "blurb": "A recipe app that saves and organises recipes from social media"
+  },
+  "relectrify": {
+   "sector": "Energy",
+   "blurb": "Battery energy storage systems engineered from the cell up"
+  },
+  "resseptor": {
+   "sector": "Biotech",
+   "blurb": "Drugs that target G protein-coupled receptors"
+  },
+  "reswitch": {
+   "sector": "Climate",
+   "blurb": "Connects communities near renewable-energy projects with the benefits of them"
+  },
+  "rohlok": {
+   "sector": "Hardware",
+   "blurb": "Modular oil-filled subsea cables for work-class ROVs, made to order in Melbourne"
+  },
+  "sapyen": {
+   "sector": "HealthTech",
+   "blurb": "At-home male fertility testing and sperm freezing"
+  },
+  "savicmotorcycles": {
+   "sector": "Mobility",
+   "blurb": "Premium electric motorcycles built in Melbourne"
+  },
+  "scratch": {
+   "sector": "Consumer",
+   "blurb": "Subscription dog food delivered across Australia"
+  },
+  "scriibi": {
+   "sector": "EdTech",
+   "blurb": "Curriculum-aligned writing instruction with assessment data and teacher training"
+  },
+  "smileyscope": {
+   "sector": "Medtech",
+   "blurb": "Virtual-reality therapy that reduces pain and anxiety during medical procedures",
+   "no_pin": true
+  },
+  "snapsendsolve": {
+   "sector": "SaaS",
+   "blurb": "An app and platform for reporting potholes and other local issues to councils and utilities"
+  },
+  "strongroomai": {
+   "sector": "HealthTech",
+   "blurb": "Software for high-strength care: streamlined workflows, analytics and safeguarded data"
+  },
+  "syncio": {
+   "sector": "SaaS",
+   "blurb": "Syncs inventory, products and orders across multiple Shopify and WooCommerce stores"
+  },
+  "syncrowin": {
+   "sector": "Industrial Automation",
+   "blurb": "An industrial intelligence platform that connects the systems on heavy-industry and energy sites"
+  },
+  "talked": {
+   "sector": "HealthTech",
+   "blurb": "Online therapy with qualified Australian therapists, with Medicare rebates"
+  },
+  "tallygroup": {
+   "sector": "SaaS",
+   "blurb": "A billing platform and consumer-data-right tools for energy and utility providers"
+  },
+  "tikpay": {
+   "sector": "Mobility",
+   "blurb": "Contactless ticketing and payments for transport operators"
+  },
+  "vinomofo": {
+   "sector": "Retail",
+   "blurb": "An online wine retailer selling deals on bottles the team tastes"
+  },
+  "virtetic": {
+   "sector": "Medtech",
+   "blurb": "Virtual-reality training that prepares people for using a prosthesis"
+  },
+  "zerocap": {
+   "sector": "Fintech",
+   "blurb": "Digital-asset trading, liquidity, market making, staking and custody for institutions"
+  },
+  "appliedev": {
+   "sector": "Robotics",
+   "blurb": "Software-defined autonomous vehicles for logistics and industrial transport",
+   "no_pin": true,
+   "distinct_from": "cand-applied",
+   "distinct_note": "a different company with a similar name"
+  },
+  "edrolo": {
+   "same_as": "edrolo",
+   "same_note": "the same name and business; the research's website is the company's"
+  },
+  "andromedarobotics": {
+   "same_as": "andromeda-robotics",
+   "same_note": "the same name and business"
+  },
+  "frankieone": {
+   "same_as": "frankieone",
+   "same_note": "the same name and business"
+  },
+  "massdynamics": {
+   "same_as": "mass-dynamics",
+   "same_note": "the same name and business"
+  },
+  "hotdoc": {
+   "same_as": "hotdoc",
+   "same_note": "the same name and business"
+  },
+  "orkestra": {
+   "same_as": "orkestra",
+   "same_note": "the same name and business"
+  },
+  "espersatelliteimagery": {
+   "same_as": "esper-satellite-imagery",
+   "same_note": "the same name and business"
+  },
+  "whogivesacrap": {
+   "same_as": "who-gives-a-crap",
+   "same_note": "the same name and business"
+  },
+  "restokeai": {
+   "same_as": "restoke",
+   "same_note": "Restoke and Restoke.ai are one company"
+  },
+  "moregooddays": {
+   "same_as": "moregooddays",
+   "same_note": "the same name; the research writes its website with .com.au"
+  },
+  "everlab": {
+   "same_as": "everlab",
+   "same_note": "the same name and business"
+  },
+  "lyrebirdhealth": {
+   "same_as": "lyrebird-health",
+   "same_note": "the same name and business"
+  },
+  "jigspace": {
+   "same_as": "jigspace",
+   "same_note": "JigSpace now writes its website jig.com; the directory has jig.space"
+  },
+  "ainc": {
+   "hold": "ai-nc.com now shows Design Once (Admix Pty Ltd, Southbank): a rename is likely but not confirmed"
+  },
+  "aprplastics": {
+   "hold": "Its site is APR Recycling Group, an established recycler in Dandenong South: not confirmed to be this company"
+  },
+  "bajaboard": {
+   "hold": "An electric-skateboard retailer whose only address is a PO box in Macleod"
+  },
+  "femtek": {
+   "hold": "femtek.co shows the Kyri smart ring, and its terms give Melbourne, VIC only: the company's identity is not confirmed"
+  },
+  "flux": {
+   "hold": "An apparel studio and store, not a startup or product company"
+  },
+  "gathergroup": {
+   "hold": "Its pages say only \"Melbourne Business\", not where the company is"
+  },
+  "kinetics": {
+   "hold": "kinetics.dev shows a product called Kepler, with a registered office in Melbourne given on keplerbrowser.com: identity not confirmed"
+  },
+  "recovawear": {
+   "hold": "Its only address is a PO box in Preston"
+  },
+  "speckles": {
+   "hold": "Its only address is a PO box in Burnley North"
+  },
+  "sonorus": {
+   "hold": "Its site was found only by its domain, and the address given (Beaumaris) is not tied to the company the list describes"
+  },
+  "teamtimbuktu": {
+   "hold": "teamtimbuktu.com now shows Amble Outdoors raincoats: a rename is likely but the company is not confirmed"
+  },
+  "werkling": {
+   "hold": "Its only address is a PO box in Chelsea"
+  },
+  "wonki": {
+   "hold": "Its site was found only by its domain and no description of the company was read"
+  },
+  "bare": {
+   "hold": "Another business of the same name is in the directory (bare.com.au against barecremation.com.au): a person should check which this is"
+  },
+  "baresop": {
+   "hold": "Might be the Bare in the directory; its own pages give only a mail address in Elwood"
+  },
+  "tixel": {
+   "sector": "Marketplace",
+   "blurb": "A fan-to-fan marketplace for resold event tickets at face value",
+   "presence": {
+    "text": "Tixel HQ is based in Melbourne, Australia",
+    "url": "https://tixel.com/about",
+    "kind": "HEADQUARTERS"
+   }
+  },
+  "infestationtrackingsystems": {
+   "exclude": "regional Victoria, not Greater Melbourne: its own pages give 6 Tobias Place, Kilmore VIC 3764; the Melbourne mention is support hours"
+  },
+  "brainwaves": {
+   "hold": "getbrainwaves.com is an AI strategy platform and its pages give no place; another candidate named Brainwaves (brain-waves.io) is in the directory, so which is meant is not confirmed"
+  },
+  "ibnkvault": {
+   "hold": "Its website ibnk.xyz does not resolve, so nothing about it could be read"
+  }
+ }
+}

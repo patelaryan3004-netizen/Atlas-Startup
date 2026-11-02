@@ -7396,5 +7396,1616 @@
     "publisher": "veintech.com.au",
     "retrieved_at": "2026-11-01T16:15:22.593Z",
     "note": "The company's own page, read by the Perth importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-breadcrumb-co-en-au",
+    "kind": "company_website",
+    "url": "https://www.breadcrumb.co/en-au",
+    "title": "#1 Construction Safety Software in Australia | Breadcrumb",
+    "publisher": "1breadcrumb.com",
+    "retrieved_at": "2026-11-02T02:11:30.238Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "melbournestartups-com",
+    "kind": "directory_listing",
+    "url": "https://melbournestartups.com/",
+    "title": "1Breadcrumb | melbournestartups.com",
+    "publisher": "melbournestartups.com",
+    "retrieved_at": "2026-10-31T00:00:00.000Z",
+    "note": "A page the ${CITY.name} research list cites, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-breadcrumb-co-en-au-contact",
+    "kind": "company_website",
+    "url": "https://www.breadcrumb.co/en-au/contact",
+    "title": "1Breadcrumb: breadcrumb.co",
+    "publisher": "breadcrumb.co",
+    "retrieved_at": "2026-11-02T02:12:14.890Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-1receipt-io",
+    "kind": "company_website",
+    "url": "https://www.1receipt.io/",
+    "title": "1receipt® | An All-in-One Digital Receipt Platform",
+    "publisher": "Quad Core Pty Ltd",
+    "retrieved_at": "2026-11-02T02:11:38.394Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-1receipt-io-legal-terms",
+    "kind": "company_document",
+    "url": "https://www.1receipt.io/legal/terms",
+    "title": "Terms & Conditions | 1receipt®",
+    "publisher": "Quad Core Pty Ltd",
+    "retrieved_at": "2026-11-02T02:11:38.394Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-1receipt-io-contact",
+    "kind": "company_website",
+    "url": "https://www.1receipt.io/contact",
+    "title": "1receipt: 1receipt.io",
+    "publisher": "1receipt.io",
+    "retrieved_at": "2026-11-02T02:12:20.429Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-aelo-com-au",
+    "kind": "company_website",
+    "url": "https://www.aelo.com.au/",
+    "title": "Aelo® | Heated Eye Masks, Eyelid & Eyelash Wash, Eye Roller",
+    "publisher": "Aelo",
+    "retrieved_at": "2026-11-02T02:12:03.679Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-aelo-com-au-policies-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.aelo.com.au/policies/privacy-policy",
+    "title": "Privacy policy – Aelo",
+    "publisher": "Aelo",
+    "retrieved_at": "2026-11-02T02:12:03.679Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-themap-co-startups",
+    "kind": "directory_listing",
+    "url": "https://www.themap.co/startups",
+    "title": "Aelo | themap.co",
+    "publisher": "themap.co",
+    "retrieved_at": "2026-10-31T00:00:00.000Z",
+    "note": "A page the ${CITY.name} research list cites, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "agpay-com-au",
+    "kind": "company_website",
+    "url": "https://agpay.com.au/",
+    "title": "agPAY – Flexible finance for Australian farmers",
+    "publisher": "agpay.com.au",
+    "retrieved_at": "2026-11-02T02:12:20.899Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "agpay-com-au-privacy",
+    "kind": "company_document",
+    "url": "https://agpay.com.au/privacy",
+    "title": "Privacy and credit reporting policy | agPAY",
+    "publisher": "agpay.com.au",
+    "retrieved_at": "2026-11-02T02:12:20.899Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "agpay-com-au-about-contact",
+    "kind": "company_website",
+    "url": "https://agpay.com.au/about/contact",
+    "title": "Agpay: agpay.com.au",
+    "publisher": "agpay.com.au",
+    "retrieved_at": "2026-11-02T02:12:59.764Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-aibuild-com",
+    "kind": "company_website",
+    "url": "https://www.aibuild.com/",
+    "title": "AIBUILD",
+    "publisher": "aibuild.com",
+    "retrieved_at": "2026-11-02T02:12:40.223Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "allumeenergy-com",
+    "kind": "company_website",
+    "url": "https://allumeenergy.com/",
+    "title": "Allume | Solar for apartments and flats, shared fairly",
+    "publisher": "allumeenergy.com",
+    "retrieved_at": "2026-11-02T02:12:51.889Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "allumeenergy-com-en-au-about",
+    "kind": "company_website",
+    "url": "https://allumeenergy.com/en-au/about",
+    "title": "Allume Energy: allumeenergy.com",
+    "publisher": "allumeenergy.com",
+    "retrieved_at": "2026-11-02T02:13:33.966Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "echai-ventures-melbourne-vcs",
+    "kind": "accelerator_profile",
+    "url": "https://echai.ventures/melbourne/vcs",
+    "title": "Applied EV | echai.ventures",
+    "publisher": "echai.ventures",
+    "retrieved_at": "2026-10-31T00:00:00.000Z",
+    "note": "A page the ${CITY.name} research list cites, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "www-appliedev-com-legal-privacy",
+    "kind": "company_website",
+    "url": "https://www.appliedev.com/legal/privacy",
+    "title": "Applied EV: appliedev.com",
+    "publisher": "appliedev.com",
+    "retrieved_at": "2026-11-02T02:14:02.267Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-aravax-com-au",
+    "kind": "company_website",
+    "url": "https://www.aravax.com.au/",
+    "title": "Aravax – Revolutionising the treatment of food allergy",
+    "publisher": "aravax.com.au",
+    "retrieved_at": "2026-11-02T02:13:50.751Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-aravax-com-au-contact",
+    "kind": "company_website",
+    "url": "https://www.aravax.com.au/contact/",
+    "title": "Contact – Aravax",
+    "publisher": "aravax.com.au",
+    "retrieved_at": "2026-11-02T02:13:50.751Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-aravax-com-au-about-aravax",
+    "kind": "company_website",
+    "url": "https://www.aravax.com.au/about-aravax/",
+    "title": "About Aravax – Aravax",
+    "publisher": "aravax.com.au",
+    "retrieved_at": "2026-11-02T02:13:50.751Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-archa-com-au",
+    "kind": "company_website",
+    "url": "https://www.archa.com.au/",
+    "title": "Business Credit Card & Spend Management Platform | Archa",
+    "publisher": "archa.com.au",
+    "retrieved_at": "2026-11-02T02:13:56.361Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-atmobiosciences-com",
+    "kind": "company_website",
+    "url": "https://www.atmobiosciences.com/",
+    "title": "Atmo Biosciences",
+    "publisher": "atmobiosciences.com",
+    "retrieved_at": "2026-11-02T02:14:04.610Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-atmobiosciences-com-contact",
+    "kind": "company_website",
+    "url": "https://www.atmobiosciences.com/contact/",
+    "title": "Atmo Biosciences: atmobiosciences.com",
+    "publisher": "atmobiosciences.com",
+    "retrieved_at": "2026-11-02T02:15:15.710Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-atmobiosciences-com-privacy",
+    "kind": "company_document",
+    "url": "https://www.atmobiosciences.com/privacy/",
+    "title": "Atmo Biosciences: atmobiosciences.com",
+    "publisher": "atmobiosciences.com",
+    "retrieved_at": "2026-11-02T02:15:15.710Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-ausbioslabs-com",
+    "kind": "company_website",
+    "url": "https://www.ausbioslabs.com/",
+    "title": "AUS BIOS LABS | DeepTech company in Melbourne | Melbourne VIC, Australia",
+    "publisher": "A.B.L",
+    "retrieved_at": "2026-11-02T02:14:16.540Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "drinkbaejuice-com-au",
+    "kind": "company_website",
+    "url": "https://drinkbaejuice.com.au/",
+    "title": "Bae Juice – Bae Juice Store",
+    "publisher": "Bae Juice Store",
+    "retrieved_at": "2026-11-02T02:14:24.512Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "brunswickaces-com",
+    "kind": "company_website",
+    "url": "https://brunswickaces.com/",
+    "title": "Brunswick Aces | Alcoholic & Non-Alcoholic Gin and Vodka",
+    "publisher": "Brunswick Aces",
+    "retrieved_at": "2026-11-02T02:14:57.578Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "brunswickaces-com-pages-terms-of-service",
+    "kind": "company_document",
+    "url": "https://brunswickaces.com/pages/terms-of-service",
+    "title": "Terms of Service – Brunswick Aces",
+    "publisher": "Brunswick Aces Pty Ltd",
+    "retrieved_at": "2026-11-02T02:14:57.578Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-carbar-com-au",
+    "kind": "company_website",
+    "url": "https://www.carbar.com.au/",
+    "title": "Car Subscription | carbar Australia",
+    "publisher": "carbar.com.au",
+    "retrieved_at": "2026-11-02T02:15:11.626Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-carbar-com-au-terms-and-conditions",
+    "kind": "company_document",
+    "url": "https://www.carbar.com.au/terms-and-conditions",
+    "title": "View Our Terms and Conditions | carbar Australia",
+    "publisher": "Carbar Holdings Pty Ltd",
+    "retrieved_at": "2026-11-02T02:15:11.626Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-carbar-com-au-melbourne",
+    "kind": "company_website",
+    "url": "https://www.carbar.com.au/melbourne",
+    "title": "Carbar: carbar.com.au",
+    "publisher": "carbar.com.au",
+    "retrieved_at": "2026-11-02T02:17:06.397Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "cartherics-com",
+    "kind": "company_website",
+    "url": "https://cartherics.com/",
+    "title": "Home - Cartherics",
+    "publisher": "Cartherics Pty Ltd",
+    "retrieved_at": "2026-11-02T02:15:18.291Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "cartherics-com-contact",
+    "kind": "company_website",
+    "url": "https://cartherics.com/contact/",
+    "title": "Cartherics: cartherics.com",
+    "publisher": "cartherics.com",
+    "retrieved_at": "2026-11-02T02:17:10.019Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "certatherapeutics-com",
+    "kind": "company_website",
+    "url": "https://certatherapeutics.com/",
+    "title": "Certa Therapeutics – Developing innovative precision therapies for patients with inflammatory and fibrotic diseases",
+    "publisher": "certatherapeutics.com",
+    "retrieved_at": "2026-11-02T02:15:25.768Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "certatherapeutics-com-contact",
+    "kind": "company_website",
+    "url": "https://certatherapeutics.com/contact/",
+    "title": "Contact – Certa Therapeutics",
+    "publisher": "certatherapeutics.com",
+    "retrieved_at": "2026-11-02T02:15:25.768Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-cliniscribe-com-au",
+    "kind": "company_website",
+    "url": "https://www.cliniscribe.com.au/",
+    "title": "AI Scribe for Allied Health | Notes, Reports & Treatment Plans | CliniScribe",
+    "publisher": "CliniScribe AI",
+    "retrieved_at": "2026-11-02T02:15:51.279Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-compass-education",
+    "kind": "company_website",
+    "url": "https://www.compass.education/",
+    "title": "Compass Education - School Management System",
+    "publisher": "Compass Education Pty Ltd",
+    "retrieved_at": "2026-11-02T02:16:01.841Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "policies-compass-education-privacy",
+    "kind": "company_website",
+    "url": "https://policies.compass.education/privacy",
+    "title": "Compass Education: policies.compass.education",
+    "publisher": "policies.compass.education",
+    "retrieved_at": "2026-11-02T02:18:05.629Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-85",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-11-02T02:28:24.003Z",
+    "note": ""
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-86",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-11-02T02:28:24.003Z",
+    "note": ""
+  },
+  {
+    "id": "www-conrytech-com",
+    "kind": "company_website",
+    "url": "https://www.conrytech.com/",
+    "title": "Conry Tech: conrytech.com",
+    "publisher": "conrytech.com",
+    "retrieved_at": "2026-11-02T02:18:11.010Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-conrytech-com-contact-us",
+    "kind": "company_website",
+    "url": "https://www.conrytech.com/contact-us",
+    "title": "Conry Tech: conrytech.com",
+    "publisher": "conrytech.com",
+    "retrieved_at": "2026-11-02T02:18:11.010Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-conrytech-com-our-team",
+    "kind": "company_website",
+    "url": "https://www.conrytech.com/our-team",
+    "title": "Conry Tech: conrytech.com",
+    "publisher": "conrytech.com",
+    "retrieved_at": "2026-11-02T02:18:11.010Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-curvecrete-com",
+    "kind": "company_website",
+    "url": "https://www.curvecrete.com/",
+    "title": "PRODUCTS | Curvecrete",
+    "publisher": "Curvecrete",
+    "retrieved_at": "2026-11-02T02:16:19.363Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-deciphr-ai-privacy-policy",
+    "kind": "company_website",
+    "url": "https://www.deciphr.ai/privacy-policy",
+    "title": "DeciphrAI: deciphr.ai",
+    "publisher": "deciphr.ai",
+    "retrieved_at": "2026-11-02T02:18:28.807Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-87",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-11-02T02:28:31.546Z",
+    "note": ""
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-88",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "owner (via Claude)",
+    "retrieved_at": "2026-11-02T02:28:31.546Z",
+    "note": ""
+  },
+  {
+    "id": "dhi-ai-com-contact-html",
+    "kind": "company_website",
+    "url": "https://dhi-ai.com/contact.html",
+    "title": "DHI-AI: dhi-ai.com",
+    "publisher": "dhi-ai.com",
+    "retrieved_at": "2026-11-02T02:18:41.698Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "digitalagricultureservices-com",
+    "kind": "company_website",
+    "url": "https://digitalagricultureservices.com/",
+    "title": "Home | DAS",
+    "publisher": "Digital Agriculture Services Pty Ltd",
+    "retrieved_at": "2026-11-02T02:16:48.986Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "digitalagricultureservices-com-privacy",
+    "kind": "company_document",
+    "url": "https://digitalagricultureservices.com/privacy",
+    "title": "Privacy & Terms | DAS",
+    "publisher": "Digital Agriculture Services Pty Ltd",
+    "retrieved_at": "2026-11-02T02:16:48.986Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "info-digitalagricultureservices-com-en-au-contact-us",
+    "kind": "company_website",
+    "url": "https://info.digitalagricultureservices.com/en-au/contact-us",
+    "title": "Digital Agriculture Services: info.digitalagricultureservices.com",
+    "publisher": "info.digitalagricultureservices.com",
+    "retrieved_at": "2026-11-02T02:18:54.228Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "drglitter-com",
+    "kind": "company_website",
+    "url": "https://drglitter.com/",
+    "title": "Dr Glitter – Dr Glitter✨",
+    "publisher": "Dr Glitter✨",
+    "retrieved_at": "2026-11-02T02:17:02.835Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "enarespiratory-com",
+    "kind": "company_website",
+    "url": "https://enarespiratory.com/",
+    "title": "ENA Respiratory – Minimising the Impact of Viral Respiratory Infections",
+    "publisher": "enarespiratory.com",
+    "retrieved_at": "2026-11-02T02:17:24.604Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "enarespiratory-com-about",
+    "kind": "company_website",
+    "url": "https://enarespiratory.com/about/",
+    "title": "ENA Respiratory: enarespiratory.com",
+    "publisher": "enarespiratory.com",
+    "retrieved_at": "2026-11-02T02:19:26.107Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "epiminder-com",
+    "kind": "company_website",
+    "url": "https://epiminder.com/",
+    "title": "Epiminder: epiminder.com",
+    "publisher": "epiminder.com",
+    "retrieved_at": "2026-11-02T02:19:44.714Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "epiminder-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://epiminder.com/privacy-policy",
+    "title": "Epiminder: epiminder.com",
+    "publisher": "epiminder.com",
+    "retrieved_at": "2026-11-02T02:19:44.714Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "eugenelabs-com",
+    "kind": "company_website",
+    "url": "https://eugenelabs.com/",
+    "title": "Eugene | At-Home Genetic Tests for Pregnancy & Preventive Health – Eugene Labs",
+    "publisher": "Eugene Labs",
+    "retrieved_at": "2026-11-02T02:17:57.062Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "eugenelabs-com-pages-contact",
+    "kind": "company_website",
+    "url": "https://eugenelabs.com/pages/contact",
+    "title": "Eugene: eugenelabs.com",
+    "publisher": "eugenelabs.com",
+    "retrieved_at": "2026-11-02T02:20:00.383Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-exergenics-com",
+    "kind": "company_website",
+    "url": "https://www.exergenics.com/",
+    "title": "Chiller Plant Optimization & Machine Learning for HVAC - Exergenics",
+    "publisher": "exergenics.com.au",
+    "retrieved_at": "2026-11-02T02:18:07.533Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-exergenics-com-about",
+    "kind": "company_website",
+    "url": "https://www.exergenics.com/about",
+    "title": "Exergenics: exergenics.com",
+    "publisher": "exergenics.com",
+    "retrieved_at": "2026-11-02T02:20:13.013Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-exergenics-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.exergenics.com/privacy-policy",
+    "title": "Exergenics: exergenics.com",
+    "publisher": "exergenics.com",
+    "retrieved_at": "2026-11-02T02:20:13.013Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "fergusonstreatos-com-au",
+    "kind": "company_website",
+    "url": "https://fergusonstreatos.com.au/",
+    "title": "Australian Natural Air Dried Dog Treats | Healthiest Treatos for your Doggo – Ferguson's Treatos",
+    "publisher": "Ferguson's Treatos",
+    "retrieved_at": "2026-11-02T02:18:24.704Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-focusbear-io",
+    "kind": "company_website",
+    "url": "https://www.focusbear.io/",
+    "title": "Focus Bear | Focus & Productivity App for ADHD Brains",
+    "publisher": "Focus Bear Pty Ltd",
+    "retrieved_at": "2026-11-02T02:18:55.638Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-focusbear-io-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.focusbear.io/privacy-policy",
+    "title": "Privacy Policy | Focus Bear",
+    "publisher": "At Focus Bear Pty Ltd",
+    "retrieved_at": "2026-11-02T02:18:55.638Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "frankgreen-com-au",
+    "kind": "company_website",
+    "url": "https://frankgreen.com.au/",
+    "title": "frank green Australia: Reusable Cups and Bottles, Stainless Steel Cups",
+    "publisher": "frank green Australia",
+    "retrieved_at": "2026-11-02T02:19:03.183Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "frankgreen-com-au-pages-contact-us",
+    "kind": "company_website",
+    "url": "https://frankgreen.com.au/pages/contact-us",
+    "title": "Frank Green: frankgreen.com.au",
+    "publisher": "frankgreen.com.au",
+    "retrieved_at": "2026-11-02T02:21:45.214Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "getitfast-com-au",
+    "kind": "company_website",
+    "url": "https://getitfast.com.au/",
+    "title": "Get it Fast – Same Day Delivery",
+    "publisher": "getitfast.com.au",
+    "retrieved_at": "2026-11-02T02:19:37.717Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "getitfast-com-au-privacy",
+    "kind": "company_document",
+    "url": "https://getitfast.com.au/privacy/",
+    "title": "Privacy Policy – Get it Fast",
+    "publisher": "Now Pty Ltd",
+    "retrieved_at": "2026-11-02T02:19:37.717Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "healthily-com-au",
+    "kind": "company_website",
+    "url": "https://healthily.com.au/",
+    "title": "Healthily: Creators of GoShare - specialising in digital patient education",
+    "publisher": "Healthily Pty Ltd",
+    "retrieved_at": "2026-11-02T02:20:31.905Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "healthily-com-au-contact-us",
+    "kind": "company_website",
+    "url": "https://healthily.com.au/contact-us/",
+    "title": "Healthily: healthily.com.au",
+    "publisher": "healthily.com.au",
+    "retrieved_at": "2026-11-02T02:23:06.001Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-hungryhungry-com",
+    "kind": "company_website",
+    "url": "https://www.hungryhungry.com/",
+    "title": "HungryHungry | HungryHungry",
+    "publisher": "hungryhungry.com",
+    "retrieved_at": "2026-11-02T02:21:06.197Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-hungryhungry-com-terms-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.hungryhungry.com/terms/privacy-policy",
+    "title": "HungryHungry: hungryhungry.com",
+    "publisher": "hungryhungry.com",
+    "retrieved_at": "2026-11-02T02:23:47.360Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-hungryhungry-com-contact-us",
+    "kind": "company_website",
+    "url": "https://www.hungryhungry.com/contact-us",
+    "title": "HungryHungry: hungryhungry.com",
+    "publisher": "hungryhungry.com",
+    "retrieved_at": "2026-11-02T02:23:47.360Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "intellischool-co",
+    "kind": "company_website",
+    "url": "https://intellischool.co/",
+    "title": "Intellischool: The AI data foundation for K-12 schools",
+    "publisher": "Intellischool Holdings Pty Ltd",
+    "retrieved_at": "2026-11-02T02:21:44.901Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "intellischool-co-docs-46039050-terms-and-conditions",
+    "kind": "company_document",
+    "url": "https://intellischool.co/docs/46039050-terms-and-conditions",
+    "title": "Terms and Conditions",
+    "publisher": "Intellischool Pty Ltd",
+    "retrieved_at": "2026-11-02T02:21:44.901Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "jetcharge-com-au",
+    "kind": "company_website",
+    "url": "https://jetcharge.com.au/",
+    "title": "JET Charge - Australia’s Commercial EV Charging Specialist",
+    "publisher": "JET Charge Pty Ltd",
+    "retrieved_at": "2026-11-02T02:21:52.501Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "jetcharge-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://jetcharge.com.au/privacy-policy/",
+    "title": "Privacy Policy - JET Charge",
+    "publisher": "JET Charge Pty Ltd",
+    "retrieved_at": "2026-11-02T02:21:52.501Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "jetcharge-com-au-contact-us",
+    "kind": "company_website",
+    "url": "https://jetcharge.com.au/contact-us/",
+    "title": "JET Charge: jetcharge.com.au",
+    "publisher": "jetcharge.com.au",
+    "retrieved_at": "2026-11-02T02:24:45.918Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "july-com-au",
+    "kind": "company_website",
+    "url": "https://july.com/au/",
+    "title": "July®️ Australia | Luggage Bags & Travel Suitcases Australia | July",
+    "publisher": "July Travel",
+    "retrieved_at": "2026-11-02T02:21:59.949Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "july-com-au-terms-conditions",
+    "kind": "company_document",
+    "url": "https://july.com/au/terms-conditions/",
+    "title": "Terms & Conditions | July",
+    "publisher": "July Travel",
+    "retrieved_at": "2026-11-02T02:21:59.949Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "july-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://july.com/au/privacy-policy/",
+    "title": "July: july.com",
+    "publisher": "july.com",
+    "retrieved_at": "2026-11-02T02:25:10.863Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-89",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "Claude, for the owner (site checked against its own page)",
+    "retrieved_at": "2026-10-05T08:12:58.801Z",
+    "note": ""
+  },
+  {
+    "id": "kinoxistherapeutics-com",
+    "kind": "company_website",
+    "url": "https://kinoxistherapeutics.com/",
+    "title": "Kinoxis Therapeutics - Social Neuroscience Guided Therapeutics",
+    "publisher": "Kinoxis Therapeutics Pty Ltd",
+    "retrieved_at": "2026-10-05T08:13:08.606Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "user-supplied-supplied-by-a-reviewer-90",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Supplied by a reviewer",
+    "publisher": "Claude, for the owner (site checked against its own page)",
+    "retrieved_at": "2026-10-05T08:12:58.801Z",
+    "note": ""
+  },
+  {
+    "id": "www-labgroup-com-au",
+    "kind": "company_website",
+    "url": "https://www.labgroup.com.au/",
+    "title": "LAB Group | Digital Onboarding & Compliance Platform",
+    "publisher": "LAB Group Services Pty Ltd",
+    "retrieved_at": "2026-11-02T02:22:23.580Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-labgroup-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.labgroup.com.au/privacy-policy",
+    "title": "Privacy Policy & Data Handling | LAB Group",
+    "publisher": "LAB Group Services Pty Ltd",
+    "retrieved_at": "2026-11-02T02:22:23.580Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-labgroup-com-au-contact-us",
+    "kind": "company_website",
+    "url": "https://www.labgroup.com.au/contact-us",
+    "title": "LAB Group: labgroup.com.au",
+    "publisher": "labgroup.com.au",
+    "retrieved_at": "2026-11-02T02:25:37.516Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-loke-global",
+    "kind": "company_website",
+    "url": "https://www.loke.global/",
+    "title": "LOKE",
+    "publisher": "LOKE",
+    "retrieved_at": "2026-11-02T02:23:18.758Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-loke-global-privacy-policy-apac",
+    "kind": "company_document",
+    "url": "https://www.loke.global/privacy-policy-apac",
+    "title": "Privacy Policy (APAC) — LOKE",
+    "publisher": "Loke Digital Pty Limited",
+    "retrieved_at": "2026-11-02T02:23:18.758Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-loke-global-terms-of-use-au",
+    "kind": "company_document",
+    "url": "https://www.loke.global/terms-of-use-au",
+    "title": "LOKE: loke.global",
+    "publisher": "loke.global",
+    "retrieved_at": "2026-11-02T02:27:13.455Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "loopsafe-net-contact",
+    "kind": "company_website",
+    "url": "https://loopsafe.net/contact/",
+    "title": "LoopLearn: loopsafe.net",
+    "publisher": "loopsafe.net",
+    "retrieved_at": "2026-11-02T02:27:23.123Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "markmywords-au",
+    "kind": "company_website",
+    "url": "https://markmywords.au/",
+    "title": "Mark My Words | AI Writing Assessment & Feedback Platform for Teachers",
+    "publisher": "Mark My Words",
+    "retrieved_at": "2026-11-02T02:23:40.773Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "marketplacer-com",
+    "kind": "company_website",
+    "url": "https://marketplacer.com/",
+    "title": "Marketplacer: Build, Scale, And Grow Your Marketplace",
+    "publisher": "Marketplacer",
+    "retrieved_at": "2026-11-02T02:23:46.522Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "marketplacer-com-legal-global-privacy-policy",
+    "kind": "company_website",
+    "url": "https://marketplacer.com/legal/global-privacy-policy/",
+    "title": "Marketplacer: marketplacer.com",
+    "publisher": "marketplacer.com",
+    "retrieved_at": "2026-11-02T02:27:53.604Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-maxme-com-au",
+    "kind": "company_website",
+    "url": "https://www.maxme.com.au/",
+    "title": "Human Skill Professional Development Programs for Businesses - Maxme",
+    "publisher": "Maxme Pty Ltd",
+    "retrieved_at": "2026-11-02T02:24:05.880Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "mercando-com-au",
+    "kind": "company_website",
+    "url": "https://mercando.com.au/",
+    "title": "Find a Local Gardener | Garden Maintenance | Mercando",
+    "publisher": "Mercando Pty Ltd",
+    "retrieved_at": "2026-11-02T02:24:12.827Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-monash-edu-monash-innovation-impact-generator-founders",
+    "kind": "accelerator_profile",
+    "url": "https://www.monash.edu/monash-innovation/impact/generator-founders",
+    "title": "Mercando | monash.edu",
+    "publisher": "monash.edu",
+    "retrieved_at": "2026-10-31T00:00:00.000Z",
+    "note": "A page the ${CITY.name} research list cites, read on this day (robots.txt allows it)."
+  },
+  {
+    "id": "mercando-com-au-terms-of-service",
+    "kind": "company_document",
+    "url": "https://mercando.com.au/terms-of-service",
+    "title": "Mercando: mercando.com.au",
+    "publisher": "mercando.com.au",
+    "retrieved_at": "2026-11-02T02:28:26.147Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-nebulahealth-com",
+    "kind": "company_website",
+    "url": "https://www.nebulahealth.com/",
+    "title": "Nebula Health",
+    "publisher": "Nebula Health Pty Ltd",
+    "retrieved_at": "2026-11-02T02:25:46.531Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-nebulahealth-com-contact-us",
+    "kind": "company_website",
+    "url": "https://www.nebulahealth.com/contact-us/",
+    "title": "Contact us",
+    "publisher": "Nebula Health Pty Ltd",
+    "retrieved_at": "2026-11-02T02:25:46.531Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "neo-bionica-com",
+    "kind": "company_website",
+    "url": "https://neo-bionica.com/",
+    "title": "Neo-Bionica | Implantable Neurotechnology Design & Manufacturing",
+    "publisher": "neo-bionica.com",
+    "retrieved_at": "2026-11-02T02:25:53.032Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "neo-bionica-com-about-us",
+    "kind": "company_website",
+    "url": "https://neo-bionica.com/about-us",
+    "title": "Neo-Bionica: neo-bionica.com",
+    "publisher": "neo-bionica.com",
+    "retrieved_at": "2026-11-02T02:30:13.740Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-newsie-com-au",
+    "kind": "company_website",
+    "url": "https://www.newsie.com.au/",
+    "title": "Home | Newsie",
+    "publisher": "Newsie",
+    "retrieved_at": "2026-11-02T02:26:02.965Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-newsie-com-au-privacy",
+    "kind": "company_document",
+    "url": "https://www.newsie.com.au/privacy",
+    "title": "Privacy | Newsie",
+    "publisher": "Newsie Pty Ltd",
+    "retrieved_at": "2026-11-02T02:26:02.965Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "nextaero-com-au",
+    "kind": "company_website",
+    "url": "https://nextaero.com.au/",
+    "title": "NextAero – Fluid Engineering Services",
+    "publisher": "nextaero.com.au",
+    "retrieved_at": "2026-11-02T02:26:17.160Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "nextaero-com-au-index-php-contact",
+    "kind": "company_website",
+    "url": "https://nextaero.com.au/index.php/contact/",
+    "title": "NextAero: nextaero.com.au",
+    "publisher": "nextaero.com.au",
+    "retrieved_at": "2026-11-02T02:30:40.880Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "operata-com",
+    "kind": "company_website",
+    "url": "https://operata.com/",
+    "title": "CX Observability. AI Certainty | Operata",
+    "publisher": "Operata Pty Ltd",
+    "retrieved_at": "2026-11-02T02:26:48.362Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "operata-com-platform-integrations",
+    "kind": "company_website",
+    "url": "https://operata.com/platform/integrations",
+    "title": "Operata: operata.com",
+    "publisher": "operata.com",
+    "retrieved_at": "2026-11-02T02:31:10.805Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "operata-com-privacy",
+    "kind": "company_document",
+    "url": "https://operata.com/privacy",
+    "title": "Operata: operata.com",
+    "publisher": "operata.com",
+    "retrieved_at": "2026-11-02T02:31:10.805Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "outcoach-io",
+    "kind": "company_website",
+    "url": "https://outcoach.io/",
+    "title": "Class management software for coaching businesses | Outcoach",
+    "publisher": "Outcoach",
+    "retrieved_at": "2026-11-02T02:26:58.400Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "outcoach-io-privacy-policy",
+    "kind": "company_document",
+    "url": "https://outcoach.io/privacy-policy/",
+    "title": "Privacy Policy | Outcoach",
+    "publisher": "Outcoach Pty Ltd",
+    "retrieved_at": "2026-11-02T02:26:58.400Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "pay-com-au",
+    "kind": "company_website",
+    "url": "https://pay.com.au/",
+    "title": "Be Rewarded for Business Payments | pay.com.au",
+    "publisher": "pay.com.au",
+    "retrieved_at": "2026-11-02T02:27:17.998Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "polyactiva-com",
+    "kind": "company_website",
+    "url": "https://polyactiva.com/",
+    "title": "Home - PolyActiva",
+    "publisher": "Message Send PolyActiva Pty Ltd",
+    "retrieved_at": "2026-11-02T03:10:51.581Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "polyactiva-com-contact",
+    "kind": "company_website",
+    "url": "https://polyactiva.com/contact/",
+    "title": "PolyActiva: polyactiva.com",
+    "publisher": "polyactiva.com",
+    "retrieved_at": "2026-11-02T02:31:57.873Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "polyactiva-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://polyactiva.com/privacy-policy/",
+    "title": "PolyActiva: polyactiva.com",
+    "publisher": "polyactiva.com",
+    "retrieved_at": "2026-11-02T02:31:57.873Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-prophet-ml",
+    "kind": "company_website",
+    "url": "https://www.prophet.ml/",
+    "title": "Prophet | Home",
+    "publisher": "Prophet Tech Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:07.011Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-prophet-ml-privacy",
+    "kind": "company_document",
+    "url": "https://www.prophet.ml/privacy",
+    "title": "Prophet | Privacy",
+    "publisher": "Prophet Technology Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:07.011Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-prophet-ml-contact",
+    "kind": "company_website",
+    "url": "https://www.prophet.ml/contact",
+    "title": "Prophet | Contact",
+    "publisher": "Prophet Tech Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:07.011Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "protatherapeutics-com",
+    "kind": "company_website",
+    "url": "https://protatherapeutics.com/",
+    "title": "Prota Therapeutics | Developing a novel approach to allergen immunotherapy",
+    "publisher": "Prota Therapeutics Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:11.795Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "protatherapeutics-com-index-php-contact-us",
+    "kind": "company_website",
+    "url": "https://protatherapeutics.com/index.php/contact-us/",
+    "title": "Contact Us | Prota Therapeutics",
+    "publisher": "Prota Therapeutics Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:11.795Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "protatherapeutics-com-index-php-about-us-company-background",
+    "kind": "company_website",
+    "url": "https://protatherapeutics.com/index.php/about-us/company-background/",
+    "title": "Company Background | Prota Therapeutics",
+    "publisher": "Prota Therapeutics Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:11.795Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "raygen-com",
+    "kind": "company_website",
+    "url": "https://raygen.com/",
+    "title": "Home - Raygen",
+    "publisher": "RayGen Resources Pty Ltd",
+    "retrieved_at": "2026-11-02T03:11:16.527Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "raygen-com-manufacturing",
+    "kind": "company_website",
+    "url": "https://raygen.com/manufacturing/",
+    "title": "RayGen: raygen.com",
+    "publisher": "raygen.com",
+    "retrieved_at": "2026-11-02T02:51:22.863Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "raygen-com-contact",
+    "kind": "company_website",
+    "url": "https://raygen.com/contact/",
+    "title": "RayGen: raygen.com",
+    "publisher": "raygen.com",
+    "retrieved_at": "2026-11-02T02:51:22.863Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "raygen-com-privacy",
+    "kind": "company_document",
+    "url": "https://raygen.com/privacy/",
+    "title": "RayGen: raygen.com",
+    "publisher": "raygen.com",
+    "retrieved_at": "2026-11-02T02:51:22.863Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-reachandmatch-com",
+    "kind": "company_website",
+    "url": "https://www.reachandmatch.com/",
+    "title": "Reach & Match® | Inclusive education for early childhood",
+    "publisher": "Reach & Match",
+    "retrieved_at": "2026-11-02T03:11:25.935Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-reachandmatch-com-terms-and-conditions-of-use",
+    "kind": "company_website",
+    "url": "https://www.reachandmatch.com/terms-and-conditions-of-use/",
+    "title": "Reach & Match: reachandmatch.com",
+    "publisher": "reachandmatch.com",
+    "retrieved_at": "2026-11-02T02:51:37.354Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "recime-app",
+    "kind": "company_website",
+    "url": "https://recime.app/",
+    "title": "ReciMe | The Ultimate Cooking App",
+    "publisher": "ReciMe",
+    "retrieved_at": "2026-11-02T03:11:31.901Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-recime-app-terms-and-conditions",
+    "kind": "company_document",
+    "url": "https://www.recime.app/terms-and-conditions",
+    "title": "ReciMe: recime.app",
+    "publisher": "recime.app",
+    "retrieved_at": "2026-11-02T02:51:47.740Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-relectrify-com-au",
+    "kind": "company_website",
+    "url": "https://www.relectrify.com/au",
+    "title": "Relectrify | Engineered for the best in battery storage",
+    "publisher": "relectrify.com",
+    "retrieved_at": "2026-11-02T03:12:00.833Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-relectrify-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.relectrify.com/au/privacy-policy",
+    "title": "Privacy Policy | Relectrify",
+    "publisher": "relectrify.com",
+    "retrieved_at": "2026-11-02T03:12:00.833Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-relectrify-com-us-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.relectrify.com/us/privacy-policy",
+    "title": "Relectrify: relectrify.com",
+    "publisher": "relectrify.com",
+    "retrieved_at": "2026-11-02T02:52:20.282Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-resseptor-com",
+    "kind": "company_website",
+    "url": "https://www.resseptor.com/",
+    "title": "Home | Resseptor",
+    "publisher": "Resseptor Therapeutics Pty Ltd",
+    "retrieved_at": "2026-11-02T03:12:03.854Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-resseptor-com-blank-1",
+    "kind": "company_website",
+    "url": "https://www.resseptor.com/blank-1",
+    "title": "Resseptor: resseptor.com",
+    "publisher": "resseptor.com",
+    "retrieved_at": "2026-11-02T02:52:24.183Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "reswitch-com",
+    "kind": "company_website",
+    "url": "https://reswitch.com/",
+    "title": "Reswitch",
+    "publisher": "reswitch.com",
+    "retrieved_at": "2026-11-02T03:12:08.109Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "reswitch-com-privacy",
+    "kind": "company_document",
+    "url": "https://reswitch.com/privacy",
+    "title": "Reswitch",
+    "publisher": "Reswitch Pty Ltd",
+    "retrieved_at": "2026-11-02T03:12:08.109Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "rohlok-com",
+    "kind": "company_website",
+    "url": "https://rohlok.com/",
+    "title": "Röhlok | Modular oil-filled subsea cables for work-class ROVs",
+    "publisher": "Rohlok Pty Ltd",
+    "retrieved_at": "2026-11-02T03:12:12.346Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "rohlok-com-contact",
+    "kind": "company_website",
+    "url": "https://rohlok.com/contact",
+    "title": "Rohlok: rohlok.com",
+    "publisher": "rohlok.com",
+    "retrieved_at": "2026-11-02T02:52:40.771Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-sapyen-co",
+    "kind": "company_website",
+    "url": "https://www.sapyen.co/",
+    "title": "Sapyen At-Home Male Fertility Test With Sperm Freezing",
+    "publisher": "Sapyen",
+    "retrieved_at": "2026-11-02T03:12:18.126Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-sapyen-co-policies-terms-of-service",
+    "kind": "company_document",
+    "url": "https://www.sapyen.co/policies/terms-of-service",
+    "title": "Terms of service",
+    "publisher": "Sapyen",
+    "retrieved_at": "2026-11-02T03:12:18.126Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-savicmotorcycles-com-pages-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.savicmotorcycles.com/pages/privacy-policy",
+    "title": "Savic Motorcycles: savicmotorcycles.com",
+    "publisher": "savicmotorcycles.com",
+    "retrieved_at": "2026-11-02T02:53:02.409Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-scratchpetfood-com-au",
+    "kind": "company_website",
+    "url": "https://www.scratchpetfood.com.au/",
+    "title": "Australia's best dog food, delivered to your doorstep | Scratch",
+    "publisher": "Scratch Pet Health Pty Ltd",
+    "retrieved_at": "2026-11-02T03:12:22.668Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "scriibi-com",
+    "kind": "company_website",
+    "url": "https://scriibi.com/",
+    "title": "Scriibi – A Proven Way to Build Strong and Independent Writers",
+    "publisher": "scriibi.com",
+    "retrieved_at": "2026-11-02T03:12:33.442Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "scriibi-com-contact",
+    "kind": "company_website",
+    "url": "https://scriibi.com/contact/",
+    "title": "Scriibi: scriibi.com",
+    "publisher": "scriibi.com",
+    "retrieved_at": "2026-11-02T02:53:23.388Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-smileyscope-com-en-au",
+    "kind": "company_website",
+    "url": "https://www.smileyscope.com/en-au",
+    "title": "Smileyscope | VR Therapy, Pain & Anxiety Management",
+    "publisher": "Smileyscope Pty Ltd",
+    "retrieved_at": "2026-11-02T03:12:59.752Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-smileyscope-com-en-au-privacy",
+    "kind": "company_document",
+    "url": "https://www.smileyscope.com/en-au/privacy",
+    "title": "Privacy Policy | Smileyscope",
+    "publisher": "Smileyscope Pty Ltd",
+    "retrieved_at": "2026-11-02T03:12:59.752Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "snapsendsolve-com",
+    "kind": "company_website",
+    "url": "https://snapsendsolve.com/",
+    "title": "Report Local Issues to Councils | Snap Send Solve",
+    "publisher": "snapsendsolve.com",
+    "retrieved_at": "2026-11-02T03:13:04.667Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "snapsendsolve-com-privacy-policy",
+    "kind": "company_document",
+    "url": "https://snapsendsolve.com/privacy-policy",
+    "title": "Privacy Policy | Snap Send Solve",
+    "publisher": "Snap Send Solve Pty Ltd",
+    "retrieved_at": "2026-11-02T03:13:04.667Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "strongroom-ai",
+    "kind": "company_website",
+    "url": "https://strongroom.ai/",
+    "title": "Home • StrongRoom AI",
+    "publisher": "StrongRoom AI",
+    "retrieved_at": "2026-11-02T03:13:53.018Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "strongroom-ai-contact",
+    "kind": "company_website",
+    "url": "https://strongroom.ai/contact/",
+    "title": "StrongRoom AI: strongroom.ai",
+    "publisher": "strongroom.ai",
+    "retrieved_at": "2026-11-02T02:55:20.547Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-syncio-co",
+    "kind": "company_website",
+    "url": "https://www.syncio.co/",
+    "title": "Syncio - Shopify Multi-Store Inventory & Product Sync",
+    "publisher": "syncio.co",
+    "retrieved_at": "2026-11-02T03:14:10.479Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-syncio-co-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.syncio.co/privacy-policy",
+    "title": "Privacy Policy",
+    "publisher": "Syncio Co Pty Ltd",
+    "retrieved_at": "2026-11-02T03:14:10.479Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "syncrowin-com-au",
+    "kind": "company_website",
+    "url": "https://syncrowin.com.au/",
+    "title": "Syncrowin · Operational intelligence for industrial sites",
+    "publisher": "Syncrowin",
+    "retrieved_at": "2026-11-02T03:14:14.879Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-tally-co",
+    "kind": "company_website",
+    "url": "https://www.tally.co/",
+    "title": "Empower Your Business with Tally's Innovative Solutions",
+    "publisher": "Tally Group Pty Limited",
+    "retrieved_at": "2026-11-02T03:14:24.177Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-tally-co-about",
+    "kind": "company_website",
+    "url": "https://www.tally.co/about",
+    "title": "Tally Group: tally.co",
+    "publisher": "tally.co",
+    "retrieved_at": "2026-11-02T02:56:33.460Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-tally-co-privacy",
+    "kind": "company_document",
+    "url": "https://www.tally.co/privacy",
+    "title": "Tally Group: tally.co",
+    "publisher": "tally.co",
+    "retrieved_at": "2026-11-02T02:56:33.460Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "tikpay-com",
+    "kind": "company_website",
+    "url": "https://tikpay.com/",
+    "title": "tikpay - Intelligent ticketing for the future of transport | tikpay",
+    "publisher": "tikpay.com",
+    "retrieved_at": "2026-11-02T03:15:24.190Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "tikpay-com-terms-of-service",
+    "kind": "company_website",
+    "url": "https://tikpay.com/terms-of-service",
+    "title": "tikpay: tikpay.com",
+    "publisher": "tikpay.com",
+    "retrieved_at": "2026-11-02T02:57:12.625Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "tixel-com-about",
+    "kind": "company_website",
+    "url": "https://tixel.com/about",
+    "title": "Tixel: tixel.com",
+    "publisher": "tixel.com",
+    "retrieved_at": "2026-11-02T02:57:16.218Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-vinomofo-com",
+    "kind": "company_website",
+    "url": "https://www.vinomofo.com/",
+    "title": "Buy Wine Online | Epic Wine Deals, Fast Delivery | Vinomofo Australia",
+    "publisher": "Vinomofo Australia",
+    "retrieved_at": "2026-11-02T03:15:38.580Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-vinomofo-com-privacy",
+    "kind": "company_document",
+    "url": "https://www.vinomofo.com/privacy",
+    "title": "Privacy Policy | Vinomofo Australia",
+    "publisher": "Vinomofo Pty Ltd",
+    "retrieved_at": "2026-11-02T03:15:38.580Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "www-vinomofo-com-contact",
+    "kind": "company_website",
+    "url": "https://www.vinomofo.com/contact",
+    "title": "Vinomofo: vinomofo.com",
+    "publisher": "vinomofo.com",
+    "retrieved_at": "2026-11-02T02:57:39.467Z",
+    "note": "The company's own page, read by the ${CITY.name} importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-virtetic-com-au",
+    "kind": "company_website",
+    "url": "https://www.virtetic.com.au/",
+    "title": "Virtetic | Virtual Reality | Prosthesis",
+    "publisher": "virtetic.com.au",
+    "retrieved_at": "2026-11-02T03:15:43.872Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "zerocap-com",
+    "kind": "company_website",
+    "url": "https://zerocap.com/",
+    "title": "Zerocap - Digital Asset Trading and Liquidity",
+    "publisher": "Zerocap Pty Ltd",
+    "retrieved_at": "2026-11-02T03:17:02.705Z",
+    "note": "Read by the discovery engine."
+  },
+  {
+    "id": "bellroy-com-customer-care-privacy-policy",
+    "kind": "company_document",
+    "url": "https://bellroy.com/customer-care/privacy-policy",
+    "title": "Bellroy: bellroy.com",
+    "publisher": "bellroy.com",
+    "retrieved_at": "2026-11-02T02:16:02.388Z",
+    "note": "The company's own page, read by the Melbourne importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-bygen-com-au-privacy-policy",
+    "kind": "company_document",
+    "url": "https://www.bygen.com.au/privacy-policy",
+    "title": "Bygen: bygen.com.au",
+    "publisher": "bygen.com.au",
+    "retrieved_at": "2026-11-02T02:16:55.240Z",
+    "note": "The company's own page, read by the Melbourne importer (robots.txt obeyed)."
+  },
+  {
+    "id": "estimateai-com-au-terms",
+    "kind": "company_document",
+    "url": "https://estimateai.com.au/terms/",
+    "title": "EstiMate: estimateai.com.au",
+    "publisher": "estimateai.com.au",
+    "retrieved_at": "2026-11-02T02:19:55.116Z",
+    "note": "The company's own page, read by the Melbourne importer (robots.txt obeyed)."
+  },
+  {
+    "id": "www-nutromics-com-who-we-are",
+    "kind": "company_website",
+    "url": "https://www.nutromics.com/who-we-are",
+    "title": "Nutromics: nutromics.com",
+    "publisher": "nutromics.com",
+    "retrieved_at": "2026-11-02T02:31:04.445Z",
+    "note": "The company's own page, read by the Melbourne importer (robots.txt obeyed)."
+  },
+  {
+    "id": "andromedarobotics-ai",
+    "kind": "company_website",
+    "url": "https://andromedarobotics.ai/",
+    "title": "Andromeda Robotics: andromedarobotics.ai",
+    "publisher": "andromedarobotics.ai",
+    "retrieved_at": "2026-11-02T02:13:52.085Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "edrolo-com-au",
+    "kind": "company_website",
+    "url": "https://edrolo.com.au/",
+    "title": "Edrolo: edrolo.com.au",
+    "publisher": "edrolo.com.au",
+    "retrieved_at": "2026-11-02T02:19:16.267Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "www-everlab-com-au",
+    "kind": "company_website",
+    "url": "https://www.everlab.com.au/",
+    "title": "Everlab: everlab.com.au",
+    "publisher": "everlab.com.au",
+    "retrieved_at": "2026-11-02T02:20:05.525Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "frankieone-com",
+    "kind": "company_website",
+    "url": "https://frankieone.com/",
+    "title": "FrankieOne: frankieone.com",
+    "publisher": "frankieone.com",
+    "retrieved_at": "2026-11-02T02:21:53.061Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "www-hotdoc-com-au",
+    "kind": "company_website",
+    "url": "https://www.hotdoc.com.au/",
+    "title": "HotDoc: hotdoc.com.au",
+    "publisher": "hotdoc.com.au",
+    "retrieved_at": "2026-11-02T02:23:34.614Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "www-lyrebirdhealth-com-au",
+    "kind": "company_website",
+    "url": "https://www.lyrebirdhealth.com/au",
+    "title": "Lyrebird Health: lyrebirdhealth.com",
+    "publisher": "lyrebirdhealth.com",
+    "retrieved_at": "2026-11-02T02:27:31.921Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "www-orkestra-energy",
+    "kind": "company_website",
+    "url": "https://www.orkestra.energy/",
+    "title": "Orkestra: orkestra.energy",
+    "publisher": "orkestra.energy",
+    "retrieved_at": "2026-11-02T02:31:17.899Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "www-restoke-ai",
+    "kind": "company_website",
+    "url": "https://www.restoke.ai/",
+    "title": "Restoke: restoke.ai",
+    "publisher": "restoke.ai",
+    "retrieved_at": "2026-11-02T02:52:30.266Z",
+    "note": "The company's own page, read by the Melbourne importer."
+  },
+  {
+    "id": "massdynamics-com",
+    "kind": "company_website",
+    "url": "https://massdynamics.com/",
+    "title": "Mass Dynamics: massdynamics.com",
+    "publisher": "massdynamics.com",
+    "retrieved_at": "2026-11-02T02:28:05.471Z",
+    "note": "The company's own site, named by the Melbourne research list."
+  },
+  {
+    "id": "moregooddays-com-au",
+    "kind": "company_website",
+    "url": "https://moregooddays.com.au/",
+    "title": "MoreGoodDays: moregooddays.com.au",
+    "publisher": "moregooddays.com.au",
+    "retrieved_at": "2026-11-02T02:29:22.986Z",
+    "note": "The company's own site, named by the Melbourne research list."
+  },
+  {
+    "id": "whogivesacrap-org",
+    "kind": "company_website",
+    "url": "https://whogivesacrap.org/",
+    "title": "Who Gives a Crap: whogivesacrap.org",
+    "publisher": "whogivesacrap.org",
+    "retrieved_at": "2026-11-02T02:57:56.833Z",
+    "note": "The company's own site, named by the Melbourne research list."
   }
 ]

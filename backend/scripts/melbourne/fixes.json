@@ -1,0 +1,68 @@
+{
+  "note": "Corrections a person made after reading a company's own pages, applied by `import.mjs fixes --city melbourne`. Each is recorded in the audit trail. An evidence row is never deleted: a row that is wrong is marked rejected, or superseded, with the reason.",
+  "companies": {
+    "lab-group": {
+      "reject_evidence": [
+        {
+          "id": "lab-group.address.www-labgroup-com-au-contact-us.2",
+          "status": "superseded",
+          "note": "The Melbourne address with the Sydney office's address run into it; the Sydney office is recorded as a location of its own (company_locations)."
+        },
+        {
+          "id": "lab-group.address.www-labgroup-com-au-privacy-policy",
+          "status": "superseded",
+          "note": "The Sydney office's address, recorded as a location of its own (company_locations): the Melbourne address is the address of the record."
+        }
+      ],
+      "add_locations": [
+        {
+          "id": "lab-group.office.sydney",
+          "kind": "OFFICE",
+          "label": "Sydney office",
+          "address": "Level 20, 135 King Street, Sydney NSW 2000",
+          "suburb": "Sydney",
+          "city": "Sydney",
+          "state": "NSW",
+          "postcode": "2000",
+          "url": "https://www.labgroup.com.au/contact-us"
+        }
+      ]
+    },
+    "prophet": {
+      "reject_evidence": [
+        {
+          "id": "prophet.address.www-prophet-ml-contact.2",
+          "status": "superseded",
+          "note": "The Sydney office (Surry Hills), recorded as a location of its own (company_locations): the Melbourne address is the address of the record."
+        },
+        {
+          "id": "prophet.address.www-prophet-ml-privacy",
+          "status": "superseded",
+          "note": "The same Cremorne building as the contact page ('Melbourne Offices 1/105-115 Dover Street'), written 110-115 in the privacy policy."
+        }
+      ],
+      "add_locations": [
+        {
+          "id": "prophet.office.sydney",
+          "kind": "OFFICE",
+          "label": "Sydney office",
+          "address": "Level 12, 418A Elizabeth Street, Surry Hills NSW 2010",
+          "suburb": "Surry Hills",
+          "city": "Sydney",
+          "state": "NSW",
+          "postcode": "2010",
+          "url": "https://goprophet.io/contact"
+        }
+      ]
+    },
+    "exergenics": {
+      "reject_evidence": [
+        {
+          "id": "exergenics.address.www-exergenics-com-privacy-policy",
+          "status": "superseded",
+          "note": "The address its privacy policy gives for complaints (4/333 Exhibition Street): its home and about pages give 10-20 Gwynne Street, Cremorne as where it is."
+        }
+      ]
+    }
+  }
+}

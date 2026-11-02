@@ -20,6 +20,9 @@ describe('the big city a place belongs to', () => {
     expect(metroOfPostcode('NSW', '2800')).toBeNull(); // Orange is not Sydney
     expect(metroOfPostcode('QLD', '4575')).toBeNull(); // the Sunshine Coast is not one of the ten
     expect(metroOfPostcode('NSW', '3000')).toBeNull(); // a postcode of another state
+    // Greater Melbourne reaches past 3207: the outer north, west, south-east and the hills; Geelong, Ballarat and Kilmore are regional Victoria
+    for (const code of [3800, 3754, 3977, 3337, 3811, 3910]) expect(metroOfPostcode('VIC', code), String(code)).toBe('Melbourne'); // Monash Clayton, Mernda, Cranbourne, Melton, Pakenham, Langwarrin
+    for (const code of [3220, 3350, 3764, 3550, 3630]) expect(metroOfPostcode('VIC', code), String(code)).toBeNull(); // Geelong, Ballarat, Kilmore, Bendigo, Shepparton
     expect(metroOfPostcode(null, '2000')).toBeNull();
     expect(metroOfPostcode('NSW', 'abcd')).toBeNull();
   });
