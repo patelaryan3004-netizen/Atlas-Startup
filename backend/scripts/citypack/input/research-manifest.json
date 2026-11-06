@@ -1,0 +1,46 @@
+{
+  "created_on": "2026-11-05",
+  "reference_requested": "http://sydneytechmap.com/",
+  "reference_resolved": "https://worldtechmap.com/sydney",
+  "coverage": "All entries returned by each named public city endpoint when retrieved. This is not a census of all companies in those cities.",
+  "cities": {
+    "sydney": {
+      "ecosystem": 53,
+      "companies": 373,
+      "startups": 935,
+      "vcs": 102,
+      "total_records": 1463,
+      "source_street_candidates": 1064,
+      "city_only_or_source_pin_false": 399,
+      "source_marks_approximate": 415
+    },
+    "melbourne": {
+      "ecosystem": 88,
+      "startups": 662,
+      "vcs": 71,
+      "companies": 211,
+      "total_records": 1032,
+      "source_street_candidates": 603,
+      "city_only_or_source_pin_false": 429,
+      "source_marks_approximate": 445
+    },
+    "perth": {
+      "companies": 3,
+      "startups": 22,
+      "vcs": 4,
+      "ecosystem": 10,
+      "total_records": 39,
+      "source_street_candidates": 32,
+      "city_only_or_source_pin_false": 7,
+      "source_marks_approximate": 7
+    }
+  },
+  "limitations": [
+    "Directory classifications, office addresses, operating status and coordinates have not been independently verified for every entry.",
+    "Entries are city-location records, not a deduplicated count of unique companies.",
+    "Source approx and pin flags describe the source dataset; neither establishes independent verification.",
+    "All canonical latitude/longitude values and exact-pin publication flags are intentionally unset until reviewed.",
+    "No job availability, funding-stage or funding-amount claims were extracted.",
+    "Narrative descriptions, news, logos and source application code are not included in the deliverable."
+  ]
+}

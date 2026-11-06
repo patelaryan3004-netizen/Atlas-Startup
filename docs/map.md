@@ -21,6 +21,24 @@ switch moves into the filter sheet and the count is the bottom sheet's first lin
   state and postcode (only inside the city's own postcode range), and the catalog finds it under that city as well as under its own `city`; the counts of the busiest cities
   count it there. No record is changed.
 
+### The results panel, types, and "Search this area" (city pack work, 2026-11)
+
+On a wide screen (900 px and up) the map page has a **results panel** on the left (340-380 px, `ResultsColumn` with `variant="map"`): a search by name, sector or suburb, how many companies
+there are, and a compact row for each (a logo, the name, the sector and city). A row lights its pin and a pin lights its row; picking a row with a pin flies the map to it and
+opens its card, and a company with no pin opens its page. The chevron puts the panel away (kept in this browser); the **Show results · N** button on the map brings it back. With the panel open the
+toolbar's own search and count are hidden, because the panel has them. On a phone the panel is the bottom sheet, as before.
+
+- **What is shown**: All, Startups, Companies, Investors (the yellow VC) or Spaces. A company is a `organisation_type` of `startup` (the default: a record with none is a startup), `company` (an established
+  company) or `space` (a co-working or community place); the type a directory gives is a candidate until a person or a page says so. It is `?show=startups|companies|vcs|spaces` in the address and the question the page asks
+  is `orgType=` (not written twice). Investors are the investor directory's, not companies.
+- **Search this area**: after the visitor drags or zooms the map (a gesture of theirs; the map going to a city or a company does not count) a button offers to ask about where the map is looking.
+  Pressing it lists the companies whose pin is inside the box, from the pins the map already has (nothing more is asked of the server), under "In this area" with a way to clear it. The list
+  does not jump by itself as the map moves, and a change of city, filter or type puts the area away.
+- **The address keeps the state**: `/map?city=melbourne&show=companies&selected=<slug>`: the city (any case; the ten cities are matched without regard to case), what is shown, the filters and the company
+  that is open. A link opens as it was.
+- **How well a place is known**: a pin's card says "Office address on file" or "Verified office" for an exact address, "Location: suburb-level" for a suburb, and "Exact location not published" for a company
+  known only to its city (it is in the list and the directory, never at the city centre).
+
 ## The Explore page, `/discover`
 
 The Explore page (`/discover`; with `?view=map` its map is the same map, App.jsx with `components/MapView.jsx` and `components/explore/`) is the Explore page of the design system (`BRAND_GUIDELINES.md`): the shared header, a

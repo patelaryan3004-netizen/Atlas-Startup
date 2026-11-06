@@ -91,9 +91,9 @@ describe('StartupDetailPanel, how well the place is known', () => {
   });
 
   it('says a company known only to its city has no pin, and where it is shown instead', () => {
-    setup(where('CITY', 'Sydney, NSW', 'Location: city-level'));
+    setup(where('CITY', 'Sydney, NSW', 'Exact location not published'));
     expect(screen.getByText('Sydney, NSW')).toBeInTheDocument();
-    expect(screen.getByText('◐ Location: city-level')).toBeInTheDocument();
+    expect(screen.getByText('◐ Exact location not published')).toBeInTheDocument();
     expect(screen.getByText('No pin: shown as a group in Sydney on the map.')).toBeInTheDocument();
   });
 

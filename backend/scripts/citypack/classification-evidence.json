@@ -1,0 +1,4848 @@
+{
+ "read_on": "2026-11-05T12:26:19.056Z",
+ "companies": {
+  "linktree": {
+   "website": "https://linktr.ee",
+   "type": "startup",
+   "read": false,
+   "error": "robots_disallow"
+  },
+  "culture-amp": {
+   "website": "https://www.cultureamp.com",
+   "type": "startup",
+   "final": "https://www.cultureamp.com",
+   "read": true
+  },
+  "employment-hero": {
+   "website": "https://employmenthero.com",
+   "type": "startup",
+   "final": "https://employmenthero.com",
+   "headcount": {
+    "n": 550,
+    "quote": "and perks on the go. Download now Trending Case Studies One platform, 550+ employees, two HR leaders: Thermosash’s transformation story 5 min read Case St"
+   },
+   "read": true
+  },
+  "safetyculture": {
+   "website": "https://safetyculture.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "rokt": {
+   "website": "https://www.rokt.com",
+   "type": "startup",
+   "final": "https://www.rokt.com",
+   "read": true
+  },
+  "deputy": {
+   "website": "https://www.deputy.com",
+   "type": "startup",
+   "final": "https://www.deputy.com",
+   "read": true
+  },
+  "airwallex": {
+   "website": "https://www.airwallex.com",
+   "type": "startup",
+   "final": "https://www.airwallex.com/en-au",
+   "read": true
+  },
+  "go1": {
+   "website": "https://www.go1.com",
+   "type": "startup",
+   "final": "https://www.go1.com",
+   "read": true
+  },
+  "canva": {
+   "website": "https://www.canva.com",
+   "type": "startup",
+   "final": "https://www.canva.com/en_au/",
+   "read": true
+  },
+  "immutable": {
+   "website": "https://www.immutable.com",
+   "type": "startup",
+   "final": "https://www.immutable.com",
+   "read": true
+  },
+  "prospa": {
+   "website": "https://www.prospa.com",
+   "type": "startup",
+   "final": "https://www.prospa.com",
+   "read": true
+  },
+  "athena": {
+   "website": "https://www.athena.com.au",
+   "type": "startup",
+   "final": "https://www.athena.com.au",
+   "read": true
+  },
+  "harrison-ai": {
+   "website": "https://harrison.ai",
+   "type": "startup",
+   "read": false,
+   "error": "access_controlled"
+  },
+  "heidi-health": {
+   "website": "https://www.heidihealth.com",
+   "type": "startup",
+   "final": "https://www.heidihealth.com",
+   "read": true
+  },
+  "eucalyptus": {
+   "website": "https://eucalyptus.vc",
+   "type": "startup",
+   "final": "https://www.eucalyptus.health/",
+   "founded": {
+    "year": 2019,
+    "quote": "th and weight, providing high-quality healthcare to over 100,000 men. Founded in 2019, we’ve helped our patients treat erectile disfunction, premature ejac"
+   },
+   "read": true
+  },
+  "fleet-space-technologies": {
+   "website": "https://fleetspace.com",
+   "type": "startup",
+   "final": "https://www.fleetspace.com/",
+   "read": true
+  },
+  "bugcrowd": {
+   "website": "https://www.bugcrowd.com",
+   "type": "startup",
+   "final": "https://www.bugcrowd.com",
+   "read": true
+  },
+  "marqo": {
+   "website": "https://www.marqo.ai",
+   "type": "startup",
+   "final": "https://www.marqo.ai",
+   "read": true
+  },
+  "morse-micro": {
+   "website": "https://morsemicro.com",
+   "type": "startup",
+   "final": "https://morsemicro.com",
+   "read": true
+  },
+  "propeller-aero": {
+   "website": "https://www.propelleraero.com",
+   "type": "startup",
+   "final": "https://www.propelleraero.com",
+   "read": true
+  },
+  "gilmour-space-technologies": {
+   "website": "https://gspacetech.com",
+   "type": "startup",
+   "final": "https://www.gspace.com/",
+   "read": true
+  },
+  "build-club": {
+   "website": "https://buildclub.ai",
+   "type": "startup",
+   "final": "https://buildclub.ai",
+   "read": true
+  },
+  "restoke": {
+   "website": "https://www.restoke.ai/",
+   "type": "startup",
+   "final": "https://www.restoke.ai/",
+   "headcount": {
+    "n": 10000,
+    "quote": "ion we need.” Cliff Randerson General Manager at LifeGrain Trusted by 10,000+ professionals From cafés to multi-venue groups, operators are using Restoke to cut"
+   },
+   "read": true
+  },
+  "lorikeet": {
+   "website": "https://www.lorikeet.ai",
+   "type": "startup",
+   "final": "https://www.lorikeet.ai",
+   "read": true
+  },
+  "quantum-brilliance": {
+   "website": "https://quantumbrilliance.com",
+   "type": "startup",
+   "final": "https://quantumbrilliance.com",
+   "read": true
+  },
+  "advanced-navigation": {
+   "website": "https://www.advancednavigation.com",
+   "type": "startup",
+   "final": "https://www.advancednavigation.com",
+   "read": true
+  },
+  "cuttable": {
+   "website": "https://cuttable.ai",
+   "type": "startup",
+   "final": "https://www.cuttable.com/",
+   "read": true
+  },
+  "pet-circle": {
+   "website": "https://www.petcircle.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "jigspace": {
+   "website": "https://jig.space",
+   "type": "startup",
+   "final": "https://www.jig.com/",
+   "read": true
+  },
+  "sapia-ai": {
+   "website": "https://www.sapia.ai",
+   "type": "startup",
+   "final": "https://sapia.ai/",
+   "founded": {
+    "year": 2018,
+    "quote": "eduction 20 Weekly hours saved per recruiter Pioneering AI Interviews since 2018. Published scientific research. 10M+ candidates assessed. 3B+ words a"
+   },
+   "read": true
+  },
+  "me-and-u": {
+   "website": "https://www.meandu.com",
+   "type": "startup",
+   "final": "https://www.meandu.com",
+   "read": true
+  },
+  "zeller": {
+   "website": "https://www.myzeller.com",
+   "type": "startup",
+   "final": "https://www.myzeller.com/au",
+   "read": true
+  },
+  "askable": {
+   "website": "https://askable.com",
+   "type": "startup",
+   "final": "https://www.askable.com/",
+   "read": true
+  },
+  "buildkite": {
+   "website": "https://buildkite.com",
+   "type": "startup",
+   "final": "https://buildkite.com/home/",
+   "read": true
+  },
+  "brighte": {
+   "website": "https://www.brighte.com.au",
+   "type": "startup",
+   "final": "https://brighte.com.au/",
+   "read": true
+  },
+  "karbon": {
+   "website": "https://karbonhq.com",
+   "type": "startup",
+   "final": "https://karbonhq.com",
+   "read": true
+  },
+  "sonder": {
+   "website": "https://sonder.io",
+   "type": "startup",
+   "final": "https://sonder.io",
+   "read": true
+  },
+  "different": {
+   "website": "https://www.different.com.au",
+   "type": "startup",
+   "final": "https://different.com.au/",
+   "read": true
+  },
+  "mindset-health": {
+   "website": "https://www.mindsethealth.com",
+   "type": "startup",
+   "final": "https://www.mindsethealth.com",
+   "read": true
+  },
+  "archistar": {
+   "website": "https://archistar.ai",
+   "type": "startup",
+   "final": "https://www.archistar.ai/",
+   "read": true
+  },
+  "secure-code-warrior": {
+   "website": "https://www.securecodewarrior.com",
+   "type": "startup",
+   "final": "https://www.securecodewarrior.com",
+   "read": true
+  },
+  "zoomo": {
+   "website": "https://zoomo.co",
+   "type": "startup",
+   "read": false,
+   "error": "dns_failed"
+  },
+  "sendle": {
+   "website": "https://www.sendle.com",
+   "type": "startup",
+   "final": "https://www.sendle.com",
+   "read": true
+  },
+  "shippit": {
+   "website": "https://www.shippit.com",
+   "type": "startup",
+   "final": "https://www.shippit.com",
+   "read": true
+  },
+  "orkestra": {
+   "website": "https://www.orkestra.energy/",
+   "type": "startup",
+   "final": "https://www.orkestra.energy/",
+   "read": true
+  },
+  "expert360": {
+   "website": "https://expert360.com",
+   "type": "startup",
+   "final": "https://expert360.com",
+   "listed": "d with us to achieve their talent and project goals. Over half of the ASX 200 have used Expert360 to engage talent. You can explore customer case s",
+   "founded": {
+    "year": 2013,
+    "quote": "clients have engaged Experts through Expert360. We've been operating since 2013 and have a network of 40,000+ vetted experts across Australia, New Ze"
+   },
+   "read": true
+  },
+  "q-ctrl": {
+   "website": "https://q-ctrl.com",
+   "type": "startup",
+   "final": "https://q-ctrl.com",
+   "read": true
+  },
+  "edrolo": {
+   "website": "https://edrolo.com.au/",
+   "type": "startup",
+   "final": "https://edrolo.com.au/",
+   "read": true
+  },
+  "everlab": {
+   "website": "https://www.everlab.com.au/",
+   "type": "startup",
+   "final": "https://www.everlab.com.au/",
+   "read": true
+  },
+  "frankieone": {
+   "website": "https://frankieone.com/",
+   "type": "startup",
+   "final": "https://frankieone.com/",
+   "read": true
+  },
+  "care-gp": {
+   "website": "https://www.caregp.com.au",
+   "type": "startup",
+   "final": "https://www.caregp.com.au",
+   "read": true
+  },
+  "coviu": {
+   "website": "https://coviu.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "v2food": {
+   "website": "https://v2food.com",
+   "type": "startup",
+   "final": "https://www.v2food.com/",
+   "read": true
+  },
+  "lyrebird-health": {
+   "website": "https://www.lyrebirdhealth.com/",
+   "type": "startup",
+   "final": "https://www.lyrebirdhealth.com/au",
+   "read": true
+  },
+  "andromeda-robotics": {
+   "website": "https://andromedarobotics.ai/",
+   "type": "startup",
+   "final": "https://andromedarobotics.ai/",
+   "read": true
+  },
+  "diraq": {
+   "website": "https://diraq.com",
+   "type": "startup",
+   "final": "https://www.diraq.com/",
+   "read": true
+  },
+  "myriota": {
+   "website": "https://myriota.com",
+   "type": "startup",
+   "final": "https://myriota.com",
+   "read": true
+  },
+  "biza-io": {
+   "website": "https://biza.io",
+   "type": "startup",
+   "final": "https://biza.io",
+   "founded": {
+    "year": 2017,
+    "quote": "entry and assured compliance. View Data Recipient Solutions Why Biza? Founded in 2017, we help organisations navigate the highly regulated CDR ecosystem, a"
+   },
+   "read": true
+  },
+  "6clicks": {
+   "website": "https://6clicks.com",
+   "type": "startup",
+   "final": "https://www.6clicks.com/",
+   "read": true
+  },
+  "cascade": {
+   "website": "https://cascade.app",
+   "type": "startup",
+   "final": "https://www.cascade.app/",
+   "read": true
+  },
+  "eatclub": {
+   "website": "https://eatclub.com.au",
+   "type": "startup",
+   "final": "https://eatclub.com.au",
+   "read": true
+  },
+  "coassemble": {
+   "website": "https://coassemble.com",
+   "type": "startup",
+   "final": "https://coassemble.com",
+   "founded": {
+    "year": 2015,
+    "quote": "eeks, not quarters Your brand, no trace of ours SOC 2 · in production since 2015 The API-first training platform. Author with AI, embed anywhere, and"
+   },
+   "read": true
+  },
+  "vaxxas": {
+   "website": "https://vaxxas.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "flippa": {
+   "website": "https://flippa.com",
+   "type": "startup",
+   "final": "https://flippa.com",
+   "read": true
+  },
+  "drawboard": {
+   "website": "https://drawboard.com",
+   "type": "startup",
+   "final": "https://www.drawboard.com/",
+   "read": true
+  },
+  "etrainu": {
+   "website": "https://etrainu.com",
+   "type": "startup",
+   "final": "https://etrainu.com",
+   "read": true
+  },
+  "phocas": {
+   "website": "https://phocassoftware.com",
+   "type": "startup",
+   "final": "https://www.phocassoftware.com/",
+   "read": true
+  },
+  "goterra": {
+   "website": "https://goterra.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "bivacor": {
+   "website": "https://bivacor.com",
+   "type": "startup",
+   "final": "https://bivacor.com",
+   "read": true
+  },
+  "kasada": {
+   "website": "https://kasada.io",
+   "type": "startup",
+   "final": "https://www.kasada.io/",
+   "read": true
+  },
+  "enboarder": {
+   "website": "https://enboarder.com",
+   "type": "startup",
+   "final": "https://enboarder.com",
+   "read": true
+  },
+  "assignar": {
+   "website": "https://assignar.com",
+   "type": "startup",
+   "final": "https://assignar.com",
+   "read": true
+  },
+  "eftsure": {
+   "website": "https://eftsure.com",
+   "type": "startup",
+   "final": "https://www.eftsure.com/",
+   "read": true
+  },
+  "neara": {
+   "website": "https://neara.com",
+   "type": "startup",
+   "final": "https://neara.com",
+   "read": true
+  },
+  "mod-io": {
+   "website": "https://mod.io",
+   "type": "startup",
+   "final": "https://mod.io",
+   "read": true
+  },
+  "sitemate": {
+   "website": "https://sitemate.com",
+   "type": "startup",
+   "read": false,
+   "error": "access_controlled"
+  },
+  "amazingco": {
+   "website": "https://amazingco.me",
+   "type": "startup",
+   "final": "https://www.amazingco.me/aus",
+   "read": true
+  },
+  "matrak": {
+   "website": "https://matrak.com.au",
+   "type": "startup",
+   "final": "https://matrak.com/",
+   "read": true
+  },
+  "mastt": {
+   "website": "https://mastt.com",
+   "type": "startup",
+   "final": "https://www.mastt.com/",
+   "read": true
+  },
+  "linkby": {
+   "website": "https://linkby.com",
+   "type": "startup",
+   "read": false,
+   "error": "access_controlled"
+  },
+  "clear-dynamics": {
+   "website": "https://cleardynamics.com.au",
+   "type": "startup",
+   "final": "https://www.cleardynamics.com/",
+   "read": true
+  },
+  "atomi": {
+   "website": "https://getatomi.com",
+   "type": "startup",
+   "final": "https://www.getatomi.com/",
+   "read": true
+  },
+  "visory": {
+   "website": "https://visory.com.au",
+   "type": "startup",
+   "final": "https://www.visory.com.au/",
+   "read": true
+  },
+  "bookipi": {
+   "website": "https://bookipi.com",
+   "type": "startup",
+   "final": "https://bookipi.com",
+   "read": true
+  },
+  "bridgit": {
+   "website": "https://bridgit.com.au",
+   "type": "startup",
+   "final": "https://www.bridgit.com.au/",
+   "read": true
+  },
+  "zitcha": {
+   "website": "https://zitcha.com",
+   "type": "startup",
+   "final": "https://www.zitcha.com/",
+   "read": true
+  },
+  "bare": {
+   "website": "https://barecremation.com.au",
+   "type": "startup",
+   "final": "https://bare.com.au/",
+   "read": true
+  },
+  "factor-house": {
+   "website": "https://factorhouse.io",
+   "type": "startup",
+   "final": "https://factorhouse.io",
+   "read": true
+  },
+  "rosterfy": {
+   "website": "https://rosterfy.com",
+   "type": "startup",
+   "final": "https://www.rosterfy.com/",
+   "read": true
+  },
+  "payble": {
+   "website": "https://payble.com.au",
+   "type": "startup",
+   "final": "https://payble.com.au",
+   "headcount": {
+    "n": 12000,
+    "quote": "tralia & New Zealand Ease Payment Stress in Just 10 Weeks From saving 12,000+ staff hours to helping residents avoid penalties, you’ll see how flexible p"
+   },
+   "read": true
+  },
+  "josef": {
+   "website": "https://joseflegal.com",
+   "type": "startup",
+   "final": "https://joseflegal.com",
+   "headcount": {
+    "n": 65000,
+    "quote": "hat in-house teams build on Josef AI Q&A How adidas’ legal team gives 65,000+ staff instant compliance answers with AI Self-service contracts How L’Oréal"
+   },
+   "read": true
+  },
+  "mx51": {
+   "website": "https://mx51.io",
+   "type": "startup",
+   "final": "https://mx51.com/",
+   "read": true
+  },
+  "mentorloop": {
+   "website": "https://mentorloop.com",
+   "type": "startup",
+   "final": "https://mentorloop.com",
+   "read": true
+  },
+  "mary-technology": {
+   "website": "https://www.marytechnology.com",
+   "type": "startup",
+   "final": "https://www.marytechnology.com/au/",
+   "read": true
+  },
+  "asseti": {
+   "website": "https://asseti.co",
+   "type": "startup",
+   "final": "https://www.asseti.co/",
+   "read": true
+  },
+  "bonjoro": {
+   "website": "https://bonjoro.com",
+   "type": "startup",
+   "read": false,
+   "error": "access_controlled"
+  },
+  "sherlok": {
+   "website": "https://sherlok.com.au",
+   "type": "startup",
+   "final": "https://www.sherlok.com.au/",
+   "read": true
+  },
+  "hone": {
+   "website": "https://honeag.com",
+   "type": "startup",
+   "final": "https://honeag.com",
+   "read": true
+  },
+  "loopit": {
+   "website": "https://loopit.co",
+   "type": "startup",
+   "final": "https://www.loopit.co/en-us",
+   "read": true
+  },
+  "renewtrak": {
+   "website": "https://renewtrak.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "starboard": {
+   "website": "https://starboard.nz",
+   "type": "startup",
+   "final": "https://www.starboardintelligence.com/",
+   "read": true
+  },
+  "psyke": {
+   "website": "https://psyke.co",
+   "type": "startup",
+   "final": "https://psyke.co",
+   "read": true
+  },
+  "tendl": {
+   "website": "https://tendl.ai",
+   "type": "startup",
+   "final": "https://tendl.ai",
+   "read": true
+  },
+  "securepii": {
+   "website": "https://securepii.cloud",
+   "type": "startup",
+   "final": "https://www.securepii.cloud/",
+   "read": true
+  },
+  "apate-ai": {
+   "website": "https://apate.ai",
+   "type": "startup",
+   "final": "https://www.apate.ai/",
+   "read": true
+  },
+  "sherpa": {
+   "website": "https://sherpa.net.au",
+   "type": "startup",
+   "final": "https://www.sherpa.net.au/",
+   "read": true
+  },
+  "socialsuite": {
+   "website": "https://socialsuitehq.com",
+   "type": "startup",
+   "final": "https://www.socialsuitehq.com/",
+   "listed": "d shareholders. TE Tejal Engman SVP Investor Relations, DoubleVerify (NYSE:DV) We explored other options but didn't find any as simple or transpare",
+   "read": true
+  },
+  "vinyl": {
+   "website": "https://usevinyl.com",
+   "type": "startup",
+   "final": "https://www.usevinyl.com/",
+   "read": true
+  },
+  "driva": {
+   "website": "https://driva.com.au",
+   "type": "startup",
+   "final": "https://www.driva.com.au/",
+   "read": true
+  },
+  "buildpass": {
+   "website": "https://buildpass.com.au",
+   "type": "startup",
+   "final": "https://www.buildpass.ai/",
+   "read": true
+  },
+  "minikai": {
+   "website": "https://minikai.com",
+   "type": "startup",
+   "final": "https://minikai.com",
+   "headcount": {
+    "n": 16000,
+    "quote": "latform built for disability and aged care providers. Supporting over 16,000 people across Australia, New Zealand and the UK Trusted by quality providers"
+   },
+   "read": true
+  },
+  "start-my-tomorrow": {
+   "website": "https://startmytomorrow.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "autograb": {
+   "website": "https://autograb.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "vervoe": {
+   "website": "https://vervoe.com",
+   "type": "startup",
+   "final": "https://vervoe.com",
+   "read": true
+  },
+  "audience-republic": {
+   "website": "https://audiencerepublic.com",
+   "type": "startup",
+   "final": "https://audiencerepublic.com",
+   "read": true
+  },
+  "tiliter": {
+   "website": "https://tiliter.com",
+   "type": "startup",
+   "final": "https://www.tiliter.com/",
+   "read": true
+  },
+  "zero-latency": {
+   "website": "https://zerolatencyvr.com",
+   "type": "startup",
+   "final": "https://zerolatencyvr.com",
+   "read": true
+  },
+  "avarni": {
+   "website": "https://avarni.co",
+   "type": "startup",
+   "final": "https://www.avarni.co/",
+   "listed": "t for CFOs and finance teams Australia based, CSIRO backed Trusted by ASX-listed & other leading Australian organisations Why teams come to us Climate",
+   "read": true
+  },
+  "visibuild": {
+   "website": "https://visibuild.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "vexev": {
+   "website": "https://vexev.com",
+   "type": "startup",
+   "final": "https://www.vexev.com/",
+   "read": true
+  },
+  "kimia": {
+   "website": "https://kimia.ai",
+   "type": "startup",
+   "final": "https://kimia.ai",
+   "read": true
+  },
+  "safewill": {
+   "website": "https://safewill.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "pyn": {
+   "website": "https://www.pynhq.com",
+   "type": "startup",
+   "final": "https://www.pynhq.com",
+   "read": true
+  },
+  "heaps-normal": {
+   "website": "https://heapsnormal.com",
+   "type": "startup",
+   "final": "https://heapsnormal.com",
+   "read": true
+  },
+  "onemri": {
+   "website": "https://onemri.com.au",
+   "type": "startup",
+   "final": "https://www.onemri.com.au/",
+   "read": true
+  },
+  "human-health": {
+   "website": "https://human.health",
+   "type": "startup",
+   "final": "https://www.human.health/",
+   "headcount": {
+    "n": 0,
+    "quote": "aily insights to share with providers Download Human for free Join 415,000+ people making sense of their health. Every signal that matters. In one app."
+   },
+   "read": true
+  },
+  "contactile": {
+   "website": "https://contactile.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "signonsite": {
+   "website": "https://signonsite.com.au",
+   "type": "startup",
+   "final": "https://www.signonsite.com/",
+   "read": true
+  },
+  "kismet": {
+   "website": "https://kismet.com.au",
+   "type": "startup",
+   "final": "https://kismet.com.au",
+   "read": true
+  },
+  "investorhub": {
+   "website": "https://investorhub.com",
+   "type": "startup",
+   "final": "https://investorhub.com",
+   "listed": "ement Investors Registry Raise View investor hub Engagement analytics ASX:EXM $ 2.45 ▲ 4.2% Last 90 days Benchmark Investor hub Announcements Updat",
+   "read": true
+  },
+  "earthodic": {
+   "website": "https://earthodic.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "trace": {
+   "website": "https://our-trace.com",
+   "type": "startup",
+   "final": "https://www.our-trace.com/",
+   "read": true
+  },
+  "moregooddays": {
+   "website": "https://moregooddays.com",
+   "type": "startup",
+   "final": "https://www.moregooddays.com/",
+   "read": true
+  },
+  "vow": {
+   "website": "https://vowfood.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "rapidaim": {
+   "website": "https://rapidaim.io",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "swarmfarm-robotics": {
+   "website": "https://swarmfarm.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "mercu": {
+   "website": "https://mercu.io",
+   "type": "startup",
+   "final": "https://www.mercu.io/",
+   "read": true
+  },
+  "ezycollect": {
+   "website": "https://ezycollect.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "equitise": {
+   "website": "https://equitise.com",
+   "type": "startup",
+   "final": "https://equitise.com",
+   "read": true
+  },
+  "unloan": {
+   "website": "https://unloan.com.au",
+   "type": "startup",
+   "final": "https://unloan.com.au",
+   "read": true
+  },
+  "biteable": {
+   "website": "https://biteable.com",
+   "type": "startup",
+   "final": "https://biteable.com",
+   "read": true
+  },
+  "doshii": {
+   "website": "https://doshii.com",
+   "type": "startup",
+   "final": "https://doshii.com",
+   "read": true
+  },
+  "home-in": {
+   "website": "https://home-in.com.au",
+   "type": "startup",
+   "final": "https://www.home-in.com.au/",
+   "read": true
+  },
+  "kit": {
+   "website": "https://heykit.com.au",
+   "type": "startup",
+   "final": "https://www.heykit.com.au/",
+   "read": true
+  },
+  "truyu": {
+   "website": "https://truyu.com.au",
+   "type": "startup",
+   "final": "https://www.truyu.com.au/",
+   "read": true
+  },
+  "ownhome": {
+   "website": "https://ownhome.com",
+   "type": "startup",
+   "final": "https://ownhome.com",
+   "read": true
+  },
+  "spriggy": {
+   "website": "https://spriggy.com.au",
+   "type": "startup",
+   "final": "https://spriggy.com.au",
+   "read": true
+  },
+  "slyp": {
+   "website": "https://slyp.com.au",
+   "type": "startup",
+   "final": "https://www.slyp.com.au/",
+   "read": true
+  },
+  "edstart": {
+   "website": "https://edstart.com.au",
+   "type": "startup",
+   "final": "https://edstart.com.au",
+   "read": true
+  },
+  "datamesh-group": {
+   "website": "https://datameshgroup.com",
+   "type": "startup",
+   "final": "https://onedmg.com/",
+   "read": true
+  },
+  "hometime": {
+   "website": "https://hometime.io",
+   "type": "startup",
+   "final": "https://www.hometime.io/",
+   "read": true
+  },
+  "samsara-eco": {
+   "website": "https://samsaraeco.com",
+   "type": "startup",
+   "final": "https://www.samsaraeco.com/",
+   "read": true
+  },
+  "opensolar": {
+   "website": "https://opensolar.com",
+   "type": "startup",
+   "final": "https://www.opensolar.com/",
+   "read": true
+  },
+  "ipscape": {
+   "website": "https://ipscape.com",
+   "type": "startup",
+   "final": "https://ipscape.com",
+   "read": true
+  },
+  "healthengine": {
+   "website": "https://healthengine.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "access_controlled"
+  },
+  "chirp": {
+   "website": "https://trychirp.com",
+   "type": "startup",
+   "final": "https://www.trychirp.com/",
+   "read": true
+  },
+  "circular-sourcing": {
+   "website": "https://circularsourcing.world",
+   "type": "startup",
+   "final": "https://circularsourcing.world",
+   "read": true
+  },
+  "duohub": {
+   "website": "https://duohub.ai",
+   "type": "startup",
+   "read": false,
+   "error": "dns_failed"
+  },
+  "fluency": {
+   "website": "https://getfluency.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "http_error"
+  },
+  "gloss-guide": {
+   "website": "https://glossguide.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "dns_failed"
+  },
+  "landid": {
+   "website": "https://heylandid.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "puralink": {
+   "website": "https://puralink.com.au",
+   "type": "startup",
+   "final": "https://puralink.com/",
+   "read": true
+  },
+  "vulnetix": {
+   "website": "https://vulnetix.com",
+   "type": "startup",
+   "final": "https://www.vulnetix.com/",
+   "read": true
+  },
+  "pentacue-ai": {
+   "website": "https://pentacue.com",
+   "type": "startup",
+   "read": false,
+   "error": "dns_failed"
+  },
+  "edsemble": {
+   "website": "https://edsemble.com",
+   "type": "startup",
+   "final": "https://edsemble.com",
+   "read": true
+  },
+  "andisor": {
+   "website": "https://andisor.com",
+   "type": "startup",
+   "final": "https://andisor.com",
+   "read": true
+  },
+  "calctree": {
+   "website": "https://calctree.com",
+   "type": "startup",
+   "final": "https://www.calctree.com/",
+   "read": true
+  },
+  "vyro": {
+   "website": "https://vyro.com.au",
+   "type": "startup",
+   "final": "https://vyro.co/",
+   "read": true
+  },
+  "reach-alternative-investments": {
+   "website": "https://reachalts.com.au",
+   "type": "startup",
+   "final": "https://www.reachalts.com.au/",
+   "listed": "for Reach Alts and Gen Life hires Company News Jul 21, 2026 Read more ASX-listed HUB24 takes a chunk of investment fintech Reach Alternative Investmen",
+   "read": true
+  },
+  "pairtree": {
+   "website": "https://pairtree.co",
+   "type": "startup",
+   "final": "https://pairtree.co",
+   "read": true
+  },
+  "blinq": {
+   "website": "https://blinq.me",
+   "type": "startup",
+   "final": "https://blinq.me",
+   "read": true
+  },
+  "agridigital": {
+   "website": "https://www.agridigital.io",
+   "type": "startup",
+   "final": "https://www.agridigital.io",
+   "read": true
+  },
+  "amber-electric": {
+   "website": "https://www.amber.com.au",
+   "type": "startup",
+   "final": "https://www.amber.com.au",
+   "read": true
+  },
+  "superstat": {
+   "website": "https://superstatsport.com",
+   "type": "startup",
+   "final": "https://www.superstatsport.com/",
+   "read": true
+  },
+  "fastlane": {
+   "website": "https://usefastlane.ai",
+   "type": "startup",
+   "final": "https://www.usefastlane.ai/",
+   "read": true
+  },
+  "forward": {
+   "website": "https://www.useforward.co",
+   "type": "startup",
+   "final": "https://www.useforward.co",
+   "read": true
+  },
+  "adora": {
+   "website": "https://adora.ai",
+   "type": "startup",
+   "final": "https://www.adora.ai/",
+   "read": true
+  },
+  "affinda": {
+   "website": "https://affinda.com",
+   "type": "startup",
+   "final": "https://www.affinda.com/",
+   "read": true
+  },
+  "apromore": {
+   "website": "https://apromore.com",
+   "type": "startup",
+   "final": "https://apromore.com",
+   "read": true
+  },
+  "bellroy": {
+   "website": "https://bellroy.com",
+   "type": "startup",
+   "final": "https://bellroy.com",
+   "founded": {
+    "year": 2015,
+    "quote": "d in Australia Returns until January 31 4.9-star Google rating B Corp since 2015 Get in first New releases and exclusives in your inbox Enter your ema"
+   },
+   "read": true
+  },
+  "block-earner": {
+   "website": "https://blockearner.com.au",
+   "type": "startup",
+   "final": "https://blockearner.com.au",
+   "read": true
+  },
+  "ceres-tag": {
+   "website": "https://cerestag.com",
+   "type": "startup",
+   "final": "https://cerestag.com",
+   "read": true
+  },
+  "cortical-labs": {
+   "website": "https://corticallabs.com",
+   "type": "startup",
+   "final": "https://corticallabs.com",
+   "read": true
+  },
+  "dovetail": {
+   "website": "https://dovetail.com",
+   "type": "startup",
+   "final": "https://dovetail.com",
+   "read": true
+  },
+  "fleetyr": {
+   "website": "https://fleetyr.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "emesent": {
+   "website": "https://emesent.com",
+   "type": "startup",
+   "final": "https://www.emesent.com/",
+   "headcount": {
+    "n": 110,
+    "quote": "0+ Active users 50+ Countries served 65+ Reseller locations worldwide 110+ Team members AEC High-Volume Residential Scan-to-BIM: How Sonto Achieves 30% Fewer"
+   },
+   "read": true
+  },
+  "harvest-b": {
+   "website": "https://www.harvestb.io",
+   "type": "startup",
+   "final": "https://www.harvestb.io",
+   "read": true
+  },
+  "hello-clever": {
+   "website": "https://helloclever.co",
+   "type": "startup",
+   "final": "https://helloclever.co",
+   "read": true
+  },
+  "ignition": {
+   "website": "https://ignitionapp.com",
+   "type": "startup",
+   "final": "https://www.ignitionapp.com/",
+   "read": true
+  },
+  "indebted": {
+   "website": "https://indebted.co",
+   "type": "startup",
+   "final": "https://www.indebted.co/",
+   "read": true
+  },
+  "instant": {
+   "website": "https://instant.one",
+   "type": "startup",
+   "final": "https://instant.one",
+   "read": true
+  },
+  "index": {
+   "website": "https://alloy.app",
+   "type": "startup",
+   "final": "https://alloy.app",
+   "read": true
+  },
+  "intelligencebank": {
+   "website": "https://intelligencebank.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "isaacus": {
+   "website": "https://isaacus.com",
+   "type": "startup",
+   "final": "https://isaacus.com",
+   "read": true
+  },
+  "liquid-instruments": {
+   "website": "https://liquidinstruments.com",
+   "type": "startup",
+   "read": false,
+   "error": "robots_unavailable"
+  },
+  "livewire": {
+   "website": "https://livewiremarkets.com",
+   "type": "startup",
+   "read": false,
+   "error": "access_controlled"
+  },
+  "lombard": {
+   "website": "https://lombard.finance",
+   "type": "startup",
+   "final": "https://www.lombard.finance/",
+   "read": true
+  },
+  "nutromics": {
+   "website": "https://nutromics.com",
+   "type": "startup",
+   "final": "https://www.nutromics.com/",
+   "read": true
+  },
+  "octopus-deploy": {
+   "website": "https://octopus.com",
+   "type": "startup",
+   "final": "https://octopus.com",
+   "read": true
+  },
+  "qsic": {
+   "website": "https://getqsic.com",
+   "type": "startup",
+   "final": "https://www.getqsic.com/",
+   "read": true
+  },
+  "reejig": {
+   "website": "https://reejig.com",
+   "type": "startup",
+   "final": "https://www.reejig.com/",
+   "headcount": {
+    "n": 84000,
+    "quote": "g to redesign 55,000 job titles into 600 streamlined roles, preparing 84,000 employees for an AI-enabled future. Read the case study “Reejig’s Work Architec"
+   },
+   "read": true
+  },
+  "relevance-ai": {
+   "website": "https://relevanceai.com",
+   "type": "startup",
+   "final": "https://relevanceai.com",
+   "read": true
+  },
+  "relume": {
+   "website": "https://relume.ai",
+   "type": "startup",
+   "final": "https://www.relume.ai/",
+   "founded": {
+    "year": 1998,
+    "quote": "wood Plumbing & Gas, a family-run Newcastle plumbing and gas business since 1998. Audience is stressed homeowners who just want someone who'll turn up"
+   },
+   "read": true
+  },
+  "roller": {
+   "website": "https://roller.software",
+   "type": "startup",
+   "final": "https://www.roller.software/",
+   "headcount": {
+    "n": 300,
+    "quote": "built to help you succeed. At ROLLER, we help operators do just that. 300 team members 3,500+ customers 24/7 global support 8M bookings per month 165M guest"
+   },
+   "read": true
+  },
+  "send-payments": {
+   "website": "https://sendpayments.com",
+   "type": "startup",
+   "final": "https://sendpayments.com",
+   "read": true
+  },
+  "simpro": {
+   "website": "https://simpro.com",
+   "type": "startup",
+   "final": "https://www.simpro.com/",
+   "read": true
+  },
+  "syenta": {
+   "website": "https://syenta.com",
+   "type": "startup",
+   "final": "https://www.syenta.com/",
+   "read": true
+  },
+  "tribe": {
+   "website": "https://tribegroup.co",
+   "type": "startup",
+   "final": "https://www.tribegroup.co/",
+   "read": true
+  },
+  "upcover": {
+   "website": "https://upcover.com",
+   "type": "startup",
+   "final": "https://www.upcover.com/",
+   "read": true
+  },
+  "vivi": {
+   "website": "https://vivi.io",
+   "type": "startup",
+   "final": "https://www.vivi.io/",
+   "read": true
+  },
+  "wemoney": {
+   "website": "https://wemoney.com.au",
+   "type": "startup",
+   "final": "https://www.wemoney.com.au/",
+   "read": true
+  },
+  "alloy-robotics": {
+   "website": "https://usealloy.ai",
+   "type": "startup",
+   "final": "https://www.usealloy.ai/",
+   "read": true
+  },
+  "ansight": {
+   "website": "https://www.ansight.ai",
+   "type": "startup",
+   "final": "https://www.ansight.ai",
+   "read": true
+  },
+  "antares-aerospace": {
+   "website": "https://antaresaerospace.com.au",
+   "type": "startup",
+   "final": "https://antaresaerospace.com.au",
+   "read": true
+  },
+  "brandviz-ai": {
+   "website": "https://www.brandviz.ai",
+   "type": "startup",
+   "final": "https://www.brandviz.ai",
+   "read": true
+  },
+  "clausifai": {
+   "website": "https://clausifai.com",
+   "type": "startup",
+   "final": "https://clausifai.com",
+   "read": true
+  },
+  "coco": {
+   "website": "https://www.trustcoco.ai",
+   "type": "startup",
+   "final": "https://www.trustcoco.ai",
+   "read": true
+  },
+  "derive": {
+   "website": "https://www.derivenotes.com",
+   "type": "startup",
+   "final": "https://www.derivenotes.com",
+   "read": true
+  },
+  "develpr": {
+   "website": "https://develpr.com.au",
+   "type": "startup",
+   "final": "https://develpr.com/",
+   "read": true
+  },
+  "estimate": {
+   "website": "https://estimateai.com.au",
+   "type": "startup",
+   "final": "https://useestimate.ai/",
+   "read": true
+  },
+  "glowback": {
+   "website": "https://glowback.com.au",
+   "type": "startup",
+   "final": "https://glowback.com.au",
+   "read": true
+  },
+  "hyperlocalise": {
+   "website": "https://www.hyperlocalise.com",
+   "type": "startup",
+   "final": "https://www.hyperlocalise.com/en",
+   "read": true
+  },
+  "securitybreak": {
+   "website": "https://securitybreak.io",
+   "type": "startup",
+   "final": "https://securitybreak.io",
+   "read": true
+  },
+  "sunburnt-space-co": {
+   "website": "https://sunburntspace.com.au",
+   "type": "startup",
+   "final": "https://sunburntspace.com.au",
+   "read": true
+  },
+  "quarter": {
+   "website": "https://quarter.nz",
+   "type": "startup",
+   "final": "https://quarter.nz",
+   "read": true
+  },
+  "veltora": {
+   "website": "https://www.veltora.net",
+   "type": "startup",
+   "final": "https://www.veltora.net",
+   "read": true
+  },
+  "abyss-solutions": {
+   "website": "https://abysssolutions.co",
+   "type": "startup",
+   "final": "https://abyssfabric.com/",
+   "read": true
+  },
+  "accelo": {
+   "website": "https://accelo.com",
+   "type": "startup",
+   "final": "https://www.accelo.com/?",
+   "read": true
+  },
+  "adviser-ratings": {
+   "website": "https://adviserratings.com.au",
+   "type": "startup",
+   "final": "https://www.adviserratings.com.au/",
+   "read": true
+  },
+  "airrobe": {
+   "website": "https://airrobe.com",
+   "type": "startup",
+   "final": "https://www.airrobe.com/",
+   "read": true
+  },
+  "alts": {
+   "website": "https://alts.co",
+   "type": "startup",
+   "final": "https://alts.co",
+   "read": true
+  },
+  "amentum-scientific": {
+   "website": "https://amentum.com.au",
+   "type": "startup",
+   "final": "https://www.amentum.io/",
+   "read": true
+  },
+  "archer-materials": {
+   "website": "https://archerx.com.au",
+   "type": "startup",
+   "final": "https://www.archerx.com.au/",
+   "listed": "Archer Materials (ASX: AXE) | Australian Quantum Technology Company About Us Our People Technolo",
+   "read": true
+  },
+  "arkeus": {
+   "website": "https://arkeus.com",
+   "type": "startup",
+   "final": "https://arkeus.com",
+   "read": true
+  },
+  "atrium": {
+   "website": "https://atrium.me",
+   "type": "startup",
+   "final": "https://www.atrium.me/",
+   "read": true
+  },
+  "atticus": {
+   "website": "https://atticus.tech",
+   "type": "startup",
+   "final": "https://www.atticus.tech/au",
+   "listed": "heme Booklets Marketing Material PDS Documents Trusted by 9 out of 10 ASX10 companies Our corporate customers 90% of Australian corporate law fir",
+   "headcount": {
+    "n": 200,
+    "quote": "rol Box-up words, sentences, or paragraphs Collaborate with 2, 20, or 200 people Verify one document or the full suite Verifying in Atticus Streamline"
+   },
+   "read": true
+  },
+  "azaneo": {
+   "website": "https://azaneo.au",
+   "type": "startup",
+   "final": "https://azaneo.au",
+   "read": true
+  },
+  "black-ai": {
+   "website": "https://black.ai",
+   "type": "startup",
+   "final": "https://black.ai",
+   "read": true
+  },
+  "blunge": {
+   "website": "https://blunge.ai",
+   "type": "startup",
+   "final": "https://www.blunge.ai/",
+   "read": true
+  },
+  "borne": {
+   "website": "https://borne.au",
+   "type": "startup",
+   "final": "https://www.borne.au/",
+   "read": true
+  },
+  "breaker-industries": {
+   "website": "https://breakerindustries.com",
+   "type": "startup",
+   "final": "https://breakerindustries.com",
+   "read": true
+  },
+  "bygen": {
+   "website": "https://bygen.com.au",
+   "type": "startup",
+   "final": "https://www.bygen.com.au/",
+   "read": true
+  },
+  "cape": {
+   "website": "https://getcape.io",
+   "type": "startup",
+   "final": "https://www.getcape.io/",
+   "headcount": {
+    "n": 250,
+    "quote": "ger, and the average SaaS usage and FX spend of businesses with 10 to 250 employees. Calculate your savings Not our words. Yours Chris Bambury, Head of F"
+   },
+   "read": true
+  },
+  "cascayd": {
+   "website": "https://cascayd.app",
+   "type": "startup",
+   "final": "https://cascayd.app",
+   "read": true
+  },
+  "clutch-glue": {
+   "website": "https://clutchglue.com",
+   "type": "startup",
+   "final": "https://clutchglue.com",
+   "read": true
+  },
+  "checkgen": {
+   "website": "https://checkgen.com.au",
+   "type": "startup",
+   "final": "https://www.checkgen.com.au/",
+   "read": true
+  },
+  "coinjar": {
+   "website": "https://coinjar.com",
+   "type": "startup",
+   "final": "https://www.coinjar.com/au/",
+   "founded": {
+    "year": 2013,
+    "quote": "#1 crypto exchange*. Buy, sell and hold crypto with CoinJar — trusted since 2013. Get started * Based on CoinDesk Exchange Benchmark, May 2026. CoinJa"
+   },
+   "read": true
+  },
+  "crosscourtai": {
+   "website": "https://crosscourtai.com",
+   "type": "startup",
+   "final": "https://crosscourtai.com",
+   "read": true
+  },
+  "cruxml": {
+   "website": "https://cruxml.com.au",
+   "type": "startup",
+   "final": "https://cruxml.com.au",
+   "read": true
+  },
+  "darwinium": {
+   "website": "https://darwinium.com",
+   "type": "startup",
+   "final": "https://www.darwinium.com/",
+   "read": true
+  },
+  "datafarming": {
+   "website": "https://datafarming.com.au",
+   "type": "startup",
+   "final": "https://datafarming.com.au",
+   "read": true
+  },
+  "ddloop": {
+   "website": "https://ddloop.app",
+   "type": "startup",
+   "final": "https://ddloop.app",
+   "read": true
+  },
+  "decarice": {
+   "website": "https://decarice.com.au",
+   "type": "startup",
+   "final": "https://decarice.com.au",
+   "read": true
+  },
+  "deeligence": {
+   "website": "https://deeligence.com",
+   "type": "startup",
+   "final": "https://www.deeligence.com/",
+   "read": true
+  },
+  "deneb-space": {
+   "website": "https://denebspace.com.au",
+   "type": "startup",
+   "final": "https://www.denebspace.com.au/",
+   "read": true
+  },
+  "design-com": {
+   "website": "https://design.com",
+   "type": "startup",
+   "final": "https://www.design.com/",
+   "read": true
+  },
+  "dimple": {
+   "website": "https://dimplecontacts.com",
+   "type": "startup",
+   "final": "https://www.dimplecontacts.com/",
+   "read": true
+  },
+  "driven": {
+   "website": "https://home.hellodriven.com",
+   "type": "startup",
+   "final": "https://home.hellodriven.com",
+   "read": true
+  },
+  "earlywork": {
+   "website": "https://earlywork.co",
+   "type": "startup",
+   "final": "https://www.earlywork.co/",
+   "read": true
+  },
+  "ebest": {
+   "website": "https://ebest.com.au",
+   "type": "startup",
+   "final": "https://www.ebest.com.au/",
+   "read": true
+  },
+  "effi": {
+   "website": "https://effi.com.au",
+   "type": "startup",
+   "final": "https://effi.com.au",
+   "read": true
+  },
+  "elevio": {
+   "website": "https://elev.io",
+   "type": "startup",
+   "final": "https://elev.io",
+   "read": true
+  },
+  "esper-satellite-imagery": {
+   "website": "https://espersatellites.co",
+   "type": "startup",
+   "final": "https://www.espersatellites.co/",
+   "read": true
+  },
+  "everbility": {
+   "website": "https://everbility.com",
+   "type": "startup",
+   "final": "https://www.everbility.com/",
+   "read": true
+  },
+  "extraordinary-money": {
+   "website": "https://xmo.au",
+   "type": "startup",
+   "final": "https://xmo.au",
+   "read": true
+  },
+  "fairgo-ai": {
+   "website": "https://fairgo.ai",
+   "type": "startup",
+   "final": "https://www.fairgo.ai/",
+   "read": true
+  },
+  "first-aml": {
+   "website": "https://firstaml.com",
+   "type": "startup",
+   "final": "https://www.firstaml.com/au",
+   "read": true
+  },
+  "flowgo": {
+   "website": "https://flowgoai.com",
+   "type": "startup",
+   "final": "https://flowgoai.com",
+   "read": true
+  },
+  "foremind": {
+   "website": "https://foremind.com.au",
+   "type": "startup",
+   "final": "https://www.foremind.com.au/",
+   "read": true
+  },
+  "frntlne": {
+   "website": "https://frntlne.com",
+   "type": "startup",
+   "final": "https://www.frntlne.com/",
+   "read": true
+  },
+  "future-super": {
+   "website": "https://futuresuper.com.au",
+   "type": "startup",
+   "final": "https://www.futuresuper.com.au/",
+   "read": true
+  },
+  "gelion-technologies": {
+   "website": "https://gelion.com",
+   "type": "startup",
+   "final": "https://gelion.com",
+   "read": true
+  },
+  "geosnapshot": {
+   "website": "https://geosnapshot.com",
+   "type": "startup",
+   "final": "https://geosnapshot.com",
+   "read": true
+  },
+  "gradability": {
+   "website": "https://gradability.com.au",
+   "type": "startup",
+   "final": "https://www.gradability.com.au/",
+   "founded": {
+    "year": 2006,
+    "quote": "l Us Search for: 6000.00 Australia ' s graduate employability experts Since 2006, we connect graduates with the professional experience Australian emp"
+   },
+   "read": true
+  },
+  "glamcorner": {
+   "website": "https://glamcorner.com.au",
+   "type": "startup",
+   "final": "https://www.glamcorner.com.au/",
+   "read": true
+  },
+  "grow-inc": {
+   "website": "https://grow.inc",
+   "type": "startup",
+   "final": "https://www.grow.inc/",
+   "read": true
+  },
+  "hullbot": {
+   "website": "https://hullbot.com",
+   "type": "startup",
+   "final": "https://hullbot.com",
+   "read": true
+  },
+  "hurtec": {
+   "website": "https://hurtec.com.au",
+   "type": "startup",
+   "final": "https://www.hurtec.com.au/",
+   "read": true
+  },
+  "iluminr": {
+   "website": "https://iluminr.io",
+   "type": "startup",
+   "final": "https://iluminr.io",
+   "read": true
+  },
+  "inventia-life-sciences": {
+   "website": "https://inventia.com.au",
+   "type": "startup",
+   "final": "https://inventialifescience.com/",
+   "read": true
+  },
+  "invest-inya-farmer": {
+   "website": "https://iif.today",
+   "type": "startup",
+   "final": "https://iif.today",
+   "read": true
+  },
+  "june": {
+   "website": "https://heyjune.com.au",
+   "type": "startup",
+   "final": "https://heyjune.com.au",
+   "read": true
+  },
+  "kanopi": {
+   "website": "https://kanopicover.com",
+   "type": "startup",
+   "final": "https://kanopicover.com",
+   "read": true
+  },
+  "kinde": {
+   "website": "https://kinde.com",
+   "type": "startup",
+   "final": "https://www.kinde.com/",
+   "read": true
+  },
+  "kernl": {
+   "website": "https://kernl.com.au",
+   "type": "startup",
+   "final": "https://kernl.com.au",
+   "read": true
+  },
+  "kite-magnetics": {
+   "website": "https://kitemagnetics.com",
+   "type": "startup",
+   "final": "https://kitemagnetics.com",
+   "read": true
+  },
+  "lawpath": {
+   "website": "https://lawpath.com.au",
+   "type": "startup",
+   "final": "https://lawpath.com.au",
+   "read": true
+  },
+  "leakster": {
+   "website": "https://leakster.com.au",
+   "type": "startup",
+   "final": "https://www.leakster.com.au/",
+   "read": true
+  },
+  "lexer": {
+   "website": "https://lexer.io",
+   "type": "startup",
+   "final": "https://www.lexer.io/",
+   "read": true
+  },
+  "ligr": {
+   "website": "https://ligrsystems.com",
+   "type": "startup",
+   "final": "https://www.ligrsystems.com/",
+   "read": true
+  },
+  "like-family": {
+   "website": "https://likefamily.com.au",
+   "type": "startup",
+   "final": "https://likefamily.com.au",
+   "founded": {
+    "year": 2016,
+    "quote": "e a carer Search for support near you Search Registered NDIS-provider since 2016 1M+ support hours delivered across Australia 4.7 star Google rating E"
+   },
+   "read": true
+  },
+  "lumos": {
+   "website": "https://spotlumos.com",
+   "type": "startup",
+   "final": "https://spotlumos.com",
+   "read": true
+  },
+  "marloo": {
+   "website": "https://gomarloo.com",
+   "type": "startup",
+   "final": "https://www.marloo.com/au",
+   "read": true
+  },
+  "merchantspring": {
+   "website": "https://merchantspring.io",
+   "type": "startup",
+   "final": "https://merchantspring.io",
+   "read": true
+  },
+  "millibeam": {
+   "website": "https://millibeam.com",
+   "type": "startup",
+   "final": "https://millibeam.com",
+   "read": true
+  },
+  "misti": {
+   "website": "https://misti.com.au",
+   "type": "startup",
+   "final": "https://misti.com.au",
+   "read": true
+  },
+  "movus": {
+   "website": "https://movus.com.au",
+   "type": "startup",
+   "final": "https://movus.com.au",
+   "read": true
+  },
+  "mozo": {
+   "website": "https://mozo.com.au",
+   "type": "startup",
+   "final": "https://www.mozo.com.au/",
+   "read": true
+  },
+  "navbit": {
+   "website": "https://navbit.com",
+   "type": "startup",
+   "final": "https://navbit.com",
+   "read": true
+  },
+  "neuralindex-ai": {
+   "website": "https://neuralindex.ai",
+   "type": "startup",
+   "final": "https://neuralindex.ai",
+   "read": true
+  },
+  "nexusmd": {
+   "website": "https://nexusmd.com.au",
+   "type": "startup",
+   "final": "https://nexusmd.com.au",
+   "read": true
+  },
+  "nomad-atomics": {
+   "website": "https://nomadatomics.com",
+   "type": "startup",
+   "final": "https://www.nomadatomics.com/",
+   "read": true
+  },
+  "novalith": {
+   "website": "https://novalith.com.au",
+   "type": "startup",
+   "final": "https://novalith.com.au",
+   "read": true
+  },
+  "o3": {
+   "website": "https://o3space.org",
+   "type": "startup",
+   "final": "https://o3space.org",
+   "read": true
+  },
+  "octopusbot": {
+   "website": "https://octopusbot.ai",
+   "type": "startup",
+   "final": "https://octopusbot.ai",
+   "read": true
+  },
+  "on-the-house": {
+   "website": "https://onthehousegroup.com",
+   "type": "startup",
+   "final": "https://onthehousegroup.com",
+   "read": true
+  },
+  "perx-health": {
+   "website": "https://perxhealth.com",
+   "type": "startup",
+   "final": "https://perxhealth.com",
+   "read": true
+  },
+  "photon-foundry": {
+   "website": "https://photonfoundry.com.au",
+   "type": "startup",
+   "final": "https://www.photonfoundry.com.au/",
+   "space": "CoE Translation Fund. Photon Foundry joins Quantum Australia's NextQ accelerator program. In the News - Photon Foundry Highlight. ANFF pre-seed funding awarde",
+   "read": true
+  },
+  "presien": {
+   "website": "https://presien.com",
+   "type": "startup",
+   "final": "https://www.presien.com/",
+   "read": true
+  },
+  "preve": {
+   "website": "https://preve.co",
+   "type": "startup",
+   "final": "https://preve.co",
+   "read": true
+  },
+  "programa": {
+   "website": "https://programa.com.au",
+   "type": "startup",
+   "final": "https://programa.design/",
+   "read": true
+  },
+  "promosync": {
+   "website": "https://promosync.ai",
+   "type": "startup",
+   "final": "https://www.promosync.ai/",
+   "read": true
+  },
+  "prospection": {
+   "website": "https://prospection.com",
+   "type": "startup",
+   "final": "https://www.prospection.com/",
+   "read": true
+  },
+  "rainstick": {
+   "website": "https://rainstick.com.au",
+   "type": "startup",
+   "read": false,
+   "error": "too_large"
+  },
+  "restoplus": {
+   "website": "https://restoplus.com",
+   "type": "startup",
+   "final": "https://www.restoplus.com/",
+   "read": true
+  },
+  "simconverse": {
+   "website": "https://simconverse.com",
+   "type": "startup",
+   "final": "https://www.simconverse.com/",
+   "read": true
+  },
+  "snug": {
+   "website": "https://snug.com",
+   "type": "startup",
+   "final": "https://snug.com",
+   "read": true
+  },
+  "spec-toolbox": {
+   "website": "https://clttoolbox.com",
+   "type": "startup",
+   "final": "https://spectoolbox.com/",
+   "read": true
+  },
+  "summ": {
+   "website": "https://summ.com",
+   "type": "startup",
+   "final": "https://summ.com",
+   "read": true
+  },
+  "ternarynet": {
+   "website": "https://ternarynet.com",
+   "type": "startup",
+   "final": "https://ternarynet.com",
+   "read": true
+  },
+  "traild": {
+   "website": "https://traildsoftware.com",
+   "type": "startup",
+   "final": "https://traildsoftware.com",
+   "read": true
+  },
+  "upguard": {
+   "website": "https://upguard.com",
+   "type": "startup",
+   "final": "https://www.upguard.com/",
+   "read": true
+  },
+  "vero": {
+   "website": "https://getvero.com",
+   "type": "startup",
+   "final": "https://www.getvero.com/",
+   "read": true
+  },
+  "x-centric-sciences": {
+   "website": "https://xcentric.tech",
+   "type": "startup",
+   "final": "https://www.xcentric.tech/",
+   "read": true
+  },
+  "your-grocer": {
+   "website": "https://yourgrocer.com.au",
+   "type": "startup",
+   "final": "https://yourgrocer.com.au",
+   "read": true
+  },
+  "zendir": {
+   "website": "https://zendir.io",
+   "type": "startup",
+   "final": "https://zendir.io",
+   "read": true
+  },
+  "amlab": {
+   "website": "https://amlab.com.au",
+   "type": "startup",
+   "final": "https://amlab.com.au",
+   "read": true
+  },
+  "appbot": {
+   "website": "https://appbot.co",
+   "type": "startup",
+   "final": "https://appbot.co",
+   "founded": {
+    "year": 2013,
+    "quote": "fix them. Responding to app store reviews: the staggering growth Ever since 2013, you could respond to reviews on Google Play. In 2017 Apple followed"
+   },
+   "read": true
+  },
+  "ascend-labs": {
+   "website": "https://ascendlabs.com.au",
+   "type": "startup",
+   "final": "https://ascendlabs.com.au",
+   "read": true
+  },
+  "bamboo": {
+   "website": "https://getbamboo.io",
+   "type": "startup",
+   "final": "https://www.getbamboo.io/",
+   "read": true
+  },
+  "bobbleware": {
+   "website": "https://bobbleware.com",
+   "type": "startup",
+   "final": "https://www.bobbleware.com/",
+   "read": true
+  },
+  "black-swan-biotech": {
+   "website": "https://blackswanbio.com",
+   "type": "startup",
+   "final": "https://www.blackswanbio.com/",
+   "read": true
+  },
+  "chironix": {
+   "website": "https://chironix.com",
+   "type": "startup",
+   "final": "https://chironix.com",
+   "read": true
+  },
+  "cars-like": {
+   "website": "https://carslike.com.au",
+   "type": "startup",
+   "final": "https://www.carslike.com.au/",
+   "read": true
+  },
+  "corametix": {
+   "website": "https://corametix.com",
+   "type": "startup",
+   "final": "https://corametix.com",
+   "read": true
+  },
+  "dayworkbook": {
+   "website": "https://dayworkbook.com",
+   "type": "startup",
+   "final": "https://dayworkbook.com",
+   "read": true
+  },
+  "detail-earth": {
+   "website": "https://detail.earth",
+   "type": "startup",
+   "final": "https://detail.earth",
+   "read": true
+  },
+  "edible-cutlery": {
+   "website": "https://ediblecutlery.au",
+   "type": "startup",
+   "final": "https://ediblecutlery.au",
+   "read": true
+  },
+  "hola-health": {
+   "website": "https://hola.health",
+   "type": "startup",
+   "final": "https://hola.health",
+   "read": true
+  },
+  "hyperion-systems": {
+   "website": "https://hyperionsystems.com.au",
+   "type": "startup",
+   "final": "https://www.hyperionsystems.com.au/",
+   "read": true
+  },
+  "interearth": {
+   "website": "https://inter.earth",
+   "type": "startup",
+   "final": "https://www.inter.earth/",
+   "read": true
+  },
+  "lixa": {
+   "website": "https://lixa.life",
+   "type": "startup",
+   "final": "https://www.lixa.life/",
+   "read": true
+  },
+  "ocean-hex": {
+   "website": "https://oceanhex.com.au",
+   "type": "startup",
+   "final": "https://oceanhex.com.au",
+   "read": true
+  },
+  "omni-biotech": {
+   "website": "https://omnibiotech.com.au",
+   "type": "startup",
+   "final": "https://omnibiotech.com.au",
+   "read": true
+  },
+  "oncores-medical": {
+   "website": "https://oncoresmedical.com",
+   "type": "startup",
+   "final": "https://www.oncoresmedical.com/",
+   "founded": {
+    "year": 2016,
+    "quote": "BORATING WITH LEADING RESEARCHERS OncoRes is a medical device company founded in 2016 and based in Perth, Western Australia. OncoRes is funded by the Medic"
+   },
+   "read": true
+  },
+  "oto-medicines": {
+   "website": "https://otomedicines.com",
+   "type": "startup",
+   "final": "https://www.otomedicines.com/",
+   "read": true
+  },
+  "personr": {
+   "website": "https://personr.co",
+   "type": "startup",
+   "final": "https://personr.co",
+   "read": true
+  },
+  "piksort": {
+   "website": "https://piksort.com",
+   "type": "startup",
+   "final": "https://www.piksort.com/",
+   "read": true
+  },
+  "roborigger": {
+   "website": "https://roborigger.com.au",
+   "type": "startup",
+   "final": "https://www.roborigger.com.au/",
+   "read": true
+  },
+  "simplafy": {
+   "website": "https://simplafy.com.au",
+   "type": "startup",
+   "final": "https://simplafy.com.au",
+   "read": true
+  },
+  "spacedraft": {
+   "website": "https://spacedraft.com",
+   "type": "startup",
+   "final": "https://spacedraft.com",
+   "read": true
+  },
+  "spacetoco": {
+   "website": "https://spacetoco.com",
+   "type": "startup",
+   "final": "https://www.spacetoco.com/",
+   "read": true
+  },
+  "tender-relief": {
+   "website": "https://tenderrelief.com.au",
+   "type": "startup",
+   "final": "https://tenderrelief.com.au",
+   "read": true
+  },
+  "the-volte": {
+   "website": "https://thevolte.com",
+   "type": "startup",
+   "final": "https://thevolte.com",
+   "read": true
+  },
+  "truxe": {
+   "website": "https://truxe.com.au",
+   "type": "startup",
+   "final": "https://www.truxe.com.au/",
+   "read": true
+  },
+  "uluu": {
+   "website": "https://uluu.com.au",
+   "type": "startup",
+   "final": "https://www.uluu.com.au/",
+   "read": true
+  },
+  "vitaltrace": {
+   "website": "https://vitaltrace.com.au",
+   "type": "startup",
+   "final": "https://vitaltrace.com.au",
+   "listed": "Sutton Non-Executive Director CFO and Executive Director, 4DMedical (ASX: 4DX) John Livingston Board Observer Former CEO, Integral Diagnostics · Ex",
+   "founded": {
+    "year": 2017,
+    "quote": "Clinicians, scientists and engineers who have focused on one molecule since 2017. Leadership Dr Arjun Kaushik Founder & CEO Medicine, University of We"
+   },
+   "read": true
+  },
+  "vitruvian-form": {
+   "website": "https://vitruvianform.com",
+   "type": "startup",
+   "final": "https://vitruvianform.com/en-au",
+   "read": true
+  },
+  "agora-livestock": {
+   "website": "https://agoralivestock.com.au",
+   "type": "startup",
+   "final": "https://agoralivestock.com.au",
+   "read": true
+  },
+  "wevolt": {
+   "website": "https://wevolt.com.au",
+   "type": "startup",
+   "final": "https://wevolt.com.au",
+   "read": true
+  },
+  "aispanner": {
+   "website": "https://aispanner.com.au",
+   "type": "startup",
+   "final": "https://aispanner.com.au",
+   "read": true
+  },
+  "augment-technologies": {
+   "website": "https://augmenttechnologies.ai",
+   "type": "startup",
+   "final": "https://augmenttechnologies.ai",
+   "read": true
+  },
+  "avicena-systems": {
+   "website": "https://avicenasystems.com",
+   "type": "startup",
+   "final": "https://avicenasystems.com",
+   "read": true
+  },
+  "biotome": {
+   "website": "https://biotome.com.au",
+   "type": "startup",
+   "final": "https://www.biotome.com.au/",
+   "read": true
+  },
+  "capability-x": {
+   "website": "https://capabilityx.com",
+   "type": "startup",
+   "final": "https://www.capabilityx.com/",
+   "read": true
+  },
+  "cortical-dynamics": {
+   "website": "https://corticaldynamics.com",
+   "type": "startup",
+   "final": "https://corticaldynamics.com",
+   "read": true
+  },
+  "cytophenix": {
+   "website": "https://cytophenix.com",
+   "type": "startup",
+   "final": "https://cytophenix.com",
+   "read": true
+  },
+  "enzide-technologies": {
+   "website": "https://enzidetech.com",
+   "type": "startup",
+   "final": "https://www.enzidetech.com/",
+   "read": true
+  },
+  "flyone": {
+   "website": "https://flyone.com.au",
+   "type": "startup",
+   "final": "https://flyone.com.au",
+   "read": true
+  },
+  "gene-s": {
+   "website": "https://gene-s.com",
+   "type": "startup",
+   "final": "https://gene-s.com",
+   "read": true
+  },
+  "geomoby": {
+   "website": "https://geomoby.com",
+   "type": "startup",
+   "final": "https://geomoby.com",
+   "read": true
+  },
+  "hyprfire": {
+   "website": "https://hyprfire.com",
+   "type": "startup",
+   "final": "https://www.hyprfire.com/",
+   "read": true
+  },
+  "i-screen": {
+   "website": "https://i-screen.com.au",
+   "type": "startup",
+   "final": "https://www.i-screen.com.au/",
+   "founded": {
+    "year": 2016,
+    "quote": "ction. We've helped thousands of Australians access their health data since 2016, with results typically available within 48 hours. Your health, over"
+   },
+   "read": true
+  },
+  "plancare": {
+   "website": "https://plancare.com.au",
+   "type": "startup",
+   "final": "https://plancare.com.au",
+   "read": true
+  },
+  "menuzen": {
+   "website": "https://menuzen.com",
+   "type": "startup",
+   "final": "https://www.menuzen.com/",
+   "read": true
+  },
+  "portable-ppb": {
+   "website": "https://portableppb.com",
+   "type": "startup",
+   "final": "https://portableppb.com",
+   "read": true
+  },
+  "pretect-devices": {
+   "website": "https://pretectdevices.com",
+   "type": "startup",
+   "final": "https://www.pretectdevices.com/",
+   "space": "vin Pfleger Director, Biomedical and Health Innovation, Life Sciences Innovation Hub, Western Australia Scientific/Translation and Impact Prof. Fiona Wood",
+   "read": true
+  },
+  "ready-team-one": {
+   "website": "https://readyteamone.com",
+   "type": "startup",
+   "final": "https://readyteamone.com",
+   "read": true
+  },
+  "savvywise": {
+   "website": "https://savvywise.com.au",
+   "type": "startup",
+   "final": "https://www.savvywise.com.au/",
+   "read": true
+  },
+  "seastock": {
+   "website": "https://seastock.com.au",
+   "type": "startup",
+   "final": "https://www.seastock.com.au/",
+   "read": true
+  },
+  "talk2view": {
+   "website": "https://talk2view.com",
+   "type": "startup",
+   "final": "https://talk2view.com",
+   "read": true
+  },
+  "three-springs-technology": {
+   "website": "https://threespringstechnology.com",
+   "type": "startup",
+   "final": "https://threespringstechnology.com",
+   "founded": {
+    "year": 2016,
+    "quote": "Perth, WA, 6005 Perth, Western Australia 6005 Commercialising MedTech since 2016 About us We are a hands-on consulting firm specialising in the commer"
+   },
+   "read": true
+  },
+  "veintech": {
+   "website": "https://veintech.com.au",
+   "type": "startup",
+   "final": "https://www.veintech.com.au/",
+   "read": true
+  },
+  "1breadcrumb": {
+   "website": "https://1breadcrumb.com",
+   "type": "startup",
+   "final": "https://www.breadcrumb.co/en-au",
+   "read": true
+  },
+  "1receipt": {
+   "website": "https://1receipt.io",
+   "type": "startup",
+   "final": "https://www.1receipt.io/",
+   "read": true
+  },
+  "aelo": {
+   "website": "https://aelo.com.au",
+   "type": "startup",
+   "final": "https://www.aelo.com.au/",
+   "read": true
+  },
+  "agpay": {
+   "website": "https://agpay.com.au",
+   "type": "startup",
+   "final": "https://agpay.com.au",
+   "read": true
+  },
+  "aibuild": {
+   "website": "https://aibuild.com",
+   "type": "startup",
+   "final": "https://www.aibuild.com/",
+   "read": true
+  },
+  "allume-energy": {
+   "website": "https://allumeenergy.com",
+   "type": "startup",
+   "final": "https://allumeenergy.com",
+   "read": true
+  },
+  "applied-ev": {
+   "website": "https://appliedev.com",
+   "type": "startup",
+   "final": "https://www.appliedev.com/",
+   "read": true
+  },
+  "aravax": {
+   "website": "https://aravax.com.au",
+   "type": "startup",
+   "final": "https://www.aravax.com.au/",
+   "read": true
+  },
+  "archa": {
+   "website": "https://archa.com.au",
+   "type": "startup",
+   "final": "https://www.archa.com.au/",
+   "headcount": {
+    "n": 100,
+    "quote": "s digital-first platform, this market leader streamlined expenses for 100+ employees without impacting their bank borrowing capacity. Read case study Ente"
+   },
+   "read": true
+  },
+  "atmo-biosciences": {
+   "website": "https://atmobiosciences.com",
+   "type": "startup",
+   "final": "https://www.atmobiosciences.com/",
+   "read": true
+  },
+  "aus-bios-labs": {
+   "website": "https://ausbioslabs.com",
+   "type": "startup",
+   "final": "https://www.ausbioslabs.com/",
+   "read": true
+  },
+  "bae-juice": {
+   "website": "https://drinkbaejuice.com",
+   "type": "startup",
+   "final": "https://drinkbaejuice.com.au/",
+   "founded": {
+    "year": 2018,
+    "quote": "ind Bae Juice where you love to shop BEFORE ANYONE ELSE,THERE WAS BAE Founded in 2018, Bae Juice is Aussie-owned and Korean-made, born from a simple idea—b"
+   },
+   "read": true
+  },
+  "brunswick-aces": {
+   "website": "https://brunswickaces.com",
+   "type": "startup",
+   "final": "https://brunswickaces.com",
+   "read": true
+  },
+  "carbar": {
+   "website": "https://carbar.com.au",
+   "type": "startup",
+   "final": "https://www.carbar.com.au/",
+   "read": true
+  },
+  "cartherics": {
+   "website": "https://cartherics.com",
+   "type": "startup",
+   "final": "https://cartherics.com",
+   "read": true
+  },
+  "certa-therapeutics": {
+   "website": "https://certatherapeutics.com",
+   "type": "startup",
+   "final": "https://certatherapeutics.com",
+   "read": true
+  },
+  "cliniscribe-ai": {
+   "website": "https://cliniscribe.com.au",
+   "type": "startup",
+   "final": "https://www.cliniscribe.com.au/",
+   "read": true
+  },
+  "conry-tech": {
+   "website": "https://conrytech.com",
+   "type": "startup",
+   "final": "https://www.conrytech.com/",
+   "read": true
+  },
+  "curvecrete": {
+   "website": "https://curvecrete.com",
+   "type": "startup",
+   "final": "https://www.curvecrete.com/",
+   "read": true
+  },
+  "deciphrai": {
+   "website": "https://deciphr.ai",
+   "type": "startup",
+   "final": "https://www.deciphr.ai/",
+   "read": true
+  },
+  "dhi-ai": {
+   "website": "https://dhi-ai.com",
+   "type": "startup",
+   "final": "https://dhi-ai.com",
+   "read": true
+  },
+  "digital-agriculture-services": {
+   "website": "https://digitalagricultureservices.com",
+   "type": "startup",
+   "final": "https://digitalagricultureservices.com",
+   "read": true
+  },
+  "dr-glitter": {
+   "website": "https://drglitter.com",
+   "type": "startup",
+   "final": "https://drglitter.com",
+   "read": true
+  },
+  "ena-respiratory": {
+   "website": "https://enarespiratory.com",
+   "type": "startup",
+   "final": "https://enarespiratory.com",
+   "read": true
+  },
+  "epiminder": {
+   "website": "https://epiminder.com",
+   "type": "startup",
+   "final": "https://epiminder.com",
+   "read": true
+  },
+  "eugene": {
+   "website": "https://eugenelabs.com",
+   "type": "startup",
+   "final": "https://eugenelabs.com",
+   "read": true
+  },
+  "exergenics": {
+   "website": "https://exergenics.com.au",
+   "type": "startup",
+   "final": "https://www.exergenics.com/",
+   "read": true
+  },
+  "ferguson-s-treatos": {
+   "website": "https://fergusonstreatos.com.au",
+   "type": "startup",
+   "final": "https://fergusonstreatos.com.au",
+   "read": true
+  },
+  "focus-bear": {
+   "website": "https://focusbear.io",
+   "type": "startup",
+   "final": "https://www.focusbear.io/",
+   "read": true
+  },
+  "frank-green": {
+   "website": "https://frankgreen.com",
+   "type": "startup",
+   "final": "https://frankgreen.com.au/",
+   "read": true
+  },
+  "get-it-fast": {
+   "website": "https://getitfast.com.au",
+   "type": "startup",
+   "final": "https://getitfast.com.au",
+   "read": true
+  },
+  "healthily": {
+   "website": "https://healthily.com.au",
+   "type": "startup",
+   "final": "https://healthily.com.au",
+   "read": true
+  },
+  "hungryhungry": {
+   "website": "https://hungryhungry.com",
+   "type": "startup",
+   "final": "https://www.hungryhungry.com/",
+   "read": true
+  },
+  "intellischool": {
+   "website": "https://intellischool.co",
+   "type": "startup",
+   "final": "https://intellischool.co",
+   "read": true
+  },
+  "jet-charge": {
+   "website": "https://jetcharge.com.au",
+   "type": "startup",
+   "final": "https://jetcharge.com.au",
+   "read": true
+  },
+  "july": {
+   "website": "https://july.com",
+   "type": "startup",
+   "final": "https://july.com/au/",
+   "read": true
+  },
+  "kinoxis": {
+   "website": "https://kinoxistherapeutics.com",
+   "type": "startup",
+   "final": "https://kinoxistherapeutics.com",
+   "read": true
+  },
+  "lab-group": {
+   "website": "https://labgroup.com.au",
+   "type": "startup",
+   "final": "https://www.labgroup.com.au/",
+   "read": true
+  },
+  "loke": {
+   "website": "https://loke.global",
+   "type": "startup",
+   "final": "https://www.loke.global/",
+   "read": true
+  },
+  "mark-my-words": {
+   "website": "https://markmywords.au",
+   "type": "startup",
+   "final": "https://markmywords.au",
+   "read": true
+  },
+  "looplearn": {
+   "website": "https://looplearn.net",
+   "type": "startup",
+   "final": "https://loopsafe.net/",
+   "read": true
+  },
+  "marketplacer": {
+   "website": "https://marketplacer.com",
+   "type": "startup",
+   "final": "https://marketplacer.com",
+   "read": true
+  },
+  "maxme": {
+   "website": "https://maxme.com.au",
+   "type": "startup",
+   "final": "https://www.maxme.com.au/",
+   "headcount": {
+    "n": 5000,
+    "quote": "r + Onboarded 20,000+ users to our proprietary app, Hodie + Upskilled 5,000+ employees across Australia, India and Philippines + Empowered 5,000+ secondary"
+   },
+   "read": true
+  },
+  "mercando": {
+   "website": "https://mercando.com.au",
+   "type": "startup",
+   "final": "https://mercando.com.au",
+   "read": true
+  },
+  "nebula-health": {
+   "website": "https://nebulahealth.com",
+   "type": "startup",
+   "final": "https://www.nebulahealth.com/",
+   "read": true
+  },
+  "neo-bionica": {
+   "website": "https://neo-bionica.com",
+   "type": "startup",
+   "final": "https://neo-bionica.com",
+   "read": true
+  },
+  "newsie": {
+   "website": "https://newsie.com.au",
+   "type": "startup",
+   "final": "https://www.newsie.com.au/",
+   "read": true
+  },
+  "nextaero": {
+   "website": "https://nextaero.com.au",
+   "type": "startup",
+   "final": "https://nextaero.com.au",
+   "read": true
+  },
+  "operata": {
+   "website": "https://operata.com",
+   "type": "startup",
+   "final": "https://operata.com",
+   "read": true
+  },
+  "outcoach": {
+   "website": "https://outcoach.io",
+   "type": "startup",
+   "final": "https://outcoach.io",
+   "read": true
+  },
+  "pay-com-au": {
+   "website": "https://pay.com.au",
+   "type": "startup",
+   "final": "https://pay.com.au",
+   "read": true
+  },
+  "polyactiva": {
+   "website": "https://polyactiva.com",
+   "type": "startup",
+   "final": "https://polyactiva.com",
+   "read": true
+  },
+  "prophet": {
+   "website": "https://goprophet.io",
+   "type": "startup",
+   "final": "https://www.prophet.ml/",
+   "read": true
+  },
+  "prota-therapeutics": {
+   "website": "https://protatherapeutics.com",
+   "type": "startup",
+   "final": "https://protatherapeutics.com",
+   "read": true
+  },
+  "reach-and-match": {
+   "website": "https://reachandmatch.com",
+   "type": "startup",
+   "final": "https://www.reachandmatch.com/",
+   "read": true
+  },
+  "raygen": {
+   "website": "https://raygen.com",
+   "type": "startup",
+   "final": "https://raygen.com",
+   "read": true
+  },
+  "relectrify": {
+   "website": "https://relectrify.com",
+   "type": "startup",
+   "final": "https://www.relectrify.com/au",
+   "read": true
+  },
+  "recime": {
+   "website": "https://recime.app",
+   "type": "startup",
+   "final": "https://recime.app",
+   "read": true
+  },
+  "reswitch": {
+   "website": "https://reswitch.com",
+   "type": "startup",
+   "final": "https://reswitch.com",
+   "read": true
+  },
+  "resseptor": {
+   "website": "https://resseptor.com",
+   "type": "startup",
+   "final": "https://www.resseptor.com/",
+   "read": true
+  },
+  "rohlok": {
+   "website": "https://rohlok.com",
+   "type": "startup",
+   "final": "https://rohlok.com",
+   "read": true
+  },
+  "savic-motorcycles": {
+   "website": "https://savicmotorcycles.com",
+   "type": "startup",
+   "final": "https://www.savicmotorcycles.com/",
+   "read": true
+  },
+  "sapyen": {
+   "website": "https://sapyen.co",
+   "type": "startup",
+   "final": "https://www.sapyen.co/",
+   "read": true
+  },
+  "scriibi": {
+   "website": "https://scriibi.com",
+   "type": "startup",
+   "final": "https://scriibi.com",
+   "read": true
+  },
+  "scratch": {
+   "website": "https://scratchpetfood.com.au",
+   "type": "startup",
+   "final": "https://www.scratchpetfood.com.au/",
+   "founded": {
+    "year": 2018,
+    "quote": "ome 100% natural treats Treats & Accessories Add treats & accessories Since 2018, our fight for transparent labelling & healthier dog food has been fe"
+   },
+   "read": true
+  },
+  "smileyscope": {
+   "website": "https://smileyscope.com",
+   "type": "startup",
+   "final": "https://www.smileyscope.com/en-au",
+   "read": true
+  },
+  "snap-send-solve": {
+   "website": "https://snapsendsolve.com",
+   "type": "startup",
+   "final": "https://snapsendsolve.com",
+   "read": true
+  },
+  "strongroom-ai": {
+   "website": "https://strongroom.ai",
+   "type": "startup",
+   "final": "https://strongroom.ai",
+   "read": true
+  },
+  "syncio": {
+   "website": "https://syncio.co",
+   "type": "startup",
+   "final": "https://www.syncio.co/",
+   "read": true
+  },
+  "syncrowin": {
+   "website": "https://syncrowin.com.au",
+   "type": "startup",
+   "final": "https://syncrowin.com.au",
+   "space": "win has been selected to join the University of Melbourne’s Melbourne Accelerator Program (MAP), Australia’s longest-running and most competitive university ac",
+   "read": true
+  },
+  "tally-group": {
+   "website": "https://tallygroup.com.au",
+   "type": "startup",
+   "final": "https://www.tally.co/",
+   "read": true
+  },
+  "tikpay": {
+   "website": "https://tikpay.com",
+   "type": "startup",
+   "final": "https://tikpay.com",
+   "read": true
+  },
+  "tixel": {
+   "website": "https://tixel.com",
+   "type": "startup",
+   "read": false,
+   "error": "too_large"
+  },
+  "vinomofo": {
+   "website": "https://vinomofo.com",
+   "type": "startup",
+   "final": "https://www.vinomofo.com/",
+   "read": true
+  },
+  "virtetic": {
+   "website": "https://virtetic.com.au",
+   "type": "startup",
+   "final": "https://www.virtetic.com.au/",
+   "read": true
+  },
+  "zerocap": {
+   "website": "https://zerocap.com",
+   "type": "startup",
+   "final": "https://zerocap.com",
+   "read": true
+  },
+  "adveritas": {
+   "website": "https://adveritas.com.au",
+   "type": "startup",
+   "final": "https://adveritas.com.au",
+   "listed": "Adveritas (ASX: AV1) | Global Leader in Digital Ad Fraud Prevention Navigation Home About",
+   "read": true
+  },
+  "fastbrick": {
+   "website": "https://fbr.com.au",
+   "type": "startup",
+   "final": "https://www.fbr.com.au/",
+   "read": true
+  },
+  "icetana-ai": {
+   "website": "https://icetana.ai",
+   "type": "startup",
+   "final": "https://www.icetana.ai/",
+   "listed": "s Distribution Agreement Macnica Americas will distribute icetana AI (ASX: ICE) across the Americas. One operator, up to 500 cameras, site learned w",
+   "read": true
+  },
+  "nanoveu": {
+   "website": "https://nanoveu.com",
+   "type": "startup",
+   "final": "https://nanoveu.com",
+   "founded": {
+    "year": 2012,
+    "quote": "nts Financial Reports Presentations Notices 2024 Contact Us ASX | NVU Since 2012 EMASS Emerges from Stealth to Redefine Edge AI Powering the Future of"
+   },
+   "read": true
+  },
+  "pointerra": {
+   "website": "https://pointerra.com",
+   "type": "startup",
+   "final": "https://www.pointerra.com/",
+   "read": true
+  },
+  "power-ledger": {
+   "website": "https://powerledger.io",
+   "type": "startup",
+   "final": "https://powerledger.io",
+   "founded": {
+    "year": 2018,
+    "quote": "Thailand Peer-to-peer rooftop solar trading across Bangkok precincts since 2018. 4.2 MWh average daily generation with 50% growth in solar capacity."
+   },
+   "read": true
+  },
+  "activepipe": {
+   "website": "https://activepipe.com",
+   "type": "startup",
+   "final": "https://activepipe.com",
+   "read": true
+  },
+  "2cloudnine": {
+   "website": "https://2cloudnine.com",
+   "type": "startup",
+   "final": "https://2cloudnine.com/au/",
+   "read": true
+  },
+  "aiculus": {
+   "website": "https://aiculus.co",
+   "type": "startup",
+   "final": "https://www.aiculus.co/",
+   "read": true
+  },
+  "bigger-energizer": {
+   "website": "https://biggerenergizer.com.au",
+   "type": "startup",
+   "final": "https://www.biggerenergizer.com.au/",
+   "read": true
+  },
+  "brickx": {
+   "website": "https://brickx.com",
+   "type": "startup",
+   "final": "https://www.brickx.com/",
+   "read": true
+  },
+  "c2-robotics": {
+   "website": "https://c2robotics.com.au",
+   "type": "startup",
+   "final": "https://c2robotics.com.au",
+   "read": true
+  },
+  "campaignagent": {
+   "website": "https://campaignagent.com.au",
+   "type": "startup",
+   "final": "https://campaignagent.com.au",
+   "listed": "of Notifiable Matters Part of CampaignAgent is owned and operated by ASX-listed REA Group Ltd (REA:ASX) © REA Group Ltd.",
+   "read": true
+  },
+  "capital-com": {
+   "website": "https://capital.com",
+   "type": "startup",
+   "final": "https://capital.com/en-au",
+   "read": true
+  },
+  "cario": {
+   "website": "https://cario.com.au",
+   "type": "startup",
+   "final": "https://cario.com.au",
+   "read": true
+  },
+  "chemcloud": {
+   "website": "https://chemcloud.com.au",
+   "type": "startup",
+   "final": "https://www.chemcloud.com.au/",
+   "read": true
+  },
+  "cipher-sports-technology-group": {
+   "website": "https://ciphersports.io",
+   "type": "startup",
+   "final": "https://www.ciphersports.io/",
+   "founded": {
+    "year": 2018,
+    "quote": "rofitability and identifying inefficiencies in the sportsbooks’ odds. Established in 2018, Stats Insider is Australia’s leading predictive analytics and data-l"
+   },
+   "read": true
+  },
+  "cogstate": {
+   "website": "https://cogstate.com",
+   "type": "startup",
+   "final": "https://www.cogstate.com/",
+   "read": true
+  },
+  "collibra": {
+   "website": "https://collibra.com",
+   "type": "startup",
+   "final": "https://www.collibra.com/",
+   "read": true
+  },
+  "datarock": {
+   "website": "https://datarock.com.au",
+   "type": "startup",
+   "final": "https://datarock.com.au",
+   "read": true
+  },
+  "diag-nose-io": {
+   "website": "https://diag-nose.io",
+   "type": "startup",
+   "final": "https://www.diag-nose.io/",
+   "founded": {
+    "year": 1990,
+    "quote": "economic burden [5] 004 103.5M DALYs [6] 005 40% increase in disease since 1990 [6] References by DOI [1] 10.3390/ijerph17176212 [3] 10.1007/978-3-03"
+   },
+   "read": true
+  },
+  "displaysweet": {
+   "website": "https://displaysweet.com",
+   "type": "startup",
+   "final": "https://www.displaysweet.com/",
+   "read": true
+  },
+  "draftable": {
+   "website": "https://draftable.com",
+   "type": "startup",
+   "final": "https://www.draftable.com/",
+   "read": true
+  },
+  "eiz-technology": {
+   "website": "https://eiz.com.au",
+   "type": "startup",
+   "final": "https://eiz.com.au",
+   "read": true
+  },
+  "elenium": {
+   "website": "https://elenium.com",
+   "type": "startup",
+   "final": "https://www.elenium.com/",
+   "read": true
+  },
+  "enervaro": {
+   "website": "https://enervaro.com.au",
+   "type": "startup",
+   "final": "https://www.enervaro.com.au/",
+   "read": true
+  },
+  "enygy": {
+   "website": "https://enygy.com",
+   "type": "startup",
+   "final": "https://www.enygy.com/",
+   "read": true
+  },
+  "equiem": {
+   "website": "https://getequiem.com",
+   "type": "startup",
+   "final": "https://getequiem.com",
+   "read": true
+  },
+  "farmwall": {
+   "website": "https://farmwall.com",
+   "type": "startup",
+   "final": "https://farmwall.com",
+   "read": true
+  },
+  "foundit": {
+   "website": "https://foundit.property",
+   "type": "startup",
+   "final": "https://foundit.property",
+   "read": true
+  },
+  "gentrack": {
+   "website": "https://gentrack.com",
+   "type": "startup",
+   "final": "https://gentrack.com",
+   "listed": "that is listed on the New Zealand and Australian stock exchanges (NZX/ASX: GTK) and has operations in a number of countries. Gentrack’s operating en",
+   "read": true
+  },
+  "gobbill": {
+   "website": "https://gobbill.com",
+   "type": "startup",
+   "final": "https://gobbill.com",
+   "read": true
+  },
+  "governa-ai": {
+   "website": "https://governa.ai",
+   "type": "startup",
+   "final": "https://www.governa.ai/",
+   "read": true
+  },
+  "greensync": {
+   "website": "https://greensync.com",
+   "type": "startup",
+   "final": "https://greensync.com",
+   "read": true
+  },
+  "gxe": {
+   "website": "https://gxe.com",
+   "type": "startup",
+   "final": "https://gxe.com",
+   "read": true
+  },
+  "h3d": {
+   "website": "https://h3d.ai",
+   "type": "startup",
+   "final": "https://h3d.ai",
+   "read": true
+  },
+  "helfie-ai": {
+   "website": "https://helfie.ai",
+   "type": "startup",
+   "final": "https://www.helfie.ai/",
+   "read": true
+  },
+  "helppay": {
+   "website": "https://helppay.com.au",
+   "type": "startup",
+   "final": "https://helppay.com.au",
+   "read": true
+  },
+  "ideally": {
+   "website": "https://goideally.com",
+   "type": "startup",
+   "final": "https://www.goideally.com/",
+   "read": true
+  },
+  "idmeta": {
+   "website": "https://idmetagroup.com",
+   "type": "startup",
+   "final": "https://idmetagroup.com",
+   "founded": {
+    "year": 2019,
+    "quote": "hin-file applicant ✓ Mobile linked to 6 online signals ✓ Email active since 2019 ✓ Identity footprint confirmed Social Identity Insights Alternative i"
+   },
+   "read": true
+  },
+  "inspection-express": {
+   "website": "https://ipropertyexpress.com",
+   "type": "startup",
+   "final": "https://ipropertyexpress.com",
+   "read": true
+  },
+  "javln": {
+   "website": "https://javln.com",
+   "type": "startup",
+   "final": "https://javln.com",
+   "read": true
+  },
+  "kobble": {
+   "website": "https://kobble.net",
+   "type": "startup",
+   "final": "https://kobble.net",
+   "read": true
+  },
+  "kolmeo": {
+   "website": "https://kolmeo.com",
+   "type": "startup",
+   "final": "https://kolmeo.com",
+   "read": true
+  },
+  "landchecker": {
+   "website": "https://landchecker.com.au",
+   "type": "startup",
+   "final": "https://landchecker.com.au",
+   "read": true
+  },
+  "legal-ready": {
+   "website": "https://legalready.ai",
+   "type": "startup",
+   "final": "https://www.legalready.ai/",
+   "read": true
+  },
+  "lenexa-medical": {
+   "website": "https://lenexamedical.com",
+   "type": "startup",
+   "final": "https://lenexamedical.com",
+   "read": true
+  },
+  "livedcx": {
+   "website": "https://livedcx.ai",
+   "type": "startup",
+   "final": "https://www.livedcx.ai/",
+   "read": true
+  },
+  "lucid-software": {
+   "website": "https://lucid.co",
+   "type": "startup",
+   "final": "https://lucid.co",
+   "read": true
+  },
+  "machship": {
+   "website": "https://machship.com",
+   "type": "startup",
+   "final": "https://machship.com",
+   "read": true
+  },
+  "marmalade-payments": {
+   "website": "https://marmalade.com.au",
+   "type": "startup",
+   "final": "https://www.marmalade.com.au/",
+   "read": true
+  },
+  "mynd": {
+   "website": "https://myndapp.com.au",
+   "type": "startup",
+   "final": "https://myndapp.com.au",
+   "read": true
+  },
+  "nanocube-health": {
+   "website": "https://nanocube.health",
+   "type": "startup",
+   "final": "https://www.nanocube.health/",
+   "read": true
+  },
+  "neo-intelligence": {
+   "website": "https://neoconstruct.ai",
+   "type": "startup",
+   "final": "https://www.neoconstruct.ai/",
+   "read": true
+  },
+  "neurala-biosciences": {
+   "website": "https://neurala.co",
+   "type": "startup",
+   "final": "https://www.neurala.co/",
+   "read": true
+  },
+  "omneo": {
+   "website": "https://omneo.io",
+   "type": "startup",
+   "final": "https://omneo.io",
+   "read": true
+  },
+  "novatti-group": {
+   "website": "https://novatti.com",
+   "type": "startup",
+   "final": "https://www.novatti.com/",
+   "listed": "artner in payments Partnering with Novatti means choosing a reliable, ASX listed payment solutions provider supported by local payments and technology",
+   "read": true
+  },
+  "oncoparse": {
+   "website": "https://oncoparse.com",
+   "type": "startup",
+   "final": "https://www.oncoparse.com/",
+   "read": true
+  },
+  "onvol": {
+   "website": "https://onvol.com",
+   "type": "startup",
+   "final": "https://onvol.com",
+   "read": true
+  },
+  "pexa": {
+   "website": "https://pexa.com.au",
+   "type": "startup",
+   "final": "https://www.pexa.com.au/",
+   "read": true
+  },
+  "pointdata": {
+   "website": "https://pointdata.com.au",
+   "type": "startup",
+   "final": "https://pointdata.com.au",
+   "read": true
+  },
+  "payapps": {
+   "website": "https://payapps.com",
+   "type": "startup",
+   "final": "https://www.payapps.com/",
+   "read": true
+  },
+  "porous-lane": {
+   "website": "https://porouslane.com.au",
+   "type": "startup",
+   "final": "https://www.porouslane.com.au/",
+   "read": true
+  },
+  "powerplus-energy": {
+   "website": "https://powerplus-energy.com.au",
+   "type": "startup",
+   "final": "https://www.powerplus-energy.com.au/",
+   "read": true
+  },
+  "powertec": {
+   "website": "https://power-tec.com.au",
+   "type": "startup",
+   "final": "https://power-tec.com.au",
+   "read": true
+  },
+  "productcloud": {
+   "website": "https://productcloud.com.au",
+   "type": "startup",
+   "final": "https://productcloud.com.au",
+   "read": true
+  },
+  "readytech": {
+   "website": "https://readytech.io",
+   "type": "startup",
+   "final": "https://readytech.io",
+   "listed": "efence Read More About ReadyTech We are ready for anything ReadyTech (ASX:RDY) is a leading provider of mission-critical SaaS for the education, em",
+   "read": true
+  },
+  "redowl": {
+   "website": "https://redowl.ai",
+   "type": "startup",
+   "final": "https://redowl.ai",
+   "listed": "y Millions in leakage. Found in twelve months of transactions. For an ASX-listed telecommunications enterprise with $1B+ turnover , RedOwl ingested 17",
+   "read": true
+  },
+  "safety-champion-software": {
+   "website": "https://safetychampion.com.au",
+   "type": "startup",
+   "final": "https://www.safetychampion.com.au/",
+   "read": true
+  },
+  "sentrient": {
+   "website": "https://sentrient.com.au",
+   "type": "startup",
+   "final": "https://www.sentrient.com.au/",
+   "headcount": {
+    "n": 0,
+    "quote": "est chance of a smile. 1,000+ Businesses from all industry sectors 150,000+ Staff supported across Australia 2,000,000+ Hours saved every year across A"
+   },
+   "read": true
+  },
+  "skutopia": {
+   "website": "https://skutopia.com",
+   "type": "startup",
+   "final": "https://www.skutopia.com/",
+   "space": "and partners More Case Studies Real stories, results and partnerships Co-working for eCommerce Looking for an office and a warehouse? About us Vision",
+   "read": true
+  },
+  "sorted-services": {
+   "website": "https://sortedservices.com",
+   "type": "startup",
+   "final": "https://www.sortedservices.com/",
+   "read": true
+  },
+  "spee3d": {
+   "website": "https://spee3d.com",
+   "type": "startup",
+   "final": "https://www.spee3d.com/",
+   "read": true
+  },
+  "strength-by-numbers": {
+   "website": "https://strengthbynumbers.com",
+   "type": "startup",
+   "final": "https://www.strengthbynumbers.com/",
+   "read": true
+  },
+  "subtrux": {
+   "website": "https://subtrux.com",
+   "type": "startup",
+   "final": "https://subtrux.com",
+   "read": true
+  },
+  "sunwiz": {
+   "website": "https://sunwiz.com.au",
+   "type": "startup",
+   "final": "https://www.sunwiz.com.au/",
+   "read": true
+  },
+  "superapi": {
+   "website": "https://superapi.com.au",
+   "type": "startup",
+   "final": "https://superapi.com.au",
+   "read": true
+  },
+  "telecare": {
+   "website": "https://telecare.com.au",
+   "type": "startup",
+   "final": "https://www.telecare.com.au/",
+   "read": true
+  },
+  "termina": {
+   "website": "https://termina.com",
+   "type": "startup",
+   "final": "https://termina.com",
+   "read": true
+  },
+  "typsy": {
+   "website": "https://typsy.com",
+   "type": "startup",
+   "final": "https://www.typsy.com/",
+   "read": true
+  },
+  "tiny-bright-things": {
+   "website": "https://tinybrightthings.com",
+   "type": "startup",
+   "final": "https://tinybrightthings.com",
+   "read": true
+  },
+  "varicon": {
+   "website": "https://varicon.com.au",
+   "type": "startup",
+   "final": "https://varicon.com.au",
+   "read": true
+  },
+  "ubind": {
+   "website": "https://ubind.insure",
+   "type": "startup",
+   "final": "https://ubind.insure",
+   "read": true
+  },
+  "vitavo": {
+   "website": "https://vitavohealth.com",
+   "type": "startup",
+   "final": "https://vitavohealth.com",
+   "read": true
+  },
+  "ventora-medical": {
+   "website": "https://ventoramedical.com",
+   "type": "startup",
+   "final": "https://www.ventoramedical.com/",
+   "read": true
+  },
+  "weguide": {
+   "website": "https://weguide.health",
+   "type": "startup",
+   "final": "https://www.weguide.health/",
+   "read": true
+  },
+  "weteachme": {
+   "website": "https://weteachme.com",
+   "type": "startup",
+   "final": "https://weteachme.com",
+   "read": true
+  },
+  "willed": {
+   "website": "https://willed.com.au",
+   "type": "startup",
+   "final": "https://www.willed.com.au/",
+   "read": true
+  },
+  "workpro": {
+   "website": "https://workpro.com.au",
+   "type": "startup",
+   "final": "https://www.workpro.com.au/",
+   "founded": {
+    "year": 2007,
+    "quote": "tech for a job-ready workforce We take charge, so you can take flight Since 2007, we’ve helped businesses get their candidates job-ready by automating"
+   },
+   "read": true
+  },
+  "xplor-education": {
+   "website": "https://ourxplor.com",
+   "type": "startup",
+   "final": "https://www.ourxplor.com/",
+   "read": true
+  },
+  "yieldx": {
+   "website": "https://yield-x.com",
+   "type": "startup",
+   "final": "https://yield-x.com",
+   "read": true
+  },
+  "coreplus": {
+   "website": "https://corepluspm.com",
+   "type": "startup",
+   "final": "https://www.corepluspm.com/",
+   "read": true
+  },
+  "cotreat": {
+   "website": "https://cotreat.ai",
+   "type": "startup",
+   "final": "https://www.cotreat.ai/",
+   "read": true
+  },
+  "dexora-technology": {
+   "website": "https://dexora.ai",
+   "type": "startup",
+   "final": "https://dexora.ai",
+   "read": true
+  },
+  "fieldsense-robotics": {
+   "website": "https://fieldsenserobotics.com.au",
+   "type": "startup",
+   "final": "https://www.fieldsenserobotics.com.au/",
+   "read": true
+  },
+  "flexport": {
+   "website": "https://flexport.com",
+   "type": "startup",
+   "final": "https://www.flexport.com/",
+   "read": true
+  },
+  "mimor": {
+   "website": "https://mimor.com.au",
+   "type": "startup",
+   "final": "https://mimor.com.au",
+   "read": true
+  },
+  "ren": {
+   "website": "https://renfamily.com",
+   "type": "startup",
+   "final": "https://www.renfamily.com/",
+   "read": true
+  },
+  "predictx-health": {
+   "website": "https://predictx.health",
+   "type": "startup",
+   "final": "https://www.predictx.health/",
+   "read": true
+  },
+  "shopfront": {
+   "website": "https://shopfront.app",
+   "type": "startup",
+   "final": "https://shopfront.app",
+   "read": true
+  },
+  "supportly": {
+   "website": "https://supportly.au",
+   "type": "startup",
+   "final": "https://supportly.au",
+   "read": true
+  },
+  "vudoo": {
+   "website": "https://vudoo.com",
+   "type": "startup",
+   "final": "https://vudoo.com",
+   "read": true
+  },
+  "wable": {
+   "website": "https://hellowable.com",
+   "type": "startup",
+   "final": "https://www.hellowable.com/",
+   "read": true
+  },
+  "banjo-loans": {
+   "website": "https://banjoloans.com",
+   "type": "startup",
+   "final": "https://banjoloans.com",
+   "read": true
+  },
+  "preezie": {
+   "website": "https://preezie.com",
+   "type": "startup",
+   "final": "https://preezie.com",
+   "read": true
+  },
+  "tanggram": {
+   "website": "https://tanggram.com",
+   "type": "startup",
+   "final": "https://tanggram.com",
+   "read": true
+  },
+  "advisewell": {
+   "website": "https://advisewell.co",
+   "type": "startup",
+   "final": "https://advisewell.co",
+   "read": true
+  },
+  "alayacare": {
+   "website": "https://alayacare.com",
+   "type": "startup",
+   "final": "https://alayacare.com",
+   "read": true
+  },
+  "antsa": {
+   "website": "https://antsa.ai",
+   "type": "startup",
+   "final": "https://antsa.ai",
+   "read": true
+  },
+  "brightspace": {
+   "website": "https://brightspace.ai",
+   "type": "startup",
+   "final": "https://www.brightspace.ai/",
+   "read": true
+  },
+  "careneighbour": {
+   "website": "https://careneighbour.com",
+   "type": "startup",
+   "final": "https://careneighbour.com",
+   "read": true
+  },
+  "caretrust": {
+   "website": "https://caretrust.com.au",
+   "type": "startup",
+   "final": "https://caretrust.com.au",
+   "read": true
+  },
+  "co-linic-ai": {
+   "website": "https://colinicai.com",
+   "type": "startup",
+   "final": "https://colinicai.com",
+   "read": true
+  },
+  "collective-shift": {
+   "website": "https://collectiveshift.io",
+   "type": "startup",
+   "final": "https://collectiveshift.io",
+   "read": true
+  },
+  "connexai": {
+   "website": "https://connex.ai",
+   "type": "startup",
+   "final": "https://connex.ai",
+   "founded": {
+    "year": 2017,
+    "quote": "rge In-House PhD Team Leading AI Research Lab Pioneering Voice Models Since 2017 Full-Stack Agentic Solution Guaranteed Data Sovereignty Leading AI Re"
+   },
+   "read": true
+  },
+  "covidence": {
+   "website": "https://covidence.org",
+   "type": "startup",
+   "final": "https://www.covidence.org/",
+   "read": true
+  },
+  "designer-journeys": {
+   "website": "https://designerjourneys.com",
+   "type": "startup",
+   "final": "https://www.designerjourneys.com/",
+   "read": true
+  },
+  "elezar": {
+   "website": "https://elezar.io",
+   "type": "startup",
+   "final": "https://www.elezar.io/",
+   "read": true
+  },
+  "energetica": {
+   "website": "https://energetica.io",
+   "type": "startup",
+   "final": "https://energetica.io",
+   "read": true
+  },
+  "equidi": {
+   "website": "https://equidi.com",
+   "type": "startup",
+   "final": "https://www.equidi.com/",
+   "read": true
+  },
+  "genomical": {
+   "website": "https://genomical.com.au",
+   "type": "startup",
+   "final": "https://genomical.com.au",
+   "read": true
+  },
+  "happy-hr": {
+   "website": "https://happyhr.com",
+   "type": "startup",
+   "final": "https://www.happyhr.com/",
+   "founded": {
+    "year": 2015,
+    "quote": "ort when you need it. Book a free demo now Or make an enquiry ★★★★★ · Est. 2015 · Trusted by thousands of Australian businesses · No credit card requ"
+   },
+   "read": true
+  },
+  "hindsyt": {
+   "website": "https://hindsyt.com",
+   "type": "startup",
+   "final": "https://hindsyt.com",
+   "space": "celerator Graduate MedTech Actuator 2023 Graduate of MedTech Actuator Accelerator program for medical device innovation 4+ Innovation Programs Current Monash S",
+   "read": true
+  },
+  "humanetix": {
+   "website": "https://humanetix.com.au",
+   "type": "startup",
+   "final": "https://www.humanetix.com.au/",
+   "read": true
+  },
+  "jaunt-motors": {
+   "website": "https://jauntmotors.com",
+   "type": "startup",
+   "final": "https://www.jauntmotors.com/",
+   "read": true
+  },
+  "intersession": {
+   "website": "https://intersession.io",
+   "type": "startup",
+   "final": "https://intersession.io",
+   "read": true
+  },
+  "maileroo": {
+   "website": "https://maileroo.com",
+   "type": "startup",
+   "final": "https://maileroo.com",
+   "read": true
+  },
+  "onset-health": {
+   "website": "https://onset.health",
+   "type": "startup",
+   "final": "https://www.onset.health/",
+   "read": true
+  },
+  "pivot-professional-learning": {
+   "website": "https://pivotpl.com",
+   "type": "startup",
+   "final": "https://www.pivotpl.com/",
+   "read": true
+  },
+  "polarbear-ai": {
+   "website": "https://trypolarbear.com",
+   "type": "startup",
+   "final": "https://www.trypolarbear.com/",
+   "read": true
+  },
+  "propertymate": {
+   "website": "https://propertymate.com.au",
+   "type": "startup",
+   "final": "https://propertymate.com.au",
+   "read": true
+  },
+  "puls3": {
+   "website": "https://puls3.app",
+   "type": "startup",
+   "final": "https://puls3.app",
+   "read": true
+  },
+  "readyteacher": {
+   "website": "https://readyteacherco.com",
+   "type": "startup",
+   "final": "https://www.readyteacherco.com/",
+   "read": true
+  },
+  "resetdata": {
+   "website": "https://resetdata.com.au",
+   "type": "startup",
+   "final": "https://resetdata.com.au",
+   "listed": "nologies Titanium Partner High performance scalable storage Backed by ASX-listed Centuria Capital Group Certified to ISO27001, PSPF, and SCEC SOC 2 ce",
+   "read": true
+  },
+  "rubens-technologies": {
+   "website": "https://rubenstech.com",
+   "type": "startup",
+   "final": "https://rubenstech.com",
+   "read": true
+  },
+  "simpatico": {
+   "website": "https://simpaticoteams.com",
+   "type": "startup",
+   "final": "https://simpaticoteams.com",
+   "read": true
+  },
+  "sked-social": {
+   "website": "https://skedsocial.com",
+   "type": "startup",
+   "final": "https://skedsocial.com",
+   "founded": {
+    "year": 2014,
+    "quote": "An independent Australian company building for social teams worldwide since 2014. Established Melbourne, Australia · 2014 2014 Certified Australian Ma"
+   },
+   "read": true
+  },
+  "snapforms": {
+   "website": "https://snapforms.com.au",
+   "type": "startup",
+   "final": "https://snapforms.com.au",
+   "founded": {
+    "year": 2012,
+    "quote": "and protection of our systems and your data. More info SOC 2 Type II Founded in 2012 6000+ organisations [email removed] Verified Submit patient-form."
+   },
+   "read": true
+  },
+  "solara-health": {
+   "website": "https://solarahealth.com.au",
+   "type": "startup",
+   "final": "https://www.solarahealth.com.au/",
+   "read": true
+  },
+  "synchron": {
+   "website": "https://synchron.com",
+   "type": "startup",
+   "final": "https://synchron.com",
+   "read": true
+  },
+  "synodic-medical": {
+   "website": "https://synodicmedical.com",
+   "type": "startup",
+   "final": "https://www.synodicmedical.com/",
+   "read": true
+  },
+  "tablo": {
+   "website": "https://tablo.com",
+   "type": "startup",
+   "final": "https://tablo.com",
+   "read": true
+  },
+  "tutero": {
+   "website": "https://tutero.com",
+   "type": "startup",
+   "final": "https://www.tutero.com/au",
+   "read": true
+  },
+  "voral": {
+   "website": "https://voral.ai",
+   "type": "startup",
+   "final": "https://voral.ai",
+   "read": true
+  },
+  "xakia": {
+   "website": "https://xakiatech.com",
+   "type": "startup",
+   "final": "https://www.xakiatech.com/",
+   "read": true
+  },
+  "youli": {
+   "website": "https://go.youli.io",
+   "type": "startup",
+   "final": "https://go.youli.io",
+   "read": true
+  },
+  "zetifi": {
+   "website": "https://zetifi.com",
+   "type": "startup",
+   "final": "https://www.zetifi.com/",
+   "read": true
+  },
+  "3p-learning": {
+   "website": "https://3plearning.com",
+   "type": "startup",
+   "final": "https://www.3plearning.com/",
+   "read": true
+  },
+  "aerofiler": {
+   "website": "https://aerofiler.com",
+   "type": "startup",
+   "final": "https://aerofiler.com",
+   "read": true
+  },
+  "aircall": {
+   "website": "https://aircall.io",
+   "type": "startup",
+   "final": "https://aircall.io",
+   "headcount": {
+    "n": 500,
+    "quote": "l & E-commerce Travel & Hospitality By company size 1-50 employees 50-500 employees 500+ employees Try for free Discover & access advanced features Get f"
+   },
+   "read": true
+  },
+  "airtasker": {
+   "website": "https://airtasker.com",
+   "type": "startup",
+   "final": "https://www.airtasker.com/au/",
+   "read": true
+  },
+  "amazing-gut": {
+   "website": "https://amazinggut.today",
+   "type": "startup",
+   "final": "https://www.amazinggut.today/",
+   "read": true
+  },
+  "ampd-energy": {
+   "website": "https://ampd.energy",
+   "type": "startup",
+   "final": "https://www.ampd.energy/",
+   "read": true
+  },
+  "aona-ai": {
+   "website": "https://aona.ai",
+   "type": "startup",
+   "final": "https://aona.ai",
+   "read": true
+  },
+  "apollo-secure": {
+   "website": "https://apollosecure.com",
+   "type": "startup",
+   "final": "https://www.apollosecure.com/",
+   "read": true
+  },
+  "appen": {
+   "website": "https://appen.com",
+   "type": "startup",
+   "final": "https://www.appen.com/",
+   "listed": "man oversight About Us 30 years pioneering AI data Investor Relations ASX-listed: APX News Latest announcements and press Careers Build the future of",
+   "read": true
+  },
+  "arlula": {
+   "website": "https://arlula.com",
+   "type": "startup",
+   "final": "https://www.arlula.com/",
+   "read": true
+  },
+  "assureqa": {
+   "website": "https://assureqa.io",
+   "type": "startup",
+   "final": "https://www.assureqa.io/",
+   "read": true
+  },
+  "battery-pollution-technologies": {
+   "website": "https://batterypollution.com",
+   "type": "startup",
+   "final": "https://www.batterypollution.com/",
+   "read": true
+  },
+  "beamtree": {
+   "website": "https://beamtree.com.au",
+   "type": "startup",
+   "final": "https://beamtree.com.au",
+   "read": true
+  },
+  "beonic": {
+   "website": "https://beonic.com",
+   "type": "startup",
+   "final": "https://www.beonic.com/",
+   "read": true
+  },
+  "betterfleet": {
+   "website": "https://betterfleet.com",
+   "type": "startup",
+   "final": "https://www.betterfleet.com/",
+   "read": true
+  },
+  "bioscout": {
+   "website": "https://bioscout.ai",
+   "type": "startup",
+   "final": "https://www.bioscout.ai/",
+   "read": true
+  },
+  "bluenexus": {
+   "website": "https://bluenexus.ai",
+   "type": "startup",
+   "final": "https://bluenexus.ai",
+   "read": true
+  },
+  "blys": {
+   "website": "https://getblys.com.au",
+   "type": "startup",
+   "final": "https://getblys.com.au",
+   "read": true
+  },
+  "brevity-care-software": {
+   "website": "https://brevity.com.au",
+   "type": "startup",
+   "final": "https://www.brevity.com.au/",
+   "read": true
+  },
+  "cable-energy": {
+   "website": "https://cable.energy",
+   "type": "startup",
+   "final": "https://www.cable.energy/",
+   "read": true
+  },
+  "canibuild": {
+   "website": "https://canibuild.com",
+   "type": "startup",
+   "final": "https://canibuild.com/en-au/",
+   "read": true
+  },
+  "carbonix": {
+   "website": "https://carbonix.com.au",
+   "type": "startup",
+   "final": "https://carbonix.com.au",
+   "read": true
+  },
+  "carclarity": {
+   "website": "https://carclarity.com.au",
+   "type": "startup",
+   "final": "https://www.carclarity.com.au/",
+   "read": true
+  },
+  "caremonitor": {
+   "website": "https://caremonitor.com.au",
+   "type": "startup",
+   "final": "https://caremonitor.com.au",
+   "read": true
+  },
+  "carma": {
+   "website": "https://carma.com.au",
+   "type": "startup",
+   "final": "https://carma.com.au",
+   "read": true
+  },
+  "caruso": {
+   "website": "https://getcaruso.com",
+   "type": "startup",
+   "final": "https://www.getcaruso.com/en-au",
+   "read": true
+  },
+  "cluey-learning": {
+   "website": "https://clueylearning.com.au",
+   "type": "startup",
+   "final": "https://clueylearning.com.au",
+   "read": true
+  },
+  "cloudfloat": {
+   "website": "https://cloudfloat.com",
+   "type": "startup",
+   "final": "https://cloudfloat.com",
+   "read": true
+  },
+  "complii-fintech-solutions": {
+   "website": "https://complii.com.au",
+   "type": "startup",
+   "final": "https://complii.com.au",
+   "read": true
+  },
+  "cogniss": {
+   "website": "https://cogniss.com",
+   "type": "startup",
+   "final": "https://www.cogniss.com/",
+   "read": true
+  },
+  "credsvault": {
+   "website": "https://credsvault.io",
+   "type": "startup",
+   "final": "https://www.credsvault.io/",
+   "read": true
+  },
+  "coposit": {
+   "website": "https://coposit.com.au",
+   "type": "startup",
+   "final": "https://www.coposit.com.au/",
+   "read": true
+  },
+  "droneshield": {
+   "website": "https://droneshield.com",
+   "type": "startup",
+   "final": "https://www.droneshield.com/",
+   "listed": "AI-Powered Counter-Drone Solutions – DroneShield (ASX:DRO) 0 Skip to Content Solutions Don't remove it Capabilities Don't remov",
+   "read": true
+  },
+  "data-zoo": {
+   "website": "https://datazoo.com",
+   "type": "startup",
+   "final": "https://datazoo.com",
+   "read": true
+  },
+  "elumina-elearning": {
+   "website": "https://eluminaelearning.com.au",
+   "type": "startup",
+   "final": "https://eluminaelearning.com.au",
+   "read": true
+  },
+  "emvision": {
+   "website": "https://emvision.com.au",
+   "type": "startup",
+   "final": "https://emvision.com.au",
+   "read": true
+  },
+  "enviz": {
+   "website": "https://enviz.co",
+   "type": "startup",
+   "final": "https://www.enviz.co/",
+   "read": true
+  },
+  "etherstack": {
+   "website": "https://etherstack.com",
+   "type": "startup",
+   "final": "https://www.etherstack.com/",
+   "read": true
+  },
+  "evnex": {
+   "website": "https://evnex.com",
+   "type": "startup",
+   "final": "https://www.evnex.com/au",
+   "read": true
+  },
+  "exoflare": {
+   "website": "https://exoflare.io",
+   "type": "startup",
+   "final": "https://www.exoflare.io/",
+   "read": true
+  },
+  "fabra": {
+   "website": "https://fabra.com",
+   "type": "startup",
+   "final": "https://www.fabra.com/",
+   "read": true
+  },
+  "farmbot": {
+   "website": "https://farmbot.com.au",
+   "type": "startup",
+   "final": "https://farmbot.com.au",
+   "read": true
+  },
+  "fiable": {
+   "website": "https://fiable.com.au",
+   "type": "startup",
+   "final": "https://www.fiable.com.au/",
+   "read": true
+  },
+  "fiskil": {
+   "website": "https://fiskil.com",
+   "type": "startup",
+   "final": "https://www.fiskil.com/",
+   "read": true
+  },
+  "flash-payments": {
+   "website": "https://flash-payments.com",
+   "type": "startup",
+   "final": "https://flash-payments.com",
+   "read": true
+  },
+  "freightexchange": {
+   "website": "https://freightexchange.com.au",
+   "type": "startup",
+   "final": "https://www.freightexchange.com.au/",
+   "read": true
+  },
+  "futurerent": {
+   "website": "https://futurerent.com.au",
+   "type": "startup",
+   "final": "https://futurerent.com.au",
+   "read": true
+  },
+  "gofigr": {
+   "website": "https://gofigr.ai",
+   "type": "startup",
+   "final": "https://www.gofigr.ai/",
+   "headcount": {
+    "n": 1600,
+    "quote": "and the team behind it Contact us Talk to the team GoFIGR in Numbers 1,600+ professionals who've run an AI Impact Assessment 24 hrs to your first task-level wo"
+   },
+   "read": true
+  },
+  "govconnex": {
+   "website": "https://govconnex.com",
+   "type": "startup",
+   "final": "https://www.govconnex.com/au",
+   "read": true
+  },
+  "guardhouse": {
+   "website": "https://guardhousehq.com",
+   "type": "startup",
+   "final": "https://www.guardhousehq.com/",
+   "read": true
+  },
+  "guroo-academy": {
+   "website": "https://guroo.academy",
+   "type": "startup",
+   "final": "https://guroo.academy",
+   "read": true
+  },
+  "hampr": {
+   "website": "https://hampr.com.au",
+   "type": "startup",
+   "final": "https://hampr.com.au",
+   "read": true
+  },
+  "healthbank": {
+   "website": "https://healthbank.io",
+   "type": "startup",
+   "final": "https://www.healthbank.io/",
+   "read": true
+  },
+  "heo": {
+   "website": "https://heospace.com",
+   "type": "startup",
+   "final": "https://www.heospace.com/",
+   "read": true
+  },
+  "highradius": {
+   "website": "https://highradius.com",
+   "type": "startup",
+   "final": "https://www.highradius.com/",
+   "read": true
+  },
+  "hireup": {
+   "website": "https://hireup.com.au",
+   "type": "startup",
+   "final": "https://hireup.com.au",
+   "read": true
+  },
+  "innowell": {
+   "website": "https://innowell.org",
+   "type": "startup",
+   "final": "https://innowell.org",
+   "read": true
+  },
+  "investsmart": {
+   "website": "https://investsmart.com.au",
+   "type": "startup",
+   "final": "https://www.investsmart.com.au/",
+   "listed": "ime been rebalancing my portfolio so it is not one hundred percent in ASX listed stocks but is a portfolio that will help me achieve a financially sec",
+   "read": true
+  },
+  "investstream": {
+   "website": "https://investstream.io",
+   "type": "startup",
+   "final": "https://investstream.io",
+   "read": true
+  },
+  "ipartners": {
+   "website": "https://ipartners.com.au",
+   "type": "startup",
+   "final": "https://ipartners.com.au",
+   "founded": {
+    "year": 2017,
+    "quote": "r iPartners. Invest in more. iPartners is redefining wealth creation. Since 2017, we’ve been opening the door to alternative investments that were onc"
+   },
+   "read": true
+  },
+  "janison": {
+   "website": "https://janison.com",
+   "type": "startup",
+   "final": "https://www.janison.com/",
+   "read": true
+  },
+  "jayride": {
+   "website": "https://jayride.com",
+   "type": "startup",
+   "final": "https://jayride.com",
+   "read": true
+  },
+  "jetabroad": {
+   "website": "https://jetabroad.com.au",
+   "type": "startup",
+   "final": "https://www.jetabroad.com.au/",
+   "read": true
+  },
+  "justfund": {
+   "website": "https://justfund.com.au",
+   "type": "startup",
+   "final": "https://justfund.com.au",
+   "read": true
+  },
+  "kantoko": {
+   "website": "https://kantoko.com.au",
+   "type": "startup",
+   "final": "https://www.kantoko.com.au/",
+   "read": true
+  },
+  "juxtabyte": {
+   "website": "https://juxtabyte.com",
+   "type": "startup",
+   "final": "https://juxtabyte.com",
+   "read": true
+  },
+  "koala": {
+   "website": "https://au.koala.com",
+   "type": "startup",
+   "final": "https://au.koala.com",
+   "read": true
+  },
+  "lavo": {
+   "website": "https://lavo.com.au",
+   "type": "startup",
+   "final": "https://www.lavo.com.au/",
+   "read": true
+  },
+  "lessn": {
+   "website": "https://lessn.io",
+   "type": "startup",
+   "final": "https://www.lessn.io/",
+   "read": true
+  },
+  "locate-technologies": {
+   "website": "https://locate2u.com",
+   "type": "startup",
+   "final": "https://www.locate2u.com/",
+   "read": true
+  },
+  "lumary": {
+   "website": "https://lumary.com.au",
+   "type": "startup",
+   "final": "https://www.lumary.com.au/",
+   "read": true
+  },
+  "lyngo-ai": {
+   "website": "https://lyngo.ai",
+   "type": "startup",
+   "final": "https://www.lyngo.ai/",
+   "read": true
+  },
+  "magnaterra-technologies": {
+   "website": "https://magnaterra.com.au",
+   "type": "startup",
+   "final": "https://magnaterra.com.au",
+   "read": true
+  },
+  "madecomfy": {
+   "website": "https://madecomfy.com.au",
+   "type": "startup",
+   "final": "https://www.madecomfy.com.au/",
+   "read": true
+  },
+  "mako": {
+   "website": "https://mako.aero",
+   "type": "startup",
+   "final": "https://mako.aero",
+   "read": true
+  },
+  "mathspace": {
+   "website": "https://mathspace.co",
+   "type": "startup",
+   "final": "https://mathspace.co/au",
+   "read": true
+  },
+  "memphasys": {
+   "website": "https://memphasys.com",
+   "type": "startup",
+   "final": "https://www.memphasys.com/",
+   "listed": "ed. Generating Rapidly Growing Recurring Revenues. Memphasys Limited (ASX: MEM) is an Australian-based reproductive biotechnology company commercial",
+   "read": true
+  },
+  "mogoplus": {
+   "website": "https://mogoplus.ai",
+   "type": "startup",
+   "final": "https://www.mogoplus.ai/",
+   "listed": "oach that has driven our growth. MW Mark Waller - CEO One Click Life (ASX:1CL) Verified Client Non-Bank Lender Combining Mogo's 'GoLend' Affordabil",
+   "read": true
+  },
+  "mvsi-onboard": {
+   "website": "https://mvsi-onboard.com",
+   "type": "startup",
+   "final": "https://www.mvsi-onboard.com/",
+   "read": true
+  },
+  "mypass-global": {
+   "website": "https://mypassglobal.com",
+   "type": "startup",
+   "final": "https://www.mypassglobal.com/",
+   "read": true
+  },
+  "nosto": {
+   "website": "https://nosto.com",
+   "type": "startup",
+   "final": "https://www.nosto.com/",
+   "read": true
+  },
+  "ocius-technology": {
+   "website": "https://ocius.com.au",
+   "type": "startup",
+   "final": "https://ocius.com.au",
+   "read": true
+  },
+  "ofx": {
+   "website": "https://ofx.com",
+   "type": "startup",
+   "final": "https://www.ofx.com/en-au/",
+   "read": true
+  },
+  "omniscient-neurotechnology": {
+   "website": "https://o8t.com",
+   "type": "startup",
+   "final": "https://www.o8t.com/",
+   "read": true
+  },
+  "onmarket": {
+   "website": "https://onmarket.com.au",
+   "type": "startup",
+   "final": "https://www.onmarket.com.au/",
+   "listed": "tors See more past transactions IPO Closed Sep 2026 Europa Metals Ltd ASX: EUZ The Eurpoa Metals Limited (ASX: EUZ) IPO has successfully closed. All",
+   "read": true
+  },
+  "otivo": {
+   "website": "https://otivo.com",
+   "type": "startup",
+   "final": "https://www.otivo.com/",
+   "read": true
+  },
+  "owna": {
+   "website": "https://owna.com.au",
+   "type": "startup",
+   "final": "https://owna.com.au",
+   "read": true
+  },
+  "paydock": {
+   "website": "https://paydock.com",
+   "type": "startup",
+   "final": "https://paydock.com",
+   "read": true
+  },
+  "pebl-payments": {
+   "website": "https://peblpay.com.au",
+   "type": "startup",
+   "final": "https://www.peblpay.com.au/",
+   "read": true
+  },
+  "plerion": {
+   "website": "https://plerion.com",
+   "type": "startup",
+   "final": "https://www.plerion.com/",
+   "read": true
+  },
+  "practera": {
+   "website": "https://practera.com",
+   "type": "startup",
+   "final": "https://practera.com",
+   "read": true
+  },
+  "propcode": {
+   "website": "https://propcode.com.au",
+   "type": "startup",
+   "final": "https://propcode.com.au",
+   "read": true
+  },
+  "propic": {
+   "website": "https://propic.ai",
+   "type": "startup",
+   "final": "https://www.propic.ai/",
+   "read": true
+  },
+  "pt-blink": {
+   "website": "https://ptblink.com",
+   "type": "startup",
+   "final": "https://ptblink.com",
+   "read": true
+  },
+  "raiz-invest": {
+   "website": "https://raizinvest.com.au",
+   "type": "startup",
+   "final": "https://raizinvest.com.au",
+   "listed": "Take full control by creating your own portfolio with a mix of ETFs, ASX-listed stocks, up to 5% in Bitcoin, and up to 30% in the Raiz Property Fund.",
+   "read": true
+  },
+  "saluda-medical": {
+   "website": "https://saludamedical.com",
+   "type": "startup",
+   "final": "https://www.saludamedical.com/",
+   "founded": {
+    "year": 2010,
+    "quote": "and adjusting on every pulse. Learn How Pioneering Sensing Technology Since 2010 1 With over a decade of research, development, and clinical experienc"
+   },
+   "read": true
+  },
+  "saviynt": {
+   "website": "https://saviynt.com",
+   "type": "startup",
+   "final": "https://saviynt.com",
+   "read": true
+  },
+  "scx-ai": {
+   "website": "https://scx.ai",
+   "type": "startup",
+   "final": "https://scx.ai",
+   "read": true
+  },
+  "seestone": {
+   "website": "https://seestone.co",
+   "type": "startup",
+   "final": "https://seestone.co",
+   "listed": "customers. Built and owned by SeeStone. Founded by retailers, used by ASX-listed retailers “ I can envision how to use SeeStone to manage my entire pr",
+   "read": true
+  },
+  "servicely": {
+   "website": "https://servicely.ai",
+   "type": "startup",
+   "final": "https://www.servicely.ai/",
+   "read": true
+  },
+  "shaype": {
+   "website": "https://shaype.com",
+   "type": "startup",
+   "final": "https://www.shaype.com/",
+   "read": true
+  },
+  "shiftcare": {
+   "website": "https://shiftcare.com",
+   "type": "startup",
+   "final": "https://shiftcare.com",
+   "headcount": {
+    "n": 250,
+    "quote": "ty governance, SSO and a dedicated success manager for providers from 250 staff. Talk to an expert \"80% reduction in rostering errors and a major dro"
+   },
+   "read": true
+  },
+  "somnomed": {
+   "website": "https://somnomed.com",
+   "type": "startup",
+   "final": "https://somnomed.com/au/",
+   "founded": {
+    "year": 2004,
+    "quote": "port for your teeth. Find out more Over One Million Lives Transformed Since 2004, SomnoMed has delivered over one million oral appliances to patients"
+   },
+   "read": true
+  },
+  "skyciv": {
+   "website": "https://skyciv.com",
+   "type": "startup",
+   "final": "https://skyciv.com",
+   "read": true
+  },
+  "sortd": {
+   "website": "https://getsortd.co",
+   "type": "startup",
+   "final": "https://www.getsortd.co/",
+   "read": true
+  },
+  "sourseai": {
+   "website": "https://sourse.ai",
+   "type": "startup",
+   "final": "https://sourse.ai",
+   "read": true
+  },
+  "studiosity": {
+   "website": "https://studiosity.com",
+   "type": "startup",
+   "final": "https://www.studiosity.com/",
+   "founded": {
+    "year": 2017,
+    "quote": "& answers Validated With the educator Measured, not asserted Evidence since 2017, independently modelled in 2026. 21,593 Studiosity users in this 2026"
+   },
+   "read": true
+  },
+  "spendconsole": {
+   "website": "https://spendconsole.ai",
+   "type": "startup",
+   "final": "https://spendconsole.ai",
+   "read": true
+  },
+  "style-arcade": {
+   "website": "https://stylearcade.com",
+   "type": "startup",
+   "final": "https://www.stylearcade.com/",
+   "read": true
+  },
+  "switchboard": {
+   "website": "https://switchboardcloud.com",
+   "type": "startup",
+   "final": "https://www.switchboardcloud.com/",
+   "read": true
+  },
+  "tendertrace": {
+   "website": "https://tendertrace.com",
+   "type": "startup",
+   "final": "https://tendertrace.com",
+   "read": true
+  },
+  "tetratherix": {
+   "website": "https://tetratherix.com",
+   "type": "startup",
+   "final": "https://www.tetratherix.com/",
+   "read": true
+  },
+  "advice-regtech": {
+   "website": "https://adviceregtech.com",
+   "type": "startup",
+   "final": "https://adviceregtech.com",
+   "founded": {
+    "year": 2017,
+    "quote": "dvisers. More Award winning specialist technology for AFSLs and Super Founded in 2017 Advice RegTech is proud to serve Australia's AFSL Advice sector and A"
+   },
+   "read": true
+  },
+  "aigentsphere": {
+   "website": "https://aigentsphere.com",
+   "type": "startup",
+   "final": "https://www.aigentsphere.com/",
+   "read": true
+  },
+  "auric": {
+   "website": "https://auric.au",
+   "type": "startup",
+   "final": "https://www.auric.au/",
+   "read": true
+  },
+  "ai-media": {
+   "website": "https://ai-media.tv",
+   "type": "startup",
+   "final": "https://www.ai-media.tv/",
+   "read": true
+  },
+  "thinxtra": {
+   "website": "https://thinxtra.com",
+   "type": "startup",
+   "final": "https://thinxtra.com",
+   "read": true
+  },
+  "b2care": {
+   "website": "https://b2care.com.au",
+   "type": "startup",
+   "final": "https://b2care.com.au",
+   "read": true
+  },
+  "touchstone-life-care": {
+   "website": "https://touchstonelifecare.com",
+   "type": "startup",
+   "final": "https://touchstonelifecare.com",
+   "read": true
+  },
+  "truescope": {
+   "website": "https://truescope.com",
+   "type": "startup",
+   "final": "https://truescope.com",
+   "read": true
+  },
+  "atomo-diagnostics": {
+   "website": "https://atomodiagnostics.com",
+   "type": "startup",
+   "final": "https://www.atomodiagnostics.com/",
+   "read": true
+  },
+  "truuth": {
+   "website": "https://truuth.id",
+   "type": "startup",
+   "final": "https://www.truuth.id/",
+   "read": true
+  },
+  "trade-ledger": {
+   "website": "https://tradeledger.io",
+   "type": "startup",
+   "final": "https://www.tradeledger.io/",
+   "read": true
+  },
+  "upowr": {
+   "website": "https://upowr.com",
+   "type": "startup",
+   "final": "https://www.upowr.com/",
+   "read": true
+  },
+  "valiant-finance": {
+   "website": "https://valiantfinance.com",
+   "type": "startup",
+   "final": "https://www.valiantfinance.com/",
+   "read": true
+  },
+  "veyor": {
+   "website": "https://veyordigital.com",
+   "type": "startup",
+   "final": "https://www.veyordigital.com/",
+   "read": true
+  },
+  "vapar": {
+   "website": "https://vapar.co",
+   "type": "startup",
+   "final": "https://www.vapar.co/",
+   "read": true
+  },
+  "veridooh": {
+   "website": "https://veridooh.com",
+   "type": "startup",
+   "final": "https://www.veridooh.com/",
+   "read": true
+  },
+  "webuild-construction-software": {
+   "website": "https://webuildcs.com",
+   "type": "startup",
+   "final": "https://www.webuildcs.com/",
+   "read": true
+  },
+  "wellio": {
+   "website": "https://wellioeducation.com",
+   "type": "startup",
+   "final": "https://www.wellioeducation.com/",
+   "read": true
+  },
+  "willow": {
+   "website": "https://willowinc.com",
+   "type": "startup",
+   "final": "https://willowinc.com",
+   "read": true
+  },
+  "vouch": {
+   "website": "https://vouchfor.com",
+   "type": "startup",
+   "final": "https://www.vouchfor.com/",
+   "headcount": {
+    "n": 1000,
+    "quote": "demo Take a 5-min tour Take a 5-min tour Take a 5-min tour Trusted by 1,000+ people teams globally Why teams choose Vouch Get employees to show up The ha"
+   },
+   "read": true
+  },
+  "yarno": {
+   "website": "https://yarno.com.au",
+   "type": "startup",
+   "final": "https://www.yarno.com.au/",
+   "listed": "& insights Integrations Solutions Case studies Advance Care Planning ASX-listed Financial Services BCF Blackmores Grant Broadcasters IPAA NSW Kent Re",
+   "read": true
+  },
+  "wrkr": {
+   "website": "https://wrkr.com.au",
+   "type": "startup",
+   "final": "https://www.wrkr.com.au/",
+   "read": true
+  },
+  "yellowbox": {
+   "website": "https://yellowboxglobal.com",
+   "type": "startup",
+   "final": "https://yellowboxglobal.com",
+   "read": true
+  },
+  "yellow-canary": {
+   "website": "https://yellowcanary.com.au",
+   "type": "startup",
+   "final": "https://www.yellowcanary.com.au/",
+   "founded": {
+    "year": 2018,
+    "quote": "ce due diligence. Who are Yellow Canary’s founders? Yellow Canary was founded in 2018 by Marcus Zeltzer and Brenton McSweyn to address under-serviced and w"
+   },
+   "read": true
+  },
+  "albon": {
+   "website": "https://albon.com.au",
+   "type": "startup",
+   "final": "https://www.albon.com.au/",
+   "read": true
+  },
+  "arludo": {
+   "website": "https://arludo.com",
+   "type": "startup",
+   "final": "https://arludo.com",
+   "read": true
+  },
+  "zemble": {
+   "website": "https://getzemble.com",
+   "type": "startup",
+   "final": "https://www.getzemble.com/",
+   "read": true
+  },
+  "deteqt": {
+   "website": "https://deteqt.tech",
+   "type": "startup",
+   "final": "https://deteqt.tech",
+   "read": true
+  },
+  "hb11-energy": {
+   "website": "https://hb11.energy",
+   "type": "startup",
+   "final": "https://hb11.energy",
+   "read": true
+  },
+  "detectedx": {
+   "website": "https://detectedx.com",
+   "type": "startup",
+   "final": "https://detectedx.com",
+   "founded": {
+    "year": 2019,
+    "quote": "nd Moe Suleiman will be in attendance. Meet our experts DetectedX was founded in 2019 by Professor Patrick Brennan, Professor Mary Rickard and Dr Moe Sulei"
+   },
+   "read": true
+  },
+  "eudaemon-technologies": {
+   "website": "https://eudaemontech.com",
+   "type": "startup",
+   "final": "https://eudaemontech.com",
+   "read": true
+  },
+  "hydgene-renewables": {
+   "website": "https://hydgene.com",
+   "type": "startup",
+   "final": "https://www.hydgene.com/",
+   "read": true
+  },
+  "netnada": {
+   "website": "https://netnada.com",
+   "type": "startup",
+   "final": "https://www.netnada.com/",
+   "read": true
+  },
+  "refresh": {
+   "website": "https://refresh.tech",
+   "type": "startup",
+   "final": "https://refresh.tech",
+   "listed": "s sectors including professional services, education, healthcare, and ASX-listed organisations. The regulatory posture has shifted from guidance to en",
+   "read": true
+  },
+  "understanding-zoe": {
+   "website": "https://understandingzoe.com",
+   "type": "startup",
+   "final": "https://understandingzoe.com",
+   "founded": {
+    "year": 2006,
+    "quote": "ity of Wollongong The Australian parenting website. Government funded since 2006. Pip's knowledge base Pip draws on more than 1,200 evidence-based par"
+   },
+   "read": true
+  },
+  "sundrive-solar": {
+   "website": "https://sundrivesolar.com",
+   "type": "startup",
+   "final": "https://www.sundrivesolar.com/",
+   "read": true
+  },
+  "number-8-bio": {
+   "website": "https://number8.bio",
+   "type": "startup",
+   "final": "https://www.number8.bio/",
+   "read": true
+  },
+  "workflow86": {
+   "website": "https://workflow86.com",
+   "type": "startup",
+   "final": "https://www.workflow86.com/",
+   "headcount": {
+    "n": 5000,
+    "quote": "our systems\" Chief Technology Officer Professional Services Company (5,000+ employees) “…I’m loving the platform so far! I was planning on implementing a c"
+   },
+   "read": true
+  },
+  "juristechne": {
+   "website": "https://juristechne.com",
+   "type": "startup",
+   "final": "https://juristechne.com",
+   "read": true
+  },
+  "medirecords": {
+   "website": "https://medirecords.com",
+   "type": "startup",
+   "final": "https://medirecords.com",
+   "read": true
+  },
+  "upaged": {
+   "website": "https://upaged.com",
+   "type": "startup",
+   "final": "https://upaged.com",
+   "read": true
+  },
+  "apg-pay": {
+   "website": "https://apgpay.com",
+   "type": "startup",
+   "final": "https://apgpay.com",
+   "read": true
+  },
+  "referoo": {
+   "website": "https://referoo.com",
+   "type": "startup",
+   "final": "https://www.referoo.com/",
+   "read": true
+  },
+  "panteya": {
+   "website": "https://panteya.com.au",
+   "type": "startup",
+   "final": "https://panteya.com.au",
+   "read": true
+  },
+  "bloom-ai": {
+   "website": "https://bloom.study",
+   "type": "startup",
+   "final": "https://bloom.study",
+   "read": true
+  },
+  "brieff": {
+   "website": "https://brieff.io",
+   "type": "startup",
+   "final": "https://www.brieff.io/",
+   "read": true
+  },
+  "collybus": {
+   "website": "https://collybus.co",
+   "type": "startup",
+   "final": "https://collybus.co",
+   "read": true
+  },
+  "curium": {
+   "website": "https://getcurium.com",
+   "type": "startup",
+   "final": "https://getcurium.com",
+   "read": true
+  }
+ }
+}

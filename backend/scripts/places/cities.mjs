@@ -28,6 +28,20 @@ export const CITIES = {
   },
 };
 
+// Sydney, from the city pack (the reference directory's Sydney list, 2026-11-05): the rows not already in the directory, as research leads.
+CITIES.sydney = {
+  id: 'sydney', name: 'Sydney', greater: 'Greater Sydney', state: 'NSW', stateName: 'New South Wales', regional: 'regional New South Wales', dir: 'sydney-pack',
+  researchFile: 'sydney-worldtechmap-2026-11-05.json', sourceId: 'sydney-pack-2026-11-05', doc: 'docs/city-pack.md', postcodeLead: '2',
+  cityWords: ['Sydney'],
+  suburbs: "Sydney|Barangaroo|Pyrmont|Ultimo|Haymarket|Surry Hills|Redfern|Chippendale|Darlington|Waterloo|Alexandria|Zetland|Rosebery|Paddington|Woolloomooloo|Potts Point|Darlinghurst|Kings Cross|Bondi|Bondi Junction|Randwick|Kensington|Kingsford|Mascot|Botany|Eveleigh|Newtown|Enmore|Marrickville|St Peters|Sydenham|Tempe|Rozelle|Balmain|Glebe|Leichhardt|Annandale|Lilyfield|Camperdown|Strawberry Hills|Parramatta|Westmead|Olympic Park|Homebush|Rhodes|Ryde|Macquarie Park|North Ryde|Chatswood|Artarmon|St Leonards|Crows Nest|North Sydney|Milsons Point|Neutral Bay|Mosman|Manly|Brookvale|Dee Why|Frenchs Forest|Hornsby|Pennant Hills|Castle Hill|Baulkham Hills|Norwest|Bella Vista|Rouse Hill|Blacktown|Penrith|Liverpool|Campbelltown|Cronulla|Sutherland|Miranda|Kogarah|Rockdale|Hurstville|Burwood|Strathfield|Auburn|Lidcombe|Silverwater|Granville|Merrylands|Wentworthville|Seven Hills|Prospect|Eastgardens|Matraville|Alexandria|Woollahra|Double Bay|Edgecliff|Rushcutters Bay|Pott's Point|Dawes Point|The Rocks|Millers Point|Moore Park|Waverley|Bronte|Coogee|Maroubra|Lane Cove|Greenwich|Gladesville|Drummoyne|Five Dock|Concord|Cammeray|Willoughby|Naremburn|Gordon|Pymble|Turramurra|Wahroonga|Epping|Eastwood|West Ryde|Meadowbank|Camellia|Rydalmere|Silverwater",
+  bareSuburbs: ['Sydney', 'Barangaroo', 'Pyrmont', 'Ultimo', 'Haymarket', 'Surry Hills', 'Redfern', 'Chippendale', 'Darlington', 'Waterloo', 'Alexandria', 'Parramatta', 'North Sydney', 'Chatswood', 'Newtown', 'Paddington', 'Bondi Junction', 'Manly', 'Mascot'],
+  skipHosts: /(^|\.)(worldtechmap\.com|sydneytechmap\.com|linkedin\.com|crunchbase\.com|dealroom\.co|startupblink\.com|abr\.business\.gov\.au|startupnews\.com\.au|techboard\.com\.au)$/i,
+  hubOwn: [],
+};
+// Melbourne and Perth from the same pack: their own folders and source ids, the same rules as the cities' earlier lists.
+CITIES['melbourne-pack'] = { ...CITIES.melbourne, id: 'melbourne-pack', dir: 'melbourne-pack', researchFile: 'melbourne-worldtechmap-2026-11-05.json', sourceId: 'melbourne-pack-2026-11-05', doc: 'docs/city-pack.md', hubOwn: [] };
+CITIES['perth-pack'] = { ...CITIES.perth, id: 'perth-pack', dir: 'perth-pack', researchFile: 'perth-worldtechmap-2026-11-05.json', sourceId: 'perth-pack-2026-11-05', doc: 'docs/city-pack.md', hubOwn: [] };
+
 // The patterns a city needs, built from its entry. A page's wording is read three ways: an address (a state and a four-digit postcode in the city's range), a
 // sentence that the company is based in the city, and an address in another state (which is somewhere else, not here).
 export function matchersOf(c) {

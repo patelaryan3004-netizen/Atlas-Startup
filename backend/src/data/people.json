@@ -1373,5 +1373,275 @@
     "id": "jaideep-upadhyay",
     "name": "Jaideep Upadhyay",
     "slug": "jaideep-upadhyay"
+  },
+  {
+    "id": "kevin-brown",
+    "name": "Kevin Brown",
+    "slug": "kevin-brown"
+  },
+  {
+    "id": "matt-calkins",
+    "name": "Matt Calkins",
+    "slug": "matt-calkins"
+  },
+  {
+    "id": "michael-beckley",
+    "name": "Michael Beckley",
+    "slug": "michael-beckley"
+  },
+  {
+    "id": "robert-kramer",
+    "name": "Robert Kramer",
+    "slug": "robert-kramer"
+  },
+  {
+    "id": "marc-wilson",
+    "name": "Marc Wilson",
+    "slug": "marc-wilson"
+  },
+  {
+    "id": "brendan-cervin",
+    "name": "Brendan Cervin",
+    "slug": "brendan-cervin"
+  },
+  {
+    "id": "james-donald",
+    "name": "James Donald",
+    "slug": "james-donald"
+  },
+  {
+    "id": "josh-nu-u-steele",
+    "name": "Josh Nu'u-Steele",
+    "slug": "josh-nu-u-steele"
+  },
+  {
+    "id": "dale-smith",
+    "name": "Dale Smith",
+    "slug": "dale-smith"
+  },
+  {
+    "id": "michael-koopman",
+    "name": "Michael Koopman",
+    "slug": "michael-koopman"
+  },
+  {
+    "id": "tom-dempster",
+    "name": "Tom Dempster",
+    "slug": "tom-dempster"
+  },
+  {
+    "id": "rodrigo-garcia-mulder",
+    "name": "Rodrigo Garcia-Mulder",
+    "slug": "rodrigo-garcia-mulder"
+  },
+  {
+    "id": "cheng-zhu",
+    "name": "Cheng Zhu",
+    "slug": "cheng-zhu"
+  },
+  {
+    "id": "dave-kaplan",
+    "name": "Dave Kaplan",
+    "slug": "dave-kaplan"
+  },
+  {
+    "id": "aaron-zelman",
+    "name": "Aaron Zelman",
+    "slug": "aaron-zelman"
+  },
+  {
+    "id": "tim-glasson",
+    "name": "Tim Glasson",
+    "slug": "tim-glasson"
+  },
+  {
+    "id": "jay-chaudhry",
+    "name": "Jay Chaudhry",
+    "slug": "jay-chaudhry"
+  },
+  {
+    "id": "k-kailash",
+    "name": "K. Kailash",
+    "slug": "k-kailash"
+  },
+  {
+    "id": "clinton-cunningham",
+    "name": "Clinton Cunningham",
+    "slug": "clinton-cunningham"
+  },
+  {
+    "id": "matt-kellock",
+    "name": "Matt Kellock",
+    "slug": "matt-kellock"
+  },
+  {
+    "id": "ben-simpson",
+    "name": "Ben Simpson",
+    "slug": "ben-simpson"
+  },
+  {
+    "id": "dave-budge",
+    "name": "Dave Budge",
+    "slug": "dave-budge"
+  },
+  {
+    "id": "hugh-stephens",
+    "name": "Hugh Stephens",
+    "slug": "hugh-stephens"
+  },
+  {
+    "id": "dr-kevin-ong",
+    "name": "Dr Kevin Ong",
+    "slug": "dr-kevin-ong"
+  },
+  {
+    "id": "dr-taryn-chalmers",
+    "name": "Dr Taryn Chalmers",
+    "slug": "dr-taryn-chalmers"
+  },
+  {
+    "id": "tim-fung",
+    "name": "Tim Fung",
+    "slug": "tim-fung"
+  },
+  {
+    "id": "jonathan-lui",
+    "name": "Jonathan Lui",
+    "slug": "jonathan-lui"
+  },
+  {
+    "id": "bastien-cabirou",
+    "name": "Bastien Cabirou",
+    "slug": "bastien-cabirou"
+  },
+  {
+    "id": "salim-sebkhi",
+    "name": "Salim Sebkhi",
+    "slug": "salim-sebkhi"
+  },
+  {
+    "id": "zaheer-jappie",
+    "name": "Zaheer Jappie",
+    "slug": "zaheer-jappie"
+  },
+  {
+    "id": "luke-scott",
+    "name": "Luke Scott",
+    "slug": "luke-scott"
+  },
+  {
+    "id": "david-fahim",
+    "name": "David Fahim",
+    "slug": "david-fahim"
+  },
+  {
+    "id": "chris-ferris",
+    "name": "Chris Ferris",
+    "slug": "chris-ferris"
+  },
+  {
+    "id": "daniel-ferris",
+    "name": "Daniel Ferris",
+    "slug": "daniel-ferris"
+  },
+  {
+    "id": "ed-harvey",
+    "name": "Ed Harvey",
+    "slug": "ed-harvey"
+  },
+  {
+    "id": "helena-turpin",
+    "name": "Helena Turpin",
+    "slug": "helena-turpin"
+  },
+  {
+    "id": "nicolai-lindholm",
+    "name": "Nicolai Lindholm",
+    "slug": "nicolai-lindholm"
+  },
+  {
+    "id": "hugh-le",
+    "name": "Hugh Le",
+    "slug": "hugh-le"
+  },
+  {
+    "id": "steve-orenstein",
+    "name": "Steve Orenstein",
+    "slug": "steve-orenstein"
+  },
+  {
+    "id": "tanmay-patel",
+    "name": "Tanmay Patel",
+    "slug": "tanmay-patel"
+  },
+  {
+    "id": "cameron-moore",
+    "name": "Cameron Moore",
+    "slug": "cameron-moore"
+  },
+  {
+    "id": "jani-luostarinen",
+    "name": "Jani Luostarinen",
+    "slug": "jani-luostarinen"
+  },
+  {
+    "id": "antti-poyhonen",
+    "name": "Antti Pöyhönen",
+    "slug": "antti-poyhonen"
+  },
+  {
+    "id": "juha-valvanne",
+    "name": "Juha Valvanne",
+    "slug": "juha-valvanne"
+  },
+  {
+    "id": "robert-lincolne",
+    "name": "Robert Lincolne",
+    "slug": "robert-lincolne"
+  },
+  {
+    "id": "beau-leese",
+    "name": "Beau Leese",
+    "slug": "beau-leese"
+  },
+  {
+    "id": "wes-sonnenreich",
+    "name": "Wes Sonnenreich",
+    "slug": "wes-sonnenreich"
+  },
+  {
+    "id": "suzy-watson",
+    "name": "Suzy Watson",
+    "slug": "suzy-watson"
+  },
+  {
+    "id": "harrison-kennedy",
+    "name": "Harrison Kennedy",
+    "slug": "harrison-kennedy"
+  },
+  {
+    "id": "taylor-laing",
+    "name": "Taylor Laing",
+    "slug": "taylor-laing"
+  },
+  {
+    "id": "laetitia-andrac",
+    "name": "Laetitia Andrac",
+    "slug": "laetitia-andrac"
+  },
+  {
+    "id": "johan-erchoff",
+    "name": "Johan Erchoff",
+    "slug": "johan-erchoff"
+  },
+  {
+    "id": "tetiana-george",
+    "name": "Tetiana George",
+    "slug": "tetiana-george"
+  },
+  {
+    "id": "david-kvas",
+    "name": "David Kvas",
+    "slug": "david-kvas"
   }
 ]

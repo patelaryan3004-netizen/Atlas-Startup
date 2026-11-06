@@ -100,8 +100,11 @@ export const ADDED_FIELDS = [
   'location_source_url', 'location_verified_at', 'location_confidence', 'company_status', 'hiring_status', 'hiring_verified_at', 'website_status',
   'employee_range', 'funding_total', 'last_funding_date', 'last_funding_round',
   'verification_status', 'confidence_score', 'created_at', 'updated_at', 'last_verified_at',
-  'founder_ids', 'investor_ids', 'source_ids',
+  'founder_ids', 'investor_ids', 'source_ids', 'organisation_type',
 ];
+// What kind of organisation a record is: a startup (the default: the directory began as one), an established company, or a space (a co-working or community place).
+// null is a startup. Investors are not companies here: they have their own directory. The type a source gives is a candidate until a person or a page says so.
+export const ORGANISATION_TYPES = ['startup', 'company', 'space'];
 const ID_LIST_FIELDS = new Set(['founder_ids', 'investor_ids', 'source_ids']);
 
 export const emptyAddedFields = () =>
@@ -281,5 +284,6 @@ export function toCanonical(c) {
     founder_ids: c.founder_ids ?? [],
     investor_ids: c.investor_ids ?? [],
     source_ids: c.source_ids ?? [],
+    organisation_type: c.organisation_type ?? 'startup',
   };
 }

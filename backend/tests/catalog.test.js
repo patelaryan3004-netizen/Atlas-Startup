@@ -20,7 +20,10 @@ function legacyFilter(startups, query) {
       const q = String(search).toLowerCase();
       const nameMatch = s.name.toLowerCase().includes(q);
       const founderMatch = (s.founders || []).some((f) => f.toLowerCase().includes(q));
-      if (!nameMatch && !founderMatch) return false;
+      // a search also finds the sector and the suburb (the Melbourne, Sydney and Perth work): the other change from the filter the catalog replaced
+      const sectorMatch = Boolean(s.sector) && s.sector !== 'Unknown' && s.sector.toLowerCase().includes(q);
+      const suburbMatch = Boolean(s.suburb) && s.suburb.toLowerCase().includes(q);
+      if (!nameMatch && !founderMatch && !sectorMatch && !suburbMatch) return false;
     }
     if (!matchesAny(s.sector, sector)) return false;
     // a company is found under its own city and under the big city its postcode puts it in (src/geo/metro.js): the one change from the filter the catalog replaced
@@ -392,7 +395,8 @@ describe('the yes/no columns are indexed', () => {
     for (const q of [{ hiring: 'yes', sector }, { verified: 'no', city }, { taskGate: 'yes', hiring: 'no', sector }, { verified: 'yes', search: 'a' }]) {
       const search = q.search?.toLowerCase();
       const extra = (r) => (!q.sector || r.sector === q.sector) && (!q.city || r.city === q.city)
-        && (!search || r.name.toLowerCase().includes(search) || (r.founders || []).some((f) => f.toLowerCase().includes(search)));
+        && (!search || r.name.toLowerCase().includes(search) || (r.founders || []).some((f) => f.toLowerCase().includes(search))
+          || (Boolean(r.sector) && r.sector !== 'Unknown' && r.sector.toLowerCase().includes(search)) || (Boolean(r.suburb) && r.suburb.toLowerCase().includes(search)));
       expect(ask(q), JSON.stringify(q)).toEqual(brute(q, extra));
     }
   });

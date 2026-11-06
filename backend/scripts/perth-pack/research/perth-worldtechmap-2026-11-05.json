@@ -1,0 +1,145 @@
+{
+ "title": "Perth: reference directory rows not yet in Still Early (research leads)",
+ "researched_on": "2026-11-05",
+ "geography": "Perth",
+ "counts": {
+  "total": 11
+ },
+ "import_guidance": [
+  "A directory listing is not a verified office: each row is read on its own website before it can be published."
+ ],
+ "companies": [
+  {
+   "name": "ClearVue PV",
+   "sector": null,
+   "website": "https://www.clearvuepv.com",
+   "group": "worldtechmap_startups",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "clearvue-pv",
+   "organisation_type": "startup"
+  },
+  {
+   "name": "CORE Innovation Hub",
+   "sector": null,
+   "website": "https://spacecubed.com/locations/perth",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "core-innovation-hub",
+   "organisation_type": "space"
+  },
+  {
+   "name": "CSIRO Technology (formerly Data61)",
+   "sector": null,
+   "website": "https://www.csiro.au",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "csiro-technology-formerly-data61",
+   "organisation_type": "space"
+  },
+  {
+   "name": "Department of Energy and Economic Diversification (formerly JTSI)",
+   "sector": null,
+   "website": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "department-of-energy-and-economic-diversification-formerly-jtsi",
+   "organisation_type": "space"
+  },
+  {
+   "name": "ECU City (Edith Cowan University)",
+   "sector": null,
+   "website": "https://www.ecu.edu.au/about-ecu/our-campuses/ecu-city-campus",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "ecu-city-edith-cowan-university",
+   "organisation_type": "space"
+  },
+  {
+   "name": "Hazer Group",
+   "sector": null,
+   "website": "https://www.hazergroup.com.au",
+   "group": "worldtechmap_startups",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "hazer-group",
+   "organisation_type": "startup"
+  },
+  {
+   "name": "PictureWealth",
+   "sector": null,
+   "website": "https://picturewealth.com",
+   "group": "worldtechmap_startups",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "picturewealth",
+   "organisation_type": "startup"
+  },
+  {
+   "name": "Rumin8",
+   "sector": null,
+   "website": "https://www.rumin8.com",
+   "group": "worldtechmap_startups",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "rumin8",
+   "organisation_type": "startup"
+  },
+  {
+   "name": "StartupWA",
+   "sector": null,
+   "website": "https://www.startupwa.org",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "startupwa",
+   "organisation_type": "space"
+  },
+  {
+   "name": "Venture UWA",
+   "sector": null,
+   "website": "https://www.ventureuwa.com.au",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "venture-uwa",
+   "organisation_type": "space"
+  },
+  {
+   "name": "Curtin Accelerate and Ignition",
+   "sector": null,
+   "website": "https://www.curtin.edu.au/engage/entrepreneurs/accelerate/",
+   "group": "worldtechmap_ecosystem",
+   "perth_relationship": "directory_listing_not_location_proof",
+   "sources": [],
+   "note": null,
+   "aliases": [],
+   "source_record_id": "curtin-accelerate-and-ignition",
+   "organisation_type": "space"
+  }
+ ]
+}

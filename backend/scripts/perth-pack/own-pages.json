@@ -1,0 +1,815 @@
+{
+ "rows": {
+  "adveritas": {
+   "website": "https://www.adveritas.com.au",
+   "pages": [
+    {
+     "url": "https://adveritas.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://adveritas.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://adveritas.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Our Locations Australia Address 16 Brodie Hall Drive Bentley Technology Park WA 6102",
+     "url": "https://adveritas.com.au/contact",
+     "kind": null
+    },
+    {
+     "text": "dership team Our Locations Australia Address 16 Brodie Hall Drive Bentley Technology Park WA 6102",
+     "url": "https://adveritas.com.au/about",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:15.011Z"
+  },
+  "clearvuepv": {
+   "website": "https://www.clearvuepv.com",
+   "pages": [
+    {
+     "url": "https://www.clearvuepv.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.clearvuepv.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.clearvuepv.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://www.clearvuepv.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "in Youtube Locations Registered Office and HQ Suite 9 / 567 Newcastle Street, West Perth, WA 6005",
+     "url": "https://www.clearvuepv.com/contact-us/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Showroom Suite 7 / 567 Newcastle Street, West Perth, WA 6005",
+     "url": "https://www.clearvuepv.com/contact-us/",
+     "kind": null
+    },
+    {
+     "text": "FIND US Visit ClearVue Registered Office & HQ Suite 9 / 567 Newcastle Street, West Perth, WA 6005",
+     "url": "https://www.clearvuepv.com/contact-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Headquarters Abuja, Nigeria Murdoch University R&D Greenhouse Perth, Western Australia View All P",
+     "url": "https://www.clearvuepv.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Headquarters Abuja, Nigeria Murdoch University R&D Greenhouse Perth, Western Australia View All P",
+     "url": "https://www.clearvuepv.com/privacy-policy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Headquarters Abuja, Nigeria Murdoch University R&D Greenhouse Perth, Western Australia View All P",
+     "url": "https://www.clearvuepv.com/terms-of-use/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Headquarters Abuja, Nigeria Murdoch University R&D Greenhouse Perth, Western Australia View All P",
+     "url": "https://www.clearvuepv.com/contact-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:25.407Z"
+  },
+  "coreinnovationhub": {
+   "website": "https://spacecubed.com/locations/perth",
+   "pages": [
+    {
+     "url": "https://spacecubed.com/",
+     "status": 200
+    },
+    {
+     "url": "https://spacecubed.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://spacecubed.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://spacecubed.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "the premises occupied by Spacecubed Ventures and located at 79 St Georges Terrace, Perth WA 6000",
+     "url": "https://spacecubed.com/terms",
+     "kind": null
+    },
+    {
+     "text": "tures and located at Level 1, Level 6, Level 7 and Basement 191 St Georges Terrace, Perth WA 6000",
+     "url": "https://spacecubed.com/terms",
+     "kind": null
+    },
+    {
+     "text": "occupied by Spacecubed Ventures and located at Ground Floor, 45 St Georges Terrace, Perth WA 6000",
+     "url": "https://spacecubed.com/terms",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "offices in Perth CBD and Western Sydney",
+     "url": "https://spacecubed.com/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "located at 79 St Georges Terrace, Perth WA 6000; “ FLUX ” means the p",
+     "url": "https://spacecubed.com/terms",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:30.615Z"
+  },
+  "csirotechnology": {
+   "website": "https://www.csiro.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://csiro.au/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:30.835Z"
+  },
+  "departmentofenergyandeconomicdiversification": {
+   "website": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification",
+   "pages": [
+    {
+     "url": "https://www.wa.gov.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.wa.gov.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.wa.gov.au/service/justice/legal-aid-services",
+     "status": 200
+    },
+    {
+     "url": "https://www.wa.gov.au/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:36.375Z"
+  },
+  "ecucity": {
+   "website": "https://www.ecu.edu.au/about-ecu/our-campuses/ecu-city-campus",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://ecu.edu.au/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:36.781Z"
+  },
+  "fastbrick": {
+   "website": "https://www.fbr.com.au",
+   "pages": [
+    {
+     "url": "https://www.fbr.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.fbr.com.au/view/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.fbr.com.au/view/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.fbr.com.au/view/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "k™ DST® Projects WaaS® InvestorHub News & Media Contact 88 Sultana Road West High Wycombe WA 6057",
+     "url": "https://www.fbr.com.au/view/contact-us",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:44.734Z"
+  },
+  "hazergroup": {
+   "website": "https://www.hazergroup.com.au",
+   "pages": [
+    {
+     "url": "https://hazergroup.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://hazergroup.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://hazergroup.com.au/terms-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://hazergroup.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "PHONE NUMBER MESSAGE * SEND ENQUIRY Hazer Group Limited Level 9, 99 St Georges Tce Perth WA 6000",
+     "url": "https://hazergroup.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "West Perth WA",
+     "url": "https://hazergroup.com.au/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Perth WA",
+     "url": "https://hazergroup.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "au Address: PO Box 1458, West Perth WA 6872",
+     "url": "https://hazergroup.com.au/privacy-policy/",
+     "state": "WA",
+     "kind": null
+    },
+    {
+     "text": "PO Box Z5511, St Georges Tce Perth WA 6831",
+     "url": "https://hazergroup.com.au/contact/",
+     "state": "WA",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:51.500Z"
+  },
+  "icetanaai": {
+   "website": "https://www.icetana.ai",
+   "pages": [
+    {
+     "url": "https://www.icetana.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://www.icetana.ai/blog/how-long-can-a-spill-legally-sit-shopping-centre-floor",
+     "status": 200
+    },
+    {
+     "url": "https://www.icetana.ai/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.icetana.ai/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Perth - Head Office Level 36, 152 St Georges Terrace,Perth WA 6000",
+     "url": "https://www.icetana.ai/contact-us",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head Office Level 36, 152 St Georges Terrace,Perth WA 6000 View Map MEA - Region",
+     "url": "https://www.icetana.ai/contact-us",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head office in Perth, with teams in Dubai and the",
+     "url": "https://www.icetana.ai/about",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:31:57.287Z"
+  },
+  "moodle": {
+   "website": "https://moodle.com",
+   "pages": [
+    {
+     "url": "https://moodle.com/",
+     "status": 200
+    },
+    {
+     "url": "https://moodle.com/privacy-notice/",
+     "status": 200
+    },
+    {
+     "url": "https://moodle.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://moodle.com/solutions/moodle-and-ai/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "West Perth WA",
+     "url": "https://moodle.com/privacy-notice/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "com , or by mail at: Moodle Pty Ltd PO Box 303 West Perth WA 6872",
+     "url": "https://moodle.com/privacy-notice/",
+     "state": "WA",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:03.678Z"
+  },
+  "nanoveu": {
+   "website": "https://nanoveu.com",
+   "pages": [
+    {
+     "url": "https://nanoveu.com/",
+     "status": 200
+    },
+    {
+     "url": "https://nanoveu.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://nanoveu.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://nanoveu.com/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "#13-21, Singapore 138633 [phone removed] Head Office Level 45, 108 St Georges Terrace Perth WA, 6000",
+     "url": "https://nanoveu.com/about-us/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Our registered address is at 1/18 Olive Street, Subiaco WA 6008",
+     "url": "https://nanoveu.com/terms-of-use/",
+     "kind": null
+    },
+    {
+     "text": "Registered Office Nanoveu Limited Level 45, 108 St Georges Terrace Perth WA, 6000",
+     "url": "https://nanoveu.com/contact-us/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head Office Level 45, 108 St Georges Terrace Perth WA, 6000 Australia [phone removed]",
+     "url": "https://nanoveu.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head Office Level 45, 108 St Georges Terrace Perth WA, 6000 Australia [phone removed]",
+     "url": "https://nanoveu.com/terms-of-use/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Office Nanoveu Limited Level 45, 108 St Georges Terrace Perth WA, 6000 Australia info@nanov",
+     "url": "https://nanoveu.com/contact-us/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Head Office Level 45, 108 St Georges Terrace Perth WA, 6000 Australia [phone removed]",
+     "url": "https://nanoveu.com/about-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:11.773Z"
+  },
+  "picturewealth": {
+   "website": "https://picturewealth.com",
+   "pages": [
+    {
+     "url": "https://www.picturewealth.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.picturewealth.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.picturewealth.com/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.picturewealth.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com General Enquiries : [phone removed] Level 3, 556 Wellington Street, Perth, WA 6000",
+     "url": "https://www.picturewealth.com/contact-us",
+     "kind": null
+    },
+    {
+     "text": "PictureWealth, Level 3, 556 Wellington Street, Perth , WA,6000",
+     "url": "https://www.picturewealth.com/contact-us",
+     "kind": null
+    },
+    {
+     "text": "Contact us PictureWealth Headquarters: [phone removed] Level 3, 556 Wellington Street Perth WA 6000",
+     "url": "https://www.picturewealth.com/terms-of-use",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth, WA",
+     "url": "https://www.picturewealth.com/",
+     "kind": null
+    },
+    {
+     "text": "Headquarters: [phone removed] Level 3, 556 Wellington Street Perth WA 6000 PO BOX 7857, Cloister",
+     "url": "https://www.picturewealth.com/privacy-policy",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Office: Level 3, 556 Wellington Street, Perth WA 6000 Copyright Copyright i",
+     "url": "https://www.picturewealth.com/terms-of-use",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://www.picturewealth.com/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "PO BOX 7857, Cloisters Square WA 6850",
+     "url": "https://www.picturewealth.com/contact-us",
+     "state": "WA",
+     "kind": null
+    },
+    {
+     "text": "com or write to us at Picture Wealth Group, PO Box 7857, Cloisters Square, WA, 6850",
+     "url": "https://www.picturewealth.com/privacy-policy",
+     "state": "WA",
+     "kind": null
+    },
+    {
+     "text": "ns by contacting: The Privacy Officer Picture Wealth Group PO Box 7857, Cloisters Square, WA, 6850",
+     "url": "https://www.picturewealth.com/privacy-policy",
+     "state": "WA",
+     "kind": "OFFICE"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:17.202Z"
+  },
+  "pointerra": {
+   "website": "https://www.pointerra.com",
+   "pages": [
+    {
+     "url": "https://www.pointerra.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.pointerra.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.pointerra.com/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.pointerra.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "sport Mining, Oil & Gas Defense & Intelligence Australia Level 2, 27 Railway Road Subiaco WA 6008",
+     "url": "https://www.pointerra.com/contact/",
+     "kind": null
+    },
+    {
+     "text": "ule A demo Video Channel Contact Us Locations Australia Level 2, 27 Railway Road, Subiaco WA 6008",
+     "url": "https://www.pointerra.com/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Subiaco WA",
+     "url": "https://www.pointerra.com/",
+     "kind": null
+    },
+    {
+     "text": "Subiaco WA",
+     "url": "https://www.pointerra.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Subiaco WA",
+     "url": "https://www.pointerra.com/legal/",
+     "kind": null
+    },
+    {
+     "text": "Subiaco WA",
+     "url": "https://www.pointerra.com/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:26.197Z"
+  },
+  "powerledger": {
+   "website": "https://www.powerledger.io",
+   "pages": [
+    {
+     "url": "https://powerledger.io/",
+     "status": 200
+    },
+    {
+     "url": "https://powerledger.io/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://powerledger.io/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://powerledger.io/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Powerledger 'The Palace', Level 2 108 St Georges Tce, Perth WA 6000",
+     "url": "https://powerledger.io/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Perth WA",
+     "url": "https://powerledger.io/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:32.267Z"
+  },
+  "rumin8": {
+   "website": "https://www.rumin8.com",
+   "pages": [
+    {
+     "url": "https://rumin8.com/",
+     "status": 200
+    },
+    {
+     "url": "https://rumin8.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://rumin8.com/privacy-policy/terms-of-service/",
+     "status": 200
+    },
+    {
+     "url": "https://rumin8.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "LinkedIn Office mailing address Australia Suite 1, Level 2 66 Kings Park Road West Perth WA 6005",
+     "url": "https://rumin8.com/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office mailing address Australia Suite 1, Level 2 66 Kings Park Road West Perth WA 6005 United States Rumin8",
+     "url": "https://rumin8.com/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:38.704Z"
+  },
+  "startupwa": {
+   "website": "https://www.startupwa.org",
+   "pages": [
+    {
+     "url": "https://www.startupwa.org/",
+     "status": 200
+    },
+    {
+     "url": "https://www.startupwa.org/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.startupwa.org/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.startupwa.org/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:45.979Z"
+  },
+  "ventureuwa": {
+   "website": "https://www.ventureuwa.com.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://ventureuwa.com.au/",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:47.262Z"
+  },
+  "vgw": {
+   "website": "https://www.vgw.co",
+   "pages": [
+    {
+     "url": "https://www.vgw.co/",
+     "status": 200
+    },
+    {
+     "url": "https://www.vgw.co/privacy-policies-for-candidates/",
+     "status": 200
+    },
+    {
+     "url": "https://www.vgw.co/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.vgw.co/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "eadquarters: Perth, Australia Level 8 & 10, Australia Place, 15-17 William Street, Perth, WA 6000",
+     "url": "https://www.vgw.co/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Headquarters: Perth, Australia Level 8 & 10, Aust",
+     "url": "https://www.vgw.co/contact-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:53.650Z"
+  },
+  "curtinaccelerateandignition": {
+   "website": "https://www.curtin.edu.au/engage/entrepreneurs/accelerate/",
+   "pages": [
+    {
+     "url": "https://www.curtin.edu.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.curtin.edu.au/about/governance/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.curtin.edu.au/research/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://www.curtin.edu.au/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Delivery address Building 100, Level 2 West Curtin University Kent Street Bentley, WA 6102",
+     "url": "https://www.curtin.edu.au/research/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Officer, GPO Box U1987, Perth, WA 6845 Advice and resources",
+     "url": "https://www.curtin.edu.au/about/governance/privacy/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Perth, WA",
+     "url": "https://www.curtin.edu.au/research/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "r on [phone removed] or by post to Curtin University, Privacy Officer, GPO Box U1987, Perth, WA 6845",
+     "url": "https://www.curtin.edu.au/about/governance/privacy/",
+     "state": "WA",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "66 3965, or write anonymously to Curtin University, Privacy Officer, GPO Box U1987, Perth WA 6845",
+     "url": "https://www.curtin.edu.au/about/governance/privacy/",
+     "state": "WA",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "uiries can be made in writing to Curtin University, Privacy Officer, GPO Box U1987, Perth WA 6845",
+     "url": "https://www.curtin.edu.au/about/governance/privacy/",
+     "state": "WA",
+     "kind": "OFFICE"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T02:32:58.991Z"
+  }
+ }
+}

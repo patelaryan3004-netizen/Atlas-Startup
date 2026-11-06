@@ -1,0 +1,1268 @@
+{
+ "checked_at": "2026-11-05",
+ "note": "Decisions about the rows of this list.",
+ "rows": {
+  "uworkcollective": {
+   "sector": "Unknown",
+   "blurb": "If a unique coworking space in Sydney is what you're after, the +U serviced offices in Sydney's Chippendale will fit that brief.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "3plearning": {
+   "sector": "EdTech",
+   "blurb": "3P Learning is a world leading educational software company with a mission to create better ways to learn.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "activeviam": {
+   "sector": "AI",
+   "blurb": "Atoti by ActiveViam is the AI-native enterprise risk intelligence platform for capital markets, giving people and AI agents one real-time view of...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "aerofiler": {
+   "sector": "Legal tech",
+   "blurb": "Aerofiler is an AI-powered contracting platform combining a best-in-class contract repository, templating engine & approval workflows for legal...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "aircall": {
+   "sector": "AI",
+   "blurb": "Aircall is an AI-powered customer communications platform that unifies voice, omnichannel messaging, and AI automation for sales and customer...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "airtasker": {
+   "sector": "SaaS",
+   "blurb": "Airtasker is a trusted community platform that connects people who need to outsource tasks and find local services, with people who are looking to...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "amazinggut": {
+   "sector": "Unknown",
+   "blurb": "Struggling with constipation, bowel leakage, or trouble going?",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "ampdenergy": {
+   "sector": "Energy",
+   "blurb": "A state of the art battery system with high output power for the most demanding of loads.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "aonaai": {
+   "sector": "HR Tech",
+   "blurb": "Aona AI is the Workforce AI Security platform: Shadow AI discovery, policy governance, and DLP for generative AI.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "apollosecure": {
+   "sector": "Cybersecurity",
+   "blurb": "Help your school manage governance, risk, compliance, policies, suppliers and cyber security in one practical GRC platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "appen": {
+   "sector": "AI",
+   "blurb": "Appen delivers high-quality AI training data, data annotation and model evaluation for the world's leading AI teams.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "arlula": {
+   "sector": "Space",
+   "blurb": "Operational infrastructure for Earth Observation.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "assureqa": {
+   "sector": "AI",
+   "blurb": "AssureQA helps teams streamline testing with no-code automation, AI-generated test cases, and real-time insights.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "batterypollutiontechnologies": {
+   "sector": "Energy",
+   "blurb": "Battery Pollution Technologies is establishing a national circular economy for lithium-ion batteries.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "beamtree": {
+   "sector": "Unknown",
+   "blurb": "For more than two decades we have been helping solve healthcare problems globally, by implementing our technology in more than 1,000 locations...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "beonic": {
+   "sector": "Data",
+   "blurb": "Discover how our AI-driven customer experience analytics platform reshapes physical environments, optimizes resources, and enhances experiences.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "betterfleet": {
+   "sector": "Climate",
+   "blurb": "BetterFleet provides fleet operators with a single platform to plan, manage, and accelerate the transition to zero-emission vehicles.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "bioscout": {
+   "sector": "AgTech",
+   "blurb": "BioScout is an Australian AgTech company providing airborne crop disease surveillance.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "bluenexus": {
+   "sector": "AI",
+   "blurb": "BlueNexus is an Agent Management Platform: build an AI agent once and distribute it everywhere (any app, portal, email, messaging app, or widget).",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "blys": {
+   "sector": "SaaS",
+   "blurb": "Blys is Australia's leading mobile massage, beauty, and wellness platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "brevitycaresoftware": {
+   "sector": "SaaS",
+   "blurb": "Leading NDIS software for community care organisations.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "cableenergy": {
+   "sector": "Energy",
+   "blurb": "Electricity for small businesses with a Cable-funded battery.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "canibuild": {
+   "sector": "PropTech",
+   "blurb": "Site planning software allowing residential builders to determine site suitability, position and price point for any build remotely.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "carbonix": {
+   "sector": "Robotics",
+   "blurb": "Carbonix are Australia's leading manufacturer of commercial UAV drones specialising in long-range, high-quality data acquisition.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "carclarity": {
+   "sector": "Fintech",
+   "blurb": "Find low rate car finance in just 60 seconds.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "caremonitor": {
+   "sector": "HealthTech",
+   "blurb": "CareMonitor is a flexible digital healthcare platform supporting care beyond traditional hospital settings.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "carma": {
+   "sector": "Unknown",
+   "blurb": "Want to sell or trade in your old car?",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "caruso": {
+   "sector": "Unknown",
+   "blurb": "The world's leading managers trust Caruso to help them save time, impress investors and grow AUM.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "cloudfloat": {
+   "sector": "Unknown",
+   "blurb": "Cloudfloat gives you room to move your money on your timing.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "clueylearning": {
+   "sector": "EdTech",
+   "blurb": "Discover why parents and students are choosing Cluey's online tutoring.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "coatesgroup": {
+   "sector": "Unknown",
+   "blurb": "We deliver end-to-end digital merchandising solutions that drive engaging customer journeys and business ROI for companies worldwide.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "cochlear": {
+   "sector": "Unknown",
+   "blurb": "Cochlear is a leader in implantable hearing devices that help to restore hearing and connect people to a world of sound.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "cogniss": {
+   "sector": "HealthTech",
+   "blurb": "Cogniss is a no-code app building tool that allows anyone to create consumer-focussed health apps that drive behaviour change.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "compliifintechsolutions": {
+   "sector": "Fintech",
+   "blurb": "Complii is an ASX-listed FinTech providing one platform for risk, compliance and capital raising management for AFSL holders, advisers and brokers.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "coposit": {
+   "sector": "PropTech",
+   "blurb": "Buy Property with $10K in Australia, now available in NSW and QLD.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "coworkinghubryde": {
+   "sector": "Unknown",
+   "blurb": "Our new coworking space in the heart of Ryde is seeking creatives, startups and small businesses to join our shared office community today.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "credsvault": {
+   "sector": "Unknown",
+   "blurb": "Turn compliance, skills, and training data into secure, verifiable digital credentials.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "datazoo": {
+   "sector": "Unknown",
+   "blurb": "Leading provider of identity verification and fraud detection solutions for modern businesses.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "droneshield": {
+   "sector": "Defence",
+   "blurb": "DroneShield is a global defence technology company providing AI-powered counter-drone and electronic warfare solutions.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "duckcreektechnologies": {
+   "sector": "Insurtech",
+   "blurb": "Duck Creek Technologies empowers insurers to reimagine the future of insurance through a modern cloud architecture and a low-code/no-code...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "eclipsetrading": {
+   "sector": "Unknown",
+   "blurb": "Eclipse Trading is a proprietary trading firm specialising in derivatives trading, including market making, with headquarters in Hong Kong.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "eidosmedia": {
+   "sector": "Fintech",
+   "blurb": "Eidosmedia products are used by large news-media groups for print and digital publishing and by investment banks, asset and wealth managers for...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "elcom": {
+   "sector": "Unknown",
+   "blurb": "Interested in building world-class websites, intranets and portals for your organisation?",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "eluminaelearning": {
+   "sector": "Unknown",
+   "blurb": "We exist to make eLearning easier.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "emvision": {
+   "sector": "Medtech",
+   "blurb": "Advancing medical imaging to the next level.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "enviz": {
+   "sector": "Unknown",
+   "blurb": "Upload your floor plans and walk through your home in 3D the same day.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "etherstack": {
+   "sector": "Unknown",
+   "blurb": "Etherstack is the world's leading supplier of public safety and mission-critical wireless communications technology.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "evnex": {
+   "sector": "Mobility",
+   "blurb": "Evnex provides smart electric vehicle charging solutions for homes and businesses across Australia.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "exoflare": {
+   "sector": "Unknown",
+   "blurb": "ExoFlare is built for intensive agri industries, transforming biosecurity from a compliance burden into a strategic advantage.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "fabra": {
+   "sector": "SaaS",
+   "blurb": "Design in 3D, access thousands of assets, and create production-ready tech packs – all in one easy-to-use platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "farmbot": {
+   "sector": "Unknown",
+   "blurb": "Our user-friendly products are designed to reduce costs, boost productivity, and streamline management.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "fiable": {
+   "sector": "PropTech",
+   "blurb": "Assess your vendor's delivery risk and ensure your construction project stays on course.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "fishburners": {
+   "sector": "Unknown",
+   "blurb": "Fishburners is the leading startup community for startups in Australia.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "fiskil": {
+   "sector": "Fintech",
+   "blurb": "Fiskil is an open data infrastructure platform providing open banking, open finance and energy-data connectivity across Australia and New Zealand.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "flashpayments": {
+   "sector": "Fintech",
+   "blurb": "B2B cross-border payment infrastructure for financial institutions",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "freightexchange": {
+   "sector": "Fintech",
+   "blurb": "Automate freight reconciliation with AI-powered freight invoice auditing.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "futurerent": {
+   "sector": "Fintech",
+   "blurb": "Futurerent gives Australian property investors access to their equity without refinancing, selling, or affecting their credit.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "gofigr": {
+   "sector": "HR Tech",
+   "blurb": "AI-powered talent intelligence platform that connects employee skills and aspirations to internal opportunities.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "govconnex": {
+   "sector": "SaaS",
+   "blurb": "A political intelligence platform for government relations and public affairs teams.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "greshamtechnologies": {
+   "sector": "SaaS",
+   "blurb": "Reconciliation software and tools, post trade automation and regulatory reporting solutions, data aggregation and connectivity for banks and buy-side.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "guardhouse": {
+   "sector": "SaaS",
+   "blurb": "Smart security rostering software.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "gurooacademy": {
+   "sector": "SaaS",
+   "blurb": "Run your B2B training business from one platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "hampr": {
+   "sector": "Food",
+   "blurb": "Stay in control of your office catering, meal programs, events, functions and kitchen supplies using Hampr's technology enabled food platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "healthbank": {
+   "sector": "Unknown",
+   "blurb": "HealthBank was founded with a single purpose: To revolutionise the way preventative healthcare is delivered and to improve the availability and...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "heo": {
+   "sector": "Hardware",
+   "blurb": "HEO delivers on-demand, high-frequency images on satellites and actionable insights using the world's largest non-Earth imaging dataset and sensor...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "highradius": {
+   "sector": "Fintech",
+   "blurb": "World's #1 data-driven AI software platform to lower DSO, optimize working capital, fast-track financial close and improve productivity.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "hireup": {
+   "sector": "HealthTech",
+   "blurb": "Hireup connects people looking for disability or aged care support with verified support workers.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "huntsmansecurity": {
+   "sector": "Cybersecurity",
+   "blurb": "Huntsman Security is a multi-tenanted SIEM & cyber security analytics platform, specialising in large enterprise and government agencies.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "independentreserve": {
+   "sector": "Fintech",
+   "blurb": "Independent Reserve is a cryptocurrency exchange company.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "innowell": {
+   "sector": "Unknown",
+   "blurb": "Clinically-validated and evidence-based care.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "integraladscience": {
+   "sector": "Martech",
+   "blurb": "Integral Ad Science delivers the industry’s most actionable data to drive superior results for the world’s largest advertisers, publishers, and...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "investsmart": {
+   "sector": "Fintech",
+   "blurb": "Grow your wealth with Australia's leading automated investment tools, portfolio managers, managed funds and get the latest investment news...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "investstream": {
+   "sector": "Unknown",
+   "blurb": "Guidance, modelling and advice in one system for super funds, advice licensees and platforms.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "ipartners": {
+   "sector": "Unknown",
+   "blurb": "iPartners is a leading alternative assets capital markets and funds management provider.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "iren": {
+   "sector": "AI",
+   "blurb": "IREN is a vertically integrated AI Cloud provider, delivering large-scale data centers and GPU clusters for AI training and inference.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "jadesoftware": {
+   "sector": "SaaS",
+   "blurb": "Specialised software solving complex problems for enterprise and entrepreneurs",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "janison": {
+   "sector": "SaaS",
+   "blurb": "Leading online assessment software and exam management services for large-scale educators, corporations and governments.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "jayride": {
+   "sector": "Unknown",
+   "blurb": "Compare and book airport transfers, shuttles and private transfers worldwide.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "jetabroad": {
+   "sector": "Travel",
+   "blurb": "Find cheap flights and airfares for all your flight and travel needs.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "justfund": {
+   "sector": "Fintech",
+   "blurb": "JustFund provides specialized legal funding for family law and estate cases.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "juxtabyte": {
+   "sector": "Unknown",
+   "blurb": "Juxtabyte enables organisations to identify, assess, and manage data risk and controls across their business processes in minutes.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "kantoko": {
+   "sector": "HealthTech",
+   "blurb": "Kantoko is an Australian telehealth service for adults with ADHD, providing online assessment, diagnosis, and ongoing care.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "koala": {
+   "sector": "Climate",
+   "blurb": "Award-winning Koala sofas, mattresses and furniture with fast Australia-wide delivery, 120-day trial, easy returns and sustainably made designs.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "launchpad": {
+   "sector": "Unknown",
+   "blurb": "Technology Business Incubator Welcome to Launch Pad Live We are home to a group of innovators working together to rethink, redesign, and […]",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "lavo": {
+   "sector": "Energy",
+   "blurb": "LAVO turns surplus solar into green hydrogen and stores it in patented metal hydride, delivering renewable power for days rather than hours.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "learnosity": {
+   "sector": "SaaS",
+   "blurb": "Digital Assessment & Testing API Software",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "lessn": {
+   "sector": "Fintech",
+   "blurb": "Lessn is a business payments platform that automates accounts payable, increases security, and helps businesses earn rewards points, cash-back and...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "locatetechnologies": {
+   "sector": "Logistics",
+   "blurb": "Locate2u is delivery management software for businesses that run their own drivers: route optimization, live GPS tracking, proof of delivery...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "lumary": {
+   "sector": "HealthTech",
+   "blurb": "Australia's Leading Care Management Software for Disability & Aged Care.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "lyngoai": {
+   "sector": "AI",
+   "blurb": "AI phone answering and virtual receptionist service built for healthcare clinics.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "madecomfy": {
+   "sector": "Unknown",
+   "blurb": "Award-winning Airbnb management service in Australia and New Zealand.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "magnaterratechnologies": {
+   "sector": "Mining Tech",
+   "blurb": "Advancing Magnetic Resonance sensing to transform mining and humanitarian demining.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "mako": {
+   "sector": "Climate",
+   "blurb": "MAKO Flightfilm is a drag-reducing surface that reduces fuel costs, lowers emissions, and improves mission capability",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "mathspace": {
+   "sector": "EdTech",
+   "blurb": "Looking for an online maths program that’s curriculum aligned, tracks student progress and frees you up to teach?",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "memphasys": {
+   "sector": "Biotech",
+   "blurb": "Memphasys is a reproductive biotechnology company driven by market needs to provide more effective reproduction and fertility solutions.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "mogoplus": {
+   "sector": "Fintech",
+   "blurb": "MogoPlus is an Australian fintech company delivering AI-powered lending and decisioning solutions for banks, lenders and financial institutions.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "mvsionboard": {
+   "sector": "SaaS",
+   "blurb": "Automated onboarding software by OnBoard (MVSI) - streamline your onboarding, CRM and compliance in one platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "mypassglobal": {
+   "sector": "HR Tech",
+   "blurb": "MyPass Global is a workforce compliance and competency management platform that connects workers, contractors, hiring clients, and industry bodies...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "nearmap": {
+   "sector": "PropTech",
+   "blurb": "Current high-resolution aerial imagery of Australia, captured by proprietary cameras, plus 130+ AI-derived insights for every property decision.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "nosto": {
+   "sector": "Retail",
+   "blurb": "Nosto is a Commerce Experience Platform that enables brands and retailers to deliver personalized ecommerce experiences using AI-powered...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "ociustechnology": {
+   "sector": "Manufacturing",
+   "blurb": "We design, manufacture, and operate proven, technologically advanced autonomous vessels with multi-mission capability.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "ofx": {
+   "sector": "Unknown",
+   "blurb": "Make fast and secure international money transfers and simplify your global spend management with OFX.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "omniscientneurotechnology": {
+   "sector": "HealthTech",
+   "blurb": "Our technology helps medical professionals understand people’s complex brain network data, also known as connectomics, to deliver enhanced patient...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "onmarket": {
+   "sector": "Unknown",
+   "blurb": "Australia's most experienced capital raising site.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "oranparksmartworkhub": {
+   "sector": "Unknown",
+   "blurb": "Discover a coworking space in Oran Park offering flexible offices, meeting rooms and private offices inside a modern multi level hub.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "otivo": {
+   "sector": "Insurtech",
+   "blurb": "Otivo is Australia's first licensed AI financial adviser (AFSL 485665) — personal advice on super, investing, insurance and retirement.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "owna": {
+   "sector": "SaaS",
+   "blurb": "Simplify Childcare Management with Stress-Free Childcare Software.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "paydock": {
+   "sector": "Fintech",
+   "blurb": "A global, API‑first payments orchestration platform that simplifies payment complexity for merchants and financial institutions.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "peblpayments": {
+   "sector": "Fintech",
+   "blurb": "Mobile EFTPOS and payment solutions for Australian businesses.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "plerion": {
+   "sector": "SaaS",
+   "blurb": "Secure every agent in your cloud.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "practera": {
+   "sector": "EdTech",
+   "blurb": "Practera is an experiential learning platform and program provider that helps universities and employers deliver real-world projects, internships...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "propcode": {
+   "sector": "PropTech",
+   "blurb": "Planning intelligence that turns rules, maps and property data into fast, source-cited answers.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "propic": {
+   "sector": "PropTech",
+   "blurb": "Claire is the AI agent for Australian real estate: she finds your next sellers and landlords, writes the ad, matches active buyers, answers every...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "protecht": {
+   "sector": "Unknown",
+   "blurb": "Protecht has redefined the way people think about risk management with the most complete, cutting-edge and cost-effective solutions for over 20 years.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "ptblink": {
+   "sector": "PropTech",
+   "blurb": "The PT Blink construction software and marketplace transforms property development and enables the flexible design, offsite manufacture and onsite...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "qualys": {
+   "sector": "Cybersecurity",
+   "blurb": "Discover how Qualys helps your business measure & eliminate cyber threats through a host of cybersecurity detection & remediation tools.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "raizinvest": {
+   "sector": "SaaS",
+   "blurb": "Raiz Invest is an Australian micro-investing app that allows users to invest spare change from everyday purchases into diversified ETF portfolios.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "readytech": {
+   "sector": "EdTech",
+   "blurb": "ReadyTech creates awesome technology that helps customers navigate complexity – from work and education to government, justice systems and beyond.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "recordpoint": {
+   "sector": "Unknown",
+   "blurb": "Automatically manage your data at scale – wherever it lives – so you can make informed decisions to reduce risk.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "saludamedical": {
+   "sector": "HealthTech",
+   "blurb": "By removing guesswork, one patient at a time.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "samsungelectronics": {
+   "sector": "Unknown",
+   "blurb": "Samsung AU is a subsidiary of Samsung Electronics Co.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "saviynt": {
+   "sector": "AI",
+   "blurb": "Saviynt delivers enterprise control over AI, securing every identity across the organization, including human, non-human, and AI, so businesses...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "scxai": {
+   "sector": "AI",
+   "blurb": "SCX.ai is Australia's sovereign AI infrastructure and services platform, providing enterprise-grade AI inference and managed AI workloads with...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "seestone": {
+   "sector": "SaaS",
+   "blurb": "From concept to locked buy plan, in one platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "servicely": {
+   "sector": "Fintech",
+   "blurb": "Bring IT, HR, Finance and Legal onto one AI-native platform where agents resolve tickets end-to-end and humans approve every risky step.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "shaype": {
+   "sector": "Fintech",
+   "blurb": "Shaype is a licensed Australian embedded finance platform powering digital financial products and payment experiences for brands, businesses and...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "shiftcare": {
+   "sector": "HealthTech",
+   "blurb": "ShiftCare Australia helps NDIS & aged care providers streamline scheduling, compliance, and client management with one easy platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "skutopia": {
+   "sector": "Robotics",
+   "blurb": "Seamless scalability for your eCommerce business with robotic and automated fulfilment technology.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "skyciv": {
+   "sector": "SaaS",
+   "blurb": "SkyCiv is a cloud-based structural engineering company that provides a range of structural analysis and design software for engineers.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "somnomed": {
+   "sector": "Unknown",
+   "blurb": "SomnoMed is the world's leading provider of oral appliance therapy for obstructive sleep apnea.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "sortd": {
+   "sector": "SaaS",
+   "blurb": "Elevate your online shopping with the Sortd universal wishlist app.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "sourseai": {
+   "sector": "AI",
+   "blurb": "Self-optimising AI for closed-loop customer management.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "spendconsole": {
+   "sector": "AI",
+   "blurb": "SpendConsole delivers AI-powered accounts payable automation and payables orchestration for enterprises.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "stoneandchalk": {
+   "sector": "Unknown",
+   "blurb": "Find workspace, mentors, programs, investors, customers and a community built to help your company grow.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "studiosity": {
+   "sector": "EdTech",
+   "blurb": "Studiosity is a learning assurance platform for universities: feedback that develops student thinking, and validation in which students...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "stylearcade": {
+   "sector": "Fashion",
+   "blurb": "Style Arcade is fashion retail analytics software and assortment planning software that helps brands and retailers plan ranges, forecast demand...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "suse": {
+   "sector": "SaaS",
+   "blurb": "Modernize your infrastructure with SUSE Linux Enterprise servers, cloud technology for IaaS, and SUSE's software-defined storage.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "susquehannainternationalgroup": {
+   "sector": "Gaming",
+   "blurb": "Since 1987, we've incorporated decision science, collaboration, and game theory to foster a culture of reason that sets us apart.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "switchboard": {
+   "sector": "Logistics",
+   "blurb": "One integration to connect your whole supply chain",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "tankstreamlabs": {
+   "sector": "Unknown",
+   "blurb": "Flexible office space in Sydney, Melbourne & Adelaide.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "tendertrace": {
+   "sector": "AI",
+   "blurb": "Win smarter, with AI-driven public sector market intelligence that converts to actionable strategy and customised growth plans in seconds.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "tetratherix": {
+   "sector": "SaaS",
+   "blurb": "Tetratherix has developed a biostealth fluid matrix that evolves regenerative medicine through the use of our Tetramatrix platform technology",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "abbyy": {
+   "sector": "SaaS",
+   "blurb": "ABBYY helps enterprises gain a complete understanding of their business processes to accelerate digital transformation with a platform enabled...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "aciworldwide": {
+   "sector": "Fintech",
+   "blurb": "As an original innovator in global payments technology, ACI develops transformative software solutions to simplify the most complex payment...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "acquia": {
+   "sector": "SaaS",
+   "blurb": "The agentic content platform marketers love and IT trusts.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "acronis": {
+   "sector": "Cybersecurity",
+   "blurb": "Acronis is a global cyber protection company providing integrated cybersecurity, data protection and infrastructure management solutions for...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "aderant": {
+   "sector": "Legal tech",
+   "blurb": "Aderant offers a Suite of legal billing software, time and billing, ebilling, and law firm timekeeping software that enable agility within your...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "adviceregtech": {
+   "sector": "Data",
+   "blurb": "Advice RegTech SAMI Subjective Analytics Monitoring Intelligence.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "aimedia": {
+   "sector": "Media",
+   "blurb": "AI-Media: AI-Powered Captioning Solutions.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "aigentsphere": {
+   "sector": "AI",
+   "blurb": "Enterprise platform for managing AI agents with focus on cost, performance, and compliance.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "aiven": {
+   "sector": "Data",
+   "blurb": "Aiven is an AI-ready open source data platform that combines open-source services to rapidly stream, store and serve data across major cloud...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "alation": {
+   "sector": "AI",
+   "blurb": "Global enterprises trust Alation to get their AI right — and keep it right.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "alteryx": {
+   "sector": "Data",
+   "blurb": "Alteryx is a data analytics platform that enables analysts and enterprises to prepare, integrate, and analyze data, automate workflows, and...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "amcs": {
+   "sector": "Climate",
+   "blurb": "One software suite with comprehensive solutions for Resources + Recycling, Transport + Logistics, and Sustainability Intelligence for EHS + ESG...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "anaplan": {
+   "sector": "AI",
+   "blurb": "The scenario planning and analysis platform where AI, data, and planning converge to make the right decisions, right now.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "aristocratleisure": {
+   "sector": "Gaming",
+   "blurb": "Aristocrat Leisure Limited (ASX: ALL) is a global gaming content and technology company and mobile games publisher.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a very large listed company, not a startup: not listed (remove this hold to list it as a company)"
+  },
+  "assuro": {
+   "sector": "SaaS",
+   "blurb": "Delivering bank guarantees and surety bonds via powerful customer-focused digital platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "its own page gives an address in Fremantle (WA), so a Sydney listing needs a person to confirm where it works"
+  },
+  "atomodiagnostics": {
+   "sector": "Unknown",
+   "blurb": "Atomo Diagnostics Limited is a global leader in the user-centred design of innovative, accurate and reliable rapid diagnostics.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "auric": {
+   "sector": "Energy",
+   "blurb": "Auric develops connected scent technology, essential oils and app-guided rituals designed to support calm, focus, energy and sleep.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "avolution": {
+   "sector": "PropTech",
+   "blurb": "All in One Enterprise Architecture Tool.Master Complexity.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "b2care": {
+   "sector": "Unknown",
+   "blurb": "b2care has partnered with Coles to offer Coles Kitchen and other prepared meal brands, delivering products that provide great quality and great...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "thinxtra": {
+   "sector": "Hardware",
+   "blurb": "Thinxtra, a leader in Massive IoT and the exclusive operator of the Thinxtra 0G Network in ANZ & HK, enables scalable IoT solutions",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "totalsynergy": {
+   "sector": "PropTech",
+   "blurb": "Project management software for architects and engineers to plan projects, allocate resources, track budgets, and improve profitability, all in...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "touchstonelifecare": {
+   "sector": "SaaS",
+   "blurb": "Securely store and share your Advance Care Directive or Goals of Care document with Touchstone Life Care end-of-life planning platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "tradeledger": {
+   "sector": "Fintech",
+   "blurb": "Business lending technology for next-generation working capital that is customer-centric, embeddable, API-first, cloud-native and allows lenders...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "truescope": {
+   "sector": "Media",
+   "blurb": "Truescope is a media monitoring service and media intelligence platform that makes comms and PR teams the most informed in the room: across what's...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "truuth": {
+   "sector": "Unknown",
+   "blurb": "truuth delivers identity verification and passwordless authentication services to enterprises to help you provide the most secure and reliable...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "upowr": {
+   "sector": "Energy",
+   "blurb": "UPowr is the clean energy job management platform for solar and battery installers.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "valiantfinance": {
+   "sector": "Fintech",
+   "blurb": "Get business finance fast with Valiant Finance.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "vapar": {
+   "sector": "AI",
+   "blurb": "AI-powered cloud platform that automates condition assessment directly from your pipe CCTV footage",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "veridooh": {
+   "sector": "Unknown",
+   "blurb": "Making OOH a more automated, trusted and effective channel.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "veyor": {
+   "sector": "PropTech",
+   "blurb": "Veyor is a delivery and logistics management platform for the built environment, giving construction sites, loading docks, and civil crews...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "vouch": {
+   "sector": "HR Tech",
+   "blurb": "Vouch is an AI content platform for talent teams to collect, edit, organize and share employee content.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "webuildconstructionsoftware": {
+   "sector": "PropTech",
+   "blurb": "A fully integrated SaaS construction management platform accessible anytime, anywhere and on all smart devices, designed to manage projects from...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "wellio": {
+   "sector": "HealthTech",
+   "blurb": "A student wellbeing platform helping K–12 schools deliver consistent wellbeing lessons, track student wellbeing, and support whole-school programs.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "willow": {
+   "sector": "AI",
+   "blurb": "Willow is the Operational AI platform for the built world.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "wrkr": {
+   "sector": "HR Tech",
+   "blurb": "One platform for Australian employers to manage onboarding, payroll, super and workforce compliance, with full visibility and audit-ready records.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "xpansiv": {
+   "sector": "Energy",
+   "blurb": "Xpansiv operates the world’s largest integrated, open and neutral market infrastructure for the global energy transition.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "yarno": {
+   "sector": "SaaS",
+   "blurb": "Yarno is a gamified microlearning platform that helps teams learn, engage, and retain knowledge.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "yellowcanary": {
+   "sector": "HR Tech",
+   "blurb": "Automate payroll auditing & avoid underpayment penalties.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "yellowbox": {
+   "sector": "Unknown",
+   "blurb": "Yellowbox is the leading smart locker system for modern workplaces and offices.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "zemble": {
+   "sector": "Unknown",
+   "blurb": "Zemble helps brokers, advisers, MGAs and carriers collect accurate client data the first time.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "albon": {
+   "sector": "Climate",
+   "blurb": "Cut wastewater costs in meat, dairy and agri-food with ALBON's algae-based treatment.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "arludo": {
+   "sector": "EdTech",
+   "blurb": "Arludo turns curriculum-aligned science into mobile games students actually want to play.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "breedaustralia": {
+   "sector": "Community",
+   "blurb": "Discover our offices for rent and community initiatives.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "detectedx": {
+   "sector": "Medtech",
+   "blurb": "DetectedX is a leading image-based diagnostic improvement learning platform with real-time feedback, and convenient online access.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "deteqt": {
+   "sector": "Quantum",
+   "blurb": "Compact, solid-state quantum sensors built with diamond-on-chip technology.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "eudaemontechnologies": {
+   "sector": "Unknown",
+   "blurb": "The first hydrogel condom.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "hb11energy": {
+   "sector": "Energy",
+   "blurb": "HB11 Energy is developing commercially viable fusion energy technology that can be deployed worldwide.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "hydgenerenewables": {
+   "sector": "Energy",
+   "blurb": "HydGene Renewables enables on-site, low-cost green hydrogen production from waste biomass, supporting industrial decarbonisation and sustainable...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "netnada": {
+   "sector": "Fintech",
+   "blurb": "AI carbon accounting and climate disclosure platform for AASB S2, NGER, CSRD and ISSB reporting, built in Sydney.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "nswdecarbonisationinnovationhub": {
+   "sector": "Community",
+   "blurb": "Our aim is to reduce carbon emissions to net zero by 2050, whilst creating jobs and economic growth in NSW on a massive scale.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "number8bio": {
+   "sector": "AgTech",
+   "blurb": "BetterFeed is a livestock bolus that gives you a grazing advantage by supporting animal resilience and delivering practical returns on farm.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "refresh": {
+   "sector": "SaaS",
+   "blurb": "Australia's purpose-built psychosocial compliance platform.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "sundrivesolar": {
+   "sector": "Energy",
+   "blurb": "SunDrive is a solar technology company based in South Sydney, Australia.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "understandingzoe": {
+   "sector": "SaaS",
+   "blurb": "A neuroaffirming app for Australian families raising a neurodivergent child, and for neurodivergent adults.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "workflow86": {
+   "sector": "Unknown",
+   "blurb": "Build agentic workflows for complex, long-running tasks",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "earlytrade": {
+   "sector": "Fintech",
+   "blurb": "Early Payment Negotiation Built for GCs and Their Subs Helping the construction industry fund itself Commercial GCs with significant subcontractor...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).",
+   "hold": "a global company with an office in Sydney: not an Australian startup, so not listed (its own pages were read; it can be listed by removing this hold)"
+  },
+  "juristechne": {
+   "sector": "Legal tech",
+   "blurb": "Australian Legal Deep Tech providing Legal Analytics",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "medirecords": {
+   "sector": "HealthTech",
+   "blurb": "MediRecords offers tailored solutions to sole practitioners, health departments, admitted care & multidisciplinary teams.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "panteya": {
+   "sector": "Medtech",
+   "blurb": "The white-labelled patient recovery platform for Australian private surgical clinics, built to protect your clinic on every pathway.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "referoo": {
+   "sector": "SaaS",
+   "blurb": "Leading online platform solution for HR and recruitment professionals, providing comprehensive employment reference checks, background screening...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "upaged": {
+   "sector": "Legal tech",
+   "blurb": "Where skilled nurses & healthcare facilities connect to fill high paying on-demand nursing shifts and term contracts.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "apgpay": {
+   "sector": "Fintech",
+   "blurb": "We make payment data meaningful for your business.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "bloomai": {
+   "sector": "EdTech",
+   "blurb": "Support students, create teaching materials, and gain learning insights with Bloom, the AI learning platform for schools and universities.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "brieff": {
+   "sector": "Fintech",
+   "blurb": "Brieff is the advisory delivery platform for accounting firms.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "collybus": {
+   "sector": "Unknown",
+   "blurb": "One connection to digital markets.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "curium": {
+   "sector": "SaaS",
+   "blurb": "Compliance and claims management software for Australian and New Zealand insurers, brokers, and agencies.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  }
+ }
+}

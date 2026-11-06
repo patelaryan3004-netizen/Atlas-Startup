@@ -1,0 +1,108 @@
+{
+ "staged_rows": 2534,
+ "by_city": {
+  "Sydney": {
+   "rows": 1463,
+   "by_source_category": {
+    "ecosystem": 53,
+    "companies": 373,
+    "startups": 935,
+    "vcs": 102
+   },
+   "unique_organisations": 1457,
+   "reconciliation": {
+    "existing_company": 362,
+    "existing_candidate": 761,
+    "duplicate_confirmed": 11,
+    "new": 212,
+    "distinct_confirmed": 82,
+    "review_ambiguous_name": 35
+   },
+   "address_completeness": {
+    "street": 1042,
+    "suburb": 91,
+    "city_only": 308,
+    "partial": 22
+   },
+   "source_marks_approximate": 415,
+   "source_point_at_city_centre": 61,
+   "source_pin_flag_false": 399,
+   "listed_twice_in_city": 6,
+   "also_in_another_city": 222,
+   "earlier_research_overlap": 0
+  },
+  "Melbourne": {
+   "rows": 1032,
+   "by_source_category": {
+    "ecosystem": 88,
+    "startups": 662,
+    "vcs": 71,
+    "companies": 211
+   },
+   "unique_organisations": 1024,
+   "reconciliation": {
+    "existing_candidate": 531,
+    "existing_company": 361,
+    "new": 62,
+    "distinct_confirmed": 44,
+    "review_ambiguous_name": 20,
+    "duplicate_confirmed": 14
+   },
+   "address_completeness": {
+    "street": 587,
+    "city_only": 347,
+    "suburb": 82,
+    "partial": 16
+   },
+   "source_marks_approximate": 445,
+   "source_point_at_city_centre": 339,
+   "source_pin_flag_false": 429,
+   "listed_twice_in_city": 8,
+   "also_in_another_city": 218,
+   "earlier_research_overlap": 152
+  },
+  "Perth": {
+   "rows": 39,
+   "by_source_category": {
+    "companies": 3,
+    "startups": 22,
+    "vcs": 4,
+    "ecosystem": 10
+   },
+   "unique_organisations": 35,
+   "reconciliation": {
+    "review_ambiguous_name": 5,
+    "existing_company": 14,
+    "distinct_confirmed": 2,
+    "new": 3,
+    "existing_candidate": 15
+   },
+   "address_completeness": {
+    "street": 32,
+    "city_only": 3,
+    "suburb": 4
+   },
+   "source_marks_approximate": 7,
+   "source_point_at_city_centre": 0,
+   "source_pin_flag_false": 7,
+   "listed_twice_in_city": 4,
+   "also_in_another_city": 9,
+   "earlier_research_overlap": 13
+  }
+ },
+ "unique_organisations": 2293,
+ "organisations_in_more_than_one_city": 222,
+ "directory_now": {
+  "companies": 920,
+  "by_city": {
+   "Sydney": 347,
+   "Melbourne": 384,
+   "Perth": 67
+  },
+  "exact_or_suburb_pins_by_city": {
+   "Sydney": 207,
+   "Melbourne": 234,
+   "Perth": 32
+  }
+ }
+}

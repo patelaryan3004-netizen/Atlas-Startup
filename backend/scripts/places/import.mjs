@@ -213,8 +213,9 @@ async function ownpages() {
   const fetcher = createFetcher({ userAgent: process.env.DISCOVERY_USER_AGENT || DEFAULT_USER_AGENT, minDelayMs: 1500, timeoutMs: 20000, maxBytes: 1500000 });
   // --retry: a site whose read failed on the network (a DNS blip, a timeout) is read again; a site that answered is not
   const retry = process.argv.includes('--retry');
+  const only = typeof flags.only === 'string' ? new Set(flags.only.split(',')) : null; // --only key,key: just these rows
   const failed = (rec) => !rec.pages.length && rec.errors.some((e) => ['dns_failed', 'network_error', 'timeout'].includes(e.code));
-  const todo = rows.filter((r) => !r.established && websiteFor(r, facts, guesses) && (!existing.rows[r.key] || (retry && failed(existing.rows[r.key]))));
+  const todo = rows.filter((r) => !r.established && websiteFor(r, facts, guesses) && (!only || only.has(r.key)) && (!existing.rows[r.key] || (retry && failed(existing.rows[r.key]))));
   for (const row of todo) {
     const site = websiteFor(row, facts, guesses);
     const read = await readSite(site.url, { fetcher, maxPages: 4 });
@@ -302,7 +303,9 @@ async function plan() {
 async function run() {
   const ds = parseRaw(await loadRaw(dir));
   const found = classifyAgainstDirectory(ds);
-  const todo = found.filter((f) => !(f.outcome === 'EXACT_MATCH' && f.matches[0]?.target?.kind === 'company') && !f.row.established).slice(0, limit);
+  // a row that already has a candidate from this list is not read again: each pass of the engine takes the next 200, and the first 200 never starve the rest
+  const have = new Set(candidatesOf(ds).map((c) => c.discoveries.find((d) => d.source_id === SOURCE_ID)?.key));
+  const todo = found.filter((f) => !(f.outcome === 'EXACT_MATCH' && f.matches[0]?.target?.kind === 'company') && !f.row.established && !have.has(f.row.key)).slice(0, limit);
   const leads = todo.map((f) => f.lead);
   const sourceDef = { id: SOURCE_ID, kind: 'directory_listing', region: 'AU', license: { basis: 'permitted_page' }, licenseBasis: 'permitted_page', discover: async () => leads };
   console.log(`${leads.length} candidates to make or update (${leads.filter((l) => l.website).length} with a website to read)`);
@@ -424,10 +427,12 @@ function classify(ds) {
     if (!decision.sector || !decision.blurb) { if (!missing.length) missing.push('sector and description not yet decided (judgments.json)'); }
     item.missing = missing;
     item.place = perthAddress ?? null;
+    item.elsewhere = elsewhere.filter((a) => a.city).map((a) => ({ city: a.city, state: a.state, postcode: a.postcode, text: a.text, url: a.url, kind: a.kind ?? null })).slice(0, 4);
     item.placeAddresses = addresses.filter((a) => a.city === CITY.name && !isBox(a.text));
     if (missing.length) { push('review', missing.join('; ')); continue; }
     push('add', `its own website was read: it names a ${CITY.greater} address`);
     out[out.length - 1].place = perthAddress;
+    out[out.length - 1].elsewhere = item.elsewhere;
     out[out.length - 1].placeAddresses = addresses.filter((a) => a.city === CITY.name && !isBox(a.text));
   }
   return out;
@@ -482,6 +487,9 @@ async function apply() {
       const location = { city: CITY.name, state: CITY.state, precision: 'CITY', source: 'company_website', sourceUrl: item.place.url ?? placeEvidence?.source?.url ?? cand.website, verifiedAt: placeEvidence?.source?.retrieved_at ?? at };
       const { company } = publishCandidate(work, cand.id, { by: needBy(), at, location });
       company.sector = decision.sector; company.sectorFull = decision.sectorFull ?? decision.sector; company.blurb = decision.blurb;
+      // the type the directory the row came from gave it (startup, company or space): a candidate type, which a person can change in judgments.json
+      const rowType = decision.organisation_type ?? rows.find((r) => r.key === item.key)?.orgType ?? null;
+      if (rowType) company.organisation_type = rowType;
       if (decision.founders?.length) company.founders = decision.founders;
       delete company.address; // kept as evidence until the geocoder has put the house on the map (locations promote)
       // what the lists that name it say: the company is in the programme or portfolio, with the page and the day it was read
@@ -496,13 +504,28 @@ async function apply() {
       const own = ownFacts().rows[item.key];
       const readAt = own?.read_at ?? researchRead;
       const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return null; } };
+      let streets = 0;
       for (const a of item.placeAddresses ?? []) {
-        const street = a.statement || decision.no_pin ? null : cleanAddress(a.text);
+        const street = a.statement || decision.no_pin || POSTAL_WORDS.test(a.text) ? null : cleanAddress(a.text);
         if (!street) continue;
+        streets += 1;
         evidence.push({ field: 'address', value: street, confidence: 'high', verified_at: readAt, note: `An address in ${CITY.greater} on the company's own page.`, source: { kind: /privacy|terms|legal/i.test(a.url) ? 'company_document' : 'company_website', url: a.url, title: item.name + ': ' + hostOf(a.url), publisher: hostOf(a.url), retrieved_at: readAt, note: 'The company\'s own page, read by the ${CITY.name} importer (robots.txt obeyed).' } });
       }
-      if (item.place?.statement || decision.no_pin) evidence.push({ field: 'city', value: CITY.name, confidence: 'medium', verified_at: readAt, note: (decision.no_pin ? 'The company\'s own page gives a postal or registered address in ' + CITY.name + ' (' + item.place.text.slice(0, 80) + '): not an operating site, so no pin.' : 'The company\'s own page says it is based in ' + CITY.name + ': "' + item.place.text + '".'), source: { kind: 'company_website', url: item.place.url, title: item.name + ': ' + hostOf(item.place.url), publisher: hostOf(item.place.url), retrieved_at: readAt, note: 'The company\'s own page, read by the ${CITY.name} importer (robots.txt obeyed).' } });
+      if (item.place?.statement || decision.no_pin || (streets === 0 && !item.place?.statement)) evidence.push({ field: 'city', value: CITY.name, confidence: 'medium', verified_at: readAt, note: ((decision.no_pin || streets === 0) && !item.place?.statement ? 'The company\'s own page gives a postal or registered address in ' + CITY.name + ' (' + item.place.text.slice(0, 80) + '): not an operating site, so no pin.' : 'The company\'s own page says it is based in ' + CITY.name + ': "' + item.place.text + '".'), source: { kind: 'company_website', url: item.place.url, title: item.name + ': ' + hostOf(item.place.url), publisher: hostOf(item.place.url), retrieved_at: readAt, note: 'The company\'s own page, read by the ${CITY.name} importer (robots.txt obeyed).' } });
       if (evidence.length) promoteEvidence(work, company.id, evidence);
+      work.company_locations ??= [];
+      for (const a of item.elsewhere ?? []) {
+        const street = cleanAddress(a.text);
+        if (!street) continue;
+        // the city and the state are read from the street address that is stored, not from the wider text it was found in (a page that names two cities near each other
+        // gave a Port Melbourne address the label of a Brisbane office)
+        const here = placeOfAddress(street);
+        if (!here?.city) continue;
+        const id = `${company.id}.office.${here.city.toLowerCase().replace(/ /g, '-')}`;
+        if (work.company_locations.some((l) => l.id === id)) continue;
+        const parsed = parseAddress(street);
+        work.company_locations.push({ id, company_id: company.id, kind: a.kind === 'HEADQUARTERS' ? 'HEADQUARTERS' : 'OFFICE', label: `${here.city} office`, address: street, suburb: parsed.suburb ?? null, city: here.city, state: here.state, country: 'Australia', postcode: here.postcode ?? parsed.postcode ?? null, latitude: null, longitude: null, location_precision: 'CITY', location_source: 'company_website', location_source_url: a.url, location_verified_at: readAt, location_confidence: 'low', created_at: at, updated_at: at });
+      }
       audit.push(trail('candidate.publish', { type: 'candidate', id: cand.id }, `Published ${company.name} as ${company.id} (${CITY.name}, city-level until its address is placed${item.place?.kind ? `; its own page calls the place a ${item.place.kind.toLowerCase()}` : ''})`));
       published += 1;
     }
@@ -524,6 +547,93 @@ async function apply() {
   console.log(`wrote ${changed.join(', ') || 'nothing'}`);
 }
 
+// ---------- autojudge: a description from the company's own pages, and a sector from its words ----------
+
+// For a long list (the city pack's) a person cannot write every line: where a company's own pages gave a description, its first sentence is the description (the company's own
+// words, trimmed to a sentence of at most 150 characters), and the sector is read from the words of that description by the rules below (the first that matches; "Unknown"
+// when none does). Each such decision is marked auto, with how it was made, so it can be read, changed or removed in judgments.json. A row with no description of its own is
+// left for a person. Nothing is claimed that the pages do not say: the type of the organisation is the directory's candidate type, and no stage, funding or hiring is added.
+const NOT_A_DESCRIPTION = /^(welcome|home\b|just a moment|access denied|forbidden|404|page not found|not found|sign in|log in|login|coming soon|this domain|buy this|domain for sale|under construction|loading|index of|site not found|default|website (?:is )?(?:under|coming)|an error|error)/i;
+const SECTOR_RULES = [
+  ['Cybersecurity', /\b(cyber ?security|infosec|threat detection|penetration test|identity (?:and|&) access|zero trust|ransomware)\b/i],
+  ['Quantum', /\bquantum\b/i],
+  ['Space', /\b(satellite|orbital|spacecraft|launch vehicle|rocket|space industry|earth observation)\b/i],
+  ['Defence', /\bdefen[cs]e\b/i],
+  ['Robotics', /\b(robot|robotic|robotics|autonomous vehicle|drone|uav)\b/i],
+  ['Mining Tech', /\b(mining|miners?|mineral exploration|drilling|geoscience|ore body)\b/i],
+  ['Biotech', /\b(therapeutic|therapeutics|biotech|biopharma|drug discovery|clinical[- ]stage|antibod|vaccine|genomic|oncology|peptide|immunotherap)/i],
+  ['Medtech', /\b(medical device|surgical|implant|diagnostic|medtech|medical imaging|point-of-care)\b/i],
+  ['HealthTech', /\b(health|clinic|clinician|patient|telehealth|medical|hospital|wellbeing|mental health|pharmacy|aged care|disability)\b/i],
+  ['Insurtech', /\b(insurance|insurer|underwriting)\b/i],
+  ['Fintech', /\b(payments?|fintech|banking|lending|lenders?|loans?|credit|wealth|superannuation|crypto|blockchain|accounting|bookkeeping|invoic|financ|funding|trading platform)/i],
+  ['Legal tech', /\b(legal|lawyers?|law firm|contracts?)\b/i],
+  ['HR Tech', /\b(recruit|talent|payroll|workforce|employee engagement|human resources)\b/i],
+  ['EdTech', /\b(education|learning|school|students?|teachers?|curriculum|tutor)/i],
+  ['PropTech', /\b(real estate|property|tenants?|landlords?|conveyanc|construction|builders?|architect)/i],
+  ['AgTech', /\b(farm|farming|farmers?|agricultur|crop|livestock|horticultur|aquaculture)/i],
+  ['Energy', /\b(solar|batter(?:y|ies)|energy|renewable|hydrogen|electricity|power generation)\b/i],
+  ['Climate', /\b(climate|carbon|emissions?|sustainab|recycl|circular economy|net zero|decarbon|waste)/i],
+  ['Logistics', /\b(logistics|freight|shipping|supply chain|delivery|courier|warehouse|fleet)\b/i],
+  ['Mobility', /\b(electric vehicles?|ev charging|mobility|automotive|ride[- ]?share|e-?bikes?|scooters?)\b/i],
+  ['Hospitality Tech', /\b(restaurants?|hospitality|cafes?|hotels?|venues?)\b/i],
+  ['Food', /\b(food|beverages?|drinks?|wine|beer|coffee|snacks?|plant-based|nutrition)\b/i],
+  ['Fashion', /\b(fashion|apparel|clothing|footwear|jewel)/i],
+  ['Travel', /\b(travel|tourism|holiday)/i],
+  ['Gaming', /\b(games?|gaming|esports)\b/i],
+  ['Media', /\b(media|publishing|podcasts?|video|streaming|content creators?|film)\b/i],
+  ['Sports', /\b(sports?|fitness|athletes?|gym)\b/i],
+  ['Martech', /\b(marketing|advertis|seo\b|customer engagement)/i],
+  ['Marketplace', /\bmarketplace\b/i],
+  ['Retail', /\b(e-?commerce|retail|shopify|online store)\b/i],
+  ['Data', /\b(data platform|analytics|data pipeline|business intelligence)\b/i],
+  ['AI', /\b(AI|artificial intelligence|machine learning|LLM|generative)\b/],
+  ['Hardware', /\b(hardware|semiconductor|sensors?|iot)\b/i],
+  ['Manufacturing', /\b(manufactur|3d print|industrial)/i],
+  ['SaaS', /\b(software|platform|saas|cloud|app|api)\b/i],
+];
+const POSTAL_WORDS = /\b(postal|mailing|registered (?:office|address|business address)|correspondence|P\.?\s?O\.?\s*Box)\b/i;
+const SPACE_WORDS = /\b(co-?working|workspace|work space|hub|incubator|accelerator|makerspace|maker space|community|innovation (?:centre|center|precinct)|campus|studio|lab|office space|desks?)\b/i;
+const sectorOf = (text) => SECTOR_RULES.find(([, re]) => re.test(text))?.[0] ?? 'Unknown';
+// The first sentence of what the company's own pages say it is, at most 150 characters, cut at a word.
+function blurbOf(text) {
+  const t = decodeEntities(String(text ?? '')).replace(/\s+/g, ' ').replace(/[®™©]/g, '').trim();
+  if (t.length < 25 || NOT_A_DESCRIPTION.test(t)) return null;
+  const sentence = (/^(.+?[.!?])(?:\s|$)/.exec(t)?.[1] ?? t).trim();
+  if (sentence.length <= 150) return sentence.length >= 25 ? sentence : null;
+  const cut = sentence.slice(0, 147).replace(/\s+\S*$/, '').replace(/[,;:\-–]+$/, '');
+  return cut.length >= 25 ? cut + '...' : null;
+}
+
+async function autojudge() {
+  const ds = parseRaw(await loadRaw(dir));
+  const doc = readJson(JUDGMENTS, { checked_at: new Date().toISOString().slice(0, 10), note: 'Decisions about the rows of this list.', rows: {} });
+  let reread = 0;
+  for (const [key, row] of Object.entries(doc.rows)) {
+    if (!row.auto || !row.blurb) continue;
+    const def = rows.find((r) => r.key === key);
+    const next = def?.orgType === 'space' ? 'Community' : sectorOf(row.blurb + ' ' + (def?.name ?? ''));
+    if (next !== row.sector) { row.sector = next; reread += 1; }
+  }
+  if (reread) console.log('read the sector again for ' + reread + ' rows this step decided');
+  let made = 0;
+  let noDescription = 0;
+  let notAPlace = 0;
+  for (const item of classify(ds).filter((i) => i.kind === 'review' && /^sector and description not yet decided/.test(i.reason))) {
+    if (doc.rows[item.key]) continue;
+    const cand = ds.candidates.find((c) => c.id === item.candidate);
+    const descriptions = (cand?.evidence ?? []).filter((e) => e.field === 'description' && OWN_PAGES.includes(e.source?.kind)).map((e) => blurbOf(e.value)).filter(Boolean);
+    if (!descriptions.length) { noDescription += 1; continue; }
+    const rowDef = rows.find((r) => r.key === item.key);
+    const blurb = descriptions[0];
+    // a directory's "ecosystem" row is a space only when its own words say it is a place where people work or meet: a university or a department is not one
+    if (rowDef?.orgType === 'space' && !SPACE_WORDS.test(blurb + ' ' + item.name)) { notAPlace += 1; continue; }
+    doc.rows[item.key] = { sector: rowDef?.orgType === 'space' ? 'Community' : sectorOf(blurb + ' ' + item.name), blurb, auto: true, auto_note: 'The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES).' };
+    made += 1;
+  }
+  writeFileSync(JUDGMENTS, JSON.stringify(doc, null, 1) + '\n');
+  console.log('decided ' + made + ' rows from their own pages; ' + noDescription + ' have no description of their own and ' + notAPlace + ' are ecosystem rows whose words do not say they are a place: they wait for a person');
+}
+
 // ---------- tidy ----------
 
 // Rewrites the address evidence of the companies this import published so that it is the street address and not the page's wording around it ("Head office: 24 Hasler
@@ -543,6 +653,13 @@ async function tidy() {
       const mine = kept.get(k) ?? [];
       const to = cleaned ?? e.value;
       if (mine.some((v) => same(v, to))) {
+        touched.set(e.company_id, [...(touched.get(e.company_id) ?? []), { from: e.value, to: '(the same address as another row of this page)' }]);
+        e.status = 'superseded';
+        e.note = 'The same street address as another row of this page, written with the page\'s label.';
+        continue;
+      }
+      // writing the cleaned address would repeat a claim this page already makes (another row of any status): the row is superseded instead of rewritten
+      if (cleaned && cleaned !== e.value && work.evidence.some((x) => x !== e && x.company_id === e.company_id && x.source_id === e.source_id && x.field === 'address' && same(x.value, cleaned))) {
         touched.set(e.company_id, [...(touched.get(e.company_id) ?? []), { from: e.value, to: '(the same address as another row of this page)' }]);
         e.status = 'superseded';
         e.note = 'The same street address as another row of this page, written with the page\'s label.';
@@ -698,8 +815,9 @@ else if (step === 'run') await run();
 else if (step === 'reread') await reread();
 else if (step === 'propose') await propose();
 else if (step === 'apply') await apply();
+else if (step === 'autojudge') await autojudge();
 else if (step === 'tidy') await tidy();
 else if (step === 'fixes') await fixes();
 else if (step === 'update') await update();
 else if (step === 'report') await report();
-else console.log('steps: hubs, sites, ownpages, plan, run, reread, propose, apply, tidy, fixes, update, report (see the top of this file)');
+else console.log('steps: hubs, sites, ownpages, plan, run, reread, propose, autojudge, apply, tidy, fixes, update, report (see the top of this file)');

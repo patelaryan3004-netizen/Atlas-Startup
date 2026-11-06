@@ -1,6 +1,9 @@
 ﻿import { describe, it, expect } from 'vitest';
 import request from 'supertest';
-import app from '../src/app.js';
+import app, { createApp, HIRING_WINDOW_DAYS } from '../src/app.js';
+import { createCatalog } from '../src/catalog/catalog.js';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import startups from '../src/data/startups.json' with { type: 'json' };
 import sources from '../src/data/sources.json' with { type: 'json' };
 import candidates from '../src/data/candidates.json' with { type: 'json' };
@@ -11,6 +14,7 @@ import { metroOf } from '../src/geo/metro.js';
 // Derived from the data file so adding a company never breaks these tests; the
 // "don't silently lose companies" floor lives in dataIntegrity.test.js.
 const TOTAL = startups.length;
+const DATA_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data', 'startups.json');
 
 // The list answers a page at a time (20 unless asked, 200 at most): every company, by following nextOffset.
 async function everyCompany(query = '') {
@@ -69,7 +73,9 @@ describe('GET /api/startups', () => {
     const payload = JSON.stringify(every);
     // (a source's id is made from its address, so one can equal a company's own public slug: that one is not a leak)
     const publicIds = new Set(every.flatMap((s) => [s.id, s.slug]));
-    for (const { id } of sources) if (!publicIds.has(id)) expect(payload, `source "${id}" leaked`).not.toContain(id);
+    // (and a source id can be the front of a company's public id: "creativecubes-co" in "creativecubes-co-carlton". The public ids are taken out of the payload first, longest first)
+    const rest = [...publicIds].sort((a, b) => b.length - a.length).reduce((text, id) => text.split(id).join(''), payload);
+    for (const { id } of sources) if (!publicIds.has(id)) expect(rest, `source "${id}" leaked`).not.toContain(id);
     // A company that has sources still comes back with its public facts.
     const superstat = every.find((s) => s.name === 'Superstat');
     // Its roles were read by hand from a page's text on 5 Oct: a check with a date, not a confirmation, so it is not "hiring now".
@@ -104,8 +110,14 @@ describe('GET /api/startups', () => {
     const byFounder = await request(app).get('/api/startups?limit=200&search=Daniel Yoon');
     expect(byFounder.body.results.map((s) => s.name)).toEqual(['Forward']);
 
-    const sydneyHiring = await request(app).get('/api/startups?limit=200&city=Sydney&hiring=yes');
+    // Hiring now means a page confirmed the roles inside the window (14 days): Fastlane's roles were read on 13 Oct 2026, so it is hiring on a day inside the window and, correctly,
+    // only "checked" after it. The clock is fixed here so the test does not depend on the day it runs (the window rule itself is tested in provenance.test.js).
+    const inWindow = createApp({ catalog: createCatalog({ file: DATA_FILE, now: () => Date.parse('2026-10-20T00:00:00Z'), hiringWindowDays: HIRING_WINDOW_DAYS }) });
+    const sydneyHiring = await request(inWindow).get('/api/startups?limit=200&city=Sydney&hiring=yes');
     expect(sydneyHiring.body.results.map((s) => s.name)).toContain('Fastlane');
+    const later = createApp({ catalog: createCatalog({ file: DATA_FILE, now: () => Date.parse('2026-11-05T00:00:00Z'), hiringWindowDays: HIRING_WINDOW_DAYS }) });
+    const stale = await request(later).get('/api/startups?limit=200&search=Fastlane');
+    expect(stale.body.results[0]).toMatchObject({ name: 'Fastlane', hiring: false, hiringState: 'checked' });
   });
 
   it('lists the new investors in the filter metadata, keeping "Latitude 37" distinct from the existing "Latitude"', async () => {

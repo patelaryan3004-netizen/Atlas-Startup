@@ -1,0 +1,81 @@
+You are working in my existing Still Early codebase. Improve the startup map and expand its company data for Sydney, Melbourne and Perth. Implement the changes, run appropriate checks, and prepare a working local/preview build. Inspect the repository and existing data flow before editing.
+
+PRODUCT AND SCOPE
+Still Early helps people discover Australia's startups, companies, investors and places where builders meet. This task focuses on the map, directory data and company details. Preserve the approved welcome-page branding and existing working navigation. Keep the map on its own /map route. Reuse the existing framework, map provider and database unless a concrete limitation requires a change. Do not add unrelated feeds, chat, jobs systems or event features in this task. Do not deploy to production without an existing explicit deployment instruction.
+
+INPUT FILES — READ THESE FIRST
+- research-manifest.json: scope, provenance, counts and limitations.
+- sydney-worldtechmap-candidates.json: every entry returned by the reference's Sydney city dataset.
+- melbourne-worldtechmap-candidates.json and perth-worldtechmap-candidates.json: equivalent city datasets.
+- melbourne-research-342.json and perth-research-210.json: earlier, broader research lists with source evidence and uncertainty categories. They overlap with the other files.
+- address-updates-62.json: address evidence for the 50 Melbourne companies and 12 Perth companies previously discussed. Read the notes and address types, not just the address string.
+- The three *-company-list.txt files are readable versions of the reference lists.
+The original reference http://sydneytechmap.com/ redirected to https://worldtechmap.com/sydney when retrieved on 5 November 2026. Use the supplied snapshots to avoid an unnecessary full scrape.
+
+Do not interpret the source totals as independently verified companies, unique organisations across cities, or an exhaustive census. Source categories are candidates: mature, listed, acquired and international businesses may appear under "startups". Verify and classify them accurately.
+
+1. AUDIT AND RECONCILE
+Locate the existing company records, location fields, city filters, map rendering, detail panels and import scripts. Record the current counts by city before modifying data. Identify any invented coordinates, city-centre fallback pins, stale verification badges or duplicate records.
+Create a reproducible import/enrichment script that first produces a dry-run report. Match companies primarily by validated canonical domain plus known aliases, with human-review candidates for ambiguous names. Do not merge generic names just because they look similar. Do not merge subsidiaries or acquired brands automatically. Preserve user edits, stable IDs, curated content and reliable evidence. Keep one organisation with multiple location records where appropriate; do not create duplicate companies just because they have Sydney and Melbourne offices.
+Import every supplied row into research staging or an equivalent review dataset. Publish only records that meet the publication criteria. An unknown field stays null. A programme membership, investor portfolio, university affiliation or registered postcode does not prove an operating office.
+
+2. APPLY THE PERTH AND MELBOURNE ADDRESS EVIDENCE
+Reconcile all 62 records in address-updates-62.json with existing and imported entities. Carry forward the original source-consulted dates. Melbourne evidence was researched on 2 November 2026; Perth was checked on 5 November 2026. Importing a row does not make its address "verified today".
+Prioritise direct, current company contact pages for operating locations. Store office, lab, hub, registered office and postal addresses separately. Use multiple address evidence records when sources conflict. Do not silently overwrite a credible address or a newer manual correction with a directory value.
+
+Specific safeguards:
+- Qsic: use the published Fitzroy office as evidence; do not automatically reuse the older Abbotsford address.
+- PolyActiva: the published Australian head office is in Notting Hill.
+- Vinomofo: the published HQ is in Port Melbourne.
+- Bellroy's Canterbury address is its registered office at a consulting firm, not a confirmed Bellroy working office.
+- Agpay, Appbot, Scratch and 1Breadcrumb have postal/correspondence evidence that must not be mislabelled as working offices.
+- AMLab has a head office and a separate R&D facility. Preserve both as separate location candidates.
+- 1receipt has a CBD hub and a separate service address.
+- CoraMetix's official website lists Unit 3/4 Gould Street, Osborne Park WA 6017.
+- Mark My Words' "700 Connect" wording is incomplete; do not silently convert it to a full street address.
+- Resolve the noted conflicts for NextAero, Traild, Zerocap, Bae Juice, Nebula Health, Smileyscope, Tixel and Capability X.
+- Historical Cortical Labs evidence needs a current check.
+- Bobbleware's third-party address needs confirmation; retailers selling its products are not its headquarters.
+- All unknown streets remain unknown. Do not invent street addresses, floors, postcodes or coordinates.
+
+3. VERIFY SYDNEY AND OTHER NEW CANDIDATES
+For each candidate selected for publication, verify company identity, official website, current operating status and city relationship. An overseas company may have a real local office; label it as an Australian office, not automatically Australian-founded or headquartered here.
+Prefer company contact/location pages and official company announcements for addresses; use directories as discovery evidence. Keep source URLs and per-field dates. Write original short company summaries from verified facts rather than copying another directory's editorial descriptions.
+Keep separate statuses for identity, location, operating status, funding and hiring. Do not copy old "Hiring (checked 13 Oct)" badges or infer active hiring from a general careers page. Funding stages, founders, employee counts and job links remain absent until supported.
+
+4. LOCATIONS AND GEOCODING
+The imported source_latitude and source_longitude are unverified source coordinates. The source_pin_flag and source_approximate fields are source metadata, not independent verification. Never copy them blindly into canonical coordinates.
+Some source records use a shared city centre or display offsets. Ignore any source ring/visual-offset logic. Do not geocode "Sydney" or "Melbourne" and label the result as a company office.
+Geocode only a sufficiently complete, current public operating address using the existing configured provider. Store the geocoder result, precision and evidence. Confirm the result matches the suburb, state and Greater Sydney/Melbourne/Perth location. Queue ambiguous matches for review. Respect coordinate order and map-provider attribution.
+Canonical coordinates stay null until approved. A record can appear in a city directory without an exact map pin. If the product supports approximate area markers, label them clearly and keep them distinct from office pins.
+Treat the source's city-only records as research leads; if company and city are subsequently verified, show them in the directory with "Exact location not published" instead of placing them at the CBD centre.
+
+Adapt the existing schema to retain: stable entity ID, canonical domain, aliases, organisation type, location relationship, address type, address text, suburb/state/postcode, coordinates, coordinate precision, evidence URLs, evidence date, checked date, independent field verification statuses, and review notes. Keep implementation metadata out of the normal visitor interface.
+
+5. ORIGINAL MAP DESIGN
+Take inspiration from the reference's discoverability and useful density. Create an original Still Early interface; do not copy its source code, artwork or exact composition.
+Keep a bright white base, near-black typography, subtle borders and restrained colour. Reuse approved brand tokens. If tokens are missing, propose white #FFFFFF, warm background #F7F8FA, ink #17201D, primary green #246B50, soft green #EAF2EC, and coral #EF7A61 as a small accent.
+Desktop:
+- Compact header with Still Early, city selector and Submit a company.
+- A full-height map workspace without a large marketing hero.
+- A collapsible 340–380px results panel with search, counts and compact company rows.
+- Search by name, sector and suburb. Type chips: Startups, Companies, Investors and Spaces. Add sector and location filters only where backed by data.
+- Real company logos inside clean white rounded-square pins. Use a tasteful monogram if a logo is unavailable. Obtain assets from official sources or approved existing assets; do not hotlink the reference's logo library.
+- Cluster dense areas; expand shared-building locations on selection without changing stored coordinates.
+- Clicking a company row highlights its pin; clicking a pin opens the same company detail panel.
+- Details show a short factual summary, website, sector, verified city/address where available, address status and "Suggest a correction". Never display made-up metrics.
+- Include a Map/List switch and a "Search this area" action after map movement rather than continuously jumping the list.
+- Keep map and list selection, filters and city in shareable URL state, for example /map?city=melbourne.
+Mobile:
+- Full-screen map with a compact city/search control and a draggable results/details bottom sheet.
+- Provide a usable list alternative, accessible tap targets, visible focus states, keyboard support on desktop and reduced-motion support.
+- Keep map controls and attribution visible above overlays.
+- Use clear loading, empty, error and missing-logo states.
+Keep the experience lively through responsive interactions, useful discovery and colour restraint. Avoid clutter, autoplay decoration, fake live activity and unsupported "trending" or "hiring" signals.
+
+6. QUALITY AND COMPLETION
+Use idempotent imports and conflict reporting. Re-running the import must not duplicate records or erase manual changes. Process the full provided candidate files; do not stop after a small sample or claim all records are verified if they are merely staged.
+Run checks appropriate to the repository and changes: schema/type/build checks, duplicate detection, address-status gating, coordinate validation, city filters, map/list selection and responsive behaviour. For the importer, verify idempotency and protection of manual values. Verify no city-only/postal/registered/historical/conflicting address becomes an exact office pin automatically.
+Prepare a preview or local build. Report before/after counts by city and organisation type, separating imported candidates, verified directory listings, publishable exact pins, unlocated companies, duplicates and unresolved conflicts. Count unique organisations separately from office/location rows.
+Finish with a concise summary of changes, tests, preview instructions and remaining factual gaps. If a credential or source is unavailable, complete independent work and report that specific blocker. Do not fabricate data or mark blocked work as complete.
+

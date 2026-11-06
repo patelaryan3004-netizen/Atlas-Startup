@@ -31,6 +31,13 @@ describe('what a page says about itself', () => {
     expect(f.phones).toBe(1);
   });
 
+  it('never takes an email address for a legal name, so a person\'s address is not an alias or a source\'s publisher', () => {
+    const ld = JSON.stringify({ '@type': 'Organization', name: 'Flare', legalName: 'jane.citizen@example.com' });
+    const f = extractFacts(`<html><head><script type="application/ld+json">${ld}</script></head><body><p>Flare HR Pty Ltd ABN 53 004 085 616</p></body></html>`);
+    expect(f.legalNames).toEqual(['Flare HR Pty Ltd']);
+    expect([...f.legalNames, ...f.names].some((n) => n.includes('@'))).toBe(false);
+  });
+
   it("reads Fastlane's privacy-policy sentence: the legal name, the ACN and the street address", () => {
     const f = extractFacts('<p>Possibility Studios Pty Ltd (ACN 690 900 497), trading as Fastlane, an Australian company incorporated in NSW, at 17-19 Bridge Street, Sydney NSW 2000, Australia.</p>');
     expect(f.legalNames).toEqual(['Possibility Studios Pty Ltd']);

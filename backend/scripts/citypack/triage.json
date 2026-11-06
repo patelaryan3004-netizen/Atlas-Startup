@@ -1,0 +1,17 @@
+{
+  "about": "Sydney leads kept apart and NOT read: global or listed companies that have an office here but are not Australian startups. This is about what to read first, not a verdict on the company: delete a name to have its own pages read in the next pass (`research`, then `run`). Nothing here is published.",
+  "decided_by": "owner's review request, 2026-11-05 (judgement by name: every one is a well-known global or listed company)",
+  "kept_apart": {
+    "Sydney": [
+      "Cotality (formerly CoreLogic)", "Eptura", "Netflix", "Reddit", "The Trade Desk", "ThoughtSpot", "Thredd", "TikTok", "Transmit Security", "Travelport",
+      "Trellix", "Trintech", "Twilio", "Uber", "Unily", "Unmind", "Validity", "Vectra AI", "Veeam", "Veeva Systems", "Verifone", "Verint", "Visa", "VivCourt Trading",
+      "WatchGuard Technologies", "WeTravel", "Whispli", "Wonde", "Workato", "Workyard", "Yotpo", "Zafin", "Zip Co", "Zoom",
+      "ActiveCampaign", "AdRoll", "Algolia", "Alibaba Cloud", "Anthropic", "Appier", "Arctic Wolf", "Attentive", "Awin", "BeyondTrust", "BigID", "Botify", "Certinia",
+      "Claroty", "Clio", "Cockroach Labs", "Cognition", "ComplyAdvantage", "Confluence Technologies", "Contentful", "Copado", "Couchbase", "DataRobot", "Decagon",
+      "Dext", "ElevenLabs", "Faire", "Fastly", "FICO", "Figma", "Forter", "GoCanvas (now part of Nemetschek)", "GoDaddy", "GoFundMe Pro (formerly Classy)", "Gong",
+      "Harvey", "Huntress", "Infineon Technologies", "Island", "Leah (formerly ContractPodAi)", "Lookout", "Lusha", "Megaport", "Menlo Security", "Movable Ink",
+      "Nordic Semiconductor", "NVIDIA", "Orca Security", "Riot Games", "Salt Security", "Scientific Games", "Sierra", "Sirion", "Smartlead", "Smartly", "Staffbase",
+      "TRM Labs", "Twitch", "UserTesting", "Vanta", "Vercel", "Via", "VIOOH", "Wasabi Technologies", "Zeta Global", "Zip"
+    ]
+  }
+}

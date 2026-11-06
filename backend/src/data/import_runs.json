@@ -1958,5 +1958,2640 @@
     },
     "refused": [],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261105005807109",
+    "started_at": "2026-11-05T00:56:23.412Z",
+    "finished_at": "2026-11-05T00:58:07.109Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "perth-pack-2026-11-05",
+        "leads": 19,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 19,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 95
+    },
+    "refused": [
+      {
+        "url": "https://csiro.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://csiro.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://ecu.edu.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.ventureuwa.com.au/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105005808343",
+    "started_at": "2026-11-05T00:58:08.342Z",
+    "finished_at": "2026-11-05T00:58:08.343Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "perth-pack-2026-11-05",
+        "leads": 0,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 0,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 0
+    },
+    "refused": [],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105011541249",
+    "started_at": "2026-11-05T00:58:40.989Z",
+    "finished_at": "2026-11-05T01:15:41.249Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-pack-2026-11-05",
+        "leads": 691,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 200,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 801
+    },
+    "refused": [
+      {
+        "url": "https://www.acu.edu.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://adp.com/",
+        "code": "http_error",
+        "message": "HTTP 502"
+      },
+      {
+        "url": "https://akamai.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://alcidion.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.alibabagroup.com/en-US/",
+        "code": "too_large",
+        "message": "response is 1721619 bytes, over the 1500000 limit"
+      },
+      {
+        "url": "https://arrow.net.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://articore.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://aspiresme.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://aspiresme.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://www.atlassian.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://autodesk.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://banxa.com/wp-content/uploads/2026/10/Privacy-and-Cookies-Policy-2-February-2026-Banxa-2.pdf",
+        "code": "unsupported_content",
+        "message": "unexpected content type \"application/pdf\""
+      },
+      {
+        "url": "https://banxa.com/wp-content/uploads/2026/10/Customer-Terms-and-Conditions-10-March-2026-BANXA.pdf",
+        "code": "unsupported_content",
+        "message": "unexpected content type \"application/pdf\""
+      },
+      {
+        "url": "https://bio21.unimelb.edu.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://blueyonder.com/legal/privacy-commitment",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /legal/privacy-commitment"
+      },
+      {
+        "url": "https://bookanartist.co/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://bravurasolutions.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://btcmarkets.net/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://buildxact.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://calebandbrown.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.cars24.com.au/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://carsales.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://chargefox.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://chyral.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.melbourne.vic.gov.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://cloudtechgroup.com.au/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://coinflip.tech/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://cookaborough.com.au/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://courseloop.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://cubbi.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://cubbi.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://atlas.culturalinfusion.com/",
+        "code": "http_error",
+        "message": "HTTP 406"
+      },
+      {
+        "url": "https://curaeducation.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://curaeducation.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://brandonbiocatalyst.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve brandonbiocatalyst.com"
+      },
+      {
+        "url": "https://cybercx.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve cybercx.com"
+      },
+      {
+        "url": "https://cydarm.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve cydarm.com"
+      },
+      {
+        "url": "https://cynch.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve cynch.com.au"
+      },
+      {
+        "url": "https://d2l.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve d2l.com"
+      },
+      {
+        "url": "https://dame.energy/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve dame.energy"
+      },
+      {
+        "url": "https://3ds.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve 3ds.com"
+      },
+      {
+        "url": "https://da.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve da.com.au"
+      },
+      {
+        "url": "https://databricks.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve databricks.com"
+      },
+      {
+        "url": "https://datadoghq.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve datadoghq.com"
+      },
+      {
+        "url": "https://datarock.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve datarock.com.au"
+      },
+      {
+        "url": "https://dayforce.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve dayforce.com"
+      },
+      {
+        "url": "https://deakin.edu.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve deakin.edu.au"
+      },
+      {
+        "url": "https://defendtex.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve defendtex.com"
+      },
+      {
+        "url": "https://designerjourneys.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve designerjourneys.com"
+      },
+      {
+        "url": "https://detexian.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve detexian.com"
+      },
+      {
+        "url": "https://detrack.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve detrack.com"
+      },
+      {
+        "url": "https://dexora.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve dexora.ai"
+      },
+      {
+        "url": "https://diag-nose.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve diag-nose.io"
+      },
+      {
+        "url": "https://digitalrealty.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve digitalrealty.com"
+      },
+      {
+        "url": "https://disco.ac/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve disco.ac"
+      },
+      {
+        "url": "https://displaysweet.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve displaysweet.com"
+      },
+      {
+        "url": "https://docker.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve docker.com"
+      },
+      {
+        "url": "https://docusign.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve docusign.com"
+      },
+      {
+        "url": "https://downforce.tech/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve downforce.tech"
+      },
+      {
+        "url": "https://draftable.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve draftable.com"
+      },
+      {
+        "url": "https://drivemate.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve drivemate.au"
+      },
+      {
+        "url": "https://drone-hand.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve drone-hand.com"
+      },
+      {
+        "url": "https://draeger.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve draeger.com"
+      },
+      {
+        "url": "https://dubber.net/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve dubber.net"
+      },
+      {
+        "url": "https://dynatrace.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve dynatrace.com"
+      },
+      {
+        "url": "https://eibc.net.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve eibc.net.au"
+      },
+      {
+        "url": "https://elbaite.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 502)"
+      },
+      {
+        "url": "https://www.elenium.com/privacy-policy/",
+        "code": "too_many_redirects",
+        "message": "more than 3 redirects"
+      },
+      {
+        "url": "https://energylocals.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://help.elements.envato.com/hc/en-us/articles/360000628966-License-Terms",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.epicor.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105013338188",
+    "started_at": "2026-11-05T01:15:51.504Z",
+    "finished_at": "2026-11-05T01:33:38.188Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-pack-2026-11-05",
+        "leads": 491,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 200,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 960
+    },
+    "refused": [
+      {
+        "url": "https://equinix.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.ericsson.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.estatexchange.com.au/legal-centre",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /legal-centre"
+      },
+      {
+        "url": "https://app.eyeonic.com/privacy_policy",
+        "code": "unsupported_content",
+        "message": "unexpected content type \"application/pdf\""
+      },
+      {
+        "url": "https://app.eyeonic.com/user_manual",
+        "code": "unsupported_content",
+        "message": "unexpected content type \"application/pdf\""
+      },
+      {
+        "url": "https://flintworks.co/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://flintworks.co/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://flowstate.zone/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://www.foodifox.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://fortinet.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://fseh.org.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://fred.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://fresho.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.freshworks.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://generationai.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://gleam.io/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://gocardless.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.groupon.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://gydersurgical.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://haemograph.com.au/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://www.hellofresh.de/contact-us",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.hpe.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://hpe.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://www.ibm.com/au-*",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://ifs.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://instacart.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://iq-energy.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 500)"
+      },
+      {
+        "url": "https://www.judo.bank/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://kalihealthcare.com/",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://www.keysight.com/us/en/home.html",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://kogancorporate.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://latrobe.edu.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://lenovo.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://luckyrobots.com/cdn-cgi/l/email-protection",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://playkinderworld.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://lumination.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lumination.com.au"
+      },
+      {
+        "url": "https://luxuryescapes.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.luyten3d.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://makercommunity.org.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://mesoblast.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://go.microsoft.com/fwlink/?LinkID=206977",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /fwlink/"
+      },
+      {
+        "url": "https://monash.edu/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.motorolasolutions.com/en_xa.html?geo=redirect",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.myvitalsvault.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://netapp.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.netskope.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://nexobot.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nexobot.com.au"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105021302020",
+    "started_at": "2026-11-05T01:33:48.725Z",
+    "finished_at": "2026-11-05T02:13:02.020Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-pack-2026-11-05",
+        "leads": 291,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 200,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 873
+    },
+    "refused": [
+      {
+        "url": "https://nokia.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://omniaintranet.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://theaccessgroup.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://optainhealth.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://oracle.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.packform.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.pingidentity.com/en/lp/ac/pinghelix.html",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.plexus.co/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://legal.podium.com/?_gl=1*1h75xqj*_gcl_aw*R0NMLjE3NjQxOTIxODAuQ2p3S0NBaUE1NXJKQmhCeUVpd0FGa1kxUU13ZEpaREdIQlVoaGdhUEM4NUNxX2pmM3RKZWV4aXVvajBIY21Va2pXdWxKYzdXMFBzNmtCb0M4TFVRQXZEX0J3RQ..*_gcl_au*MTc4NjgzMzg5OS4xNzYzNDAwMTI5*_ga*MjAwNzk4NzExMC4xNzU1ODAyOTM0*_ga_WKYNN4EZQT*czE3NjQ5NzI2MTgkbzExOCRnMSR0MTc2NDk3Mjg2NSRqNTkkbDAkaDA.&_ga=2.14642034.452699395.1764966989-2007987110.1755802934&_gac=1.45924822.1764192180.CjwKCAiA55rJBhByEiwAFkY1QMwdJZDGHBUhhgaPC85Cq_jf3tJeexiuoj0HcmUkjWulJc7W0Ps6kBoC8LUQAvD_BwE",
+        "code": "too_large",
+        "message": "response is 1546441 bytes, over the 1500000 limit"
+      },
+      {
+        "url": "https://legal.podium.com/",
+        "code": "too_large",
+        "message": "response is 1546441 bytes, over the 1500000 limit"
+      },
+      {
+        "url": "https://ptc.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://remitter.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://rendr.zendesk.com/hc/en-au",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.revolut.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://rewardgateway.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 503)"
+      },
+      {
+        "url": "https://riparide.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://riskified.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.rocketseeder.com/privacypolicy",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.rocketseeder.com/policies",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.rome2rio.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://rubrik.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://sap.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://sas.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://servicenow.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://spee3d.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://spee3d.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://splose.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://splose.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://sportsbuddy.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://sportsbuddy.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://squiz.net/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://squiz.net/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://ssctech.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://ssctech.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://starburst.io/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://starburst.io/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://startnorth.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://startnorth.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://startupgrind.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://startupgrind.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://startupvalley.club/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://startupvalley.club/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://stellarprogram.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stellarprogram.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stileeducation.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stileeducation.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stockx.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stockx.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stoneandchalk.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stoneandchalk.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://storabelle.eu/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://storabelle.eu/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://storyboxhub.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://storyboxhub.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://streamwiseai.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://streamwiseai.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://strengthbynumbers.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://strengthbynumbers.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stylesourcebook.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://stylesourcebook.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://subble.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://subble.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://getsubmarine.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://getsubmarine.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://subtrux.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://subtrux.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://sunwiz.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://sunwiz.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://superapi.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://superapi.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://www.suppfusion.com/privacy/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /privacy/"
+      },
+      {
+        "url": "https://www.suppfusion.com/terms/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /terms/"
+      },
+      {
+        "url": "https://swinburne.edu.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://swinburne.edu.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://symexlabs.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://symexlabs.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://takumiengineering.com.au/cdn-cgi/l/email-protection",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://talathrive.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://talathrive.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://talkiplay.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://talkiplay.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://tanggram.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://tanggram.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://tankstreamlabs.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://tankstreamlabs.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://teachersbuddy.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://teachersbuddy.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://technology1.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://technology1.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://telecare.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://telecare.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://teletracnavman.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://teletracnavman.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://telixpharma.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://telixpharma.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://telstra.com.au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://telstra.com.au/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://temporal.io/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://temporal.io/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://tenable.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://tenable.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://termina.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://termina.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://circlecowork.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://circlecowork.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105023841543",
+    "started_at": "2026-11-05T02:31:14.123Z",
+    "finished_at": "2026-11-05T02:38:41.543Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-pack-2026-11-05",
+        "leads": 90,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 90,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 449
+    },
+    "refused": [
+      {
+        "url": "https://tiemelbourne.org/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://trustpilot.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://uamtec.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve uamtec.com"
+      },
+      {
+        "url": "https://ulleo.com/privacy-policy/?hsLang=en",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://ulleo.com/terms/?hsLang=en",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://webbedsgroup.com/terms-and-conditions/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /terms-and-conditions/"
+      },
+      {
+        "url": "https://weteachme.com/pages/privacy-policy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /pages/privacy-policy"
+      },
+      {
+        "url": "https://weteachme.com/pages/terms-and-conditions",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /pages/terms-and-conditions"
+      },
+      {
+        "url": "https://wework.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://wolterskluwer.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://workiva.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://xysense.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://toogoodtogo.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://udemy.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://ukg.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://pos.toasttab.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://gotracksuit.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://legal.verkada.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://whatnot.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105023858439",
+    "started_at": "2026-11-05T02:38:58.439Z",
+    "finished_at": "2026-11-05T02:38:58.439Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "melbourne-pack-2026-11-05",
+        "leads": 0,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 0,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 0
+    },
+    "refused": [],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105031206097",
+    "started_at": "2026-11-05T02:51:16.659Z",
+    "finished_at": "2026-11-05T03:12:06.097Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "sydney-pack-2026-11-05",
+        "leads": 945,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 200,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 1064
+    },
+    "refused": [
+      {
+        "url": "https://23strands.com/contact-us",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.abilitymade.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://accedo.tv/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://adinstruments.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://aerologix.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.allg.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.amd.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://amd.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://audinate.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://bearhug.au/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://blackhawknetwork.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://blis.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.box.com/privacyineurope",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.box.com/legal",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://brainfishai.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://briefcase.au/",
+        "code": "rate_limited",
+        "message": "HTTP 503: briefcase.au asked us to slow down"
+      },
+      {
+        "url": "https://www.canon.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.carclarity.com.au/privacy-policy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /privacy-policy"
+      },
+      {
+        "url": "https://www.carclarity.com.au/terms-conditions",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /terms-conditions"
+      },
+      {
+        "url": "https://carta.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://christiespaces.com.au/terms-conditions/",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://citadelsecurities.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://clarivate.com/privacy-center/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://clarivate.com/intellectual-property/patent-services/paralegal-services/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.cloudera.com/legal/policies.html",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /legal/policies.html"
+      },
+      {
+        "url": "https://www.cloudera.com/legal/terms-and-conditions.html",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /legal/terms-and-conditions.html"
+      },
+      {
+        "url": "https://coupa.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.creatio.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://crimsoneducation.org/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      },
+      {
+        "url": "https://www.darktrace.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://domain.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://doordash.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.downsizer.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://drata.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.ebay.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.ebsco.com/api/content/owf/187036204/full-text",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /api/content/owf/187036204/full-text"
+      },
+      {
+        "url": "https://echoiq.ai/hubfs/_assets/files/Privacy-Policy-Echo-IQ-2026.pdf?hsLang=en",
+        "code": "unsupported_content",
+        "message": "unexpected content type \"application/pdf\""
+      },
+      {
+        "url": "https://www.ellucian.com/",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://ellucian.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://www.ensurtek.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://escavox.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://esker.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://esker.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://everyoungai.com/",
+        "code": "too_many_redirects",
+        "message": "more than 3 redirects"
+      },
+      {
+        "url": "https://eyesofai.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 429)"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105033653564",
+    "started_at": "2026-11-05T03:12:47.289Z",
+    "finished_at": "2026-11-05T03:36:53.564Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "sydney-pack-2026-11-05",
+        "leads": 745,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 198,
+      "attached": 1,
+      "seen": 1,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 1046
+    },
+    "refused": [
+      {
+        "url": "https://finstro.com/en-au/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://finstro.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://franklinwh.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve franklinwh.com"
+      },
+      {
+        "url": "https://www.guardhousehq.com/subscription-agreement",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://hipages.com.au/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://www-redirect.ext.hp.com/",
+        "code": "robots_unavailable",
+        "message": "response is larger than 500000 bytes"
+      },
+      {
+        "url": "https://hub24.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://hub24.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://ibsplc.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://imc.com/",
+        "code": "robots_unavailable",
+        "message": "response is larger than 500000 bytes"
+      },
+      {
+        "url": "https://infotrack.com.au/",
+        "code": "robots_unavailable",
+        "message": "response is larger than 500000 bytes"
+      },
+      {
+        "url": "https://inlogik.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.intapp.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.intercom.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.intuit.com/legal/terms/en-us/website/",
+        "code": "rate_limited",
+        "message": "HTTP 429: www.intuit.com asked us to slow down"
+      },
+      {
+        "url": "https://www.invertigro.com/cdn-cgi/l/email-protection",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://www.investsmart.com.au/terms-and-conditions",
+        "code": "unsupported_content",
+        "message": "unexpected content type \"application/pdf\""
+      },
+      {
+        "url": "https://jaggaer.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://joltcharge.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://jrni.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.kayak.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://kinaltek.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://konami.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://konami.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://kpay-group.com/",
+        "code": "too_many_redirects",
+        "message": "more than 3 redirects"
+      },
+      {
+        "url": "https://mastercard.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://mathworks.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://mediaocean.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://mediaocean.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://miro.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://www.morningstar.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://www.nasdaq.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://nasdaq.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://nayax.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://ncino.com/",
+        "code": "rate_limited",
+        "message": "HTTP 429: ncino.com asked us to slow down"
+      },
+      {
+        "url": "https://nextdoor.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://nokia.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105044742806",
+    "started_at": "2026-11-05T03:37:43.660Z",
+    "finished_at": "2026-11-05T04:47:42.806Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "sydney-pack-2026-11-05",
+        "leads": 545,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 169,
+      "attached": 31,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 744
+    },
+    "refused": [
+      {
+        "url": "https://www.odessainc.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://odessainc.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://oracle.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://painchek.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://panasonic.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.peblpay.com.au/solutions/pebl-for-teams",
+        "code": "http_error",
+        "message": "HTTP 500"
+      },
+      {
+        "url": "https://app.personifycare.com/common/terms_of_service",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /common/terms_of_service"
+      },
+      {
+        "url": "https://pinterest.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://ptc.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://resmed.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://rightpaw.com.au/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://www.rippling.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://robodino.org/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://rubrik.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://spglobal.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://sap.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://sas.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://scribolearning.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://scribolearning.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://sdipinnovations.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://servicenow.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://sitehive.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.siteminder.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://skedgo.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://smarttokenlabs.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve smarttokenlabs.com"
+      },
+      {
+        "url": "https://smgstudio.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.solarwinds.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://sony.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://splend.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://splend.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://squadify.net/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve squadify.net"
+      },
+      {
+        "url": "https://squiz.net/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.st.com/robots.txt",
+        "code": "timeout",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://st.com/",
+        "code": "robots_unavailable",
+        "message": "The operation was aborted due to timeout"
+      },
+      {
+        "url": "https://strategy.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve strategy.com"
+      },
+      {
+        "url": "https://stropro.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve stropro.com"
+      },
+      {
+        "url": "https://studiosity.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve studiosity.com"
+      },
+      {
+        "url": "https://stylearcade.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve stylearcade.com"
+      },
+      {
+        "url": "https://sugarai.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sugarai.com"
+      },
+      {
+        "url": "https://sumup.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sumup.com"
+      },
+      {
+        "url": "https://superhero.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve superhero.com.au"
+      },
+      {
+        "url": "https://suse.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve suse.com"
+      },
+      {
+        "url": "https://sig.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sig.com"
+      },
+      {
+        "url": "https://switchboardcloud.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve switchboardcloud.com"
+      },
+      {
+        "url": "https://sydney.edu.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sydney.edu.au"
+      },
+      {
+        "url": "https://synctech.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve synctech.io"
+      },
+      {
+        "url": "https://synthetix.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve synthetix.io"
+      },
+      {
+        "url": "https://taboola.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve taboola.com"
+      },
+      {
+        "url": "https://tactiq.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tactiq.io"
+      },
+      {
+        "url": "https://tanium.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tanium.com"
+      },
+      {
+        "url": "https://tealium.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tealium.com"
+      },
+      {
+        "url": "https://teamtailor.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve teamtailor.com"
+      },
+      {
+        "url": "https://templeandwebster.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve templeandwebster.com.au"
+      },
+      {
+        "url": "https://tendertrace.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tendertrace.com"
+      },
+      {
+        "url": "https://teradata.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve teradata.com"
+      },
+      {
+        "url": "https://tetratherix.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve tetratherix.com"
+      }
+    ],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261105115559707",
+    "started_at": "2026-11-05T08:40:47.805Z",
+    "finished_at": "2026-11-05T11:55:59.707Z",
+    "trigger": "cli",
+    "by": "owner (via Claude)",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "sydney-pack-2026-11-05",
+        "leads": 217,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 200,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 724
+    },
+    "refused": [
+      {
+        "url": "https://trovio.io/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://trovio.io/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://truescope.com/privacy-policy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /privacy-policy"
+      },
+      {
+        "url": "https://truescope.com/terms-of-use",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /terms-of-use"
+      },
+      {
+        "url": "https://voqo.ai/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://voqo.ai/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://letsweel.com/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://workspace365.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://workspace365.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://yarpa.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://classbento.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://crestrobotics.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://elker.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://elker.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://frontya.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://frontya.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://happly.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://ratematch.ai/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://ratematch.ai/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://www.serviceseeking.com.au/",
+        "code": "access_controlled",
+        "message": "HTTP 403: access-controlled, so not retried or worked around"
+      },
+      {
+        "url": "https://valetudomedtech.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://www.vesiculate.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://connectonion.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://connectonion.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://docs.earlytrade.com/legal/na/privacy/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /legal/na/privacy/"
+      },
+      {
+        "url": "https://docs.earlytrade.com/legal/na/supplier-terms/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /legal/na/supplier-terms/"
+      },
+      {
+        "url": "https://www.brownee.io/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://clipflow.co/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://clipflow.co/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://copygeek.live/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve copygeek.live"
+      },
+      {
+        "url": "https://about.everclime.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://about.everclime.com/legal/privacy-policy",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://about.everclime.com/legal/terms-and-conditions",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://illuvium.io/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://illuvium.io/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://infinex.xyz/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://infinex.xyz/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://invisiontactical.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://krakencoding.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://levur.com.au/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://levur.com.au/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://liftango.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve liftango.com"
+      },
+      {
+        "url": "https://liquiditycube.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve liquiditycube.com"
+      },
+      {
+        "url": "https://loambio.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve loambio.com"
+      },
+      {
+        "url": "https://lodgicl.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lodgicl.com"
+      },
+      {
+        "url": "https://lusiorehab.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve lusiorehab.com"
+      },
+      {
+        "url": "https://medowhealth.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve medowhealth.ai"
+      },
+      {
+        "url": "https://merchmix.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve merchmix.co"
+      },
+      {
+        "url": "https://microcavitics.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve microcavitics.com"
+      },
+      {
+        "url": "https://motionlogic.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve motionlogic.io"
+      },
+      {
+        "url": "https://muja.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve muja.ai"
+      },
+      {
+        "url": "https://nanosoils.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nanosoils.com"
+      },
+      {
+        "url": "https://neogenixbiosciences.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve neogenixbiosciences.com"
+      },
+      {
+        "url": "https://noizend.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve noizend.com"
+      },
+      {
+        "url": "https://novade.net/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve novade.net"
+      },
+      {
+        "url": "https://nujsuper.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nujsuper.com"
+      },
+      {
+        "url": "https://nullify.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve nullify.ai"
+      },
+      {
+        "url": "https://oscorpenergy.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve oscorpenergy.com.au"
+      },
+      {
+        "url": "https://ourfit.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve ourfit.app"
+      },
+      {
+        "url": "https://p2agentx.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve p2agentx.com"
+      },
+      {
+        "url": "https://peakmedical.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve peakmedical.ai"
+      },
+      {
+        "url": "https://perlstreet.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve perlstreet.com"
+      },
+      {
+        "url": "https://portant.co/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve portant.co"
+      },
+      {
+        "url": "https://preview.health/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve preview.health"
+      },
+      {
+        "url": "https://profitpeak.io/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve profitpeak.io"
+      },
+      {
+        "url": "https://quantum-australia.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve quantum-australia.com"
+      },
+      {
+        "url": "https://redtailtech.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve redtailtech.ai"
+      },
+      {
+        "url": "https://refilled.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve refilled.com.au"
+      },
+      {
+        "url": "https://revizto.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve revizto.com"
+      },
+      {
+        "url": "https://rewise.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rewise.app"
+      },
+      {
+        "url": "https://risechain.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve risechain.com"
+      },
+      {
+        "url": "https://rogo.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rogo.com"
+      },
+      {
+        "url": "https://rosellabrokerage.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rosellabrokerage.com"
+      },
+      {
+        "url": "https://rtopilot.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve rtopilot.com.au"
+      },
+      {
+        "url": "https://sahha.ai/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sahha.ai"
+      },
+      {
+        "url": "https://sauce.app/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sauce.app"
+      },
+      {
+        "url": "https://seaflight.tech/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve seaflight.tech"
+      },
+      {
+        "url": "https://shipeezi.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve shipeezi.com"
+      },
+      {
+        "url": "https://skilledcompanions.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve skilledcompanions.com"
+      },
+      {
+        "url": "https://spectrum.life/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve spectrum.life"
+      },
+      {
+        "url": "https://spott.chat/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve spott.chat"
+      },
+      {
+        "url": "https://squidly.com.au/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve squidly.com.au"
+      },
+      {
+        "url": "https://sumclimate.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve sumclimate.com"
+      },
+      {
+        "url": "https://suped.com/robots.txt",
+        "code": "dns_failed",
+        "message": "could not resolve suped.com"
+      }
+    ],
+    "acknowledged": []
   }
 ]

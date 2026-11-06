@@ -1,0 +1,2847 @@
+{
+ "city": "Perth",
+ "staged_from": "perth-worldtechmap-candidates.json",
+ "retrieved_on": "2026-11-05",
+ "publication_status": "research_staging_only",
+ "rows": [
+  {
+   "entity_id": "cp-perth-acquire",
+   "organisation_key": "domain:acquire.com.au",
+   "source_record_id": "acquire",
+   "city": "Perth",
+   "name": "acQuire",
+   "canonical_domain": "acquire.com.au",
+   "website_candidate": "https://www.acquire.com.au",
+   "organisation_type": {
+    "candidate": "company",
+    "basis": "directory_category",
+    "source_category": "companies"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 4, The Atrium, 168 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.95365,
+     "longitude": 115.854801,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/acquire",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "review_ambiguous_name",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-calreply-2",
+     "name": "CalReply (Acquired)"
+    },
+    "outcome": "POSSIBLE_MATCH",
+    "reasons": [
+     "a very similar name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-advanced-navigation",
+   "organisation_key": "domain:advancednavigation.com",
+   "source_record_id": "advanced-navigation",
+   "city": "Perth",
+   "name": "Advanced Navigation",
+   "canonical_domain": "advancednavigation.com",
+   "website_candidate": "https://www.advancednavigation.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "245 Balcatta Road, Balcatta WA 6021",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Balcatta",
+    "postcode_text": "WA 6021",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.859615,
+     "longitude": 115.808929,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/advanced-navigation",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "advanced-navigation",
+     "name": "Advanced Navigation"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-adveritas",
+   "organisation_key": "domain:adveritas.com.au",
+   "source_record_id": "adveritas",
+   "city": "Perth",
+   "name": "Adveritas",
+   "canonical_domain": "adveritas.com.au",
+   "website_candidate": "https://www.adveritas.com.au",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Suite 10, 16 Brodie Hall Drive, Bentley WA 6102",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Bentley",
+    "postcode_text": "WA 6102",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.995169,
+     "longitude": 115.891891,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/adveritas",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "adveritas",
+     "name": "Adveritas"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-aurora-labs",
+   "organisation_key": "domain:auroralabs3d.com",
+   "source_record_id": "aurora-labs",
+   "city": "Perth",
+   "name": "Aurora Labs",
+   "canonical_domain": "auroralabs3d.com",
+   "website_candidate": "https://www.auroralabs3d.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "41-43 Wittenberg Drive, Canning Vale WA 6155",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Canning Vale",
+    "postcode_text": "WA 6155",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -32.067105,
+     "longitude": 115.925219,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/aurora-labs",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "distinct_confirmed",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-auror",
+     "name": "Auror"
+    },
+    "outcome": "POSSIBLE_MATCH",
+    "reasons": [
+     "one name contains the other",
+     "reviewed 2026-11-05: different name (Aurora Labs / Auror) and different website (auroralabs3d.com / auror.co): only similar-looking"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-betterlabs",
+   "organisation_key": "domain:betterlabs.com.au",
+   "source_record_id": "betterlabs",
+   "city": "Perth",
+   "name": "BetterLabs",
+   "canonical_domain": "betterlabs.com.au",
+   "website_candidate": "https://betterlabs.com.au",
+   "organisation_type": {
+    "candidate": "investor",
+    "basis": "directory_category",
+    "source_category": "vcs"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "city_only",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -31.955897,
+     "longitude": 115.860578,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/betterlabs",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "new",
+    "target": null,
+    "outcome": "NEW_COMPANY",
+    "reasons": []
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-clearvue-pv",
+   "organisation_key": "domain:clearvuepv.com",
+   "source_record_id": "clearvue-pv",
+   "city": "Perth",
+   "name": "ClearVue PV",
+   "canonical_domain": "clearvuepv.com",
+   "website_candidate": "https://www.clearvuepv.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Suite 9, 567 Newcastle Street, West Perth WA 6005",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "West Perth",
+    "postcode_text": "WA 6005",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.941919,
+     "longitude": 115.851703,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/clearvue-pv",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-clearvue-pv",
+     "name": "ClearVue PV"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-core-innovation-hub",
+   "organisation_key": "domain:spacecubed.com",
+   "source_record_id": "core-innovation-hub",
+   "city": "Perth",
+   "name": "CORE Innovation Hub",
+   "canonical_domain": "spacecubed.com",
+   "website_candidate": "https://spacecubed.com/locations/perth",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "191 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954006,
+     "longitude": 115.853156,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/core-innovation-hub",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-core-innovation-hub",
+     "name": "CORE Innovation Hub"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-coreplan",
+   "organisation_key": "domain:coreplan.io",
+   "source_record_id": "coreplan",
+   "city": "Perth",
+   "name": "CorePlan",
+   "canonical_domain": "coreplan.io",
+   "website_candidate": "https://coreplan.io",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 2, 108 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954441,
+     "longitude": 115.856832,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/coreplan",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-coreplan",
+     "name": "CorePlan"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "coreplan",
+    "kind": "review",
+    "reason": "its own pages give no address or statement placing it in Greater Perth",
+    "group": "perth_evidence",
+    "relationship": "perth_location_reported",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-coursebox",
+   "organisation_key": "domain:coursebox.ai",
+   "source_record_id": "coursebox",
+   "city": "Perth",
+   "name": "Coursebox",
+   "canonical_domain": "coursebox.ai",
+   "website_candidate": "https://www.coursebox.ai",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "191 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954006,
+     "longitude": 115.853156,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/coursebox",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-coursebox",
+     "name": "Coursebox"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "coursebox",
+    "kind": "review",
+    "reason": "its own pages give no address or statement placing it in Greater Perth",
+    "group": "perth_directory_listing",
+    "relationship": "directory_lists_perth",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-csiro-technology-formerly-data61",
+   "organisation_key": "domain:csiro.au",
+   "source_record_id": "csiro-technology-formerly-data61",
+   "city": "Perth",
+   "name": "CSIRO Technology (formerly Data61)",
+   "canonical_domain": "csiro.au",
+   "website_candidate": "https://www.csiro.au",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [
+    "sydney",
+    "melbourne"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "26 Dick Perry Avenue, Kensington WA 6151",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Kensington",
+    "postcode_text": "WA 6151",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.994148,
+     "longitude": 115.886167,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/csiro-technology-formerly-data61",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-csiro-technology",
+     "name": "CSIRO Technology"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-curtin-accelerate-and-ignition",
+   "organisation_key": "domain:curtin.edu.au",
+   "source_record_id": "curtin-accelerate-and-ignition",
+   "city": "Perth",
+   "name": "Curtin Accelerate and Ignition",
+   "canonical_domain": "curtin.edu.au",
+   "website_candidate": "https://www.curtin.edu.au/engage/entrepreneurs/accelerate/",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "suburb",
+    "suburb": "Bentley",
+    "postcode_text": "WA 6102",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -32.00573,
+     "longitude": 115.892886,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/curtin-accelerate-and-ignition",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-curtin-accelerate-and-ignition",
+     "name": "Curtin Accelerate and Ignition"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-department-of-energy-and-economic-diversification-formerly-jtsi",
+   "organisation_key": "domain:wa.gov.au",
+   "source_record_id": "department-of-energy-and-economic-diversification-formerly-jtsi",
+   "city": "Perth",
+   "name": "Department of Energy and Economic Diversification (formerly JTSI)",
+   "canonical_domain": "wa.gov.au",
+   "website_candidate": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 11, 1 William Street, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955627,
+     "longitude": 115.855749,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/department-of-energy-and-economic-diversification-formerly-jtsi",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-department-of-energy-and-economic-diversification",
+     "name": "Department of Energy and Economic Diversification"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-dug-technology",
+   "organisation_key": "domain:dug.com",
+   "source_record_id": "dug-technology",
+   "city": "Perth",
+   "name": "DUG Technology",
+   "canonical_domain": "dug.com",
+   "website_candidate": "https://dug.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "76 Kings Park Road, West Perth WA 6005",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "West Perth",
+    "postcode_text": "WA 6005",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.950392,
+     "longitude": 115.834342,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/dug-technology",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "distinct_confirmed",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-hud",
+     "name": "Hud"
+    },
+    "outcome": "POSSIBLE_MATCH",
+    "reasons": [
+     "a very similar name",
+     "reviewed 2026-11-05: different name (DUG Technology / Hud) and different website (dug.com / hud.io): only similar-looking"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "dugtechnology",
+    "kind": "established",
+    "reason": "established, listed or acquired: kept apart from the early-stage startups",
+    "group": "established_or_listed_tech",
+    "relationship": "perth_listing_or_business_presence",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-ecu-city-edith-cowan-university",
+   "organisation_key": "domain:ecu.edu.au",
+   "source_record_id": "ecu-city-edith-cowan-university",
+   "city": "Perth",
+   "name": "ECU City (Edith Cowan University)",
+   "canonical_domain": "ecu.edu.au",
+   "website_candidate": "https://www.ecu.edu.au/about-ecu/our-campuses/ecu-city-campus",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "500 Wellington Street, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.950222,
+     "longitude": 115.85721,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/ecu-city-edith-cowan-university",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-ecu-city",
+     "name": "ECU City"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-fastbrick-fbr",
+   "organisation_key": "domain:fbr.com.au",
+   "source_record_id": "fastbrick-fbr",
+   "city": "Perth",
+   "name": "Fastbrick (FBR)",
+   "canonical_domain": "fbr.com.au",
+   "website_candidate": "https://www.fbr.com.au",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "88 Sultana Road West, High Wycombe WA 6057",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "High Wycombe",
+    "postcode_text": "WA 6057",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.956251,
+     "longitude": 115.99577,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/fastbrick-fbr",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "fastbrick",
+     "name": "Fastbrick"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-geomoby",
+   "organisation_key": "domain:geomoby.com",
+   "source_record_id": "geomoby",
+   "city": "Perth",
+   "name": "GeoMoby",
+   "canonical_domain": "geomoby.com",
+   "website_candidate": "https://www.geomoby.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "L1, 1109 Hay Street, West Perth WA 6005",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "West Perth",
+    "postcode_text": "WA 6005",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.950303,
+     "longitude": 115.845906,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/geomoby",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "geomoby",
+     "name": "GeoMoby"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "geomoby",
+    "kind": "add",
+    "reason": "published as geomoby",
+    "group": "perth_evidence",
+    "relationship": "perth_location_reported",
+    "published": "geomoby",
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-gridcog",
+   "organisation_key": "domain:gridcog.com",
+   "source_record_id": "gridcog",
+   "city": "Perth",
+   "name": "Gridcog",
+   "canonical_domain": "gridcog.com",
+   "website_candidate": "https://www.gridcog.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [
+    "melbourne"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "city_only",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -31.955897,
+     "longitude": 115.860578,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/gridcog",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-gridcog",
+     "name": "Gridcog"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "gridcog",
+    "kind": "review",
+    "reason": "Investor announcement and its research row say its headquarters are in the UK with a Perth office: the directory lists Australian companies, so a person decides whether to list a Perth office",
+    "group": "perth_evidence",
+    "relationship": "perth_office_uk_headquarters",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-hazer-group",
+   "organisation_key": "domain:hazergroup.com.au",
+   "source_record_id": "hazer-group",
+   "city": "Perth",
+   "name": "Hazer Group",
+   "canonical_domain": "hazergroup.com.au",
+   "website_candidate": "https://www.hazergroup.com.au",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 9, 99 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955187,
+     "longitude": 115.857262,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/hazer-group",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-hazer-group",
+     "name": "Hazer Group"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-hola-health",
+   "organisation_key": "domain:hola.health",
+   "source_record_id": "hola-health",
+   "city": "Perth",
+   "name": "Hola Health",
+   "canonical_domain": "hola.health",
+   "website_candidate": "https://hola.health",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "9 The Esplanade, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.956977,
+     "longitude": 115.857568,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/hola-health",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "hola-health",
+     "name": "Hola Health"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "holahealth",
+    "kind": "add",
+    "reason": "published as hola-health",
+    "group": "perth_evidence",
+    "relationship": "perth_location_reported",
+    "published": "hola-health",
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-icetana-ai",
+   "organisation_key": "domain:icetana.ai",
+   "source_record_id": "icetana-ai",
+   "city": "Perth",
+   "name": "icetana AI",
+   "canonical_domain": "icetana.ai",
+   "website_candidate": "https://www.icetana.ai",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 36, 152 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954094,
+     "longitude": 115.855821,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/icetana-ai",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "icetana-ai",
+     "name": "icetana AI"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-innovation-central-perth-curtin",
+   "organisation_key": "domain:curtin.edu.au",
+   "source_record_id": "innovation-central-perth-curtin",
+   "city": "Perth",
+   "name": "Innovation Central Perth (Curtin)",
+   "canonical_domain": "curtin.edu.au",
+   "website_candidate": "https://www.curtin.edu.au/research/work-with-us/innovation-central-perth/",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "suburb",
+    "suburb": "Bentley",
+    "postcode_text": "WA 6102",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -32.00573,
+     "longitude": 115.892886,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/innovation-central-perth-curtin",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-curtin-accelerate-and-ignition",
+     "name": "Curtin Accelerate and Ignition"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": "curtin-accelerate-and-ignition",
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)",
+    "the same organisation is listed twice in this city (see curtin-accelerate-and-ignition)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-moodle",
+   "organisation_key": "domain:moodle.com",
+   "source_record_id": "moodle",
+   "city": "Perth",
+   "name": "Moodle",
+   "canonical_domain": "moodle.com",
+   "website_candidate": "https://moodle.com",
+   "organisation_type": {
+    "candidate": "company",
+    "basis": "directory_category",
+    "source_category": "companies"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "20 Kings Park Road, West Perth WA 6005",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "West Perth",
+    "postcode_text": "WA 6005",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.952304,
+     "longitude": 115.840057,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/moodle",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "moodle",
+     "name": "Moodle"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "moodle",
+    "kind": "established",
+    "reason": "established, listed or acquired: kept apart from the early-stage startups",
+    "group": "established_or_listed_tech",
+    "relationship": "perth_listing_or_business_presence",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-nanoveu",
+   "organisation_key": "domain:nanoveu.com",
+   "source_record_id": "nanoveu",
+   "city": "Perth",
+   "name": "Nanoveu",
+   "canonical_domain": "nanoveu.com",
+   "website_candidate": "https://nanoveu.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 45, 108 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954441,
+     "longitude": 115.856832,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/nanoveu",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "nanoveu",
+     "name": "Nanoveu"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-perth-angels",
+   "organisation_key": "domain:perthangels.com",
+   "source_record_id": "perth-angels",
+   "city": "Perth",
+   "name": "Perth Angels",
+   "canonical_domain": "perthangels.com",
+   "website_candidate": "https://perthangels.com",
+   "organisation_type": {
+    "candidate": "investor",
+    "basis": "directory_category",
+    "source_category": "vcs"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "suburb",
+    "suburb": "Melville",
+    "postcode_text": "WA 6156",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -32.040477,
+     "longitude": 115.801298,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/perth-angels",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "new",
+    "target": null,
+    "outcome": "NEW_COMPANY",
+    "reasons": []
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-picturewealth",
+   "organisation_key": "domain:picturewealth.com",
+   "source_record_id": "picturewealth",
+   "city": "Perth",
+   "name": "PictureWealth",
+   "canonical_domain": "picturewealth.com",
+   "website_candidate": "https://picturewealth.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 3, 556 Wellington Street, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.949955,
+     "longitude": 115.855711,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/picturewealth",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-picturewealth",
+     "name": "PictureWealth"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-plus-eight-accelerator-spacecubed",
+   "organisation_key": "domain:spacecubed.com",
+   "source_record_id": "plus-eight-accelerator-spacecubed",
+   "city": "Perth",
+   "name": "Plus Eight Accelerator (Spacecubed)",
+   "canonical_domain": "spacecubed.com",
+   "website_candidate": "https://pluseight.spacecubed.com",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "45 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955949,
+     "longitude": 115.858985,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/plus-eight-accelerator-spacecubed",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "review_ambiguous_name",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-core-innovation-hub",
+     "name": "CORE Innovation Hub"
+    },
+    "outcome": "LIKELY_MATCH",
+    "reasons": [
+     "same website but the names differ: a rebrand, an acquisition, or the wrong website"
+    ]
+   },
+   "duplicate_of": "core-innovation-hub",
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the same organisation is listed twice in this city (see core-innovation-hub)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-plus-eight-syndicate-spacecubed",
+   "organisation_key": "domain:spacecubed.com",
+   "source_record_id": "plus-eight-syndicate-spacecubed",
+   "city": "Perth",
+   "name": "Plus Eight Syndicate (Spacecubed)",
+   "canonical_domain": "spacecubed.com",
+   "website_candidate": "https://pluseight.spacecubed.com/syndicate",
+   "organisation_type": {
+    "candidate": "investor",
+    "basis": "directory_category",
+    "source_category": "vcs"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "45 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955949,
+     "longitude": 115.858985,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/plus-eight-syndicate-spacecubed",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "review_ambiguous_name",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-core-innovation-hub",
+     "name": "CORE Innovation Hub"
+    },
+    "outcome": "LIKELY_MATCH",
+    "reasons": [
+     "same website but the names differ: a rebrand, an acquisition, or the wrong website"
+    ]
+   },
+   "duplicate_of": "core-innovation-hub",
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the same organisation is listed twice in this city (see core-innovation-hub)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-pointerra",
+   "organisation_key": "domain:pointerra.com",
+   "source_record_id": "pointerra",
+   "city": "Perth",
+   "name": "Pointerra",
+   "canonical_domain": "pointerra.com",
+   "website_candidate": "https://www.pointerra.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 2, 27 Railway Road, Subiaco WA 6008",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Subiaco",
+    "postcode_text": "WA 6008",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.945865,
+     "longitude": 115.823141,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/pointerra",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "pointerra",
+     "name": "Pointerra"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-power-ledger",
+   "organisation_key": "domain:powerledger.io",
+   "source_record_id": "power-ledger",
+   "city": "Perth",
+   "name": "Power Ledger",
+   "canonical_domain": "powerledger.io",
+   "website_candidate": "https://www.powerledger.io",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 2, The Palace, 108 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954441,
+     "longitude": 115.856832,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/power-ledger",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "power-ledger",
+     "name": "Power Ledger"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "powerledger",
+    "kind": "established",
+    "reason": "established, listed or acquired: kept apart from the early-stage startups",
+    "group": "established_or_listed_tech",
+    "relationship": "perth_listing_or_business_presence",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-purpose-ventures",
+   "organisation_key": "domain:purpose.ventures",
+   "source_record_id": "purpose-ventures",
+   "city": "Perth",
+   "name": "Purpose Ventures",
+   "canonical_domain": "purpose.ventures",
+   "website_candidate": "https://purpose.ventures",
+   "organisation_type": {
+    "candidate": "investor",
+    "basis": "directory_category",
+    "source_category": "vcs"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "suburb",
+    "suburb": "Subiaco",
+    "postcode_text": "WA 6008",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -31.952965,
+     "longitude": 115.814056,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/purpose-ventures",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "new",
+    "target": null,
+    "outcome": "NEW_COMPANY",
+    "reasons": []
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-rise-x",
+   "organisation_key": "domain:rise-x.io",
+   "source_record_id": "rise-x",
+   "city": "Perth",
+   "name": "Rise-X",
+   "canonical_domain": "rise-x.io",
+   "website_candidate": "https://www.rise-x.io",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 39, 152-158 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.954094,
+     "longitude": 115.855821,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/rise-x",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "review_ambiguous_name",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-rise-x",
+     "name": "Rise-X"
+    },
+    "outcome": "LIKELY_MATCH",
+    "reasons": [
+     "same name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "risex",
+    "kind": "review",
+    "reason": "official website not identified",
+    "group": "perth_directory_listing",
+    "relationship": "directory_lists_perth",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-rumin8",
+   "organisation_key": "domain:rumin8.com",
+   "source_record_id": "rumin8",
+   "city": "Perth",
+   "name": "Rumin8",
+   "canonical_domain": "rumin8.com",
+   "website_candidate": "https://www.rumin8.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Suite 1, Level 2, 66 Kings Park Road, West Perth WA 6005",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "West Perth",
+    "postcode_text": "WA 6005",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.950651,
+     "longitude": 115.835075,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/rumin8",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-rumin8",
+     "name": "Rumin8"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-spacecubed",
+   "organisation_key": "domain:spacecubed.com",
+   "source_record_id": "spacecubed",
+   "city": "Perth",
+   "name": "Spacecubed",
+   "canonical_domain": "spacecubed.com",
+   "website_candidate": "https://spacecubed.com",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "45 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955949,
+     "longitude": 115.858985,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/spacecubed",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "review_ambiguous_name",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-core-innovation-hub",
+     "name": "CORE Innovation Hub"
+    },
+    "outcome": "LIKELY_MATCH",
+    "reasons": [
+     "same website but the names differ: a rebrand, an acquisition, or the wrong website"
+    ]
+   },
+   "duplicate_of": "core-innovation-hub",
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the same organisation is listed twice in this city (see core-innovation-hub)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-spacetoco",
+   "organisation_key": "domain:spacetoco.com",
+   "source_record_id": "spacetoco",
+   "city": "Perth",
+   "name": "SpacetoCo",
+   "canonical_domain": "spacetoco.com",
+   "website_candidate": "https://www.spacetoco.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 1, 19 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.953761,
+     "longitude": 115.852712,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/spacetoco",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "spacetoco",
+     "name": "SpacetoCo"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "spacetoco",
+    "kind": "add",
+    "reason": "published as spacetoco",
+    "group": "perth_evidence",
+    "relationship": "perth_location_reported",
+    "published": "spacetoco",
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-startupwa",
+   "organisation_key": "domain:startupwa.org",
+   "source_record_id": "startupwa",
+   "city": "Perth",
+   "name": "StartupWA",
+   "canonical_domain": "startupwa.org",
+   "website_candidate": "https://www.startupwa.org",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "45 St Georges Terrace, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955949,
+     "longitude": 115.858985,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/startupwa",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-startupwa",
+     "name": "StartupWA"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-the-volte",
+   "organisation_key": "domain:thevolte.com",
+   "source_record_id": "the-volte",
+   "city": "Perth",
+   "name": "The Volte",
+   "canonical_domain": "thevolte.com",
+   "website_candidate": "https://thevolte.com",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": null,
+    "address_status": "city_only",
+    "completeness": "city_only",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": null,
+    "source_coordinates": {
+     "latitude": -31.955897,
+     "longitude": 115.860578,
+     "approximate": true,
+     "pin_flag": false,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/the-volte",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "the-volte",
+     "name": "The Volte"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "volte",
+    "kind": "add",
+    "reason": "published as the-volte",
+    "group": "perth_directory_listing",
+    "relationship": "directory_lists_perth",
+    "published": "the-volte",
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": [
+    "the source marks its own point approximate",
+    "the source does not place it (city-only)"
+   ]
+  },
+  {
+   "entity_id": "cp-perth-uluu",
+   "organisation_key": "domain:uluu.com.au",
+   "source_record_id": "uluu",
+   "city": "Perth",
+   "name": "Uluu",
+   "canonical_domain": "uluu.com.au",
+   "website_candidate": "https://www.uluu.com.au",
+   "organisation_type": {
+    "candidate": "startup",
+    "basis": "directory_category",
+    "source_category": "startups"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Indian Ocean Marine Research Centre, 86 West Coast Drive, Watermans Bay WA 6020",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Watermans Bay",
+    "postcode_text": "WA 6020",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.8521,
+     "longitude": 115.752333,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/uluu",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "uluu",
+     "name": "Uluu"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "uluu",
+    "kind": "add",
+    "reason": "published as uluu",
+    "group": "perth_evidence",
+    "relationship": "perth_location_reported",
+    "published": "uluu",
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-venture-uwa",
+   "organisation_key": "domain:ventureuwa.com.au",
+   "source_record_id": "venture-uwa",
+   "city": "Perth",
+   "name": "Venture UWA",
+   "canonical_domain": "ventureuwa.com.au",
+   "website_candidate": "https://www.ventureuwa.com.au",
+   "organisation_type": {
+    "candidate": "space",
+    "basis": "directory_category",
+    "source_category": "ecosystem"
+   },
+   "other_cities": [],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "35 Stirling Highway, Crawley WA 6009",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Crawley",
+    "postcode_text": "WA 6009",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.981182,
+     "longitude": 115.817231,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/venture-uwa",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_candidate",
+    "target": {
+     "kind": "candidate",
+     "id": "cand-venture-uwa",
+     "name": "Venture UWA"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": null,
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  },
+  {
+   "entity_id": "cp-perth-vgw",
+   "organisation_key": "domain:vgw.co",
+   "source_record_id": "vgw",
+   "city": "Perth",
+   "name": "VGW",
+   "canonical_domain": "vgw.co",
+   "website_candidate": "https://www.vgw.co",
+   "organisation_type": {
+    "candidate": "company",
+    "basis": "directory_category",
+    "source_category": "companies"
+   },
+   "other_cities": [
+    "sydney"
+   ],
+   "location": {
+    "relationship": "directory_listing",
+    "address_type": "unknown",
+    "address_text": "Level 8 & 10, Australia Place, 15-17 William Street, Perth WA 6000",
+    "address_status": "directory_address_unverified",
+    "completeness": "street",
+    "suburb": "Perth CBD",
+    "postcode_text": "WA 6000",
+    "greater_city_by_postcode": "Perth",
+    "source_coordinates": {
+     "latitude": -31.955243,
+     "longitude": 115.855801,
+     "approximate": false,
+     "pin_flag": true,
+     "at_city_centre": false
+    },
+    "canonical": {
+     "latitude": null,
+     "longitude": null,
+     "ready_to_publish_exact_pin": false
+    },
+    "evidence": {
+     "url": "https://worldtechmap.com/perth/p/vgw",
+     "dataset_url": "https://worldtechmap.com/api/cities/perth",
+     "retrieved_on": "2026-11-05"
+    }
+   },
+   "reconciliation": {
+    "status": "existing_company",
+    "target": {
+     "kind": "company",
+     "id": "vgw",
+     "name": "VGW"
+    },
+    "outcome": "EXACT_MATCH",
+    "reasons": [
+     "same website and a compatible name"
+    ]
+   },
+   "duplicate_of": null,
+   "earlier_research": {
+    "city": "perth",
+    "key": "vgw",
+    "kind": "established",
+    "reason": "established, listed or acquired: kept apart from the early-stage startups",
+    "group": "established_or_listed_tech",
+    "relationship": "perth_listing_or_business_presence",
+    "published": null,
+    "existing": null
+   },
+   "verification": {
+    "identity": "unverified",
+    "website": "unverified",
+    "operating": "unverified",
+    "location": "unverified",
+    "funding": "not_collected",
+    "hiring": "not_collected"
+   },
+   "publication": {
+    "state": "staged",
+    "reasons": []
+   },
+   "review_notes": []
+  }
+ ]
+}

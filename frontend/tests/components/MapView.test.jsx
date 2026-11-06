@@ -548,10 +548,10 @@ describe('MapView', () => {
     it('says where the map is looking when it opens and after each move', () => {
       const onViewChange = vi.fn();
       render(<MapView markers={[]} onViewChange={onViewChange} />);
-      expect(onViewChange).toHaveBeenLastCalledWith({ lat: -33, lng: 145, zoom: 17 });
+      expect(onViewChange).toHaveBeenLastCalledWith(expect.objectContaining({ lat: -33, lng: 145, zoom: 17, byUser: false })); // (byUser: the move followed no gesture of the visitor's)
       mapInstance.getCenter.mockReturnValueOnce({ lat: -37.8, lng: 144.9 });
       handlers.moveend();
-      expect(onViewChange).toHaveBeenLastCalledWith({ lat: -37.8, lng: 144.9, zoom: 17 });
+      expect(onViewChange).toHaveBeenLastCalledWith(expect.objectContaining({ lat: -37.8, lng: 144.9, zoom: 17 }));
     });
 
     it('takes the credit for the tiles without Leaflet\'s own name in front of it', () => {
@@ -757,7 +757,7 @@ describe('MapView', () => {
       names[1].click();
       expect(onSelectStartup).toHaveBeenCalledWith({
         slug: 'truestate', name: 'TrueState', city: 'Sydney', verified: true, location_precision: 'CITY',
-        location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'Location: city-level' },
+        location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'Exact location not published' },
       });
     });
 

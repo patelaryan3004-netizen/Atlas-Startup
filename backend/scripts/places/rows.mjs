@@ -17,7 +17,7 @@ export function rowOf(r) {
   const all = r.sources ?? [];
   const sources = all.filter((u) => !isLinkedIn(u));
   return {
-    key: slug(name), name, aliases: [...bracket, ...previously], website: r.website ?? null, group: r.group, relationship: r.perth_relationship ?? r.melbourne_relationship ?? r.relationship ?? null, established: ['established_or_listed_tech', 'established_or_acquired'].includes(r.group), operatingStatus: r.operating_status ?? null, fundingStage: r.funding_stage ?? null, sector: r.sector ?? null, note: r.note ?? null,
+    key: slug(name), name, aliases: [...bracket, ...previously], website: r.website ?? null, group: r.group, relationship: r.perth_relationship ?? r.melbourne_relationship ?? r.relationship ?? null, established: ['established_or_listed_tech', 'established_or_acquired'].includes(r.group), orgType: r.organisation_type ?? null, operatingStatus: r.operating_status ?? null, fundingStage: r.funding_stage ?? null, sector: r.sector ?? null, note: r.note ?? null,
     sources, skippedSources: all.filter((u) => !sources.includes(u)),
   };
 }
@@ -43,5 +43,5 @@ export function cleanAddress(text) {
   if (/\b(P\.?\s?O\.?\s*Box|GPO Box|Locked Bag)\b/i.test(t)) return null;
   const m = STREET_ADDRESS.exec(t);
   // "L1 1109 Hay St" and "Lvl 1, 1109 Hay St" are "Level 1, 1109 Hay St": the form the location code reads as a street address with a floor
-  return m ? m[1].replace(/\s*,\s*/g, ', ').replace(/,\s*,/g, ',').replace(/\s+/g, ' ').replace(/\bSt,\s+(Kilda|Georges|George|Leonards|Helier|James|Albans|Vincent|Pauls|Marys|Johns|Andrews|Peters)\b/g, 'St $1').replace(/\bVIC\s+(Street|St|Road|Rd|Avenue|Ave|Parade|Pde|Place|Pl|Lane|Ln|Court|Ct|Drive|Dr|Terrace|Highway|Hwy)\b/g, 'Victoria $1').replace(new RegExp(String.raw`(\b${STREET})\s+(?![A-Za-z'’. -]{0,40}?\b${STREET}\b)(?=[A-Z][a-z])`, 'g'), '$1, ').replace(/^(?:L|Lvl\.?)\s*(\d+)[,\s]+(?=\d)/i, 'Level $1, ').trim() : null;
+  return m ? m[1].replace(/\s*,\s*/g, ', ').replace(/,\s*,/g, ',').replace(/\s+/g, ' ').replace(/\bSt,\s+(Kilda|Georges|George|Leonards|Helier|James|Albans|Vincent|Pauls|Marys|Johns|Andrews|Peters)\b/g, 'St $1').replace(/\bVIC\s+(Street|St|Road|Rd|Avenue|Ave|Parade|Pde|Place|Pl|Lane|Ln|Court|Ct|Drive|Dr|Terrace|Highway|Hwy)\b/g, 'Victoria $1').replace(new RegExp(String.raw`(\b${STREET})\s+(?![A-Za-z'’. -]{0,40}?\b${STREET}\b)(?=[A-Z][a-z])`, 'g'), '$1, ').replace(/\bLane,\s+Cove\b/g, 'Lane Cove').replace(new RegExp(String.raw`(\b${STREET})\s+Lane Cove\b`, 'g'), '$1, Lane Cove').replace(/^(?:L|Lvl\.?)\s*(\d+)[,\s]+(?=\d)/i, 'Level $1, ').trim() : null;
 }

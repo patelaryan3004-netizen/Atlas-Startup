@@ -8,9 +8,12 @@ const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, '
 export function sourceLines(record, limit = 3) {
   const rows = (record?.sources ?? []).filter((s) => s?.url);
   const rank = (s) => (s.kind === 'company_website' ? 0 : s.kind === 'accelerator_profile' || s.kind === 'investor_website' ? 1 : 2);
-  return [...rows].sort((a, b) => rank(a) - rank(b)).slice(0, limit).map((s) => ({
+  const lines = [...rows].sort((a, b) => rank(a) - rank(b)).map((s) => ({
     url: s.url, label: s.kind === 'company_website' ? `its own site (${hostOf(s.url)})` : s.publisher || hostOf(s.url), read: shortDate(s.checked_at),
   }));
+  // two pages of the same site read on the same day say the same thing to a reader: the first link is kept
+  const seen = new Set();
+  return lines.filter((l) => { const key = `${l.label}|${l.read}`; if (seen.has(key)) return false; seen.add(key); return true; }).slice(0, limit);
 }
 
 // "Source: its own site (example.com), read 21 Oct 2026; Blackbird, read 31 Oct 2026". With `compact` it is one line for the card beside a mark.

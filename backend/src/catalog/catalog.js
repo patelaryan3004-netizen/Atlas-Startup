@@ -48,7 +48,7 @@ export const FACETS = ['sector', 'city', 'stage', 'investor'];
 // team_size, remote_policy, tech_stack, last_funding_date, last_role_seen_at and cohorts are the optional facts (company.js): present on a card
 // only where a public page backs them. `programs` is the cohorts as a visitor reads them, each with the page that says so (cohorts.js programOf).
 export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events',
-  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs'];
+  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs', 'organisation_type'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
@@ -257,12 +257,14 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
       remote: postings(records, (r) => (r.remote_policy ? [r.remote_policy] : [])),
       tech: postings(records, (r) => new Set(r.tech_stack ?? [])),
       cohort: postings(records, (r) => new Set(r.cohorts ?? [])),
+      orgType: postings(records, (r) => [r.organisation_type ?? 'startup']),
       team: postings(buckets, (b) => (b ? [b] : [])),
       precision: postings(precisions, (p) => [p]), state: postings(records, (r) => (r.state ? [r.state] : [])),
       hiring: answers(flags.hiring), verified: answers(flags.verified), taskGate: answers(flags.taskGate),
     },
     // What a search matches: the name, the founders and, for a company in a cohort a page backs, the words for that cohort (Startmate, Winter 2026, W26...).
-    search: records.map((r) => [r.name, ...(r.founders || []), ...(r.cohorts ?? []).flatMap(cohortTerms)].join('\n').toLowerCase()),
+    // the name, the founders, the sector, the suburb its address is in (a company is found by where it is, as well as by what it is called) and, for a cohort a page backs, its words
+    search: records.map((r) => [r.name, ...(r.founders || []), r.sector && r.sector !== 'Unknown' ? r.sector : '', r.suburb ?? '', ...(r.cohorts ?? []).flatMap(cohortTerms)].join('\n').toLowerCase()),
     lowerNames, nameOrder,
     bySlug: new Map(records.map((r, i) => [r.slug ?? r.id, i])),
     byId: new Map(records.map((r, i) => [r.id, i])),
@@ -345,7 +347,7 @@ const str = (v) => (Array.isArray(v) ? v.join(',') : String(v));
 // What was asked for, read from a query string, with the legacy coercions: a value is a string, and an empty one is not a filter.
 export function readFilters(query = {}) {
   const f = {};
-  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'fresh', 'cohort']) {
+  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'fresh', 'cohort', 'orgType']) {
     if (query[key]) f[key] = str(query[key]);
   }
   if (query.name) f.names = [].concat(query.name).map(String);
@@ -382,6 +384,7 @@ function startingPoint(snap, f, precisions, states) {
   if (f.tech) lists.push(['tech', union(snap.idx.tech, f.tech.split(','))]);
   if (f.team) lists.push(['team', union(snap.idx.team, f.team.split(','))]);
   if (f.cohort) lists.push(['cohort', union(snap.idx.cohort, f.cohort.split(','))]);
+  if (f.orgType) lists.push(['orgType', union(snap.idx.orgType, f.orgType.split(','))]);
   if (f.names) lists.push(['name', union(snap.byName, f.names)]);
   // Only 'yes' and 'no' filter (any other value is ignored, as the per-record check in select always did).
   for (const column of ['hiring', 'taskGate', 'verified']) {
@@ -423,6 +426,7 @@ export function select(snap, f) {
   const techs = f.tech ? new Set(f.tech.split(',')) : null; // a company that uses any of them
   const teams = f.team ? new Set(f.team.split(',')) : null;
   const cohorts = f.cohort ? new Set(f.cohort.split(',')) : null; // a company in any of them
+  const orgTypes = f.orgType ? new Set(f.orgType.split(',')) : null; // startup, company or space
   const fresh =f.fresh === 'week' ? Date.now() : null; // raised, or had a role seen, in the last 14 days
   const { records, flags } = snap;
   const keep = (i) => {
@@ -438,6 +442,7 @@ export function select(snap, f) {
     if (techs && !(r.tech_stack ?? []).some((t) => techs.has(t))) return false;
     if (teams && !teams.has(snap.buckets[i])) return false;
     if (cohorts && !(r.cohorts ?? []).some((id) => cohorts.has(id))) return false;
+    if (orgTypes && !orgTypes.has(r.organisation_type ?? 'startup')) return false;
     if (fresh && !freshOf(r, fresh)) return false;
     if (f.hiring === 'yes' && !flags.hiring[i]) return false;
     if (f.hiring === 'no' && flags.hiring[i]) return false;

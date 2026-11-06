@@ -49,7 +49,7 @@ import { isDeepStrictEqual } from 'node:util';
 import {
   ADDED_FIELDS, LEGACY_FIELDS, AU_STATES, COMPANY_STATUSES, VERIFICATION_STATUSES,
   HIRING_STATUSES, WEBSITE_STATUSES, EMPLOYEE_RANGES, REMOTE_POLICIES, isWhen, SOURCE_KINDS, ISO_RE, PARTIAL_DATE_RE, URL_RE, isStr, isNum,
-  slugify, uniqueSlug, migrateCompanyRecord, toCanonical,
+  slugify, uniqueSlug, migrateCompanyRecord, toCanonical, ORGANISATION_TYPES,
 } from './company.js';
 import { validateEvidence, flattenEvidence, detectConflicts } from './evidence.js';
 import { COHORT_IDS, isCohort } from './cohorts.js';
@@ -441,6 +441,7 @@ export function validateDataset(ds) {
       bad(at, 'tech_stack must be a list of distinct, non-empty names, or null');
     }
     if (c.team_size != null && (!Number.isInteger(c.team_size) || c.team_size < 1)) bad(at, 'team_size must be a whole number from 1, or null');
+    if (c.organisation_type != null && !ORGANISATION_TYPES.includes(c.organisation_type)) bad(at, `organisation_type must be one of ${ORGANISATION_TYPES.join(', ')}, or null`);
     if (c.cohorts != null && (!Array.isArray(c.cohorts) || c.cohorts.length === 0 || c.cohorts.some((id) => !isCohort(id)) || new Set(c.cohorts).size !== c.cohorts.length)) {
       bad(at, `cohorts must be a list of distinct cohort ids (${COHORT_IDS.join(', ')}), or null`);
     }

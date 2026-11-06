@@ -59,7 +59,7 @@ const APPROXIMATE_NOTE = {
 };
 
 // Where the company is, and how well that is known, in the words the site uses everywhere: "Verified office",
-// "Location: suburb-level", "Location: city-level". `s.location` comes from the server (or from the pin the panel was
+// "Location: suburb-level", "Exact location not published". `s.location` comes from the server (or from the pin the panel was
 // opened from); a record without it is described as it always was, by whether it has an address.
 function LocationCell({ s, loading }) {
   const where = s.location;

@@ -1,0 +1,54 @@
+{
+ "checked_at": "2026-11-05",
+ "note": "Decisions about the rows of this list.",
+ "rows": {
+  "adveritas": {
+   "sector": "Martech",
+   "blurb": "Adveritas revolutionizes digital advertising through TrafficGuard, our industry-leading fraud prevention platform that optimizes campaigns and...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "fastbrick": {
+   "sector": "Robotics",
+   "blurb": "FBR specializes in designing, prototyping, and deploying stabilized long-boom robotics to help industries tackle complex challenges and achieve...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "icetanaai": {
+   "sector": "AI",
+   "blurb": "icetana are experts in AI Security Detection Software.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "nanoveu": {
+   "sector": "Unknown",
+   "blurb": "Pioneers vision with advanced nanotechnology, applying nano imprint science to revolutionize vision-based applications.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "moodle": {
+   "sector": "EdTech",
+   "blurb": "Build an effective, engaging learning ecosystem with Moodle, the most customisable and popular LMS for education, enterprise, and public sector...",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "pointerra": {
+   "sector": "AI",
+   "blurb": "Pointerra3D's AI algorithms bring a new standard of speed, smarts, scale and on-demand access to the long-standing problem of working with 3D data.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "powerledger": {
+   "sector": "Fintech",
+   "blurb": "Powerledger builds blockchain-based peer-to-peer energy trading platforms for utilities and communities in 10+ countries.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  },
+  "vgw": {
+   "sector": "Gaming",
+   "blurb": "VGW is an interactive entertainment company, harnessing technology and creativity to deliver world-class, free-to-play games.",
+   "auto": true,
+   "auto_note": "The first sentence of the description on its own pages, trimmed; the sector is read from its words (scripts/places/import.mjs SECTOR_RULES)."
+  }
+ }
+}

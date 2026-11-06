@@ -1,0 +1,2993 @@
+{
+ "about": "The staged rows whose name resembles a company or candidate the directory already has (reconciliation status review_ambiguous_name), settled where the evidence allows. NOTHING is merged: genuine_duplicate rows are recorded as the same organisation as the record they match (decisions.json same_as), separate rows are recorded as distinct, and unverified rows stay open for a person.",
+ "reviewed_on": "2026-11-05",
+ "counts": {
+  "genuine_duplicate": 25,
+  "separate": 128,
+  "unverified": 60
+ },
+ "rows": [
+  {
+   "source_record_id": "abyss-solutions",
+   "city": "Sydney",
+   "row": "Abyss Solutions",
+   "website": "abyssfabric.com",
+   "resembles": {
+    "id": "abyss-solutions",
+    "kind": "company",
+    "name": "Abyss Solutions",
+    "website": "abysssolutions.co"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "abyssfabric.com and abysssolutions.co both load the same site (abyssfabric.com): The Asset Operating Environment for critical infrastructure | ABYSS"
+  },
+  {
+   "source_record_id": "adthena",
+   "city": "Sydney",
+   "row": "Adthena",
+   "website": "adthena.com",
+   "resembles": {
+    "id": "athena",
+    "kind": "company",
+    "name": "Athena",
+    "website": "athena.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Adthena / Athena) and different website (adthena.com / athena.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "afterwork-ventures",
+   "city": "Sydney",
+   "row": "AfterWork Ventures",
+   "website": "afterwork.vc",
+   "resembles": {
+    "id": "cand-after",
+    "kind": "candidate",
+    "name": "After",
+    "website": "after.net.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (AfterWork Ventures / After) and different website (afterwork.vc / after.net.au): only similar-looking"
+  },
+  {
+   "source_record_id": "agscent",
+   "city": "Sydney",
+   "row": "Agscent",
+   "website": "agscent.com",
+   "resembles": {
+    "id": "agscent",
+    "kind": "company",
+    "name": "Agscent",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "airtable",
+   "city": "Sydney",
+   "row": "Airtable (now part of Bending Spoons)",
+   "website": "airtable.com",
+   "resembles": {
+    "id": "cand-eventbrite",
+    "kind": "candidate",
+    "name": "Eventbrite",
+    "website": "eventbrite.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "airtree",
+   "city": "Sydney",
+   "row": "AirTree",
+   "website": "airtree.vc",
+   "resembles": {
+    "id": "pairtree",
+    "kind": "company",
+    "name": "Pairtree",
+    "website": "pairtree.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (AirTree / Pairtree) and different website (airtree.vc / pairtree.co): only similar-looking"
+  },
+  {
+   "source_record_id": "aws",
+   "city": "Sydney",
+   "row": "Amazon Web Services (AWS)",
+   "website": "amazon.com",
+   "resembles": {
+    "id": "cand-amazon-web-services",
+    "kind": "candidate",
+    "name": "Amazon Web Services",
+    "website": "aboutamazon.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"Amazon.com. Spend less. Smile more.\" at amazon.com and \"About Amazon Australia Homepage - About Amazon Australia\" at aboutamazon.com.au"
+  },
+  {
+   "source_record_id": "apple",
+   "city": "Sydney",
+   "row": "Apple",
+   "website": "apple.com",
+   "resembles": {
+    "id": "cand-apple",
+    "kind": "candidate",
+    "name": "Apple",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "aquila",
+   "city": "Sydney",
+   "row": "Aquila",
+   "website": "aquila.space",
+   "resembles": {
+    "id": "cand-aquila",
+    "kind": "candidate",
+    "name": "Aquila",
+    "website": "aquila.earth"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "aquila.space and aquila.earth both load the same site (aquila.space): Aquila Space Technologies | Energy Grid of Light"
+  },
+  {
+   "source_record_id": "archangel-ventures",
+   "city": "Sydney",
+   "row": "Archangel Ventures",
+   "website": "archangel.vc",
+   "resembles": {
+    "id": "archa",
+    "kind": "company",
+    "name": "Archa",
+    "website": "archa.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Archangel Ventures / Archa) and different website (archangel.vc / archa.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "australian-medical-angels",
+   "city": "Sydney",
+   "row": "Australian Medical Angels",
+   "website": "medangels.com.au",
+   "resembles": {
+    "id": "cand-cotiss",
+    "kind": "candidate",
+    "name": "Cotiss",
+    "website": "cotiss.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Australian Medical Angels / Cotiss) and different website (medangels.com.au / cotiss.com): only similar-looking"
+  },
+  {
+   "source_record_id": "basiq",
+   "city": "Sydney",
+   "row": "Basiq",
+   "website": "basiq.io",
+   "resembles": {
+    "id": "bamboo",
+    "kind": "company",
+    "name": "Bamboo",
+    "website": "getbamboo.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Basiq / Bamboo) and different website (basiq.io / getbamboo.io): only similar-looking"
+  },
+  {
+   "source_record_id": "block-afterpay",
+   "city": "Sydney",
+   "row": "Block (Afterpay)",
+   "website": "afterpay.com",
+   "resembles": {
+    "id": "block-earner",
+    "kind": "company",
+    "name": "Block Earner",
+    "website": "blockearner.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "block-square-and-cash-app",
+   "city": "Sydney",
+   "row": "Block (Square and Cash App)",
+   "website": "block.xyz",
+   "resembles": {
+    "id": "block-earner",
+    "kind": "company",
+    "name": "Block Earner",
+    "website": "blockearner.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "bloomberg",
+   "city": "Sydney",
+   "row": "Bloomberg",
+   "website": "bloomberg.com",
+   "resembles": {
+    "id": "cand-bloomberg",
+    "kind": "candidate",
+    "name": "Bloomberg",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "briefcase-technology",
+   "city": "Sydney",
+   "row": "Briefcase Technology",
+   "website": "brief.case",
+   "resembles": {
+    "id": "cand-briefcase",
+    "kind": "candidate",
+    "name": "Briefcase",
+    "website": "briefcase.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Briefcase Technology / Briefcase) and different website (brief.case / briefcase.au): only similar-looking"
+  },
+  {
+   "source_record_id": "brightcove-now-part-of-bending-spoons",
+   "city": "Sydney",
+   "row": "Brightcove (now part of Bending Spoons)",
+   "website": "brightcove.com",
+   "resembles": {
+    "id": "cand-eventbrite",
+    "kind": "candidate",
+    "name": "Eventbrite",
+    "website": "eventbrite.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "brumby-formerly-grazemate",
+   "city": "Sydney",
+   "row": "Brumby (formerly GrazeMate)",
+   "website": "brumby.com",
+   "resembles": {
+    "id": "brumby",
+    "kind": "company",
+    "name": "Brumby (formerly GrazeMate)",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "car-group-carsales",
+   "city": "Sydney",
+   "row": "CAR Group (carsales)",
+   "website": "cargroup.com",
+   "resembles": {
+    "id": "cand-carsales",
+    "kind": "candidate",
+    "name": "carsales",
+    "website": "carsales.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "catalysr",
+   "city": "Sydney",
+   "row": "Catalysr",
+   "website": "catalysr.com.au",
+   "resembles": {
+    "id": "cand-catalyser",
+    "kind": "candidate",
+    "name": "Catalyser",
+    "website": "catalyser.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Catalysr / Catalyser) and different website (catalysr.com.au / catalyser.com): only similar-looking"
+  },
+  {
+   "source_record_id": "clover-insurance",
+   "city": "Sydney",
+   "row": "Clover Insurance",
+   "website": "cloverinsure.com.au",
+   "resembles": {
+    "id": "cand-clove",
+    "kind": "candidate",
+    "name": "Clove",
+    "website": "clove.kitchen"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Clover Insurance / Clove) and different website (cloverinsure.com.au / clove.kitchen): only similar-looking"
+  },
+  {
+   "source_record_id": "datamesh-group",
+   "city": "Sydney",
+   "row": "DataMesh Group",
+   "website": "onedmg.com",
+   "resembles": {
+    "id": "datamesh-group",
+    "kind": "company",
+    "name": "DataMesh Group",
+    "website": "datameshgroup.com"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (dns_failed), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "dataro",
+   "city": "Sydney",
+   "row": "Dataro",
+   "website": "dataro.io",
+   "resembles": {
+    "id": "datarock",
+    "kind": "company",
+    "name": "Datarock",
+    "website": "datarock.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Dataro / Datarock) and different website (dataro.io / datarock.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "deel",
+   "city": "Sydney",
+   "row": "Deel",
+   "website": "deel.com",
+   "resembles": {
+    "id": "deeligence",
+    "kind": "company",
+    "name": "Deeligence",
+    "website": "deeligence.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Deel / Deeligence) and different website (deel.com / deeligence.com): only similar-looking"
+  },
+  {
+   "source_record_id": "dell-technologies",
+   "city": "Sydney",
+   "row": "Dell Technologies",
+   "website": "dell.com",
+   "resembles": {
+    "id": "cand-hall",
+    "kind": "candidate",
+    "name": "Hall",
+    "website": "usehall.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Dell Technologies / Hall) and different website (dell.com / usehall.com): only similar-looking"
+  },
+  {
+   "source_record_id": "develpr",
+   "city": "Sydney",
+   "row": "develpr",
+   "website": "develpr.com",
+   "resembles": {
+    "id": "develpr",
+    "kind": "company",
+    "name": "Develpr",
+    "website": "develpr.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "develpr.com and develpr.com.au both load the same site (develpr.com): Develpr — Keep preconstruction moving"
+  },
+  {
+   "source_record_id": "digitalmaas",
+   "city": "Sydney",
+   "row": "DigitalMaas",
+   "website": "digitalmaas.com",
+   "resembles": {
+    "id": "cand-jaimee-ai",
+    "kind": "candidate",
+    "name": "Jaimee.ai",
+    "website": "jaimee.ai"
+   },
+   "verdict": "separate",
+   "evidence": "different name (DigitalMaas / Jaimee.ai) and different website (digitalmaas.com / jaimee.ai): only similar-looking"
+  },
+  {
+   "source_record_id": "digitalx",
+   "city": "Sydney",
+   "row": "DigitalX",
+   "website": "digitalx.com",
+   "resembles": {
+    "id": "cand-jaimee-ai",
+    "kind": "candidate",
+    "name": "Jaimee.ai",
+    "website": "jaimee.ai"
+   },
+   "verdict": "separate",
+   "evidence": "different name (DigitalX / Jaimee.ai) and different website (digitalx.com / jaimee.ai): only similar-looking"
+  },
+  {
+   "source_record_id": "elastic",
+   "city": "Sydney",
+   "row": "Elastic",
+   "website": "elastic.co",
+   "resembles": {
+    "id": "cand-elastik",
+    "kind": "candidate",
+    "name": "Elastik",
+    "website": "elastik.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Elastic / Elastik) and different website (elastic.co / elastik.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "enable",
+   "city": "Sydney",
+   "row": "Enable",
+   "website": "enable.com",
+   "resembles": {
+    "id": "cand-enabler",
+    "kind": "candidate",
+    "name": "Enabler",
+    "website": "enablerinteractive.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Enable / Enabler) and different website (enable.com / enablerinteractive.com): only similar-looking"
+  },
+  {
+   "source_record_id": "eucalyptus",
+   "city": "Sydney",
+   "row": "Eucalyptus (now part of Hims & Hers)",
+   "website": "eucalyptus.health",
+   "resembles": {
+    "id": "eucalyptus",
+    "kind": "company",
+    "name": "Eucalyptus",
+    "website": "eucalyptus.vc"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "eucalyptus.health and eucalyptus.vc both load the same site (eucalyptus.health): Eucalyptus | Digital Healthcare That Puts Patients First"
+  },
+  {
+   "source_record_id": "ezypay-now-part-of-xplor",
+   "city": "Sydney",
+   "row": "Ezypay (now part of Xplor)",
+   "website": "ezypay.com",
+   "resembles": {
+    "id": "gradability",
+    "kind": "company",
+    "name": "Gradability",
+    "website": "gradability.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "factory",
+   "city": "Sydney",
+   "row": "Factory",
+   "website": "factory.com",
+   "resembles": {
+    "id": "cand-factor",
+    "kind": "candidate",
+    "name": "Factor",
+    "website": "usefactor.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Factory / Factor) and different website (factory.com / usefactor.com): only similar-looking"
+  },
+  {
+   "source_record_id": "factory-ai",
+   "city": "Sydney",
+   "row": "Factory AI",
+   "website": "f7i.ai",
+   "resembles": {
+    "id": "cand-factor",
+    "kind": "candidate",
+    "name": "Factor",
+    "website": "usefactor.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Factory AI / Factor) and different website (f7i.ai / usefactor.com): only similar-looking"
+  },
+  {
+   "source_record_id": "fair-supply",
+   "city": "Sydney",
+   "row": "Fair Supply",
+   "website": "fairsupply.com",
+   "resembles": {
+    "id": "fair-supply",
+    "kind": "company",
+    "name": "Fair Supply",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "fairfield-city-hq",
+   "city": "Sydney",
+   "row": "Fairfield City HQ",
+   "website": "nsw.gov.au",
+   "resembles": {
+    "id": "cand-bradfield-city-first-building",
+    "kind": "candidate",
+    "name": "Bradfield City First Building",
+    "website": "nsw.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "nsw.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "fintech-australia",
+   "city": "Sydney",
+   "row": "FinTech Australia",
+   "website": "fintechaustralia.org.au",
+   "resembles": {
+    "id": "cand-fintech-australia",
+    "kind": "candidate",
+    "name": "FinTech Australia",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "firmable",
+   "city": "Sydney",
+   "row": "Firmable",
+   "website": "firmable.ai",
+   "resembles": {
+    "id": "cand-firmable",
+    "kind": "candidate",
+    "name": "Firmable",
+    "website": "firmable.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "firmable.ai and firmable.com both load the same site (firmable.ai): Firmable | AI-native sales platform for US, Canada & APAC"
+  },
+  {
+   "source_record_id": "fluent-commerce",
+   "city": "Sydney",
+   "row": "Fluent Commerce",
+   "website": "fluentcommerce.com",
+   "resembles": {
+    "id": "cand-fluent",
+    "kind": "candidate",
+    "name": "Fluent",
+    "website": "fluentbci.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Fluent Commerce / Fluent) and different website (fluentcommerce.com / fluentbci.com): only similar-looking"
+  },
+  {
+   "source_record_id": "genesys",
+   "city": "Sydney",
+   "row": "Genesys",
+   "website": "genesys.com",
+   "resembles": {
+    "id": "gene-s",
+    "kind": "company",
+    "name": "Gene S",
+    "website": "gene-s.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Genesys / Gene S) and different website (genesys.com / gene-s.com): only similar-looking"
+  },
+  {
+   "source_record_id": "green-dynamics",
+   "city": "Sydney",
+   "row": "Green Dynamics",
+   "website": "greendynamics.ai",
+   "resembles": {
+    "id": "cand-avenue-bank",
+    "kind": "candidate",
+    "name": "Avenue Bank",
+    "website": "avenuebank.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Green Dynamics / Avenue Bank) and different website (greendynamics.ai / avenuebank.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "greenhouse",
+   "city": "Sydney",
+   "row": "Greenhouse",
+   "website": "greenhouse.tech",
+   "resembles": {
+    "id": "cand-greenhouse",
+    "kind": "candidate",
+    "name": "Greenhouse",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "halo-technologies",
+   "city": "Sydney",
+   "row": "HALO Technologies",
+   "website": "halo-technologies.com",
+   "resembles": {
+    "id": "cand-hall",
+    "kind": "candidate",
+    "name": "Hall",
+    "website": "usehall.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (HALO Technologies / Hall) and different website (halo-technologies.com / usehall.com): only similar-looking"
+  },
+  {
+   "source_record_id": "handkrafted",
+   "city": "Sydney",
+   "row": "Handkrafted",
+   "website": "handkrafted.com",
+   "resembles": {
+    "id": "cand-sidekicker",
+    "kind": "candidate",
+    "name": "Sidekicker",
+    "website": "sidekicker.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Handkrafted / Sidekicker) and different website (handkrafted.com / sidekicker.com): only similar-looking"
+  },
+  {
+   "source_record_id": "honey-insurance",
+   "city": "Sydney",
+   "row": "Honey Insurance",
+   "website": "honeyinsurance.com",
+   "resembles": {
+    "id": "hone",
+    "kind": "company",
+    "name": "Hone (HoneAg)",
+    "website": "honeag.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "hub-australia-hub-hyde-park",
+   "city": "Sydney",
+   "row": "Hub Australia (Hub Hyde Park)",
+   "website": "hubaustralia.com",
+   "resembles": {
+    "id": "cand-5b",
+    "kind": "candidate",
+    "name": "5B",
+    "website": "5b.co"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "hubspot",
+   "city": "Sydney",
+   "row": "HubSpot",
+   "website": "hubspot.com",
+   "resembles": {
+    "id": "abyss-solutions",
+    "kind": "company",
+    "name": "Abyss Solutions",
+    "website": "abysssolutions.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (HubSpot / Abyss Solutions) and different website (hubspot.com / abysssolutions.co): only similar-looking"
+  },
+  {
+   "source_record_id": "humanitix",
+   "city": "Sydney",
+   "row": "Humanitix",
+   "website": "humanitix.com",
+   "resembles": {
+    "id": "humanetix",
+    "kind": "company",
+    "name": "Humanetix",
+    "website": "humanetix.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Humanitix / Humanetix) and different website (humanitix.com / humanetix.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "ignition-advice",
+   "city": "Sydney",
+   "row": "Ignition Advice",
+   "website": "discoverignition.com",
+   "resembles": {
+    "id": "ignition",
+    "kind": "company",
+    "name": "Ignition",
+    "website": "ignitionapp.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Ignition Advice / Ignition) and different website (discoverignition.com / ignitionapp.com): only similar-looking"
+  },
+  {
+   "source_record_id": "index-exchange",
+   "city": "Sydney",
+   "row": "Index Exchange",
+   "website": "indexexchange.com",
+   "resembles": {
+    "id": "index",
+    "kind": "company",
+    "name": "Index",
+    "website": "alloy.app"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Index Exchange / Index) and different website (indexexchange.com / alloy.app): only similar-looking"
+  },
+  {
+   "source_record_id": "indi",
+   "city": "Sydney",
+   "row": "Indi",
+   "website": "projectindi.com",
+   "resembles": {
+    "id": "cand-project-indi",
+    "kind": "candidate",
+    "name": "Project Indi",
+    "website": "projectindi.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "the same website (projectindi.com) and one name contains the other"
+  },
+  {
+   "source_record_id": "inspiring-rare-birds",
+   "city": "Sydney",
+   "row": "Inspiring Rare Birds",
+   "website": "inspiringrarebirds.com",
+   "resembles": {
+    "id": "cand-inspiring-holdings",
+    "kind": "candidate",
+    "name": "Inspiring Holdings",
+    "website": "irdd.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Inspiring Rare Birds / Inspiring Holdings) and different website (inspiringrarebirds.com / irdd.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "instantia",
+   "city": "Sydney",
+   "row": "Instantia",
+   "website": "instantia.co",
+   "resembles": {
+    "id": "instant",
+    "kind": "company",
+    "name": "Instant",
+    "website": "instant.one"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Instantia / Instant) and different website (instantia.co / instant.one): only similar-looking"
+  },
+  {
+   "source_record_id": "inventia-life-science",
+   "city": "Sydney",
+   "row": "Inventia Life Science",
+   "website": "inventialifescience.com",
+   "resembles": {
+    "id": "inventia-life-sciences",
+    "kind": "company",
+    "name": "Inventia Life Sciences",
+    "website": "inventia.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Inventia Life Science / Inventia Life Sciences) and different website (inventialifescience.com / inventia.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "investment-nsw",
+   "city": "Sydney",
+   "row": "Investment NSW",
+   "website": "nsw.gov.au",
+   "resembles": {
+    "id": "cand-bradfield-city-first-building",
+    "kind": "candidate",
+    "name": "Bradfield City First Building",
+    "website": "nsw.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "nsw.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "kindershare",
+   "city": "Sydney",
+   "row": "Kindershare",
+   "website": "kindershare.com",
+   "resembles": {
+    "id": "kinde",
+    "kind": "company",
+    "name": "Kinde",
+    "website": "kinde.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Kindershare / Kinde) and different website (kindershare.com / kinde.com): only similar-looking"
+  },
+  {
+   "source_record_id": "lend",
+   "city": "Sydney",
+   "row": "Lend",
+   "website": "lend.com.au",
+   "resembles": {
+    "id": "ipartners",
+    "kind": "company",
+    "name": "iPartners",
+    "website": "ipartners.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Lend / iPartners) and different website (lend.com.au / ipartners.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "lightspeed-commerce",
+   "city": "Sydney",
+   "row": "Lightspeed Commerce",
+   "website": "lightspeedhq.com",
+   "resembles": {
+    "id": "cand-vend",
+    "kind": "candidate",
+    "name": "Vend",
+    "website": "vendhq.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Lightspeed Commerce / Vend) and different website (lightspeedhq.com / vendhq.com): only similar-looking"
+  },
+  {
+   "source_record_id": "linkedin",
+   "city": "Sydney",
+   "row": "LinkedIn",
+   "website": "linkedin.com",
+   "resembles": {
+    "id": "inventia-life-sciences",
+    "kind": "company",
+    "name": "Inventia Life Sciences",
+    "website": "inventia.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (LinkedIn / Inventia Life Sciences) and different website (linkedin.com / inventia.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "litera",
+   "city": "Sydney",
+   "row": "Litera",
+   "website": "litera.com",
+   "resembles": {
+    "id": "cand-literal",
+    "kind": "candidate",
+    "name": "Literal",
+    "website": "literalapp.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Litera / Literal) and different website (litera.com / literalapp.com): only similar-looking"
+  },
+  {
+   "source_record_id": "liven",
+   "city": "Sydney",
+   "row": "Liven",
+   "website": "liven.love",
+   "resembles": {
+    "id": "cand-liven",
+    "kind": "candidate",
+    "name": "Liven",
+    "website": "liven.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "liven.love shows the same page as nomni.ai (a rename); liven.com.au could not be read (robots), so it is not confirmed"
+  },
+  {
+   "source_record_id": "loopme",
+   "city": "Sydney",
+   "row": "LoopMe",
+   "website": "loopme.ai",
+   "resembles": {
+    "id": "cand-loop",
+    "kind": "candidate",
+    "name": "Loop+",
+    "website": "loopplus.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (LoopMe / Loop+) and different website (loopme.ai / loopplus.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "lumi",
+   "city": "Sydney",
+   "row": "Lumi",
+   "website": "lumi.com.au",
+   "resembles": {
+    "id": "cand-lumi-interactive",
+    "kind": "candidate",
+    "name": "Lumi Interactive",
+    "website": "playkinderworld.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Lumi / Lumi Interactive) and different website (lumi.com.au / playkinderworld.com): only similar-looking"
+  },
+  {
+   "source_record_id": "lyra-technologies",
+   "city": "Sydney",
+   "row": "Lyra Technologies",
+   "website": "lyratechnologies.com.au",
+   "resembles": {
+    "id": "cand-kara-technologies",
+    "kind": "candidate",
+    "name": "Kara Technologies",
+    "website": "kara.tech"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Lyra Technologies / Kara Technologies) and different website (lyratechnologies.com.au / kara.tech): only similar-looking"
+  },
+  {
+   "source_record_id": "macropod",
+   "city": "Sydney",
+   "row": "Macropod",
+   "website": "macropod.com",
+   "resembles": {
+    "id": "cand-bugherd",
+    "kind": "candidate",
+    "name": "BugHerd",
+    "website": "bugherd.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Macropod / BugHerd) and different website (macropod.com / bugherd.com): only similar-looking"
+  },
+  {
+   "source_record_id": "mako-2",
+   "city": "Sydney",
+   "row": "Mako",
+   "website": "mako.com",
+   "resembles": {
+    "id": "mako",
+    "kind": "company",
+    "name": "MAKO",
+    "website": "mako.aero"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"Mako | Providing Liquidity To Global Derivatives Markets\" at mako.com and \"MAKO | The new standard in aviation efficiency\" at mako.aero"
+  },
+  {
+   "source_record_id": "managed",
+   "city": "Sydney",
+   "row": "Managed",
+   "website": "managedapp.com.au",
+   "resembles": {
+    "id": "cand-mana",
+    "kind": "candidate",
+    "name": "Mana",
+    "website": "makemana.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Managed / Mana) and different website (managedapp.com.au / makemana.com): only similar-looking"
+  },
+  {
+   "source_record_id": "marloo",
+   "city": "Sydney",
+   "row": "Marloo",
+   "website": "marloo.com",
+   "resembles": {
+    "id": "marloo",
+    "kind": "company",
+    "name": "Marloo",
+    "website": "gomarloo.com"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (robots_unavailable), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "maslow",
+   "city": "Sydney",
+   "row": "Maslow",
+   "website": "maslow.io",
+   "resembles": {
+    "id": "cand-maslow",
+    "kind": "candidate",
+    "name": "Maslow",
+    "website": "maslow.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"Maslow - The easiest way for families to manage care at home\" at maslow.io and \"Maslow — Shared Infrastructure for The Cooperative Economy\" at maslow.com.au"
+  },
+  {
+   "source_record_id": "metakosmos",
+   "city": "Sydney",
+   "row": "Metakosmos",
+   "website": "metakosmos.co",
+   "resembles": {
+    "id": "cand-meta",
+    "kind": "candidate",
+    "name": "Meta",
+    "website": "meta.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Metakosmos / Meta) and different website (metakosmos.co / meta.com): only similar-looking"
+  },
+  {
+   "source_record_id": "mgv-capital-formerly-metagrove-ventures",
+   "city": "Sydney",
+   "row": "MGV Capital (formerly Metagrove Ventures)",
+   "website": "metagrove.vc",
+   "resembles": {
+    "id": "cand-meta",
+    "kind": "candidate",
+    "name": "Meta",
+    "website": "meta.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "mgv-capital-formerly-metagrove-ventures-2",
+   "city": "Sydney",
+   "row": "MGV Capital (formerly Metagrove Ventures)",
+   "website": "metagrove.vc",
+   "resembles": {
+    "id": "cand-meta",
+    "kind": "candidate",
+    "name": "Meta",
+    "website": "meta.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "mint-payments",
+   "city": "Sydney",
+   "row": "Mint Payments",
+   "website": "mintpayments.com",
+   "resembles": {
+    "id": "cand-mint",
+    "kind": "candidate",
+    "name": "Mint",
+    "website": "mint.bio"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Mint Payments / Mint) and different website (mintpayments.com / mint.bio): only similar-looking"
+  },
+  {
+   "source_record_id": "mirakl",
+   "city": "Sydney",
+   "row": "Mirakl",
+   "website": "mirakl.com",
+   "resembles": {
+    "id": "cand-infestation-tracking-systems",
+    "kind": "candidate",
+    "name": "Infestation Tracking Systems",
+    "website": "pestregister.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Mirakl / Infestation Tracking Systems) and different website (mirakl.com / pestregister.com): only similar-looking"
+  },
+  {
+   "source_record_id": "mistral-ai",
+   "city": "Sydney",
+   "row": "Mistral AI",
+   "website": "mistral.ai",
+   "resembles": {
+    "id": "cand-mist",
+    "kind": "candidate",
+    "name": "Mist",
+    "website": "gomist.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Mistral AI / Mist) and different website (mistral.ai / gomist.co): only similar-looking"
+  },
+  {
+   "source_record_id": "mx51",
+   "city": "Sydney",
+   "row": "mx51",
+   "website": "mx51.com",
+   "resembles": {
+    "id": "mx51",
+    "kind": "company",
+    "name": "mx51",
+    "website": "mx51.io"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "mx51.com and mx51.io both load the same site (mx51.com): mx51"
+  },
+  {
+   "source_record_id": "mygig",
+   "city": "Sydney",
+   "row": "MyGig",
+   "website": "mygig.com.au",
+   "resembles": {
+    "id": "cand-mygigsters",
+    "kind": "candidate",
+    "name": "MyGigsters",
+    "website": "mygigsters.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (MyGig / MyGigsters) and different website (mygig.com.au / mygigsters.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "ninjaone",
+   "city": "Sydney",
+   "row": "NinjaOne",
+   "website": "ninjaone.com",
+   "resembles": {
+    "id": "cand-ninja-ai",
+    "kind": "candidate",
+    "name": "Ninja AI",
+    "website": "ninja.ai"
+   },
+   "verdict": "separate",
+   "evidence": "different name (NinjaOne / Ninja AI) and different website (ninjaone.com / ninja.ai): only similar-looking"
+  },
+  {
+   "source_record_id": "noa-wireless-formerly-noathebrand",
+   "city": "Sydney",
+   "row": "NOA Wireless (formerly NoaTheBrand)",
+   "website": "noawireless.com",
+   "resembles": {
+    "id": "cand-noathebrand",
+    "kind": "candidate",
+    "name": "NoaTheBrand",
+    "website": "noathebrand.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "a stated rename, and the old site noathebrand.com redirects to noawireless.com"
+  },
+  {
+   "source_record_id": "notion",
+   "city": "Sydney",
+   "row": "Notion",
+   "website": "notion.com",
+   "resembles": {
+    "id": "cand-notion",
+    "kind": "candidate",
+    "name": "Notion",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "open-2",
+   "city": "Sydney",
+   "row": "Open",
+   "website": "beopen.com",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "openagent",
+   "city": "Sydney",
+   "row": "OpenAgent",
+   "website": "openagent.com.au",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenAgent / Open) and different website (openagent.com.au / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "openai",
+   "city": "Sydney",
+   "row": "OpenAI",
+   "website": "openai.com",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenAI / Open) and different website (openai.com / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "openlearning",
+   "city": "Sydney",
+   "row": "OpenLearning",
+   "website": "openlearning.com",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenLearning / Open) and different website (openlearning.com / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "openmarkets",
+   "city": "Sydney",
+   "row": "Openmarkets",
+   "website": "openmarkets.com.au",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (Openmarkets / Open) and different website (openmarkets.com.au / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "openspace-2",
+   "city": "Sydney",
+   "row": "OpenSpace",
+   "website": "openspace.ai",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenSpace / Open) and different website (openspace.ai / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "opentable",
+   "city": "Sydney",
+   "row": "OpenTable",
+   "website": "opentable.com",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenTable / Open) and different website (opentable.com / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "opentext",
+   "city": "Sydney",
+   "row": "OpenText",
+   "website": "opentext.com",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenText / Open) and different website (opentext.com / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "osara-health-formerly-canceraid",
+   "city": "Sydney",
+   "row": "Osara Health (formerly CancerAid)",
+   "website": "osarahealth.com",
+   "resembles": {
+    "id": "cand-osara-health",
+    "kind": "candidate",
+    "name": "Osara Health",
+    "website": "canceraid.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "osarahealth.com and canceraid.com both load the same site (osarahealth.com): Osara Health | Home"
+  },
+  {
+   "source_record_id": "our-leg-up",
+   "city": "Sydney",
+   "row": "Our Leg Up",
+   "website": "ourlegup.com",
+   "resembles": {
+    "id": "cand-our-leg-up",
+    "kind": "candidate",
+    "name": "Our Leg Up",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "paperbark",
+   "city": "Sydney",
+   "row": "Paperbark",
+   "website": "paperbark.ai",
+   "resembles": {
+    "id": "cand-paper-id",
+    "kind": "candidate",
+    "name": "Paper.id",
+    "website": "paper.id"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Paperbark / Paper.id) and different website (paperbark.ai / paper.id): only similar-looking"
+  },
+  {
+   "source_record_id": "parachute",
+   "city": "Sydney",
+   "row": "Parachute",
+   "website": "goparachute.ai",
+   "resembles": {
+    "id": "parachute",
+    "kind": "company",
+    "name": "Parachute",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "pathzero",
+   "city": "Sydney",
+   "row": "Pathzero",
+   "website": "pathzero.com",
+   "resembles": {
+    "id": "pathzero",
+    "kind": "company",
+    "name": "Pathzero",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "paypal",
+   "city": "Sydney",
+   "row": "PayPal",
+   "website": "paypal.com",
+   "resembles": {
+    "id": "cand-evie-networks",
+    "kind": "candidate",
+    "name": "Evie Networks",
+    "website": "evie.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (PayPal / Evie Networks) and different website (paypal.com / evie.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "persona",
+   "city": "Sydney",
+   "row": "Persona",
+   "website": "persona.space",
+   "resembles": {
+    "id": "personr",
+    "kind": "company",
+    "name": "Personr",
+    "website": "personr.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Persona / Personr) and different website (persona.space / personr.co): only similar-looking"
+  },
+  {
+   "source_record_id": "platypus-formerly-vocare",
+   "city": "Sydney",
+   "row": "Platypus (formerly Vocare)",
+   "website": "platys.io",
+   "resembles": {
+    "id": "cand-platypus-vision",
+    "kind": "candidate",
+    "name": "Platypus Vision",
+    "website": "platypusvision.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "primary",
+   "city": "Sydney",
+   "row": "Primary",
+   "website": "primary.tech",
+   "resembles": {
+    "id": "cand-primary",
+    "kind": "candidate",
+    "name": "Primary",
+    "website": "primary.app"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"Primary | System of action for finance teams\" at primary.tech and \"primary.app is for sale. Buy it today!\" at primary.app"
+  },
+  {
+   "source_record_id": "puralink",
+   "city": "Sydney",
+   "row": "Puralink",
+   "website": "puralink.com",
+   "resembles": {
+    "id": "puralink",
+    "kind": "company",
+    "name": "Puralink",
+    "website": "puralink.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "puralink.com and puralink.com.au both load the same site (puralink.com): Autonomous pipe inspection robots | Puralink"
+  },
+  {
+   "source_record_id": "quarterzip",
+   "city": "Sydney",
+   "row": "Quarterzip",
+   "website": "quarterzip.ai",
+   "resembles": {
+    "id": "quarter",
+    "kind": "company",
+    "name": "Quarter",
+    "website": "quarter.nz"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Quarterzip / Quarter) and different website (quarterzip.ai / quarter.nz): only similar-looking"
+  },
+  {
+   "source_record_id": "qwilr",
+   "city": "Sydney",
+   "row": "Qwilr",
+   "website": "qwilr.com",
+   "resembles": {
+    "id": "qwilr",
+    "kind": "company",
+    "name": "Qwilr",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "reach-alts",
+   "city": "Sydney",
+   "row": "Reach Alts",
+   "website": "reachalts.com.au",
+   "resembles": {
+    "id": "reach-alternative-investments",
+    "kind": "company",
+    "name": "Reach Alternative Investments",
+    "website": "reachalts.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the same website (reachalts.com.au) under different names: a rename, or a parent and its subsidiary (not merged automatically)"
+  },
+  {
+   "source_record_id": "relaypay",
+   "city": "Sydney",
+   "row": "RelayPay",
+   "website": "relaypay.io",
+   "resembles": {
+    "id": "cand-relay",
+    "kind": "candidate",
+    "name": "Relay",
+    "website": "relay.link"
+   },
+   "verdict": "separate",
+   "evidence": "different name (RelayPay / Relay) and different website (relaypay.io / relay.link): only similar-looking"
+  },
+  {
+   "source_record_id": "roam-technologies",
+   "city": "Sydney",
+   "row": "Roam Technologies",
+   "website": "roamtech.ai",
+   "resembles": {
+    "id": "cand-stropro",
+    "kind": "candidate",
+    "name": "Stropro",
+    "website": "stropro.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Roam Technologies / Stropro) and different website (roamtech.ai / stropro.com): only similar-looking"
+  },
+  {
+   "source_record_id": "shift",
+   "city": "Sydney",
+   "row": "Shift",
+   "website": "shift.com.au",
+   "resembles": {
+    "id": "shiftcare",
+    "kind": "company",
+    "name": "ShiftCare",
+    "website": "shiftcare.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Shift / ShiftCare) and different website (shift.com.au / shiftcare.com): only similar-looking"
+  },
+  {
+   "source_record_id": "snap",
+   "city": "Sydney",
+   "row": "Snap",
+   "website": "snap.com",
+   "resembles": {
+    "id": "snap-send-solve",
+    "kind": "company",
+    "name": "Snap Send Solve",
+    "website": "snapsendsolve.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Snap / Snap Send Solve) and different website (snap.com / snapsendsolve.com): only similar-looking"
+  },
+  {
+   "source_record_id": "space-machines-company",
+   "city": "Sydney",
+   "row": "Space Machines Company",
+   "website": "spacemachines.com",
+   "resembles": {
+    "id": "cand-11th-space",
+    "kind": "candidate",
+    "name": "11th Space",
+    "website": "11thspace.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Space Machines Company / 11th Space) and different website (spacemachines.com / 11thspace.com): only similar-looking"
+  },
+  {
+   "source_record_id": "spacer-technologies",
+   "city": "Sydney",
+   "row": "Spacer Technologies",
+   "website": "spacertechnologies.com.au",
+   "resembles": {
+    "id": "cand-11th-space",
+    "kind": "candidate",
+    "name": "11th Space",
+    "website": "11thspace.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Spacer Technologies / 11th Space) and different website (spacertechnologies.com.au / 11thspace.com): only similar-looking"
+  },
+  {
+   "source_record_id": "spaces",
+   "city": "Sydney",
+   "row": "Spaces",
+   "website": "spacesworks.com",
+   "resembles": {
+    "id": "zendir",
+    "kind": "company",
+    "name": "Zendir",
+    "website": "zendir.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Spaces / Zendir) and different website (spacesworks.com / zendir.io): only similar-looking"
+  },
+  {
+   "source_record_id": "spaceship",
+   "city": "Sydney",
+   "row": "Spaceship",
+   "website": "spaceship.com.au",
+   "resembles": {
+    "id": "cand-casemate",
+    "kind": "candidate",
+    "name": "CaseMate",
+    "website": "casemate.ai"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Spaceship / CaseMate) and different website (spaceship.com.au / casemate.ai): only similar-looking"
+  },
+  {
+   "source_record_id": "spacetalk",
+   "city": "Sydney",
+   "row": "Spacetalk",
+   "website": "spacetalk.co",
+   "resembles": {
+    "id": "cand-11th-space",
+    "kind": "candidate",
+    "name": "11th Space",
+    "website": "11thspace.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Spacetalk / 11th Space) and different website (spacetalk.co / 11thspace.com): only similar-looking"
+  },
+  {
+   "source_record_id": "speedx",
+   "city": "Sydney",
+   "row": "SpeeDx",
+   "website": "speedxpcr.com",
+   "resembles": {
+    "id": "cand-speedx",
+    "kind": "candidate",
+    "name": "SpeeDx",
+    "website": "plexpcr.com"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (too_large), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "spotify",
+   "city": "Sydney",
+   "row": "Spotify",
+   "website": "spotify.com",
+   "resembles": {
+    "id": "cand-spotify",
+    "kind": "candidate",
+    "name": "Spotify",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "springboards",
+   "city": "Sydney",
+   "row": "Springboards",
+   "website": "springboards.ai",
+   "resembles": {
+    "id": "springboards",
+    "kind": "company",
+    "name": "Springboards",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "swift",
+   "city": "Sydney",
+   "row": "Swift",
+   "website": "swift.com",
+   "resembles": {
+    "id": "merchantspring",
+    "kind": "company",
+    "name": "MerchantSpring",
+    "website": "merchantspring.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Swift / MerchantSpring) and different website (swift.com / merchantspring.io): only similar-looking"
+  },
+  {
+   "source_record_id": "swipejobs",
+   "city": "Sydney",
+   "row": "swipejobs",
+   "website": "swipejobs.com",
+   "resembles": {
+    "id": "cand-swipe",
+    "kind": "candidate",
+    "name": "Swipe",
+    "website": "swipe.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (swipejobs / Swipe) and different website (swipejobs.com / swipe.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "tech-central",
+   "city": "Sydney",
+   "row": "Tech Central",
+   "website": "nsw.gov.au",
+   "resembles": {
+    "id": "cand-bradfield-city-first-building",
+    "kind": "candidate",
+    "name": "Bradfield City First Building",
+    "website": "nsw.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "nsw.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "techsydney",
+   "city": "Sydney",
+   "row": "TechSydney",
+   "website": "techsydney.com.au",
+   "resembles": {
+    "id": "cand-mys-tyler",
+    "kind": "candidate",
+    "name": "Mys Tyler",
+    "website": "mys-tyler.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (TechSydney / Mys Tyler) and different website (techsydney.com.au / mys-tyler.com): only similar-looking"
+  },
+  {
+   "source_record_id": "titanium-ventures-formerly-telstra-ventures",
+   "city": "Sydney",
+   "row": "Titanium Ventures (formerly Telstra Ventures)",
+   "website": "ti.vc",
+   "resembles": {
+    "id": "cand-telstra",
+    "kind": "candidate",
+    "name": "Telstra",
+    "website": "telstra.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "truestate",
+   "city": "Sydney",
+   "row": "TrueState",
+   "website": "truestate.io",
+   "resembles": {
+    "id": "truestate",
+    "kind": "company",
+    "name": "TrueState",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "tyro",
+   "city": "Sydney",
+   "row": "Tyro",
+   "website": "tyro.com",
+   "resembles": {
+    "id": "cand-tyro-health",
+    "kind": "candidate",
+    "name": "Tyro Health",
+    "website": "tyrohealth.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Tyro / Tyro Health) and different website (tyro.com / tyrohealth.com): only similar-looking"
+  },
+  {
+   "source_record_id": "vinyl-group",
+   "city": "Sydney",
+   "row": "Vinyl Group",
+   "website": "vinyl.group",
+   "resembles": {
+    "id": "vinyl",
+    "kind": "company",
+    "name": "Vinyl",
+    "website": "usevinyl.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Vinyl Group / Vinyl) and different website (vinyl.group / usevinyl.com): only similar-looking"
+  },
+  {
+   "source_record_id": "vow",
+   "city": "Sydney",
+   "row": "Vow",
+   "website": "eatvow.com",
+   "resembles": {
+    "id": "vow",
+    "kind": "company",
+    "name": "Vow",
+    "website": "vowfood.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "eatvow.com and vowfood.com both load the same site (eatvow.com): Vow – Tasty food that happens to be made from cultured meat."
+  },
+  {
+   "source_record_id": "western-sydney-startup-hub",
+   "city": "Sydney",
+   "row": "Western Sydney Startup Hub",
+   "website": "spacecubed.com",
+   "resembles": {
+    "id": "cand-core-innovation-hub",
+    "kind": "candidate",
+    "name": "CORE Innovation Hub",
+    "website": "spacecubed.com"
+   },
+   "verdict": "unverified",
+   "evidence": "one operator (Spacecubed) runs several named programmes on one site: how they are listed needs a person"
+  },
+  {
+   "source_record_id": "wisr",
+   "city": "Sydney",
+   "row": "Wisr",
+   "website": "wisr.com.au",
+   "resembles": {
+    "id": "carma",
+    "kind": "company",
+    "name": "Carma",
+    "website": "carma.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Wisr / Carma) and different website (wisr.com.au / carma.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "work-inc",
+   "city": "Sydney",
+   "row": "Work Inc",
+   "website": "workinc.com.au",
+   "resembles": {
+    "id": "skutopia",
+    "kind": "company",
+    "name": "SKUTOPIA",
+    "website": "skutopia.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Work Inc / SKUTOPIA) and different website (workinc.com.au / skutopia.com): only similar-looking"
+  },
+  {
+   "source_record_id": "workit-spaces",
+   "city": "Sydney",
+   "row": "Workit Spaces",
+   "website": "workitspaces.com.au",
+   "resembles": {
+    "id": "skutopia",
+    "kind": "company",
+    "name": "SKUTOPIA",
+    "website": "skutopia.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Workit Spaces / SKUTOPIA) and different website (workitspaces.com.au / skutopia.com): only similar-looking"
+  },
+  {
+   "source_record_id": "zepto-2",
+   "city": "Sydney",
+   "row": "Zepto",
+   "website": "zepto.com.au",
+   "resembles": {
+    "id": "bamboo",
+    "kind": "company",
+    "name": "Bamboo",
+    "website": "getbamboo.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Zepto / Bamboo) and different website (zepto.com.au / getbamboo.io): only similar-looking"
+  },
+  {
+   "source_record_id": "zoomo",
+   "city": "Sydney",
+   "row": "Zoomo",
+   "website": "ridezoomo.com",
+   "resembles": {
+    "id": "zoomo",
+    "kind": "company",
+    "name": "Zoomo",
+    "website": "zoomo.co"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (dns_failed), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "afterwork-ventures",
+   "city": "Melbourne",
+   "row": "AfterWork Ventures",
+   "website": "afterwork.vc",
+   "resembles": {
+    "id": "cand-after",
+    "kind": "candidate",
+    "name": "After",
+    "website": "after.net.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (AfterWork Ventures / After) and different website (afterwork.vc / after.net.au): only similar-looking"
+  },
+  {
+   "source_record_id": "archangel-ventures",
+   "city": "Melbourne",
+   "row": "Archangel Ventures",
+   "website": "archangel.vc",
+   "resembles": {
+    "id": "archa",
+    "kind": "company",
+    "name": "Archa",
+    "website": "archa.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Archangel Ventures / Archa) and different website (archangel.vc / archa.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "aroflo-simpro-group",
+   "city": "Melbourne",
+   "row": "AroFlo (Simpro Group)",
+   "website": "aroflo.com",
+   "resembles": {
+    "id": "simpro",
+    "kind": "company",
+    "name": "Simpro",
+    "website": "simpro.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "australian-medical-angels",
+   "city": "Melbourne",
+   "row": "Australian Medical Angels",
+   "website": "medangels.com.au",
+   "resembles": {
+    "id": "cand-cotiss",
+    "kind": "candidate",
+    "name": "Cotiss",
+    "website": "cotiss.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Australian Medical Angels / Cotiss) and different website (medangels.com.au / cotiss.com): only similar-looking"
+  },
+  {
+   "source_record_id": "australian-sports-technologies-network",
+   "city": "Melbourne",
+   "row": "Australian Sports Technologies Network",
+   "website": "astn.com.au",
+   "resembles": {
+    "id": "cand-cotiss",
+    "kind": "candidate",
+    "name": "Cotiss",
+    "website": "cotiss.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Australian Sports Technologies Network / Cotiss) and different website (astn.com.au / cotiss.com): only similar-looking"
+  },
+  {
+   "source_record_id": "block-square-and-cash-app",
+   "city": "Melbourne",
+   "row": "Block (Square and Cash App)",
+   "website": "block.xyz",
+   "resembles": {
+    "id": "block-earner",
+    "kind": "company",
+    "name": "Block Earner",
+    "website": "blockearner.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "boab-ventures-formerly-boab-ai",
+   "city": "Melbourne",
+   "row": "Boab Ventures (formerly Boab AI)",
+   "website": "boab.ventures",
+   "resembles": {
+    "id": "cand-generation-ai",
+    "kind": "candidate",
+    "name": "Generation AI",
+    "website": "generationai.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "breadcrumb-formerly-1breadcrumb",
+   "city": "Melbourne",
+   "row": "Breadcrumb (formerly 1Breadcrumb)",
+   "website": "breadcrumb.co",
+   "resembles": {
+    "id": "1breadcrumb",
+    "kind": "company",
+    "name": "1Breadcrumb",
+    "website": "1breadcrumb.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "a stated rename, and the old site 1breadcrumb.com redirects to breadcrumb.co"
+  },
+  {
+   "source_record_id": "buildpass",
+   "city": "Melbourne",
+   "row": "BuildPass",
+   "website": "buildpass.ai",
+   "resembles": {
+    "id": "buildpass",
+    "kind": "company",
+    "name": "BuildPass",
+    "website": "buildpass.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "buildpass.ai and buildpass.com.au both load the same site (buildpass.ai): AI-Powered Construction Project Management Software | Builders Softwar"
+  },
+  {
+   "source_record_id": "bxb-technologies",
+   "city": "Melbourne",
+   "row": "BXB Technologies",
+   "website": "bxbtech.com.au",
+   "resembles": {
+    "id": "dayworkbook",
+    "kind": "company",
+    "name": "Dayworkbook",
+    "website": "dayworkbook.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (BXB Technologies / Dayworkbook) and different website (bxbtech.com.au / dayworkbook.com): only similar-looking"
+  },
+  {
+   "source_record_id": "calcs-com-formerly-clearcalcs",
+   "city": "Melbourne",
+   "row": "Calcs.com (formerly ClearCalcs)",
+   "website": "calcs.com",
+   "resembles": {
+    "id": "cand-clearcalcs",
+    "kind": "candidate",
+    "name": "ClearCalcs",
+    "website": "clearcalcs.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "a stated rename, and the old site clearcalcs.com redirects to calcs.com"
+  },
+  {
+   "source_record_id": "cape-bionics",
+   "city": "Melbourne",
+   "row": "CAPE Bionics",
+   "website": "capebionics.com",
+   "resembles": {
+    "id": "cape",
+    "kind": "company",
+    "name": "Cape",
+    "website": "getcape.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (CAPE Bionics / Cape) and different website (capebionics.com / getcape.io): only similar-looking"
+  },
+  {
+   "source_record_id": "catalysr",
+   "city": "Melbourne",
+   "row": "Catalysr",
+   "website": "catalysr.com.au",
+   "resembles": {
+    "id": "cand-catalyser",
+    "kind": "candidate",
+    "name": "Catalyser",
+    "website": "catalyser.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Catalysr / Catalyser) and different website (catalysr.com.au / catalyser.com): only similar-looking"
+  },
+  {
+   "source_record_id": "clear-dynamics",
+   "city": "Melbourne",
+   "row": "Clear Dynamics",
+   "website": "cleardynamics.com",
+   "resembles": {
+    "id": "clear-dynamics",
+    "kind": "company",
+    "name": "Clear Dynamics",
+    "website": "cleardynamics.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "cleardynamics.com and cleardynamics.com.au both load the same site (cleardynamics.com): Tailored Intelligent Solutions | Clear Dynamics"
+  },
+  {
+   "source_record_id": "coherence-health",
+   "city": "Melbourne",
+   "row": "Coherence Health",
+   "website": "coherencehealth.com.au",
+   "resembles": {
+    "id": "cand-coherence-neuro",
+    "kind": "candidate",
+    "name": "Coherence Neuro",
+    "website": "coherenceneuro.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Coherence Health / Coherence Neuro) and different website (coherencehealth.com.au / coherenceneuro.com): only similar-looking"
+  },
+  {
+   "source_record_id": "cor",
+   "city": "Melbourne",
+   "row": "Cor",
+   "website": "getcor.ai",
+   "resembles": {
+    "id": "cor",
+    "kind": "company",
+    "name": "Cor (Cor AI)",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "cyble",
+   "city": "Melbourne",
+   "row": "Cyble",
+   "website": "cyble.com",
+   "resembles": {
+    "id": "cand-cyble",
+    "kind": "candidate",
+    "name": "Cyble",
+    "website": "cyble.io"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (access_controlled), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "deel",
+   "city": "Melbourne",
+   "row": "Deel",
+   "website": "deel.com",
+   "resembles": {
+    "id": "deeligence",
+    "kind": "company",
+    "name": "Deeligence",
+    "website": "deeligence.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Deel / Deeligence) and different website (deel.com / deeligence.com): only similar-looking"
+  },
+  {
+   "source_record_id": "dell-technologies",
+   "city": "Melbourne",
+   "row": "Dell Technologies",
+   "website": "dell.com",
+   "resembles": {
+    "id": "cand-hall",
+    "kind": "candidate",
+    "name": "Hall",
+    "website": "usehall.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Dell Technologies / Hall) and different website (dell.com / usehall.com): only similar-looking"
+  },
+  {
+   "source_record_id": "design-once-formerly-ai-nc",
+   "city": "Melbourne",
+   "row": "Design Once (formerly AI-NC)",
+   "website": "designonce.ai",
+   "resembles": {
+    "id": "cand-ai-nc",
+    "kind": "candidate",
+    "name": "AI-NC",
+    "website": "ai-nc.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "a stated rename, and the old site ai-nc.com redirects to designonce.ai"
+  },
+  {
+   "source_record_id": "dovetail-electric-aviation",
+   "city": "Melbourne",
+   "row": "Dovetail Electric Aviation",
+   "website": "dovetail.aero",
+   "resembles": {
+    "id": "dovetail",
+    "kind": "company",
+    "name": "Dovetail",
+    "website": "dovetail.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Dovetail Electric Aviation / Dovetail) and different website (dovetail.aero / dovetail.com): only similar-looking"
+  },
+  {
+   "source_record_id": "e1-formerly-estimateone",
+   "city": "Melbourne",
+   "row": "E1 (formerly EstimateOne)",
+   "website": "estimateone.com",
+   "resembles": {
+    "id": "estimate",
+    "kind": "company",
+    "name": "EstiMate",
+    "website": "estimateai.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "E1 (formerly EstimateOne, estimateone.com) is not EstiMate (estimateai.com.au, an AI estimating product): the names are only similar"
+  },
+  {
+   "source_record_id": "edsmart",
+   "city": "Melbourne",
+   "row": "EdSmart",
+   "website": "edsmart.com",
+   "resembles": {
+    "id": "edstart",
+    "kind": "company",
+    "name": "Edstart",
+    "website": "edstart.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (EdSmart / Edstart) and different website (edsmart.com / edstart.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "electralith",
+   "city": "Melbourne",
+   "row": "ElectraLith",
+   "website": "electralith.com",
+   "resembles": {
+    "id": "electralith",
+    "kind": "company",
+    "name": "ElectraLith",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "eql",
+   "city": "Melbourne",
+   "row": "EQL",
+   "website": "eql.com",
+   "resembles": {
+    "id": "cand-eql",
+    "kind": "candidate",
+    "name": "EQL",
+    "website": "eql.xyz"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"EQL | Power Fair, High-Demand Product Drops & Launches\" at eql.com and \"\" at eql.xyz"
+  },
+  {
+   "source_record_id": "estimate",
+   "city": "Melbourne",
+   "row": "EstiMate",
+   "website": "useestimate.ai",
+   "resembles": {
+    "id": "estimate",
+    "kind": "company",
+    "name": "EstiMate",
+    "website": "estimateai.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "useestimate.ai and estimateai.com.au both load the same site (useestimate.ai): AI Construction Estimating Software Australia | EstiMate"
+  },
+  {
+   "source_record_id": "exergenics",
+   "city": "Melbourne",
+   "row": "Exergenics",
+   "website": "exergenics.com",
+   "resembles": {
+    "id": "exergenics",
+    "kind": "company",
+    "name": "Exergenics",
+    "website": "exergenics.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "exergenics.com and exergenics.com.au both load the same site (exergenics.com): Chiller Plant Optimization & Machine Learning for HVAC - Exergenics"
+  },
+  {
+   "source_record_id": "farmo",
+   "city": "Melbourne",
+   "row": "Farmo",
+   "website": "farmo.com.au",
+   "resembles": {
+    "id": "cand-far-more",
+    "kind": "candidate",
+    "name": "Far More",
+    "website": "farmore.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Farmo / Far More) and different website (farmo.com.au / farmore.co): only similar-looking"
+  },
+  {
+   "source_record_id": "firmable",
+   "city": "Melbourne",
+   "row": "Firmable",
+   "website": "firmable.ai",
+   "resembles": {
+    "id": "cand-firmable",
+    "kind": "candidate",
+    "name": "Firmable",
+    "website": "firmable.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "firmable.ai and firmable.com both load the same site (firmable.ai): Firmable | AI-native sales platform for US, Canada & APAC"
+  },
+  {
+   "source_record_id": "fluenccy",
+   "city": "Melbourne",
+   "row": "Fluenccy",
+   "website": "fluenccy.com",
+   "resembles": {
+    "id": "fluency",
+    "kind": "company",
+    "name": "Fluency",
+    "website": "getfluency.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Fluenccy / Fluency) and different website (fluenccy.com / getfluency.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "forward-deployed",
+   "city": "Melbourne",
+   "row": "Forward Deployed",
+   "website": "forward-deployed.com",
+   "resembles": {
+    "id": "forward",
+    "kind": "company",
+    "name": "Forward",
+    "website": "useforward.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Forward Deployed / Forward) and different website (forward-deployed.com / useforward.co): only similar-looking"
+  },
+  {
+   "source_record_id": "gandel-invest",
+   "city": "Melbourne",
+   "row": "Gandel Invest",
+   "website": "gandelinvest.com",
+   "resembles": {
+    "id": "cand-stellar",
+    "kind": "candidate",
+    "name": "Stellar",
+    "website": "stellarprogram.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Gandel Invest / Stellar) and different website (gandelinvest.com / stellarprogram.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "genesys",
+   "city": "Melbourne",
+   "row": "Genesys",
+   "website": "genesys.com",
+   "resembles": {
+    "id": "gene-s",
+    "kind": "company",
+    "name": "Gene S",
+    "website": "gene-s.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Genesys / Gene S) and different website (genesys.com / gene-s.com): only similar-looking"
+  },
+  {
+   "source_record_id": "hatch-quarter",
+   "city": "Melbourne",
+   "row": "Hatch Quarter",
+   "website": "hatchquarter.com.au",
+   "resembles": {
+    "id": "hatch",
+    "kind": "company",
+    "name": "Hatch",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (Hatch Quarter / Hatch) and different website (hatchquarter.com.au / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "hub-australia-hub-hyde-park",
+   "city": "Melbourne",
+   "row": "Hub Australia (Hub Hyde Park)",
+   "website": "hubaustralia.com",
+   "resembles": {
+    "id": "cand-5b",
+    "kind": "candidate",
+    "name": "5B",
+    "website": "5b.co"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "ind-technology",
+   "city": "Melbourne",
+   "row": "IND Technology",
+   "website": "ind-technology.com",
+   "resembles": {
+    "id": "cand-hud",
+    "kind": "candidate",
+    "name": "Hud",
+    "website": "hud.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (IND Technology / Hud) and different website (ind-technology.com / hud.io): only similar-looking"
+  },
+  {
+   "source_record_id": "instantscripts-part-of-wesfarmers-health",
+   "city": "Melbourne",
+   "row": "InstantScripts (part of Wesfarmers Health)",
+   "website": "instantscripts.com.au",
+   "resembles": {
+    "id": "instant",
+    "kind": "company",
+    "name": "Instant",
+    "website": "instant.one"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "invest-victoria",
+   "city": "Melbourne",
+   "row": "Invest Victoria",
+   "website": "vic.gov.au",
+   "resembles": {
+    "id": "cand-city-of-melbourne-startups-and-innovation",
+    "kind": "candidate",
+    "name": "City of Melbourne – Startups and Innovation",
+    "website": "vic.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "vic.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "jupiter-ionics",
+   "city": "Melbourne",
+   "row": "Jupiter Ionics",
+   "website": "jupiterionics.com",
+   "resembles": {
+    "id": "jupiter-ionics",
+    "kind": "company",
+    "name": "Jupiter Ionics",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "kepler-analytics",
+   "city": "Melbourne",
+   "row": "Kepler Analytics",
+   "website": "kepleranalytics.com",
+   "resembles": {
+    "id": "cand-kepler-analytics",
+    "kind": "candidate",
+    "name": "Kepler Analytics",
+    "website": "kepleranalytics.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "kepleranalytics.com and kepleranalytics.com.au both load the same site (kepleranalytics.com): Kepler Analytics | Retail Sales Improvement & Network Optimisation"
+  },
+  {
+   "source_record_id": "kismet",
+   "city": "Melbourne",
+   "row": "Kismet",
+   "website": "kismet.healthcare",
+   "resembles": {
+    "id": "kismet",
+    "kind": "company",
+    "name": "Kismet",
+    "website": "kismet.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"Kismet | Plan management and healthcare, all in one place\" at kismet.healthcare and \"kismet.com.au\" at kismet.com.au"
+  },
+  {
+   "source_record_id": "lexx-technologies",
+   "city": "Melbourne",
+   "row": "LexX Technologies",
+   "website": "lexxtechnologies.com",
+   "resembles": {
+    "id": "cand-lexx-technologies",
+    "kind": "candidate",
+    "name": "LexX Technologies",
+    "website": "lexx.ai"
+   },
+   "verdict": "separate",
+   "evidence": "same name but two different sites: \"Homepage - LexX Technologies\" at lexxtechnologies.com and \"Online Training & Professional Development Courses | LEXX\" at lexx.com"
+  },
+  {
+   "source_record_id": "lightspeed-commerce",
+   "city": "Melbourne",
+   "row": "Lightspeed Commerce",
+   "website": "lightspeedhq.com",
+   "resembles": {
+    "id": "cand-vend",
+    "kind": "candidate",
+    "name": "Vend",
+    "website": "vendhq.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Lightspeed Commerce / Vend) and different website (lightspeedhq.com / vendhq.com): only similar-looking"
+  },
+  {
+   "source_record_id": "lyra-technologies",
+   "city": "Melbourne",
+   "row": "Lyra Technologies",
+   "website": "lyratechnologies.com.au",
+   "resembles": {
+    "id": "cand-kara-technologies",
+    "kind": "candidate",
+    "name": "Kara Technologies",
+    "website": "kara.tech"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Lyra Technologies / Kara Technologies) and different website (lyratechnologies.com.au / kara.tech): only similar-looking"
+  },
+  {
+   "source_record_id": "matrak",
+   "city": "Melbourne",
+   "row": "Matrak",
+   "website": "matrak.com",
+   "resembles": {
+    "id": "matrak",
+    "kind": "company",
+    "name": "Matrak",
+    "website": "matrak.com.au"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "matrak.com and matrak.com.au both load the same site (matrak.com): Automating Global Construction | Matrak"
+  },
+  {
+   "source_record_id": "melbourne-accelerator-program-map",
+   "city": "Melbourne",
+   "row": "Melbourne Accelerator Program (MAP)",
+   "website": "unimelb.edu.au",
+   "resembles": {
+    "id": "cand-bio21-institute",
+    "kind": "candidate",
+    "name": "Bio21 Institute",
+    "website": "unimelb.edu.au"
+   },
+   "verdict": "separate",
+   "evidence": "unimelb.edu.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "monash-ventures-pre-seed-fund",
+   "city": "Melbourne",
+   "row": "Monash Ventures Pre-Seed Fund",
+   "website": "monash.edu",
+   "resembles": {
+    "id": "cand-monash-generator",
+    "kind": "candidate",
+    "name": "Monash Generator",
+    "website": "monash.edu"
+   },
+   "verdict": "separate",
+   "evidence": "monash.edu is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "mx51",
+   "city": "Melbourne",
+   "row": "mx51",
+   "website": "mx51.com",
+   "resembles": {
+    "id": "mx51",
+    "kind": "company",
+    "name": "mx51",
+    "website": "mx51.io"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "mx51.com and mx51.io both load the same site (mx51.com): mx51"
+  },
+  {
+   "source_record_id": "n0de",
+   "city": "Melbourne",
+   "row": "n0de",
+   "website": "n0de.co",
+   "resembles": {
+    "id": "cand-n0de",
+    "kind": "candidate",
+    "name": "n0de",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "nomni-formerly-liven",
+   "city": "Melbourne",
+   "row": "Nomni (formerly Liven)",
+   "website": "nomni.ai",
+   "resembles": {
+    "id": "cand-liven",
+    "kind": "candidate",
+    "name": "Liven",
+    "website": "liven.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "liven.love and nomni.ai show the same page title (\"Leading POS system and technology solution for hospitality businesses\"), so Liven and Nomni look like one company; liven.com.au could not be read (robots), so it is not confirmed"
+  },
+  {
+   "source_record_id": "okkular",
+   "city": "Melbourne",
+   "row": "Okkular",
+   "website": "okkular.io",
+   "resembles": {
+    "id": "cand-okkular",
+    "kind": "candidate",
+    "name": "Okkular",
+    "website": "okkular.shop"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (dns_failed), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "openinvest",
+   "city": "Melbourne",
+   "row": "OpenInvest",
+   "website": "openinvest.com.au",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenInvest / Open) and different website (openinvest.com.au / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "opentext",
+   "city": "Melbourne",
+   "row": "OpenText",
+   "website": "opentext.com",
+   "resembles": {
+    "id": "open",
+    "kind": "company",
+    "name": "Open",
+    "website": null
+   },
+   "verdict": "separate",
+   "evidence": "different name (OpenText / Open) and different website (opentext.com / none on record): only similar-looking"
+  },
+  {
+   "source_record_id": "our-leg-up",
+   "city": "Melbourne",
+   "row": "Our Leg Up",
+   "website": "ourlegup.com",
+   "resembles": {
+    "id": "cand-our-leg-up",
+    "kind": "candidate",
+    "name": "Our Leg Up",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "papercut-software",
+   "city": "Melbourne",
+   "row": "PaperCut Software",
+   "website": "papercut.com",
+   "resembles": {
+    "id": "cand-paper-id",
+    "kind": "candidate",
+    "name": "Paper.id",
+    "website": "paper.id"
+   },
+   "verdict": "separate",
+   "evidence": "different name (PaperCut Software / Paper.id) and different website (papercut.com / paper.id): only similar-looking"
+  },
+  {
+   "source_record_id": "paperlab",
+   "city": "Melbourne",
+   "row": "PaperLab",
+   "website": "paperlab.ai",
+   "resembles": {
+    "id": "cand-paper-id",
+    "kind": "candidate",
+    "name": "Paper.id",
+    "website": "paper.id"
+   },
+   "verdict": "separate",
+   "evidence": "different name (PaperLab / Paper.id) and different website (paperlab.ai / paper.id): only similar-looking"
+  },
+  {
+   "source_record_id": "planet-innovation",
+   "city": "Melbourne",
+   "row": "Planet Innovation",
+   "website": "planetinnovation.com",
+   "resembles": {
+    "id": "atmo-biosciences",
+    "kind": "company",
+    "name": "Atmo Biosciences",
+    "website": "atmobiosciences.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Planet Innovation / Atmo Biosciences) and different website (planetinnovation.com / atmobiosciences.com): only similar-looking"
+  },
+  {
+   "source_record_id": "programa",
+   "city": "Melbourne",
+   "row": "Programa",
+   "website": "programa.com",
+   "resembles": {
+    "id": "programa",
+    "kind": "company",
+    "name": "Programa",
+    "website": "programa.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (dns_failed), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "prophet",
+   "city": "Melbourne",
+   "row": "Prophet",
+   "website": "prophet.ml",
+   "resembles": {
+    "id": "prophet",
+    "kind": "company",
+    "name": "Prophet",
+    "website": "goprophet.io"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "prophet.ml and goprophet.io both load the same site (prophet.ml): Prophet | Home"
+  },
+  {
+   "source_record_id": "rave",
+   "city": "Melbourne",
+   "row": "Rave",
+   "website": "rave.us",
+   "resembles": {
+    "id": "cand-rave",
+    "kind": "candidate",
+    "name": "Rave",
+    "website": "go-rave.com"
+   },
+   "verdict": "unverified",
+   "evidence": "same name; one website could not be read (dns_failed), so the two cannot be compared"
+  },
+  {
+   "source_record_id": "reflective-formerly-maths-pathway",
+   "city": "Melbourne",
+   "row": "Reflective (formerly Maths Pathway)",
+   "website": "reflective.global",
+   "resembles": {
+    "id": "cand-maths-pathway",
+    "kind": "candidate",
+    "name": "Maths Pathway",
+    "website": "mathspathway.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "a stated rename, and the old site mathspathway.com redirects to reflective.global"
+  },
+  {
+   "source_record_id": "salter-brothers-technology-investments",
+   "city": "Melbourne",
+   "row": "Salter Brothers (technology investments)",
+   "website": "salterbrothers.com.au",
+   "resembles": {
+    "id": "cand-mys-tyler",
+    "kind": "candidate",
+    "name": "Mys Tyler",
+    "website": "mys-tyler.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "seek-investments",
+   "city": "Melbourne",
+   "row": "SEEK Investments",
+   "website": "seekinvestments.com",
+   "resembles": {
+    "id": "seek",
+    "kind": "company",
+    "name": "SEEK",
+    "website": "seek.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (SEEK Investments / SEEK) and different website (seekinvestments.com / seek.com): only similar-looking"
+  },
+  {
+   "source_record_id": "spark-business-innovation-hub",
+   "city": "Melbourne",
+   "row": "SPARK Business & Innovation Hub",
+   "website": "vic.gov.au",
+   "resembles": {
+    "id": "cand-city-of-melbourne-startups-and-innovation",
+    "kind": "candidate",
+    "name": "City of Melbourne – Startups and Innovation",
+    "website": "vic.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "vic.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "spec-toolbox-formerly-clt-toolbox",
+   "city": "Melbourne",
+   "row": "SPEC Toolbox (formerly CLT Toolbox)",
+   "website": "spectoolbox.com",
+   "resembles": {
+    "id": "spec-toolbox",
+    "kind": "company",
+    "name": "SPEC Toolbox",
+    "website": "clttoolbox.com"
+   },
+   "verdict": "genuine_duplicate",
+   "evidence": "spectoolbox.com and clttoolbox.com both load the same site (spectoolbox.com): SPEC Toolbox | Mass Timber Design Software for Structural Engineers"
+  },
+  {
+   "source_record_id": "springboards",
+   "city": "Melbourne",
+   "row": "Springboards",
+   "website": "springboards.ai",
+   "resembles": {
+    "id": "springboards",
+    "kind": "company",
+    "name": "Springboards",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "startspace",
+   "city": "Melbourne",
+   "row": "StartSpace",
+   "website": "vic.gov.au",
+   "resembles": {
+    "id": "cand-city-of-melbourne-startups-and-innovation",
+    "kind": "candidate",
+    "name": "City of Melbourne – Startups and Innovation",
+    "website": "vic.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "vic.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "supp",
+   "city": "Melbourne",
+   "row": "Supp",
+   "website": "suppapp.com",
+   "resembles": {
+    "id": "supportly",
+    "kind": "company",
+    "name": "Supportly",
+    "website": "supportly.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Supp / Supportly) and different website (suppapp.com / supportly.au): only similar-looking"
+  },
+  {
+   "source_record_id": "tech-with-purpose-melbourne",
+   "city": "Melbourne",
+   "row": "Tech with Purpose Melbourne",
+   "website": "linkedin.com",
+   "resembles": {
+    "id": "cand-tech-with-purpose-melbourne",
+    "kind": "candidate",
+    "name": "Tech with Purpose Melbourne",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "the-access-group",
+   "city": "Melbourne",
+   "row": "The Access Group",
+   "website": "theaccessgroup.com",
+   "resembles": {
+    "id": "cand-onboarded",
+    "kind": "candidate",
+    "name": "Onboarded",
+    "website": "theaccessgroup.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the same website (theaccessgroup.com) under different names: a rename, or a parent and its subsidiary (not merged automatically)"
+  },
+  {
+   "source_record_id": "totex-energy",
+   "city": "Melbourne",
+   "row": "Totex Energy",
+   "website": "totexenergy.com",
+   "resembles": {
+    "id": "cand-totex",
+    "kind": "candidate",
+    "name": "TOTEX",
+    "website": "totex.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Totex Energy / TOTEX) and different website (totexenergy.com / totex.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "tripple",
+   "city": "Melbourne",
+   "row": "Tripple",
+   "website": "tripple.com.au",
+   "resembles": {
+    "id": "cand-ripple",
+    "kind": "candidate",
+    "name": "Ripple",
+    "website": "ripple.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Tripple / Ripple) and different website (tripple.com.au / ripple.com): only similar-looking"
+  },
+  {
+   "source_record_id": "umps",
+   "city": "Melbourne",
+   "row": "Umps",
+   "website": "umps.com",
+   "resembles": {
+    "id": "cand-umps-health",
+    "kind": "candidate",
+    "name": "Umps Health",
+    "website": "umpshealth.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Umps / Umps Health) and different website (umps.com / umpshealth.com): only similar-looking"
+  },
+  {
+   "source_record_id": "vicscreen",
+   "city": "Melbourne",
+   "row": "VicScreen",
+   "website": "vic.gov.au",
+   "resembles": {
+    "id": "cand-city-of-melbourne-startups-and-innovation",
+    "kind": "candidate",
+    "name": "City of Melbourne – Startups and Innovation",
+    "website": "vic.gov.au"
+   },
+   "verdict": "separate",
+   "evidence": "vic.gov.au is a government or university site that hosts several programmes: a shared website is not the same organisation"
+  },
+  {
+   "source_record_id": "vix-technology",
+   "city": "Melbourne",
+   "row": "Vix Technology",
+   "website": "vixtechnology.com",
+   "resembles": {
+    "id": "eiz-technology",
+    "kind": "company",
+    "name": "EIZ Technology",
+    "website": "eiz.com.au"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Vix Technology / EIZ Technology) and different website (vixtechnology.com / eiz.com.au): only similar-looking"
+  },
+  {
+   "source_record_id": "wavewise-analytics-formerly-cyban",
+   "city": "Melbourne",
+   "row": "Wavewise Analytics (formerly Cyban)",
+   "website": "wavewise.com",
+   "resembles": {
+    "id": "cand-cyban",
+    "kind": "candidate",
+    "name": "Cyban",
+    "website": "cyban.com.au"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "zepto-2",
+   "city": "Melbourne",
+   "row": "Zepto",
+   "website": "zepto.com.au",
+   "resembles": {
+    "id": "bamboo",
+    "kind": "company",
+    "name": "Bamboo",
+    "website": "getbamboo.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Zepto / Bamboo) and different website (zepto.com.au / getbamboo.io): only similar-looking"
+  },
+  {
+   "source_record_id": "zipline-io",
+   "city": "Melbourne",
+   "row": "Zipline.io",
+   "website": "zipline.io",
+   "resembles": {
+    "id": "cand-zipline",
+    "kind": "candidate",
+    "name": "Zipline",
+    "website": "zipline-ai.com"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Zipline.io / Zipline) and different website (zipline.io / zipline-ai.com): only similar-looking"
+  },
+  {
+   "source_record_id": "acquire",
+   "city": "Perth",
+   "row": "acQuire",
+   "website": "acquire.com.au",
+   "resembles": {
+    "id": "cand-calreply-2",
+    "kind": "candidate",
+    "name": "CalReply (Acquired)",
+    "website": "calreply.com"
+   },
+   "verdict": "unverified",
+   "evidence": "the name carries a qualifier (a former name, a parent or an acquirer): a rename, a parent or a subsidiary, which is never merged automatically"
+  },
+  {
+   "source_record_id": "aurora-labs",
+   "city": "Perth",
+   "row": "Aurora Labs",
+   "website": "auroralabs3d.com",
+   "resembles": {
+    "id": "cand-auror",
+    "kind": "candidate",
+    "name": "Auror",
+    "website": "auror.co"
+   },
+   "verdict": "separate",
+   "evidence": "different name (Aurora Labs / Auror) and different website (auroralabs3d.com / auror.co): only similar-looking"
+  },
+  {
+   "source_record_id": "dug-technology",
+   "city": "Perth",
+   "row": "DUG Technology",
+   "website": "dug.com",
+   "resembles": {
+    "id": "cand-hud",
+    "kind": "candidate",
+    "name": "Hud",
+    "website": "hud.io"
+   },
+   "verdict": "separate",
+   "evidence": "different name (DUG Technology / Hud) and different website (dug.com / hud.io): only similar-looking"
+  },
+  {
+   "source_record_id": "plus-eight-accelerator-spacecubed",
+   "city": "Perth",
+   "row": "Plus Eight Accelerator (Spacecubed)",
+   "website": "spacecubed.com",
+   "resembles": {
+    "id": "cand-core-innovation-hub",
+    "kind": "candidate",
+    "name": "CORE Innovation Hub",
+    "website": "spacecubed.com"
+   },
+   "verdict": "unverified",
+   "evidence": "one operator (Spacecubed) runs several named programmes on one site: how they are listed needs a person"
+  },
+  {
+   "source_record_id": "plus-eight-syndicate-spacecubed",
+   "city": "Perth",
+   "row": "Plus Eight Syndicate (Spacecubed)",
+   "website": "spacecubed.com",
+   "resembles": {
+    "id": "cand-core-innovation-hub",
+    "kind": "candidate",
+    "name": "CORE Innovation Hub",
+    "website": "spacecubed.com"
+   },
+   "verdict": "unverified",
+   "evidence": "one operator (Spacecubed) runs several named programmes on one site: how they are listed needs a person"
+  },
+  {
+   "source_record_id": "rise-x",
+   "city": "Perth",
+   "row": "Rise-X",
+   "website": "rise-x.io",
+   "resembles": {
+    "id": "cand-rise-x",
+    "kind": "candidate",
+    "name": "Rise-X",
+    "website": null
+   },
+   "verdict": "unverified",
+   "evidence": "same name, same list; the record it resembles has no website on record, so the two cannot be compared"
+  },
+  {
+   "source_record_id": "spacecubed",
+   "city": "Perth",
+   "row": "Spacecubed",
+   "website": "spacecubed.com",
+   "resembles": {
+    "id": "cand-core-innovation-hub",
+    "kind": "candidate",
+    "name": "CORE Innovation Hub",
+    "website": "spacecubed.com"
+   },
+   "verdict": "unverified",
+   "evidence": "one operator (Spacecubed) runs several named programmes on one site: how they are listed needs a person"
+  }
+ ]
+}

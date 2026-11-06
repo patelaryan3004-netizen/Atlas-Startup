@@ -9,7 +9,8 @@ import { PinIcon, ChevronDown, SlidersIcon, MapIcon, ListIcon, CheckIcon } from 
 // it, and "Australia" alone is no city at all. What is shown is not a filter of the directory: it says which layers of the map (and which list) are on.
 // The search is not here: it is the box beside the heading (ExploreHero), and the sector and the rest of the filters are in the Filters panel. With only
 // VCs on, the Sector and Stage menus join the bar, because the panel's filters are about startups.
-export const ENTITIES = [['all', 'All'], ['startups', 'Startups'], ['vcs', 'VCs']];
+// What is shown: everything, the startups, the established companies, the investors, or the spaces (a co-working or community place). A company is a startup unless a source or a person says it is another type.
+export const ENTITIES = [['all', 'All'], ['startups', 'Startups'], ['companies', 'Companies'], ['vcs', 'Investors'], ['spaces', 'Spaces']];
 
 const BADGE_LEFT_OUT = ['search', 'city'];
 

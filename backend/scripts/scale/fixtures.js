@@ -140,6 +140,8 @@ export function generateCompanies(count, { seed = 1 } = {}) {
       ...(rand() < 0.12 ? { foundedYear: 2008 + Math.floor(rand() * 18) } : {}),
       // A few say they were in a cohort, as a handful of real ones do (no evidence backs it here, so it is not served: a draw-free rule keeps the other fields as they were).
       ...(out.length % 40 === 0 ? { cohorts: ['startmate-w26'] } : {}),
+      // A few are another type of organisation (a startup is the default, so most records say nothing): draw-free, like the cohorts.
+      ...(out.length % 25 === 0 ? { organisation_type: out.length % 50 === 0 ? 'space' : 'company' } : {}),
       id, slug: id, logo: null, subsector: null, state, country: verified ? 'Australia' : null, suburb, postcode, company_status: null,
       location_precision: precision, location_source: verified ? (checked ? 'company_website' : 'directory_record') : null,
       location_source_url: checked ? `https://www.${compact}.test/contact` : null, location_verified_at: checked ? CHECKED_AT : null,

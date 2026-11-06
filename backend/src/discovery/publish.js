@@ -16,6 +16,7 @@
 //     (no pin) unless the reviewer supplies and confirms one, at the precision it is
 //     known (an address, a suburb or only the city: enrichment/fill.js, confirmLocation).
 import { slugify, uniqueSlug } from '../models/company.js';
+import { redactContacts } from '../models/contact.js';
 import { confirmLocation } from '../enrichment/fill.js';
 import { makeEvidenceRow, valuesEqual } from '../models/evidence.js';
 import { makeIdentifierRow } from '../models/identifiers.js';
@@ -41,9 +42,10 @@ export function ensureSource(work, src) {
   const taken = new Set(work.sources.map((s) => s.id));
   const label = src.url ? hostPath(src.url) : `${src.kind} ${src.title ?? ''}`;
   const id = uniqueSlug(slugify(label).slice(0, 64).replace(/-+$/, '') || 'source', taken); // (cut at 64 characters, a hyphen is not a valid last character of an id)
+  // (a page's title and the note about it are free text from a page: contact details are taken out, the address and the date stay)
   work.sources.push({
-    id, kind: src.kind, url: src.url ?? null, title: src.title ?? null, publisher: src.publisher ?? null,
-    retrieved_at: src.retrieved_at ?? null, note: src.note ?? '',
+    id, kind: src.kind, url: src.url ?? null, title: redactContacts(src.title ?? null), publisher: redactContacts(src.publisher ?? null),
+    retrieved_at: src.retrieved_at ?? null, note: redactContacts(src.note ?? ''),
   });
   return id;
 }
@@ -56,8 +58,8 @@ export function promoteEvidence(work, companyId, rows) {
     const already = work.evidence.some((x) => x.company_id === companyId && x.field === e.field && x.source_id === sourceId && valuesEqual(e.field, x.value, e.value));
     if (already) continue;
     const row = makeEvidenceRow({
-      company_id: companyId, field: e.field, value: e.value, source_id: sourceId, confidence: e.confidence,
-      verified_at: e.verified_at ?? null, status: 'active', note: e.note ?? null,
+      company_id: companyId, field: e.field, value: e.field === 'description' ? redactContacts(e.value) : e.value, source_id: sourceId, confidence: e.confidence,
+      verified_at: e.verified_at ?? null, status: 'active', note: redactContacts(e.note ?? null),
     }, new Set(work.evidence.map((x) => x.id)));
     work.evidence.push(row);
     added.push(row);

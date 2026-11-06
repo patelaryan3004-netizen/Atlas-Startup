@@ -278,7 +278,7 @@ describe('what the public sees', () => {
 describe('how a location is put to a visitor', () => {
   it('says what is known and how well, in the words the map and the panel use', () => {
     const base = { city: 'Sydney', state: 'NSW', address: null, suburb: null, location_verified_at: null };
-    expect(describeLocation({ ...base, location_precision: 'CITY' })).toEqual({ precision: 'CITY', place: 'Sydney, NSW', quality: 'Location: city-level' });
+    expect(describeLocation({ ...base, location_precision: 'CITY' })).toEqual({ precision: 'CITY', place: 'Sydney, NSW', quality: 'Exact location not published' });
     expect(describeLocation({ ...base, location_precision: 'SUBURB', suburb: 'Surry Hills' })).toEqual({ precision: 'SUBURB', place: 'Surry Hills, Sydney', quality: 'Location: suburb-level' });
     expect(describeLocation({ ...base, city: 'Melbourne', state: 'VIC', suburb: 'Melbourne', address: 'Level 7, 15 William Street, Melbourne VIC 3000', location_precision: 'EXACT', location_verified_at: T }))
       .toEqual({ precision: 'EXACT', place: '15 William Street, Melbourne', quality: 'Verified office' });

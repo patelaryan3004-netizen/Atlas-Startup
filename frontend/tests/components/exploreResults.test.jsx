@@ -260,3 +260,52 @@ describe('the preview beside the open mark', () => {
     expect(screen.getByRole('region', { name: evil })).toBeInTheDocument();
   });
 });
+
+describe('the results panel of the map page', () => {
+  const FILTERS_MAP = { search: '', sector: '', city: 'Melbourne', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '' };
+  const page = (names) => ({ results: names.map((name) => ({ slug: name.toLowerCase(), name, city: 'Melbourne', sector: 'AI', website: `https://${name.toLowerCase()}.ai` })), count: names.length, hasMore: false });
+  const props = (over = {}) => ({ variant: 'map', where: 'Melbourne', entity: 'all', filters: FILTERS_MAP, selected: null, onPick: vi.fn(), onPickVc: vi.fn(), vcFirms: [], isTracked: () => false, onToggleTracked: vi.fn(), isSavedVc: () => false, onToggleVc: vi.fn(), onViewAll: vi.fn(), onShowCollections: vi.fn(), search: '', onSearch: vi.fn(), onCollapse: vi.fn(), onClearArea: vi.fn(), ...over });
+  beforeEach(() => { fetchStartupPage.mockReset(); fetchStartupPage.mockResolvedValue(page(['Acme', 'Beta', 'Cora'])); });
+
+  it('has a search by name, sector or suburb, how many there are, a row for each, and no collections card', async () => {
+    render(<ResultsColumn {...props()} />);
+    expect(screen.getByRole('heading', { level: 2, name: 'In Melbourne' })).toBeInTheDocument();
+    expect(screen.getByRole('searchbox', { name: 'Search by name, sector or suburb' })).toBeInTheDocument();
+    await screen.findByRole('button', { name: /^Acme/ });
+    expect(screen.getByRole('status')).toHaveTextContent('3 companies in Melbourne');
+    expect(screen.queryByText('Good company starts here.')).toBeNull();
+    expect(screen.getByRole('button', { name: /See all as a list/ })).toBeInTheDocument();
+  });
+
+  it('hands what is typed to the page, and can be put away', async () => {
+    const p = props();
+    render(<ResultsColumn {...p} />);
+    await userEvent.type(screen.getByRole('searchbox'), 'f');
+    expect(p.onSearch).toHaveBeenCalledWith('f');
+    await userEvent.click(screen.getByRole('button', { name: 'Put the results away' }));
+    expect(p.onCollapse).toHaveBeenCalledTimes(1);
+  });
+
+  it('lists only the companies of a type for Companies, with no investors among them', async () => {
+    render(<ResultsColumn {...props({ entity: 'companies', vcFirms: [{ slug: 'oif', name: 'OIF Ventures', domain: 'oif.vc', places: ['Melbourne'], stages: [], sectors: [], pin: { id: 'o', slug: 'oif', name: 'OIF Ventures', lat: 1, lng: 1, city: 'Melbourne' } }] })} />);
+    await screen.findByRole('button', { name: /^Acme/ });
+    expect(screen.queryByRole('button', { name: /^OIF/ })).toBeNull();
+    expect(screen.getByRole('status')).toHaveTextContent('3 companies in Melbourne');
+  });
+
+  it('lists the companies of an area from the pins the map has, asks for nothing more, and can clear the area', async () => {
+    const p = props({ area: { south: -38, west: 144, north: -37, east: 145 }, areaRows: [{ slug: 'pin-co', name: 'Pin Co', sector: 'Fintech', city: 'Melbourne', website: 'https://pin.co' }] });
+    render(<ResultsColumn {...p} />);
+    expect(screen.getByRole('heading', { level: 2, name: 'In this area' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /^Pin Co/ })).toHaveTextContent('Fintech · Melbourne');
+    expect(screen.getByRole('status')).toHaveTextContent('1 company on the map in this area');
+    expect(fetchStartupPage).not.toHaveBeenCalled();
+    await userEvent.click(screen.getByRole('button', { name: /Clear the area/ }));
+    expect(p.onClearArea).toHaveBeenCalledTimes(1);
+  });
+
+  it('says so when nothing has a pin in the area', () => {
+    render(<ResultsColumn {...props({ area: { south: -38, west: 144, north: -37, east: 145 }, areaRows: [] })} />);
+    expect(screen.getByText('No company has a pin in this part of the map. Move the map, or clear the area.')).toBeInTheDocument();
+  });
+});

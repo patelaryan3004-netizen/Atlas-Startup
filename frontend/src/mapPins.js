@@ -18,7 +18,7 @@ export function locationQuality(precision, checked = false) {
   switch (precision) {
     case 'EXACT': return checked ? 'Verified office' : 'Office address on file';
     case 'SUBURB': return 'Location: suburb-level';
-    case 'CITY': return 'Location: city-level';
+    case 'CITY': return 'Exact location not published';
     case 'STATE': return 'Location: state-level';
     default: return 'Location unknown';
   }

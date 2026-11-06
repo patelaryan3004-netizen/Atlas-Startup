@@ -160,6 +160,15 @@ describe('where a company\'s facts came from', () => {
     expect(lines[1].read).toMatch(/2026/);
   });
 
+  it('says a line once when two pages of the same site were read on the same day', () => {
+    const twice = { sources: [
+      { url: 'https://x.example/contact', kind: 'company_website', checked_at: '2026-11-02T01:00:00Z' },
+      { url: 'https://x.example/privacy', kind: 'company_website', checked_at: '2026-11-02T05:00:00Z' },
+      { url: 'https://x.example/about', kind: 'company_website', checked_at: '2026-11-05T01:00:00Z' },
+    ] };
+    expect(sourceLines(twice, 3).map((l) => l.url)).toEqual(['https://x.example/contact', 'https://x.example/about']);
+  });
+
   it('says nothing when the record has no source, and never makes one up', () => {
     expect(sourceLines({}, 3)).toEqual([]);
     expect(sourceLines({ sources: [{ kind: 'press' }] }, 3)).toEqual([]);

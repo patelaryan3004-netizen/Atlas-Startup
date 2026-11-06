@@ -1,0 +1,651 @@
+[
+ {
+  "key": "adveritas",
+  "name": "Adveritas",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.adveritas.com.au",
+  "sector": "Martech",
+  "candidate": "cand-adveritas",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6102",
+   "text": "16 Brodie Hall Drive, Bentley Technology Park WA 6102",
+   "url": "https://adveritas.com.au/contact"
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6102",
+    "text": "16 Brodie Hall Drive, Bentley Technology Park WA 6102",
+    "url": "https://adveritas.com.au/contact"
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6102",
+    "text": "Our Locations Australia Address 16 Brodie Hall Drive Bentley Technology Park WA 6102",
+    "url": "https://adveritas.com.au/contact",
+    "kind": null
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6102",
+    "text": "dership team Our Locations Australia Address 16 Brodie Hall Drive Bentley Technology Park WA 6102",
+    "url": "https://adveritas.com.au/about",
+    "kind": null
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "clearvuepv",
+  "name": "ClearVue PV",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.clearvuepv.com",
+  "sector": null,
+  "candidate": "cand-clearvue-pv",
+  "checks": [],
+  "missing": [
+   "its own website does not appear to be this company",
+   "no description on its own pages or on a list that names it"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6005",
+   "text": "in Youtube Locations Registered Office and HQ Suite 9 / 567 Newcastle Street, West Perth, WA 6005",
+   "url": "https://www.clearvuepv.com/contact-us/",
+   "kind": "HEADQUARTERS"
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6005",
+    "text": "in Youtube Locations Registered Office and HQ Suite 9 / 567 Newcastle Street, West Perth, WA 6005",
+    "url": "https://www.clearvuepv.com/contact-us/",
+    "kind": "HEADQUARTERS"
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6005",
+    "text": "Showroom Suite 7 / 567 Newcastle Street, West Perth, WA 6005",
+    "url": "https://www.clearvuepv.com/contact-us/",
+    "kind": null
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6005",
+    "text": "FIND US Visit ClearVue Registered Office & HQ Suite 9 / 567 Newcastle Street, West Perth, WA 6005",
+    "url": "https://www.clearvuepv.com/contact-us/",
+    "kind": "HEADQUARTERS"
+   }
+  ],
+  "kind": "review",
+  "reason": "its own website does not appear to be this company; no description on its own pages or on a list that names it"
+ },
+ {
+  "key": "coreinnovationhub",
+  "name": "CORE Innovation Hub",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://spacecubed.com/locations/perth",
+  "sector": null,
+  "candidate": "cand-core-innovation-hub",
+  "checks": [],
+  "missing": [
+   "its own website does not appear to be this company",
+   "no description on its own pages or on a list that names it"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6000",
+   "text": "the premises occupied by Spacecubed Ventures and located at 79 St Georges Terrace, Perth WA 6000",
+   "url": "https://spacecubed.com/terms",
+   "kind": null
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "the premises occupied by Spacecubed Ventures and located at 79 St Georges Terrace, Perth WA 6000",
+    "url": "https://spacecubed.com/terms",
+    "kind": null
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "tures and located at Level 1, Level 6, Level 7 and Basement 191 St Georges Terrace, Perth WA 6000",
+    "url": "https://spacecubed.com/terms",
+    "kind": null
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "occupied by Spacecubed Ventures and located at Ground Floor, 45 St Georges Terrace, Perth WA 6000",
+    "url": "https://spacecubed.com/terms",
+    "kind": null
+   }
+  ],
+  "kind": "review",
+  "reason": "its own website does not appear to be this company; no description on its own pages or on a list that names it"
+ },
+ {
+  "key": "csirotechnology",
+  "name": "CSIRO Technology",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.csiro.au",
+  "sector": null,
+  "candidate": "cand-csiro-technology",
+  "checks": [],
+  "missing": [
+   "its own website could not be read"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": null,
+  "elsewhere": [],
+  "placeAddresses": [],
+  "kind": "review",
+  "reason": "its own website could not be read"
+ },
+ {
+  "key": "departmentofenergyandeconomicdiversification",
+  "name": "Department of Energy and Economic Diversification",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.wa.gov.au/organisation/department-of-energy-and-economic-diversification",
+  "sector": null,
+  "candidate": "cand-department-of-energy-and-economic-diversification",
+  "checks": [],
+  "missing": [
+   "its own pages give no address or statement placing it in Greater Perth",
+   "no description on its own pages or on a list that names it"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": null,
+  "elsewhere": [],
+  "placeAddresses": [],
+  "kind": "review",
+  "reason": "its own pages give no address or statement placing it in Greater Perth; no description on its own pages or on a list that names it"
+ },
+ {
+  "key": "ecucity",
+  "name": "ECU City",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.ecu.edu.au/about-ecu/our-campuses/ecu-city-campus",
+  "sector": null,
+  "candidate": "cand-ecu-city",
+  "checks": [],
+  "missing": [
+   "its own website could not be read"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": null,
+  "elsewhere": [],
+  "placeAddresses": [],
+  "kind": "review",
+  "reason": "its own website could not be read"
+ },
+ {
+  "key": "fastbrick",
+  "name": "Fastbrick",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.fbr.com.au",
+  "sector": "Robotics",
+  "candidate": "cand-fastbrick",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6057",
+   "text": "88 Sultana Road, West High Wycombe WA 6057",
+   "url": "https://www.fbr.com.au/"
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6057",
+    "text": "88 Sultana Road, West High Wycombe WA 6057",
+    "url": "https://www.fbr.com.au/"
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6057",
+    "text": "k™ DST® Projects WaaS® InvestorHub News & Media Contact 88 Sultana Road West High Wycombe WA 6057",
+    "url": "https://www.fbr.com.au/view/contact-us",
+    "kind": null
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "hazergroup",
+  "name": "Hazer Group",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.hazergroup.com.au",
+  "sector": null,
+  "candidate": "cand-hazer-group",
+  "checks": [],
+  "missing": [
+   "no description on its own pages or on a list that names it"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6000",
+   "text": "PHONE NUMBER MESSAGE * SEND ENQUIRY Hazer Group Limited Level 9, 99 St Georges Tce Perth WA 6000",
+   "url": "https://hazergroup.com.au/contact/",
+   "kind": null
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "PHONE NUMBER MESSAGE * SEND ENQUIRY Hazer Group Limited Level 9, 99 St Georges Tce Perth WA 6000",
+    "url": "https://hazergroup.com.au/contact/",
+    "kind": null
+   }
+  ],
+  "kind": "review",
+  "reason": "no description on its own pages or on a list that names it"
+ },
+ {
+  "key": "icetanaai",
+  "name": "icetana AI",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.icetana.ai",
+  "sector": "AI",
+  "candidate": "cand-icetana-ai",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6000",
+   "text": "152 St Georges Terrace, Perth WA 6000",
+   "url": "https://www.icetana.ai/"
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "152 St Georges Terrace, Perth WA 6000",
+    "url": "https://www.icetana.ai/"
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "Perth - Head Office Level 36, 152 St Georges Terrace,Perth WA 6000",
+    "url": "https://www.icetana.ai/contact-us",
+    "kind": "HEADQUARTERS"
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "moodle",
+  "name": "Moodle",
+  "group": "worldtechmap_companies",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://moodle.com",
+  "sector": "EdTech",
+  "candidate": "cand-moodle",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "text": "West Perth WA",
+   "url": "https://moodle.com/privacy-notice/",
+   "kind": null,
+   "statement": true
+  },
+  "elsewhere": [],
+  "placeAddresses": [],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "nanoveu",
+  "name": "Nanoveu",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://nanoveu.com",
+  "sector": "Unknown",
+  "candidate": "cand-nanoveu",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6008",
+   "text": "1/18 Olive Street, Subiaco WA 6008",
+   "url": "https://nanoveu.com/terms-of-use/"
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6008",
+    "text": "1/18 Olive Street, Subiaco WA 6008",
+    "url": "https://nanoveu.com/terms-of-use/"
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "#13-21, Singapore 138633 [phone removed] Head Office Level 45, 108 St Georges Terrace Perth WA, 6000",
+    "url": "https://nanoveu.com/about-us/",
+    "kind": "HEADQUARTERS"
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6008",
+    "text": "Our registered address is at 1/18 Olive Street, Subiaco WA 6008",
+    "url": "https://nanoveu.com/terms-of-use/",
+    "kind": null
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "Registered Office Nanoveu Limited Level 45, 108 St Georges Terrace Perth WA, 6000",
+    "url": "https://nanoveu.com/contact-us/",
+    "kind": "OFFICE"
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "picturewealth",
+  "name": "PictureWealth",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://picturewealth.com",
+  "sector": null,
+  "candidate": "cand-picturewealth",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "kind": "review",
+  "reason": "might be Future Super (future-super, POSSIBLE_MATCH)"
+ },
+ {
+  "key": "pointerra",
+  "name": "Pointerra",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.pointerra.com",
+  "sector": "AI",
+  "candidate": "cand-pointerra",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6008",
+   "text": "sport Mining, Oil & Gas Defense & Intelligence Australia Level 2, 27 Railway Road Subiaco WA 6008",
+   "url": "https://www.pointerra.com/contact/",
+   "kind": null
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6008",
+    "text": "sport Mining, Oil & Gas Defense & Intelligence Australia Level 2, 27 Railway Road Subiaco WA 6008",
+    "url": "https://www.pointerra.com/contact/",
+    "kind": null
+   },
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6008",
+    "text": "ule A demo Video Channel Contact Us Locations Australia Level 2, 27 Railway Road, Subiaco WA 6008",
+    "url": "https://www.pointerra.com/contact/",
+    "kind": null
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "powerledger",
+  "name": "Power Ledger",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.powerledger.io",
+  "sector": "Fintech",
+  "candidate": "cand-power-ledger",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6000",
+   "text": "Powerledger 'The Palace', Level 2 108 St Georges Tce, Perth WA 6000",
+   "url": "https://powerledger.io/privacy-policy/",
+   "kind": null
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "Powerledger 'The Palace', Level 2 108 St Georges Tce, Perth WA 6000",
+    "url": "https://powerledger.io/privacy-policy/",
+    "kind": null
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "rumin8",
+  "name": "Rumin8",
+  "group": "worldtechmap_startups",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.rumin8.com",
+  "sector": null,
+  "candidate": "cand-rumin8",
+  "checks": [],
+  "missing": [
+   "no description on its own pages or on a list that names it"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6005",
+   "text": "LinkedIn Office mailing address Australia Suite 1, Level 2 66 Kings Park Road West Perth WA 6005",
+   "url": "https://rumin8.com/contact/",
+   "kind": "OFFICE"
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6005",
+    "text": "LinkedIn Office mailing address Australia Suite 1, Level 2 66 Kings Park Road West Perth WA 6005",
+    "url": "https://rumin8.com/contact/",
+    "kind": "OFFICE"
+   }
+  ],
+  "kind": "review",
+  "reason": "no description on its own pages or on a list that names it"
+ },
+ {
+  "key": "startupwa",
+  "name": "StartupWA",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.startupwa.org",
+  "sector": null,
+  "candidate": "cand-startupwa",
+  "checks": [],
+  "missing": [
+   "its own pages give no address or statement placing it in Greater Perth"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": null,
+  "elsewhere": [],
+  "placeAddresses": [],
+  "kind": "review",
+  "reason": "its own pages give no address or statement placing it in Greater Perth"
+ },
+ {
+  "key": "ventureuwa",
+  "name": "Venture UWA",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.ventureuwa.com.au",
+  "sector": null,
+  "candidate": "cand-venture-uwa",
+  "checks": [],
+  "missing": [
+   "its own website could not be read"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": null,
+  "elsewhere": [],
+  "placeAddresses": [],
+  "kind": "review",
+  "reason": "its own website could not be read"
+ },
+ {
+  "key": "vgw",
+  "name": "VGW",
+  "group": "worldtechmap_companies",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.vgw.co",
+  "sector": "Gaming",
+  "candidate": "cand-vgw",
+  "checks": [],
+  "missing": [],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6000",
+   "text": "eadquarters: Perth, Australia Level 8 & 10, Australia Place, 15-17 William Street, Perth, WA 6000",
+   "url": "https://www.vgw.co/contact-us/",
+   "kind": null
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6000",
+    "text": "eadquarters: Perth, Australia Level 8 & 10, Australia Place, 15-17 William Street, Perth, WA 6000",
+    "url": "https://www.vgw.co/contact-us/",
+    "kind": null
+   }
+  ],
+  "kind": "add",
+  "reason": "its own website was read: it names a Greater Perth address"
+ },
+ {
+  "key": "curtinaccelerateandignition",
+  "name": "Curtin Accelerate and Ignition",
+  "group": "worldtechmap_ecosystem",
+  "relationship": "directory_listing_not_location_proof",
+  "website": "https://www.curtin.edu.au/engage/entrepreneurs/accelerate/",
+  "sector": null,
+  "candidate": "cand-curtin-accelerate-and-ignition",
+  "checks": [],
+  "missing": [
+   "its own website does not appear to be this company",
+   "no description on its own pages or on a list that names it"
+  ],
+  "notes": [],
+  "websiteFrom": "research",
+  "place": {
+   "city": "Perth",
+   "state": "WA",
+   "postcode": "6102",
+   "text": "Delivery address Building 100, Level 2 West Curtin University Kent Street Bentley, WA 6102",
+   "url": "https://www.curtin.edu.au/research/contact-us/",
+   "kind": null
+  },
+  "elsewhere": [],
+  "placeAddresses": [
+   {
+    "city": "Perth",
+    "state": "WA",
+    "postcode": "6102",
+    "text": "Delivery address Building 100, Level 2 West Curtin University Kent Street Bentley, WA 6102",
+    "url": "https://www.curtin.edu.au/research/contact-us/",
+    "kind": null
+   }
+  ],
+  "kind": "review",
+  "reason": "its own website does not appear to be this company; no description on its own pages or on a list that names it"
+ }
+]

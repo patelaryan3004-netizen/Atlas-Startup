@@ -38,7 +38,9 @@ function JobsTab({ record, state, board, rolesLink }) {
   );
 }
 
-export default function StartupPanel({ pin, saved = false, onToggleSaved, onOpen, onClose, onReport, variant = 'panel' }) {
+const TYPE_WORDS = { startup: 'Startup', company: 'Company', space: 'Space' };
+
+export default function StartupPanel({ pin, saved = false, onToggleSaved, onOpen, onClose, onReport, onSuggest, variant = 'panel' }) {
   const [record, setRecord] = useState(null);
   const [tab, setTab] = useState('overview');
   useEscapeClose(onClose);
@@ -74,7 +76,7 @@ export default function StartupPanel({ pin, saved = false, onToggleSaved, onOpen
         <div className="xp-title">
           <h2 className="xp-name">{name}</h2>
           <div className="xp-tags">
-            <span className="xp-tag">Startup</span>
+            <span className="xp-tag">{TYPE_WORDS[record?.organisation_type] ?? 'Startup'}</span>
             {sector && <span className="xp-tag xp-tag-quiet">{sector}</span>}
             {state && <HiringBadge company={company} />}
             <UnverifiedBadge company={record} />
@@ -143,6 +145,7 @@ export default function StartupPanel({ pin, saved = false, onToggleSaved, onOpen
           </button>
         </div>
         {onReport && (state === 'hiring' || state === 'checked') && <button type="button" className="xp-report" onClick={onReport}>Report: role closed</button>}
+        {onSuggest && <button type="button" className="xp-report xp-suggest" onClick={onSuggest}>Suggest a correction</button>}
       </div>
     </section>
   );

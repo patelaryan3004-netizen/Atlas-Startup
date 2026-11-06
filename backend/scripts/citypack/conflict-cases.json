@@ -1,0 +1,119 @@
+{
+  "cases": [
+    "Adslot",
+    "AlayaCare",
+    "Brightspace",
+    "Cario",
+    "Cogniss",
+    "CoLabs Australia",
+    "Covidence",
+    "Diag-Nose.io",
+    "Engine House",
+    "EnyGy",
+    "Farmbot",
+    "FOUNDIT",
+    "GoFIGR",
+    "Hansen Technologies",
+    "HelpPay",
+    "Humanetix",
+    "Janison",
+    "Jaunt Motors",
+    "Launch Pad",
+    "Magentus",
+    "MLAI",
+    "MOGOPLUS",
+    "Nanoveu",
+    "NEXTDC",
+    "Novatti Group",
+    "Octopusbot",
+    "PageUp",
+    "Pin Payments",
+    "Pivot Professional Learning",
+    "PropCode",
+    "Protecht",
+    "ReadyTech",
+    "RedOwl",
+    "SKUTOPIA",
+    "Stone & Chalk",
+    "SunWiz",
+    "Tank Stream Labs",
+    "Telix Pharmaceuticals",
+    "Tendertrace",
+    "Trend Micro",
+    "Varicon",
+    "WebBeds Group",
+    "WiseTech Global",
+    "Zetifi",
+    "Zscaler"
+  ],
+  "hold": {
+    "Jaunt Motors": "its contact page gives \"Level 116, 1555 Centre Road, Clayton\", which is not a plausible level, and its home page gives a different address in Scoresby"
+  },
+  "location_fixes": [
+    {
+      "id": "cario.office.sydney",
+      "address": "1 Chaplin Drive, Lane Cove West NSW 2066",
+      "suburb": "Lane Cove West",
+      "why": "the suburb Lane Cove West had been split by a comma"
+    },
+    {
+      "id": "frontier-software.office.adelaide",
+      "delete": true,
+      "why": "the page labels its Melbourne address as the Adelaide office; the address is the Melbourne head office already on record, and no Adelaide address was read"
+    },
+    {
+      "id": "ideally.office.sydney",
+      "address": "1/118 Devonshire St, Surry Hills NSW 2010",
+      "why": "two addresses had been run together; this is the Sydney one"
+    },
+    {
+      "id": "nextdc.office.brisbane",
+      "new_id": "nextdc.office.melbourne",
+      "label": "Melbourne site",
+      "kind": "OTHER",
+      "city": "Melbourne",
+      "state": "VIC",
+      "postcode": "3207",
+      "why": "the address is in Port Melbourne, not Brisbane, and the page does not say it is an office (NEXTDC runs data centres)"
+    },
+    {
+      "id": "pointdata.office.sydney",
+      "new_id": "pointdata.office.melbourne",
+      "label": "Melbourne office",
+      "city": "Melbourne",
+      "state": "VIC",
+      "postcode": "3066",
+      "why": "the address is in Collingwood, not Sydney: the page's labels sit beside the wrong addresses"
+    },
+    {
+      "id": "tank-stream-labs.office.adelaide",
+      "new_id": "tank-stream-labs.office.melbourne",
+      "label": "Melbourne office",
+      "address": "Level 5 & 6, 440 Collins Street, Melbourne VIC 3000",
+      "city": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000",
+      "suburb": null,
+      "why": "the address is in Melbourne, not Adelaide, and a stray \"5000 Collins Street Collins Street\" had been run into it"
+    }
+  ],
+  "location_adds": [
+    {
+      "id": "ideally.office.melbourne",
+      "why": "the Melbourne half of an address that had been run together with the Sydney one",
+      "row": {
+        "company_id": "ideally",
+        "kind": "OFFICE",
+        "label": "Melbourne office",
+        "address": "10-20 Gwynne St, Cremorne VIC 3121",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "VIC",
+        "postcode": "3121",
+        "location_source": "company_website",
+        "location_source_url": "https://www.goideally.com/about/contact",
+        "location_verified_at": null
+      }
+    }
+  ]
+}

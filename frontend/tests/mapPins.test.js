@@ -224,7 +224,7 @@ describe('how well a place is known', () => {
     expect(locationQuality('EXACT', false)).toBe('Office address on file');
     expect(locationQuality('EXACT')).toBe('Office address on file');
     expect(locationQuality('SUBURB')).toBe('Location: suburb-level');
-    expect(locationQuality('CITY')).toBe('Location: city-level');
+    expect(locationQuality('CITY')).toBe('Exact location not published'); // a company known to its city only is in the directory, not at a made-up point
     expect(locationQuality('STATE')).toBe('Location: state-level');
     expect(locationQuality('UNKNOWN')).toBe('Location unknown');
     expect(locationQuality(undefined)).toBe('Location unknown');
@@ -263,7 +263,7 @@ describe('companies known only to a city or a state', () => {
   it('names a company in it as much as the group knows of it', () => {
     expect(areaMember(sydney, { slug: 'trace', name: 'Trace' })).toEqual({
       slug: 'trace', name: 'Trace', city: 'Sydney', verified: true, location_precision: 'CITY',
-      location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'Location: city-level' },
+      location: { precision: 'CITY', place: 'Sydney, NSW', quality: 'Exact location not published' },
     });
     expect(areaMember(victoria, { slug: 'x', name: 'X' })).toMatchObject({ city: '', location: { precision: 'STATE', place: 'VIC', quality: 'Location: state-level' } });
   });

@@ -1,0 +1,215 @@
+{
+ "about": "Pins that rest on the original directory record (location_source directory_record), reviewed on 2026-11-05 (the review list had 121). The 26 here are made city-level until their address is confirmed: the company's own pages give a different address, the geocoder disagrees with the point, or the geocoder knows nothing of the address. The company stays in the directory and in its city view; the address the record had is kept as a location of its own (not drawn, not served) and in the audit trail; no replacement address is chosen. The other 95 keep their pin (93 labelled \"Office address on file\", 2 at suburb level).",
+ "decided_on": "2026-11-05",
+ "decided_by": "owner, after the review of 2026-11-05",
+ "decisions": {
+  "care-gp": {
+   "name": "Care GP",
+   "city": "Adelaide",
+   "recorded_address": "Level 1, 19 North Terrace, Adelaide SA 5000",
+   "source": "directory_record",
+   "geocoder": "conflict",
+   "why": "the point on file disagrees with where the geocoder puts the address (distance or postcode) (the geocoder says conflict: the geocoder's postcode is 5069, not 5000)"
+  },
+  "fleet-space-technologies": {
+   "name": "Fleet Space Technologies",
+   "city": "Adelaide",
+   "recorded_address": "28 Butler Boulevard, Adelaide Airport SA 5950",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (8a and 14 Myer Court, Beverley SA 5009))"
+  },
+  "cascade": {
+   "name": "Cascade",
+   "city": "Brisbane",
+   "recorded_address": "Level 6, 200 Adelaide St, Brisbane QLD 4000",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (202/55 Holt Street, Surry Hills NSW 2010))"
+  },
+  "earthodic": {
+   "name": "Earthodic",
+   "city": "Brisbane",
+   "recorded_address": "Level 2, 155 Queen St, Brisbane QLD 4000",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (18 Morrisby St, Geebung QLD 4034))"
+  },
+  "go1": {
+   "name": "Go1",
+   "city": "Brisbane",
+   "recorded_address": "Level 7, 127 Creek Street, Brisbane QLD 4000",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (2904 Logan Rd, Underwood QLD 4119))"
+  },
+  "goterra": {
+   "name": "Goterra",
+   "city": "Canberra",
+   "recorded_address": "14 Arnott Street, Hume, Canberra ACT 2620",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the geocoder knows nothing of the address, so nothing independent supports the point (the geocoder says skip: the geocoder knows nothing of that address)"
+  },
+  "signonsite": {
+   "name": "SignOnSite",
+   "city": "Deakin",
+   "recorded_address": "Unit 4, 10 Geils Ct, Deakin ACT 2600",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (1 Moore St, Canberra ACT 2601))"
+  },
+  "bare": {
+   "name": "Bare",
+   "city": "Melbourne",
+   "recorded_address": "Kensington, Melbourne VIC 3031",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (500 Collins Street, Melbourne VIC 3000))"
+  },
+  "drawboard": {
+   "name": "Drawboard",
+   "city": "Melbourne",
+   "recorded_address": "Level 4, 99 Queen Street, Melbourne VIC 3000",
+   "source": "directory_record",
+   "geocoder": "conflict",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (10-20 Gwynne St, Cremorne VIC 3121))"
+  },
+  "flippa": {
+   "name": "Flippa",
+   "city": "Melbourne",
+   "recorded_address": "71-73 Balmain Street, Cremorne, Melbourne VIC 3121",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (110 Johnson St, Fitzroy VIC 3056))"
+  },
+  "heidi-health": {
+   "name": "Heidi Health",
+   "city": "Melbourne",
+   "recorded_address": "Level 30, 360 Elizabeth Street, Melbourne VIC 3000",
+   "source": "directory_record",
+   "geocoder": "conflict 1625m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (Level 6/71 Gipps St, Collingwood VIC 3066))"
+  },
+  "matrak": {
+   "name": "Matrak",
+   "city": "Melbourne",
+   "recorded_address": "The Commons QV, 3 Albert Coates Ln, Melbourne VIC 3000",
+   "source": "directory_record",
+   "geocoder": "conflict 543m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (10 St Andrews Place, East Melbourne VIC 3002))"
+  },
+  "moregooddays": {
+   "name": "MoreGoodDays",
+   "city": "Melbourne",
+   "recorded_address": "Level 1/700 Swanston Street, Carlton VIC 3053",
+   "source": "directory_record",
+   "geocoder": "conflict 512m",
+   "why": "the point on file disagrees with where the geocoder puts the address (distance or postcode) (the geocoder says conflict: the point on file is 512 m from where the geocoder puts the address (512 m))"
+  },
+  "orkestra": {
+   "name": "Orkestra",
+   "city": "Melbourne",
+   "recorded_address": "Level 3, 11 Miller St, Melbourne VIC 3000",
+   "source": "directory_record",
+   "geocoder": "conflict",
+   "why": "the point on file disagrees with where the geocoder puts the address (distance or postcode) (the geocoder says conflict: the geocoder's postcode is 3003, not 3000)"
+  },
+  "rosterfy": {
+   "name": "Rosterfy",
+   "city": "Melbourne",
+   "recorded_address": "L6/365 Collins St, Melbourne VIC 3000",
+   "source": "directory_record",
+   "geocoder": "conflict 676m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (395 Collins St, Melbourne VIC 3000))"
+  },
+  "etrainu": {
+   "name": "etrainu",
+   "city": "Milton",
+   "recorded_address": "Level 1, 19 Lang Parade, Milton QLD 4064",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (160 Ann Street, Brisbane City QLD 4000))"
+  },
+  "asseti": {
+   "name": "Asseti",
+   "city": "North Sydney",
+   "recorded_address": "Level 12, 100 Walker St, North Sydney NSW 2060",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (2-12 Foveaux St, Surry Hills NSW 2010))"
+  },
+  "pairtree": {
+   "name": "Pairtree",
+   "city": "Orange",
+   "recorded_address": "1 Redridge Rd, Orange NSW 2800",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (23 Isaac Drive, Orange NSW 2800))"
+  },
+  "amazingco": {
+   "name": "AmazingCo",
+   "city": "Richmond",
+   "recorded_address": "1/5 Newton St, Richmond VIC 3121",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the geocoder knows nothing of the address, so nothing independent supports the point (the geocoder says skip: the geocoder knows nothing of that address)"
+  },
+  "andromeda-robotics": {
+   "name": "Andromeda Robotics",
+   "city": "Richmond",
+   "recorded_address": "Level 1, 7 Border St, Richmond VIC 3121",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the geocoder knows nothing of the address, so nothing independent supports the point (the geocoder says skip: the geocoder knows nothing of that address)"
+  },
+  "cuttable": {
+   "name": "Cuttable",
+   "city": "Richmond",
+   "recorded_address": "Level 1, 1-3 Stewart St, Richmond VIC 3121",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (1/60 Wilson St, South Yarra VIC 3141))"
+  },
+  "bugcrowd": {
+   "name": "Bugcrowd",
+   "city": "Sydney",
+   "recorded_address": "Level 5, 50 Carrington Street, Sydney NSW 2000 (Sydney office; co-HQ San Francisco)",
+   "source": "directory_record",
+   "geocoder": "conflict 1439m",
+   "why": "the point on file disagrees with where the geocoder puts the address (distance or postcode) (the geocoder says conflict: the point on file is 1.4 km from where the geocoder puts the address (1439 m))"
+  },
+  "datamesh-group": {
+   "name": "DataMesh Group",
+   "city": "Sydney",
+   "recorded_address": "Level 10, 60 Margaret St, Sydney NSW 2000",
+   "source": "directory_record",
+   "geocoder": "conflict",
+   "why": "the point on file disagrees with where the geocoder puts the address (distance or postcode) (the geocoder says conflict: the geocoder's postcode is 2049, not 2000)"
+  },
+  "ezycollect": {
+   "name": "ezyCollect",
+   "city": "Sydney",
+   "recorded_address": "320 Pitt Street, WeWork, Sydney NSW 2000",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the geocoder knows nothing of the address, so nothing independent supports the point (the geocoder says skip: the geocoder knows nothing of that address)"
+  },
+  "mx51": {
+   "name": "mx51",
+   "city": "Sydney",
+   "recorded_address": "Level 9, 115 Pitt St, Sydney NSW 2000",
+   "source": "directory_record",
+   "geocoder": "agrees 0m",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (135 King Street, Sydney NSW 2000))"
+  },
+  "propeller-aero": {
+   "name": "Propeller Aero",
+   "city": "Sydney",
+   "recorded_address": "251 Riley Street, Surry Hills, Sydney NSW 2010",
+   "source": "directory_record",
+   "geocoder": "skip",
+   "why": "the company's own pages give a different address than the pin: the pin points where the company's own pages do not say it is (the company's own pages give a different address (115 Cooper St, Surry Hills NSW 2010))"
+  }
+ }
+}

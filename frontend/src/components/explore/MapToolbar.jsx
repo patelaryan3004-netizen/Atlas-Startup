@@ -36,7 +36,7 @@ export default function MapToolbar({
         <input
           type="search"
           aria-label="Search companies on the map"
-          placeholder="Search companies, sectors, founders"
+          placeholder="Search by name, sector or suburb"
           value={filters.search}
           onChange={(event) => onFilterChange({ search: event.target.value })}
           autoComplete="off"

@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import request from 'supertest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import app from '../src/app.js';
 import { BIG_CITIES, metroOf, metroOfPostcode, placeOfAddress } from '../src/geo/metro.js';
 
@@ -45,9 +48,13 @@ describe('the city filter', () => {
   it('finds the companies in a city\'s suburbs under the city, and still under the suburb\'s own name', async () => {
     const underCity = await request(app).get('/api/startups?city=Sydney&limit=200');
     const names = underCity.body.results.map((c) => c.name);
-    expect(names).toContain('Asseti'); // its city on record is North Sydney
+    // a company whose city on record is the suburb North Sydney, found in the data (not named here: a correction to one record, such as a pin made city-level, must not break this)
+    const list = JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data', 'startups.json'), 'utf8'));
+    const example = list.find((c) => c.city === 'North Sydney' && metroOf(c) === 'Sydney');
+    expect(example, 'a company on record in North Sydney').toBeTruthy();
+    expect(names).toContain(example.name);
     const underSuburb = await request(app).get('/api/startups?city=North%20Sydney&limit=200');
-    expect(underSuburb.body.results.map((c) => c.name)).toContain('Asseti');
+    expect(underSuburb.body.results.map((c) => c.name)).toContain(example.name);
     expect(underCity.body.count).toBeGreaterThanOrEqual(underSuburb.body.count);
   });
 

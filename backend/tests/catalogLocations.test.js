@@ -195,7 +195,7 @@ describe('what the API says about where companies are', () => {
     expect((await get(checked)).location).toMatchObject({ precision: 'EXACT', quality: 'Verified office' });
     expect((await get(suburb)).location).toMatchObject({ precision: 'SUBURB', quality: 'Location: suburb-level' });
     const c = await get(city);
-    expect(c.location).toEqual({ precision: 'CITY', place: `${city.city}, ${city.state}`, quality: 'Location: city-level' });
+    expect(c.location).toEqual({ precision: 'CITY', place: `${city.city}, ${city.state}`, quality: 'Exact location not published' });
     expect([c.lat, c.lng]).toEqual([null, null]);
     expect((await get(unknown)).location).toEqual({ precision: 'UNKNOWN', place: null, quality: 'Location unknown' });
     expect((await get(exact)).location.place).toContain(exact.address.split(',')[0]);

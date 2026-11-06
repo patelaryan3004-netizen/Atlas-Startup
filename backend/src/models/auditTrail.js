@@ -18,6 +18,7 @@
 // This is not the data-completeness audit (audit.js): that measures the data, this
 // records what was done to it.
 import { ISO_RE, isStr } from './company.js';
+import { redactContacts } from './contact.js';
 
 export const AUDIT_ROLES = ['viewer', 'reviewer', 'admin', 'system', 'cli'];
 export const AUDIT_VIA = ['admin-ui', 'cli', 'worker'];
@@ -56,13 +57,16 @@ export function diffChanges(before, after, fields) {
   return fields.filter((f) => !same(before?.[f], after?.[f])).map((field) => ({ field, from: clipValue(before?.[field] ?? null), to: clipValue(after?.[field] ?? null) }));
 }
 
+// (the summary, the reason and a changed free-text value can quote a page: contact details in them are taken out when a row is written. A row already written is never changed.)
+const CHANGE_KEEPS = /address|location|url|website|domain|identifier|id$/i;
+const scrub = (v) => (typeof v === 'string' ? redactContacts(v) : v);
 export function makeAuditRow(entry, id, at) {
   const { actor, role, via, action, target, summary, reason = null, changes = [] } = entry;
   return {
     id, at, actor: actor?.name ?? actor, role: actor?.role ?? role, via, action,
     target: { type: target.type, id: target.id },
-    summary: clip(String(summary)), reason: reason == null ? null : clip(String(reason)),
-    changes: changes.map((c) => ({ field: c.field, from: clipValue(c.from ?? null), to: clipValue(c.to ?? null) })),
+    summary: clip(redactContacts(String(summary))), reason: reason == null ? null : clip(redactContacts(String(reason))),
+    changes: changes.map((c) => ({ field: c.field, from: clipValue(CHANGE_KEEPS.test(String(c.field)) ? c.from ?? null : scrub(c.from ?? null)), to: clipValue(CHANGE_KEEPS.test(String(c.field)) ? c.to ?? null : scrub(c.to ?? null)) })),
   };
 }
 

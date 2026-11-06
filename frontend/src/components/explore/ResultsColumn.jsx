@@ -3,7 +3,7 @@ import { useStartupResults } from '../../hooks/useStartupResults.js';
 import { EmptyState, CompanyRow } from '../brand/parts.jsx';
 import { StartupRow, VcRow, startupSub, vcSub } from './rows.jsx';
 import { isPlainClick } from '../brand/nav.js';
-import { ArrowRight, ArrowUpRight } from './icons.jsx';
+import { ArrowRight, ArrowUpRight, SearchIcon, CloseIcon, ChevronLeft } from './icons.jsx';
 
 // The results beside the map on a wide screen: what the map is showing, one row per company or investor, the one that is open lit, and the way to
 // the rest (the list) and to the collections. It asks for the same startups the phone's sheet does (useStartupResults) and is given the investors the map
@@ -25,18 +25,26 @@ function Shapes() {
   );
 }
 
+// `variant` "map" is the panel of the map page: search, how many there are, the rows and a way to put it away (onCollapse); "explore" is the column beside the
+// map on Discover. With `area` (a box the visitor asked about with "Search this area") the rows are `areaRows`, the companies whose pin is inside it.
 export default function ResultsColumn({
   where, entity, filters, selected, onPick, onPickVc, vcFirms = [], isTracked, onToggleTracked, isSavedVc, onToggleVc,
   chips = null, onViewAll, onShowCollections, onClearFilters,
+  variant = 'explore', search = '', onSearch, onCollapse, area = null, areaRows = null, onClearArea,
 }) {
+  const inArea = Boolean(area && areaRows);
+  const withInvestors = (entity === 'all' || entity === 'vcs') && !inArea;
   const startupsOn = entity !== 'vcs';
-  const [{ items, count, status }, ] = useStartupResults(filters, startupsOn);
+  const [{ items: found, count: foundCount, status: foundStatus }, ] = useStartupResults(filters, startupsOn && !inArea); // (in an area the rows are the pins the map already has: nothing more is asked)
+  const items = inArea ? areaRows : found;
+  const count = inArea ? areaRows.length : foundCount;
+  const status = inArea ? 'ready' : foundStatus;
   const list = useRef(null);
   const selectedName = selected?.name;
 
   const rows = useMemo(() => {
     const starts = startupsOn ? items.map((startup) => ({ kind: 'startup', key: `s:${startup.slug || startup.name}`, startup })) : [];
-    const firms = entity === 'startups' ? [] : vcFirms.map((firm) => ({ kind: 'vc', key: `v:${firm.slug}`, firm }));
+    const firms = withInvestors ? vcFirms.map((firm) => ({ kind: 'vc', key: `v:${firm.slug}`, firm })) : [];
     let merged;
     if (entity === 'all') {
       merged = [];
@@ -50,13 +58,13 @@ export default function ResultsColumn({
       merged = [...starts, ...firms];
     }
     return merged;
-  }, [items, vcFirms, entity, startupsOn]);
+  }, [items, vcFirms, entity, startupsOn, withInvestors]);
 
   const shown = rows.slice(0, SHOWN);
   // The open mark is always among the rows: when its company is not in the first page (the map found it, the list has not got to it), it is put on top.
   const isOpen = (row) => (row.kind === 'vc' ? row.firm.name === selectedName : row.startup.name === selectedName);
   const openInRows = shown.some(isOpen);
-  const total = (startupsOn ? count : 0) + (entity === 'startups' ? 0 : vcFirms.length);
+  const total = (startupsOn || inArea ? count : 0) + (withInvestors ? vcFirms.length : 0);
   const loading = startupsOn && status === 'loading' && rows.length === 0;
   const nothing = !loading && rows.length === 0 && status !== 'error';
 
@@ -66,22 +74,43 @@ export default function ResultsColumn({
     row?.scrollIntoView?.({ block: 'nearest' });
   }, [selectedName, shown.length]);
 
-  const subtitle = entity === 'vcs' ? 'Venture capital firms.' : entity === 'startups' ? 'Startups.' : 'Companies and investors.';
+  const subtitle = entity === 'vcs' ? 'Venture capital firms.' : entity === 'startups' ? 'Startups.' : entity === 'companies' ? 'Established companies.' : entity === 'spaces' ? 'Spaces.' : 'Companies and investors.';
+  const part = (n, one, many) => `${n.toLocaleString('en-AU')} ${n === 1 ? one : many}`;
+  const countLine = inArea ? `${part(count, 'company', 'companies')} on the map in this area` : `${part(startupsOn ? count : 0, 'company', 'companies')}${withInvestors && vcFirms.length ? ` and ${part(vcFirms.length, 'investor', 'investors')}` : ''} in ${where}`;
+  const mapPanel = variant === 'map';
 
   return (
-    <section className="xc" aria-label={`Results in ${where}`}>
+    <section className={mapPanel ? 'xc xc-map' : 'xc'} aria-label={`Results in ${where}`}>
+      {mapPanel ? (
+        <div className="xc-head xc-head-map">
+          <div className="xc-toprow">
+            <h2 className="xc-title">{inArea ? 'In this area' : `In ${where}`}</h2>
+            {onCollapse && <button type="button" className="xc-collapse" aria-label="Put the results away" onClick={onCollapse}><ChevronLeft size={20} /></button>}
+          </div>
+          {onSearch && (
+            <label className="xc-search">
+              <SearchIcon size={20} className="xc-search-icon" />
+              <input type="search" aria-label="Search by name, sector or suburb" placeholder="Search by name, sector or suburb" value={search} onChange={(event) => onSearch(event.target.value)} autoComplete="off" />
+              {search && <button type="button" className="field-clear" aria-label="Clear the search" onClick={() => onSearch('')}><CloseIcon size={16} /></button>}
+            </label>
+          )}
+          <p className="xc-count" role="status" aria-live="polite">{status === 'loading' && rows.length === 0 ? 'Counting…' : countLine}</p>
+          {inArea && <button type="button" className="xc-area-chip" onClick={onClearArea}>Clear the area <CloseIcon size={14} /></button>}
+        </div>
+      ) : (
       <div className="xc-head">
         <h2 className="serif-h2">Explore {where}</h2>
         <p className="xc-sub">{subtitle}</p>
         {chips && <div className="xc-chips">{chips}</div>}
       </div>
+      )}
 
       <div className="xc-body">
         {loading && <p className="xc-note" role="status">Loading…</p>}
         {startupsOn && status === 'error' && rows.length === 0 && <p className="xc-note">Could not load the startups right now.</p>}
         {nothing && (
           <EmptyState title="Nothing matches.">
-            {entity === 'vcs' ? 'No venture capital firm with a city on file fits these filters.' : 'No startup fits these filters. Change a filter, or clear them all.'}
+            {inArea ? 'No company has a pin in this part of the map. Move the map, or clear the area.' : entity === 'vcs' ? 'No venture capital firm with a city on file fits these filters.' : 'No startup fits these filters. Change a filter, or clear them all.'}
             {onClearFilters && <button type="button" className="btn btn-secondary btn-sm" onClick={onClearFilters}>Clear filters</button>}
           </EmptyState>
         )}
@@ -123,18 +152,18 @@ export default function ResultsColumn({
           </ul>
         )}
 
-        {rows.length > 0 && (
+        {rows.length > 0 && !inArea && (
           <button type="button" className="xc-all" onClick={onViewAll}>
-            {total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
+            {mapPanel ? 'See all as a list' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
           </button>
         )}
 
-        <a className="collections-card" href="/lists" onClick={onShowCollections ? (event) => { if (isPlainClick(event)) { event.preventDefault(); onShowCollections(); } } : undefined}>
+        {!mapPanel && <a className="collections-card" href="/lists" onClick={onShowCollections ? (event) => { if (isPlainClick(event)) { event.preventDefault(); onShowCollections(); } } : undefined}>
           <span className="cc-label">Collections</span>
           <span className="cc-title">Good company starts here.</span>
           <ArrowUpRight size={24} className="cc-arrow" />
           <Shapes />
-        </a>
+        </a>}
       </div>
     </section>
   );

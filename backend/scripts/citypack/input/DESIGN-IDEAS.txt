@@ -1,0 +1,35 @@
+STILL EARLY — ORIGINAL MAP DESIGN DIRECTIONS
+
+RECOMMENDED: WHITE + FOREST GREEN + A LITTLE CORAL
+Use a white interface, near-black text, a quiet map and real company logos. Forest green marks selected actions; coral adds a small highlight. Soft green filter chips provide colour without overwhelming the map. Reuse existing approved branding wherever possible.
+Suggested fallback tokens: white #FFFFFF; background #F7F8FA; ink #17201D; green #246B50; pale green #EAF2EC; coral #EF7A61.
+
+Desktop composition
+A compact header contains the brand, city switcher and Submit a company. Beneath it, a collapsible left panel holds search and a useful list, while the map occupies the remaining space. Selecting either a list row or a logo pin opens the same detail panel. Keep the map page focused on discovery.
+
+Mobile composition
+Full-screen map, compact top search/city controls, and a bottom sheet for the list or selected company. Let users switch to an accessible list. Keep zoom controls, provider attribution and touch targets clear of overlays.
+
+OTHER PALETTE OPTIONS
+1. White + cobalt + soft peach: a more technical feel, with cobalt reserved for selections and links. Avoid saturated colour across the whole map.
+2. Warm white + charcoal + apricot: a warmer community feel, with restrained illustration on the welcome page and a practical map workspace.
+Use one token system across welcome, map, company detail and investor pages; don't give every city a different brand.
+
+INTERACTIONS THAT MAKE THE MAP WORTH RETURNING TO
+- Fast city switching with Sydney, Melbourne and Perth and preservation of filters.
+- Real logos rather than generic dots; readable cluster counts when zoomed out.
+- A shared-building picker so multiple companies at one address remain discoverable.
+- Saved companies and shareable searches, if the existing account/storage system supports them.
+- A clear Map/List toggle so a company can be discovered even without a public street address.
+- Short company descriptions, official website links, location status and Suggest a correction.
+- A subtle New to Still Early label based on the actual date added, clearly distinct from company founding date.
+- Recently checked addresses only when a real address check has occurred.
+
+DATA SHOULD SHAPE THE EXPERIENCE
+Use distinct filters for Startups, Companies, Investors and Spaces. Show local office versus local headquarters only when supported. Do not label every investor-backed or listed firm as early stage. Do not show hiring, trending, funding-stage or popularity badges without supporting data.
+City-only records must not create a dense pile of misleading pins at a CBD centre. Give them an honest directory experience while awaiting address confirmation.
+
+FUTURE IDEAS AFTER THE MAP WORKS WELL
+Small curated lists such as 'Melbourne climate builders' or 'Perth robotics' can link to the same filtered map. Founder-approved profile corrections can improve data quality. Jobs and events can later use separate pages and optional map layers without crowding the core experience.
+
+The inspiration is functional discoverability. The visual layout, wording and implementation should be original to Still Early.

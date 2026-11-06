@@ -1,0 +1,56 @@
+{
+ "about": "Types changed on the evidence of the company's own page (classification-evidence.json). A listing mentioned as a customer, an investor or a testimonial is not evidence and was not used. Applied with classify.mjs apply; each change is in the audit trail with the type it replaced.",
+ "decided_on": "2026-11-05",
+ "decisions": {
+  "archer-materials": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its home page names the company as listed on the ASX (AXE): \"Archer Materials (ASX: AXE) | Australian Quantum Technology Company About Us Our People Technolo\""
+  },
+  "adveritas": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its home page names the company as listed on the ASX (AV1): \"Adveritas (ASX: AV1) | Global Leader in Digital Ad Fraud Prevention Navigation Home About\""
+  },
+  "icetana-ai": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its own news names the company as listed on the ASX (ICE): \"s Distribution Agreement Macnica Americas will distribute icetana AI (ASX: ICE) across the Americas. One operator, up to 500 cameras, site learned w\""
+  },
+  "gentrack": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its own page says the company is listed on the NZX and ASX (GTK) and has operations in a number of countries: \"that is listed on the New Zealand and Australian stock exchanges (NZX/ASX: GTK) and has operations in a number of countries. Gentrack’s operating en\""
+  },
+  "novatti-group": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its own page calls the company an ASX-listed payment solutions provider: \"artner in payments Partnering with Novatti means choosing a reliable, ASX listed payment solutions provider supported by local payments and technology\""
+  },
+  "readytech": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its home page names the company as listed on the ASX (RDY): \"efence Read More About ReadyTech We are ready for anything ReadyTech (ASX:RDY) is a leading provider of mission-critical SaaS for the education, em\""
+  },
+  "appen": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its own page lists the company as ASX-listed (APX) and says it has pioneered AI data for 30 years: \"man oversight About Us 30 years pioneering AI data Investor Relations ASX-listed: APX News Latest announcements and press Careers Build the future of\""
+  },
+  "droneshield": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its home page names the company as listed on the ASX (DRO): \"AI-Powered Counter-Drone Solutions – DroneShield (ASX:DRO) 0 Skip to Content Solutions Don't remove it Capabilities Don't remov\""
+  },
+  "memphasys": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its own page describes Memphasys Limited as listed on the ASX (MEM): \"ed. Generating Rapidly Growing Recurring Revenues. Memphasys Limited (ASX: MEM) is an Australian-based reproductive biotechnology company commercial\""
+  },
+  "campaignagent": {
+   "type": "company",
+   "why": "an established, listed company rather than an early-stage startup",
+   "evidence": "its own page says it is owned and operated by ASX-listed REA Group Ltd: a subsidiary of a listed group: \"of Notifiable Matters Part of CampaignAgent is owned and operated by ASX-listed REA Group Ltd (REA:ASX) © REA Group Ltd.\""
+  }
+ }
+}

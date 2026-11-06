@@ -10,6 +10,7 @@
 // company) it contributes nothing but a warning: a wrong website is a more likely
 // explanation than a company that has two names.
 import { AU_STATES, KNOWN_CITIES } from '../models/company.js';
+import { redactContacts } from '../models/contact.js';
 import {
   canonicalDomain, registrableDomain, nameKey, looseNameKey, nameTokens, similarity, normalizeABN, normalizeACN, personKey,
 } from '../models/identity.js';
@@ -201,13 +202,15 @@ export function extractFacts(html, { home = true } = {}) {
   const text = stripTags(body);
   const nodes = jsonLd(html);
   const ld = jsonLdFacts(nodes);
-  const title = titleOf(html);
-  const siteName = metaContent(html, 'og:site_name');
-  const description = first(ld.description, metaContent(html, 'description'), metaContent(html, 'og:description'));
+  // (a page's title and description can carry its phone number or an email address: they are stored and shown, so they are taken out here, where the text enters)
+  const title = redactContacts(titleOf(html));
+  const siteName = redactContacts(metaContent(html, 'og:site_name'));
+  const description = redactContacts(first(ld.description, metaContent(html, 'description'), metaContent(html, 'og:description')));
 
   const abns = unique([...text.matchAll(/\bABN[\s:.-]*((?:\d\s?){11})(?!\d)/gi)].map((m) => normalizeABN(m[1])).filter(Boolean));
   const acns = unique([...text.matchAll(/\bACN[\s:.-]*((?:\d\s?){9})(?!\d)/gi)].map((m) => normalizeACN(m[1])).filter(Boolean));
-  const legalNames = unique([...ld.legalNames, ...legalNamesIn(text)].map((s) => s.replace(/\s+/g, ' ').trim()).filter((s) => s.length <= 80));
+  const legalNames = unique([...ld.legalNames, ...legalNamesIn(text)].map((s) => s.replace(/\s+/g, ' ').trim()).filter((s) => s.length <= 80 && !s.includes('@')));
+  // (a legal name is a name: a page that puts an email address in its legalName markup must not make a person's address an alias or a source's publisher)
 
   const addresses = [];
   if (ld.address && /^(?:au|aus|australia)$/i.test(ld.address.country ?? 'AU') && AU_STATES.includes(ld.address.region ?? '') && /^\d{4}$/.test(ld.address.postcode ?? '')) {

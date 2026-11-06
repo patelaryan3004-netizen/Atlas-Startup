@@ -3,7 +3,7 @@
 // `city` says. Only where the postcode is inside the city's own range: a town on the edge of a city is not counted as the city, and a company whose address
 // has no postcode (or one outside the ten) belongs to no city beyond its own `city`. Nothing is written to a record by this.
 const RANGES = [
-  ['NSW', 2000, 2234, 'Sydney'], ['NSW', 2280, 2310, 'Newcastle'], ['ACT', 2600, 2618, 'Canberra'], ['ACT', 2900, 2920, 'Canberra'], ['VIC', 3000, 3207, 'Melbourne'], ['VIC', 3335, 3338, 'Melbourne'], ['VIC', 3427, 3429, 'Melbourne'], ['VIC', 3750, 3763, 'Melbourne'], ['VIC', 3765, 3811, 'Melbourne'], ['VIC', 3910, 3920, 'Melbourne'], ['VIC', 3975, 3978, 'Melbourne'],
+  ['NSW', 2000, 2234, 'Sydney'], ['NSW', 2555, 2574, 'Sydney'], ['NSW', 2745, 2770, 'Sydney'], ['NSW', 2280, 2310, 'Newcastle'], ['ACT', 2600, 2618, 'Canberra'], ['ACT', 2900, 2920, 'Canberra'], ['VIC', 3000, 3207, 'Melbourne'], ['VIC', 3335, 3338, 'Melbourne'], ['VIC', 3427, 3429, 'Melbourne'], ['VIC', 3750, 3763, 'Melbourne'], ['VIC', 3765, 3811, 'Melbourne'], ['VIC', 3910, 3920, 'Melbourne'], ['VIC', 3975, 3978, 'Melbourne'],
   ['QLD', 4000, 4179, 'Brisbane'], ['QLD', 4210, 4230, 'Gold Coast'], ['SA', 5000, 5199, 'Adelaide'], ['WA', 6000, 6199, 'Perth'], ['TAS', 7000, 7109, 'Hobart'], ['NT', 800, 832, 'Darwin'],
 ];
 

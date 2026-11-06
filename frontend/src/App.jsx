@@ -100,12 +100,22 @@ const SEARCH_DEBOUNCE_MS = 250;
 // that much, so the one that is open is in sight above the sheet whatever the panel says.
 const sheetInset = () => Math.round(Math.min(window.innerHeight * 0.58, 520));
 // What the map shows: the startups, the VCs, or both. It is in the address (?show=startups or ?show=vcs; both is no parameter), so a link opens as it was.
-const SHOWN = ['all', 'startups', 'vcs'];
+const SHOWN = ['all', 'startups', 'companies', 'vcs', 'spaces'];
+// What each of them asks of the directory: the organisation type (the startup is the default type; an established company and a space are marked as such)
+const ORG_TYPE_OF = { startups: 'startup', companies: 'company', spaces: 'space' };
 // The filters that are about a startup alone (whether it is hiring, its remote policy, how it is placed...): an investor has none of them, so with one on
 // the VCs are left off the map when both are shown, and ignored when only they are.
 const STARTUP_ONLY = ['hiring', 'taskGate', 'events', 'remote', 'tech', 'team', 'cohort', 'fresh', 'investor', 'precision', 'state', 'verified'];
 const NO_VCS = { items: [], unplaced: 0, count: 0, ready: false };
 const ALL_AUSTRALIA_ZOOM = 6.5; // zoomed in past this, the map offers the way back to all of Australia even with no city chosen
+
+// The results beside the map are open unless the visitor put them away, and this browser remembers it. A browser that will not say gets them open.
+const RESULTS_KEY = 'auStartupMapResults';
+function loadResultsOpen() {
+  try { return localStorage.getItem(RESULTS_KEY) !== '0'; } catch (e) { return true; }
+}
+// A pin's tuple as the result row of a company reads it (mapPins.js MARKER_FIELDS: slug, name, lat, lng, sector, city, hiring, domain...).
+const markerStartup = (m) => ({ slug: m[0], name: m[1], sector: m[4], city: m[5], website: m[7] ? `https://${m[7]}` : '' });
 
 function loadNewsVisible() {
   try {
@@ -128,13 +138,16 @@ function loadLayers() {
   }
 }
 
+// A city written in lower case in an address (/map?city=melbourne) is the city: the ten the map knows are matched without regard to case.
+const canonicalCity = (value) => splitValues(value).map((part) => MAP_CITIES.find((city) => city.toLowerCase() === part.trim().toLowerCase()) ?? part).join(',');
+
 function loadFiltersFromUrl() {
   try {
     const params = new URLSearchParams(window.location.search);
     const fromUrl = {};
     Object.keys(EMPTY_FILTERS).forEach((key) => {
       const value = params.get(key);
-      if (value) fromUrl[key] = value;
+      if (value) fromUrl[key] = key === 'city' ? canonicalCity(value) : value;
     });
     return { ...EMPTY_FILTERS, ...fromUrl };
   } catch (e) {
@@ -200,7 +213,10 @@ export default function App() {
   // The app is on the page, so a link inside it (a post's author, a tab) can move to another page of it without loading the site again (navigate.js).
   useEffect(() => { window.__stillEarlyApp = true; return () => { window.__stillEarlyApp = false; }; }, []);
   const [filters, setFilters] = useState(() => initialFilters(route));
-  const applied = useAppliedFilters(filters);
+  const [shown, setShown] = useState(loadShown); // 'all', 'startups', 'companies', 'vcs' (investors) or 'spaces': which layers of the map (and which list) are on
+  const appliedFilters = useAppliedFilters(filters);
+  const orgType = ORG_TYPE_OF[shown] ?? '';
+  const applied = useMemo(() => (orgType ? { ...appliedFilters, orgType } : appliedFilters), [appliedFilters, orgType]);
   // What the snapshot already holds is what the first paint has (peek.js): the filters' options, the counts and, on the map, the pins. An
   // address with filters asks something the snapshot does not hold, so those start empty and the API answers, as before.
   // The map is one way to look at startups, not the first: a visit starts on the list, and the map is asked for (?view=map).
@@ -214,7 +230,6 @@ export default function App() {
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [layers, setLayers] = useState(loadLayers);
   const [institutionPins, setInstitutionPins] = useState([]);
-  const [shown, setShown] = useState(loadShown); // 'all', 'startups' or 'vcs': which layers of the map (and which list) are on
   const [vcData, setVcData] = useState(NO_VCS); // the investors' marks for the filters (api.fetchInvestorPins)
   const [vcOptions, setVcOptions] = useState({ sectors: [], stages: [] }); // what the VC-only menus offer (the investors' own sectors and stages)
   const savedVcs = useSavedInvestors();
@@ -293,13 +308,13 @@ export default function App() {
   useEffect(() => {
     try {
       if (route.kind === 'explore' || route.kind === 'startup' || route.kind === 'map') {
-        const url = appUrl(route, { filters: applied, viewMode, entity: shown });
+        const url = appUrl(route, { filters: applied, viewMode, entity: shown, selected: route.kind === 'map' && preview?.kind !== 'vc' ? preview?.slug ?? null : null });
         if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
       } else if (route.kind !== 'investors' && window.location.pathname !== appPath(route)) {
         window.history.replaceState(window.history.state, '', appPath(route));
       }
     } catch (e) { /* ignore */ }
-  }, [route, applied, viewMode, shown]);
+  }, [route, applied, viewMode, shown, preview?.slug, preview?.kind]);
 
   // A /startup/<slug> address (a link, or Forward) opens that company; one the directory does not have says so.
   useEffect(() => {
@@ -552,6 +567,25 @@ export default function App() {
   }, [desktop, showWorkspace]);
   const clearPin = useCallback(() => setPreview(null), []);
   useEffect(() => { setPreview(null); }, [applied, viewMode, shown]);
+  // /map?city=melbourne&selected=<slug> opens that company's mark once the pins have come in (a company with no mark has nothing to open).
+  const pendingSelect = useRef(null);
+  if (pendingSelect.current === null) { try { pendingSelect.current = new URLSearchParams(window.location.search).get('selected') || ''; } catch (e) { pendingSelect.current = ''; } }
+  useEffect(() => {
+    const slug = pendingSelect.current;
+    if (!slug || route.kind !== 'map') return;
+    const tuple = markers.find((m) => m[0] === slug);
+    if (tuple) { pendingSelect.current = ''; selectPin(pinPayload(tuple)); }
+  }, [markers, route.kind, selectPin]);
+
+  // The results beside the map: open or put away (kept in this browser), and "Search this area": after the visitor moves the map, the results can be asked to follow
+  // where it is looking. The list does not jump by itself as the map moves.
+  const [resultsOpen, setResultsOpen] = useState(loadResultsOpen);
+  const toggleResults = useCallback((open) => { setResultsOpen(open); try { localStorage.setItem(RESULTS_KEY, open ? '1' : '0'); } catch (e) { /* kept for this visit */ } }, []);
+  const [area, setArea] = useState(null); // the box the results are of (south, west, north, east), or null: the whole city
+  const [areaOffer, setAreaOffer] = useState(null); // the box the map is looking at after the visitor moved it
+  useEffect(() => { setArea(null); setAreaOffer(null); }, [applied, shown, viewMode]);
+  const onMapMoved = useCallback((view) => { setMapView(view); if (view.byUser && view.bounds) setAreaOffer(view.bounds); }, []);
+  const areaRows = useMemo(() => (area ? markers.filter((m) => m[2] >= area.south && m[2] <= area.north && m[3] >= area.west && m[3] <= area.east).map(markerStartup).sort((a, b) => a.name.localeCompare(b.name)) : null), [area, markers]);
 
   // A company picked from the sheet's list: the pin it has on the map when it has one (the map then goes to it), else just what the list knows.
   const pickFromSheet = (startup) => {
@@ -596,6 +630,7 @@ export default function App() {
       onOpen={openFromPreview}
       onClose={clearPin}
       onReport={() => reportRoleClosed(preview.name)}
+      onSuggest={() => { setEditingMessage(''); setEditingCompany(preview.name); }}
     /></Lazy>
   ));
   // The VCs the map draws, one row each, for the phone's sheet and the list.
@@ -733,7 +768,7 @@ export default function App() {
   ) : null;
 
   return (
-    <div id="app" className={['xp', isMapPage && 'xp-mappage', activeList && 'has-list-banner', filtersOpen && 'panel-open'].filter(Boolean).join(' ')}>
+    <div id="app" className={['xp', isMapPage && 'xp-mappage', activeList && 'has-list-banner', filtersOpen && 'panel-open', isMapPage && wideMap && resultsOpen && 'results-on'].filter(Boolean).join(' ')}>
       <SiteHeader active={isMapPage ? 'map' : 'discover'} go={go} counts={counts} onAdd={chrome.onAdd} addLabel="Add company" menu={menuProps} />
       {!isMapPage && <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={tabs} className="st-page" />}
 
@@ -784,9 +819,16 @@ export default function App() {
           />
         )}
 
-        <div className="xb" data-view={viewMode}>
-          {wideMap && !isMapPage && (
+        <div className="xb" data-view={viewMode} data-results={isMapPage && wideMap ? (resultsOpen ? 'open' : 'closed') : undefined}>
+          {wideMap && (!isMapPage || resultsOpen) && (
             <ResultsColumn
+              variant={isMapPage ? 'map' : 'explore'}
+              search={filters.search}
+              onSearch={(search) => applyFilters({ search })}
+              onCollapse={() => toggleResults(false)}
+              area={area}
+              areaRows={areaRows}
+              onClearArea={() => setArea(null)}
               where={where}
               entity={shown}
               filters={applied}
@@ -824,7 +866,7 @@ export default function App() {
                   showInstitutions={layers.institutions}
                   scope={applied.city}
                   focus={focus}
-                  onViewChange={setMapView}
+                  onViewChange={onMapMoved}
                   onOpenInternal={openInternal}
                   onReportRoleClosed={reportRoleClosed}
                   previewAt={wideMap && preview && Number.isFinite(preview.lat) && Number.isFinite(preview.lng) ? { lat: preview.lat, lng: preview.lng } : null}
@@ -856,6 +898,8 @@ export default function App() {
             </Lazy>
 
             {viewMode === 'map' && !desktop && chips && <div className="chips-float">{chips}</div>}
+            {isMapPage && wideMap && !resultsOpen && <button type="button" className="xr-open" onClick={() => toggleResults(true)}>Show results{Number.isFinite(summary?.count) ? ` · ${summary.count.toLocaleString('en-AU')}` : ''}</button>}
+            {isMapPage && wideMap && areaOffer && !area && <button type="button" className="xr-area" onClick={() => { setArea(areaOffer); setAreaOffer(null); toggleResults(true); }}>Search this area</button>}
             {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
               <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>
             )}

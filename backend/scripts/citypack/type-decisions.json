@@ -1,0 +1,9 @@
+{
+  "note": "The type of an organisation that the pack's source category suggests and a person agreed with, after reading the record. A source category is a candidate, not a verified type: a record whose own curated stage says it is early stage keeps its type (Prospa, Build Club) and is listed in the report for review. Applied by `import.mjs types`; nothing is changed when the record already has a type.",
+  "companies": {
+    "ansarada": { "type": "company", "why": "The pack lists it under companies; it is an established software company with no early stage on record." },
+    "compass-education": { "type": "company", "why": "The pack lists it under companies; it is an established school-management software company with no early stage on record." },
+    "hotdoc": { "type": "company", "why": "The pack lists it under companies; it is an established healthcare booking company with no early stage on record." },
+    "leonardo-ai": { "type": "company", "why": "The pack lists it under companies; the record says it was acquired." }
+  }
+}

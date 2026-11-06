@@ -157,11 +157,14 @@ describe('GET /api/institutions/pins', () => {
     const { app, files } = await appOver({ seed: { institutions: [firm()] }, cache: [] });
     expect((await request(app).get('/api/institutions/pins')).body.count).toBe(0);
     await writeFile(files.cache, JSON.stringify([answer(office())]));
-    // the catalog answers from the last snapshot while it reloads in the background, so the first question after a change may still be the old
-    // answer; the next one has the new
-    await request(app).get('/api/institutions/pins');
-    await new Promise((resolve) => { setTimeout(resolve, 50); });
-    expect((await request(app).get('/api/institutions/pins')).body.count).toBe(1);
+    // the catalog answers from the last snapshot while it reloads in the background, so a question just after a change may still get the old answer. It is asked
+    // again until the new one arrives (up to 5 s: a fixed short wait lost the race when the whole suite ran at once)
+    let count = 0;
+    for (let i = 0; i < 50 && count !== 1; i += 1) {
+      count = (await request(app).get('/api/institutions/pins')).body.count;
+      if (count !== 1) await new Promise((resolve) => { setTimeout(resolve, 100); });
+    }
+    expect(count).toBe(1);
   });
 });
 

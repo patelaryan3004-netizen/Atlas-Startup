@@ -523,7 +523,18 @@ export default function MapView({
     const instLayer = L.layerGroup().addTo(map);
     map.on('moveend', draw);
     // Where the map is looking, for the little map of Australia in its corner; a press on the bare map puts the open card away.
-    const reportView = () => { const c = map.getCenter(); latest.current.onViewChange?.({ lat: c.lat, lng: c.lng, zoom: map.getZoom() }); };
+    // `byUser` is true when the move followed the visitor's own gesture (a drag, the wheel, a touch, a key): the map going to a city or a company is not one.
+    let gesture = false;
+    const container = map.getContainer?.();
+    const mark = () => { gesture = true; };
+    const gestures = ['pointerdown', 'wheel', 'touchstart', 'keydown'];
+    gestures.forEach((name) => container?.addEventListener?.(name, mark, { passive: true }));
+    const reportView = () => {
+      const c = map.getCenter();
+      const b = map.getBounds?.();
+      latest.current.onViewChange?.({ lat: c.lat, lng: c.lng, zoom: map.getZoom(), bounds: b ? { south: b.getSouth(), west: b.getWest(), north: b.getNorth(), east: b.getEast() } : null, byUser: gesture });
+      gesture = false;
+    };
     map.on('moveend', reportView);
     map.on('click', () => latest.current.onClearPin?.());
     mapRef.current = map;

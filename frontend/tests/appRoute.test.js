@@ -97,3 +97,26 @@ describe('the address of each page', () => {
     }
   });
 });
+
+describe('what the map is showing, and which company is open, in the address', () => {
+  it('writes what is shown (startups, companies, investors or spaces) and nothing for everything', () => {
+    expect(exploreSearch({}, 'list', 'companies')).toBe('?show=companies');
+    expect(exploreSearch({}, 'list', 'spaces')).toBe('?show=spaces');
+    expect(exploreSearch({}, 'list', 'vcs')).toBe('?show=vcs');
+    expect(exploreSearch({}, 'list', 'all')).toBe('');
+  });
+
+  it('does not write the organisation type twice: the question the page asks is not in the address', () => {
+    expect(exploreSearch({ city: 'Melbourne', orgType: 'company' }, 'list', 'companies')).toBe('?city=Melbourne&show=companies');
+  });
+
+  it('writes the open company on the map page, so a link opens it', () => {
+    expect(appUrl({ kind: 'map' }, { filters: { city: 'Melbourne' }, entity: 'all', selected: 'qsic' })).toBe('/map?city=Melbourne&selected=qsic');
+    expect(appUrl({ kind: 'map' }, { filters: { city: 'Perth' }, entity: 'spaces' })).toBe('/map?city=Perth&show=spaces');
+  });
+
+  it('opens the app for an older address that has only a company selected or a type shown', () => {
+    expect(readAppRoute({ pathname: '/', search: '?show=companies' })).toEqual({ kind: 'explore' });
+    expect(readAppRoute({ pathname: '/map', search: '?city=melbourne&selected=qsic' })).toEqual({ kind: 'map' });
+  });
+});

@@ -22,7 +22,7 @@ import { showPeople } from './flags.js';
 const decode = (part) => { try { return decodeURIComponent(part); } catch (e) { return part; } };
 
 // What at / means "the startups" and not Home: any of the filters, the view or what is shown.
-const EXPLORE_KEYS = ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'cohort', 'fresh', 'view', 'show'];
+const EXPLORE_KEYS = ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'cohort', 'fresh', 'view', 'show', 'selected'];
 
 export function readAppRoute({ pathname = window.location.pathname, search = window.location.search } = {}) {
   if (readInvestorsRoute({ pathname, search })) return { kind: 'investors' };
@@ -81,22 +81,27 @@ export function appPath(route) {
   }
 }
 
+// What the map and the list show besides everything: startups, companies, investors (vcs) or spaces. No word is everything.
+export const SHOW_WORDS = ['startups', 'companies', 'vcs', 'spaces'];
+
 // The query of the pages that show companies (the list, the map, one company over them): the filters that are on, the map when it is the view in use (the list
 // is the start, so it needs no word), and what is shown when it is not both (show=startups or show=vcs). Nothing else: a page that is not one of those
 // has no query.
-export function exploreSearch(filters, viewMode, entity = 'all') {
+export function exploreSearch(filters, viewMode, entity = 'all', selected = null) {
   const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(filters)) if (value) params.set(key, value);
+  // (orgType is what `show` says, as a filter for the API: it is not written twice)
+  for (const [key, value] of Object.entries(filters)) if (value && key !== 'orgType') params.set(key, value);
   if (viewMode === 'map') params.set('view', 'map');
-  if (entity === 'startups' || entity === 'vcs') params.set('show', entity);
+  if (SHOW_WORDS.includes(entity)) params.set('show', entity);
+  if (selected) params.set('selected', selected); // the company open on the map, so a link opens it
   const query = params.toString();
   return query ? `?${query}` : '';
 }
 
 // The address a route is shown at. The pages that show companies carry the filters; a curated list carries none (the list is
 // the filter); the others stand alone.
-export function appUrl(route, { filters = {}, viewMode = 'list', entity = 'all' } = {}) {
+export function appUrl(route, { filters = {}, viewMode = 'list', entity = 'all', selected = null } = {}) {
   const path = appPath(route);
-  if (route.kind === 'map') return `${path}${exploreSearch(filters, 'list', entity)}`; // the map page is the map: its address needs no view word
+  if (route.kind === 'map') return `${path}${exploreSearch(filters, 'list', entity, selected)}`; // the map page is the map: its address needs no view word
   return route.kind === 'explore' || route.kind === 'startup' ? `${path}${exploreSearch(filters, viewMode, entity)}` : path;
 }

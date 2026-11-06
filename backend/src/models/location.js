@@ -23,7 +23,7 @@ import { addressParts, sameAddress, cityKey } from './identity.js';
 import { AU_STATES, cityCentre, statesAt } from '../geo/places.js';
 
 export const PRECISIONS = ['EXACT', 'SUBURB', 'CITY', 'STATE', 'UNKNOWN'];
-// The words a visitor reads (the map, the company panel): "Location: city-level".
+// The words a visitor reads (the map, the company panel): "Exact location not published" (a company known to its city only).
 export const PRECISION_WORDS = { EXACT: 'exact address', SUBURB: 'suburb-level', CITY: 'city-level', STATE: 'state-level', UNKNOWN: 'unknown' };
 // Only these are drawn as a company's own pin, and only these carry coordinates.
 export const POINT_PRECISIONS = ['EXACT', 'SUBURB'];
@@ -315,7 +315,7 @@ export function describeLocation(c) {
     return { precision, place: [street, c.suburb && c.suburb !== city ? c.suburb : null, city].filter(Boolean).join(', ') || where, quality: verified ? 'Verified office' : 'Office address on file' };
   }
   if (precision === 'SUBURB') return { precision, place: [c.suburb, city && c.suburb !== city ? city : null].filter(Boolean).join(', ') || where, quality: 'Location: suburb-level' };
-  if (precision === 'CITY') return { precision, place: where, quality: 'Location: city-level' };
+  if (precision === 'CITY') return { precision, place: where, quality: 'Exact location not published' };
   if (precision === 'STATE') return { precision, place: state, quality: 'Location: state-level' };
   return { precision: 'UNKNOWN', place: null, quality: 'Location unknown' };
 }

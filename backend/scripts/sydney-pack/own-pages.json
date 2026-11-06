@@ -1,0 +1,5492 @@
+{
+ "rows": {
+  "commons": {
+   "website": "https://www.thecommons.com.au",
+   "pages": [
+    {
+     "url": "https://www.thecommons.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.thecommons.com.au/privacy-collection-statement",
+     "status": 200
+    },
+    {
+     "url": "https://www.thecommons.com.au/about/commons-group",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:04.954Z"
+  },
+  "trendmicro": {
+   "website": "https://trendmicro.com",
+   "pages": [
+    {
+     "url": "https://www.trendmicro.com/en_gb/business.html",
+     "status": 200
+    },
+    {
+     "url": "https://www.trendmicro.com/en_gb/about/trust-center/privacy.html",
+     "status": 200
+    },
+    {
+     "url": "https://www.trendmicro.com/en_gb/what-is.html",
+     "status": 200
+    },
+    {
+     "url": "https://www.trendmicro.com/en_gb/contact.html",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "stralia and New Zealand Australia North Sydney Level 15, 1 Pacific Highway, North Sydney, NSW 2060",
+     "url": "https://www.trendmicro.com/en_gb/contact.html",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "North Sydney, NSW",
+     "url": "https://www.trendmicro.com/en_gb/contact.html",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "2-421 Melbourne Level 17, Collins Square Tower 4, 727 Collins Street, Melbourne VIC 3008",
+     "url": "https://www.trendmicro.com/en_gb/contact.html",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "Phone: 1-800-642-421 Brisbane Level 6/200 Adelaide St, Brisbane City QLD 4000",
+     "url": "https://www.trendmicro.com/en_gb/contact.html",
+     "state": "QLD",
+     "kind": null
+    },
+    {
+     "text": "-642-421 Perth Hub Elizabeth Quay Office Space, Level 1, 9 The Esplanade Perth, WA 6000",
+     "url": "https://www.trendmicro.com/en_gb/contact.html",
+     "state": "WA",
+     "kind": "OFFICE"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:12.544Z"
+  },
+  "wisetechglobal": {
+   "website": "https://www.wisetechglobal.com",
+   "pages": [
+    {
+     "url": "https://wisetechglobal.com/",
+     "status": 200
+    },
+    {
+     "url": "https://wisetechglobal.com/legal/privacy-and-data-protection-notice/",
+     "status": 200
+    },
+    {
+     "url": "https://wisetechglobal.com/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://wisetechglobal.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ou can contact us in a number of ways: Sydney (WiseTech Global) 25 Bourke Road Alexandria NSW 2015",
+     "url": "https://wisetechglobal.com/legal/privacy-and-data-protection-notice/",
+     "kind": null
+    },
+    {
+     "text": ", Australia PO Box 6390 Alexandria NSW 2015",
+     "url": "https://wisetechglobal.com/legal/privacy-and-data-protection-notice/",
+     "kind": null
+    },
+    {
+     "text": "com Post: 25 Bourke Road, Alexandria NSW 2015",
+     "url": "https://wisetechglobal.com/legal/privacy-and-data-protection-notice/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Alexandria NSW",
+     "url": "https://wisetechglobal.com/legal/privacy-and-data-protection-notice/",
+     "kind": null
+    },
+    {
+     "text": "office 25 Bourke Road, Alexandria NSW 2015 Telephone: +61 (2) 8",
+     "url": "https://wisetechglobal.com/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "8001 2222 Support (Local): [phone removed] Melbourne 477 Collins Street Melbourne VIC 3000",
+     "url": "https://wisetechglobal.com/contact/",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "Postal Address: 450 Flinders Lane Melbourne VIC 3000",
+     "url": "https://wisetechglobal.com/contact/",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "Telephone: [phone removed] Adelaide CreativeCubesCo 30 Pirie Street Adelaide SA 5000",
+     "url": "https://wisetechglobal.com/contact/",
+     "state": "SA",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:17.490Z"
+  },
+  "wotso": {
+   "website": "https://wotso.com",
+   "pages": [
+    {
+     "url": "https://wotso.com/",
+     "status": 200
+    },
+    {
+     "url": "https://wotso.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://wotso.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://wotso.com/our-story/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Office Locations Close Locations Open Locations Australia NSW Sydney CBD Western Sydney Northern S",
+     "url": "https://wotso.com/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Locations Close Locations Open Locations Australia NSW Sydney CBD Western Sydney Northern S",
+     "url": "https://wotso.com/terms-and-conditions/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Locations Close Locations Open Locations Australia NSW Sydney CBD Western Sydney Northern S",
+     "url": "https://wotso.com/contact/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Locations Close Locations Open Locations Australia NSW Sydney CBD Western Sydney Northern S",
+     "url": "https://wotso.com/our-story/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:23.585Z"
+  },
+  "xero": {
+   "website": "https://www.xero.com",
+   "pages": [
+    {
+     "url": "https://www.xero.com/au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.xero.com/au/legal/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.xero.com/au/legal/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://www.xero.com/au/about/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [
+    {
+     "text": "o Australia Pty Limited Address: Level 3, 260 Burwood Road, Hawthorn, Melbourne VIC 3122",
+     "url": "https://www.xero.com/au/legal/terms/",
+     "state": "VIC",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:30.436Z"
+  },
+  "zscaler": {
+   "website": "https://zscaler.com",
+   "pages": [
+    {
+     "url": "https://www.zscaler.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.zscaler.com/privacy-compliance/overview",
+     "status": 200
+    },
+    {
+     "url": "https://www.zscaler.com/legal/overview",
+     "status": 200
+    },
+    {
+     "url": "https://www.zscaler.com/company/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.zscaler.com/company/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "Street Melbourne VIC 3000 Australia Sydney, Australia Level 4 17-19 Bridge Street Sydney NSW 2000",
+     "url": "https://www.zscaler.com/company/contact",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "htra, 411045, India Melbourne, Australia Level 7, 180 Flinders Street Melbourne VIC 3000",
+     "url": "https://www.zscaler.com/company/contact",
+     "state": "VIC",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:37.679Z"
+  },
+  "vudoo": {
+   "website": "https://vudoo.com",
+   "pages": [
+    {
+     "url": "https://vudoo.com/",
+     "status": 200
+    },
+    {
+     "url": "https://vudoo.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://vudoo.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://vudoo.com/get-in-touch/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "orily, you may wish to refer your complaint to the OAIC at: Address: GPO Box 5218, Sydney NSW 2001",
+     "url": "https://vudoo.com/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://vudoo.com/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T05:04:44.100Z"
+  },
+  "15below": {
+   "website": "https://15below.com",
+   "pages": [
+    {
+     "url": "https://15below.com/",
+     "status": 200
+    },
+    {
+     "url": "https://15below.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://15below.com/legal",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://15below.com/contact?utm_source=promo+banner&utm_medium=internal+website+link&utm_campaign=contact+us+link+promo+banner",
+     "code": "robots_disallow"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:56:48.352Z"
+  },
+  "23strands": {
+   "website": "https://23strands.com",
+   "pages": [
+    {
+     "url": "https://23strands.com/",
+     "status": 200
+    },
+    {
+     "url": "https://23strands.com/fertility23",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://23strands.com/contact-us",
+     "code": "http_error"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:56:54.479Z"
+  },
+  "5b": {
+   "website": "https://5b.co",
+   "pages": [
+    {
+     "url": "https://5b.co/",
+     "status": 200
+    },
+    {
+     "url": "https://5b.co/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://5b.co/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://5b.co/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Enquire now 5B Office Locations 5B Global HQ 34 Kent Road, Mascot, NSW 2020",
+     "url": "https://5b.co/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office Locations 5B Global HQ 34 Kent Road, Mascot, NSW 2020 Australia +61 (0)88",
+     "url": "https://5b.co/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "2020 Australia [phone removed] 5B Adelaide 46-54 Cheviot Rd Salisbury South, SA 5106",
+     "url": "https://5b.co/contact",
+     "state": "SA",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:04.983Z"
+  },
+  "abbyy": {
+   "website": "https://abbyy.com",
+   "pages": [
+    {
+     "url": "https://www.abbyy.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.abbyy.com/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.abbyy.com/solutions/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.abbyy.com/company/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": ", Kyiv, Ukraine, 04073 ABBYY Australia World Square, Level 45, 680 George Street, Sydney, NSW 2000",
+     "url": "https://www.abbyy.com/company/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://www.abbyy.com/company/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:15.153Z"
+  },
+  "abilitymade": {
+   "website": "https://abilitymade.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://abilitymade.com/",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:17.989Z"
+  },
+  "accedo": {
+   "website": "https://accedo.tv",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://accedo.tv/",
+     "code": "robots_disallow"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:18.763Z"
+  },
+  "accertify": {
+   "website": "https://accertify.com",
+   "pages": [
+    {
+     "url": "https://www.accertify.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.accertify.com/online-privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.accertify.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://www.accertify.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:27.938Z"
+  },
+  "aciworldwide": {
+   "website": "https://aciworldwide.com",
+   "pages": [
+    {
+     "url": "https://www.aciworldwide.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aciworldwide.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.aciworldwide.com/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.aciworldwide.com/about-aci/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "189352 Main # 65-6334-4843 Sydney Grosvenor Place, Unit 1, Level 15, 225 George St Sydney NSW, 2000",
+     "url": "https://www.aciworldwide.com/about-aci/contact-us",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.aciworldwide.com/about-aci/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:35.677Z"
+  },
+  "acquia": {
+   "website": "https://www.acquia.com",
+   "pages": [
+    {
+     "url": "https://www.acquia.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.acquia.com/about-us/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.acquia.com/solutions/govern-ai-content",
+     "status": 200
+    },
+    {
+     "url": "https://www.acquia.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "109 United States Phone: [phone removed] Sydney, Australia L6, 56 Berry Street North Sydney, 2081 NSW",
+     "url": "https://www.acquia.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:42.516Z"
+  },
+  "acronis": {
+   "website": "https://acronis.com",
+   "pages": [
+    {
+     "url": "https://www.acronis.com/en/",
+     "status": 200
+    },
+    {
+     "url": "https://www.acronis.com/en/company/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.acronis.com/en/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.acronis.com/en/contact-sales/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "m In a letter to: Office of the Australian Information Commissioner, GPO Box 5288, Sydney NSW 2001",
+     "url": "https://www.acronis.com/en/company/privacy/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office of the Australian Information Commissioner, GPO Box 5288, Sydney NSW 2001 By fax to: +61 2 612",
+     "url": "https://www.acronis.com/en/company/privacy/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:51.952Z"
+  },
+  "aderant": {
+   "website": "https://aderant.com",
+   "pages": [
+    {
+     "url": "https://www.aderant.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aderant.com/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aderant.com/api-terms/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aderant.com/connect/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "port: [phone removed] [phone removed] Sydney Level 5 112 Castlereagh Street Sydney, NSW 2000",
+     "url": "https://www.aderant.com/connect/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://www.aderant.com/connect/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:58.739Z"
+  },
+  "adinstruments": {
+   "website": "https://adinstruments.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://adinstruments.com/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:57:59.027Z"
+  },
+  "adiona": {
+   "website": "https://adionatech.com",
+   "pages": [
+    {
+     "url": "https://www.adionatech.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.adionatech.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.adionatech.com/legal",
+     "status": 200
+    },
+    {
+     "url": "https://www.adionatech.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:05.856Z"
+  },
+  "adviceregtech": {
+   "website": "https://adviceregtech.com",
+   "pages": [
+    {
+     "url": "https://adviceregtech.com/",
+     "status": 200
+    },
+    {
+     "url": "https://adviceregtech.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://adviceregtech.com/terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://adviceregtech.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Advice RegTech registered office is Level 17, 44 Market St, Sydney, NSW, 2000",
+     "url": "https://adviceregtech.com/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Advice RegTech level 2/110 Pacific Highway, North Sydney NSW 2060",
+     "url": "https://adviceregtech.com/contact-us",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "office is Level 17, 44 Market St, Sydney, NSW, 2000",
+     "url": "https://adviceregtech.com/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "North Sydney NSW",
+     "url": "https://adviceregtech.com/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:11.167Z"
+  },
+  "adyen": {
+   "website": "https://www.adyen.com",
+   "pages": [
+    {
+     "url": "https://www.adyen.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.adyen.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.adyen.com/legal",
+     "status": 200
+    },
+    {
+     "url": "https://www.adyen.com/contact/sales",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:17.103Z"
+  },
+  "aerologix": {
+   "website": "https://aerologix.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://aerologix.com/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:17.364Z"
+  },
+  "agronomeye": {
+   "website": "https://agronomeye.com.au",
+   "pages": [
+    {
+     "url": "https://agronomeye.com.au/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:17.725Z"
+  },
+  "aimedia": {
+   "website": "https://ai-media.tv",
+   "pages": [
+    {
+     "url": "https://www.ai-media.tv/",
+     "status": 200
+    },
+    {
+     "url": "https://www.ai-media.tv/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.ai-media.tv/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.ai-media.tv/company/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "02, 9 Help St, Chatswood NSW 2067",
+     "url": "https://www.ai-media.tv/company/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Chatswood NSW",
+     "url": "https://www.ai-media.tv/company/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:50.740Z"
+  },
+  "aigentsphere": {
+   "website": "https://aigentsphere.com",
+   "pages": [
+    {
+     "url": "https://www.aigentsphere.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aigentsphere.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.aigentsphere.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.aigentsphere.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com SOC 2 Type I attested Darling Park, Level 16, Tower 2/201 Sussex St, Sydney NSW 2000",
+     "url": "https://www.aigentsphere.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.aigentsphere.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:58:57.363Z"
+  },
+  "ainsworthgametechnology": {
+   "website": "https://agtslots.com",
+   "pages": [
+    {
+     "url": "https://www.agtslots.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.agtslots.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.agtslots.com/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.agtslots.com/contact/1",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:12.826Z"
+  },
+  "airbnb": {
+   "website": "https://www.airbnb.com",
+   "pages": [
+    {
+     "url": "https://www.airbnb.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.airbnb.com/help/article/2855",
+     "status": 200
+    },
+    {
+     "url": "https://www.airbnb.com/help/article/2908",
+     "status": 200
+    },
+    {
+     "url": "https://www.airbnb.com/help/contact-us/logged-out?entry=DESKTOP_FOOTER_SAFETY",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:25.596Z"
+  },
+  "aiven": {
+   "website": "https://aiven.io",
+   "pages": [
+    {
+     "url": "https://aiven.io/",
+     "status": 200
+    },
+    {
+     "url": "https://aiven.io/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://aiven.io/terms",
+     "status": 200
+    },
+    {
+     "url": "https://aiven.io/dsa-point-of-contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "offices in Helsinki, Berlin, Amsterdam, Paris, London, Singapore, Sydney, Auckland, Austin, and Toront",
+     "url": "https://aiven.io/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:32.561Z"
+  },
+  "akeneo": {
+   "website": "https://akeneo.com",
+   "pages": [
+    {
+     "url": "https://www.akeneo.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.akeneo.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.akeneo.com/terms-of-service/",
+     "status": 200
+    },
+    {
+     "url": "https://www.akeneo.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:40.075Z"
+  },
+  "akunacapital": {
+   "website": "https://akunacapital.com",
+   "pages": [
+    {
+     "url": "https://akunacapital.com/",
+     "status": 200
+    },
+    {
+     "url": "https://akunacapital.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://akunacapital.com/terms-and-conditions/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:45.275Z"
+  },
+  "alation": {
+   "website": "https://alation.com",
+   "pages": [
+    {
+     "url": "https://www.alation.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.alation.com/legal/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.alation.com/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.alation.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "gudi, Chennai Tamil Nadu 600096, India 1-[phone removed] Sydney Level 1, 60 Martin Pl Sydney NSW 2000",
+     "url": "https://www.alation.com/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.alation.com/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:51.694Z"
+  },
+  "allg": {
+   "website": "https://allg.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://allg.com/",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T11:59:59.103Z"
+  },
+  "alteryx": {
+   "website": "https://alteryx.com",
+   "pages": [
+    {
+     "url": "https://www.alteryx.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.alteryx.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.alteryx.com/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.alteryx.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "-06 Marina One East Tower Singapore 018936 Sydney Office Level 17, 123 Pitt Street Sydney NSW 2000",
+     "url": "https://www.alteryx.com/contact-us",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office 7 Straits View #19-06 Marina One East Tower Singapore 018936 Sydney Office Level 17, 123 Pitt Str",
+     "url": "https://www.alteryx.com/contact-us",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:00:05.573Z"
+  },
+  "altitudeai": {
+   "website": "https://getaltitude.ai",
+   "pages": [
+    {
+     "url": "https://getaltitude.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://getaltitude.ai/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://getaltitude.ai/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://getaltitude.ai/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:00:12.923Z"
+  },
+  "altium": {
+   "website": "https://altium.com",
+   "pages": [
+    {
+     "url": "https://www.altium.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.altium.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.altium.com/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.altium.com/agile/teams",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:00:19.329Z"
+  },
+  "altusgroup": {
+   "website": "https://altusgroup.com",
+   "pages": [
+    {
+     "url": "https://www.altusgroup.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.altusgroup.com/legal/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.altusgroup.com/legal/cookie-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.altusgroup.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:00:28.014Z"
+  },
+  "amaka": {
+   "website": "https://amaka.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://amaka.com/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:00:54.180Z"
+  },
+  "amcs": {
+   "website": "https://amcsgroup.com",
+   "pages": [
+    {
+     "url": "https://www.amcsgroup.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.amcsgroup.com/privacy-statement/",
+     "status": 200
+    },
+    {
+     "url": "https://www.amcsgroup.com/legal-notice/",
+     "status": 200
+    },
+    {
+     "url": "https://www.amcsgroup.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "37 Skara Sweden [email protected] [phone removed] Level 3, 75 Miller Street North Sydney NSW 2060",
+     "url": "https://www.amcsgroup.com/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "North Sydney NSW",
+     "url": "https://www.amcsgroup.com/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "[email protected] [phone removed] Level 2, 650 Chapel St South Yarra, Melbourne VIC 3141",
+     "url": "https://www.amcsgroup.com/contact/",
+     "state": "VIC",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T12:01:04.309Z"
+  },
+  "amd": {
+   "website": "https://amd.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://amd.com/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:01:25.073Z"
+  },
+  "ameliohealth": {
+   "website": "https://ameliohealth.com",
+   "pages": [
+    {
+     "url": "https://www.ameliohealth.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.ameliohealth.com/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "SYDNEY NSW",
+     "url": "https://www.ameliohealth.com/",
+     "kind": null
+    },
+    {
+     "text": "Sydney, NSW",
+     "url": "https://www.ameliohealth.com/about-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:01:29.952Z"
+  },
+  "anaplan": {
+   "website": "https://anaplan.com",
+   "pages": [
+    {
+     "url": "https://www.anaplan.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.anaplan.com/privacy-statement/",
+     "status": 200
+    },
+    {
+     "url": "https://www.anaplan.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://www.anaplan.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">L28 161 Castlereagh Street <br>\\r\\n Sydney, NSW 2000",
+     "url": "https://www.anaplan.com/contact/",
+     "kind": null
+    },
+    {
+     "text": "\"cmp-text text--default text-- text-- text-- \"> Sydney L28 161 Castlereagh Street Sydney, NSW 2000",
+     "url": "https://www.anaplan.com/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://www.anaplan.com/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:01:40.276Z"
+  },
+  "appsflyer": {
+   "website": "https://www.appsflyer.com",
+   "pages": [
+    {
+     "url": "https://www.appsflyer.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.appsflyer.com/legal/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.appsflyer.com/legal/site-terms/",
+     "status": 200
+    },
+    {
+     "url": "https://www.appsflyer.com/company/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "zhen, Guangdong China, 518000 Sydney Spaces Martin Place,60 Martin Place, Level 2, Sydney NSW 2000",
+     "url": "https://www.appsflyer.com/company/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.appsflyer.com/company/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:01:53.461Z"
+  },
+  "arcticintelligence": {
+   "website": "https://arctic-intelligence.com",
+   "pages": [
+    {
+     "url": "https://arctic-intelligence.com/",
+     "status": 200
+    },
+    {
+     "url": "https://arctic-intelligence.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://arctic-intelligence.com/impacted-sectors/aml-ctf-obligations-legal-professionals",
+     "status": 200
+    },
+    {
+     "url": "https://arctic-intelligence.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "als Our trust centre Contact us Contact us Suite 17, Level 10, 343 George Street, Sydney, NSW 2000",
+     "url": "https://arctic-intelligence.com/contact-us",
+     "kind": null
+    },
+    {
+     "text": "email at [email protected] or by post at Level 4 (Stone & Chalk), 11 York Street, Sydney, NSW 2000",
+     "url": "https://arctic-intelligence.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "Contact us Arctic Intelligence Head Office Suite 17, Level 10, 343 George Street, Sydney, NSW 2000",
+     "url": "https://arctic-intelligence.com/contact-us",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://arctic-intelligence.com/",
+     "kind": null
+    },
+    {
+     "text": "Sydney, NSW",
+     "url": "https://arctic-intelligence.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "Sydney, NSW",
+     "url": "https://arctic-intelligence.com/impacted-sectors/aml-ctf-obligations-legal-professionals",
+     "kind": null
+    },
+    {
+     "text": "Head Office Suite 17, Level 10, 343 George Street, Sydney, NSW 2000 Australia Call us o",
+     "url": "https://arctic-intelligence.com/contact-us",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:02:03.904Z"
+  },
+  "aristanetworks": {
+   "website": "https://arista.com",
+   "pages": [
+    {
+     "url": "https://www.arista.com/en/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:02:07.009Z"
+  },
+  "aristocratleisure": {
+   "website": "https://aristocrat.com",
+   "pages": [
+    {
+     "url": "https://www.aristocrat.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aristocrat.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aristocrat.com/legal-terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://www.aristocrat.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ustralia Pty Ltd Office Address Building A, Pinnacle Office Park 85 Epping Rd North Ryde, NSW 2113",
+     "url": "https://www.aristocrat.com/contact-us/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office Address Building A, Pinnacle Office Park 85 Epping Rd North Ryde, NSW 2113 Australia VIEW MAP",
+     "url": "https://www.aristocrat.com/contact-us/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:02:12.609Z"
+  },
+  "asana": {
+   "website": "https://www.asana.com",
+   "pages": [
+    {
+     "url": "https://asana.com/",
+     "status": 200
+    },
+    {
+     "url": "https://asana.com/terms/privacy-statement",
+     "status": 200
+    },
+    {
+     "url": "https://asana.com/terms/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://asana.com/sales",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:02:17.888Z"
+  },
+  "assuro": {
+   "website": "https://assuro.com.au",
+   "pages": [
+    {
+     "url": "https://www.assuro.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.assuro.com.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.assuro.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.assuro.com.au/who-are-we",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "or of Complaints, Office of the Australian Information Commissioner, GPO Box 5288, SYDNEY NSW 2001",
+     "url": "https://www.assuro.com.au/privacy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Buildings 135 High Street Mall Fremantle 6160 New South Wales 255 Elizabeth Street Sydney NSW 2000",
+     "url": "https://www.assuro.com.au/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office of the Australian Information Commissioner, GPO Box 5288, SYDNEY NSW 2001 online submission –",
+     "url": "https://www.assuro.com.au/privacy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.assuro.com.au/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:02:24.489Z"
+  },
+  "asus": {
+   "website": "https://asus.com",
+   "pages": [
+    {
+     "url": "https://www.asus.com/",
+     "status": 200
+    },
+    {
+     "url": "https://privacy.asus.com/pi/global/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.asus.com/terms_of_use_notice_privacy_policy/official-site/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:02:27.511Z"
+  },
+  "atomodiagnostics": {
+   "website": "https://atomodiagnostics.com",
+   "pages": [
+    {
+     "url": "https://www.atomodiagnostics.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.atomodiagnostics.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.atomodiagnostics.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.atomodiagnostics.com/why-atomo/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "diagnostics Get in touch Australia (Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040",
+     "url": "https://www.atomodiagnostics.com/why-atomo/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "org Australia (Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040",
+     "url": "https://www.atomodiagnostics.com/privacy-policy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Diagnostics Enquiry Form Australia (Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040",
+     "url": "https://www.atomodiagnostics.com/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040 Office [phone removed]",
+     "url": "https://www.atomodiagnostics.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040 Office [phone removed]",
+     "url": "https://www.atomodiagnostics.com/privacy-policy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040 Office [phone removed]",
+     "url": "https://www.atomodiagnostics.com/contact/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Head Office) Level 1, 3-5 George Street, Leichhardt, NSW, 2040 Office [phone removed]",
+     "url": "https://www.atomodiagnostics.com/why-atomo/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:03.350Z"
+  },
+  "audinate": {
+   "website": "https://audinate.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://audinate.com/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:04.673Z"
+  },
+  "auditcover": {
+   "website": "https://auditcover.com",
+   "pages": [
+    {
+     "url": "https://auditcover.com/",
+     "status": 200
+    },
+    {
+     "url": "https://auditcover.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://auditcover.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://auditcover.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:12.355Z"
+  },
+  "auric": {
+   "website": "https://auric.au",
+   "pages": [
+    {
+     "url": "https://www.auric.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.auric.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.auric.au/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.auric.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Auric Essentials Pty Ltd is located at Level 17, Chifley Tower, 2 Chifley Square, Sydney NSW 2000",
+     "url": "https://www.auric.au/contact",
+     "kind": null
+    },
+    {
+     "text": "The Auric Scent Lab is located at Merchant House, Level 3, 333 Kent Street, Sydney NSW 2000",
+     "url": "https://www.auric.au/contact",
+     "kind": "OTHER"
+    }
+   ],
+   "statements": [
+    {
+     "text": "located at Level 17, Chifley Tower, 2 Chifley Square, Sydney NSW 2000",
+     "url": "https://www.auric.au/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:21.644Z"
+  },
+  "australisscientific": {
+   "website": "https://australisscientific.com",
+   "pages": [
+    {
+     "url": "https://australisscientific.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:25.370Z"
+  },
+  "avaloq": {
+   "website": "https://avaloq.com",
+   "pages": [
+    {
+     "url": "https://www.avaloq.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.avaloq.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.avaloq.com/legal-notice",
+     "status": 200
+    },
+    {
+     "url": "https://www.avaloq.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:36.302Z"
+  },
+  "avenuebank": {
+   "website": "https://avenuebank.com.au",
+   "pages": [
+    {
+     "url": "https://www.avenuebank.com.au/index.html",
+     "status": 200
+    },
+    {
+     "url": "https://www.avenuebank.com.au/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.avenuebank.com.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.avenuebank.com.au/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au Avenue office locations Sydney Office hours: 9am - 5pm Level 1, 40 King Street Sydney, NSW 2000",
+     "url": "https://www.avenuebank.com.au/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "office locations Sydney Office hours: 9am - 5pm Level 1, 40 King Street Sydney, NSW 2000 Melbourne C/o Hamil",
+     "url": "https://www.avenuebank.com.au/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "/o Hamilton Locke (by appointment only) Level 10, 161 Collins Street Melbourne, VIC 3000",
+     "url": "https://www.avenuebank.com.au/contact/",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "ane C/o Hamilton Locke (by appointment only) Level 35, 1 Eagle Street Brisbane, QLD 4000",
+     "url": "https://www.avenuebank.com.au/contact/",
+     "state": "QLD",
+     "kind": null
+    },
+    {
+     "text": "amilton Locke (by appointment only) Level 39, 152-158 St Georges Terrace Perth, WA 6000",
+     "url": "https://www.avenuebank.com.au/contact/",
+     "state": "WA",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:45.991Z"
+  },
+  "avolution": {
+   "website": "https://avolutionsoftware.com",
+   "pages": [
+    {
+     "url": "https://www.avolutionsoftware.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.avolutionsoftware.com/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.avolutionsoftware.com/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.avolutionsoftware.com/about/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "16 065 Asia, Pacific Islands & Oceania Australia Level 10, 75 Miller Street, NORTH SYDNEY NSW 2060",
+     "url": "https://www.avolutionsoftware.com/about/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "NORTH SYDNEY NSW",
+     "url": "https://www.avolutionsoftware.com/about/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:03:53.357Z"
+  },
+  "azira": {
+   "website": "https://azira.com",
+   "pages": [
+    {
+     "url": "https://www.azira.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.azira.com/platform/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.azira.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.azira.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:04:01.390Z"
+  },
+  "azul": {
+   "website": "https://azul.com",
+   "pages": [
+    {
+     "url": "https://www.azul.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.azul.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.azul.com/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://www.azul.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:04:11.612Z"
+  },
+  "b2care": {
+   "website": "https://b2care.com.au",
+   "pages": [
+    {
+     "url": "https://b2care.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://b2care.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://b2care.com.au/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://b2care.com.au/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Our offices Head Office (Sydney) Level 6, 55 Chandos Street, St Leonards NSW 2065",
+     "url": "https://b2care.com.au/contact-us",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Our offices Head Office (Sydney) Level 6, 55 Chandos Street, St Leonards NSW 2065 [phone removed] Busines",
+     "url": "https://b2care.com.au/contact-us",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:04:20.084Z"
+  },
+  "martec": {
+   "website": "https://themartec.com",
+   "pages": [
+    {
+     "url": "https://www.themartec.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.themartec.com/legal",
+     "status": 200
+    },
+    {
+     "url": "https://www.themartec.com/contact-sales",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:14.038Z"
+  },
+  "thinxtra": {
+   "website": "https://thinxtra.com",
+   "pages": [
+    {
+     "url": "https://thinxtra.com/",
+     "status": 200
+    },
+    {
+     "url": "https://thinxtra.com/privacy-statement/",
+     "status": 200
+    },
+    {
+     "url": "https://thinxtra.com/terms-of-use-online-forum/",
+     "status": 200
+    },
+    {
+     "url": "https://thinxtra.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "d Fields Our Offices Thinxtra Australia (Headquarters) Level 2, 24 Campbell St Haymarket, NSW, 2000",
+     "url": "https://thinxtra.com/contact-us/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "North Sydney, NSW, 2060",
+     "url": "https://thinxtra.com/privacy-statement/",
+     "kind": null
+    },
+    {
+     "text": "01, Level 6, 53 Berry Street North Sydney, NSW 2060",
+     "url": "https://thinxtra.com/privacy-statement/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Our Offices Thinxtra Australia (Headquarters) Level 2, 24 Campbell St Haymarket, NSW, 2000, Australia Thinxtr",
+     "url": "https://thinxtra.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Our Offices Thinxtra Australia (Headquarters) Level 2, 24 Campbell St Haymarket, NSW, 2000, Australia Thinxtr",
+     "url": "https://thinxtra.com/privacy-statement/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Our Offices Thinxtra Australia (Headquarters) Level 2, 24 Campbell St Haymarket, NSW, 2000, Australia Thinxtr",
+     "url": "https://thinxtra.com/terms-of-use-online-forum/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Our Offices Thinxtra Australia (Headquarters) Level 5, 24 Campbell St Haymarket, NSW, 2000, Australia Thinxtr",
+     "url": "https://thinxtra.com/contact-us/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:19.197Z"
+  },
+  "totalsynergy": {
+   "website": "https://totalsynergy.com",
+   "pages": [
+    {
+     "url": "https://totalsynergy.com/",
+     "status": 200
+    },
+    {
+     "url": "https://totalsynergy.com/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://totalsynergy.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://totalsynergy.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "/7 Support Leave a Review Offices Australia (HQ) Level 11, 124 Walker Street North Sydney NSW 2060",
+     "url": "https://totalsynergy.com/contact/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "com Address: Level 11, 124 Walker Street, North Sydney NSW 2060",
+     "url": "https://totalsynergy.com/privacy/",
+     "kind": null
+    },
+    {
+     "text": "North Sydney, Australia Level 11, 124 Walker Street, North Sydney NSW 2060",
+     "url": "https://totalsynergy.com/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Offices Australia (HQ) Level 11, 124 Walker Street North Sydney NSW 2060 United Kingdom 30 Ch",
+     "url": "https://totalsynergy.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Offices Australia (HQ) Level 11, 124 Walker Street North Sydney NSW 2060 United Kingdom 30 Ch",
+     "url": "https://totalsynergy.com/privacy/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Offices Australia (HQ) Level 11, 124 Walker Street North Sydney NSW 2060 United Kingdom 30 Ch",
+     "url": "https://totalsynergy.com/terms-of-use/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Offices Australia (HQ) Level 11, 124 Walker Street North Sydney NSW 2060 United Kingdom 30 Ch",
+     "url": "https://totalsynergy.com/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:24.837Z"
+  },
+  "touchstonelifecare": {
+   "website": "https://touchstonelifecare.com",
+   "pages": [
+    {
+     "url": "https://touchstonelifecare.com/",
+     "status": 200
+    },
+    {
+     "url": "https://touchstonelifecare.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://touchstonelifecare.com/terms-of-use-eusa/",
+     "status": 200
+    },
+    {
+     "url": "https://touchstonelifecare.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "t us Privacy Officer Touchstone Life Care Pty Limited 141 McCarrs Creek Road Church Point NSW 2105",
+     "url": "https://touchstonelifecare.com/privacy-policy/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:31.259Z"
+  },
+  "tradeledger": {
+   "website": "https://tradeledger.io",
+   "pages": [
+    {
+     "url": "https://www.tradeledger.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.tradeledger.io/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.tradeledger.io/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.tradeledger.io/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ACN 614 059 737 ‍ Stone & Chalk Level 1/477 Pitt Street Haymarket NSW 2000",
+     "url": "https://www.tradeledger.io/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "or, 21-33 Great Eastern St, London, EC2A 3EJ Australia: Level 3, 31 Alfred Street, Sydney NSW 2000",
+     "url": "https://www.tradeledger.io/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Haymarket NSW",
+     "url": "https://www.tradeledger.io/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.tradeledger.io/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:38.495Z"
+  },
+  "trovio": {
+   "website": "https://trovio.io",
+   "pages": [
+    {
+     "url": "https://www.trovio.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.trovio.io/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.trovio.io/cortenx",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:45.106Z"
+  },
+  "truescope": {
+   "website": "https://truescope.com",
+   "pages": [
+    {
+     "url": "https://truescope.com/",
+     "status": 200
+    },
+    {
+     "url": "https://truescope.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://truescope.com/privacy-policy",
+     "code": "robots_disallow"
+    },
+    {
+     "url": "https://truescope.com/terms-of-use",
+     "code": "robots_disallow"
+    }
+   ],
+   "addresses": [
+    {
+     "text": "Australia Level 24, Three International Towers 300 Barangaroo Avenue Sydney, NSW 2000",
+     "url": "https://truescope.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://truescope.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:07:47.794Z"
+  },
+  "truuth": {
+   "website": "https://truuth.id",
+   "pages": [
+    {
+     "url": "https://www.truuth.id/",
+     "status": 200
+    },
+    {
+     "url": "https://www.truuth.id/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.truuth.id/terms-of-us/",
+     "status": 200
+    },
+    {
+     "url": "https://www.truuth.id/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Contact sales Contact sales Location 6/201 Kent Street, Sydney NSW 2000",
+     "url": "https://www.truuth.id/",
+     "kind": null
+    },
+    {
+     "text": "Submit Our Location 6/201 Kent Street, Sydney NSW 2000",
+     "url": "https://www.truuth.id/",
+     "kind": null
+    },
+    {
+     "text": "your resume and cover note Submit your application Our Location 6/201 Kent Street, Sydney NSW 2000",
+     "url": "https://www.truuth.id/about-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.truuth.id/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.truuth.id/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.truuth.id/terms-of-us/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.truuth.id/about-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:19.981Z"
+  },
+  "unleashlive": {
+   "website": "https://unleashlive.com",
+   "pages": [
+    {
+     "url": "https://unleashlive.com/",
+     "status": 200
+    },
+    {
+     "url": "https://unleashlive.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://unleashlive.com/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://unleashlive.com/company/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:25.776Z"
+  },
+  "unswfounders": {
+   "website": "https://unswfounders.com",
+   "pages": [
+    {
+     "url": "https://unswfounders.com/",
+     "status": 200
+    },
+    {
+     "url": "https://unswfounders.com/our-team",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "mmunity On campus (Kensington) Michael Crouch Innovation Centre, Gate Two Ave, Kensington NSW 2033",
+     "url": "https://unswfounders.com/",
+     "kind": null
+    },
+    {
+     "text": "au Sydney NSW 2052",
+     "url": "https://unswfounders.com/our-team",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "located on the unceded territory of the Bedegal (Kensington campus), Gadigal (City and Pa",
+     "url": "https://unswfounders.com/",
+     "kind": null
+    },
+    {
+     "text": "located on the unceded territory of the Bedegal (Kensington campus), Gadigal (City and Pa",
+     "url": "https://unswfounders.com/our-team",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:30.988Z"
+  },
+  "updoc": {
+   "website": "https://updoc.com.au",
+   "pages": [
+    {
+     "url": "https://updoc.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://updoc.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://updoc.com.au/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://updoc.com.au/patient/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:36.145Z"
+  },
+  "upowr": {
+   "website": "https://upowr.com",
+   "pages": [
+    {
+     "url": "https://www.upowr.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.upowr.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.upowr.com/legal",
+     "status": 200
+    },
+    {
+     "url": "https://www.upowr.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "r at: 📧 [email protected] 📍 Level 17, International Tower 3, 300 Barangaroo Ave, Sydney NSW 2000",
+     "url": "https://www.upowr.com/privacy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Barangaroo NSW",
+     "url": "https://www.upowr.com/",
+     "kind": null
+    },
+    {
+     "text": "Officer at: 📧 [email protected] 📍 Level 17, International Tower 3, 300 Barangaroo Ave, Sydney NSW 2000 Clean en",
+     "url": "https://www.upowr.com/privacy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Barangaroo NSW",
+     "url": "https://www.upowr.com/legal",
+     "kind": null
+    },
+    {
+     "text": "Barangaroo NSW",
+     "url": "https://www.upowr.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:41.673Z"
+  },
+  "uprise": {
+   "website": "https://uprise.co",
+   "pages": [
+    {
+     "url": "https://uprise.co/",
+     "status": 200
+    },
+    {
+     "url": "https://uprise.co/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://uprise.co/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://uprise.co/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:47.419Z"
+  },
+  "utsstartups": {
+   "website": "https://www.uts.edu.au/for-students/current-students/support/opportunities/uts-startups",
+   "pages": [
+    {
+     "url": "https://www.uts.edu.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.uts.edu.au/about/leadership-governance/web-statements/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.uts.edu.au/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.uts.edu.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "City Campus 15 Broadway, Ultimo, NSW 2007",
+     "url": "https://www.uts.edu.au/about",
+     "kind": null
+    },
+    {
+     "text": "uiries: [phone removed] Postal address: University of Technology Sydney PO Box 123 Ultimo NSW 2007",
+     "url": "https://www.uts.edu.au/contact-us",
+     "kind": null
+    },
+    {
+     "text": "Australia Visit our campus Campus address: 15 Broadway Ultimo NSW 2007",
+     "url": "https://www.uts.edu.au/contact-us",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Ultimo, NSW",
+     "url": "https://www.uts.edu.au/",
+     "kind": null
+    },
+    {
+     "text": "Ultimo, NSW",
+     "url": "https://www.uts.edu.au/about/leadership-governance/web-statements/privacy",
+     "kind": null
+    },
+    {
+     "text": "Ultimo NSW",
+     "url": "https://www.uts.edu.au/contact-us",
+     "kind": null
+    },
+    {
+     "text": "located within Sydney’s growing education, innovati",
+     "url": "https://www.uts.edu.au/about",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:52.841Z"
+  },
+  "valiantfinance": {
+   "website": "https://valiantfinance.com",
+   "pages": [
+    {
+     "url": "https://www.valiantfinance.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.valiantfinance.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.valiantfinance.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Locate us Level 3 / 15 Foster Street Surry Hills NSW 2010",
+     "url": "https://www.valiantfinance.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Surry Hills NSW",
+     "url": "https://www.valiantfinance.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:08:56.983Z"
+  },
+  "vapar": {
+   "website": "https://vapar.co",
+   "pages": [
+    {
+     "url": "https://www.vapar.co/",
+     "status": 200
+    },
+    {
+     "url": "https://www.vapar.co/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.vapar.co/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.vapar.co/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "(ABN 31632779670) of 9 Castlereagh Street, Sydney NSW 2000",
+     "url": "https://www.vapar.co/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "sing the details set out below: ‍ Australia Contact Address: 9 Castlereagh Street, Sydney NSW 2000",
+     "url": "https://www.vapar.co/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Neutral Bay NSW",
+     "url": "https://www.vapar.co/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.vapar.co/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Neutral Bay NSW",
+     "url": "https://www.vapar.co/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "Neutral Bay NSW",
+     "url": "https://www.vapar.co/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:03.150Z"
+  },
+  "veridooh": {
+   "website": "https://veridooh.com",
+   "pages": [
+    {
+     "url": "https://www.veridooh.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.veridooh.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.veridooh.com/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.veridooh.com/copy-of-company",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Subscribe to our newsletter Subscribe Contact us Level 28, 161 Castlereagh St Sydney NSW 2000",
+     "url": "https://www.veridooh.com/",
+     "kind": null
+    },
+    {
+     "text": "Last updated: 20 May 2026 Contact us Level 28, 161 Castlereagh St Sydney NSW 2000",
+     "url": "https://www.veridooh.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Contact us Level 28, 161 Castlereagh St Sydney NSW 2000",
+     "url": "https://www.veridooh.com/terms-of-use",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.veridooh.com/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.veridooh.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.veridooh.com/terms-of-use",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.veridooh.com/copy-of-company",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:09.490Z"
+  },
+  "vetnotes": {
+   "website": "https://vetnotes.com",
+   "pages": [
+    {
+     "url": "https://www.vetnotes.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.vetnotes.com/compliance",
+     "status": 200
+    },
+    {
+     "url": "https://www.vetnotes.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.vetnotes.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:16.174Z"
+  },
+  "veyor": {
+   "website": "https://veyordigital.com",
+   "pages": [
+    {
+     "url": "https://www.veyordigital.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.veyordigital.com/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.veyordigital.com/legal/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.veyordigital.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Surry Hills, NSW",
+     "url": "https://www.veyordigital.com/",
+     "kind": null
+    },
+    {
+     "text": "Surry Hills, NSW",
+     "url": "https://www.veyordigital.com/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Surry Hills, NSW",
+     "url": "https://www.veyordigital.com/legal/terms",
+     "kind": null
+    },
+    {
+     "text": "Surry Hills, NSW",
+     "url": "https://www.veyordigital.com/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:22.083Z"
+  },
+  "voqoai": {
+   "website": "https://voqo.ai",
+   "pages": [
+    {
+     "url": "https://www.voqo.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://www.voqo.ai/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.voqo.ai/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.voqo.ai/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ai Office 805/56 Pitt Street Sydney, NSW 2035",
+     "url": "https://www.voqo.ai/contact",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Office 805/56 Pitt Street Sydney, NSW 2035, Australia Send a m",
+     "url": "https://www.voqo.ai/contact",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:28.275Z"
+  },
+  "vouch": {
+   "website": "https://vouchfor.com",
+   "pages": [
+    {
+     "url": "https://www.vouchfor.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.vouchfor.com/legal/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.vouchfor.com/legal/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.vouchfor.com/blog/how-bupas-three-person-team-is-building-an-employer-brand-at-scale",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ook a demo Take a tour Take a tour Take a tour Footer 50 Stanley St, Darlinghurst, Sydney NSW 2010",
+     "url": "https://www.vouchfor.com/",
+     "kind": null
+    },
+    {
+     "text": "com Last update : 20 November 2024 Footer 50 Stanley St, Darlinghurst, Sydney NSW 2010",
+     "url": "https://www.vouchfor.com/legal/privacy",
+     "kind": null
+    },
+    {
+     "text": "com Last update: 30 November 2021 ‍ Footer 50 Stanley St, Darlinghurst, Sydney NSW 2010",
+     "url": "https://www.vouchfor.com/legal/terms",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.vouchfor.com/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.vouchfor.com/legal/privacy",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.vouchfor.com/legal/terms",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.vouchfor.com/blog/how-bupas-three-person-team-is-building-an-employer-brand-at-scale",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:34.131Z"
+  },
+  "wagetap": {
+   "website": "https://wagetap.com",
+   "pages": [
+    {
+     "url": "https://www.wagetap.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.wagetap.com/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:37.656Z"
+  },
+  "webuildconstructionsoftware": {
+   "website": "https://webuildcs.com",
+   "pages": [
+    {
+     "url": "https://www.webuildcs.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.webuildcs.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.webuildcs.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://www.webuildcs.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "com Australia Address: Level 57 MLC Centre 19-29 Martin Place Sydney NSW 2000",
+     "url": "https://www.webuildcs.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.webuildcs.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:45.786Z"
+  },
+  "weel": {
+   "website": "https://letsweel.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://letsweel.com/",
+     "code": "access_controlled"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:46.062Z"
+  },
+  "wellio": {
+   "website": "https://wellioeducation.com",
+   "pages": [
+    {
+     "url": "https://www.wellioeducation.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.wellioeducation.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.wellioeducation.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.wellioeducation.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Chippendale NSW",
+     "url": "https://www.wellioeducation.com/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "65 5915 Melbourne 10-20 Gwynne St, Cremorne VIC 3121 Sydney 20-40 Meagher St, Chippendale NSW 2008",
+     "url": "https://www.wellioeducation.com/contact-us",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "Melbourne 10-20 Gwynne St, Cremorne VIC 3121 Sydney 20-40 Meagher St, Chippendale NSW 2008",
+     "url": "https://www.wellioeducation.com/contact-us",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "Let's talk AU EN [phone removed] Melbourne 10-20 Gwynne St, Cremorne VIC 3121",
+     "url": "https://www.wellioeducation.com/contact-us",
+     "state": "VIC",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:51.155Z"
+  },
+  "westernsydneytechinnovators": {
+   "website": "https://wsti.org.au",
+   "pages": [
+    {
+     "url": "https://wsti.org.au/",
+     "status": 200
+    },
+    {
+     "url": "https://wsti.org.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://wsti.org.au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://wsti.org.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "workshop hosted by Western Sydney Tech Innovators (WSTI)",
+     "url": "https://wsti.org.au/",
+     "kind": "OTHER"
+    },
+    {
+     "text": "workshop, consultation or event run by Western Sydney Tech Innovators",
+     "url": "https://wsti.org.au/terms",
+     "kind": "OTHER"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:09:57.494Z"
+  },
+  "willow": {
+   "website": "https://willowinc.com",
+   "pages": [
+    {
+     "url": "https://willowinc.com/",
+     "status": 200
+    },
+    {
+     "url": "https://willowinc.com/data-privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://willowinc.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://willowinc.com/company/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ur personal information? We, Willow Technology Corporation Limited of 175 Pitt St, Sydney NSW 2000",
+     "url": "https://willowinc.com/data-privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "N 23 641 434 899 or Willow Digital Pty Ltd ABN 16 606 612 088 both of 175 Pitt St, Sydney NSW 2000",
+     "url": "https://willowinc.com/data-privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://willowinc.com/data-privacy-policy/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:02.722Z"
+  },
+  "workclub": {
+   "website": "https://workclubglobal.com",
+   "pages": [
+    {
+     "url": "https://workclubglobal.com/",
+     "status": 200
+    },
+    {
+     "url": "https://workclubglobal.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://workclubglobal.com/join-the-team/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "All (13) Sydney (9) Melbourne (3) Canberra (1) Sydney 33 Loftus Street Sydney NSW 2000",
+     "url": "https://workclubglobal.com/",
+     "kind": null
+    },
+    {
+     "text": "Opening Winter 2027 Sydney 126 Phillip Street Sydney NSW 2000",
+     "url": "https://workclubglobal.com/",
+     "kind": null
+    },
+    {
+     "text": "Sydney 200 George Street Sydney NSW 2000",
+     "url": "https://workclubglobal.com/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Offices Sydney Melbourne Canberra Coworking Space Sydney Melbourne Canberra Enterprise",
+     "url": "https://workclubglobal.com/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Offices Sydney Melbourne Canberra Coworking Space Sydney Melbourne Canberra Enterprise",
+     "url": "https://workclubglobal.com/privacy-policy/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Offices Sydney Melbourne Canberra Coworking Space Sydney Melbourne Canberra Enterprise",
+     "url": "https://workclubglobal.com/join-the-team/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "Melbourne 7 Spencer Street Melbourne, VIC 3005 Sydney 8 Chifley Square Sydney NSW 2000",
+     "url": "https://workclubglobal.com/",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "elbourne 380 St Kilda Road Melbourne VIC 3004 Sydney 2 Locomotive Street Eveleigh, Sydney NSW 2015",
+     "url": "https://workclubglobal.com/",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "y 101 Miller Street North Sydney NSW 2060 Melbourne 7 Spencer Street Melbourne, VIC 3005",
+     "url": "https://workclubglobal.com/",
+     "state": "NSW",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:06.310Z"
+  },
+  "workspace365": {
+   "website": "https://www.workspace365.com.au",
+   "pages": [
+    {
+     "url": "https://www.workspace365.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.workspace365.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.workspace365.com.au/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://www.workspace365.com.au/about-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Office Meeting spaces Meeting Rooms Event Spaces Virtual Brisbane Sydney Meeting Spaces Meeting Spaces",
+     "url": "https://www.workspace365.com.au/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Meeting spaces Meeting Rooms Event Spaces Virtual Brisbane Sydney Meeting Spaces Meeting Spaces",
+     "url": "https://www.workspace365.com.au/privacy-policy/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Meeting spaces Meeting Rooms Event Spaces Virtual Brisbane Sydney Meeting Spaces Meeting Spaces",
+     "url": "https://www.workspace365.com.au/contact-us/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Office Meeting spaces Meeting Rooms Event Spaces Virtual Brisbane Sydney Meeting Spaces Meeting Spaces",
+     "url": "https://www.workspace365.com.au/about-us/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:12.449Z"
+  },
+  "wrkr": {
+   "website": "https://wrkr.com.au",
+   "pages": [
+    {
+     "url": "https://www.wrkr.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.wrkr.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.wrkr.com.au/smsf-terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.wrkr.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.wrkr.com.au/privacy-policy",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:18.549Z"
+  },
+  "xailient": {
+   "website": "https://xailient.com",
+   "pages": [
+    {
+     "url": "https://xailient.com/",
+     "status": 200
+    },
+    {
+     "url": "https://xailient.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://xailient.com/company/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Name Email Phone Industry Message HQ’s Australia: Level P/24 Campbell St, Haymarket, NSW 2000",
+     "url": "https://xailient.com/contact/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "HQ’s Australia: Level P/24 Campbell St, Haymarket, NSW 2000",
+     "url": "https://xailient.com/company/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "HQ’s Australia: Level P/24 Campbell St, Haymarket, NSW 2000 USA: 8 The Green, S",
+     "url": "https://xailient.com/contact/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "HQ’s Australia: Level P/24 Campbell St, Haymarket, NSW 2000 USA: 8 The Green, S",
+     "url": "https://xailient.com/company/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:39.565Z"
+  },
+  "xpansiv": {
+   "website": "https://xpansiv.com",
+   "pages": [
+    {
+     "url": "https://www.xpansiv.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.xpansiv.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.xpansiv.com/general-terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.xpansiv.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "1st Floor London EC2R 8AY [phone removed] Asia Pacific Level 13, 20 Bridge Street Sydney NSW 2000",
+     "url": "https://www.xpansiv.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.xpansiv.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:47.077Z"
+  },
+  "yarno": {
+   "website": "https://yarno.com.au",
+   "pages": [
+    {
+     "url": "https://www.yarno.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.yarno.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.yarno.com.au/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.yarno.com.au/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "4 AITD Winner Best use of gamification for learning Level 6, 275 Alfred St, North Sydney, NSW 2060",
+     "url": "https://www.yarno.com.au/contact-us",
+     "kind": null
+    },
+    {
+     "text": "\"our,\" and \"us\" refer to Yarno ABN 99 604 720 210 of Level 6, 275 Alfred St, North Sydney NSW 2060",
+     "url": "https://www.yarno.com.au/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "can contact us at the following address: Lachy Gray Level 6, 275 Alfred St, North Sydney NSW 2060",
+     "url": "https://www.yarno.com.au/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "North Sydney, NSW",
+     "url": "https://www.yarno.com.au/",
+     "kind": null
+    },
+    {
+     "text": "North Sydney NSW",
+     "url": "https://www.yarno.com.au/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "North Sydney, NSW",
+     "url": "https://www.yarno.com.au/terms-of-use",
+     "kind": null
+    },
+    {
+     "text": "North Sydney NSW",
+     "url": "https://www.yarno.com.au/contact-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:52.824Z"
+  },
+  "yarpahub": {
+   "website": "https://yarpa.com.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://yarpa.com.au/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:53.327Z"
+  },
+  "yellowcanary": {
+   "website": "https://yellowcanary.com.au",
+   "pages": [
+    {
+     "url": "https://www.yellowcanary.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.yellowcanary.com.au/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.yellowcanary.com.au/legal/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.yellowcanary.com.au/contact/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "at our head office YC Sydney headquarters Yellow Canary Level 3, 14 Martin Place Sydney, NSW 2000",
+     "url": "https://www.yellowcanary.com.au/contact/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "head office YC Sydney headquarters Yellow Canary Level 3, 14 Martin Place Sydney, NSW 2000 Get directions Solu",
+     "url": "https://www.yellowcanary.com.au/contact/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:10:59.372Z"
+  },
+  "yellowbox": {
+   "website": "https://yellowboxglobal.com",
+   "pages": [
+    {
+     "url": "https://yellowboxglobal.com/",
+     "status": 200
+    },
+    {
+     "url": "https://yellowboxglobal.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://yellowboxglobal.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://yellowboxglobal.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Australia / NZ Level 2, 727 George Street, Sydney NSW 2000",
+     "url": "https://yellowboxglobal.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://yellowboxglobal.com/",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://yellowboxglobal.com/privacy",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://yellowboxglobal.com/terms",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://yellowboxglobal.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:04.543Z"
+  },
+  "zemble": {
+   "website": "https://getzemble.com",
+   "pages": [
+    {
+     "url": "https://www.getzemble.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.getzemble.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.getzemble.com/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.getzemble.com/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au International Tower 3, Level 17/300 Barangaroo Ave, Barangaroo, NSW, 2000",
+     "url": "https://www.getzemble.com/about-us",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Barangaroo, NSW",
+     "url": "https://www.getzemble.com/",
+     "kind": null
+    },
+    {
+     "text": "Barangaroo, NSW",
+     "url": "https://www.getzemble.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Barangaroo, NSW",
+     "url": "https://www.getzemble.com/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "Barangaroo, NSW",
+     "url": "https://www.getzemble.com/about-us",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:10.951Z"
+  },
+  "a1base": {
+   "website": "https://a1base.com",
+   "pages": [
+    {
+     "url": "https://a1base.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:11.717Z"
+  },
+  "albon": {
+   "website": "https://albon.com.au",
+   "pages": [
+    {
+     "url": "https://www.albon.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.albon.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.albon.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.albon.com.au/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "47 672 382 624 Sydney Knowledge Hub Level 2, Merewether Building The University of Sydney NSW 2006",
+     "url": "https://www.albon.com.au/about",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.albon.com.au/",
+     "kind": null
+    },
+    {
+     "text": "based in Sydney, Australia, dedicated to sust",
+     "url": "https://www.albon.com.au/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.albon.com.au/contact",
+     "kind": null
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://www.albon.com.au/about",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:17.357Z"
+  },
+  "amslaero": {
+   "website": "https://amslaero.com",
+   "pages": [
+    {
+     "url": "https://www.amslaero.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.amslaero.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.amslaero.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Let's Connect Contact Form Address Bankstown Airport NSW 2200",
+     "url": "https://www.amslaero.com/contact",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "headquarters are based at Bankstown Aerodrome in Sydney, Australia",
+     "url": "https://www.amslaero.com/about",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:22.690Z"
+  },
+  "ariaresearch": {
+   "website": "https://ariaresearch.com.au",
+   "pages": [
+    {
+     "url": "https://www.ariaresearch.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.ariaresearch.com.au/aria/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.ariaresearch.com.au/aria/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:27.198Z"
+  },
+  "arludo": {
+   "website": "https://arludo.com",
+   "pages": [
+    {
+     "url": "https://arludo.com/",
+     "status": 200
+    },
+    {
+     "url": "https://arludo.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://arludo.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://arludo.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Botany, NSW, 2019",
+     "url": "https://arludo.com/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Botany, NSW",
+     "url": "https://arludo.com/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:32.227Z"
+  },
+  "arrayah": {
+   "website": "https://arrayah.city",
+   "pages": [
+    {
+     "url": "https://arrayah.city/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "labong , sydney a watering hole for founders,",
+     "url": "https://arrayah.city/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:35.664Z"
+  },
+  "atelier": {
+   "website": "https://atelier.co",
+   "pages": [
+    {
+     "url": "https://atelier.co/",
+     "status": 200
+    },
+    {
+     "url": "https://atelier.co/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://atelier.co/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://atelier.co/company",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:40.926Z"
+  },
+  "attoquest": {
+   "website": "https://attoquest.com",
+   "pages": [
+    {
+     "url": "https://attoquest.com/",
+     "status": 200
+    },
+    {
+     "url": "https://attoquest.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://attoquest.com/about-attoquest-2/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Based, Globally Connected Based in Sydney, Australia, AttoQuest works w",
+     "url": "https://attoquest.com/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:47.021Z"
+  },
+  "becomeeducation": {
+   "website": "https://become.education",
+   "pages": [
+    {
+     "url": "https://www.become.education/",
+     "status": 200
+    },
+    {
+     "url": "https://www.become.education/theteam",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:53.259Z"
+  },
+  "blendai": {
+   "website": "https://blend-ai.com",
+   "pages": [
+    {
+     "url": "https://blend-ai.com/",
+     "status": 200
+    },
+    {
+     "url": "https://blend-ai.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://blend-ai.com/terms-and-conditions",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Pty Ltd 13 HICKSON ROAD, SUITE 7, DAWES POINT, NSW, 2000",
+     "url": "https://blend-ai.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "DAWES POINT, NSW",
+     "url": "https://blend-ai.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:11:57.274Z"
+  },
+  "breedaustralia": {
+   "website": "https://breedaustralia.com.au",
+   "pages": [
+    {
+     "url": "https://breedaustralia.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://breedaustralia.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://breedaustralia.com.au/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://breedaustralia.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "e Phone: [phone removed] Address: T2A Nirimba Education Precinct, Warawara Cct, Quakers Hill NSW 2763",
+     "url": "https://breedaustralia.com.au/",
+     "kind": null
+    },
+    {
+     "text": "g communications from us, please contact us at BREED Australia, PO Box 147, Quakers Hill, NSW 2763",
+     "url": "https://breedaustralia.com.au/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "personal information, please contact us at at BREED Australia, PO Box 147, Quakers Hill, NSW 2763",
+     "url": "https://breedaustralia.com.au/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Studio Contact Empowering Western Sydney BREED Community and Entrepren",
+     "url": "https://breedaustralia.com.au/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Offices for Rent Blacktown Skip to content T2A Nirimba E",
+     "url": "https://breedaustralia.com.au/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:05.028Z"
+  },
+  "classbento": {
+   "website": "https://classbento.com.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://classbento.com.au/",
+     "code": "access_controlled"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:05.372Z"
+  },
+  "classe365": {
+   "website": "https://classe365.com",
+   "pages": [
+    {
+     "url": "https://www.classe365.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.classe365.com/classe365-privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.classe365.com/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.classe365.com/about-classe365",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ith: Sprout On Web Pty Ltd ABN 72 138 602 418 Registered office: 22 Palm Street, St Ives, NSW 2075",
+     "url": "https://www.classe365.com/terms-and-conditions",
+     "kind": "OFFICE"
+    },
+    {
+     "text": ", Australia Business address: 22 Giffnock Avenue, Macquarie Park, NSW 2113",
+     "url": "https://www.classe365.com/terms-and-conditions",
+     "kind": null
+    },
+    {
+     "text": "States Legal notices — all other customers: Sprout On Web Pty Ltd 22 Palm Street St Ives, NSW 2075",
+     "url": "https://www.classe365.com/classe365-privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Macquarie Park, NSW",
+     "url": "https://www.classe365.com/classe365-privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Macquarie Park, NSW",
+     "url": "https://www.classe365.com/terms-and-conditions",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:12.154Z"
+  },
+  "crestrobotics": {
+   "website": "https://crestrobotics.com.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://crestrobotics.com.au/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:13.349Z"
+  },
+  "detectedx": {
+   "website": "https://detectedx.com",
+   "pages": [
+    {
+     "url": "https://detectedx.com/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/website-terms/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Australia [phone removed] L2 H04, Merewether Building, The University of Sydney, NSW 2006",
+     "url": "https://detectedx.com/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://detectedx.com/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:20.584Z"
+  },
+  "detekta": {
+   "website": "https://detekta.ai",
+   "pages": [
+    {
+     "url": "https://detekta.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://detekta.ai/contact",
+     "status": 200
+    },
+    {
+     "url": "https://detekta.ai/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:24.106Z"
+  },
+  "deteqt": {
+   "website": "https://deteqt.tech",
+   "pages": [
+    {
+     "url": "https://deteqt.tech/",
+     "status": 200
+    },
+    {
+     "url": "https://deteqt.tech/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://deteqt.tech/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Darlington, NSW",
+     "url": "https://deteqt.tech/about",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:28.035Z"
+  },
+  "dokotela": {
+   "website": "https://dokotela.com.au",
+   "pages": [
+    {
+     "url": "https://www.dokotela.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.dokotela.com.au/privacy-collection-notice",
+     "status": 200
+    },
+    {
+     "url": "https://www.dokotela.com.au/medico-legal-specialists-services",
+     "status": 200
+    },
+    {
+     "url": "https://www.dokotela.com.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:34.465Z"
+  },
+  "elker": {
+   "website": "https://elker.com",
+   "pages": [
+    {
+     "url": "https://elker.com/",
+     "status": 200
+    },
+    {
+     "url": "https://elker.com/security",
+     "status": 200
+    },
+    {
+     "url": "https://elker.com/policies/terms",
+     "status": 200
+    },
+    {
+     "url": "https://elker.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Darlinghurst NSW",
+     "url": "https://elker.com/contact",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:39.596Z"
+  },
+  "eudaemontechnologies": {
+   "website": "https://eudaemontech.com",
+   "pages": [
+    {
+     "url": "https://eudaemontech.com/",
+     "status": 200
+    },
+    {
+     "url": "https://eudaemontech.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://eudaemontech.com/terms",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "formation by Eudaemon Technologies Pty Ltd ACN 625 265 401 of 18 Cahill Street, Annandale NSW 2038",
+     "url": "https://eudaemontech.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "operated by Eudaemon Technologies Pty Ltd ACN 625 265 401 of 18 Cahill Street, Annandale NSW 2038",
+     "url": "https://eudaemontech.com/terms",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Annandale NSW",
+     "url": "https://eudaemontech.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Annandale NSW",
+     "url": "https://eudaemontech.com/terms",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:45.738Z"
+  },
+  "frontya": {
+   "website": "https://frontya.com.au",
+   "pages": [
+    {
+     "url": "https://frontya.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://frontya.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://frontya.com.au/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://frontya.com.au/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:51.255Z"
+  },
+  "happly": {
+   "website": "https://happly.com.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://happly.com.au/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:12:51.659Z"
+  },
+  "hb11energy": {
+   "website": "https://hb11.energy",
+   "pages": [
+    {
+     "url": "https://hb11.energy/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/our-story/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Headquartered in Sydney, Australia, we’re a global te",
+     "url": "https://hb11.energy/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "Principles (APP) as set out in Schedule 1 to the Privacy Act 1988 and the SPAM ACT 2003",
+     "url": "https://hb11.energy/privacy-policy/",
+     "state": "ACT",
+     "kind": null
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:01.920Z"
+  },
+  "healthshare": {
+   "website": "https://healthsharedigital.com",
+   "pages": [
+    {
+     "url": "https://www.healthsharedigital.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.healthsharedigital.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.healthsharedigital.com/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://www.healthsharedigital.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:08.136Z"
+  },
+  "hoogly": {
+   "website": "https://hoogly.ai",
+   "pages": [
+    {
+     "url": "https://hoogly.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://hoogly.ai/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://hoogly.ai/terms-and-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://hoogly.ai/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:17.826Z"
+  },
+  "hydgenerenewables": {
+   "website": "https://hydgene.com",
+   "pages": [
+    {
+     "url": "https://www.hydgene.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.hydgene.com/team",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:20.987Z"
+  },
+  "incubate": {
+   "website": "https://incubate.org.au",
+   "pages": [
+    {
+     "url": "https://incubate.org.au/",
+     "status": 200
+    },
+    {
+     "url": "https://incubate.org.au/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://incubate.org.au/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "erewether Building (Room 497), Cnr City Rd and Butlin Ave DARLINGTON University of Sydney NSW 2006",
+     "url": "https://incubate.org.au/about/",
+     "kind": null
+    },
+    {
+     "text": "ntrepreneurs Address: Office 497, Level 4, Merewether Building, The University of Sydney, NSW 2006",
+     "url": "https://incubate.org.au/contact/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://incubate.org.au/",
+     "kind": null
+    },
+    {
+     "text": "Office 497, Level 4, Merewether Building, The University of Sydney, NSW 2006 Email: incubate",
+     "url": "https://incubate.org.au/contact/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Sydney NSW",
+     "url": "https://incubate.org.au/about/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:24.263Z"
+  },
+  "mergeenergy": {
+   "website": "https://v2gkey.com",
+   "pages": [
+    {
+     "url": "https://www.v2gkey.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.v2gkey.com/copy-of-home",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:27.633Z"
+  },
+  "netnada": {
+   "website": "https://netnada.com",
+   "pages": [
+    {
+     "url": "https://www.netnada.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.netnada.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.netnada.com/netnada-terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.netnada.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au [phone removed] Hilmer Building Level 1, Gate Two Ave, University of NSW, 2033",
+     "url": "https://www.netnada.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney-based",
+     "url": "https://www.netnada.com/about",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:33.048Z"
+  },
+  "neurode": {
+   "website": "https://neurodelabs.com",
+   "pages": [
+    {
+     "url": "https://neurodelabs.com/",
+     "status": 200
+    },
+    {
+     "url": "https://neurodelabs.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://neurodelabs.com/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:36.632Z"
+  },
+  "nswdecarbonisationinnovationhub": {
+   "website": "https://www.decarbhub.au",
+   "pages": [
+    {
+     "url": "https://www.decarbhub.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.decarbhub.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://www.decarbhub.au/terms-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://www.decarbhub.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au Level 2, TETB (H6), Room 206, UNSW SYDNEY NSW 2052",
+     "url": "https://www.decarbhub.au/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "SYDNEY NSW",
+     "url": "https://www.decarbhub.au/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:45.698Z"
+  },
+  "number8bio": {
+   "website": "https://number8.bio",
+   "pages": [
+    {
+     "url": "https://www.number8.bio/",
+     "status": 200
+    },
+    {
+     "url": "https://www.number8.bio/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.number8.bio/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.number8.bio/our-story",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "cattle and sheep November 2025 Series A raise first close, led by Icehouse Ventures March 2026 NSW",
+     "url": "https://www.number8.bio/our-story",
+     "kind": null
+    }
+   ],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:52.102Z"
+  },
+  "okrasolar": {
+   "website": "https://okrasolar.com",
+   "pages": [
+    {
+     "url": "https://www.okrasolar.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.okrasolar.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.okrasolar.com/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.okrasolar.com/about-okra",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "r” in this Agreement) refers to Okra Solar PTY LTD, 39 Perry Street, North Rocks, Sydney, NSW 2151",
+     "url": "https://www.okrasolar.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney, NSW",
+     "url": "https://www.okrasolar.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:13:58.544Z"
+  },
+  "posimente": {
+   "website": "https://posimente.com",
+   "pages": [
+    {
+     "url": "https://posimente.com/",
+     "status": 200
+    },
+    {
+     "url": "https://posimente.com/privacypolicy/",
+     "status": 200
+    },
+    {
+     "url": "https://posimente.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:30.297Z"
+  },
+  "pushas": {
+   "website": "https://pushas.com",
+   "pages": [
+    {
+     "url": "https://pushas.com/",
+     "status": 200
+    },
+    {
+     "url": "https://pushas.com/policies/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://pushas.com/policies/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://pushas.com/pages/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "Officer, PUSHAS PTY LTD, Sydney, Australia Email: orders@push",
+     "url": "https://pushas.com/policies/privacy-policy",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "Headquarters & Distribution Centre Sydney Australia Distribution centre",
+     "url": "https://pushas.com/pages/contact-us",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:35.784Z"
+  },
+  "qsat": {
+   "website": "https://qsat.au",
+   "pages": [
+    {
+     "url": "https://qsat.au/",
+     "status": 200
+    },
+    {
+     "url": "https://qsat.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:39.338Z"
+  },
+  "ratematch": {
+   "website": "https://ratematch.ai",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://ratematch.ai/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:39.947Z"
+  },
+  "refresh": {
+   "website": "https://refresh.tech",
+   "pages": [
+    {
+     "url": "https://refresh.tech/",
+     "status": 200
+    },
+    {
+     "url": "https://refresh.tech/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://refresh.tech/legal/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://refresh.tech/about",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "y Policy, we, us and our means ReFresh OS Pty Ltd ACN 687 813 832 of 28 Pearl Bay, Mosman NSW 2088",
+     "url": "https://refresh.tech/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "tech Post: 28 Pearl Bay, Mosman, NSW 2088",
+     "url": "https://refresh.tech/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "1 We are ReFresh OS Pty Ltd ACN 687 813 832 of 28 Pearl Bay Avenue, Mosman NSW 2088",
+     "url": "https://refresh.tech/legal/terms-and-conditions",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Mosman NSW",
+     "url": "https://refresh.tech/legal/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Mosman NSW",
+     "url": "https://refresh.tech/legal/terms-and-conditions",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:45.385Z"
+  },
+  "regrowag": {
+   "website": "https://regrow.ag",
+   "pages": [
+    {
+     "url": "https://www.regrow.ag/",
+     "status": 200
+    },
+    {
+     "url": "https://www.regrow.ag/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.regrow.ag/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.regrow.ag/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:55.796Z"
+  },
+  "serviceseeking": {
+   "website": "https://serviceseeking.com.au",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://serviceseeking.com.au/",
+     "code": "access_controlled"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:14:57.218Z"
+  },
+  "snappr": {
+   "website": "https://snappr.com",
+   "pages": [
+    {
+     "url": "https://www.snappr.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.snappr.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.snappr.com/use-cases/real-estate",
+     "status": 200
+    },
+    {
+     "url": "https://www.snappr.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:03.055Z"
+  },
+  "sundrivesolar": {
+   "website": "https://sundrivesolar.com",
+   "pages": [
+    {
+     "url": "https://www.sundrivesolar.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.sundrivesolar.com/contact-new",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "based in Sydney, Australia, developing unique",
+     "url": "https://www.sundrivesolar.com/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:06.435Z"
+  },
+  "taxfox": {
+   "website": "https://taxfox.com.au",
+   "pages": [
+    {
+     "url": "https://www.taxfox.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.taxfox.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.taxfox.com.au/terms-of-use",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:10.998Z"
+  },
+  "ternvisa": {
+   "website": "https://ternvisa.com",
+   "pages": [
+    {
+     "url": "https://ternvisa.com/en",
+     "status": 200
+    },
+    {
+     "url": "https://ternvisa.com/en/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://ternvisa.com/en/terms-and-conditions",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:15.961Z"
+  },
+  "understandingzoe": {
+   "website": "https://understandingzoe.com",
+   "pages": [
+    {
+     "url": "https://understandingzoe.com/",
+     "status": 200
+    },
+    {
+     "url": "https://understandingzoe.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://understandingzoe.com/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://understandingzoe.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Understanding Zoe Pty Ltd (ACN 679 740 044) of Woolooware, NSW 2230",
+     "url": "https://understandingzoe.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "or writing to OAIC at GPO Box 5218, Sydney NSW 2001",
+     "url": "https://understandingzoe.com/privacy-policy",
+     "kind": null
+    },
+    {
+     "text": "Contact us Understanding Zoe Pty Ltd (ACN 679 740 044) Woolooware, NSW 2230",
+     "url": "https://understandingzoe.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Sydney NSW",
+     "url": "https://understandingzoe.com/privacy-policy",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:21.488Z"
+  },
+  "valetudomedtech": {
+   "website": "https://valetudomedtech.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://valetudomedtech.com/",
+     "code": "robots_unavailable"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:21.873Z"
+  },
+  "vesiculate": {
+   "website": "https://vesiculate.com",
+   "pages": [],
+   "errors": [
+    {
+     "url": "https://vesiculate.com/",
+     "code": "too_large"
+    }
+   ],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:23.374Z"
+  },
+  "walkingtallhealth": {
+   "website": "https://walkingtallhealth.com.au",
+   "pages": [
+    {
+     "url": "https://walkingtallhealth.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://walkingtallhealth.com.au/privacy-and-cookies-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://walkingtallhealth.com.au/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "Read more CONTACT INFO Please use the contact form above ADDRESS Randwick, NSW 2031",
+     "url": "https://walkingtallhealth.com.au/",
+     "kind": null
+    },
+    {
+     "text": "CONTACT INFO Please use the contact form above ADDRESS Randwick, NSW 2031",
+     "url": "https://walkingtallhealth.com.au/privacy-and-cookies-policy/",
+     "kind": null
+    },
+    {
+     "text": "king Tall Team Error Bad respond Address: Randwick Health & Innovation Precinct, Randwick NSW 2031",
+     "url": "https://walkingtallhealth.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Randwick, NSW",
+     "url": "https://walkingtallhealth.com.au/",
+     "kind": null
+    },
+    {
+     "text": "Randwick, NSW",
+     "url": "https://walkingtallhealth.com.au/privacy-and-cookies-policy/",
+     "kind": null
+    },
+    {
+     "text": "Randwick NSW",
+     "url": "https://walkingtallhealth.com.au/contact/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:28.475Z"
+  },
+  "workflow86": {
+   "website": "https://workflow86.com",
+   "pages": [
+    {
+     "url": "https://www.workflow86.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.workflow86.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.workflow86.com/terms-and-conditions-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://www.workflow86.com/about-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "the Service shall be in writing and addressed to: Workflow86 Pty Ltd, 65 Renwick, Redfern NSW 2016",
+     "url": "https://www.workflow86.com/terms-and-conditions-of-use",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Redfern NSW",
+     "url": "https://www.workflow86.com/terms-and-conditions-of-use",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:33.982Z"
+  },
+  "buildai": {
+   "website": "https://buildai.construction",
+   "pages": [
+    {
+     "url": "https://buildai.construction/",
+     "status": 200
+    },
+    {
+     "url": "https://buildai.construction/book-demo/",
+     "status": 200
+    },
+    {
+     "url": "https://buildai.construction/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "au BuildAI HQ, Sydney L1, 47a The Corso, Manly, NSW 2095",
+     "url": "https://buildai.construction/book-demo/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "statements": [
+    {
+     "text": "HQ, Sydney L1, 47a The Corso, Manly, NSW 2095 Know what’s happeni",
+     "url": "https://buildai.construction/book-demo/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:38.178Z"
+  },
+  "connectonion": {
+   "website": "https://www.connectonion.com",
+   "pages": [
+    {
+     "url": "https://www.connectonion.com/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:39.935Z"
+  },
+  "earlytrade": {
+   "website": "https://www.earlytrade.com",
+   "pages": [
+    {
+     "url": "https://earlytrade.com/",
+     "status": 200
+    },
+    {
+     "url": "https://earlytrade.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [
+    {
+     "url": "https://docs.earlytrade.com/legal/na/privacy/",
+     "code": "robots_disallow"
+    },
+    {
+     "url": "https://docs.earlytrade.com/legal/na/supplier-terms/",
+     "code": "robots_disallow"
+    }
+   ],
+   "addresses": [
+    {
+     "text": "50 Beaverton, OR 97005 303 879 0857 Sydney Australia 323 Castlereagh St 9th Fl Haymarket, NSW 2000",
+     "url": "https://earlytrade.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "Haymarket, NSW",
+     "url": "https://earlytrade.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:43.832Z"
+  },
+  "firstwavecloudtechnology": {
+   "website": "https://firstwave.com",
+   "pages": [
+    {
+     "url": "https://firstwave.com/",
+     "status": 200
+    },
+    {
+     "url": "https://firstwave.com/legal/",
+     "status": 200
+    },
+    {
+     "url": "https://firstwave.com/contact-sales/",
+     "status": 200
+    },
+    {
+     "url": "https://firstwave.com/products/open-audit/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:49.650Z"
+  },
+  "juristechne": {
+   "website": "https://juristechne.com",
+   "pages": [
+    {
+     "url": "https://juristechne.com/",
+     "status": 200
+    },
+    {
+     "url": "https://juristechne.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://juristechne.com/terms-of-use/",
+     "status": 200
+    },
+    {
+     "url": "https://juristechne.com/contact-us/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "quest Free track-record report Contact [email protected] [phone removed] 15 Broadway, Ultimo NSW 2007",
+     "url": "https://juristechne.com/contact-us/",
+     "kind": null
+    },
+    {
+     "text": "JurisTechne Pty Ltd (ABN 77 662 905 375) · 15 Broadway, Ultimo NSW 2007",
+     "url": "https://juristechne.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "mail protected] ☎ Phone [phone removed] ⌂ Office UTS Building 3, Level 4 15 Broadway, Ultimo NSW 2007",
+     "url": "https://juristechne.com/contact-us/",
+     "kind": "OFFICE"
+    }
+   ],
+   "statements": [
+    {
+     "text": "Ultimo NSW",
+     "url": "https://juristechne.com/",
+     "kind": null
+    },
+    {
+     "text": "Ultimo NSW",
+     "url": "https://juristechne.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "Office UTS Building 3, Level 4 15 Broadway, Ultimo NSW 2007 ◷ Hours Mon–Fri, 9:0",
+     "url": "https://juristechne.com/contact-us/",
+     "kind": "OFFICE"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:15:56.025Z"
+  },
+  "medirecords": {
+   "website": "https://medirecords.com",
+   "pages": [
+    {
+     "url": "https://medirecords.com/",
+     "status": 200
+    },
+    {
+     "url": "https://medirecords.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://medirecords.com/terms-conditions/",
+     "status": 200
+    },
+    {
+     "url": "https://medirecords.com/contact/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "ne * Company Name (optional) Message * SYDNEY HQ Level 5, 1 Elizabeth Plaza, North Sydney NSW 2060",
+     "url": "https://medirecords.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "ail protected] Address: MediRecords Pty Limited, Level 5, 1 Elizabeth Plaza, North Sydney NSW 2060",
+     "url": "https://medirecords.com/privacy-policy/",
+     "kind": null
+    },
+    {
+     "text": "email protected] Address: MediRecords Pty Limited Level 5, 1 Elizabeth Plaza North Sydney NSW 2060",
+     "url": "https://medirecords.com/privacy-policy/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "HQ Level 5, 1 Elizabeth Plaza, North Sydney NSW 2060 BRISBANE Level 6, 15",
+     "url": "https://medirecords.com/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "offices in Sydney, Melbourne, and Brisbane and",
+     "url": "https://medirecords.com/privacy-policy/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "HQ Level 5, 1 Elizabeth Plaza, North Sydney NSW 2060 BRISBANE Level 6, 15",
+     "url": "https://medirecords.com/terms-conditions/",
+     "kind": "HEADQUARTERS"
+    },
+    {
+     "text": "Office Locations SYDNEY HQ Level 5, 1 Elizabeth Plaza North Sydney NSW 2060 BRISBANE Level 6, 15",
+     "url": "https://medirecords.com/contact/",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [
+    {
+     "text": "izabeth Plaza, North Sydney NSW 2060 BRISBANE Level 6, 157 Ann Street, Brisbane QLD 4000",
+     "url": "https://medirecords.com/contact/",
+     "state": "NSW",
+     "kind": null
+    },
+    {
+     "text": "MELBOURNE Level 3, 20 Mollison Street, Abbotsford VIC 3067",
+     "url": "https://medirecords.com/contact/",
+     "state": "VIC",
+     "kind": null
+    },
+    {
+     "text": "20 Mollison Street Abbotsford VIC 3067 SYDNEY HQ Level 5, 1 Elizabeth Plaza, North Sydney NSW 2060",
+     "url": "https://medirecords.com/contact/",
+     "state": "VIC",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "closed": null,
+   "read_at": "2026-11-05T12:16:00.922Z"
+  },
+  "panteya": {
+   "website": "https://panteya.com.au",
+   "pages": [
+    {
+     "url": "https://panteya.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://panteya.com.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://panteya.com.au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://panteya.com.au/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [
+    {
+     "text": "clinic's name, recorded per patient Sydney Surgical Clinic Welcome to Sydney Surgical Clinic",
+     "url": "https://panteya.com.au/",
+     "kind": null
+    },
+    {
+     "text": "HQ Sydney, Australia Founded in Sydney, 2021",
+     "url": "https://panteya.com.au/contact",
+     "kind": "HEADQUARTERS"
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:16:07.673Z"
+  },
+  "referoo": {
+   "website": "https://referoo.com",
+   "pages": [
+    {
+     "url": "https://www.referoo.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.referoo.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.referoo.com/terms-conditions-global?hsLang=en",
+     "status": 200
+    },
+    {
+     "url": "https://www.referoo.com/contact-us",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:16:13.190Z"
+  },
+  "siliconquantumcomputing": {
+   "website": "https://sqc.com",
+   "pages": [
+    {
+     "url": "https://sqc.com/",
+     "status": 200
+    },
+    {
+     "url": "https://sqc.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://sqc.com/terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://sqc.com/contact",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [],
+   "statements": [],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:16:18.219Z"
+  },
+  "upaged": {
+   "website": "https://upaged.com",
+   "pages": [
+    {
+     "url": "https://upaged.com/",
+     "status": 200
+    },
+    {
+     "url": "https://upaged.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://upaged.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://upaged.com/about/",
+     "status": 200
+    }
+   ],
+   "errors": [],
+   "addresses": [
+    {
+     "text": "fficer: Privacy Officer, uPaged Pty Ltd (ABN 16 632 742 262), 85 William St, Darlinghurst NSW 2010",
+     "url": "https://upaged.com/privacy-policy/",
+     "kind": "OFFICE"
+    },
+    {
+     "text": "ratings or testimonials Message Submit Drop in and say hi 85 William Street, Darlinghurst NSW 2010",
+     "url": "https://upaged.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "statements": [
+    {
+     "text": "facility portal and admin system) stores your information in Sydney, Australia",
+     "url": "https://upaged.com/privacy-policy/",
+     "kind": "OTHER"
+    },
+    {
+     "text": "Darlinghurst NSW",
+     "url": "https://upaged.com/contact-us/",
+     "kind": null
+    }
+   ],
+   "elsewhere": [],
+   "closed": null,
+   "read_at": "2026-11-05T12:16:23.195Z"
+  }
+ }
+}

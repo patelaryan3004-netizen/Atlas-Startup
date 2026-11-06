@@ -154,7 +154,8 @@ describe('what each page downloads', () => {
     // 6 kB bigger since the welcome page stopped sharing the header, the cards and the skeletons with it: they are the app's alone again, not more code.)
     // The investors page is the next, and is lazy like the rest (loaded only on /investors): it grew by the compact list, the people layer, the filter sheet and
     // the person panel, and is the biggest piece now.
-    expect(Buffer.byteLength(files[biggest])).toBeLessThan(80_000);
+    // The app's shell grew again by the map's results panel (search, counts, the type chips and Search this area): 80.07 kB, so the ceiling is 84 kB.
+    expect(Buffer.byteLength(files[biggest])).toBeLessThan(84_000);
     expect(sizeOf(called('InvestorsView'))).toBeGreaterThan(0);
   });
 });

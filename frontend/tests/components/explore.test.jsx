@@ -113,14 +113,14 @@ describe('the toolbar: what is shown', () => {
     return { props, ...render(<ExploreToolbar {...props} />) };
   };
 
-  it('has All, Startups and VCs (the last with a yellow VC beside it), with the one that is on pressed, and hands a press to the page', async () => {
+  it('has All, Startups, Companies, Investors (with a yellow VC beside it) and Spaces, with the one that is on pressed, and hands a press to the page', async () => {
     const { props } = setup({ entity: 'startups' });
     const group = screen.getByRole('group', { name: 'What the map shows' });
-    expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(['All', 'Startups', 'VCsVC']);
+    expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(['All', 'Startups', 'Companies', 'InvestorsVC', 'Spaces']);
     expect(group.querySelector('.badge-vc')).toHaveTextContent('VC');
     expect(within(group).getByRole('button', { name: 'Startups' })).toHaveAttribute('aria-pressed', 'true');
     expect(within(group).getByRole('button', { name: 'All' })).toHaveAttribute('aria-pressed', 'false');
-    await userEvent.click(within(group).getByRole('button', { name: 'VCs' }));
+    await userEvent.click(within(group).getByRole('button', { name: 'Investors' }));
     expect(props.onEntityChange).toHaveBeenCalledWith('vcs');
   });
 
@@ -588,7 +588,7 @@ describe('the phone\'s sheet', () => {
     it('counts the startups and the VCs in the bar, and lists the investors after the startups when it is open', async () => {
       const p = props({ open: true, entity: 'all', vcFirms: FIRMS, onPickVc: vi.fn() });
       render(<ResultsSheet {...p} />);
-      expect(screen.getByRole('button', { name: /2 startups · 1 VC in Australia/ })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /2 companies · 1 VC in Australia/ })).toBeInTheDocument();
       expect(await screen.findByRole('heading', { name: 'Venture capital firms' })).toBeInTheDocument();
       const row = screen.getByRole('button', { name: /^OIF Ventures/ });
       expect(row).toHaveTextContent('Venture capital · Sydney, Melbourne');

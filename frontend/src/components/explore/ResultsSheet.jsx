@@ -30,7 +30,9 @@ export default function ResultsSheet({
 
   const mode = detail ? 'detail' : open ? 'open' : 'peek';
   const vcs = `${vcFirms.length} ${vcFirms.length === 1 ? 'VC' : 'VCs'}`;
-  const label = entity === 'vcs' ? vcs : `${count} ${count === 1 ? 'startup' : 'startups'}${entity === 'all' && vcFirms.length ? ` · ${vcs}` : ''}`;
+  // `all` counts every type the map draws (startups, companies, spaces), so it says companies; only the Startups chip says startups
+  const noun = entity === 'spaces' ? ['space', 'spaces'] : entity === 'startups' ? ['startup', 'startups'] : ['company', 'companies'];
+  const label = entity === 'vcs' ? vcs : `${count} ${count === 1 ? noun[0] : noun[1]}${entity === 'all' && vcFirms.length ? ` · ${vcs}` : ''}`;
   const touch = {
     onTouchStart: (e) => { swipe.current = e.touches[0].clientY; },
     onTouchEnd: (e) => {
@@ -78,7 +80,7 @@ export default function ResultsSheet({
                   <button type="button" className="btn btn-secondary" onClick={more}>{moreFailed ? 'Could not load more: try again' : `Show more (${count - items.length} left)`}</button>
                 </div>
               )}
-              {entity !== 'startups' && (
+              {(entity === 'all' || entity === 'vcs') && (
                 <>
                   {entity === 'all' && vcFirms.length > 0 && <h3 className="xs-sub">Venture capital firms</h3>}
                   {entity === 'vcs' && vcFirms.length === 0 && <EmptyState title="No venture capital firm matches.">None with a city on file fits these filters.</EmptyState>}

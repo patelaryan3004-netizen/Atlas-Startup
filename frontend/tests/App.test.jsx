@@ -264,6 +264,24 @@ describe('App', () => {
       window.history.pushState({}, '', '/');
     });
 
+    it('reads a city written in lower case in the address (/map?city=melbourne) as the city, so the link in the brief works', async () => {
+      window.history.pushState({}, '', '/map?city=melbourne');
+      render(<App />);
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Melbourne' }, expect.anything()));
+      window.history.pushState({}, '', '/');
+    });
+
+    it('asks only for companies from Companies, and for spaces from Spaces, and writes it in the address (the type is not written twice)', async () => {
+      window.history.pushState({}, '', '/map?city=perth&show=companies');
+      render(<App />);
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'company' }, expect.anything()));
+      await waitFor(() => expect(window.location.search).toBe('?city=Perth&show=companies'));
+      await userEvent.click(within(screen.getByRole('group', { name: 'What the map shows' })).getByRole('button', { name: 'Spaces' }));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, city: 'Perth', orgType: 'space' }, expect.anything()));
+      await waitFor(() => expect(window.location.search).toBe('?city=Perth&show=spaces'));
+      window.history.pushState({}, '', '/');
+    });
+
     it('applying a curated list replaces the active filters (not merging with whatever was set) and shows it as a list', async () => {
       render(<App />);
       await userEvent.type(screen.getByLabelText(/Search startups/), 'x');
@@ -393,8 +411,7 @@ describe('App', () => {
         render(<App />);
         await openMapTab();
         expect(screen.queryByRole('group', { name: 'Map layers' })).not.toBeInTheDocument();
-        expect(screen.queryByRole('button', { name: 'Companies' })).not.toBeInTheDocument();
-        expect(screen.queryByRole('button', { name: /Institutions/ })).not.toBeInTheDocument();
+        expect(screen.queryByRole('button', { name: /Institutions/ })).not.toBeInTheDocument(); // (Companies is a type of the toolbar now, with Startups, Investors and Spaces: not a layer)
         expect(map()).toHaveAttribute('data-institutions', '0');
       });
 
@@ -1348,7 +1365,7 @@ describe('App', () => {
         belowTheFold();
         render(<App />);
         const sheet = await screen.findByRole('region', { name: 'Startups on the map' });
-        await userEvent.click(within(sheet).getByRole('button', { name: /startups/ }));
+        await userEvent.click(within(sheet).getByRole('button', { name: /companies/ }));
         toWorkspace();
         scroll.mockClear();
         await userEvent.click(screen.getByText('trigger-pin'));
@@ -1397,7 +1414,7 @@ describe('App', () => {
 
       it('has the count in a bar at the foot of the map, shut, and no card beside the map', async () => {
         const { container } = render(<App />);
-        await waitFor(() => expect(within(sheet()).getByText('2 startups')).toBeInTheDocument());
+        await waitFor(() => expect(within(sheet()).getByText('2 companies')).toBeInTheDocument());
         expect(within(sheet()).getByText(/in Australia/)).toBeInTheDocument();
         expect(container.querySelector('.xs')).toHaveClass('xs-peek');
         expect(fetchStartupPage).not.toHaveBeenCalled(); // the list is asked for only once the sheet is pulled up
@@ -1413,17 +1430,17 @@ describe('App', () => {
 
       it('pulls up to a list of the startups, a page at a time, and shuts again', async () => {
         const { container } = render(<App />);
-        await userEvent.click(within(sheet()).getByRole('button', { name: /startups/ }));
+        await userEvent.click(within(sheet()).getByRole('button', { name: /companies/ }));
         expect(container.querySelector('.xs')).toHaveClass('xs-open');
         await waitFor(() => expect(within(sheet()).getAllByRole('button', { name: /^(Canva|Zeller)/ })).toHaveLength(2));
         expect(fetchStartupPage).toHaveBeenCalledWith(EMPTY, expect.objectContaining({ offset: 0 }));
-        await userEvent.click(within(sheet()).getByRole('button', { name: /startups/, expanded: true }));
+        await userEvent.click(within(sheet()).getByRole('button', { name: /companies/, expanded: true }));
         expect(container.querySelector('.xs')).toHaveClass('xs-peek');
       });
 
       it('opens a startup picked from the list as a card in the same sheet, and the map is sent to its pin, clear of the sheet', async () => {
         const { container } = render(<App />);
-        await userEvent.click(within(sheet()).getByRole('button', { name: /startups/ }));
+        await userEvent.click(within(sheet()).getByRole('button', { name: /companies/ }));
         await userEvent.click(await within(sheet()).findByRole('button', { name: /^Canva/ }));
         const card = await within(sheet()).findByRole('region', { name: 'Canva' });
         expect(container.querySelector('.xs')).toHaveClass('xs-detail');
@@ -1489,7 +1506,7 @@ describe('App', () => {
       await waitFor(() => expect(window.location.search).toBe('?view=map&show=startups'));
       fetchInvestorPins.mockClear();
       await userEvent.type(screen.getByLabelText(/Search startups/), 'z');
-      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, search: 'z' }, expect.anything()));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, search: 'z', orgType: 'startup' }, expect.anything())); // Startups is the startup type: the address says show=startups, the question orgType=startup
       expect(fetchInvestorPins).not.toHaveBeenCalled();
     });
 
@@ -1497,7 +1514,7 @@ describe('App', () => {
       withVcs();
       fetchInvestorMeta.mockResolvedValue({ sectors: [{ value: 'Technology', count: 9 }], stages: [{ value: 'Seed', count: 8 }] });
       render(<App />);
-      await userEvent.click(within(shown()).getByRole('button', { name: 'VCs' }));
+      await userEvent.click(within(shown()).getByRole('button', { name: 'Investors' }));
       await waitFor(() => expect(map()).toHaveAttribute('data-show-companies', 'false'));
       expect(map()).toHaveAttribute('data-show-vcs', 'true');
       await waitFor(() => expect(window.location.search).toBe('?view=map&show=vcs'));
@@ -1516,7 +1533,7 @@ describe('App', () => {
       window.history.pushState({}, '', '/discover?show=vcs&view=map');
       const first = render(<App />);
       await screen.findByTestId('map-view');
-      expect(within(shown()).getByRole('button', { name: 'VCs' })).toHaveAttribute('aria-pressed', 'true');
+      expect(within(shown()).getByRole('button', { name: 'Investors' })).toHaveAttribute('aria-pressed', 'true');
       first.unmount();
       cleanup();
       window.history.pushState({}, '', '/discover?show=startups&view=map');
@@ -1540,7 +1557,7 @@ describe('App', () => {
       await screen.findByTestId('map-view');
       expect(map()).toHaveAttribute('data-show-vcs', 'false');
       expect(fetchInvestorPins).not.toHaveBeenCalled();
-      await userEvent.click(within(shown()).getByRole('button', { name: 'VCs' }));
+      await userEvent.click(within(shown()).getByRole('button', { name: 'Investors' }));
       await waitFor(() => expect(map()).toHaveAttribute('data-show-vcs', 'true'));
       await waitFor(() => expect(fetchInvestorPins).toHaveBeenCalled());
     });
@@ -1705,8 +1722,8 @@ describe('App', () => {
       it('counts the startups and the VCs in the sheet\'s bar, and lists the firms after the startups', async () => {
         withVcs([VC_ITEM, { ...VC_ITEM, id: 'oif@Melbourne', city: 'Melbourne', lat: -37.8, lng: 144.9 }]);
         render(<App />);
-        await waitFor(() => expect(within(sheet()).getByText(/2 startups · 1 VC/)).toBeInTheDocument());
-        await userEvent.click(within(sheet()).getByRole('button', { name: /startups/ }));
+        await waitFor(() => expect(within(sheet()).getByText(/2 companies · 1 VC/)).toBeInTheDocument());
+        await userEvent.click(within(sheet()).getByRole('button', { name: /companies/ }));
         const firm = await within(sheet()).findByRole('button', { name: /^OIF Ventures/ });
         expect(firm).toHaveTextContent('Sydney, Melbourne');
         await userEvent.click(firm);
