@@ -54,7 +54,10 @@ export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'sta
 // the address was checked against a source (1) or is only on file (0).
 // logo is the company's own picture (its `logo` field, an https address) or null: the map draws that, or the first letter of its name, and
 // asks no one else for a logo.
-export const MARKER_FIELDS = ['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo'];
+// `metro` is the big city the company is in, by the same assignment the city filter uses (geo/metro.js, from its postcode): one of the ten, or null for a company
+// that belongs to none of them (a regional town). The map page's national view counts its city badges from it, so a badge is exactly the pins that opening
+// that city shows. (The filter also takes a company whose own `city` is one of the ten, whatever its metro: both count, see `keep`.)
+export const MARKER_FIELDS = ['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo', 'metro'];
 // How many companies an area names, so a click can list them without another request. The rest are one filter away.
 export const AREA_SAMPLE = 12;
 
@@ -287,7 +290,7 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     markers: records.map((r, i) => (r.verified && isPoint(precisions[i]) && Number.isFinite(r.lat) && Number.isFinite(r.lng)
       ? [r.slug ?? r.id, r.name, r.lat, r.lng, r.sector, r.city, r.hiring ? 1 : 0, domainOf(r.website), precisions[i],
         describeLocation({ location_precision: precisions[i], city: r.city, state: r.state, address: r.address, suburb: r.suburb }).place ?? '', r.location_verified ? 1 : 0,
-        ownLogo(r.logo)] : null)),
+        ownLogo(r.logo), metros[i] ?? null] : null)),
   };
   lap('indexes, cards, markers');
   return snap;

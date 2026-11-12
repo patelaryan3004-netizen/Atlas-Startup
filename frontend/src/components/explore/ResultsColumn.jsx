@@ -4,6 +4,10 @@ import { EmptyState, CompanyRow } from '../brand/parts.jsx';
 import { StartupRow, VcRow, startupSub, vcSub } from './rows.jsx';
 import { isPlainClick } from '../brand/nav.js';
 import { ArrowRight, ArrowUpRight, SearchIcon, CloseIcon, ChevronLeft } from './icons.jsx';
+import { lazyView, Lazy } from '../../lazyLoad.jsx';
+
+// The map page's panel head is its own file, fetched with the map page (the heading, the search and the selects are only on /map).
+const AtlasHead = lazyView(() => import('./AtlasHead.jsx'));
 
 // The results beside the map on a wide screen: what the map is showing, one row per company or investor, the one that is open lit, and the way to
 // the rest (the list) and to the collections. It asks for the same startups the phone's sheet does (useStartupResults) and is given the investors the map
@@ -26,11 +30,12 @@ function Shapes() {
 }
 
 // `variant` "map" is the panel of the map page: search, how many there are, the rows and a way to put it away (onCollapse); "explore" is the column beside the
-// map on Discover. With `area` (a box the visitor asked about with "Search this area") the rows are `areaRows`, the companies whose pin is inside it.
+// map on Discover; "atlas" is the map page's "Startup atlas" directory (AtlasHead: the heading, the search and the selects, then the rows and a note on what the pins
+// are), which is always there on a wide screen, so it has no way to put it away. `atlas` is what AtlasHead is given (its filters and handlers). With `area` (a box the visitor asked about with "Search this area") the rows are `areaRows`, the companies whose pin is inside it.
 export default function ResultsColumn({
   where, entity, filters, selected, onPick, onPickVc, vcFirms = [], isTracked, onToggleTracked, isSavedVc, onToggleVc,
   chips = null, onViewAll, onShowCollections, onClearFilters,
-  variant = 'explore', search = '', onSearch, onCollapse, area = null, areaRows = null, onClearArea,
+  variant = 'explore', search = '', onSearch, onCollapse, area = null, areaRows = null, onClearArea, atlas = null,
 }) {
   const inArea = Boolean(area && areaRows);
   const withInvestors = (entity === 'all' || entity === 'vcs') && !inArea;
@@ -78,10 +83,22 @@ export default function ResultsColumn({
   const part = (n, one, many) => `${n.toLocaleString('en-AU')} ${n === 1 ? one : many}`;
   const countLine = inArea ? `${part(count, 'company', 'companies')} on the map in this area` : `${part(startupsOn ? count : 0, 'company', 'companies')}${withInvestors && vcFirms.length ? ` and ${part(vcFirms.length, 'investor', 'investors')}` : ''} in ${where}`;
   const mapPanel = variant === 'map';
+  const atlasPanel = variant === 'atlas' && atlas;
+  const organisations = `${total.toLocaleString('en-AU')} ${total === 1 ? 'organisation' : 'organisations'}${inArea ? ' in this area' : where !== 'Australia' ? ` in ${where}` : ''}`;
 
   return (
-    <section className={mapPanel ? 'xc xc-map' : 'xc'} aria-label={`Results in ${where}`}>
-      {mapPanel ? (
+    <section className={atlasPanel ? 'xc xc-map xc-atlas' : mapPanel ? 'xc xc-map' : 'xc'} aria-label={`Results in ${where}`}>
+      {atlasPanel ? (
+        <Lazy fallback={<div className="at-head at-head-wait" aria-hidden="true" />}>
+          <AtlasHead
+            {...atlas}
+            entity={entity}
+            count={status === 'loading' && rows.length === 0 ? 'Counting…' : organisations}
+          >
+            {inArea && <button type="button" className="xc-area-chip" onClick={onClearArea}>Clear the area <CloseIcon size={14} /></button>}
+          </AtlasHead>
+        </Lazy>
+      ) : mapPanel ? (
         <div className="xc-head xc-head-map">
           <div className="xc-toprow">
             <h2 className="xc-title">{inArea ? 'In this area' : `In ${where}`}</h2>
@@ -154,17 +171,18 @@ export default function ResultsColumn({
 
         {rows.length > 0 && !inArea && (
           <button type="button" className="xc-all" onClick={onViewAll}>
-            {mapPanel ? 'See all as a list' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
+            {mapPanel || atlasPanel ? 'See all as a list' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
           </button>
         )}
 
-        {!mapPanel && <a className="collections-card" href="/lists" onClick={onShowCollections ? (event) => { if (isPlainClick(event)) { event.preventDefault(); onShowCollections(); } } : undefined}>
+        {!mapPanel && !atlasPanel && <a className="collections-card" href="/lists" onClick={onShowCollections ? (event) => { if (isPlainClick(event)) { event.preventDefault(); onShowCollections(); } } : undefined}>
           <span className="cc-label">Collections</span>
           <span className="cc-title">Good company starts here.</span>
           <ArrowUpRight size={24} className="cc-arrow" />
           <Shapes />
         </a>}
       </div>
+      {atlasPanel && atlas.note && <p className="at-foot">{atlas.note}</p>}
     </section>
   );
 }

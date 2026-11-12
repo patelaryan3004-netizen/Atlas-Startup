@@ -276,8 +276,10 @@ describe('App', () => {
       render(<App />);
       await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'company' }, expect.anything()));
       await waitFor(() => expect(window.location.search).toBe('?city=Perth&show=companies'));
-      await userEvent.click(within(screen.getByRole('group', { name: 'What the map shows' })).getByRole('button', { name: 'Spaces' }));
-      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, city: 'Perth', orgType: 'space' }, expect.anything()));
+      await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'What kind of organisation' }), 'spaces'); // (the map page's type select: the layer the map shows)
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'space' }, expect.anything()));
+      // (the map page's national view counts its badges from the pins of every city under the same filters, so those are asked for too, with no city)
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, orgType: 'space' }, expect.anything()));
       await waitFor(() => expect(window.location.search).toBe('?city=Perth&show=spaces'));
       window.history.pushState({}, '', '/');
     });

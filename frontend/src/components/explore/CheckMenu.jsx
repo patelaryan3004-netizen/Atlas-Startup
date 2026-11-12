@@ -8,8 +8,9 @@ const FIND_FROM = 8; // a list longer than this gets a box to narrow it
 // A filter of several values as a small button with a menu of checkboxes under it (Stage, Sector, Location). The button says how many are chosen,
 // each choice says how many investors have it, and a value that is on but no longer offered stays in the list, so it can be unticked.
 // `options` are [{ value, label?, count? }]; `value` is the chosen ones joined with commas, which is how the server takes several.
-// `note` is a line of small print under the list (what the values are, and are not).
-export default function CheckMenu({ label, options, value, onChange, noun = label.toLowerCase(), note = null }) {
+// `note` is a line of small print under the list (what the values are, and are not). With `allLabel` ("All sectors") the button reads as a select: that
+// when nothing is chosen, the one value when one is, and "3 sectors" when several are.
+export default function CheckMenu({ label, options, value, onChange, noun = label.toLowerCase(), note = null, allLabel = null }) {
   const { open, setOpen, ref } = usePopover();
   const [find, setFind] = useState('');
   const chosen = splitValues(value);
@@ -21,7 +22,9 @@ export default function CheckMenu({ label, options, value, onChange, noun = labe
   return (
     <div className="xt-menu" ref={ref}>
       <button type="button" className={chosen.length ? 'xt-btn xt-btn-on' : 'xt-btn'} aria-haspopup="true" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-        <span>{label}{chosen.length ? <>{' '}<span className="xt-badge">{chosen.length}</span></> : null}</span>
+        {allLabel
+          ? <span>{chosen.length === 0 ? allLabel : chosen.length === 1 ? chosen[0] : `${chosen.length} ${noun}`}</span>
+          : <span>{label}{chosen.length ? <>{' '}<span className="xt-badge">{chosen.length}</span></> : null}</span>}
         <ChevronDown size={18} className="xt-chev" />
       </button>
       {open && (

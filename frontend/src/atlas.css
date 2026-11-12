@@ -1,0 +1,259 @@
+/* The map page ("Startup atlas"): midnight-navy sea and header, a warm ivory directory panel and drawn land, a restrained gold for what can be pressed, and the coral full
+   stop of the wordmark. Everything here is scoped to `.xp-atlas`, the class only the map page's root carries, so no other route changes. The page's structure is
+   explore.css's (xw, xb, xc, xm); this file is the atlas's look, the drawn country (atlasLayer.js) and how it fades into the street map and the pins as the map zooms.
+   Names: at-head the panel's head, at-over the words over the map, atlas-* the drawn country and the city badges. */
+
+.xp-atlas{
+  --at-navy:#071822;
+  --at-sea:#0a2230;
+  --at-ivory:#f7f1e3;
+  --at-paper:#fffbf1;
+  --at-land:#efe5cc;
+  --at-ink:#15222b;
+  --at-mute:#6c675a;
+  --at-line:rgb(21 34 43 / .14);
+  --at-gold:#c9a24b;
+  --at-gold-hi:#e3c473;
+  --at-gold-ink:#7d5f17;
+}
+
+/* ---------- the header, in the night of the welcome page ---------- */
+.xp-atlas .sh{background:var(--at-navy);border-bottom:1px solid rgb(250 246 234 / .1);}
+.xp-atlas .sh-brand,.xp-atlas .sh-wordmark{color:#faf6ea;}
+.xp-atlas .sh-brand:focus-visible,.xp-atlas .sh-add:focus-visible,.xp-atlas .sh-link:focus-visible,.xp-atlas .sh-more:focus-visible{outline-color:var(--at-gold-hi);}
+.xp-atlas .sh-nav{border-color:rgb(250 246 234 / .16);background:rgb(250 246 234 / .03);}
+.xp-atlas .sh-link{color:rgb(250 246 234 / .8);}
+.xp-atlas .sh-link + .sh-link::before{background:rgb(250 246 234 / .14);}
+.xp-atlas .sh-link:hover{color:#fff;}
+.xp-atlas .sh-link[aria-current="page"]{color:#fff;}
+.xp-atlas .sh-link[aria-current="page"]::after{background:var(--at-gold);}
+.xp-atlas .sh-count{background:rgb(250 246 234 / .12);color:#faf6ea;}
+.xp-atlas .sh-add{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
+.xp-atlas .sh-add:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);}
+.xp-atlas .sh-more{border-color:rgb(250 246 234 / .22);background:rgb(250 246 234 / .06);color:#faf6ea;}
+.xp-atlas .sh-more:hover{background:rgb(250 246 234 / .14);}
+.xp-atlas .sh-signin{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
+.xp-atlas .sh-signin:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);color:#fff;}
+.xp-atlas .sh-signin svg{color:rgb(250 246 234 / .8);}
+.xp-atlas .am-btn{border-color:rgb(250 246 234 / .28);background:rgb(250 246 234 / .06);}
+.xp-atlas .am-btn:hover{border-color:var(--at-gold);}
+.xp-atlas .am-btn:focus-visible,.xp-atlas .sh-signin:focus-visible{outline-color:var(--at-gold-hi);}
+
+/* ---------- the workspace and the directory panel ---------- */
+/* The filter drawer ("More") slides over the directory panel, so it is as wide as the panel and dressed the same. */
+.xp-atlas{--panel-w:clamp(340px,27vw,400px);}
+.xp-atlas .map-panel{background:var(--at-ivory);border-right-color:var(--at-line);color:var(--at-ink);}
+.xp-atlas #filters input,.xp-atlas #filters select,.xp-atlas #filters .fmulti-summary{background:var(--at-paper);border-color:var(--at-line);}
+.xp-atlas .xw{background:var(--at-navy);border-color:rgb(250 246 234 / .08);}
+.xp-atlas .xb[data-results="open"]{grid-template-columns:clamp(340px,27vw,400px) minmax(0,1fr);}
+.xc-atlas{background:var(--at-ivory);border-right:1px solid var(--at-line);color:var(--at-ink);}
+.xc-atlas .xc-body{padding:0 var(--space-1) var(--space-1);scrollbar-color:rgb(21 34 43 / .25) transparent;}
+
+.at-head{display:flex;flex-direction:column;gap:12px;padding:26px 22px 14px;}
+.at-head-wait{min-height:395px;}
+.at-kicker{display:flex;align-items:center;gap:10px;margin:0;color:var(--at-gold-ink);font:600 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;}
+.at-sun{flex:none;color:var(--at-gold);}
+.at-title{margin:2px 0 0;font:400 clamp(2.9rem,4.2vw,3.7rem)/.98 var(--font-serif);letter-spacing:-.02em;color:var(--at-ink);}
+.at-title em{font-style:italic;color:var(--at-gold-ink);}
+.at-lede{margin:0 0 6px;color:var(--at-mute);font-size:var(--t-body);line-height:1.45;}
+.at-search{position:relative;display:flex;align-items:center;gap:10px;height:46px;padding:0 12px;border:1px solid var(--at-line);border-radius:12px;background:var(--at-paper);transition:border-color .15s var(--ease),box-shadow .15s var(--ease);}
+.at-search:hover{border-color:rgb(21 34 43 / .32);}
+.at-search:focus-within{border-color:var(--at-gold);box-shadow:0 0 0 3px rgb(201 162 75 / .22);}
+.at-search-icon{flex:none;color:var(--at-mute);}
+.at-search input{flex:1;min-width:0;height:100%;border:0;background:transparent;color:var(--at-ink);font:inherit;font-size:var(--t-body);outline:none;}
+.at-search input::placeholder{color:var(--at-mute);}
+.at-search input[type="search"]::-webkit-search-cancel-button{display:none;}
+.at-kbd{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:1px solid var(--at-line);border-radius:6px;background:rgb(21 34 43 / .04);color:var(--at-mute);font:500 .75rem/1 var(--mono);}
+.at-selects{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;}
+.at-select{position:relative;display:block;min-width:0;}
+.at-select select{width:100%;height:44px;padding:0 34px 0 14px;border:1px solid var(--at-line);border-radius:12px;background:var(--at-paper);color:var(--at-ink);font:inherit;font-size:var(--t-small);appearance:none;cursor:pointer;}
+.at-select select:hover{border-color:rgb(21 34 43 / .32);}
+.at-select select:focus-visible{outline:2px solid var(--at-gold);outline-offset:2px;}
+.at-select-chev{position:absolute;right:10px;top:50%;margin-top:-9px;color:var(--at-mute);pointer-events:none;}
+.at-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+/* The sector menu is the page's check menu, dressed as a select beside the type. */
+.xc-atlas .xt-menu{min-width:0;}
+.xc-atlas .xt-menu > .xt-btn{width:100%;height:44px;justify-content:space-between;padding:0 12px 0 14px;border:1px solid var(--at-line);border-radius:12px;background:var(--at-paper);color:var(--at-ink);font-size:var(--t-small);font-weight:400;}
+.xc-atlas .xt-menu > .xt-btn:hover{border-color:rgb(21 34 43 / .32);background:var(--at-paper);}
+.xc-atlas .xt-menu > .xt-btn > span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.xc-atlas .xt-chev{color:var(--at-mute);}
+.xc-atlas .xt-pop{background:var(--at-paper);border-color:var(--at-line);}
+.xc-atlas .xt-menu:nth-child(2) .xt-pop{left:auto;right:0;}
+.xc-atlas .xt-btn:focus-visible,.xc-atlas .at-list:focus-visible{outline:2px solid var(--at-gold);outline-offset:2px;}
+.xc-atlas .xt-check input{accent-color:var(--at-gold-ink);}
+.xc-atlas .xt-clear{color:var(--at-gold-ink);}
+.xc-atlas .xt-clear:hover{background:rgb(201 162 75 / .14);}
+.at-tools{display:flex;align-items:center;gap:8px;}
+.at-tools .xt-menu{flex:0 1 auto;}
+.at-tools .xt-menu > .xt-btn{height:38px;gap:10px;padding:0 10px 0 12px;}
+.at-tools > .xt-btn{height:38px;padding:0 12px;border:1px solid var(--at-line);border-radius:12px;color:var(--at-ink);font-size:var(--t-small);}
+.at-tools > .xt-btn:hover{background:rgb(21 34 43 / .05);}
+.at-tools > .xt-btn.xt-btn-on{color:var(--at-gold-ink);border-color:rgb(125 95 23 / .45);}
+.xc-atlas .xt-badge{background:var(--at-gold-ink);color:#fff;}
+.at-list{margin-left:auto;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border:1px solid var(--at-line);border-radius:12px;color:var(--at-ink);font:500 var(--t-small)/1 var(--font);text-decoration:none;}
+.at-list:hover{background:rgb(21 34 43 / .05);}
+.at-count{display:flex;flex-direction:column;gap:3px;margin:6px 0 0;padding-top:12px;border-top:1px solid var(--at-line);}
+.at-count-main{color:var(--at-ink);font:600 .75rem/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;}
+.at-count-sub{color:var(--at-mute);font-size:.8125rem;line-height:1.3;}
+.xc-atlas .xc-area-chip{border-color:var(--at-gold-ink);color:var(--at-gold-ink);background:transparent;}
+
+/* the rows: the page's company row, on ivory, with the open one marked in gold */
+.xc-atlas .crow:hover{background:rgb(21 34 43 / .05);}
+.xc-atlas .crow[aria-current="true"]{background:rgb(201 162 75 / .16);border-color:rgb(201 162 75 / .45);}
+.xc-atlas .crow-main{gap:14px;padding:10px 4px 10px 12px;}
+.xc-atlas .crow-main .entity-avatar,.xc-atlas .crow-logo{width:46px;height:46px;border-radius:12px;background:var(--at-paper);box-shadow:inset 0 0 0 1px var(--at-line);font-size:1.125rem;}
+.xc-atlas .crow-name{font-size:1rem;}
+.xc-atlas .crow-sub{color:var(--at-mute);}
+.xc-atlas .bm{color:var(--at-mute);}
+.xc-atlas .bm:hover{background:rgb(201 162 75 / .16);color:var(--at-ink);}
+.xc-atlas .bm[aria-pressed="true"]{color:var(--at-gold-ink);}
+.xc-atlas .xc-list .crow + .crow::before{background:var(--at-line);}
+.xc-atlas .xc-all{color:var(--at-ink);}
+.xc-atlas .xc-all:hover{color:var(--at-gold-ink);}
+.xc-atlas .xc-all:focus-visible,.xc-atlas .crow-main:focus-visible{outline:2px solid var(--at-gold);outline-offset:2px;}
+.xc-atlas .empty-state{color:var(--at-ink);}
+.xc-atlas .xc-note{color:var(--at-mute);}
+.at-foot{position:relative;flex:none;margin:0;padding:12px 22px 14px 48px;border-top:1px solid var(--at-line);color:var(--at-mute);font-size:.75rem;line-height:1.45;}
+.at-foot::before{content:'i';position:absolute;left:22px;top:13px;width:16px;height:16px;border:1px solid var(--at-mute);border-radius:50%;font:italic 600 .6875rem/14px var(--font-serif);text-align:center;}
+
+/* ---------- the map: the sea ---------- */
+.xp-atlas .xm{background:var(--at-navy);}
+.xp-atlas .xm #map.leaflet-container{background:radial-gradient(ellipse 75% 70% at 52% 58%,#0f3042 0%,#0a2230 48%,#06151f 100%);}
+.xp-atlas .xm #map.leaflet-container .leaflet-tile-pane{transition:opacity .55s var(--ease);}
+.xp-atlas .xm #map.atlas-on .leaflet-tile-pane{opacity:0;}
+/* Under the street map, paper: the page's quiet tiles are half see-through (styles.css .map-quiet-light) and were drawn over white, so over the night sea they would
+   go dark. The paper fades in as the sea fades out. */
+.xp-atlas .xm #map.leaflet-container::before{content:'';position:absolute;inset:0;z-index:0;background:#f7f4ea;opacity:0;pointer-events:none;transition:opacity .55s var(--ease);}
+.xp-atlas .xm #map.leaflet-container:not(.atlas-on)::before{opacity:1;}
+
+/* The drawn country, its names and the badges are there while the map is zoomed out, and fade as the street map comes in; the clusters and pins fade in over it.
+   (visibility goes with the fade, so what is not shown is not in the tab order either.) */
+.xp-atlas #map .leaflet-atlas-ground-pane,
+.xp-atlas #map .leaflet-atlas-names-pane,
+.xp-atlas #map .leaflet-atlas-badges-pane,
+.xp-atlas #map .atlas-ticks{opacity:0;visibility:hidden;transition:opacity .55s var(--ease),visibility 0s linear .55s;}
+.xp-atlas #map.atlas-on .leaflet-atlas-ground-pane,
+.xp-atlas #map.atlas-on .leaflet-atlas-names-pane,
+.xp-atlas #map.atlas-on .leaflet-atlas-badges-pane,
+.xp-atlas #map.atlas-on .atlas-ticks{opacity:1;visibility:visible;transition-delay:0s;}
+.xp-atlas #map .leaflet-marker-pane,
+.xp-atlas #map .leaflet-areas-pane{opacity:0;visibility:hidden;transition:opacity .55s var(--ease),visibility 0s linear .55s;}
+.xp-atlas #map.pins-on .leaflet-marker-pane,
+.xp-atlas #map.pins-on .leaflet-areas-pane{opacity:1;visibility:visible;transition-delay:0s;}
+.atlas-ticks{position:absolute;inset:0;z-index:450;pointer-events:none;overflow:hidden;}
+
+/* the land */
+.xp-atlas .atlas-land{fill:var(--at-land);fill-opacity:1;stroke:none;}
+.xp-atlas .atlas-hatch{fill:url(#atlas-hatch);fill-opacity:1;stroke:none;}
+.atlas-hatch-line{stroke:rgb(125 95 23 / .2);}
+.xp-atlas .atlas-coast{stroke:#a98a45;stroke-opacity:.95;fill:none;stroke-linejoin:round;}
+.xp-atlas .atlas-border{stroke:rgb(105 82 36 / .5);stroke-width:1;fill:none;}
+.xp-atlas .atlas-grid{stroke:rgb(176 206 224 / .12);stroke-dasharray:1 6;stroke-linecap:round;fill:none;}
+/* the glow round the coast: four wide strokes under the land, each narrower and brighter */
+.xp-atlas .atlas-glow{fill:none;stroke-linejoin:round;}
+.xp-atlas .atlas-glow-1{stroke:rgb(70 138 172 / .06);}
+.xp-atlas .atlas-glow-2{stroke:rgb(86 158 190 / .08);}
+.xp-atlas .atlas-glow-3{stroke:rgb(112 184 212 / .11);}
+.xp-atlas .atlas-glow-4{stroke:rgb(150 208 228 / .2);}
+
+/* the names on it */
+.atlas-name-icon{background:none;border:0;}
+.atlas-state,.atlas-sea{position:absolute;left:0;top:0;white-space:nowrap;pointer-events:none;transform:translate(-50%,-50%);}
+.atlas-state{color:rgb(98 76 30 / .62);font:500 .625rem/1 var(--mono);letter-spacing:.3em;text-transform:uppercase;}
+.atlas-sea{color:rgb(170 204 222 / .55);font:italic 400 1.3rem/1 var(--font-serif);letter-spacing:.02em;}
+.xp-atlas #map.atlas-small .atlas-state{display:none;}
+.atlas-tick{position:absolute;color:rgb(184 212 228 / .6);font:500 .625rem/1 var(--mono);letter-spacing:.12em;}
+.atlas-tick[hidden]{display:none;}
+.atlas-tick-lat{left:12px;top:0;margin-top:-5px;}
+.atlas-tick-lng{bottom:12px;left:0;margin-left:-14px;}
+
+/* the city badges: the city and its number on ivory, with a small gold anchor on the city itself */
+.atlas-badge-icon{background:none;border:0;}
+.atlas-badge{position:absolute;left:0;top:0;width:0;height:0;}
+.atlas-anchor{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--at-gold);border:2px solid #fff6dc;box-shadow:0 0 0 5px rgb(227 196 115 / .22),0 0 16px rgb(227 196 115 / .55);pointer-events:none;}
+.atlas-chip{
+  position:absolute;top:calc(var(--dy,0px) - 15px);display:inline-flex;align-items:center;gap:9px;height:30px;padding:0 12px;border:1px solid rgb(201 162 75 / .55);border-radius:9px;
+  background:#f9f3e3;color:var(--at-ink);font:600 .8125rem/1 var(--font-sans);white-space:nowrap;cursor:pointer;box-shadow:0 8px 20px -8px rgb(0 0 0 / .65);
+  transition:background-color .15s var(--ease),transform .15s var(--ease),box-shadow .15s var(--ease);
+}
+.atlas-chip[hidden]{display:none;}
+.atlas-chip b{font-weight:700;}
+.atlas-n{color:var(--at-gold-ink);font-weight:600;font-variant-numeric:tabular-nums;}
+.atlas-badge[data-side="right"] .atlas-chip{left:10px;}
+.atlas-badge[data-side="left"] .atlas-chip{right:10px;}
+.atlas-chip:hover{background:#fffaf0;transform:translateY(-1px);box-shadow:0 12px 24px -8px rgb(0 0 0 / .7);}
+.atlas-chip:focus-visible{outline:2px solid var(--at-gold-hi);outline-offset:3px;}
+/* a label moved off the level of its anchor (to keep apart from the next city) is joined to it */
+.atlas-badge[data-lead]::before{content:'';position:absolute;left:0;top:var(--lead-top,0);width:1px;height:var(--lead-h,0);background:rgb(227 196 115 / .7);}
+.atlas-badge[data-lead]::after{content:'';position:absolute;top:var(--dy,0);height:1px;width:10px;background:rgb(227 196 115 / .7);}
+.atlas-badge[data-lead][data-side="right"]::after{left:0;}
+.atlas-badge[data-lead][data-side="left"]::after{right:0;}
+
+/* ---------- over the map: the edition, the place, the compass, the way back ---------- */
+.at-over{position:absolute;z-index:520;top:22px;left:26px;display:flex;flex-direction:column;gap:6px;pointer-events:none;max-width:calc(100% - 140px);}
+.at-over > *{pointer-events:auto;}
+.at-over{padding:0;border-radius:16px;background:transparent;transition:background-color .35s var(--ease),padding .35s var(--ease);}
+/* on the street map, with no sea behind it, the heading sits on a card of the night */
+.at-over-card{padding:14px 20px 12px 16px;background:rgb(7 24 34 / .94);box-shadow:0 10px 26px -10px rgb(7 24 34 / .6);}
+.at-over-kicker{margin:0;color:var(--at-gold-hi);font:600 .6875rem/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;pointer-events:none;}
+.at-over .xt-loc{position:relative;}
+.at-over .xt-locbtn{
+  min-width:0;height:auto;padding:0;gap:12px;border:0;border-radius:8px;background:none;color:#faf6ea;
+}
+.at-over .xt-locbtn:hover,.at-over .xt-locbtn[aria-expanded="true"]{background:none;border-color:transparent;}
+.at-over .xt-pin{display:none;}
+.at-over .xt-here{flex:none;overflow:visible;font:400 clamp(2.7rem,4.4vw,3.9rem)/1.02 var(--font-serif);letter-spacing:-.02em;}
+.at-over .xt-chev{width:26px;height:26px;margin-top:6px;color:var(--at-gold-hi);}
+.at-over .xt-locbtn:focus-visible{outline:2px solid var(--at-gold-hi);outline-offset:6px;}
+.at-over .xt-pop{background:var(--at-paper);border-color:var(--at-line);color:var(--at-ink);}
+.at-over .xt-opt{color:var(--at-ink);}
+.at-over .xt-opt:hover{background:rgb(21 34 43 / .06);}
+.at-over .xt-opt-on,.at-over .xt-tick{color:var(--at-gold-ink);}
+.at-over-line{margin:0;color:rgb(250 246 234 / .72);font-size:.875rem;line-height:1.3;pointer-events:none;}
+.at-compass{position:absolute;z-index:520;top:62px;right:26px;pointer-events:none;}
+.at-compass-disc{fill:rgb(7 24 34 / .9);}
+.at-compass-needle{fill:#faf6ea;}
+.at-compass-tail{fill:none;stroke:rgb(250 246 234 / .5);stroke-width:1;}
+.at-compass-n{fill:#faf6ea;font:600 9px var(--mono);letter-spacing:.1em;}
+.at-hint,.xr-atlas{
+  position:absolute;z-index:520;left:26px;bottom:26px;display:inline-flex;align-items:center;gap:10px;height:42px;margin:0;padding:0 18px 0 16px;border:1px solid rgb(250 246 234 / .22);border-radius:999px;
+  background:rgb(7 24 34 / .78);color:#faf6ea;font:500 var(--t-small)/1 var(--font);
+}
+.at-hint{pointer-events:none;}
+.at-hint-dot{width:9px;height:9px;border-radius:50%;background:var(--at-gold);box-shadow:0 0 0 4px rgb(227 196 115 / .22);}
+.xr.xr-atlas{left:26px;bottom:26px;height:42px;padding:0 20px 0 14px;background:#f9f3e3;border-color:rgb(201 162 75 / .6);color:var(--at-ink);font-weight:600;box-shadow:0 8px 20px -8px rgb(0 0 0 / .65);}
+.xr.xr-atlas:hover{background:#fffaf0;border-color:var(--at-gold);}
+.xr.xr-atlas:focus-visible{outline:2px solid var(--at-gold-hi);outline-offset:3px;}
+
+/* zoom + − and "all of Australia": one stack of three, ivory */
+.xp-atlas .leaflet-control-zoom{right:20px;bottom:44px;border-color:rgb(201 162 75 / .5);border-radius:12px;background:#f9f3e3;box-shadow:0 8px 20px -8px rgb(0 0 0 / .65);}
+.xp-atlas .leaflet-control-zoom a{background:#f9f3e3;color:var(--at-ink);}
+.xp-atlas .leaflet-control-zoom a:hover{background:#fffaf0;color:var(--at-ink);}
+.xp-atlas .leaflet-control-zoom a + a{border-top-color:rgb(21 34 43 / .14);}
+.xp-atlas .leaflet-control-zoom a:focus-visible{outline:2px solid var(--at-gold);outline-offset:-3px;}
+.xp-atlas .leaflet-control-zoom a.atlas-fit{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-top:1px solid rgb(21 34 43 / .14);}
+.xp-atlas .leaflet-control-attribution{right:20px;bottom:12px;background:rgb(7 24 34 / .7);color:rgb(250 246 234 / .72);}
+.xp-atlas .leaflet-control-attribution a{color:rgb(250 246 234 / .72);}
+.xp-atlas .xr-area{background:var(--at-navy);border-color:rgb(250 246 234 / .3);}
+
+/* ---------- the pins, in the atlas's colours ---------- */
+.xp-atlas .marker-cluster-inner{background:var(--at-navy);border-color:#f9f3e3;color:var(--at-gold-hi);box-shadow:0 0 0 1px rgb(201 162 75 / .55),0 6px 16px -4px rgb(7 24 34 / .5);}
+.xp-atlas .marker-cluster-inner:hover{background:#0f3042;}
+.xp-atlas .pin-selected .pin-face{border-color:var(--at-gold);box-shadow:0 0 0 2px var(--at-gold),0 8px 22px -4px rgb(7 24 34 / .45);}
+.xp-atlas .pin-hiring-dot{background:var(--at-gold);}
+.xp-atlas .leaflet-marker-icon:focus-visible .pin-face,.xp-atlas .leaflet-marker-icon:focus-visible .marker-cluster-inner{outline-color:var(--at-gold);}
+
+/* ---------- the phone: the map first, the bar above it in ivory, the directory in the sheet ---------- */
+@media (max-width:899px){
+  .xp-atlas .mt{background:var(--at-ivory);border-bottom-color:var(--at-line);}
+  .xp-atlas .xs{background:var(--at-ivory);}
+  .xp-atlas .xm #map.leaflet-container{background:radial-gradient(ellipse 90% 60% at 50% 40%,#0f3042 0%,#0a2230 55%,#06151f 100%);}
+  .xr.xr-atlas{left:12px;bottom:88px;height:44px;}
+  .xp-atlas .leaflet-control-zoom{right:12px;}
+  .atlas-chip{height:28px;padding:0 10px;font-size:.75rem;}
+  .atlas-tick{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .xp-atlas #map .leaflet-atlas-ground-pane,.xp-atlas #map .leaflet-atlas-names-pane,.xp-atlas #map .leaflet-atlas-badges-pane,.xp-atlas #map .atlas-ticks,
+  .xp-atlas #map .leaflet-marker-pane,.xp-atlas #map .leaflet-areas-pane,.xp-atlas .xm #map.leaflet-container .leaflet-tile-pane,.atlas-chip{transition:none;}
+}

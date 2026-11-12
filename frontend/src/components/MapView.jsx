@@ -7,6 +7,8 @@ import { TILE_URL, TILE_OPTIONS, quietClass } from '../mapTiles.js';
 import { companyPopup, institutionPopup } from '../mapPopups.js';
 import { createPinIndex } from '../pinIndex.js';
 import { cityView } from '../cityViews.js';
+import { cityBadges, cityBounds } from '../atlas/cities.js';
+import { ATLAS_ZOOM, PINS_ZOOM, TILES_LOAD_ZOOM, SMALL_ZOOM, NATIONAL_BOUNDS, nationalPadding, cityPadding, CITY_FIT_MAX_ZOOM } from '../atlas/zoomModes.js';
 import { paddedWindow, pinPayload, vcTuple, vcMarks, isVc, isVcGroup, clusterSize, CLUSTER_PX, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM, AREA_CHIP_ZOOM } from '../mapPins.js';
 
 // A pin's logo, over the plain initial-letter badge rendered underneath this <img>. It is the company's OWN picture (its `logo` address) when the
@@ -342,10 +344,15 @@ const mapboxUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{
 // inside a cluster; { key, home: true } goes back to all of Australia. onViewChange({ lat, lng, zoom }) says where the map is looking after each move.
 // previewAt: { lat, lng } and previewCard: the compact preview of the open mark, which is drawn beside that mark and follows it as the map moves (previewKey says when it is a different
 // card, so it is placed again).
+// atlas: the map page's national view (src/atlas): the country drawn on the navy sea with a badge for each city that has published pins, which gives way to the
+// street map, the clusters and the single pins as the visitor zooms. The badges are counted from `nationalMarkers`, the pins under the filters other than the city
+// (the map's own `markers` are narrowed to the city once one is picked), and onPickCity(city) says a badge was pressed. onShowAustralia() is the fit button's.
+// Without `atlas` the map is what it always was.
 export default function MapView({
   markers = NO_MARKERS, areas = NO_AREAS, onSelectStartup, onViewArea, selectedName, trackedNames, vcPins = NO_VCS, showVcs = false,
   institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, onOpenInternal, onReportRoleClosed,
   onSelectPin, onClearPin, scope = '', focus = null, onViewChange, previewAt = null, previewCard = null, previewKey = '',
+  atlas = false, nationalMarkers = NO_MARKERS, onPickCity, onShowAustralia,
 }) {
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
@@ -360,11 +367,51 @@ export default function MapView({
   const frameRef = useRef(0);
   // What the index holds: the companies' pins and the investors' marks, whichever layers are on. A cluster counts both.
   const items = useMemo(() => [...(showCompanies ? markers : NO_MARKERS), ...(showVcs ? vcMarks(vcPins) : NO_MARKERS)], [markers, vcPins, showCompanies, showVcs]);
+  // The city badges of the national view: the distinct organisations with a published pin in each city, under the active filters (src/atlas/cities.js). The
+  // investors are counted only when they are all the map shows: their marks stand at a city's reference point, so beside the companies' pins they would be a
+  // count of another kind.
+  const badges = useMemo(() => (atlas ? cityBadges({ markers: nationalMarkers, vcPins, showCompanies, showVcs: showVcs && !showCompanies }) : NO_MARKERS), [atlas, nationalMarkers, vcPins, showCompanies, showVcs]);
+  const atlasRef = useRef(null);
   const latest = useRef({});
-  latest.current = { markers: items, areas, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, onOpenInternal, onReportRoleClosed, onSelectPin, onClearPin, onViewChange };
+  latest.current = { markers: items, areas, badges, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, onOpenInternal, onReportRoleClosed, onSelectPin, onClearPin, onViewChange, onPickCity, onShowAustralia };
   const scopeRef = useRef(scope);
   const wantsFit = useRef(Boolean(scope)); // the map opened on a city: it goes there once the pins are in
   const homeRef = useRef(HOME);
+
+  // The map moves with a flight when the visitor can take one, and straight there when they asked for less motion.
+  const moveTo = useCallback((bounds, options, duration = 1.1) => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) map.fitBounds(bounds, { ...options, animate: false });
+    else map.flyToBounds(bounds, { ...options, duration });
+  }, []);
+  const isNarrow = () => typeof window.matchMedia === 'function' && window.matchMedia(NARROW).matches;
+  // All of Australia (the atlas's home), and a city's pins: the box round the pins the badge counted, or the city's own view when it has none.
+  const showNational = useCallback((animate = true) => {
+    const map = mapRef.current;
+    if (!map) return;
+    map.options.zoomSnap = 0.25; // the whole country is fitted to the window, which is rarely at a whole zoom level (it goes back to whole ones as the street map comes in)
+    if (animate) moveTo(NATIONAL_BOUNDS, nationalPadding(isNarrow())); else map.fitBounds(NATIONAL_BOUNDS, { ...nationalPadding(isNarrow()), animate: false });
+  }, [moveTo]);
+  // A city's pins are fitted at a whole zoom level: the street map's tiles are drawn for whole levels, and between them their edges show as hairlines.
+  const showCity = useCallback((city) => {
+    const map = mapRef.current;
+    const view = cityView(city);
+    if (!map || !view) return;
+    const bounds = cityBounds(latest.current.badges.find((b) => b.city === city)?.points ?? []);
+    const calm = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    if (!bounds) {
+      if (calm) map.setView([view.lat, view.lng], view.zoom); else map.flyTo([view.lat, view.lng], view.zoom, { duration: 1.1 });
+      return;
+    }
+    const pad = cityPadding(isNarrow());
+    const topLeft = L.point(pad.paddingTopLeft);
+    const bottomRight = L.point(pad.paddingBottomRight);
+    const zoom = Math.max(map.getMinZoom(), Math.min(CITY_FIT_MAX_ZOOM, Math.floor(map.getBoundsZoom(bounds, false, topLeft.add(bottomRight)) + 1e-6)));
+    const box = L.latLngBounds(bounds);
+    const centre = map.unproject(map.project(box.getSouthWest(), zoom).add(map.project(box.getNorthEast(), zoom)).divideBy(2).add(bottomRight.subtract(topLeft).divideBy(2)), zoom);
+    if (calm) map.setView(centre, zoom); else map.flyTo(centre, zoom, { duration: 1.1 });
+  }, []);
 
   // Writes the names under the pins that have room for one. From zoom 7 (9 on a phone) the pins on screen are looked at in the
   // order worth naming (the open one, then those hiring, then the rest): a name is written only where it covers no other name
@@ -498,7 +545,8 @@ export default function MapView({
     const map = L.map(mapElRef.current, {
       zoomControl: false,
       attributionControl: false, // added below, without Leaflet's own name in front of the credit
-      minZoom: 3,
+      minZoom: atlas ? 2.5 : 3,
+      zoomSnap: atlas ? 0.25 : 1, // the national view fits the whole country to the window, which is rarely a whole zoom level
       maxBounds: [[-85, -180], [85, 180]],
       maxBoundsViscosity: 1.0,
     }).setView(narrow ? HOME_NARROW.center : HOME.center, narrow ? HOME_NARROW.zoom : HOME.zoom);
@@ -506,15 +554,53 @@ export default function MapView({
     // A map opened on one of the map page's cities (/map?city=Hobart) starts there, with or without companies to fit to.
     const opening = cityView(scopeRef.current);
     if (opening) { map.setView([opening.lat, opening.lng], opening.zoom); wantsFit.current = false; }
+    else if (atlas) map.fitBounds(NATIONAL_BOUNDS, { ...nationalPadding(narrow), animate: false });
+    let tiles;
     if (mapboxToken) {
-      tilesRef.current = L.tileLayer(mapboxUrl, { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true }).addTo(map);
+      tiles = L.tileLayer(mapboxUrl, { attribution: '&copy; Mapbox &copy; OpenStreetMap', tileSize: 512, zoomOffset: -1, maxZoom: 18, noWrap: true });
     } else {
       // No Mapbox token: the OpenStreetMap tiles of mapTiles.js, made quiet by a class.
       mapElRef.current.classList.add(quietClass());
-      tilesRef.current = L.tileLayer(TILE_URL, TILE_OPTIONS).addTo(map);
+      tiles = L.tileLayer(TILE_URL, TILE_OPTIONS);
     }
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    tilesRef.current = tiles;
+    if (!atlas) tiles.addTo(map); // (the atlas asks for the street map only once the visitor is near enough to want it: syncMode below)
+    const zoomControl = L.control.zoom({ position: 'bottomright' }).addTo(map);
     L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map); // takes the tile layer's credit
+    let teardownAtlas = () => {};
+    if (atlas) {
+      map.attributionControl.addAttribution('Coastline: Natural Earth');
+      // The third button of the zoom stack: all of Australia again.
+      const fit = L.DomUtil.create('a', 'atlas-fit', zoomControl.getContainer());
+      fit.href = '#';
+      fit.setAttribute('role', 'button');
+      fit.setAttribute('aria-label', 'Show all of Australia');
+      fit.title = 'Show all of Australia';
+      fit.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4"/><circle cx="12" cy="12" r="2.2"/></svg>';
+      L.DomEvent.on(fit, 'click', (event) => { L.DomEvent.stop(event); latest.current.onShowAustralia?.(); showNational(true); });
+      // What shows at this zoom: the drawn country and its badges, or the clusters and pins on the street map (atlas.css fades one into the other).
+      const syncMode = () => {
+        const z = map.getZoom();
+        const el = mapElRef.current;
+        if (!el) return;
+        el.classList.toggle('atlas-on', z < ATLAS_ZOOM);
+        el.classList.toggle('pins-on', z >= PINS_ZOOM);
+        el.classList.toggle('atlas-small', z < SMALL_ZOOM);
+        map.options.zoomSnap = z >= TILES_LOAD_ZOOM ? 1 : 0.25; // the street map is drawn at whole zoom levels; the country at quarter ones
+        const street = z >= TILES_LOAD_ZOOM;
+        if (street && !map.hasLayer(tiles)) tiles.addTo(map);
+        else if (!street && map.hasLayer(tiles)) tiles.remove();
+      };
+      map.on('zoom zoomend', syncMode);
+      syncMode();
+      let alive = true;
+      import('../atlas/atlasLayer.js').then(({ createAtlas }) => {
+        if (!alive || !mapRef.current) return;
+        atlasRef.current = createAtlas(map, { onPickCity: (city) => latest.current.onPickCity?.(city) });
+        atlasRef.current.setBadges(latest.current.badges);
+      });
+      teardownAtlas = () => { alive = false; map.off('zoom zoomend', syncMode); atlasRef.current?.destroy(); atlasRef.current = null; };
+    }
     // Groups sit under the pins, in a pane of their own between the tiles and the markers, so the ring of a city never
     // hides a pin or a cluster in it.
     map.createPane('areas').style.zIndex = '450';
@@ -544,11 +630,14 @@ export default function MapView({
     draw();
     reportView();
     return () => {
-      cancelAnimationFrame(frameRef.current); map.remove();
+      cancelAnimationFrame(frameRef.current); teardownAtlas(); map.remove();
       mapRef.current = null; layerRef.current = null; areaLayerRef.current = null; instLayerRef.current = null; tilesRef.current = null;
       shownRef.current = new Map(); labelsRef.current = new Map(); clustersRef.current = new Map();
     };
-  }, [draw]);
+  }, [draw]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The badges follow the pins: a filter changed, or the layers were switched.
+  useEffect(() => { atlasRef.current?.setBadges(badges); }, [badges]);
 
   // The groups (a filter changed, or the companies' layer was switched): they are few and do not depend on the window or the zoom, so all
   // are drawn each time.
@@ -595,12 +684,13 @@ export default function MapView({
     const view = cityView(scope);
     if (view) {
       wantsFit.current = false;
+      if (atlas) { showCity(scope); return; } // the national view's flight: to the box round that city's published pins
       if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) map?.setView([view.lat, view.lng], view.zoom); else map?.flyTo([view.lat, view.lng], view.zoom, { duration: 0.8 });
       return;
     }
     wantsFit.current = Boolean(scope);
-    if (!scope) map?.setView(homeRef.current.center, homeRef.current.zoom);
-  }, [scope]);
+    if (!scope) { if (atlas) showNational(true); else map?.setView(homeRef.current.center, homeRef.current.zoom); }
+  }, [scope]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // New pins (a filter changed, or a layer was switched): start from nothing, because a cluster's number belongs to the index that made it.
   useEffect(() => {
@@ -619,7 +709,7 @@ export default function MapView({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !focus) return;
-    if (focus.home) { map.setView(homeRef.current.center, homeRef.current.zoom); return; }
+    if (focus.home) { if (atlas) showNational(true); else map.setView(homeRef.current.center, homeRef.current.zoom); return; }
     const { lat, lng, id, inset = 0, insetRight = 0 } = focus;
     const size = map.getSize();
     const at = map.latLngToContainerPoint([lat, lng]);

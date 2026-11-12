@@ -182,11 +182,12 @@ describe('facets, summary, markers', () => {
     const pinned = f.rows.filter((r) => ['EXACT', 'SUBURB'].includes(r.location_precision));
     expect(items).toHaveLength(pinned.length);
     expect(pinned.length).toBeLessThan(f.rows.filter((r) => r.verified).length); // some are known only to their city
-    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo']);
+    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo', 'metro']);
     expect(items[0]).toHaveLength(MARKER_FIELDS.length);
     const first = pinned[0];
-    const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo] = items[0];
+    const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo, metro] = items[0];
     expect(logo).toBeNull(); // a company with no logo of its own has none: the map draws its first letter
+    expect(metro === null || typeof metro === 'string').toBe(true); // the big city its postcode is in, or none (markerMetro.test.js)
     expect([slug, name, lat, lng, sector, city, hiring]).toEqual([first.slug, first.name, first.lat, first.lng, first.sector, first.city, first.hiring ? 1 : 0]);
     expect(domain).toBe(first.website ? first.website.replace(/^https:\/\/www\./, '') : '');
     expect(precision).toBe(first.location_precision);

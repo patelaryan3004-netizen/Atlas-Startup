@@ -14,6 +14,7 @@ import ExploreToolbar, { placeLabel } from './components/explore/ExploreToolbar.
 import MapToolbar, { ENTITY_OPTIONS } from './components/explore/MapToolbar.jsx';
 import { Segmented } from './components/brand/parts.jsx';
 import { MAP_CITIES } from './cityViews.js';
+import { ATLAS_ZOOM } from './atlas/zoomModes.js';
 import AllAustralia from './components/explore/AllAustralia.jsx';
 import ResultsSheet from './components/explore/ResultsSheet.jsx';
 import { getPersonProfile } from './people.js';
@@ -36,11 +37,13 @@ import { lazyView, Lazy } from './lazyLoad.jsx';
 import { ListSkeleton, MapPlaceholder } from './components/Skeletons.jsx';
 import { peek } from './peek.js';
 import './explore.css';
+import './atlas.css';
 
 // Fetched when first wanted, not with the page: the pages (the map and its library, the list, the jobs board, the investors, the
 // news, the people), the news ticker (once the page has settled), the company's panel and every dialog. What stays here is what every
 // visit draws at once: the header, search, filters, the map's key and the footer.
 const MapView = lazyView(() => import('./components/MapView.jsx'));
+const AtlasOverlay = lazyView(() => import('./components/explore/AtlasOverlay.jsx')); // the words over the map page's map: with the map, not with the app's first load
 const NewsTicker = lazyView(() => import('./components/NewsTicker.jsx'));
 const ListView = lazyView(() => import('./components/ListView.jsx'));
 const StartupPanel = lazyView(() => import('./components/explore/StartupPanel.jsx'));
@@ -210,6 +213,9 @@ export default function App() {
   const peopleOn = showPeople(); // VITE_SHOW_PEOPLE: without it the People page, its links and the firms on the map do not exist (flags.js)
   // The page is in the address bar (appRoute.js): a link opens it, Back leaves it.
   const [route, setRoute] = useState(readAppRoute);
+  // A company opened from the map page keeps the map page behind its panel (not the Discover page the address /startup/<slug> otherwise is): where it was opened from.
+  const [startupOrigin, setStartupOrigin] = useState('');
+  const mapBase = route.kind === 'map' || (route.kind === 'startup' && startupOrigin === 'map');
   // The app is on the page, so a link inside it (a post's author, a tab) can move to another page of it without loading the site again (navigate.js).
   useEffect(() => { window.__stillEarlyApp = true; return () => { window.__stillEarlyApp = false; }; }, []);
   const [filters, setFilters] = useState(() => initialFilters(route));
@@ -227,6 +233,7 @@ export default function App() {
   const [stats, setStats] = useState(first.stats);
   const [markers, setMarkers] = useState(first.pins?.items ?? []);
   const [areas, setAreas] = useState(first.pins?.areas ?? []);
+  const [nationalPins, setNationalPins] = useState(null); // the pins under every filter but the city: what the national view counts its badges from (MapView)
   const [newsVisible, setNewsVisible] = useState(loadNewsVisible);
   const [layers, setLayers] = useState(loadLayers);
   const [institutionPins, setInstitutionPins] = useState([]);
@@ -356,12 +363,23 @@ export default function App() {
     if (viewMode !== 'map') return undefined;
     const ctrl = new AbortController();
     let shown = false;
-    const draw = ({ items, areas: groups }) => { if (!ctrl.signal.aborted) { setMarkers(items); setAreas(groups ?? []); } };
+    const draw = ({ items, areas: groups }) => { if (!ctrl.signal.aborted) { setMarkers(items); setAreas(groups ?? []); if (!applied.city) setNationalPins(items); } };
     fetchMarkers(applied, { signal: ctrl.signal, onSnapshot: (found) => { shown = true; draw(found); } })
       .then(draw)
       .catch((err) => { if (!ctrl.signal.aborted && !aborted(err) && !shown) { setMarkers([]); setAreas([]); } });
     return () => ctrl.abort();
   }, [applied, viewMode]);
+
+  // The map page's national view counts a badge for each city, and a city picked narrows the pins above to that city: so while one is picked the pins of every city
+  // are asked for as well (the same filters but the city), and the badges are counted from those. With no city picked the pins above are those.
+  useEffect(() => {
+    if (!mapBase || viewMode !== 'map' || !applied.city) return undefined;
+    const ctrl = new AbortController();
+    fetchMarkers({ ...applied, city: '' }, { signal: ctrl.signal })
+      .then(({ items }) => { if (!ctrl.signal.aborted) setNationalPins(items); })
+      .catch(() => { /* the badges keep the last pins they had */ });
+    return () => ctrl.abort();
+  }, [applied, viewMode, mapBase]);
 
   // The firms' offices, once, for the map (they do not depend on the filters): none until the owner's file of firms is in place.
   // With the people switched off the firms are not asked for at all.
@@ -426,6 +444,7 @@ export default function App() {
     setSelectedStartup(startup?.slug ? { ...startup, partial: true } : startup);
     if (!startup?.slug) return;
     const now = ui.current.route;
+    if (now.kind !== 'startup') setStartupOrigin(now.kind === 'map' ? 'map' : '');
     if (!(now.kind === 'startup' && now.slug === startup.slug)) goTo({ kind: 'startup', slug: startup.slug }, { replace: now.kind === 'startup' });
     fetchStartup(startup.slug)
       .then((full) => setSelectedStartup((current) => (current && current.slug === full.slug ? full : current)))
@@ -754,7 +773,12 @@ export default function App() {
 
   // The open mark's compact preview (a wide screen: beside its mark, MapView draws it there) and, on a phone, the panel in the bottom sheet.
   const wideMap = viewMode === 'map' && desktop;
-  const isMapPage = route.kind === 'map';
+  const isMapPage = mapBase;
+  // The map page ("Startup atlas") on a wide screen: the directory panel beside the map, always there, and the heading, the selects and the counts in it. On a phone
+  // the map comes first with the same bar as before and the directory one tap away in the sheet. National: no city is picked and the map has not been zoomed in.
+  const atlasWide = isMapPage && wideMap;
+  const national = splitValues(filters.city).length === 0 && (mapView?.zoom ?? 0) <= ATLAS_ZOOM;
+  const filterCount = Object.entries(filters).filter(([key, value]) => value && !['search', 'city', 'sector', 'stage'].includes(key)).length;
   const previewCard = wideMap && preview ? (
     <Lazy><PreviewCard
       key={preview.id ?? preview.slug}
@@ -768,14 +792,14 @@ export default function App() {
   ) : null;
 
   return (
-    <div id="app" className={['xp', isMapPage && 'xp-mappage', activeList && 'has-list-banner', filtersOpen && 'panel-open', isMapPage && wideMap && resultsOpen && 'results-on'].filter(Boolean).join(' ')}>
+    <div id="app" className={['xp', isMapPage && 'xp-mappage xp-atlas', activeList && 'has-list-banner', filtersOpen && 'panel-open', atlasWide && 'results-on'].filter(Boolean).join(' ')}>
       <SiteHeader active={isMapPage ? 'map' : 'discover'} go={go} counts={counts} onAdd={chrome.onAdd} addLabel="Add company" menu={menuProps} />
       {!isMapPage && <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={tabs} className="st-page" />}
 
       {!isMapPage && <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />}
 
       <div className="xw" ref={workspace}>
-        {isMapPage ? (
+        {isMapPage ? (wideMap ? null : (
           <MapToolbar
             filters={filters}
             onFilterChange={applyFilters}
@@ -793,7 +817,7 @@ export default function App() {
             listHref={appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown })}
             onList={() => { setViewMode('list'); goTo({ kind: 'explore' }); }}
           />
-        ) : (
+        )) : (
           <ExploreToolbar
             filters={filters}
             onFilterChange={applyFilters}
@@ -819,10 +843,25 @@ export default function App() {
           />
         )}
 
-        <div className="xb" data-view={viewMode} data-results={isMapPage && wideMap ? (resultsOpen ? 'open' : 'closed') : undefined}>
-          {wideMap && (!isMapPage || resultsOpen) && (
+        <div className="xb" data-view={viewMode} data-results={atlasWide ? 'open' : undefined}>
+          {wideMap && (
             <ResultsColumn
-              variant={isMapPage ? 'map' : 'explore'}
+              variant={isMapPage ? 'atlas' : 'explore'}
+              atlas={isMapPage ? {
+                filters,
+                onFilterChange: applyFilters,
+                sectors: meta.sectors,
+                stages: meta.stages,
+                onEntityChange: setShown,
+                filtersOpen,
+                onToggleFilters: () => setFiltersOpen((open) => !open),
+                filtersRef: filtersButton,
+                filterCount,
+                listHref: appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown }),
+                onList: () => { setViewMode('list'); goTo({ kind: 'explore' }); },
+                pinned: shown !== 'vcs' && markers.length > 0 ? `${markers.length.toLocaleString('en-AU')} with a pin on the map` : '',
+                note: 'Pins mark published office and suburb locations. An organisation known only to its city is listed here, counted, and never pinned.',
+              } : null}
               search={filters.search}
               onSearch={(search) => applyFilters({ search })}
               onCollapse={() => toggleResults(false)}
@@ -872,6 +911,10 @@ export default function App() {
                   previewAt={wideMap && preview && Number.isFinite(preview.lat) && Number.isFinite(preview.lng) ? { lat: preview.lat, lng: preview.lng } : null}
                   previewCard={previewCard}
                   previewKey={preview ? String(preview.id ?? preview.slug) : ''}
+                  atlas={isMapPage}
+                  nationalMarkers={nationalPins ?? markers}
+                  onPickCity={(city) => applyFilters({ city })}
+                  onShowAustralia={showAustralia}
                 />
               ) : shown === 'vcs' ? (
                 <VcList
@@ -898,13 +941,16 @@ export default function App() {
             </Lazy>
 
             {viewMode === 'map' && !desktop && chips && <div className="chips-float">{chips}</div>}
-            {isMapPage && wideMap && !resultsOpen && <button type="button" className="xr-open" onClick={() => toggleResults(true)}>Show results{Number.isFinite(summary?.count) ? ` · ${summary.count.toLocaleString('en-AU')}` : ''}</button>}
-            {isMapPage && wideMap && areaOffer && !area && <button type="button" className="xr-area" onClick={() => { setArea(areaOffer); setAreaOffer(null); toggleResults(true); }}>Search this area</button>}
+            {atlasWide && areaOffer && !area && <button type="button" className="xr-area" onClick={() => { setArea(areaOffer); setAreaOffer(null); }}>Search this area</button>}
+            {atlasWide && viewMode === 'map' && (
+              <Lazy><AtlasOverlay filters={filters} onFilterChange={applyFilters} cities={mapCityOptions} national={national} pinned={shown === 'vcs' ? undefined : markers.length} /></Lazy>
+            )}
+            {atlasWide && viewMode === 'map' && national && <p className="at-hint"><span className="at-hint-dot" aria-hidden="true" />Choose a city to explore</p>}
             {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
               <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>
             )}
 
-            {viewMode === 'map' && (splitValues(filters.city).length > 0 || (mapView?.zoom ?? 0) > ALL_AUSTRALIA_ZOOM) && <AllAustralia onClick={showAustralia} />}
+            {viewMode === 'map' && (splitValues(filters.city).length > 0 || (mapView?.zoom ?? 0) > ALL_AUSTRALIA_ZOOM) && <AllAustralia onClick={showAustralia} atlas={isMapPage} />}
 
             {viewMode === 'map' && !desktop && (
               <ResultsSheet
