@@ -376,5 +376,57 @@
     "pages": 1,
     "attempts": 1,
     "empty_first_at": null
+  },
+  {
+    "source_id": "deputy-lever-jobs",
+    "last_attempt_at": "2026-11-13T04:28:43.688Z",
+    "last_success_at": "2026-11-13T04:28:43.688Z",
+    "next_attempt_at": "2026-11-13T05:23:43.688Z",
+    "consecutive_failures": 0,
+    "last_error": null,
+    "empty_reads": 0,
+    "last_run_id": "jr-20261113042839601-jobsync",
+    "last_counts": {
+      "listed": 2,
+      "usable": 2,
+      "added": 0,
+      "updated": 2,
+      "reopened": 0,
+      "adopted": 0,
+      "hidden": 0,
+      "archived": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "skipped": 0
+    },
+    "pages": 1,
+    "attempts": 1,
+    "empty_first_at": null
+  },
+  {
+    "source_id": "vgw-greenhouse-jobs",
+    "last_attempt_at": "2026-11-13T04:28:45.633Z",
+    "last_success_at": "2026-11-13T04:28:45.633Z",
+    "next_attempt_at": "2026-11-13T05:23:45.633Z",
+    "consecutive_failures": 0,
+    "last_error": null,
+    "empty_reads": 0,
+    "last_run_id": "jr-20261113042839601-jobsync",
+    "last_counts": {
+      "listed": 12,
+      "usable": 12,
+      "added": 0,
+      "updated": 12,
+      "reopened": 0,
+      "adopted": 0,
+      "hidden": 0,
+      "archived": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "skipped": 0
+    },
+    "pages": 1,
+    "attempts": 1,
+    "empty_first_at": null
   }
 ]

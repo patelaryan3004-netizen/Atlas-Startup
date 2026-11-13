@@ -486,5 +486,147 @@
       "stopped_for": null
     },
     "error": null
+  },
+  {
+    "id": "jr-20261113042829227-jobsync",
+    "tick_id": "tick-20261113042828759",
+    "job": "jobsync",
+    "trigger": "cli",
+    "by": "owner-review",
+    "mode": null,
+    "dry_run": false,
+    "started_at": "2026-11-13T04:28:29.227Z",
+    "finished_at": "2026-11-13T04:28:37.707Z",
+    "status": "ok",
+    "due": 2,
+    "processed": 2,
+    "changed": 2,
+    "failed": 0,
+    "deferred": 0,
+    "requests": 4,
+    "budget": {
+      "max_requests": 300,
+      "max_sites": 40,
+      "max_minutes": 20,
+      "stopped_for": null
+    },
+    "summary": "2 board(s) read whole; 14 role(s) new",
+    "details": {
+      "totals": {
+        "added": 14,
+        "updated": 0,
+        "reopened": 0,
+        "adopted": 0,
+        "hidden": 0,
+        "archived": 0,
+        "duplicates": 0,
+        "out_of_scope": 0,
+        "listed": 14
+      },
+      "boards": [
+        {
+          "id": "deputy-lever-jobs",
+          "outcome": "read",
+          "listed": 2,
+          "added": 2,
+          "updated": 0,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "vgw-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 12,
+          "added": 12,
+          "updated": 0,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        }
+      ],
+      "unsupported": [],
+      "stopped_for": null
+    },
+    "error": null
+  },
+  {
+    "id": "jr-20261113042839601-jobsync",
+    "tick_id": "tick-20261113042839222",
+    "job": "jobsync",
+    "trigger": "cli",
+    "by": "owner-review",
+    "mode": null,
+    "dry_run": false,
+    "started_at": "2026-11-13T04:28:39.601Z",
+    "finished_at": "2026-11-13T04:28:48.535Z",
+    "status": "ok",
+    "due": 2,
+    "processed": 2,
+    "changed": 0,
+    "failed": 0,
+    "deferred": 0,
+    "requests": 4,
+    "budget": {
+      "max_requests": 300,
+      "max_sites": 40,
+      "max_minutes": 20,
+      "stopped_for": null
+    },
+    "summary": "2 board(s) read whole; no role changed",
+    "details": {
+      "totals": {
+        "added": 0,
+        "updated": 14,
+        "reopened": 0,
+        "adopted": 0,
+        "hidden": 0,
+        "archived": 0,
+        "duplicates": 0,
+        "out_of_scope": 0,
+        "listed": 14
+      },
+      "boards": [
+        {
+          "id": "deputy-lever-jobs",
+          "outcome": "read",
+          "listed": 2,
+          "added": 0,
+          "updated": 2,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "vgw-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 12,
+          "added": 0,
+          "updated": 12,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        }
+      ],
+      "unsupported": [],
+      "stopped_for": null
+    },
+    "error": null
   }
 ]

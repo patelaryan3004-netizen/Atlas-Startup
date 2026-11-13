@@ -10,6 +10,7 @@ import { ADDED_FIELDS, LEGACY_FIELDS } from '../src/models/company.js';
 import { detectConflicts, findWeakEvidence, flattenEvidence, EVIDENCE_FIELDS } from '../src/models/evidence.js';
 import { auditDataset, ATTRIBUTES } from '../src/models/audit.js';
 import { companyConfidence } from '../src/models/confidence.js';
+import { boardOf } from '../src/jobsync/sources.js';
 
 const DATA_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data');
 const deepFreeze = (o) => {
@@ -37,6 +38,16 @@ describe('shipped data files', () => {
 
   it('passes every referential-integrity and enum check', () => {
     expect(validateDataset(ds)).toEqual([]);
+  });
+
+  // The sync reads a board only because the employer's own page links to it, and that is recorded as a sources.json row. If the row is lost (a data file overwritten by an older copy) the
+  // approval has no evidence behind it, so every approved board must have its row, naming the same board.
+  it('has, for every approved job board, the sources.json row that records the employer\'s page linking to it', () => {
+    for (const board of ds.job_sources.filter((b) => b.status === 'approved')) {
+      const row = ds.sources.find((s) => s.id === board.id);
+      expect(row, `${board.id} has no sources.json row`).toBeTruthy();
+      expect(boardOf(row.url)?.token, `${board.id}: its sources.json row names another board`).toBe(board.token);
+    }
   });
 
   // A ratchet: companies are only ever removed on purpose. If you really mean to

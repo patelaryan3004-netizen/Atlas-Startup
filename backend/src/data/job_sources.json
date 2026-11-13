@@ -66,15 +66,15 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
-    "id": "deputy-lever-review",
+    "id": "deputy-lever-jobs",
     "company_id": "deputy",
     "provider": "lever",
     "token": "deputy",
     "board_url": "https://jobs.lever.co/deputy",
-    "status": "review",
-    "basis": "Named by the pilot handoff (Lever board \"deputy\"). The company's own site was read on 2026-11-13 (3 pages) and none of them links to this board, so it is NOT polled: a person confirms it from Deputy's own careers page, and the reader then writes the sources.json row that approves it.",
+    "status": "approved",
+    "basis": "Deputy's own careers page (https://www.deputy.com/au/careers) draws its \"Current job openings\" widget from this Lever board: both roles it shows link to jobs.lever.co/deputy/…, and the board's public feed lists exactly those two (read in a browser 2026-11-13; sources.json \"deputy-lever-jobs\").",
     "note": "",
-    "added_at": "2026-11-13T02:27:35.633Z"
+    "added_at": "2026-11-13T04:28:05.700Z"
   },
   {
     "id": "emesent-lever-jobs",
@@ -165,13 +165,24 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "vgw-greenhouse-jobs",
+    "company_id": "vgw",
+    "provider": "greenhouse",
+    "token": "vgw-australia",
+    "board_url": "https://job-boards.greenhouse.io/vgw-australia",
+    "status": "approved",
+    "basis": "VGW's own job page for its Perth role (https://www.vgw.co/greencon_job/application-support-specialist-4/) links \"Apply Now\" to https://job-boards.greenhouse.io/vgw-australia/jobs/8883252002, a posting on this Australian board, whose public feed lists it (read in a browser 2026-11-13; sources.json \"vgw-greenhouse-jobs\"). Only the Australian board is approved, not VGW's global one.",
+    "note": "",
+    "added_at": "2026-11-13T04:28:05.700Z"
+  },
+  {
     "id": "vgw-greenhouse-review",
     "company_id": "vgw",
     "provider": "greenhouse",
     "token": "vgw",
     "board_url": "https://boards.greenhouse.io/vgw",
     "status": "review",
-    "basis": "Named by the pilot handoff (Greenhouse board \"vgw\"). The company's own site was read on 2026-11-13 (3 pages) and none of them links to this board, so it is NOT polled: a person confirms it from VGW's own careers page, and the reader then writes the sources.json row that approves it.",
+    "basis": "VGW's global Greenhouse board \"vgw\". VGW's own job page links to it from a generic \"Apply Now\" button, but it is not the Australian board (that one, \"vgw-australia\", is approved: the page's Perth role links to it). It is not polled: the directory is Australian roles, and a person decides whether the global board has anything to add.",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
   },

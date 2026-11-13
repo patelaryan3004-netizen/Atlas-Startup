@@ -11,7 +11,7 @@ It describes hourly polling honestly: **a role appears after the next successful
 |---|---|
 | Reads | the provider's **official public postings feed** for a board the company's own careers page links to: Greenhouse (`boards-api.greenhouse.io`), Lever (`api.lever.co`), Workable (the widget feed). Through the project's one compliant fetcher (robots.txt, pacing, an honest user agent, a size cap, a timeout, no access control bypassed). |
 | Approves a board | only when the company's own site links to it: a `sources.json` row named like `acme-greenhouse-jobs` (what the careers-page reader writes). `job_sources.json` is the catalogue built from those rows. |
-| Does not guess | a board someone only **named** (the pilot handoff's Deputy and VGW) is in the catalogue as `review`: never polled, never guessed, until the employer's own page confirms it. A board that cannot be matched to a directory company is not added. |
+| Does not guess | a board someone only **named** is in the catalogue as `review`: never polled, never guessed, until the employer's own page confirms it. Today that is VGW's **global** Greenhouse board (`vgw`): its own page links to it from a generic button, but the Australian board is the one approved. A board that cannot be matched to a directory company is not added. |
 | Does not read | any competitor's listings, LinkedIn, or a search page (the fetcher refuses them). |
 | Cannot read yet | Ashby, Recruitee and SmartRecruiters boards. They stay with the slower hiring reader (every three days) and are listed as unsupported in the desk's "feed coverage" and in `npm run jobsync -- sources`. |
 | Not every company | only the approved boards are read. The coverage view says how many companies of the directory that is; it is not all of them and the page never says it is. |
@@ -53,6 +53,17 @@ A role at no Australian place and not remote from Australia is not stored.
 **Webhooks.** If an employer later offers an authorised, **signed** job-published webhook, it goes through the same rows and rules (`engine.applyEvent`: upsert one posting, or close one explicitly) and **reads keep running** to repair a missed event. No
 employer offers one today, so there is no endpoint and no secret.
 
+## Boards confirmed from an employer's own page (recorded 2026-11-13)
+
+A board is approved only when the employer's own page links to it, recorded as a `sources.json` row (`<company>-<provider>-jobs`); a test (`dataIntegrity.test.js`) fails if an approved board has lost its row.
+
+| Board | Employer evidence |
+|---|---|
+| `deputy-lever-jobs` (Lever `deputy`) | Deputy's careers page <https://www.deputy.com/au/careers> draws a "Current job openings" widget (`#lever-container`) from script, so a plain fetch does not show it. In a browser its two roles link to `jobs.lever.co/deputy/73af4076-…` (Account Executive, Sydney) and `jobs.lever.co/deputy/f22f8969-…` (Technical Support Engineer - Tier 3, Sydney), and the board's public feed `api.lever.co/v0/postings/deputy` lists exactly those two, with the same ids. |
+| `vgw-greenhouse-jobs` (Greenhouse `vgw-australia`) | VGW's own job page <https://www.vgw.co/greencon_job/application-support-specialist-4/> (Application Support Specialist, Perth) links "Apply Now" to `job-boards.greenhouse.io/vgw-australia/jobs/8883252002`. That posting is on the `vgw-australia` board, whose feed lists it (title and place Perth match; 12 postings, Perth 4 and Sydney 8). The page answers 404 to a plain fetch and was read in a browser. Only the Australian board is approved; the global board `vgw`, linked from the same page's generic button, stays in review. |
+
+Kasada's board listed nothing at its first read, and is held by the two-empty-read rule (see Lifecycle): nothing here changes that.
+
 ## Commands
 
 ```bash
@@ -63,6 +74,7 @@ npm run jobsync -- read <source-id>         # one board now: what it WOULD do (a
 npm run jobsync -- board                    # the desk's counts as the API will serve them
 npm run jobsync -- meaningful               # did the last run change anything a visitor could see, against the last commit?
 npm run scheduler -- tick --job jobsync     # the sync itself (add --force to read boards that were read within the hour; --data <dir> for a copy)
+npm run scheduler -- tick --job jobsync --board deputy-lever-jobs,vgw-greenhouse-jobs   # read just these catalogue boards now (a board in review is never read, even when named); the others keep their own state
 npm run scheduler -- status                 # shows the job beside the other six
 ```
 A plain `tick` does **not** run it (`ROUTINE_JOBS` in `models/jobRuns.js`): it is asked for by name, so there is one schedule for it.
@@ -89,4 +101,4 @@ file in GitHub's web editor, set the repository variable `JOBSYNC_ENABLED` to `t
 **The cost of this design, honestly:** every commit that changes a role redeploys the API on a free plan (about 30 seconds, then a cold start). Roles change a few times a day, not every hour. The cleaner fix is Render Starter with a persistent
 disk, where the same `tick --job jobsync` runs in the server's own cron and nothing is committed or redeployed: the code does not change, only where it runs.
 
-**A private preview's automation is separate:** the Vercel preview of this branch has **no** schedule. Its data is one real run made on 13 November 2026; it does not update itself.
+**A private preview's automation is separate:** a Vercel preview of this branch has **no** schedule. Its data is the commit's data; it does not update itself. `frontend/scripts/preview-with-api.mjs` deploys a preview whose `/api` is this branch's own backend, as one function inside the same deployment (see [hiring-desk.md](hiring-desk.md)), so the deployed page can be tried on live-shaped data before anything reaches production.

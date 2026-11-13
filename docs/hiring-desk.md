@@ -28,6 +28,16 @@ saved roles: any status), by `place` (where it is worked) and by the filters it 
 The page draws a **saved copy** of the board first (`public/data/jobs-board.json`, made by `npm run snapshot` in `backend/`, ignored after 14 days), then the server's answer replaces it. If the server cannot give one (it is asleep, or is
 an older server without the endpoint), the saved copy stays and the page says it is a saved copy and from when.
 
+The header never calls a saved copy live: while the saved copy is on screen (the live answer still loading, or unreachable) it reads **"Saved copy · checked <date>"**, the date being when the employers' boards were last read for it; once the live answer arrives it reads "Employer boards last read …".
+
+## How the counts add up
+
+The national figure counts each role once. A city card counts the roles worked in that city, so a role open in two cities is in both cards, and a role with no city is in none. Under the cards the page says how the figure splits, **computed from the roles of that same answer** (`placeBreakdown`, nothing typed in): N in a named city (M open in two cities, so the city counts add up to K), N remote from Australia with no city, and N elsewhere in Australia (a town, a state, or no city given), a button that shows them. The three groups always add up to the national figure. A town or state the employer named stays as written ("Cairns, Queensland", "Waterloo, NSW"); a bare "Australia" reads "Australia, no city given"; no city is ever invented for a role.
+
+## Trying the deployed page on live-shaped data
+
+The Vercel project points its `VITE_API_BASE` (for Production and Preview) at the live API, which does not have `/api/jobs/board` until this branch ships. `node frontend/scripts/preview-with-api.mjs` (from a clean checkout of the commit) deploys a **preview only** with an empty `VITE_API_BASE` and this branch's backend as one serverless function in the same deployment, so the page asks its own address for `/api` (same origin: the preview's sign-in covers it, no CORS, the production API is never asked). The community is closed there (`NETWORK_ENABLED=0`). `--prod` is refused.
+
 ## Files
 
 `src/components/network/JobsBoard.jsx` (the page), `src/components/jobs/parts.jsx` (cards, rows, index, dialogs), `src/jobsBoard.js` (the logic, tested without a page), `src/jobs.css`; on the server `network/jobs.js` (the role as presented),

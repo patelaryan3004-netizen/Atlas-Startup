@@ -17053,5 +17053,23 @@
     "publisher": "Curium Co Pty Ltd",
     "retrieved_at": "2026-11-05T08:53:37.581Z",
     "note": "Read by the discovery engine."
+  },
+  {
+    "id": "deputy-lever-jobs",
+    "kind": "company_website",
+    "url": "https://jobs.lever.co/deputy",
+    "title": "Lever job board",
+    "publisher": "deputy.com",
+    "retrieved_at": "2026-11-13T04:28:02.571Z",
+    "note": "Deputy's own careers page https://www.deputy.com/au/careers renders a \"Current job openings\" widget (#lever-container). Its two roles link to https://jobs.lever.co/deputy/73af4076-6528-4e07-ac5d-5cfcc215d0a5 (Account Executive, Sydney) and https://jobs.lever.co/deputy/f22f8969-4a6d-44cc-95fb-a2f205264a10 (Technical Support Engineer - Tier 3, Sydney). The board's public feed https://api.lever.co/v0/postings/deputy lists exactly those two postings, with the same ids. Read in a browser on 2026-11-13 (the widget is drawn by script, so a plain page fetch does not show it)."
+  },
+  {
+    "id": "vgw-greenhouse-jobs",
+    "kind": "company_website",
+    "url": "https://job-boards.greenhouse.io/vgw-australia",
+    "title": "Greenhouse job board (VGW Australia)",
+    "publisher": "vgw.co",
+    "retrieved_at": "2026-11-13T04:28:02.571Z",
+    "note": "VGW's own job page https://www.vgw.co/greencon_job/application-support-specialist-4/ (Application Support Specialist, Perth, Australia) links its \"Apply Now\" button to https://job-boards.greenhouse.io/vgw-australia/jobs/8883252002. That is a posting on the vgw-australia board, and the board's public feed https://boards-api.greenhouse.io/v1/boards/vgw-australia/jobs lists posting 8883252002 with the same title and the place Perth. Only this Australian board is approved. The same page's generic button links the global board https://job-boards.greenhouse.io/vgw, which is not approved. Read in a browser on 2026-11-13 (the page answers 404 to a plain fetch)."
   }
 ]

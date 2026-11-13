@@ -1,14 +1,8 @@
 [
   {
-    "company_id": "deputy",
-    "provider": "lever",
-    "token": "deputy",
-    "reason": "Named by the pilot handoff (Lever board \"deputy\"). The company's own site was read on 2026-11-13 (3 pages) and none of them links to this board, so it is NOT polled: a person confirms it from Deputy's own careers page, and the reader then writes the sources.json row that approves it."
-  },
-  {
     "company_id": "vgw",
     "provider": "greenhouse",
     "token": "vgw",
-    "reason": "Named by the pilot handoff (Greenhouse board \"vgw\"). The company's own site was read on 2026-11-13 (3 pages) and none of them links to this board, so it is NOT polled: a person confirms it from VGW's own careers page, and the reader then writes the sources.json row that approves it."
+    "reason": "VGW's global Greenhouse board \"vgw\". VGW's own job page links to it from a generic \"Apply Now\" button, but it is not the Australian board (that one, \"vgw-australia\", is approved: the page's Perth role links to it). It is not polled: the directory is Australian roles, and a person decides whether the global board has anything to add."
   }
 ]
