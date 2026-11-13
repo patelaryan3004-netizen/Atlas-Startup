@@ -36,7 +36,7 @@ The national figure counts each role once. A city card counts the roles worked i
 
 ## Trying the deployed page on live-shaped data
 
-The Vercel project points its `VITE_API_BASE` (for Production and Preview) at the live API, which does not have `/api/jobs/board` until this branch ships. `node frontend/scripts/preview-with-api.mjs` (from a clean checkout of the commit) deploys a **preview only** with an empty `VITE_API_BASE` and this branch's backend as one serverless function in the same deployment, so the page asks its own address for `/api` (same origin: the preview's sign-in covers it, no CORS, the production API is never asked). The community is closed there (`NETWORK_ENABLED=0`). `--prod` is refused.
+The Vercel project points its `VITE_API_BASE` (for Production and Preview) at the live API, which does not have `/api/jobs/board` until this branch ships. `node frontend/scripts/preview-with-api.mjs` (from a clean checkout of the commit) deploys a **preview only** with an empty `VITE_API_BASE` and this branch's backend as serverless functions in the same deployment (one file per path depth: Vercel matched a catch-all file name, and a rewrite, against one path segment only), so the page asks its own address for `/api` (same origin: the preview's sign-in covers it, no CORS, the production API is never asked). The community is closed there (`NETWORK_ENABLED=0`). `--prod` is refused.
 
 ## Files
 
