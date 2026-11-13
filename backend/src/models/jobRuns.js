@@ -17,7 +17,9 @@
 // that runs every few hours does not fill the file. A run that changed data also leaves a row in the audit trail.
 import { ISO_RE, isStr } from './company.js';
 
-export const JOBS = ['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality'];
+// The six that keep the directory current run together on the slow clock. `jobsync` reads the employers' job boards (jobsync/): it has its own, hourly, and is asked for by name.
+export const ROUTINE_JOBS = ['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality'];
+export const JOBS = [...ROUTINE_JOBS, 'jobsync'];
 export const RUN_STATUSES = ['running', 'ok', 'partial', 'failed', 'idle', 'skipped'];
 export const RUN_TRIGGERS = ['cli', 'ci', 'loop', 'admin'];
 export const IDLE_KEEP_DAYS = 30;

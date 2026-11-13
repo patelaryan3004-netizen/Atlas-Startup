@@ -10,7 +10,7 @@
 //   npm run scheduler -- learn                                         set the clocks from the queue's history (no network)
 //
 //   limits: --max-sites n (companies read per run, 40)  --max-requests n (300)  --max-minutes n (20)  --concurrency n (2)
-//   jobs:   discovery, funding, hiring, status, enrichment, quality
+//   jobs:   discovery, funding, hiring, status, enrichment, quality (a plain tick runs these), and jobsync (the hourly employer job-board sync: --job jobsync)
 //
 // Add --data <dir> to work on a copy of the data files. A tick reads other people's websites politely (robots.txt,
 // pacing, Retry-After, a request budget) and writes evidence, never a company: the default mode is 'suggest'.
@@ -20,7 +20,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshot, transact } from '../src/models/store.js';
-import { JOBS } from '../src/models/jobRuns.js';
+import { JOBS, ROUTINE_JOBS } from '../src/models/jobRuns.js';
 import { MODES } from '../src/enrichment/policy.js';
 import { buildSourceConfig } from '../src/discovery/config.js';
 import { COMPANY_FACETS } from '../src/scheduler/cadence.js';
@@ -53,7 +53,7 @@ const whole = (flags, name, min = 1) => {
 
 function jobsFrom(flags, positional) {
   const raw = positional[0] && !String(positional[0]).startsWith('-') ? positional[0] : flags.job;
-  if (raw === undefined) return JOBS;
+  if (raw === undefined) return ROUTINE_JOBS; // jobsync, the hourly one, is asked for by name
   const list = String(raw).split(',').map((s) => s.trim()).filter(Boolean);
   const unknown = list.filter((j) => !JOBS.includes(j));
   if (unknown.length) throw new Error(`unknown job ${unknown.map((j) => `"${j}"`).join(', ')}: the jobs are ${JOBS.join(', ')}`);

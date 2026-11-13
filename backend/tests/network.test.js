@@ -491,10 +491,13 @@ describe('jobs', () => {
     expect(res.body.facets.remote).toBe(1);
   });
 
-  it('marks a reading older than the site\'s 14-day window as stale rather than hiding or hiding it', async () => {
+  it('takes a role off the default list when it has not been confirmed for the site\'s 14 days, and still finds it when asked (stale, or by id for a bookmark)', async () => {
     const { app } = await setup();
-    const old = (await request(app).get('/api/jobs')).body.results.find((j) => j.id === 'j-6');
-    expect(old).toMatchObject({ stale: true, days_since_checked: 27 });
+    expect((await request(app).get('/api/jobs')).body.results.map((j) => j.id)).not.toContain('j-6');
+    const old = (await request(app).get('/api/jobs?include_stale=yes')).body.results.find((j) => j.id === 'j-6');
+    expect(old).toMatchObject({ stale: true, days_since_checked: 27, confirmation: 'stale' });
+    const saved = (await request(app).get('/api/jobs?ids=j-6,j-4')).body.results;
+    expect(saved.map((j) => [j.id, j.lifecycle])).toEqual(expect.arrayContaining([['j-6', 'open'], ['j-4', 'closed']]));
   });
 
   it('shows closed roles only when asked, marked closed', async () => {

@@ -28,7 +28,9 @@ describe('the app owns no picture files to optimise', () => {
     // so there is nothing to optimise in the app)
     // The welcome page's night sky is the other artwork the site owns: two webp files (img/), a wide one and a narrow one for a phone, made from the approved
     // design with every word taken out of them (scripts/art). They are drawn by one image tag (components/landing/Hero.jsx), tested below.
-    expect(pictures(publicDir).map((f) => String(f).replace(/\\/g, '/')).sort()).toEqual(['favicon.svg', 'img/hero-night-sm.webp', 'img/hero-night.webp', 'og-image.png']);
+    // The hiring desk's four place cards (/jobs) are the third: three photographs of Melbourne, Sydney and Perth (webp, from Unsplash, credited on the page and in docs/hiring-desk.md)
+    // and the outline of Australia for Remote AU (the map's own coastline, as an svg). They are drawn by one image tag (components/jobs/parts.jsx), tested below.
+    expect(pictures(publicDir).map((f) => String(f).replace(/\\/g, '/')).sort()).toEqual(['favicon.svg', 'img/hero-night-sm.webp', 'img/hero-night.webp', 'img/jobs/melbourne.webp', 'img/jobs/perth.webp', 'img/jobs/remote.svg', 'img/jobs/sydney.webp', 'og-image.png']);
     for (const file of sources()) {
       expect(text(file), rel(file)).not.toMatch(/(?:import|url\()\s*\(?['"]?[^'")\s]*\.(png|jpe?g|gif|webp|avif|bmp)/i);
     }
@@ -65,7 +67,8 @@ describe('every image tag', () => {
   it('is found where the logos are drawn (this test would otherwise check nothing)', () => {
     // the logos beside a name are drawn in one place now, the shared avatar (EntityCard: the cards, the rows, the previews and the company's panel); the investors' own are the other
     // (components/investors/common.jsx draws two: a firm's logo and a person's picture, which is drawn only from a secure address a record holds)
-    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx', 'components/investors/common.jsx', 'components/landing/Hero.jsx']);
+    // (the hiring desk draws two: a company's mark, and a place card's picture: components/jobs/parts.jsx)
+    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx', 'components/investors/common.jsx', 'components/jobs/parts.jsx', 'components/jobs/parts.jsx', 'components/landing/Hero.jsx']);
   });
 
   it('has an alt (empty: the name is beside it), and decodes off the main thread', () => {
@@ -76,7 +79,10 @@ describe('every image tag', () => {
   });
 
   it('waits until it is near the screen (loading="lazy"), except the picture of the welcome page\'s opening, which is the first thing on it', () => {
-    for (const { file, tag } of all.filter((i) => i.file !== 'components/landing/Hero.jsx')) expect(tag, file).toContain('loading="lazy"');
+    // (the hiring desk's place cards sit at the top of the page, under its heading, so they load at once; each has its size, so the page does not move)
+    const first = (i) => i.file === 'components/landing/Hero.jsx' || i.tag.includes('jd-tile-img');
+    for (const { file, tag } of all.filter((i) => !first(i))) expect(tag, file).toContain('loading="lazy"');
+    for (const { tag } of all.filter((i) => i.tag.includes('jd-tile-img'))) expect(tag).toMatch(/width="450" height="160"/);
     const hero = all.find((i) => i.file === 'components/landing/Hero.jsx').tag;
     expect(hero).not.toContain('lazy');
     expect(hero).toContain('fetchPriority="high"');

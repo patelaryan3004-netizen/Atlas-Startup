@@ -1,6 +1,6 @@
 # The scheduler: keeping the directory current
 
-Six scheduled jobs keep the directory up to date: they find companies we do not have, improve thin profiles, refresh who is hiring, notice new funding, notice an acquisition, a shutdown or a rename, and look for records that have gone stale or disagree with a source. Each fact is looked at again at its own pace, politely, and every run is written down.
+A seventh job, `jobsync`, reads employers' job boards hourly for the hiring desk and is asked for by name ([jobs-sync.md](jobs-sync.md)). Six scheduled jobs keep the directory up to date: they find companies we do not have, improve thin profiles, refresh who is hiring, notice new funding, notice an acquisition, a shutdown or a rename, and look for records that have gone stale or disagree with a source. Each fact is looked at again at its own pace, politely, and every run is written down.
 
 It is a separate command (`npm run scheduler` in `backend/`), never part of the public server. It reads feeds and company websites and writes **evidence, clocks and a run log**. It does not change a company unless you start it in `fill` mode, and even then only what the enrichment policy allows.
 

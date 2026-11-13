@@ -7,6 +7,7 @@ import { fetchEvents, fetchFeed, fetchJobs, fetchMembers } from '../../networkAp
 import { ensureStatus, useSession } from '../../session.js';
 import { openAuth } from '../../authUi.js';
 import { useSavedKind } from '../../savedStore.js';
+import { normaliseRole, standing } from '../../jobsBoard.js';
 import { usePageMeta } from '../../hooks/usePageMeta.js';
 import { BookmarkIcon, ExternalIcon } from '../explore/icons.jsx';
 import PostCard from './PostCard.jsx';
@@ -81,7 +82,13 @@ export default function SavedPage({ chrome = {} }) {
     },
     {
       kind: 'job', title: 'Jobs', load: async (ids) => (await fetchJobs({ ids, limit: 100, include_closed: 'yes' })).results,
-      render: (j, toggle) => <Row key={j.id} title={`${j.title}, ${j.company.name}`} sub={j.location || 'Location not stated'} href={j.apply_url} external onRemove={() => toggle(j.id)} removeLabel={`Remove ${j.title} from saved`} />,
+      // A saved role keeps its true status: one the employer has taken down says so, and then links to the hiring desk's account of it, not to an apply page.
+      render: (raw, toggle) => {
+        const j = normaliseRole(raw);
+        const open = j.lifecycle === 'open';
+        const note = standing(j)?.label;
+        return <Row key={j.id} title={`${j.title}, ${j.company.name}`} sub={[j.location || 'Location not stated', note].filter(Boolean).join(' · ')} href={open ? j.apply_url : `/jobs?role=${encodeURIComponent(j.id)}`} external={open} onRemove={() => toggle(j.id)} removeLabel={`Remove ${j.title} from saved`} />;
+      },
     },
     {
       kind: 'event', title: 'Events', load: async (ids) => (await fetchEvents({ ids, limit: 100 })).results,

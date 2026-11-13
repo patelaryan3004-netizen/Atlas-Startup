@@ -6,6 +6,7 @@
 //             status      acquired, closed or renamed, from the homepage
 //             enrichment  description, address, founders, investors and founded year, from the company's own pages
 //             quality     what is stale, in conflict or failing; brings the right things forward to be looked at again
+//             jobsync     (asked for by name, hourly) every approved employer job board that is due, read whole, into jobs.json: see docs/jobs-sync.md
 //
 // The order of a tick:  1 note that the jobs started, and learn from any task that finished since last time
 //                       2 read the feeds (discovery, funding)
@@ -23,7 +24,7 @@
 //   - honest         every job leaves a row in the run log whatever happened, including "nothing was due"
 import { snapshot, transact } from '../models/store.js';
 import { indexState } from '../models/refreshState.js';
-import { JOBS, closeInterrupted, finishJobRun, startJobRun, tickIdOf } from '../models/jobRuns.js';
+import { JOBS, ROUTINE_JOBS, closeInterrupted, finishJobRun, startJobRun, tickIdOf } from '../models/jobRuns.js';
 import { runQueue } from '../enrichment/worker.js';
 import { createFetcher } from '../discovery/http.js';
 import { loadSources } from '../discovery/sources/index.js';
@@ -35,6 +36,7 @@ import { coolingHosts, reconcileFromQueue, recordHostCooldowns, stampCheck } fro
 import { eligibleUnless, facetsForJobs, planSiteReads } from './plan.js';
 import { runFeedJobs } from './jobs/feeds.js';
 import { runQuality, qualitySummary } from './jobs/quality.js';
+import { runJobSync, planJobSync } from './jobs/jobsync.js';
 
 export { JOBS };
 export const SITE_JOBS = ['hiring', 'status', 'enrichment'];
@@ -47,7 +49,7 @@ const sum = (obj, keys) => keys.reduce((n, k) => n + (obj?.[k] ?? 0), 0);
 // ---------- what is due, without doing any of it ----------
 
 // Reads nothing and writes nothing. For `plan` and `tick --dry-run`.
-export async function plan({ dir, sources = null, sourceConfig = null, env = process.env, now = Date.now, jobs = JOBS, limits = {}, force = false }) {
+export async function plan({ dir, sources = null, sourceConfig = null, env = process.env, now = Date.now, jobs = ROUTINE_JOBS, limits = {}, force = false }) {
   const at = iso(now());
   const { ds } = await snapshot(dir, { now });
   const work = structuredClone(ds);
@@ -60,8 +62,9 @@ export async function plan({ dir, sources = null, sourceConfig = null, env = pro
   const maxSites = limits.maxSites ?? DEFAULT_LIMITS.maxSites;
   const reads = siteJobs.length ? planSiteReads(work, { at, limit: maxSites, facets: facetsForJobs(siteJobs), force, cooling }) : null;
   const quality = selected.includes('quality') ? runQuality(work, { at }) : null;
+  const jobsync = selected.includes('jobsync') ? (({ due, planned, deferred, unsupported, waiting, approved, polled }) => ({ approved, polled, waiting, due: due.map((s) => s.id), unsupported: unsupported.map((s) => s.id), deferred }))(planJobSync(work, { now: now(), force, limit: limits.maxBoards })) : null;
   return {
-    at, jobs: selected, feeds, reads, quality: quality ? { summary: qualitySummary(quality), details: quality.details } : null, cooling: [...cooling],
+    at, jobs: selected, feeds, reads, quality: quality ? { summary: qualitySummary(quality), details: quality.details } : null, jobsync, cooling: [...cooling],
   };
 }
 
@@ -69,7 +72,7 @@ export async function plan({ dir, sources = null, sourceConfig = null, env = pro
 
 export async function tick({
   dir, fetcher = null, sources = null, sourceConfig = null, env = process.env, fetchImpl = undefined,
-  now = Date.now, jobs = JOBS, mode = 'suggest', by = 'scheduler', trigger = 'cli', limits = {}, force = false,
+  now = Date.now, jobs = ROUTINE_JOBS, mode = 'suggest', by = 'scheduler', trigger = 'cli', limits = {}, force = false,
   out = () => {}, shouldStop = () => false,
 }) {
   const selected = JOBS.filter((j) => jobs.includes(j));
@@ -120,6 +123,17 @@ export async function tick({
       for (const job of ['funding', 'discovery']) if (feeds[job]) Object.assign(results[job], feeds[job]);
       if (loaded.skipped.length && results.discovery) results.discovery.details = { ...(results.discovery.details ?? {}), skipped_sources: loaded.skipped };
       for (const job of ['funding', 'discovery']) if (feeds[job]?.summary) out(`${job}: ${feeds[job].summary}`);
+    });
+
+    // ---- 2b. the employers' job boards, on their own clock (one hour), read whole, with a budget of their own
+    await phase(['jobsync'], 'reading the employer job boards', async () => {
+      if (!selected.includes('jobsync')) return;
+      const jobsBase = fetcher ?? createFetcher({ userAgent: env.JOBSYNC_USER_AGENT || userAgent.replace('scheduled refresh', 'job board sync'), coolDownHosts: begun.cooling, maxBytes: 4000000, minDelayMs: 1500 });
+      const jobsBudget = createBudget({ maxRequests: limits.maxRequests ?? 120, maxMinutes: limits.maxMinutes ?? 10, now });
+      const r = await runJobSync({ ...ctx, fetcher: jobsBudget.wrap(jobsBase) }, { budget: jobsBudget, limit: limits.maxBoards });
+      if (r.failed > 0 && r.processed === 0) r.error = `every board that was read failed (${r.failed}): the roles were left as they were`;
+      Object.assign(results.jobsync, r);
+      out(`jobsync: ${r.summary}`);
     });
 
     // ---- 3. company sites: queue what is due, work the queue within the limits

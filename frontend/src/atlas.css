@@ -3,7 +3,7 @@
    explore.css's (xw, xb, xc, xm); this file is the atlas's look, the drawn country (atlasLayer.js) and how it fades into the street map and the pins as the map zooms.
    Names: at-head the panel's head, at-over the words over the map, atlas-* the drawn country and the city badges. */
 
-.xp-atlas{
+.xp-atlas,.jd{
   --at-navy:#071822;
   --at-sea:#0a2230;
   --at-ivory:#f7f1e3;
@@ -17,27 +17,27 @@
   --at-gold-ink:#7d5f17;
 }
 
-/* ---------- the header, in the night of the welcome page ---------- */
-.xp-atlas .sh{background:var(--at-navy);border-bottom:1px solid rgb(250 246 234 / .1);}
-.xp-atlas .sh-brand,.xp-atlas .sh-wordmark{color:#faf6ea;}
-.xp-atlas .sh-brand:focus-visible,.xp-atlas .sh-add:focus-visible,.xp-atlas .sh-link:focus-visible,.xp-atlas .sh-more:focus-visible{outline-color:var(--at-gold-hi);}
-.xp-atlas .sh-nav{border-color:rgb(250 246 234 / .16);background:rgb(250 246 234 / .03);}
-.xp-atlas .sh-link{color:rgb(250 246 234 / .8);}
-.xp-atlas .sh-link + .sh-link::before{background:rgb(250 246 234 / .14);}
-.xp-atlas .sh-link:hover{color:#fff;}
-.xp-atlas .sh-link[aria-current="page"]{color:#fff;}
-.xp-atlas .sh-link[aria-current="page"]::after{background:var(--at-gold);}
-.xp-atlas .sh-count{background:rgb(250 246 234 / .12);color:#faf6ea;}
-.xp-atlas .sh-add{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
-.xp-atlas .sh-add:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);}
-.xp-atlas .sh-more{border-color:rgb(250 246 234 / .22);background:rgb(250 246 234 / .06);color:#faf6ea;}
-.xp-atlas .sh-more:hover{background:rgb(250 246 234 / .14);}
-.xp-atlas .sh-signin{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
-.xp-atlas .sh-signin:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);color:#fff;}
-.xp-atlas .sh-signin svg{color:rgb(250 246 234 / .8);}
-.xp-atlas .am-btn{border-color:rgb(250 246 234 / .28);background:rgb(250 246 234 / .06);}
-.xp-atlas .am-btn:hover{border-color:var(--at-gold);}
-.xp-atlas .am-btn:focus-visible,.xp-atlas .sh-signin:focus-visible{outline-color:var(--at-gold-hi);}
+/* ---------- the header, in the night of the welcome page (the map page and the hiring desk, jobs.css) ---------- */
+:is(.xp-atlas,.jd) .sh{background:var(--at-navy);border-bottom:1px solid rgb(250 246 234 / .1);}
+:is(.xp-atlas,.jd) .sh-brand,:is(.xp-atlas,.jd) .sh-wordmark{color:#faf6ea;}
+:is(.xp-atlas,.jd) .sh-brand:focus-visible,:is(.xp-atlas,.jd) .sh-add:focus-visible,:is(.xp-atlas,.jd) .sh-link:focus-visible,:is(.xp-atlas,.jd) .sh-more:focus-visible{outline-color:var(--at-gold-hi);}
+:is(.xp-atlas,.jd) .sh-nav{border-color:rgb(250 246 234 / .16);background:rgb(250 246 234 / .03);}
+:is(.xp-atlas,.jd) .sh-link{color:rgb(250 246 234 / .8);}
+:is(.xp-atlas,.jd) .sh-link + .sh-link::before{background:rgb(250 246 234 / .14);}
+:is(.xp-atlas,.jd) .sh-link:hover{color:#fff;}
+:is(.xp-atlas,.jd) .sh-link[aria-current="page"]{color:#fff;}
+:is(.xp-atlas,.jd) .sh-link[aria-current="page"]::after{background:var(--at-gold);}
+:is(.xp-atlas,.jd) .sh-count{background:rgb(250 246 234 / .12);color:#faf6ea;}
+:is(.xp-atlas,.jd) .sh-add{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
+:is(.xp-atlas,.jd) .sh-add:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);}
+:is(.xp-atlas,.jd) .sh-more{border-color:rgb(250 246 234 / .22);background:rgb(250 246 234 / .06);color:#faf6ea;}
+:is(.xp-atlas,.jd) .sh-more:hover{background:rgb(250 246 234 / .14);}
+:is(.xp-atlas,.jd) .sh-signin{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
+:is(.xp-atlas,.jd) .sh-signin:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);color:#fff;}
+:is(.xp-atlas,.jd) .sh-signin svg{color:rgb(250 246 234 / .8);}
+:is(.xp-atlas,.jd) .am-btn{border-color:rgb(250 246 234 / .28);background:rgb(250 246 234 / .06);}
+:is(.xp-atlas,.jd) .am-btn:hover{border-color:var(--at-gold);}
+:is(.xp-atlas,.jd) .am-btn:focus-visible,:is(.xp-atlas,.jd) .sh-signin:focus-visible{outline-color:var(--at-gold-hi);}
 
 /* ---------- the workspace and the directory panel ---------- */
 /* The filter drawer ("More") slides over the directory panel, so it is as wide as the panel and dressed the same. */

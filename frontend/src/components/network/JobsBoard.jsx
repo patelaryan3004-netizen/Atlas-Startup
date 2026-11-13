@@ -1,180 +1,243 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import SiteHeader from '../brand/SiteHeader.jsx';
 import SectionTabs from '../brand/SectionTabs.jsx';
-import { EmptyState } from '../brand/parts.jsx';
-import { OPPORTUNITY_TABS, linkProps } from '../brand/nav.js';
-import { Avatar } from '../EntityCard.jsx';
+import { OPPORTUNITY_TABS } from '../brand/nav.js';
+import { CityCards, RoleRow, RoleDetail, CompanyIndex, Coverage, Credits } from '../jobs/parts.jsx';
 import { fetchJobs } from '../../networkApi.js';
 import { useSavedKind } from '../../savedStore.js';
 import { usePageMeta } from '../../hooks/usePageMeta.js';
 import { lazyView, Lazy } from '../../lazyLoad.jsx';
-import { BookmarkIcon, ExternalIcon, SearchIcon } from '../explore/icons.jsx';
-import { dayLabel } from './time.js';
+import { BookmarkIcon, SearchIcon, SlidersIcon, ChevronDown, CloseIcon } from '../explore/icons.jsx';
+import {
+  EMPTY, SORTS, PLACE_CARDS, OTHER_PLACES, OTHER_AU, REMOTE_AU, placeLabel, readFilters, writeFilters, isStart, activeSecondary, filterRoles, placeCounts, companyIndex, sortRoles, filterOptions,
+  sectorLabel, TYPE_LABELS, LEVEL_LABELS, ARRANGEMENT_LABELS, feedStamp, loadSnapshot, loadLive, normaliseRole,
+} from '../../jobsBoard.js';
+import '../../jobs.css';
 
 const SuggestDialog = lazyView(() => import('./SuggestDialog.jsx'));
-const PAGE = 24;
-// The board starts on roles in Australia (the directory is Australian startups, whose roles are sometimes in an overseas office); "Anywhere" shows every one.
-const EMPTY = { search: '', where: 'au', city: '', sector: '', stage: '', type: '', level: '', remote: '' };
-const sameAsStart = (f) => Object.keys(EMPTY).every((k) => f[k] === EMPTY[k]);
+const PAGE = 30;
+const DAY = 86400000;
 
-// The filters the address opens the board with (/jobs?city=Sydney&remote=yes, and where=any for roles anywhere), so a filtered board is a link.
-const fromAddress = () => {
-  try { const p = new URLSearchParams(window.location.search); return Object.fromEntries(Object.keys(EMPTY).map((k) => [k, p.get(k) ?? (k === 'where' ? 'au' : '')])); } catch (e) { return EMPTY; }
-};
-
-const checkedWords = (job) => {
-  if (job.days_since_checked == null) return 'Last read: date not recorded';
-  if (job.days_since_checked <= 0) return 'Read today';
-  return `Read ${job.days_since_checked} ${job.days_since_checked === 1 ? 'day' : 'days'} ago`;
-};
-
-function JobCard({ job, saved, onToggle }) {
-  const closed = job.status === 'closed';
-  const host = (() => { try { return new URL(job.company.website).hostname.replace(/^www\./, ''); } catch (e) { return null; } })();
-  return (
-    <li className={`jc${closed ? ' jc-closed' : ''}`}>
-      <div className="jc-top">
-        <Avatar name={job.company.name} domain={host} size={48} className="jc-logo" />
-        <div className="jc-id">
-          <h3 className="jc-title">{job.title}</h3>
-          <p className="jc-company">
-            {job.company.slug ? <a {...linkProps(`/startup/${job.company.slug}`)}>{job.company.name}</a> : job.company.name}
-            {[job.company.city, job.company.sector].filter(Boolean).length > 0 && <span className="jc-dim"> · {[job.company.city, job.company.sector].filter(Boolean).join(' · ')}</span>}
-          </p>
-        </div>
-        <button type="button" className="bm" aria-pressed={saved} aria-label={saved ? `Remove ${job.title} at ${job.company.name} from saved` : `Save ${job.title} at ${job.company.name}`} onClick={() => onToggle(job.id)}>
-          <BookmarkIcon size={22} fill={saved ? 'currentColor' : 'none'} />
-        </button>
-      </div>
-
-      <dl className="jc-facts">
-        <div><dt>Where</dt><dd>{job.location || 'Not stated'}</dd></div>
-        <div><dt>Working arrangement</dt><dd>{job.remote ? 'Remote' : 'Not stated'}</dd></div>
-        <div><dt>Employment</dt><dd>{job.employment_type ? { full_time: 'Full-time', part_time: 'Part-time', contract: 'Contract', internship: 'Internship', fixed_term: 'Fixed term' }[job.employment_type] : 'Not stated'}</dd></div>
-        <div><dt>Level in the title</dt><dd>{job.level ? { intern: 'Intern', graduate: 'Graduate', junior: 'Junior', mid: 'Mid-level', senior: 'Senior', lead: 'Lead or principal', head: 'Head or director' }[job.level] : 'Not named'}</dd></div>
-        {job.salary && <div><dt>Salary</dt><dd>{job.salary}</dd></div>}
-      </dl>
-
-      <p className="jc-why"><strong>Why it is listed.</strong> {job.why_listed}</p>
-
-      <div className="jc-foot">
-        <p className={`jc-checked${job.stale ? ' jc-stale' : ''}`}>
-          {closed ? 'Closed: the employer has taken it down.' : <>{checkedWords(job)}{job.last_checked_at && <> ({dayLabel(job.last_checked_at)})</>}{job.stale ? '. Confirm it is still open on the employer’s page.' : '.'}</>}
-        </p>
-        {!closed && (
-          <a className="btn btn-primary btn-sm" href={job.apply_url} target="_blank" rel="noopener noreferrer">
-            Apply on the employer&rsquo;s site<ExternalIcon size={16} /><span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        )}
-      </div>
-    </li>
-  );
-}
-
-// Opportunities → Jobs. Real roles, each read from a company's own careers page, at a company in the directory. Applications go straight to the employer.
-// A role says what its listing says and "not stated" where it does not: no salary unless one is published, no experience requirement unless we have one. The
-// reading date is shown on every role, and a reading older than the site's two-week window says to check the employer's page.
+// The hiring desk. Roles read from employers' own public job boards, by place; apply on the employer's own site.
+//
+// The page is given the whole board once (backend/src/network/board.js) and does the rest in the browser, so a tap on Melbourne answers at once and every number on the page (the cards, the
+// list, the company index, the filters) is counted from the same list. It draws the saved copy of the board that comes with the site first, then the server's answer replaces it; if the
+// server cannot be reached the saved copy stays, and the page says it is a saved copy and from when.
 export default function JobsBoard({ chrome = {} }) {
   const saved = useSavedKind('job');
-  const [filters, setFilters] = useState(fromAddress);
+  const [filters, setFilters] = useState(() => readFilters(window.location.search));
   const [typed, setTyped] = useState(filters.search);
-  const [data, setData] = useState({ results: [], facets: null, total: 0, count: 0, hasMore: false });
-  const [status, setStatus] = useState('loading');
-  const [error, setError] = useState('');
+  const [board, setBoard] = useState(null);
+  const [source, setSource] = useState('loading'); // loading, snapshot, live, offline (the saved copy, the server could not be reached), none
+  const [openId, setOpenId] = useState(() => new URLSearchParams(window.location.search).get('role') ?? '');
   const [suggesting, setSuggesting] = useState(false);
-  const offset = useRef(0);
+  const [panel, setPanel] = useState(false);
+  const [dialog, setDialog] = useState(null); // 'coverage' | 'credits'
+  const [shown, setShown] = useState(PAGE);
+  const [extras, setExtras] = useState([]); // saved roles that are in neither of the board's lists (an older save), looked up by id
+  const search = useRef(null);
+  const now = Date.now();
 
-  usePageMeta({ title: 'Jobs · Opportunities · Still Early', description: 'Real roles at Australian startups, each read from the company’s own careers page, with the date it was read.', path: '/jobs' });
-  useEffect(() => { const t = setTimeout(() => setFilters((f) => (f.search === typed ? f : { ...f, search: typed })), 250); return () => clearTimeout(t); }, [typed]);
+  usePageMeta({ title: 'The hiring desk · Opportunities · Still Early', description: 'Find your next team in Australia. Roles read from employers’ own job boards, by city, with the date each was last confirmed. Apply directly with the people hiring.', path: '/jobs' });
 
+  // The saved copy first, then the server's answer.
   useEffect(() => {
+    let alive = true;
     const ctrl = new AbortController();
-    setStatus('loading');
-    offset.current = 0;
-    fetchJobs({ ...filters, where: filters.where === 'any' ? '' : filters.where, limit: PAGE, offset: 0 }, { signal: ctrl.signal })
-      .then((res) => { if (!ctrl.signal.aborted) { setData((d) => ({ ...res, facets: d.facets ?? res.facets })); setStatus('ready'); } })
-      .catch((err) => { if (!ctrl.signal.aborted && err.name !== 'AbortError') { setError(err.message); setStatus('error'); } });
-    return () => ctrl.abort();
-  }, [filters]);
+    let live = 'pending'; // pending, ok or failed: the two answers can arrive in either order
+    loadSnapshot().then((b) => { if (alive && b && live !== 'ok') { setBoard(b); setSource(live === 'failed' ? 'offline' : 'snapshot'); } });
+    loadLive({ signal: ctrl.signal }).then((b) => {
+      if (!alive) return;
+      if (b) { live = 'ok'; setBoard(b); setSource('live'); } else { live = 'failed'; setSource((s) => (s === 'snapshot' ? 'offline' : s === 'loading' ? 'none' : s)); }
+    }).catch(() => {});
+    return () => { alive = false; ctrl.abort(); };
+  }, []);
 
-  // The address follows the filters, so any board can be shared.
+  useEffect(() => { const t = setTimeout(() => setFilters((f) => (f.search === typed ? f : { ...f, search: typed })), 200); return () => clearTimeout(t); }, [typed]);
+  useEffect(() => { setShown(PAGE); }, [filters]);
+
+  // The address follows the filters (and the open role), so any view of the board is a link.
   useEffect(() => {
     try {
-      const params = new URLSearchParams();
-      for (const [k, v] of Object.entries(filters)) if (v && !(k === 'where' && v === 'au')) params.set(k, v);
-      const q = params.toString();
-      const url = `/jobs${q ? `?${q}` : ''}`;
+      const q = writeFilters(filters);
+      const url = `/jobs${q}${openId ? `${q ? '&' : '?'}role=${encodeURIComponent(openId)}` : ''}`;
       if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
     } catch (e) { /* ignore */ }
-  }, [filters]);
+  }, [filters, openId]);
 
-  const more = async () => {
-    offset.current += PAGE;
-    const res = await fetchJobs({ ...filters, where: filters.where === 'any' ? '' : filters.where, limit: PAGE, offset: offset.current });
-    setData((d) => ({ ...d, results: [...d.results, ...res.results], hasMore: res.hasMore }));
-  };
+  // "/" jumps to the search, unless the visitor is already typing.
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey) return;
+      const tag = document.activeElement?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      event.preventDefault();
+      search.current?.focus();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
-  const facets = data.facets;
-  const set = (key) => (event) => setFilters((f) => ({ ...f, [key]: event.target.value }));
-  const active = useMemo(() => !sameAsStart(filters), [filters]);
-  const allStale = Boolean(facets) && facets.stale > 0 && facets.stale === data.total;
+  const roles = useMemo(() => (board?.roles ?? []).map(normaliseRole), [board]);
+  const lapsed = useMemo(() => (board?.lapsed ?? []).map(normaliseRole), [board]);
+
+  // A saved role the board does not hold at all (saved long ago, from the old board): looked up by its id, so a bookmark finds it with its true status.
+  const savedIds = saved.items;
+  useEffect(() => {
+    if (!board) return undefined;
+    const known = new Set([...roles, ...lapsed].map((r) => r.id));
+    const missing = savedIds.filter((id) => !known.has(id));
+    if (!missing.length) { setExtras([]); return undefined; }
+    const ctrl = new AbortController();
+    fetchJobs({ ids: missing.join(','), limit: 60 }, { signal: ctrl.signal }).then((res) => setExtras((res.results ?? []).map(normaliseRole)), () => {});
+    return () => ctrl.abort();
+  }, [board, roles, lapsed, savedIds]);
+
+  const savedRoles = useMemo(() => {
+    const byId = new Map([...extras, ...lapsed, ...roles].map((r) => [r.id, r]));
+    return savedIds.map((id) => byId.get(id)).filter(Boolean);
+  }, [savedIds, roles, lapsed, extras]);
+
+  const counts = useMemo(() => placeCounts(roles, filters), [roles, filters]);
+  const matched = useMemo(() => sortRoles(filterRoles(roles, filters), filters.sort), [roles, filters]);
+  const firms = useMemo(() => companyIndex(roles, { ...filters, place: filters.place }), [roles, filters]);
+  const options = useMemo(() => filterOptions(roles, filters), [roles, filters]);
+  const list = filters.saved ? savedRoles : matched;
+  const set = (key) => (value) => setFilters((f) => ({ ...f, [key]: value, saved: false }));
+  const open = openId ? [...roles, ...lapsed, ...extras].find((r) => r.id === openId) ?? null : null;
+
+  const placeOptions = useMemo(() => [
+    ['', `All Australia (${counts.national})`], ...PLACE_CARDS.map((p) => [p.id, `${p.label} (${counts[p.id] ?? 0})`]),
+    ...OTHER_PLACES.filter((c) => (counts[c] ?? 0) > 0 || filters.place === c).map((c) => [c, `${c} (${counts[c] ?? 0})`]), [OTHER_AU, `Elsewhere in Australia (${counts[OTHER_AU] ?? 0})`],
+  ], [counts, filters.place]);
+
+  const stamp = board ? feedStamp(board, now, source === 'live' ? 'live' : 'snapshot') : null;
+  const secondary = activeSecondary(filters);
+  const reset = () => { setFilters(EMPTY); setTyped(''); setPanel(false); };
+  const apply = useCallback((role) => setOpenId(role.id), []);
+
+  const emptyWords = (() => {
+    if (filters.saved) return { title: 'Nothing saved yet.', body: 'Press the bookmark on a role to keep it here, on this device. A saved role stays, with its true status, if the employer takes it down.' };
+    if (!roles.length) return { title: 'No open roles are listed right now.', body: 'Roles appear here after a check of an employer’s own job board lists them.' };
+    if (filters.place === REMOTE_AU && !secondary && !filters.search && !filters.company) return { title: 'No role is open to remote work from Australia right now.', body: 'A role is listed here only when its employer says someone in Australia can do it remotely. Try a city, or all of Australia.' };
+    if (filters.place && !secondary && !filters.search && !filters.company) return { title: `No open roles in ${placeLabel(filters.place)} right now.`, body: 'Try another place, or all of Australia. New roles appear after the next successful check of the employers’ boards.' };
+    return { title: 'No roles match.', body: 'Try fewer filters, another place or a different search.' };
+  })();
 
   return (
-    <div id="jobsView" className="page-shell">
+    <div id="jobsDesk" className="page-shell jd">
       <SiteHeader active="opportunities" go={chrome.go} counts={chrome.counts} menu={chrome.menu} onAdd={() => setSuggesting(true)} addLabel="Suggest a role" />
-      <main className="disc" id="main">
+      <main className="jd-main" id="main">
         <SectionTabs label="Opportunities" tabs={OPPORTUNITY_TABS} active="jobs" go={chrome.tabs} />
-        <header className="disc-head">
-          <h1 className="serif-h1">Roles read from <em>their own pages.</em></h1>
-          <p className="lede">Each role is on a startup&rsquo;s own careers page, at a company in the directory, and shows the day we read it. You apply on the employer&rsquo;s site. Nothing here is ranked.</p>
+
+        <header className="jd-hero">
+          <div>
+            <p className="jd-kicker"><span className="jd-kicker-rule" aria-hidden="true" />Still Early field guide</p>
+            <h1 className="jd-title">The hiring <em>desk.</em></h1>
+            <p className="jd-lede">Find your next team in Australia. Apply directly with the people hiring.</p>
+          </div>
+          {stamp && (
+            <p className={`jd-stamp is-${stamp.tone}`} role="status">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 1l1.5 9.2L23 12l-9.5 1.6L12 23l-1.6-9.4L1 12l9.4-1.8z" /></svg>
+              <span>{stamp.text}</span>
+            </p>
+          )}
         </header>
 
-        <div className="disc-filters disc-filters-wide">
-          <label className="field"><SearchIcon size={20} /><input type="search" aria-label="Search roles" placeholder="Search by role, company or place" value={typed} onChange={(e) => setTyped(e.target.value)} /></label>
-          {facets && (
-            <>
-              <select className="select" aria-label="Where the role is" value={filters.where} onChange={set('where')}>
-                <option value="au">In Australia ({facets.regions.au})</option>
-                <option value="other">Elsewhere ({facets.regions.other})</option>
-                <option value="any">Anywhere ({facets.regions.au + facets.regions.other})</option>
-              </select>
-              <select className="select" aria-label="City" value={filters.city} onChange={set('city')}><option value="">Company city</option>{facets.cities.map((c) => <option key={c.value} value={c.value}>{c.value} ({c.count})</option>)}</select>
-              <select className="select" aria-label="Sector" value={filters.sector} onChange={set('sector')}><option value="">Any sector</option>{facets.sectors.map((c) => <option key={c.value} value={c.value}>{c.value} ({c.count})</option>)}</select>
-              <select className="select" aria-label="Stage" value={filters.stage} onChange={set('stage')}><option value="">Any stage</option>{facets.stages.map((c) => <option key={c.value} value={c.value}>{c.value} ({c.count})</option>)}</select>
-              <select className="select" aria-label="Employment type" value={filters.type} onChange={set('type')}><option value="">Any employment type</option>{facets.types.map((c) => <option key={c.value} value={c.value}>{c.label} ({c.count})</option>)}</select>
-              <select className="select" aria-label="Level in the title" value={filters.level} onChange={set('level')}><option value="">Any level</option>{facets.levels.map((c) => <option key={c.value} value={c.value}>{c.label} ({c.count})</option>)}</select>
-              {facets.remote > 0 && <label className="auth-check disc-check"><input type="checkbox" checked={filters.remote === 'yes'} onChange={(e) => setFilters((f) => ({ ...f, remote: e.target.checked ? 'yes' : '' }))} /><span>Remote ({facets.remote})</span></label>}
-            </>
-          )}
-          {active && <button type="button" className="btn btn-quiet btn-sm" onClick={() => { setFilters(EMPTY); setTyped(''); }}>Reset filters</button>}
+        <CityCards counts={counts} active={filters.place} onPick={set('place')} />
+
+        <div className="jd-work">
+          <section className="jd-results" id="roles" aria-labelledby="jd-roles-h">
+            <div className="jd-list-top">
+              <h2 id="jd-roles-h" className="jd-h2">{filters.saved ? 'Saved roles' : filters.place ? `Open roles in ${placeLabel(filters.place)}` : 'Open roles'} <span className="jd-n" aria-label={`${list.length} roles`}>{list.length}</span></h2>
+              <button type="button" className={`jd-saved${filters.saved ? ' is-on' : ''}`} aria-pressed={filters.saved} onClick={() => setFilters((f) => ({ ...f, saved: !f.saved }))}>
+                <BookmarkIcon size={18} fill={filters.saved ? 'currentColor' : 'none'} /> Saved{savedIds.length ? <span className="jd-saved-n">{savedIds.length}</span> : null}
+              </button>
+            </div>
+
+            <div className="jd-bar">
+              <label className="jd-search">
+                <SearchIcon size={20} />
+                <input ref={search} type="search" aria-label="Search roles or companies" placeholder="Role, company or keyword" value={typed} onChange={(e) => setTyped(e.target.value)} autoComplete="off" />
+                {typed ? <button type="button" className="field-clear" aria-label="Clear the search" onClick={() => { setTyped(''); search.current?.focus(); }}><CloseIcon size={16} /></button> : <kbd className="jd-kbd" aria-hidden="true">/</kbd>}
+              </label>
+              <label className="jd-select">
+                <span className="sr-only">Where the role is worked</span>
+                <select value={filters.place} onChange={(e) => set('place')(e.target.value)}>{placeOptions.map(([v, l]) => <option key={v || 'all'} value={v}>{l}</option>)}</select>
+                <ChevronDown size={18} className="jd-select-chev" />
+              </label>
+              <button type="button" className={`jd-filter${panel || secondary ? ' is-on' : ''}`} aria-expanded={panel} aria-controls="jd-extras" onClick={() => setPanel((v) => !v)}>
+                <SlidersIcon size={18} /> Filters{secondary ? <span className="jd-badge">{secondary}</span> : null}
+              </button>
+            </div>
+
+            {panel && (
+              <div className="jd-extras" id="jd-extras">
+                <label>Sector<select value={filters.sector} onChange={(e) => set('sector')(e.target.value)}><option value="">All sectors</option>{options.sectors.map((o) => <option key={o.value} value={o.value}>{sectorLabel(o.value)} ({o.count})</option>)}{filters.sector && !options.sectors.some((o) => o.value === filters.sector) && <option value={filters.sector}>{sectorLabel(filters.sector)} (0)</option>}</select></label>
+                <label>Stage<select value={filters.stage} onChange={(e) => set('stage')(e.target.value)}><option value="">Any stage</option>{options.stages.map((o) => <option key={o.value} value={o.value}>{o.value} ({o.count})</option>)}</select></label>
+                <label>Level in the title<select value={filters.level} onChange={(e) => set('level')(e.target.value)}><option value="">Any level</option>{options.levels.map((o) => <option key={o.value} value={o.value}>{LEVEL_LABELS[o.value]} ({o.count})</option>)}</select></label>
+                <label>Employment<select value={filters.type} onChange={(e) => set('type')(e.target.value)}><option value="">Any type</option>{options.types.map((o) => <option key={o.value} value={o.value}>{TYPE_LABELS[o.value]} ({o.count})</option>)}</select></label>
+                <label>Working arrangement<select value={filters.arrangement} onChange={(e) => set('arrangement')(e.target.value)}><option value="">Any</option>{options.arrangements.map((o) => <option key={o.value} value={o.value}>{ARRANGEMENT_LABELS[o.value]} ({o.count})</option>)}</select></label>
+              </div>
+            )}
+
+            {(filters.sector || filters.stage || filters.type || filters.level || filters.arrangement || filters.company || filters.search) && (
+              <ul className="jd-chips" aria-label="Active filters">
+                {filters.sector && <li><button type="button" onClick={() => set('sector')('')}>{sectorLabel(filters.sector)} <CloseIcon size={14} /><span className="sr-only"> remove</span></button></li>}
+                {filters.stage && <li><button type="button" onClick={() => set('stage')('')}>{filters.stage} <CloseIcon size={14} /><span className="sr-only"> remove</span></button></li>}
+                {filters.level && <li><button type="button" onClick={() => set('level')('')}>{LEVEL_LABELS[filters.level]} <CloseIcon size={14} /><span className="sr-only"> remove</span></button></li>}
+                {filters.type && <li><button type="button" onClick={() => set('type')('')}>{TYPE_LABELS[filters.type]} <CloseIcon size={14} /><span className="sr-only"> remove</span></button></li>}
+                {filters.arrangement && <li><button type="button" onClick={() => set('arrangement')('')}>{ARRANGEMENT_LABELS[filters.arrangement]} <CloseIcon size={14} /><span className="sr-only"> remove</span></button></li>}
+                {filters.company && <li><button type="button" onClick={() => set('company')('')}>{firms.find((c) => c.key === filters.company)?.name ?? roles.find((r) => (r.company.slug ?? r.company.name) === filters.company)?.company.name ?? 'One company'} <CloseIcon size={14} /><span className="sr-only"> remove</span></button></li>}
+                <li><button type="button" className="jd-clear" onClick={reset}>Clear all</button></li>
+              </ul>
+            )}
+
+            <div className="jd-cols">
+              <span>Role &amp; company</span>
+              {!filters.saved && (
+                <label className="jd-sort"><span className="sr-only">Sort roles</span>
+                  <select value={filters.sort} onChange={(e) => setFilters((f) => ({ ...f, sort: e.target.value }))}>{SORTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+                </label>
+              )}
+            </div>
+
+            {source === 'loading' && <p className="jd-quiet" role="status">Reading the employer boards&hellip;</p>}
+            {source === 'none' && !board && <div className="jd-note" role="alert"><p>The board could not be loaded. Check your connection and try again.</p></div>}
+            {source === 'offline' && <p className="jd-quiet" role="status">The live board is not available right now, so this is the saved copy from {new Date(board.generated_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })}. Each role still links to its employer.</p>}
+
+            {board && (list.length === 0 ? (
+              <div className="jd-empty">
+                <h3>{emptyWords.title}</h3>
+                <p>{emptyWords.body} Know of a real one? <button type="button" className="jd-link" onClick={() => setSuggesting(true)}>Suggest a role</button>.</p>
+                {!filters.saved && !isStart(filters) && <button type="button" className="btn btn-secondary btn-sm" onClick={reset}>Clear filters</button>}
+              </div>
+            ) : (
+              <>
+                <ul className="jd-list">
+                  {list.slice(0, filters.saved ? undefined : shown).map((role) => (
+                    <RoleRow key={role.id} role={role} now={now} saved={saved.has(role.id)} onToggle={saved.toggle} onOpen={apply} selected={openId === role.id} />
+                  ))}
+                </ul>
+                {!filters.saved && list.length > shown && <div className="jd-more"><button type="button" className="jd-loadmore" onClick={() => setShown((n) => n + PAGE)}>Show more roles <span aria-hidden="true">↓</span></button></div>}
+              </>
+            ))}
+          </section>
+
+          <CompanyIndex companies={firms} active={filters.company} onPick={set('company')} onCoverage={() => setDialog('coverage')} />
         </div>
 
-        {status === 'loading' && <p className="home-quiet" role="status">Loading roles…</p>}
-        {status === 'error' && <div className="home-error" role="alert"><p>Could not load roles. {error}</p></div>}
-        {status === 'ready' && (
-          <>
-            <p className="disc-count" role="status">
-              {data.count === 1 ? '1 role' : `${data.count} roles`}{active ? ` of ${data.total}` : ''}
-              {filters.where === 'au' ? ' in Australia' : filters.where === 'other' ? ' elsewhere' : ''}
-            </p>
-            {allStale && (
-              <p className="jc-banner" role="note">
-                Every role here was last read more than two weeks ago (the newest reading is {dayLabel(facets.latest_checked_at)}). Each one links to the employer&rsquo;s own page: check it is still open before you apply.
-              </p>
-            )}
-            {data.results.length === 0 ? (
-              <EmptyState title={active ? 'No roles match.' : 'No open roles are listed right now.'}>
-                {active ? 'Try fewer filters.' : 'Roles appear here when a company in the directory lists them on its own careers page.'} Know of a real one?{' '}
-                <button type="button" className="mp-link" onClick={() => setSuggesting(true)}>Suggest it</button>.
-              </EmptyState>
-            ) : (
-              <ul className="jc-list">{data.results.map((job) => <JobCard key={job.id} job={job} saved={saved.has(job.id)} onToggle={saved.toggle} />)}</ul>
-            )}
-            {data.hasMore && <div className="home-more"><button type="button" className="btn btn-secondary" onClick={more}>Show more roles</button></div>}
-          </>
-        )}
-        <p className="home-fine">Roles are read from the employers&rsquo; own pages by a polite, scheduled reader and checked against the directory. Membership does not make anyone vetted and does not promise an interview.</p>
+        <p className="jd-fine-print">
+          Roles come from employers&rsquo; own public job boards and are shown with the date we last confirmed them listed. We do not rank, sell placement or take a fee: you apply on the employer&rsquo;s site.
+          Membership does not make anyone vetted and does not promise an interview.
+        </p>
       </main>
+
+      <footer className="jd-foot"><span>still early<span className="jd-dot">.</span></span><small>Australian hiring desk</small><button type="button" className="jd-link" onClick={() => setDialog('credits')}>Photography</button></footer>
+
+      {open && <RoleDetail role={open} now={now} saved={saved.has(open.id)} onToggle={saved.toggle} onClose={() => setOpenId('')} />}
+      {dialog === 'coverage' && <Coverage sync={board?.sync} onClose={() => setDialog(null)} />}
+      {dialog === 'credits' && <Credits onClose={() => setDialog(null)} />}
       {suggesting && <Lazy><SuggestDialog kind="job" onClose={() => setSuggesting(false)} /></Lazy>}
     </div>
   );

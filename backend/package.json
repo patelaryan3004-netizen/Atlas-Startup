@@ -17,7 +17,8 @@
     "locations": "node scripts/locations.js",
     "investors": "node scripts/investors.js",
     "admin": "node scripts/admin.js",
-    "snapshot": "node scripts/snapshot.mjs"
+    "snapshot": "node scripts/snapshot.mjs",
+    "jobsync": "node scripts/jobsync.mjs"
   },
   "dependencies": {
     "cors": "^2.8.5",

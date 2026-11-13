@@ -39,6 +39,8 @@
 //   import_runs.json     one row per run of the discovery engine (importRuns.js)
 //   refresh_state.json   when each company's facets, and each feed, were last checked and are next due (refreshState.js)
 //   job_runs.json        one row per run of every scheduled job (jobRuns.js)
+//   job_sources.json     the employers' job boards the hourly sync reads, and why each is trusted (jobSync.js)
+//   job_sync_state.json  when each of those boards was last tried and last read whole, and what it found (jobSync.js)
 //   geocode_cache.json   what a geocoder answered, so an address is never asked twice (geocodeCache.js)
 //
 // Each collection maps one-to-one onto a table, and every id is a stable string,
@@ -60,6 +62,7 @@ import { validateEnrichmentQueue } from './enrichmentQueue.js';
 import { validateImportRuns } from './importRuns.js';
 import { validateRefreshState } from './refreshState.js';
 import { validateJobRuns } from './jobRuns.js';
+import { validateJobSources, validateJobSyncState } from './jobSync.js';
 import { validateGeocodeCache } from './geocodeCache.js';
 import { companyLocationProblems, validateLocationRows, hqRowFor, locationEvidenceIndex } from './location.js';
 import { syncConfidence } from './confidence.js';
@@ -94,10 +97,14 @@ export const COLLECTION_FILES = {
   import_runs: 'import_runs.json',
   refresh_state: 'refresh_state.json',
   job_runs: 'job_runs.json',
+  job_sources: 'job_sources.json',
+  job_sync_state: 'job_sync_state.json',
   geocode_cache: 'geocode_cache.json',
 };
 
-export const JOB_STATUSES = ['open', 'closed'];
+// open: listed on the employer's board at the last complete read. hidden: not in the last complete read (hidden from the board at once). archived: not in the two last complete
+// reads. closed: the employer or the provider said so. A role is never deleted: a bookmark still finds it, with its true status.
+export const JOB_STATUSES = ['open', 'hidden', 'archived', 'closed'];
 
 // ---------- file I/O ----------
 
@@ -323,7 +330,8 @@ export function migrateDataset(input) {
     ...input, companies, people, investors, evidence, identifiers, candidates, company_locations,
     investor_people, funds, investments, investor_people_organisations, fund_portfolio_companies, verification_records,
     audit_trail: input.audit_trail ?? [], enrichment_queue: input.enrichment_queue ?? [], import_runs: input.import_runs ?? [],
-    refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [], geocode_cache: input.geocode_cache ?? [],
+    refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [], job_sources: input.job_sources ?? [], job_sync_state: input.job_sync_state ?? [],
+    geocode_cache: input.geocode_cache ?? [],
   };
 }
 
@@ -516,7 +524,7 @@ export function validateDataset(ds) {
   errors.push(
     ...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds),
     ...validateAuditTrail(ds), ...validateEnrichmentQueue(ds), ...validateImportRuns(ds),
-    ...validateRefreshState(ds), ...validateJobRuns(ds), ...validateLocationRows(ds), ...validateGeocodeCache(ds),
+    ...validateRefreshState(ds), ...validateJobRuns(ds), ...validateJobSources(ds), ...validateJobSyncState(ds), ...validateLocationRows(ds), ...validateGeocodeCache(ds),
     ...validateInvestorOrganisations(ds), ...validateInvestorGraph(ds), ...validateVerificationRecords(ds),
   );
   return errors;

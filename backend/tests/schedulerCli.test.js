@@ -141,7 +141,7 @@ describe('looking at what it has done', () => {
     expect(s.text).toMatch(/founded_year\s+every 365 d/);
     expect(s.text).toMatch(/Queue: 2 task\(s\)/);
     const json = JSON.parse((await cli(dir, ['status', '--json'])).text);
-    expect(json.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality']);
+    expect(json.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality', 'jobsync']);
     expect(json.facets.hiring.checked).toBe(2);
   });
 

@@ -13,6 +13,8 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const DEFAULT_DIR = path.join(HERE, '..', '..', '.network');
 export const EVENTS_FILE = path.join(HERE, '..', 'data', 'events.json');
 export const JOBS_FILE = path.join(HERE, '..', 'data', 'jobs.json');
+export const JOB_SOURCES_FILE = path.join(HERE, '..', 'data', 'job_sources.json');
+export const JOB_SYNC_FILE = path.join(HERE, '..', 'data', 'job_sync_state.json');
 
 // A JSON file read again only when it has changed.
 function watched(file) {
@@ -27,7 +29,7 @@ function watched(file) {
   };
 }
 
-export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows } = {}) {
+export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync } = {}) {
   const off = ['0', 'false', 'no', 'off'].includes(String(env.NETWORK_ENABLED ?? '').trim().toLowerCase());
   let folder = dir ?? env.NETWORK_DATA_DIR ?? null;
   let reason = null;
@@ -39,6 +41,10 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
   const available = reason === null;
   const events = curatedEvents ? () => curatedEvents : watched(eventsFile);
   const jobs = curatedJobsRows ? () => curatedJobsRows : watched(jobsFile);
+  // The hourly sync's catalogue of employer boards and where each stands (jobsync/): what the board says about how current it is.
+  const jobSources = curatedJobSync ? () => curatedJobSync.sources : watched(jobSourcesFile);
+  const jobSyncState = curatedJobSync ? () => curatedJobSync.state : watched(jobSyncFile);
+  const jobSync = () => ({ sources: jobSources(), state: jobSyncState() });
 
   let ready = null;
   const open = () => {
@@ -50,5 +56,5 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
     return ready;
   };
 
-  return { available, reason, open, events, jobs, now, dir: memory ? null : folder };
+  return { available, reason, open, events, jobs, jobSync, now, dir: memory ? null : folder };
 }

@@ -77,6 +77,8 @@ export const mergeSaved = (items) => call('/account/saved/merge', { method: 'POS
 // ---------- opportunities ----------
 export const fetchEvents = (params, opts) => call(`/events${query(params)}`, opts);
 export const fetchJobs = (params, opts) => call(`/jobs${query(params)}`, opts);
+// The hiring desk's whole board in one answer (backend/src/network/board.js): every open role in Australia, the roles a bookmark may still point at, and how current it is.
+export const fetchJobBoard = (opts) => call('/jobs/board', opts);
 export const calendarUrl = (id) => `${BASE}/events/${enc(id)}/calendar.ics`;
 export const submitSuggestion = (kind, fields, email) => call('/suggestions', { method: 'POST', body: { kind, fields, email } });
 

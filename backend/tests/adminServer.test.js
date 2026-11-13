@@ -229,7 +229,7 @@ describe('the actions and what they answer', () => {
     const { app, tokens } = await boot();
     const res = await request(app).get('/api/scheduler').set(as(tokens.viewer));
     expect(res.status).toBe(200);
-    expect(res.body.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality']);
+    expect(res.body.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality', 'jobsync']);
     expect(res.body.facets.hiring).toMatchObject({ every_days: 3, job: 'hiring' });
     expect(res.body).toMatchObject({ watch: [], hosts: [], recent: [], totals: { companies: 4 } });
     expect(res.body.sources.map((s) => s.id)).toEqual(['rss.startupdaily-funding', 'submissions']);

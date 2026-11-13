@@ -201,7 +201,7 @@ describe('what the status view says', () => {
     await tick({ dir, now: () => NOW, fetcher, sources: [], jobs: ['hiring', 'status', 'enrichment', 'quality'], by: 't', limits: { concurrency: 1 } });
     const ds = await readDataDir(dir);
     const s = schedulerStatus(ds, { at: ISO, sourceIds: ['rss.x'] });
-    expect(s.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality']);
+    expect(s.jobs.map((j) => j.job)).toEqual(['discovery', 'funding', 'hiring', 'status', 'enrichment', 'quality', 'jobsync']);
     const hiring = s.jobs.find((j) => j.job === 'hiring');
     expect(hiring.last_run).toMatchObject({ status: expect.stringMatching(/ok|partial/), started_at: ISO });
     expect(hiring.next_due).toBeTruthy();

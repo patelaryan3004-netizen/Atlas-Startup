@@ -1,0 +1,189 @@
+[
+  {
+    "id": "amber-electric-lever-jobs",
+    "company_id": "amber-electric",
+    "provider": "lever",
+    "token": "amberelectric",
+    "board_url": "https://jobs.lever.co/amberelectric",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"amber-electric-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "asseti-workable-jobs",
+    "company_id": "asseti",
+    "provider": "workable",
+    "token": "asseti",
+    "board_url": "https://apply.workable.com/asseti/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"asseti-workable-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "atomi-lever-jobs",
+    "company_id": "atomi",
+    "provider": "lever",
+    "token": "atomi",
+    "board_url": "https://jobs.lever.co/atomi",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"atomi-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "bellroy-greenhouse-jobs",
+    "company_id": "bellroy",
+    "provider": "greenhouse",
+    "token": "bellroy",
+    "board_url": "https://boards.greenhouse.io/bellroy",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"bellroy-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "buildkite-greenhouse-jobs",
+    "company_id": "buildkite",
+    "provider": "greenhouse",
+    "token": "buildkite-talent-community",
+    "board_url": "https://boards.greenhouse.io/buildkite-talent-community",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"buildkite-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "culture-amp-greenhouse-jobs",
+    "company_id": "culture-amp",
+    "provider": "greenhouse",
+    "token": "cultureamp",
+    "board_url": "https://boards.greenhouse.io/cultureamp",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"culture-amp-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "deputy-lever-review",
+    "company_id": "deputy",
+    "provider": "lever",
+    "token": "deputy",
+    "board_url": "https://jobs.lever.co/deputy",
+    "status": "review",
+    "basis": "Named by the pilot handoff (Lever board \"deputy\"). The company's own site was read on 2026-11-13 (3 pages) and none of them links to this board, so it is NOT polled: a person confirms it from Deputy's own careers page, and the reader then writes the sources.json row that approves it.",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "emesent-lever-jobs",
+    "company_id": "emesent",
+    "provider": "lever",
+    "token": "Emesent",
+    "board_url": "https://jobs.lever.co/Emesent",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"emesent-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "enboarder-greenhouse-jobs",
+    "company_id": "enboarder",
+    "provider": "greenhouse",
+    "token": "enboarder",
+    "board_url": "https://boards.greenhouse.io/enboarder",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"enboarder-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "immutable-lever-jobs",
+    "company_id": "immutable",
+    "provider": "lever",
+    "token": "immutable",
+    "board_url": "https://jobs.lever.co/immutable",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"immutable-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "karbon-greenhouse-jobs",
+    "company_id": "karbon",
+    "provider": "greenhouse",
+    "token": "karbon",
+    "board_url": "https://boards.greenhouse.io/karbon",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"karbon-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "kasada-lever-jobs",
+    "company_id": "kasada",
+    "provider": "lever",
+    "token": "kasada",
+    "board_url": "https://jobs.lever.co/kasada",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"kasada-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "qsic-lever-jobs",
+    "company_id": "qsic",
+    "provider": "lever",
+    "token": "qsic",
+    "board_url": "https://jobs.lever.co/qsic",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"qsic-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "roller-greenhouse-jobs",
+    "company_id": "roller",
+    "provider": "greenhouse",
+    "token": "roller",
+    "board_url": "https://boards.greenhouse.io/roller",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"roller-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "sonder-greenhouse-jobs",
+    "company_id": "sonder",
+    "provider": "greenhouse",
+    "token": "sonderaustralia",
+    "board_url": "https://boards.greenhouse.io/sonderaustralia",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"sonder-greenhouse-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "vgw-greenhouse-review",
+    "company_id": "vgw",
+    "provider": "greenhouse",
+    "token": "vgw",
+    "board_url": "https://boards.greenhouse.io/vgw",
+    "status": "review",
+    "basis": "Named by the pilot handoff (Greenhouse board \"vgw\"). The company's own site was read on 2026-11-13 (3 pages) and none of them links to this board, so it is NOT polled: a person confirms it from VGW's own careers page, and the reader then writes the sources.json row that approves it.",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "zeller-lever-jobs",
+    "company_id": "zeller",
+    "provider": "lever",
+    "token": "Zeller",
+    "board_url": "https://jobs.lever.co/Zeller",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"zeller-lever-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-13T02:27:35.633Z"
+  }
+]

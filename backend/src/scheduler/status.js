@@ -5,6 +5,7 @@ import { queueSummary } from '../models/enrichmentQueue.js';
 import { indexState } from '../models/refreshState.js';
 import { CADENCE, COMPANY_FACETS } from './cadence.js';
 import { dueRefreshes } from './plan.js';
+import { planJobSync } from './jobs/jobsync.js';
 import { coolingHosts } from './state.js';
 
 const earliest = (rows) => rows.map((r) => r.next_check_at).filter(Boolean).sort()[0] ?? null;
@@ -54,6 +55,10 @@ export function schedulerStatus(ds, { at = new Date().toISOString(), sourceIds =
     } else if (job === 'funding' || job === 'discovery') {
       dueNow = feedDue(job);
       next = earliest(rows.filter((r) => r.scope === 'source' && r.facet === job));
+    } else if (job === 'jobsync') {
+      const p = planJobSync(ds, { now: Date.parse(at) });
+      dueNow = p.due.length;
+      next = (ds.job_sync_state ?? []).map((r) => r.next_attempt_at).filter(Boolean).sort()[0] ?? null;
     } else if (job === 'quality') {
       const r = state.get('source', 'data-quality', 'quality');
       dueNow = isDue(r) ? 1 : 0;

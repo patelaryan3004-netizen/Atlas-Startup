@@ -2,14 +2,20 @@
 // role, why it is listed and when it was last read. Applications go to the employer: the apply link is the employer's own.
 //
 // What is NOT here is as plain as what is: no salary (no page we read states one in a form we keep), no years-of-experience requirement (the level is only
-// what the TITLE says, and is called that), and no working arrangement unless the listing says remote. A missing fact is said as "not stated", never guessed.
+// what the TITLE says, and is called that), and no working arrangement unless the listing says so. A missing fact is left out, never guessed.
+//
+// Where a role is comes from the words the EMPLOYER used for it (jobsync/locations.js), never from where the company has its head office. The three dates are kept apart:
+// posted (what the employer says), first seen (our first whole read of the board that listed it) and last confirmed (our last whole read that listed it).
 import { cleanText, httpsUrl, oneOf, bad } from './validate.js';
+import { workPlaces, CITIES } from '../jobsync/locations.js';
 
 export const EMPLOYMENT_TYPES = ['full_time', 'part_time', 'contract', 'internship', 'fixed_term'];
 export const EMPLOYMENT_LABELS = { full_time: 'Full-time', part_time: 'Part-time', contract: 'Contract', internship: 'Internship', fixed_term: 'Fixed term' };
 export const LEVELS = ['intern', 'graduate', 'junior', 'mid', 'senior', 'lead', 'head'];
 export const LEVEL_LABELS = { intern: 'Intern', graduate: 'Graduate', junior: 'Junior', mid: 'Mid-level', senior: 'Senior', lead: 'Lead or principal', head: 'Head or director' };
-export const STALE_DAYS = 14; // the site's own window for "hiring now" (backend/src/app.js HIRING_WINDOW_DAYS)
+export const STALE_DAYS = 14; // the site's own window for "hiring now" (backend/src/app.js HIRING_WINDOW_DAYS): a role not confirmed for this long leaves the default board
+// A role the hourly sync has confirmed within this long is "confirmed"; older, up to STALE_DAYS, it says it could not be rechecked (the sync is hourly: this allows a day of trouble).
+export const CONFIRMED_HOURS = 36;
 
 // What the listing's own words say about the kind of employment, into our few kinds. Anything else (an unknown word, a placeholder) is "not stated".
 export function employmentOf(text) {
@@ -61,6 +67,7 @@ const BOARDS = [
 ];
 const boardOf = (url) => { try { const host = new URL(url).hostname; return BOARDS.find(([re]) => re.test(host))?.[1] ?? null; } catch (e) { return null; } };
 const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return null; } };
+const PROVIDER_NAMES = { greenhouse: 'Greenhouse', lever: 'Lever', workable: 'Workable', ashby: 'Ashby', recruitee: 'Recruitee', smartrecruiters: 'SmartRecruiters' };
 
 const dayOf = (iso) => String(iso ?? '').slice(0, 10);
 export const daysSince = (iso, now) => Math.floor((now - Date.parse(iso)) / 86400000);
@@ -72,42 +79,83 @@ function whyListed(company, apply, checked) {
   return `Listed on ${where}, last read ${checked}. ${company} is in the Still Early directory.`;
 }
 
-// One role as a visitor sees it. `card` is the company's directory card (or null for a role someone suggested for a company the directory does not hold).
-export function presentJob(job, card, now = Date.now()) {
+// Is the role confirmed, in need of a recheck, or too old for the default board? From the last whole read that listed it, never from anything else.
+export function confirmationOf(job, now) {
+  const last = job.last_confirmed_at ?? job.retrieved_at;
+  if (!last || Number.isNaN(Date.parse(last))) return 'stale';
+  const hours = (now - Date.parse(last)) / 3600000;
+  return hours <= CONFIRMED_HOURS ? 'confirmed' : hours <= STALE_DAYS * 24 ? 'recheck' : 'stale';
+}
+
+// Where a role can be worked, from the words the employer used for it.
+const whereOf = (job) => workPlaces(Array.isArray(job.locations) && job.locations.length ? job.locations : [job.location].filter(Boolean), { workplaceType: job.workplace_type });
+const regionFromWhere = (w) => (w.au || w.remoteAu ? 'au' : w.places.length ? 'other' : null);
+
+// One role as a visitor sees it. `card` is the company's directory card (or null for a role someone suggested for a company the directory does not hold). `health` is the state row of
+// the board the role came from (jobsync), when there is one.
+export function presentJob(job, card, now = Date.now(), health = null) {
   const apply = job.apply_url;
-  const checked = dayOf(job.retrieved_at);
+  const lastConfirmed = job.last_confirmed_at ?? job.retrieved_at ?? null;
+  const checked = dayOf(lastConfirmed);
   const company = card?.name ?? job.company_name ?? 'The employer';
-  const age = checked ? daysSince(job.retrieved_at, now) : null;
+  const age = checked ? daysSince(lastConfirmed, now) : null;
+  const where = whereOf(job);
   return {
     id: job.id, title: job.title,
     company: { name: company, slug: card?.slug ?? null, city: card?.city ?? '', sector: card?.sector ?? '', stage: card?.stage ?? '', website: card?.website ?? '' },
-    location: job.location ?? '', region: regionOf(job.location), remote: job.remote === true ? true : null,
+    location: job.location ?? '', region: regionFromWhere(where), remote: job.remote === true ? true : null,
     employment_type: employmentOf(job.employment_type), level: levelOf(job.title), salary: job.salary ?? null,
     why_listed: job.why ?? whyListed(company, apply, checked), apply_url: apply, source_kind: job.source ?? 'careers_page',
-    last_checked_at: job.retrieved_at ?? null, days_since_checked: age, stale: age != null ? age > STALE_DAYS : true,
+    last_checked_at: lastConfirmed, days_since_checked: age, stale: age != null ? age > STALE_DAYS : true,
     status: job.status, posted_at: job.posted_at ?? null,
+    // What the hiring desk is built on: the work places the employer advertised, the three dates apart, and what the sync last said about the role's board.
+    work: { places: where.places.map(({ label, au, city }) => ({ label, au, city })), cities: where.cities, remote_au: where.remoteAu, remote_evidence: where.evidence, arrangement: where.arrangement },
+    team: job.team ?? null, first_seen_at: job.first_seen_at ?? null, last_confirmed_at: lastConfirmed, lifecycle: job.status,
+    confirmation: job.status === 'open' ? confirmationOf(job, now) : null,
+    provider: job.provider ?? null, provider_name: job.provider ? PROVIDER_NAMES[job.provider] ?? job.provider : null,
+    source_health: health ? { last_success_at: health.last_success_at ?? null, last_attempt_at: health.last_attempt_at ?? null, failing: (health.consecutive_failures ?? 0) > 0, error: health.last_error?.code ?? null } : null,
   };
 }
 
-// The roles to show: open ones, each at a company in the directory, in order of company then title (an order, not a ranking). Closed roles are left out unless asked for,
-// and then marked closed.
-export function curatedJobs({ jobs, cardOf, extra = [], now = Date.now(), includeClosed = false }) {
+export const LIFECYCLE_STATES = ['open', 'hidden', 'archived', 'closed'];
+
+// The roles to show: open ones, each at a company in the directory, in order of company then title (an order, not a ranking). A role not confirmed for STALE_DAYS leaves the default list
+// unless `includeStale`. Closed roles are left out unless asked for, and then marked closed. `lifecycles` asks for more of the states a role can be in (a bookmark finds a role whatever
+// became of it). `healthOf(job)` gives the state row of the job's board.
+export function curatedJobs({ jobs, cardOf, extra = [], now = Date.now(), includeClosed = false, includeStale = false, lifecycles = null, healthOf = () => null }) {
+  const wanted = new Set(lifecycles ?? (includeClosed ? ['open', 'closed'] : ['open']));
   const rows = [];
   for (const j of jobs) {
     if (!j.apply_url || !/^https:\/\//.test(j.apply_url) || !j.title || isGenericListing(j.title)) continue;
-    if (j.status !== 'open' && !(includeClosed && j.status === 'closed')) continue;
+    if (!wanted.has(j.status)) continue;
     const card = cardOf(j.company_id);
     if (!card) continue; // a role at a company the directory does not hold is not listed
-    rows.push(presentJob(j, card, now));
+    if (j.status === 'open' && !includeStale && confirmationOf(j, now) === 'stale') continue; // not confirmed for two weeks: off the default board
+    rows.push(presentJob(j, card, now, healthOf(j)));
   }
   for (const j of extra) rows.push(presentJob({ ...j, source: 'suggestion' }, null, now));
   return rows.sort((a, b) => a.company.name.localeCompare(b.company.name) || a.title.localeCompare(b.title));
 }
 
-export function filterJobs(list, { search = '', city = '', sector = '', stage = '', type = '', level = '', remote = '', company = '', where = '' } = {}) {
+export const REMOTE_AU = 'remote-au';
+export const OTHER_AU = 'other-au';
+const slug = (v) => String(v ?? '').trim().toLowerCase().replace(/\s+/g, '-');
+
+// `place`: where the role can be worked: a capital ("Melbourne"), "remote-au" (the employer says someone in Australia can do it remotely), or "other-au" (somewhere in Australia that is
+// not one of the ten capitals). `city` is the company's own city, as it always was.
+export function inPlace(job, place) {
+  if (!place) return true;
+  const p = slug(place);
+  if (p === REMOTE_AU) return job.work.remote_au === true;
+  if (p === OTHER_AU) return job.region === 'au' && job.work.cities.length === 0 && !job.work.remote_au;
+  return job.work.cities.some((c) => slug(c) === p);
+}
+
+export function filterJobs(list, { search = '', city = '', place = '', sector = '', stage = '', type = '', level = '', remote = '', company = '', where = '' } = {}) {
   const q = search.trim().toLowerCase();
   return list.filter((j) => (!q || [j.title, j.company.name, j.location].join(' ').toLowerCase().includes(q))
     && (!where || (where === 'au' ? j.region === 'au' : j.region === 'other'))
+    && inPlace(j, place)
     && (!city || j.company.city.toLowerCase() === city.toLowerCase())
     && (!sector || j.company.sector === sector) && (!stage || j.company.stage === stage)
     && (!type || j.employment_type === type) && (!level || j.level === level)
@@ -116,12 +164,16 @@ export function filterJobs(list, { search = '', city = '', sector = '', stage = 
 
 export function jobFacets(list) {
   const count = (pick) => { const m = new Map(); for (const j of list) { const v = pick(j); if (v) m.set(v, (m.get(v) ?? 0) + 1); } return [...m].map(([value, n]) => ({ value, count: n })).sort((a, b) => b.count - a.count || a.value.localeCompare(b.value)); };
+  const au = list.filter((j) => j.region === 'au');
   return {
     cities: count((j) => j.company.city), sectors: count((j) => j.company.sector), stages: count((j) => j.company.stage),
     types: count((j) => j.employment_type).map((t) => ({ ...t, label: EMPLOYMENT_LABELS[t.value] })),
     levels: count((j) => j.level).map((t) => ({ ...t, label: LEVEL_LABELS[t.value] })),
     remote: list.filter((j) => j.remote === true).length,
-    regions: { au: list.filter((j) => j.region === 'au').length, other: list.filter((j) => j.region === 'other').length },
+    regions: { au: au.length, other: list.filter((j) => j.region === 'other').length },
+    // Where the roles can be worked: a role open in two cities is in both, and once in the national count.
+    places: CITIES.map((value) => ({ value, count: au.filter((j) => inPlace(j, value)).length })).filter((p) => p.count > 0),
+    remote_au: au.filter((j) => j.work.remote_au).length, other_au: au.filter((j) => inPlace(j, OTHER_AU)).length, national: au.length,
     stale: list.filter((j) => j.stale).length,
     latest_checked_at: list.map((j) => j.last_checked_at).filter(Boolean).sort().at(-1) ?? null,
   };

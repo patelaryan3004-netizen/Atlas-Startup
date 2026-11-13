@@ -16,6 +16,7 @@ delete process.env.SHOW_PEOPLE; // the same as the live server: no people, no fi
 const here = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(here, '../../frontend/public/data/snapshot.json');
 const PRERENDER_OUT = path.resolve(here, '../../frontend/prerender-data.json'); // read by the build only (frontend/scripts/prerender.mjs): not served
+const BOARD_OUT = path.resolve(here, '../../frontend/public/data/jobs-board.json'); // the hiring desk's whole board: drawn at once, replaced by the API's answer (frontend/src/jobsBoard.js)
 const SNAPSHOT_VERSION = 1; // frontend/src/snapshot.js
 
 const { default: app } = await import('../src/app.js');
@@ -48,6 +49,13 @@ try {
   await writeFile(OUT, text, 'utf8');
   console.log(`Wrote ${path.relative(process.cwd(), OUT)}: ${Object.keys(first).length} answers, ${(text.length / 1024).toFixed(1)} KB, ${summary.count} companies (${summary.hiring} hiring now).`);
   for (const [key, body] of Object.entries(first)) console.log(`  ${(JSON.stringify(body).length / 1024).toFixed(1).padStart(6)} KB  ${key}`);
+  // The hiring desk's board, as the API serves it: the page draws this file first and the API's answer replaces it. It says when it was made, and the page says so when it is all there is.
+  const boardRes = await realFetch(`${base}/api/jobs/board`);
+  if (boardRes.ok) {
+    const board = await boardRes.json();
+    await writeFile(BOARD_OUT, JSON.stringify(board), 'utf8');
+    console.log(`Wrote ${path.relative(process.cwd(), BOARD_OUT)}: ${board.roles.length} roles at ${board.totals.companies} companies, last whole read ${board.sync.last_success_at ?? 'never'}.`);
+  }
   // The extra answers the static pages are made from (not part of the snapshot the site serves).
   for (const key of Object.keys(answers)) if (key in first) delete answers[key];
   for (const ask of PRERENDER_VIEWS) await ask();

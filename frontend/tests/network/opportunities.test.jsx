@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor, within, act } from '@testing-library/react';
+import { render, screen, waitFor, within, act, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/networkApi.js', async () => (await import('./helpers.js')).apiMock());
@@ -10,7 +10,7 @@ import EventsBoard from '../../src/components/network/EventsBoard.jsx';
 import { resetSession } from '../../src/session.js';
 import { resetSaved } from '../../src/savedStore.js';
 import { closeAuth } from '../../src/authUi.js';
-import { job, jobFacets, event, eventFacets } from './helpers.js';
+import { job, jobFacets, event, eventFacets, deskRole, deskBoard } from './helpers.js';
 
 const jobsPage = (results, over = {}) => ({ total: results.length, count: results.length, results, facets: jobFacets(), hasMore: false, ...over });
 const eventsPage = (results, over = {}) => ({ total: results.length, count: results.length, results, facets: eventFacets(), hasMore: false, ...over });
@@ -27,130 +27,242 @@ beforeEach(() => {
 });
 afterEach(() => { closeAuth(); });
 
-describe('Opportunities: Jobs', () => {
-  it('is under Opportunities, with Jobs as the tab it is on and Events beside it', async () => {
-    render(<JobsBoard chrome={{ go: {} }} />);
-    await screen.findByRole('heading', { level: 3, name: 'Senior Software Engineer' });
+describe('Opportunities: the hiring desk', () => {
+  const NOW_ISO = '2026-11-13T04:00:00Z';
+  const melb = (id, over = {}) => deskRole({ id, title: `Role ${id}`, ...over });
+  const syd = (id, over = {}) => deskRole({ id, title: `Role ${id}`, work: { places: [{ label: 'Sydney, NSW', au: true, city: 'Sydney' }], cities: ['Sydney'], remote_au: false, remote_evidence: null, arrangement: null }, location: 'Sydney, NSW', ...over });
+  const both = (id, over = {}) => deskRole({ id, title: `Role ${id}`, work: { places: [{ label: 'Sydney', au: true, city: 'Sydney' }, { label: 'Melbourne', au: true, city: 'Melbourne' }], cities: ['Sydney', 'Melbourne'], remote_au: false, remote_evidence: null, arrangement: 'hybrid' }, ...over });
+  const remote = (id, over = {}) => deskRole({ id, title: `Role ${id}`, company: { name: 'Immutable', slug: 'immutable', city: 'Sydney', sector: 'Web3', stage: '', website: 'https://www.immutable.com' }, work: { places: [{ label: 'Remote - Australia', au: true, city: null }], cities: [], remote_au: true, remote_evidence: 'Remote - Australia', arrangement: 'remote' }, location: 'Remote - Australia', ...over });
+  const roles = () => [melb('m1'), melb('m2', { company: { name: 'Bellroy', slug: 'bellroy', city: 'Melbourne', sector: 'Unknown', stage: '', website: 'https://bellroy.com' } }), syd('s1'), both('b1'), remote('r1')];
+
+  beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date(NOW_ISO));
+    api.fetchJobBoard.mockResolvedValue(deskBoard(roles()));
+    api.fetchJobs.mockResolvedValue({ results: [] });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('nope', { status: 404 })));
+  });
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); });
+
+  const openDesk = async () => { render(<JobsBoard chrome={{ go: {} }} />); await screen.findByText('Role m1'); };
+  const card = (name) => screen.getByRole('button', { name: new RegExp(`^${name},`) });
+
+  it('is under Opportunities with Jobs as its tab and Events beside it, and says what the desk is', async () => {
+    await openDesk();
     expect(within(screen.getByRole('navigation', { name: 'Main' })).getByRole('link', { name: 'Opportunities' })).toHaveAttribute('aria-current', 'page');
     const tabs = within(screen.getByRole('navigation', { name: 'Opportunities' }));
     expect(tabs.getByRole('link', { name: 'Jobs' })).toHaveAttribute('aria-current', 'page');
     expect(tabs.getByRole('link', { name: 'Events' })).toHaveAttribute('href', '/events');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Roles read from their own pages.');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('The hiring desk.');
+    expect(screen.getByText('Find your next team in Australia. Apply directly with the people hiring.')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Suggest a role/ })).toBeInTheDocument();
   });
 
-  it('starts on roles in Australia, and says so; Anywhere asks for all of them, and the address says which', async () => {
-    render(<JobsBoard chrome={{ go: {} }} />);
-    await screen.findByText('Senior Software Engineer');
-    expect(api.fetchJobs).toHaveBeenCalledWith(expect.objectContaining({ where: 'au', limit: 24, offset: 0 }), expect.anything());
-    expect(screen.getByRole('status')).toHaveTextContent('1 role in Australia');
+  it('counts each card from the roles that match: a role open in two cities is in both cards and once in the national figure', async () => {
+    await openDesk();
+    expect(card('Melbourne')).toHaveAccessibleName('Melbourne, 3 open roles'); // m1, m2, b1
+    expect(card('Sydney')).toHaveAccessibleName('Sydney, 2 open roles'); // s1, b1
+    expect(card('Perth')).toHaveAccessibleName('Perth, 0 open roles');
+    expect(card('Remote AU')).toHaveAccessibleName('Remote AU, 1 open role');
+    expect(screen.getByRole('combobox', { name: 'Where the role is worked' })).toHaveDisplayValue('All Australia (5)'); // five roles, not 3 + 2 + 1
+    expect(screen.getByRole('heading', { level: 2, name: /Open roles/ })).toHaveTextContent('5');
+  });
+
+  it('shows the roles that can be worked in a city when its card is pressed, writes it in the address, and clears it when pressed again', async () => {
+    await openDesk();
+    await userEvent.click(card('Melbourne'));
+    expect(window.location.search).toBe('?place=Melbourne');
+    expect(screen.getByRole('heading', { level: 2, name: /Open roles in Melbourne/ })).toBeInTheDocument();
+    expect(screen.getAllByRole('listitem').map((li) => li.textContent).filter((t) => /Role (m1|m2|b1|s1|r1)/.test(t)).length).toBe(3);
+    expect(screen.queryByText('Role s1')).not.toBeInTheDocument();
+    await userEvent.click(card('Melbourne'));
     expect(window.location.search).toBe('');
-    await userEvent.selectOptions(screen.getByLabelText('Where the role is'), 'any');
-    await waitFor(() => expect(api.fetchJobs).toHaveBeenLastCalledWith(expect.objectContaining({ where: '' }), expect.anything()));
-    expect(window.location.search).toBe('?where=any');
+    expect(await screen.findByText('Role s1')).toBeInTheDocument();
   });
 
-  it('shows what the listing says and "Not stated" for what it does not: no salary, no guess at the working arrangement or the experience, and the level only as the title names it', async () => {
-    api.fetchJobs.mockResolvedValue(jobsPage([job({ employment_type: null, level: null, location: '' })]));
-    render(<JobsBoard chrome={{ go: {} }} />);
-    const card = within((await screen.findByRole('heading', { level: 3, name: 'Senior Software Engineer' })).closest('li'));
-    expect(card.getByText('Working arrangement').nextSibling).toHaveTextContent('Not stated');
-    expect(card.getByText('Employment').nextSibling).toHaveTextContent('Not stated');
-    expect(card.getByText('Level in the title').nextSibling).toHaveTextContent('Not named');
-    expect(card.getByText('Where').nextSibling).toHaveTextContent('Not stated');
-    expect(card.queryByText('Salary')).not.toBeInTheDocument();
+  it('uses where the role is worked, never where the company is: a Melbourne company\'s Sydney role is Sydney\'s, and Remote AU is only what the employer says is remote from Australia', async () => {
+    await openDesk();
+    await userEvent.click(card('Sydney'));
+    expect(screen.getByText('Role s1')).toBeInTheDocument();
+    expect(screen.getByText('Role b1')).toBeInTheDocument();
+    expect(screen.queryByText('Role m1')).not.toBeInTheDocument();
+    await userEvent.click(card('Remote AU'));
+    expect(screen.getByText('Role r1')).toBeInTheDocument();
+    expect(screen.queryByText('Role s1')).not.toBeInTheDocument();
   });
 
-  it('shows a salary only when one is published, in its own words', async () => {
-    api.fetchJobs.mockResolvedValue(jobsPage([job({ salary: 'A$140,000 to A$160,000 a year' })]));
-    render(<JobsBoard chrome={{ go: {} }} />);
-    const card = within((await screen.findByRole('heading', { level: 3, name: 'Senior Software Engineer' })).closest('li'));
-    expect(card.getByText('Salary').nextSibling).toHaveTextContent('A$140,000 to A$160,000 a year');
+  it('has the other Australian places in the location menu, and the old ?city= address opens the board on that place', async () => {
+    window.history.replaceState(null, '', '/jobs?city=Sydney');
+    await openDesk().catch(() => {});
+    await screen.findByText('Role s1');
+    const menu = screen.getByRole('combobox', { name: 'Where the role is worked' });
+    expect(menu).toHaveDisplayValue('Sydney (2)');
+    expect([...menu.options].map((o) => o.textContent)).toEqual(expect.arrayContaining(['All Australia (5)', 'Melbourne (3)', 'Perth (0)', 'Remote AU (1)', 'Elsewhere in Australia (0)']));
   });
 
-  it('applies on the employer\'s own page, in a new tab that cannot reach back, says why the role is listed and when it was read', async () => {
-    render(<JobsBoard chrome={{ go: {} }} />);
-    const card = within((await screen.findByRole('heading', { level: 3, name: 'Senior Software Engineer' })).closest('li'));
-    const apply = card.getByRole('link', { name: /Apply on the employer.s site/ });
-    expect(apply).toHaveAttribute('href', 'https://job-boards.greenhouse.io/cobalt/jobs/1');
+  it('filters by a company from the index, shows it as a chip, and the company\'s roles only', async () => {
+    await openDesk();
+    const index = within(screen.getByRole('complementary', { name: 'Who is hiring' }));
+    expect(index.getByRole('heading', { name: /Who.s hiring/ })).toBeInTheDocument();
+    await userEvent.click(index.getByRole('button', { name: /Bellroy/ }));
+    expect(window.location.search).toBe('?company=bellroy');
+    expect(screen.getByText('Role m2')).toBeInTheDocument();
+    expect(screen.queryByText('Role m1')).not.toBeInTheDocument();
+    expect(within(screen.getByRole('list', { name: 'Active filters' })).getByRole('button', { name: /Bellroy/ })).toBeInTheDocument();
+    await userEvent.click(index.getByRole('button', { name: /Bellroy/ }));
+    expect(screen.getByText('Role m1')).toBeInTheDocument();
+  });
+
+  it('each row shows the role, the company, where it is worked, how, and when it was last confirmed: and leaves out what the employer did not say', async () => {
+    api.fetchJobBoard.mockResolvedValue(deskBoard([melb('m1'), syd('s1')]));
+    await openDesk();
+    const first = screen.getByText('Role m1').closest('li');
+    expect(within(first).getByText('Zeller · Melbourne · Hybrid')).toBeInTheDocument();
+    expect(within(first).getAllByText('Confirmed today').length).toBeGreaterThan(0);
+    const second = screen.getByText('Role s1').closest('li');
+    expect(within(second).getByText('Zeller · Sydney')).toBeInTheDocument(); // no arrangement stated: nothing is written in its place
+    expect(screen.queryByText(/Not stated/i)).not.toBeInTheDocument();
+  });
+
+  it('opens a role in full with a clear way to apply on the employer\'s own site, and the dates kept apart', async () => {
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /Role m1, Zeller, Melbourne, Hybrid/ }));
+    const d = within(await screen.findByRole('dialog', { name: 'Role m1' }));
+    const apply = d.getByRole('link', { name: /Apply at Zeller/ });
+    expect(apply).toHaveAttribute('href', 'https://jobs.lever.co/Zeller/abc');
     expect(apply).toHaveAttribute('target', '_blank');
     expect(apply).toHaveAttribute('rel', 'noopener noreferrer');
-    expect(card.getByText(/own careers page on Greenhouse, last read 2026-10-27/)).toBeInTheDocument();
-    expect(card.getByText(/Read 1 day ago \(27 Oct 2026\)\./)).toBeInTheDocument();
-    expect(card.getByRole('link', { name: 'Cobalt Labs' })).toHaveAttribute('href', '/startup/cobalt-labs');
-    expect(card.queryByText(/Confirm it is still open/)).not.toBeInTheDocument();
+    expect(d.getByText('Posted by the employer').nextSibling).toHaveTextContent('10 November 2026');
+    expect(d.getByText('First listed here').nextSibling).toHaveTextContent('13 November 2026');
+    expect(d.getByText('Last confirmed').nextSibling).toHaveTextContent('13 November 2026 (today)');
+    expect(d.getByText('Working arrangement').nextSibling).toHaveTextContent('Hybrid');
+    expect(d.queryByText('Salary')).not.toBeInTheDocument();
+    expect(window.location.search).toContain('role=m1');
+    await userEvent.click(d.getByRole('button', { name: 'Close' }));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   });
 
-  it('says a reading older than two weeks is old, on the role and once for the whole board when every reading is', async () => {
-    api.fetchJobs.mockResolvedValue(jobsPage([job({ days_since_checked: 15, stale: true })], { facets: jobFacets({ stale: 1 }) }));
-    render(<JobsBoard chrome={{ go: {} }} />);
-    expect(await screen.findByRole('note')).toHaveTextContent(/Every role here was last read more than two weeks ago \(the newest reading is 27 Oct 2026\)/);
-    expect(screen.getByText(/Read 15 days ago/)).toBeInTheDocument();
-    expect(screen.getByText(/Confirm it is still open on the employer.s page/)).toBeInTheDocument();
+  it('shows no posted date when the employer gave none: a role merely checked today is not "posted today"', async () => {
+    api.fetchJobBoard.mockResolvedValue(deskBoard([melb('m1', { posted_at: null })]));
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /^Role m1,/ }));
+    const d = within(await screen.findByRole('dialog'));
+    expect(d.queryByText('Posted by the employer')).not.toBeInTheDocument();
+    expect(d.getByText('First listed here')).toBeInTheDocument();
   });
 
-  it('marks a closed role as closed and gives no way to apply', async () => {
-    api.fetchJobs.mockResolvedValue(jobsPage([job({ status: 'closed' })]));
-    render(<JobsBoard chrome={{ go: {} }} />);
-    const card = within((await screen.findByRole('heading', { level: 3, name: 'Senior Software Engineer' })).closest('li'));
-    expect(card.getByText(/Closed: the employer has taken it down/)).toBeInTheDocument();
-    expect(card.queryByRole('link', { name: /Apply/ })).not.toBeInTheDocument();
+  it('says Remote AU with the employer\'s own words as the evidence', async () => {
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /^Role r1,/ }));
+    const d = within(await screen.findByRole('dialog'));
+    expect(d.getByText('Remote from Australia').nextSibling).toHaveTextContent('Yes, the employer says: “Remote - Australia”');
   });
 
-  it('searches and filters, asking the server for what is chosen, and offers only what some role has', async () => {
-    render(<JobsBoard chrome={{ go: {} }} />);
-    await screen.findByText('Senior Software Engineer');
-    const city = screen.getByLabelText('City');
-    expect([...city.options].map((o) => o.textContent)).toEqual(['Company city', 'Sydney (2)']);
-    await userEvent.selectOptions(screen.getByLabelText('Level in the title'), 'senior');
-    await waitFor(() => expect(api.fetchJobs).toHaveBeenLastCalledWith(expect.objectContaining({ level: 'senior', where: 'au' }), expect.anything()));
-    await userEvent.click(screen.getByRole('checkbox', { name: 'Remote (1)' }));
-    await waitFor(() => expect(api.fetchJobs).toHaveBeenLastCalledWith(expect.objectContaining({ level: 'senior', remote: 'yes' }), expect.anything()));
-    await userEvent.type(screen.getByRole('searchbox', { name: 'Search roles' }), 'engineer');
-    await waitFor(() => expect(api.fetchJobs).toHaveBeenLastCalledWith(expect.objectContaining({ search: 'engineer' }), expect.anything()));
-    expect(window.location.search).toContain('level=senior');
-    expect(window.location.search).toContain('remote=yes');
-    await userEvent.click(screen.getByRole('button', { name: 'Reset filters' }));
-    await waitFor(() => expect(api.fetchJobs).toHaveBeenLastCalledWith(expect.objectContaining({ level: '', remote: '', search: '', where: 'au' }), expect.anything()));
-  });
-
-  it('opens with the filters the address names', async () => {
-    window.history.replaceState(null, '', '/jobs?city=Sydney&remote=yes&where=any');
-    render(<JobsBoard chrome={{ go: {} }} />);
-    await waitFor(() => expect(api.fetchJobs).toHaveBeenCalledWith(expect.objectContaining({ city: 'Sydney', remote: 'yes', where: '' }), expect.anything()));
-  });
-
-  it('saves a role on this device (and says nothing about an account) and keeps it across a reload', async () => {
+  it('saves a role on this device and keeps it across a reload', async () => {
     const first = render(<JobsBoard chrome={{ go: {} }} />);
-    await userEvent.click(await screen.findByRole('button', { name: 'Save Senior Software Engineer at Cobalt Labs' }));
-    expect(JSON.parse(localStorage.getItem('stillEarlySavedJobs'))).toEqual(['j-1']);
+    await userEvent.click(await screen.findByRole('button', { name: 'Save Role m1 at Zeller' }));
+    expect(JSON.parse(localStorage.getItem('stillEarlySavedJobs'))).toEqual(['m1']);
     first.unmount();
     render(<JobsBoard chrome={{ go: {} }} />);
-    expect(await screen.findByRole('button', { name: 'Remove Senior Software Engineer at Cobalt Labs from saved' })).toHaveAttribute('aria-pressed', 'true');
+    expect(await screen.findByRole('button', { name: 'Remove Role m1 at Zeller from saved' })).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('says honestly when nothing matches or nothing is listed, and offers to suggest one', async () => {
-    api.fetchJobs.mockResolvedValue(jobsPage([], { count: 0, total: 0 }));
-    render(<JobsBoard chrome={{ go: {} }} />);
-    expect(await screen.findByText('No open roles are listed right now.')).toBeInTheDocument();
-    await userEvent.click(screen.getByRole('button', { name: 'Suggest it' }));
-    expect(await screen.findByRole('dialog', { name: 'Suggest a role' })).toBeInTheDocument();
+  it('keeps a saved role that has gone, with its true status and no way to apply; and one that needs a recheck says so', async () => {
+    localStorage.setItem('stillEarlySavedJobs', JSON.stringify(['m1', 'gone-1', 'closed-1']));
+    api.fetchJobBoard.mockResolvedValue(deskBoard([melb('m1', { confirmation: 'recheck', last_confirmed_at: '2026-11-09T02:00:00Z' })], {
+      lapsed: [
+        { id: 'gone-1', title: 'Filled Role', company: { name: 'Zeller', slug: 'zeller', website: 'https://www.myzeller.com' }, location: 'Melbourne', apply_url: 'https://jobs.lever.co/Zeller/old', lifecycle: 'archived', confirmation: null, last_confirmed_at: '2026-11-05T02:00:00Z', posted_at: null, region: 'au' },
+        { id: 'closed-1', title: 'Closed Role', company: { name: 'Bellroy', slug: 'bellroy', website: 'https://bellroy.com' }, location: 'Melbourne', apply_url: 'https://job-boards.greenhouse.io/bellroy/jobs/1', lifecycle: 'closed', confirmation: null, last_confirmed_at: '2026-11-01T02:00:00Z', posted_at: null, region: 'au' },
+      ],
+    }));
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /^Saved/ }));
+    expect(await screen.findByText('Filled Role')).toBeInTheDocument();
+    expect(screen.getAllByText('No longer listed by the employer').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Closed by the employer').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Not rechecked since 9 Nov').length).toBeGreaterThan(0);
+    await userEvent.click(screen.getByRole('button', { name: /^Filled Role,/ }));
+    const d = within(await screen.findByRole('dialog'));
+    expect(d.queryByRole('link', { name: /Apply at/ })).not.toBeInTheDocument();
+    expect(d.getByText(/off the employer.s board for at least two checks/)).toBeInTheDocument();
   });
 
-  it('pages: "Show more roles" asks for the next offset', async () => {
-    api.fetchJobs.mockResolvedValueOnce(jobsPage([job()], { total: 30, count: 30, hasMore: true }));
+  it('says honestly when a place has no roles, and when nothing matches, and offers to clear the filters', async () => {
+    await openDesk();
+    await userEvent.click(card('Perth'));
+    expect(await screen.findByRole('heading', { level: 3, name: 'No open roles in Perth right now.' })).toBeInTheDocument();
+    await userEvent.click(card('Perth'));
+    await userEvent.type(screen.getByRole('searchbox', { name: 'Search roles or companies' }), 'zzzz');
+    expect(await screen.findByRole('heading', { level: 3, name: 'No roles match.' })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: 'Clear filters' }));
+    expect(await screen.findByText('Role m1')).toBeInTheDocument();
+  });
+
+  it('opens the board on every sector by default, and ?sector=Unknown still works, called "Sector not supplied"', async () => {
+    await openDesk();
+    expect(screen.getByText('Role m1')).toBeInTheDocument();
+    expect(screen.getByText('Role m2')).toBeInTheDocument();
+    expect(window.location.search).toBe('');
+    cleanup();
+    window.history.replaceState(null, '', '/jobs?sector=Unknown');
     render(<JobsBoard chrome={{ go: {} }} />);
-    await screen.findByText('Senior Software Engineer');
-    api.fetchJobs.mockResolvedValueOnce(jobsPage([job({ id: 'j-2', title: 'Product Designer', level: null })], { total: 30, count: 30 }));
-    await userEvent.click(screen.getByRole('button', { name: 'Show more roles' }));
-    await screen.findByText('Product Designer');
-    expect(api.fetchJobs).toHaveBeenLastCalledWith(expect.objectContaining({ offset: 24 }));
+    await screen.findByText('Role m2');
+    expect(screen.queryByText('Role m1')).not.toBeInTheDocument();
+    expect(within(screen.getByRole('list', { name: 'Active filters' })).getByRole('button', { name: /Sector not supplied/ })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: /Filters/ }));
+    expect(screen.getByRole('combobox', { name: /Sector/ })).toHaveDisplayValue('Sector not supplied (1)');
+  });
+
+  it('puts the secondary filters behind one Filters button and narrows by them', async () => {
+    api.fetchJobBoard.mockResolvedValue(deskBoard([melb('m1', { level: 'senior' }), melb('m2', { level: null, employment_type: 'contract' })]));
+    await openDesk();
+    expect(screen.queryByLabelText('Level in the title')).not.toBeInTheDocument();
+    await userEvent.click(screen.getByRole('button', { name: /Filters/ }));
+    await userEvent.selectOptions(screen.getByLabelText('Level in the title'), 'senior');
+    expect(screen.queryByText('Role m2')).not.toBeInTheDocument();
+    expect(window.location.search).toContain('level=senior');
+    expect(screen.getByRole('button', { name: /Filters\s*1/ })).toBeInTheDocument();
+  });
+
+  it('draws the saved copy that comes with the site first and says so when the live board cannot be reached', async () => {
+    api.fetchJobBoard.mockRejectedValue(Object.assign(new Error('offline'), { code: 'offline' }));
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(deskBoard([melb('m1')])), { status: 200, headers: { 'content-type': 'application/json' } })));
+    await openDesk();
+    expect(await screen.findByText(/the saved copy from 13 Nov/)).toBeInTheDocument();
+    expect(screen.getByText('Role m1')).toBeInTheDocument(); // the roles are still there, and still link to their employers
+  });
+
+  it('does not draw a saved copy that is more than two weeks old', async () => {
+    api.fetchJobBoard.mockRejectedValue(new Error('offline'));
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(deskBoard([melb('m1')], { generated_at: '2026-10-01T00:00:00Z' })), { status: 200 })));
+    render(<JobsBoard chrome={{ go: {} }} />);
+    expect(await screen.findByText(/The board could not be loaded/)).toBeInTheDocument();
+    expect(screen.queryByText('Role m1')).not.toBeInTheDocument();
+  });
+
+  it('says how current the board is, from the sync\'s last whole read: and says so when the hourly check has not run', async () => {
+    await openDesk();
+    expect(screen.getByText(/Employer boards last read 13 Nov 2026/)).toBeInTheDocument();
+    cleanup();
+    api.fetchJobBoard.mockResolvedValue(deskBoard(roles(), { sync: { ...deskBoard([]).sync, last_success_at: '2026-11-11T02:00:00Z' } }));
+    render(<JobsBoard chrome={{ go: {} }} />);
+    expect(await screen.findByText(/The hourly check has not run since/)).toBeInTheDocument();
+  });
+
+  it('lists what the board reads, what it cannot yet and what waits for a person, and says a new role appears after the next successful check', async () => {
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /See feed coverage/ }));
+    const d = within(await screen.findByRole('dialog', { name: 'Feed coverage' }));
+    expect(d.getByText(/after the next successful check, not the moment the employer posts it/)).toBeInTheDocument();
+    expect(d.getByText('Zeller')).toBeInTheDocument();
+    expect(d.getByText(/ashby: no reader yet/)).toBeInTheDocument();
+    expect(d.getByText(/not confirmed from the company.s own site/)).toBeInTheDocument();
   });
 
   it('suggests a role: the form asks for the employer\'s own link, says a person checks it first, and sends what was typed', async () => {
     api.submitSuggestion.mockResolvedValue({ id: 'sg_1', status: 'pending' });
-    render(<JobsBoard chrome={{ go: {} }} />);
-    await screen.findByText('Senior Software Engineer');
-    await userEvent.click(screen.getByRole('button', { name: 'Suggest a role' }));
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /Suggest a role/ }));
     const d = within(await screen.findByRole('dialog', { name: 'Suggest a role' }));
     expect(d.getByText(/A person checks it before it is listed/)).toBeInTheDocument();
     await userEvent.type(d.getByLabelText('Role *'), 'Founding Engineer');
@@ -158,7 +270,12 @@ describe('Opportunities: Jobs', () => {
     await userEvent.type(d.getByLabelText(/Link to apply/), 'https://example.org/jobs/1');
     await userEvent.click(d.getByRole('button', { name: 'Send suggestion' }));
     expect(api.submitSuggestion).toHaveBeenCalledWith('job', expect.objectContaining({ title: 'Founding Engineer', company: 'Example Startup', apply_url: 'https://example.org/jobs/1' }), '');
-    expect(await d.findByText(/Nothing is shown until they have/)).toBeInTheDocument();
+  });
+
+  it('credits the photography', async () => {
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: 'Photography' }));
+    expect(await screen.findByRole('dialog', { name: 'Photography' })).toHaveTextContent(/Unsplash/);
   });
 });
 

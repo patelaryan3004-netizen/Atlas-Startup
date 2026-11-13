@@ -16,6 +16,7 @@ import { makeEvidenceRow, valuesEqual, storedValue, activeEvidence, bestConfiden
 import { decide } from './policy.js';
 import { setField, isUnknown } from './fill.js';
 import { briefSignals } from './status.js';
+import { canonicalUrl } from '../jobsync/canonical.js';
 
 const pageSlug = (url) => { try { return slugify(new URL(url).pathname) || 'website'; } catch { return 'page'; } };
 
@@ -46,6 +47,8 @@ const matchesRecord = (company, field, value) => (field === 'hiring_status'
 
 // Postings found on the pages read this time are added or kept open. A posting from a page that was read
 // this time and is no longer on it is closed; one from a page not read is left alone.
+// A role the hourly job sync holds (it has an external_id: jobsync/engine.js) is the sync's: this slower reader neither updates it, nor closes it, nor adds it again under another
+// key (the same canonical address is the same role), so the two never disagree about one role.
 function upsertJobs(work, company, analysis, retrieved) {
   const out = { added: 0, updated: 0, closed: 0 };
   work.jobs ??= [];
@@ -53,7 +56,9 @@ function upsertJobs(work, company, analysis, retrieved) {
   const seen = new Set();
   for (const j of analysis.jobs ?? []) {
     const sourceId = upsertSource(work, company.id, j.source);
-    const existing = work.jobs.find((r) => r.company_id === company.id && keyOf(r) === keyOf(j));
+    const canon = canonicalUrl(j.apply_url);
+    const existing = work.jobs.find((r) => r.company_id === company.id && (keyOf(r) === keyOf(j) || (canon && canonicalUrl(r.apply_url) === canon)));
+    if (existing && existing.external_id != null) { seen.add(existing.id); continue; } // the sync's
     const fields = { location: j.location, employment_type: j.employment_type, remote: j.remote, posted_at: j.posted_at };
     if (existing) {
       Object.assign(existing, { status: 'open', retrieved_at: retrieved, source_id: sourceId, ...Object.fromEntries(Object.entries(fields).map(([k, v]) => [k, v ?? existing[k] ?? null])) });
@@ -68,7 +73,7 @@ function upsertJobs(work, company, analysis, retrieved) {
   }
   const readSources = new Set(analysis.pages.map((p) => work.sources.find((s) => s.url && valuesEqual('website', s.url, p.url))?.id).filter(Boolean));
   for (const r of work.jobs) {
-    if (r.company_id === company.id && r.status === 'open' && readSources.has(r.source_id) && !seen.has(r.id)) {
+    if (r.company_id === company.id && r.status === 'open' && r.external_id == null && readSources.has(r.source_id) && !seen.has(r.id)) {
       Object.assign(r, { status: 'closed', retrieved_at: retrieved });
       out.closed += 1;
     }

@@ -21,9 +21,11 @@
     "remote": true,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6208899004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-business-development-representative",
@@ -34,9 +36,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6182896004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-customer-success-manager-smb",
@@ -73,9 +77,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6100168004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-implementation-specialist",
@@ -86,9 +92,11 @@
     "remote": true,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6006035004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-implementation-specialist-karbon-expert",
@@ -99,22 +107,35 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6161012004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-join-our-talent-community",
     "company_id": "karbon",
     "title": "Join our Talent Community",
-    "location": "Canberra, ACT, Australia; Cebu, Central Visayas, Philippines; Chicago, IL, United States; Los Angeles, CA, United States",
+    "location": "Canberra, ACT, Australia; Cebu, Central Visayas, Philippines; Chicago, IL, United States; Los Angeles, CA, United States; Manila, Metro Manila, Philippines; Mel",
     "employment_type": null,
-    "remote": true,
-    "posted_at": null,
+    "remote": null,
+    "posted_at": "2025-03-20T21:23:57.000Z",
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/5481516004",
     "status": "open",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:36.664Z",
+    "provider": "greenhouse",
+    "external_id": "5481516004",
+    "canonical_url": "https://job-boards.greenhouse.io/karbon/jobs/5481516004",
+    "last_confirmed_at": "2026-11-13T02:28:36.664Z",
+    "absent_reads": 0,
+    "locations": [
+      "Canberra, ACT, Australia; Cebu, Central Visayas, Philippines; Chicago, IL, United States; Los Angeles, CA, United States; Manila, Metro Manila, Philippines; Mel"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "karbon-people-business-partner",
@@ -125,9 +146,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6099244004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-senior-ai-systems-engineer",
@@ -138,9 +161,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6008707004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-senior-customer-success-manager",
@@ -151,9 +176,11 @@
     "remote": true,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6208471004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-senior-customer-success-manager-2",
@@ -164,9 +191,11 @@
     "remote": true,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6208473004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-senior-implementation-specialist",
@@ -177,9 +206,11 @@
     "remote": true,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6141505004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "karbon-senior-quality-engineer",
@@ -190,9 +221,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6210309004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "amber-electric-chief-technology-officer",
@@ -227,11 +260,22 @@
     "location": "Global",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-11-21T00:08:14.000Z",
     "apply_url": "https://job-boards.greenhouse.io/buildkite-talent-community/jobs/4413405008",
     "status": "open",
     "source_id": "buildkite-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:28.739Z",
+    "provider": "greenhouse",
+    "external_id": "4413405008",
+    "canonical_url": "https://job-boards.greenhouse.io/buildkite-talent-community/jobs/4413405008",
+    "last_confirmed_at": "2026-11-13T02:28:28.739Z",
+    "absent_reads": 0,
+    "locations": [
+      "Global"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "immutable-chief-of-staff-cco",
@@ -253,11 +297,22 @@
     "location": "AMER",
     "employment_type": "Full Time Permanent",
     "remote": true,
-    "posted_at": "2026-08-05",
+    "posted_at": "2026-08-05T07:57:14.408Z",
     "apply_url": "https://jobs.lever.co/immutable/46e44c79-90cb-4ce1-b8f8-0b7707c69f12",
     "status": "open",
     "source_id": "immutable-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:35.213Z",
+    "provider": "lever",
+    "external_id": "46e44c79-90cb-4ce1-b8f8-0b7707c69f12",
+    "canonical_url": "https://jobs.lever.co/immutable/46e44c79-90cb-4ce1-b8f8-0b7707c69f12",
+    "last_confirmed_at": "2026-11-13T02:28:35.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "AMER"
+    ],
+    "workplace_type": "remote",
+    "team": "GTM | Commercial",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "immutable-customer-growth-lead-2",
@@ -307,9 +362,11 @@
     "remote": null,
     "posted_at": "2026-08-03",
     "apply_url": "https://jobs.lever.co/immutable/fcd9fcb4-e568-4a40-a67e-fd57442171de",
-    "status": "open",
+    "status": "hidden",
     "source_id": "immutable-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:11.089Z"
   },
   {
     "id": "zeller-account-executive",
@@ -318,11 +375,22 @@
     "location": "London",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2025-09-23",
+    "posted_at": "2025-09-23T03:57:11.168Z",
     "apply_url": "https://jobs.lever.co/Zeller/79e5968c-d7d9-460f-88ae-b5cde71b7122",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "79e5968c-d7d9-460f-88ae-b5cde71b7122",
+    "canonical_url": "https://jobs.lever.co/Zeller/79e5968c-d7d9-460f-88ae-b5cde71b7122",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "London"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-2",
@@ -331,11 +399,22 @@
     "location": "Manchester",
     "employment_type": "Full Time",
     "remote": true,
-    "posted_at": "2026-09-16",
+    "posted_at": "2026-09-16T11:22:49.531Z",
     "apply_url": "https://jobs.lever.co/Zeller/b0ff96e8-dac0-4b0a-946d-b43a0b600979",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "b0ff96e8-dac0-4b0a-946d-b43a0b600979",
+    "canonical_url": "https://jobs.lever.co/Zeller/b0ff96e8-dac0-4b0a-946d-b43a0b600979",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Manchester"
+    ],
+    "workplace_type": "remote",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-3",
@@ -344,11 +423,22 @@
     "location": "Birmingham",
     "employment_type": "Full Time",
     "remote": true,
-    "posted_at": "2026-09-16",
+    "posted_at": "2026-09-16T11:23:50.283Z",
     "apply_url": "https://jobs.lever.co/Zeller/ced40f9d-ca0d-42a1-b3ea-d731c45f97f4",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "ced40f9d-ca0d-42a1-b3ea-d731c45f97f4",
+    "canonical_url": "https://jobs.lever.co/Zeller/ced40f9d-ca0d-42a1-b3ea-d731c45f97f4",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Birmingham"
+    ],
+    "workplace_type": "remote",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-4",
@@ -357,11 +447,22 @@
     "location": "Melbourne",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2024-10-17",
+    "posted_at": "2024-10-17T03:49:54.607Z",
     "apply_url": "https://jobs.lever.co/Zeller/2c3b9e56-270e-44b7-959d-e3293de878c1",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "2c3b9e56-270e-44b7-959d-e3293de878c1",
+    "canonical_url": "https://jobs.lever.co/Zeller/2c3b9e56-270e-44b7-959d-e3293de878c1",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-5",
@@ -370,11 +471,22 @@
     "location": "Sydney",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2025-02-26",
+    "posted_at": "2025-02-26T04:17:53.239Z",
     "apply_url": "https://jobs.lever.co/Zeller/44c2ea50-fcbd-4c8d-83c9-8c9034d4cf1a",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "44c2ea50-fcbd-4c8d-83c9-8c9034d4cf1a",
+    "canonical_url": "https://jobs.lever.co/Zeller/44c2ea50-fcbd-4c8d-83c9-8c9034d4cf1a",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-6",
@@ -383,11 +495,22 @@
     "location": "Perth",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2026-08-19",
+    "posted_at": "2026-08-19T04:32:48.966Z",
     "apply_url": "https://jobs.lever.co/Zeller/c2c9e8a5-14fd-4d99-a1ad-e6cb6263cd19",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "c2c9e8a5-14fd-4d99-a1ad-e6cb6263cd19",
+    "canonical_url": "https://jobs.lever.co/Zeller/c2c9e8a5-14fd-4d99-a1ad-e6cb6263cd19",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Perth"
+    ],
+    "workplace_type": "onsite",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-7",
@@ -396,11 +519,22 @@
     "location": "Adelaide",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2025-06-05",
+    "posted_at": "2025-06-05T22:38:26.638Z",
     "apply_url": "https://jobs.lever.co/Zeller/ee9db5b8-7e8e-43b2-8a79-6032219d079e",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "ee9db5b8-7e8e-43b2-8a79-6032219d079e",
+    "canonical_url": "https://jobs.lever.co/Zeller/ee9db5b8-7e8e-43b2-8a79-6032219d079e",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Adelaide"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-8",
@@ -409,11 +543,22 @@
     "location": "Brisbane",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2025-02-03",
+    "posted_at": "2025-02-03T09:41:51.506Z",
     "apply_url": "https://jobs.lever.co/Zeller/fe152dab-0fd5-4606-b0b4-bd7095d0298a",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "fe152dab-0fd5-4606-b0b4-bd7095d0298a",
+    "canonical_url": "https://jobs.lever.co/Zeller/fe152dab-0fd5-4606-b0b4-bd7095d0298a",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-9",
@@ -424,9 +569,11 @@
     "remote": null,
     "posted_at": "2026-05-22",
     "apply_url": "https://jobs.lever.co/Zeller/6939767a-87b0-47dc-adb1-a14a11ca2243",
-    "status": "open",
+    "status": "hidden",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:18.437Z"
   },
   {
     "id": "zeller-account-executive-10",
@@ -437,9 +584,11 @@
     "remote": null,
     "posted_at": "2026-03-05",
     "apply_url": "https://jobs.lever.co/Zeller/76f03aca-7d54-4b2d-9dc6-8a96e76a9a85",
-    "status": "open",
+    "status": "hidden",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:18.437Z"
   },
   {
     "id": "zeller-account-executive-11",
@@ -450,9 +599,11 @@
     "remote": null,
     "posted_at": "2025-06-24",
     "apply_url": "https://jobs.lever.co/Zeller/9fdc88e5-1ab5-4892-9f7e-a7ab7d9a16ec",
-    "status": "open",
+    "status": "hidden",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:18.437Z"
   },
   {
     "id": "zeller-account-executive-12",
@@ -461,11 +612,22 @@
     "location": "Melbourne",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2025-07-14",
+    "posted_at": "2025-07-14T07:28:18.595Z",
     "apply_url": "https://jobs.lever.co/Zeller/c8ac7f14-623a-4262-9e00-1cadd46d8ccb",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "c8ac7f14-623a-4262-9e00-1cadd46d8ccb",
+    "canonical_url": "https://jobs.lever.co/Zeller/c8ac7f14-623a-4262-9e00-1cadd46d8ccb",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-zeller-health",
@@ -474,11 +636,22 @@
     "location": "Sydney",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2026-09-26",
+    "posted_at": "2026-09-26T00:12:47.624Z",
     "apply_url": "https://jobs.lever.co/Zeller/2b118eb2-4413-46da-b224-681a3eb86ea7",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "2b118eb2-4413-46da-b224-681a3eb86ea7",
+    "canonical_url": "https://jobs.lever.co/Zeller/2b118eb2-4413-46da-b224-681a3eb86ea7",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": "onsite",
+    "team": "Growth",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-account-executive-zeller-health-2",
@@ -487,11 +660,22 @@
     "location": "Melbourne",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2026-09-26",
+    "posted_at": "2026-09-26T00:12:13.207Z",
     "apply_url": "https://jobs.lever.co/Zeller/773e660b-12f7-4a65-8232-e05874a72474",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "773e660b-12f7-4a65-8232-e05874a72474",
+    "canonical_url": "https://jobs.lever.co/Zeller/773e660b-12f7-4a65-8232-e05874a72474",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Growth",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-commercial-manager",
@@ -500,11 +684,22 @@
     "location": "Melbourne",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2026-09-03",
+    "posted_at": "2026-09-03T04:23:46.057Z",
     "apply_url": "https://jobs.lever.co/Zeller/ffd8a3da-5a66-4635-ae1f-039cefda0c81",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "ffd8a3da-5a66-4635-ae1f-039cefda0c81",
+    "canonical_url": "https://jobs.lever.co/Zeller/ffd8a3da-5a66-4635-ae1f-039cefda0c81",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Growth",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-enterprise-business-development-manager",
@@ -513,11 +708,22 @@
     "location": "Melbourne",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2026-02-25",
+    "posted_at": "2026-02-25T06:44:03.910Z",
     "apply_url": "https://jobs.lever.co/Zeller/8c733b5a-8297-4675-8010-8b82036eff44",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "8c733b5a-8297-4675-8010-8b82036eff44",
+    "canonical_url": "https://jobs.lever.co/Zeller/8c733b5a-8297-4675-8010-8b82036eff44",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Sales",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-payment-operations-analyst",
@@ -528,9 +734,11 @@
     "remote": null,
     "posted_at": "2026-08-25",
     "apply_url": "https://jobs.lever.co/Zeller/e2aa1d67-b7bd-4258-9223-a68f08a57cba",
-    "status": "open",
+    "status": "hidden",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:18.437Z"
   },
   {
     "id": "zeller-product-growth-specialist",
@@ -552,11 +760,22 @@
     "location": "Melbourne",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2026-06-25",
+    "posted_at": "2026-06-25T08:39:01.636Z",
     "apply_url": "https://jobs.lever.co/Zeller/be5427b3-9ff8-4f0d-b039-e2016dfd901f",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "be5427b3-9ff8-4f0d-b039-e2016dfd901f",
+    "canonical_url": "https://jobs.lever.co/Zeller/be5427b3-9ff8-4f0d-b039-e2016dfd901f",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Marketing",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "zeller-senior-react-native-engineer",
@@ -567,9 +786,11 @@
     "remote": true,
     "posted_at": "2024-08-29",
     "apply_url": "https://jobs.lever.co/Zeller/82e19356-99c2-4446-b3f9-477b47c2c8e6",
-    "status": "open",
+    "status": "hidden",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:18.437Z"
   },
   {
     "id": "culture-amp-associate-site-reliability-engineer",
@@ -580,9 +801,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8219709",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-chief-people-officer",
@@ -593,9 +816,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8225633",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-chief-people-officer-2",
@@ -606,9 +831,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8225634",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-director-north-america-marketing",
@@ -617,11 +844,22 @@
     "location": "Chicago",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-23T18:30:36.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8212621",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8212621",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8212621",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "Chicago"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-director-north-america-marketing-2",
@@ -630,11 +868,22 @@
     "location": "New York City",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-23T18:30:34.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8227125",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8227125",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8227125",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "New York City"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-global-workplace-experience-and-operations-manager",
@@ -645,9 +894,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8232515",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-identity-and-access-management-engineer",
@@ -658,9 +909,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8152197",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-lead-brand-designer",
@@ -669,24 +922,47 @@
     "location": "San Francisco",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-20T16:30:07.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8129415",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8129415",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8129415",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "San Francisco"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-lead-enterprise-account-executive",
     "company_id": "culture-amp",
-    "title": "Lead Enterprise Account Executive",
+    "title": "Lead Enterprise Account Executive (French-speaking)",
     "location": "London",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-30T16:57:38.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8243597",
-    "status": "closed",
+    "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8243597",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8243597",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "London"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z",
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-lead-enterprise-account-executive-dach",
@@ -697,9 +973,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8204363",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-sales-development-representative-allbound",
@@ -723,9 +1001,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8107802",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-account-based-marketing-manager",
@@ -736,9 +1016,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8222309",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-account-based-marketing-manager-2",
@@ -749,9 +1031,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8095799",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-account-based-marketing-manager-3",
@@ -762,9 +1046,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8068461",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-applied-ai-engineer",
@@ -775,9 +1061,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/7573350",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-applied-ai-engineer-2",
@@ -788,9 +1076,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8184634",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-customer-success-manager",
@@ -801,9 +1091,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8187902",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-customer-success-manager-2",
@@ -814,9 +1106,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8187903",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-people-science-analyst",
@@ -825,11 +1119,22 @@
     "location": "Berlin",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-11T15:58:57.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8179047",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8179047",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8179047",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "Berlin"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-senior-people-science-analyst-2",
@@ -838,11 +1143,22 @@
     "location": "London",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-11T15:58:01.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8179046",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8179046",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8179046",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "London"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-senior-regional-marketing-manager",
@@ -853,9 +1169,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8184774",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-regional-marketing-manager-uk-and-i",
@@ -866,9 +1184,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8108105",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-renewals-manager-enterprise",
@@ -879,9 +1199,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8168528",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-renewals-manager-enterprise-2",
@@ -892,9 +1214,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8155844",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-renewals-manager-enterprise-3",
@@ -905,9 +1229,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8168527",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-systems-engineer",
@@ -918,9 +1244,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8229754",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-staff-applied-ai-scientist",
@@ -931,9 +1259,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/7994437",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-staff-applied-ai-scientist-2",
@@ -944,9 +1274,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/7994439",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-staff-engineer",
@@ -957,9 +1289,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8220056",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "sonder-chief-of-staff",
@@ -968,11 +1302,22 @@
     "location": "Waterloo, NSW",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-03-20T06:12:01.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8470940002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8470940002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8470940002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Waterloo, NSW"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-customer-insights-partner",
@@ -981,11 +1326,22 @@
     "location": "Waterloo, Sydney",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-01T06:10:08.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8768392002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8768392002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8768392002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Waterloo, Sydney"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-group-product-manager",
@@ -1009,9 +1365,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8630023002",
-    "status": "open",
+    "status": "hidden",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:17.232Z"
   },
   {
     "id": "sonder-psychologist-expression-of-interest",
@@ -1022,9 +1380,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7593668002",
-    "status": "open",
+    "status": "hidden",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:17.232Z"
   },
   {
     "id": "sonder-registered-counsellor-wa",
@@ -1035,9 +1395,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8395443002",
-    "status": "open",
+    "status": "hidden",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:17.232Z"
   },
   {
     "id": "sonder-responder-broken-hill",
@@ -1046,11 +1408,22 @@
     "location": "Broken Hill, NSW",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-05-14T01:12:17.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8549021002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8549021002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8549021002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Broken Hill, NSW"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-scaled-customer-success-automation-program-manager",
@@ -1061,9 +1434,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8826462002",
-    "status": "open",
+    "status": "hidden",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:17.232Z"
   },
   {
     "id": "sonder-senior-product-designer",
@@ -1074,9 +1449,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8819347002",
-    "status": "open",
+    "status": "hidden",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:17.232Z"
   },
   {
     "id": "sonder-senior-revenue-systems-engineer",
@@ -1085,11 +1462,22 @@
     "location": "Sydney",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-22T04:45:31.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8829725002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8829725002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder",
@@ -1098,11 +1486,22 @@
     "location": "Whangārei, Northland, New Zealand",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-02-10T04:14:38.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8415217002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8415217002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8415217002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Whangārei, Northland, New Zealand"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-2",
@@ -1111,11 +1510,22 @@
     "location": "Christchurch",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2020-10-01T06:47:17.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/4902165002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "4902165002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/4902165002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Christchurch"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-3",
@@ -1124,11 +1534,22 @@
     "location": "Manchester, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2023-04-27T04:53:37.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6733685002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "6733685002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6733685002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Manchester, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-4",
@@ -1137,11 +1558,22 @@
     "location": "Auckland, New Zealand",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-07-11T05:40:32.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7532406002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7532406002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7532406002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Auckland, New Zealand"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-5",
@@ -1150,11 +1582,22 @@
     "location": "Melbourne, Victoria",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-09-23T00:04:13.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7651584002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7651584002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7651584002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne, Victoria"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-6",
@@ -1163,11 +1606,22 @@
     "location": "Gippsland Region, Victoria",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-05-14T00:50:59.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8549013002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8549013002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8549013002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Gippsland Region, Victoria"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-7",
@@ -1176,11 +1630,22 @@
     "location": "Wellington, New Zealand",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-02-10T04:21:53.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8415234002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8415234002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8415234002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Wellington, New Zealand"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-8",
@@ -1189,24 +1654,46 @@
     "location": "Mallee, Victoria",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-05-14T01:16:39.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8549023002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8549023002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8549023002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Mallee, Victoria"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-act",
     "company_id": "sonder",
-    "title": "Sonder Responder - ACT",
+    "title": "EOI - Sonder Responder - ACT",
     "location": "Canberra, ACT",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2023-09-05T04:34:06.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6919080002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "6919080002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6919080002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Canberra, ACT"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-brighton",
@@ -1215,11 +1702,22 @@
     "location": "Brighton, England",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2025-04-10T04:00:47.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7951586002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7951586002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7951586002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brighton, England"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-expression-of-interest",
@@ -1228,24 +1726,46 @@
     "location": "Edinburgh, Scotland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2023-04-27T04:48:29.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6733687002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "6733687002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6733687002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Edinburgh, Scotland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-expression-of-interest-2",
     "company_id": "sonder",
     "title": "Sonder Responder - Expression of Interest",
-    "location": "Victoria -  Multiple Locations",
+    "location": "Victoria - Multiple Locations",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2020-07-24T03:57:49.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/4803442002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "4803442002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/4803442002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Victoria - Multiple Locations"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-expression-of-interest-3",
@@ -1254,11 +1774,22 @@
     "location": "NSW - Multiple Locations",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-02-23T00:43:05.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935029002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "5935029002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935029002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "NSW - Multiple Locations"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-expression-of-interest-4",
@@ -1267,11 +1798,22 @@
     "location": "London",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2023-04-27T04:41:47.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6731678002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "6731678002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/6731678002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "London"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-kent",
@@ -1280,11 +1822,22 @@
     "location": "Kent, England",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2025-04-10T04:02:00.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7951588002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7951588002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7951588002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Kent, England"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-northern-territory",
@@ -1293,11 +1846,22 @@
     "location": "Darwin, Northern Territory",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-02-23T01:48:37.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935216002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "5935216002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935216002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Darwin, Northern Territory"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-northern-territory-2",
@@ -1306,11 +1870,22 @@
     "location": "Alice Springs",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2025-06-02T23:09:44.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8021129002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8021129002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8021129002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Alice Springs"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-queensland",
@@ -1319,11 +1894,22 @@
     "location": "Brisbane, Queensland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-02-23T01:28:08.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935145002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "5935145002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935145002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, Queensland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-queensland-2",
@@ -1332,11 +1918,22 @@
     "location": "Cairns, Queensland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-12-13T05:13:02.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772646002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7772646002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772646002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Cairns, Queensland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-queensland-3",
@@ -1345,11 +1942,22 @@
     "location": "Mackay, Queensland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-12-13T05:12:06.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772645002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7772645002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772645002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Mackay, Queensland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "canva-research-mle-training-optimization",
@@ -1384,11 +1992,22 @@
     "location": "Sydney",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-11T21:16:08.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8260735",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8260735",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8260735",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-enterprise-account-manager-2",
@@ -1397,11 +2016,22 @@
     "location": "Melbourne",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-11T21:16:05.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8260732",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8260732",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8260732",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-sales-development-representative-allbound-3",
@@ -1412,9 +2042,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8246129",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-director-financial-control",
@@ -1423,11 +2055,22 @@
     "location": "Melbourne",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-14T06:31:29.000Z",
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8129577",
     "status": "open",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8129577",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8129577",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "culture-amp-senior-implementation-manager",
@@ -1438,9 +2081,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8255716",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "culture-amp-senior-implementation-manager-2",
@@ -1451,9 +2096,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8255707",
-    "status": "open",
+    "status": "hidden",
     "source_id": "culture-amp-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:57.315Z"
   },
   {
     "id": "immutable-software-engineer",
@@ -1464,9 +2111,11 @@
     "remote": null,
     "posted_at": "2026-10-07",
     "apply_url": "https://jobs.lever.co/immutable/0279e748-a186-4254-bf9b-349edcc850b8",
-    "status": "open",
+    "status": "hidden",
     "source_id": "immutable-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:11.089Z"
   },
   {
     "id": "quantum-brilliance-expressions-of-interest-australia",
@@ -1510,15 +2159,26 @@
   {
     "id": "zeller-risk-analyst",
     "company_id": "zeller",
-    "title": "Risk Analyst",
+    "title": "Fraud Risk Analyst",
     "location": "London",
     "employment_type": "Full Time",
     "remote": null,
-    "posted_at": "2025-09-24",
+    "posted_at": "2025-09-24T01:28:19.921Z",
     "apply_url": "https://jobs.lever.co/Zeller/f9a177fe-63cd-4f93-a6c9-519705f89927",
     "status": "open",
     "source_id": "zeller-lever-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "f9a177fe-63cd-4f93-a6c9-519705f89927",
+    "canonical_url": "https://jobs.lever.co/Zeller/f9a177fe-63cd-4f93-a6c9-519705f89927",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "locations": [
+      "London"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Risk and Compliance",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "askable-senior-enterprise-customer-success-manager",
@@ -1685,9 +2345,11 @@
     "remote": true,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6221388004",
-    "status": "open",
+    "status": "hidden",
     "source_id": "karbon-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:12.211Z"
   },
   {
     "id": "sonder-customer-marketing-manager",
@@ -1696,11 +2358,22 @@
     "location": "Waterloo, NSW",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-07T03:59:42.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8873627002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8873627002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8873627002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Waterloo, NSW"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-head-of-marketing",
@@ -1709,11 +2382,22 @@
     "location": "Waterloo, NSW",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-12T23:45:19.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8884536002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8884536002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8884536002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Waterloo, NSW"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-product-manager-senior-product-manager",
@@ -1722,11 +2406,22 @@
     "location": "Waterloo, Sydney",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-09T04:59:57.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8880993002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8880993002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8880993002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Waterloo, Sydney"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-queensland-4",
@@ -1735,11 +2430,22 @@
     "location": "Townsville, Queensland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2025-02-05T06:18:54.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7847861002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7847861002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7847861002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Townsville, Queensland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-queensland-5",
@@ -1748,11 +2454,22 @@
     "location": "Rockhampton, Queensland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-09-04T07:52:55.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7623505002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7623505002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7623505002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Rockhampton, Queensland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-queensland-6",
@@ -1761,11 +2478,22 @@
     "location": "Bundaberg, Queensland",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-01-17T05:43:51.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7098832002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7098832002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7098832002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Bundaberg, Queensland"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-south-australia",
@@ -1774,11 +2502,22 @@
     "location": "Adelaide, South Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-02-23T02:15:38.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935351002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "5935351002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935351002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Adelaide, South Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-tasmania",
@@ -1787,11 +2526,22 @@
     "location": "Launceston, Tasmania",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2025-06-02T23:14:31.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8021133002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8021133002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8021133002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Launceston, Tasmania"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-tasmania-2",
@@ -1800,11 +2550,22 @@
     "location": "Hobart, Tasmania",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-02-23T02:27:05.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935366002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "5935366002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935366002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Hobart, Tasmania"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-western-australia",
@@ -1813,11 +2574,22 @@
     "location": "Margaret River, Western Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-12-13T05:14:21.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772647002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7772647002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772647002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Margaret River, Western Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-western-australia-2",
@@ -1826,11 +2598,22 @@
     "location": "Perth, Western Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-02-23T01:56:07.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935259002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "5935259002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/5935259002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Perth, Western Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-western-australia-3",
@@ -1839,11 +2622,22 @@
     "location": "Esperance, Western Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-12-13T05:15:44.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772649002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7772649002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772649002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Esperance, Western Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-sonder-responder-western-australia-4",
@@ -1852,11 +2646,22 @@
     "location": "Albany, Western Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2024-12-13T05:15:04.000Z",
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772648002",
     "status": "open",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "7772648002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7772648002",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "locations": [
+      "Albany, Western Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "sonder-support-coordinator",
@@ -1867,9 +2672,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/7670442002",
-    "status": "open",
+    "status": "hidden",
     "source_id": "sonder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-10-13T04:17:55Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:17.232Z"
   },
   {
     "id": "assignar-customer-solutions-manager",
@@ -1956,11 +2763,22 @@
     "location": "Sydney, New South Wales, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-08-15T16:31:50.000Z",
     "apply_url": "https://enboarder.com/careers?gh_jid=4067151005",
     "status": "open",
     "source_id": "enboarder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:34.385Z",
+    "provider": "greenhouse",
+    "external_id": "4067151005",
+    "canonical_url": "https://enboarder.com/careers?gh_jid=4067151005",
+    "last_confirmed_at": "2026-11-13T02:28:34.385Z",
+    "absent_reads": 0,
+    "locations": [
+      "Sydney, New South Wales, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "enboarder-other-careers-in-emea",
@@ -1969,11 +2787,22 @@
     "location": "London, England, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-08-15T16:31:51.000Z",
     "apply_url": "https://enboarder.com/careers?gh_jid=4067150005",
     "status": "open",
     "source_id": "enboarder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:34.385Z",
+    "provider": "greenhouse",
+    "external_id": "4067150005",
+    "canonical_url": "https://enboarder.com/careers?gh_jid=4067150005",
+    "last_confirmed_at": "2026-11-13T02:28:34.385Z",
+    "absent_reads": 0,
+    "locations": [
+      "London, England, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "enboarder-other-careers-in-india",
@@ -1982,11 +2811,22 @@
     "location": "Noida, Uttar Pradesh, India",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-08-15T16:31:52.000Z",
     "apply_url": "https://enboarder.com/careers?gh_jid=4067152005",
     "status": "open",
     "source_id": "enboarder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:34.385Z",
+    "provider": "greenhouse",
+    "external_id": "4067152005",
+    "canonical_url": "https://enboarder.com/careers?gh_jid=4067152005",
+    "last_confirmed_at": "2026-11-13T02:28:34.385Z",
+    "absent_reads": 0,
+    "locations": [
+      "Noida, Uttar Pradesh, India"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "enboarder-other-careers-in-the-us",
@@ -1995,11 +2835,22 @@
     "location": "Austin, Texas, United States",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2022-08-15T16:31:52.000Z",
     "apply_url": "https://enboarder.com/careers?gh_jid=4067148005",
     "status": "open",
     "source_id": "enboarder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:34.385Z",
+    "provider": "greenhouse",
+    "external_id": "4067148005",
+    "canonical_url": "https://enboarder.com/careers?gh_jid=4067148005",
+    "last_confirmed_at": "2026-11-13T02:28:34.385Z",
+    "absent_reads": 0,
+    "locations": [
+      "Austin, Texas, United States"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "enboarder-senior-salesforce-administrator",
@@ -2008,11 +2859,22 @@
     "location": "Noida, Uttar Pradesh, India",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-17T02:29:18.000Z",
     "apply_url": "https://enboarder.com/careers?gh_jid=4724665005",
     "status": "open",
     "source_id": "enboarder-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:34.385Z",
+    "provider": "greenhouse",
+    "external_id": "4724665005",
+    "canonical_url": "https://enboarder.com/careers?gh_jid=4724665005",
+    "last_confirmed_at": "2026-11-13T02:28:34.385Z",
+    "absent_reads": 0,
+    "locations": [
+      "Noida, Uttar Pradesh, India"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "atomi-join-our-talent-community",
@@ -2021,11 +2883,22 @@
     "location": "Sydney or Remote, AU",
     "employment_type": "Any job type",
     "remote": true,
-    "posted_at": "2023-04-20",
+    "posted_at": "2023-04-20T01:19:47.379Z",
     "apply_url": "https://jobs.lever.co/atomi/62f94fb0-42a7-4276-8e84-457b84f2d29b",
     "status": "open",
     "source_id": "atomi-lever-jobs",
-    "retrieved_at": "2026-10-13T04:24:45Z"
+    "retrieved_at": "2026-11-13T02:28:25.943Z",
+    "provider": "lever",
+    "external_id": "62f94fb0-42a7-4276-8e84-457b84f2d29b",
+    "canonical_url": "https://jobs.lever.co/atomi/62f94fb0-42a7-4276-8e84-457b84f2d29b",
+    "last_confirmed_at": "2026-11-13T02:28:25.943Z",
+    "absent_reads": 0,
+    "locations": [
+      "Sydney or Remote, AU"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Any team",
+    "first_seen_at": "2026-10-13T04:24:45Z"
   },
   {
     "id": "bridgit-marketing-coordinator",
@@ -2086,11 +2959,22 @@
     "location": "Denver, Colorado, United States",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-06-15",
+    "posted_at": "2026-06-15T00:00:00.000Z",
     "apply_url": "https://apply.workable.com/j/5DC414FD1C",
     "status": "open",
     "source_id": "asseti-workable-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:24.637Z",
+    "provider": "workable",
+    "external_id": "5DC414FD1C",
+    "canonical_url": "https://apply.workable.com/j/5DC414FD1C",
+    "last_confirmed_at": "2026-11-13T02:28:24.637Z",
+    "absent_reads": 0,
+    "locations": [
+      "Denver, Colorado, United States"
+    ],
+    "workplace_type": null,
+    "team": "GTM",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "asseti-enterprise-account-executive-2",
@@ -2099,11 +2983,22 @@
     "location": "New York, New York, United States",
     "employment_type": "Full-time",
     "remote": true,
-    "posted_at": "2026-08-07",
+    "posted_at": "2026-08-07T00:00:00.000Z",
     "apply_url": "https://apply.workable.com/j/77B39BB907",
     "status": "open",
     "source_id": "asseti-workable-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:24.637Z",
+    "provider": "workable",
+    "external_id": "77B39BB907",
+    "canonical_url": "https://apply.workable.com/j/77B39BB907",
+    "last_confirmed_at": "2026-11-13T02:28:24.637Z",
+    "absent_reads": 0,
+    "locations": [
+      "New York, New York, United States"
+    ],
+    "workplace_type": "remote",
+    "team": "GTM",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "asseti-operations-coordinator",
@@ -2112,11 +3007,22 @@
     "location": "Denver, Colorado, United States",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-08-22",
+    "posted_at": "2026-08-22T00:00:00.000Z",
     "apply_url": "https://apply.workable.com/j/6512184126",
     "status": "open",
     "source_id": "asseti-workable-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:24.637Z",
+    "provider": "workable",
+    "external_id": "6512184126",
+    "canonical_url": "https://apply.workable.com/j/6512184126",
+    "last_confirmed_at": "2026-11-13T02:28:24.637Z",
+    "absent_reads": 0,
+    "locations": [
+      "Denver, Colorado, United States"
+    ],
+    "workplace_type": null,
+    "team": "Delivery",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "asseti-people-and-talent-manager",
@@ -2125,11 +3031,22 @@
     "location": "Denver, Colorado, United States",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-10-10",
+    "posted_at": "2026-10-10T00:00:00.000Z",
     "apply_url": "https://apply.workable.com/j/7F19100A04",
     "status": "open",
     "source_id": "asseti-workable-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:24.637Z",
+    "provider": "workable",
+    "external_id": "7F19100A04",
+    "canonical_url": "https://apply.workable.com/j/7F19100A04",
+    "last_confirmed_at": "2026-11-13T02:28:24.637Z",
+    "absent_reads": 0,
+    "locations": [
+      "Denver, Colorado, United States"
+    ],
+    "workplace_type": null,
+    "team": "Business Operations",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "asseti-product-manager",
@@ -2138,11 +3055,22 @@
     "location": "Surry Hills, New South Wales, Australia",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-08-26",
+    "posted_at": "2026-08-26T00:00:00.000Z",
     "apply_url": "https://apply.workable.com/j/E53D9D7A49",
     "status": "open",
     "source_id": "asseti-workable-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:24.637Z",
+    "provider": "workable",
+    "external_id": "E53D9D7A49",
+    "canonical_url": "https://apply.workable.com/j/E53D9D7A49",
+    "last_confirmed_at": "2026-11-13T02:28:24.637Z",
+    "absent_reads": 0,
+    "locations": [
+      "Surry Hills, New South Wales, Australia"
+    ],
+    "workplace_type": null,
+    "team": "Platform",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "asseti-senior-full-stack-engineer",
@@ -2151,11 +3079,22 @@
     "location": "Kathmandu, Bagmati Province, Nepal",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-09-10",
+    "posted_at": "2026-09-10T00:00:00.000Z",
     "apply_url": "https://apply.workable.com/j/1A1A32C7B4",
     "status": "open",
     "source_id": "asseti-workable-jobs",
-    "retrieved_at": "2026-10-13T04:17:55Z"
+    "retrieved_at": "2026-11-13T02:28:24.637Z",
+    "provider": "workable",
+    "external_id": "1A1A32C7B4",
+    "canonical_url": "https://apply.workable.com/j/1A1A32C7B4",
+    "last_confirmed_at": "2026-11-13T02:28:24.637Z",
+    "absent_reads": 0,
+    "locations": [
+      "Kathmandu, Bagmati Province, Nepal"
+    ],
+    "workplace_type": null,
+    "team": "Platform",
+    "first_seen_at": "2026-10-13T04:17:55Z"
   },
   {
     "id": "safewill-growth-marketing-specialist",
@@ -2229,11 +3168,22 @@
     "location": "Austin, Texas",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-19T20:52:14.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5216660007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5216660007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5216660007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "Austin, Texas"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-business-development-representative",
@@ -2242,11 +3192,22 @@
     "location": "London, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-02-09T23:35:17.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5047528007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5047528007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5047528007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "London, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-customer-onboarding-manager",
@@ -2255,11 +3216,22 @@
     "location": "Germany",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-16T21:07:42.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5240308007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5240308007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5240308007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "Germany"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-customer-onboarding-manager-2",
@@ -2268,11 +3240,22 @@
     "location": "London, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-02T03:09:12.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5255136007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5255136007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5255136007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "London, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-director-implementation-and-professional-services",
@@ -2281,11 +3264,22 @@
     "location": "Austin, Texas",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-18T03:38:26.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5241768007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5241768007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5241768007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "Austin, Texas"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-enterprise-account-executive-amer",
@@ -2296,9 +3290,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/4999856007",
-    "status": "open",
+    "status": "hidden",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:15.547Z"
   },
   {
     "id": "roller-full-stack-software-engineer",
@@ -2309,9 +3305,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5261034007",
-    "status": "open",
+    "status": "hidden",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:15.547Z"
   },
   {
     "id": "roller-mid-market-account-executive-amer",
@@ -2322,9 +3320,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5018822007",
-    "status": "open",
+    "status": "hidden",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:15.547Z"
   },
   {
     "id": "roller-product-engineer-full-stack",
@@ -2335,22 +3335,35 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5053960007",
-    "status": "open",
+    "status": "hidden",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:15.547Z"
   },
   {
     "id": "roller-product-manager",
     "company_id": "roller",
-    "title": "Product Manager",
+    "title": "Senior Product Manager - Payments & Platform",
     "location": "Melbourne, Australia; Sydney, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-10-06T01:37:10.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5257768007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5257768007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5257768007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "Melbourne, Australia; Sydney, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-rvp-sales-emea",
@@ -2359,11 +3372,22 @@
     "location": "London, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-05-06T00:30:07.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5127304007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5127304007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5127304007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "London, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-smb-account-executive-emea",
@@ -2372,11 +3396,22 @@
     "location": "London, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-24T09:29:24.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5247934007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5247934007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5247934007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "London, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-solutions-engineer-french-speaking",
@@ -2385,11 +3420,22 @@
     "location": "London, United Kingdom",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-09-30T20:40:54.000Z",
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5253513007",
     "status": "open",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5253513007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5253513007",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "locations": [
+      "London, United Kingdom"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "roller-technical-support-specialist",
@@ -2400,9 +3446,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5252298007",
-    "status": "open",
+    "status": "hidden",
     "source_id": "roller-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:28:15.547Z"
   },
   {
     "id": "qsic-account-manager",
@@ -2411,11 +3459,22 @@
     "location": "Remote",
     "employment_type": "Full-time",
     "remote": true,
-    "posted_at": "2026-09-17",
+    "posted_at": "2026-09-17T19:45:21.630Z",
     "apply_url": "https://jobs.lever.co/qsic/4a61a422-5610-4f75-9776-456ccae5c79b",
     "status": "open",
     "source_id": "qsic-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:39.210Z",
+    "provider": "lever",
+    "external_id": "4a61a422-5610-4f75-9776-456ccae5c79b",
+    "canonical_url": "https://jobs.lever.co/qsic/4a61a422-5610-4f75-9776-456ccae5c79b",
+    "last_confirmed_at": "2026-11-13T02:28:39.210Z",
+    "absent_reads": 0,
+    "locations": [
+      "Remote"
+    ],
+    "workplace_type": "remote",
+    "team": "Sales and Account Management",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "qsic-supplier-and-procurement-manager",
@@ -2424,11 +3483,22 @@
     "location": "Dallas, Texas",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-05-25",
+    "posted_at": "2026-05-25T01:57:01.733Z",
     "apply_url": "https://jobs.lever.co/qsic/a965875b-87b8-4a3f-b548-b7a61d2d90b3",
     "status": "open",
     "source_id": "qsic-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:39.210Z",
+    "provider": "lever",
+    "external_id": "a965875b-87b8-4a3f-b548-b7a61d2d90b3",
+    "canonical_url": "https://jobs.lever.co/qsic/a965875b-87b8-4a3f-b548-b7a61d2d90b3",
+    "last_confirmed_at": "2026-11-13T02:28:39.210Z",
+    "absent_reads": 0,
+    "locations": [
+      "Dallas, Texas"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Operations",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "qsic-technical-support",
@@ -2437,11 +3507,22 @@
     "location": "Dallas, Texas",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-06-09",
+    "posted_at": "2026-06-09T09:57:43.641Z",
     "apply_url": "https://jobs.lever.co/qsic/b3ad65c5-2797-47a9-828a-ff68bb61e3cd",
     "status": "open",
     "source_id": "qsic-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:39.210Z",
+    "provider": "lever",
+    "external_id": "b3ad65c5-2797-47a9-828a-ff68bb61e3cd",
+    "canonical_url": "https://jobs.lever.co/qsic/b3ad65c5-2797-47a9-828a-ff68bb61e3cd",
+    "last_confirmed_at": "2026-11-13T02:28:39.210Z",
+    "absent_reads": 0,
+    "locations": [
+      "Dallas, Texas"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Qsic USA Operations",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "qsic-warehouse-technician",
@@ -2450,11 +3531,22 @@
     "location": "Dallas, Texas",
     "employment_type": "Fixed Term Contract",
     "remote": null,
-    "posted_at": "2025-07-07",
+    "posted_at": "2025-07-07T02:53:30.733Z",
     "apply_url": "https://jobs.lever.co/qsic/9bb39781-b95b-4c03-b67b-3f2faa15c8f8",
     "status": "open",
     "source_id": "qsic-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:39.210Z",
+    "provider": "lever",
+    "external_id": "9bb39781-b95b-4c03-b67b-3f2faa15c8f8",
+    "canonical_url": "https://jobs.lever.co/qsic/9bb39781-b95b-4c03-b67b-3f2faa15c8f8",
+    "last_confirmed_at": "2026-11-13T02:28:39.210Z",
+    "absent_reads": 0,
+    "locations": [
+      "Dallas, Texas"
+    ],
+    "workplace_type": "onsite",
+    "team": "Qsic USA Operations",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "bellroy-ai-enablement-lead",
@@ -2463,24 +3555,46 @@
     "location": "Collingwood, Victoria, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-04T01:09:26.000Z",
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8104479",
     "status": "open",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "8104479",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/8104479",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "locations": [
+      "Collingwood, Victoria, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "bellroy-copywriter",
     "company_id": "bellroy",
-    "title": "Copywriter",
+    "title": "Creative Copywriter",
     "location": "Collingwood, Victoria, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-27T06:38:52.000Z",
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8161056",
     "status": "open",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "8161056",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/8161056",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "locations": [
+      "Collingwood, Victoria, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "bellroy-deputy-store-manager",
@@ -2491,9 +3605,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8015131",
-    "status": "open",
+    "status": "hidden",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:53.785Z"
   },
   {
     "id": "bellroy-haskell-developer",
@@ -2504,9 +3620,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/7829585",
-    "status": "open",
+    "status": "hidden",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:53.785Z"
   },
   {
     "id": "bellroy-performance-media-manager",
@@ -2515,11 +3633,22 @@
     "location": "Collingwood, Victoria, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-06-12T08:19:13.000Z",
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/7834557",
     "status": "open",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "7834557",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/7834557",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "locations": [
+      "Collingwood, Victoria, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "bellroy-projects-coordinator",
@@ -2528,24 +3657,46 @@
     "location": "Collingwood, Victoria, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-07-28T04:04:22.000Z",
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8090291",
     "status": "open",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "8090291",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/8090291",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "locations": [
+      "Collingwood, Victoria, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "bellroy-quality-assurance-specialist",
     "company_id": "bellroy",
-    "title": "Quality Assurance Specialist",
+    "title": "Production Quality Specialist – Accessories",
     "location": "Collingwood, Victoria, Australia",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-06-10T23:53:18.000Z",
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/7998347",
     "status": "open",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "7998347",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/7998347",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "locations": [
+      "Collingwood, Victoria, Australia"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "bellroy-sales-associate",
@@ -2556,9 +3707,11 @@
     "remote": null,
     "posted_at": null,
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8166542",
-    "status": "open",
+    "status": "hidden",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:53.785Z"
   },
   {
     "id": "bellroy-store-manager",
@@ -2567,11 +3720,22 @@
     "location": "New York, New York, United States",
     "employment_type": null,
     "remote": null,
-    "posted_at": null,
+    "posted_at": "2026-08-19T00:48:12.000Z",
     "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8140576",
     "status": "open",
     "source_id": "bellroy-greenhouse-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "8140576",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/8140576",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "locations": [
+      "New York, New York, United States"
+    ],
+    "workplace_type": null,
+    "team": null,
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-director-of-cybersecurity",
@@ -2582,9 +3746,11 @@
     "remote": null,
     "posted_at": "2026-06-09",
     "apply_url": "https://jobs.lever.co/Emesent/2a2bd1e5-85cd-4219-b9f0-b2b6d0f3402a",
-    "status": "open",
+    "status": "hidden",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:59.813Z"
   },
   {
     "id": "emesent-full-stack-developer",
@@ -2593,11 +3759,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-10-07",
+    "posted_at": "2026-10-07T04:32:24.991Z",
     "apply_url": "https://jobs.lever.co/Emesent/7a15efc7-aaa3-40e5-9b77-c3a3e48d7eed",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "7a15efc7-aaa3-40e5-9b77-c3a3e48d7eed",
+    "canonical_url": "https://jobs.lever.co/Emesent/7a15efc7-aaa3-40e5-9b77-c3a3e48d7eed",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "Software Engineering",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-future-job-openings-with-emesent",
@@ -2606,11 +3783,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2019-05-17",
+    "posted_at": "2019-05-17T02:12:37.430Z",
     "apply_url": "https://jobs.lever.co/Emesent/5d4f98bd-5755-419c-a26d-48fd1a49ba24",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "5d4f98bd-5755-419c-a26d-48fd1a49ba24",
+    "canonical_url": "https://jobs.lever.co/Emesent/5d4f98bd-5755-419c-a26d-48fd1a49ba24",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "unspecified",
+    "team": "General Job Inquiries",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-production-assembler-fixed-term-contract",
@@ -2619,11 +3807,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-04-14",
+    "posted_at": "2026-04-14T05:15:06.517Z",
     "apply_url": "https://jobs.lever.co/Emesent/3132df32-abd4-4fd4-a080-00797633c04b",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "3132df32-abd4-4fd4-a080-00797633c04b",
+    "canonical_url": "https://jobs.lever.co/Emesent/3132df32-abd4-4fd4-a080-00797633c04b",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "Production",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-production-supervisor",
@@ -2632,11 +3831,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-10-13",
+    "posted_at": "2026-10-13T00:16:22.749Z",
     "apply_url": "https://jobs.lever.co/Emesent/c32e6933-6dd6-49de-ba43-3b8d4ac9acd6",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "c32e6933-6dd6-49de-ba43-3b8d4ac9acd6",
+    "canonical_url": "https://jobs.lever.co/Emesent/c32e6933-6dd6-49de-ba43-3b8d4ac9acd6",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "Production",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-quality-control-coordinator",
@@ -2645,11 +3855,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-06-24",
+    "posted_at": "2026-06-24T05:38:39.457Z",
     "apply_url": "https://jobs.lever.co/Emesent/cb357c2a-1e11-4e74-9176-0352a0066a8b",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "cb357c2a-1e11-4e74-9176-0352a0066a8b",
+    "canonical_url": "https://jobs.lever.co/Emesent/cb357c2a-1e11-4e74-9176-0352a0066a8b",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "QA",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-senior-product-manager",
@@ -2658,11 +3879,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-07-27",
+    "posted_at": "2026-07-27T00:38:56.279Z",
     "apply_url": "https://jobs.lever.co/Emesent/64567075-9167-4b81-8458-1a6978d22faf",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "64567075-9167-4b81-8458-1a6978d22faf",
+    "canonical_url": "https://jobs.lever.co/Emesent/64567075-9167-4b81-8458-1a6978d22faf",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "Product Delivery",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-senior-software-engineer",
@@ -2671,11 +3903,22 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-09-14",
+    "posted_at": "2026-09-14T00:01:38.942Z",
     "apply_url": "https://jobs.lever.co/Emesent/46c5c863-6bbf-4812-8a86-9009a0f43311",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "46c5c863-6bbf-4812-8a86-9009a0f43311",
+    "canonical_url": "https://jobs.lever.co/Emesent/46c5c863-6bbf-4812-8a86-9009a0f43311",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "Software Engineering",
+    "first_seen_at": "2026-10-13T12:56:29Z"
   },
   {
     "id": "emesent-system-administrator",
@@ -2686,9 +3929,11 @@
     "remote": null,
     "posted_at": "2026-09-08",
     "apply_url": "https://jobs.lever.co/Emesent/15aa0c1e-bd62-4d69-912c-254d3cce8967",
-    "status": "open",
+    "status": "hidden",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-10-13T12:56:29Z",
+    "absent_reads": 1,
+    "status_changed_at": "2026-11-13T02:27:59.813Z"
   },
   {
     "id": "emesent-workplace-experience-coordinator",
@@ -2697,10 +3942,571 @@
     "location": "Brisbane, QLD",
     "employment_type": "Full-time",
     "remote": null,
-    "posted_at": "2026-10-08",
+    "posted_at": "2026-10-08T02:50:29.012Z",
     "apply_url": "https://jobs.lever.co/Emesent/4549d59d-66dd-4fff-9130-668c50901a58",
     "status": "open",
     "source_id": "emesent-lever-jobs",
-    "retrieved_at": "2026-10-13T12:56:29Z"
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "4549d59d-66dd-4fff-9130-668c50901a58",
+    "canonical_url": "https://jobs.lever.co/Emesent/4549d59d-66dd-4fff-9130-668c50901a58",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "People",
+    "first_seen_at": "2026-10-13T12:56:29Z"
+  },
+  {
+    "id": "atomi-lever-395e5dc3-f4a0-477d-879f-6da4398cad95",
+    "company_id": "atomi",
+    "title": "Senior Account Executive (VIC)",
+    "location": "Remote (Victoria, AU)",
+    "employment_type": "Full-time",
+    "remote": true,
+    "posted_at": "2026-11-06T06:00:43.186Z",
+    "apply_url": "https://jobs.lever.co/atomi/395e5dc3-f4a0-477d-879f-6da4398cad95",
+    "status": "open",
+    "source_id": "atomi-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:25.943Z",
+    "provider": "lever",
+    "external_id": "395e5dc3-f4a0-477d-879f-6da4398cad95",
+    "canonical_url": "https://jobs.lever.co/atomi/395e5dc3-f4a0-477d-879f-6da4398cad95",
+    "first_seen_at": "2026-11-13T02:27:52.527Z",
+    "last_confirmed_at": "2026-11-13T02:28:25.943Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:52.527Z",
+    "locations": [
+      "Remote (Victoria, AU)"
+    ],
+    "workplace_type": "remote",
+    "team": "School Partnerships"
+  },
+  {
+    "id": "bellroy-greenhouse-8326148",
+    "company_id": "bellroy",
+    "title": "Customer Service Manager",
+    "location": "Collingwood, Victoria, Australia",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-27T00:48:40.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/bellroy/jobs/8326148",
+    "status": "open",
+    "source_id": "bellroy-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:27.325Z",
+    "provider": "greenhouse",
+    "external_id": "8326148",
+    "canonical_url": "https://job-boards.greenhouse.io/bellroy/jobs/8326148",
+    "first_seen_at": "2026-11-13T02:27:53.785Z",
+    "last_confirmed_at": "2026-11-13T02:28:27.325Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:53.785Z",
+    "locations": [
+      "Collingwood, Victoria, Australia"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8304917",
+    "company_id": "culture-amp",
+    "title": "Enterprise Account Executive",
+    "location": "Melbourne",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-21T03:02:42.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8304917",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8304917",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8304917",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8304919",
+    "company_id": "culture-amp",
+    "title": "Enterprise Account Executive",
+    "location": "Sydney",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-21T03:03:35.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8304919",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8304919",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8304919",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8332816",
+    "company_id": "culture-amp",
+    "title": "Global Procurement and Vendor Management Lead",
+    "location": "Melbourne",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-29T01:11:21.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8332816",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8332816",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8332816",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8326301",
+    "company_id": "culture-amp",
+    "title": "People and Systems Analyst",
+    "location": "Melbourne",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-27T03:08:02.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8326301",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8326301",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8326301",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8326305",
+    "company_id": "culture-amp",
+    "title": "People and Systems Analyst",
+    "location": "Sydney",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-27T03:08:05.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8326305",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8326305",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8326305",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8317322",
+    "company_id": "culture-amp",
+    "title": "Senior Account Executive, Commercial",
+    "location": "Melbourne",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-23T05:14:59.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8317322",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8317322",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8317322",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8302934",
+    "company_id": "culture-amp",
+    "title": "Senior People Scientist (12 month FTC)",
+    "location": "Melbourne",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-23T05:09:47.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8302934",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8302934",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8302934",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "culture-amp-greenhouse-8302936",
+    "company_id": "culture-amp",
+    "title": "Senior People Scientist (12 month FTC)",
+    "location": "Sydney",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-23T05:09:49.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8302936",
+    "status": "open",
+    "source_id": "culture-amp-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:30.699Z",
+    "provider": "greenhouse",
+    "external_id": "8302936",
+    "canonical_url": "https://job-boards.greenhouse.io/cultureamp/jobs/8302936",
+    "first_seen_at": "2026-11-13T02:27:57.315Z",
+    "last_confirmed_at": "2026-11-13T02:28:30.699Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:57.315Z",
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "emesent-lever-5ceef4a3-d39c-4e6c-8c88-129f03831163",
+    "company_id": "emesent",
+    "title": "Senior Product Designer",
+    "location": "Brisbane, QLD",
+    "employment_type": "Full-time",
+    "remote": null,
+    "posted_at": "2026-11-04T00:28:43.911Z",
+    "apply_url": "https://jobs.lever.co/Emesent/5ceef4a3-d39c-4e6c-8c88-129f03831163",
+    "status": "open",
+    "source_id": "emesent-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:33.463Z",
+    "provider": "lever",
+    "external_id": "5ceef4a3-d39c-4e6c-8c88-129f03831163",
+    "canonical_url": "https://jobs.lever.co/Emesent/5ceef4a3-d39c-4e6c-8c88-129f03831163",
+    "first_seen_at": "2026-11-13T02:27:59.813Z",
+    "last_confirmed_at": "2026-11-13T02:28:33.463Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:27:59.813Z",
+    "locations": [
+      "Brisbane, QLD"
+    ],
+    "workplace_type": "onsite",
+    "team": "Product Management"
+  },
+  {
+    "id": "immutable-lever-8fcf6f7a-8cd4-45f8-a799-f731ca476b3a",
+    "company_id": "immutable",
+    "title": "Growth Strategy Lead",
+    "location": "Sydney",
+    "employment_type": "Full Time Permanent",
+    "remote": null,
+    "posted_at": "2026-04-30T09:22:04.373Z",
+    "apply_url": "https://jobs.lever.co/immutable/8fcf6f7a-8cd4-45f8-a799-f731ca476b3a",
+    "status": "open",
+    "source_id": "immutable-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:35.213Z",
+    "provider": "lever",
+    "external_id": "8fcf6f7a-8cd4-45f8-a799-f731ca476b3a",
+    "canonical_url": "https://jobs.lever.co/immutable/8fcf6f7a-8cd4-45f8-a799-f731ca476b3a",
+    "first_seen_at": "2026-11-13T02:28:11.089Z",
+    "last_confirmed_at": "2026-11-13T02:28:35.213Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:11.089Z",
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": "hybrid",
+    "team": "GTM | Marketing"
+  },
+  {
+    "id": "immutable-lever-80353766-d815-497e-bf5f-17594677fcd9",
+    "company_id": "immutable",
+    "title": "Senior Security Engineer (Product Security)",
+    "location": "Sydney",
+    "employment_type": "Full Time Permanent",
+    "remote": null,
+    "posted_at": "2026-10-22T06:53:45.284Z",
+    "apply_url": "https://jobs.lever.co/immutable/80353766-d815-497e-bf5f-17594677fcd9",
+    "status": "open",
+    "source_id": "immutable-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:35.213Z",
+    "provider": "lever",
+    "external_id": "80353766-d815-497e-bf5f-17594677fcd9",
+    "canonical_url": "https://jobs.lever.co/immutable/80353766-d815-497e-bf5f-17594677fcd9",
+    "first_seen_at": "2026-11-13T02:28:11.089Z",
+    "last_confirmed_at": "2026-11-13T02:28:35.213Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:11.089Z",
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Platform | Security & IT"
+  },
+  {
+    "id": "karbon-greenhouse-6217915004",
+    "company_id": "karbon",
+    "title": "Engineering Manager, Data & Analytics",
+    "location": "Sydney, NSW, Australia",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-16T00:58:50.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6217915004",
+    "status": "open",
+    "source_id": "karbon-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:36.664Z",
+    "provider": "greenhouse",
+    "external_id": "6217915004",
+    "canonical_url": "https://job-boards.greenhouse.io/karbon/jobs/6217915004",
+    "first_seen_at": "2026-11-13T02:28:12.211Z",
+    "last_confirmed_at": "2026-11-13T02:28:36.664Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:12.211Z",
+    "locations": [
+      "Sydney, NSW, Australia"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "karbon-greenhouse-6225140004",
+    "company_id": "karbon",
+    "title": "Engineering Manager, Engagement to Payments",
+    "location": "Sydney, NSW, Australia",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-15T03:44:18.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/karbon/jobs/6225140004",
+    "status": "open",
+    "source_id": "karbon-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:36.664Z",
+    "provider": "greenhouse",
+    "external_id": "6225140004",
+    "canonical_url": "https://job-boards.greenhouse.io/karbon/jobs/6225140004",
+    "first_seen_at": "2026-11-13T02:28:12.211Z",
+    "last_confirmed_at": "2026-11-13T02:28:36.664Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:12.211Z",
+    "locations": [
+      "Sydney, NSW, Australia"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "roller-greenhouse-5272048007",
+    "company_id": "roller",
+    "title": "R&D Programs & Operations Lead",
+    "location": "Sydney, Australia",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-22T04:57:19.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5272048007",
+    "status": "open",
+    "source_id": "roller-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5272048007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5272048007",
+    "first_seen_at": "2026-11-13T02:28:15.547Z",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:15.547Z",
+    "locations": [
+      "Sydney, Australia"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "roller-greenhouse-5267201007",
+    "company_id": "roller",
+    "title": "Tech Lead",
+    "location": "Sydney, Australia",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-10-18T21:43:56.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/roller/jobs/5267201007",
+    "status": "open",
+    "source_id": "roller-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:40.213Z",
+    "provider": "greenhouse",
+    "external_id": "5267201007",
+    "canonical_url": "https://job-boards.greenhouse.io/roller/jobs/5267201007",
+    "first_seen_at": "2026-11-13T02:28:15.547Z",
+    "last_confirmed_at": "2026-11-13T02:28:40.213Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:15.547Z",
+    "locations": [
+      "Sydney, Australia"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "sonder-greenhouse-8932873002",
+    "company_id": "sonder",
+    "title": "Counsellor (9-month fixed-term contract)",
+    "location": "Australia",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-11-06T01:38:18.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8932873002",
+    "status": "open",
+    "source_id": "sonder-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8932873002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8932873002",
+    "first_seen_at": "2026-11-13T02:28:17.232Z",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:17.232Z",
+    "locations": [
+      "Australia"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "sonder-greenhouse-8931195002",
+    "company_id": "sonder",
+    "title": "Onboarding Manager",
+    "location": "Sydney, NSW",
+    "employment_type": null,
+    "remote": null,
+    "posted_at": "2026-11-04T22:03:44.000Z",
+    "apply_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8931195002",
+    "status": "open",
+    "source_id": "sonder-greenhouse-jobs",
+    "retrieved_at": "2026-11-13T02:28:41.728Z",
+    "provider": "greenhouse",
+    "external_id": "8931195002",
+    "canonical_url": "https://job-boards.greenhouse.io/sonderaustralia/jobs/8931195002",
+    "first_seen_at": "2026-11-13T02:28:17.232Z",
+    "last_confirmed_at": "2026-11-13T02:28:41.728Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:17.232Z",
+    "locations": [
+      "Sydney, NSW"
+    ],
+    "workplace_type": null,
+    "team": null
+  },
+  {
+    "id": "zeller-lever-0fbec193-ea8a-4c5d-8441-d4ad3dab6ed2",
+    "company_id": "zeller",
+    "title": "Mid-Level Product Manager",
+    "location": "Melbourne",
+    "employment_type": "Full Time",
+    "remote": null,
+    "posted_at": "2024-09-19T03:55:41.093Z",
+    "apply_url": "https://jobs.lever.co/Zeller/0fbec193-ea8a-4c5d-8441-d4ad3dab6ed2",
+    "status": "open",
+    "source_id": "zeller-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "0fbec193-ea8a-4c5d-8441-d4ad3dab6ed2",
+    "canonical_url": "https://jobs.lever.co/Zeller/0fbec193-ea8a-4c5d-8441-d4ad3dab6ed2",
+    "first_seen_at": "2026-11-13T02:28:18.437Z",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:18.437Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "onsite",
+    "team": "Product"
+  },
+  {
+    "id": "zeller-lever-26d72065-3526-4677-956b-d77e740963b5",
+    "company_id": "zeller",
+    "title": "Regional Sales Manager (NSW)",
+    "location": "Sydney",
+    "employment_type": "Full Time",
+    "remote": null,
+    "posted_at": "2026-11-12T01:51:51.160Z",
+    "apply_url": "https://jobs.lever.co/Zeller/26d72065-3526-4677-956b-d77e740963b5",
+    "status": "open",
+    "source_id": "zeller-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "26d72065-3526-4677-956b-d77e740963b5",
+    "canonical_url": "https://jobs.lever.co/Zeller/26d72065-3526-4677-956b-d77e740963b5",
+    "first_seen_at": "2026-11-13T02:28:18.437Z",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:18.437Z",
+    "locations": [
+      "Sydney"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Sales"
+  },
+  {
+    "id": "zeller-lever-8a097d36-4ae2-4eb4-881c-795afaebf6b2",
+    "company_id": "zeller",
+    "title": "Regional Sales Manager (VIC)",
+    "location": "Melbourne",
+    "employment_type": "Full Time",
+    "remote": null,
+    "posted_at": "2026-11-12T02:05:52.956Z",
+    "apply_url": "https://jobs.lever.co/Zeller/8a097d36-4ae2-4eb4-881c-795afaebf6b2",
+    "status": "open",
+    "source_id": "zeller-lever-jobs",
+    "retrieved_at": "2026-11-13T02:28:43.322Z",
+    "provider": "lever",
+    "external_id": "8a097d36-4ae2-4eb4-881c-795afaebf6b2",
+    "canonical_url": "https://jobs.lever.co/Zeller/8a097d36-4ae2-4eb4-881c-795afaebf6b2",
+    "first_seen_at": "2026-11-13T02:28:18.437Z",
+    "last_confirmed_at": "2026-11-13T02:28:43.322Z",
+    "absent_reads": 0,
+    "status_changed_at": "2026-11-13T02:28:18.437Z",
+    "locations": [
+      "Melbourne"
+    ],
+    "workplace_type": "hybrid",
+    "team": "Sales"
   }
 ]

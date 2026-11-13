@@ -12,7 +12,8 @@ import {
 } from './feed.js';
 import { listSaved, setSaved, mergeSaved, SAVED_KINDS } from './saved.js';
 import { upcomingEvents, filterEvents, eventFacets, toIcs, EVENT_TYPE_LABELS } from './events.js';
-import { curatedJobs, filterJobs, jobFacets } from './jobs.js';
+import { curatedJobs, filterJobs, jobFacets, LIFECYCLE_STATES } from './jobs.js';
+import { buildBoard } from './board.js';
 import { createSuggestion, pendingSuggestions, approveSuggestion, rejectSuggestion, withdrawListing } from './suggestions.js';
 import { offsetParams, offsetInfo } from '../http/paging.js';
 import { recordFor } from '../catalog/catalog.js';
@@ -248,14 +249,34 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
     res.send(toIcs(event, { now: now() }));
   }));
 
-  router.get('/jobs', wrap(async (req, res) => {
-    const { limit, offset } = offsetParams(req.query, { max: 100, fallback: 24 });
+  // The directory's card for a company, as a role shows it; and the sync's state row for the board a role came from.
+  const jobContext = async () => {
     const snap = await catalog.snapshot();
     const cardOf = (id) => { const rec = recordFor(snap, id); return rec ? { name: rec.name, slug: rec.slug, city: rec.city ?? '', sector: rec.sector ?? '', stage: rec.stage ?? '', website: rec.website ?? '' } : null; };
+    const sync = network.jobSync();
+    const stateOf = new Map(sync.state.map((r) => [r.source_id, r]));
+    return { snap, cardOf, sync, healthOf: (j) => stateOf.get(j.source_id) ?? null };
+  };
+
+  // The hiring desk's whole board in one answer (jobs/board.js builds it): the page filters and counts it in the browser.
+  router.get('/jobs/board', wrap(async (req, res) => {
+    const { snap, cardOf, sync } = await jobContext();
+    const names = new Map(snap.records.map((r) => [r.id, { name: r.name, slug: r.slug }]));
+    res.json(buildBoard({ jobs: network.jobs(), cardOf, extra: (await approved('jobs')).filter((j) => j.status === 'open'), sync, names, now: now() }));
+  }));
+
+  router.get('/jobs', wrap(async (req, res) => {
+    const { limit, offset } = offsetParams(req.query, { max: 100, fallback: 24 });
+    const { cardOf, healthOf } = await jobContext();
     const includeClosed = req.query.include_closed === 'yes';
-    const all = curatedJobs({ jobs: network.jobs(), cardOf, extra: (await approved('jobs')).filter((j) => includeClosed || j.status === 'open'), now: now(), includeClosed });
     const ids = idList(req.query.ids);
-    const matched = filterJobs(ids ? all.filter((j) => ids.includes(j.id)) : all, Object.fromEntries(['search', 'city', 'sector', 'stage', 'type', 'level', 'remote', 'company', 'where'].map((k) => [k, text(req.query[k])])));
+    // Asked for by id (a person's saved roles), a role is found whatever became of it, and says so: open, hidden, archived or closed. In a list, only open roles that were confirmed within
+    // two weeks are shown (more with include_stale=yes), and closed ones only when asked for.
+    const all = curatedJobs({
+      jobs: network.jobs(), cardOf, healthOf, extra: (await approved('jobs')).filter((j) => includeClosed || ids || j.status === 'open'), now: now(),
+      includeClosed, includeStale: Boolean(ids) || req.query.include_stale === 'yes', lifecycles: ids ? LIFECYCLE_STATES : null,
+    });
+    const matched = filterJobs(ids ? all.filter((j) => ids.includes(j.id)) : all, Object.fromEntries(['search', 'city', 'place', 'sector', 'stage', 'type', 'level', 'remote', 'company', 'where'].map((k) => [k, text(req.query[k])])));
     const rows = matched.slice(offset, offset + limit);
     res.json({ total: all.length, count: matched.length, results: rows, facets: jobFacets(all), ...offsetInfo({ offset, limit, shown: rows.length, total: matched.length }) });
   }));

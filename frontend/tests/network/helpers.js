@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 
 const NAMES = [
   'fetchNetworkStatus', 'signUp', 'signIn', 'signOutRequest', 'fetchMe', 'updateProfile', 'changePassword', 'deleteAccount', 'fetchMembers', 'fetchMember', 'fetchFeed', 'fetchThread',
-  'createPost', 'editPost', 'deletePost', 'createReply', 'editReply', 'deleteReply', 'setLike', 'reportItem', 'fetchSaved', 'setSaved', 'mergeSaved', 'fetchEvents', 'fetchJobs', 'submitSuggestion',
+  'createPost', 'editPost', 'deletePost', 'createReply', 'editReply', 'deleteReply', 'setLike', 'reportItem', 'fetchSaved', 'setSaved', 'mergeSaved', 'fetchEvents', 'fetchJobs', 'fetchJobBoard', 'submitSuggestion',
   'adminSummary', 'adminReports', 'adminDecideReport', 'adminSuggestions', 'adminApprove', 'adminReject', 'adminMembers', 'adminSuspend',
 ];
 
@@ -53,3 +53,21 @@ export const event = (over = {}) => ({
 });
 
 export const eventFacets = () => ({ cities: [{ value: 'Melbourne', count: 1 }], types: [{ value: 'founder_meetup', label: 'Founder gathering', count: 1 }], formats: [{ value: 'in_person', count: 1 }] });
+
+// A role as the hiring desk's board carries it (backend/src/network/board.js): the work places the employer advertised, three dates apart, and where it stands.
+export const deskRole = (over = {}) => ({
+  id: 'zeller-lever-1', title: 'Account Executive', company: { name: 'Zeller', slug: 'zeller', city: 'Melbourne', sector: 'Fintech', stage: 'Series C', website: 'https://www.myzeller.com' },
+  location: 'Melbourne, Victoria, Australia', region: 'au', remote: null, employment_type: 'full_time', level: null, salary: null,
+  why_listed: "Listed on Zeller's own careers page on Lever, last read 2026-11-13. Zeller is in the Still Early directory.",
+  apply_url: 'https://jobs.lever.co/Zeller/abc', source_kind: 'careers_page', last_checked_at: '2026-11-13T02:00:00Z', days_since_checked: 0, stale: false, status: 'open',
+  work: { places: [{ label: 'Melbourne, Victoria, Australia', au: true, city: 'Melbourne' }], cities: ['Melbourne'], remote_au: false, remote_evidence: null, arrangement: 'hybrid' },
+  team: 'Sales', first_seen_at: '2026-11-13T02:00:00Z', last_confirmed_at: '2026-11-13T02:00:00Z', posted_at: '2026-11-10T00:00:00Z', lifecycle: 'open', confirmation: 'confirmed',
+  provider: 'lever', provider_name: 'Lever', source_health: null, ...over,
+});
+
+export const deskBoard = (roles, over = {}) => ({
+  schema: 1, generated_at: '2026-11-13T02:05:00Z', roles, lapsed: [],
+  totals: { roles: roles.length, companies: new Set(roles.map((r) => r.company.name)).size, places: {}, remote_au: 0, stale_hidden: 0 },
+  facets: {}, sync: { last_success_at: '2026-11-13T02:00:00Z', oldest_success_at: '2026-11-13T02:00:00Z', last_attempt_at: '2026-11-13T02:00:00Z', boards: { approved: 3, polled: 3, never_read: 0, failing: 0 }, covered: [{ company: 'Zeller', slug: 'zeller', provider: 'lever', last_success_at: '2026-11-13T02:00:00Z', last_attempt_at: '2026-11-13T02:00:00Z', failing: false, error: null, roles: 2 }], unsupported: [{ company: 'Acme', provider: 'ashby' }], review: [{ company: 'Deputy', provider: 'lever', why: 'named, not confirmed' }], interval_minutes: 60 },
+  ...over,
+});
