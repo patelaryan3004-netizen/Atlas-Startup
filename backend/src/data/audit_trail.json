@@ -81978,5 +81978,35 @@
         "to": null
       }
     ]
+  },
+  {
+    "id": "aud-20261113080351296-1",
+    "at": "2026-11-13T08:03:51.296Z",
+    "actor": "release-manual",
+    "role": "system",
+    "via": "worker",
+    "action": "scheduler.run",
+    "target": {
+      "type": "job_run",
+      "id": "jr-20261113080211628-jobsync"
+    },
+    "summary": "jobsync: 9 board(s) read whole, 8 could not be read (roles left as they were); 52 archived",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261113082019730-1",
+    "at": "2026-11-13T08:20:19.730Z",
+    "actor": "release-manual",
+    "role": "system",
+    "via": "worker",
+    "action": "scheduler.run",
+    "target": {
+      "type": "job_run",
+      "id": "jr-20261113081922782-jobsync"
+    },
+    "summary": "jobsync: 8 board(s) read whole; 1 hidden, 9 archived",
+    "reason": null,
+    "changes": []
   }
 ]

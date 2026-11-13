@@ -628,5 +628,377 @@
       "stopped_for": null
     },
     "error": null
+  },
+  {
+    "id": "jr-20261113080211628-jobsync",
+    "tick_id": "tick-20261113080210591",
+    "job": "jobsync",
+    "trigger": "cli",
+    "by": "release-manual",
+    "mode": null,
+    "dry_run": false,
+    "started_at": "2026-11-13T08:02:11.628Z",
+    "finished_at": "2026-11-13T08:03:51.296Z",
+    "status": "partial",
+    "due": 17,
+    "processed": 9,
+    "changed": 5,
+    "failed": 8,
+    "deferred": 0,
+    "requests": 12,
+    "budget": {
+      "max_requests": 300,
+      "max_sites": 40,
+      "max_minutes": 20,
+      "stopped_for": null
+    },
+    "summary": "9 board(s) read whole, 8 could not be read (roles left as they were); 52 archived",
+    "details": {
+      "totals": {
+        "added": 0,
+        "updated": 101,
+        "reopened": 0,
+        "adopted": 0,
+        "hidden": 0,
+        "archived": 52,
+        "duplicates": 0,
+        "out_of_scope": 23,
+        "listed": 124
+      },
+      "boards": [
+        {
+          "id": "amber-electric-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "asseti-workable-jobs",
+          "outcome": "read",
+          "listed": 6,
+          "added": 0,
+          "updated": 6,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "atomi-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "bellroy-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 7,
+          "added": 0,
+          "updated": 7,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 3,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "buildkite-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 1,
+          "added": 0,
+          "updated": 1,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "culture-amp-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 32,
+          "added": 0,
+          "updated": 17,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 26,
+          "duplicates": 0,
+          "out_of_scope": 15,
+          "pages": 1
+        },
+        {
+          "id": "deputy-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "emesent-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "enboarder-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 5,
+          "added": 0,
+          "updated": 5,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "immutable-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "karbon-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 5,
+          "added": 0,
+          "updated": 3,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 12,
+          "duplicates": 0,
+          "out_of_scope": 2,
+          "pages": 1
+        },
+        {
+          "id": "kasada-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "qsic-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        },
+        {
+          "id": "roller-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 17,
+          "added": 0,
+          "updated": 11,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 5,
+          "duplicates": 0,
+          "out_of_scope": 6,
+          "pages": 1
+        },
+        {
+          "id": "sonder-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 39,
+          "added": 0,
+          "updated": 39,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 6,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "vgw-greenhouse-jobs",
+          "outcome": "read",
+          "listed": 12,
+          "added": 0,
+          "updated": 12,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "zeller-lever-jobs",
+          "outcome": "failed",
+          "error": "network",
+          "message": "robots.txt could not be read (The operation was aborted due to timeout)"
+        }
+      ],
+      "unsupported": [],
+      "stopped_for": null
+    },
+    "error": null
+  },
+  {
+    "id": "jr-20261113081922782-jobsync",
+    "tick_id": "tick-20261113081921656",
+    "job": "jobsync",
+    "trigger": "cli",
+    "by": "release-manual",
+    "mode": null,
+    "dry_run": false,
+    "started_at": "2026-11-13T08:19:22.782Z",
+    "finished_at": "2026-11-13T08:20:19.730Z",
+    "status": "ok",
+    "due": 8,
+    "processed": 8,
+    "changed": 4,
+    "failed": 0,
+    "deferred": 0,
+    "requests": 9,
+    "budget": {
+      "max_requests": 300,
+      "max_sites": 40,
+      "max_minutes": 20,
+      "stopped_for": null
+    },
+    "summary": "8 board(s) read whole; 1 hidden, 9 archived",
+    "details": {
+      "totals": {
+        "added": 0,
+        "updated": 38,
+        "reopened": 0,
+        "adopted": 0,
+        "hidden": 1,
+        "archived": 9,
+        "duplicates": 0,
+        "out_of_scope": 0,
+        "listed": 38
+      },
+      "boards": [
+        {
+          "id": "amber-electric-lever-jobs",
+          "outcome": "read",
+          "listed": 0,
+          "added": 0,
+          "updated": 0,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "atomi-lever-jobs",
+          "outcome": "read",
+          "listed": 2,
+          "added": 0,
+          "updated": 2,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "deputy-lever-jobs",
+          "outcome": "read",
+          "listed": 2,
+          "added": 0,
+          "updated": 2,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "emesent-lever-jobs",
+          "outcome": "read",
+          "listed": 9,
+          "added": 0,
+          "updated": 9,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 2,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "immutable-lever-jobs",
+          "outcome": "read",
+          "listed": 3,
+          "added": 0,
+          "updated": 3,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 2,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "kasada-lever-jobs",
+          "outcome": "read",
+          "listed": 0,
+          "added": 0,
+          "updated": 0,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 1,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "qsic-lever-jobs",
+          "outcome": "read",
+          "listed": 4,
+          "added": 0,
+          "updated": 4,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 0,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        },
+        {
+          "id": "zeller-lever-jobs",
+          "outcome": "read",
+          "listed": 18,
+          "added": 0,
+          "updated": 18,
+          "reopened": 0,
+          "adopted": 0,
+          "hidden": 0,
+          "archived": 5,
+          "duplicates": 0,
+          "out_of_scope": 0,
+          "pages": 1
+        }
+      ],
+      "unsupported": [],
+      "stopped_for": null
+    },
+    "error": null
   }
 ]
