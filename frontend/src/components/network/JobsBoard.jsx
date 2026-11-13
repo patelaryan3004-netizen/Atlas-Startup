@@ -2,14 +2,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import SiteHeader from '../brand/SiteHeader.jsx';
 import SectionTabs from '../brand/SectionTabs.jsx';
 import { OPPORTUNITY_TABS } from '../brand/nav.js';
-import { CityCards, RoleRow, RoleDetail, CompanyIndex, Coverage, Credits } from '../jobs/parts.jsx';
+import { CityCards, PlaceSum, RoleRow, RoleDetail, CompanyIndex, Coverage, Credits } from '../jobs/parts.jsx';
 import { fetchJobs } from '../../networkApi.js';
 import { useSavedKind } from '../../savedStore.js';
 import { usePageMeta } from '../../hooks/usePageMeta.js';
 import { lazyView, Lazy } from '../../lazyLoad.jsx';
 import { BookmarkIcon, SearchIcon, SlidersIcon, ChevronDown, CloseIcon } from '../explore/icons.jsx';
 import {
-  EMPTY, SORTS, PLACE_CARDS, OTHER_PLACES, OTHER_AU, REMOTE_AU, placeLabel, readFilters, writeFilters, isStart, activeSecondary, filterRoles, placeCounts, companyIndex, sortRoles, filterOptions,
+  EMPTY, SORTS, PLACE_CARDS, OTHER_PLACES, OTHER_AU, REMOTE_AU, placeLabel, readFilters, writeFilters, isStart, activeSecondary, filterRoles, placeCounts, placeBreakdown, companyIndex, sortRoles, filterOptions,
   sectorLabel, TYPE_LABELS, LEVEL_LABELS, ARRANGEMENT_LABELS, feedStamp, loadSnapshot, loadLive, normaliseRole,
 } from '../../jobsBoard.js';
 import '../../jobs.css';
@@ -99,6 +99,7 @@ export default function JobsBoard({ chrome = {} }) {
   }, [savedIds, roles, lapsed, extras]);
 
   const counts = useMemo(() => placeCounts(roles, filters), [roles, filters]);
+  const sum = useMemo(() => placeBreakdown(roles, filters), [roles, filters]);
   const matched = useMemo(() => sortRoles(filterRoles(roles, filters), filters.sort), [roles, filters]);
   const firms = useMemo(() => companyIndex(roles, { ...filters, place: filters.place }), [roles, filters]);
   const options = useMemo(() => filterOptions(roles, filters), [roles, filters]);
@@ -145,6 +146,7 @@ export default function JobsBoard({ chrome = {} }) {
         </header>
 
         <CityCards counts={counts} active={filters.place} onPick={set('place')} />
+        {board && !filters.saved && <PlaceSum sum={sum} onElsewhere={() => set('place')(OTHER_AU)} />}
 
         <div className="jd-work">
           <section className="jd-results" id="roles" aria-labelledby="jd-roles-h">

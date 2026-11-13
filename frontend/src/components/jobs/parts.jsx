@@ -53,6 +53,24 @@ export function CityCards({ counts, active, onPick }) {
   );
 }
 
+// How the national figure adds up, in words, from the same roles the cards count: roles in a named city (one role open in two cities is counted once, so the city counts can total more),
+// roles remote from Australia with no city, and roles elsewhere in Australia (a town, a state, or no city given), which the button shows.
+export function PlaceSum({ sum, onElsewhere }) {
+  if (!sum || !sum.total) return null;
+  const parts = [];
+  if (sum.inCity) {
+    const two = sum.inTwoCities ? ` (${sum.inTwoCities === 1 ? '1 is' : `${sum.inTwoCities} are`} open in two cities, so the city counts add up to ${sum.cityCounts})` : '';
+    parts.push(<span key="city">{plural(sum.inCity, 'role', 'roles')} in a named city{two}</span>);
+  }
+  if (sum.remoteOnly) parts.push(<span key="remote">{plural(sum.remoteOnly, 'role', 'roles')} remote from Australia, with no city</span>);
+  if (sum.elsewhere) parts.push(<span key="else"><button type="button" className="jd-link" onClick={onElsewhere}>{plural(sum.elsewhere, 'role', 'roles')} elsewhere in Australia</button> (a town, a state, or no city given)</span>);
+  return (
+    <p className="jd-quiet jd-sum">
+      {plural(sum.total, 'open role', 'open roles')}: {parts.reduce((acc, p, i) => (i === 0 ? [p] : [...acc, ', ', p]), [])}.
+    </p>
+  );
+}
+
 // One role in the list: the company's mark, the role, who and where (only what the employer said), when it was last confirmed, and the bookmark.
 export function RoleRow({ role, now, saved, onToggle, onOpen, selected }) {
   const stand = standing(role, now);

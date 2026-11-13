@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import {
-  EMPTY, readFilters, writeFilters, sectorLabel, matches, filterRoles, placeCounts, companyIndex, sortRoles, filterOptions, confirmedWords, whereWords, rowMeta, standing, feedStamp,
+  EMPTY, readFilters, writeFilters, sectorLabel, matches, filterRoles, placeCounts, placeBreakdown, companyIndex, sortRoles, filterOptions, confirmedWords, whereWords, rowMeta, standing, feedStamp,
   loadSnapshot, normaliseRole, initialsOf, activeSecondary, isStart,
 } from '../src/jobsBoard.js';
 import { deskRole, deskBoard } from './network/helpers.js';
@@ -48,6 +48,15 @@ describe('which roles match, and how many are in each place', () => {
   it('puts a role open in two cities under both and counts it once in the national figure', () => {
     const counts = placeCounts(roles, EMPTY);
     expect(counts).toMatchObject({ national: 4, Melbourne: 2, Sydney: 1, Perth: 0, 'remote-au': 1, 'other-au': 1 });
+  });
+
+  it('splits the national figure into groups that add up to it, from the roles alone', () => {
+    const sum = placeBreakdown(roles, EMPTY);
+    expect(sum).toEqual({ total: 4, uniqueIds: 4, inCity: 2, inTwoCities: 1, cityCounts: 3, remoteOnly: 1, elsewhere: 1 });
+    expect(sum.inCity + sum.remoteOnly + sum.elsewhere).toBe(sum.total);
+    expect(sum.elsewhere).toBe(placeCounts(roles, EMPTY)['other-au']);
+    // narrowing the roles narrows every figure with it: nothing is a fixed total
+    expect(placeBreakdown(roles, { ...EMPTY, search: 'engineer' })).toMatchObject({ total: 1, inCity: 1, inTwoCities: 1, cityCounts: 2, remoteOnly: 0, elsewhere: 0 });
   });
 
   it('counts each card with every filter but the place, so a card says how many roles it would show', () => {
@@ -114,6 +123,11 @@ describe('the words', () => {
     expect(whereWords(deskRole({ work: place('Sydney / Melbourne', 'Sydney', { cities: ['Sydney', 'Melbourne'] }) }))).toBe('Sydney / Melbourne');
     expect(whereWords(deskRole({ work: place('Remote (Victoria, Australia)', null, { remote_au: true, arrangement: 'remote' }) }))).toBe('Victoria');
     expect(whereWords(deskRole({ work: place('Remote - Australia', null, { remote_au: true }) }))).toBe('Australia');
+    // a town or state the employer named stays as written, with no city invented for it; a bare "Australia" says no city was given
+    expect(whereWords(deskRole({ work: place('Cairns, Queensland', null) }))).toBe('Cairns, Queensland');
+    expect(whereWords(deskRole({ work: place('Waterloo, NSW', null) }))).toBe('Waterloo, NSW');
+    expect(whereWords(deskRole({ work: place('Geelong, Victoria, Australia', null) }))).toBe('Geelong, Victoria');
+    expect(whereWords(deskRole({ work: place('Australia', null) }))).toBe('Australia, no city given');
     expect(whereWords(deskRole({ work: { places: [], cities: [], remote_au: false, arrangement: null } }))).toBe('');
     expect(rowMeta(deskRole({ work: place('Melbourne', 'Melbourne', { arrangement: null }) }))).toEqual(['Zeller', 'Melbourne']);
     expect(rowMeta(deskRole())).toEqual(['Zeller', 'Melbourne', 'Hybrid']);
@@ -132,7 +146,9 @@ describe('the words', () => {
     expect(feedStamp(deskBoard([]), at('2026-11-13T03:00:00Z'))).toMatchObject({ tone: 'ok', text: expect.stringMatching(/Employer boards last read 13 Nov 2026/) });
     expect(feedStamp(deskBoard([]), at('2026-11-14T03:00:00Z'))).toMatchObject({ tone: 'late', text: expect.stringMatching(/hourly check has not run since/) });
     expect(feedStamp(deskBoard([], { sync: { last_success_at: null } }), NOW)).toMatchObject({ tone: 'none' });
-    expect(feedStamp(deskBoard([]), NOW, 'snapshot').text).toMatch(/saved copy/);
+    // a saved copy never reads as live, whatever its age: it says it is a copy and when the employers' boards were checked for it
+    expect(feedStamp(deskBoard([]), NOW, 'snapshot')).toMatchObject({ tone: 'saved', text: expect.stringMatching(/^Saved copy · checked 13 Nov 2026/) });
+    expect(feedStamp(deskBoard([]), at('2026-12-30T03:00:00Z'), 'snapshot').text).toMatch(/^Saved copy · checked 13 Nov 2026/);
   });
 
   it('makes initials of a company\'s name, and the same tint every time', () => {

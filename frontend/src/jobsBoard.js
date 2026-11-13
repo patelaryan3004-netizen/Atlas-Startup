@@ -97,6 +97,19 @@ export function placeCounts(roles, f) {
   return out;
 }
 
+// How the national figure splits, counted from the same roles the cards count (everything that matches but the place). Every role is in exactly one group, so the groups add up to the
+// national figure; a role open in two cities is one role, so the city counts can add up to more. Nothing here is typed in: it is all read from the roles.
+export function placeBreakdown(roles, f) {
+  const base = filterRoles(roles, f, ['place']);
+  const out = { total: base.length, uniqueIds: new Set(base.map((r) => r.id)).size, inCity: 0, inTwoCities: 0, cityCounts: 0, remoteOnly: 0, elsewhere: 0 };
+  for (const r of base) {
+    const n = new Set(r.work.cities).size;
+    out.cityCounts += n;
+    if (n) { out.inCity += 1; if (n > 1) out.inTwoCities += 1; } else if (r.work.remote_au) out.remoteOnly += 1; else out.elsewhere += 1;
+  }
+  return out;
+}
+
 // "Who's hiring": the companies with a role among those that match every filter but the company, most roles first.
 export function companyIndex(roles, f) {
   const by = new Map();
@@ -146,13 +159,14 @@ export function confirmedWords(iso, now = Date.now()) {
 // A place's label without the word "remote" (the arrangement says that) and without brackets and dashes: "Remote (Victoria, Australia)" is "Victoria, Australia".
 const bare = (label) => String(label ?? '').replace(/\(?\bremote\b\)?/gi, ' ').replace(/[()\-\u2013\u2014]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/^[,;:\s]+|[,;:\s]+$/g, '');
 
-// Where a role can be worked, in the employer's words trimmed to the place: the capitals it names, else the Australian places it names ("Victoria", "Australia"), else "Australia" for a role that is
-// remote from Australia and names no place.
+// Where a role can be worked, in the employer's words trimmed to the place: the capitals it names, else the Australian place it names as the employer wrote it ("Cairns, Queensland", "Waterloo, NSW",
+// "Victoria"), never a city the employer did not name. A role whose place is only "Australia" says so ("Australia, no city given"); a role that is remote from Australia and names no place is "Australia".
+const COUNTRY_TAIL = /,\s*(australia|au)$/i;
 export function whereWords(role) {
   const { cities, remote_au: remote, places } = role.work;
   if (cities.length) return cities.join(' / ');
-  const other = [...new Set((places ?? []).filter((p) => p.au).map((p) => bare(p.label).split(',')[0].trim()).filter(Boolean))];
-  if (other.length) return other.join(' / ');
+  const other = [...new Set((places ?? []).filter((p) => p.au).map((p) => bare(p.label).replace(COUNTRY_TAIL, '').trim()).filter(Boolean))];
+  if (other.length) return other.map((p) => (/^(australia|au)$/i.test(p) && !remote ? 'Australia, no city given' : p)).join(' / ');
   return remote ? 'Australia' : '';
 }
 
@@ -178,11 +192,16 @@ export function standing(role, now = Date.now()) {
 // How current the board says it is. `sync` is the board's own account (backend/src/network/board.js syncSummary).
 export function feedStamp(board, now = Date.now(), source = 'live') {
   const last = board?.sync?.last_success_at;
+  const stamp = (iso) => new Date(iso).toLocaleString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }).replace(/ (am|pm)$/i, (m) => m.toLowerCase());
+  // A saved copy never reads as live: it says it is a copy and when the employers' boards were last checked for it.
+  if (source === 'snapshot') {
+    const checked = last ?? board?.generated_at;
+    return { text: checked ? `Saved copy · checked ${stamp(checked)}` : 'Saved copy', tone: 'saved' };
+  }
   if (!last) return { text: 'No employer board has been read yet', tone: 'none' };
   const hours = (now - Date.parse(last)) / 3600000;
-  const when = new Date(last).toLocaleString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }).replace(/ (am|pm)$/i, (m) => m.toLowerCase());
-  if (hours > 6) return { text: `Employer boards last read ${when}. The hourly check has not run since.`, tone: 'late' };
-  return { text: `Employer boards last read ${when}${source === 'snapshot' ? ' (saved copy)' : ''}`, tone: 'ok' };
+  if (hours > 6) return { text: `Employer boards last read ${stamp(last)}. The hourly check has not run since.`, tone: 'late' };
+  return { text: `Employer boards last read ${stamp(last)}`, tone: 'ok' };
 }
 
 // ---------- the board's data ----------

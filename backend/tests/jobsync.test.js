@@ -8,6 +8,7 @@ import { SUPPORTED } from '../src/jobsync/providers.js';
 import { applyRead, applyEvent } from '../src/jobsync/engine.js';
 import { buildCatalogue, boardOf, coverage } from '../src/jobsync/sources.js';
 import { BACKOFF_MS, SUCCESS_WAIT_MS } from '../src/jobsync/state.js';
+import { planJobSync } from '../src/scheduler/jobs/jobsync.js';
 import { createFetcher } from '../src/discovery/http.js';
 import { tick } from '../src/scheduler/scheduler.js';
 import { SCHEDULER_LOCK_FILE } from '../src/scheduler/lock.js';
@@ -83,6 +84,24 @@ const GH_URL = 'https://boards-api.greenhouse.io/v1/boards/acme/jobs';
 describe('which providers are read', () => {
   it('the light list the public server uses names exactly the providers the adapters can read', () => {
     expect([...SUPPORTED].sort()).toEqual(Object.keys(PROVIDERS).sort());
+  });
+});
+
+describe('reading chosen boards only', () => {
+  const ds = {
+    job_sources: [
+      { id: 'a-greenhouse-jobs', status: 'approved', provider: 'greenhouse', company_id: 'a' },
+      { id: 'b-lever-jobs', status: 'approved', provider: 'lever', company_id: 'b' },
+      { id: 'c-lever-review', status: 'review', provider: 'lever', company_id: 'c' },
+    ],
+    job_sync_state: [],
+  };
+  it('plans every approved board by default, and only the named ones when asked', () => {
+    expect(planJobSync(ds, { now: NOW }).planned.map((s) => s.id)).toEqual(['a-greenhouse-jobs', 'b-lever-jobs']);
+    expect(planJobSync(ds, { now: NOW, boards: ['b-lever-jobs'] }).planned.map((s) => s.id)).toEqual(['b-lever-jobs']);
+  });
+  it('never plans a board that is only in review, even when it is named', () => {
+    expect(planJobSync(ds, { now: NOW, boards: ['c-lever-review'] }).planned).toEqual([]);
   });
 });
 

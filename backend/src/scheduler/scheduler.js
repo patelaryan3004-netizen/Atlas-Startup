@@ -130,7 +130,7 @@ export async function tick({
       if (!selected.includes('jobsync')) return;
       const jobsBase = fetcher ?? createFetcher({ userAgent: env.JOBSYNC_USER_AGENT || userAgent.replace('scheduled refresh', 'job board sync'), coolDownHosts: begun.cooling, maxBytes: 4000000, minDelayMs: 1500 });
       const jobsBudget = createBudget({ maxRequests: limits.maxRequests ?? 120, maxMinutes: limits.maxMinutes ?? 10, now });
-      const r = await runJobSync({ ...ctx, fetcher: jobsBudget.wrap(jobsBase) }, { budget: jobsBudget, limit: limits.maxBoards });
+      const r = await runJobSync({ ...ctx, fetcher: jobsBudget.wrap(jobsBase) }, { budget: jobsBudget, limit: limits.maxBoards, only: limits.boards });
       if (r.failed > 0 && r.processed === 0) r.error = `every board that was read failed (${r.failed}): the roles were left as they were`;
       Object.assign(results.jobsync, r);
       out(`jobsync: ${r.summary}`);

@@ -2,7 +2,7 @@
 //
 //   npm run scheduler -- status [--json]
 //   npm run scheduler -- plan   [--job a,b] [--max-sites n]            what is due, reading and writing nothing
-//   npm run scheduler -- tick   [--job a,b] [limits] [--mode suggest|fill] [--force] [--dry-run] [--by name]
+//   npm run scheduler -- tick   [--job a,b] [limits] [--mode suggest|fill] [--force] [--dry-run] [--by name] [--board id,id (jobsync only)]
 //   npm run scheduler -- run <job> [limits] [--mode ...]               one job now, whatever its clock says
 //   npm run scheduler -- loop   [--every minutes] [--max-ticks n] [tick flags]
 //   npm run scheduler -- runs   [--job j] [--status s] [--limit n]     the run log
@@ -62,6 +62,7 @@ function jobsFrom(flags, positional) {
 
 const limitsFrom = (flags) => Object.fromEntries(Object.entries({
   maxSites: whole(flags, 'max-sites'), maxRequests: whole(flags, 'max-requests'), maxMinutes: whole(flags, 'max-minutes'), concurrency: whole(flags, 'concurrency'),
+  boards: typeof flags.board === 'string' ? flags.board.split(',').map((s) => s.trim()).filter(Boolean) : undefined, // jobsync only: just these catalogue ids
 }).filter(([, v]) => v !== undefined));
 
 const ago = (iso, at) => {

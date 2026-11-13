@@ -19,19 +19,20 @@ const blank = () => ({ due: 0, processed: 0, changed: 0, failed: 0, deferred: 0,
 const changedBy = (s) => (s.added + s.reopened + s.hidden + s.archived + s.adopted) > 0;
 
 // What would be read, and why not the rest. Reads and writes nothing.
-export function planJobSync(ds, { now, force = false, limit = DEFAULT_MAX_BOARDS } = {}) {
+// `boards` (a list of catalogue ids) narrows the run to those boards, for reading one or two now without touching the state of the others.
+export function planJobSync(ds, { now, force = false, limit = DEFAULT_MAX_BOARDS, boards = null } = {}) {
   const approved = (ds.job_sources ?? []).filter((s) => s.status === 'approved');
   const unsupported = approved.filter((s) => !SUPPORTED.includes(s.provider));
-  const polled = approved.filter((s) => SUPPORTED.includes(s.provider));
+  const polled = approved.filter((s) => SUPPORTED.includes(s.provider) && (!boards || boards.includes(s.id)));
   const due = polled.filter((s) => force || isDue((ds.job_sync_state ?? []).find((r) => r.source_id === s.id), now));
   return { approved: approved.length, polled: polled.length, unsupported, due, planned: due.slice(0, limit), deferred: Math.max(0, due.length - limit), waiting: polled.length - due.length };
 }
 
-export async function runJobSync(ctx, { budget, limit = DEFAULT_MAX_BOARDS, readOptions = {} } = {}) {
+export async function runJobSync(ctx, { budget, limit = DEFAULT_MAX_BOARDS, only = null, readOptions = {} } = {}) {
   const { dir, now = Date.now, fetcher, force = false, lock: lockOpts, runIds = {}, dryRun = false } = ctx;
   const out = blank();
   const { ds } = await snapshot(dir, lockOpts);
-  const planned = planJobSync(ds, { now: now(), force, limit });
+  const planned = planJobSync(ds, { now: now(), force, limit, boards: only });
   out.due = planned.due.length;
   out.deferred = planned.deferred;
   const boards = [];

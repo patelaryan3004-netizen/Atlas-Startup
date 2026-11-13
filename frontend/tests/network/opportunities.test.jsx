@@ -68,6 +68,27 @@ describe('Opportunities: the hiring desk', () => {
     expect(screen.getByRole('heading', { level: 2, name: /Open roles/ })).toHaveTextContent('5');
   });
 
+  it('says how the national figure adds up, from the roles: the city counts can total more because one role is open in two cities', async () => {
+    await openDesk();
+    expect(document.querySelector('.jd-sum').textContent).toBe('5 open roles: 4 roles in a named city (1 is open in two cities, so the city counts add up to 5), 1 role remote from Australia, with no city.');
+    expect(screen.queryByRole('button', { name: /elsewhere in Australia/ })).not.toBeInTheDocument(); // no role here lacks a city
+  });
+
+  it('keeps a role with no city discoverable and labelled as it is: a town or a bare "Australia" is elsewhere in Australia, never given a city', async () => {
+    api.fetchJobBoard.mockResolvedValue(deskBoard([
+      ...roles(),
+      deskRole({ id: 'x1', title: 'Responder', work: { places: [{ label: 'Cairns, Queensland', au: true, city: null }], cities: [], remote_au: false, remote_evidence: null, arrangement: null } }),
+      deskRole({ id: 'x2', title: 'Careers lead', work: { places: [{ label: 'Australia', au: true, city: null }], cities: [], remote_au: false, remote_evidence: null, arrangement: null } }),
+    ]));
+    render(<JobsBoard chrome={{ go: {} }} />);
+    const button = await screen.findByRole('button', { name: /2 roles elsewhere in Australia/ });
+    expect(screen.getByRole('combobox', { name: 'Where the role is worked' })).toHaveDisplayValue('All Australia (7)');
+    await userEvent.click(button);
+    expect(await screen.findByRole('heading', { level: 2, name: /Open roles in Elsewhere in Australia/ })).toHaveTextContent('2');
+    expect(screen.getByText(/Cairns, Queensland/)).toBeInTheDocument();
+    expect(screen.getByText(/Australia, no city given/)).toBeInTheDocument();
+  });
+
   it('shows the roles that can be worked in a city when its card is pressed, writes it in the address, and clears it when pressed again', async () => {
     await openDesk();
     await userEvent.click(card('Melbourne'));
@@ -229,6 +250,8 @@ describe('Opportunities: the hiring desk', () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(deskBoard([melb('m1')])), { status: 200, headers: { 'content-type': 'application/json' } })));
     await openDesk();
     expect(await screen.findByText(/the saved copy from 13 Nov/)).toBeInTheDocument();
+    expect(screen.getByText(/Saved copy · checked 13 Nov 2026/)).toBeInTheDocument(); // the header never calls a saved copy live
+    expect(screen.queryByText(/Employer boards last read/)).not.toBeInTheDocument();
     expect(screen.getByText('Role m1')).toBeInTheDocument(); // the roles are still there, and still link to their employers
   });
 

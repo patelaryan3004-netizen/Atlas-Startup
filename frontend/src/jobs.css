@@ -195,3 +195,5 @@
   .jd-detail-foot{position:sticky;bottom:-18px;margin:14px -18px -18px;padding:12px 18px 18px;border-top:1px solid var(--jd-line);background:var(--jd-card);}
 }
 @media (prefers-reduced-motion:reduce){.jd-tile,.jd-row,.jd-mark img{transition:none;}.jd-tile:hover{transform:none;}}
+.jd-sum{margin:var(--space-2) 0 0;max-width:78ch;line-height:1.5;}
+.jd-stamp.is-saved{color:var(--jd-gold-ink);}
