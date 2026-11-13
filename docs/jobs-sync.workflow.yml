@@ -80,9 +80,10 @@ jobs:
         run: |
           git config user.name 'AU Startup Map job sync'
           git config user.email 'actions@users.noreply.github.com'
-          # The tick is the only thing that has touched backend/src/data in this fresh checkout, so everything it wrote belongs in the commit: the roles, the board state, the run log, and
-          # startups.json (whose derived "hiring checked" dates follow the roles; the data-integrity test fails on main if they are left behind).
-          git add backend/src/data
+          # Only what a sync is for: the roles, the board state, the catalogue, the run log, the audit entry of the run, and startups.json (whose derived "hiring checked" dates follow the
+          # roles; the data-integrity test fails on main if they are left behind). A tick also seeds refresh_state.json (the other scheduler jobs' bookkeeping, thousands of lines) as a side
+          # effect: that is not part of a job sync and is left out on purpose.
+          git add backend/src/data/jobs.json backend/src/data/job_sync_state.json backend/src/data/job_sources.json backend/src/data/job_runs.json backend/src/data/audit_trail.json backend/src/data/startups.json
           if git diff --cached --quiet; then echo 'Nothing to commit.'; exit 0; fi
           message="data: job board sync ($REASON)"
           if [ "$DEPLOY" != "yes" ]; then message="$message [skip render]"; fi
