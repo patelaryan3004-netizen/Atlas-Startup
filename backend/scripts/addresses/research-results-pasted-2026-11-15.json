@@ -1,0 +1,284 @@
+{
+ "researched_on": "2026-11-15",
+ "checked_at": "2026-11-14T19:45:39.343Z",
+ "results": [
+  {
+   "company": "Affinda",
+   "company_id": "affinda",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Frequently listed",
+   "address": "120 William St, Melbourne VIC 3000",
+   "locality": "",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://doverhouse.com.au/",
+     "host": "doverhouse.com.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://doverhouse.com.au/"
+    },
+    {
+     "url": "https://affinda.com/",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.affinda.com/"
+    },
+    {
+     "url": "https://affinda.com/contact",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.affinda.com/contact/"
+    },
+    {
+     "url": "https://affinda.com/contact-us",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.affinda.com/contact/"
+    },
+    {
+     "url": "https://affinda.com/about",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://affinda.com/about-us",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: network_error"
+    },
+    {
+     "url": "https://affinda.com/locations",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://affinda.com/offices",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://affinda.com/privacy",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: robots_disallow"
+    },
+    {
+     "url": "https://affinda.com/privacy-policy",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: robots_disallow"
+    },
+    {
+     "url": "https://affinda.com/terms",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://affinda.com/terms-and-conditions",
+     "host": "affinda.com",
+     "own_site": true,
+     "outcome": "unreadable: robots_disallow"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Pasted table, no source pages.",
+   "retrieved_at": "2026-11-14T19:45:19.189Z"
+  },
+  {
+   "company": "AmazingCo",
+   "company_id": "amazingco",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Consistent across directories and reviews",
+   "address": "1/38 Mollison Street, Abbotsford VIC 3067",
+   "locality": "",
+   "state": "VIC",
+   "postcode": "3067",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://amazingco.me/",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.amazingco.me/aus"
+    },
+    {
+     "url": "https://amazingco.me/contact",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www2.amazingco.me/contact/"
+    },
+    {
+     "url": "https://amazingco.me/contact-us",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://amazingco.me/about",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.amazingco.me/about"
+    },
+    {
+     "url": "https://amazingco.me/about-us",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.amazingco.me/about-us"
+    },
+    {
+     "url": "https://amazingco.me/locations",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://amazingco.me/offices",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://amazingco.me/privacy",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.amazingco.me/aus/privacy-policy"
+    },
+    {
+     "url": "https://amazingco.me/privacy-policy",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://amazingco.me/terms",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://amazingco.me/terms-and-conditions",
+     "host": "amazingco.me",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Pasted table, no source pages; the table also says nearby 37-38 Mollison St.",
+   "retrieved_at": "2026-11-14T19:45:39.343Z"
+  },
+  {
+   "company": "Bellroy",
+   "company_id": "bellroy",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Commonly cited registered / office address",
+   "address": "14 Mason St, Collingwood VIC 3066",
+   "locality": "",
+   "state": "VIC",
+   "postcode": "3066",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://bellroy.com/customer-care/privacy-policy",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://bellroy.com/customer-care/privacy-policy"
+    },
+    {
+     "url": "https://bellroy.com/",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://bellroy.com/"
+    },
+    {
+     "url": "https://bellroy.com/contact",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://bellroy.com/customer-care#contact-us"
+    },
+    {
+     "url": "https://bellroy.com/contact-us",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://bellroy.com/about",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://bellroy.com/about-us",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://bellroy.com/about-us"
+    },
+    {
+     "url": "https://bellroy.com/locations",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://bellroy.com/offices",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://bellroy.com/privacy",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://bellroy.com/privacy-policy",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://bellroy.com/customer-care/privacy-policy"
+    },
+    {
+     "url": "https://bellroy.com/terms",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://bellroy.com/terms-and-conditions",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "unreadable: http_error"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Pasted table, no source pages; other Fitzroy/Collingwood references also appear.",
+   "retrieved_at": "2026-11-14T19:45:21.855Z"
+  }
+ ]
+}

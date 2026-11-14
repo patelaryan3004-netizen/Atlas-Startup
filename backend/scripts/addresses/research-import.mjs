@@ -22,11 +22,13 @@ import { promoteEvidence } from '../../src/discovery/publish.js';
 import { locationSourceFor } from '../../src/models/location.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const INPUT = path.join(HERE, 'input', 'company-addresses-150.csv');
-const RESULTS = path.join(HERE, 'research-results.json');
 const dir = path.join(HERE, '..', '..', 'src', 'data');
 const [, , step, ...rest] = process.argv;
 const flag = (name) => { const i = rest.indexOf(name); return i < 0 ? null : (rest[i + 1] ?? true); };
+// Another list can be run the same way: --input <csv in the same columns> --results <json> (and --max-urls n pages tried per company). The defaults are the 150-company list.
+const INPUT = path.resolve(HERE, typeof flag('--input') === 'string' ? flag('--input') : path.join('input', 'company-addresses-150.csv'));
+const RESULTS = path.resolve(HERE, typeof flag('--results') === 'string' ? flag('--results') : 'research-results.json');
+const MAX_URLS = Number(flag('--max-urls') ?? 4);
 
 const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return null; } };
 const NOT_OFFICE_LABELS = {
@@ -99,7 +101,7 @@ async function verify() {
       if (!row['Public address']) { out.verdict = 'no_address'; results.push(out); continue; }
       if (!streetKey(row['Public address'])) { out.verdict = 'no_street'; results.push(out); continue; }
       const own = registrableDomain(hostOf(row['Company website'] || m.company?.website || '') ?? '');
-      for (const url of urlsOf(row).slice(0, 4)) {
+      for (const url of urlsOf(row).slice(0, MAX_URLS)) {
         const host = hostOf(url);
         const check = { url, host, own_site: !!own && registrableDomain(host ?? '') === own, outcome: null };
         if (/\.pdf(\?|#|$)/i.test(url)) check.outcome = 'unreadable: a PDF (the checker reads web pages)';
