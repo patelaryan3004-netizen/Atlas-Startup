@@ -12743,12 +12743,13 @@
     "confidence_score": 0.4,
     "created_at": "2026-10-13T13:23:57.676Z",
     "updated_at": "2026-11-05T00:54:29.374Z",
-    "last_verified_at": "2026-11-14T19:03:12.023Z",
+    "last_verified_at": "2026-11-14T19:53:49.030Z",
     "founder_ids": [],
     "investor_ids": [],
     "source_ids": [
       "www-affinda-com",
-      "doverhouse-com-au"
+      "doverhouse-com-au",
+      "affindagroup-applytojob-com-apply-e1easbdtpg-affinda-summer-inte"
     ],
     "organisation_type": null
   },
@@ -12845,14 +12846,15 @@
     "confidence_score": 0.64,
     "created_at": "2026-10-13T13:23:58.006Z",
     "updated_at": "2026-11-05T00:54:29.374Z",
-    "last_verified_at": "2026-11-02T02:16:02.388Z",
+    "last_verified_at": "2026-11-14T19:53:49.030Z",
     "founder_ids": [],
     "investor_ids": [],
     "source_ids": [
       "bellroy-com-2",
       "bellroy-com",
       "bellroy-greenhouse-jobs",
-      "bellroy-com-customer-care-privacy-policy"
+      "bellroy-com-customer-care-privacy-policy",
+      "ised-isde-canada-ca-cipo-trademark-search-1756364"
     ],
     "organisation_type": null
   },
@@ -33287,12 +33289,13 @@
     "confidence_score": 0.75,
     "created_at": "2026-11-05T05:00:54.762Z",
     "updated_at": "2026-11-05T12:12:12.884Z",
-    "last_verified_at": "2026-11-05T02:57:25.249Z",
+    "last_verified_at": "2026-11-14T19:55:17.724Z",
     "founder_ids": [],
     "investor_ids": [],
     "source_ids": [
       "www-pageuppeople-com-contact-us",
-      "www-pageuppeople-com"
+      "www-pageuppeople-com",
+      "blog-pageuppeople-com-contact-us"
     ],
     "organisation_type": "company"
   },

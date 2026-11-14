@@ -17386,5 +17386,32 @@
     "publisher": "xero.com",
     "retrieved_at": "2026-11-14T19:05:10.315Z",
     "note": ""
+  },
+  {
+    "id": "affindagroup-applytojob-com-apply-e1easbdtpg-affinda-summer-inte",
+    "kind": "company_website",
+    "url": "https://affindagroup.applytojob.com/apply/E1eAsBdTPg/Affinda-Summer-Internship-Program-2027",
+    "title": "Affinda: recruitment page (Summer Internship Program 2027)",
+    "publisher": "affindagroup.applytojob.com",
+    "retrieved_at": "2026-11-14T19:53:49.030Z",
+    "note": ""
+  },
+  {
+    "id": "ised-isde-canada-ca-cipo-trademark-search-1756364",
+    "kind": "open_dataset",
+    "url": "https://ised-isde.canada.ca/cipo/trademark-search/1756364",
+    "title": "Canadian Trademarks Database: BELLROY (1756364)",
+    "publisher": "Canadian Intellectual Property Office",
+    "retrieved_at": "2026-11-14T19:53:49.030Z",
+    "note": ""
+  },
+  {
+    "id": "blog-pageuppeople-com-contact-us",
+    "kind": "company_website",
+    "url": "https://blog.pageuppeople.com/contact-us/",
+    "title": "PageUp: blog.pageuppeople.com",
+    "publisher": "blog.pageuppeople.com",
+    "retrieved_at": "2026-11-14T19:55:17.724Z",
+    "note": ""
   }
 ]

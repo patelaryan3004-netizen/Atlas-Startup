@@ -22311,5 +22311,40 @@
     },
     "fetched_at": "2026-11-14T19:07:28.058Z",
     "expires_at": "2027-11-14T19:07:28.058Z"
+  },
+  {
+    "id": "nominatim:6 fitzgibbon street cremorne vic 3121 australia",
+    "provider": "nominatim",
+    "query": "6 Fitzgibbon Street, Cremorne, VIC, 3121, Australia",
+    "status": "found",
+    "quality": "house",
+    "result": {
+      "lat": -37.8269718,
+      "lng": 144.9923153,
+      "display_name": "Dover House, 2-6, Fitzgibbon Street, Cremorne, Melbourne, Victoria, 3121, Australia",
+      "osm_type": "way",
+      "osm_id": 1290621889,
+      "class": "building",
+      "type": "office",
+      "addresstype": "building",
+      "importance": 0.00008045242999919154,
+      "address": {
+        "house_number": "2-6",
+        "road": "Fitzgibbon Street",
+        "suburb": "Cremorne",
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postcode": "3121",
+        "country_code": "au"
+      },
+      "boundingbox": [
+        "-37.8272099",
+        "-37.8268295",
+        "144.9919724",
+        "144.9926582"
+      ]
+    },
+    "fetched_at": "2026-11-14T19:54:56.160Z",
+    "expires_at": "2027-11-14T19:54:56.160Z"
   }
 ]

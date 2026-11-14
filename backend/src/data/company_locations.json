@@ -19824,6 +19824,27 @@
     "updated_at": "2026-11-05T00:54:29.374Z"
   },
   {
+    "id": "bellroy.addr.research",
+    "company_id": "bellroy",
+    "kind": "OTHER",
+    "label": "Trademark owner address (Canadian register); office occupancy not confirmed",
+    "address": "14 Mason Street, Collingwood VIC 3066",
+    "suburb": "Collingwood",
+    "city": "Melbourne",
+    "state": "VIC",
+    "country": "Australia",
+    "postcode": "3066",
+    "latitude": null,
+    "longitude": null,
+    "location_precision": "CITY",
+    "location_source": "ecosystem_source",
+    "location_source_url": "https://ised-isde.canada.ca/cipo/trademark-search/1756364",
+    "location_verified_at": "2026-11-14T19:53:49.030Z",
+    "location_confidence": "low",
+    "created_at": "2026-11-14T19:53:49.030Z",
+    "updated_at": "2026-11-14T19:53:49.030Z"
+  },
+  {
     "id": "brightspace.addr.research",
     "company_id": "brightspace",
     "kind": "OTHER",

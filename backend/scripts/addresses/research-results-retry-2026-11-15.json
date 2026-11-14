@@ -1,0 +1,300 @@
+{
+ "researched_on": "2026-11-15",
+ "checked_at": "2026-11-14T19:55:17.724Z",
+ "results": [
+  {
+   "company": "AIBUILD",
+   "company_id": "aibuild",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Primary office on company social profile",
+   "address": "Level 2, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.linkedin.com/company/aibuild",
+     "host": "linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://www.aibuild.com/",
+     "host": "aibuild.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.aibuild.com/"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company website directly links this LinkedIn profile; current website confirms Melbourne but no street. Geocode building rather than university centre.",
+   "retrieved_at": "2026-11-14T19:55:10.042Z"
+  },
+  {
+   "company": "Apromore",
+   "company_id": "apromore",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Primary office on company social profile",
+   "address": "4C, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://as.linkedin.com/company/apromore",
+     "host": "as.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://maps.unimelb.edu.au/parkville/building/290",
+     "host": "maps.unimelb.edu.au",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company contact page gives global team but no street; self-published company LinkedIn location confirms suite. Carlton locality normalized from building's University map.",
+   "retrieved_at": "2026-11-14T19:55:09.647Z"
+  },
+  {
+   "company": "FOUNDIT",
+   "company_id": "foundit",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published Melbourne office",
+   "address": "20 Market Street, Southbank VIC 3006",
+   "locality": "Southbank",
+   "state": "VIC",
+   "postcode": "3006",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://foundit.property/contact-us",
+     "host": "foundit.property",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://foundit.property/contact-us"
+    },
+    {
+     "url": "https://www.realcommercial.com.au/sold/property-20-market-street-southbank-vic-3006-504855704",
+     "host": "realcommercial.com.au",
+     "own_site": false,
+     "outcome": "unreadable: rate_limited"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Southbank 3006 is correct for this address; do not change it to the different Market Street in Melbourne CBD. Run a building-level geocode before pinning.",
+   "retrieved_at": "2026-11-14T19:55:10.766Z"
+  },
+  {
+   "company": "JAVLN",
+   "company_id": "javln",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian office",
+   "address": "Suite 7, 668 Burwood Road, Hawthorn East VIC 3123",
+   "locality": "Hawthorn East",
+   "state": "VIC",
+   "postcode": "3123",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://javln.com/au/contact",
+     "host": "javln.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://javln.com/au/contact"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Auckland21NixonStreet is separately NZ office.",
+   "retrieved_at": "2026-11-14T19:55:09.836Z"
+  },
+  {
+   "company": "Neo-Bionica",
+   "company_id": "neo-bionica",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Hospital-integrated engineering/manufacturing facility",
+   "address": "Level 5, Daly Wing, St Vincent's Hospital, 35 Victoria Parade, Fitzroy VIC 3065",
+   "locality": "Fitzroy",
+   "state": "VIC",
+   "postcode": "3065",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/neo-bionica",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://neo-bionica.com/about-us",
+     "host": "neo-bionica.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://neo-bionica.com/about-us"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company profile exact address, current company about page confirms facilities housed at StVincent'sHospital. Do not use hospital-centre coordinate if DalyWing unresolved.",
+   "retrieved_at": "2026-11-14T19:55:10.394Z"
+  },
+  {
+   "company": "PageUp",
+   "company_id": "pageup",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office / coworking suite",
+   "address": "Suite S5051, Level 5, 447 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://blog.pageuppeople.com/contact-us/",
+     "host": "blog.pageuppeople.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://blog.pageuppeople.com/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://blog.pageuppeople.com/contact-us/",
+    "host": "blog.pageuppeople.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://blog.pageuppeople.com/contact-us/"
+   },
+   "notes": "Official contact page labels global office locations; adds suite. Company Linked In corroborates same building.",
+   "retrieved_at": "2026-11-14T19:55:17.724Z"
+  },
+  {
+   "company": "PredicTx Health",
+   "company_id": "predictx-health",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-announced office at innovation hub",
+   "address": "Genesis Fourth Floor Venture Labs, Melbourne Connect, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.linkedin.com/posts/ajwaykar_predictxhealth-melbourneconnect-oncology-activity-7371693131165163520-k_77",
+     "host": "linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://maps.unimelb.edu.au/parkville/building/290",
+     "host": "maps.unimelb.edu.au",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Street address is derived by joining the company's named office hub with the university's official building address. No coordinates or building geocode have been added.",
+   "retrieved_at": "2026-11-14T19:55:10.043Z"
+  },
+  {
+   "company": "Tablo",
+   "company_id": "tablo",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published primary office",
+   "address": "Level 1, 41-43 Stewart Street, Richmond VIC 3121",
+   "locality": "Richmond",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/tablo-publishing",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company profile address; building lookup is still needed before adding coordinates.",
+   "retrieved_at": "2026-11-14T19:55:10.043Z"
+  },
+  {
+   "company": "Vivi",
+   "company_id": "vivi",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published primary office",
+   "address": "627 Chapel Street, South Yarra VIC 3141",
+   "locality": "South Yarra",
+   "state": "VIC",
+   "postcode": "3141",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/vivieducation",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://chromewebstore.google.com/detail/vivi/dgplfgkebdggnnkfgljfcfeighbdgmnk?hl=en",
+     "host": "chromewebstore.google.com",
+     "own_site": false,
+     "outcome": "unreadable: search and aggregator results are not scraped: use the publisher's own feed"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company LinkedIn and Chrome developer profile agree on building and Level 20. Google Play developer says Unit 21; building consistent.",
+   "retrieved_at": "2026-11-14T19:55:10.044Z"
+  },
+  {
+   "company": "Waterman Workspaces",
+   "company_id": "waterman-workspaces",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking hub; multiple locations",
+   "address": "Level 2, 260 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.waterman.com.au/wp-content/uploads/2025/10/Waterman-Collins-St-Visitors-Map.pdf",
+     "host": "waterman.com.au",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://www.waterman.com.au/locations/",
+     "host": "waterman.com.au",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.waterman.com.au/locations/"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "One verified Melbourne CBD hub; Waterman operates many other Melbourne locations. Not asserted unique HQ.",
+   "retrieved_at": "2026-11-14T19:55:10.690Z"
+  }
+ ]
+}

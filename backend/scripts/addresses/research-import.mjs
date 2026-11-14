@@ -89,7 +89,7 @@ async function verify() {
   const match = matcher(ds);
   const only = flag('--only');
   const limit = Number(flag('--limit') ?? Infinity);
-  const rows = parseCsv(readFileSync(INPUT, 'utf8')).filter((r) => !only || r.Company === only).slice(0, limit);
+  const rows = parseCsv(readFileSync(INPUT, 'utf8')).filter((r) => !only || String(only).split(';').includes(r.Company)).slice(0, limit);
   const fetcher = createFetcher({ userAgent: DEFAULT_USER_AGENT, minDelayMs: 1500, maxBytes: 3000000, timeoutMs: 20000 });
   const results = [];
   let next = 0;

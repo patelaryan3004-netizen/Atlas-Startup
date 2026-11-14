@@ -1100,6 +1100,17 @@
     "note": "The site itself."
   },
   {
+    "id": "affinda.address.affindagroup-applytojob-com-apply-e1easbdtpg-affinda-summer-inte",
+    "company_id": "affinda",
+    "field": "address",
+    "value": "Dover House, Cremorne VIC",
+    "source_id": "affindagroup-applytojob-com-apply-e1easbdtpg-affinda-summer-inte",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:53:49.030Z",
+    "status": "active",
+    "note": "Its own recruitment page gives the location as \"Dover House, Cremorne, Melbourne\": it names the building, not the street."
+  },
+  {
     "id": "affinda.address.doverhouse-com-au",
     "company_id": "affinda",
     "field": "address",
@@ -5058,6 +5069,17 @@
     "verified_at": "2026-11-02T02:16:02.388Z",
     "status": "superseded",
     "note": "Its own page calls this a registered address (published_registered), not where it works (city pack address evidence, 2026-11-02)"
+  },
+  {
+    "id": "bellroy.address.ised-isde-canada-ca-cipo-trademark-search-1756364",
+    "company_id": "bellroy",
+    "field": "address",
+    "value": "14 Mason Street, Collingwood VIC 3066",
+    "source_id": "ised-isde-canada-ca-cipo-trademark-search-1756364",
+    "confidence": "low",
+    "verified_at": "2026-11-14T19:53:49.030Z",
+    "status": "active",
+    "note": "The registered owner's address (Bellroy Pty Ltd) on a Canadian trademark record. It is not evidence of a working office: current occupancy is not confirmed."
   },
   {
     "id": "bellroy.description.bellroy-com",
@@ -31051,6 +31073,17 @@
     "verified_at": "2026-10-05T15:04:39.691Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "pageup.address.blog-pageuppeople-com-contact-us",
+    "company_id": "pageup",
+    "field": "address",
+    "value": "Suite S5051, Level 5, 447 Collins Street, Melbourne VIC 3000",
+    "source_id": "blog-pageuppeople-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:55:17.724Z",
+    "status": "active",
+    "note": "A researched address (Melbourne office / coworking suite); the page states it. Researched 2026-11-15."
   },
   {
     "id": "pageup.address.www-pageuppeople-com-contact-us",

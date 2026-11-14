@@ -86595,5 +86595,89 @@
         "to": "superseded"
       }
     ]
+  },
+  {
+    "id": "aud-20261114195349030-1",
+    "at": "2026-11-14T19:53:49.030Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "affinda"
+    },
+    "summary": "Affinda: its own recruitment page, which names Dover House as where the team works, was recorded as evidence (the building, not the street)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Dover House, Cremorne VIC"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114195349030-2",
+    "at": "2026-11-14T19:53:49.030Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bellroy"
+    },
+    "summary": "Bellroy: 14 Mason Street, Collingwood VIC 3066 was recorded as the trademark owner's address (a public register); office occupancy is not confirmed",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "14 Mason Street, Collingwood VIC 3066"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114195349030-3",
+    "at": "2026-11-14T19:53:49.030Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bellroy"
+    },
+    "summary": "Bellroy: and kept as a location of its own (no coordinates, never a pin)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Trademark owner address: 14 Mason Street, Collingwood VIC 3066"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114195526469-1",
+    "at": "2026-11-14T19:55:26.469Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "pageup"
+    },
+    "summary": "PageUp: an address its own website states was added as evidence (Suite S5051, Level 5, 447 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Suite S5051, Level 5, 447 Collins Street, Melbourne VIC 3000"
+      }
+    ]
   }
 ]
