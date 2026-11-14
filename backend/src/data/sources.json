@@ -17055,6 +17055,24 @@
     "note": "Read by the discovery engine."
   },
   {
+    "id": "www-seastock-com-au-contact",
+    "kind": "company_website",
+    "url": "https://www.seastock.com.au/contact/",
+    "title": "SeaStock: seastock.com.au",
+    "publisher": "seastock.com.au",
+    "retrieved_at": "2026-11-01T16:13:42.505Z",
+    "note": "The company's own page, read by the Perth address review."
+  },
+  {
+    "id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "kind": "user_supplied",
+    "url": null,
+    "title": "Pasted list of Perth company addresses (written by an AI, not checked against any page when it was supplied)",
+    "publisher": "owner (pasted)",
+    "retrieved_at": "2026-11-06T00:00:00.000Z",
+    "note": ""
+  },
+  {
     "id": "deputy-lever-jobs",
     "kind": "company_website",
     "url": "https://jobs.lever.co/deputy",
@@ -17071,5 +17089,302 @@
     "publisher": "vgw.co",
     "retrieved_at": "2026-11-13T04:28:02.571Z",
     "note": "VGW's own job page https://www.vgw.co/greencon_job/application-support-specialist-4/ (Application Support Specialist, Perth, Australia) links its \"Apply Now\" button to https://job-boards.greenhouse.io/vgw-australia/jobs/8883252002. That is a posting on the vgw-australia board, and the board's public feed https://boards-api.greenhouse.io/v1/boards/vgw-australia/jobs lists posting 8883252002 with the same title and the place Perth. Only this Australian board is approved. The same page's generic button links the global board https://job-boards.greenhouse.io/vgw, which is not approved. Read in a browser on 2026-11-13 (the page answers 404 to a plain fetch)."
+  },
+  {
+    "id": "doverhouse-com-au",
+    "kind": "directory_listing",
+    "url": "https://doverhouse.com.au/",
+    "title": "Affinda: doverhouse.com.au",
+    "publisher": "doverhouse.com.au",
+    "retrieved_at": "2026-11-14T19:03:12.023Z",
+    "note": ""
+  },
+  {
+    "id": "alayacare-com-en-au-contact-us",
+    "kind": "company_website",
+    "url": "https://alayacare.com/en-au/contact-us/",
+    "title": "AlayaCare: alayacare.com",
+    "publisher": "alayacare.com",
+    "retrieved_at": "2026-11-14T19:03:11.736Z",
+    "note": ""
+  },
+  {
+    "id": "andromedarobotics-ai-contact-us",
+    "kind": "company_website",
+    "url": "https://andromedarobotics.ai/contact-us",
+    "title": "Andromeda Robotics: andromedarobotics.ai",
+    "publisher": "andromedarobotics.ai",
+    "retrieved_at": "2026-11-14T19:03:11.036Z",
+    "note": ""
+  },
+  {
+    "id": "colabs-com-au-brunswick",
+    "kind": "directory_listing",
+    "url": "https://colabs.com.au/brunswick",
+    "title": "Cortical Labs: colabs.com.au",
+    "publisher": "colabs.com.au",
+    "retrieved_at": "2026-11-14T19:03:29.759Z",
+    "note": ""
+  },
+  {
+    "id": "creativecubes-co-locations-melbourne-333-drummond-street-carlton",
+    "kind": "company_website",
+    "url": "https://creativecubes.co/locations/melbourne/333-drummond-street-carlton/",
+    "title": "CreativeCubes.Co Carlton: creativecubes.co",
+    "publisher": "creativecubes.co",
+    "retrieved_at": "2026-11-14T19:03:29.596Z",
+    "note": ""
+  },
+  {
+    "id": "www-cuttable-com-contact",
+    "kind": "directory_listing",
+    "url": "https://www.cuttable.com/contact/",
+    "title": "Cuttable: cuttable.com",
+    "publisher": "cuttable.com",
+    "retrieved_at": "2026-11-14T19:03:29.486Z",
+    "note": ""
+  },
+  {
+    "id": "www-dayforce-com-au-contact",
+    "kind": "company_website",
+    "url": "https://www.dayforce.com/au/contact",
+    "title": "Dayforce: dayforce.com",
+    "publisher": "dayforce.com",
+    "retrieved_at": "2026-11-14T19:03:31.007Z",
+    "note": ""
+  },
+  {
+    "id": "space-eibc-net-au",
+    "kind": "company_website",
+    "url": "https://space.eibc.net.au/",
+    "title": "Eastern Innovation: space.eibc.net.au",
+    "publisher": "space.eibc.net.au",
+    "retrieved_at": "2026-11-14T19:03:47.753Z",
+    "note": ""
+  },
+  {
+    "id": "lei-bloomberg-com-leis-view-254900csjfslt7fldv06",
+    "kind": "directory_listing",
+    "url": "https://lei.bloomberg.com/leis/view/254900CSJFSLT7FLDV06",
+    "title": "ENA Respiratory: lei.bloomberg.com",
+    "publisher": "lei.bloomberg.com",
+    "retrieved_at": "2026-11-14T19:03:46.636Z",
+    "note": ""
+  },
+  {
+    "id": "iharvestcoworking-com-au-contact-us",
+    "kind": "company_website",
+    "url": "https://iharvestcoworking.com.au/contact-us/",
+    "title": "iHarvest Coworking Sunshine: iharvestcoworking.com.au",
+    "publisher": "iharvestcoworking.com.au",
+    "retrieved_at": "2026-11-14T19:04:06.399Z",
+    "note": ""
+  },
+  {
+    "id": "kolmeo-com-blog-kolmeo-means-business",
+    "kind": "company_website",
+    "url": "https://kolmeo.com/blog/kolmeo-means-business/",
+    "title": "Kolmeo: kolmeo.com",
+    "publisher": "kolmeo.com",
+    "retrieved_at": "2026-11-14T19:04:05.005Z",
+    "note": ""
+  },
+  {
+    "id": "matrak-com-contact",
+    "kind": "company_website",
+    "url": "https://matrak.com/contact/",
+    "title": "Matrak: matrak.com",
+    "publisher": "matrak.com",
+    "retrieved_at": "2026-11-14T19:04:18.189Z",
+    "note": "The company's own contact page (matrak.com; the record's website field says matrak.com.au). Confirmed by the owner 2026-11-15."
+  },
+  {
+    "id": "www-melbconnect-com-au-contact-us-2",
+    "kind": "company_website",
+    "url": "https://www.melbconnect.com.au/contact-us/",
+    "title": "Melbourne Connect: melbconnect.com.au",
+    "publisher": "melbconnect.com.au",
+    "retrieved_at": "2026-11-14T19:04:21.950Z",
+    "note": ""
+  },
+  {
+    "id": "o3space-org-locations",
+    "kind": "company_website",
+    "url": "https://o3space.org/locations",
+    "title": "O3: o3space.org",
+    "publisher": "o3space.org",
+    "retrieved_at": "2026-11-14T19:04:24.444Z",
+    "note": ""
+  },
+  {
+    "id": "investor-playsidestudios-com-contact",
+    "kind": "company_website",
+    "url": "https://investor.playsidestudios.com/contact/",
+    "title": "PlaySide Studios: investor.playsidestudios.com",
+    "publisher": "investor.playsidestudios.com",
+    "retrieved_at": "2026-11-14T19:04:26.868Z",
+    "note": ""
+  },
+  {
+    "id": "www-point-of-rental-com-au-contact",
+    "kind": "company_website",
+    "url": "https://www.point-of-rental.com/au/contact/",
+    "title": "Point of Rental Software: point-of-rental.com",
+    "publisher": "point-of-rental.com",
+    "retrieved_at": "2026-11-14T19:04:25.234Z",
+    "note": ""
+  },
+  {
+    "id": "power-tec-com-au-contact-us",
+    "kind": "company_website",
+    "url": "https://power-tec.com.au/contact-us/",
+    "title": "PowerTec: power-tec.com.au",
+    "publisher": "power-tec.com.au",
+    "retrieved_at": "2026-11-14T19:04:30.522Z",
+    "note": ""
+  },
+  {
+    "id": "centuria-com-au-news-centuria-to-acquire-50-in-next-gen-data-cen",
+    "kind": "directory_listing",
+    "url": "https://centuria.com.au/news/centuria-to-acquire-50-in-next-gen-data-centre-provider/",
+    "title": "ResetData: centuria.com.au",
+    "publisher": "centuria.com.au",
+    "retrieved_at": "2026-11-14T19:04:28.904Z",
+    "note": ""
+  },
+  {
+    "id": "www-roller-software-master-terms",
+    "kind": "company_website",
+    "url": "https://www.roller.software/master-terms",
+    "title": "ROLLER: roller.software",
+    "publisher": "roller.software",
+    "retrieved_at": "2026-11-14T19:04:29.411Z",
+    "note": ""
+  },
+  {
+    "id": "www-rosterfy-com-about-us",
+    "kind": "company_website",
+    "url": "https://www.rosterfy.com/about-us/",
+    "title": "Rosterfy: rosterfy.com",
+    "publisher": "rosterfy.com",
+    "retrieved_at": "2026-11-14T19:04:29.327Z",
+    "note": ""
+  },
+  {
+    "id": "www-senetas-com-contact",
+    "kind": "company_website",
+    "url": "https://www.senetas.com/contact/",
+    "title": "Senetas: senetas.com",
+    "publisher": "senetas.com",
+    "retrieved_at": "2026-11-14T19:04:35.997Z",
+    "note": ""
+  },
+  {
+    "id": "www-skutopia-com-locations",
+    "kind": "company_website",
+    "url": "https://www.skutopia.com/locations",
+    "title": "SKUTOPIA: skutopia.com",
+    "publisher": "skutopia.com",
+    "retrieved_at": "2026-11-14T19:04:37.172Z",
+    "note": ""
+  },
+  {
+    "id": "www-smileyscope-com-en-au-contact",
+    "kind": "company_website",
+    "url": "https://www.smileyscope.com/en-au/contact",
+    "title": "Smileyscope: smileyscope.com",
+    "publisher": "smileyscope.com",
+    "retrieved_at": "2026-11-14T19:04:38.386Z",
+    "note": ""
+  },
+  {
+    "id": "www-stoneandchalk-com-au-melbourne-startups",
+    "kind": "company_website",
+    "url": "https://www.stoneandchalk.com.au/melbourne-startups",
+    "title": "Stone & Chalk: stoneandchalk.com.au",
+    "publisher": "stoneandchalk.com.au",
+    "retrieved_at": "2026-11-14T19:04:39.168Z",
+    "note": ""
+  },
+  {
+    "id": "vccg-com-au-supportly",
+    "kind": "directory_listing",
+    "url": "https://vccg.com.au/supportly/",
+    "title": "Supportly: vccg.com.au",
+    "publisher": "vccg.com.au",
+    "retrieved_at": "2026-11-14T19:04:40.156Z",
+    "note": ""
+  },
+  {
+    "id": "www-tankstreamlabs-com-location-collins-street-melbourne",
+    "kind": "company_website",
+    "url": "https://www.tankstreamlabs.com/location/collins-street-melbourne",
+    "title": "Tank Stream Labs: tankstreamlabs.com",
+    "publisher": "tankstreamlabs.com",
+    "retrieved_at": "2026-11-14T19:04:41.346Z",
+    "note": ""
+  },
+  {
+    "id": "www-telecare-com-au-patient-services-hybrid-in-person-clinic",
+    "kind": "company_website",
+    "url": "https://www.telecare.com.au/patient-services/hybrid-in-person-clinic",
+    "title": "Telecare: telecare.com.au",
+    "publisher": "telecare.com.au",
+    "retrieved_at": "2026-11-14T19:04:54.083Z",
+    "note": ""
+  },
+  {
+    "id": "www-thecommons-com-au-locations",
+    "kind": "company_website",
+    "url": "https://www.thecommons.com.au/locations",
+    "title": "The Commons: thecommons.com.au",
+    "publisher": "thecommons.com.au",
+    "retrieved_at": "2026-11-14T19:04:53.946Z",
+    "note": ""
+  },
+  {
+    "id": "tinybrightthings-com-contact",
+    "kind": "company_website",
+    "url": "https://tinybrightthings.com/contact/",
+    "title": "Tiny Bright Things: tinybrightthings.com",
+    "publisher": "tinybrightthings.com",
+    "retrieved_at": "2026-11-14T19:04:53.977Z",
+    "note": ""
+  },
+  {
+    "id": "tixel-com-privacy",
+    "kind": "company_website",
+    "url": "https://tixel.com/privacy",
+    "title": "Tixel: tixel.com",
+    "publisher": "tixel.com",
+    "retrieved_at": "2026-11-14T19:04:55.440Z",
+    "note": ""
+  },
+  {
+    "id": "traildsoftware-com-contact",
+    "kind": "company_website",
+    "url": "https://traildsoftware.com/contact/",
+    "title": "Traild: traildsoftware.com",
+    "publisher": "traildsoftware.com",
+    "retrieved_at": "2026-11-14T19:04:55.387Z",
+    "note": ""
+  },
+  {
+    "id": "wotso-com-locations-vic-melbourne-melbourne-cbd",
+    "kind": "company_website",
+    "url": "https://wotso.com/locations/vic/melbourne/melbourne-cbd/",
+    "title": "WOTSO: wotso.com",
+    "publisher": "wotso.com",
+    "retrieved_at": "2026-11-14T19:04:59.380Z",
+    "note": ""
+  },
+  {
+    "id": "www-xero-com-au-about-offices",
+    "kind": "company_website",
+    "url": "https://www.xero.com/au/about/offices/",
+    "title": "Xero: xero.com",
+    "publisher": "xero.com",
+    "retrieved_at": "2026-11-14T19:05:10.315Z",
+    "note": ""
   }
 ]

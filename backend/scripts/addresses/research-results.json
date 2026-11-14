@@ -1,0 +1,4331 @@
+{
+ "researched_on": "2026-11-15",
+ "checked_at": "2026-11-14T19:05:11.320Z",
+ "results": [
+  {
+   "company": "1Breadcrumb",
+   "company_id": "1breadcrumb",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Mailing address in company document",
+   "address": "Office 10, 10-20 Gwynne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://1breadcrumb.com/Site%20Documents/Prize%20Giveaway%20Terms%20and%20Conditions.pdf",
+     "host": "1breadcrumb.com",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Corrects source candidate 12 Gwynne Street / VIC 3122. Company branding now breadcrumb.co; current office occupancy needs reconfirmation.",
+   "retrieved_at": "2026-11-14T19:03:08.911Z"
+  },
+  {
+   "company": "ActivePipe",
+   "company_id": "activepipe",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Compliance contact address",
+   "address": "64 Gwynne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://activepipe.com/privacy-policy/",
+     "host": "activepipe.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://activepipe.com/privacy-policy/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://activepipe.com/privacy-policy/",
+    "host": "activepipe.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://activepipe.com/privacy-policy/"
+   },
+   "notes": "Privacy mailing/contact address alone does not establish current operational occupancy; company support now uses Moxiworks email.",
+   "retrieved_at": "2026-11-14T19:03:09.921Z"
+  },
+  {
+   "company": "Adacel",
+   "company_id": "adacel",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company office building; suite differs between primary sources",
+   "address": "150 Albert Road, South Melbourne VIC 3205",
+   "locality": "South Melbourne",
+   "state": "VIC",
+   "postcode": "3205",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.adacel.com/contact-us",
+     "host": "adacel.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.adacel.com/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.adacel.com/contact-us",
+    "host": "adacel.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.adacel.com/contact-us"
+   },
+   "notes": "The contact page uses Unit 21; official 2024 filings use Suite 31, Level 4. Both point to the same building, so the disputed suite is omitted from the main address.",
+   "retrieved_at": "2026-11-14T19:03:09.275Z"
+  },
+  {
+   "company": "Adora",
+   "company_id": "adora",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Privacy mailing/legal address",
+   "address": "Level 16, South Tower, 80 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.adora.ai/privacy-policy/",
+     "host": "adora.ai",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.adora.ai/privacy-policy/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.adora.ai/privacy-policy/",
+    "host": "adora.ai",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.adora.ai/privacy-policy/"
+   },
+   "notes": "Current official policy states legal address and privacy-mail destination; not operational-office confirmation.",
+   "retrieved_at": "2026-11-14T19:03:09.322Z"
+  },
+  {
+   "company": "Adslot",
+   "company_id": "adslot",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office and registered office",
+   "address": "Level 2, 419 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.adslot.com/contact-us/",
+     "host": "adslot.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.adslot.com/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.adslot.com/contact-us/",
+    "host": "adslot.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.adslot.com/contact-us/"
+   },
+   "notes": "Official contact lists under Offices; investor page separately gives Suite1 L3 62Lygon Carlton as registered office. Treat Carlton as legal, not proof of relocation.",
+   "retrieved_at": "2026-11-14T19:03:10.067Z"
+  },
+  {
+   "company": "Affinda",
+   "company_id": "affinda",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office at named building",
+   "address": "Dover House, 6 Fitzgibbon Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://affindagroup.applytojob.com/apply/E1eAsBdTPg/Affinda-Summer-Internship-Program-2027",
+     "host": "affindagroup.applytojob.com",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://affindagroup.applytojob.com/apply/E1eAsBdTPg/Affinda-Summer-Internship-Program-2027"
+    },
+    {
+     "url": "https://doverhouse.com.au/",
+     "host": "doverhouse.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://doverhouse.com.au/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://doverhouse.com.au/",
+    "host": "doverhouse.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://doverhouse.com.au/"
+   },
+   "notes": "Company hiring page identifies occupied building; building's own current site gives 6 Fitzgibbon. Building also appears as 2 Fitzgibbon / 38-40 Cubitt (alternate frontages); old 180 Flinders candidate not current.",
+   "retrieved_at": "2026-11-14T19:03:12.023Z"
+  },
+  {
+   "company": "Agpay",
+   "company_id": "agpay",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Mailing address",
+   "address": "Level 14, 1 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://agpay.com.au/about/contact",
+     "host": "agpay.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://agpay.com.au/about/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://agpay.com.au/about/contact",
+    "host": "agpay.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://agpay.com.au/about/contact"
+   },
+   "notes": "Company contact explicitly labels Mail; office occupancy not confirmed.",
+   "retrieved_at": "2026-11-14T19:03:09.712Z"
+  },
+  {
+   "company": "AIBUILD",
+   "company_id": "aibuild",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Primary office on company social profile",
+   "address": "Level 2, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.linkedin.com/company/aibuild",
+     "host": "linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://www.aibuild.com/",
+     "host": "aibuild.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.aibuild.com/"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company website directly links this LinkedIn profile; current website confirms Melbourne but no street. Geocode building rather than university centre.",
+   "retrieved_at": "2026-11-14T19:03:10.217Z"
+  },
+  {
+   "company": "AlayaCare",
+   "company_id": "alayacare",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office",
+   "address": "Suite 2, Level 7, 5 Queens Road, Melbourne VIC 3004",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3004",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://alayacare.com/en-au/contact-us/",
+     "host": "alayacare.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://alayacare.com/en-au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://alayacare.com/en-au/contact-us/",
+    "host": "alayacare.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://alayacare.com/en-au/contact-us/"
+   },
+   "notes": "Original 1/15 Malt Street is explicitly Brisbane office. Sydney also Level2 261George Street NSW2000.",
+   "retrieved_at": "2026-11-14T19:03:11.736Z"
+  },
+  {
+   "company": "AmazingCo",
+   "company_id": "amazingco",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Government tourism listing; location type uncertain",
+   "address": "Unit 1, 37 Mollison Street, Abbotsford VIC 3067",
+   "locality": "Abbotsford",
+   "state": "VIC",
+   "postcode": "3067",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.visitvictoria.com/regions/melbourne/see-and-do/tours/amazingco",
+     "host": "visitvictoria.com",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    },
+    {
+     "url": "https://au.linkedin.com/company/amazingco",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Visit Victoria tourism listing publishes this address with matching company phone/website. Company Linked In confirms Melbourne headquarters, but current office versus booking/contact location is unproven. Supplied Newton Street candidate was not confirmed.",
+   "retrieved_at": "2026-11-14T19:03:10.334Z"
+  },
+  {
+   "company": "Amdocs",
+   "company_id": "amdocs",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office",
+   "address": "Level 14, 575 Bourke Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.amdocs.com/contact",
+     "host": "amdocs.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.amdocs.com/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.amdocs.com/contact",
+    "host": "amdocs.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.amdocs.com/contact"
+   },
+   "notes": "Original 10 Barrack Street belongs to Sydney, not Melbourne.",
+   "retrieved_at": "2026-11-14T19:03:11.763Z"
+  },
+  {
+   "company": "Andromeda Robotics",
+   "company_id": "andromeda-robotics",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian office / robotics facility",
+   "address": "224-226 Normanby Road, Southbank VIC 3006",
+   "locality": "Southbank",
+   "state": "VIC",
+   "postcode": "3006",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://andromedarobotics.ai/contact-us",
+     "host": "andromedarobotics.ai",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://andromedarobotics.ai/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://andromedarobotics.ai/contact-us",
+    "host": "andromedarobotics.ai",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://andromedarobotics.ai/contact-us"
+   },
+   "notes": "Replaces old Level 1/7 Border Street Richmond candidate. Current Workable jobs corroborate Southbank location.",
+   "retrieved_at": "2026-11-14T19:03:11.036Z"
+  },
+  {
+   "company": "ANTSA",
+   "company_id": "antsa",
+   "problem": null,
+   "category": "Postal contact only",
+   "type": "PO Box",
+   "address": "PO Box 2324, Blackburn South VIC 3130",
+   "locality": "Blackburn South",
+   "state": "VIC",
+   "postcode": "3130",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_street",
+   "corroborated_by": null,
+   "notes": "Official governance confirms Victoria; no physical office disclosed."
+  },
+  {
+   "company": "Appian",
+   "company_id": "appian",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office / coworking suite",
+   "address": "Space & Co, Queen & Collins, Level 1 Suite T04, 376-390 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://appian.com/contact-us",
+     "host": "appian.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://appian.com/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://appian.com/contact-us",
+    "host": "appian.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://appian.com/contact-us"
+   },
+   "notes": "2024 press release calls same development 100 Queen Street; different street frontage of complex rather than automatic relocation.",
+   "retrieved_at": "2026-11-14T19:03:11.322Z"
+  },
+  {
+   "company": "Applied EV",
+   "company_id": "applied-ev",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Postal privacy address",
+   "address": "12 Lakeview Drive, Scoresby VIC 3179",
+   "locality": "Scoresby",
+   "state": "VIC",
+   "postcode": "3179",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.appliedev.com/legal/privacy",
+     "host": "appliedev.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.appliedev.com/legal/privacy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.appliedev.com/legal/privacy",
+    "host": "appliedev.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.appliedev.com/legal/privacy"
+   },
+   "notes": "Current main site contact does not publish street. LEI record lists 34 Barnes Avenue as HQ, so don't automatically pin historical privacy postal address.",
+   "retrieved_at": "2026-11-14T19:03:14.433Z"
+  },
+  {
+   "company": "Apromore",
+   "company_id": "apromore",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Primary office on company social profile",
+   "address": "4C, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://as.linkedin.com/company/apromore",
+     "host": "as.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://maps.unimelb.edu.au/parkville/building/290",
+     "host": "maps.unimelb.edu.au",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company contact page gives global team but no street; self-published company LinkedIn location confirms suite. Carlton locality normalized from building's University map.",
+   "retrieved_at": "2026-11-14T19:03:11.901Z"
+  },
+  {
+   "company": "Archa",
+   "company_id": "archa",
+   "problem": null,
+   "category": "Conflicting public addresses",
+   "type": "App Store registered address; operating-office conflict",
+   "address": "10-20 Gwynne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://apps.apple.com/fm/app/archa-business-credit-cards/id1398653063",
+     "host": "apps.apple.com",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://apps.apple.com/fm/app/archa-business-credit-cards/id1398653063"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://apps.apple.com/fm/app/archa-business-credit-cards/id1398653063",
+    "host": "apps.apple.com",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://apps.apple.com/fm/app/archa-business-credit-cards/id1398653063"
+   },
+   "notes": "Registered address supplied from the current App Store listing. Other company-controlled sources give 459 Little Collins Street or 114 William Street in Melbourne CBD. A current operating office could not be selected confidently.",
+   "retrieved_at": "2026-11-14T19:03:13.018Z"
+  },
+  {
+   "company": "AUS BIOS LABS",
+   "company_id": "aus-bios-labs",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3066",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official company pages confirm Melbourne and the matching Australian business register gives VIC 3066. RMIT also lists the business in Victoria. No specific street is published; postcode does not identify a building."
+  },
+  {
+   "company": "Bae Juice",
+   "company_id": "bae-juice",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Company privacy / correspondence address",
+   "address": "27 William Street, Balaclava VIC 3183",
+   "locality": "Balaclava",
+   "state": "VIC",
+   "postcode": "3183",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://drinkbaejuice.com.au/policies/privacy-policy",
+     "host": "drinkbaejuice.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://drinkbaejuice.com.au/policies/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://drinkbaejuice.com.au/policies/privacy-policy",
+    "host": "drinkbaejuice.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://drinkbaejuice.com.au/policies/privacy-policy"
+   },
+   "notes": "Postcode corrected from 3137 to 3183 and duplicated street wording removed, with evidence. No factory/unit number inferred. Current office or warehouse occupancy remains unconfirmed.",
+   "retrieved_at": "2026-11-14T19:03:13.149Z"
+  },
+  {
+   "company": "Banjo Loans",
+   "company_id": "banjo-loans",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "head office",
+   "address": "12-14 McKillop Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://banjoloans.com/terms-conditions/",
+     "host": "banjoloans.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://banjoloans.com/terms-conditions/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://banjoloans.com/terms-conditions/",
+    "host": "banjoloans.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://banjoloans.com/terms-conditions/"
+   },
+   "notes": "2026 promotion terms explicitly call it head office.",
+   "retrieved_at": "2026-11-14T19:03:13.219Z"
+  },
+  {
+   "company": "Bare",
+   "company_id": "bare",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "postal",
+   "address": "Suite 9.04, Level 9, 500 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://bare.com.au/terms/privacy-policy",
+     "host": "bare.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://bare.com.au/terms/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://bare.com.au/terms/privacy-policy",
+    "host": "bare.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://bare.com.au/terms/privacy-policy"
+   },
+   "notes": "Adds suite/floor; policy labels Post, so not enough for office pin.",
+   "retrieved_at": "2026-11-14T19:03:25.847Z"
+  },
+  {
+   "company": "Bellroy",
+   "company_id": "bellroy",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Accountant registered office",
+   "address": "c/- Martin & Martin Consulting Pty Ltd, 5 Theatre Place, Canterbury VIC 3126",
+   "locality": "Canterbury",
+   "state": "VIC",
+   "postcode": "3126",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://bellroy.com/impressum",
+     "host": "bellroy.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://bellroy.com/impressum"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://bellroy.com/impressum",
+    "host": "bellroy.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://bellroy.com/impressum"
+   },
+   "notes": "Official contact is PO Box1184 Collingwood3066. Careers describes Fitzroy and BellsBeach spaces without street. 14Mason Collingwood appears in trademark filings but current operational use not established.",
+   "retrieved_at": "2026-11-14T19:03:26.944Z"
+  },
+  {
+   "company": "BGL Corporate Solutions",
+   "company_id": "bgl-corporate-solutions",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "headquarters / business premises",
+   "address": "15-17 Shierlaw Avenue, Canterbury VIC 3126",
+   "locality": "Canterbury",
+   "state": "VIC",
+   "postcode": "3126",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.bglcorp.com/privacy-policy/",
+     "host": "bglcorp.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.bglcorp.com/privacy-policy/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.bglcorp.com/privacy-policy/",
+    "host": "bglcorp.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.bglcorp.com/privacy-policy/"
+   },
+   "notes": "Company LinkedIn identifies same primary location and Canterbury HQ.",
+   "retrieved_at": "2026-11-14T19:03:13.441Z"
+  },
+  {
+   "company": "Brightspace",
+   "company_id": "brightspace",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Public company contact",
+   "address": "28 Blazey Street, Richmond VIC 3121",
+   "locality": "Richmond",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.brightspace.ai/contact-us",
+     "host": "brightspace.ai",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.brightspace.ai/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.brightspace.ai/contact-us",
+    "host": "brightspace.ai",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.brightspace.ai/contact-us"
+   },
+   "notes": "Current contact agrees with candidate; physical office designation not explicit. CoLabs community membership alone does not place company at CoLabs street address.",
+   "retrieved_at": "2026-11-14T19:03:27.132Z"
+  },
+  {
+   "company": "C2 Robotics",
+   "company_id": "c2-robotics",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Public business / contractor address; office occupancy unconfirmed",
+   "address": "46 Ovata Drive, Tullamarine VIC 3043",
+   "locality": "Tullamarine",
+   "state": "VIC",
+   "postcode": "3043",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.myregion.au/index.php?companyId=14184&option=com_jbusinessdirectory&view=companies",
+     "host": "myregion.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://www.myregion.au/index.php?companyId=14184&option=com_jbusinessdirectory&view=companies"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.myregion.au/index.php?companyId=14184&option=com_jbusinessdirectory&view=companies",
+    "host": "myregion.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://www.myregion.au/index.php?companyId=14184&option=com_jbusinessdirectory&view=companies"
+   },
+   "notes": "The January 2025 US trademark gazette lists the same street with postcode 3042. Business listings and the Australian register support 3043. Confirm current premises before an office pin.",
+   "retrieved_at": "2026-11-14T19:03:26.556Z"
+  },
+  {
+   "company": "Capital.com",
+   "company_id": "capital-com",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian office",
+   "address": "Level 15, 357 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://capital.com/en-au/contact-us",
+     "host": "capital.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://capital.com/en-au/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://capital.com/en-au/contact-us",
+    "host": "capital.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://capital.com/en-au/contact-us"
+   },
+   "notes": "Current global-office page and July2025 privacy policy agree; older 120Collins legal PDF not selected.",
+   "retrieved_at": "2026-11-14T19:03:27.968Z"
+  },
+  {
+   "company": "CareNeighbour",
+   "company_id": "careneighbour",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Contact form has no street."
+  },
+  {
+   "company": "CareTrust",
+   "company_id": "caretrust",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "No street; homepage says built in Melbourne."
+  },
+  {
+   "company": "Cario",
+   "company_id": "cario",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office",
+   "address": "58 Balmain Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://cario.com.au/contact-us",
+     "host": "cario.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://cario.com.au/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://cario.com.au/contact-us",
+    "host": "cario.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://cario.com.au/contact-us"
+   },
+   "notes": "This Melbourne office is consistent. Separate HQ listed as 11-15 Smeaton Ave Dandenong South VIC 3165 has postcode issue and should not be silently substituted. Sydney Unit 10/1 Chaplin Drive Lane Cove West NSW 2066 is another office.",
+   "retrieved_at": "2026-11-14T19:03:27.694Z"
+  },
+  {
+   "company": "Cipher Sports Technology Group",
+   "company_id": "cipher-sports-technology-group",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Corporate headquarters",
+   "address": "7/51 Langridge Street, Collingwood VIC 3066",
+   "locality": "Collingwood",
+   "state": "VIC",
+   "postcode": "3066",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.ciphersports.io/privacy",
+     "host": "ciphersports.io",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.ciphersports.io/privacy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.ciphersports.io/privacy",
+    "host": "ciphersports.io",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.ciphersports.io/privacy"
+   },
+   "notes": "Explicit HQ statement; not merely mailing contact.",
+   "retrieved_at": "2026-11-14T19:03:27.705Z"
+  },
+  {
+   "company": "Co-Linic AI",
+   "company_id": "co-linic-ai",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Location undisclosed",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3134",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Company website gives Australian email and Melbourne hours; matching company profile places it in Melbourne. The corporate register gives VIC 3134. No numbered street address was found."
+  },
+  {
+   "company": "Coco",
+   "company_id": "coco",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Registered region / company profile",
+   "address": "",
+   "locality": "Hawthorn",
+   "state": "VIC",
+   "postcode": "3122",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official website supplies matching ABN; it has no numbered street address. Hawthorn locality corroborated by matching company profile; do not use State Library venue as office."
+  },
+  {
+   "company": "CoLabs Australia",
+   "company_id": "colabs-australia",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking laboratory location",
+   "address": "Shop 1, Level 1, 306 Albert Street, Brunswick VIC 3056",
+   "locality": "Brunswick",
+   "state": "VIC",
+   "postcode": "3056",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://colabs.com.au/contact",
+     "host": "colabs.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://colabs.com.au/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://colabs.com.au/contact",
+    "host": "colabs.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://colabs.com.au/contact"
+   },
+   "notes": "Company has multiple legitimate facilities:2/2 Acacia Place Notting Hill VIC 3168; Ground Floor 1 Central Ave Eveleigh NSW 2015; Brisbane LSI 300 Herston Rd Herston QLD 4006. Separate office records.",
+   "retrieved_at": "2026-11-14T19:03:28.682Z"
+  },
+  {
+   "company": "Collective Shift",
+   "company_id": "collective-shift",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Public profile contact / coworking address; occupancy unconfirmed",
+   "address": "The Commons, 10-20 Gwynne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.trustpilot.com/review/collectiveshift.io?page=4",
+     "host": "au.trustpilot.com",
+     "own_site": false,
+     "outcome": "unreadable: robots_disallow"
+    },
+    {
+     "url": "https://abr.business.gov.au/AbnHistory/View?id=78650977325",
+     "host": "abr.business.gov.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://abr.business.gov.au/AbnHistory/View?id=78650977325"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "The Australian register also places the entity in VIC 3121. An older trademark address in Brunswick is not selected. Current desk/office occupancy is not established by the profile.",
+   "retrieved_at": "2026-11-14T19:03:28.660Z"
+  },
+  {
+   "company": "ConnexAI",
+   "company_id": "connexai",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Directory-listed Melbourne office",
+   "address": "Level 8, 469 La Trobe Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://craft.co/connex-one/locations",
+     "host": "craft.co",
+     "own_site": false,
+     "outcome": "unreadable: access_controlled"
+    },
+    {
+     "url": "https://connex.ai/au/about-us",
+     "host": "connex.ai",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://connex.ai/au/about-us"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Street address comes from a third-party directory. ConnexAI was previously Connex One. Confirm the current street address with the company before a pin.",
+   "retrieved_at": "2026-11-14T19:03:30.714Z"
+  },
+  {
+   "company": "coreplus",
+   "company_id": "coreplus",
+   "problem": null,
+   "category": "Postal contact only",
+   "type": "PO Box",
+   "address": "PO Box 348, Moonee Ponds VIC 3039",
+   "locality": "Moonee Ponds",
+   "state": "VIC",
+   "postcode": "3039",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_street",
+   "corroborated_by": null,
+   "notes": "Third-party directory offers35BankSt SouthMelbourne3205 but company office occupancy not verified."
+  },
+  {
+   "company": "Cortical Labs",
+   "company_id": "cortical-labs",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Laboratory / coworking lab",
+   "address": "306 Albert Street, Brunswick VIC 3056",
+   "locality": "Brunswick",
+   "state": "VIC",
+   "postcode": "3056",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.health.vic.gov.au/sites/default/files/2024-01/licence-permit-holders-1-january-2024_0.pdf",
+     "host": "health.vic.gov.au",
+     "own_site": false,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://colabs.com.au/brunswick",
+     "host": "colabs.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://colabs.com.au/brunswick"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://colabs.com.au/brunswick",
+    "host": "colabs.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://colabs.com.au/brunswick"
+   },
+   "notes": "Government lab licence plus current CoLabs Brunswick member list supports lab occupancy. Company LinkedIn separately lists L4 152ElizabethSt Melbourne3000; old privacy99CommercialRoad is not selected as current lab. QA: Current CoLabs membership confirms the building. Unit20 is only evidenced in a2024licence and is omitted from the current public candidate.",
+   "retrieved_at": "2026-11-14T19:03:29.759Z"
+  },
+  {
+   "company": "CreativeCubes.Co Carlton",
+   "company_id": "creativecubes-co-carlton",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking space",
+   "address": "333 Drummond Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://creativecubes.co/locations/melbourne/333-drummond-street-carlton/",
+     "host": "creativecubes.co",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://creativecubes.co/locations/melbourne/333-drummond-street-carlton/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://creativecubes.co/locations/melbourne/333-drummond-street-carlton/",
+    "host": "creativecubes.co",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://creativecubes.co/locations/melbourne/333-drummond-street-carlton/"
+   },
+   "notes": "Location page specifies inside Lygon Court Shopping Centre, top of travelator, opposite Australia Post.",
+   "retrieved_at": "2026-11-14T19:03:29.596Z"
+  },
+  {
+   "company": "Cuttable",
+   "company_id": "cuttable",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "office",
+   "address": "1/60 Wilson Street, South Yarra VIC 3141",
+   "locality": "South Yarra",
+   "state": "VIC",
+   "postcode": "3141",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.cuttable.com/contact/",
+     "host": "cuttable.com",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://www.cuttable.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.cuttable.com/contact/",
+    "host": "cuttable.com",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://www.cuttable.com/contact/"
+   },
+   "notes": "Current company domain cuttable.com; LinkedIn gives different Chapel Street address, prefer explicit company contact office.",
+   "retrieved_at": "2026-11-14T19:03:29.486Z"
+  },
+  {
+   "company": "CyberCX",
+   "company_id": "cybercx",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian headquarters",
+   "address": "Level 4, 330 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://cybercx.com/contact-us/",
+     "host": "cybercx.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://cybercx.com/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://cybercx.com/contact-us/",
+    "host": "cybercx.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://cybercx.com/contact-us/"
+   },
+   "notes": "Company modern-slavery statement explicitly identifies address as Australian HQ.",
+   "retrieved_at": "2026-11-14T19:03:30.380Z"
+  },
+  {
+   "company": "Datarock",
+   "company_id": "datarock",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company flyer contact address",
+   "address": "3/31 Queen Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://datarock.com.au/wp-content/uploads/2023/02/Datarock_A4-Flyer_web.pdf",
+     "host": "datarock.com.au",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://datarock.com.au/contact-us-v2/",
+     "host": "datarock.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://datarock.com.au/contact-us-v2/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://datarock.com.au/contact-us-v2/",
+    "host": "datarock.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://datarock.com.au/contact-us-v2/"
+   },
+   "notes": "Company-hosted flyer supplies street; older PDF path/current contact page no street means confirm current occupancy before office pin.",
+   "retrieved_at": "2026-11-14T19:03:31.121Z"
+  },
+  {
+   "company": "Dayforce",
+   "company_id": "dayforce",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian office",
+   "address": "12th Floor, North Tower, 459 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.dayforce.com/au/contact",
+     "host": "dayforce.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.dayforce.com/au/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.dayforce.com/au/contact",
+    "host": "dayforce.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.dayforce.com/au/contact"
+   },
+   "notes": "Official Australian contact location; preserve north tower.",
+   "retrieved_at": "2026-11-14T19:03:31.007Z"
+  },
+  {
+   "company": "DeciphrAI",
+   "company_id": "deciphrai",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Privacy postal address",
+   "address": "Suite 109, 3 Albert Coates Lane, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.deciphr.ai/privacy-policy",
+     "host": "deciphr.ai",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.deciphr.ai/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.deciphr.ai/privacy-policy",
+    "host": "deciphr.ai",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.deciphr.ai/privacy-policy"
+   },
+   "notes": "Do not treat postal suite as operational office without confirmation.",
+   "retrieved_at": "2026-11-14T19:03:31.142Z"
+  },
+  {
+   "company": "Designer Journeys",
+   "company_id": "designer-journeys",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "Level 7, 485 Bourke Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.designerjourneys.com/privacy-policy",
+     "host": "designerjourneys.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.designerjourneys.com/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.designerjourneys.com/privacy-policy",
+    "host": "designerjourneys.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.designerjourneys.com/privacy-policy"
+   },
+   "notes": "Explicitly registered office, not evidence of operating office.",
+   "retrieved_at": "2026-11-14T19:03:33.166Z"
+  },
+  {
+   "company": "Dexora Technology",
+   "company_id": "dexora-technology",
+   "problem": null,
+   "category": "Street without building number",
+   "type": "Street only, no building number",
+   "address": "Clayton Road, Clayton South VIC 3169",
+   "locality": "Clayton South",
+   "state": "VIC",
+   "postcode": "3169",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_street",
+   "corroborated_by": null,
+   "notes": "Company publishes street and suburb but no building number; not enough for exact pin."
+  },
+  {
+   "company": "Dr Glitter",
+   "company_id": "dr-glitter",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Patent applicant correspondence address",
+   "address": "Suite 103, 566 St Kilda Road, Melbourne VIC 3004",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3004",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://patentimages.storage.googleapis.com/f1/dc/ca/36433936e5bedc/WO2025097202A1.pdf",
+     "host": "patentimages.storage.googleapis.com",
+     "own_site": false,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Published patent/legal correspondence address, not evidence of a current staffed office, factory or warehouse. Australian business registration uses a different locality postcode (3070).",
+   "retrieved_at": "2026-11-14T19:03:31.007Z"
+  },
+  {
+   "company": "Drawboard",
+   "company_id": "drawboard",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "office",
+   "address": "10-20 Gwynne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.drawboard.com/privacy",
+     "host": "drawboard.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.drawboard.com/privacy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.drawboard.com/privacy",
+    "host": "drawboard.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.drawboard.com/privacy"
+   },
+   "notes": "Current company privacy policy explicitly labels head office; official company page separately shows the team at the Cremorne office. Google Play developer address is corroboration only.",
+   "retrieved_at": "2026-11-14T19:03:31.585Z"
+  },
+  {
+   "company": "Eastern Innovation",
+   "company_id": "eastern-innovation",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "coworking venue",
+   "address": "5A Hartnett Close, Mulgrave VIC 3170",
+   "locality": "Mulgrave",
+   "state": "VIC",
+   "postcode": "3170",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://space.eibc.net.au/",
+     "host": "space.eibc.net.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://space.eibc.net.au/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://space.eibc.net.au/",
+    "host": "space.eibc.net.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://space.eibc.net.au/"
+   },
+   "notes": "Confirmed venue itself; does not establish any individual member's office.",
+   "retrieved_at": "2026-11-14T19:03:47.753Z"
+  },
+  {
+   "company": "EIZ Technology",
+   "company_id": "eiz-technology",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "business contact premises",
+   "address": "Level 1, 13 Corporate Drive, Heatherton VIC 3202",
+   "locality": "Heatherton",
+   "state": "VIC",
+   "postcode": "3202",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://eiz.com.au/contact",
+     "host": "eiz.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://eiz.com.au/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://eiz.com.au/contact",
+    "host": "eiz.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://eiz.com.au/contact"
+   },
+   "notes": "Official contact page and official developer listing agree. Company contact page prints this address but does not explicitly identify operational-office use.",
+   "retrieved_at": "2026-11-14T19:03:33.584Z"
+  },
+  {
+   "company": "Elezar",
+   "company_id": "elezar",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3136",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Company terms describe Melbourne offices; the matching company record gives VIC 3136. No street address was found. Registered postcode is not evidence of a particular building."
+  },
+  {
+   "company": "ELMO Software",
+   "company_id": "elmo-software",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office",
+   "address": "Level 16, Queen & Collins Tower, 376-390 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://elmosoftware.com.au/contact",
+     "host": "elmosoftware.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://elmosoftware.com.au/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://elmosoftware.com.au/contact",
+    "host": "elmosoftware.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://elmosoftware.com.au/contact"
+   },
+   "notes": "Company security certificate also uses Level 16/100 Queen Street. Same Queen & Collins building; older materials give other levels.",
+   "retrieved_at": "2026-11-14T19:03:31.824Z"
+  },
+  {
+   "company": "ENA Respiratory",
+   "company_id": "ena-respiratory",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Headquarters; trial sponsor contact",
+   "address": "Level 9, 31 Queen Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://anzctr.org.au/Trial/Registration/TrialReview.aspx?ACTRN=ACTRN12626000037303",
+     "host": "anzctr.org.au",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    },
+    {
+     "url": "https://lei.bloomberg.com/leis/view/254900CSJFSLT7FLDV06",
+     "host": "lei.bloomberg.com",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://lei.bloomberg.com/leis/view/254900CSJFSLT7FLDV06"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://lei.bloomberg.com/leis/view/254900CSJFSLT7FLDV06",
+    "host": "lei.bloomberg.com",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://lei.bloomberg.com/leis/view/254900CSJFSLT7FLDV06"
+   },
+   "notes": "2026 company-submitted clinical-trial public/scientific contacts match LEI HQ; Sydney accountant address is legal only. QA: Company-maintained profile also lists31QueenStreet as primary location, corroborating trial-contact evidence.",
+   "retrieved_at": "2026-11-14T19:03:46.636Z"
+  },
+  {
+   "company": "Enervaro",
+   "company_id": "enervaro",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "Level 1, 58 Burwood Road, Hawthorn VIC 3122",
+   "locality": "Hawthorn",
+   "state": "VIC",
+   "postcode": "3122",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.enervaro.com.au/terms-conditions-of-use",
+     "host": "enervaro.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.enervaro.com.au/terms-conditions-of-use"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.enervaro.com.au/terms-conditions-of-use",
+    "host": "enervaro.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.enervaro.com.au/terms-conditions-of-use"
+   },
+   "notes": "Contact form supplies no operational-office address.",
+   "retrieved_at": "2026-11-14T19:03:45.281Z"
+  },
+  {
+   "company": "Engine House",
+   "company_id": "engine-house",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking location",
+   "address": "Floor 1, 28-30 William Street, Balaclava VIC 3183",
+   "locality": "Balaclava",
+   "state": "VIC",
+   "postcode": "3183",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://enginehouse.co/contact/",
+     "host": "enginehouse.co",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://enginehouse.co/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://enginehouse.co/contact/",
+    "host": "enginehouse.co",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://enginehouse.co/contact/"
+   },
+   "notes": "Separate St Kilda location at 105 Wellington Street St Kilda VIC 3182 is also explicitly listed, not conflicting data.",
+   "retrieved_at": "2026-11-14T19:03:46.623Z"
+  },
+  {
+   "company": "Farmwall",
+   "company_id": "farmwall",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Recurring workshop venue at Melbourne Farmers Market",
+   "address": "2 Wingrove Street, Alphington VIC 3078",
+   "locality": "Alphington",
+   "state": "VIC",
+   "postcode": "3078",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://farmwall.com/products/sundays-with-farmwall-workshops",
+     "host": "farmwall.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://farmwall.com/products/sundays-with-farmwall-workshops"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://farmwall.com/products/sundays-with-farmwall-workshops",
+    "host": "farmwall.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://farmwall.com/products/sundays-with-farmwall-workshops"
+   },
+   "notes": "Company workshop/product page explicitly offers collection at this physical site. QA: Source explicitly places workshops at Melbourne Farmers Market. This is a recurring activity venue, not verified Farmwall premises.",
+   "retrieved_at": "2026-11-14T19:03:46.602Z"
+  },
+  {
+   "company": "Ferguson's Treatos",
+   "company_id": "ferguson-s-treatos",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Suburb only",
+   "address": "",
+   "locality": "Box Hill South",
+   "state": "VIC",
+   "postcode": "",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Own product explainer confirms warehouse suburb and Melbourne; no street supplied."
+  },
+  {
+   "company": "FieldSense Robotics",
+   "company_id": "fieldsense-robotics",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Suburb only",
+   "address": "",
+   "locality": "Airport West",
+   "state": "VIC",
+   "postcode": "3042",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Own homepage confirms Airport West headquarters and rural Victoria field testing. Its footer ABN matches the official register, which gives VIC 3042. No street address is published."
+  },
+  {
+   "company": "Flippa",
+   "company_id": "flippa",
+   "problem": null,
+   "category": "Conflicting public addresses",
+   "type": "historical office; current malformed postal address",
+   "address": "110 Johnston Street, Fitzroy VIC 3065",
+   "locality": "Fitzroy",
+   "state": "VIC",
+   "postcode": "3065",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://flippa.com/privacy-policy/",
+     "host": "flippa.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://flippa.com/privacy-policy/"
+    },
+    {
+     "url": "https://www.fitzroys.com.au/news/28612-fitzroys-weekly-wrap-1st-november-2019",
+     "host": "fitzroys.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://www.fitzroys.com.au/news/28612-fitzroys-weekly-wrap-1st-november-2019"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.fitzroys.com.au/news/28612-fitzroys-weekly-wrap-1st-november-2019",
+    "host": "fitzroys.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://www.fitzroys.com.au/news/28612-fitzroys-weekly-wrap-1st-november-2019"
+   },
+   "notes": "Current company privacy page prints Johnson / 3056. Leasing agent's 2019 announcement verifies Level 1, 110 Johnston St, Fitzroy; independent directories support 3065. Corrected candidate is historical, not current office confirmation.",
+   "retrieved_at": "2026-11-14T19:04:04.189Z"
+  },
+  {
+   "company": "FOUNDIT",
+   "company_id": "foundit",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published Melbourne office",
+   "address": "20 Market Street, Southbank VIC 3006",
+   "locality": "Southbank",
+   "state": "VIC",
+   "postcode": "3006",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://foundit.property/contact-us",
+     "host": "foundit.property",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://foundit.property/contact-us"
+    },
+    {
+     "url": "https://www.realcommercial.com.au/sold/property-20-market-street-southbank-vic-3006-504855704",
+     "host": "realcommercial.com.au",
+     "own_site": false,
+     "outcome": "unreadable: rate_limited"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Southbank 3006 is correct for this address; do not change it to the different Market Street in Melbourne CBD. Run a building-level geocode before pinning.",
+   "retrieved_at": "2026-11-14T19:03:48.882Z"
+  },
+  {
+   "company": "GlowBack",
+   "company_id": "glowback",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "No street in official site retrieved."
+  },
+  {
+   "company": "H3D",
+   "company_id": "h3d",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company press contact address",
+   "address": "Level 11, 655 Elizabeth Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://h3d.ai/news/rapid-shape-h3d-integrate-for-streamlined-3d-printing",
+     "host": "h3d.ai",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://h3d.ai/news/rapid-shape-h3d-integrate-for-streamlined-3d-printing"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://h3d.ai/news/rapid-shape-h3d-integrate-for-streamlined-3d-printing",
+    "host": "h3d.ai",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://h3d.ai/news/rapid-shape-h3d-integrate-for-streamlined-3d-printing"
+   },
+   "notes": "Current company release supplies address but not explicitly office/HQ; operational use should be confirmed.",
+   "retrieved_at": "2026-11-14T19:03:48.461Z"
+  },
+  {
+   "company": "Happy HR",
+   "company_id": "happy-hr",
+   "problem": null,
+   "category": "Postal contact only",
+   "type": "PO Box",
+   "address": "PO Box 2016, Essendon West VIC 3040",
+   "locality": "Essendon West",
+   "state": "VIC",
+   "postcode": "3040",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_street",
+   "corroborated_by": null,
+   "notes": "Only postal address published."
+  },
+  {
+   "company": "Heidi Health",
+   "company_id": "heidi-health",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "company location in legal policy",
+   "address": "Level 30, 360 Elizabeth Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.heidihealth.com/legal/privacy-policy",
+     "host": "heidihealth.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.heidihealth.com/legal/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.heidihealth.com/legal/privacy-policy",
+    "host": "heidihealth.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.heidihealth.com/legal/privacy-policy"
+   },
+   "notes": "Main current policy dated 30 April 2026 replaces supplied Level 6, 71 Gipps Street, Collingwood address. Older localized policy still shows Gipps Street. Legal company location; current operational-office occupancy not proven.",
+   "retrieved_at": "2026-11-14T19:03:49.091Z"
+  },
+  {
+   "company": "Hindsyt",
+   "company_id": "hindsyt",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3024",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Company-maintained profile confirms Melbourne; own site gives no street. The Australian business register gives VIC 3024, without a street address."
+  },
+  {
+   "company": "Humanetix",
+   "company_id": "humanetix",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "Level 22, 2 Market Street, Sydney NSW 2000",
+   "locality": "Sydney",
+   "state": "NSW",
+   "postcode": "2000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.humanetix.com.au/contact-us",
+     "host": "humanetix.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.humanetix.com.au/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.humanetix.com.au/contact-us",
+    "host": "humanetix.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.humanetix.com.au/contact-us"
+   },
+   "notes": "Mailing POBox444 HallACT2618. Company story says new Melbourne HQ2022, but no Melbourne street. Do not move operating HQ to Sydney from legal address.",
+   "retrieved_at": "2026-11-14T19:03:48.904Z"
+  },
+  {
+   "company": "HungryHungry",
+   "company_id": "hungryhungry",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "business contact premises",
+   "address": "59 Fennell Street, Port Melbourne VIC 3207",
+   "locality": "Port Melbourne",
+   "state": "VIC",
+   "postcode": "3207",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.hungryhungry.com/contact-us",
+     "host": "hungryhungry.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.hungryhungry.com/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.hungryhungry.com/contact-us",
+    "host": "hungryhungry.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.hungryhungry.com/contact-us"
+   },
+   "notes": "Official direct contacts address; also mailing address in policy. Company contact page prints this address but does not explicitly identify operational-office use.",
+   "retrieved_at": "2026-11-14T19:04:01.115Z"
+  },
+  {
+   "company": "Ideally",
+   "company_id": "ideally",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office",
+   "address": "10-20 Gwynne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.goideally.com/about/contact",
+     "host": "goideally.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.goideally.com/about/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.goideally.com/about/contact",
+    "host": "goideally.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.goideally.com/about/contact"
+   },
+   "notes": "Other Australian office Suite1/118DevonshireSt SurryHillsNSW2010; Auckland/NZ and NY/USA are separate, not AU.",
+   "retrieved_at": "2026-11-14T19:04:01.223Z"
+  },
+  {
+   "company": "IDmeta",
+   "company_id": "idmeta",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "coworking office",
+   "address": "Central House, Ground Floor, 101 Moray Street, South Melbourne VIC 3205",
+   "locality": "South Melbourne",
+   "state": "VIC",
+   "postcode": "3205",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://idmetagroup.com/contact",
+     "host": "idmetagroup.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://idmetagroup.com/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://idmetagroup.com/contact",
+    "host": "idmetagroup.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://idmetagroup.com/contact"
+   },
+   "notes": "Company explicitly describes regional offices and invites visits; adds ground floor.",
+   "retrieved_at": "2026-11-14T19:04:01.071Z"
+  },
+  {
+   "company": "iHarvest Coworking Sunshine",
+   "company_id": "iharvest-coworking-sunshine",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking space",
+   "address": "Level 4, 301 Hampshire Road, Sunshine VIC 3020",
+   "locality": "Sunshine",
+   "state": "VIC",
+   "postcode": "3020",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://iharvestcoworking.com.au/contact-us/",
+     "host": "iharvestcoworking.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://iharvestcoworking.com.au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://iharvestcoworking.com.au/contact-us/",
+    "host": "iharvestcoworking.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://iharvestcoworking.com.au/contact-us/"
+   },
+   "notes": "Specific office level and street verified; opening09:00-17:00 weekdays.",
+   "retrieved_at": "2026-11-14T19:04:06.399Z"
+  },
+  {
+   "company": "InterSession",
+   "company_id": "intersession",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "App developer public business contact",
+   "address": "Unit 510, 168 Whitehorse Road, Blackburn VIC 3130",
+   "locality": "Blackburn",
+   "state": "VIC",
+   "postcode": "3130",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://play.google.com/store/apps/details?id=com.intersession.client",
+     "host": "play.google.com",
+     "own_site": false,
+     "outcome": "unreadable: search and aggregator results are not scraped: use the publisher's own feed"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Developer-provided contact details match the company behind the app. Current office occupancy is not established.",
+   "retrieved_at": "2026-11-14T19:04:01.115Z"
+  },
+  {
+   "company": "Isaacus",
+   "company_id": "isaacus",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "81-83 Campbell Street, Surry Hills NSW 2010",
+   "locality": "Surry Hills",
+   "state": "NSW",
+   "postcode": "2010",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://isaacus.com/terms",
+     "host": "isaacus.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://isaacus.com/terms"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://isaacus.com/terms",
+    "host": "isaacus.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://isaacus.com/terms"
+   },
+   "notes": "Entity registered inVictoria but registered office inNSW; neither proves a Melbourne operational-office street.",
+   "retrieved_at": "2026-11-14T19:04:03.213Z"
+  },
+  {
+   "company": "Jaunt Motors",
+   "company_id": "jaunt-motors",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Workshop by appointment",
+   "address": "Building CL116, 1555 Centre Road, Clayton VIC 3168",
+   "locality": "Clayton",
+   "state": "VIC",
+   "postcode": "3168",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.jauntmotors.com/contact",
+     "host": "jauntmotors.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.jauntmotors.com/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.jauntmotors.com/contact",
+    "host": "jauntmotors.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.jauntmotors.com/contact"
+   },
+   "notes": "Corrects misparse Level 116 to Building CL 116. Staging website separately lists 43 Rocco Drive Scoresby VIC 3179; staging content alone is not authoritative proof of completed relocation. Reconfirm before geocoding if move is suspected.",
+   "retrieved_at": "2026-11-14T19:04:03.226Z"
+  },
+  {
+   "company": "JAVLN",
+   "company_id": "javln",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian office",
+   "address": "Suite 7, 668 Burwood Road, Hawthorn East VIC 3123",
+   "locality": "Hawthorn East",
+   "state": "VIC",
+   "postcode": "3123",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://javln.com/au/contact",
+     "host": "javln.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://javln.com/au/contact"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Auckland21NixonStreet is separately NZ office.",
+   "retrieved_at": "2026-11-14T19:04:03.730Z"
+  },
+  {
+   "company": "Kinoxis",
+   "company_id": "kinoxis",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Historical company contact / registered address",
+   "address": "Suite 201, 697 Burke Road, Camberwell VIC 3124",
+   "locality": "Camberwell",
+   "state": "VIC",
+   "postcode": "3124",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://kinoxistherapeutics.com/wp-content/uploads/2023/06/Kinoxis-Series-A2-Financing-FINAL.pdf",
+     "host": "kinoxistherapeutics.com",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://abr.business.gov.au/ABN/View/86622309371",
+     "host": "abr.business.gov.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://abr.business.gov.au/ABN/View/86622309371"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company2023PDF is legal/contact evidence only. ABN updated7Jan2026 now main business VIC3123; current2026release confirms Melbourne, not street. Requires updated confirmation.",
+   "retrieved_at": "2026-11-14T19:04:03.611Z"
+  },
+  {
+   "company": "Kolmeo",
+   "company_id": "kolmeo",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Headquarters",
+   "address": "Level 6, 31 Queen Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://kolmeo.com/blog/kolmeo-means-business/",
+     "host": "kolmeo.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://kolmeo.com/blog/kolmeo-means-business/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://kolmeo.com/blog/kolmeo-means-business/",
+    "host": "kolmeo.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://kolmeo.com/blog/kolmeo-means-business/"
+   },
+   "notes": "2023 relocation article supported by2025 competition terms explicitly locating prize draw at Kolmeo's office.",
+   "retrieved_at": "2026-11-14T19:04:05.005Z"
+  },
+  {
+   "company": "MachShip",
+   "company_id": "machship",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "postal",
+   "address": "115 Cremorne Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://machship.com/legal/customer-terms-of-service",
+     "host": "machship.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://machship.com/legal/customer-terms-of-service"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://machship.com/legal/customer-terms-of-service",
+    "host": "machship.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://machship.com/legal/customer-terms-of-service"
+   },
+   "notes": "Explicit mailing address, terms last updated 7 August 2025; office use unproven.",
+   "retrieved_at": "2026-11-14T19:04:04.910Z"
+  },
+  {
+   "company": "Mark My Words",
+   "company_id": "mark-my-words",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company-named innovation hub; exact occupancy unconfirmed",
+   "address": "Melbourne Connect, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://markmywords.au/contact",
+     "host": "markmywords.au",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://markmywords.au/contact"
+    },
+    {
+     "url": "https://maps.unimelb.edu.au/parkville/building/290",
+     "host": "maps.unimelb.edu.au",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    },
+    {
+     "url": "https://www.cbinsights.com/company/mark-my-words",
+     "host": "cbinsights.com",
+     "own_site": false,
+     "outcome": "unreadable: a proprietary startup database: use a licensed API adapter, never scrape it"
+    },
+    {
+     "url": "https://www.melbconnect.com.au/events/2024-map-demo-day-2",
+     "host": "melbconnect.com.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.melbconnect.com.au/events/2024-map-demo-day-2"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "The fuller street address is an inference from the named hub and corroborating company profile. Confirm the company's current occupancy and suite before promoting an exact office pin.",
+   "retrieved_at": "2026-11-14T19:04:18.859Z"
+  },
+  {
+   "company": "Marketplacer",
+   "company_id": "marketplacer",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company address in promotion terms",
+   "address": "477 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://marketplacer.com/legal/marketplacer-trade-promotion-terms-and-conditions/",
+     "host": "marketplacer.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://marketplacer.com/legal/marketplacer-trade-promotion-terms-and-conditions/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://marketplacer.com/legal/marketplacer-trade-promotion-terms-and-conditions/",
+    "host": "marketplacer.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://marketplacer.com/legal/marketplacer-trade-promotion-terms-and-conditions/"
+   },
+   "notes": "Street officially stated; level2 is only independently listed directory candidate. 134Buckhurst is older brochure; current privacy is POBox37Williamstown. Operating occupancy needs confirmation.",
+   "retrieved_at": "2026-11-14T19:04:07.592Z"
+  },
+  {
+   "company": "Matrak",
+   "company_id": "matrak",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "office",
+   "address": "3 Albert Coates Lane, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://matrak.com/contact/",
+     "host": "matrak.com",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://matrak.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://matrak.com/contact/",
+    "host": "matrak.com",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://matrak.com/contact/"
+   },
+   "notes": "Current contact page replaces 10 St Andrews Place; LinkedIn still lists old East Melbourne address.",
+   "retrieved_at": "2026-11-14T19:04:18.189Z"
+  },
+  {
+   "company": "Melbourne Connect",
+   "company_id": "melbourne-connect",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "innovation precinct / coworking venue",
+   "address": "700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.melbconnect.com.au/contact-us/",
+     "host": "melbconnect.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.melbconnect.com.au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.melbconnect.com.au/contact-us/",
+    "host": "melbconnect.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.melbconnect.com.au/contact-us/"
+   },
+   "notes": "Fixes missing leading 7 and removes unrelated University Parkville postal address concatenated to candidate.",
+   "retrieved_at": "2026-11-14T19:04:21.950Z"
+  },
+  {
+   "company": "Mimecast",
+   "company_id": "mimecast",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "office",
+   "address": "Level 3, 55 Southbank Boulevard, Southbank VIC 3006",
+   "locality": "Southbank",
+   "state": "VIC",
+   "postcode": "3006",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.mimecast.com/company/contact/",
+     "host": "mimecast.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.mimecast.com/company/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.mimecast.com/company/contact/",
+    "host": "mimecast.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.mimecast.com/company/contact/"
+   },
+   "notes": "Normalizes reordered page address; preserves Southbank locality.",
+   "retrieved_at": "2026-11-14T19:04:20.478Z"
+  },
+  {
+   "company": "MiMOR",
+   "company_id": "mimor",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "App developer public business contact",
+   "address": "65 Toorak Road, South Yarra VIC 3141",
+   "locality": "South Yarra",
+   "state": "VIC",
+   "postcode": "3141",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://play.google.com/store/apps/details?hl=en_AU&id=io.ionic.mimorresident",
+     "host": "play.google.com",
+     "own_site": false,
+     "outcome": "unreadable: search and aggregator results are not scraped: use the publisher's own feed"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Public developer/trader contact. Do not assume a staffed office from an app-store legal contact.",
+   "retrieved_at": "2026-11-14T19:04:18.189Z"
+  },
+  {
+   "company": "Misti",
+   "company_id": "misti",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "company contact address",
+   "address": "655 Elizabeth Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://misti.com.au/",
+     "host": "misti.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://misti.com.au/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://misti.com.au/",
+    "host": "misti.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://misti.com.au/"
+   },
+   "notes": "Current homepage and terms print address; premises are not explicitly identified as operating office/lab.",
+   "retrieved_at": "2026-11-14T19:04:18.841Z"
+  },
+  {
+   "company": "MLAI",
+   "company_id": "mlai",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Company contact; business centre/mail address",
+   "address": "Suite 350, 585 Little Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://mlai.au/contact",
+     "host": "mlai.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://mlai.au/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://mlai.au/contact",
+    "host": "mlai.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://mlai.au/contact"
+   },
+   "notes": "328 Swanston Street is a Start Space coworking-event venue, not company office. City of Melbourne lists 585 Little Collins Street as Natpost Business Centre; no operational-office occupancy verified.",
+   "retrieved_at": "2026-11-14T19:04:20.842Z"
+  },
+  {
+   "company": "MoreGoodDays",
+   "company_id": "moregooddays",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Public company contact address",
+   "address": "Level 1, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.moregooddays.com/contact",
+     "host": "moregooddays.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.moregooddays.com/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.moregooddays.com/contact",
+    "host": "moregooddays.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.moregooddays.com/contact"
+   },
+   "notes": "Official contact confirms address; precise office/lab vs mailing role not stated.",
+   "retrieved_at": "2026-11-14T19:04:20.550Z"
+  },
+  {
+   "company": "NanoCube Health",
+   "company_id": "nanocube-health",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Public contractor / company registration address",
+   "address": "30 Kennedy Street, Bentleigh East VIC 3165",
+   "locality": "Bentleigh East",
+   "state": "VIC",
+   "postcode": "3165",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://opengovus.com/sam-entity/TLA5BL6ZU5N4",
+     "host": "opengovus.com",
+     "own_site": false,
+     "outcome": "unreadable: access_controlled"
+    },
+    {
+     "url": "https://www.dnb.com/business-directory/company-profiles/nanocube-health-pty-ltd.de09686a3436029869770f82b37158b9",
+     "host": "dnb.com",
+     "own_site": false,
+     "outcome": "unreadable: access_controlled"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Indexed public business records; the full contractor mirror page was access restricted. This is not proof of an occupied laboratory or office.",
+   "retrieved_at": "2026-11-14T19:04:21.987Z"
+  },
+  {
+   "company": "Nebula Health",
+   "company_id": "nebula-health",
+   "problem": null,
+   "category": "Conflicting public addresses",
+   "type": "Company contact address; competing office listing",
+   "address": "Level 1, 333 Exhibition Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.nebulahealth.com/contact-us/",
+     "host": "nebulahealth.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.nebulahealth.com/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.nebulahealth.com/contact-us/",
+    "host": "nebulahealth.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.nebulahealth.com/contact-us/"
+   },
+   "notes": "Own contact page publishes Level 1, 333 Exhibition Street but incorrectly pairs Melbourne with postcode 3004. Building postcode normalized to 3000. Company profile also lists Melbourne Connect; confirm which premises are current.",
+   "retrieved_at": "2026-11-14T19:04:22.824Z"
+  },
+  {
+   "company": "Neo-Bionica",
+   "company_id": "neo-bionica",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Hospital-integrated engineering/manufacturing facility",
+   "address": "Level 5, Daly Wing, St Vincent's Hospital, 35 Victoria Parade, Fitzroy VIC 3065",
+   "locality": "Fitzroy",
+   "state": "VIC",
+   "postcode": "3065",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/neo-bionica",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://neo-bionica.com/about-us",
+     "host": "neo-bionica.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://neo-bionica.com/about-us"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company profile exact address, current company about page confirms facilities housed at StVincent'sHospital. Do not use hospital-centre coordinate if DalyWing unresolved.",
+   "retrieved_at": "2026-11-14T19:04:22.055Z"
+  },
+  {
+   "company": "NextAero",
+   "company_id": "nextaero",
+   "problem": null,
+   "category": "Conflicting public addresses",
+   "type": "Primary location on company social profile",
+   "address": "17 Alliance Lane, Clayton VIC 3168",
+   "locality": "Clayton",
+   "state": "VIC",
+   "postcode": "3168",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/nextaero",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://nextaero.com.au/index.php/2021/02/28/new-melbourne-based-hq/",
+     "host": "nextaero.com.au",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://nextaero.com.au/index.php/2021/02/28/new-melbourne-based-hq/"
+    },
+    {
+     "url": "https://directory.vdsn.org/member-directory/nextaero-pty-ltd/",
+     "host": "directory.vdsn.org",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company social profile publishes 17 Alliance Lane, Clayton VIC 3168. Current recruitment material places work in Clayton South VIC 3169. A current operating street address cannot be selected confidently.",
+   "retrieved_at": "2026-11-14T19:04:24.542Z"
+  },
+  {
+   "company": "NEXTDC",
+   "company_id": "nextdc",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "M2 data centre",
+   "address": "75 Sharps Road, Tullamarine VIC 3043",
+   "locality": "Tullamarine",
+   "state": "VIC",
+   "postcode": "3043",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.nextdc.com/contact",
+     "host": "nextdc.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.nextdc.com/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.nextdc.com/contact",
+    "host": "nextdc.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.nextdc.com/contact"
+   },
+   "notes": "Pin can represent M 2 facility, not corporate HQ. Other Melbourne facilities include M 1 826 Lorimer Street Port Melbourne 3207;M 3 25 Indwe Street West Footscray 3012;M 4 127 Todd Road Port Melbourne 3207.",
+   "retrieved_at": "2026-11-14T19:04:23.243Z"
+  },
+  {
+   "company": "Novatti Group",
+   "company_id": "novatti-group",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "Level 3, 461 Bourke Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.novatti.com/terms-and-conditions/website-terms-of-use",
+     "host": "novatti.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.novatti.com/terms-and-conditions/website-terms-of-use"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.novatti.com/terms-and-conditions/website-terms-of-use",
+    "host": "novatti.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.novatti.com/terms-and-conditions/website-terms-of-use"
+   },
+   "notes": "Explicit registered office; replaces unverified 565 Bourke Street candidate, but does not prove operational-office occupancy.",
+   "retrieved_at": "2026-11-14T19:04:23.197Z"
+  },
+  {
+   "company": "O3",
+   "company_id": "o3",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking cafe location",
+   "address": "87 Queensbridge Street, Southbank VIC 3006",
+   "locality": "Southbank",
+   "state": "VIC",
+   "postcode": "3006",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://o3space.org/locations",
+     "host": "o3space.org",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://o3space.org/locations"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://o3space.org/locations",
+    "host": "o3space.org",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://o3space.org/locations"
+   },
+   "notes": "Official location directory confirms Southbank, and separately Brunswick at 268 Barkly Street VIC 3056 and Newtown at 32-38 King Street NSW 2042.",
+   "retrieved_at": "2026-11-14T19:04:24.444Z"
+  },
+  {
+   "company": "Orkestra",
+   "company_id": "orkestra",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Postal / legal correspondence",
+   "address": "Office 3764, Ground Floor, 470 St Kilda Road, Melbourne VIC 3004",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3004",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.aemc.gov.au/sites/default/files/2026-03/Orkestra.pdf",
+     "host": "aemc.gov.au",
+     "own_site": false,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://app.orkestra.energy/legal/Orkestra_Terms_of_Service.pdf",
+     "host": "app.orkestra.energy",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company submission 10 February 2026 givespostal/legal address, correcting old 11 Miller Street candidate. Terms label Post at same address but postcode 3000; company AEM Csubmission gives 3004. No operational-office occupancy established.",
+   "retrieved_at": "2026-11-14T19:04:23.197Z"
+  },
+  {
+   "company": "PageUp",
+   "company_id": "pageup",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne office / coworking suite",
+   "address": "Suite S5051, Level 5, 447 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://blog.pageuppeople.com/contact-us/",
+     "host": "blog.pageuppeople.com",
+     "own_site": true,
+     "outcome": "unreadable: robots_unavailable"
+    },
+    {
+     "url": "https://www.linkedin.com/company/pageup/",
+     "host": "linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Official contact page labels global office locations; adds suite. Company Linked In corroborates same building.",
+   "retrieved_at": "2026-11-14T19:04:46.129Z"
+  },
+  {
+   "company": "PentaCue AI",
+   "company_id": "pentacue-ai",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only (directory)",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official privacy/contact details are email-only; Melbourne corroborated by company directory, exact street remains unverified."
+  },
+  {
+   "company": "PlaySide Studios",
+   "company_id": "playside-studios",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office",
+   "address": "Level 1, 75 Crockford Street, Port Melbourne VIC 3207",
+   "locality": "Port Melbourne",
+   "state": "VIC",
+   "postcode": "3207",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://investor.playsidestudios.com/contact/",
+     "host": "investor.playsidestudios.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://investor.playsidestudios.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://investor.playsidestudios.com/contact/",
+    "host": "investor.playsidestudios.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://investor.playsidestudios.com/contact/"
+   },
+   "notes": "Contact page corroborates. Governance directory still lists Docklands; 2025 annual report and 2026 annual-report search identify Port Melbourne.",
+   "retrieved_at": "2026-11-14T19:04:26.868Z"
+  },
+  {
+   "company": "Point of Rental Software",
+   "company_id": "point-of-rental-software",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office",
+   "address": "23-25 Gipps Street, Collingwood VIC 3066",
+   "locality": "Collingwood",
+   "state": "VIC",
+   "postcode": "3066",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.point-of-rental.com/au/contact/",
+     "host": "point-of-rental.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.point-of-rental.com/au/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.point-of-rental.com/au/contact/",
+    "host": "point-of-rental.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.point-of-rental.com/au/contact/"
+   },
+   "notes": "Same official contact page footer says 201/23 Gipps Street. Building is consistent; suite remains inconsistent.",
+   "retrieved_at": "2026-11-14T19:04:25.234Z"
+  },
+  {
+   "company": "PointData",
+   "company_id": "pointdata",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office",
+   "address": "Level 4, 54 Wellington Street, Collingwood VIC 3066",
+   "locality": "Collingwood",
+   "state": "VIC",
+   "postcode": "3066",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://pointdata.com.au/contact-us/",
+     "host": "pointdata.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://pointdata.com.au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://pointdata.com.au/contact-us/",
+    "host": "pointdata.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://pointdata.com.au/contact-us/"
+   },
+   "notes": "New Melbourne location fits record city; previous candidate 274 Pulteney Street is an Adelaide location.",
+   "retrieved_at": "2026-11-14T19:04:25.871Z"
+  },
+  {
+   "company": "PolyActiva",
+   "company_id": "polyactiva",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian head office",
+   "address": "Unit 21, 45-47 Normanby Road, Notting Hill VIC 3168",
+   "locality": "Notting Hill",
+   "state": "VIC",
+   "postcode": "3168",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://polyactiva.com/contact/",
+     "host": "polyactiva.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://polyactiva.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://polyactiva.com/contact/",
+    "host": "polyactiva.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://polyactiva.com/contact/"
+   },
+   "notes": "Also US head office; Australian location explicit.",
+   "retrieved_at": "2026-11-14T19:04:26.412Z"
+  },
+  {
+   "company": "PowerTec",
+   "company_id": "powertec",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office and test facility",
+   "address": "Unit 18, 25 Cook Road, Mitcham VIC 3132",
+   "locality": "Mitcham",
+   "state": "VIC",
+   "postcode": "3132",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://power-tec.com.au/contact-us/",
+     "host": "power-tec.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://power-tec.com.au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://power-tec.com.au/contact-us/",
+    "host": "power-tec.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://power-tec.com.au/contact-us/"
+   },
+   "notes": "Factory/warehouse separately listed at Unit 8, 21 Cook Road, Mitcham.",
+   "retrieved_at": "2026-11-14T19:04:30.522Z"
+  },
+  {
+   "company": "PredicTx Health",
+   "company_id": "predictx-health",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-announced office at innovation hub",
+   "address": "Genesis Fourth Floor Venture Labs, Melbourne Connect, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.linkedin.com/posts/ajwaykar_predictxhealth-melbourneconnect-oncology-activity-7371693131165163520-k_77",
+     "host": "linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://maps.unimelb.edu.au/parkville/building/290",
+     "host": "maps.unimelb.edu.au",
+     "own_site": false,
+     "outcome": "unreadable: robots_unavailable"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Street address is derived by joining the company's named office hub with the university's official building address. No coordinates or building geocode have been added.",
+   "retrieved_at": "2026-11-14T19:04:26.412Z"
+  },
+  {
+   "company": "preezie",
+   "company_id": "preezie",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Privacy contact address",
+   "address": "Level 17, 31 Queen Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://preezie.com/docs/privacy-policy",
+     "host": "preezie.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://preezie.com/docs/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://preezie.com/docs/privacy-policy",
+    "host": "preezie.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://preezie.com/docs/privacy-policy"
+   },
+   "notes": "Official contact page only states Melbourne. Privacy contact street is public but operational-office occupancy not explicit.",
+   "retrieved_at": "2026-11-14T19:04:27.149Z"
+  },
+  {
+   "company": "PropertyMate",
+   "company_id": "propertymate",
+   "problem": null,
+   "category": "Conflicting public addresses",
+   "type": "Mailing address",
+   "address": "45 Whitehorse Road, Balwyn VIC 3103",
+   "locality": "Balwyn",
+   "state": "VIC",
+   "postcode": "3103",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.propertymate.com.au/privacy-policy",
+     "host": "propertymate.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.propertymate.com.au/privacy-policy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.propertymate.com.au/privacy-policy",
+    "host": "propertymate.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.propertymate.com.au/privacy-policy"
+   },
+   "notes": "Privacy labels Balwyn mailing address; older advertising agreement lists Level 3, 248 Burwood Road, Hawthorn VIC 3122. Neither confirms current operational office.",
+   "retrieved_at": "2026-11-14T19:04:27.210Z"
+  },
+  {
+   "company": "PULS3",
+   "company_id": "puls3",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Headquarters city",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Company about page names headquarters city but publishes no street."
+  },
+  {
+   "company": "Qsic",
+   "company_id": "qsic",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian office",
+   "address": "145 Little Smith Street, Fitzroy VIC 3065",
+   "locality": "Fitzroy",
+   "state": "VIC",
+   "postcode": "3065",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.getqsic.com/contact",
+     "host": "getqsic.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.getqsic.com/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.getqsic.com/contact",
+    "host": "getqsic.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.getqsic.com/contact"
+   },
+   "notes": "Official contact locations.",
+   "retrieved_at": "2026-11-14T19:04:28.082Z"
+  },
+  {
+   "company": "Quarter",
+   "company_id": "quarter",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Country only",
+   "address": "",
+   "locality": "",
+   "state": "",
+   "postcode": "",
+   "country": "New Zealand",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Listed website describes NZ service and cities; no office street or HQ city established. Melbourne source assignment not verified."
+  },
+  {
+   "company": "Reach & Match",
+   "company_id": "reach-and-match",
+   "problem": null,
+   "category": "Postal contact only",
+   "type": "PO Box",
+   "address": "PO Box 392, Nunawading VIC 3131",
+   "locality": "Nunawading",
+   "state": "VIC",
+   "postcode": "3131",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_street",
+   "corroborated_by": null,
+   "notes": "A usable postal contact only. No current public operating street address was confirmed. Do not turn the post office into a company pin."
+  },
+  {
+   "company": "React Melbourne",
+   "company_id": "react-melbourne",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Meetup venue; not company office",
+   "address": "139 Gladstone Street, South Melbourne VIC 3205",
+   "locality": "South Melbourne",
+   "state": "VIC",
+   "postcode": "3205",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://reactmelbourne.com/",
+     "host": "reactmelbourne.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://reactmelbourne.com/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://reactmelbourne.com/",
+    "host": "reactmelbourne.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://reactmelbourne.com/"
+   },
+   "notes": "Official community site lists Kogan.com 139 Gladstone Street for meetings. This is a meetup, not an operational startup office.",
+   "retrieved_at": "2026-11-14T19:04:28.494Z"
+  },
+  {
+   "company": "ResetData",
+   "company_id": "resetdata",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Melbourne operational data-centre facility",
+   "address": "AI-F1 data centre, 818 Bourke Street, Docklands VIC 3008",
+   "locality": "Docklands",
+   "state": "VIC",
+   "postcode": "3008",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://centuria.com.au/news/centuria-to-acquire-50-in-next-gen-data-centre-provider/",
+     "host": "centuria.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://centuria.com.au/news/centuria-to-acquire-50-in-next-gen-data-centre-provider/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://centuria.com.au/news/centuria-to-acquire-50-in-next-gen-data-centre-provider/",
+    "host": "centuria.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://centuria.com.au/news/centuria-to-acquire-50-in-next-gen-data-centre-provider/"
+   },
+   "notes": "This is an operating data-centre facility, not necessarily the corporate headquarters. The older Sydney contact used '2 Chifley Place' and should not be used as a Melbourne pin.",
+   "retrieved_at": "2026-11-14T19:04:28.904Z"
+  },
+  {
+   "company": "Rohlok",
+   "company_id": "rohlok",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "City only",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3008",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official footer states Melbourne; ABN confirms VIC 3008 only."
+  },
+  {
+   "company": "ROLLER",
+   "company_id": "roller",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company office building; floor differs between sources",
+   "address": "101 Moray Street, South Melbourne VIC 3205",
+   "locality": "South Melbourne",
+   "state": "VIC",
+   "postcode": "3205",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.linkedin.com/company/roller",
+     "host": "linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://www.roller.software/master-terms",
+     "host": "roller.software",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.roller.software/master-terms"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.roller.software/master-terms",
+    "host": "roller.software",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.roller.software/master-terms"
+   },
+   "notes": "Company profile lists Level 5 while older master terms list Level 4. Main address uses their common building address; no floor is guessed.",
+   "retrieved_at": "2026-11-14T19:04:29.411Z"
+  },
+  {
+   "company": "Rosterfy",
+   "company_id": "rosterfy",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "office",
+   "address": "Level 6, 395 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.rosterfy.com/about-us/",
+     "host": "rosterfy.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.rosterfy.com/about-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.rosterfy.com/about-us/",
+    "host": "rosterfy.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.rosterfy.com/about-us/"
+   },
+   "notes": "Also Sydney office The Commons, 388 George Street, Sydney NSW 2000.",
+   "retrieved_at": "2026-11-14T19:04:29.327Z"
+  },
+  {
+   "company": "Rubens Technologies",
+   "company_id": "rubens-technologies",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company contact address",
+   "address": "Unit 16, 1470 Ferntree Gully Road, Knoxfield VIC 3180",
+   "locality": "Knoxfield",
+   "state": "VIC",
+   "postcode": "3180",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://rubenstech.com/delete-account/",
+     "host": "rubenstech.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://rubenstech.com/delete-account/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://rubenstech.com/delete-account/",
+    "host": "rubenstech.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://rubenstech.com/delete-account/"
+   },
+   "notes": "Official account-deletion contact page states street; privacy uses PO Box 2114 Rowville; main contact page says Melbourne only.",
+   "retrieved_at": "2026-11-14T19:04:31.096Z"
+  },
+  {
+   "company": "Safety Champion Software",
+   "company_id": "safety-champion-software",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Head office",
+   "address": "5 Cubitt Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.safetychampion.com.au/contact-us/",
+     "host": "safetychampion.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.safetychampion.com.au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.safetychampion.com.au/contact-us/",
+    "host": "safetychampion.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.safetychampion.com.au/contact-us/"
+   },
+   "notes": "Supplied Brisbane candidate was wrong city for Melbourne record.",
+   "retrieved_at": "2026-11-14T19:04:30.012Z"
+  },
+  {
+   "company": "Scratch",
+   "company_id": "scratch",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Mailing address",
+   "address": "20B Trennery Crescent, Abbotsford VIC 3067",
+   "locality": "Abbotsford",
+   "state": "VIC",
+   "postcode": "3067",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.scratchpetfood.com.au/contact-us/",
+     "host": "scratchpetfood.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.scratchpetfood.com.au/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.scratchpetfood.com.au/contact-us/",
+    "host": "scratchpetfood.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.scratchpetfood.com.au/contact-us/"
+   },
+   "notes": "Company explicitly calls this mailing address; related brand footer says Collingwood. No current operational office confirmation.",
+   "retrieved_at": "2026-11-14T19:04:31.313Z"
+  },
+  {
+   "company": "Senetas",
+   "company_id": "senetas",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "head office",
+   "address": "312 Kings Way, South Melbourne VIC 3205",
+   "locality": "South Melbourne",
+   "state": "VIC",
+   "postcode": "3205",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.senetas.com/contact/",
+     "host": "senetas.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.senetas.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.senetas.com/contact/",
+    "host": "senetas.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.senetas.com/contact/"
+   },
+   "notes": "Also confirmed in company 13 November 2026 AGM announcement.",
+   "retrieved_at": "2026-11-14T19:04:35.997Z"
+  },
+  {
+   "company": "SenSen",
+   "company_id": "sensen",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "headquarters",
+   "address": "Unit 2, 570 City Road, South Melbourne VIC 3205",
+   "locality": "South Melbourne",
+   "state": "VIC",
+   "postcode": "3205",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://sensen.ai/company/contact/",
+     "host": "sensen.ai",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://sensen.ai/company/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://sensen.ai/company/contact/",
+    "host": "sensen.ai",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://sensen.ai/company/contact/"
+   },
+   "notes": "Also offices Sydney, Brisbane and Perth on same page.",
+   "retrieved_at": "2026-11-14T19:04:39.140Z"
+  },
+  {
+   "company": "Simpatico",
+   "company_id": "simpatico",
+   "problem": null,
+   "category": "Postal contact only",
+   "type": "Privacy correspondence PO Box",
+   "address": "PO Box 5222, Burnley VIC 3121",
+   "locality": "Burnley",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_street",
+   "corroborated_by": null,
+   "notes": "Publisher/privacy contact only. The product's current entity information names Mesh Health Assist Pty Ltd. No Australian staffed office street address was confirmed."
+  },
+  {
+   "company": "Sked Social",
+   "company_id": "sked-social",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company-published LinkedIn primary location",
+   "address": "585 Little Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/getskedsocial",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://skedsocial.com/",
+     "host": "skedsocial.com",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://skedsocial.com/"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company LinkedIn publishes primary street; website examined did not independently establish office occupancy.",
+   "retrieved_at": "2026-11-14T19:04:36.836Z"
+  },
+  {
+   "company": "SKUTOPIA",
+   "company_id": "skutopia",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "operational fulfilment centre",
+   "address": "Warehouse C, 441-459 Kororoit Creek Road, Altona VIC 3018",
+   "locality": "Altona",
+   "state": "VIC",
+   "postcode": "3018",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.skutopia.com/locations",
+     "host": "skutopia.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.skutopia.com/locations"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.skutopia.com/locations",
+    "host": "skutopia.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.skutopia.com/locations"
+   },
+   "notes": "Page explicitly confirms fully operational centre and tours; adds Warehouse C.",
+   "retrieved_at": "2026-11-14T19:04:37.172Z"
+  },
+  {
+   "company": "Smileyscope",
+   "company_id": "smileyscope",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian head office",
+   "address": "488 Victoria Street, North Melbourne VIC 3051",
+   "locality": "North Melbourne",
+   "state": "VIC",
+   "postcode": "3051",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.smileyscope.com/en-au/contact",
+     "host": "smileyscope.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.smileyscope.com/en-au/contact"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.smileyscope.com/en-au/contact",
+    "host": "smileyscope.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.smileyscope.com/en-au/contact"
+   },
+   "notes": "Company head-office contact prints VIC 3000 in error; government ABN main-business postcode and exact-building listings support 3051. Address remains the company-published head office; obtain building-level geocode before promotion.",
+   "retrieved_at": "2026-11-14T19:04:38.386Z"
+  },
+  {
+   "company": "Stone & Chalk",
+   "company_id": "stone-and-chalk",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking hub",
+   "address": "121 King Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.stoneandchalk.com.au/melbourne-startups",
+     "host": "stoneandchalk.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.stoneandchalk.com.au/melbourne-startups"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.stoneandchalk.com.au/melbourne-startups",
+    "host": "stoneandchalk.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.stoneandchalk.com.au/melbourne-startups"
+   },
+   "notes": "Supplied 477 Pitt Street belongs to Sydney hub, not Melbourne.",
+   "retrieved_at": "2026-11-14T19:04:39.168Z"
+  },
+  {
+   "company": "Strength by Numbers",
+   "company_id": "strength-by-numbers",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered address",
+   "address": "Unit 18, 328 Reserve Road, Cheltenham VIC 3192",
+   "locality": "Cheltenham",
+   "state": "VIC",
+   "postcode": "3192",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.strengthbynumbers.com/data-processing-customer-agreement/",
+     "host": "strengthbynumbers.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.strengthbynumbers.com/data-processing-customer-agreement/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.strengthbynumbers.com/data-processing-customer-agreement/",
+    "host": "strengthbynumbers.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.strengthbynumbers.com/data-processing-customer-agreement/"
+   },
+   "notes": "Contact page confirms AxIT HQ in Cheltenham but no street; DPA expressly labels address registered. Confirm same site before operational pin.",
+   "retrieved_at": "2026-11-14T19:04:42.147Z"
+  },
+  {
+   "company": "SunWiz",
+   "company_id": "sunwiz",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Current company website contact address",
+   "address": "5 Walkers Road, Nunawading VIC 3131",
+   "locality": "Nunawading",
+   "state": "VIC",
+   "postcode": "3131",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.sunwiz.com.au/",
+     "host": "sunwiz.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.sunwiz.com.au/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.sunwiz.com.au/",
+    "host": "sunwiz.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.sunwiz.com.au/"
+   },
+   "notes": "Current company website footer publishes 5 Walkers Road, Nunawading VIC 3131. Older public material mentions Eltham or Byron Bay. Use the current contact record, but confirm current office occupancy before a pin.",
+   "retrieved_at": "2026-11-14T19:04:42.130Z"
+  },
+  {
+   "company": "Supportly",
+   "company_id": "supportly",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company / parent public business contact",
+   "address": "Unit 30, 22-30 Wallace Avenue, Point Cook VIC 3030",
+   "locality": "Point Cook",
+   "state": "VIC",
+   "postcode": "3030",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://vccg.com.au/supportly/",
+     "host": "vccg.com.au",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://vccg.com.au/supportly/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://vccg.com.au/supportly/",
+    "host": "vccg.com.au",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://vccg.com.au/supportly/"
+   },
+   "notes": "Normalizes the Supportly contact page's incorrect Melbourne VIC 3000 locality. Some related event pages also use a different postcode; Point Cook 3030 is corroborated by the business profile and parent page.",
+   "retrieved_at": "2026-11-14T19:04:40.156Z"
+  },
+  {
+   "company": "Synchron",
+   "company_id": "synchron",
+   "problem": null,
+   "category": "Historical address only",
+   "type": "Historical company / research correspondence address",
+   "address": "Level 3, 200 Lygon Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://bcisociety.org/wp-content/uploads/2024/01/2023-Proceedings-V11.pdf",
+     "host": "bcisociety.org",
+     "own_site": false,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://abr.business.gov.au/AbnHistory/View?id=13161471709",
+     "host": "abr.business.gov.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://abr.business.gov.au/AbnHistory/View?id=13161471709"
+    },
+    {
+     "url": "https://www.dnb.com/business-directory/company-profiles.synchron_australia_pty_ltd.f4f118848c229f2ef46282c1693865dc.html",
+     "host": "dnb.com",
+     "own_site": false,
+     "outcome": "unreadable: access_controlled"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "HISTORICAL ONLY: the Australian register changed the company's main-business postcode from 3053 to 3183 on 10 March 2025. Current Australian office street address remains unconfirmed. This is the brain-computer-interface company, not the unrelated financial adviser named Synchron.",
+   "retrieved_at": "2026-11-14T19:04:40.852Z"
+  },
+  {
+   "company": "Syncrowin",
+   "company_id": "syncrowin",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Office city",
+   "address": "",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3006",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official contact and funding news confirm Melbourne. The matching company registration gives VIC 3006. No operating street address is published."
+  },
+  {
+   "company": "Synodic Medical",
+   "company_id": "synodic-medical",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Main business postcode",
+   "address": "",
+   "locality": "",
+   "state": "VIC",
+   "postcode": "3162",
+   "country": "Australia",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official ABN links business name to Athera Medical Operations; company website inaccessible. Postcode only, no street."
+  },
+  {
+   "company": "Tablo",
+   "company_id": "tablo",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published primary office",
+   "address": "Level 1, 41-43 Stewart Street, Richmond VIC 3121",
+   "locality": "Richmond",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/tablo-publishing",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company profile address; building lookup is still needed before adding coordinates.",
+   "retrieved_at": "2026-11-14T19:04:40.853Z"
+  },
+  {
+   "company": "Tank Stream Labs",
+   "company_id": "tank-stream-labs",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking hub",
+   "address": "Levels 5 and 6, 440 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.tankstreamlabs.com/location/collins-street-melbourne",
+     "host": "tankstreamlabs.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.tankstreamlabs.com/location/collins-street-melbourne"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.tankstreamlabs.com/location/collins-street-melbourne",
+    "host": "tankstreamlabs.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.tankstreamlabs.com/location/collins-street-melbourne"
+   },
+   "notes": "Supplied 215 Adelaide Street is Brisbane hub. Use Melbourne hub for this record.",
+   "retrieved_at": "2026-11-14T19:04:41.346Z"
+  },
+  {
+   "company": "Telecare",
+   "company_id": "telecare",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "In-person clinic",
+   "address": "173 Whitehorse Road, Blackburn VIC 3130",
+   "locality": "Blackburn",
+   "state": "VIC",
+   "postcode": "3130",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.telecare.com.au/patient-services/hybrid-in-person-clinic",
+     "host": "telecare.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.telecare.com.au/patient-services/hybrid-in-person-clinic"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.telecare.com.au/patient-services/hybrid-in-person-clinic",
+    "host": "telecare.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.telecare.com.au/patient-services/hybrid-in-person-clinic"
+   },
+   "notes": "Company identifies Blackburn hybrid clinic; this is a clinic location, not asserted registered headquarters.",
+   "retrieved_at": "2026-11-14T19:04:54.083Z"
+  },
+  {
+   "company": "The Commons",
+   "company_id": "the-commons",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking hub; multiple locations",
+   "address": "55 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.thecommons.com.au/locations",
+     "host": "thecommons.com.au",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.thecommons.com.au/locations"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.thecommons.com.au/locations",
+    "host": "thecommons.com.au",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.thecommons.com.au/locations"
+   },
+   "notes": "Multiple Melbourne hubs; 55 Collins is one verified CBD location, not unique headquarters. Other hubs include QV, Collingwood, Cremorne, South Melbourne.",
+   "retrieved_at": "2026-11-14T19:04:53.946Z"
+  },
+  {
+   "company": "tikpay",
+   "company_id": "tikpay",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Partner-directory headquarters; current city conflict",
+   "address": "42 Haldane Street, Beaumaris VIC 3193",
+   "locality": "Beaumaris",
+   "state": "VIC",
+   "postcode": "3193",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://engagepartners.mastercard.com/english/directory/partner/2771042/tikpay",
+     "host": "engagepartners.mastercard.com",
+     "own_site": false,
+     "outcome": "unreadable: http_error"
+    },
+    {
+     "url": "https://abr.business.gov.au/ABN/View?id=56625040940",
+     "host": "abr.business.gov.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://abr.business.gov.au/ABN/View?id=56625040940"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Mastercard partner directory gives HQ street; official contact no street and ABN main business NSW 2000. Verify current occupancy; possible historic/registered address.",
+   "retrieved_at": "2026-11-14T19:04:57.503Z"
+  },
+  {
+   "company": "Tiny Bright Things",
+   "company_id": "tiny-bright-things",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company contact / lab",
+   "address": "Level 2, 700 Swanston Street, Carlton VIC 3053",
+   "locality": "Carlton",
+   "state": "VIC",
+   "postcode": "3053",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://tinybrightthings.com/contact/",
+     "host": "tinybrightthings.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://tinybrightthings.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://tinybrightthings.com/contact/",
+    "host": "tinybrightthings.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://tinybrightthings.com/contact/"
+   },
+   "notes": "Official contact, team, company place, and user instructions agree.",
+   "retrieved_at": "2026-11-14T19:04:53.977Z"
+  },
+  {
+   "company": "Tixel",
+   "company_id": "tixel",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published headquarters / office",
+   "address": "231 Chapel Street, Prahran VIC 3181",
+   "locality": "Prahran",
+   "state": "VIC",
+   "postcode": "3181",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://tixel.com/privacy",
+     "host": "tixel.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://tixel.com/privacy"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://tixel.com/privacy",
+    "host": "tixel.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://tixel.com/privacy"
+   },
+   "notes": "Replaces the older 229-231 Chapel Street range with the company's published 231 Chapel Street address. Building geocode still required.",
+   "retrieved_at": "2026-11-14T19:04:55.440Z"
+  },
+  {
+   "company": "Traild",
+   "company_id": "traild",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Office",
+   "address": "Level 1, 540B Malvern Road, Prahran VIC 3181",
+   "locality": "Prahran",
+   "state": "VIC",
+   "postcode": "3181",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://traildsoftware.com/contact/",
+     "host": "traildsoftware.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://traildsoftware.com/contact/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://traildsoftware.com/contact/",
+    "host": "traildsoftware.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://traildsoftware.com/contact/"
+   },
+   "notes": "Company contact confirms Melbourne and separate Sydney office 285a Crown Street, Surry Hills NSW 2010.",
+   "retrieved_at": "2026-11-14T19:04:55.387Z"
+  },
+  {
+   "company": "Tutero",
+   "company_id": "tutero",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "Level 3, 535 Bourke Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.tutero.com/uk/info/terms-of-service",
+     "host": "tutero.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.tutero.com/uk/info/terms-of-service"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.tutero.com/uk/info/terms-of-service",
+    "host": "tutero.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.tutero.com/uk/info/terms-of-service"
+   },
+   "notes": "Careers confirms Melbourne HQ but only terms give street explicitly registered.",
+   "retrieved_at": "2026-11-14T19:04:56.571Z"
+  },
+  {
+   "company": "Varicon",
+   "company_id": "varicon",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Developer contact / mailing address",
+   "address": "Suite 511, 530 Little Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://play.google.com/store/apps/details?hl=en_US&id=com.varicon.empvaricon",
+     "host": "play.google.com",
+     "own_site": false,
+     "outcome": "unreadable: search and aggregator results are not scraped: use the publisher's own feed"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company-published app developer address; not enough to prove operational-office occupancy, particularly given suite address/business-centre context.",
+   "retrieved_at": "2026-11-14T19:04:55.388Z"
+  },
+  {
+   "company": "Veltora",
+   "company_id": "veltora",
+   "problem": null,
+   "category": "No public street address found",
+   "type": "Not published",
+   "address": "",
+   "locality": "",
+   "state": "",
+   "postcode": "",
+   "country": "",
+   "checks": [],
+   "verdict": "no_address",
+   "corroborated_by": null,
+   "notes": "Official homepage opened; no public operating address. A matching-name VELTORA PTY LTD registry record gives WA6021, but website-to-entity match is unproven. Treat as lead, not Melbourne/Perth office confirmation. Different veltoraglobal.com is unrelated."
+  },
+  {
+   "company": "Vivi",
+   "company_id": "vivi",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Company-published primary office",
+   "address": "627 Chapel Street, South Yarra VIC 3141",
+   "locality": "South Yarra",
+   "state": "VIC",
+   "postcode": "3141",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://au.linkedin.com/company/vivieducation",
+     "host": "au.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://chromewebstore.google.com/detail/vivi/dgplfgkebdggnnkfgljfcfeighbdgmnk?hl=en",
+     "host": "chromewebstore.google.com",
+     "own_site": false,
+     "outcome": "unreadable: search and aggregator results are not scraped: use the publisher's own feed"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Company LinkedIn and Chrome developer profile agree on building and Level 20. Google Play developer says Unit 21; building consistent.",
+   "retrieved_at": "2026-11-14T19:04:55.388Z"
+  },
+  {
+   "company": "Vudoo",
+   "company_id": "vudoo",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Legal contact address",
+   "address": "Level 8, 71 Gipps Street, Collingwood VIC 3066",
+   "locality": "Collingwood",
+   "state": "VIC",
+   "postcode": "3066",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://vudoo.com/terms-and-conditions/",
+     "host": "vudoo.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://vudoo.com/terms-and-conditions/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://vudoo.com/terms-and-conditions/",
+    "host": "vudoo.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://vudoo.com/terms-and-conditions/"
+   },
+   "notes": "Terms supply public contact street. No explicit operational office type.",
+   "retrieved_at": "2026-11-14T19:04:56.685Z"
+  },
+  {
+   "company": "Waterman Workspaces",
+   "company_id": "waterman-workspaces",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking hub; multiple locations",
+   "address": "Level 2, 260 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.waterman.com.au/wp-content/uploads/2025/10/Waterman-Collins-St-Visitors-Map.pdf",
+     "host": "waterman.com.au",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://www.waterman.com.au/locations/",
+     "host": "waterman.com.au",
+     "own_site": true,
+     "outcome": "read, address not on the page",
+     "final_url": "https://www.waterman.com.au/locations/"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "One verified Melbourne CBD hub; Waterman operates many other Melbourne locations. Not asserted unique HQ.",
+   "retrieved_at": "2026-11-14T19:04:57.834Z"
+  },
+  {
+   "company": "WebBeds Group",
+   "company_id": "webbeds-group",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Registered office",
+   "address": "Level 12, 440 Collins Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://webbedsgroup.com/contact-us/",
+     "host": "webbedsgroup.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://webbedsgroup.com/contact-us/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://webbedsgroup.com/contact-us/",
+    "host": "webbedsgroup.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://webbedsgroup.com/contact-us/"
+   },
+   "notes": "Critical entity correction:530 Collins Street is Automic share registry address, not Web Beds office. Current registered office is 440 Collins Street; operational occupancy not established.",
+   "retrieved_at": "2026-11-14T19:04:58.270Z"
+  },
+  {
+   "company": "WeTeachMe",
+   "company_id": "weteachme",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "Company email correspondence address",
+   "address": "Level 3, 534 Church Street, Cremorne VIC 3121",
+   "locality": "Cremorne",
+   "state": "VIC",
+   "postcode": "3121",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://milled.com/weteachme/there-school-holidays-start-soon-see-workshops-that-sell-out-every-year-oPn_h3aKvmVvrqC8",
+     "host": "milled.com",
+     "own_site": false,
+     "outcome": "unreadable: access_controlled"
+    },
+    {
+     "url": "https://abr.business.gov.au/ABN/View?id=68663985966",
+     "host": "abr.business.gov.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://abr.business.gov.au/ABN/View?id=68663985966"
+    }
+   ],
+   "verdict": "not_on_page",
+   "corroborated_by": null,
+   "notes": "Company-authored correspondence mirrored by Milled. WETEACHME IP PTY LTD is registered in VIC 3121. A marketing footer is not proof of current office occupancy.",
+   "retrieved_at": "2026-11-14T19:04:58.906Z"
+  },
+  {
+   "company": "WOTSO",
+   "company_id": "wotso",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Coworking hub; multiple locations",
+   "address": "Level 3, 11-19 Bank Place, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://wotso.com/locations/vic/melbourne/melbourne-cbd/",
+     "host": "wotso.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://wotso.com/locations/vic/melbourne/melbourne-cbd/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://wotso.com/locations/vic/melbourne/melbourne-cbd/",
+    "host": "wotso.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://wotso.com/locations/vic/melbourne/melbourne-cbd/"
+   },
+   "notes": "One current CBD hub; separate South Melbourne hub at 171 Ferrars Street, Southbank VIC 3006. Mulgrave listed coming soon.",
+   "retrieved_at": "2026-11-14T19:04:59.380Z"
+  },
+  {
+   "company": "Xero",
+   "company_id": "xero",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Australian head office",
+   "address": "Level 3, 260 Burwood Road, Hawthorn VIC 3122",
+   "locality": "Hawthorn",
+   "state": "VIC",
+   "postcode": "3122",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.xero.com/au/about/offices/",
+     "host": "xero.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.xero.com/au/about/offices/"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.xero.com/au/about/offices/",
+    "host": "xero.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.xero.com/au/about/offices/"
+   },
+   "notes": "Explicit Australian head office; job listing also supports street.",
+   "retrieved_at": "2026-11-14T19:05:10.315Z"
+  },
+  {
+   "company": "Xplor Education",
+   "company_id": "xplor-education",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "App trader / published product headquarters address",
+   "address": "Level 3, 520 Bourke Street, Melbourne VIC 3000",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3000",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://apps.apple.com/cy/app/xplor-home/id1479657396?platform=watch",
+     "host": "apps.apple.com",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://apps.apple.com/cy/app/xplor-home/id1479657396?platform=watch"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://apps.apple.com/cy/app/xplor-home/id1479657396?platform=watch",
+    "host": "apps.apple.com",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://apps.apple.com/cy/app/xplor-home/id1479657396?platform=watch"
+   },
+   "notes": "A newer parent-company job listing names Level 18, 120 Spencer Street, Melbourne VIC 3000. Product legal contact and current group office may differ; do not silently substitute one for the other.",
+   "retrieved_at": "2026-11-14T19:05:09.948Z"
+  },
+  {
+   "company": "YouLi",
+   "company_id": "youli",
+   "problem": null,
+   "category": "Legal / registered / correspondence address",
+   "type": "App developer public business contact",
+   "address": "144 Darling Road, Malvern East VIC 3145",
+   "locality": "Malvern East",
+   "state": "VIC",
+   "postcode": "3145",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://play.google.com/store/apps/details?id=io.youli.trip.flutter",
+     "host": "play.google.com",
+     "own_site": false,
+     "outcome": "unreadable: search and aggregator results are not scraped: use the publisher's own feed"
+    }
+   ],
+   "verdict": "unreadable",
+   "corroborated_by": null,
+   "notes": "Public trader/legal contact for a remote-first business. It does not establish a staffed office.",
+   "retrieved_at": "2026-11-14T19:04:58.906Z"
+  },
+  {
+   "company": "Zerocap",
+   "company_id": "zerocap",
+   "problem": null,
+   "category": "Street address; office unconfirmed",
+   "type": "Company-published office building; floor unconfirmed",
+   "address": "412 St Kilda Road, Melbourne VIC 3004",
+   "locality": "Melbourne",
+   "state": "VIC",
+   "postcode": "3004",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://pw.linkedin.com/company/zerocap",
+     "host": "pw.linkedin.com",
+     "own_site": false,
+     "outcome": "unreadable: LinkedIn forbids scraping and this engine never reads it"
+    },
+    {
+     "url": "https://zerocap.com/wp-content/uploads/2023/01/KYC-Know-Your-Customer-Form-V3.2.pdf",
+     "host": "zerocap.com",
+     "own_site": true,
+     "outcome": "unreadable: a PDF (the checker reads web pages)"
+    },
+    {
+     "url": "https://abr.business.gov.au/ABN/View?abn=99164874597",
+     "host": "abr.business.gov.au",
+     "own_site": false,
+     "outcome": "read, address not on the page",
+     "final_url": "https://abr.business.gov.au/ABN/View?abn=99164874597"
+    },
+    {
+     "url": "https://lei.bloomberg.com/leis/view/2549006KYIAHO0WPFQ98",
+     "host": "lei.bloomberg.com",
+     "own_site": false,
+     "outcome": "states the address",
+     "final_url": "https://lei.bloomberg.com/leis/view/2549006KYIAHO0WPFQ98"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://lei.bloomberg.com/leis/view/2549006KYIAHO0WPFQ98",
+    "host": "lei.bloomberg.com",
+    "own_site": false,
+    "outcome": "states the address",
+    "final_url": "https://lei.bloomberg.com/leis/view/2549006KYIAHO0WPFQ98"
+   },
+   "notes": "Floor varies between older company and legal-entity records (Level 4 versus Level 6), so omitted. The LEI listing's Melbourne 3000 postcode is inconsistent with the building and Australian register.",
+   "retrieved_at": "2026-11-14T19:05:11.317Z"
+  },
+  {
+   "company": "Zetifi",
+   "company_id": "zetifi",
+   "problem": null,
+   "category": "Office / facility supported",
+   "type": "Head office",
+   "address": "Unit 1, 1 Riedell Street, Wagga Wagga NSW 2650",
+   "locality": "Wagga Wagga",
+   "state": "NSW",
+   "postcode": "2650",
+   "country": "Australia",
+   "checks": [
+    {
+     "url": "https://www.zetifi.com/contact-us",
+     "host": "zetifi.com",
+     "own_site": true,
+     "outcome": "states the address",
+     "final_url": "https://www.zetifi.com/contact-us"
+    }
+   ],
+   "verdict": "corroborated",
+   "corroborated_by": {
+    "url": "https://www.zetifi.com/contact-us",
+    "host": "zetifi.com",
+    "own_site": true,
+    "outcome": "states the address",
+    "final_url": "https://www.zetifi.com/contact-us"
+   },
+   "notes": "Contact/shop agree. Warranty page separately lists 4 Riedell Street. Supplied Melbourne city should be corrected to Wagga Wagga.",
+   "retrieved_at": "2026-11-14T19:05:10.204Z"
+  }
+ ]
+}

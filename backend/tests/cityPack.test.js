@@ -148,7 +148,8 @@ describe('the 62 address records in the shipped data', () => {
 
   it('carries the consulted dates forward: nothing is "verified today"', () => {
     // (the 62 address records' own rows: the address kept from a pin made city-level has no date, because nobody read a page for it)
-    const dates = new Set(ds.company_locations.filter((l) => /\.addr\./.test(l.id) && !/\.addr\.original$/.test(l.id)).map((l) => String(l.location_verified_at).slice(0, 10)));
+    // (rows from a later research import, 15 Nov 2026, ".addr.research", carry the day their page was read, so they are not part of this check)
+    const dates = new Set(ds.company_locations.filter((l) => /\.addr\./.test(l.id) && !/\.addr\.(original|postal|research)(\.\d+)?$/.test(l.id)).map((l) => String(l.location_verified_at).slice(0, 10)));
     for (const d of dates) expect(['2026-11-02', '2026-11-05']).toContain(d);
   });
 
@@ -200,12 +201,17 @@ describe('the 26 pins made city-level (legacy-pin-decisions.json)', () => {
   const decisions = JSON.parse(readFileSync(path.join(PACK, 'legacy-pin-decisions.json'), 'utf8')).decisions;
   let ds;
   beforeAll(async () => { ds = parseRaw(await loadRaw(path.join(BACKEND, 'src', 'data'))); });
+  // A company in this list may have been pinned again LATER, but only on firmer ground than the record it lost its pin for: an address its own website or a document it published states
+  // (an official source, a date it was read), which is not the unconfirmed address of the original directory record, and a point the geocoder found at that building.
+  const stillPinned = (c, d) => c.location_precision === 'EXACT' && Number.isFinite(c.lat) && ['company_website', 'company_document'].includes(c.location_source) && !!c.location_verified_at
+    && !!c.address && c.address !== d.recorded_address;
 
   it('keeps each company, in its city, at city level with no point, no address and no suburb or postcode of an address nobody confirmed', () => {
     expect(Object.keys(decisions)).toHaveLength(26);
     for (const [id, d] of Object.entries(decisions)) {
       const c = ds.companies.find((x) => x.id === id);
       expect(c, id).toBeTruthy();
+      if (stillPinned(c, d)) continue; // its own page has since confirmed an address, and the geocoder found the building (see stillPinned)
       expect(c.location_precision, d.name).toBe('CITY');
       expect(c.lat, d.name).toBeNull();
       expect(c.lng, d.name).toBeNull();
@@ -228,7 +234,7 @@ describe('the 26 pins made city-level (legacy-pin-decisions.json)', () => {
   });
 
   it('puts none of them back on the map from an address: nothing that is still pinned rests on one of these records', () => {
-    for (const id of Object.keys(decisions)) expect(Number.isFinite(ds.companies.find((x) => x.id === id).lat), id).toBe(false);
+    for (const [id, d] of Object.entries(decisions)) { const c = ds.companies.find((x) => x.id === id); if (!stillPinned(c, d)) expect(Number.isFinite(c.lat), id).toBe(false); }
     // the pins that rest on the original directory record and were kept: exact ones say "Office address on file", suburb-level ones say so; Contactile and Diraq stay at suburb level
     const kept = ds.companies.filter((c) => Number.isFinite(c.lat) && !['company_website', 'company_document'].includes(c.location_source));
     expect(kept).toHaveLength(95);
@@ -242,5 +248,54 @@ describe('the 26 pins made city-level (legacy-pin-decisions.json)', () => {
       expect(row.changes.some((c) => c.field === 'address' && c.from === d.recorded_address && c.to === null), d.name).toBe(true);
     }
     expect(ds.companies.filter((c) => Object.keys(decisions).includes(c.id)).every((c) => c.name && c.website !== undefined)).toBe(true);
+  });
+});
+
+describe('the pasted list of Perth company addresses (perth-address-decisions.json)', () => {
+  const D = JSON.parse(readFileSync(path.join(PACK, 'perth-address-decisions.json'), 'utf8'));
+  let ds;
+  beforeAll(async () => { ds = parseRaw(await loadRaw(path.join(BACKEND, 'src', 'data'))); });
+  const active = (id) => ds.evidence.filter((e) => e.company_id === id && e.field === 'address' && e.status === 'active');
+
+  it('keeps an address the company\'s own page calls postal, or gives as its legal entity\'s, out of the evidence of where it works', () => {
+    for (const p of D.postal) {
+      expect(active(p.id).filter((e) => sameAddress(e.value, p.address)), p.id).toEqual([]);
+      const row = ds.company_locations.find((l) => l.id === `${p.id}.addr.postal`);
+      expect(row, p.id).toBeTruthy();
+      expect(row.kind).toBe('OTHER');
+      expect(row.latitude).toBeNull();
+      expect(row.longitude).toBeNull();
+      expect(row.location_source_url).toBe(p.url);
+    }
+  });
+
+  it('adds the operating address two companies\' own pages give, with the page and the day it was read', () => {
+    for (const x of D.add_evidence) {
+      const row = active(x.id).find((e) => e.value === x.value);
+      expect(row, x.id).toBeTruthy();
+      expect(row.verified_at).toBe(x.verified_at);
+      expect(ds.sources.find((s) => s.id === row.source_id).url).toBe(x.url);
+    }
+  });
+
+  it('keeps each pasted claim no page supports as REJECTED evidence from a "user supplied" source: never active, so never a pin', () => {
+    expect(D.claims_not_supported).toHaveLength(10);
+    for (const x of D.claims_not_supported) {
+      const rows = ds.evidence.filter((e) => e.company_id === x.id && e.field === 'address' && e.value === x.value);
+      expect(rows, `${x.id}: ${x.value}`).toHaveLength(1);
+      expect(rows[0].status).toBe('rejected');
+      expect(ds.sources.find((s) => s.id === rows[0].source_id).kind).toBe('user_supplied');
+    }
+  });
+
+  it('pins none of the 35 companies on the list from a claim: they are all still city-level, and every address they hold is one their own page gave', () => {
+    const ids = ['amlab', 'appbot', 'biotome', 'capability-x', 'chironix', 'corametix', 'edible-cutlery', 'enzide-technologies', 'moodle', 'omni-biotech', 'portable-ppb', 'pretect-devices', 'black-swan-biotech'];
+    for (const id of ids) {
+      const c = ds.companies.find((x) => x.id === id);
+      if (Number.isFinite(c.lat)) expect(['company_website', 'company_document'], id).toContain(c.location_source);
+      // every address it holds is one its own page gave, or one a directory repeats that its own page also gives
+      const official = active(id).filter((e) => ['company_website', 'company_document'].includes(ds.sources.find((s) => s.id === e.source_id).kind));
+      for (const e of active(id)) expect(official.some((o) => sameAddress(o.value, e.value)), `${id}: ${e.value}`).toBe(true);
+    }
   });
 });

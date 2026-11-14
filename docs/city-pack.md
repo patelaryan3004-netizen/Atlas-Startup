@@ -110,6 +110,16 @@ evidence note or description value (`discovery/publish.js`), and the summary, re
 (its city becomes the city its postcode belongs to); the point, suburb, postcode and `address` are cleared so that no geocoding run can pin it again from that address; the address it had is kept as a location of its own ("not confirmed", no coordinates, not served by the API) and
 in the audit row; the company's own pages' addresses stay in the evidence, untouched, for the review that decides whether to pin them. No replacement address was chosen and nothing was geocoded.
 
+**Perth address list (2026-11-06).** A pasted table of 35 Perth companies' addresses (written by an AI, so a lead, not a source) was checked against each company's own pages: the importer's earlier 4-page read plus a deeper read of up to 8 pages per site
+(contact, locations, about, team, privacy, terms; robots.txt obeyed). All 35 were already in the directory as city-level Perth entries.
+- **On the company's own pages (7):** AMLab 24 Hasler Rd; Biotome 6 Verdun St; Capability X 620 Gnangara Rd; Chironix 3/33 Millrose Dr, Malaga; CoraMetix Unit 3/4 Gould St; Enzide Level 2, 10 Outram St; Omni Biotech 25 Money St (as its legal entity's address). Nothing new was needed.
+- **Not on any page (10 claims, 8 companies):** Appbot's 1050 Hay St as an office and "Mount Hawthorn"; Chironix 37 Collingwood St; Edible Cutlery 1/226 Main St (its page gives 7/25 Walters Dr); Moodle 20 Kings Park Rd (its page gives a PO Box in West Perth); Portable PPB's Tulloch Way and
+  Sorbonne Cres; and the area-only Black Swan Biotech, CoraMetix (Nedlands) and Pretect Devices (its site cannot be read by an automated reader). Each is kept as a REJECTED evidence row from a "user supplied" source: never active, so never a pin, and not served by the API.
+- **Corrected:** SpacetoCo's and The Volte's addresses are called "Postal Address" on their privacy policies, and Omni's is its legal entity's: they are locations of their own (not evidence of where the company works) and their active evidence rows are superseded. SeaStock (contact page) and Gene S
+  ("Our Location", a campus building) gained an operating address as evidence. Spelling variants of one address were settled into one row for Chironix, Dayworkbook, VeinTech, SpaceDraft, Bobbleware and Biotome (\`perth-addresses.mjs\`, \`conflicts.mjs\`).
+- **No new pins:** the geocoder (OpenStreetMap) finds only the street, not the house, for these WA addresses, and SeaStock ("Quays" is not a street type the parser knows) and Gene S (no street number) do not qualify for a pin. Companies whose pages give no street address at all (read twice):
+  Ascend Labs, Black Swan Biotech, Cars Like, Cytophenix, Ocean Hex, Portable PPB, TRUXE, Uluu, VitalTrace, and Appbot (postal only) and Moodle (a PO Box only). To pin them an address source with WA house numbers is needed (for example the national G-NAF address file): not done.
+
 **Left open on purpose:** the 16 address conflicts, the 60 name-alike rows, the 72 companies with no city (they are in the national catalogue and in no city view), and the classification of listed companies the pages did not say were listed.
 
 Backend 1,763 tests and frontend 1,427 pass.

@@ -1,0 +1,25 @@
+{
+  "about": "The pasted list of Perth company addresses (2026-11-06) is an AI-written lead, not a source. Each street it gives was looked for on the company's OWN pages (the importer's 4-page read of 2-5 Nov, then a deeper read of up to 8 pages per site on 6 Nov, robots.txt obeyed). Corroborated claims need nothing new (the company's page is already the evidence). A claim no page of the company supports is kept as a REJECTED evidence row (never active, so it cannot become a pin). An address a company's own page calls postal, or gives only as the address of its legal entity, is a location of its own (not confirmed as a place of work, no coordinates). Two company pages that state an operating address the earlier read missed are added as evidence.",
+  "decided_on": "2026-11-06",
+  "postal": [
+    { "id": "spacetoco", "address": "525 Falls Road, Hovea WA 6070", "label": "Postal address (privacy policy)", "url": "https://support.spacetoco.com/spacetoco-privacy-policy", "kind": "company_document", "read_on": "2026-10-31T01:37:33.880Z", "why": "its privacy policy calls this its postal address" },
+    { "id": "the-volte", "address": "1/4 Gugeri Street, Claremont WA 6010", "label": "Postal address (privacy policy)", "url": "https://thevolte.com/privacy-policy", "kind": "company_document", "read_on": "2026-10-31T01:38:00.641Z", "why": "its privacy policy calls this its postal address, and its home page no longer shows an address" },
+    { "id": "omni-biotech", "address": "25 Money Street, Perth WA 6000", "label": "Address of its legal entity in its terms (Omni Industry Pty Ltd)", "url": "https://privacy.omnibiotech.com.au/", "kind": "company_document", "read_on": "2026-11-01T16:11:33.580Z", "why": "its terms give it as the address of the legal entity, not as a place of work" }
+  ],
+  "add_evidence": [
+    { "id": "seastock", "value": "6 Molfetta Quays, Fremantle WA 6160", "url": "https://www.seastock.com.au/contact/", "kind": "company_website", "verified_at": "2026-11-01T16:13:42.505Z", "confidence": "high", "note": "Its contact page gives 6 Molfetta Quays, Fremantle Fishing Boat Harbour, Fremantle WA 6160." },
+    { "id": "gene-s", "value": "1st Floor, M Block, QEII Medical Centre, Nedlands WA 6009", "url": "https://gene-s.com/", "kind": "company_website", "verified_at": "2026-11-01T16:09:03.986Z", "confidence": "medium", "note": "Its home page says \"Our Location\" and gives 1st Floor, M Block, QEII Medical Centre, Nedlands (a campus building: no street number)." }
+  ],
+  "claims_not_supported": [
+    { "id": "appbot", "value": "Unit 7 / Level 1, 1050 Hay Street, West Perth WA 6005", "note": "The pasted list gives it as an office. The earlier research treated it as a postal address (kept as a location of its own) and none of 8 pages of the company's site read on 6 Nov shows it." },
+    { "id": "appbot", "value": "Mount Hawthorn, WA", "note": "The pasted list says 'previously Mount Hawthorn'. Nothing on the company's pages." },
+    { "id": "black-swan-biotech", "value": "Nedlands, WA 6009", "note": "The pasted list gives an area only. The company's 3 pages read name no address or suburb." },
+    { "id": "chironix", "value": "37 Collingwood Street, Osborne Park WA 6017", "note": "Not on the company's pages. Its own page gives 3/33 Millrose Drive, Malaga, which is already its evidence." },
+    { "id": "corametix", "value": "Nedlands, WA 6015", "note": "Not on the company's page. Its own page gives Unit 3/4 Gould Street, Osborne Park, which is already its evidence." },
+    { "id": "edible-cutlery", "value": "Unit 1/226 Main Street, Osborne Park WA 6017", "note": "Not on the company's pages. Its own contact page gives Level 1 Unit 7/25 Walters Drive, Osborne Park, which is already its evidence." },
+    { "id": "moodle", "value": "20 Kings Park Road, West Perth WA 6005", "note": "Not on the 7 pages of moodle.com read. Its privacy page gives only a PO Box in West Perth (a PO Box is never stored as a place)." },
+    { "id": "portable-ppb", "value": "42 Tulloch Way, Canning Vale WA 6155", "note": "Not on the company's 3 pages read, which say only 'headquarters and research and development in Perth, WA'." },
+    { "id": "portable-ppb", "value": "18 Sorbonne Crescent, Canning Vale WA 6155", "note": "Not on the company's 3 pages read." },
+    { "id": "pretect-devices", "value": "Bateman, WA 6150", "note": "The pasted list gives an area only (Bateman, Murdoch or Winthrop). Not checked: the company's site cannot be read by an automated reader (robots.txt)." }
+  ]
+}

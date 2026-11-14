@@ -572,6 +572,17 @@
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
   },
   {
+    "id": "adslot.address.www-adslot-com-contact-us",
+    "company_id": "adslot",
+    "field": "address",
+    "value": "Level 2, 419 Collins Street, Melbourne VIC 3000",
+    "source_id": "www-adslot-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:10.067Z",
+    "status": "active",
+    "note": "A researched address (Office and registered office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "adslot.address.www-adslot-com-privacy-policy",
     "company_id": "adslot",
     "field": "address",
@@ -1087,6 +1098,17 @@
     "verified_at": "2026-11-05T02:53:12.016Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "affinda.address.doverhouse-com-au",
+    "company_id": "affinda",
+    "field": "address",
+    "value": "Dover House, 6 Fitzgibbon Street, Cremorne VIC 3121",
+    "source_id": "doverhouse-com-au",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:03:12.023Z",
+    "status": "active",
+    "note": "A researched address (Office at named building); the page states it. Researched 2026-11-15."
   },
   {
     "id": "affinda.description.www-affinda-com",
@@ -1760,6 +1782,17 @@
     "note": "its address in Sydney, kept as a location of its own, not where it works in Melbourne (settled on review, 2026-11-05)"
   },
   {
+    "id": "alayacare.address.alayacare-com-en-au-contact-us",
+    "company_id": "alayacare",
+    "field": "address",
+    "value": "Suite 2, Level 7, 5 Queens Road, Melbourne VIC 3004",
+    "source_id": "alayacare-com-en-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:11.736Z",
+    "status": "active",
+    "note": "A researched address (Melbourne office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "alayacare.city.alayacare-com-contact",
     "company_id": "alayacare",
     "field": "city",
@@ -2145,6 +2178,17 @@
     "note": "The site itself."
   },
   {
+    "id": "amdocs.address.www-amdocs-com-contact",
+    "company_id": "amdocs",
+    "field": "address",
+    "value": "Level 14, 575 Bourke Street, Melbourne VIC 3000",
+    "source_id": "www-amdocs-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:11.763Z",
+    "status": "active",
+    "note": "A researched address (Melbourne office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "amdocs.city.www-amdocs-com-contact",
     "company_id": "amdocs",
     "field": "city",
@@ -2396,6 +2440,17 @@
     "verified_at": "2026-10-05T15:07:53.509Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "andromeda-robotics.address.andromedarobotics-ai-contact-us",
+    "company_id": "andromeda-robotics",
+    "field": "address",
+    "value": "224-226 Normanby Road, Southbank VIC 3006",
+    "source_id": "andromedarobotics-ai-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:11.036Z",
+    "status": "active",
+    "note": "A researched address (Australian office / robotics facility); the page states it. Researched 2026-11-15."
   },
   {
     "id": "andromeda-robotics.website.andromedarobotics-ai",
@@ -3067,6 +3122,28 @@
     "verified_at": "2026-11-05T02:56:22.778Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "appbot.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "appbot",
+    "field": "address",
+    "value": "Unit 7 / Level 1, 1050 Hay Street, West Perth WA 6005",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "The pasted list gives it as an office. The earlier research treated it as a postal address (kept as a location of its own) and none of 8 pages of the company's site read on 6 Nov shows it. (Perth address list review, 2026-11-06)"
+  },
+  {
+    "id": "appbot.address.user-supplied-pasted-list-of-perth-company-addresses.2",
+    "company_id": "appbot",
+    "field": "address",
+    "value": "Mount Hawthorn, WA",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "The pasted list says 'previously Mount Hawthorn'. Nothing on the company's pages. (Perth address list review, 2026-11-06)"
   },
   {
     "id": "appbot.city.appbot-co-privacy",
@@ -5386,8 +5463,8 @@
     "source_id": "www-biotome-com-au",
     "confidence": "high",
     "verified_at": "2026-10-31T01:30:44.352Z",
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "biotome.address.www-biotome-com-au-contact",
@@ -5408,8 +5485,8 @@
     "source_id": "www-biotome-com-au-privacy-policy",
     "confidence": "high",
     "verified_at": "2026-10-31T02:12:23.482Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "biotome.description.www-biotome-com-au",
@@ -5619,6 +5696,17 @@
     "verified_at": "2026-10-30T23:29:13.954Z",
     "status": "active",
     "note": "The website Blackbird lists for the company."
+  },
+  {
+    "id": "black-swan-biotech.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "black-swan-biotech",
+    "field": "address",
+    "value": "Nedlands, WA 6009",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "The pasted list gives an area only. The company's 3 pages read name no address or suburb. (Perth address list review, 2026-11-06)"
   },
   {
     "id": "black-swan-biotech.city.www-blackswanbio-com-about-us",
@@ -6002,8 +6090,8 @@
     "source_id": "www-bobbleware-com-pages-contact-us",
     "confidence": "high",
     "verified_at": "2026-10-31T01:53:10.641Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "bobbleware.description.www-bobbleware-com",
@@ -7425,6 +7513,17 @@
     "note": "The website Investible lists for the company."
   },
   {
+    "id": "capital-com.address.capital-com-en-au-contact-us",
+    "company_id": "capital-com",
+    "field": "address",
+    "value": "Level 15, 357 Collins Street, Melbourne VIC 3000",
+    "source_id": "capital-com-en-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:27.968Z",
+    "status": "active",
+    "note": "A researched address (Australian office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "capital-com.city.capital-com-en-au-contact-us",
     "company_id": "capital-com",
     "field": "city",
@@ -8466,8 +8565,8 @@
     "source_id": "chironix-com",
     "confidence": "high",
     "verified_at": "2026-10-31T01:53:41.512Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "chironix.address.chironix-com-company-about-chironix",
@@ -8477,8 +8576,8 @@
     "source_id": "chironix-com-company-about-chironix",
     "confidence": "high",
     "verified_at": "2026-11-05T00:00:00.000Z",
-    "status": "active",
-    "note": "An operating address its own page publishes. Address type: operating_site; status: published_operating_location. Company site and WA Defence directory agree."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "chironix.address.chironix-com-contact-us",
@@ -8510,8 +8609,8 @@
     "source_id": "chironix-com-privacy-policy",
     "confidence": "high",
     "verified_at": "2026-10-31T01:53:41.512Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "chironix.address.chironix-com-terms-of-service",
@@ -8521,8 +8620,19 @@
     "source_id": "chironix-com-terms-of-service",
     "confidence": "high",
     "verified_at": "2026-10-31T01:53:41.512Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
+  },
+  {
+    "id": "chironix.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "chironix",
+    "field": "address",
+    "value": "37 Collingwood Street, Osborne Park WA 6017",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "Not on the company's pages. Its own page gives 3/33 Millrose Drive, Malaga, which is already its evidence. (Perth address list review, 2026-11-06)"
   },
   {
     "id": "chironix.description.chironix-com",
@@ -8567,6 +8677,17 @@
     "verified_at": "2026-10-05T15:07:00.916Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "cipher-sports-technology-group.address.www-ciphersports-io-privacy",
+    "company_id": "cipher-sports-technology-group",
+    "field": "address",
+    "value": "7/51 Langridge Street, Collingwood VIC 3066",
+    "source_id": "www-ciphersports-io-privacy",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:27.705Z",
+    "status": "active",
+    "note": "A researched address (Corporate headquarters); the page states it. Researched 2026-11-15."
   },
   {
     "id": "cipher-sports-technology-group.city.www-ciphersports-io-privacy",
@@ -10197,6 +10318,17 @@
     "note": "The same street address as another row of this page, written with the page's label."
   },
   {
+    "id": "corametix.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "corametix",
+    "field": "address",
+    "value": "Nedlands, WA 6015",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "Not on the company's page. Its own page gives Unit 3/4 Gould Street, Osborne Park, which is already its evidence. (Perth address list review, 2026-11-06)"
+  },
+  {
     "id": "corametix.description.corametix-com",
     "company_id": "corametix",
     "field": "description",
@@ -10316,6 +10448,17 @@
     "verified_at": "2026-10-31T01:31:35.310Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "cortical-labs.address.colabs-com-au-brunswick",
+    "company_id": "cortical-labs",
+    "field": "address",
+    "value": "306 Albert Street, Brunswick VIC 3056",
+    "source_id": "colabs-com-au-brunswick",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:03:29.759Z",
+    "status": "active",
+    "note": "A researched address (Laboratory / coworking lab); the page states it. Researched 2026-11-15."
   },
   {
     "id": "cortical-labs.description.corticallabs-com",
@@ -10525,6 +10668,17 @@
     "verified_at": "2026-11-05T03:06:13.248Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "creativecubes-co-carlton.address.creativecubes-co-locations-melbourne-333-drummond-street-carlton",
+    "company_id": "creativecubes-co-carlton",
+    "field": "address",
+    "value": "333 Drummond Street, Carlton VIC 3053",
+    "source_id": "creativecubes-co-locations-melbourne-333-drummond-street-carlton",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:29.596Z",
+    "status": "active",
+    "note": "A researched address (Coworking space); the page states it. Researched 2026-11-15."
   },
   {
     "id": "creativecubes-co-carlton.city.creativecubes-co",
@@ -10967,6 +11121,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "cuttable.address.www-cuttable-com-contact",
+    "company_id": "cuttable",
+    "field": "address",
+    "value": "1/60 Wilson Street, South Yarra VIC 3141",
+    "source_id": "www-cuttable-com-contact",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:03:29.486Z",
+    "status": "active",
+    "note": "A researched address (office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "cuttable.description.cuttable-website",
     "company_id": "cuttable",
     "field": "description",
@@ -10998,6 +11163,17 @@
     "verified_at": "2026-10-05T15:04:55.475Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "cybercx.address.cybercx-com-contact-us",
+    "company_id": "cybercx",
+    "field": "address",
+    "value": "Level 4, 330 Collins Street, Melbourne VIC 3000",
+    "source_id": "cybercx-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:30.380Z",
+    "status": "active",
+    "note": "A researched address (Australian headquarters); the page states it. Researched 2026-11-15."
   },
   {
     "id": "cybercx.city.cybercx-com-contact-us",
@@ -11319,6 +11495,17 @@
     "note": "Supplied by owner (via Claude)."
   },
   {
+    "id": "dayforce.address.www-dayforce-com-au-contact",
+    "company_id": "dayforce",
+    "field": "address",
+    "value": "12th Floor, North Tower, 459 Collins Street, Melbourne VIC 3000",
+    "source_id": "www-dayforce-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:31.007Z",
+    "status": "active",
+    "note": "A researched address (Australian office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "dayforce.address.www-dayforce-com-contact",
     "company_id": "dayforce",
     "field": "address",
@@ -11392,8 +11579,8 @@
     "source_id": "dayworkbook-com-terms",
     "confidence": "high",
     "verified_at": "2026-10-31T01:54:24.012Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "dayworkbook.city.dayworkbook-com-privacy",
@@ -13244,6 +13431,17 @@
     "note": "The site itself."
   },
   {
+    "id": "eastern-innovation.address.space-eibc-net-au",
+    "company_id": "eastern-innovation",
+    "field": "address",
+    "value": "5A Hartnett Close, Mulgrave VIC 3170",
+    "source_id": "space-eibc-net-au",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:03:47.753Z",
+    "status": "active",
+    "note": "A researched address (coworking venue); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "eastern-innovation.address.www-eibc-net-au",
     "company_id": "eastern-innovation",
     "field": "address",
@@ -13451,6 +13649,17 @@
     "verified_at": "2026-10-31T01:54:44.283Z",
     "status": "active",
     "note": "An address in Greater Perth on the company's own page."
+  },
+  {
+    "id": "edible-cutlery.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "edible-cutlery",
+    "field": "address",
+    "value": "Unit 1/226 Main Street, Osborne Park WA 6017",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "Not on the company's pages. Its own contact page gives Level 1 Unit 7/25 Walters Drive, Osborne Park, which is already its evidence. (Perth address list review, 2026-11-06)"
   },
   {
     "id": "edible-cutlery.description.ediblecutlery-au",
@@ -14199,6 +14408,17 @@
     "verified_at": "2026-11-05T03:10:26.554Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "ena-respiratory.address.lei-bloomberg-com-leis-view-254900csjfslt7fldv06",
+    "company_id": "ena-respiratory",
+    "field": "address",
+    "value": "Level 9, 31 Queen Street, Melbourne VIC 3000",
+    "source_id": "lei-bloomberg-com-leis-view-254900csjfslt7fldv06",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:03:46.636Z",
+    "status": "superseded",
+    "note": "Its own page calls this a company_contact address (regulatory_listing), not where it works (city pack address evidence, 2026-11-02)"
   },
   {
     "id": "ena-respiratory.city.enarespiratory-com-about",
@@ -17820,6 +18040,17 @@
     "note": "The website Cicada Innovations lists for the company."
   },
   {
+    "id": "gene-s.address.gene-s-com",
+    "company_id": "gene-s",
+    "field": "address",
+    "value": "1st Floor, M Block, QEII Medical Centre, Nedlands WA 6009",
+    "source_id": "gene-s-com",
+    "confidence": "medium",
+    "verified_at": "2026-11-01T16:09:03.986Z",
+    "status": "active",
+    "note": "Its home page says \"Our Location\" and gives 1st Floor, M Block, QEII Medical Centre, Nedlands (a campus building: no street number)."
+  },
+  {
     "id": "gene-s.description.gene-s-com",
     "company_id": "gene-s",
     "field": "description",
@@ -20988,6 +21219,17 @@
     "note": "The site itself."
   },
   {
+    "id": "ideally.address.www-goideally-com-about-contact",
+    "company_id": "ideally",
+    "field": "address",
+    "value": "10-20 Gwynne Street, Cremorne VIC 3121",
+    "source_id": "www-goideally-com-about-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:01.223Z",
+    "status": "active",
+    "note": "A researched address (Melbourne office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "ideally.city.www-goideally-com-about-contact",
     "company_id": "ideally",
     "field": "city",
@@ -21173,6 +21415,17 @@
     "verified_at": "2026-10-13T13:25:40.271Z",
     "status": "active",
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "iharvest-coworking-sunshine.address.iharvestcoworking-com-au-contact-us",
+    "company_id": "iharvest-coworking-sunshine",
+    "field": "address",
+    "value": "Level 4, 301 Hampshire Road, Sunshine VIC 3020",
+    "source_id": "iharvestcoworking-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:06.399Z",
+    "status": "active",
+    "note": "A researched address (Coworking space); the page states it. Researched 2026-11-15."
   },
   {
     "id": "iharvest-coworking-sunshine.city.iharvestcoworking-com-au",
@@ -24090,6 +24343,17 @@
     "note": "The site itself."
   },
   {
+    "id": "kolmeo.address.kolmeo-com-blog-kolmeo-means-business",
+    "company_id": "kolmeo",
+    "field": "address",
+    "value": "Level 6, 31 Queen Street, Melbourne VIC 3000",
+    "source_id": "kolmeo-com-blog-kolmeo-means-business",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:05.005Z",
+    "status": "active",
+    "note": "A researched address (Headquarters); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "kolmeo.city.kolmeo-com-privacy-policy",
     "company_id": "kolmeo",
     "field": "city",
@@ -26345,6 +26609,17 @@
     "note": "The site itself."
   },
   {
+    "id": "matrak.address.matrak-com-contact",
+    "company_id": "matrak",
+    "field": "address",
+    "value": "3 Albert Coates Lane, Melbourne VIC 3000",
+    "source_id": "matrak-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:18.189Z",
+    "status": "active",
+    "note": "A researched address (office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "matrak.address.matrak-free-user-and-invited-user-terms",
     "company_id": "matrak",
     "field": "address",
@@ -26352,8 +26627,8 @@
     "source_id": "matrak-free-user-and-invited-user-terms",
     "confidence": "medium",
     "verified_at": "2026-10-05T15:11:27.264Z",
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "Replaced by the company's current contact page (3 Albert Coates Lane); confirmed by the owner 2026-11-15."
   },
   {
     "id": "matrak.description.matrak-website",
@@ -26629,6 +26904,17 @@
     "verified_at": "2026-11-05T02:53:20.736Z",
     "status": "active",
     "note": "An address in Greater Melbourne on the company's own page."
+  },
+  {
+    "id": "melbourne-connect.address.www-melbconnect-com-au-contact-us-2",
+    "company_id": "melbourne-connect",
+    "field": "address",
+    "value": "700 Swanston Street, Carlton VIC 3053",
+    "source_id": "www-melbconnect-com-au-contact-us-2",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:21.950Z",
+    "status": "active",
+    "note": "A researched address (innovation precinct / coworking venue); the page states it. Researched 2026-11-15."
   },
   {
     "id": "melbourne-connect.description.www-melbconnect-com-au",
@@ -27542,6 +27828,17 @@
     "verified_at": "2026-11-05T03:33:18.487Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "moodle.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "moodle",
+    "field": "address",
+    "value": "20 Kings Park Road, West Perth WA 6005",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "Not on the 7 pages of moodle.com read. Its privacy page gives only a PO Box in West Perth (a PO Box is never stored as a place). (Perth address list review, 2026-11-06)"
   },
   {
     "id": "moodle.city.moodle-com-privacy-notice",
@@ -29335,6 +29632,17 @@
     "verified_at": "2026-10-13T13:25:55.418Z",
     "status": "active",
     "note": "Supplied by the owner from a list of names; the engine reads the company's own website."
+  },
+  {
+    "id": "o3.address.o3space-org-locations",
+    "company_id": "o3",
+    "field": "address",
+    "value": "87 Queensbridge Street, Southbank VIC 3006",
+    "source_id": "o3space-org-locations",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:24.444Z",
+    "status": "active",
+    "note": "A researched address (Coworking cafe location); the page states it. Researched 2026-11-15."
   },
   {
     "id": "o3.address.o3space-org-privacy-policy",
@@ -31779,6 +32087,17 @@
     "note": "The site itself."
   },
   {
+    "id": "playside-studios.address.investor-playsidestudios-com-contact",
+    "company_id": "playside-studios",
+    "field": "address",
+    "value": "Level 1, 75 Crockford Street, Port Melbourne VIC 3207",
+    "source_id": "investor-playsidestudios-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:26.868Z",
+    "status": "active",
+    "note": "A researched address (Office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "playside-studios.city.playsidestudios-com-privacy-policy",
     "company_id": "playside-studios",
     "field": "city",
@@ -31867,6 +32186,17 @@
     "note": "The site itself."
   },
   {
+    "id": "point-of-rental-software.address.www-point-of-rental-com-au-contact",
+    "company_id": "point-of-rental-software",
+    "field": "address",
+    "value": "23-25 Gipps Street, Collingwood VIC 3066",
+    "source_id": "www-point-of-rental-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:25.234Z",
+    "status": "active",
+    "note": "A researched address (Office); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "point-of-rental-software.city.www-point-of-rental-com-contact",
     "company_id": "point-of-rental-software",
     "field": "city",
@@ -31898,6 +32228,17 @@
     "verified_at": "2026-11-05T01:38:33.661Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "pointdata.address.pointdata-com-au-contact-us",
+    "company_id": "pointdata",
+    "field": "address",
+    "value": "Level 4, 54 Wellington Street, Collingwood VIC 3066",
+    "source_id": "pointdata-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:25.871Z",
+    "status": "active",
+    "note": "A researched address (Office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "pointdata.city.pointdata-com-au-contact-us",
@@ -32186,6 +32527,28 @@
     "note": "The site itself."
   },
   {
+    "id": "portable-ppb.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "portable-ppb",
+    "field": "address",
+    "value": "42 Tulloch Way, Canning Vale WA 6155",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "Not on the company's 3 pages read, which say only 'headquarters and research and development in Perth, WA'. (Perth address list review, 2026-11-06)"
+  },
+  {
+    "id": "portable-ppb.address.user-supplied-pasted-list-of-perth-company-addresses.2",
+    "company_id": "portable-ppb",
+    "field": "address",
+    "value": "18 Sorbonne Crescent, Canning Vale WA 6155",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "Not on the company's 3 pages read. (Perth address list review, 2026-11-06)"
+  },
+  {
     "id": "portable-ppb.city.portableppb-com-about-us",
     "company_id": "portable-ppb",
     "field": "city",
@@ -32305,6 +32668,17 @@
     "verified_at": "2026-11-05T01:39:03.859Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "powertec.address.power-tec-com-au-contact-us",
+    "company_id": "powertec",
+    "field": "address",
+    "value": "Unit 18, 25 Cook Road, Mitcham VIC 3132",
+    "source_id": "power-tec-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:30.522Z",
+    "status": "active",
+    "note": "A researched address (Office and test facility); the page states it. Researched 2026-11-15."
   },
   {
     "id": "powertec.city.power-tec-com-au",
@@ -32613,6 +32987,17 @@
     "verified_at": "2026-10-30T23:33:13.992Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "pretect-devices.address.user-supplied-pasted-list-of-perth-company-addresses",
+    "company_id": "pretect-devices",
+    "field": "address",
+    "value": "Bateman, WA 6150",
+    "source_id": "user-supplied-pasted-list-of-perth-company-addresses",
+    "confidence": "low",
+    "verified_at": null,
+    "status": "rejected",
+    "note": "The pasted list gives an area only (Bateman, Murdoch or Winthrop). Not checked: the company's site cannot be read by an automated reader (robots.txt). (Perth address list review, 2026-11-06)"
   },
   {
     "id": "pretect-devices.city.www-pretectdevices-com",
@@ -35288,6 +35673,17 @@
     "note": "The site itself."
   },
   {
+    "id": "resetdata.address.centuria-com-au-news-centuria-to-acquire-50-in-next-gen-data-cen",
+    "company_id": "resetdata",
+    "field": "address",
+    "value": "AI-F1 data centre, 818 Bourke Street, Docklands VIC 3008",
+    "source_id": "centuria-com-au-news-centuria-to-acquire-50-in-next-gen-data-cen",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:04:28.904Z",
+    "status": "active",
+    "note": "A researched address (Melbourne operational data-centre facility); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "resetdata.city.resetdata-com-au-contact",
     "company_id": "resetdata",
     "field": "city",
@@ -35717,6 +36113,17 @@
     "note": "The site itself."
   },
   {
+    "id": "roller.address.www-roller-software-master-terms",
+    "company_id": "roller",
+    "field": "address",
+    "value": "101 Moray Street, South Melbourne VIC 3205",
+    "source_id": "www-roller-software-master-terms",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:29.411Z",
+    "status": "active",
+    "note": "A researched address (Company office building; floor differs between sources); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "roller.description.www-roller-software",
     "company_id": "roller",
     "field": "description",
@@ -35770,6 +36177,17 @@
     "verified_at": "2026-10-05T15:10:45.360Z",
     "status": "active",
     "note": "Australian address on the page."
+  },
+  {
+    "id": "rosterfy.address.www-rosterfy-com-about-us",
+    "company_id": "rosterfy",
+    "field": "address",
+    "value": "Level 6, 395 Collins Street, Melbourne VIC 3000",
+    "source_id": "www-rosterfy-com-about-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:29.327Z",
+    "status": "active",
+    "note": "A researched address (office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "rosterfy.city.rosterfy-website",
@@ -35847,6 +36265,17 @@
     "verified_at": "2026-11-05T01:44:24.137Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "safety-champion-software.address.www-safetychampion-com-au-contact-us",
+    "company_id": "safety-champion-software",
+    "field": "address",
+    "value": "5 Cubitt Street, Cremorne VIC 3121",
+    "source_id": "www-safetychampion-com-au-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:30.012Z",
+    "status": "active",
+    "note": "A researched address (Head office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "safety-champion-software.city.www-safetychampion-com-au-contact-us",
@@ -36509,6 +36938,17 @@
     "note": "The site itself."
   },
   {
+    "id": "seastock.address.www-seastock-com-au-contact",
+    "company_id": "seastock",
+    "field": "address",
+    "value": "6 Molfetta Quays, Fremantle WA 6160",
+    "source_id": "www-seastock-com-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-01T16:13:42.505Z",
+    "status": "active",
+    "note": "Its contact page gives 6 Molfetta Quays, Fremantle Fishing Boat Harbour, Fremantle WA 6160."
+  },
+  {
     "id": "seastock.description.www-seastock-com-au",
     "company_id": "seastock",
     "field": "description",
@@ -36859,6 +37299,17 @@
     "verified_at": null,
     "status": "active",
     "note": "Australian address on the page."
+  },
+  {
+    "id": "senetas.address.www-senetas-com-contact",
+    "company_id": "senetas",
+    "field": "address",
+    "value": "312 Kings Way, South Melbourne VIC 3205",
+    "source_id": "www-senetas-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:35.997Z",
+    "status": "active",
+    "note": "A researched address (head office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "senetas.address.www-senetas-com-glossary",
@@ -37631,6 +38082,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "skutopia.address.www-skutopia-com-locations",
+    "company_id": "skutopia",
+    "field": "address",
+    "value": "Warehouse C, 441-459 Kororoit Creek Road, Altona VIC 3018",
+    "source_id": "www-skutopia-com-locations",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:37.172Z",
+    "status": "active",
+    "note": "A researched address (operational fulfilment centre); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "skutopia.address.www-skutopia-com-privacy-policy",
     "company_id": "skutopia",
     "field": "address",
@@ -37871,6 +38333,17 @@
     "verified_at": "2026-11-02T03:12:59.752Z",
     "status": "active",
     "note": "Australian address on the page."
+  },
+  {
+    "id": "smileyscope.address.www-smileyscope-com-en-au-contact",
+    "company_id": "smileyscope",
+    "field": "address",
+    "value": "488 Victoria Street, North Melbourne VIC 3051",
+    "source_id": "www-smileyscope-com-en-au-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:38.386Z",
+    "status": "active",
+    "note": "A researched address (Australian head office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "smileyscope.address.www-smileyscope-com-en-au-privacy",
@@ -38584,8 +39057,8 @@
     "source_id": "spacedraft-com-terms-conditions",
     "confidence": "high",
     "verified_at": "2026-10-31T02:00:01.711Z",
-    "status": "active",
-    "note": "An address in Greater Perth on the company's own page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "spacedraft.description.spacedraft-com",
@@ -38628,8 +39101,8 @@
     "source_id": "support-spacetoco-com-spacetoco-privacy-policy",
     "confidence": "medium",
     "verified_at": null,
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "its privacy policy calls this its postal address (Perth address list review, 2026-11-06)"
   },
   {
     "id": "spacetoco.address.support-spacetoco-com-spacetoco-privacy-policy.2",
@@ -39114,6 +39587,17 @@
     "verified_at": null,
     "status": "active",
     "note": "Supplied by owner (via Claude)."
+  },
+  {
+    "id": "stone-and-chalk.address.www-stoneandchalk-com-au-melbourne-startups",
+    "company_id": "stone-and-chalk",
+    "field": "address",
+    "value": "121 King Street, Melbourne VIC 3000",
+    "source_id": "www-stoneandchalk-com-au-melbourne-startups",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:39.168Z",
+    "status": "active",
+    "note": "A researched address (Coworking hub); the page states it. Researched 2026-11-15."
   },
   {
     "id": "stone-and-chalk.address.www-stoneandchalk-com-au-privacy-policy",
@@ -40093,6 +40577,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "supportly.address.vccg-com-au-supportly",
+    "company_id": "supportly",
+    "field": "address",
+    "value": "Unit 30, 22-30 Wallace Avenue, Point Cook VIC 3030",
+    "source_id": "vccg-com-au-supportly",
+    "confidence": "medium",
+    "verified_at": "2026-11-14T19:04:40.156Z",
+    "status": "active",
+    "note": "A researched address (Company / parent public business contact); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "supportly.city.supportly-au-privacy-policy",
     "company_id": "supportly",
     "field": "city",
@@ -40808,6 +41303,17 @@
     "note": "its address in Brisbane, kept as a location of its own, not where it works in Melbourne (settled on review, 2026-11-05)"
   },
   {
+    "id": "tank-stream-labs.address.www-tankstreamlabs-com-location-collins-street-melbourne",
+    "company_id": "tank-stream-labs",
+    "field": "address",
+    "value": "Levels 5 and 6, 440 Collins Street, Melbourne VIC 3000",
+    "source_id": "www-tankstreamlabs-com-location-collins-street-melbourne",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:41.346Z",
+    "status": "active",
+    "note": "A researched address (Coworking hub); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "tank-stream-labs.city.www-tankstreamlabs-com",
     "company_id": "tank-stream-labs",
     "field": "city",
@@ -40894,6 +41400,17 @@
     "verified_at": "2026-11-05T02:49:28.523Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "telecare.address.www-telecare-com-au-patient-services-hybrid-in-person-clinic",
+    "company_id": "telecare",
+    "field": "address",
+    "value": "173 Whitehorse Road, Blackburn VIC 3130",
+    "source_id": "www-telecare-com-au-patient-services-hybrid-in-person-clinic",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:54.083Z",
+    "status": "active",
+    "note": "A researched address (In-person clinic); the page states it. Researched 2026-11-15."
   },
   {
     "id": "telecare.city.www-telecare-com-au",
@@ -41490,6 +42007,17 @@
     "note": "The site itself."
   },
   {
+    "id": "the-commons.address.www-thecommons-com-au-locations",
+    "company_id": "the-commons",
+    "field": "address",
+    "value": "55 Collins Street, Melbourne VIC 3000",
+    "source_id": "www-thecommons-com-au-locations",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:53.946Z",
+    "status": "active",
+    "note": "A researched address (Coworking hub; multiple locations); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "the-commons.city.www-thecommons-com-au",
     "company_id": "the-commons",
     "field": "city",
@@ -41563,8 +42091,8 @@
     "source_id": "thevolte-com",
     "confidence": "high",
     "verified_at": "2026-10-31T01:38:00.641Z",
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "its privacy policy calls this its postal address, and its home page no longer shows an address (Perth address list review, 2026-11-06)"
   },
   {
     "id": "the-volte.address.thevolte-com-privacy-policy",
@@ -41574,8 +42102,8 @@
     "source_id": "thevolte-com-privacy-policy",
     "confidence": "medium",
     "verified_at": null,
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "its privacy policy calls this its postal address, and its home page no longer shows an address (Perth address list review, 2026-11-06)"
   },
   {
     "id": "the-volte.address.thevolte-com-privacy-policy.2",
@@ -41820,6 +42348,17 @@
     "note": "The site itself."
   },
   {
+    "id": "tiny-bright-things.address.tinybrightthings-com-contact",
+    "company_id": "tiny-bright-things",
+    "field": "address",
+    "value": "Level 2, 700 Swanston Street, Carlton VIC 3053",
+    "source_id": "tinybrightthings-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:53.977Z",
+    "status": "active",
+    "note": "A researched address (Company contact / lab); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "tiny-bright-things.city.tinybrightthings-com",
     "company_id": "tiny-bright-things",
     "field": "city",
@@ -41851,6 +42390,17 @@
     "verified_at": "2026-11-05T02:31:34.994Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "tixel.address.tixel-com-privacy",
+    "company_id": "tixel",
+    "field": "address",
+    "value": "231 Chapel Street, Prahran VIC 3181",
+    "source_id": "tixel-com-privacy",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:55.440Z",
+    "status": "active",
+    "note": "A researched address (Company-published headquarters / office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "tixel.city.tixel-com-about",
@@ -42190,6 +42740,17 @@
     "source_id": "traildsoftware-com",
     "confidence": "medium",
     "verified_at": null,
+    "status": "superseded",
+    "note": "Its own page calls this a office address (conflicting), not where it works (city pack address evidence, 2026-11-02)"
+  },
+  {
+    "id": "traild.address.traildsoftware-com-contact",
+    "company_id": "traild",
+    "field": "address",
+    "value": "Level 1, 540B Malvern Road, Prahran VIC 3181",
+    "source_id": "traildsoftware-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:55.387Z",
     "status": "superseded",
     "note": "Its own page calls this a office address (conflicting), not where it works (city pack address evidence, 2026-11-02)"
   },
@@ -43455,8 +44016,8 @@
     "source_id": "www-veintech-com-au",
     "confidence": "high",
     "verified_at": "2026-10-31T01:38:41.758Z",
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "veintech.address.www-veintech-com-au-contact",
@@ -43477,8 +44038,8 @@
     "source_id": "www-veintech-com-au-privacy-policy",
     "confidence": "medium",
     "verified_at": null,
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "veintech.address.www-veintech-com-au-terms-of-service",
@@ -43488,8 +44049,8 @@
     "source_id": "www-veintech-com-au-terms-of-service",
     "confidence": "medium",
     "verified_at": null,
-    "status": "active",
-    "note": "Australian address on the page."
+    "status": "superseded",
+    "note": "the same address as the row kept, spelt differently or from another page (settled on review, 2026-11-05)"
   },
   {
     "id": "veintech.state.www-veintech-com-au",
@@ -45252,6 +45813,17 @@
     "note": "The site itself."
   },
   {
+    "id": "wotso.address.wotso-com-locations-vic-melbourne-melbourne-cbd",
+    "company_id": "wotso",
+    "field": "address",
+    "value": "Level 3, 11-19 Bank Place, Melbourne VIC 3000",
+    "source_id": "wotso-com-locations-vic-melbourne-melbourne-cbd",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:04:59.380Z",
+    "status": "active",
+    "note": "A researched address (Coworking hub; multiple locations); the page states it. Researched 2026-11-15."
+  },
+  {
     "id": "wotso.city.wotso-com-contact",
     "company_id": "wotso",
     "field": "city",
@@ -45382,6 +45954,17 @@
     "verified_at": "2026-11-05T02:38:09.763Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "xero.address.www-xero-com-au-about-offices",
+    "company_id": "xero",
+    "field": "address",
+    "value": "Level 3, 260 Burwood Road, Hawthorn VIC 3122",
+    "source_id": "www-xero-com-au-about-offices",
+    "confidence": "high",
+    "verified_at": "2026-11-14T19:05:10.315Z",
+    "status": "active",
+    "note": "A researched address (Australian head office); the page states it. Researched 2026-11-15."
   },
   {
     "id": "xero.address.www-xero-com-au-legal-terms",

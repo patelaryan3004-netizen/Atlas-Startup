@@ -31,7 +31,7 @@ const STREET = 'Street|St|Road|Rd|Avenue|Ave|Drive|Dr|Terrace|Tce|Highway|Hwy|Wa
 const keyOf = (value) => {
   const text = String(value).replace(/\b(?:Level|Lvl|Suite|Unit|Shop|Lot|Floor)\s*[\d/A-Za-z-]+[,\s]*/gi, ' ');
   const m = new RegExp(String.raw`(\d+)[A-Za-z]?(?:\s*[-–]\s*\d+[A-Za-z]?)?\s+([A-Za-z'’. -]+?)\s+(?:${STREET})\b`, 'i').exec(text);
-  const state = placeOfAddress(value)?.state ?? '';
+  const state = placeOfAddress(withCodes(value))?.state ?? '';
   return m ? `${m[1]}|${m[2].toLowerCase().replace(/[^a-z]/g, '').replace(/s$/, '')}|${state}` : `raw|${text.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
 };
 const strengthOf = (url, kind) => {
@@ -47,6 +47,9 @@ const junk = (v) => {
   if (/\b[A-Z]{2}\s+\d{5}\b/.test(v)) return 'not an Australian address';
   return null;
 };
+// a page may spell the state out ("Malaga, Western Australia, 6090"): the place of an address is read from the code ("WA 6090"), as everywhere else in the importer
+const STATES = { 'Western Australia': 'WA', 'New South Wales': 'NSW', Queensland: 'QLD', 'South Australia': 'SA', Tasmania: 'TAS', Victoria: 'VIC', 'Northern Territory': 'NT', 'Australian Capital Territory': 'ACT' };
+const withCodes = (v) => String(v).replace(new RegExp(String.raw`\b(${Object.keys(STATES).join('|')})\b[,\s]*(\d{4})\b`, 'gi'), (m, s, pc) => `${STATES[Object.keys(STATES).find((k) => k.toLowerCase() === s.toLowerCase())]} ${pc}`);
 const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return null; } };
 
 async function plan(write) {
@@ -63,7 +66,7 @@ async function plan(write) {
       const city = metroOf(c) ?? c.city;
       const rows = work.evidence.filter((e) => e.company_id === c.id && e.field === 'address' && e.status === 'active').map((e) => {
         const s = sourceOf.get(e.source_id);
-        return { e, url: s?.url ?? '', strength: strengthOf(s?.url ?? '', s?.kind), place: placeOfAddress(e.value) };
+        return { e, url: s?.url ?? '', strength: strengthOf(s?.url ?? '', s?.kind), place: placeOfAddress(withCodes(e.value)) };
       });
       const changes = [];
       const drop = (row, why) => { if (write) { row.e.status = 'superseded'; row.e.note = `${why} (settled on review, 2026-11-05)`; } changes.push({ field: `evidence.${row.e.id}`, from: 'active', to: 'superseded' }); report.superseded.push(`${c.name}: ${row.e.value} (${why})`); };
@@ -112,6 +115,8 @@ async function plan(write) {
     for (const f of FIXES) {
       const l = work.company_locations.find((x) => x.id === f.id);
       if (!l) continue;
+      // already corrected (the row says what the fix says): nothing to do and nothing to record
+      if (!f.delete && (f.label ?? l.label) === l.label && (f.kind ?? l.kind) === l.kind && (f.address ?? l.address) === l.address && (f.city ?? l.city) === l.city && (f.suburb === undefined || f.suburb === l.suburb) && !(f.new_id && f.new_id !== l.id)) continue;
       if (f.delete) { if (write) work.company_locations.splice(work.company_locations.indexOf(l), 1); report.fixed_locations.push(`${f.id}: removed (${f.why})`); }
       else {
         if (write) {

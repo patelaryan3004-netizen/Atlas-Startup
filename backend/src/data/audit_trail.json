@@ -81980,6 +81980,517 @@
     ]
   },
   {
+    "id": "aud-20261106125911033-1",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "spacetoco"
+    },
+    "summary": "SpacetoCo: its privacy policy calls this its postal address; it is kept as a location of its own and is not evidence of where the company works",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.spacetoco.address.support-spacetoco-com-spacetoco-privacy-policy",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Postal address (privacy policy): 525 Falls Road, Hovea WA 6070"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-2",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "the-volte"
+    },
+    "summary": "The Volte: its privacy policy calls this its postal address, and its home page no longer shows an address; it is kept as a location of its own and is not evidence of where the company works",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.the-volte.address.thevolte-com",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.the-volte.address.thevolte-com-privacy-policy",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Postal address (privacy policy): 1/4 Gugeri Street, Claremont WA 6010"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-3",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "omni-biotech"
+    },
+    "summary": "Omni Biotech: its terms give it as the address of the legal entity, not as a place of work; it is kept as a location of its own and is not evidence of where the company works",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address of its legal entity in its terms (Omni Industry Pty Ltd): 25 Money Street, Perth WA 6000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-4",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "seastock"
+    },
+    "summary": "SeaStock: an operating address on its own page was added as evidence (6 Molfetta Quays, Fremantle WA 6160)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "6 Molfetta Quays, Fremantle WA 6160"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-5",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "gene-s"
+    },
+    "summary": "Gene S: an operating address on its own page was added as evidence (1st Floor, M Block, QEII Medical Centre, Nedlands WA 6009)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "1st Floor, M Block, QEII Medical Centre, Nedlands WA 6009"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-6",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "appbot"
+    },
+    "summary": "Appbot: Appbot: a pasted address no page supports was logged as rejected evidence; a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: Unit 7 / Level 1, 1050 Hay Street, West Perth WA 6005"
+      },
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: Mount Hawthorn, WA"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-7",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "black-swan-biotech"
+    },
+    "summary": "Black Swan Biotech: a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: Nedlands, WA 6009"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-8",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "chironix"
+    },
+    "summary": "Chironix: a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: 37 Collingwood Street, Osborne Park WA 6017"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-9",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "corametix"
+    },
+    "summary": "CoraMetix: a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: Nedlands, WA 6015"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-10",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "edible-cutlery"
+    },
+    "summary": "Edible Cutlery: a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: Unit 1/226 Main Street, Osborne Park WA 6017"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-11",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "moodle"
+    },
+    "summary": "Moodle: a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: 20 Kings Park Road, West Perth WA 6005"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-12",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "portable-ppb"
+    },
+    "summary": "Portable PPB: Portable PPB: a pasted address no page supports was logged as rejected evidence; a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: 42 Tulloch Way, Canning Vale WA 6155"
+      },
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: 18 Sorbonne Crescent, Canning Vale WA 6155"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106125911033-13",
+    "at": "2026-11-06T12:59:11.033Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "pretect-devices"
+    },
+    "summary": "Pretect Devices: a pasted address no page supports was logged as rejected evidence",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "rejected claim: Bateman, WA 6150"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-1",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "chironix"
+    },
+    "summary": "Chironix: its own pages gave more than one address; settled by rule (see conflicts.mjs): 4 change(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.chironix.address.chironix-com",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.chironix.address.chironix-com-company-about-chironix",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.chironix.address.chironix-com-privacy-policy",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.chironix.address.chironix-com-terms-of-service",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-2",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "dayworkbook"
+    },
+    "summary": "Dayworkbook: its own pages gave more than one address; settled by rule (see conflicts.mjs): 1 change(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.dayworkbook.address.dayworkbook-com-terms",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-3",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "veintech"
+    },
+    "summary": "VeinTech: its own pages gave more than one address; settled by rule (see conflicts.mjs): 3 change(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.veintech.address.www-veintech-com-au",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.veintech.address.www-veintech-com-au-privacy-policy",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.veintech.address.www-veintech-com-au-terms-of-service",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-4",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "spacedraft"
+    },
+    "summary": "SpaceDraft: its own pages gave more than one address; settled by rule (see conflicts.mjs): 1 change(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.spacedraft.address.spacedraft-com-terms-conditions",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-5",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bobbleware"
+    },
+    "summary": "Bobbleware: its own pages gave more than one address; settled by rule (see conflicts.mjs): 1 change(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.bobbleware.address.www-bobbleware-com-pages-contact-us",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-6",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "biotome"
+    },
+    "summary": "Biotome: its own pages gave more than one address; settled by rule (see conflicts.mjs): 2 change(s)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.biotome.address.www-biotome-com-au",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "evidence.biotome.address.www-biotome-com-au-privacy-policy",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-7",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "cario"
+    },
+    "summary": "A location row was corrected: the suburb Lane Cove West had been split by a comma",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": "cario.office.sydney",
+        "to": "cario.office.sydney"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130007785-8",
+    "at": "2026-11-06T13:00:07.785Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "ideally"
+    },
+    "summary": "A location row was corrected: two addresses had been run together; this is the Sydney one",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": "ideally.office.sydney",
+        "to": "ideally.office.sydney"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261106130054863-1",
+    "at": "2026-11-06T13:00:54.863Z",
+    "actor": "locations",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 1 address(es), 0 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
     "id": "aud-20261113080351296-1",
     "at": "2026-11-13T08:03:51.296Z",
     "actor": "release-manual",
@@ -82008,5 +82519,4081 @@
     "summary": "jobsync: 8 board(s) read whole; 1 hidden, 9 archived",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261114190603670-1",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "activepipe"
+    },
+    "summary": "ActivePipe: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 64 Gwynne Street, Cremorne VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-2",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "adora"
+    },
+    "summary": "Adora: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): Level 16, South Tower, 80 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-3",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "adslot"
+    },
+    "summary": "Adslot: an address its own website states was added as evidence (Level 2, 419 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 2, 419 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-4",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "affinda"
+    },
+    "summary": "Affinda: an address its cited page states was added as evidence (Dover House, 6 Fitzgibbon Street, Cremorne VIC 3121)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Dover House, 6 Fitzgibbon Street, Cremorne VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-5",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "alayacare"
+    },
+    "summary": "AlayaCare: an address its own website states was added as evidence (Suite 2, Level 7, 5 Queens Road, Melbourne VIC 3004)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Suite 2, Level 7, 5 Queens Road, Melbourne VIC 3004"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-6",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "amdocs"
+    },
+    "summary": "Amdocs: an address its own website states was added as evidence (Level 14, 575 Bourke Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 14, 575 Bourke Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-7",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "andromeda-robotics"
+    },
+    "summary": "Andromeda Robotics: an address its own website states was added as evidence (224-226 Normanby Road, Southbank VIC 3006)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "224-226 Normanby Road, Southbank VIC 3006"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-8",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "archa"
+    },
+    "summary": "Archa: an address its page states (conflicting public addresses) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (listings conflict): 10-20 Gwynne Street, Cremorne VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-9",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "bare"
+    },
+    "summary": "Bare: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Suite 9.04, Level 9, 500 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-10",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "brightspace"
+    },
+    "summary": "Brightspace: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 28 Blazey Street, Richmond VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-11",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "c2-robotics"
+    },
+    "summary": "C2 Robotics: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 46 Ovata Drive, Tullamarine VIC 3043"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-12",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "capital-com"
+    },
+    "summary": "Capital.com: an address its own website states was added as evidence (Level 15, 357 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 15, 357 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-13",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "cipher-sports-technology-group"
+    },
+    "summary": "Cipher Sports Technology Group: an address its own website states was added as evidence (7/51 Langridge Street, Collingwood VIC 3066)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "7/51 Langridge Street, Collingwood VIC 3066"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-14",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "cortical-labs"
+    },
+    "summary": "Cortical Labs: an address its cited page states was added as evidence (306 Albert Street, Brunswick VIC 3056)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "306 Albert Street, Brunswick VIC 3056"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-15",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "creativecubes-co-carlton"
+    },
+    "summary": "CreativeCubes.Co Carlton: an address its own website states was added as evidence (333 Drummond Street, Carlton VIC 3053)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "333 Drummond Street, Carlton VIC 3053"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-16",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "cuttable"
+    },
+    "summary": "Cuttable: an address its cited page states was added as evidence (1/60 Wilson Street, South Yarra VIC 3141)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "1/60 Wilson Street, South Yarra VIC 3141"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-17",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "cybercx"
+    },
+    "summary": "CyberCX: an address its own website states was added as evidence (Level 4, 330 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 4, 330 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-18",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "datarock"
+    },
+    "summary": "Datarock: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 3/31 Queen Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-19",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "dayforce"
+    },
+    "summary": "Dayforce: an address its own website states was added as evidence (12th Floor, North Tower, 459 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "12th Floor, North Tower, 459 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-20",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "deciphrai"
+    },
+    "summary": "DeciphrAI: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Suite 109, 3 Albert Coates Lane, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-21",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "designer-journeys"
+    },
+    "summary": "Designer Journeys: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 7, 485 Bourke Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-22",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "eastern-innovation"
+    },
+    "summary": "Eastern Innovation: an address its own website states was added as evidence (5A Hartnett Close, Mulgrave VIC 3170)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "5A Hartnett Close, Mulgrave VIC 3170"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-23",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "eiz-technology"
+    },
+    "summary": "EIZ Technology: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): Level 1, 13 Corporate Drive, Heatherton VIC 3202"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-24",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "ena-respiratory"
+    },
+    "summary": "ENA Respiratory: an address its cited page states was added as evidence (Level 9, 31 Queen Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 9, 31 Queen Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-25",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "enervaro"
+    },
+    "summary": "Enervaro: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 1, 58 Burwood Road, Hawthorn VIC 3122"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-26",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "farmwall"
+    },
+    "summary": "Farmwall: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 2 Wingrove Street, Alphington VIC 3078"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-27",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "flippa"
+    },
+    "summary": "Flippa: an address its page states (conflicting public addresses) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (listings conflict): 110 Johnston Street, Fitzroy VIC 3065"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-28",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "h3d"
+    },
+    "summary": "H3D: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): Level 11, 655 Elizabeth Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-29",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "humanetix"
+    },
+    "summary": "Humanetix: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 22, 2 Market Street, Sydney NSW 2000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-30",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "hungryhungry"
+    },
+    "summary": "HungryHungry: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 59 Fennell Street, Port Melbourne VIC 3207"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-31",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "ideally"
+    },
+    "summary": "Ideally: an address its own website states was added as evidence (10-20 Gwynne Street, Cremorne VIC 3121)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "10-20 Gwynne Street, Cremorne VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-32",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "iharvest-coworking-sunshine"
+    },
+    "summary": "iHarvest Coworking Sunshine: an address its own website states was added as evidence (Level 4, 301 Hampshire Road, Sunshine VIC 3020)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 4, 301 Hampshire Road, Sunshine VIC 3020"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-33",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "isaacus"
+    },
+    "summary": "Isaacus: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: 81-83 Campbell Street, Surry Hills NSW 2010"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-34",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "kolmeo"
+    },
+    "summary": "Kolmeo: an address its own website states was added as evidence (Level 6, 31 Queen Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 6, 31 Queen Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-35",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "machship"
+    },
+    "summary": "MachShip: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: 115 Cremorne Street, Cremorne VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-36",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "matrak"
+    },
+    "summary": "Matrak: an address its cited page states was added as evidence (3 Albert Coates Lane, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "3 Albert Coates Lane, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-37",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "melbourne-connect"
+    },
+    "summary": "Melbourne Connect: an address its own website states was added as evidence (700 Swanston Street, Carlton VIC 3053)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "700 Swanston Street, Carlton VIC 3053"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-38",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "misti"
+    },
+    "summary": "Misti: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 655 Elizabeth Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-39",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "mlai"
+    },
+    "summary": "MLAI: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Suite 350, 585 Little Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-40",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "novatti-group"
+    },
+    "summary": "Novatti Group: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 3, 461 Bourke Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-41",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "o3"
+    },
+    "summary": "O3: an address its own website states was added as evidence (87 Queensbridge Street, Southbank VIC 3006)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "87 Queensbridge Street, Southbank VIC 3006"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-42",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "playside-studios"
+    },
+    "summary": "PlaySide Studios: an address its own website states was added as evidence (Level 1, 75 Crockford Street, Port Melbourne VIC 3207)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 1, 75 Crockford Street, Port Melbourne VIC 3207"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-43",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "point-of-rental-software"
+    },
+    "summary": "Point of Rental Software: an address its own website states was added as evidence (23-25 Gipps Street, Collingwood VIC 3066)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "23-25 Gipps Street, Collingwood VIC 3066"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-44",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "pointdata"
+    },
+    "summary": "PointData: an address its own website states was added as evidence (Level 4, 54 Wellington Street, Collingwood VIC 3066)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 4, 54 Wellington Street, Collingwood VIC 3066"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-45",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "powertec"
+    },
+    "summary": "PowerTec: an address its own website states was added as evidence (Unit 18, 25 Cook Road, Mitcham VIC 3132)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Unit 18, 25 Cook Road, Mitcham VIC 3132"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-46",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "preezie"
+    },
+    "summary": "preezie: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): Level 17, 31 Queen Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-47",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "propertymate"
+    },
+    "summary": "PropertyMate: an address its page states (conflicting public addresses) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (listings conflict): 45 Whitehorse Road, Balwyn VIC 3103"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-48",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "react-melbourne"
+    },
+    "summary": "React Melbourne: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 139 Gladstone Street, South Melbourne VIC 3205"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-49",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "resetdata"
+    },
+    "summary": "ResetData: an address its cited page states was added as evidence (AI-F1 data centre, 818 Bourke Street, Docklands VIC 3008)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "AI-F1 data centre, 818 Bourke Street, Docklands VIC 3008"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-50",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "roller"
+    },
+    "summary": "ROLLER: an address its own website states was added as evidence (101 Moray Street, South Melbourne VIC 3205)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "101 Moray Street, South Melbourne VIC 3205"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-51",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "rosterfy"
+    },
+    "summary": "Rosterfy: an address its own website states was added as evidence (Level 6, 395 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 6, 395 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-52",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "rubens-technologies"
+    },
+    "summary": "Rubens Technologies: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): Unit 16, 1470 Ferntree Gully Road, Knoxfield VIC 3180"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-53",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "safety-champion-software"
+    },
+    "summary": "Safety Champion Software: an address its own website states was added as evidence (5 Cubitt Street, Cremorne VIC 3121)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "5 Cubitt Street, Cremorne VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-54",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "senetas"
+    },
+    "summary": "Senetas: an address its own website states was added as evidence (312 Kings Way, South Melbourne VIC 3205)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "312 Kings Way, South Melbourne VIC 3205"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-55",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "skutopia"
+    },
+    "summary": "SKUTOPIA: an address its own website states was added as evidence (Warehouse C, 441-459 Kororoit Creek Road, Altona VIC 3018)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Warehouse C, 441-459 Kororoit Creek Road, Altona VIC 3018"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-56",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "smileyscope"
+    },
+    "summary": "Smileyscope: an address its own website states was added as evidence (488 Victoria Street, North Melbourne VIC 3051)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "488 Victoria Street, North Melbourne VIC 3051"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-57",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "stone-and-chalk"
+    },
+    "summary": "Stone & Chalk: an address its own website states was added as evidence (121 King Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "121 King Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-58",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "strength-by-numbers"
+    },
+    "summary": "Strength by Numbers: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Unit 18, 328 Reserve Road, Cheltenham VIC 3192"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-59",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "sunwiz"
+    },
+    "summary": "SunWiz: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): 5 Walkers Road, Nunawading VIC 3131"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-60",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "supportly"
+    },
+    "summary": "Supportly: an address its cited page states was added as evidence (Unit 30, 22-30 Wallace Avenue, Point Cook VIC 3030)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Unit 30, 22-30 Wallace Avenue, Point Cook VIC 3030"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-61",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "tank-stream-labs"
+    },
+    "summary": "Tank Stream Labs: an address its own website states was added as evidence (Levels 5 and 6, 440 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Levels 5 and 6, 440 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-62",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "telecare"
+    },
+    "summary": "Telecare: an address its own website states was added as evidence (173 Whitehorse Road, Blackburn VIC 3130)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "173 Whitehorse Road, Blackburn VIC 3130"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-63",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "the-commons"
+    },
+    "summary": "The Commons: an address its own website states was added as evidence (55 Collins Street, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "55 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-64",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "tiny-bright-things"
+    },
+    "summary": "Tiny Bright Things: an address its own website states was added as evidence (Level 2, 700 Swanston Street, Carlton VIC 3053)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 2, 700 Swanston Street, Carlton VIC 3053"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-65",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "tixel"
+    },
+    "summary": "Tixel: an address its own website states was added as evidence (231 Chapel Street, Prahran VIC 3181)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "231 Chapel Street, Prahran VIC 3181"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-66",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "traild"
+    },
+    "summary": "Traild: an address its own website states was added as evidence (Level 1, 540B Malvern Road, Prahran VIC 3181)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 1, 540B Malvern Road, Prahran VIC 3181"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-67",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "tutero"
+    },
+    "summary": "Tutero: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 3, 535 Bourke Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-68",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "vudoo"
+    },
+    "summary": "Vudoo: an address its page states (street address; office unconfirmed) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Address on its page (office not confirmed): Level 8, 71 Gipps Street, Collingwood VIC 3066"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-69",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "webbeds-group"
+    },
+    "summary": "WebBeds Group: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 12, 440 Collins Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-70",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "wotso"
+    },
+    "summary": "WOTSO: an address its own website states was added as evidence (Level 3, 11-19 Bank Place, Melbourne VIC 3000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 3, 11-19 Bank Place, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-71",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "xero"
+    },
+    "summary": "Xero: an address its own website states was added as evidence (Level 3, 260 Burwood Road, Hawthorn VIC 3122)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 3, 260 Burwood Road, Hawthorn VIC 3122"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190603670-72",
+    "at": "2026-11-14T19:06:03.670Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "xplor-education"
+    },
+    "summary": "Xplor Education: an address its page states (legal / registered / correspondence address) was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Registered / mailing address on its page: Level 3, 520 Bourke Street, Melbourne VIC 3000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190729574-1",
+    "at": "2026-11-14T19:07:29.574Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.geocode",
+    "target": {
+      "type": "system",
+      "id": "geocoder"
+    },
+    "summary": "Asked the geocoder about 45 address(es), 623 answered from the cache",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261114190817655-1",
+    "at": "2026-11-14T19:08:17.655Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "adslot"
+    },
+    "summary": "Gave Adslot the address its own website states (Level 2, 419 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8174789
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9606313
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 2, 419 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T01:00:13.366Z",
+        "to": "2026-11-14T19:03:10.067Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190824069-1",
+    "at": "2026-11-14T19:08:24.069Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "alayacare"
+    },
+    "summary": "Gave AlayaCare the address its own website states (Suite 2, Level 7, 5 Queens Road, Melbourne VIC 3004), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3004"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8370185
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.973929
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Suite 2, Level 7, 5 Queens Road, Melbourne VIC 3004"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://alayacare.com/contact/",
+        "to": "https://alayacare.com/en-au/contact-us/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T01:00:53.245Z",
+        "to": "2026-11-14T19:03:11.736Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190827175-1",
+    "at": "2026-11-14T19:08:27.175Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "amdocs"
+    },
+    "summary": "Gave Amdocs the address its own website states (Level 14, 575 Bourke Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8165388
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9566835
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 14, 575 Bourke Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:03:11.763Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190829909-1",
+    "at": "2026-11-14T19:08:29.909Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "andromeda-robotics"
+    },
+    "summary": "Gave Andromeda Robotics the address its own website states (224-226 Normanby Road, Southbank VIC 3006), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Southbank"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3006"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8283276
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9490686
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "224-226 Normanby Road, Southbank VIC 3006"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://andromedarobotics.ai/contact-us"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-11-14T19:03:11.036Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190833093-1",
+    "at": "2026-11-14T19:08:33.093Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "capital-com"
+    },
+    "summary": "Gave Capital.com the address its own website states (Level 15, 357 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8171493
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9626868
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 15, 357 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:03:27.968Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190837148-1",
+    "at": "2026-11-14T19:08:37.148Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "cipher-sports-technology-group"
+    },
+    "summary": "Gave Cipher Sports Technology Group the address its own website states (7/51 Langridge Street, Collingwood VIC 3066), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Collingwood"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3066"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8067647
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9863399
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "7/51 Langridge Street, Collingwood VIC 3066"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:03:27.705Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190839966-1",
+    "at": "2026-11-14T19:08:39.966Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "creativecubes-co-carlton"
+    },
+    "summary": "Gave CreativeCubes.Co Carlton the address its own website states (333 Drummond Street, Carlton VIC 3053), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Carlton"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3053"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.7979
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.968732
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "333 Drummond Street, Carlton VIC 3053"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://creativecubes.co/",
+        "to": "https://creativecubes.co/locations/melbourne/333-drummond-street-carlton/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:03:29.596Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190842609-1",
+    "at": "2026-11-14T19:08:42.609Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "cuttable"
+    },
+    "summary": "Gave Cuttable the address its own document states (1/60 Wilson St, South Yarra VIC 3141), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "South Yarra"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3141"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8441658
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9976714
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "1/60 Wilson St, South Yarra VIC 3141"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_document"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.cuttable.com/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:04:55.475Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190845198-1",
+    "at": "2026-11-14T19:08:45.198Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "cybercx"
+    },
+    "summary": "Gave CyberCX the address its own website states (Level 4, 330 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8161153
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9633914
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 4, 330 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:03:30.380Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190855429-1",
+    "at": "2026-11-14T19:08:55.429Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "dayforce"
+    },
+    "summary": "Gave Dayforce the address its own website states (12th Floor, North Tower, 459 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8179536
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9588734
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "12th Floor, North Tower, 459 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.dayforce.com/contact",
+        "to": "https://www.dayforce.com/au/contact"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:03:31.007Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190859082-1",
+    "at": "2026-11-14T19:08:59.082Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "drawboard"
+    },
+    "summary": "Gave Drawboard the address its own document states (10-20 Gwynne St, Cremorne VIC 3121), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Cremorne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3121"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8283479
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9931954
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "10-20 Gwynne St, Cremorne VIC 3121"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_document"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.drawboard.com/privacy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:09:57.087Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190902074-1",
+    "at": "2026-11-14T19:09:02.074Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "eastern-innovation"
+    },
+    "summary": "Gave Eastern Innovation the address its own website states (5A Hartnett Close, Mulgrave VIC 3170), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Mulgrave"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3170"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.9242374
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 145.1489
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "5A Hartnett Close, Mulgrave VIC 3170"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.eibc.net.au/",
+        "to": "https://space.eibc.net.au/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T02:43:47.213Z",
+        "to": "2026-11-14T19:03:47.753Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190905128-1",
+    "at": "2026-11-14T19:09:05.128Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "ideally"
+    },
+    "summary": "Gave Ideally the address its own website states (10-20 Gwynne Street, Cremorne VIC 3121), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Cremorne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3121"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8283479
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9931954
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "10-20 Gwynne Street, Cremorne VIC 3121"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:01.223Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190907425-1",
+    "at": "2026-11-14T19:09:07.425Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "iharvest-coworking-sunshine"
+    },
+    "summary": "Gave iHarvest Coworking Sunshine the address its own website states (Level 4, 301 Hampshire Road, Sunshine VIC 3020), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sunshine"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3020"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.7831433
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.8320966
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 4, 301 Hampshire Road, Sunshine VIC 3020"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://iharvestcoworking.com.au/",
+        "to": "https://iharvestcoworking.com.au/contact-us/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:06.399Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190910232-1",
+    "at": "2026-11-14T19:09:10.232Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "kolmeo"
+    },
+    "summary": "Gave Kolmeo the address its own website states (Level 6, 31 Queen Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8182204
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9617793
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 6, 31 Queen Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://kolmeo.com/privacy-policy/",
+        "to": "https://kolmeo.com/blog/kolmeo-means-business/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:05.005Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190913489-1",
+    "at": "2026-11-14T19:09:13.489Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "playside-studios"
+    },
+    "summary": "Gave PlaySide Studios the address its own website states (Level 1, 75 Crockford Street, Port Melbourne VIC 3207), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Port Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3207"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8338778
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.948813
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 1, 75 Crockford Street, Port Melbourne VIC 3207"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://playsidestudios.com/privacy-policy",
+        "to": "https://investor.playsidestudios.com/contact/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:26.868Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190916387-1",
+    "at": "2026-11-14T19:09:16.387Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "point-of-rental-software"
+    },
+    "summary": "Gave Point of Rental Software the address its own website states (23-25 Gipps Street, Collingwood VIC 3066), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Collingwood"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3066"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8048919
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9880137
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "23-25 Gipps Street, Collingwood VIC 3066"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.point-of-rental.com/contact/",
+        "to": "https://www.point-of-rental.com/au/contact/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:25.234Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190919515-1",
+    "at": "2026-11-14T19:09:19.515Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "pointdata"
+    },
+    "summary": "Gave PointData the address its own website states (Level 4, 54 Wellington Street, Collingwood VIC 3066), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Collingwood"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3066"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8070772
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9863843
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 4, 54 Wellington Street, Collingwood VIC 3066"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:25.871Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190922811-1",
+    "at": "2026-11-14T19:09:22.811Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "powertec"
+    },
+    "summary": "Gave PowerTec the address its own website states (Unit 18, 25 Cook Road, Mitcham VIC 3132), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Mitcham"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3132"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8143062
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 145.2026795
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Unit 18, 25 Cook Road, Mitcham VIC 3132"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://power-tec.com.au/",
+        "to": "https://power-tec.com.au/contact-us/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:30.522Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190925688-1",
+    "at": "2026-11-14T19:09:25.688Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "rosterfy"
+    },
+    "summary": "Gave Rosterfy the address its own website states (Level 6, 395 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8172181
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9613602
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 6, 395 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.rosterfy.com/about-us/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-11-14T19:04:29.327Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190928319-1",
+    "at": "2026-11-14T19:09:28.319Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "safety-champion-software"
+    },
+    "summary": "Gave Safety Champion Software the address its own website states (5 Cubitt Street, Cremorne VIC 3121), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Cremorne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3121"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8263634
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9929497
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "5 Cubitt Street, Cremorne VIC 3121"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:30.012Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190930708-1",
+    "at": "2026-11-14T19:09:30.708Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "stone-and-chalk"
+    },
+    "summary": "Gave Stone & Chalk the address its own website states (121 King Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8172349
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9558607
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "121 King Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.stoneandchalk.com.au/",
+        "to": "https://www.stoneandchalk.com.au/melbourne-startups"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T02:47:35.624Z",
+        "to": "2026-11-14T19:04:39.168Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190934619-1",
+    "at": "2026-11-14T19:09:34.619Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "tank-stream-labs"
+    },
+    "summary": "Gave Tank Stream Labs the address its own website states (Levels 5 and 6, 440 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8169997
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9597713
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Levels 5 and 6, 440 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.tankstreamlabs.com/",
+        "to": "https://www.tankstreamlabs.com/location/collins-street-melbourne"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T02:49:28.523Z",
+        "to": "2026-11-14T19:04:41.346Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190937894-1",
+    "at": "2026-11-14T19:09:37.894Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "the-commons"
+    },
+    "summary": "Gave The Commons the address its own website states (55 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8142426
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9720591
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "55 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.thecommons.com.au/",
+        "to": "https://www.thecommons.com.au/locations"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:53.946Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190940437-1",
+    "at": "2026-11-14T19:09:40.437Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "tiny-bright-things"
+    },
+    "summary": "Gave Tiny Bright Things the address its own website states (Level 2, 700 Swanston Street, Carlton VIC 3053), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Carlton"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3053"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8000574
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9644448
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 2, 700 Swanston Street, Carlton VIC 3053"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://tinybrightthings.com/",
+        "to": "https://tinybrightthings.com/contact/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:53.977Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190943303-1",
+    "at": "2026-11-14T19:09:43.303Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "tixel"
+    },
+    "summary": "Gave Tixel the address its own website states (231 Chapel Street, Prahran VIC 3181), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Prahran"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3181"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8505913
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9933538
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "231 Chapel Street, Prahran VIC 3181"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://tixel.com/about",
+        "to": "https://tixel.com/privacy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-02T03:16:24.985Z",
+        "to": "2026-11-14T19:04:55.440Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114190946724-1",
+    "at": "2026-11-14T19:09:46.724Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "wotso"
+    },
+    "summary": "Gave WOTSO the address its own website states (Level 3, 11-19 Bank Place, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8164987
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9602403
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 3, 11-19 Bank Place, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://wotso.com/contact/",
+        "to": "https://wotso.com/locations/vic/melbourne/melbourne-cbd/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T05:00:54.762Z",
+        "to": "2026-11-14T19:04:59.380Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191249371-1",
+    "at": "2026-11-14T19:12:49.371Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "heidi-health"
+    },
+    "summary": "Gave Heidi Health the address its own website states (Level 6/71 Gipps St, Collingwood VIC 3066), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Collingwood"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3066"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8049716
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9898437
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 6/71 Gipps St, Collingwood VIC 3066"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.heidihealth.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:05:34.988Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191252387-1",
+    "at": "2026-11-14T19:12:52.387Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "propeller-aero"
+    },
+    "summary": "Gave Propeller Aero the address its own document states (115 Cooper St, Surry Hills NSW 2010), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Surry Hills"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2010"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8860717
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2105703
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "115 Cooper St, Surry Hills NSW 2010"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_document"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.propelleraero.com/privacy-policy/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:02:55.774Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191255778-1",
+    "at": "2026-11-14T19:12:55.778Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "mx51"
+    },
+    "summary": "Gave mx51 the address its own website states (135 King Street, Sydney NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8692925
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2088039
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "135 King Street, Sydney NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://mx51.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:08:52.913Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191259769-1",
+    "at": "2026-11-14T19:12:59.769Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "signonsite"
+    },
+    "summary": "Gave SignOnSite the address its own website states (1 Moore St, Canberra ACT 2601), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Canberra"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2601"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -35.2777273
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 149.1274248
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "1 Moore St, Canberra ACT 2601"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.signonsite.com/forms/contact-us"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:09:14.638Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191303382-1",
+    "at": "2026-11-14T19:13:03.382Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "earthodic"
+    },
+    "summary": "Gave Earthodic the address its own website states (18 Morrisby St, Geebung QLD 4034), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Geebung"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "4034"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -27.3692561
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 153.0488497
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "18 Morrisby St, Geebung QLD 4034"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://www.earthodic.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:08:19.606Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191306337-1",
+    "at": "2026-11-14T19:13:06.337Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "pairtree"
+    },
+    "summary": "Gave Pairtree the address its own website states (23 Isaac Drive, Orange NSW 2800), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Orange"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2800"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.2899061
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 149.0637296
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "23 Isaac Drive, Orange NSW 2800"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://pairtree.co/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:08:53.204Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191310581-1",
+    "at": "2026-11-14T19:13:10.581Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "gradability"
+    },
+    "summary": "Gave Gradability the address its own website states (76 Waymouth Street, Adelaide SA 5000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Adelaide"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "5000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -34.9257195
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 138.5967937
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "76 Waymouth Street, Adelaide SA 5000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-31T00:24:02.861Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191315455-1",
+    "at": "2026-11-14T19:13:15.455Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "movus"
+    },
+    "summary": "Gave Movus the address its own website states (107 Milton Road, Milton QLD 4064), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Milton"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "4064"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -27.467297
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 153.0084099
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "107 Milton Road, Milton QLD 4064"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-30T23:52:58.727Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191319616-1",
+    "at": "2026-11-14T19:13:19.616Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "on-the-house"
+    },
+    "summary": "Gave On The House the address its own document states (23 Iris Place, Acacia Ridge QLD 4110), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Acacia Ridge"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "4110"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -27.5959321
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 153.0305136
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "23 Iris Place, Acacia Ridge QLD 4110"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "company_website",
+        "to": "company_document"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-31T00:31:49.570Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191323156-1",
+    "at": "2026-11-14T19:13:23.156Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "zendir"
+    },
+    "summary": "Gave Zendir the address its own document states (14 Childers Street, Canberra City ACT 2601), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Canberra City"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2601"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -35.2788324
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 149.1244338
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "14 Childers Street, Canberra City ACT 2601"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "company_website",
+        "to": "company_document"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-30T23:34:33.544Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191327503-1",
+    "at": "2026-11-14T19:13:27.503Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "data-zoo"
+    },
+    "summary": "Gave Data Zoo the address its own document states (99 Mount Street, North Sydney NSW 2060), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "North Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2060"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.8393839
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2084444
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "99 Mount Street, North Sydney NSW 2060"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "company_website",
+        "to": "company_document"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T03:07:26.863Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191331540-1",
+    "at": "2026-11-14T19:13:31.540Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "eclipse-trading"
+    },
+    "summary": "Gave Eclipse Trading the address its own website states (143 Macquarie Street, Sydney NSW 2000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.864637
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.2123495
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "143 Macquarie Street, Sydney NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T03:09:28.336Z",
+        "to": null
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191448634-1",
+    "at": "2026-11-14T19:14:48.634Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "matrak"
+    },
+    "summary": "Matrak: its current address is 3 Albert Coates Lane (its own contact page); the older 10 St Andrews Place was superseded, as the owner confirmed",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.matrak.address.matrak-free-user-and-invited-user-terms",
+        "from": "active",
+        "to": "superseded"
+      },
+      {
+        "field": "source.matrak-com-contact.kind",
+        "from": "directory_listing",
+        "to": "company_website"
+      },
+      {
+        "field": "evidence.matrak.address.matrak-com-contact.confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191507142-1",
+    "at": "2026-11-14T19:15:07.142Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "matrak"
+    },
+    "summary": "Gave Matrak the address its own website states (3 Albert Coates Lane, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8110093
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9652408
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "3 Albert Coates Lane, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://matrak.com/contact/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-11-14T19:04:18.189Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114191509550-1",
+    "at": "2026-11-14T19:15:09.550Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.promote",
+    "target": {
+      "type": "company",
+      "id": "bare"
+    },
+    "summary": "Gave Bare the address its own document states (500 Collins Street, Melbourne VIC 3000), at the point the geocoder puts it",
+    "reason": null,
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Melbourne"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "3000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -37.8174955
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 144.9574798
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "500 Collins Street, Melbourne VIC 3000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_document"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://bare.com.au/terms/privacy-policy"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-10-05T15:04:01.437Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114192640127-1",
+    "at": "2026-11-14T19:26:40.127Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "ena-respiratory"
+    },
+    "summary": "ENA Respiratory: the city pack's address evidence (company_contact, regulatory_listing) was applied as other",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.ena-respiratory.address.lei-bloomberg-com-leis-view-254900csjfslt7fldv06",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261114192640127-2",
+    "at": "2026-11-14T19:26:40.127Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "traild"
+    },
+    "summary": "Traild: the city pack's address evidence (office, conflicting) was applied as other - Three addresses conflict (the company profile, its privacy policy, its EULA's registered address): no operating office is established, so nothing is pinned.",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.traild.address.traildsoftware-com-contact",
+        "from": "active",
+        "to": "superseded"
+      }
+    ]
   }
 ]
