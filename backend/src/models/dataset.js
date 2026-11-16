@@ -449,6 +449,9 @@ export function validateDataset(ds) {
       bad(at, 'tech_stack must be a list of distinct, non-empty names, or null');
     }
     if (c.team_size != null && (!Number.isInteger(c.team_size) || c.team_size < 1)) bad(at, 'team_size must be a whole number from 1, or null');
+    if (c.cover != null && !(isStr(c.cover) && c.cover.startsWith('/img/covers/') && c.cover.endsWith('.webp'))) bad(at, 'cover must be a /img/covers/<id>.webp path, or null');
+    if (c.cover_source_url != null && !(isStr(c.cover_source_url) && URL_RE.test(c.cover_source_url))) bad(at, 'cover_source_url must be an address, or null');
+    if (c.cover_retrieved_at != null && !isWhen(c.cover_retrieved_at)) bad(at, 'cover_retrieved_at must be a day or an ISO-8601 UTC timestamp, or null');
     if (c.organisation_type != null && !ORGANISATION_TYPES.includes(c.organisation_type)) bad(at, `organisation_type must be one of ${ORGANISATION_TYPES.join(', ')}, or null`);
     if (c.cohorts != null && (!Array.isArray(c.cohorts) || c.cohorts.length === 0 || c.cohorts.some((id) => !isCohort(id)) || new Set(c.cohorts).size !== c.cohorts.length)) {
       bad(at, `cohorts must be a list of distinct cohort ids (${COHORT_IDS.join(', ')}), or null`);

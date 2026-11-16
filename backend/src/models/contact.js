@@ -6,7 +6,8 @@
 //   redactContacts("Call 1800 000 123 or hello@example.com") === "Call [phone removed] or [email removed]"
 //   findContacts(text) -> [{ kind: 'email' | 'phone' | 'mobile', text }]
 
-export const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+/g;
+// (An image's name for a high-density screen, og-home@2x.jpg, is not an address: it turns up in the address of a company's cover picture, which is kept as its source.)
+export const EMAIL_RE = /[A-Za-z0-9._%+-]+@(?!\d+x\.(?:png|jpe?g|gif|webp|avif|svg)\b)[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+/g;
 // an Australian mobile: 04xx xxx xxx, (04) xxxx xxxx, +61 4xx xxx xxx
 export const MOBILE_RE = /(?:\(04\)\s?\d{4}\s?\d{4}|(?<!\d)04\d{2}[\s-]?\d{3}[\s-]?\d{3}(?!\d)|\+\s?61[\s-]?\(?0?\)?[\s-]?4(?:[\s-]?\d){8})/g;
 // an Australian landline or service number (02/03/07/08, 1300, 1800, 13 xx xx), another country's number with a +, and a North American one

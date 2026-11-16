@@ -1,0 +1,159 @@
+/* The startup gallery (Discover's startups, /discover): the atlas's night header, a warm ivory page, the serif heading, restrained gold, and under them a grid of pictures. The
+   tokens (--at-navy, --at-ivory, --at-gold ...) and the header's skin are atlas.css's, shared by `.xp-gallery`, the class only this page's root carries, so no other route
+   changes. Names: gl the page, gl-head its heading, gl-bar the search and filters, gl-grid the grid, gc one card (gc-media its picture, gc-fallback the logo tile that stands in
+   for a picture a company does not have, gc-body the words under it). */
+
+.xp-gallery{background:var(--at-ivory);color:var(--at-ink);--gl-card-line:rgb(21 34 43 / .14);}
+.xp-gallery .st-list{border-bottom-color:var(--at-line);}
+.xp-gallery .st-tab{color:var(--at-mute);}
+.xp-gallery .st-tab:hover{color:var(--at-ink);}
+.xp-gallery .st-tab[aria-current="page"]{color:var(--at-ink);border-bottom-color:var(--at-gold-ink);}
+.xp-gallery .st-tab:focus-visible{outline:2px solid var(--at-gold);}
+
+.gl{flex:1;width:100%;max-width:1360px;margin:0 auto;padding:0 var(--page-pad) var(--space-8);box-sizing:border-box;}
+
+/* ---------- the heading ---------- */
+.gl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-3);padding:clamp(28px,4.4vw,52px) 0 var(--space-3);}
+.gl-head-copy{min-width:0;}
+.gl-kicker{display:flex;align-items:center;gap:10px;margin:0 0 10px;color:var(--at-gold-ink);font:600 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;}
+.gl-sun{flex:none;color:var(--at-gold);}
+.gl-title{margin:0;font:400 clamp(2.9rem,6.4vw,4.6rem)/.96 var(--font-serif);letter-spacing:-.02em;color:var(--at-ink);}
+.gl-title em{font-style:italic;color:var(--at-gold-ink);}
+.gl-lede{max-width:56ch;margin:14px 0 0;color:var(--at-mute);font-size:1.0625rem;line-height:1.5;}
+
+/* Map | Gallery: the same switch the map page has (a pressed button says where you are) */
+.gl-view{flex:none;border-color:var(--at-line);background:var(--at-paper);}
+.gl-view .seg-item{color:var(--at-ink);}
+.gl-view .seg-item:hover{background:rgb(21 34 43 / .06);}
+.gl-view .seg-item[aria-pressed="true"]{background:var(--at-navy);color:#faf6ea;}
+.gl-view .seg-item:focus-visible{outline:2px solid var(--at-gold);outline-offset:2px;}
+
+/* ---------- the bar: search, city, industry, stage, more, clear ---------- */
+.gl-bar{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 0;border-top:1px solid var(--at-line);}
+.gl-find{flex:1 1 300px;max-width:440px;min-width:0;}
+.gl-find .field{height:44px;padding:0 14px;border-color:var(--at-line);border-radius:12px;background:var(--at-paper);}
+.gl-find .field:hover{border-color:rgb(21 34 43 / .32);}
+.gl-find .field:focus-within{border-color:var(--at-gold);box-shadow:0 0 0 3px rgb(201 162 75 / .22);}
+.gl-find .field > svg{color:var(--at-mute);}
+.gl-find .field input{font-size:var(--t-body);color:var(--at-ink);}
+.gl-find .field input::placeholder{color:var(--at-mute);}
+.gl-find .search-dropdown{border-color:var(--at-line);background:var(--at-paper);}
+.gl-selects{display:flex;flex-wrap:wrap;gap:8px;min-width:0;}
+.gl-selects .xt-menu > .xt-btn,.gl-more{height:44px;gap:10px;padding:0 12px 0 14px;border:1px solid var(--at-line);border-radius:12px;background:var(--at-paper);color:var(--at-ink);font-size:var(--t-small);font-weight:500;}
+.gl-selects .xt-menu > .xt-btn:hover,.gl-more:hover{border-color:rgb(21 34 43 / .32);background:var(--at-paper);}
+.gl-selects .xt-menu > .xt-btn.xt-btn-on,.gl-more.xt-btn-on{border-color:rgb(125 95 23 / .5);color:var(--at-gold-ink);}
+.gl-selects .xt-chev{color:var(--at-mute);}
+.gl-selects .xt-pop{border-color:var(--at-line);background:var(--at-paper);}
+.gl-selects .xt-check input{accent-color:var(--at-gold-ink);}
+.gl-selects .xt-clear{color:var(--at-gold-ink);}
+.gl-selects .xt-clear:hover{background:rgb(201 162 75 / .14);}
+.gl-selects .xt-btn:focus-visible,.gl-more:focus-visible,.gl-type select:focus-visible,.gl-clear:focus-visible{outline:2px solid var(--at-gold);outline-offset:2px;}
+.gl-bar .xt-badge{background:var(--at-gold-ink);color:#fff;}
+.gl-type{position:relative;display:block;}
+.gl-type select{height:44px;padding:0 34px 0 14px;border:1px solid var(--at-line);border-radius:12px;background:var(--at-paper);color:var(--at-ink);font:inherit;font-size:var(--t-small);font-weight:500;appearance:none;cursor:pointer;}
+.gl-type select:hover{border-color:rgb(21 34 43 / .32);}
+.gl-type-chev{position:absolute;right:10px;top:50%;margin-top:-9px;color:var(--at-mute);pointer-events:none;}
+.gl-more{margin-left:auto;}
+.gl-clear{height:44px;padding:0 6px;border:0;background:none;color:var(--at-gold-ink);font:600 var(--t-small)/1 var(--font);text-decoration:underline;text-decoration-color:rgb(125 95 23 / .4);text-underline-offset:4px;cursor:pointer;}
+.gl-clear:hover{text-decoration-color:currentColor;}
+
+/* ---------- the list's own bar (count, sort, Grid | Table, export) ---------- */
+/* The list used to be a box that scrolled inside the map's area (styles.css, explore.css): here it is part of the page, which scrolls. */
+.xp-gallery #startupListView{position:static;inset:auto;z-index:auto;overflow:visible;padding:0;}
+.gl-body{padding-top:var(--space-1);}
+.gl-wait{padding-top:clamp(230px,24vw,300px);}
+.gl-list .startup-list-chips{max-width:none;margin:0 0 12px;}
+.gl-list .startup-list-toolbar{max-width:none;margin:0 0 22px;padding:0 0 14px;border-bottom:1px solid var(--at-line);flex-wrap:wrap;}
+.gl-list .startup-list-count{color:var(--at-ink);font:600 .75rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;}
+.gl-list .startup-list-sort{margin-left:auto;color:var(--at-mute);}
+.gl-list .startup-list-sort select{border-color:var(--at-line);background:var(--at-paper);color:var(--at-ink);}
+.gl-list .startup-layout{height:var(--control-sm);padding:3px;border-color:var(--at-line);background:var(--at-paper);}
+.gl-list .startup-layout .seg-item{padding:0 12px;font-size:var(--t-small);}
+.gl-list .startup-layout .seg-item[aria-pressed="true"]{background:var(--at-navy);color:#faf6ea;}
+.gl-list .startup-export{border-color:var(--at-line);background:transparent;color:var(--at-ink);}
+.gl-list .startup-export:hover{background:rgb(21 34 43 / .05);}
+.gl-list .startup-list-empty{max-width:none;color:var(--at-mute);}
+.gl-list .startup-list-scope{border-color:var(--at-line);background:var(--at-paper);}
+
+/* ---------- the grid ---------- */
+.gl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px;margin:0;padding:0;list-style:none;}
+.gc{min-width:0;}
+.gc-link{display:block;color:inherit;text-decoration:none;border-radius:14px;}
+.gc-link:focus-visible{outline:2px solid var(--at-gold);outline-offset:6px;}
+.gc-media{position:relative;display:block;aspect-ratio:16 / 9;overflow:hidden;border:1px solid var(--gl-card-line);border-radius:12px;background:#ebe3cd;transition:border-color .25s var(--ease),box-shadow .25s var(--ease);}
+.gc-img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.gc-link:hover .gc-media,.gc-link:focus-visible .gc-media{border-color:rgb(21 34 43 / .34);box-shadow:0 14px 28px -20px rgb(7 24 34 / .55);}
+.gc-link:hover .gc-img,.gc-link:focus-visible .gc-img{transform:scale(1.025);}
+.gc-link-on .gc-media{border-color:var(--at-gold);box-shadow:0 0 0 2px rgb(201 162 75 / .5);}
+
+/* A company with no cover picture of its own: its real logo, on a quiet neutral tile. */
+.gc-fallback{position:absolute;inset:0;display:grid;place-items:center;background:#ece5d1;}
+.gc-fallback .gc-logo{width:76px;height:76px;border:0;border-radius:18px;background:var(--at-paper);box-shadow:inset 0 0 0 1px var(--gl-card-line);color:var(--at-ink);font:400 2.25rem/1 var(--font-serif);}
+.gc-fallback .gc-logo img{padding:10px;background:var(--at-paper);}
+
+/* The one thing said on the picture: a company a page confirmed is hiring now. */
+.gc-tag{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px 0 8px;border-radius:12px;background:rgb(7 24 34 / .82);color:#faf6ea;font:600 .6875rem/1 var(--font);letter-spacing:.02em;backdrop-filter:blur(4px);}
+.gc-dot{width:6px;height:6px;border-radius:50%;background:#7fd6a3;}
+
+.gc-body{display:grid;gap:6px;padding:14px 2px 0;}
+.gc-name{margin:0;font:400 1.5rem/1.15 var(--font-serif);letter-spacing:-.005em;color:var(--at-ink);overflow-wrap:anywhere;}
+.gc-saved{margin-left:8px;color:var(--at-gold-ink);font-size:.8125rem;vertical-align:.12em;}
+.gc-blurb{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:var(--at-ink);opacity:.82;font-size:.9375rem;line-height:1.45;}
+.gc-meta{color:var(--at-mute);font-size:.8125rem;line-height:1.4;}
+.gc-body .badge-unverified{justify-self:start;}
+
+.gl-skeleton .gc-media{display:block;border-color:transparent;background:var(--at-line);}
+.gl-skeleton .gc-body{gap:10px;}
+.gl-more-btn{min-width:220px;height:46px;padding:0 22px;border:1px solid var(--at-line);border-radius:12px;background:var(--at-paper);color:var(--at-ink);font:500 var(--t-body)/1 var(--font);cursor:pointer;}
+.gl-more-btn:hover{border-color:rgb(21 34 43 / .32);}
+.gl-more-btn:focus-visible{outline:2px solid var(--at-gold);outline-offset:2px;}
+.gl-list .startup-list-more{padding:48px 0 8px;}
+
+/* The page's slide-out filters: beside the page on a wide screen (it scrolls, so the panel is fixed to the window), the sheet from the bottom on a phone (explore.css). */
+.xp-gallery .map-panel-scrim{position:fixed;inset:0;z-index:1190;display:block;}
+@media (min-width:900px){
+  .xp-gallery .map-panel{position:fixed;top:0;bottom:0;z-index:1200;border-radius:0;background:var(--at-ivory);border-right-color:var(--at-line);color:var(--at-ink);}
+  .xp-gallery #filters input,.xp-gallery #filters select,.xp-gallery #filters .fmulti-summary{background:var(--at-paper);border-color:var(--at-line);}
+}
+
+/* ---------- narrower screens ---------- */
+@media (max-width:1099px){
+  .gl-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 22px;}
+}
+@media (max-width:899px){
+  .gl-head{flex-direction:column;align-items:flex-start;gap:var(--space-2);}
+  .gl-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px 0;}
+  .gl-find{grid-column:1;max-width:none;}
+  .gl-selects{display:none;}
+  .gl-more{grid-column:2;margin-left:0;}
+  .gl-clear{grid-column:1 / -1;justify-self:start;height:36px;}
+  .gl-list .startup-list-sort{margin-left:0;}
+}
+@media (max-width:639px){
+  .gl-grid{grid-template-columns:minmax(0,1fr);gap:30px;}
+  /* On a phone the first company is in sight: the heading, the switch to the map, the search and Filters, and the count, and nothing else before it. */
+  .gl-kicker,.gl-lede{display:none;}
+  .gl-head{width:100%;padding:20px 0 14px;gap:14px;}
+  .gl-title{font-size:clamp(2.5rem,12vw,3.1rem);}
+  .gl-view{width:100%;}
+  .gl-view .seg-item{flex:1;justify-content:center;}
+  .gl-list .qf,.gl-list .startup-layout,.gl-list .startup-export{display:none;}
+  .gl-list .startup-list-toolbar{margin-bottom:18px;padding-bottom:12px;}
+  .gl-body{padding-top:0;}
+}
+/* the phone's results sheet on the map: the way to the same startups as a gallery */
+.xs-gallery{display:flex;align-items:center;gap:10px;min-height:44px;margin:0 var(--space-2) 6px;color:var(--at-ink,var(--text));font:500 var(--t-body)/1 var(--font);text-decoration:underline;text-decoration-color:rgb(21 34 43 / .3);text-underline-offset:4px;}
+.xs-gallery:hover{text-decoration-color:currentColor;}
+.xs-gallery:focus-visible{outline:2px solid var(--at-gold,var(--green));outline-offset:2px;border-radius:6px;}
+
+/* the chips that switch (Hiring, Seed to Series A, Events this week, a cohort), over the list's own bar */
+.gl-list .qf{margin:0 0 14px;}
+.gl-list .qf-chip{min-height:34px;border-color:var(--at-line);background:var(--at-paper);color:var(--at-ink);font-size:.8125rem;}
+.gl-list button.qf-chip{padding:0 14px;}
+.gl-list .qf-chip:hover,.gl-list .qf-chip:focus-within{border-color:rgb(21 34 43 / .32);}
+.gl-list .qf-chip-on{border-color:rgb(125 95 23 / .5);background:rgb(201 162 75 / .16);color:var(--at-gold-ink);}
+
+@media (prefers-reduced-motion:reduce){
+  .gc-img,.gc-media{transition:none;}
+  .gc-link:hover .gc-img,.gc-link:focus-visible .gc-img{transform:none;}
+}

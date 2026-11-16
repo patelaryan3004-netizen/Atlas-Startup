@@ -18,6 +18,7 @@ const investors = css('investors.css');
 const explore = css('explore.css');
 const people = css('people.css');
 const info = css('info.css');
+const gallery = css('gallery.css');
 
 const token = (text, name) => new RegExp(`${name}\\s*:\\s*([^;]+);`).exec(text)?.[1].trim();
 
@@ -362,7 +363,8 @@ describe('the one card', () => {
     expect(styles).toMatch(/\.entity-blurb\{[^}]*-webkit-line-clamp:2/);
     expect(styles).toMatch(/\.meta-row li:not\(:last-child\)::after\{[^}]*content:'\\00b7'/);
     expect(styles).toMatch(/\n\.sr-only\{[^}]*clip-path:inset\(50%\)/);
-    for (const file of ['components/ListView.jsx', 'components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx']) {
+    // (the startup gallery draws a company as a picture, not as this card: its own rules are under "the startup gallery" below)
+    for (const file of ['components/people/PersonCard.jsx', 'components/people/InstitutionCard.jsx', 'components/investors/InvestorCard.jsx']) {
       expect(code(file), file).toContain('<EntityCard');
     }
   });
@@ -648,5 +650,42 @@ describe('the investors page (investors.css): one design, one theme', () => {
 
   it('shows the filter menus on a phone, though the map\'s toolbar hides its own there', () => {
     expect(rule(investors, '#investorsView .xt-menu')).toContain('display: block');
+  });
+});
+
+describe('the startup gallery (gallery.css)', () => {
+  const escape = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const body = (text, selector) => new RegExp(`${escape(selector)}\\s*\\{([^}]*)\\}`).exec(text)?.[1] ?? '';
+
+  it('draws a picture at 16:9, cropped to fill, with a very light border and rounded corners, and no heavy shadow', () => {
+    expect(body(gallery, '.gc-media')).toMatch(/aspect-ratio:16 \/ 9/);
+    expect(body(gallery, '.gc-media')).toMatch(/border:1px solid/);
+    expect(body(gallery, '.gc-media')).toMatch(/border-radius:12px/);
+    expect(body(gallery, '.gc-img')).toMatch(/object-fit:cover/);
+    // the hover is a small zoom of the picture and a hair of shadow, never a lift or a glow
+    expect(body(gallery, '.gc-link:hover .gc-img,.gc-link:focus-visible .gc-img')).toMatch(/scale\(1\.0\d+\)/);
+    for (const [, , , blur] of gallery.matchAll(/box-shadow:[^;}]*?(-?\d+)px\s+(-?\d+)px\s+(\d+)px/g)) expect(Number(blur)).toBeLessThanOrEqual(28);
+  });
+
+  it('is three across on a wide screen, two on a tablet and one on a phone', () => {
+    expect(body(gallery, '.gl-grid')).toMatch(/grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+    expect(gallery).toMatch(/@media \(max-width:1099px\)\{\s*\.gl-grid\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+    expect(gallery).toMatch(/@media \(max-width:639px\)\{\s*\.gl-grid\{grid-template-columns:minmax\(0,1fr\)/);
+  });
+
+  it('says a company in a name, a line of what it does (two lines at most) and its place, in the brand\'s serif', () => {
+    expect(body(gallery, '.gc-name')).toMatch(/var\(--font-serif\)/);
+    expect(body(gallery, '.gc-blurb')).toMatch(/-webkit-line-clamp:2/);
+  });
+
+  it('keeps the logo tile of a company with no picture neutral and the same for every company, and stops the motion for a visitor who has asked for less', () => {
+    expect(body(gallery, '.gc-fallback')).toMatch(/background:#[0-9a-f]{6}/i);
+    expect(body(gallery, '.gc-fallback')).not.toMatch(/gradient/);
+    expect(gallery).toMatch(/@media \(prefers-reduced-motion:reduce\)\{\s*\.gc-img,\.gc-media\{transition:none;\}\s*\.gc-link:hover \.gc-img,\.gc-link:focus-visible \.gc-img\{transform:none;\}/);
+  });
+
+  it('is the atlas\'s own look: the same night header and ivory, from the one set of tokens', () => {
+    expect(code('atlas.css')).toMatch(/\.xp-atlas,\.jd,\.xp-gallery\{\s*--at-navy:/);
+    expect(code('atlas.css')).toContain(':is(.xp-atlas,.jd,.xp-gallery) .sh{');
   });
 });

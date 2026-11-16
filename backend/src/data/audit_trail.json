@@ -86679,5 +86679,20 @@
         "to": "Suite S5051, Level 5, 447 Collins Street, Melbourne VIC 3000"
       }
     ]
+  },
+  {
+    "id": "aud-20261116105232703-1",
+    "at": "2026-11-16T10:52:32.703Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "system",
+      "id": "covers"
+    },
+    "summary": "Cover pictures from the companies' own websites: 303 companies updated",
+    "reason": null,
+    "changes": []
   }
 ]

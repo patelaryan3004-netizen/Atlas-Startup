@@ -20,7 +20,8 @@ export const FIRST_VIEWS = [
   () => fetchMarkers({}), // the map's pins, and the landing page's picture
   () => fetchStartupPage({ hiring: 'yes' }, { limit: HIRING_SAMPLE, sort: 'file' }), // the landing page's hiring section and picture
   () => fetchCounts(LANDING_LISTS.map((list) => list.filters)), // the landing page's lists
-  () => fetchStartupPage({}, { limit: LIST_PAGE, offset: 0, sort: 'name' }), // the list of startups
+  () => fetchStartupPage({}, { limit: LIST_PAGE, offset: 0, sort: 'name' }), // the list of startups (the table's order)
+  () => fetchStartupPage({}, { limit: LIST_PAGE, offset: 0, sort: 'pictures' }), // and the gallery's: the companies with a cover picture first
   () => fetchStartupPage({ hiring: 'yes' }, { limit: JOBS_PAGE, offset: 0, sort: 'name', facets: 'sector,city,stage' }), // the jobs board
 ];
 

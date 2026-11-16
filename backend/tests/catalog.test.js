@@ -43,6 +43,7 @@ const OLD_SORTS = {
   hiring: (a, b) => (b.hiring === true) - (a.hiring === true) || a.name.localeCompare(b.name),
   location: (a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name),
   industry: (a, b) => (a.sectorFull || a.sector).localeCompare(b.sectorFull || b.sector) || a.name.localeCompare(b.name),
+  pictures: (a, b) => Boolean(b.cover) - Boolean(a.cover) || a.name.localeCompare(b.name),
 };
 
 function lcg(seed) { let s = seed; return () => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 4294967296; }; }
@@ -102,11 +103,25 @@ describe('ordering and pages', () => {
     }
   });
 
+  it('has a pictures order for the gallery: the companies with a cover picture of their own first, then the rest, each group in name order', async () => {
+    const f = await fixture(60);
+    const rows = f.rows.map((r, i) => (i % 4 === 0 ? { ...r, cover: `/img/covers/${i}.webp` } : r));
+    await f.rewrite(rows);
+    await f.catalog.refresh();
+    const snap = await f.catalog.snapshot();
+    const order = Array.from(snap.orders.pictures, (n) => snap.records[n]);
+    const withCover = order.filter((r) => r.cover);
+    expect(withCover).toHaveLength(15);
+    expect(order.slice(0, 15).every((r) => r.cover)).toBe(true);
+    expect(order.slice(15).some((r) => r.cover)).toBe(false);
+    for (const group of [order.slice(0, 15), order.slice(15)]) expect(group.map((r) => r.name)).toEqual([...group].map((r) => r.name).sort((a, b) => a.localeCompare(b)));
+  });
+
   it('serves a result page by page in any order, and the pages add up to the whole result', async () => {
     const f = await fixture(500);
     const snap = await f.catalog.snapshot();
     const matched = select(snap, readFilters({ hiring: 'yes' }));
-    for (const sort of ['file', 'name', 'hiring', 'location', 'industry']) {
+    for (const sort of ['file', 'name', 'hiring', 'location', 'industry', 'pictures']) {
       const ids = [];
       for (let offset = 0; offset < matched.length; offset += 37) ids.push(...Array.from(pageOf(snap, matched, { sort, offset, limit: 37 }), (n) => snap.records[n].id));
       const whole = legacyFilter(f.rows, { hiring: 'yes' });

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor, act, within } from '@testing-library/react';
+import { render, screen, waitFor, act, within, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({
@@ -10,6 +10,7 @@ vi.mock('../../src/api.js', () => ({
 
 import { fetchStartupPage } from '../../src/api.js';
 import ListView from '../../src/components/ListView.jsx';
+import { rememberGallery, recallGallery, forgetGallery } from '../../src/gallery.js';
 
 function startup(overrides = {}) {
   return {
@@ -39,26 +40,21 @@ describe('ListView', () => {
   });
   afterEach(() => { vi.unstubAllGlobals(); });
 
-  it('asks the server for the first page of the current filters, in name order, and shows how many there are', async () => {
+  it('asks the server for the first page of the current filters, the companies with a picture first, and shows how many there are', async () => {
     fetchStartupPage.mockResolvedValue(page([startup(), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
     mount();
     expect(await screen.findByText('2 startups')).toBeInTheDocument();
-    expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ limit: 48, offset: 0, sort: 'name' }));
+    expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ limit: 48, offset: 0, sort: 'pictures' }));
   });
 
-  it('has an index of the names on the page near the top, each a link to its card, and none for a list of one', async () => {
+  it('draws each company as one link to its own address, in a list of the companies (the grid is the stylesheet\'s)', async () => {
     fetchStartupPage.mockResolvedValue(page([startup(), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
-    const { unmount } = mount();
-    const index = await screen.findByRole('navigation', { name: 'Index of the companies listed' });
-    expect(index.textContent).toContain('Canva');
-    const jump = screen.getByRole('link', { name: 'Jump to Airwallex' });
-    expect(document.getElementById(jump.getAttribute('href').slice(1))).toBe(screen.getByRole('heading', { name: 'Airwallex' }).closest('button'));
-    unmount();
-
-    fetchStartupPage.mockResolvedValue(page([startup()], { count: 1 }));
     mount();
-    await screen.findByRole('heading', { name: 'Canva' });
-    expect(screen.queryByRole('navigation', { name: /^Index of/ })).not.toBeInTheDocument();
+    const list = await screen.findByRole('list', { name: 'Startups' });
+    expect(list).toHaveClass('gl-grid');
+    const links = within(list).getAllByRole('link');
+    expect(links.map((a) => a.getAttribute('href'))).toEqual(['/startup/canva', '/startup/airwallex']);
+    expect(within(links[1]).getByRole('heading', { level: 3, name: 'Airwallex' })).toBeInTheDocument();
   });
 
   it('says what the list is narrowed to when a group on the map was opened as a list, and widens it again on request', async () => {
@@ -79,7 +75,7 @@ describe('ListView', () => {
   it('shows the count of everything that matches, not just the page on screen', async () => {
     fetchStartupPage.mockResolvedValue(page([startup()], { count: 1234, hasMore: true }));
     mount();
-    expect(await screen.findByText('1234 startups')).toBeInTheDocument();
+    expect(await screen.findByText('1,234 startups')).toBeInTheDocument();
   });
 
   it('says it is loading, then shows an honest empty state when nothing matches', async () => {
@@ -96,59 +92,90 @@ describe('ListView', () => {
     expect(await screen.findByText('Could not load the list right now.')).toBeInTheDocument();
   });
 
-  it('shows the core card fields: name, industry, location, stage, description', async () => {
+  it('shows the core card fields: name, one line about it, and Sector · City · Stage', async () => {
     const { container } = mount();
     expect(await screen.findByRole('heading', { name: 'Canva' })).toBeInTheDocument();
-    // the one card: Sector · Stage · City, a dot between each, in that order
-    expect([...container.querySelectorAll('.startup-card .meta-row li')].map((li) => li.textContent)).toEqual(['SaaS / Design Tech', 'Series D+', 'Sydney']);
-    expect(container.querySelector('.startup-card')).toHaveClass('card', 'entity-card');
-    expect(container.querySelector('.startup-card .entity-initial')).toHaveTextContent('C');
-    expect(screen.getByText('Online graphic design platform for everyone')).toHaveClass('entity-blurb');
+    expect(container.querySelector('.gc-meta')).toHaveTextContent('SaaS / Design Tech · Sydney · Series D+');
+    expect(screen.getByText('Online graphic design platform for everyone')).toHaveClass('gc-blurb');
+  });
+
+  it('leads each card with the company\'s own cover picture, at the size it was made, lazily loaded; with none (or one that fails) its logo on a neutral tile, and it is still listed', async () => {
+    fetchStartupPage.mockResolvedValue(page([
+      startup({ cover: '/img/covers/canva.webp' }),
+      startup({ name: 'Airwallex', slug: 'airwallex', cover: null }),
+    ], { count: 2 }));
+    const { container } = mount();
+    await screen.findByRole('heading', { name: 'Airwallex' });
+    const picture = container.querySelector('.gc-img');
+    expect(picture).toHaveAttribute('src', '/img/covers/canva.webp');
+    expect(picture).toHaveAttribute('loading', 'lazy');
+    expect(picture).toHaveAttribute('width', '720');
+    expect(picture).toHaveAttribute('height', '405');
+    expect(picture).toHaveAttribute('alt', '');
+    // the one without a cover: its logo tile, drawn from its letter until the logo arrives
+    const tiles = container.querySelectorAll('.gc-fallback');
+    expect(tiles).toHaveLength(1);
+    expect(tiles[0]).toHaveTextContent('A');
+    // a cover that cannot be loaded falls back the same way, and the company stays
+    fireEvent.error(picture);
+    await waitFor(() => expect(container.querySelectorAll('.gc-fallback')).toHaveLength(2));
+    expect(screen.getByRole('heading', { name: 'Canva' })).toBeInTheDocument();
+  });
+
+  it('opens the company over the gallery on a plain press, and leaves a press meant for a new tab to the browser', async () => {
+    const onSelectStartup = vi.fn();
+    mount({ onSelectStartup });
+    const link = await screen.findByRole('link', { name: /Canva/ });
+    await userEvent.click(link);
+    expect(onSelectStartup).toHaveBeenCalledTimes(1);
+    onSelectStartup.mockClear();
+    link.addEventListener('click', (event) => event.preventDefault()); // (jsdom cannot navigate: what matters is that the app did not take the press)
+    fireEvent.click(link, { ctrlKey: true });
+    fireEvent.click(link, { metaKey: true });
+    expect(onSelectStartup).not.toHaveBeenCalled();
+  });
+
+  it('marks the open company on the card, for the screen reader as well', async () => {
+    mount({ selectedName: 'Canva' });
+    expect(await screen.findByRole('link', { name: /Canva/ })).toHaveAttribute('aria-current', 'true');
   });
 
   it('shows "Hiring now" only for a company a page confirmed lately, and never says "Not hiring" about one nobody has read', async () => {
     const { unmount } = mount();
-    expect(await screen.findByText('● Hiring now')).toBeInTheDocument();
+    expect(await screen.findByText('Hiring now')).toHaveClass('gc-tag');
     unmount();
 
     fetchStartupPage.mockResolvedValue(page([startup({ hiring: false })]));
     mount();
-    expect(await screen.findByText('Roles unverified')).toHaveClass('hiring-badge-off');
+    await screen.findByRole('heading', { name: 'Canva' });
+    expect(screen.queryByText('Hiring now')).not.toBeInTheDocument();
     expect(screen.queryByText('Not hiring')).not.toBeInTheDocument();
   });
 
-  it('gives roles that were read earlier their date, and says so for a job board that listed none, in the muted style, never as "Hiring now"', async () => {
+  it('says nothing about hiring for roles read earlier or a job board that listed none (those are in the table and the company\'s page), and never "Hiring now"', async () => {
     fetchStartupPage.mockResolvedValue(page([
       startup({ name: 'Superstat', slug: 'superstat', hiring: false, hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' }),
       startup({ name: 'Shippit', slug: 'shippit', hiring: false, hiringState: 'none', hiring_checked_at: '2026-10-13T04:29:43.000Z' }),
     ]));
     mount();
-    const checked = await screen.findByText('Hiring (checked 5 Oct)');
-    expect(checked).toHaveClass('hiring-badge-off');
-    expect(screen.getByText('No open roles listed (13 Oct)')).toHaveClass('hiring-badge-off');
-    expect(screen.queryByText('● Hiring now')).not.toBeInTheDocument();
+    await screen.findByRole('heading', { name: 'Superstat' });
+    expect(screen.queryByText(/Hiring now|Hiring \(checked/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/No open roles/)).not.toBeInTheDocument();
   });
 
-  it('says "Roles unverified", not "Hiring now" and not "Not hiring", for a company flagged as hiring that no page backs', async () => {
+  it('never says "Hiring now" or "Not hiring" for a company flagged as hiring that no page backs', async () => {
     fetchStartupPage.mockResolvedValue(page([startup({ hiring: false, rolesUnverified: true })]));
     mount();
-    const badge = await screen.findByText('Roles unverified');
-    expect(badge).toHaveClass('hiring-badge-off');
-    expect(screen.queryByText('● Hiring now')).not.toBeInTheDocument();
+    await screen.findByRole('heading', { name: 'Canva' });
+    expect(screen.queryByText('Hiring now')).not.toBeInTheDocument();
     expect(screen.queryByText('Not hiring')).not.toBeInTheDocument();
   });
 
-  it('shows no task-gate tag, even for a company flagged as task-gated, and a concept-preview label only for one that opted in', async () => {
+  it('shows no task-gate tag, even for a company flagged as task-gated', async () => {
     fetchStartupPage.mockResolvedValue(page([startup({ taskGate: { enabled: true, type: 'Coding task' } })]));
-    const { unmount } = mount();
+    mount();
     await screen.findByText('Canva');
     expect(screen.queryByText(/TASK-GATE/i)).not.toBeInTheDocument();
-    expect(screen.queryByText('Concept preview')).not.toBeInTheDocument();
-    unmount();
-
-    fetchStartupPage.mockResolvedValue(page([startup({ taskGate: { enabled: true, optedIn: true } })]));
-    mount();
-    expect(await screen.findByText('Concept preview')).toBeInTheDocument();
   });
 
   it('shows an unverified tag only for unverified startups', async () => {
@@ -159,15 +186,15 @@ describe('ListView', () => {
 
   it('shows a tracked star only for tracked startups', async () => {
     const { unmount } = mount({ trackedNames: new Set(['Canva']) });
-    expect(await screen.findByTitle('Tracked')).toBeInTheDocument();
+    expect(await screen.findByTitle('Saved')).toBeInTheDocument();
     unmount();
 
     mount({ trackedNames: new Set() });
     await screen.findByText('Canva');
-    expect(screen.queryByTitle('Tracked')).not.toBeInTheDocument();
+    expect(screen.queryByTitle('Saved')).not.toBeInTheDocument();
   });
 
-  it('calls onSelectStartup with the card when it is clicked', async () => {
+  it('calls onSelectStartup with the company when its card is pressed', async () => {
     const onSelectStartup = vi.fn();
     const c = startup();
     fetchStartupPage.mockResolvedValue(page([c]));
@@ -180,7 +207,7 @@ describe('ListView', () => {
     mount();
     await screen.findByText('Canva');
     const select = screen.getByLabelText('Sort by');
-    expect([...select.querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Name', 'Stage (earliest first)', 'Recently verified', 'Hiring first', 'Location (A–Z)', 'Industry (A–Z)']);
+    expect([...select.querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Pictures first', 'Name', 'Stage (earliest first)', 'Recently verified', 'Hiring first', 'Location (A–Z)', 'Industry (A–Z)']);
 
     fetchStartupPage.mockResolvedValue(page([startup({ name: 'Zeller', slug: 'zeller' }), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
     await userEvent.selectOptions(select, 'hiring');
@@ -230,6 +257,42 @@ describe('ListView', () => {
     expect(screen.getByText('Mindset')).toBeInTheDocument();
   });
 
+  describe('leaving the gallery for the map and coming back', () => {
+    const many = (n) => Array.from({ length: n }, (_, i) => startup({ name: `Co ${i}`, slug: `co-${i}` }));
+    beforeEach(() => { forgetGallery(); });
+    afterEach(() => { forgetGallery(); });
+
+    it('keeps how many were drawn and how far down the page was, for these filters, when it goes', async () => {
+      fetchStartupPage.mockResolvedValue(page(many(5), { count: 5 }));
+      const { unmount } = mount();
+      await screen.findByRole('heading', { name: 'Co 4' });
+      unmount();
+      expect(recallGallery(FILTERS, 'pictures')).toEqual({ count: 5, scrollY: 0 });
+      expect(recallGallery({ ...FILTERS, city: 'Perth' }, 'pictures')).toBeNull();
+    });
+
+    it('asks, once, for as many as were drawn, and puts the page back where it was', async () => {
+      const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
+      rememberGallery(FILTERS, 'pictures', { count: 120, scrollY: 700 });
+      fetchStartupPage.mockResolvedValue(page(many(120), { count: 300, hasMore: true, limit: 120 }));
+      mount();
+      await screen.findByRole('heading', { name: 'Co 119' });
+      expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ limit: 120, offset: 0, sort: 'pictures' }));
+      expect(scrollTo).toHaveBeenCalledWith(0, 700);
+      scrollTo.mockRestore();
+    });
+
+    it('starts at the top, with one page, for filters it was not left with', async () => {
+      const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
+      rememberGallery({ ...FILTERS, city: 'Perth' }, 'pictures', { count: 120, scrollY: 700 });
+      mount();
+      await screen.findByRole('heading', { name: 'Canva' });
+      expect(fetchStartupPage).toHaveBeenCalledWith(FILTERS, expect.objectContaining({ limit: 48 }));
+      expect(scrollTo).not.toHaveBeenCalled();
+      scrollTo.mockRestore();
+    });
+  });
+
   describe('a long list', () => {
     const many = (from, n) => Array.from({ length: n }, (_, i) => startup({ name: `Co ${from + i}`, slug: `co-${from + i}` }));
 
@@ -242,7 +305,7 @@ describe('ListView', () => {
       fetchStartupPage.mockResolvedValueOnce(page(many(48, 48), { count: 120, hasMore: true, offset: 48 }));
       await userEvent.click(more);
       await waitFor(() => expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(96));
-      expect(fetchStartupPage).toHaveBeenLastCalledWith(FILTERS, expect.objectContaining({ offset: 48, limit: 48, sort: 'name' }));
+      expect(fetchStartupPage).toHaveBeenLastCalledWith(FILTERS, expect.objectContaining({ offset: 48, limit: 48, sort: 'pictures' }));
       expect(screen.getByRole('button', { name: 'Show more (24 left)' })).toBeInTheDocument();
 
       fetchStartupPage.mockResolvedValueOnce(page(many(96, 24), { count: 120, hasMore: false, offset: 96 }));
@@ -298,38 +361,20 @@ describe('ListView', () => {
     const ago = (days) => new Date(Date.now() - days * 86400000).toISOString();
     const soon = (days) => new Date(Date.now() + days * 86400000).toISOString().slice(0, 10);
 
-    it('says "Verified 3 days ago", or a muted "Needs re-check" once the check is over 60 days old, and nothing without a date', async () => {
-      fetchStartupPage.mockResolvedValue(page([
-        startup({ name: 'Fresh', slug: 'fresh', last_verified_at: ago(3) }),
-        startup({ name: 'Old', slug: 'old', last_verified_at: ago(90) }),
-        startup({ name: 'Never', slug: 'never' }),
-      ], { count: 3 }));
-      const { container } = mount();
-      await screen.findByRole('heading', { name: 'Fresh' });
-      expect(screen.getByText('Verified 3 days ago')).toBeInTheDocument();
-      expect(screen.getByText('Needs re-check')).toHaveClass('verified-note-stale');
-      expect(container.querySelectorAll('.verified-note')).toHaveLength(2);
-      expect(screen.queryByText(/Verified 90/)).toBeNull();
-    });
-
     it('leaves out a field that is empty or "Unknown", and never writes N/A or null', async () => {
       fetchStartupPage.mockResolvedValue(page([startup({ sector: '', sectorFull: '', stage: 'Unknown', city: 'Perth' })]));
       const { container } = mount();
       await screen.findByRole('heading', { name: 'Canva' });
-      expect([...container.querySelectorAll('.startup-card .meta-row li')].map((li) => li.textContent)).toEqual(['Perth']);
+      expect(container.querySelector('.gc-meta')).toHaveTextContent(/^Perth$/);
       expect(container.textContent).not.toMatch(/N\/A|null|undefined|Unknown/);
     });
 
-    it('puts a date badge on a company with an event in the next 14 days, and none for a later one or none at all', async () => {
-      fetchStartupPage.mockResolvedValue(page([
-        startup({ name: 'Soon', slug: 'soon', events: [{ title: 'Demo day', date: soon(3), url: null }] }),
-        startup({ name: 'Later', slug: 'later', events: [{ title: 'Summit', date: soon(40), url: null }] }),
-        startup({ name: 'Plain', slug: 'plain' }),
-      ], { count: 3 }));
+    it('draws no line for a company with nothing known (no sector, city or stage) and no description, and keeps it in the gallery', async () => {
+      fetchStartupPage.mockResolvedValue(page([startup({ sector: '', sectorFull: '', stage: '', city: '', blurb: '' })]));
       const { container } = mount();
-      await screen.findByRole('heading', { name: 'Soon' });
-      expect(container.querySelectorAll('.event-badge')).toHaveLength(1);
-      expect(screen.getByTitle('Demo day')).toBeInTheDocument();
+      await screen.findByRole('heading', { name: 'Canva' });
+      expect(container.querySelector('.gc-meta')).toBeNull();
+      expect(container.querySelector('.gc-blurb')).toBeNull();
     });
 
     it('has a "Seed to Series A" chip: it sets the stage filter to those stages, and switches off again', async () => {
@@ -343,12 +388,11 @@ describe('ListView', () => {
       expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, stage: 'Seed,Early,Series A' });
       rerender(<ListView filters={{ ...FILTERS, stage: 'Seed,Early,Series A' }} sectorColors={{}} onSelectStartup={noop} meta={meta} onFiltersChange={onFiltersChange} />);
       expect(screen.getByRole('button', { name: 'Seed to Series A' })).toHaveAttribute('aria-pressed', 'true');
-      expect(screen.getByLabelText('Stage')).toHaveValue(''); // the Stage box does not also claim it
       await userEvent.click(screen.getByRole('button', { name: 'Seed to Series A' }));
       expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, stage: '' });
     });
 
-    it('has quick filters that set the same filters the drawer does', async () => {
+    it('has quick chips that set the same filters the drawer does, and none for the city, the sector or the stage: the gallery\'s own bar has those', async () => {
       const onFiltersChange = vi.fn();
       const meta = { sectors: ['AI', 'SaaS'], cities: ['Sydney'], stages: ['Seed', 'Unknown'] };
       mount({ meta, onFiltersChange });
@@ -357,9 +401,9 @@ describe('ListView', () => {
       expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, hiring: 'yes' });
       await userEvent.click(screen.getByRole('button', { name: 'Events this week' }));
       expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, events: 'week' });
-      await userEvent.selectOptions(screen.getByLabelText('Sector'), 'AI');
-      expect(onFiltersChange).toHaveBeenLastCalledWith({ ...FILTERS, sector: 'AI' });
-      expect([...screen.getByLabelText('Stage').querySelectorAll('option')].map((o) => o.textContent)).toEqual(['Stage', 'Seed']);
+      expect(screen.queryByLabelText('Sector')).toBeNull();
+      expect(screen.queryByLabelText('Stage')).toBeNull();
+      expect(screen.queryByLabelText('City')).toBeNull();
     });
   });
 
@@ -369,36 +413,50 @@ describe('ListView', () => {
     beforeEach(() => { try { localStorage.removeItem('auStartupListLayout'); } catch (e) { /* ignore */ } });
     afterEach(() => { try { localStorage.removeItem('auStartupListLayout'); } catch (e) { /* ignore */ } });
 
-    it('is a table on a wide screen and cards on a narrow one, until the visitor chooses, and the choice is kept', async () => {
+    it('opens the gallery with the pictures first and the table in name order, unless the visitor chose a sort, which stays', async () => {
+    screenIs(true);
+    mount();
+    await screen.findByRole('heading', { name: 'Canva' });
+    expect(screen.getByLabelText('Sort by')).toHaveValue('pictures');
+    await userEvent.click(screen.getByRole('button', { name: 'Table' }));
+    await waitFor(() => expect(screen.getByLabelText('Sort by')).toHaveValue('name'));
+    await userEvent.selectOptions(screen.getByLabelText('Sort by'), 'stage');
+    await userEvent.click(screen.getByRole('button', { name: 'Grid' }));
+    expect(screen.getByLabelText('Sort by')).toHaveValue('stage');
+    vi.unstubAllGlobals();
+  });
+
+  it('is the gallery on every screen, wide or narrow, until the visitor asks for the table, and the choice is kept', async () => {
       screenIs(true);
       const first = mount();
-      await screen.findByRole('table');
-      expect(screen.getByRole('button', { name: 'Table' })).toHaveAttribute('aria-pressed', 'true');
-      expect(document.querySelector('.startup-grid')).toBeNull();
-      await userEvent.click(screen.getByRole('button', { name: 'Cards' }));
-      expect(screen.queryByRole('table')).toBeNull();
-      expect(document.querySelector('.startup-grid')).not.toBeNull();
-      expect(localStorage.getItem('auStartupListLayout')).toBe('cards');
-      first.unmount();
-      mount(); // the next visit: the choice is kept, though the screen is wide
       await screen.findByRole('heading', { name: 'Canva' });
       expect(screen.queryByRole('table')).toBeNull();
+      expect(screen.getByRole('button', { name: 'Grid' })).toHaveAttribute('aria-pressed', 'true');
+      await userEvent.click(screen.getByRole('button', { name: 'Table' }));
+      expect(screen.getByRole('table')).toBeInTheDocument();
+      expect(document.querySelector('.gl-grid')).toBeNull();
+      expect(localStorage.getItem('auStartupListLayout')).toBe('table');
+      first.unmount();
+      mount(); // the next visit: the choice is kept
+      await screen.findByRole('table');
+      await userEvent.click(screen.getByRole('button', { name: 'Grid' }));
+      expect(screen.queryByRole('table')).toBeNull();
+      expect(localStorage.getItem('auStartupListLayout')).toBe('gallery');
       vi.unstubAllGlobals();
     });
 
-    it('is cards on a narrow screen, and the table when it is asked for', async () => {
-      screenIs(false);
+    it('takes an older choice of "cards" as the gallery, which is the grid of cards now', async () => {
+      screenIs(true);
+      localStorage.setItem('auStartupListLayout', 'cards');
       mount();
       await screen.findByRole('heading', { name: 'Canva' });
       expect(screen.queryByRole('table')).toBeNull();
-      expect(screen.getByRole('button', { name: 'Cards' })).toHaveAttribute('aria-pressed', 'true');
-      await userEvent.click(screen.getByRole('button', { name: 'Table' }));
-      expect(screen.getByRole('table')).toBeInTheDocument();
-      expect(localStorage.getItem('auStartupListLayout')).toBe('table');
+      expect(screen.getByRole('button', { name: 'Grid' })).toHaveAttribute('aria-pressed', 'true');
     });
 
     it('lists the same companies in either layout, and opens one from either', async () => {
       screenIs(true);
+      localStorage.setItem('auStartupListLayout', 'table');
       fetchStartupPage.mockResolvedValue(page([startup(), startup({ name: 'Airwallex', slug: 'airwallex' })], { count: 2 }));
       const onSelectStartup = vi.fn();
       mount({ onSelectStartup });
@@ -406,12 +464,13 @@ describe('ListView', () => {
       expect(screen.getAllByRole('rowheader').map((h) => h.querySelector('.st-name-text').textContent)).toEqual(['Canva', 'Airwallex']);
       await userEvent.click(screen.getByRole('button', { name: 'Airwallex' }));
       expect(onSelectStartup).toHaveBeenLastCalledWith(expect.objectContaining({ name: 'Airwallex' }));
-      await userEvent.click(screen.getByRole('button', { name: 'Cards' }));
-      expect([...document.querySelectorAll('.startup-grid .entity-name')].map((n) => n.textContent)).toEqual(['Canva', 'Airwallex']);
+      await userEvent.click(screen.getByRole('button', { name: 'Grid' }));
+      expect([...document.querySelectorAll('.gl-grid .gc-name')].map((n) => n.textContent)).toEqual(['Canva', 'Airwallex']);
     });
 
     it('sorts from a column header as from the Sort by box: they are one sort', async () => {
       screenIs(true);
+      localStorage.setItem('auStartupListLayout', 'table');
       mount();
       await screen.findByRole('table');
       await userEvent.click(screen.getByRole('button', { name: 'Hiring' }));
@@ -426,11 +485,11 @@ describe('ListView', () => {
       const options = () => [...screen.getByLabelText('Sort by').querySelectorAll('option')].map((o) => o.value);
       const first = mount({ meta: { sectors: [], cities: [], stages: [] } });
       await screen.findByText('Canva');
-      expect(options()).toEqual(['name', 'stage', 'verified', 'hiring', 'location', 'industry']);
+      expect(options()).toEqual(['pictures', 'name', 'stage', 'verified', 'hiring', 'location', 'industry']);
       first.unmount();
       mount({ meta: { sectors: [], cities: [], stages: [], teamSizes: [{ code: 'lt10', label: 'Under 10' }], remotePolicies: ['remote-au'] } });
       await screen.findByText('Canva');
-      expect(options()).toEqual(['name', 'stage', 'verified', 'hiring', 'location', 'industry', 'team', 'remote']);
+      expect(options()).toEqual(['pictures', 'name', 'stage', 'verified', 'hiring', 'location', 'industry', 'team', 'remote']);
     });
 
     it('exports exactly the list: a link with the same filters and sort, saved as a file, and none when nothing is listed', async () => {
@@ -438,7 +497,7 @@ describe('ListView', () => {
       fetchStartupPage.mockResolvedValue(page([startup()], { count: 1 }));
       const { rerender, unmount } = mount({ filters });
       const link = await screen.findByRole('link', { name: 'Export CSV' });
-      expect(link.getAttribute('href')).toBe('/api/startups/export.csv?sector=AI&tech=Go&sort=name');
+      expect(link.getAttribute('href')).toBe('/api/startups/export.csv?sector=AI&tech=Go&sort=name'); // the spreadsheet is in name order unless another was chosen: "pictures first" is the gallery's
       expect(link).toHaveAttribute('download', 'au-startup-map.csv');
       expect(link).toHaveAttribute('title', expect.stringContaining('1 startup'));
       await userEvent.selectOptions(screen.getByLabelText('Sort by'), 'verified');

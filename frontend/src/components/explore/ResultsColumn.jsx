@@ -171,7 +171,7 @@ export default function ResultsColumn({
 
         {rows.length > 0 && !inArea && (
           <button type="button" className="xc-all" onClick={onViewAll}>
-            {mapPanel || atlasPanel ? 'See all as a list' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
+            {mapPanel || atlasPanel ? 'See all as a gallery' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
           </button>
         )}
 

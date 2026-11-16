@@ -32,6 +32,31 @@ export function CardGridSkeleton({ count = 6, className = 'startup-grid' }) {
   );
 }
 
+// The gallery while it loads: the grid the real cards sit in, each with a block in the proportions of a cover picture (16:9) and two lines under it, so the page does not move when
+// the cards replace it.
+export function GallerySkeleton({ count = 9 }) {
+  return (
+    <div className="gl-grid gl-skeleton" role="status" aria-busy="true">
+      <span className="sr-only">Loading…</span>
+      {Array.from({ length: count }, (_, i) => (
+        <div className="gc" key={i} aria-hidden="true">
+          <span className="gc-media skeleton-bar" />
+          <span className="gc-body">{bar('52%', 18)}{bar('92%')}{bar('40%')}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// The gallery page while its file arrives: the room its heading and bar will take, and the grid, so the page does not move when they appear.
+export function GalleryWait() {
+  return (
+    <main className="gl gl-wait">
+      <GallerySkeleton count={9} />
+    </main>
+  );
+}
+
 // The list as a table: rows of the table's own height inside the table's own frame.
 export function TableSkeleton({ rows = 10 }) {
   return (
@@ -51,7 +76,7 @@ export function TableSkeleton({ rows = 10 }) {
 
 // The list while it loads, in the layout the visitor will get.
 export function ListSkeleton() {
-  return initialLayout() === 'table' ? <TableSkeleton /> : <CardGridSkeleton count={9} />;
+  return initialLayout() === 'table' ? <TableSkeleton /> : <GallerySkeleton count={9} />;
 }
 
 // The map while its file (Leaflet and the pins' code) arrives: the ground the map is drawn on, filling the screen the map will fill.

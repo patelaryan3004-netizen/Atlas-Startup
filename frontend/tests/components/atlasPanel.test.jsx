@@ -91,7 +91,7 @@ describe('the map page\'s directory head (the "Startup atlas" panel)', () => {
     expect(more).toHaveTextContent('2');
     await userEvent.click(more);
     expect(onToggleFilters).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('link', { name: 'See these as a list' })).toHaveAttribute('href', '/discover?view=list');
+    expect(screen.getByRole('link', { name: 'See these as a gallery' })).toHaveAttribute('href', '/discover?view=list');
   });
 
   it('takes the search when "/" is pressed outside a field, and leaves it alone inside one', () => {

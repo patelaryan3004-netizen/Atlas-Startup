@@ -2,7 +2,7 @@ import CheckMenu from './CheckMenu.jsx';
 import { LocationMenu, ENTITIES, nextCity } from './ExploreToolbar.jsx';
 import { Segmented, VcBadge } from '../brand/parts.jsx';
 import { splitValues } from '../MultiSelect.jsx';
-import { SearchIcon, SlidersIcon, CloseIcon, ListIcon } from './icons.jsx';
+import { SearchIcon, SlidersIcon, CloseIcon, GridIcon } from './icons.jsx';
 import { linkProps } from '../brand/nav.js';
 
 export const ENTITY_OPTIONS = ENTITIES.map(([id, label]) => ({ id, label, badge: id === 'vcs' ? <span aria-hidden="true"><VcBadge /></span> : null }));
@@ -62,7 +62,7 @@ export default function MapToolbar({
         </button>
         <Segmented className="xt-entity mt-entity" label="What the map shows" options={ENTITY_OPTIONS} value={entity} onChange={onEntityChange} />
         <p className="mt-count" role="status" aria-live="polite">{text || 'Counting…'}</p>
-        <a className="mt-list" aria-label="See these as a list" {...linkProps(listHref, onList)}><ListIcon size={18} /><span>List</span></a>
+        <a className="mt-list" aria-label="See these as a gallery" {...linkProps(listHref, onList)}><GridIcon size={18} /><span>Gallery</span></a>
       </div>
     </div>
   );

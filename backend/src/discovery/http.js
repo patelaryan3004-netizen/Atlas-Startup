@@ -79,10 +79,12 @@ const defaultResolveHost = async (host) => (await lookup(host, { all: true })).m
 const HARD_REFUSALS = new Set(['blocked_host', 'private_host', 'dns_failed', 'bad_url', 'bad_scheme']);
 const LOGIN_PATH = /\/(?:log-?in|sign-?in|sso|auth(?:orize)?|account\/login)(?:\/|$|\?)/i;
 
-async function readCapped(res, maxBytes, url) {
+// The body, as text, or (binary: a picture) as a Buffer. Either way it is read under the same size cap.
+async function readCapped(res, maxBytes, url, binary = false) {
   if (res.body && typeof res.body.getReader === 'function') {
     const reader = res.body.getReader();
     const decoder = new TextDecoder();
+    const chunks = [];
     let text = '';
     let bytes = 0;
     for (;;) {
@@ -93,9 +95,14 @@ async function readCapped(res, maxBytes, url) {
         await reader.cancel();
         throw new FetchPolicyError('too_large', `response is larger than ${maxBytes} bytes`, url);
       }
-      text += decoder.decode(value, { stream: true });
+      if (binary) chunks.push(Buffer.from(value)); else text += decoder.decode(value, { stream: true });
     }
-    return text + decoder.decode();
+    return binary ? Buffer.concat(chunks) : text + decoder.decode();
+  }
+  if (binary) {
+    const bytes = Buffer.from(await res.arrayBuffer());
+    if (bytes.length > maxBytes) throw new FetchPolicyError('too_large', `response is larger than ${maxBytes} bytes`, url);
+    return bytes;
   }
   const text = await res.text();
   if (text.length > maxBytes) throw new FetchPolicyError('too_large', `response is larger than ${maxBytes} bytes`, url);
@@ -194,7 +201,7 @@ export function createFetcher({
     return entry;
   }
 
-  async function finish(res, original, finalUrl, allow) {
+  async function finish(res, original, finalUrl, allow, binary = false) {
     const host = new URL(finalUrl).hostname;
     if (res.status === 401 || res.status === 403) refuse('access_controlled', `HTTP ${res.status}: access-controlled, so not retried or worked around`, finalUrl);
     if (res.status === 429 || res.status === 503) { coolingDown.add(host); noteWait(host, res); refuse('rate_limited', `HTTP ${res.status}: ${host} asked us to slow down`, finalUrl); }
@@ -208,19 +215,20 @@ export function createFetcher({
     if (declared > maxBytes) refuse('too_large', `response is ${declared} bytes, over the ${maxBytes} limit`, finalUrl);
     let text;
     try {
-      text = await readCapped(res, maxBytes, finalUrl);
+      text = await readCapped(res, maxBytes, finalUrl, binary);
     } catch (err) {
       if (err instanceof FetchPolicyError) { log.refused.push({ url: finalUrl, code: err.code, message: err.message }); throw err; }
       // The connection dropped, or the time ran out, while the body was still arriving: the same kinds of
       // failure as before the headers, and handled the same way.
       return refuse(err.name === 'TimeoutError' || err.name === 'AbortError' ? 'timeout' : 'network_error', err.message, finalUrl);
     }
-    return { url: original, finalUrl, status: res.status, contentType: type, text };
+    return binary ? { url: original, finalUrl, status: res.status, contentType: type, body: text } : { url: original, finalUrl, status: res.status, contentType: type, text };
   }
 
   // headers: for a licensed API's key. Sent only to the origin first asked for, never
   // along a redirect to another site, and never as a cookie or a replacement user agent.
-  async function get(url, { accept = 'text/html,application/xhtml+xml;q=0.9', allow = ['text/html', 'application/xhtml+xml'], headers = {} } = {}) {
+  // binary: the body is a picture (or another file that is not text): it comes back as `body`, a Buffer, under the same rules and the same size cap.
+  async function get(url, { accept = 'text/html,application/xhtml+xml;q=0.9', allow = ['text/html', 'application/xhtml+xml'], headers = {}, binary = false } = {}) {
     let current = url;
     const firstOrigin = (() => { try { return new URL(url).origin; } catch { return null; } })();
     const extra = Object.fromEntries(Object.entries(headers).filter(([k]) => !['cookie', 'user-agent', 'host', 'origin', 'referer'].includes(k.toLowerCase())));
@@ -241,7 +249,7 @@ export function createFetcher({
         current = new URL(location, current).href;
         continue;
       }
-      return finish(res, url, current, allow);
+      return finish(res, url, current, allow, binary);
     }
     return refuse('too_many_redirects', `more than ${maxRedirects} redirects`, url);
   }

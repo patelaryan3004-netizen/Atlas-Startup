@@ -130,7 +130,7 @@ describe('the bar over the map', () => {
   it('says how many are on the map where a screen reader will hear it change, and links to the same companies as a list', () => {
     render(<MapToolbar {...props({ companies: 17, vcs: 1 })} />);
     expect(screen.getByRole('status')).toHaveTextContent('17 companies and 1 investor');
-    expect(screen.getByRole('link', { name: 'See these as a list' })).toHaveAttribute('href', '/discover');
+    expect(screen.getByRole('link', { name: 'See these as a gallery' })).toHaveAttribute('href', '/discover');
   });
 
   it('says it is counting until the count arrives, and switches what the map shows', async () => {

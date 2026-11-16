@@ -148,6 +148,7 @@ export function generateCompanies(count, { seed = 1 } = {}) {
       location_confidence: verified ? (checked ? 'medium' : 'low') : null,
       hiring_status: hiring ? 'hiring' : null, hiring_verified_at: hiring ? HIRING_CHECKED_AT : null, website_status: null,
       employee_range: null, funding_total: null, last_funding_date: null, last_funding_round: null,
+      cover: null, cover_source_url: null, cover_retrieved_at: null, // (the gallery's picture: none is invented)
       verification_status: verified ? 'location_verified' : 'unverified', confidence_score: null, created_at: null, updated_at: null, last_verified_at: null,
       founder_ids: (founders ?? []).map(slugify), investor_ids: investors.map(slugify), source_ids: [],
     });
