@@ -1,5 +1,5 @@
 {
- "collected_at": "2026-11-16T10:51:49.930Z",
+ "collected_at": "2026-11-16T14:55:49.063Z",
  "results": [
   {
    "company_id": "immutable",
@@ -41,13 +41,13 @@
    "company_id": "canva",
    "name": "Canva",
    "page": "https://www.canva.com/en_au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:38.797Z"
+   "status": "saved",
+   "source_image": "https://static.canva.com/static/images/fb_cover-1.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 22494,
+   "hash": "7c212d4e90247b9c5168e69ff3fd95ac7be25e90",
+   "retrieved_at": "2026-11-16T14:52:34.016Z"
   },
   {
    "company_id": "culture-amp",
@@ -113,13 +113,13 @@
    "company_id": "zeller",
    "name": "Zeller",
    "page": "https://www.myzeller.com/au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:40.567Z"
+   "status": "saved",
+   "source_image": "https://a-us.storyblok.com/f/1006306/3840x2040/02539f578e/m-2606-5-cafe-zeller-pos-t2-printer-cashdrawer-cafe-banner-v2.jpg",
+   "width": 3840,
+   "height": 2560,
+   "bytes": 26226,
+   "hash": "6bcf6d01bd9a4d531e5e1b61a6aafd56dfab293e",
+   "retrieved_at": "2026-11-16T14:52:49.274Z"
   },
   {
    "company_id": "linktree",
@@ -161,13 +161,13 @@
    "company_id": "rokt",
    "name": "Rokt",
    "page": "https://www.rokt.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:38.807Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/65fde97097a89753eefc6b3d/66708622a25adb49d861d864_Opengraph.png",
+   "width": 1200,
+   "height": 650,
+   "bytes": 2612,
+   "hash": "e1f7b517c772719ae1907db36164aadfb214a8ab",
+   "retrieved_at": "2026-11-16T14:52:34.059Z"
   },
   {
    "company_id": "safetyculture",
@@ -179,7 +179,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:38.805Z"
+   "retrieved_at": "2026-11-16T14:52:34.056Z"
   },
   {
    "company_id": "prospa",
@@ -197,13 +197,13 @@
    "company_id": "morse-micro",
    "name": "Morse Micro",
    "page": "https://morsemicro.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:39.327Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a4b36612c073faf65ec93f4/6a83e51b51a716596060ea96_Open-Graph-Image_01.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 26496,
+   "hash": "9e6fcdd6806f9a65bedb7b2f021944fa318a4d18",
+   "retrieved_at": "2026-11-16T14:52:34.060Z"
   },
   {
    "company_id": "athena",
@@ -233,13 +233,13 @@
    "company_id": "gilmour-space-technologies",
    "name": "Gilmour Space Technologies",
    "page": "https://www.gspace.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: too_large",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:38.807Z"
+   "retrieved_at": "2026-11-16T14:52:34.059Z"
   },
   {
    "company_id": "marqo",
@@ -281,37 +281,37 @@
    "company_id": "restoke",
    "name": "Restoke",
    "page": "https://www.restoke.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:40.349Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/5fceb3167554be4294aeebb4/697a6fcd53f290ed7bc36d7c_b43143422505409b46da9ea4be2f2556_Open%20Graph%20Image%20%281%29.jpg",
+   "width": 1600,
+   "height": 840,
+   "bytes": 9058,
+   "hash": "7e092b52c6ec0b6528994b03516dfdc8d2b7c236",
+   "retrieved_at": "2026-11-16T14:52:48.990Z"
   },
   {
    "company_id": "build-club",
    "name": "Build Club",
    "page": "https://buildclub.ai",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:40.079Z"
+   "retrieved_at": "2026-11-16T14:52:48.144Z"
   },
   {
    "company_id": "eucalyptus",
    "name": "Eucalyptus",
    "page": "https://www.eucalyptus.health/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:39.826Z"
+   "retrieved_at": "2026-11-16T14:52:47.667Z"
   },
   {
    "company_id": "advanced-navigation",
@@ -359,7 +359,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:40.963Z"
+   "retrieved_at": "2026-11-16T14:52:50.025Z"
   },
   {
    "company_id": "cuttable",
@@ -377,25 +377,25 @@
    "company_id": "me-and-u",
    "name": "me&u",
    "page": "https://www.meandu.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:41.107Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68cb96140013fa535857f2bf/692d1368cfee03cc357a9a46_homeOG.jpg",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 42720,
+   "hash": "267f3eea156544ddfb2449fc1a0e514c9a0460c6",
+   "retrieved_at": "2026-11-16T14:52:50.084Z"
   },
   {
    "company_id": "jigspace",
    "name": "JigSpace",
    "page": "https://www.jig.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:40.489Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64066bfae829edf9f96cdb91/65bc77a7d9d20e4d09da5a51_OG%20JigSpace%20Ultimate%20guide%20to%20spatial%20computing.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 32060,
+   "hash": "1b84a2995c39d905d2d0f587b58e98ce3559895a",
+   "retrieved_at": "2026-11-16T14:52:49.042Z"
   },
   {
    "company_id": "sapia-ai",
@@ -413,25 +413,25 @@
    "company_id": "secure-code-warrior",
    "name": "Secure Code Warrior",
    "page": "https://www.securecodewarrior.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:40.739Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/5fec9210c1841a81c9c6ce7d/69b2f5750cdcf3e206ee3841_secure-code-warrior-share-01.png",
+   "width": 2500,
+   "height": 1313,
+   "bytes": 13492,
+   "hash": "ad2b9b0f93758425923a27b608ab3e57a6e9cfd0",
+   "retrieved_at": "2026-11-16T14:52:49.931Z"
   },
   {
    "company_id": "askable",
    "name": "Askable",
    "page": "https://www.askable.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:41.318Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/614d1273c24b3028d627b227/67b49a1734bd39a4e7d9e314_askable-og-image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 7488,
+   "hash": "9a7674a3898d4d6eda18a7f7deeff6b401f07a00",
+   "retrieved_at": "2026-11-16T14:52:50.202Z"
   },
   {
    "company_id": "buildkite",
@@ -509,13 +509,13 @@
    "company_id": "sendle",
    "name": "Sendle",
    "page": "https://www.sendle.com",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:41.498Z"
+   "retrieved_at": "2026-11-16T14:52:51.217Z"
   },
   {
    "company_id": "brighte",
@@ -533,25 +533,25 @@
    "company_id": "shippit",
    "name": "Shippit",
    "page": "https://www.shippit.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:42.496Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6683ba018c4ca4fe3ef702e6/69239e0119de659f7d8a6a71_SHP-OpenGraph-1200x630.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 24392,
+   "hash": "bb1b4aa2896d1f25a021746d3cee8e1ca81a7a92",
+   "retrieved_at": "2026-11-16T14:52:52.978Z"
   },
   {
    "company_id": "orkestra",
    "name": "Orkestra",
    "page": "https://www.orkestra.energy/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:41.944Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64e3f43b886bd0a97f969df0/6876fed2853fb9b30734c448_web-tile.png",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 23308,
+   "hash": "7960b436494a3701bb99a116b7d17286a13a17b3",
+   "retrieved_at": "2026-11-16T14:52:51.676Z"
   },
   {
    "company_id": "mindset-health",
@@ -569,25 +569,25 @@
    "company_id": "q-ctrl",
    "name": "Q-CTRL",
    "page": "https://q-ctrl.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:42.558Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64fe49580f2049d94a40e0df/6abf0f6b5247b4c8a5599cea_q-ctrl-meta-home-v2.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 21956,
+   "hash": "9680f4edf0a0ea0333679118b6b0cadb5cdd9721",
+   "retrieved_at": "2026-11-16T14:52:53.272Z"
   },
   {
    "company_id": "expert360",
    "name": "Expert360",
    "page": "https://expert360.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:42.228Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/695c406d92c02253fb616462/696e9956fa1842b6bc3de05a_Frame%201%20(1).jpg",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 20918,
+   "hash": "b456d8c01f804d347ec7839f6862f99ad5d5459a",
+   "retrieved_at": "2026-11-16T14:52:52.067Z"
   },
   {
    "company_id": "edrolo",
@@ -617,13 +617,13 @@
    "company_id": "everlab",
    "name": "Everlab",
    "page": "https://www.everlab.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:42.801Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67a429737852744b0f848192/68c8f88cc4b4d372793a07cf_67be9ebb03cc2e28c425c62b_og-image.webp",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11918,
+   "hash": "eea8290693137e65361892d29212feb3cc8c9579",
+   "retrieved_at": "2026-11-16T14:52:53.439Z"
   },
   {
    "company_id": "frankieone",
@@ -647,7 +647,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:42.819Z"
+   "retrieved_at": "2026-11-16T14:52:53.622Z"
   },
   {
    "company_id": "care-gp",
@@ -665,13 +665,13 @@
    "company_id": "andromeda-robotics",
    "name": "Andromeda Robotics",
    "page": "https://andromedarobotics.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:42.981Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/66f2de58649a9716e98443e1/6707132c3003831bec9e76ca_Open%20Graph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5602,
+   "hash": "250f3d293e6d184b66834ae6b380e27ea3954208",
+   "retrieved_at": "2026-11-16T14:52:54.064Z"
   },
   {
    "company_id": "lyrebird-health",
@@ -767,7 +767,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:43.225Z"
+   "retrieved_at": "2026-11-16T14:52:55.213Z"
   },
   {
    "company_id": "coassemble",
@@ -785,13 +785,13 @@
    "company_id": "drawboard",
    "name": "Drawboard",
    "page": "https://www.drawboard.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:43.073Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/5fc973fe72246928752172c7/6ab4ad285199dac2b40a7974_PDF%20Annotation%20(1).png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13576,
+   "hash": "4a11227953ee16efd9dc4eb234e77c130e2739ae",
+   "retrieved_at": "2026-11-16T14:52:54.344Z"
   },
   {
    "company_id": "phocas",
@@ -821,13 +821,13 @@
    "company_id": "etrainu",
    "name": "etrainu",
    "page": "https://etrainu.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:43.283Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/674e96ea7668d29a0c8a084b/6760bb9c7e5f4b891767050a_etrainu%20main%20open%20graph.png",
+   "width": 1200,
+   "height": 629,
+   "bytes": 15138,
+   "hash": "18044a2d38a35925355f3598eae326dda3e98c41",
+   "retrieved_at": "2026-11-16T14:52:55.221Z"
   },
   {
    "company_id": "flippa",
@@ -863,7 +863,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:41.732Z"
+   "retrieved_at": "2026-11-16T14:52:51.317Z"
   },
   {
    "company_id": "bivacor",
@@ -965,25 +965,25 @@
    "company_id": "mastt",
    "name": "Mastt",
    "page": "https://www.mastt.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:43.357Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/607f739c92f9cfa16116b34d/6af261511068e5665f836f31_Mastt%20Share%20Image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 20326,
+   "hash": "0edaf92175d52c994241c42f35a6ea1ce055a30b",
+   "retrieved_at": "2026-11-16T14:52:55.245Z"
   },
   {
    "company_id": "atomi",
    "name": "Atomi",
    "page": "https://www.getatomi.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:43.455Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64d87bf30c82dd47a291be3d/67a954d90e939dfa15204dc9_23c7eaaf3af1b0ff760ea46d84be4f68_atomi-made-to-engage-open-graph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13990,
+   "hash": "9a7d46d2b1d1c00a241fe48e9c61ab8ece29b009",
+   "retrieved_at": "2026-11-16T14:52:55.973Z"
   },
   {
    "company_id": "amazingco",
@@ -1025,13 +1025,13 @@
    "company_id": "bridgit",
    "name": "Bridgit",
    "page": "https://www.bridgit.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:44.360Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68e9c814fa7d31b049f8e6e7/69843cdc320ef1b5974625d6_BR079_Open%20Graph%20Image_V1.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 28322,
+   "hash": "6cad4d814825b497343b9184d4b7397d4f03b6ae",
+   "retrieved_at": "2026-11-16T14:53:01.933Z"
   },
   {
    "company_id": "zitcha",
@@ -1061,13 +1061,13 @@
    "company_id": "clear-dynamics",
    "name": "Clear Dynamics",
    "page": "https://www.cleardynamics.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:44.535Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a97546d8a1fece3fc8c4cb7/6ab1f7be7d79edf5909045ee_Opengraph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 8148,
+   "hash": "380101450980c3a04cc5d0ec5bbe0adca6b3c63d",
+   "retrieved_at": "2026-11-16T14:53:08.570Z"
   },
   {
    "company_id": "matrak",
@@ -1085,25 +1085,25 @@
    "company_id": "bare",
    "name": "Bare",
    "page": "https://bare.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:44.616Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/648669d3ff1c1c2aabd941f3/68802c5fe9a0ebea366721c8_30445f425c14af54adea289b39550d47_bare.png",
+   "width": 1200,
+   "height": 627,
+   "bytes": 16306,
+   "hash": "14aa8aa64f6f7499fb866d4899ff029ca0945b51",
+   "retrieved_at": "2026-11-16T14:53:10.638Z"
   },
   {
    "company_id": "payble",
    "name": "Payble",
    "page": "https://payble.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:45.490Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/61b29657c017a96838eb2059/6715dd76a8c9e07d33877a55_Open%20Graph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 17022,
+   "hash": "756dfc949542ef62ec56cb9cdc80957ae19006b0",
+   "retrieved_at": "2026-11-16T14:53:11.720Z"
   },
   {
    "company_id": "factor-house",
@@ -1133,13 +1133,13 @@
    "company_id": "apate-ai",
    "name": "Apate AI",
    "page": "https://www.apate.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:45.202Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67fc761b6913a3a0711e2c3b/681aded215497262ba8946f7_webclip.jpg",
+   "width": 1260,
+   "height": 661,
+   "bytes": 13688,
+   "hash": "2a7b0a96a400a03509800522a70e9662cc2a8b78",
+   "retrieved_at": "2026-11-16T14:53:11.639Z"
   },
   {
    "company_id": "bonjoro",
@@ -1181,13 +1181,13 @@
    "company_id": "starboard",
    "name": "Starboard",
    "page": "https://www.starboardintelligence.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:45.409Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/66c26a3fa51d2b10f740d8fc/66c6b17b42befaab9db58c2b_arriving-vessels.png",
+   "width": 1571,
+   "height": 1100,
+   "bytes": 38970,
+   "hash": "a42ce672f749b027bc50a81bc9f618f00139ca7c",
+   "retrieved_at": "2026-11-16T14:53:11.698Z"
   },
   {
    "company_id": "mx51",
@@ -1241,25 +1241,25 @@
    "company_id": "socialsuite",
    "name": "Socialsuite",
    "page": "https://www.socialsuitehq.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:47.708Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/60927e9213d783572fb4b747/6a21a9d2b23d113beffed4de_Socialsuite%20Home%20Page.png",
+   "width": 2854,
+   "height": 1396,
+   "bytes": 18114,
+   "hash": "594bbf802240b99a4525c5d596e8e907f11a30b2",
+   "retrieved_at": "2026-11-16T14:53:26.395Z"
   },
   {
    "company_id": "loopit",
    "name": "Loopit",
    "page": "https://www.loopit.co/en-us",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:45.867Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/5f0fa4521806fc7695679c1c/67329cb45ec88bfd6cd5d2f4_Loopit%20Banner%20Open%20Graph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 3132,
+   "hash": "f1df9e5a5f4b1f23f75d1116bfec61b3016970fc",
+   "retrieved_at": "2026-11-16T14:53:12.455Z"
   },
   {
    "company_id": "sherlok",
@@ -1283,7 +1283,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:46.407Z"
+   "retrieved_at": "2026-11-16T14:53:25.316Z"
   },
   {
    "company_id": "hone",
@@ -1300,14 +1300,14 @@
   {
    "company_id": "start-my-tomorrow",
    "name": "Start My Tomorrow (TMRW)",
-   "page": "https://startmytomorrow.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:48.672Z"
+   "page": "https://www.startmytomorrow.com/",
+   "status": "saved",
+   "source_image": "https://www.startmytomorrow.com/og-image.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 28092,
+   "hash": "e13b5982fbdcdf7b6c92425b08c076001e4ca9ed",
+   "retrieved_at": "2026-11-16T14:53:27.472Z"
   },
   {
    "company_id": "sherpa",
@@ -1349,13 +1349,13 @@
    "company_id": "psyke",
    "name": "Psyke",
    "page": "https://psyke.co",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:46.621Z"
+   "status": "saved",
+   "source_image": "https://b5a03f94-4ddd-4461-944c-2ea09f7926ea.upflowyexperience.com/b5a03f94-4ddd-4461-944c-2ea09f7926ea/assets/images/original/psyke-og.webp",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5560,
+   "hash": "c9850b3d271d8882fa8144be9b31c457396cc08c",
+   "retrieved_at": "2026-11-16T14:53:25.514Z"
   },
   {
    "company_id": "autograb",
@@ -1367,7 +1367,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:48.983Z"
+   "retrieved_at": "2026-11-16T14:53:28.482Z"
   },
   {
    "company_id": "zero-latency",
@@ -1433,13 +1433,13 @@
    "company_id": "audience-republic",
    "name": "Audience Republic",
    "page": "https://audiencerepublic.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:49.133Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64ffde700f00c4757fc21755/6576b2a146fa9d4b5053d6b3_opengraph_homepage.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 10860,
+   "hash": "5b54845aadd9f1156f9816d2e10a37ba8de6c818",
+   "retrieved_at": "2026-11-16T14:53:28.696Z"
   },
   {
    "company_id": "visibuild",
@@ -1451,31 +1451,31 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:50.738Z"
+   "retrieved_at": "2026-11-16T14:53:29.488Z"
   },
   {
    "company_id": "avarni",
    "name": "Avarni",
    "page": "https://www.avarni.co/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:48.741Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/680ed2d362ee533af9acd923/680ed2d462ee533af9acdb2e_7aa540c7ab758d77f77184e83d0ba393_og_avarni-min.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11928,
+   "hash": "5317033c380b2c7c15c620c30c4dcddfbb1295d3",
+   "retrieved_at": "2026-11-16T14:53:28.270Z"
   },
   {
    "company_id": "kimia",
    "name": "Kimia (Kimia.ai)",
    "page": "https://kimia.ai",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:50.234Z"
+   "retrieved_at": "2026-11-16T14:53:29.420Z"
   },
   {
    "company_id": "vexev",
@@ -1493,25 +1493,25 @@
    "company_id": "onemri",
    "name": "OneMRI",
    "page": "https://www.onemri.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:50.119Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/670789c41c008aace6241700/69aa16708f9cd4edf4a71e0a_Whole-body%20MRI.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13798,
+   "hash": "7bc8d77018540bf210a564068218549e17df4a25",
+   "retrieved_at": "2026-11-16T14:53:29.350Z"
   },
   {
    "company_id": "signonsite",
    "name": "SignOnSite",
    "page": "https://www.signonsite.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:49.550Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/65b70c6cbb8a340a71af04e0/65f731e7ffeca9001e1b9248_main-og.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 17150,
+   "hash": "b2ee29ef173cec3ab8f2d372bbc7173a399a2a7c",
+   "retrieved_at": "2026-11-16T14:53:28.716Z"
   },
   {
    "company_id": "contactile",
@@ -1523,19 +1523,19 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:51.137Z"
+   "retrieved_at": "2026-11-16T14:53:30.042Z"
   },
   {
    "company_id": "safewill",
    "name": "Safewill",
    "page": "https://safewill.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:50.827Z"
+   "status": "saved",
+   "source_image": "https://safewill.com/opengraph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 9924,
+   "hash": "289b90e95c8ac1da4fab1fc1298317ccc1156c5a",
+   "retrieved_at": "2026-11-16T14:53:29.735Z"
   },
   {
    "company_id": "human-health",
@@ -1595,7 +1595,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:51.479Z"
+   "retrieved_at": "2026-11-16T14:53:30.126Z"
   },
   {
    "company_id": "kismet",
@@ -1649,13 +1649,13 @@
    "company_id": "moregooddays",
    "name": "MoreGoodDays",
    "page": "https://www.moregooddays.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:51.981Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6414728fd8f4a75b728b6c22/69114538fab0572695db933d_fater%20with%20kids%204.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 26892,
+   "hash": "3aaed1947e3f08d190dc7197e3f2192b194d001f",
+   "retrieved_at": "2026-11-16T14:53:30.576Z"
   },
   {
    "company_id": "vow",
@@ -1697,25 +1697,25 @@
    "company_id": "trace",
    "name": "Trace",
    "page": "https://www.our-trace.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:51.753Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/662aa5ebfbf1f29685ff3915/664208a8683810be4eceaee7_og.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 4226,
+   "hash": "6237c572875e2d746be2e1db8336ed0cbb44e5e1",
+   "retrieved_at": "2026-11-16T14:53:30.341Z"
   },
   {
    "company_id": "ownhome",
    "name": "OwnHome",
    "page": "https://ownhome.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:52.976Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/63eaf818fa58518541306b1d/640684d58287ef6dec03c807_Ownhome-opengraph.png",
+   "width": 1350,
+   "height": 707,
+   "bytes": 23186,
+   "hash": "6112200bda762393e667ed162189dc89cfc5847a",
+   "retrieved_at": "2026-11-16T14:53:31.403Z"
   },
   {
    "company_id": "unloan",
@@ -1745,13 +1745,13 @@
    "company_id": "doshii",
    "name": "Doshii",
    "page": "https://doshii.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:52.775Z"
+   "status": "saved",
+   "source_image": "https://media.doshii.com/wp-content/uploads/2025/11/28152702/SEO-image-home.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 25160,
+   "hash": "e3853d737ee5a922515745b96eeab1793c244fd6",
+   "retrieved_at": "2026-11-16T14:53:30.902Z"
   },
   {
    "company_id": "kit",
@@ -1769,13 +1769,13 @@
    "company_id": "home-in",
    "name": "Home-in",
    "page": "https://www.home-in.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:52.265Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/61ef8a4a2ab169152a876522/62caf4dabf7adc2cd529a173_Feature%20Image%203.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 3818,
+   "hash": "a29aa59d679f316dd7c777e44d196272445d36d9",
+   "retrieved_at": "2026-11-16T14:53:30.578Z"
   },
   {
    "company_id": "spriggy",
@@ -1829,13 +1829,13 @@
    "company_id": "slyp",
    "name": "Slyp",
    "page": "https://www.slyp.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:52.984Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6680ddba4f1da175046715b0/66a17d21d921072adc52c771_home-banner.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 16184,
+   "hash": "6169629be21d398660dccc8e8903345d6743f757",
+   "retrieved_at": "2026-11-16T14:53:35.430Z"
   },
   {
    "company_id": "duohub",
@@ -1895,7 +1895,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:54.131Z"
+   "retrieved_at": "2026-11-16T14:53:36.482Z"
   },
   {
    "company_id": "landid",
@@ -1907,7 +1907,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:54.329Z"
+   "retrieved_at": "2026-11-16T14:53:36.521Z"
   },
   {
    "company_id": "pentacue-ai",
@@ -1937,13 +1937,13 @@
    "company_id": "hometime",
    "name": "Hometime",
    "page": "https://www.hometime.io/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1191x1188 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:53.188Z"
+   "retrieved_at": "2026-11-16T14:53:35.793Z"
   },
   {
    "company_id": "puralink",
@@ -1973,13 +1973,13 @@
    "company_id": "andisor",
    "name": "Andisor",
    "page": "https://andisor.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:54.379Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/QOT3PyqsR73Hv0L6ryH5zpnUOt0.png",
+   "width": 2894,
+   "height": 1358,
+   "bytes": 17584,
+   "hash": "d0b8b552952362ba03832b8034a011ca7cf6a9d9",
+   "retrieved_at": "2026-11-16T14:53:36.659Z"
   },
   {
    "company_id": "vulnetix",
@@ -2009,13 +2009,13 @@
    "company_id": "calctree",
    "name": "CalcTree",
    "page": "https://www.calctree.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:54.385Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/60353c8e5e301f3a0191c540/6681adc0a817374a76da2050_opengraph-home.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 8872,
+   "hash": "10b5d2b0d0e755565f71183ebed6136d08eb62b0",
+   "retrieved_at": "2026-11-16T14:53:36.851Z"
   },
   {
    "company_id": "pairtree",
@@ -2033,13 +2033,13 @@
    "company_id": "blinq",
    "name": "Blinq",
    "page": "https://blinq.me",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:54.914Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/617ac0d059899a9a3c8216e9/69ef347a7ccccfdc6949d206_OpenGraphic_Homepage.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5732,
+   "hash": "40d6559a64a6ce1018061baa71966798e942fac5",
+   "retrieved_at": "2026-11-16T14:53:37.502Z"
   },
   {
    "company_id": "edsemble",
@@ -2069,49 +2069,49 @@
    "company_id": "reach-alternative-investments",
    "name": "Reach Alternative Investments",
    "page": "https://www.reachalts.com.au/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:54.618Z"
+   "retrieved_at": "2026-11-16T14:53:37.418Z"
   },
   {
    "company_id": "agridigital",
    "name": "AgriDigital",
    "page": "https://www.agridigital.io",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.029Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/62a835f367da1965622e1702/62fb12429f9280061ffcaa96_Our%20Founders%20(1)%20(1).webp",
+   "width": 2048,
+   "height": 1365,
+   "bytes": 19800,
+   "hash": "579d62f8e7d78ba943e4d96af9969056f7792833",
+   "retrieved_at": "2026-11-16T14:53:38.071Z"
   },
   {
    "company_id": "amber-electric",
    "name": "Amber Electric",
    "page": "https://www.amber.com.au",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.208Z"
+   "retrieved_at": "2026-11-16T14:53:38.414Z"
   },
   {
    "company_id": "superstat",
    "name": "Superstat",
    "page": "https://www.superstatsport.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.218Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/OkEDwNKHYSPKVJgnBu4XHvrgCs.jpg",
+   "width": 5000,
+   "height": 2625,
+   "bytes": 25708,
+   "hash": "84b0257425e7a0cf6a497c2fdc869b8749ccdbd7",
+   "retrieved_at": "2026-11-16T14:53:38.415Z"
   },
   {
    "company_id": "forward",
@@ -2177,13 +2177,13 @@
    "company_id": "block-earner",
    "name": "Block Earner",
    "page": "https://blockearner.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.303Z"
+   "status": "saved",
+   "source_image": "https://cdn.blockearner.com.au/personal_thumbnail_247473323d.png",
+   "width": 1160,
+   "height": 608,
+   "bytes": 23656,
+   "hash": "fb97ac092041801e24c9bf8988e439b5cd30e055",
+   "retrieved_at": "2026-11-16T14:53:38.492Z"
   },
   {
    "company_id": "affinda",
@@ -2243,7 +2243,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.452Z"
+   "retrieved_at": "2026-11-16T14:53:39.040Z"
   },
   {
    "company_id": "index",
@@ -2261,13 +2261,13 @@
    "company_id": "harvest-b",
    "name": "Harvest B",
    "page": "https://www.harvestb.io",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.494Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/65cea045fddfe12de8697bf5/65dbfe40fc23075e4987e309_Updated%20OG.jpg",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 8836,
+   "hash": "bb016ca95e685adf778c2662c5d13f2bce3ef96e",
+   "retrieved_at": "2026-11-16T14:53:39.241Z"
   },
   {
    "company_id": "emesent",
@@ -2297,13 +2297,13 @@
    "company_id": "ignition",
    "name": "Ignition",
    "page": "https://www.ignitionapp.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.738Z"
+   "status": "saved",
+   "source_image": "https://cache.ignitionapp.com/misc/2411-GLOBAL-WEBSITE-MetaImage-1200x628.png",
+   "width": 1200,
+   "height": 628,
+   "bytes": 12296,
+   "hash": "029eb7ec4a86357f9e30493486ee6c853ac97a55",
+   "retrieved_at": "2026-11-16T14:53:39.367Z"
   },
   {
    "company_id": "indebted",
@@ -2339,7 +2339,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.743Z"
+   "retrieved_at": "2026-11-16T14:53:39.447Z"
   },
   {
    "company_id": "intelligencebank",
@@ -2429,13 +2429,13 @@
    "company_id": "relume",
    "name": "Relume",
    "page": "https://www.relume.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.915Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6177739448baa66404ce1d9c/6a8660a8897b488119f6ed90_og-default-v1.png",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 70820,
+   "hash": "8406fa67358147d7a53ac65565db55cedfdd8977",
+   "retrieved_at": "2026-11-16T14:53:40.568Z"
   },
   {
    "company_id": "lombard",
@@ -2453,13 +2453,13 @@
    "company_id": "octopus-deploy",
    "name": "Octopus Deploy",
    "page": "https://octopus.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.842Z"
+   "status": "saved",
+   "source_image": "https://a.storyblok.com/f/185929/1200x630/0172ae8c09/octopus-deploy-pipeline-min.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 17838,
+   "hash": "4af8f9c7a33c3c45cc45d1fe2f1809dd26ce002c",
+   "retrieved_at": "2026-11-16T14:53:39.965Z"
   },
   {
    "company_id": "reejig",
@@ -2501,13 +2501,13 @@
    "company_id": "wemoney",
    "name": "WeMoney",
    "page": "https://www.wemoney.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:56.976Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/5f35464410e0c30c3376f85c/5f5f042a999a264543ab1468_1A%20-%20Opengraph%20image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 17558,
+   "hash": "4985a518c5ac16b84e7d8e087f3352eebf0ec8e5",
+   "retrieved_at": "2026-11-16T14:53:43.268Z"
   },
   {
    "company_id": "tribe",
@@ -2525,37 +2525,37 @@
    "company_id": "syenta",
    "name": "Syenta",
    "page": "https://www.syenta.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:55.931Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69c464d7b999ae433239010c/69c464d7b999ae4332390183_syenta.png",
+   "width": 1201,
+   "height": 631,
+   "bytes": 4180,
+   "hash": "e8a7e90338e1abbac7fa5d803a16348872343153",
+   "retrieved_at": "2026-11-16T14:53:42.416Z"
   },
   {
    "company_id": "upcover",
    "name": "upcover",
    "page": "https://www.upcover.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:56.477Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/684c2562066471bab0d1b300/69f308fdbc030dc4062cca64_30de426ab4a0514bee5723c6bbedb936_Upcover%20Thumbnail.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 12448,
+   "hash": "fda7683c3f64c3743db737c954e499176dd250f4",
+   "retrieved_at": "2026-11-16T14:53:42.619Z"
   },
   {
    "company_id": "alloy-robotics",
    "name": "Alloy Robotics",
-   "page": "https://usealloy.ai",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:57.399Z"
+   "page": "https://www.usealloy.ai/",
+   "status": "saved",
+   "source_image": "https://www.usealloy.ai/site-assets/home-og.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13524,
+   "hash": "ff7dc04f87b239e636921c04ce6899c5a47b83c0",
+   "retrieved_at": "2026-11-16T14:53:43.480Z"
   },
   {
    "company_id": "coco",
@@ -2717,13 +2717,13 @@
    "company_id": "accelo",
    "name": "Accelo",
    "page": "https://www.accelo.com/?",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:57.421Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69d7c04e3adaa4efae2171e5/69d7c04e3adaa4efae2179de_09b19a7722a0f6fd59a9cfc06afaa60a_open%20graph.png",
+   "width": 1200,
+   "height": 631,
+   "bytes": 7448,
+   "hash": "e23a2e1acdbe43d801004cf7da5d0fa49e2fec90",
+   "retrieved_at": "2026-11-16T14:53:44.086Z"
   },
   {
    "company_id": "abyss-solutions",
@@ -2801,13 +2801,13 @@
    "company_id": "arkeus",
    "name": "Arkeus",
    "page": "https://arkeus.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:57.700Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69f1c586ef0a7e04e8f51df7/69f2d75a131e9c43f09d4d98_Arkeus%20OG.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 2304,
+   "hash": "eb440cc83b639e28f43f87fbb8b62443b7536bea",
+   "retrieved_at": "2026-11-16T14:53:44.732Z"
   },
   {
    "company_id": "alts",
@@ -2837,25 +2837,25 @@
    "company_id": "azaneo",
    "name": "Azaneo",
    "page": "https://azaneo.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:57.974Z"
+   "status": "saved",
+   "source_image": "https://azaneo.au/images/azaneo-search-preview.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5400,
+   "hash": "cd12d6dce262fd6a852571213202222b9133002b",
+   "retrieved_at": "2026-11-16T14:53:45.512Z"
   },
   {
    "company_id": "archer-materials",
    "name": "Archer Materials",
    "page": "https://www.archerx.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:57.568Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68a248b5fb1f74245f102417/6a3f44b27a98308d99ab2059_archer-materials-axe-australia-quantum-comany.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11556,
+   "hash": "b8f54b3e7f36ef643da743985a5e8f4f428863f2",
+   "retrieved_at": "2026-11-16T14:53:44.724Z"
   },
   {
    "company_id": "atrium",
@@ -2921,25 +2921,25 @@
    "company_id": "bygen",
    "name": "Bygen",
    "page": "https://www.bygen.com.au/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 800x800 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:58.668Z"
+   "retrieved_at": "2026-11-16T14:53:46.338Z"
   },
   {
    "company_id": "atticus",
    "name": "Atticus",
    "page": "https://www.atticus.tech/au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:57.897Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6985379a86506c332f77d04d/6a446031c5f1248da05fadb5_dd67c61f3705f1862e13f00c3370001f_og-image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 4294,
+   "hash": "8e60601529e47232f73b6c1d9aceb7c581c5e0b3",
+   "retrieved_at": "2026-11-16T14:53:44.741Z"
   },
   {
    "company_id": "cascayd",
@@ -2957,13 +2957,13 @@
    "company_id": "cape",
    "name": "Cape",
    "page": "https://www.getcape.io/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 671x567 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:50:59.454Z"
+   "retrieved_at": "2026-11-16T14:53:47.212Z"
   },
   {
    "company_id": "coinjar",
@@ -3041,13 +3041,13 @@
    "company_id": "datafarming",
    "name": "DataFarming",
    "page": "https://datafarming.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:50:59.900Z"
+   "status": "saved",
+   "source_image": "https://irp.cdn-website.com/eae5ebcd/dms3rep/multi/opt/DFA+Website+SEO+logos2-1920w.png",
+   "width": 1920,
+   "height": 1008,
+   "bytes": 31572,
+   "hash": "80dcd193c5a375d7c4fc0645434b16e990979102",
+   "retrieved_at": "2026-11-16T14:53:47.631Z"
   },
   {
    "company_id": "decarice",
@@ -3089,13 +3089,13 @@
    "company_id": "earlywork",
    "name": "Earlywork",
    "page": "https://www.earlywork.co/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:00.414Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/62f4964e0ded1f7fd206a745/688c3d43bd4ff15ceee9cb9b_op-home-4.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 19126,
+   "hash": "4228eb1172f658c7efee39db6c7eb16ac376ad7e",
+   "retrieved_at": "2026-11-16T14:53:48.892Z"
   },
   {
    "company_id": "effi",
@@ -3125,25 +3125,25 @@
    "company_id": "esper-satellite-imagery",
    "name": "Esper Satellite Imagery",
    "page": "https://www.espersatellites.co/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:01.411Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/j23zx0tyZLLGZPZGskj6HprfQA.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 84196,
+   "hash": "73138f4b5ee9c26542c96866cc4a8ff09e6038c2",
+   "retrieved_at": "2026-11-16T14:53:50.967Z"
   },
   {
    "company_id": "design-com",
    "name": "Design.com",
    "page": "https://www.design.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:00.153Z"
+   "retrieved_at": "2026-11-16T14:53:48.856Z"
   },
   {
    "company_id": "extraordinary-money",
@@ -3161,13 +3161,13 @@
    "company_id": "elevio",
    "name": "Elevio",
    "page": "https://elev.io",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:01.378Z"
+   "status": "saved",
+   "source_image": "https://s3.amazonaws.com/elevio-website-production/marketing-assets/homepage.png",
+   "width": 1200,
+   "height": 628,
+   "bytes": 11786,
+   "hash": "324b9c6b3909905004b79ee88425ab331eb4e89d",
+   "retrieved_at": "2026-11-16T14:53:49.863Z"
   },
   {
    "company_id": "deneb-space",
@@ -3184,14 +3184,14 @@
   {
    "company_id": "everbility",
    "name": "Everbility",
-   "page": "https://everbility.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:01.798Z"
+   "page": "https://www.everbility.com/",
+   "status": "saved",
+   "source_image": "https://public-assets-mani.s3.us-west-1.amazonaws.com/everbility/images/everbility_preview.png",
+   "width": 2670,
+   "height": 1892,
+   "bytes": 17826,
+   "hash": "94d1eb7b617095518dd41e8ca95c33c665495e3c",
+   "retrieved_at": "2026-11-16T14:53:51.496Z"
   },
   {
    "company_id": "driven",
@@ -3232,14 +3232,14 @@
   {
    "company_id": "future-super",
    "name": "Future Super",
-   "page": "https://futuresuper.com.au",
-   "status": "unreadable: robots_unavailable",
+   "page": "https://www.futuresuper.com.au/",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:02.041Z"
+   "retrieved_at": "2026-11-16T14:53:53.174Z"
   },
   {
    "company_id": "ebest",
@@ -3305,25 +3305,25 @@
    "company_id": "foremind",
    "name": "Foremind",
    "page": "https://www.foremind.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:01.850Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68b6ac0a4b351036bf03394b/6ab26b7bd381ea6d28c79881_Foremind-OG.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 12660,
+   "hash": "9f201f4c1f08b40094343074364bcb9d105c1c4e",
+   "retrieved_at": "2026-11-16T14:53:51.616Z"
   },
   {
    "company_id": "hullbot",
    "name": "Hullbot",
    "page": "https://hullbot.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:02.718Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6ae18c1c5f7fda887672f3ba/6ae18c1c5f7fda887672f541_img-section-media-2.webp",
+   "width": 800,
+   "height": 400,
+   "bytes": 18566,
+   "hash": "726deed518a3c7846cc76d19916d0e6d41b63c1b",
+   "retrieved_at": "2026-11-16T14:53:53.344Z"
   },
   {
    "company_id": "grow-inc",
@@ -3473,13 +3473,13 @@
    "company_id": "lexer",
    "name": "Lexer",
    "page": "https://www.lexer.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:02.901Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/623a29532ccf51baab98942f/6a8e2fab083a45f45c299f06_OpenGraph%20image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 41598,
+   "hash": "79287f18bf6d61912b5b8fe20e30880037632aaa",
+   "retrieved_at": "2026-11-16T14:53:53.701Z"
   },
   {
    "company_id": "leakster",
@@ -3497,13 +3497,13 @@
    "company_id": "lumos",
    "name": "LUMOS",
    "page": "https://spotlumos.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:03.346Z"
+   "status": "saved",
+   "source_image": "https://spotlumos.com/images/og-preview.png",
+   "width": 1200,
+   "height": 627,
+   "bytes": 17248,
+   "hash": "c713fd4f24bfeacf64a70d3733a8d3249cc443e1",
+   "retrieved_at": "2026-11-16T14:53:54.210Z"
   },
   {
    "company_id": "like-family",
@@ -3568,14 +3568,14 @@
   {
    "company_id": "marloo",
    "name": "Marloo",
-   "page": "https://gomarloo.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:03.891Z"
+   "page": "https://www.marloo.com/au",
+   "status": "saved",
+   "source_image": "https://www.marloo.com/images/og-image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13778,
+   "hash": "a8ea66415f66c9724d7827e452044b16c770ef46",
+   "retrieved_at": "2026-11-16T14:53:54.324Z"
   },
   {
    "company_id": "millibeam",
@@ -3629,13 +3629,13 @@
    "company_id": "o3",
    "name": "O3",
    "page": "https://o3space.org",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:03.975Z"
+   "retrieved_at": "2026-11-16T14:53:54.578Z"
   },
   {
    "company_id": "mozo",
@@ -3677,25 +3677,25 @@
    "company_id": "on-the-house",
    "name": "On The House",
    "page": "https://onthehousegroup.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:04.095Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69decf74c1c22f7e567183c4/69e510283603aec98955cd23_OTHG_Open%20Graph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 37760,
+   "hash": "5f7afc2b1b22c6ab7cec2456faa21a9b989aa7eb",
+   "retrieved_at": "2026-11-16T14:53:55.480Z"
   },
   {
    "company_id": "preve",
    "name": "PREVE",
    "page": "https://preve.co",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:04.319Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/4ZHxYXnodvsZIIg2GMLnIbToBE.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 4386,
+   "hash": "909057d1119b820a3d666f09d21bc6bbb1cba8af",
+   "retrieved_at": "2026-11-16T14:53:56.147Z"
   },
   {
    "company_id": "nomad-atomics",
@@ -3737,13 +3737,13 @@
    "company_id": "presien",
    "name": "Presien",
    "page": "https://www.presien.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:04.226Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/66b5e1720acacf3b6ced7f22/66d6ee66c815542c09014331_Open%20Graph.png",
+   "width": 1200,
+   "height": 650,
+   "bytes": 3254,
+   "hash": "f7e060793d4f7c605aae6834369faeebe11fca47",
+   "retrieved_at": "2026-11-16T14:53:55.786Z"
   },
   {
    "company_id": "promosync",
@@ -3755,43 +3755,43 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:05.163Z"
+   "retrieved_at": "2026-11-16T14:53:57.454Z"
   },
   {
    "company_id": "programa",
    "name": "Programa",
-   "page": "https://programa.com.au",
-   "status": "unreadable: robots_unavailable",
+   "page": "https://programa.design/",
+   "status": "no_image: the page names no preview picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:04.525Z"
+   "retrieved_at": "2026-11-16T14:53:56.991Z"
   },
   {
    "company_id": "simconverse",
    "name": "SimConverse",
-   "page": "https://simconverse.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:05.413Z"
+   "page": "https://www.simconverse.com/",
+   "status": "saved",
+   "source_image": "https://www.simconverse.com/og/main.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 49576,
+   "hash": "c657c2d42b2c3652489ce933a1b007f09d06527f",
+   "retrieved_at": "2026-11-16T14:53:58.354Z"
   },
   {
    "company_id": "snug",
    "name": "Snug",
    "page": "https://snug.com",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 170x170 is too small",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:05.855Z"
+   "retrieved_at": "2026-11-16T14:53:58.425Z"
   },
   {
    "company_id": "octopusbot",
@@ -3809,13 +3809,13 @@
    "company_id": "summ",
    "name": "SUMM",
    "page": "https://summ.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:06.042Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68fefe182a6ddfeb26e320b5/69164ad9a3f93d5b7b23ef28_SummOGImage.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13646,
+   "hash": "1d5428ca511db81c631dacd9d71b18d023ab8b2b",
+   "retrieved_at": "2026-11-16T14:53:59.564Z"
   },
   {
    "company_id": "traild",
@@ -3989,13 +3989,13 @@
    "company_id": "corametix",
    "name": "CoraMetix",
    "page": "https://corametix.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:06.819Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/CbUqFxIAScxMDqQf3LicDpJLp08.png",
+   "width": 1200,
+   "height": 636,
+   "bytes": 18946,
+   "hash": "b15a3a805d74aae83d419bff6524603a1363de18",
+   "retrieved_at": "2026-11-16T14:54:20.193Z"
   },
   {
    "company_id": "chironix",
@@ -4037,13 +4037,13 @@
    "company_id": "black-swan-biotech",
    "name": "Black Swan Biotech",
    "page": "https://www.blackswanbio.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:06.510Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a37f0bf808fe206de2b9596/6abc944d0fb0ba4287e3151c_black_swan_biotech_opengraph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 57958,
+   "hash": "c0d21fa671a690a93ca1a583bd32b4cd51452dc2",
+   "retrieved_at": "2026-11-16T14:54:01.271Z"
   },
   {
    "company_id": "cars-like",
@@ -4061,13 +4061,13 @@
    "company_id": "detail-earth",
    "name": "Detail Earth",
    "page": "https://detail.earth",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.020Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/690daea41fb43d541902eafe/690dd4680fc8ce74e919de6b_OG-Prev.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 48706,
+   "hash": "4143d55b793765b461191f53dff8ffd25986b124",
+   "retrieved_at": "2026-11-16T14:54:20.353Z"
   },
   {
    "company_id": "hola-health",
@@ -4097,13 +4097,13 @@
    "company_id": "hyperion-systems",
    "name": "Hyperion Systems",
    "page": "https://www.hyperionsystems.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.112Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/MeGwufzZBLZwt1NixII6cNt8g50.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 8140,
+   "hash": "027479a284ceb0bae0df718e3c0e78c2a71291db",
+   "retrieved_at": "2026-11-16T14:54:20.835Z"
   },
   {
    "company_id": "lixa",
@@ -4121,13 +4121,13 @@
    "company_id": "omni-biotech",
    "name": "Omni Biotech",
    "page": "https://omnibiotech.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.203Z"
+   "status": "saved",
+   "source_image": "https://omnibiotech.com.au/og-image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 28318,
+   "hash": "76583ce6e4d988c2f48e860dd84aa28f0c793163",
+   "retrieved_at": "2026-11-16T14:54:21.574Z"
   },
   {
    "company_id": "interearth",
@@ -4169,13 +4169,13 @@
    "company_id": "personr",
    "name": "Personr",
    "page": "https://personr.co",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.521Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/Km1B0x8219wunHVVSkPw6lBt55U.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 58848,
+   "hash": "1320d54bf6ba03b3de4f7b95461a08cb185b0220",
+   "retrieved_at": "2026-11-16T14:54:22.834Z"
   },
   {
    "company_id": "simplafy",
@@ -4193,13 +4193,13 @@
    "company_id": "spacedraft",
    "name": "SpaceDraft",
    "page": "https://spacedraft.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.570Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/Pi3PtOE0cbS0eV0e5lbfwNqKJI.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 6712,
+   "hash": "11873aba0f9b7e1ba11a0cbe6e4b5eb0fd18a6cb",
+   "retrieved_at": "2026-11-16T14:54:23.100Z"
   },
   {
    "company_id": "spacetoco",
@@ -4265,25 +4265,25 @@
    "company_id": "wevolt",
    "name": "Wevolt",
    "page": "https://wevolt.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.838Z"
+   "status": "saved",
+   "source_image": "https://wevolt.com.au/og/og-default.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11412,
+   "hash": "edeaa0d2a70e87fdd39b25c2f6196446710897ad",
+   "retrieved_at": "2026-11-16T14:54:37.863Z"
   },
   {
    "company_id": "vitaltrace",
    "name": "VitalTrace",
    "page": "https://vitaltrace.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.775Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/682f07f732f582e91d12d3e8/682f099e4520065a18f5b8c0_img-vitaltrace-opengraph.png",
+   "width": 1201,
+   "height": 630,
+   "bytes": 14636,
+   "hash": "3e7d4cf5b6910f67404282196f00e2369f9e61ee",
+   "retrieved_at": "2026-11-16T14:54:25.212Z"
   },
   {
    "company_id": "agora-livestock",
@@ -4313,13 +4313,13 @@
    "company_id": "uluu",
    "name": "Uluu",
    "page": "https://www.uluu.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.583Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6580fe08c82e10581008972f/659b653e094eaac10ea0bb14_uluu-socialshare-1200x630px.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 13634,
+   "hash": "a1c226c7e0fdded3514b69d9dbf1916a28826f87",
+   "retrieved_at": "2026-11-16T14:54:24.064Z"
   },
   {
    "company_id": "roborigger",
@@ -4457,13 +4457,13 @@
    "company_id": "biotome",
    "name": "Biotome",
    "page": "https://www.biotome.com.au/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 790x216 is too small",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:07.922Z"
+   "retrieved_at": "2026-11-16T14:54:37.997Z"
   },
   {
    "company_id": "geomoby",
@@ -4517,25 +4517,25 @@
    "company_id": "menuzen",
    "name": "Menuzen",
    "page": "https://www.menuzen.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:09.345Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/602e11b32e97f7467f512462/6928196564937f7b314d0704_Open%20Graph%201200_630.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 3594,
+   "hash": "a4b750c2a13929977b492786b49304191c4dba3c",
+   "retrieved_at": "2026-11-16T14:54:38.390Z"
   },
   {
    "company_id": "hyprfire",
    "name": "Hyprfire",
    "page": "https://www.hyprfire.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:08.483Z"
+   "status": "saved",
+   "source_image": "https://static.wixstatic.com/media/68b8ce_891ed49b75ce4b78b42f325f3a234241%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/68b8ce_891ed49b75ce4b78b42f325f3a234241%7Emv2.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11350,
+   "hash": "9314720fd09d904abf94a625d11a1fa1e67f76bd",
+   "retrieved_at": "2026-11-16T14:54:38.315Z"
   },
   {
    "company_id": "ready-team-one",
@@ -4637,37 +4637,37 @@
    "company_id": "1breadcrumb",
    "name": "1Breadcrumb",
    "page": "https://www.breadcrumb.co/en-au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:09.626Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68d47f6669c71595adcf5199/68e85a4a8265000c874cb2d1_og-image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 14208,
+   "hash": "3a2732461d8c1ee7fee59fd395be8d9fe20f0a0f",
+   "retrieved_at": "2026-11-16T14:54:38.671Z"
   },
   {
    "company_id": "veintech",
    "name": "VeinTech",
    "page": "https://www.veintech.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:09.373Z"
+   "status": "saved",
+   "source_image": "https://static.wixstatic.com/media/709452_5260667f9a2c4e8391fb26fd69f2ba2f%7Emv2.png/v1/fit/w_2500,h_1330,al_c/709452_5260667f9a2c4e8391fb26fd69f2ba2f%7Emv2.png",
+   "width": 1860,
+   "height": 1004,
+   "bytes": 15226,
+   "hash": "74f997e7409d4efaeb105e53345c3d98461126c5",
+   "retrieved_at": "2026-11-16T14:54:38.525Z"
   },
   {
    "company_id": "aibuild",
    "name": "AIBUILD",
    "page": "https://www.aibuild.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:10.579Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/XZ23YLTTGDU4DMVwuDvDxAMaYFY.png",
+   "width": 1438,
+   "height": 994,
+   "bytes": 1602,
+   "hash": "ec56a6652367798b1fa1cc6ab2bd646ec7edf1e7",
+   "retrieved_at": "2026-11-16T14:54:40.738Z"
   },
   {
    "company_id": "seastock",
@@ -4685,25 +4685,25 @@
    "company_id": "1receipt",
    "name": "1receipt",
    "page": "https://www.1receipt.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:09.896Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/61184e1ece4c7506c48aa762/6a682432ff4d9ecdb630418d_1receipt-open-graph-preview-FINAL.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 25374,
+   "hash": "8b74bf74c7a2fc1a8146a11df5378a864c0a85b6",
+   "retrieved_at": "2026-11-16T14:54:40.701Z"
   },
   {
    "company_id": "applied-ev",
    "name": "Applied EV",
-   "page": "https://appliedev.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:11.088Z"
+   "page": "https://www.appliedev.com/",
+   "status": "saved",
+   "source_image": "https://www.appliedev.com/api/assets/5146586c-032d-4b18-90fc-2edeffc24a30",
+   "width": 1200,
+   "height": 630,
+   "bytes": 7846,
+   "hash": "3d10a12431decf366cb6e51b07711144a7d9aec3",
+   "retrieved_at": "2026-11-16T14:54:41.184Z"
   },
   {
    "company_id": "aelo",
@@ -4733,13 +4733,13 @@
    "company_id": "archa",
    "name": "Archa",
    "page": "https://www.archa.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:11.091Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6230360e45dbe57332c24597/6937a83999d3e06d2d00e203_archa-social-image.png",
+   "width": 2500,
+   "height": 1313,
+   "bytes": 19564,
+   "hash": "1b2565151a483e2d5540ea7a41d075db1e196a72",
+   "retrieved_at": "2026-11-16T14:54:41.870Z"
   },
   {
    "company_id": "cartherics",
@@ -4840,26 +4840,26 @@
   {
    "company_id": "deciphrai",
    "name": "DeciphrAI",
-   "page": "https://deciphr.ai",
-   "status": "unreadable: robots_unavailable",
+   "page": "https://www.deciphr.ai/",
+   "status": "no_image: the page names no preview picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:12.657Z"
+   "retrieved_at": "2026-11-16T14:54:42.291Z"
   },
   {
    "company_id": "cliniscribe-ai",
    "name": "CliniScribe AI",
    "page": "https://www.cliniscribe.com.au/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 236x238 is too small",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:11.764Z"
+   "retrieved_at": "2026-11-16T14:54:41.955Z"
   },
   {
    "company_id": "ena-respiratory",
@@ -4913,13 +4913,13 @@
    "company_id": "curvecrete",
    "name": "Curvecrete",
    "page": "https://www.curvecrete.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:12.001Z"
+   "status": "saved",
+   "source_image": "https://static.wixstatic.com/media/11a85d_1ba7c03d9b4c4da99055155344e44fa3%7Emv2.png/v1/fit/w_2500,h_1330,al_c/11a85d_1ba7c03d9b4c4da99055155344e44fa3%7Emv2.png",
+   "width": 1000,
+   "height": 563,
+   "bytes": 43998,
+   "hash": "ef0fa81eecdc6e82134507732068ebb4ddbc5919",
+   "retrieved_at": "2026-11-16T14:54:42.061Z"
   },
   {
    "company_id": "conry-tech",
@@ -5057,13 +5057,13 @@
    "company_id": "exergenics",
    "name": "Exergenics",
    "page": "https://www.exergenics.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:12.922Z"
+   "retrieved_at": "2026-11-16T14:54:43.302Z"
   },
   {
    "company_id": "kinoxis",
@@ -5081,13 +5081,13 @@
    "company_id": "mark-my-words",
    "name": "Mark My Words",
    "page": "https://markmywords.au",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 2604x1101 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:14.560Z"
+   "retrieved_at": "2026-11-16T14:54:44.333Z"
   },
   {
    "company_id": "marketplacer",
@@ -5129,25 +5129,25 @@
    "company_id": "lab-group",
    "name": "LAB Group",
    "page": "https://www.labgroup.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:13.640Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68e56cac9353efdcc0bb4c31/68f29f2ddaf13c66b4494d17_Opengraph%20preview.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 19736,
+   "hash": "849803958c774ff540086dfafd593a4affb3130b",
+   "retrieved_at": "2026-11-16T14:54:43.422Z"
   },
   {
    "company_id": "neo-bionica",
    "name": "Neo-Bionica",
    "page": "https://neo-bionica.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:14.735Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/unRdhH0rfIoER1xlt21Mn9zbwsQ.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 19132,
+   "hash": "2dcc62c531d16d8160994303ac39bdc85efb2733",
+   "retrieved_at": "2026-11-16T14:54:44.643Z"
   },
   {
    "company_id": "mercando",
@@ -5189,13 +5189,13 @@
    "company_id": "operata",
    "name": "Operata",
    "page": "https://operata.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:14.970Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/666d6197f7be67fb3fdd82b9/6a85188627180d381a946581_150bd2fe992a8a8669a93ae394259b22_Operata-OG.png",
+   "width": 1200,
+   "height": 692,
+   "bytes": 50482,
+   "hash": "b8b4be2aa77c9dad4e07ef6fa08780a889856b84",
+   "retrieved_at": "2026-11-16T14:54:44.722Z"
   },
   {
    "company_id": "pay-com-au",
@@ -5273,13 +5273,13 @@
    "company_id": "recime",
    "name": "ReciMe",
    "page": "https://recime.app",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 2604x1910 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:15.797Z"
+   "retrieved_at": "2026-11-16T14:54:45.652Z"
   },
   {
    "company_id": "raygen",
@@ -5309,25 +5309,25 @@
    "company_id": "rohlok",
    "name": "Rohlok",
    "page": "https://rohlok.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:16.622Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67a45aa435b1e04c8e3a02db/67a45aa435b1e04c8e3a0317_55P1-1508%20with%20attached%20tube%20and%20loom%20(no%20background)%201280%20x%20699px.png",
+   "width": 1280,
+   "height": 699,
+   "bytes": 18276,
+   "hash": "34b78fc054422fee8de066c7f9066f47c013c899",
+   "retrieved_at": "2026-11-16T14:54:45.785Z"
   },
   {
    "company_id": "prophet",
    "name": "Prophet",
    "page": "https://www.prophet.ml/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:15.161Z"
+   "retrieved_at": "2026-11-16T14:54:45.096Z"
   },
   {
    "company_id": "resseptor",
@@ -5381,13 +5381,13 @@
    "company_id": "snap-send-solve",
    "name": "Snap Send Solve",
    "page": "https://snapsendsolve.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:16.626Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/65d27ead8b721fc8e2412071/65efb26559df2c99540bfeaf_opengraph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 22974,
+   "hash": "75eed1aac513bab5b1920b0843077bca8e22f106",
+   "retrieved_at": "2026-11-16T14:54:46.743Z"
   },
   {
    "company_id": "july",
@@ -5399,7 +5399,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:13.170Z"
+   "retrieved_at": "2026-11-16T14:54:43.413Z"
   },
   {
    "company_id": "sapyen",
@@ -5525,13 +5525,13 @@
    "company_id": "tally-group",
    "name": "Tally Group",
    "page": "https://www.tally.co/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:16.731Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/61b967cd68521a65b6741218/6216b2bb53a026dac8c3a31f_opengraph-img_home_v1.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 9284,
+   "hash": "6102e17a2c3f3ad507d4914498153332da3e8d36",
+   "retrieved_at": "2026-11-16T14:54:46.775Z"
   },
   {
    "company_id": "zerocap",
@@ -5549,13 +5549,13 @@
    "company_id": "adveritas",
    "name": "Adveritas",
    "page": "https://adveritas.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:16.914Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67a48767ea0eb55d013a4e88/67dabca37db8b3cda074ca3b_AdveritasThumbnail.jpg",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 11066,
+   "hash": "b232abe5d6ed80638a04d2a841be87a543f2b5e7",
+   "retrieved_at": "2026-11-16T14:54:51.873Z"
   },
   {
    "company_id": "virtetic",
@@ -5573,13 +5573,13 @@
    "company_id": "icetana-ai",
    "name": "icetana AI",
    "page": "https://www.icetana.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:16.970Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6201c5452891870009941269/62188fe08b78cf636f305a33_icetana_opengraph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 25622,
+   "hash": "4f61e3d780e396f5db3881f1e22cdb4df22a418d",
+   "retrieved_at": "2026-11-16T14:54:52.108Z"
   },
   {
    "company_id": "vgw",
@@ -5717,13 +5717,13 @@
    "company_id": "brickx",
    "name": "BrickX",
    "page": "https://www.brickx.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:17.682Z"
+   "status": "saved",
+   "source_image": "https://assets.brickx.com/images/facebook-share-image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 3392,
+   "hash": "d3e6a943d7e5ce597342e50da94e19a27e071a50",
+   "retrieved_at": "2026-11-16T14:54:52.823Z"
   },
   {
    "company_id": "c2-robotics",
@@ -5741,13 +5741,13 @@
    "company_id": "aiculus",
    "name": "Aiculus",
    "page": "https://www.aiculus.co/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1374x1223 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:17.168Z"
+   "retrieved_at": "2026-11-16T14:54:52.796Z"
   },
   {
    "company_id": "2cloudnine",
@@ -5776,14 +5776,14 @@
   {
    "company_id": "chemcloud",
    "name": "ChemCloud",
-   "page": "https://chemcloud.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:17.928Z"
+   "page": "https://www.chemcloud.com.au/",
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/60ff3e09a9fd4798a75dc3c6/67c7e680ce65572ce3595852_OG-Home.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 10408,
+   "hash": "e3cf847dce0c16a10327060f476efe0a86785b46",
+   "retrieved_at": "2026-11-16T14:54:53.688Z"
   },
   {
    "company_id": "campaignagent",
@@ -5848,38 +5848,38 @@
   {
    "company_id": "cipher-sports-technology-group",
    "name": "Cipher Sports Technology Group",
-   "page": "https://ciphersports.io",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:18.352Z"
+   "page": "https://www.ciphersports.io/",
+   "status": "saved",
+   "source_image": "https://cdn.ciphersports.io/images/cipher_meta.jpg",
+   "width": 1080,
+   "height": 565,
+   "bytes": 12972,
+   "hash": "ffed8eadd4772ecf9e8d46a834f83968ba72acdd",
+   "retrieved_at": "2026-11-16T14:54:53.719Z"
   },
   {
    "company_id": "collective-100",
    "name": "collective_100",
    "page": "https://collective100.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:20.319Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/649fb0f811e829328cbf1af2/649fcfbc882782a8aac8234b_entrance.jpg",
+   "width": 3000,
+   "height": 2000,
+   "bytes": 21334,
+   "hash": "2df99ad8bbc0e9f9ce24d28b52f9a25696c433f3",
+   "retrieved_at": "2026-11-16T14:54:54.275Z"
   },
   {
    "company_id": "colabs-australia",
    "name": "CoLabs Australia",
    "page": "https://colabs.com.au",
-   "status": "unreadable: robots_unavailable",
+   "status": "no_image: the page names no preview picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:19.978Z"
+   "retrieved_at": "2026-11-16T14:54:53.782Z"
   },
   {
    "company_id": "cybercx",
@@ -5933,13 +5933,13 @@
    "company_id": "displaysweet",
    "name": "DisplaySweet",
    "page": "https://www.displaysweet.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:20.952Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/65c57041ca3af1fbf3958cf9/65e962c96e2b1b42815ceaef_gore-street-display.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 12654,
+   "hash": "c07f688f0401f7adea72d6631990c8470dfbb929",
+   "retrieved_at": "2026-11-16T14:54:55.726Z"
   },
   {
    "company_id": "elenium",
@@ -5957,25 +5957,25 @@
    "company_id": "eastern-innovation",
    "name": "Eastern Innovation",
    "page": "https://www.eibc.net.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:21.861Z"
+   "status": "saved",
+   "source_image": "https://static.wixstatic.com/media/ecca2b_045f4426be06495db03919929820f528~mv2.jpg/v1/fill/w_2500,h_1667,al_c/ecca2b_045f4426be06495db03919929820f528~mv2.jpg",
+   "width": 2500,
+   "height": 1667,
+   "bytes": 31904,
+   "hash": "f9224d364f4fc8cd4150504d0ce4b6c1d085e798",
+   "retrieved_at": "2026-11-16T14:54:56.766Z"
   },
   {
    "company_id": "eiz-technology",
    "name": "EIZ Technology",
    "page": "https://eiz.com.au",
-   "status": "unreadable: robots_unavailable",
+   "status": "no_image: the page names no preview picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:22.065Z"
+   "retrieved_at": "2026-11-16T14:54:57.138Z"
   },
   {
    "company_id": "dayforce",
@@ -6005,13 +6005,13 @@
    "company_id": "diag-nose-io",
    "name": "Diag-Nose.io",
    "page": "https://www.diag-nose.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:20.422Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67b2d591660e4515608ff3a9/67fe35acfe29a408d4017be5_diagnose-open-graph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 40398,
+   "hash": "0099f44ad2783aab4e0b82546c974dda622c6b41",
+   "retrieved_at": "2026-11-16T14:54:54.760Z"
   },
   {
    "company_id": "engine-house",
@@ -6029,25 +6029,25 @@
    "company_id": "foundit",
    "name": "FOUNDIT",
    "page": "https://foundit.property",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:23.531Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/T0XcPrTEAzQUoyo5wZxHx3c.png",
+   "width": 5042,
+   "height": 2667,
+   "bytes": 3344,
+   "hash": "af51663f603dd6fe0af27bf6511f9dd32f8565cf",
+   "retrieved_at": "2026-11-16T14:54:57.961Z"
   },
   {
    "company_id": "enygy",
    "name": "EnyGy",
    "page": "https://www.enygy.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1000x1000 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:22.761Z"
+   "retrieved_at": "2026-11-16T14:54:57.923Z"
   },
   {
    "company_id": "equiem",
@@ -6065,25 +6065,25 @@
    "company_id": "draftable",
    "name": "Draftable",
    "page": "https://www.draftable.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:21.513Z"
+   "status": "saved",
+   "source_image": "https://media.draftable.com/draftable-og-default-sm-1791871001923.webp?quality=75&format=jpeg&width=1200&height=630",
+   "width": 1200,
+   "height": 630,
+   "bytes": 4812,
+   "hash": "1379698559e461103b8a76dd6815329d1e09c19c",
+   "retrieved_at": "2026-11-16T14:54:55.969Z"
   },
   {
    "company_id": "enervaro",
    "name": "Enervaro",
    "page": "https://www.enervaro.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:22.430Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/699d0a9fc8316b39f5c5d084/69b0e39412c3dce60a3693c7_f23e26c1b726546094947096737a85a0_enervaro-feature.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 17070,
+   "hash": "341586fb61995aaf93c65be4a85bbbb291eac132",
+   "retrieved_at": "2026-11-16T14:54:57.904Z"
   },
   {
    "company_id": "global-health",
@@ -6221,25 +6221,25 @@
    "company_id": "ideally",
    "name": "Ideally",
    "page": "https://www.goideally.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:23.906Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/fmMAYjosKB2VZS83Woqg1SPadio.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 6804,
+   "hash": "6023afe5b6d0e010c9eef23b2a2db7c9e0b4780a",
+   "retrieved_at": "2026-11-16T14:54:59.003Z"
   },
   {
    "company_id": "helppay",
    "name": "HelpPay",
    "page": "https://helppay.com.au",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 416x320 is too small",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:23.902Z"
+   "retrieved_at": "2026-11-16T14:54:58.718Z"
   },
   {
    "company_id": "helfie-ai",
@@ -6293,13 +6293,13 @@
    "company_id": "javln",
    "name": "JAVLN",
    "page": "https://javln.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:24.160Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a02b8a2581db46537e7c0e0/6a4b2df66a094d32e032511f_Group%2053.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 27714,
+   "hash": "99f6598278d0e046c802461194bd4f0ab96b98cd",
+   "retrieved_at": "2026-11-16T14:54:59.389Z"
   },
   {
    "company_id": "kolmeo",
@@ -6317,13 +6317,13 @@
    "company_id": "landchecker",
    "name": "Landchecker",
    "page": "https://landchecker.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:24.291Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69e848ab5dcae701dcf677cc/6a94deb4de5c498550fea8c2_c0132c58c779a1c5552f8310ea70c2d4_OG.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 49822,
+   "hash": "4c26e139d6ee245b0691b8e59ea782bab0b07522",
+   "retrieved_at": "2026-11-16T14:54:59.775Z"
   },
   {
    "company_id": "kobble",
@@ -6377,13 +6377,13 @@
    "company_id": "machship",
    "name": "MachShip",
    "page": "https://machship.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:24.368Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a55844721147d6e687d1053/6a55844721147d6e687d1511_99463f96fc0800fe1903eb244a0e306f_Open%20Graph.webp",
+   "width": 1200,
+   "height": 630,
+   "bytes": 43220,
+   "hash": "3815f6a1da8939ab2248a76a223fb285482025e1",
+   "retrieved_at": "2026-11-16T14:54:59.943Z"
   },
   {
    "company_id": "knowbe4",
@@ -6449,13 +6449,13 @@
    "company_id": "melbourne-innovation-centre",
    "name": "Melbourne Innovation Centre",
    "page": "https://www.melbourneinnovation.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:24.468Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/68f84f5509216187668194a5/6a45b46756ea80eb7d27246d_MIC%20homepage%20-%20banner.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 19706,
+   "hash": "880a806027f2c0794af6c417457ee51117a8fa6d",
+   "retrieved_at": "2026-11-16T14:55:00.455Z"
   },
   {
    "company_id": "medadvisor",
@@ -6533,13 +6533,13 @@
    "company_id": "mynd",
    "name": "mynd",
    "page": "https://myndapp.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:25.364Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a6abc189b3c6d7eb9069b60/6a73d106abe985f57c67850b_mynd-for-business-opengraph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 4604,
+   "hash": "5230f637e2fa50d816fba82ee7834f8902a276ad",
+   "retrieved_at": "2026-11-16T14:55:00.590Z"
   },
   {
    "company_id": "marmalade-payments",
@@ -6569,13 +6569,13 @@
    "company_id": "modano",
    "name": "Modano",
    "page": "https://www.modano.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:24.577Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64e466a1105b29b632a10810/64ec6b52469d6a03a2c9696b_Share.jpg",
+   "width": 1200,
+   "height": 628,
+   "bytes": 4086,
+   "hash": "eb809a17ffba7b3fdfed3e168843bcfc6b63e662",
+   "retrieved_at": "2026-11-16T14:55:00.575Z"
   },
   {
    "company_id": "nanocube-health",
@@ -6617,13 +6617,13 @@
    "company_id": "netcraft",
    "name": "Netcraft",
    "page": "https://www.netcraft.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:25.637Z"
+   "retrieved_at": "2026-11-16T14:55:01.565Z"
   },
   {
    "company_id": "novatti-group",
@@ -6641,25 +6641,25 @@
    "company_id": "neo-intelligence",
    "name": "Neo Intelligence",
    "page": "https://www.neoconstruct.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:25.499Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6977da41cda2c373e40d64b6/697ab74773aad8f999bb9b37_Copy%20of%20Still%202025-05-29%20101545_3.1.10.jpg",
+   "width": 1920,
+   "height": 1080,
+   "bytes": 18058,
+   "hash": "89c4f12c376b23b0746df684852674787ea29a3a",
+   "retrieved_at": "2026-11-16T14:55:00.942Z"
   },
   {
    "company_id": "omneo",
    "name": "Omneo",
    "page": "https://omneo.io",
-   "status": "unreadable: robots_unavailable",
+   "status": "no_image: the page names no preview picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:26.298Z"
+   "retrieved_at": "2026-11-16T14:55:03.189Z"
   },
   {
    "company_id": "onvol",
@@ -6677,13 +6677,13 @@
    "company_id": "neurala-biosciences",
    "name": "Neurala Biosciences",
    "page": "https://www.neurala.co/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:25.983Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67f51ca17396f5e98f14b024/67f529871a7866b54ba284a9_neurala-pattern-bg%20(1).webp",
+   "width": 1536,
+   "height": 864,
+   "bytes": 4954,
+   "hash": "3ddf714415e27120441e44c49972bbfcee790bf6",
+   "retrieved_at": "2026-11-16T14:55:02.571Z"
   },
   {
    "company_id": "payapps",
@@ -6712,14 +6712,14 @@
   {
    "company_id": "pentana-solutions",
    "name": "Pentana Solutions",
-   "page": "https://pentanasolutions.com",
-   "status": "unreadable: robots_unavailable",
+   "page": "https://www.pentanasolutions.com/",
+   "status": "no_image: the page names no preview picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:26.629Z"
+   "retrieved_at": "2026-11-16T14:55:03.570Z"
   },
   {
    "company_id": "oncoparse",
@@ -7025,13 +7025,13 @@
    "company_id": "skutopia",
    "name": "SKUTOPIA",
    "page": "https://www.skutopia.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 800x664 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:27.621Z"
+   "retrieved_at": "2026-11-16T14:55:03.597Z"
   },
   {
    "company_id": "sensen",
@@ -7121,13 +7121,13 @@
    "company_id": "stone-and-chalk",
    "name": "Stone & Chalk",
    "page": "https://www.stoneandchalk.com.au/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1000x1000 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:28.359Z"
+   "retrieved_at": "2026-11-16T14:55:03.729Z"
   },
   {
    "company_id": "superapi",
@@ -7181,13 +7181,13 @@
    "company_id": "termina",
    "name": "Termina",
    "page": "https://termina.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:30.070Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a150b779f3c7380c9397cce/6a150b779f3c7380c939808e_8653ce83da50654cad9393b447e675ef_termina-open-graph-default.webp",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 19292,
+   "hash": "fd2888606a7efbf0c2508c652b593a490499a382",
+   "retrieved_at": "2026-11-16T14:55:05.332Z"
   },
   {
    "company_id": "telix-pharmaceuticals",
@@ -7199,7 +7199,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:28.936Z"
+   "retrieved_at": "2026-11-16T14:55:04.614Z"
   },
   {
    "company_id": "strength-by-numbers",
@@ -7217,13 +7217,13 @@
    "company_id": "tank-stream-labs",
    "name": "Tank Stream Labs",
    "page": "https://www.tankstreamlabs.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:28.711Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6980324d411d6b7443edcb67/69e227a28a36bcfcaae1823e_tank-stream-labs-og.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 33100,
+   "hash": "b7cf38ebeedcedf3fda720f0a1c6c136a386c6c1",
+   "retrieved_at": "2026-11-16T14:55:04.084Z"
   },
   {
    "company_id": "the-cluster",
@@ -7445,13 +7445,13 @@
    "company_id": "weguide",
    "name": "WeGuide",
    "page": "https://www.weguide.health/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1842x800 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:30.079Z"
+   "retrieved_at": "2026-11-16T14:55:05.687Z"
   },
   {
    "company_id": "wisetech-global",
@@ -7469,13 +7469,13 @@
    "company_id": "webbeds-group",
    "name": "WebBeds Group",
    "page": "https://webbedsgroup.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:30.071Z"
+   "status": "saved",
+   "source_image": "https://webbedsgroup.syd1.cdn.digitaloceanspaces.com/public/Uploads/WEB-Ticker-Icon-Red-500px-OCT24__FocusFillWzEyMDAsNjMwLCJ5IiwyODVd.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 10414,
+   "hash": "34ac3b83ee2e706d7cb32fb8ce08b201e22ddbe8",
+   "retrieved_at": "2026-11-16T14:55:05.622Z"
   },
   {
    "company_id": "whispir",
@@ -7601,13 +7601,13 @@
    "company_id": "coreplus",
    "name": "coreplus",
    "page": "https://www.corepluspm.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:30.540Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/651cefcf48b2738217b0d3cf/69562c2b4e0e69529e0ad678_New%20Open%20Graph%204.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 19806,
+   "hash": "c65ca5e27ab6eb68d0d1bfbb546e9bf6325db4c8",
+   "retrieved_at": "2026-11-16T14:55:08.294Z"
   },
   {
    "company_id": "zscaler",
@@ -7649,13 +7649,13 @@
    "company_id": "shopfront",
    "name": "Shopfront",
    "page": "https://shopfront.app",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:31.543Z"
+   "status": "saved",
+   "source_image": "https://shopfront.app/og/site/homepage.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 16806,
+   "hash": "c26dd5a964abf0eab83b766630361dbcf151fcba",
+   "retrieved_at": "2026-11-16T14:55:10.133Z"
   },
   {
    "company_id": "fieldsense-robotics",
@@ -7793,25 +7793,25 @@
    "company_id": "adacel",
    "name": "Adacel",
    "page": "https://www.adacel.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:31.741Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/5da4a6db96a90c18957991b0/61c394066705997036933038_Adacel-Air%20Traffic%20Management.jpg",
+   "width": 1200,
+   "height": 547,
+   "bytes": 23818,
+   "hash": "5c8af945dcbc5313f5ca6c65d6f044bffb072faf",
+   "retrieved_at": "2026-11-16T14:55:10.478Z"
   },
   {
    "company_id": "ren",
    "name": "Ren",
    "page": "https://www.renfamily.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:31.439Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64505f5f8d6cbb327f1d06a1/6470134ef821462c1ff14f69_Open_graph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 10838,
+   "hash": "ab1d4172efbda0109179f13ccebfc330aa41cc29",
+   "retrieved_at": "2026-11-16T14:55:09.264Z"
   },
   {
    "company_id": "supportly",
@@ -7835,7 +7835,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:32.883Z"
+   "retrieved_at": "2026-11-16T14:55:11.223Z"
   },
   {
    "company_id": "caretrust",
@@ -7865,25 +7865,25 @@
    "company_id": "brightspace",
    "name": "Brightspace",
    "page": "https://www.brightspace.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:33.279Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/images/qXSaf8jnObJNIt1rMHmopIzrs.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 34368,
+   "hash": "7700fc894bf028294877537ba4dfda716476e2ca",
+   "retrieved_at": "2026-11-16T14:55:11.315Z"
   },
   {
    "company_id": "connexai",
    "name": "ConnexAI",
    "page": "https://connex.ai",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:33.618Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/XFzAZ4UAcR8ISCckzrzz9Eznx1k.png",
+   "width": 1201,
+   "height": 631,
+   "bytes": 9340,
+   "hash": "5e6abe1d8070582a496f3338e2d2d3871a955e31",
+   "retrieved_at": "2026-11-16T14:55:12.032Z"
   },
   {
    "company_id": "co-linic-ai",
@@ -7973,13 +7973,13 @@
    "company_id": "equidi",
    "name": "equidi",
    "page": "https://www.equidi.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:33.684Z"
+   "status": "saved",
+   "source_image": "https://cdn.qik.dev/files/62e9eb262106f7f6ff16b52f/variants/633636bc69e1bf411a451a42/1200x630_100.webp?v=65984fe54b82&response-content-type=image%2Fwebp&response-content-disposition=inline%3B%20filename%3D%22seoshare_1200x630.webp%22&response-cache-control=public%2C%20max-age%3D86400%2C%20stale-while-revalidate%3D300&Expires=1794927600&Signature=CsEFk0oQkck7R9-L6Di6E5Qgd7sfVcrHqMhRIwRWgFNDoTUYiip5sR3EdEzf~GeAwFOwufWmBDFYtn~cqX2MCbO3GIy3h1ipH8ncWx2SAVRFkHIqs71JQKTOAqpwFqyE0edwa~ONZYDb~bvxK2A1h3nc4omHWvPD0jOnFvw18hSrtguuSiUpcvCoagOJpTsN1O3U6zsLcsQr3vd9mh2Dou2nE3EhZKEvuWl9IsmyS-TeJqLsSHaTPHtTEzTm09J87V1RvIYs9Q57vQpIsnm0iJ8OOJhvt-yn2e9IzsErex98YWPCKIVEPNsBDFRxu40e36tc2zZLXa7MXsJw6jmzKg__&Key-Pair-Id=K1KX8MQVGDZXVH",
+   "width": 1200,
+   "height": 628,
+   "bytes": 20408,
+   "hash": "2f7e58db7ed6b8766b880b06e7fd7c37897ad2db",
+   "retrieved_at": "2026-11-16T14:55:12.408Z"
   },
   {
    "company_id": "genomical",
@@ -7997,13 +7997,13 @@
    "company_id": "humanetix",
    "name": "Humanetix",
    "page": "https://www.humanetix.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:33.931Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/628f158babaf96b96c2b5c1a/62c529b78407c8cdee082fdf_social%20image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5630,
+   "hash": "26b61d45a165afefdad28bb7833c1a890cdf9cf2",
+   "retrieved_at": "2026-11-16T14:55:12.900Z"
   },
   {
    "company_id": "intersession",
@@ -8021,49 +8021,49 @@
    "company_id": "designer-journeys",
    "name": "Designer Journeys",
    "page": "https://www.designerjourneys.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:33.631Z"
+   "status": "saved",
+   "source_image": "https://s3-cdn.designerjourneys.com/static-banners/designer-journeys-travel-home-banner.jpg",
+   "width": 4908,
+   "height": 3269,
+   "bytes": 49916,
+   "hash": "89aa8892187c4c2ad659a971568f16eb2dfd852d",
+   "retrieved_at": "2026-11-16T14:55:12.290Z"
   },
   {
    "company_id": "onset-health",
    "name": "OnSet Health",
    "page": "https://www.onset.health/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1659x1220 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:34.880Z"
+   "retrieved_at": "2026-11-16T14:55:14.309Z"
   },
   {
    "company_id": "pivot-professional-learning",
    "name": "Pivot Professional Learning",
    "page": "https://www.pivotpl.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:35.418Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/79Hc2RVCNG06rpQ6wOlpiggufiA.png",
+   "width": 1268,
+   "height": 608,
+   "bytes": 19052,
+   "hash": "0fb1fc52ac3b99a0a8ece08edb33d0a75bc19d1b",
+   "retrieved_at": "2026-11-16T14:55:14.885Z"
   },
   {
    "company_id": "jaunt-motors",
    "name": "Jaunt Motors",
    "page": "https://www.jauntmotors.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:34.673Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64c4d7ee8d9c7e584cfbfde1/69b54486702bed132b76be9a_Open%20Graph%20-%20Home.jpg",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 26962,
+   "hash": "cace91fd01572a523a37105195697c6828689109",
+   "retrieved_at": "2026-11-16T14:55:13.876Z"
   },
   {
    "company_id": "point-of-rental-software",
@@ -8285,13 +8285,13 @@
    "company_id": "tutero",
    "name": "Tutero",
    "page": "https://www.tutero.com/au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:35.581Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/611cb284a5f4f500b86d82e8/65701fd5b5160a80c88efaa1_Untitled%20design%20(1).png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 3152,
+   "hash": "62feb244e7779388f27c6cdd19a1ae975d0b60e6",
+   "retrieved_at": "2026-11-16T14:55:15.539Z"
   },
   {
    "company_id": "propertymate",
@@ -8321,49 +8321,49 @@
    "company_id": "zetifi",
    "name": "Zetifi",
    "page": "https://www.zetifi.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:35.858Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/67aab5a7cedafdc3e20c32a7/69a90c87c2fb1e0daaa433c3_zetifi_og_home.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 20530,
+   "hash": "406a383be270904e150d5899a4a21969bdb6d4e2",
+   "retrieved_at": "2026-11-16T14:55:15.686Z"
   },
   {
    "company_id": "aircall",
    "name": "Aircall",
    "page": "https://aircall.io",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:37.454Z"
+   "status": "saved",
+   "source_image": "https://a.storyblok.com/f/157376/1200x630/e9706cdc7b/og-image-en_1200x630.png/m/1200x0",
+   "width": 1200,
+   "height": 630,
+   "bytes": 24766,
+   "hash": "da7f2c9c72a68a8dfb4f53261c142352988bd18f",
+   "retrieved_at": "2026-11-16T14:55:17.365Z"
   },
   {
    "company_id": "activeviam",
    "name": "ActiveViam",
    "page": "https://www.activeviam.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:36.687Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a72059075e027514bac0825/6aebd54c4ce79743cf0f80fe_ActiveViam%20OpenGraph%20image%201.webp",
+   "width": 3600,
+   "height": 1890,
+   "bytes": 12108,
+   "hash": "88091cb995608c0dceff3e32628fdfc434c9fd01",
+   "retrieved_at": "2026-11-16T14:55:16.199Z"
   },
   {
    "company_id": "aona-ai",
    "name": "Aona AI",
    "page": "https://aona.ai",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:37.601Z"
+   "status": "saved",
+   "source_image": "https://aona.ai/images/social/v2/home.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 15376,
+   "hash": "e638ac285a0b50c42576b442278fa5f2b6cdeaa3",
+   "retrieved_at": "2026-11-16T14:55:18.252Z"
   },
   {
    "company_id": "synodic-medical",
@@ -8429,25 +8429,25 @@
    "company_id": "arlula",
    "name": "Arlula",
    "page": "https://www.arlula.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:38.603Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/698a6183426a8c2e7133deb2/699fb5d17896401768135f56_opengrapharlula.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 21324,
+   "hash": "5166400746df2922a8e2bb163d61bb00ff6c4707",
+   "retrieved_at": "2026-11-16T14:55:18.468Z"
   },
   {
    "company_id": "appen",
    "name": "Appen",
    "page": "https://www.appen.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:38.077Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/656a605609413dfd3feb9d34/6aa317a84eab4c7f1644a689_Appen-social-share.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 45646,
+   "hash": "57dff3907adb37098e5ad3825b7dc99f6cf3a773",
+   "retrieved_at": "2026-11-16T14:55:18.459Z"
   },
   {
    "company_id": "amazing-gut",
@@ -8477,13 +8477,13 @@
    "company_id": "assureqa",
    "name": "AssureQA",
    "page": "https://www.assureqa.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:38.932Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/5yUXULm8MmSPHGb9akFZtYFpGGc.png",
+   "width": 1024,
+   "height": 635,
+   "bytes": 11702,
+   "hash": "e44c857de63015ddff555839d90462afb09eba17",
+   "retrieved_at": "2026-11-16T14:55:18.542Z"
   },
   {
    "company_id": "blys",
@@ -8524,14 +8524,14 @@
   {
    "company_id": "canibuild",
    "name": "Canibuild",
-   "page": "https://canibuild.com",
-   "status": "unreadable: robots_unavailable",
+   "page": "https://canibuild.com/en-au/",
+   "status": "rejected: 32x32 is too small",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:39.435Z"
+   "retrieved_at": "2026-11-16T14:55:19.655Z"
   },
   {
    "company_id": "betterfleet",
@@ -8609,13 +8609,13 @@
    "company_id": "carclarity",
    "name": "CarClarity",
    "page": "https://www.carclarity.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:39.515Z"
+   "status": "saved",
+   "source_image": "https://global-uploads.webflow.com/5dfc45bd3aba170dbe316f15/6412965be9e64b390c059354_carclarity-opengraph2.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 22892,
+   "hash": "bb9f0e0e1a8df6489372c65254b3bcbb345edaf0",
+   "retrieved_at": "2026-11-16T14:55:20.435Z"
   },
   {
    "company_id": "cloudfloat",
@@ -8753,13 +8753,13 @@
    "company_id": "credsvault",
    "name": "CredsVault",
    "page": "https://www.credsvault.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:39.572Z"
+   "status": "saved",
+   "source_image": "https://irp.cdn-website.com/8062d701/dms3rep/multi/opt/Credsvault-construction-1920w.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 19356,
+   "hash": "8cedcb2b8ceae08da95e27d419fcbecafe6bd9a1",
+   "retrieved_at": "2026-11-16T14:55:21.218Z"
   },
   {
    "company_id": "coworking-hub-ryde",
@@ -8801,13 +8801,13 @@
    "company_id": "evnex",
    "name": "Evnex",
    "page": "https://www.evnex.com/au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:40.159Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/66a6f44c9279e5bd842b2c6d/67abfebe50278ea6dc8f57b3_Opengraph%202%20(1).png",
+   "width": 1200,
+   "height": 628,
+   "bytes": 36532,
+   "hash": "b4ead7bfa781cbd6299729501f9a181f92e97d89",
+   "retrieved_at": "2026-11-16T14:55:21.430Z"
   },
   {
    "company_id": "elcom",
@@ -8885,25 +8885,25 @@
    "company_id": "fishburners",
    "name": "Fishburners",
    "page": "https://fishburners.org",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:40.453Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/HFIkb34iIJw8kASSbxy9efdZqQ.jpg",
+   "width": 4482,
+   "height": 2238,
+   "bytes": 9258,
+   "hash": "a9d054b52bd89f5bd304d573a937d6b78d243236",
+   "retrieved_at": "2026-11-16T14:55:22.178Z"
   },
   {
    "company_id": "fiskil",
    "name": "Fiskil",
-   "page": "https://fiskil.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:40.714Z"
+   "page": "https://www.fiskil.com/",
+   "status": "saved",
+   "source_image": "https://www.fiskil.com/images/open-graph-main.png",
+   "width": 4800,
+   "height": 2516,
+   "bytes": 3520,
+   "hash": "06c6e4507e3b59ca3208a05f32cd0d892ec389e6",
+   "retrieved_at": "2026-11-16T14:55:22.306Z"
   },
   {
    "company_id": "eclipse-trading",
@@ -8933,13 +8933,13 @@
    "company_id": "flash-payments",
    "name": "Flash Payments",
    "page": "https://flash-payments.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:41.367Z"
+   "status": "saved",
+   "source_image": "https://flash-payments.com/img/og.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 3628,
+   "hash": "70cc2bab5ecf4df4e1ad4cb6eb81ec006bdde906",
+   "retrieved_at": "2026-11-16T14:55:23.346Z"
   },
   {
    "company_id": "eidosmedia",
@@ -8969,37 +8969,37 @@
    "company_id": "guroo-academy",
    "name": "Guroo Academy",
    "page": "https://guroo.academy",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:41.857Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69d30b9024a67d4331e026ee/69d4425f394b079f89a8d90f_3f137fdd065642b421ae75d76e0be2bb_academy-screen-dashboard-analytics-workspace.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 31310,
+   "hash": "deab2b520ebe50b1e932c1f1253c9cffe6e4d4e5",
+   "retrieved_at": "2026-11-16T14:55:23.960Z"
   },
   {
    "company_id": "fiable",
    "name": "Fiable",
    "page": "https://www.fiable.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:40.410Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/663e0bdfe96b5474dc88812c/6a558c9d1877e81ce9ae8278_Homepage%20-%20OG.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 24492,
+   "hash": "ed0e7941679888a08d9451044d1e9ae04ad79ae7",
+   "retrieved_at": "2026-11-16T14:55:21.635Z"
   },
   {
    "company_id": "gofigr",
    "name": "GoFIGR",
    "page": "https://www.gofigr.ai/",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:41.532Z"
+   "retrieved_at": "2026-11-16T14:55:23.409Z"
   },
   {
    "company_id": "guardhouse",
@@ -9053,13 +9053,13 @@
    "company_id": "hampr",
    "name": "Hampr",
    "page": "https://hampr.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:42.047Z"
+   "status": "saved",
+   "source_image": "https://static.hampr.com.au/prod/images/social/OGHomepage_b133cfa9d9d6bbce945680475daeba5a2784e708ac39d67d3445aea9fa2d2ba1.png",
+   "width": 1200,
+   "height": 627,
+   "bytes": 18040,
+   "hash": "3e24044bbe4d04e3c3ad57584cbaa95d66d5f068",
+   "retrieved_at": "2026-11-16T14:55:24.148Z"
   },
   {
    "company_id": "hireup",
@@ -9101,13 +9101,13 @@
    "company_id": "heo",
    "name": "HEO",
    "page": "https://www.heospace.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:42.436Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64d991920c82dd47a29baf56/64effbb79cc5e7a02f68095f_Make%20Space%20Transparent.jpg",
+   "width": 1280,
+   "height": 720,
+   "bytes": 11848,
+   "hash": "29704613b56d24b84a12f08316b4cff3336f850e",
+   "retrieved_at": "2026-11-16T14:55:24.506Z"
   },
   {
    "company_id": "independent-reserve",
@@ -9125,13 +9125,13 @@
    "company_id": "highradius",
    "name": "HighRadius",
    "page": "https://www.highradius.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:42.590Z"
+   "status": "saved",
+   "source_image": "https://cdn.highradius.com/wp-content/uploads/2025/02/HighRadius-OG.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 18436,
+   "hash": "ac09d148d4310643c48abda1464d72d2008b4559",
+   "retrieved_at": "2026-11-16T14:55:24.953Z"
   },
   {
    "company_id": "innowell",
@@ -9149,13 +9149,13 @@
    "company_id": "investstream",
    "name": "InvestStream",
    "page": "https://investstream.io",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:42.766Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/678de7351173ea44a615bff9/686348257662641406c497d3_seo.png",
+   "width": 1250,
+   "height": 650,
+   "bytes": 4400,
+   "hash": "35a9160051d220a7decbe2779cc599d5bf2de7ab",
+   "retrieved_at": "2026-11-16T14:55:25.392Z"
   },
   {
    "company_id": "integral-ad-science",
@@ -9329,13 +9329,13 @@
    "company_id": "lessn",
    "name": "Lessn",
    "page": "https://www.lessn.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:42.982Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/2icbTBnEzfBsvrYy8mBzchDly84.jpg",
+   "width": 4800,
+   "height": 2520,
+   "bytes": 10020,
+   "hash": "bfe881864ef3a3af9242e1c21aab7cbd2a6f8414",
+   "retrieved_at": "2026-11-16T14:55:25.654Z"
   },
   {
    "company_id": "lavo",
@@ -9377,25 +9377,25 @@
    "company_id": "lumary",
    "name": "Lumary",
    "page": "https://www.lumary.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:43.443Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/69ee09b902830a749a068ae4/6a0685220197d20f07b38c6f_256d2fb25a5a9615c339f7095ab9e4a1_banner.png",
+   "width": 1201,
+   "height": 800,
+   "bytes": 19272,
+   "hash": "c79860bdc8efe84bc6dfc615eb24d31f7bc866f9",
+   "retrieved_at": "2026-11-16T14:55:26.507Z"
   },
   {
    "company_id": "mako",
    "name": "MAKO",
    "page": "https://mako.aero",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:43.519Z"
+   "status": "saved",
+   "source_image": "https://media.mako.aero/images/9812a5bfa44971cc6adb9a6612aeeb57-1200x630.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 7434,
+   "hash": "3e84fb4248b39e3e3cbe5d2cb0f046fce1271592",
+   "retrieved_at": "2026-11-16T14:55:27.994Z"
   },
   {
    "company_id": "magnaterra-technologies",
@@ -9413,13 +9413,13 @@
    "company_id": "madecomfy",
    "name": "MadeComfy",
    "page": "https://www.madecomfy.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:43.449Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/66b2f420be090068252d53d4/677b5df82646de216e510094_Home.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5482,
+   "hash": "7a1dce8469764bd21c284b59b70974f8532ab1f3",
+   "retrieved_at": "2026-11-16T14:55:26.606Z"
   },
   {
    "company_id": "mathspace",
@@ -9473,37 +9473,37 @@
    "company_id": "mvsi-onboard",
    "name": "MVSI OnBoard",
    "page": "https://www.mvsi-onboard.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:43.886Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/65f8de6e3e9e9384e3436f4e/69df1e17fc9fbd842e95fd10_Open%20Graph%20Image.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 22066,
+   "hash": "19f2a2779af0126086b4195b76518092890542e6",
+   "retrieved_at": "2026-11-16T14:55:28.064Z"
   },
   {
    "company_id": "mypass-global",
    "name": "MyPass Global",
    "page": "https://www.mypassglobal.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:44.330Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/695334197b037d99bca54b7b/698826f6372758be66e3b288_Opengraph%20(1).png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 4758,
+   "hash": "7e6efb91bb3deaad188b1b68f0d5d9bb7b40fcd0",
+   "retrieved_at": "2026-11-16T14:55:28.067Z"
   },
   {
    "company_id": "nearmap",
    "name": "Nearmap",
    "page": "https://www.nearmap.com/au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:44.404Z"
+   "status": "saved",
+   "source_image": "https://a-us.storyblok.com/f/1018982/2400x1260/3348039c64/nearmap-property-intelligence.png",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 3838,
+   "hash": "53fa5c5b1969ee2e80167bbd6a50d1fe54fab53f",
+   "retrieved_at": "2026-11-16T14:55:29.281Z"
   },
   {
    "company_id": "nosto",
@@ -9653,13 +9653,13 @@
    "company_id": "raiz-invest",
    "name": "Raiz Invest",
    "page": "https://raizinvest.com.au",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:44.480Z"
+   "status": "saved",
+   "source_image": "https://files.raizinvest.com.au/images/marketing/raiz_invest_australia_10y.png",
+   "width": 1200,
+   "height": 672,
+   "bytes": 16142,
+   "hash": "cf8c4b481aa1035548af418f046ee248f33d7d7f",
+   "retrieved_at": "2026-11-16T14:55:29.438Z"
   },
   {
    "company_id": "pebl-payments",
@@ -9677,13 +9677,13 @@
    "company_id": "recordpoint",
    "name": "RecordPoint",
    "page": "https://www.recordpoint.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:44.751Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/63250c9670e6c46b563a334f/67e3794d1814011e836b548d_GRC%20Teams%20-%20Opengraph.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 41588,
+   "hash": "2b82ee6343c7b05cf853f54ea4bc51ae0ddbbf9c",
+   "retrieved_at": "2026-11-16T14:55:30.052Z"
   },
   {
    "company_id": "qualys",
@@ -9737,13 +9737,13 @@
    "company_id": "servicely",
    "name": "Servicely",
    "page": "https://www.servicely.ai/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:44.849Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/676505eab7533c15dd7f7bbb/67ac757c8bd04396c17f42f0_open-graph.webp",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 8750,
+   "hash": "d8228f735ccb2888a31deee01af66b3810ba054c",
+   "retrieved_at": "2026-11-16T14:55:30.222Z"
   },
   {
    "company_id": "shiftcare",
@@ -9881,13 +9881,13 @@
    "company_id": "style-arcade",
    "name": "Style Arcade",
    "page": "https://www.stylearcade.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:45.788Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/646d8d0e4fc8cb746110970c/66cbc0df639cb56c82598ca2_socialshare_homepage.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 5080,
+   "hash": "e4076e4c8c12e272ded5cf6692a0cfe3c4eda468",
+   "retrieved_at": "2026-11-16T14:55:30.990Z"
   },
   {
    "company_id": "susquehanna-international-group",
@@ -9941,13 +9941,13 @@
    "company_id": "tetratherix",
    "name": "Tetratherix",
    "page": "https://www.tetratherix.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:46.055Z"
+   "status": "saved",
+   "source_image": "https://framerusercontent.com/assets/O3lP8JBzRi8CMDjTZAj99L1Tk.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11574,
+   "hash": "4da1d745dfa0cd0feac409c0bf925874c692766e",
+   "retrieved_at": "2026-11-16T14:55:31.071Z"
   },
   {
    "company_id": "advice-regtech",
@@ -10037,25 +10037,25 @@
    "company_id": "auric",
    "name": "Auric",
    "page": "https://www.auric.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:46.355Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64d9fbb27d4d2853b4b41ff4/6899c2d6eaec487e3fcb3ac2_auric-og-home-light.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 12798,
+   "hash": "0282af0067dd989f97855c8fbd51ca32bf57363f",
+   "retrieved_at": "2026-11-16T14:55:32.031Z"
   },
   {
    "company_id": "truescope",
    "name": "Truescope",
    "page": "https://truescope.com",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:46.709Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/63f54bf7dfad4784cce25360/6a83aecc50ea93e5a5fdc225_Home.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 11924,
+   "hash": "d5678ba73e87c5a8b186a4eb48d4f1e95929e6fa",
+   "retrieved_at": "2026-11-16T14:55:32.164Z"
   },
   {
    "company_id": "touchstone-life-care",
@@ -10109,25 +10109,25 @@
    "company_id": "valiant-finance",
    "name": "Valiant Finance",
    "page": "https://www.valiantfinance.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:46.943Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/673a45999b5a833529515830/6acf1f1511a2258e29eb54d5_Small%20(1).webp",
+   "width": 1200,
+   "height": 630,
+   "bytes": 18186,
+   "hash": "2742b269f1a26ebb9a78c8c113318504cd07b025",
+   "retrieved_at": "2026-11-16T14:55:32.886Z"
   },
   {
    "company_id": "trade-ledger",
    "name": "Trade Ledger",
    "page": "https://www.tradeledger.io/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:46.523Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/628cfba96e0b0d44b06f0a47/62c6b7bd5485d91fc8015840_SEO%20-%20Generic.png",
+   "width": 1300,
+   "height": 860,
+   "bytes": 23588,
+   "hash": "fe598e655ea80d0722d664a35bd1acca765c3fa5",
+   "retrieved_at": "2026-11-16T14:55:32.058Z"
   },
   {
    "company_id": "atomo-diagnostics",
@@ -10145,49 +10145,49 @@
    "company_id": "vapar",
    "name": "VAPAR",
    "page": "https://www.vapar.co/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:47.179Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/695ecb4d822d2408c14a9692/699b9d204bd3feb657cd8942_og.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 24902,
+   "hash": "49b22c842c763e4f12587cd0f858f99cc86a2ef3",
+   "retrieved_at": "2026-11-16T14:55:32.895Z"
   },
   {
    "company_id": "veyor",
    "name": "Veyor",
    "page": "https://www.veyordigital.com/",
-   "status": "unreadable: robots_unavailable",
+   "status": "rejected: 1594x1809 is not a landscape picture",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:48.038Z"
+   "retrieved_at": "2026-11-16T14:55:45.085Z"
   },
   {
    "company_id": "vouch",
    "name": "Vouch",
    "page": "https://www.vouchfor.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:48.160Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/682bb2f6ef2157b198f6cac8/682bb58105a4cefe7a5c7eec_9865f90993000cd79b878dd64e322d23_Vouch-Opengraph.jpg",
+   "width": 1200,
+   "height": 630,
+   "bytes": 8172,
+   "hash": "c9ae47165ed78c52e0bc640f28507c03eab5b6f8",
+   "retrieved_at": "2026-11-16T14:55:45.781Z"
   },
   {
    "company_id": "veridooh",
    "name": "Veridooh",
    "page": "https://www.veridooh.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:47.412Z"
+   "status": "saved",
+   "source_image": "https://static.wixstatic.com/media/768a6a_7f82d2da8fd942ef9873966ec193f1f8%7Emv2.png/v1/fit/w_2500,h_1330,al_c/768a6a_7f82d2da8fd942ef9873966ec193f1f8%7Emv2.png",
+   "width": 2400,
+   "height": 1260,
+   "bytes": 10002,
+   "hash": "be8ec05d310e7ee5d0c6c730b8ccf945bdb2a63d",
+   "retrieved_at": "2026-11-16T14:55:44.324Z"
   },
   {
    "company_id": "wellio",
@@ -10241,13 +10241,13 @@
    "company_id": "wrkr",
    "name": "Wrkr",
    "page": "https://www.wrkr.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:48.381Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/6a13eca020f98affb47b476e/6a168ea7a9126473ae6808a0_homepage-or-default.png",
+   "width": 1200,
+   "height": 630,
+   "bytes": 33336,
+   "hash": "02067dc556bfbb8329a2db1a80e76d858455f43e",
+   "retrieved_at": "2026-11-16T14:55:46.021Z"
   },
   {
    "company_id": "yellowbox",
@@ -10277,13 +10277,13 @@
    "company_id": "yellow-canary",
    "name": "Yellow Canary",
    "page": "https://www.yellowcanary.com.au/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:48.862Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/64b62a75822fafdbb783bd21/69081d93c634cb1c8790da39_Solutions%20Open%20Graph.png",
+   "width": 1220,
+   "height": 630,
+   "bytes": 16294,
+   "hash": "f22185b9c633b7e4a16a153d1ac08ec39880a346",
+   "retrieved_at": "2026-11-16T14:55:46.111Z"
   },
   {
    "company_id": "deteqt",
@@ -10373,13 +10373,13 @@
    "company_id": "refresh",
    "name": "ReFresh",
    "page": "https://refresh.tech",
-   "status": "unreadable: robots_unavailable",
+   "status": "unreadable: unsupported_content",
    "source_image": null,
    "width": null,
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:48.885Z"
+   "retrieved_at": "2026-11-16T14:55:46.157Z"
   },
   {
    "company_id": "hydgene-renewables",
@@ -10433,13 +10433,13 @@
    "company_id": "sundrive-solar",
    "name": "SunDrive Solar",
    "page": "https://www.sundrivesolar.com/",
-   "status": "unreadable: robots_unavailable",
-   "source_image": null,
-   "width": null,
-   "height": null,
-   "bytes": null,
-   "hash": null,
-   "retrieved_at": "2026-11-16T10:51:49.070Z"
+   "status": "saved",
+   "source_image": "https://cdn.prod.website-files.com/620446e727fda167cbf4dc5f/627c7013ebeb9e2e4525838d_team.jpeg",
+   "width": 1440,
+   "height": 778,
+   "bytes": 38728,
+   "hash": "e4e1debcf4f6b312d9665967b4119ae28c09f795",
+   "retrieved_at": "2026-11-16T14:55:46.620Z"
   },
   {
    "company_id": "juristechne",
@@ -10523,7 +10523,7 @@
    "height": null,
    "bytes": null,
    "hash": null,
-   "retrieved_at": "2026-11-16T10:51:49.143Z"
+   "retrieved_at": "2026-11-16T14:55:46.964Z"
   },
   {
    "company_id": "apg-pay",

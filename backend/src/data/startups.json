@@ -67,9 +67,9 @@
       "canva-careers"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/canva.webp",
+    "cover_source_url": "https://static.canva.com/static/images/fb_cover-1.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:34.016Z"
   },
   {
     "name": "Airwallex",
@@ -612,9 +612,9 @@
       "rokt-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/rokt.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/65fde97097a89753eefc6b3d/66708622a25adb49d861d864_Opengraph.png",
+    "cover_retrieved_at": "2026-11-16T14:52:34.059Z"
   },
   {
     "name": "Deputy",
@@ -1207,9 +1207,9 @@
       "morse-micro-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/morse-micro.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a4b36612c073faf65ec93f4/6a83e51b51a716596060ea96_Open-Graph-Image_01.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:34.060Z"
   },
   {
     "name": "Bugcrowd",
@@ -1715,9 +1715,9 @@
       "www-restoke-ai"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/restoke.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/5fceb3167554be4294aeebb4/697a6fcd53f290ed7bc36d7c_b43143422505409b46da9ea4be2f2556_Open%20Graph%20Image%20%281%29.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:48.990Z"
   },
   {
     "name": "Hatch",
@@ -1842,9 +1842,9 @@
       "jigspace-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/jigspace.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64066bfae829edf9f96cdb91/65bc77a7d9d20e4d09da5a51_OG%20JigSpace%20Ultimate%20guide%20to%20spatial%20computing.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:49.042Z"
   },
   {
     "name": "Quantum Brilliance",
@@ -2239,9 +2239,9 @@
       "zeller-lever-jobs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/zeller.webp",
+    "cover_source_url": "https://a-us.storyblok.com/f/1006306/3840x2040/02539f578e/m-2606-5-cafe-zeller-pos-t2-printer-cashdrawer-cafe-banner-v2.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:49.274Z"
   },
   {
     "name": "Secure Code Warrior",
@@ -2303,9 +2303,9 @@
       "secure-code-warrior-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/secure-code-warrior.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/5fec9210c1841a81c9c6ce7d/69b2f5750cdcf3e206ee3841_secure-code-warrior-share-01.png",
+    "cover_retrieved_at": "2026-11-16T14:52:49.931Z"
   },
   {
     "name": "Pet Circle",
@@ -2431,9 +2431,9 @@
       "me-and-u-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/me-and-u.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68cb96140013fa535857f2bf/692d1368cfee03cc357a9a46_homeOG.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:50.084Z"
   },
   {
     "name": "Archistar",
@@ -2558,9 +2558,9 @@
       "askable-teamtailor-jobs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/askable.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/614d1273c24b3028d627b227/67b49a1734bd39a4e7d9e314_askable-og-image.png",
+    "cover_retrieved_at": "2026-11-16T14:52:50.202Z"
   },
   {
     "name": "Brighte",
@@ -3437,9 +3437,9 @@
       "www-orkestra-energy"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/orkestra.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64e3f43b886bd0a97f969df0/6876fed2853fb9b30734c448_web-tile.png",
+    "cover_retrieved_at": "2026-11-16T14:52:51.676Z"
   },
   {
     "name": "Mass Dynamics",
@@ -3616,9 +3616,9 @@
       "expert360-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/expert360.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/695c406d92c02253fb616462/696e9956fa1842b6bc3de05a_Frame%201%20(1).jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:52.067Z"
   },
   {
     "name": "Shippit",
@@ -3682,9 +3682,9 @@
       "shippit-bamboohr-jobs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/shippit.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6683ba018c4ca4fe3ef702e6/69239e0119de659f7d8a6a71_SHP-OpenGraph-1200x630.png",
+    "cover_retrieved_at": "2026-11-16T14:52:52.978Z"
   },
   {
     "name": "Zoomo",
@@ -3862,9 +3862,9 @@
       "q-ctrl-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/q-ctrl.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64fe49580f2049d94a40e0df/6abf0f6b5247b4c8a5599cea_q-ctrl-meta-home-v2.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:53.272Z"
   },
   {
     "name": "Alloy",
@@ -4136,9 +4136,9 @@
       "www-everlab-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/everlab.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67a429737852744b0f848192/68c8f88cc4b4d372793a07cf_67be9ebb03cc2e28c425c62b_og-image.webp",
+    "cover_retrieved_at": "2026-11-16T14:52:53.439Z"
   },
   {
     "name": "Fair Supply",
@@ -5250,9 +5250,9 @@
       "andromedarobotics-ai-contact-us"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/andromeda-robotics.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/66f2de58649a9716e98443e1/6707132c3003831bec9e76ca_Open%20Graph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:52:54.064Z"
   },
   {
     "name": "ElectraLith",
@@ -5910,9 +5910,9 @@
       "drawboard-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/drawboard.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/5fc973fe72246928752172c7/6ab4ad285199dac2b40a7974_PDF%20Annotation%20(1).png",
+    "cover_retrieved_at": "2026-11-16T14:52:54.344Z"
   },
   {
     "name": "EatClub",
@@ -6206,9 +6206,9 @@
       "etrainu-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/etrainu.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/674e96ea7668d29a0c8a084b/6760bb9c7e5f4b891767050a_etrainu%20main%20open%20graph.png",
+    "cover_retrieved_at": "2026-11-16T14:52:55.221Z"
   },
   {
     "name": "BiVACOR",
@@ -6678,9 +6678,9 @@
       "mastt-about"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/mastt.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/607f739c92f9cfa16116b34d/6af261511068e5665f836f31_Mastt%20Share%20Image.png",
+    "cover_retrieved_at": "2026-11-16T14:52:55.245Z"
   },
   {
     "name": "Matrak",
@@ -6938,9 +6938,9 @@
       "atomi-lever-jobs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/atomi.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64d87bf30c82dd47a291be3d/67a954d90e939dfa15204dc9_23c7eaaf3af1b0ff760ea46d84be4f68_atomi-made-to-engage-open-graph.png",
+    "cover_retrieved_at": "2026-11-16T14:52:55.973Z"
   },
   {
     "name": "Bridgit",
@@ -7003,9 +7003,9 @@
       "bridgit-careers"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/bridgit.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68e9c814fa7d31b049f8e6e7/69843cdc320ef1b5974625d6_BR079_Open%20Graph%20Image_V1.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:01.933Z"
   },
   {
     "name": "Clear Dynamics",
@@ -7066,9 +7066,9 @@
       "clear-dynamics-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/clear-dynamics.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a97546d8a1fece3fc8c4cb7/6ab1f7be7d79edf5909045ee_Opengraph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:08.570Z"
   },
   {
     "name": "Linkby",
@@ -7423,9 +7423,9 @@
       "bare-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/bare.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/648669d3ff1c1c2aabd941f3/68802c5fe9a0ebea366721c8_30445f425c14af54adea289b39550d47_bare.png",
+    "cover_retrieved_at": "2026-11-16T14:53:10.638Z"
   },
   {
     "name": "Apate AI",
@@ -7482,9 +7482,9 @@
       "apate-ai-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/apate-ai.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67fc761b6913a3a0711e2c3b/681aded215497262ba8946f7_webclip.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:11.639Z"
   },
   {
     "name": "Factor House",
@@ -7676,9 +7676,9 @@
       "starboard-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/starboard.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/66c26a3fa51d2b10f740d8fc/66c6b17b42befaab9db58c2b_arriving-vessels.png",
+    "cover_retrieved_at": "2026-11-16T14:53:11.698Z"
   },
   {
     "name": "Payble",
@@ -7736,9 +7736,9 @@
       "payble-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/payble.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/61b29657c017a96838eb2059/6715dd76a8c9e07d33877a55_Open%20Graph.png",
+    "cover_retrieved_at": "2026-11-16T14:53:11.720Z"
   },
   {
     "name": "Mary Technology",
@@ -8367,9 +8367,9 @@
       "loopit-en-us"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/loopit.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/5f0fa4521806fc7695679c1c/67329cb45ec88bfd6cd5d2f4_Loopit%20Banner%20Open%20Graph.png",
+    "cover_retrieved_at": "2026-11-16T14:53:12.455Z"
   },
   {
     "name": "Hone (HoneAg)",
@@ -8548,9 +8548,9 @@
       "psyke-about"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/psyke.webp",
+    "cover_source_url": "https://b5a03f94-4ddd-4461-944c-2ea09f7926ea.upflowyexperience.com/b5a03f94-4ddd-4461-944c-2ea09f7926ea/assets/images/original/psyke-og.webp",
+    "cover_retrieved_at": "2026-11-16T14:53:25.514Z"
   },
   {
     "name": "SecurePII",
@@ -8663,9 +8663,9 @@
       "socialsuite-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/socialsuite.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/60927e9213d783572fb4b747/6a21a9d2b23d113beffed4de_Socialsuite%20Home%20Page.png",
+    "cover_retrieved_at": "2026-11-16T14:53:26.395Z"
   },
   {
     "name": "Tendl",
@@ -8836,9 +8836,9 @@
       "start-my-tomorrow-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/start-my-tomorrow.webp",
+    "cover_source_url": "https://www.startmytomorrow.com/og-image.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:27.472Z"
   },
   {
     "name": "Sherpa (4You Innovation)",
@@ -9191,9 +9191,9 @@
       "avarni-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/avarni.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/680ed2d362ee533af9acd923/680ed2d462ee533af9acdb2e_7aa540c7ab758d77f77184e83d0ba393_og_avarni-min.png",
+    "cover_retrieved_at": "2026-11-16T14:53:28.270Z"
   },
   {
     "name": "Tiliter",
@@ -9421,9 +9421,9 @@
       "audience-republic-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/audience-republic.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64ffde700f00c4757fc21755/6576b2a146fa9d4b5053d6b3_opengraph_homepage.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:28.696Z"
   },
   {
     "name": "Vexev",
@@ -9541,9 +9541,9 @@
       "signonsite-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/signonsite.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/65b70c6cbb8a340a71af04e0/65f731e7ffeca9001e1b9248_main-og.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:28.716Z"
   },
   {
     "name": "OneMRI",
@@ -9601,9 +9601,9 @@
       "onemri-about-us"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/onemri.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/670789c41c008aace6241700/69aa16708f9cd4edf4a71e0a_Whole-body%20MRI.png",
+    "cover_retrieved_at": "2026-11-16T14:53:29.350Z"
   },
   {
     "name": "Kimia (Kimia.ai)",
@@ -9978,9 +9978,9 @@
       "safewill-teamtailor-jobs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/safewill.webp",
+    "cover_source_url": "https://safewill.com/opengraph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:29.735Z"
   },
   {
     "name": "Contactile",
@@ -10798,9 +10798,9 @@
       "trace-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/trace.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/662aa5ebfbf1f29685ff3915/664208a8683810be4eceaee7_og.png",
+    "cover_retrieved_at": "2026-11-16T14:53:30.341Z"
   },
   {
     "name": "MoreGoodDays",
@@ -10856,9 +10856,9 @@
       "moregooddays-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/moregooddays.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6414728fd8f4a75b728b6c22/69114538fab0572695db933d_fater%20with%20kids%204.png",
+    "cover_retrieved_at": "2026-11-16T14:53:30.576Z"
   },
   {
     "name": "Hex",
@@ -11196,9 +11196,9 @@
       "home-in-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/home-in.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/61ef8a4a2ab169152a876522/62caf4dabf7adc2cd529a173_Feature%20Image%203.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:30.578Z"
   },
   {
     "name": "Doshii",
@@ -11256,9 +11256,9 @@
       "doshii-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/doshii.webp",
+    "cover_source_url": "https://media.doshii.com/wp-content/uploads/2025/11/28152702/SEO-image-home.png",
+    "cover_retrieved_at": "2026-11-16T14:53:30.902Z"
   },
   {
     "name": "Kit",
@@ -11440,9 +11440,9 @@
       "ownhome-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/ownhome.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/63eaf818fa58518541306b1d/640684d58287ef6dec03c807_Ownhome-opengraph.png",
+    "cover_retrieved_at": "2026-11-16T14:53:31.403Z"
   },
   {
     "name": "Spriggy",
@@ -11568,9 +11568,9 @@
       "slyp-careers"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/slyp.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6680ddba4f1da175046715b0/66a17d21d921072adc52c771_home-banner.png",
+    "cover_retrieved_at": "2026-11-16T14:53:35.430Z"
   },
   {
     "name": "Edstart",
@@ -12621,9 +12621,9 @@
       "andisor-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/andisor.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/QOT3PyqsR73Hv0L6ryH5zpnUOt0.png",
+    "cover_retrieved_at": "2026-11-16T14:53:36.659Z"
   },
   {
     "name": "CalcTree",
@@ -12682,9 +12682,9 @@
       "calctree-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/calctree.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/60353c8e5e301f3a0191c540/6681adc0a817374a76da2050_opengraph-home.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:36.851Z"
   },
   {
     "name": "Vyro",
@@ -12928,9 +12928,9 @@
       "blinq-website"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/blinq.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/617ac0d059899a9a3c8216e9/69ef347a7ccccfdc6949d206_OpenGraphic_Homepage.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:37.502Z"
   },
   {
     "name": "AgriDigital",
@@ -12996,9 +12996,9 @@
       "agridigital-our-team"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/agridigital.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/62a835f367da1965622e1702/62fb12429f9280061ffcaa96_Our%20Founders%20(1)%20(1).webp",
+    "cover_retrieved_at": "2026-11-16T14:53:38.071Z"
   },
   {
     "name": "Amber Electric",
@@ -13139,9 +13139,9 @@
       "superstat-address-listings"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/superstat.webp",
+    "cover_source_url": "https://framerusercontent.com/images/OkEDwNKHYSPKVJgnBu4XHvrgCs.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:38.415Z"
   },
   {
     "name": "Fastlane",
@@ -13571,9 +13571,9 @@
       "blockearner-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/block-earner.webp",
+    "cover_source_url": "https://cdn.blockearner.com.au/personal_thumbnail_247473323d.png",
+    "cover_retrieved_at": "2026-11-16T14:53:38.492Z"
   },
   {
     "name": "Ceres Tag",
@@ -13896,9 +13896,9 @@
       "www-harvestb-io"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/harvest-b.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/65cea045fddfe12de8697bf5/65dbfe40fc23075e4987e309_Updated%20OG.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:39.241Z"
   },
   {
     "name": "Hello Clever",
@@ -14009,9 +14009,9 @@
       "www-ignitionapp-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/ignition.webp",
+    "cover_source_url": "https://cache.ignitionapp.com/misc/2411-GLOBAL-WEBSITE-MetaImage-1200x628.png",
+    "cover_retrieved_at": "2026-11-16T14:53:39.367Z"
   },
   {
     "name": "InDebted",
@@ -14562,9 +14562,9 @@
       "octopus-deploy-company-contact"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/octopus-deploy.webp",
+    "cover_source_url": "https://a.storyblok.com/f/185929/1200x630/0172ae8c09/octopus-deploy-pipeline-min.png",
+    "cover_retrieved_at": "2026-11-16T14:53:39.965Z"
   },
   {
     "name": "Qsic",
@@ -14778,9 +14778,9 @@
       "www-relume-ai"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/relume.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6177739448baa66404ce1d9c/6a8660a8897b488119f6ed90_og-default-v1.png",
+    "cover_retrieved_at": "2026-11-16T14:53:40.568Z"
   },
   {
     "name": "ROLLER",
@@ -14994,9 +14994,9 @@
       "www-syenta-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/syenta.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69c464d7b999ae433239010c/69c464d7b999ae4332390183_syenta.png",
+    "cover_retrieved_at": "2026-11-16T14:53:42.416Z"
   },
   {
     "name": "TRIBE",
@@ -15106,9 +15106,9 @@
       "upcover-about-us"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/upcover.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/684c2562066471bab0d1b300/69f308fdbc030dc4062cca64_30de426ab4a0514bee5723c6bbedb936_Upcover%20Thumbnail.png",
+    "cover_retrieved_at": "2026-11-16T14:53:42.619Z"
   },
   {
     "name": "Vivi",
@@ -15213,9 +15213,9 @@
       "www-wemoney-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/wemoney.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/5f35464410e0c30c3376f85c/5f5f042a999a264543ab1468_1A%20-%20Opengraph%20image.png",
+    "cover_retrieved_at": "2026-11-16T14:53:43.268Z"
   },
   {
     "name": "Alloy Robotics",
@@ -15269,9 +15269,9 @@
       "user-supplied-supplied-by-a-reviewer-2"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/alloy-robotics.webp",
+    "cover_source_url": "https://www.usealloy.ai/site-assets/home-og.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:43.480Z"
   },
   {
     "name": "Ansight",
@@ -16304,9 +16304,9 @@
       "www-blackbird-vc-portfolio-accelo"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/accelo.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69d7c04e3adaa4efae2171e5/69d7c04e3adaa4efae2179de_09b19a7722a0f6fd59a9cfc06afaa60a_open%20graph.png",
+    "cover_retrieved_at": "2026-11-16T14:53:44.086Z"
   },
   {
     "name": "Adviser Ratings",
@@ -16653,9 +16653,9 @@
       "www-cicadainnovations-com-incubator-residents"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/archer-materials.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68a248b5fb1f74245f102417/6a3f44b27a98308d99ab2059_archer-materials-axe-australia-quantum-comany.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:44.724Z"
   },
   {
     "name": "Arkeus",
@@ -16711,9 +16711,9 @@
       "www-folklore-vc-companies"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/arkeus.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69f1c586ef0a7e04e8f51df7/69f2d75a131e9c43f09d4d98_Arkeus%20OG.png",
+    "cover_retrieved_at": "2026-11-16T14:53:44.732Z"
   },
   {
     "name": "Atrium",
@@ -16829,9 +16829,9 @@
       "www-blackbird-vc-portfolio-atticus"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/atticus.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6985379a86506c332f77d04d/6a446031c5f1248da05fadb5_dd67c61f3705f1862e13f00c3370001f_og-image.png",
+    "cover_retrieved_at": "2026-11-16T14:53:44.741Z"
   },
   {
     "name": "Azaneo",
@@ -16883,9 +16883,9 @@
       "www-cicadainnovations-com-incubator-residents"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/azaneo.webp",
+    "cover_source_url": "https://azaneo.au/images/azaneo-search-preview.png",
+    "cover_retrieved_at": "2026-11-16T14:53:45.512Z"
   },
   {
     "name": "Black.ai",
@@ -17722,9 +17722,9 @@
       "www-investible-com-company-datafarming"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/datafarming.webp",
+    "cover_source_url": "https://irp.cdn-website.com/eae5ebcd/dms3rep/multi/opt/DFA+Website+SEO+logos2-1920w.png",
+    "cover_retrieved_at": "2026-11-16T14:53:47.631Z"
   },
   {
     "name": "DDLoop",
@@ -18189,9 +18189,9 @@
       "user-supplied-supplied-by-a-reviewer-19"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/earlywork.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/62f4964e0ded1f7fd206a745/688c3d43bd4ff15ceee9cb9b_op-home-4.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:48.892Z"
   },
   {
     "name": "eBest",
@@ -18368,9 +18368,9 @@
       "www-blackbird-vc-portfolio-elevio"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/elevio.webp",
+    "cover_source_url": "https://s3.amazonaws.com/elevio-website-production/marketing-assets/homepage.png",
+    "cover_retrieved_at": "2026-11-16T14:53:49.863Z"
   },
   {
     "name": "Esper Satellite Imagery",
@@ -18428,9 +18428,9 @@
       "user-supplied-supplied-by-a-reviewer-21"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/esper-satellite-imagery.webp",
+    "cover_source_url": "https://framerusercontent.com/images/j23zx0tyZLLGZPZGskj6HprfQA.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:50.967Z"
   },
   {
     "name": "Everbility",
@@ -18487,9 +18487,9 @@
       "user-supplied-supplied-by-a-reviewer-23"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/everbility.webp",
+    "cover_source_url": "https://public-assets-mani.s3.us-west-1.amazonaws.com/everbility/images/everbility_preview.png",
+    "cover_retrieved_at": "2026-11-16T14:53:51.496Z"
   },
   {
     "name": "Extraordinary Money",
@@ -18790,9 +18790,9 @@
       "www-giantleap-com-au-portfolio"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/foremind.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68b6ac0a4b351036bf03394b/6ab26b7bd381ea6d28c79881_Foremind-OG.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:51.616Z"
   },
   {
     "name": "Frntlne",
@@ -19262,9 +19262,9 @@
       "www-folklore-vc-companies"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/hullbot.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6ae18c1c5f7fda887672f3ba/6ae18c1c5f7fda887672f541_img-section-media-2.webp",
+    "cover_retrieved_at": "2026-11-16T14:53:53.344Z"
   },
   {
     "name": "Hurtec",
@@ -19995,9 +19995,9 @@
       "www-blackbird-vc-portfolio-lexer"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/lexer.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/623a29532ccf51baab98942f/6a8e2fab083a45f45c299f06_OpenGraph%20image.png",
+    "cover_retrieved_at": "2026-11-16T14:53:53.701Z"
   },
   {
     "name": "LIGR",
@@ -20179,9 +20179,9 @@
       "user-supplied-supplied-by-a-reviewer-51"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/lumos.webp",
+    "cover_source_url": "https://spotlumos.com/images/og-preview.png",
+    "cover_retrieved_at": "2026-11-16T14:53:54.210Z"
   },
   {
     "name": "Marloo",
@@ -20239,9 +20239,9 @@
       "www-blackbird-vc-portfolio-marloo"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/marloo.webp",
+    "cover_source_url": "https://www.marloo.com/images/og-image.png",
+    "cover_retrieved_at": "2026-11-16T14:53:54.324Z"
   },
   {
     "name": "MerchantSpring",
@@ -21010,9 +21010,9 @@
       "user-supplied-supplied-by-a-reviewer-67"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/on-the-house.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69decf74c1c22f7e567183c4/69e510283603aec98955cd23_OTHG_Open%20Graph.png",
+    "cover_retrieved_at": "2026-11-16T14:53:55.480Z"
   },
   {
     "name": "Perx Health",
@@ -21178,9 +21178,9 @@
       "www-cicadainnovations-com-incubator-residents"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/presien.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/66b5e1720acacf3b6ced7f22/66d6ee66c815542c09014331_Open%20Graph.png",
+    "cover_retrieved_at": "2026-11-16T14:53:55.786Z"
   },
   {
     "name": "PREVE",
@@ -21237,9 +21237,9 @@
       "user-supplied-supplied-by-a-reviewer-69"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/preve.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/4ZHxYXnodvsZIIg2GMLnIbToBE.jpg",
+    "cover_retrieved_at": "2026-11-16T14:53:56.147Z"
   },
   {
     "name": "Programa",
@@ -21587,9 +21587,9 @@
       "www-folklore-vc-companies"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/simconverse.webp",
+    "cover_source_url": "https://www.simconverse.com/og/main.png",
+    "cover_retrieved_at": "2026-11-16T14:53:58.354Z"
   },
   {
     "name": "Snug",
@@ -21763,9 +21763,9 @@
       "www-folklore-vc-companies"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/summ.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68fefe182a6ddfeb26e320b5/69164ad9a3f93d5b7b23ef28_SummOGImage.png",
+    "cover_retrieved_at": "2026-11-16T14:53:59.564Z"
   },
   {
     "name": "TernaryNet",
@@ -22455,9 +22455,9 @@
       "user-supplied-pasted-list-of-perth-company-addresses"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/black-swan-biotech.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a37f0bf808fe206de2b9596/6abc944d0fb0ba4287e3151c_black_swan_biotech_opengraph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:01.271Z"
   },
   {
     "name": "Bobbleware",
@@ -22683,9 +22683,9 @@
       "user-supplied-pasted-list-of-perth-company-addresses"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/corametix.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/CbUqFxIAScxMDqQf3LicDpJLp08.png",
+    "cover_retrieved_at": "2026-11-16T14:54:20.193Z"
   },
   {
     "name": "Dayworkbook",
@@ -22794,9 +22794,9 @@
       "www-fundwa-com-au-fundwaportfolio"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/detail-earth.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/690daea41fb43d541902eafe/690dd4680fc8ce74e919de6b_OG-Prev.png",
+    "cover_retrieved_at": "2026-11-16T14:54:20.353Z"
   },
   {
     "name": "Edible Cutlery",
@@ -22959,9 +22959,9 @@
       "www-wa-gov-au-organisation-department-of-energy-and-economic-div"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/hyperion-systems.webp",
+    "cover_source_url": "https://framerusercontent.com/images/MeGwufzZBLZwt1NixII6cNt8g50.png",
+    "cover_retrieved_at": "2026-11-16T14:54:20.835Z"
   },
   {
     "name": "InterEarth",
@@ -23177,9 +23177,9 @@
       "omnibiotech-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/omni-biotech.webp",
+    "cover_source_url": "https://omnibiotech.com.au/og-image.png",
+    "cover_retrieved_at": "2026-11-16T14:54:21.574Z"
   },
   {
     "name": "OncoRes Medical",
@@ -23342,9 +23342,9 @@
       "personr-co-about-us"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/personr.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/Km1B0x8219wunHVVSkPw6lBt55U.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:22.834Z"
   },
   {
     "name": "Piksort",
@@ -23564,9 +23564,9 @@
       "spacedraft-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/spacedraft.webp",
+    "cover_source_url": "https://framerusercontent.com/images/Pi3PtOE0cbS0eV0e5lbfwNqKJI.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:23.100Z"
   },
   {
     "name": "SpacetoCo",
@@ -23845,9 +23845,9 @@
       "www-uluu-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/uluu.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6580fe08c82e10581008972f/659b653e094eaac10ea0bb14_uluu-socialshare-1200x630px.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:24.064Z"
   },
   {
     "name": "VitalTrace",
@@ -23898,9 +23898,9 @@
       "vitaltrace-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/vitaltrace.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/682f07f732f582e91d12d3e8/682f099e4520065a18f5b8c0_img-vitaltrace-opengraph.png",
+    "cover_retrieved_at": "2026-11-16T14:54:25.212Z"
   },
   {
     "name": "Vitruvian Form",
@@ -24010,9 +24010,9 @@
       "wevolt-com-au-privacy"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/wevolt.webp",
+    "cover_source_url": "https://wevolt.com.au/og/og-default.png",
+    "cover_retrieved_at": "2026-11-16T14:54:37.863Z"
   },
   {
     "name": "Agora Livestock",
@@ -24722,9 +24722,9 @@
       "www-hyprfire-com-contact-us"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/hyprfire.webp",
+    "cover_source_url": "https://static.wixstatic.com/media/68b8ce_891ed49b75ce4b78b42f325f3a234241%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/68b8ce_891ed49b75ce4b78b42f325f3a234241%7Emv2.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:38.315Z"
   },
   {
     "name": "i-screen",
@@ -24832,9 +24832,9 @@
       "www-menuzen-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/menuzen.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/602e11b32e97f7467f512462/6928196564937f7b314d0704_Open%20Graph%201200_630.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:38.390Z"
   },
   {
     "name": "PlanCare",
@@ -25333,9 +25333,9 @@
       "www-veintech-com-au-terms-of-service"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/veintech.webp",
+    "cover_source_url": "https://static.wixstatic.com/media/709452_5260667f9a2c4e8391fb26fd69f2ba2f%7Emv2.png/v1/fit/w_2500,h_1330,al_c/709452_5260667f9a2c4e8391fb26fd69f2ba2f%7Emv2.png",
+    "cover_retrieved_at": "2026-11-16T14:54:38.525Z"
   },
   {
     "name": "1Breadcrumb",
@@ -25388,9 +25388,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/1breadcrumb.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68d47f6669c71595adcf5199/68e85a4a8265000c874cb2d1_og-image.png",
+    "cover_retrieved_at": "2026-11-16T14:54:38.671Z"
   },
   {
     "name": "1receipt",
@@ -25445,9 +25445,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/1receipt.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/61184e1ece4c7506c48aa762/6a682432ff4d9ecdb630418d_1receipt-open-graph-preview-FINAL.png",
+    "cover_retrieved_at": "2026-11-16T14:54:40.701Z"
   },
   {
     "name": "Aelo",
@@ -25611,9 +25611,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/aibuild.webp",
+    "cover_source_url": "https://framerusercontent.com/images/XZ23YLTTGDU4DMVwuDvDxAMaYFY.png",
+    "cover_retrieved_at": "2026-11-16T14:54:40.738Z"
   },
   {
     "name": "Allume Energy",
@@ -25721,9 +25721,9 @@
       "echai-ventures-melbourne-vcs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/applied-ev.webp",
+    "cover_source_url": "https://www.appliedev.com/api/assets/5146586c-032d-4b18-90fc-2edeffc24a30",
+    "cover_retrieved_at": "2026-11-16T14:54:41.184Z"
   },
   {
     "name": "Aravax",
@@ -25832,9 +25832,9 @@
       "www-archa-com-au"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/archa.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6230360e45dbe57332c24597/6937a83999d3e06d2d00e203_archa-social-image.png",
+    "cover_retrieved_at": "2026-11-16T14:54:41.870Z"
   },
   {
     "name": "Atmo Biosciences",
@@ -26448,9 +26448,9 @@
       "www-themap-co-startups"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/curvecrete.webp",
+    "cover_source_url": "https://static.wixstatic.com/media/11a85d_1ba7c03d9b4c4da99055155344e44fa3%7Emv2.png/v1/fit/w_2500,h_1330,al_c/11a85d_1ba7c03d9b4c4da99055155344e44fa3%7Emv2.png",
+    "cover_retrieved_at": "2026-11-16T14:54:42.061Z"
   },
   {
     "name": "DeciphrAI",
@@ -27510,9 +27510,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/lab-group.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68e56cac9353efdcc0bb4c31/68f29f2ddaf13c66b4494d17_Opengraph%20preview.png",
+    "cover_retrieved_at": "2026-11-16T14:54:43.422Z"
   },
   {
     "name": "LOKE",
@@ -27952,9 +27952,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/neo-bionica.webp",
+    "cover_source_url": "https://framerusercontent.com/images/unRdhH0rfIoER1xlt21Mn9zbwsQ.png",
+    "cover_retrieved_at": "2026-11-16T14:54:44.643Z"
   },
   {
     "name": "Newsie",
@@ -28120,9 +28120,9 @@
       "echai-ventures-melbourne-vcs"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/operata.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/666d6197f7be67fb3fdd82b9/6a85188627180d381a946581_150bd2fe992a8a8669a93ae394259b22_Operata-OG.png",
+    "cover_retrieved_at": "2026-11-16T14:54:44.722Z"
   },
   {
     "name": "Outcoach",
@@ -28792,9 +28792,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/rohlok.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67a45aa435b1e04c8e3a02db/67a45aa435b1e04c8e3a0317_55P1-1508%20with%20attached%20tube%20and%20loom%20(no%20background)%201280%20x%20699px.png",
+    "cover_retrieved_at": "2026-11-16T14:54:45.785Z"
   },
   {
     "name": "Sapyen",
@@ -29133,9 +29133,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/snap-send-solve.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/65d27ead8b721fc8e2412071/65efb26559df2c99540bfeaf_opengraph.png",
+    "cover_retrieved_at": "2026-11-16T14:54:46.743Z"
   },
   {
     "name": "StrongRoom AI",
@@ -29363,9 +29363,9 @@
       "melbournestartups-com"
     ],
     "organisation_type": null,
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/tally-group.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/61b967cd68521a65b6741218/6216b2bb53a026dac8c3a31f_opengraph-img_home_v1.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:46.775Z"
   },
   {
     "name": "tikpay",
@@ -29697,9 +29697,9 @@
       "adveritas-com-au"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/adveritas.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67a48767ea0eb55d013a4e88/67dabca37db8b3cda074ca3b_AdveritasThumbnail.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:51.873Z"
   },
   {
     "name": "Fastbrick",
@@ -29813,9 +29813,9 @@
       "www-icetana-ai-contact-us"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/icetana-ai.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6201c5452891870009941269/62188fe08b78cf636f305a33_icetana_opengraph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:52.108Z"
   },
   {
     "name": "Moodle",
@@ -30598,9 +30598,9 @@
       "www-brickx-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/brickx.webp",
+    "cover_source_url": "https://assets.brickx.com/images/facebook-share-image.png",
+    "cover_retrieved_at": "2026-11-16T14:54:52.823Z"
   },
   {
     "name": "C2 Robotics",
@@ -30873,9 +30873,9 @@
       "www-chemcloud-com-au-terms-of-use"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/chemcloud.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/60ff3e09a9fd4798a75dc3c6/67c7e680ce65572ce3595852_OG-Home.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:53.688Z"
   },
   {
     "name": "Cipher Sports Technology Group",
@@ -30929,9 +30929,9 @@
       "www-ciphersports-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/cipher-sports-technology-group.webp",
+    "cover_source_url": "https://cdn.ciphersports.io/images/cipher_meta.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:53.719Z"
   },
   {
     "name": "Civica",
@@ -31150,9 +31150,9 @@
       "collective100-com-au-privacy-policy"
     ],
     "organisation_type": "space",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/collective-100.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/649fb0f811e829328cbf1af2/649fcfbc882782a8aac8234b_entrance.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:54.275Z"
   },
   {
     "name": "Collibra",
@@ -31485,9 +31485,9 @@
       "user-supplied-supplied-by-a-reviewer-97"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/diag-nose-io.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67b2d591660e4515608ff3a9/67fe35acfe29a408d4017be5_diagnose-open-graph.png",
+    "cover_retrieved_at": "2026-11-16T14:54:54.760Z"
   },
   {
     "name": "DisplaySweet",
@@ -31542,9 +31542,9 @@
       "user-supplied-supplied-by-a-reviewer-99"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/displaysweet.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/65c57041ca3af1fbf3958cf9/65e962c96e2b1b42815ceaef_gore-street-display.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:55.726Z"
   },
   {
     "name": "Draftable",
@@ -31598,9 +31598,9 @@
       "user-supplied-supplied-by-a-reviewer-101"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/draftable.webp",
+    "cover_source_url": "https://media.draftable.com/draftable-og-default-sm-1791871001923.webp?quality=75&format=jpeg&width=1200&height=630",
+    "cover_retrieved_at": "2026-11-16T14:54:55.969Z"
   },
   {
     "name": "Eastern Innovation",
@@ -31655,9 +31655,9 @@
       "space-eibc-net-au"
     ],
     "organisation_type": "space",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/eastern-innovation.webp",
+    "cover_source_url": "https://static.wixstatic.com/media/ecca2b_045f4426be06495db03919929820f528~mv2.jpg/v1/fill/w_2500,h_1667,al_c/ecca2b_045f4426be06495db03919929820f528~mv2.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:56.766Z"
   },
   {
     "name": "EIZ Technology",
@@ -31873,9 +31873,9 @@
       "www-enervaro-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/enervaro.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/699d0a9fc8316b39f5c5d084/69b0e39412c3dce60a3693c7_f23e26c1b726546094947096737a85a0_enervaro-feature.png",
+    "cover_retrieved_at": "2026-11-16T14:54:57.904Z"
   },
   {
     "name": "Engine House",
@@ -32203,9 +32203,9 @@
       "foundit-property-team"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/foundit.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/T0XcPrTEAzQUoyo5wZxHx3c.png",
+    "cover_retrieved_at": "2026-11-16T14:54:57.961Z"
   },
   {
     "name": "Frontier Software",
@@ -32880,9 +32880,9 @@
       "www-goideally-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/ideally.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/fmMAYjosKB2VZS83Woqg1SPadio.png",
+    "cover_retrieved_at": "2026-11-16T14:54:59.003Z"
   },
   {
     "name": "IDmeta",
@@ -33216,9 +33216,9 @@
       "javln-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/javln.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a02b8a2581db46537e7c0e0/6a4b2df66a094d32e032511f_Group%2053.png",
+    "cover_retrieved_at": "2026-11-16T14:54:59.389Z"
   },
   {
     "name": "KnowBe4",
@@ -33436,9 +33436,9 @@
       "landchecker-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/landchecker.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69e848ab5dcae701dcf677cc/6a94deb4de5c498550fea8c2_c0132c58c779a1c5552f8310ea70c2d4_OG.jpg",
+    "cover_retrieved_at": "2026-11-16T14:54:59.775Z"
   },
   {
     "name": "Legal Ready",
@@ -33711,9 +33711,9 @@
       "machship-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/machship.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a55844721147d6e687d1053/6a55844721147d6e687d1511_99463f96fc0800fe1903eb244a0e306f_Open%20Graph.webp",
+    "cover_retrieved_at": "2026-11-16T14:54:59.943Z"
   },
   {
     "name": "Magentus",
@@ -34098,9 +34098,9 @@
       "www-melbourneinnovation-com-au"
     ],
     "organisation_type": "space",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/melbourne-innovation-centre.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/68f84f5509216187668194a5/6a45b46756ea80eb7d27246d_MIC%20homepage%20-%20banner.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:00.455Z"
   },
   {
     "name": "Mimecast",
@@ -34262,9 +34262,9 @@
       "www-modano-com-contact-us"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/modano.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64e466a1105b29b632a10810/64ec6b52469d6a03a2c9696b_Share.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:00.575Z"
   },
   {
     "name": "mynd",
@@ -34317,9 +34317,9 @@
       "myndapp-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/mynd.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a6abc189b3c6d7eb9069b60/6a73d106abe985f57c67850b_mynd-for-business-opengraph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:00.590Z"
   },
   {
     "name": "MYOB",
@@ -34483,9 +34483,9 @@
       "www-neoconstruct-ai"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/neo-intelligence.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6977da41cda2c373e40d64b6/697ab74773aad8f999bb9b37_Copy%20of%20Still%202025-05-29%20101545_3.1.10.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:00.942Z"
   },
   {
     "name": "Netcraft",
@@ -34594,9 +34594,9 @@
       "www-neurala-co"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/neurala-biosciences.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67f51ca17396f5e98f14b024/67f529871a7866b54ba284a9_neurala-pattern-bg%20(1).webp",
+    "cover_retrieved_at": "2026-11-16T14:55:02.571Z"
   },
   {
     "name": "NEXTDC",
@@ -37372,9 +37372,9 @@
       "www-tankstreamlabs-com-location-collins-street-melbourne"
     ],
     "organisation_type": "space",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/tank-stream-labs.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6980324d411d6b7443edcb67/69e227a28a36bcfcaae1823e_tank-stream-labs-og.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:04.084Z"
   },
   {
     "name": "Telecare",
@@ -37552,9 +37552,9 @@
       "user-supplied-supplied-by-a-reviewer-127"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/termina.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a150b779f3c7380c9397cce/6a150b779f3c7380c939808e_8653ce83da50654cad9393b447e675ef_termina-open-graph-default.webp",
+    "cover_retrieved_at": "2026-11-16T14:55:05.332Z"
   },
   {
     "name": "The Cluster",
@@ -38432,9 +38432,9 @@
       "webbedsgroup-com"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/webbeds-group.webp",
+    "cover_source_url": "https://webbedsgroup.syd1.cdn.digitaloceanspaces.com/public/Uploads/WEB-Ticker-Icon-Red-500px-OCT24__FocusFillWzEyMDAsNjMwLCJ5IiwyODVd.png",
+    "cover_retrieved_at": "2026-11-16T14:55:05.622Z"
   },
   {
     "name": "WeGuide",
@@ -39168,9 +39168,9 @@
       "www-corepluspm-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/coreplus.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/651cefcf48b2738217b0d3cf/69562c2b4e0e69529e0ad678_New%20Open%20Graph%204.png",
+    "cover_retrieved_at": "2026-11-16T14:55:08.294Z"
   },
   {
     "name": "CoTreat",
@@ -39550,9 +39550,9 @@
       "www-renfamily-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/ren.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64505f5f8d6cbb327f1d06a1/6470134ef821462c1ff14f69_Open_graph.png",
+    "cover_retrieved_at": "2026-11-16T14:55:09.264Z"
   },
   {
     "name": "Shopfront",
@@ -39606,9 +39606,9 @@
       "shopfront-app"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/shopfront.webp",
+    "cover_source_url": "https://shopfront.app/og/site/homepage.png",
+    "cover_retrieved_at": "2026-11-16T14:55:10.133Z"
   },
   {
     "name": "Supportly",
@@ -39989,9 +39989,9 @@
       "www-adacel-com"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/adacel.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/5da4a6db96a90c18957991b0/61c394066705997036933038_Adacel-Air%20Traffic%20Management.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:10.478Z"
   },
   {
     "name": "Adslot",
@@ -40273,9 +40273,9 @@
       "www-brightspace-ai"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/brightspace.webp",
+    "cover_source_url": "https://framerusercontent.com/images/qXSaf8jnObJNIt1rMHmopIzrs.png",
+    "cover_retrieved_at": "2026-11-16T14:55:11.315Z"
   },
   {
     "name": "CareNeighbour",
@@ -40547,9 +40547,9 @@
       "connex-ai"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/connexai.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/XFzAZ4UAcR8ISCckzrzz9Eznx1k.png",
+    "cover_retrieved_at": "2026-11-16T14:55:12.032Z"
   },
   {
     "name": "Covidence",
@@ -40658,9 +40658,9 @@
       "user-supplied-supplied-by-a-reviewer-133"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/designer-journeys.webp",
+    "cover_source_url": "https://s3-cdn.designerjourneys.com/static-banners/designer-journeys-travel-home-banner.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:12.290Z"
   },
   {
     "name": "Elezar",
@@ -40823,9 +40823,9 @@
       "www-equidi-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/equidi.webp",
+    "cover_source_url": "https://cdn.qik.dev/files/62e9eb262106f7f6ff16b52f/variants/633636bc69e1bf411a451a42/1200x630_100.webp?v=65984fe54b82&response-content-type=image%2Fwebp&response-content-disposition=inline%3B%20filename%3D%22seoshare_1200x630.webp%22&response-cache-control=public%2C%20max-age%3D86400%2C%20stale-while-revalidate%3D300&Expires=1794927600&Signature=CsEFk0oQkck7R9-L6Di6E5Qgd7sfVcrHqMhRIwRWgFNDoTUYiip5sR3EdEzf~GeAwFOwufWmBDFYtn~cqX2MCbO3GIy3h1ipH8ncWx2SAVRFkHIqs71JQKTOAqpwFqyE0edwa~ONZYDb~bvxK2A1h3nc4omHWvPD0jOnFvw18hSrtguuSiUpcvCoagOJpTsN1O3U6zsLcsQr3vd9mh2Dou2nE3EhZKEvuWl9IsmyS-TeJqLsSHaTPHtTEzTm09J87V1RvIYs9Q57vQpIsnm0iJ8OOJhvt-yn2e9IzsErex98YWPCKIVEPNsBDFRxu40e36tc2zZLXa7MXsJw6jmzKg__&Key-Pair-Id=K1KX8MQVGDZXVH",
+    "cover_retrieved_at": "2026-11-16T14:55:12.408Z"
   },
   {
     "name": "Genomical",
@@ -41041,9 +41041,9 @@
       "www-humanetix-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/humanetix.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/628f158babaf96b96c2b5c1a/62c529b78407c8cdee082fdf_social%20image.png",
+    "cover_retrieved_at": "2026-11-16T14:55:12.900Z"
   },
   {
     "name": "InterSession",
@@ -41156,9 +41156,9 @@
       "www-jauntmotors-com-contact"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/jaunt-motors.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64c4d7ee8d9c7e584cfbfde1/69b54486702bed132b76be9a_Open%20Graph%20-%20Home.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:13.876Z"
   },
   {
     "name": "Maileroo",
@@ -41323,9 +41323,9 @@
       "www-pivotpl-com-legal-terms-conditions"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/pivot-professional-learning.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/79Hc2RVCNG06rpQ6wOlpiggufiA.png",
+    "cover_retrieved_at": "2026-11-16T14:55:14.885Z"
   },
   {
     "name": "Point of Rental Software",
@@ -42147,9 +42147,9 @@
       "www-tutero-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/tutero.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/611cb284a5f4f500b86d82e8/65701fd5b5160a80c88efaa1_Untitled%20design%20(1).png",
+    "cover_retrieved_at": "2026-11-16T14:55:15.539Z"
   },
   {
     "name": "Voral",
@@ -42375,9 +42375,9 @@
       "www-zetifi-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/zetifi.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/67aab5a7cedafdc3e20c32a7/69a90c87c2fb1e0daaa433c3_zetifi_og_home.png",
+    "cover_retrieved_at": "2026-11-16T14:55:15.686Z"
   },
   {
     "name": "+U Work Collective",
@@ -42538,9 +42538,9 @@
       "www-activeviam-com"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/activeviam.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a72059075e027514bac0825/6aebd54c4ce79743cf0f80fe_ActiveViam%20OpenGraph%20image%201.webp",
+    "cover_retrieved_at": "2026-11-16T14:55:16.199Z"
   },
   {
     "name": "Aerofiler",
@@ -42649,9 +42649,9 @@
       "aircall-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/aircall.webp",
+    "cover_source_url": "https://a.storyblok.com/f/157376/1200x630/e9706cdc7b/og-image-en_1200x630.png/m/1200x0",
+    "cover_retrieved_at": "2026-11-16T14:55:17.365Z"
   },
   {
     "name": "Airtasker",
@@ -42883,9 +42883,9 @@
       "aona-ai"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/aona-ai.webp",
+    "cover_source_url": "https://aona.ai/images/social/v2/home.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:18.252Z"
   },
   {
     "name": "Apollo Secure",
@@ -42993,9 +42993,9 @@
       "www-appen-com"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/appen.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/656a605609413dfd3feb9d34/6aa317a84eab4c7f1644a689_Appen-social-share.png",
+    "cover_retrieved_at": "2026-11-16T14:55:18.459Z"
   },
   {
     "name": "Arlula",
@@ -43047,9 +43047,9 @@
       "www-arlula-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/arlula.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/698a6183426a8c2e7133deb2/699fb5d17896401768135f56_opengrapharlula.png",
+    "cover_retrieved_at": "2026-11-16T14:55:18.468Z"
   },
   {
     "name": "AssureQA",
@@ -43102,9 +43102,9 @@
       "www-assureqa-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/assureqa.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/5yUXULm8MmSPHGb9akFZtYFpGGc.png",
+    "cover_retrieved_at": "2026-11-16T14:55:18.542Z"
   },
   {
     "name": "Battery Pollution Technologies",
@@ -43761,9 +43761,9 @@
       "www-carclarity-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/carclarity.webp",
+    "cover_source_url": "https://global-uploads.webflow.com/5dfc45bd3aba170dbe316f15/6412965be9e64b390c059354_carclarity-opengraph2.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:20.435Z"
   },
   {
     "name": "CareMonitor",
@@ -44419,9 +44419,9 @@
       "www-credsvault-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/credsvault.webp",
+    "cover_source_url": "https://irp.cdn-website.com/8062d701/dms3rep/multi/opt/Credsvault-construction-1920w.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:21.218Z"
   },
   {
     "name": "Data Zoo",
@@ -45023,9 +45023,9 @@
       "www-evnex-com-au-legal-privacy-policy"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/evnex.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/66a6f44c9279e5bd842b2c6d/67abfebe50278ea6dc8f57b3_Opengraph%202%20(1).png",
+    "cover_retrieved_at": "2026-11-16T14:55:21.430Z"
   },
   {
     "name": "ExoFlare",
@@ -45242,9 +45242,9 @@
       "www-fiable-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/fiable.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/663e0bdfe96b5474dc88812c/6a558c9d1877e81ce9ae8278_Homepage%20-%20OG.png",
+    "cover_retrieved_at": "2026-11-16T14:55:21.635Z"
   },
   {
     "name": "Fishburners",
@@ -45296,9 +45296,9 @@
       "fishburners-org"
     ],
     "organisation_type": "space",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/fishburners.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/HFIkb34iIJw8kASSbxy9efdZqQ.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:22.178Z"
   },
   {
     "name": "Fiskil",
@@ -45352,9 +45352,9 @@
       "www-fiskil-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/fiskil.webp",
+    "cover_source_url": "https://www.fiskil.com/images/open-graph-main.png",
+    "cover_retrieved_at": "2026-11-16T14:55:22.306Z"
   },
   {
     "name": "Flash Payments",
@@ -45407,9 +45407,9 @@
       "flash-payments-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/flash-payments.webp",
+    "cover_source_url": "https://flash-payments.com/img/og.png",
+    "cover_retrieved_at": "2026-11-16T14:55:23.346Z"
   },
   {
     "name": "FreightExchange",
@@ -45799,9 +45799,9 @@
       "guroo-academy"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/guroo-academy.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69d30b9024a67d4331e026ee/69d4425f394b079f89a8d90f_3f137fdd065642b421ae75d76e0be2bb_academy-screen-dashboard-analytics-workspace.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:23.960Z"
   },
   {
     "name": "Hampr",
@@ -45853,9 +45853,9 @@
       "hampr-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/hampr.webp",
+    "cover_source_url": "https://static.hampr.com.au/prod/images/social/OGHomepage_b133cfa9d9d6bbce945680475daeba5a2784e708ac39d67d3445aea9fa2d2ba1.png",
+    "cover_retrieved_at": "2026-11-16T14:55:24.148Z"
   },
   {
     "name": "HealthBank",
@@ -45960,9 +45960,9 @@
       "www-heospace-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/heo.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64d991920c82dd47a29baf56/64effbb79cc5e7a02f68095f_Make%20Space%20Transparent.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:24.506Z"
   },
   {
     "name": "HighRadius",
@@ -46016,9 +46016,9 @@
       "www-highradius-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/highradius.webp",
+    "cover_source_url": "https://cdn.highradius.com/wp-content/uploads/2025/02/HighRadius-OG.png",
+    "cover_retrieved_at": "2026-11-16T14:55:24.953Z"
   },
   {
     "name": "Hireup",
@@ -46397,9 +46397,9 @@
       "investstream-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/investstream.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/678de7351173ea44a615bff9/686348257662641406c497d3_seo.png",
+    "cover_retrieved_at": "2026-11-16T14:55:25.392Z"
   },
   {
     "name": "iPartners",
@@ -47165,9 +47165,9 @@
       "www-lessn-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/lessn.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/2icbTBnEzfBsvrYy8mBzchDly84.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:25.654Z"
   },
   {
     "name": "Locate Technologies",
@@ -47278,9 +47278,9 @@
       "www-lumary-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/lumary.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/69ee09b902830a749a068ae4/6a0685220197d20f07b38c6f_256d2fb25a5a9615c339f7095ab9e4a1_banner.png",
+    "cover_retrieved_at": "2026-11-16T14:55:26.507Z"
   },
   {
     "name": "Lyngo AI",
@@ -47394,9 +47394,9 @@
       "www-madecomfy-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/madecomfy.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/66b2f420be090068252d53d4/677b5df82646de216e510094_Home.png",
+    "cover_retrieved_at": "2026-11-16T14:55:26.606Z"
   },
   {
     "name": "MagnaTerra Technologies",
@@ -47501,9 +47501,9 @@
       "mako-aero"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/mako.webp",
+    "cover_source_url": "https://media.mako.aero/images/9812a5bfa44971cc6adb9a6612aeeb57-1200x630.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:27.994Z"
   },
   {
     "name": "Mathspace",
@@ -47717,9 +47717,9 @@
       "www-mvsi-onboard-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/mvsi-onboard.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/65f8de6e3e9e9384e3436f4e/69df1e17fc9fbd842e95fd10_Open%20Graph%20Image.png",
+    "cover_retrieved_at": "2026-11-16T14:55:28.064Z"
   },
   {
     "name": "MyPass Global",
@@ -47772,9 +47772,9 @@
       "www-mypassglobal-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/mypass-global.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/695334197b037d99bca54b7b/698826f6372758be66e3b288_Opengraph%20(1).png",
+    "cover_retrieved_at": "2026-11-16T14:55:28.067Z"
   },
   {
     "name": "Nearmap",
@@ -47827,9 +47827,9 @@
       "www-nearmap-com-au-legal-privacy-policy"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/nearmap.webp",
+    "cover_source_url": "https://a-us.storyblok.com/f/1018982/2400x1260/3348039c64/nearmap-property-intelligence.png",
+    "cover_retrieved_at": "2026-11-16T14:55:29.281Z"
   },
   {
     "name": "Nosto",
@@ -48834,9 +48834,9 @@
       "raizinvest-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/raiz-invest.webp",
+    "cover_source_url": "https://files.raizinvest.com.au/images/marketing/raiz_invest_australia_10y.png",
+    "cover_retrieved_at": "2026-11-16T14:55:29.438Z"
   },
   {
     "name": "RecordPoint",
@@ -48888,9 +48888,9 @@
       "www-recordpoint-com"
     ],
     "organisation_type": "company",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/recordpoint.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/63250c9670e6c46b563a334f/67e3794d1814011e836b548d_GRC%20Teams%20-%20Opengraph.png",
+    "cover_retrieved_at": "2026-11-16T14:55:30.052Z"
   },
   {
     "name": "Saluda Medical",
@@ -49213,9 +49213,9 @@
       "www-servicely-ai"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/servicely.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/676505eab7533c15dd7f7bbb/67ac757c8bd04396c17f42f0_open-graph.webp",
+    "cover_retrieved_at": "2026-11-16T14:55:30.222Z"
   },
   {
     "name": "Shaype",
@@ -49705,9 +49705,9 @@
       "user-supplied-supplied-by-a-reviewer-137"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/style-arcade.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/646d8d0e4fc8cb746110970c/66cbc0df639cb56c82598ca2_socialshare_homepage.png",
+    "cover_retrieved_at": "2026-11-16T14:55:30.990Z"
   },
   {
     "name": "SUSE",
@@ -49983,9 +49983,9 @@
       "user-supplied-supplied-by-a-reviewer-147"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/tetratherix.webp",
+    "cover_source_url": "https://framerusercontent.com/assets/O3lP8JBzRi8CMDjTZAj99L1Tk.png",
+    "cover_retrieved_at": "2026-11-16T14:55:31.071Z"
   },
   {
     "name": "Advice RegTech",
@@ -50260,9 +50260,9 @@
       "www-auric-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/auric.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64d9fbb27d4d2853b4b41ff4/6899c2d6eaec487e3fcb3ac2_auric-og-home-light.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:32.031Z"
   },
   {
     "name": "Avolution",
@@ -50589,9 +50589,9 @@
       "www-tradeledger-io"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/trade-ledger.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/628cfba96e0b0d44b06f0a47/62c6b7bd5485d91fc8015840_SEO%20-%20Generic.png",
+    "cover_retrieved_at": "2026-11-16T14:55:32.058Z"
   },
   {
     "name": "Truescope",
@@ -50644,9 +50644,9 @@
       "truescope-com-contact"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/truescope.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/63f54bf7dfad4784cce25360/6a83aecc50ea93e5a5fdc225_Home.png",
+    "cover_retrieved_at": "2026-11-16T14:55:32.164Z"
   },
   {
     "name": "Truuth",
@@ -50810,9 +50810,9 @@
       "www-valiantfinance-com-contact"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/valiant-finance.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/673a45999b5a833529515830/6acf1f1511a2258e29eb54d5_Small%20(1).webp",
+    "cover_retrieved_at": "2026-11-16T14:55:32.886Z"
   },
   {
     "name": "VAPAR",
@@ -50865,9 +50865,9 @@
       "www-vapar-co"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/vapar.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/695ecb4d822d2408c14a9692/699b9d204bd3feb657cd8942_og.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:32.895Z"
   },
   {
     "name": "Veridooh",
@@ -50920,9 +50920,9 @@
       "www-veridooh-com-terms-of-use"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/veridooh.webp",
+    "cover_source_url": "https://static.wixstatic.com/media/768a6a_7f82d2da8fd942ef9873966ec193f1f8%7Emv2.png/v1/fit/w_2500,h_1330,al_c/768a6a_7f82d2da8fd942ef9873966ec193f1f8%7Emv2.png",
+    "cover_retrieved_at": "2026-11-16T14:55:44.324Z"
   },
   {
     "name": "Veyor",
@@ -51030,9 +51030,9 @@
       "www-vouchfor-com-legal-terms"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/vouch.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/682bb2f6ef2157b198f6cac8/682bb58105a4cefe7a5c7eec_9865f90993000cd79b878dd64e322d23_Vouch-Opengraph.jpg",
+    "cover_retrieved_at": "2026-11-16T14:55:45.781Z"
   },
   {
     "name": "WeBuild Construction Software",
@@ -51248,9 +51248,9 @@
       "www-wrkr-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/wrkr.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/6a13eca020f98affb47b476e/6a168ea7a9126473ae6808a0_homepage-or-default.png",
+    "cover_retrieved_at": "2026-11-16T14:55:46.021Z"
   },
   {
     "name": "Yarno",
@@ -51359,9 +51359,9 @@
       "www-yellowcanary-com-au"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/yellow-canary.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/64b62a75822fafdbb783bd21/69081d93c634cb1c8790da39_Solutions%20Open%20Graph.png",
+    "cover_retrieved_at": "2026-11-16T14:55:46.111Z"
   },
   {
     "name": "Yellowbox",
@@ -52179,9 +52179,9 @@
       "www-sundrivesolar-com"
     ],
     "organisation_type": "startup",
-    "cover": null,
-    "cover_source_url": null,
-    "cover_retrieved_at": null
+    "cover": "/img/covers/sundrive-solar.webp",
+    "cover_source_url": "https://cdn.prod.website-files.com/620446e727fda167cbf4dc5f/627c7013ebeb9e2e4525838d_team.jpeg",
+    "cover_retrieved_at": "2026-11-16T14:55:46.620Z"
   },
   {
     "name": "Understanding Zoe",

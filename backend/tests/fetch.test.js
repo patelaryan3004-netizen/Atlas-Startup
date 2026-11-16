@@ -218,6 +218,28 @@ describe('fetching', () => {
     }
   });
 
+  it('can be told that a 403 on robots.txt means no rules (a file CDN has none), for the fetcher that asks a picture\'s host, and still closes on every other refusal', async () => {
+    const cdn = { forbiddenRobotsMeansNoRules: true };
+    const png = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0, 1, 2, 3]);
+    const pic = { 'https://cdn.example/og.png': { body: png, headers: { 'content-type': 'image/png' } } };
+    const read = (fetcher) => fetcher.get('https://cdn.example/og.png', { allow: ['image/png'], binary: true });
+    // off (the default): a 403 closes the host
+    const strict = make({ 'https://cdn.example/robots.txt': { status: 403 }, ...pic });
+    expect((await refusal(read(strict.fetcher))).code).toBe('robots_unavailable');
+    // on: the 403 is no rules, and the picture is read
+    const lenient = make({ 'https://cdn.example/robots.txt': { status: 403 }, ...pic }, cdn);
+    expect((await read(lenient.fetcher)).body.equals(png)).toBe(true);
+    // on: nothing else is loosened
+    for (const robots of [{ status: 401 }, { status: 429 }, { status: 500 }, { status: 503 }, new Error('connection reset')]) {
+      const { w, fetcher } = make({ 'https://cdn.example/robots.txt': robots, ...pic }, cdn);
+      expect((await refusal(read(fetcher))).code, String(robots.status ?? robots.message)).toMatch(/robots_unavailable|rate_limited/);
+      expect(w.pages()).toEqual([]);
+    }
+    // on: a robots.txt that is there and says no is still obeyed
+    const no = make({ 'https://cdn.example/robots.txt': { body: 'User-agent: *\nDisallow: /\n', headers: { 'content-type': 'text/plain' } }, ...pic }, cdn);
+    expect((await refusal(read(no.fetcher))).code).toBe('robots_disallow');
+  });
+
   it('follows a redirect on robots.txt itself', async () => {
     const { fetcher } = make({
       'https://acme.example/robots.txt': { status: 301, headers: { location: 'https://www.acme.example/robots.txt' } },

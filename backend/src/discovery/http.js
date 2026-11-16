@@ -118,6 +118,10 @@ export function createFetcher({
   maxBytes = 1500000,
   maxRedirects = 3,
   respectRobots = true,
+  // A host that answers 403 for /robots.txt has no robots file to read (a CDN that serves only files, and refuses any path that is not one): RFC 9309 says a 4xx answer means no rules. Off by default,
+  // so a 403 closes the site, as it always did; on only for the fetcher that asks the server holding a company's published preview picture (scripts/covers/collect.mjs). It never applies to
+  // a 401, a 429 or a 5xx, nor to a robots.txt that is there and says no, and it opens nothing else: the page's own site is asked by a fetcher that has it off.
+  forbiddenRobotsMeansNoRules = false,
   resolveHost = defaultResolveHost,
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   now = () => Date.now(),
@@ -187,6 +191,7 @@ export function createFetcher({
         url = new URL(res.headers.get('location') || '', url).href;
       }
       if (res.status === 200) entry = { robots: parseRobots(await readCapped(res, 500000, url)) };
+      else if (res.status === 403 && forbiddenRobotsMeansNoRules) entry = { robots: parseRobots('') };
       else if (res.status === 401 || res.status === 403) entry = { deny: 'robots.txt is access-controlled' };
       else if (res.status === 429 || res.status >= 500) {
         if (res.status === 429) { coolingDown.add(new URL(origin).hostname); noteWait(new URL(origin).hostname, res); }
