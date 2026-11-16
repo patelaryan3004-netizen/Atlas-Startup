@@ -30,9 +30,23 @@ describe('the app owns no picture files to optimise', () => {
     // design with every word taken out of them (scripts/art). They are drawn by one image tag (components/landing/Hero.jsx), tested below.
     // The hiring desk's four place cards (/jobs) are the third: three photographs of Melbourne, Sydney and Perth (webp, from Unsplash, credited on the page and in docs/hiring-desk.md)
     // and the outline of Australia for Remote AU (the map's own coastline, as an svg). They are drawn by one image tag (components/jobs/parts.jsx), tested below.
-    expect(pictures(publicDir).map((f) => String(f).replace(/\\/g, '/')).sort()).toEqual(['favicon.svg', 'img/hero-night-sm.webp', 'img/hero-night.webp', 'img/jobs/melbourne.webp', 'img/jobs/perth.webp', 'img/jobs/remote.svg', 'img/jobs/sydney.webp', 'og-image.png']);
+    expect(pictures(publicDir).map((f) => String(f).replace(/\\/g, '/')).filter((f) => !f.startsWith('img/covers/')).sort()).toEqual(['favicon.svg', 'img/hero-night-sm.webp', 'img/hero-night.webp', 'img/jobs/melbourne.webp', 'img/jobs/perth.webp', 'img/jobs/remote.svg', 'img/jobs/sydney.webp', 'og-image.png']);
     for (const file of sources()) {
       expect(text(file), rel(file)).not.toMatch(/(?:import|url\()\s*\(?['"]?[^'")\s]*\.(png|jpe?g|gif|webp|avif|bmp)/i);
+    }
+  });
+});
+
+// The gallery's covers (img/covers/<id>.webp, one for each company that has one) are the fourth picture files the site owns: each company's own preview picture, made once and kept here,
+// so the page never depends on another site's picture (backend/scripts/covers). Counted apart from the three above.
+describe('the gallery\'s covers', () => {
+  it('are webp files of the site\'s own, each small, and nothing else is kept in their folder', () => {
+    const dir = path.resolve(src, '..', 'public', 'img', 'covers');
+    const files = readdirSync(dir);
+    expect(files.length).toBeGreaterThan(0);
+    for (const name of files) {
+      expect(name, name).toMatch(/^[a-z0-9][a-z0-9-]*\.webp$/);
+      expect(statSync(path.join(dir, name)).size, name).toBeLessThan(120_000);
     }
   });
 });
@@ -68,7 +82,7 @@ describe('every image tag', () => {
     // the logos beside a name are drawn in one place now, the shared avatar (EntityCard: the cards, the rows, the previews and the company's panel); the investors' own are the other
     // (components/investors/common.jsx draws two: a firm's logo and a person's picture, which is drawn only from a secure address a record holds)
     // (the hiring desk draws two: a company's mark, and a place card's picture: components/jobs/parts.jsx)
-    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/investors/common.jsx', 'components/investors/common.jsx', 'components/jobs/parts.jsx', 'components/jobs/parts.jsx', 'components/landing/Hero.jsx']);
+    expect(all.map((i) => i.file).sort()).toEqual(['components/EntityCard.jsx', 'components/gallery/Cover.jsx','components/investors/common.jsx', 'components/investors/common.jsx', 'components/jobs/parts.jsx', 'components/jobs/parts.jsx', 'components/landing/Hero.jsx']);
   });
 
   it('has an alt (empty: the name is beside it), and decodes off the main thread', () => {
@@ -96,7 +110,7 @@ describe('every image tag', () => {
   });
 
   it('is given its size, where it sits in a box that is the same on every screen, so the page does not move as logos arrive', () => {
-    for (const { file, tag } of all.filter((i) => ['components/EntityCard.jsx'].includes(i.file))) {
+    for (const { file, tag } of all.filter((i) => ['components/EntityCard.jsx', 'components/gallery/Cover.jsx'].includes(i.file))) {
       expect(tag, file).toMatch(/\bwidth=(?:"\d+"|\{size\})/); // the avatar's size is its own prop, 40 unless a card says otherwise
       expect(tag, file).toMatch(/\bheight=(?:"\d+"|\{size\})/);
     }

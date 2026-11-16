@@ -246,10 +246,10 @@ describe('App', () => {
       render(<App />);
       await waitFor(() => expect(fetchMarkers).toHaveBeenCalledTimes(1));
 
-      await userEvent.click(screen.getByRole('button', { name: 'List' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
       await waitFor(() => expect(fetchStartupPage).toHaveBeenCalled());
       fetchMarkers.mockClear();
-      await userEvent.type(screen.getByLabelText(/Search startups/), 'z');
+      await userEvent.type(await screen.findByLabelText(/Search startups/), 'z');
       await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, search: 'z' }, expect.objectContaining({ offset: 0 })));
       expect(fetchMarkers).not.toHaveBeenCalled();
 
@@ -384,8 +384,8 @@ describe('App', () => {
       expect(await screen.findByTestId('map-view')).toBeInTheDocument();
       expect(screen.getByRole('button', { name: 'Map' })).toHaveAttribute('aria-pressed', 'true');
 
-      await userEvent.click(screen.getByRole('button', { name: 'List' }));
-      expect(screen.getByRole('button', { name: 'List' })).toHaveAttribute('aria-pressed', 'true');
+      await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
+      expect(screen.getByRole('button', { name: 'Gallery' })).toHaveAttribute('aria-pressed', 'true');
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
       expect(await screen.findByRole('heading', { name: 'Zeller' })).toBeInTheDocument();
       expect(screen.getByRole('heading', { name: 'Canva' })).toBeInTheDocument();
@@ -400,7 +400,7 @@ describe('App', () => {
       expect(screen.getByRole('region', { name: 'Map key' })).toBeInTheDocument();
       expect(screen.queryByRole('group', { name: 'Map layers' })).not.toBeInTheDocument(); // no firms' offices to switch
 
-      await userEvent.click(screen.getByRole('button', { name: 'List' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
       expect(screen.queryByRole('tab', { name: 'Map' })).not.toBeInTheDocument();
       expect(screen.queryByRole('region', { name: 'Map key' })).not.toBeInTheDocument();
     });
@@ -463,7 +463,7 @@ describe('App', () => {
       it('has neither the layers nor the basemap over the list', async () => {
         render(<App />);
         await openMapTab();
-        await userEvent.click(screen.getByRole('button', { name: 'List' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
         expect(screen.queryByRole('group', { name: 'Map layers' })).not.toBeInTheDocument();
       });
 
@@ -858,14 +858,14 @@ describe('App', () => {
       window.history.pushState({}, '', '/?view=waitlist');
       render(<App />);
       expect(screen.getByText('Get early access to task-gated startup applications.')).toBeInTheDocument();
-      expect(screen.getByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
       window.history.pushState({}, '', '/');
     });
 
     it("opens Discover, and no form, for a view it does not know", async () => {
       window.history.pushState({}, '', '/?view=nonsense');
       render(<App />);
-      expect(screen.getByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
       expect(screen.queryByText('Get early access to task-gated startup applications.')).not.toBeInTheDocument();
       window.history.pushState({}, '', '/');
     });
@@ -880,10 +880,10 @@ describe('App', () => {
       await openFilters();
       await tick('Sector', 'AI');
       await waitFor(() => expect(at()).toBe('/discover?sector=AI&view=map'));
-      await userEvent.click(screen.getByRole('button', { name: 'List' }));
+      await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
       await waitFor(() => expect(at()).toBe('/discover?sector=AI'));
-      await userEvent.click(screen.getByRole('button', { name: 'Map' }));
-      await waitFor(() => expect(at()).toBe('/discover?sector=AI&view=map'));
+      await userEvent.click(await screen.findByRole('button', { name: 'Map' })); // the gallery's Map is the map page: the same filters, at its own address
+      await waitFor(() => expect(at()).toBe('/map?sector=AI'));
     });
 
     it('opens a company at /startup/<slug> over the map, and Back closes it', async () => {
@@ -1017,7 +1017,7 @@ describe('App', () => {
       it('has no /people page: the address opens the map, and the address is put right', async () => {
         window.history.pushState({}, '', '/people?tab=operators');
         render(<App />);
-        expect(await screen.findByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
+        expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
         expect(screen.queryByTestId('people-view')).not.toBeInTheDocument();
         await waitFor(() => expect(window.location.pathname).toBe('/discover'));
       });
@@ -1075,14 +1075,14 @@ describe('App', () => {
       expect(await screen.findByTestId('home-view')).toBeInTheDocument();
       await waitFor(() => expect(window.location.pathname).toBe('/home'));
       await userEvent.click(screen.getByText('trigger-home-discover'));
-      expect(await screen.findByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
       expect(window.location.pathname).toBe('/discover');
       expect(place('Discover')).toHaveAttribute('aria-current', 'page');
       await userEvent.click(place('Opportunities'));
       expect(await screen.findByTestId('jobs-view')).toBeInTheDocument();
       expect(window.location.pathname).toBe('/jobs');
       window.history.back();
-      expect(await screen.findByRole('heading', { level: 1, name: 'Find your people.' })).toBeInTheDocument();
+      expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
       window.history.back();
       expect(await screen.findByTestId('home-view')).toBeInTheDocument();
     });
@@ -1317,7 +1317,7 @@ describe('App', () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
         await cardOf();
-        await userEvent.click(screen.getByRole('button', { name: 'List' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
         expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument();
       });
 
@@ -1396,7 +1396,7 @@ describe('App', () => {
         expect(back()).toBeNull();
         await userEvent.click(screen.getByText('trigger-move')); // the map says it is at zoom 9
         expect(back()).not.toBeNull();
-        await userEvent.click(screen.getByRole('button', { name: 'List' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
         expect(back()).toBeNull();
       });
 
@@ -1678,10 +1678,11 @@ describe('App', () => {
         await screen.findByRole('region', { name: 'OIF Ventures' });
         await userEvent.click(screen.getByRole('button', { name: 'Close the preview' }));
         expect(window.location.search).toBe('?sector=AI&city=Sydney&view=map');
-        await userEvent.click(screen.getByRole('button', { name: 'List' }));
-        await userEvent.click(screen.getByRole('button', { name: 'Map' }));
-        expect(window.location.search).toBe('?sector=AI&city=Sydney&view=map');
-        expect(screen.getByRole('button', { name: 'City: Sydney' })).toBeInTheDocument();
+        await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
+        await userEvent.click(await screen.findByRole('button', { name: 'Map' }));
+        expect(window.location.search).toBe('?sector=AI&city=Sydney'); // the map page: its address has no view word
+        expect(window.location.pathname).toBe('/map');
+        expect(await screen.findByTestId('map-view')).toBeInTheDocument();
       });
 
       it('is the same panel in the phone\'s sheet, and the map is sent clear of the sheet, not of a side panel', async () => {
@@ -1756,7 +1757,7 @@ describe('App', () => {
         'Remove filter: Sector AI', 'Remove filter: Sector Fintech',
       ]);
       await userEvent.click(screen.getByRole('button', { name: 'Remove filter: Sector Fintech' }));
-      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney' }, expect.anything()));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney' }, expect.anything())); // (the map page also asks for every city's pins, to count its badges)
       await waitFor(() => expect(window.location.search).toBe('?sector=AI&city=Sydney&view=map'));
       await userEvent.click(screen.getByRole('button', { name: 'Remove filter: Sector AI' }));
       await waitFor(() => expect(chipsOver()).not.toBeInTheDocument());
@@ -1771,12 +1772,55 @@ describe('App', () => {
       await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, city: 'Sydney' }, expect.anything()));
     });
 
-    it('shows them over the list too, in its own row', async () => {
-      window.history.pushState({}, '', '/?stage=Seed&view=list');
+    it("is the map's other view: the gallery carries its filters to the map page and back, asking for the same startups", async () => {
+      window.history.pushState({}, '', '/discover?sector=AI&city=Sydney');
       render(<App />);
+      await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' });
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney' }, expect.anything()));
+      expect(screen.getByRole('button', { name: 'Sydney' })).toBeInTheDocument(); // the bar says what is picked
+      expect(screen.getByRole('button', { name: 'AI' })).toBeInTheDocument();
+
+      await userEvent.click(screen.getByRole('button', { name: 'Map' }));
+      await waitFor(() => expect(window.location.pathname + window.location.search).toBe('/map?sector=AI&city=Sydney'));
+      expect(await screen.findByTestId('map-view')).toBeInTheDocument();
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney' }, expect.anything())); // (the map page also asks for every city's pins, to count its badges)
+
+      await userEvent.click(screen.getByRole('link', { name: 'See these as a gallery' }));
+      expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
+      expect(window.location.pathname + window.location.search).toBe('/discover?sector=AI&city=Sydney');
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+    });
+
+    it('opens a company from the gallery over the gallery, and Back closes it with the filters still on', async () => {
+      window.history.pushState({}, '', '/discover?sector=AI');
+      render(<App />);
+      const link = await screen.findByRole('link', { name: /Zeller/ });
+      expect(link).toHaveAttribute('href', '/startup/zeller');
+      await userEvent.click(link);
+      expect(await screen.findByTestId('startup-detail-panel')).toBeInTheDocument();
+      expect(window.location.pathname + window.location.search).toBe('/startup/zeller?sector=AI');
+      expect(screen.getByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument(); // the gallery is still under it
+
+      await userEvent.click(screen.getByText('trigger-detail-close'));
+      expect(screen.queryByTestId('startup-detail-panel')).not.toBeInTheDocument();
+      await waitFor(() => expect(window.location.pathname + window.location.search).toBe('/discover?sector=AI'));
+      expect(screen.getByRole('link', { name: /Zeller/ })).toBeInTheDocument();
+    });
+
+    it('shows them over the gallery too, in its own row, for the filters its bar does not show (an investor), and not for the ones it does (the stage, the city)', async () => {
+      window.history.pushState({}, '', '/?investor=Blackbird&view=list');
+      const { unmount } = render(<App />);
       const chips = await screen.findByRole('list', { name: 'Filters that are on' });
       expect(chips.closest('.startup-list-chips')).not.toBeNull();
+      expect(within(chips).getByText('Blackbird')).toBeInTheDocument();
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      unmount();
+
+      window.history.pushState({}, '', '/?stage=Seed&city=Sydney&view=list');
+      render(<App />);
+      await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' });
+      expect(screen.getByRole('button', { name: 'Seed' })).toBeInTheDocument(); // the bar's own Stage menu says it
+      expect(screen.queryByRole('list', { name: 'Filters that are on' })).not.toBeInTheDocument();
     });
 
     it('shows none over a curated list: its filters are the list', async () => {

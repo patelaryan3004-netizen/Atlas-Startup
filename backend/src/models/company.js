@@ -101,7 +101,10 @@ export const ADDED_FIELDS = [
   'employee_range', 'funding_total', 'last_funding_date', 'last_funding_round',
   'verification_status', 'confidence_score', 'created_at', 'updated_at', 'last_verified_at',
   'founder_ids', 'investor_ids', 'source_ids', 'organisation_type',
+  'cover', 'cover_source_url', 'cover_retrieved_at',
 ];
+// cover is the company's own preview picture (its website's og:image, kept as a 16:9 WebP among the site's own files: /img/covers/<id>.webp) or null; cover_source_url is where it was
+// read and cover_retrieved_at the day (scripts/covers/collect.mjs). The gallery draws the cover, or the company's logo on a plain tile when there is none: never a stand-in.
 // What kind of organisation a record is: a startup (the default: the directory began as one), an established company, or a space (a co-working or community place).
 // null is a startup. Investors are not companies here: they have their own directory. The type a source gives is a candidate until a person or a page says so.
 export const ORGANISATION_TYPES = ['startup', 'company', 'space'];
@@ -215,7 +218,7 @@ export function migrateCompanyRecord(record, ids, { evidenceFor = () => [] } = {
 // served by any route. To expose one of these later, remove it here and update
 // the test that pins this list.
 export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'created_at', 'updated_at',
-  'location_source', 'location_source_url', 'location_verified_at', 'location_confidence'];
+  'location_source', 'location_source_url', 'location_verified_at', 'location_confidence', 'cover_source_url', 'cover_retrieved_at'];
 
 // The public form of a company. What is public about where it is: the level it is known at (location_precision), the
 // suburb and postcode, whether the address was checked against a source (location_verified), and coordinates ONLY when
@@ -285,5 +288,8 @@ export function toCanonical(c) {
     investor_ids: c.investor_ids ?? [],
     source_ids: c.source_ids ?? [],
     organisation_type: c.organisation_type ?? 'startup',
+    cover: c.cover ?? null,
+    cover_source_url: c.cover_source_url ?? null,
+    cover_retrieved_at: c.cover_retrieved_at ?? null,
   };
 }

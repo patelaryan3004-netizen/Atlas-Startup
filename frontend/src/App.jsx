@@ -34,10 +34,11 @@ import PageNotFound from './components/PageNotFound.jsx';
 import { useTrackedStartups } from './hooks/useTrackedStartups.js';
 import { useMediaQuery, DESKTOP } from './hooks/useMediaQuery.js';
 import { lazyView, Lazy } from './lazyLoad.jsx';
-import { ListSkeleton, MapPlaceholder } from './components/Skeletons.jsx';
+import { ListSkeleton, MapPlaceholder, GalleryWait } from './components/Skeletons.jsx';
 import { peek } from './peek.js';
 import './explore.css';
 import './atlas.css';
+import './gallery.css';
 
 // Fetched when first wanted, not with the page: the pages (the map and its library, the list, the jobs board, the investors, the
 // news, the people), the news ticker (once the page has settled), the company's panel and every dialog. What stays here is what every
@@ -46,6 +47,7 @@ const MapView = lazyView(() => import('./components/MapView.jsx'));
 const AtlasOverlay = lazyView(() => import('./components/explore/AtlasOverlay.jsx')); // the words over the map page's map: with the map, not with the app's first load
 const NewsTicker = lazyView(() => import('./components/NewsTicker.jsx'));
 const ListView = lazyView(() => import('./components/ListView.jsx'));
+const GalleryPage = lazyView(() => import('./components/gallery/GalleryPage.jsx')); // the gallery's heading and bar are a file of their own: the map's visitors never load them
 const StartupPanel = lazyView(() => import('./components/explore/StartupPanel.jsx'));
 const PreviewCard = lazyView(() => import('./components/explore/PreviewCard.jsx'));
 const VcPanel = lazyView(() => import('./components/explore/VcPanel.jsx'));
@@ -434,6 +436,15 @@ export default function App() {
   const chipsShown = !activeList && activeChips(chipFilters).length > 0;
   const chips = chipsShown ? <ActiveFilters filters={chipFilters} cohorts={meta.cohorts} onChange={(next) => setFilters({ ...next, city: filters.city })} onClear={() => setFilters({ ...EMPTY_FILTERS, city: filters.city })} /> : null;
 
+  // The gallery's bar already shows the search, the city, the industry and the stage, and its quick chips the hiring, events and cohort switches: a chip for each of those would say
+  // it twice. What is left (a place, an investor, a remote policy ...) has its chip, since nothing else on the page shows it.
+  const BAR_KEYS = ['search', 'city', 'sector', 'stage', 'hiring', 'events', 'cohort'];
+  const barValues = () => Object.fromEntries(BAR_KEYS.map((key) => [key, filters[key]]));
+  const galleryChipFilters = { ...filters, ...Object.fromEntries(BAR_KEYS.map((key) => [key, ''])) };
+  const galleryChips = !activeList && activeChips(galleryChipFilters).length > 0
+    ? <ActiveFilters filters={galleryChipFilters} cohorts={meta.cohorts} onChange={(next) => setFilters({ ...next, ...barValues() })} onClear={() => setFilters({ ...EMPTY_FILTERS, ...barValues() })} />
+    : null;
+
   const resultCount = summary?.count ?? 0;
   const unverifiedCount = summary?.unverified ?? 0;
   // From the whole directory, so this reflects all of it - not whatever filters are active right now.
@@ -771,9 +782,36 @@ export default function App() {
     );
   }
 
+  const listBody = shown === 'vcs' ? (
+    <VcList
+      pins={vcData.items}
+      unplaced={vcData.unplaced}
+      where={where}
+      onOpen={(slug) => openInvestors({ kind: 'investor', slug })}
+      onOpenDirectory={() => openInvestors()}
+    />
+  ) : (
+    <ListView
+      filters={applied}
+      sectorColors={sectorColors}
+      onSelectStartup={openStartup}
+      selectedName={selectedStartup?.name}
+      trackedNames={tracked}
+      scope={scopeText(applied)}
+      onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
+      chips={galleryChips}
+      meta={meta}
+      onFiltersChange={setFilters}
+    />
+  );
+
   // The open mark's compact preview (a wide screen: beside its mark, MapView draws it there) and, on a phone, the panel in the bottom sheet.
   const wideMap = viewMode === 'map' && desktop;
   const isMapPage = mapBase;
+  // Discover's startups are a gallery, and the gallery is the map's other view: the same filters, the same startups. (The map's own page is the atlas; an address
+  // of the older Discover map, ?view=map, is still drawn as it was.)
+  const galleryPage = !isMapPage && viewMode === 'list';
+  const showMap = () => { setViewMode('map'); goTo({ kind: 'map' }); };
   // The map page ("Startup atlas") on a wide screen: the directory panel beside the map, always there, and the heading, the selects and the counts in it. On a phone
   // the map comes first with the same bar as before and the directory one tap away in the sheet. National: no city is picked and the map has not been zoomed in.
   const atlasWide = isMapPage && wideMap;
@@ -792,12 +830,48 @@ export default function App() {
   ) : null;
 
   return (
-    <div id="app" className={['xp', isMapPage && 'xp-mappage xp-atlas', activeList && 'has-list-banner', filtersOpen && 'panel-open', atlasWide && 'results-on'].filter(Boolean).join(' ')}>
+    <div id="app" className={['xp', isMapPage && 'xp-mappage xp-atlas', galleryPage && 'xp-gallery', activeList && 'has-list-banner', filtersOpen && 'panel-open', atlasWide && 'results-on'].filter(Boolean).join(' ')}>
       <SiteHeader active={isMapPage ? 'map' : 'discover'} go={go} counts={counts} onAdd={chrome.onAdd} addLabel="Add company" menu={menuProps} />
       {!isMapPage && <SectionTabs label="Discover" tabs={DISCOVER_TABS} active="startups" go={tabs} className="st-page" />}
 
-      {!isMapPage && <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />}
+      {!isMapPage && !galleryPage && <ExploreHero filters={filters} onApplyFilters={applyFilters} entity={shown} />}
 
+      {galleryPage && (
+        <>
+          <Lazy fallback={<GalleryWait />}>
+            <GalleryPage
+              onView={(id) => { if (id === 'map') showMap(); }}
+              filters={filters}
+              onFilterChange={applyFilters}
+              cities={cityOptions}
+              sectors={meta.sectors}
+              stages={meta.stages}
+              entity={shown}
+              onEntityChange={setShown}
+              filtersOpen={filtersOpen}
+              onToggleFilters={() => setFiltersOpen((open) => !open)}
+              filtersRef={filtersButton}
+              onClear={() => { setFilters(EMPTY_FILTERS); setShown('all'); }}
+              banner={activeList ? <ListBanner list={activeList} count={summary?.count ?? null} url={new URL(appPath(route), window.location.origin).href} onAllLists={showLists} /> : null}
+            >
+              <Lazy fallback={<ListSkeleton />}>{listBody}</Lazy>
+            </GalleryPage>
+          </Lazy>
+          <FilterPanel
+            filters={filters}
+            onChange={setFilters}
+            onReset={() => setFilters(EMPTY_FILTERS)}
+            meta={meta}
+            resultCount={resultCount}
+            summary={summary}
+            open={filtersOpen}
+            onOpenChange={setFiltersOpen}
+            toggleRef={filtersButton}
+          />
+        </>
+      )}
+
+      {!galleryPage && (
       <div className="xw" ref={workspace}>
         {isMapPage ? (wideMap ? null : (
           <MapToolbar
@@ -916,28 +990,7 @@ export default function App() {
                   onPickCity={(city) => applyFilters({ city })}
                   onShowAustralia={showAustralia}
                 />
-              ) : shown === 'vcs' ? (
-                <VcList
-                  pins={vcData.items}
-                  unplaced={vcData.unplaced}
-                  where={where}
-                  onOpen={(slug) => openInvestors({ kind: 'investor', slug })}
-                  onOpenDirectory={() => openInvestors()}
-                />
-              ) : (
-                <ListView
-                  filters={applied}
-                  sectorColors={sectorColors}
-                  onSelectStartup={openStartup}
-                  selectedName={selectedStartup?.name}
-                  trackedNames={tracked}
-                  scope={scopeText(applied)}
-                  onClearScope={() => setFilters({ ...filters, precision: '', state: '', city: filters.precision ? '' : filters.city })}
-                  chips={chips}
-                  meta={meta}
-                  onFiltersChange={setFilters}
-                />
-              )}
+              ) : listBody}
             </Lazy>
 
             {viewMode === 'map' && !desktop && chips && <div className="chips-float">{chips}</div>}
@@ -965,6 +1018,8 @@ export default function App() {
                 entity={shown}
                 vcFirms={vcRows}
                 onPickVc={(pin) => selectPin(pinPayload(vcTuple(pin)))}
+                galleryHref={appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown })}
+                onGallery={() => { setViewMode('list'); goTo({ kind: 'explore' }); }}
                 isTracked={isTracked}
                 onToggleTracked={toggleTracked}
                 isSavedVc={savedVcs.isSaved}
@@ -999,6 +1054,7 @@ export default function App() {
           />
         </div>
       </div>
+      )}
 
       {sharedDialogs}
       {editingCompany && <Lazy><SuggestEditForm company={editingCompany} initialMessage={editingMessage} onClose={() => { setEditingCompany(null); setEditingMessage(''); }} /></Lazy>}

@@ -274,7 +274,7 @@ describe('the results panel of the map page', () => {
     await screen.findByRole('button', { name: /^Acme/ });
     expect(screen.getByRole('status')).toHaveTextContent('3 companies in Melbourne');
     expect(screen.queryByText('Good company starts here.')).toBeNull();
-    expect(screen.getByRole('button', { name: /See all as a list/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /See all as a gallery/ })).toBeInTheDocument();
   });
 
   it('hands what is typed to the page, and can be put away', async () => {

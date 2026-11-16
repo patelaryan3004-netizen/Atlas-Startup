@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import CheckMenu from './CheckMenu.jsx';
 import { ENTITIES } from './ExploreToolbar.jsx';
-import { SearchIcon, CloseIcon, SlidersIcon, ListIcon, ChevronDown } from './icons.jsx';
+import { SearchIcon, CloseIcon, SlidersIcon, GridIcon, ChevronDown } from './icons.jsx';
 import { linkProps } from '../brand/nav.js';
 
 // The head of the map page's directory panel (the "Startup atlas" panel): a kicker, the heading, one line of what it is for, the search, the two selects (what
@@ -87,7 +87,7 @@ export default function AtlasHead({
           <SlidersIcon size={18} />
           <span className="xt-btn-text"><span className="xt-btn-word">More</span>{filterCount ? <span className="xt-badge">{filterCount}</span> : null}</span>
         </button>
-        <a className="at-list" aria-label="See these as a list" {...linkProps(listHref, onList)}><ListIcon size={18} /><span>List</span></a>
+        <a className="at-list" aria-label="See these as a gallery" {...linkProps(listHref, onList)}><GridIcon size={18} /><span>Gallery</span></a>
       </div>
 
       <p className="at-count" role="status" aria-live="polite">

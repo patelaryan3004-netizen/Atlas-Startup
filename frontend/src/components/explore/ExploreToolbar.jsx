@@ -2,7 +2,7 @@ import CheckMenu from './CheckMenu.jsx';
 import { Segmented, VcBadge } from '../brand/parts.jsx';
 import { splitValues } from '../MultiSelect.jsx';
 import { usePopover } from '../../hooks/usePopover.js';
-import { PinIcon, ChevronDown, SlidersIcon, MapIcon, ListIcon, CheckIcon } from './icons.jsx';
+import { PinIcon, ChevronDown, SlidersIcon, MapIcon, GridIcon, CheckIcon } from './icons.jsx';
 
 // The bar across the top of the workspace: where (a city, with a menu of the cities), what is shown (All, Startups or VCs), the filters, and the switch
 // between the map and the list. A city chosen here is the filter `city` of the filter panel, so the map, the list, the counts and the search all narrow to
@@ -65,7 +65,7 @@ export function LocationMenu({ cities, selected, total, onSelect, allLabel = 'Al
 const SHOW_OPTIONS = ENTITIES.map(([id, label]) => ({ id, label, badge: id === 'vcs' ? <span aria-hidden="true"><VcBadge /></span> : null }));
 const VIEW_OPTIONS = [
   { id: 'map', label: 'Map', icon: <MapIcon size={20} /> },
-  { id: 'list', label: 'List', icon: <ListIcon size={20} /> },
+  { id: 'list', label: 'Gallery', icon: <GridIcon size={20} /> },
 ];
 
 export default function ExploreToolbar({

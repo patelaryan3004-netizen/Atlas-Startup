@@ -19,7 +19,8 @@ function Pick({ label, filters, field, options, onChange }) {
   );
 }
 
-export default function QuickFilters({ filters, meta, onChange }) {
+// `switchesOnly`: the gallery has the city, the sector and the stage in its own bar, so only the chips that switch (Hiring, Seed to Series A, Events this week, an accelerator's cohort) are drawn here.
+export default function QuickFilters({ filters, meta, onChange, switchesOnly = false }) {
   const toggle = (field, on) => () => onChange({ ...filters, [field]: filters[field] === on ? '' : on });
   const switchChip = (field, on, text) => (
     <button key={`${field}:${on}`} type="button" className={filters[field] === on ? 'qf-chip qf-chip-on' : 'qf-chip'} aria-pressed={filters[field] === on} onClick={toggle(field, on)}>{text}</button>
@@ -27,10 +28,10 @@ export default function QuickFilters({ filters, meta, onChange }) {
   return (
     <div className="qf" role="group" aria-label="Quick filters">
       {switchChip('hiring', 'yes', 'Hiring')}
-      <Pick label="Sector" field="sector" options={meta?.sectors ?? []} filters={filters} onChange={onChange} />
-      <Pick label="Stage" field="stage" options={meta?.stages ?? []} filters={filters} onChange={onChange} />
+      {!switchesOnly && <Pick label="Sector" field="sector" options={meta?.sectors ?? []} filters={filters} onChange={onChange} />}
+      {!switchesOnly && <Pick label="Stage" field="stage" options={meta?.stages ?? []} filters={filters} onChange={onChange} />}
       {switchChip('stage', SEED_TO_SERIES_A, 'Seed to Series A')}
-      <Pick label="City" field="city" options={meta?.cities ?? []} filters={filters} onChange={onChange} />
+      {!switchesOnly && <Pick label="City" field="city" options={meta?.cities ?? []} filters={filters} onChange={onChange} />}
       {switchChip('events', 'week', 'Events this week')}
       {(meta?.cohorts ?? []).map((c) => switchChip('cohort', c.id, c.label))}
     </div>

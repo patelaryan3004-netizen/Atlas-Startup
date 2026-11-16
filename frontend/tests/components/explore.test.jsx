@@ -96,8 +96,8 @@ describe('the toolbar', () => {
     const { props } = setup();
     expect(screen.getByRole('group', { name: 'How the startups are shown' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Map' })).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('button', { name: 'List' })).toHaveAttribute('aria-pressed', 'false');
-    await userEvent.click(screen.getByRole('button', { name: 'List' }));
+    expect(screen.getByRole('button', { name: 'Gallery' })).toHaveAttribute('aria-pressed', 'false');
+    await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
     expect(props.onSetViewMode).toHaveBeenCalledWith('list');
   });
 });

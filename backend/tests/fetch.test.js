@@ -146,6 +146,20 @@ describe('fetching', () => {
     expect(sent['https://cdn.example/data']['x-api-key']).toBeUndefined();
   });
 
+  it('reads a picture as bytes (a Buffer), under the same robots rules, content types and size cap as a page', async () => {
+    const png = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 255, 128, 7]);
+    const routes = { ...OPEN_ROBOTS, 'https://acme.example/cover.png': { body: png, headers: { 'content-type': 'image/png' } }, 'https://acme.example/wp-admin/x.png': { body: png, headers: { 'content-type': 'image/png' } } };
+    const { fetcher } = make(routes);
+    const res = await fetcher.get('https://acme.example/cover.png', { allow: ['image/png'], accept: 'image/*', binary: true });
+    expect(Buffer.isBuffer(res.body)).toBe(true);
+    expect(res.body.equals(png)).toBe(true); // every byte, not decoded as text
+    expect(res.text).toBeUndefined();
+    expect((await refusal(fetcher.get('https://acme.example/wp-admin/x.png', { allow: ['image/png'], binary: true }))).code).toBe('robots_disallow');
+    expect((await refusal(fetcher.get('https://acme.example/cover.png', { binary: true }))).code).toBe('unsupported_content'); // an image is not a page unless asked for as one
+    const small = make(routes, { maxBytes: 4 });
+    expect((await refusal(small.fetcher.get('https://acme.example/cover.png', { allow: ['image/png'], binary: true }))).code).toBe('too_large');
+  });
+
   it('never makes a request to LinkedIn, however it is reached', async () => {
     const { w, fetcher } = make({});
     for (const url of ['https://www.linkedin.com/company/acme', 'https://au.linkedin.com/in/someone', 'https://lnkd.in/abc']) {

@@ -3,7 +3,7 @@
    explore.css's (xw, xb, xc, xm); this file is the atlas's look, the drawn country (atlasLayer.js) and how it fades into the street map and the pins as the map zooms.
    Names: at-head the panel's head, at-over the words over the map, atlas-* the drawn country and the city badges. */
 
-.xp-atlas,.jd{
+.xp-atlas,.jd,.xp-gallery{
   --at-navy:#071822;
   --at-sea:#0a2230;
   --at-ivory:#f7f1e3;
@@ -18,26 +18,26 @@
 }
 
 /* ---------- the header, in the night of the welcome page (the map page and the hiring desk, jobs.css) ---------- */
-:is(.xp-atlas,.jd) .sh{background:var(--at-navy);border-bottom:1px solid rgb(250 246 234 / .1);}
-:is(.xp-atlas,.jd) .sh-brand,:is(.xp-atlas,.jd) .sh-wordmark{color:#faf6ea;}
-:is(.xp-atlas,.jd) .sh-brand:focus-visible,:is(.xp-atlas,.jd) .sh-add:focus-visible,:is(.xp-atlas,.jd) .sh-link:focus-visible,:is(.xp-atlas,.jd) .sh-more:focus-visible{outline-color:var(--at-gold-hi);}
-:is(.xp-atlas,.jd) .sh-nav{border-color:rgb(250 246 234 / .16);background:rgb(250 246 234 / .03);}
-:is(.xp-atlas,.jd) .sh-link{color:rgb(250 246 234 / .8);}
-:is(.xp-atlas,.jd) .sh-link + .sh-link::before{background:rgb(250 246 234 / .14);}
-:is(.xp-atlas,.jd) .sh-link:hover{color:#fff;}
-:is(.xp-atlas,.jd) .sh-link[aria-current="page"]{color:#fff;}
-:is(.xp-atlas,.jd) .sh-link[aria-current="page"]::after{background:var(--at-gold);}
-:is(.xp-atlas,.jd) .sh-count{background:rgb(250 246 234 / .12);color:#faf6ea;}
-:is(.xp-atlas,.jd) .sh-add{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
-:is(.xp-atlas,.jd) .sh-add:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);}
-:is(.xp-atlas,.jd) .sh-more{border-color:rgb(250 246 234 / .22);background:rgb(250 246 234 / .06);color:#faf6ea;}
-:is(.xp-atlas,.jd) .sh-more:hover{background:rgb(250 246 234 / .14);}
-:is(.xp-atlas,.jd) .sh-signin{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
-:is(.xp-atlas,.jd) .sh-signin:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);color:#fff;}
-:is(.xp-atlas,.jd) .sh-signin svg{color:rgb(250 246 234 / .8);}
-:is(.xp-atlas,.jd) .am-btn{border-color:rgb(250 246 234 / .28);background:rgb(250 246 234 / .06);}
-:is(.xp-atlas,.jd) .am-btn:hover{border-color:var(--at-gold);}
-:is(.xp-atlas,.jd) .am-btn:focus-visible,:is(.xp-atlas,.jd) .sh-signin:focus-visible{outline-color:var(--at-gold-hi);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh{background:var(--at-navy);border-bottom:1px solid rgb(250 246 234 / .1);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-brand,:is(.xp-atlas,.jd,.xp-gallery) .sh-wordmark{color:#faf6ea;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-brand:focus-visible,:is(.xp-atlas,.jd,.xp-gallery) .sh-add:focus-visible,:is(.xp-atlas,.jd,.xp-gallery) .sh-link:focus-visible,:is(.xp-atlas,.jd,.xp-gallery) .sh-more:focus-visible{outline-color:var(--at-gold-hi);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-nav{border-color:rgb(250 246 234 / .16);background:rgb(250 246 234 / .03);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-link{color:rgb(250 246 234 / .8);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-link + .sh-link::before{background:rgb(250 246 234 / .14);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-link:hover{color:#fff;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-link[aria-current="page"]{color:#fff;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-link[aria-current="page"]::after{background:var(--at-gold);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-count{background:rgb(250 246 234 / .12);color:#faf6ea;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-add{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-add:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-more{border-color:rgb(250 246 234 / .22);background:rgb(250 246 234 / .06);color:#faf6ea;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-more:hover{background:rgb(250 246 234 / .14);}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-signin{border-color:rgb(250 246 234 / .3);background:transparent;color:#faf6ea;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-signin:hover{background:rgb(250 246 234 / .08);border-color:rgb(250 246 234 / .6);color:#fff;}
+:is(.xp-atlas,.jd,.xp-gallery) .sh-signin svg{color:rgb(250 246 234 / .8);}
+:is(.xp-atlas,.jd,.xp-gallery) .am-btn{border-color:rgb(250 246 234 / .28);background:rgb(250 246 234 / .06);}
+:is(.xp-atlas,.jd,.xp-gallery) .am-btn:hover{border-color:var(--at-gold);}
+:is(.xp-atlas,.jd,.xp-gallery) .am-btn:focus-visible,:is(.xp-atlas,.jd,.xp-gallery) .sh-signin:focus-visible{outline-color:var(--at-gold-hi);}
 
 /* ---------- the workspace and the directory panel ---------- */
 /* The filter drawer ("More") slides over the directory panel, so it is as wide as the panel and dressed the same. */

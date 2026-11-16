@@ -29,7 +29,7 @@ import { describeLocation, PRECISIONS } from '../models/location.js';
 import { cityCentre, stateCentre } from '../geo/places.js';
 import { metroOf } from '../geo/metro.js';
 
-export const SORTS = ['file', 'name', 'hiring', 'location', 'industry', 'stage', 'verified', 'team', 'remote'];
+export const SORTS = ['file', 'name', 'hiring', 'location', 'industry', 'stage', 'verified', 'team', 'remote', 'pictures'];
 
 // The order a company moves through its stages, earliest first: what a "by stage" list is in. A stage this list does not know (a new
 // one) sorts after the ones it does, and "Unknown" last, so nothing is placed by a guess.
@@ -48,7 +48,7 @@ export const FACETS = ['sector', 'city', 'stage', 'investor'];
 // team_size, remote_policy, tech_stack, last_funding_date, last_role_seen_at and cohorts are the optional facts (company.js): present on a card
 // only where a public page backs them. `programs` is the cohorts as a visitor reads them, each with the page that says so (cohorts.js programOf).
 export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events',
-  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs', 'organisation_type'];
+  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs', 'organisation_type', 'cover'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
@@ -201,6 +201,8 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   const compares = {
     name: byKey(keys.name),
     hiring: (a, b) => (records[b].hiring === true) - (records[a].hiring === true) || collator.compare(keys.name[a], keys.name[b]) || a - b,
+    // The gallery's way in: the companies that have a cover picture of their own first (the pictures are what a gallery is), then the rest, each in name order.
+    pictures: (a, b) => Boolean(records[b].cover) - Boolean(records[a].cover) || collator.compare(keys.name[a], keys.name[b]) || a - b,
     location: (a, b) => collator.compare(keys.city[a], keys.city[b]) || collator.compare(keys.name[a], keys.name[b]) || a - b,
     industry: (a, b) => collator.compare(keys.industry[a], keys.industry[b]) || collator.compare(keys.name[a], keys.name[b]) || a - b,
     stage: (a, b) => keys.stage[a] - keys.stage[b] || collator.compare(keys.name[a], keys.name[b]) || a - b,
