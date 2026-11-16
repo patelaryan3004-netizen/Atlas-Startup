@@ -37,7 +37,7 @@ What is **not** kept: a pan or zoom the visitor did by hand on the map. The map 
 ## Pictures
 
 The dataset had no cover pictures and no logos. Each company's cover is **the preview picture its own website names for itself** (`og:image`, `twitter:image`, `image_src`), read once by
-`backend/scripts/covers/collect.mjs` through the project's compliant fetcher (`robots.txt` obeyed on the page *and* on the host the picture is on, the honest `AUStartupMapBot` user agent, pacing,
+`backend/scripts/covers/collect.mjs` through the project's compliant fetcher (`robots.txt` obeyed on the page *and* on the host the picture is on (see the note on file CDNs below), the honest `AUStartupMapBot` user agent, pacing,
 nothing behind a login, no access control worked around), cut to 16:9 (720 × 405) and **kept as a WebP file in `frontend/public/img/covers/<id>.webp`**: the page never depends on another
 site's picture URL.
 
@@ -50,25 +50,26 @@ outcome for every company.
 **A company without a cover** is drawn with its real logo (the favicon service, as everywhere on the site) on one quiet neutral tile, or its first letter until the logo arrives. It is still in
 the gallery, in every filter and on the map.
 
-### Where the pictures stand (16 Nov 2026)
+### Where the pictures stand (17 Nov 2026)
 
-920 companies: **303 have a cover** (Melbourne 127 of 381, Sydney 109 of 342, Perth 20 of 67, Brisbane 7 of 22, Adelaide 3 of 6); **617 do not**, and show their logo:
+920 companies: **479 have a cover** (Melbourne 188 of 381, Sydney 184 of 342, Perth 35 of 67, Brisbane 11 of 22, Adelaide 3 of 6); **441 do not**, and show their logo:
 
 | Why | Companies |
 |---|---|
-| Its site, or the server holding its preview picture, would not answer a `robots.txt` request (the fetcher leaves the picture alone) | 228 |
-| The page names no preview picture | 200 |
-| The preview picture is not landscape (a logo or an icon) | 64 |
-| The preview picture is under 600 × 300 | 40 |
+| The page names no preview picture | 206 |
+| The preview picture is not landscape (a logo or an icon) | 76 |
+| The preview picture is under 600 × 300 | 45 |
 | No website on file | 38 |
-| The preview picture is a format that is not read (svg, gif...) | 18 |
-| Its website did not resolve, is access-controlled, answered an error, or timed out | 22 |
-| The picture is over the size limit | 6 |
+| The preview picture is a format that is not read (svg, gif...) | 32 |
+| Its site, or the server holding its picture, still would not answer a `robots.txt` request (a timeout, a 429 or a 5xx, or a 403 from its own site) | 14 |
+| Its website did not resolve, is access-controlled, answered an error, or its picture is over the size limit | 29 |
 | `robots.txt` does not allow it | 1 |
 
-The full list, with each reason, is `docs/gallery-missing-covers.csv`. The 228 are the biggest group: a re-run later may reach some of them (`collect --retry`), and the owner could decide
-whether a preview picture a site publishes for link cards may be read from a host whose `robots.txt` cannot be read (today the fetcher fails closed, as for every other fetch).
-The rest need a picture from the owner or from the company.
+The full list, with each reason, is `docs/gallery-missing-covers.csv` (`node scripts/covers/missing.mjs` makes it). The first collection left 228 companies at "`robots.txt` unavailable": 174 of them were picture
+hosts that answer **403 for `/robots.txt`** because they have none, almost all file CDNs (Webflow's, Framer's, Wix's). RFC 9309 says a 4xx answer means no rules, so the fetcher now has an option,
+`forbiddenRobotsMeansNoRules`, that the cover collector turns on **for the server holding the picture only**: a 403 there is no rules, and the picture is read. Nothing else is loosened (a `robots.txt` that is
+there and says no, a 401, a 429, a 5xx and a network error still stop it, and a company's own site is read by a strict fetcher), and it is off by default (`tests/fetch.test.js`). Re-running the 233
+sites that had stopped added **176 covers** (303 → 479); the 14 left are timeouts and refusals, and the rest of the table needs a picture from the owner or the company.
 
 ### Taking a picture down
 

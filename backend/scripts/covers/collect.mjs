@@ -67,7 +67,9 @@ async function collect() {
   const wanted = ds.companies.filter((c) => c.website && !never.has(c.id) && (!only || String(only).split(';').includes(c.name)) && (!flag('--retry') || again(before.get(c.id))));
   const list = wanted.slice(0, Number(flag('--limit') ?? Infinity));
   const html = createFetcher({ userAgent: DEFAULT_USER_AGENT, minDelayMs: 1500, maxBytes: 1500000, timeoutMs: 20000 });
-  const pictures = createFetcher({ userAgent: DEFAULT_USER_AGENT, minDelayMs: 1000, maxBytes: 6000000, timeoutMs: 25000 });
+  // The server holding a preview picture is very often a CDN (Webflow's, Framer's, Wix's) that answers 403 for /robots.txt because it has none: for that host alone a 403 is no rules, as RFC 9309 says
+  // of a 4xx. Every other refusal stands (a robots.txt that says no, a 401, a 429, a 5xx), and the company's own site, read by `html` above, is never given this.
+  const pictures = createFetcher({ userAgent: DEFAULT_USER_AGENT, minDelayMs: 1000, maxBytes: 6000000, timeoutMs: 25000, forbiddenRobotsMeansNoRules: true });
   const prior = existsSync(RESULTS) ? JSON.parse(readFileSync(RESULTS, 'utf8')).results : [];
   const results = new Map(prior.map((r) => [r.company_id, r]));
   let next = 0; let done = 0;

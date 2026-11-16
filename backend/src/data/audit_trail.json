@@ -86694,5 +86694,20 @@
     "summary": "Cover pictures from the companies' own websites: 303 companies updated",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261116150527139-1",
+    "at": "2026-11-16T15:05:27.139Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "system",
+      "id": "covers"
+    },
+    "summary": "Cover pictures from the companies' own websites: 176 companies updated",
+    "reason": null,
+    "changes": []
   }
 ]
