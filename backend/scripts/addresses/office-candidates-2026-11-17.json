@@ -1,0 +1,2454 @@
+{
+ "found_on": "2026-11-17",
+ "about": "What scripts/addresses/find-offices.mjs read for each company the curated list says to pin: the pages tried and every street address they state (before a person read them).",
+ "results": [
+  {
+   "company": "Affinda",
+   "id": "affinda",
+   "city": "Melbourne",
+   "website": "https://affinda.com",
+   "pages": [
+    {
+     "url": "https://www.affinda.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.affinda.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.affinda.com/about-us/",
+     "status": 200
+    },
+    {
+     "url": "https://www.affinda.com/team/",
+     "status": 200
+    },
+    {
+     "url": "https://www.affinda.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://www.affinda.com/control/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "AMLab",
+   "id": "amlab",
+   "city": "Perth",
+   "website": "https://amlab.com.au",
+   "pages": [
+    {
+     "url": "https://amlab.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://amlab.com.au/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://amlab.com.au/careers",
+     "status": "robots_disallow"
+    },
+    {
+     "url": "https://amlab.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://amlab.com.au/contact-us",
+     "status": "robots_disallow"
+    },
+    {
+     "url": "https://amlab.com.au/about",
+     "status": "robots_disallow"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "24 Hasler Road, Osborne Park, Western Australia, 6017",
+     "url": "https://amlab.com.au/contact",
+     "how": "text",
+     "context": "n our solutions or technology? Reach out by email and we’ll be in touch., ‍ Head office:, 24 Hasler Road, Osborne Park, Western Australia, 6017, , R&D Facility:, 26 Collingwood Street",
+     "parsed": {
+      "street": "24 Hasler Road",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    },
+    {
+     "address": "26 Collingwood Street, Osborne Park, Western Australia, 6017",
+     "url": "https://amlab.com.au/contact",
+     "how": "text",
+     "context": ", ‍ Head office:, 24 Hasler Road, Osborne Park, Western Australia, 6017, , R&D Facility:, 26 Collingwood Street, Osborne Park, Western Australia, 6017, , General enquiries:, connect@amlab.co",
+     "parsed": {
+      "street": "26 Collingwood Street",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Apate AI",
+   "id": "apate-ai",
+   "city": "Sydney",
+   "website": "https://apate.ai",
+   "pages": [
+    {
+     "url": "https://www.apate.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://www.apate.ai/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.apate.ai/careers",
+     "status": 200
+    },
+    {
+     "url": "https://www.apate.ai/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.apate.ai/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://apate.ai/contact",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Level 2, 4 Research Park Drive, Macquarie Park, NSW 2113",
+     "url": "https://www.apate.ai/privacy-policy",
+     "how": "text",
+     "context": "ractices, you can contact us through:, Email: contact@apate.ai, Address: Privacy Officer, Level 2, 4 Research Park Drive, Macquarie Park, NSW 2113, Australia, , , , , , , Let’s work toge",
+     "parsed": {
+      "street": "4 Research Park Drive",
+      "suburb": "Macquarie Park",
+      "state": "NSW",
+      "postcode": "2113"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Ascend Labs",
+   "id": "ascend-labs",
+   "city": "Perth",
+   "website": "https://ascendlabs.com.au",
+   "pages": [
+    {
+     "url": "https://ascendlabs.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/about",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/contact",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/blog",
+     "status": "access_controlled"
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/agreement",
+     "status": 200
+    },
+    {
+     "url": "https://ascendlabs.com.au/company/privacy",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "BioScout",
+   "id": "bioscout",
+   "city": "Sydney",
+   "website": "https://bioscout.ai",
+   "pages": [
+    {
+     "url": "https://www.bioscout.ai/",
+     "status": 200
+    },
+    {
+     "url": "https://www.bioscout.ai/our-solution",
+     "status": 200
+    },
+    {
+     "url": "https://www.bioscout.ai/posts/where-the-season-starts-oospores-and-the-101024-ru",
+     "status": 200
+    },
+    {
+     "url": "https://www.bioscout.ai/posts/debunking-the-common-myths-about-agritech",
+     "status": 200
+    },
+    {
+     "url": "https://www.bioscout.ai/posts/the-role-of-agtech-in-pioneering-early-detection-of-airborne-plant-diseases",
+     "status": 200
+    },
+    {
+     "url": "https://www.bioscout.ai/posts/how-bioscout-works",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "6 Sloane Street, Marrickville, NSW, 2204",
+     "url": "https://www.bioscout.ai/",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "6 Sloane Street",
+      "suburb": "Marrickville",
+      "state": "NSW",
+      "postcode": "2204"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Black Swan Biotech",
+   "id": "black-swan-biotech",
+   "city": "Perth",
+   "website": "https://blackswanbio.com",
+   "pages": [
+    {
+     "url": "https://www.blackswanbio.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.blackswanbio.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.blackswanbio.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.blackswanbio.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://blackswanbio.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://blackswanbio.com/about",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Brumby (formerly GrazeMate)",
+   "id": "brumby",
+   "city": "Sydney",
+   "website": "",
+   "pages": [],
+   "candidates": [],
+   "note": "no website on file"
+  },
+  {
+   "company": "CalcTree",
+   "id": "calctree",
+   "city": "Sydney",
+   "website": "https://calctree.com",
+   "pages": [
+    {
+     "url": "https://www.calctree.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.calctree.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.calctree.com/blog/privacy-security",
+     "status": 200
+    },
+    {
+     "url": "https://www.calctree.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.calctree.com/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.calctree.com/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Capability X",
+   "id": "capability-x",
+   "city": "Perth",
+   "website": "https://capabilityx.com",
+   "pages": [
+    {
+     "url": "https://www.capabilityx.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.capabilityx.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.capabilityx.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.capabilityx.com/product-page/zynth-pro-mixer",
+     "status": 200
+    },
+    {
+     "url": "https://www.capabilityx.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://capabilityx.com/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Carma",
+   "id": "carma",
+   "city": "Sydney",
+   "website": "https://carma.com.au",
+   "pages": [
+    {
+     "url": "https://carma.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://carma.com.au/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://carma.com.au/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://carma.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://carma.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://carma.com.au/our-story",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Suite 5.03, 219-241 Cleveland Street, Strawberry Hills, NSW, 2016",
+     "url": "https://carma.com.au",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "219-241 Cleveland Street",
+      "suburb": "Strawberry Hills",
+      "state": "NSW",
+      "postcode": "2016"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Ceres Tag",
+   "id": "ceres-tag",
+   "city": "Unknown",
+   "website": "https://cerestag.com",
+   "pages": [
+    {
+     "url": "https://cerestag.com",
+     "status": 200
+    },
+    {
+     "url": "https://cerestag.com/find-ceres-tag",
+     "status": 200
+    },
+    {
+     "url": "https://cerestag.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://cerestag.com/support",
+     "status": 200
+    },
+    {
+     "url": "https://cerestag.com/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://cerestag.com/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Chironix",
+   "id": "chironix",
+   "city": "Perth",
+   "website": "https://chironix.com",
+   "pages": [
+    {
+     "url": "https://chironix.com",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/company/about-chironix/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/company/education-and-community/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://chironix.com/news/chironix-secures-us9-53-million-us-navy-contract-to-advance-safer-autonomous-casualty-evacuation/",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "3/33 Millrose Drive, Malaga, Western Australia, 6090",
+     "url": "https://chironix.com",
+     "how": "text",
+     "context": " , , , Our Partners , , , , , , , , , , , , , , , [email protected] , , , , , Contact Us, 3/33 Millrose Drive, Malaga, Western Australia, 6090, +618 6244 9030, , , , , , Company Abou",
+     "parsed": {
+      "street": "33 Millrose Drive",
+      "suburb": "Malaga",
+      "state": "WA",
+      "postcode": "6090"
+     }
+    },
+    {
+     "address": "Unit 3/33 Millrose Dr,, Malaga, Western Australia 6090",
+     "url": "https://chironix.com/contact-us/",
+     "how": "text",
+     "context": "h robots to achieve more. Ready to transform your operations? Let’s talk., , Head Office, Unit 3/33 Millrose Dr,, Malaga, Western Australia 6090, , , US Office, Suite 200, 1703 Pennsyl",
+     "parsed": {
+      "street": "33 Millrose Dr",
+      "suburb": "Malaga",
+      "state": "WA",
+      "postcode": "6090"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "CoraMetix",
+   "id": "corametix",
+   "city": "Perth",
+   "website": "https://corametix.com",
+   "pages": [
+    {
+     "url": "https://corametix.com",
+     "status": 200
+    },
+    {
+     "url": "https://corametix.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://corametix.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://corametix.com/about",
+     "status": "http_error"
+    },
+    {
+     "url": "https://corametix.com/about-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Unit 3/4 Gould St, Osborne Park WA 6017",
+     "url": "https://corametix.com",
+     "how": "text",
+     "context": "mail, , , Subject Line, , , Message, , , Submit, , , Or reach out through Linkedin, , , , Unit 3/4 Gould St, Osborne Park WA 6017, , , , , , © 2024 CoraMetix Pty Ltd | A",
+     "parsed": {
+      "street": "4 Gould St",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Cortical Labs",
+   "id": "cortical-labs",
+   "city": "Melbourne",
+   "website": "https://corticallabs.com",
+   "pages": [
+    {
+     "url": "https://corticallabs.com",
+     "status": 200
+    },
+    {
+     "url": "https://corticallabs.com/company",
+     "status": 200
+    },
+    {
+     "url": "https://corticallabs.com/cl1",
+     "status": 200
+    },
+    {
+     "url": "https://corticallabs.com/cloud",
+     "status": 200
+    },
+    {
+     "url": "https://corticallabs.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://corticallabs.com/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Cytophenix",
+   "id": "cytophenix",
+   "city": "Perth",
+   "website": "https://cytophenix.com",
+   "pages": [
+    {
+     "url": "https://cytophenix.com",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/sepsis",
+     "status": 200
+    },
+    {
+     "url": "https://cytophenix.com/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Darwinium",
+   "id": "darwinium",
+   "city": "Unknown",
+   "website": "https://darwinium.com",
+   "pages": [
+    {
+     "url": "https://www.darwinium.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.darwinium.com/resources/webinars/webinar-the-digital-marketplace-dilemma",
+     "status": 200
+    },
+    {
+     "url": "https://www.darwinium.com/resources/news",
+     "status": 200
+    },
+    {
+     "url": "https://www.darwinium.com/adversarial-ai",
+     "status": 200
+    },
+    {
+     "url": "https://www.darwinium.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.darwinium.com/contact-us",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "903/50 Clarence St, Sydney NSW 2000",
+     "url": "https://www.darwinium.com/contact-us",
+     "how": "text",
+     "context": "Market St, PMB 69357, San Francisco, California 94104-5401., , , , , Darwinium Australia, 903/50 Clarence St, Sydney NSW 2000, , , , , Darwinium UK, 49 Greek Street,",
+     "parsed": {
+      "street": "50 Clarence St",
+      "suburb": "Sydney",
+      "state": "NSW",
+      "postcode": "2000"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Detail Earth",
+   "id": "detail-earth",
+   "city": "Perth",
+   "website": "https://detail.earth",
+   "pages": [
+    {
+     "url": "https://detail.earth",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/contact",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://detail.earth/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://detail.earth/about",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Suite 3, 128 Main Street, , Osborne Park, WA, 6017",
+     "url": "https://detail.earth/privacy-policy",
+     "how": "text",
+     "context": " this Policy, and you may contact us at , , The Data Controller , Detail Earth Pty Ltd. , Suite 3, 128 Main Street, , Osborne Park, WA, 6017 , Australia , , , Email contact: admin@",
+     "parsed": {
+      "street": "128 Main Street",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "DetectedX",
+   "id": "detectedx",
+   "city": "Sydney",
+   "website": "https://detectedx.com",
+   "pages": [
+    {
+     "url": "https://detectedx.com",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/about/our-team/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/about/publications/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/about/partner-with-us/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://detectedx.com/privacy-policy/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Earlywork",
+   "id": "earlywork",
+   "city": "Unknown",
+   "website": "https://earlywork.co",
+   "pages": [
+    {
+     "url": "https://www.earlywork.co/",
+     "status": 200
+    },
+    {
+     "url": "https://www.earlywork.co/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.earlywork.co/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.earlywork.co/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://earlywork.co/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://earlywork.co/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Effi",
+   "id": "effi",
+   "city": "Unknown",
+   "website": "https://effi.com.au",
+   "pages": [
+    {
+     "url": "https://effi.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://effi.com.au/pricing/",
+     "status": 200
+    },
+    {
+     "url": "https://effi.com.au/about-us/",
+     "status": 200
+    },
+    {
+     "url": "https://effi.com.au/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://effi.com.au/terms-of-service/",
+     "status": 200
+    },
+    {
+     "url": "https://effi.com.au/contact",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Enzide Technologies",
+   "id": "enzide-technologies",
+   "city": "Perth",
+   "website": "https://enzidetech.com",
+   "pages": [
+    {
+     "url": "https://www.enzidetech.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.enzidetech.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://enzidetech.com/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "FlyOnE",
+   "id": "flyone",
+   "city": "Perth",
+   "website": "https://flyone.com.au",
+   "pages": [
+    {
+     "url": "https://flyone.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://flyone.com.au/shop/terms/",
+     "status": 200
+    },
+    {
+     "url": "https://flyone.com.au/investors/pvacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://flyone.com.au/privacy-and-cookies-policy",
+     "status": "http_error"
+    },
+    {
+     "url": "https://flyone.com.au/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://flyone.com.au/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "3 Baron Way, Jandakot Airport, Jandakot, Western Australia 6140",
+     "url": "https://flyone.com.au",
+     "how": "text",
+     "context": "ORK AND SURVEY INVESTORS EMPLOYMENT EOI , , , , , , , , Australia Head Office , , , , , , 3 Baron Way, Jandakot Airport, Jandakot, Western Australia 6140 , , , , , CASA PART 119, 135, 138 AOC.0",
+     "parsed": {
+      "street": "3 Baron Way",
+      "suburb": "Jandakot",
+      "state": "WA",
+      "postcode": "6140"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Fourday",
+   "id": "fourday",
+   "city": "Sydney",
+   "website": "",
+   "pages": [],
+   "candidates": [],
+   "note": "no website on file"
+  },
+  {
+   "company": "Goterra",
+   "id": "goterra",
+   "city": "Canberra",
+   "website": "https://goterra.com.au",
+   "pages": [
+    {
+     "url": "https://goterra.com.au",
+     "status": "robots_unavailable"
+    }
+   ],
+   "candidates": [],
+   "note": "its site could not be read (robots_unavailable)"
+  },
+  {
+   "company": "Harrison.ai",
+   "id": "harrison-ai",
+   "city": "Sydney",
+   "website": "https://harrison.ai",
+   "pages": [
+    {
+     "url": "https://harrison.ai/au/",
+     "status": 200
+    },
+    {
+     "url": "https://harrison.ai/about-us/",
+     "status": 200
+    },
+    {
+     "url": "https://harrison.ai/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://harrison.ai/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://harrison.ai/privacy-notice/",
+     "status": 200
+    },
+    {
+     "url": "https://harrison.ai/terms-of-use/",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Level P, 24 Campbell St Sydney NSW 2000",
+     "url": "https://harrison.ai/au/",
+     "how": "text",
+     "context": "tion Model , , Company About us , Life at Harrison.ai , Careers , Newsroom , , Contact us Level P, 24 Campbell St Sydney NSW 2000 Australia , Customer Support , , , , , ",
+     "parsed": {
+      "street": "24 Campbell St Sydney NSW 2000",
+      "suburb": null,
+      "state": "NSW",
+      "postcode": "2000"
+     }
+    },
+    {
+     "address": "Level P, 24 Campbell Street, Sydney, NSW, 2000",
+     "url": "https://harrison.ai/contact/",
+     "how": "text",
+     "context": "edback., , Contact support , , , , , Locations., , , Sydney, Harrison-AI Medical Pty Ltd, Level P, 24 Campbell Street, Sydney, NSW, 2000, Australia, , ABN, 92 635 645 260, , , ",
+     "parsed": {
+      "street": "24 Campbell Street",
+      "suburb": "Sydney",
+      "state": "NSW",
+      "postcode": "2000"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Harvest B",
+   "id": "harvest-b",
+   "city": "Sydney",
+   "website": "https://www.harvestb.io",
+   "pages": [
+    {
+     "url": "https://www.harvestb.io",
+     "status": 200
+    },
+    {
+     "url": "https://www.harvestb.io/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.harvestb.io/stockist",
+     "status": 200
+    },
+    {
+     "url": "https://www.harvestb.io/products",
+     "status": 200
+    },
+    {
+     "url": "https://www.harvestb.io/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.harvestb.io/terms",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Level 1, 83-85 Foveaux Street, Surry Hills, NSW, 2010",
+     "url": "https://www.harvestb.io",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "83-85 Foveaux Street",
+      "suburb": "Surry Hills",
+      "state": "NSW",
+      "postcode": "2010"
+     }
+    },
+    {
+     "address": "85 Foveaux Street, Surry Hills NSW 2010",
+     "url": "https://www.harvestb.io/privacy-policy",
+     "how": "text",
+     "context": "issioner at oaic.gov.au., 11. Contact us, Privacy Officer, Harvest B Pty Ltd, Level 1, 83–85 Foveaux Street, Surry Hills NSW 2010, hello@harvestb.io, 12. Changes to this",
+     "parsed": {
+      "street": "85 Foveaux Street",
+      "suburb": "Surry Hills",
+      "state": "NSW",
+      "postcode": "2010"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Hatch",
+   "id": "hatch",
+   "city": "Sydney",
+   "website": "",
+   "pages": [],
+   "candidates": [],
+   "note": "no website on file"
+  },
+  {
+   "company": "HB11 Energy",
+   "id": "hb11-energy",
+   "city": "Sydney",
+   "website": "https://hb11.energy",
+   "pages": [
+    {
+     "url": "https://hb11.energy",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/our-story/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/our-technology/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/2025/09/12/hb11-team-at-the-2025-international-workshop-on-proton-boron-fusion/",
+     "status": 200
+    },
+    {
+     "url": "https://hb11.energy/privacy-policy/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Hello Clever",
+   "id": "hello-clever",
+   "city": "Sydney",
+   "website": "https://helloclever.co",
+   "pages": [
+    {
+     "url": "https://helloclever.co",
+     "status": 200
+    },
+    {
+     "url": "https://helloclever.co/get-in-touch",
+     "status": 200
+    },
+    {
+     "url": "https://helloclever.co/clever-ai",
+     "status": 200
+    },
+    {
+     "url": "https://helloclever.co/terms",
+     "status": 200
+    },
+    {
+     "url": "https://helloclever.co/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://helloclever.co/contact",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Hullbot",
+   "id": "hullbot",
+   "city": "Unknown",
+   "website": "https://hullbot.com",
+   "pages": [
+    {
+     "url": "https://hullbot.com",
+     "status": 200
+    },
+    {
+     "url": "https://hullbot.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://hullbot.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://hullbot.com/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://hullbot.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://hullbot.com/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Hyperlocalise",
+   "id": "hyperlocalise",
+   "city": "Sydney",
+   "website": "https://www.hyperlocalise.com",
+   "pages": [
+    {
+     "url": "https://www.hyperlocalise.com/en",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperlocalise.com/en/company",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperlocalise.com/en/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperlocalise.com/en/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperlocalise.com/en/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyperlocalise.com/en/contact",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Hyprfire",
+   "id": "hyprfire",
+   "city": "Perth",
+   "website": "https://hyprfire.com",
+   "pages": [
+    {
+     "url": "https://www.hyprfire.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.hyprfire.com/website-terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://hyprfire.com/contact",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "152 St George’s Terrace, Perth 6000 Sydney: 1 Sussex Street, Barangaroo, NSW 2000",
+     "url": "https://www.hyprfire.com/contact-us",
+     "how": "text",
+     "context": " in our form and we will get in touch with you as soon as possible. , , , , Perth: Lv 32, 152 St George’s Terrace, Perth 6000 Sydney: 1 Sussex Street, Barangaroo, NSW 2000 Melbourne: 114 William Street, Melbourn",
+     "parsed": {
+      "street": "152 St George’s Terrace",
+      "suburb": "Barangaroo",
+      "state": "NSW",
+      "postcode": "2000"
+     }
+    },
+    {
+     "address": "114 William Street, Melbourne VIC 3000",
+     "url": "https://www.hyprfire.com/contact-us",
+     "how": "text",
+     "context": " St George’s Terrace, Perth 6000 Sydney: 1 Sussex Street, Barangaroo, NSW 2000 Melbourne: 114 William Street, Melbourne VIC 3000 , , , , , , , Office Hours: Mon - Fri, ",
+     "parsed": {
+      "street": "114 William Street",
+      "suburb": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Isaacus",
+   "id": "isaacus",
+   "city": "Melbourne",
+   "website": "https://isaacus.com",
+   "pages": [
+    {
+     "url": "https://isaacus.com",
+     "status": 200
+    },
+    {
+     "url": "https://isaacus.com/contact",
+     "status": "access_controlled"
+    },
+    {
+     "url": "https://isaacus.com/blog/legal-rag-bench",
+     "status": 200
+    },
+    {
+     "url": "https://isaacus.com/products/enrichment",
+     "status": 200
+    },
+    {
+     "url": "https://isaacus.com/blog/build-a-legal-document-conflict-detector",
+     "status": 200
+    },
+    {
+     "url": "https://isaacus.com/about",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Kernl",
+   "id": "kernl",
+   "city": "Unknown",
+   "website": "https://kernl.com.au",
+   "pages": [
+    {
+     "url": "https://kernl.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://kernl.com.au/about",
+     "status": 200
+    },
+    {
+     "url": "https://kernl.com.au/careers",
+     "status": 200
+    },
+    {
+     "url": "https://kernl.com.au/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://kernl.com.au/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://kernl.com.au/contact",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Kinde",
+   "id": "kinde",
+   "city": "Unknown",
+   "website": "https://kinde.com",
+   "pages": [
+    {
+     "url": "https://www.kinde.com/",
+     "status": 200
+    },
+    {
+     "url": "https://docs.kinde.com/trust-center/privacy-and-compliance/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://docs.kinde.com/developer-tools/about/using-kinde-without-an-sdk/",
+     "status": 200
+    },
+    {
+     "url": "https://www.kinde.com/about/",
+     "status": 200
+    },
+    {
+     "url": "https://www.kinde.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://www.kinde.com/authentication/",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Suite 2 Level 5, 6/10 O'Connell St, Sydney, NSW, 2000",
+     "url": "https://www.kinde.com/",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "10 O'Connell St",
+      "suburb": "Sydney",
+      "state": "NSW",
+      "postcode": "2000"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Kite Magnetics",
+   "id": "kite-magnetics",
+   "city": "Unknown",
+   "website": "https://kitemagnetics.com",
+   "pages": [
+    {
+     "url": "https://kitemagnetics.com",
+     "status": 200
+    },
+    {
+     "url": "https://kitemagnetics.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://kitemagnetics.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://kitemagnetics.com/contact",
+     "status": 200
+    },
+    {
+     "url": "https://kitemagnetics.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://kitemagnetics.com/about-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "45-57 Normanby Rd Notting Hill, Victoria 3168",
+     "url": "https://kitemagnetics.com/contact",
+     "how": "text",
+     "context": "ve a product enquiry or technical question?, , , Australian Head Office, Kite Magnetics 8/45-57 Normanby Rd Notting Hill, Victoria 3168 Australia, +61 (03) 85944946, , USA Con",
+     "parsed": {
+      "street": "45-57 Normanby Rd Notting Hill",
+      "suburb": null,
+      "state": "VIC",
+      "postcode": "3168"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Lessn",
+   "id": "lessn",
+   "city": "Sydney",
+   "website": "https://lessn.io",
+   "pages": [
+    {
+     "url": "https://www.lessn.io/",
+     "status": 200
+    },
+    {
+     "url": "https://www.lessn.io/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.lessn.io/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.lessn.io/terms-and-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://www.lessn.io/contact",
+     "status": 200
+    },
+    {
+     "url": "https://lessn.io/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Level 3, 50 Bridge Street, Quay Quarter Tower Sydney NSW 2000",
+     "url": "https://www.lessn.io/terms-and-conditions",
+     "how": "text",
+     "context": "Learnt Pty Ltd (ACN 684 904 649, ABN 85 684 904 649) trading as Lessn. Registered Office: Level 3, 50 Bridge Street, Quay Quarter Tower Sydney NSW 2000, Australia Contact: Email: customer@les",
+     "parsed": {
+      "street": "50 Bridge Street",
+      "suburb": "Quay Quarter Tower Sydney",
+      "state": "NSW",
+      "postcode": "2000"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Linkby",
+   "id": "linkby",
+   "city": "Sydney",
+   "website": "https://linkby.com",
+   "pages": [
+    {
+     "url": "https://linkby.com",
+     "status": "access_controlled"
+    }
+   ],
+   "candidates": [],
+   "note": "its site could not be read (access_controlled)"
+  },
+  {
+   "company": "Lorikeet",
+   "id": "lorikeet",
+   "city": "Sydney",
+   "website": "https://www.lorikeet.ai",
+   "pages": [
+    {
+     "url": "https://www.lorikeet.ai",
+     "status": 200
+    },
+    {
+     "url": "https://www.lorikeet.ai/privacy-pollicy",
+     "status": 200
+    },
+    {
+     "url": "https://www.lorikeet.ai/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://www.lorikeet.ai/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://www.lorikeet.ai/about",
+     "status": "http_error"
+    },
+    {
+     "url": "https://www.lorikeet.ai/about-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Nomad Atomics",
+   "id": "nomad-atomics",
+   "city": "Unknown",
+   "website": "https://nomadatomics.com",
+   "pages": [
+    {
+     "url": "https://www.nomadatomics.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.nomadatomics.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.nomadatomics.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://www.nomadatomics.com/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.nomadatomics.com/our-services",
+     "status": 200
+    },
+    {
+     "url": "https://www.nomadatomics.com/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "33 Elizabeth Street , Richmond, Victoria 3121",
+     "url": "https://www.nomadatomics.com/contact-us",
+     "how": "text",
+     "context": "itting the form., , , , , , , , , , , Headquarters, , Nomad Atomics Australia, , Address: 33 Elizabeth Street , Richmond, Victoria 3121 Australia, , , Nomad Atomics GmbH, , Ad",
+     "parsed": {
+      "street": "33 Elizabeth Street",
+      "suburb": "Richmond",
+      "state": "VIC",
+      "postcode": "3121"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Novalith",
+   "id": "novalith",
+   "city": "Unknown",
+   "website": "https://novalith.com.au",
+   "pages": [
+    {
+     "url": "https://novalith.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://novalith.com.au/about",
+     "status": 200
+    },
+    {
+     "url": "https://novalith.com.au/careers",
+     "status": 200
+    },
+    {
+     "url": "https://novalith.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://novalith.com.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://novalith.com.au/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Ocean Hex",
+   "id": "ocean-hex",
+   "city": "Perth",
+   "website": "https://oceanhex.com.au",
+   "pages": [
+    {
+     "url": "https://oceanhex.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://oceanhex.com.au/about-us/",
+     "status": 200
+    },
+    {
+     "url": "https://oceanhex.com.au/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://oceanhex.com.au/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://oceanhex.com.au/about-us/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "OwnHome",
+   "id": "ownhome",
+   "city": "Sydney",
+   "website": "https://ownhome.com",
+   "pages": [
+    {
+     "url": "https://ownhome.com",
+     "status": 200
+    },
+    {
+     "url": "https://ownhome.com/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://ownhome.com/legal/ownhome-contact",
+     "status": 200
+    },
+    {
+     "url": "https://ownhome.com/legal/terms-of-use",
+     "status": 200
+    },
+    {
+     "url": "https://ownhome.com/legal/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://ownhome.com/legal/privacy-credit-reporting-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "52 Kellett Street, Potts Point NSW 2011",
+     "url": "https://ownhome.com/legal/ownhome-contact",
+     "how": "text",
+     "context": "and complaints, If something isn't right, you can:, email feedback@ownhome.com , write to 52 Kellett Street, Potts Point NSW 2011 , call 02 7248 7528 , tell anyone in ou",
+     "parsed": {
+      "street": "52 Kellett Street",
+      "suburb": "Potts Point",
+      "state": "NSW",
+      "postcode": "2011"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Portable PPB",
+   "id": "portable-ppb",
+   "city": "Perth",
+   "website": "https://portableppb.com",
+   "pages": [
+    {
+     "url": "https://portableppb.com",
+     "status": 200
+    },
+    {
+     "url": "https://portableppb.com/about-us/",
+     "status": 200
+    },
+    {
+     "url": "https://portableppb.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://portableppb.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://portableppb.com/about-us/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Pretect Devices",
+   "id": "pretect-devices",
+   "city": "Perth",
+   "website": "https://pretectdevices.com",
+   "pages": [
+    {
+     "url": "https://www.pretectdevices.com/",
+     "status": 200
+    },
+    {
+     "url": "https://pretectdevices.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://pretectdevices.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://pretectdevices.com/about",
+     "status": "http_error"
+    },
+    {
+     "url": "https://pretectdevices.com/about-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Programa",
+   "id": "programa",
+   "city": "Unknown",
+   "website": "https://programa.com.au",
+   "pages": [
+    {
+     "url": "https://programa.design/",
+     "status": 200
+    },
+    {
+     "url": "https://programa.com.au/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://programa.design/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://programa.design/about",
+     "status": 200
+    },
+    {
+     "url": "https://programa.com.au/about-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Relevance AI",
+   "id": "relevance-ai",
+   "city": "Sydney",
+   "website": "https://relevanceai.com",
+   "pages": [
+    {
+     "url": "https://relevanceai.com",
+     "status": 200
+    },
+    {
+     "url": "https://relevanceai.com/resources/levels-of-ai-autonomy",
+     "status": 200
+    },
+    {
+     "url": "https://relevanceai.com/docs/get-started/support",
+     "status": 200
+    },
+    {
+     "url": "https://relevanceai.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://relevanceai.com/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://relevanceai.com/terms-and-conditions",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Rubens Technologies",
+   "id": "rubens-technologies",
+   "city": "Melbourne",
+   "website": "https://rubenstech.com",
+   "pages": [
+    {
+     "url": "https://rubenstech.com",
+     "status": 200
+    },
+    {
+     "url": "https://rubenstech.com/our-company/",
+     "status": 200
+    },
+    {
+     "url": "https://rubenstech.com/careers/",
+     "status": 200
+    },
+    {
+     "url": "https://rubenstech.com/contact-us/",
+     "status": 200
+    },
+    {
+     "url": "https://rubenstech.com/privacy-policy/",
+     "status": 200
+    },
+    {
+     "url": "https://rubenstech.com/product-service-terms/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Samsara Eco",
+   "id": "samsara-eco",
+   "city": "Queanbeyan/Jerrabomberra",
+   "website": "https://samsaraeco.com",
+   "pages": [
+    {
+     "url": "https://www.samsaraeco.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.samsaraeco.com/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://www.samsaraeco.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.samsaraeco.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.samsaraeco.com/",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "19 Wolseley Place, Jerrabomberra, NSW, 2619",
+     "url": "https://www.samsaraeco.com/",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "19 Wolseley Place",
+      "suburb": "Jerrabomberra",
+      "state": "NSW",
+      "postcode": "2619"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Smileyscope",
+   "id": "smileyscope",
+   "city": "Melbourne",
+   "website": "https://smileyscope.com",
+   "pages": [
+    {
+     "url": "https://www.smileyscope.com/en-au",
+     "status": 200
+    },
+    {
+     "url": "https://www.smileyscope.com/en-au/locations",
+     "status": 200
+    },
+    {
+     "url": "https://www.smileyscope.com/en-au/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.smileyscope.com/en-au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.smileyscope.com/en-au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://www.smileyscope.com/en-au/privacy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "488 Victoria St, North Melbourne, VIC, 3000",
+     "url": "https://www.smileyscope.com/en-au",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "488 Victoria St",
+      "suburb": "North Melbourne",
+      "state": "VIC",
+      "postcode": "3000"
+     }
+    },
+    {
+     "address": "701 Tillery Street #12, Austin, TX, 78702",
+     "url": "https://www.smileyscope.com/en-au",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "701 Tillery Street #12",
+      "suburb": "TX",
+      "state": null,
+      "postcode": null
+     }
+    },
+    {
+     "address": "1/333 Exhibition Street, Melbourne, VIC 3000",
+     "url": "https://www.smileyscope.com/en-au/terms",
+     "how": "text",
+     "context": " is operated by Smileyscope (\"we\", \"our\", or \"us\")., Our registered business address is:, 1/333 Exhibition Street, Melbourne, VIC 3000, Australia , Website: www.smileyscope.c",
+     "parsed": {
+      "street": "333 Exhibition Street",
+      "suburb": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000"
+     }
+    },
+    {
+     "address": "Level 1, 333 Exhibition Street, Victoria 3000",
+     "url": "https://www.smileyscope.com/en-au/terms",
+     "how": "text",
+     "context": "bsite forms is accurate and truthful., Smileyscope, Email: info@smileyscope.com, Address: Level 1, 333 Exhibition Street, Victoria 3000 Australia , 9. Third-Party Links, We do",
+     "parsed": {
+      "street": "333 Exhibition Street",
+      "suburb": null,
+      "state": "VIC",
+      "postcode": "3000"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "SpaceDraft",
+   "id": "spacedraft",
+   "city": "Perth",
+   "website": "https://spacedraft.com",
+   "pages": [
+    {
+     "url": "https://spacedraft.com",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/insights/spacedraft-named-australia-s-most-innovative-company-2025",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://spacedraft.com/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "183 Stirling Hwy Nedlands, WA 6009",
+     "url": "https://spacedraft.com/terms-conditions",
+     "how": "text",
+     "context": "e submitted to the following address:, Attn: Copyright Notice SpaceDraft Pty Ltd Address: 183 Stirling Hwy Nedlands, WA 6009 Australia Email: copyright@spacedraft.c",
+     "parsed": {
+      "street": "183 Stirling Hwy Nedlands",
+      "suburb": null,
+      "state": "WA",
+      "postcode": "6009"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "SpacetoCo",
+   "id": "spacetoco",
+   "city": "Perth",
+   "website": "https://spacetoco.com",
+   "pages": [
+    {
+     "url": "https://www.spacetoco.com/",
+     "status": 200
+    },
+    {
+     "url": "https://platform.spacetoco.com/",
+     "status": 200
+    },
+    {
+     "url": "https://platform.spacetoco.com/about",
+     "status": 200
+    },
+    {
+     "url": "https://platform.spacetoco.com/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://support.spacetoco.com/spacetoco-terms-conditions",
+     "status": 200
+    },
+    {
+     "url": "https://support.spacetoco.com/spacetoco-privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "525 Falls Road, Hovea WA 6070",
+     "url": "https://support.spacetoco.com/spacetoco-privacy-policy",
+     "how": "text",
+     "context": "of legal entity: SpacetoCo Pty Ltd, Email Address: privacy@spacetoco.com, Postal Address: 525 Falls Road, Hovea WA 6070, Complaints: You have the right to make",
+     "parsed": {
+      "street": "525 Falls Road",
+      "suburb": "Hovea",
+      "state": "WA",
+      "postcode": "6070"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "Strong Compute",
+   "id": "strong-compute",
+   "city": "Sydney",
+   "website": "",
+   "pages": [],
+   "candidates": [],
+   "note": "no website on file"
+  },
+  {
+   "company": "Sunburnt Space Co",
+   "id": "sunburnt-space-co",
+   "city": "Sydney",
+   "website": "https://sunburntspace.com.au",
+   "pages": [
+    {
+     "url": "https://sunburntspace.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://sunburntspace.com.au/company/contact",
+     "status": 200
+    },
+    {
+     "url": "https://sunburntspace.com.au/privacy",
+     "status": 200
+    },
+    {
+     "url": "https://sunburntspace.com.au/terms",
+     "status": 200
+    },
+    {
+     "url": "https://sunburntspace.com.au/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://sunburntspace.com.au/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [
+    {
+     "address": "Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114",
+     "url": "https://sunburntspace.com.au",
+     "how": "text",
+     "context": "ter, 2019. Total mission failures, small satellites launched 2000 to 2016., , , , Office, Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114, Australia, , help@sunburntspace.com.au",
+     "parsed": {
+      "street": "7-9 Rhodes Street",
+      "suburb": "West Ryde",
+      "state": "NSW",
+      "postcode": "2114"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "SunDrive Solar",
+   "id": "sundrive-solar",
+   "city": "Sydney",
+   "website": "https://sundrivesolar.com",
+   "pages": [
+    {
+     "url": "https://www.sundrivesolar.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.sundrivesolar.com/contact-new",
+     "status": 200
+    },
+    {
+     "url": "https://www.sundrivesolar.com/sundrive-solar-and-space-machines-company-partner-to-develop-australian-made-solar-arrays-for-spacecraft",
+     "status": 200
+    },
+    {
+     "url": "https://sundrivesolar.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://sundrivesolar.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://sundrivesolar.com/about",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Syenta",
+   "id": "syenta",
+   "city": "Canberra",
+   "website": "https://syenta.com",
+   "pages": [
+    {
+     "url": "https://www.syenta.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.syenta.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://syenta.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://syenta.com/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://syenta.com/about",
+     "status": "http_error"
+    },
+    {
+     "url": "https://syenta.com/about-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "TRUXE",
+   "id": "truxe",
+   "city": "Perth",
+   "website": "https://truxe.com.au",
+   "pages": [
+    {
+     "url": "https://www.truxe.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.truxe.com.au/what-is-truxe",
+     "status": 200
+    },
+    {
+     "url": "https://www.truxe.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.truxe.com.au/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.truxe.com.au/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.truxe.com.au/about-us",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Tutero",
+   "id": "tutero",
+   "city": "Melbourne",
+   "website": "https://tutero.com",
+   "pages": [
+    {
+     "url": "https://www.tutero.com/au",
+     "status": 200
+    },
+    {
+     "url": "https://www.tutero.com/au/info/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.tutero.com/au/info/about-us",
+     "status": 200
+    },
+    {
+     "url": "https://www.tutero.com/au/info/privacy-policy",
+     "status": 200
+    },
+    {
+     "url": "https://www.tutero.com/au/info/terms-of-service",
+     "status": 200
+    },
+    {
+     "url": "https://www.tutero.com/au/info/contact",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Uluu",
+   "id": "uluu",
+   "city": "Perth",
+   "website": "https://uluu.com.au",
+   "pages": [
+    {
+     "url": "https://www.uluu.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.uluu.com.au/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.uluu.com.au/careers",
+     "status": 200
+    },
+    {
+     "url": "https://uluu.com.au/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://uluu.com.au/contact-us",
+     "status": "http_error"
+    },
+    {
+     "url": "https://www.uluu.com.au/about",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "VeinTech",
+   "id": "veintech",
+   "city": "Perth",
+   "website": "https://veintech.com.au",
+   "pages": [
+    {
+     "url": "https://www.veintech.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/about",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/our-team",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/contact",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/talent-pool",
+     "status": 200
+    },
+    {
+     "url": "https://www.veintech.com.au/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "4 Gould Street, Osborne Park, WA, 6017",
+     "url": "https://www.veintech.com.au/",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "4 Gould Street",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    },
+    {
+     "address": "Unit 3 / 4 Gould Street, Osborne Park WA 6017",
+     "url": "https://www.veintech.com.au/",
+     "how": "text",
+     "context": "he most common invasive medical procedure on the planet. , , , PERTH, AUSTRALIA , , , , , Unit 3 / 4 Gould Street, Osborne Park WA 6017 , , Research , Product development , En",
+     "parsed": {
+      "street": "4 Gould Street",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    },
+    {
+     "address": "4/4 Gould Street, Osborne Park WA 6017",
+     "url": "https://www.veintech.com.au/privacy-policy",
+     "how": "text",
+     "context": "Contact us, Business Enablement Manager VeinTech Pty Ltd Herdsman MedTech Innovation Hub, 4/4 Gould Street, Osborne Park WA 6017 Email: info@veintech.com.au , Changes t",
+     "parsed": {
+      "street": "4 Gould Street",
+      "suburb": "Osborne Park",
+      "state": "WA",
+      "postcode": "6017"
+     }
+    }
+   ],
+   "note": ""
+  },
+  {
+   "company": "VitalTrace",
+   "id": "vitaltrace",
+   "city": "Perth",
+   "website": "https://vitaltrace.com.au",
+   "pages": [
+    {
+     "url": "https://vitaltrace.com.au",
+     "status": 200
+    },
+    {
+     "url": "https://vitaltrace.com.au/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://vitaltrace.com.au/",
+     "status": 200
+    },
+    {
+     "url": "https://vitaltrace.com.au/about",
+     "status": "http_error"
+    },
+    {
+     "url": "https://vitaltrace.com.au/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Vyro",
+   "id": "vyro",
+   "city": "Sydney",
+   "website": "https://vyro.com.au",
+   "pages": [
+    {
+     "url": "https://vyro.co/",
+     "status": 200
+    },
+    {
+     "url": "https://vyro.co/",
+     "status": 200
+    },
+    {
+     "url": "https://vyro.co/",
+     "status": 200
+    },
+    {
+     "url": "https://vyro.co/",
+     "status": 200
+    },
+    {
+     "url": "https://vyro.co/",
+     "status": 200
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Zerocap",
+   "id": "zerocap",
+   "city": "Melbourne",
+   "website": "https://zerocap.com",
+   "pages": [
+    {
+     "url": "https://zerocap.com",
+     "status": 200
+    },
+    {
+     "url": "https://zerocap.com/about/",
+     "status": 200
+    },
+    {
+     "url": "https://zerocap.com/insights/contact/",
+     "status": 200
+    },
+    {
+     "url": "https://zerocap.com/privacy/",
+     "status": 200
+    },
+    {
+     "url": "https://zerocap.com/contact",
+     "status": "http_error"
+    },
+    {
+     "url": "https://zerocap.com/contact-us",
+     "status": "http_error"
+    }
+   ],
+   "candidates": [],
+   "note": ""
+  },
+  {
+   "company": "Zetifi",
+   "id": "zetifi",
+   "city": "Melbourne",
+   "website": "https://zetifi.com",
+   "pages": [
+    {
+     "url": "https://www.zetifi.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.zetifi.com/company",
+     "status": 200
+    },
+    {
+     "url": "https://www.zetifi.com/contact-us",
+     "status": 200
+    },
+    {
+     "url": "https://shop.zetifi.com/",
+     "status": 200
+    },
+    {
+     "url": "https://www.zetifi.com/careers",
+     "status": 200
+    },
+    {
+     "url": "https://www.zetifi.com/terms/privacy-policy",
+     "status": 200
+    }
+   ],
+   "candidates": [
+    {
+     "address": "1/1 Riedell Street, Wagga Wagga, NSW, 2650",
+     "url": "https://www.zetifi.com/contact-us",
+     "how": "schema.org",
+     "context": "",
+     "parsed": {
+      "street": "1 Riedell Street",
+      "suburb": "Wagga Wagga",
+      "state": "NSW",
+      "postcode": "2650"
+     }
+    },
+    {
+     "address": "1/1 Riedell St, Wagga Wagga NSW 2650",
+     "url": "https://shop.zetifi.com/",
+     "how": "text",
+     "context": " Us , 02 5973 6670 , , , , , , , Get in Touch , hello @zetifi.com , , , , , , , Address , 1/1 Riedell St, Wagga Wagga NSW 2650, , , , , , , , , , Zetifi is an Austral",
+     "parsed": {
+      "street": "1 Riedell St",
+      "suburb": "Wagga Wagga",
+      "state": "NSW",
+      "postcode": "2650"
+     }
+    }
+   ],
+   "note": ""
+  }
+ ]
+}

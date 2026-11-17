@@ -86724,5 +86724,1039 @@
     "summary": "The owner's curated list: 426 companies shown on the map, 494 left off it (they stay in the directory), a maturity set for 597 companies, 24 flagged to check; 920 companies changed",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261117023642098-1",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "carma"
+    },
+    "summary": "Carma: the address its own website states for its office was added as evidence (Suite 5.03, 219-241 Cleveland Street, Strawberry Hills NSW 2016)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Suite 5.03, 219-241 Cleveland Street, Strawberry Hills NSW 2016"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-2",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "corametix"
+    },
+    "summary": "CoraMetix: the address its own website states for its office was added as evidence (Unit 3/4 Gould Street, Osborne Park WA 6017)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Unit 3/4 Gould Street, Osborne Park WA 6017"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-3",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "darwinium"
+    },
+    "summary": "Darwinium: the address its own website states for its office was added as evidence (903/50 Clarence Street, Sydney NSW 2000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "903/50 Clarence Street, Sydney NSW 2000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-4",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "flyone"
+    },
+    "summary": "FlyOnE: the address its own website states for its office was added as evidence (3 Baron Way, Jandakot Airport, Jandakot WA 6140)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "3 Baron Way, Jandakot Airport, Jandakot WA 6140"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-5",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "harrison-ai"
+    },
+    "summary": "Harrison.ai: the address its own website states for its office was added as evidence (Level P, 24 Campbell Street, Sydney NSW 2000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level P, 24 Campbell Street, Sydney NSW 2000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-6",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "harvest-b"
+    },
+    "summary": "Harvest B: the address its own website states for its office was added as evidence (Level 1, 83-85 Foveaux Street, Surry Hills NSW 2010)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 1, 83-85 Foveaux Street, Surry Hills NSW 2010"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-7",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "hyprfire"
+    },
+    "summary": "Hyprfire: the address its own website states for its office was added as evidence (Level 32, 152 St George's Terrace, Perth WA 6000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Level 32, 152 St George's Terrace, Perth WA 6000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-8",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "kinde"
+    },
+    "summary": "Kinde: the address its own website states for its office was added as evidence (Suite 2 Level 5, 6/10 O'Connell Street, Sydney NSW 2000)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Suite 2 Level 5, 6/10 O'Connell Street, Sydney NSW 2000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-9",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "kite-magnetics"
+    },
+    "summary": "Kite Magnetics: the address its own website states for its office was added as evidence (8/45-57 Normanby Road, Notting Hill VIC 3168)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "8/45-57 Normanby Road, Notting Hill VIC 3168"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-10",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "nomad-atomics"
+    },
+    "summary": "Nomad Atomics: the address its own website states for its office was added as evidence (33 Elizabeth Street, Richmond VIC 3121)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "33 Elizabeth Street, Richmond VIC 3121"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-11",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "samsara-eco"
+    },
+    "summary": "Samsara Eco: the address its own website states for its office was added as evidence (19 Wolseley Place, Jerrabomberra NSW 2619)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "19 Wolseley Place, Jerrabomberra NSW 2619"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-12",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "sunburnt-space-co"
+    },
+    "summary": "Sunburnt Space Co: the address its own website states for its office was added as evidence (Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-13",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "veintech"
+    },
+    "summary": "VeinTech: the address its own website states for its office was added as evidence (Unit 3 / 4 Gould Street, Osborne Park WA 6017)",
+    "reason": null,
+    "changes": [
+      {
+        "field": "evidence.address",
+        "from": null,
+        "to": "Unit 3 / 4 Gould Street, Osborne Park WA 6017"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-14",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "apate-ai"
+    },
+    "summary": "Apate AI: an address its website gives only as where to write was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Correspondence address: Level 2, 4 Research Park Drive, Macquarie Park NSW 2113"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-15",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "detail-earth"
+    },
+    "summary": "Detail Earth: an address its website gives only as where to write was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Correspondence address: Suite 3, 128 Main Street, Osborne Park WA 6017"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-16",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "lessn"
+    },
+    "summary": "Lessn: an address its website gives only as where to write was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Correspondence address: Level 3, 50 Bridge Street, Sydney NSW 2000"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-17",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "ownhome"
+    },
+    "summary": "OwnHome: an address its website gives only as where to write was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Correspondence address: 52 Kellett Street, Potts Point NSW 2011"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023642098-18",
+    "at": "2026-11-17T02:36:42.098Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "company",
+      "id": "spacedraft"
+    },
+    "summary": "SpaceDraft: an address its website gives only as where to write was kept as a location of its own; it is not a pin",
+    "reason": null,
+    "changes": [
+      {
+        "field": "company_locations",
+        "from": null,
+        "to": "Correspondence address: 183 Stirling Highway, Nedlands WA 6009"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-1",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "amlab"
+    },
+    "summary": "Set AMLab's location (EXACT)",
+    "reason": "Its own website states the office at 24 Hasler Road, Osborne Park WA 6017 (contact page); the point is the Landgate cadastre parcel's centre for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Osborne Park"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "6017"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -31.91006
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 115.807832
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "24 Hasler Road, Osborne Park WA 6017"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-31T02:04:52.781Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-2",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "bioscout"
+    },
+    "summary": "Set BioScout's location (EXACT)",
+    "reason": "Its own website states the office at 6 Sloane Street, Marrickville NSW 2204 (home page (its structured data)); the point is the NSW Spatial Services address point for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Marrickville"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2204"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.911727
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.166031
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "6 Sloane Street, Marrickville NSW 2204"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T03:00:09.899Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-3",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "carma"
+    },
+    "summary": "Set Carma's location (EXACT)",
+    "reason": "Its own website states the office at Suite 5.03, 219-241 Cleveland Street, Strawberry Hills NSW 2016 (home page (its structured data)); the point is the NSW Spatial Services address point for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Strawberry Hills"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2016"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.890233
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.205177
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Suite 5.03, 219-241 Cleveland Street, Strawberry Hills NSW 2016"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://carma.com.au/",
+        "to": "https://carma.com.au"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-05T03:02:38.525Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-4",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "chironix"
+    },
+    "summary": "Set Chironix's location (EXACT)",
+    "reason": "Its own website states the office at Unit 3/33 Millrose Drive, Malaga WA 6090 (contact page); the point is the Landgate cadastre parcel's centre for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Malaga"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "6090"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -31.866147
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 115.898765
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Unit 3/33 Millrose Drive, Malaga WA 6090"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-31T02:04:52.781Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-5",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "corametix"
+    },
+    "summary": "Set CoraMetix's location (EXACT)",
+    "reason": "Its own website states the office at Unit 3/4 Gould Street, Osborne Park WA 6017 (home page (its footer)); the point is the Landgate cadastre parcel's centre for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Osborne Park"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "6017"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -31.915013
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 115.81492
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Unit 3/4 Gould Street, Osborne Park WA 6017"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://corametix.com/",
+        "to": "https://corametix.com"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-31T01:31:16.652Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-6",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "harrison-ai"
+    },
+    "summary": "Set Harrison.ai's location (EXACT)",
+    "reason": "Its own website states the office at Level P, 24 Campbell Street, Sydney NSW 2000 (contact page); the point is the NSW Spatial Services address point for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Sydney"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.878959
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.206573
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level P, 24 Campbell Street, Sydney NSW 2000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://harrison.ai/au/",
+        "to": "https://harrison.ai/contact/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-05T15:03:54.291Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-7",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "harvest-b"
+    },
+    "summary": "Set Harvest B's location (EXACT)",
+    "reason": "Its own website states the office at Level 1, 83-85 Foveaux Street, Surry Hills NSW 2010 (home page (its structured data)); the point is the NSW Spatial Services address point for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Surry Hills"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2010"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.884814
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.211071
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 1, 83-85 Foveaux Street, Surry Hills NSW 2010"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-13T13:24:38.826Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-8",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "hyprfire"
+    },
+    "summary": "Set Hyprfire's location (EXACT)",
+    "reason": "Its own website states the office at Level 32, 152 St George's Terrace, Perth WA 6000 (contact page); the point is the Landgate cadastre parcel's centre for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Perth"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "6000"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -31.9537
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 115.855691
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Level 32, 152 St George's Terrace, Perth WA 6000"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.hyprfire.com/contact-us",
+        "to": "https://hyprfire.com/contact-us"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-11-01T16:18:28.544Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-9",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "samsara-eco"
+    },
+    "summary": "Set Samsara Eco's location (EXACT)",
+    "reason": "Its own website states the office at 19 Wolseley Place, Jerrabomberra NSW 2619 (home page (its structured data)); the point is the NSW Spatial Services address point for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Jerrabomberra"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2619"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -35.3817
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 149.191246
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "19 Wolseley Place, Jerrabomberra NSW 2619"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source",
+        "from": "directory_record",
+        "to": "company_website"
+      },
+      {
+        "field": "location_source_url",
+        "from": null,
+        "to": "https://samsaraeco.com/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": null,
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "low",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-10",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "sunburnt-space-co"
+    },
+    "summary": "Set Sunburnt Space Co's location (EXACT)",
+    "reason": "Its own website states the office at Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114 (home page); the point is the NSW Spatial Services address point for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "West Ryde"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "2114"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -33.811825
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 151.092297
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://sunburntspace.com.au/",
+        "to": "https://sunburntspace.com.au"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-21T04:47:39.000Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
+  },
+  {
+    "id": "aud-20261117023701021-11",
+    "at": "2026-11-17T02:37:01.021Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "location.set",
+    "target": {
+      "type": "company",
+      "id": "veintech"
+    },
+    "summary": "Set VeinTech's location (EXACT)",
+    "reason": "Its own website states the office at Unit 3 / 4 Gould Street, Osborne Park WA 6017 (home page); the point is the Landgate cadastre parcel's centre for that address.",
+    "changes": [
+      {
+        "field": "suburb",
+        "from": null,
+        "to": "Osborne Park"
+      },
+      {
+        "field": "postcode",
+        "from": null,
+        "to": "6017"
+      },
+      {
+        "field": "lat",
+        "from": null,
+        "to": -31.915013
+      },
+      {
+        "field": "lng",
+        "from": null,
+        "to": 115.81492
+      },
+      {
+        "field": "address",
+        "from": null,
+        "to": "Unit 3 / 4 Gould Street, Osborne Park WA 6017"
+      },
+      {
+        "field": "location_precision",
+        "from": "CITY",
+        "to": "EXACT"
+      },
+      {
+        "field": "location_source_url",
+        "from": "https://www.veintech.com.au/",
+        "to": "https://veintech.com.au/"
+      },
+      {
+        "field": "location_verified_at",
+        "from": "2026-10-31T01:38:41.758Z",
+        "to": "2026-11-17T02:37:01.021Z"
+      },
+      {
+        "field": "location_confidence",
+        "from": "medium",
+        "to": "high"
+      }
+    ]
   }
 ]

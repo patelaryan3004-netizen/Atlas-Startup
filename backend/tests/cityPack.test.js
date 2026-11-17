@@ -149,7 +149,7 @@ describe('the 62 address records in the shipped data', () => {
   it('carries the consulted dates forward: nothing is "verified today"', () => {
     // (the 62 address records' own rows: the address kept from a pin made city-level has no date, because nobody read a page for it)
     // (rows from a later research import, 15 Nov 2026, ".addr.research", carry the day their page was read, so they are not part of this check)
-    const dates = new Set(ds.company_locations.filter((l) => /\.addr\./.test(l.id) && !/\.addr\.(original|postal|research)(\.\d+)?$/.test(l.id)).map((l) => String(l.location_verified_at).slice(0, 10)));
+    const dates = new Set(ds.company_locations.filter((l) => /\.addr\./.test(l.id) && !/\.addr\.(original|postal|research|offices)(\.\d+)?$/.test(l.id)).map((l) => String(l.location_verified_at).slice(0, 10)));
     for (const d of dates) expect(['2026-11-02', '2026-11-05']).toContain(d);
   });
 

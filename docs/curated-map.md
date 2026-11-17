@@ -29,15 +29,15 @@ company is missing from the sheet.** `apply-curated.mjs plan` shows this without
 | In the directory | 920 |
 | Shown on the map (Recommended = Pin) | 426 |
 | Left off the map (Recommended = Not pin) | 494 (none deleted) |
-| Drawn as a pin | 362 (was 533: 171 were unpinned by the list, none was newly pinned) |
-| Shown, in a city or state group only (no point location) | 54 |
+| Drawn as a pin | 373 (was 533: 171 were unpinned by the list, then 11 pinned from their own websites' office addresses, below) |
+| Shown, in a city or state group only (no point location) | 43 |
 | Shown, with nothing to draw (no usable place on file) | 10 |
 
 By maturity: Early 344, Growth 58, Unverified 24 (all shown); Late-stage / mature 91, Global corp 34, Listed 26, Community / coworking 19, Collapsed 1 (all left off); 323 have no stage in the
 sheet (left off).
 
-**The 64 "Add pin" rows cannot be drawn as pins**: 53 have only a city on file, 1 only a state, 10 no verified location. Making them pins needs an address, which the brief said not to change.
-They are shown on the map as far as the data allows (a city group, and in the panel's rows and counts). The list, with what each needs, is `docs/curated-map-pins-needing-addresses.csv`.
+**The 64 "Add pin" rows had no point location** (53 only a city, 1 only a state, 10 no verified location). Their addresses were then searched for (next section): 11 are now pins and 53 still have
+none; those 53 are shown on the map as far as the data allows (a city group, and in the panel's rows and counts) and are listed in `docs/curated-map-pins-needing-addresses.csv`.
 
 **The 24 flagged** (`maturity_check`) are `docs/curated-map-check.csv`; to find them in the data, `maturity_check` is `true` (and `maturity` is "Unverified").
 
@@ -49,6 +49,31 @@ at `/discover`, the company's own page and the search still have every company. 
 A filter `maturity` (one or several values) on the API (`/api/startups`, `/markers`, `/summary`...), `meta.maturities` for its options (only the maturities of companies on the map, with counts),
 and in the app: **Early / Growth buttons under the map page's search** (`?maturity=Early`, `?maturity=Early,Growth`), a section "Early or growth" in the filter panel (the phone's sheet too), and a
 chip when it is on. The map page's existing Stage menu is the funding stage and is unchanged. Early shows 344 organisations (285 with a pin), Growth 58 (53), both 402 (338).
+
+## Addresses for the 64 (office search, 17 Nov 2026)
+
+`backend/scripts/addresses/find-offices.mjs` read each company's own site through the compliant fetcher (robots.txt obeyed; the home page, then its contact, about, legal and privacy pages) and
+listed every street address the pages state; a person read each in context (`office-candidates-2026-11-17.json`, `office-claims-2026-11-17.json`). The outcome for each of the 64 is
+`docs/curated-map-address-search.csv`:
+
+| Outcome | Companies |
+|---|---|
+| **Pinned at its office** (the page presents the address as where the company is) | 11: AMLab, BioScout, Carma, Chironix, CoraMetix, Harrison.ai, Harvest B, Hyprfire, Samsara Eco, Sunburnt Space Co, VeinTech |
+| Address found, but only as where to write (postal, registered, privacy-officer or copyright-notice address): kept as a location of its own, **never a pin** | 6: Apate AI, Detail Earth, Lessn, OwnHome, SpaceDraft, SpacetoCo |
+| Office found, but the record is not verified (Darwinium, Kinde, Kite Magnetics, Nomad Atomics): kept as evidence | 4 |
+| Office found, but the state's address data has no point for it (FlyOnE, on Jandakot Airport land) | 1 |
+| Held for a person: the pages give two addresses (Smileyscope), or the page's state is not the record's (Zetifi) | 2 |
+| Its site could not be read (Goterra: robots.txt; Linkby: access control; neither is worked around) | 2 |
+| No street address on its pages (many are remote or in a shared space and publish only a city) | 34 |
+| No website on file | 4 |
+
+**How the pins were placed.** The location tool's geocoder (OpenStreetMap) found only the street, or the wrong suburb, for all of these, which is why the earlier safeguard promoted none: its pin
+would have been somewhere along the street. The points come instead from the states' own open address data, as the building itself: NSW Spatial Services' Address Point (NSW) and Landgate's
+Cadastre Address parcel (WA), by `scripts/addresses/place-offices.mjs` (`lookup` first, then `apply --by`); each is checked to be within a few hundred metres of the street the geocoder knows. The
+location is exact, sourced to the company's own page, with high confidence, and one audit row per company says so. Only a verified, city-level company is placed.
+
+OwnHome is one of the six that are not pins: its only street address is on its complaints page as where to write (52 Kellett Street, Potts Point NSW 2011), not called an office. If the owner says
+it is the office, it can be pinned with one `place-offices` entry.
 
 ## The five companies that did not show up in the map's search
 
