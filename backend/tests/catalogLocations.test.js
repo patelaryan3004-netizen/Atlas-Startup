@@ -156,6 +156,15 @@ describe('what the API says about where companies are', () => {
     expect(key({ state: 'VIC', junk: 'x' })).toBe(key({ state: 'VIC' }));
   });
 
+  it('treats the maturity and the map-only question as part of the question too (a filter missing from the list would be served the answer to the unfiltered one)', () => {
+    const key = (query) => questionKey({ baseUrl: '/api/startups', path: '', query });
+    expect(key({ maturity: 'Early' })).not.toBe(key({}));
+    expect(key({ maturity: 'Early' })).not.toBe(key({ maturity: 'Growth' }));
+    expect(key({ onMap: 'yes' })).not.toBe(key({}));
+    expect(key({ onMap: 'yes' })).not.toBe(key({ onMap: 'no' }));
+    expect(key({ maturity: 'Early', junk: 'x' })).toBe(key({ maturity: 'Early' }));
+  });
+
   it('serves the groups with the pins, narrowed by the same filters, and counts what it cannot place', async () => {
     const f = await fixture(600);
     const all = (await request(f.app).get('/api/startups/markers')).body;

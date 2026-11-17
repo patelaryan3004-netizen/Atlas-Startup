@@ -16,6 +16,7 @@ export function activeChips(filters, cohorts = []) {
   add('state', 'State', splitValues(filters.state).map((v) => v.toUpperCase()));
   add('precision', 'Place', splitValues(filters.precision).map((v) => v.toUpperCase()), (v) => PRECISION_WORDS[v] ?? v);
   add('stage', 'Stage', filters.stage === SEED_TO_SERIES_A ? [SEED_TO_SERIES_A] : splitValues(filters.stage), (v) => (v === SEED_TO_SERIES_A ? 'Seed to Series A' : v));
+  add('maturity', 'Maturity', splitValues(filters.maturity));
   add('investor', 'Investor', filters.investor ? [filters.investor] : []);
   add('hiring', 'Hiring', filters.hiring ? [filters.hiring] : [], (v) => HIRING_WORDS[v] ?? v);
   add('remote', 'Remote policy', splitValues(filters.remote), (v) => remoteLabel(v) ?? v);
@@ -31,7 +32,7 @@ export function activeChips(filters, cohorts = []) {
 // Each chip takes its filter off, and only that value of it.
 export function withoutChip(filters, { key, value }) {
   if (key === 'stage' && value === SEED_TO_SERIES_A) return { ...filters, stage: '' };
-  if (key === 'sector' || key === 'city' || key === 'state' || key === 'precision' || key === 'stage' || key === 'remote' || key === 'tech' || key === 'team' || key === 'cohort') {
+  if (key === 'sector' || key === 'city' || key === 'state' || key === 'precision' || key === 'stage' || key === 'maturity' || key === 'remote' || key === 'tech' || key === 'team' || key === 'cohort') {
     return { ...filters, [key]: joinValues(splitValues(filters[key]).filter((v) => v.toUpperCase() !== String(value).toUpperCase())) };
   }
   return { ...filters, [key]: '' };

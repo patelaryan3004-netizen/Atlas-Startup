@@ -130,7 +130,7 @@ const meta = {
   stages: ['Seed'],
 };
 
-const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '' };
+const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '' };
 const card = (name, overrides = {}) => ({
   name, slug: name.toLowerCase().replace(/\s+/g, '-'), sector: 'AI', sectorFull: 'AI', city: 'Sydney', stage: 'Seed', hiring: true, verified: true, ...overrides,
 });
@@ -254,7 +254,8 @@ describe('App', () => {
       expect(fetchMarkers).not.toHaveBeenCalled();
 
       await userEvent.click(screen.getByRole('button', { name: 'Map' }));
-      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, search: 'z' }, expect.anything()));
+      // (the map page asks for the companies the map shows: the curated list leaves some off it)
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, search: 'z', onMap: 'yes' }, expect.anything()));
     });
 
     it('seeds filters from the URL query string on load and fetches with them applied', async () => {
@@ -267,19 +268,19 @@ describe('App', () => {
     it('reads a city written in lower case in the address (/map?city=melbourne) as the city, so the link in the brief works', async () => {
       window.history.pushState({}, '', '/map?city=melbourne');
       render(<App />);
-      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Melbourne' }, expect.anything()));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Melbourne', onMap: 'yes' }, expect.anything()));
       window.history.pushState({}, '', '/');
     });
 
     it('asks only for companies from Companies, and for spaces from Spaces, and writes it in the address (the type is not written twice)', async () => {
       window.history.pushState({}, '', '/map?city=perth&show=companies');
       render(<App />);
-      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'company' }, expect.anything()));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'company', onMap: 'yes' }, expect.anything()));
       await waitFor(() => expect(window.location.search).toBe('?city=Perth&show=companies'));
       await userEvent.selectOptions(await screen.findByRole('combobox', { name: 'What kind of organisation' }), 'spaces'); // (the map page's type select: the layer the map shows)
-      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'space' }, expect.anything()));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, city: 'Perth', orgType: 'space', onMap: 'yes' }, expect.anything()));
       // (the map page's national view counts its badges from the pins of every city under the same filters, so those are asked for too, with no city)
-      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, orgType: 'space' }, expect.anything()));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, orgType: 'space', onMap: 'yes' }, expect.anything()));
       await waitFor(() => expect(window.location.search).toBe('?city=Perth&show=spaces'));
       window.history.pushState({}, '', '/');
     });
@@ -1783,7 +1784,7 @@ describe('App', () => {
       await userEvent.click(screen.getByRole('button', { name: 'Map' }));
       await waitFor(() => expect(window.location.pathname + window.location.search).toBe('/map?sector=AI&city=Sydney'));
       expect(await screen.findByTestId('map-view')).toBeInTheDocument();
-      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney' }, expect.anything())); // (the map page also asks for every city's pins, to count its badges)
+      await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney', onMap: 'yes' }, expect.anything())); // (the map page also asks for every city's pins, to count its badges)
 
       await userEvent.click(screen.getByRole('link', { name: 'See these as a gallery' }));
       expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();

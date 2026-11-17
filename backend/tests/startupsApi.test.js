@@ -126,7 +126,7 @@ describe('what the page needs besides a page', () => {
       sectors: uniqueSorted(f.rows.map((r) => r.sector)), cities: uniqueSorted(f.rows.map((r) => r.city)),
       investors: uniqueSorted(f.rows.flatMap((r) => r.investors)), stages: uniqueSorted(f.rows.map((r) => r.stage)),
       // the options for the optional facts: none, while no page gives one
-      remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], hasFresh: false,
+      remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], maturities: [], hasFresh: false,
     });
   });
 

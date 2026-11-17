@@ -86709,5 +86709,20 @@
     "summary": "Cover pictures from the companies' own websites: 176 companies updated",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261117014216911-1",
+    "at": "2026-11-17T01:42:16.911Z",
+    "actor": "owner (via Claude)",
+    "role": "cli",
+    "via": "cli",
+    "action": "enrichment.apply",
+    "target": {
+      "type": "system",
+      "id": "curated-map"
+    },
+    "summary": "The owner's curated list: 426 companies shown on the map, 494 left off it (they stay in the directory), a maturity set for 597 companies, 24 flagged to check; 920 companies changed",
+    "reason": null,
+    "changes": []
   }
 ]

@@ -102,7 +102,14 @@ export const ADDED_FIELDS = [
   'verification_status', 'confidence_score', 'created_at', 'updated_at', 'last_verified_at',
   'founder_ids', 'investor_ids', 'source_ids', 'organisation_type',
   'cover', 'cover_source_url', 'cover_retrieved_at',
+  'show_on_map', 'maturity', 'maturity_check',
 ];
+// What the owner's curated list (docs/curated-map.md) says about a company, apart from the funding `stage` (Seed, Series A: how it is funded, which is not touched):
+//   show_on_map     true: the company is drawn on the map (a pin where its place is a point, a group where it is known to a city); false: it stays in the directory, the list, the gallery and the
+//                   search but is left off the map; null: never curated, which is shown.
+//   maturity        how far along the company is (MATURITIES), or null where the list gives none. The map's Early / Growth filter is this.
+//   maturity_check  true where the list could not say (the name is ambiguous or its status unclear) and the company is kept on the map for now: the flag to find them again.
+export const MATURITIES = ['Early', 'Growth', 'Late-stage / mature', 'Listed', 'Global corp', 'Community / coworking', 'Collapsed', 'Unverified'];
 // cover is the company's own preview picture (its website's og:image, kept as a 16:9 WebP among the site's own files: /img/covers/<id>.webp) or null; cover_source_url is where it was
 // read and cover_retrieved_at the day (scripts/covers/collect.mjs). The gallery draws the cover, or the company's logo on a plain tile when there is none: never a stand-in.
 // What kind of organisation a record is: a startup (the default: the directory began as one), an established company, or a space (a co-working or community place).
@@ -218,7 +225,7 @@ export function migrateCompanyRecord(record, ids, { evidenceFor = () => [] } = {
 // served by any route. To expose one of these later, remove it here and update
 // the test that pins this list.
 export const INTERNAL_FIELDS = ['source_ids', 'confidence_score', 'created_at', 'updated_at',
-  'location_source', 'location_source_url', 'location_verified_at', 'location_confidence', 'cover_source_url', 'cover_retrieved_at'];
+  'location_source', 'location_source_url', 'location_verified_at', 'location_confidence', 'cover_source_url', 'cover_retrieved_at', 'show_on_map', 'maturity_check'];
 
 // The public form of a company. What is public about where it is: the level it is known at (location_precision), the
 // suburb and postcode, whether the address was checked against a source (location_verified), and coordinates ONLY when
@@ -291,5 +298,8 @@ export function toCanonical(c) {
     cover: c.cover ?? null,
     cover_source_url: c.cover_source_url ?? null,
     cover_retrieved_at: c.cover_retrieved_at ?? null,
+    show_on_map: c.show_on_map ?? null,
+    maturity: c.maturity ?? null,
+    maturity_check: c.maturity_check ?? null,
   };
 }

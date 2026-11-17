@@ -97,8 +97,8 @@ function useWhenIdle() {
 // map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
 // remote (a remote policy), tech (tools it builds with, several), team (a bucket of team size), cohort (an accelerator intake, such as
 // "startmate-w26") and fresh ("week": new this week) filter by the optional facts a page may give a company.
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '' };
-const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], hasFresh: false };
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '' };
+const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], maturities: [], hasFresh: false };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
 // The phone's sheet holds a panel at most 58% of the screen tall (explore.css .xs-detail) and no more than 520px: a pin picked on the map is brought clear of
@@ -110,7 +110,7 @@ const SHOWN = ['all', 'startups', 'companies', 'vcs', 'spaces'];
 const ORG_TYPE_OF = { startups: 'startup', companies: 'company', spaces: 'space' };
 // The filters that are about a startup alone (whether it is hiring, its remote policy, how it is placed...): an investor has none of them, so with one on
 // the VCs are left off the map when both are shown, and ignored when only they are.
-const STARTUP_ONLY = ['hiring', 'taskGate', 'events', 'remote', 'tech', 'team', 'cohort', 'fresh', 'investor', 'precision', 'state', 'verified'];
+const STARTUP_ONLY = ['hiring', 'taskGate', 'events', 'remote', 'tech', 'team', 'cohort', 'fresh', 'investor', 'precision', 'state', 'verified', 'maturity'];
 const NO_VCS = { items: [], unplaced: 0, count: 0, ready: false };
 const ALL_AUSTRALIA_ZOOM = 6.5; // zoomed in past this, the map offers the way back to all of Australia even with no city chosen
 
@@ -224,7 +224,9 @@ export default function App() {
   const [shown, setShown] = useState(loadShown); // 'all', 'startups', 'companies', 'vcs' (investors) or 'spaces': which layers of the map (and which list) are on
   const appliedFilters = useAppliedFilters(filters);
   const orgType = ORG_TYPE_OF[shown] ?? '';
-  const applied = useMemo(() => (orgType ? { ...appliedFilters, orgType } : appliedFilters), [appliedFilters, orgType]);
+  // On the map page (and a company opened over it) the companies are only those the map shows: the owner's curated list leaves some off it (show_on_map), and the counts and the rows beside the
+  // map say the same as the map. Everywhere else, the gallery included, every company is listed. (`onMap` is the API's word for it and is never written in an address.)
+  const applied = useMemo(() => ({ ...appliedFilters, ...(orgType ? { orgType } : {}), ...(mapBase ? { onMap: 'yes' } : {}) }), [appliedFilters, orgType, mapBase]);
   // What the snapshot already holds is what the first paint has (peek.js): the filters' options, the counts and, on the map, the pins. An
   // address with filters asks something the snapshot does not hold, so those start empty and the API answers, as before.
   // The map is one way to look at startups, not the first: a visit starts on the list, and the map is asked for (?view=map).
@@ -233,6 +235,7 @@ export default function App() {
   const [meta, setMeta] = useState(first.meta ?? EMPTY_META);
   const [summary, setSummary] = useState(first.summary);
   const [stats, setStats] = useState(first.stats);
+  const [mapStats, setMapStats] = useState(() => peek.summary({ onMap: 'yes' })); // the same counts for the companies the map shows only: the map page's city menu says what its map says
   const [markers, setMarkers] = useState(first.pins?.items ?? []);
   const [areas, setAreas] = useState(first.pins?.areas ?? []);
   const [nationalPins, setNationalPins] = useState(null); // the pins under every filter but the city: what the national view counts its badges from (MapView)
@@ -350,6 +353,12 @@ export default function App() {
     // The whole directory's counts, once: the Jobs link says how many are hiring however the map is filtered.
     fetchSummary({}, { onSnapshot: setStats }).then(setStats).catch(() => {});
   }, []);
+
+  // The map page's city menu counts the companies the map shows (asked for once, and only when that page is the one open).
+  useEffect(() => {
+    if (!mapBase) return;
+    fetchSummary({ onMap: 'yes' }, { onSnapshot: setMapStats }).then(setMapStats).catch(() => {});
+  }, [mapBase]);
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -563,9 +572,9 @@ export default function App() {
   // The map page's menu: the ten cities it lists, in that order, with how many companies each has where the directory says (the busiest cities' counts are in
   // stats.topCities; a city with none says nothing, and picking it still takes the map there).
   const mapCityOptions = useMemo(() => {
-    const counts = new Map((stats?.topCities ?? []).map(({ city, count }) => [city, count]));
+    const counts = new Map(((mapStats ?? stats)?.topCities ?? []).map(({ city, count }) => [city, count]));
     return MAP_CITIES.map((city) => ({ city, count: counts.get(city) ?? null }));
-  }, [stats]);
+  }, [stats, mapStats]);
 
   const applyFilters = useCallback((partial) => setFilters((now) => ({ ...now, ...partial })), []);
   const showAustralia = useCallback(() => {
@@ -933,6 +942,7 @@ export default function App() {
                 filterCount,
                 listHref: appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown }),
                 onList: () => { setViewMode('list'); goTo({ kind: 'explore' }); },
+                maturities: meta.maturities ?? [],
                 pinned: shown !== 'vcs' && markers.length > 0 ? `${markers.length.toLocaleString('en-AU')} with a pin on the map` : '',
                 note: 'Pins mark published office and suburb locations. An organisation known only to its city is listed here, counted, and never pinned.',
               } : null}

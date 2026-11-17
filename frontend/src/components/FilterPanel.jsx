@@ -153,6 +153,13 @@ export default function FilterPanel({ filters, onChange, onReset, meta, resultCo
                     </div>
                   </div>
 
+                  {(meta.maturities ?? []).length > 0 && (
+                    <div className="fsection">
+                      <div className="fsection-label">Early or growth</div>
+                      <MultiSelect id="fMaturity" label="Maturity" noun="maturities" all="Any" options={meta.maturities.map((m) => m.value)} value={filters.maturity ?? ''} onChange={(maturity) => onChange({ ...filters, maturity })} />
+                    </div>
+                  )}
+
                   <div className="fsection">
                     <div className="fsection-label">Startup stage</div>
                     <div className="fgroup">

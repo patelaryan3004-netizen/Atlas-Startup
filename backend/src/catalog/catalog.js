@@ -22,7 +22,7 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { buildProvenance } from './provenance.js';
-import { toPublic, deriveState, FACT_FIELDS, REMOTE_POLICIES, TEAM_BUCKETS, teamBucketOf } from '../models/company.js';
+import { toPublic, deriveState, FACT_FIELDS, REMOTE_POLICIES, TEAM_BUCKETS, teamBucketOf, MATURITIES } from '../models/company.js';
 import { valuesEqual } from '../models/evidence.js';
 import { COHORTS, COHORT_IDS, cohortTerms, programOf } from '../models/cohorts.js';
 import { describeLocation, PRECISIONS } from '../models/location.js';
@@ -43,12 +43,16 @@ export const stageRank = (stage) => {
   return at === -1 ? STAGE_ORDER.length + 1 : at;
 };
 export const FACETS = ['sector', 'city', 'stage', 'investor'];
+// A name with everything but letters and digits taken out ("Harrison.ai" is "harrisonai", "Own Home" is "ownhome"): a search is also matched against a company's name in this form, so it is
+// not put off by the space or the dot a visitor types or leaves out. Under five characters it says too little to match on (it would find a word that only runs across two names).
+const TIGHT_MIN = 5;
+export const tight = (text) => String(text ?? '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '');
 // `hiring` is true only for a company whose open roles were read from a page; `rolesUnverified` is true for one flagged as hiring
 // that no page backs (toPublic).
 // team_size, remote_policy, tech_stack, last_funding_date, last_role_seen_at and cohorts are the optional facts (company.js): present on a card
 // only where a public page backs them. `programs` is the cohorts as a visitor reads them, each with the page that says so (cohorts.js programOf).
 export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events',
-  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs', 'organisation_type', 'cover'];
+  'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs', 'organisation_type', 'cover', 'maturity'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
 // the address was checked against a source (1) or is only on file (0).
@@ -222,12 +226,14 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   const founders = new Map();
   records.forEach((r, i) => { for (const f of r.founders || []) { const rows = founders.get(f); if (rows) rows.push(i); else founders.set(f, [i]); } });
 
-  // Where each company is on the map: a pin (a point), a group at its city or state (an area), or nowhere (unknown).
+  // Where each company is on the map: a pin (a point), a group at its city or state (an area), or nowhere (unknown). A company the owner's curated list leaves off the map (show_on_map false)
+  // is none of these: it is still in the list, the gallery and the search, but nothing is drawn for it and it is in no map count.
   const precisions = records.map(precisionOf);
+  const shown = source.map((c) => c.show_on_map !== false);
   const areaInfo = new Map();
   const areaKey = records.map((r, i) => {
     const precision = precisions[i];
-    if (!r.verified || (precision !== 'CITY' && precision !== 'STATE')) return null;
+    if (!shown[i] || !r.verified || (precision !== 'CITY' && precision !== 'STATE')) return null;
     const state = r.state ?? deriveState(r); // a record from before `state` was kept is placed by its city, as the migration does
     if (precision === 'CITY') {
       const centre = cityCentre(r.city, state);
@@ -244,7 +250,7 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   });
 
   lap('names');
-  const flags = { hiring: flag((r) => r.hiring), verified: flag((r) => r.verified), taskGate: flag((r) => r.taskGate?.enabled) };
+  const flags = { hiring: flag((r) => r.hiring), verified: flag((r) => r.verified), taskGate: flag((r) => r.taskGate?.enabled), onMap: Uint8Array.from(shown, (on) => (on ? 1 : 0)) };
   // A yes/no column is indexed by the answer ('yes' or 'no'), so "hiring now" starts from the companies that are, not from all of them.
   const answers = (column) => postings(column, (on) => [on ? 'yes' : 'no']);
   const buckets = records.map((r) => teamBucketOf(r.team_size)); // each company's team-size bucket, or null when no page gives its size
@@ -265,12 +271,13 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
       orgType: postings(records, (r) => [r.organisation_type ?? 'startup']),
       team: postings(buckets, (b) => (b ? [b] : [])),
       precision: postings(precisions, (p) => [p]), state: postings(records, (r) => (r.state ? [r.state] : [])),
-      hiring: answers(flags.hiring), verified: answers(flags.verified), taskGate: answers(flags.taskGate),
+      hiring: answers(flags.hiring), verified: answers(flags.verified), taskGate: answers(flags.taskGate), onMap: answers(flags.onMap),
+      maturity: postings(records, (r) => (r.maturity ? [r.maturity] : [])),
     },
     // What a search matches: the name, the founders and, for a company in a cohort a page backs, the words for that cohort (Startmate, Winter 2026, W26...).
     // the name, the founders, the sector, the suburb its address is in (a company is found by where it is, as well as by what it is called) and, for a cohort a page backs, its words
     search: records.map((r) => [r.name, ...(r.founders || []), r.sector && r.sector !== 'Unknown' ? r.sector : '', r.suburb ?? '', ...(r.cohorts ?? []).flatMap(cohortTerms)].join('\n').toLowerCase()),
-    lowerNames, nameOrder,
+    lowerNames, nameOrder, nameTight: records.map((r) => tight(r.name)),
     bySlug: new Map(records.map((r, i) => [r.slug ?? r.id, i])),
     byId: new Map(records.map((r, i) => [r.id, i])),
     byName: postings(records, (r) => [r.name]),
@@ -285,11 +292,13 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
       teamSizes: TEAM_BUCKETS.filter((b) => buckets.includes(b.code)).map(({ code, label }) => ({ code, label })),
       // The accelerator cohorts some company is in (a page backs it), with how many: the options of the cohort filter. None until one is.
       cohorts: COHORT_IDS.filter((id) => cohortCounts.has(id)).map((id) => ({ id, label: COHORTS[id].label, accelerator: COHORTS[id].accelerator, cohort: COHORTS[id].cohort, count: cohortCounts.get(id) })),
+      // The options of the map's Early / Growth filter: each maturity some company on the map has, with how many, in the list's own order. None until the curated list is applied.
+      maturities: MATURITIES.map((value) => ({ value, count: records.filter((r, i) => shown[i] && r.maturity === value).length })).filter(({ count }) => count > 0),
       // Is any company new this week (freshOf)? The page asks for the strip of them only when one is, so no request is made for nothing.
       hasFresh: records.some((r) => freshOf(r, now()) !== null),
     },
     cards: records.map((r) => Object.fromEntries(CARD_FIELDS.filter((k) => k in r).map((k) => [k, r[k]]))),
-    markers: records.map((r, i) => (r.verified && isPoint(precisions[i]) && Number.isFinite(r.lat) && Number.isFinite(r.lng)
+    markers: records.map((r, i) => (shown[i] && r.verified && isPoint(precisions[i]) && Number.isFinite(r.lat) && Number.isFinite(r.lng)
       ? [r.slug ?? r.id, r.name, r.lat, r.lng, r.sector, r.city, r.hiring ? 1 : 0, domainOf(r.website), precisions[i],
         describeLocation({ location_precision: precisions[i], city: r.city, state: r.state, address: r.address, suburb: r.suburb }).place ?? '', r.location_verified ? 1 : 0,
         ownLogo(r.logo), metros[i] ?? null] : null)),
@@ -352,7 +361,7 @@ const str = (v) => (Array.isArray(v) ? v.join(',') : String(v));
 // What was asked for, read from a query string, with the legacy coercions: a value is a string, and an empty one is not a filter.
 export function readFilters(query = {}) {
   const f = {};
-  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'fresh', 'cohort', 'orgType']) {
+  for (const key of ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'verified', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'fresh', 'cohort', 'orgType', 'maturity', 'onMap']) {
     if (query[key]) f[key] = str(query[key]);
   }
   if (query.name) f.names = [].concat(query.name).map(String);
@@ -390,9 +399,10 @@ function startingPoint(snap, f, precisions, states) {
   if (f.team) lists.push(['team', union(snap.idx.team, f.team.split(','))]);
   if (f.cohort) lists.push(['cohort', union(snap.idx.cohort, f.cohort.split(','))]);
   if (f.orgType) lists.push(['orgType', union(snap.idx.orgType, f.orgType.split(','))]);
+  if (f.maturity) lists.push(['maturity', union(snap.idx.maturity, f.maturity.split(','))]);
   if (f.names) lists.push(['name', union(snap.byName, f.names)]);
   // Only 'yes' and 'no' filter (any other value is ignored, as the per-record check in select always did).
-  for (const column of ['hiring', 'taskGate', 'verified']) {
+  for (const column of ['hiring', 'taskGate', 'verified', 'onMap']) {
     if (f[column] === 'yes' || f[column] === 'no') lists.push([column, snap.idx[column].get(f[column]) ?? EMPTY]);
   }
   if (precisions) lists.push(['precision', union(snap.idx.precision, [...precisions])]);
@@ -422,6 +432,7 @@ export function select(snap, f) {
   const base = startingPoint(snap, f, precisions, states)?.list ?? null;
 
   const q = f.search ? f.search.toLowerCase().replace(/\n/g, ' ') : null;
+  const qt = q && tight(q).length >= TIGHT_MIN ? tight(q) : null;
   const sectors = f.sector ? new Set(f.sector.split(',')) : null;
   const cities = f.city ? new Set(f.city.split(',')) : null;
   const names = f.names ? new Set(f.names) : null;
@@ -432,11 +443,12 @@ export function select(snap, f) {
   const teams = f.team ? new Set(f.team.split(',')) : null;
   const cohorts = f.cohort ? new Set(f.cohort.split(',')) : null; // a company in any of them
   const orgTypes = f.orgType ? new Set(f.orgType.split(',')) : null; // startup, company or space
+  const maturities = f.maturity ? new Set(f.maturity.split(',')) : null; // Early, Growth ... (the owner's curated list)
   const fresh =f.fresh === 'week' ? Date.now() : null; // raised, or had a role seen, in the last 14 days
   const { records, flags } = snap;
   const keep = (i) => {
     const r = records[i];
-    if (q && !snap.search[i].includes(q)) return false;
+    if (q && !snap.search[i].includes(q) && !(qt && snap.nameTight[i].includes(qt))) return false;
     if (sectors && !sectors.has(r.sector)) return false;
     if (cities && !cities.has(r.city) && !cities.has(snap.metros[i])) return false;
     if (precisions && !precisions.has(snap.precisions[i])) return false;
@@ -448,6 +460,9 @@ export function select(snap, f) {
     if (teams && !teams.has(snap.buckets[i])) return false;
     if (cohorts && !(r.cohorts ?? []).some((id) => cohorts.has(id))) return false;
     if (orgTypes && !orgTypes.has(r.organisation_type ?? 'startup')) return false;
+    if (maturities && !maturities.has(r.maturity)) return false;
+    if (f.onMap === 'yes' && !flags.onMap[i]) return false;
+    if (f.onMap === 'no' && flags.onMap[i]) return false;
     if (fresh && !freshOf(r, fresh)) return false;
     if (f.hiring === 'yes' && !flags.hiring[i]) return false;
     if (f.hiring === 'no' && flags.hiring[i]) return false;
@@ -602,6 +617,8 @@ export function suggest(snap, text, { limit = 5 } = {}) {
   if (companies.length < limit) {
     for (let i = 0; i < snap.count && companies.length < limit; i += 1) if (snap.lowerNames[i].includes(` ${q}`)) take(i);
     for (let i = 0; i < snap.count && companies.length < limit; i += 1) if (snap.lowerNames[i].includes(q)) take(i);
+    const qt = tight(q);
+    if (qt.length >= TIGHT_MIN) for (let i = 0; i < snap.count && companies.length < limit; i += 1) if (snap.nameTight[i].includes(qt)) take(i);
   }
   const people = [];
   for (const p of snap.people) {

@@ -22,7 +22,7 @@ import { showPeople } from './flags.js';
 const decode = (part) => { try { return decodeURIComponent(part); } catch (e) { return part; } };
 
 // What at / means "the startups" and not Home: any of the filters, the view or what is shown.
-const EXPLORE_KEYS = ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'cohort', 'fresh', 'view', 'show', 'selected'];
+const EXPLORE_KEYS = ['search', 'sector', 'city', 'investor', 'stage', 'maturity', 'hiring', 'taskGate', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'cohort', 'fresh', 'view', 'show', 'selected'];
 
 export function readAppRoute({ pathname = window.location.pathname, search = window.location.search } = {}) {
   if (readInvestorsRoute({ pathname, search })) return { kind: 'investors' };
@@ -89,8 +89,8 @@ export const SHOW_WORDS = ['startups', 'companies', 'vcs', 'spaces'];
 // has no query.
 export function exploreSearch(filters, viewMode, entity = 'all', selected = null) {
   const params = new URLSearchParams();
-  // (orgType is what `show` says, as a filter for the API: it is not written twice)
-  for (const [key, value] of Object.entries(filters)) if (value && key !== 'orgType') params.set(key, value);
+  // (orgType is what `show` says, as a filter for the API: it is not written twice; onMap is the map page's own question to the API, which its address already says)
+  for (const [key, value] of Object.entries(filters)) if (value && key !== 'orgType' && key !== 'onMap') params.set(key, value);
   if (viewMode === 'map') params.set('view', 'map');
   if (SHOW_WORDS.includes(entity)) params.set('show', entity);
   if (selected) params.set('selected', selected); // the company open on the map, so a link opens it

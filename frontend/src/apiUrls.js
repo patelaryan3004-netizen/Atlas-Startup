@@ -19,7 +19,8 @@ export function toQuery(params) {
 export const startupPageUrl = (filters = {}, { limit = 20, offset = 0, sort = 'name', facets } = {}) => (
   `${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view: 'card', facets })}`
 );
-export const markersUrl = (filters = {}) => `${BASE}/startups/markers${toQuery(filters)}`;
+// (The pins are only ever the companies the map shows, so `onMap`, which asks the lists and the counts for the same, is not part of this question: the snapshot's pins answer it.)
+export const markersUrl = (filters = {}) => `${BASE}/startups/markers${toQuery(Object.fromEntries(Object.entries(filters).filter(([key]) => key !== 'onMap')))}`;
 export const summaryUrl = (filters = {}) => `${BASE}/startups/summary${toQuery(filters)}`;
 export const metaUrl = () => `${BASE}/startups/meta`;
 export function countsUrl(filterSets) {

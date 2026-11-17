@@ -3,6 +3,7 @@ import CheckMenu from './CheckMenu.jsx';
 import { ENTITIES } from './ExploreToolbar.jsx';
 import { SearchIcon, CloseIcon, SlidersIcon, GridIcon, ChevronDown } from './icons.jsx';
 import { linkProps } from '../brand/nav.js';
+import { splitValues, joinValues } from '../MultiSelect.jsx';
 
 // The head of the map page's directory panel (the "Startup atlas" panel): a kicker, the heading, one line of what it is for, the search, the two selects (what
 // kind of organisation, which sector), the stage and the rest of the filters, and how many there are. Everything in it is the page's existing filters: the type
@@ -23,7 +24,7 @@ const TYPE_LABEL = { all: 'All types', startups: 'Startups', companies: 'Compani
 
 export default function AtlasHead({
   filters, onFilterChange, sectors = [], stages = [], entity, onEntityChange, filtersOpen, onToggleFilters, filtersRef, filterCount = 0, listHref, onList,
-  count, pinned, children,
+  count, pinned, children, maturities = [],
 }) {
   const search = useRef(null);
   // "/" jumps to the search, as the box says, unless the visitor is already typing somewhere.
@@ -89,6 +90,19 @@ export default function AtlasHead({
         </button>
         <a className="at-list" aria-label="See these as a gallery" {...linkProps(listHref, onList)}><GridIcon size={18} /><span>Gallery</span></a>
       </div>
+
+      {['Early', 'Growth'].some((value) => maturities.some((m) => m.value === value)) && (
+        <div className="at-stage" role="group" aria-label="Company maturity: early or growth">
+          <span className="at-stage-label">Maturity</span>
+          {['Early', 'Growth'].filter((value) => maturities.some((m) => m.value === value)).map((value) => {
+            const chosen = splitValues(filters.maturity);
+            const on = chosen.includes(value);
+            return (
+              <button key={value} type="button" className={on ? 'at-pill at-pill-on' : 'at-pill'} aria-pressed={on} onClick={() => onFilterChange({ maturity: joinValues(on ? chosen.filter((v) => v !== value) : [...chosen, value]) })}>{value}</button>
+            );
+          })}
+        </div>
+      )}
 
       <p className="at-count" role="status" aria-live="polite">
         <span className="at-count-main">{count}</span>
