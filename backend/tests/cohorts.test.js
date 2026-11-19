@@ -187,7 +187,9 @@ describe('the Startmate Winter 2026 import', () => {
     expect(byId.get('securitybreak')).toMatchObject({ location_precision: 'EXACT', address: expect.stringContaining('290 Boundary Street'), city: 'Brisbane', state: 'QLD' });
     // EstiMate's own terms of service give 45B Douglas Parade, Yarra Junction: the Melbourne import placed it there once the geocoder confirmed the house
     expect(byId.get('estimate')).toMatchObject({ location_precision: 'EXACT', address: expect.stringContaining('Douglas Parade'), city: 'Melbourne', state: 'VIC' });
-    for (const id of ADDED.filter((x) => x !== 'securitybreak' && x !== 'estimate')) {
+    // Sunburnt Space Co's own home page names its office (Unit 12, 7-9 Rhodes Street, West Ryde): it was placed at that building from the NSW address point on 17 Nov 2026
+    expect(byId.get('sunburnt-space-co')).toMatchObject({ location_precision: 'EXACT', address: expect.stringContaining('Rhodes Street'), city: 'Sydney', state: 'NSW', location_source: 'company_website' });
+    for (const id of ADDED.filter((x) => x !== 'securitybreak' && x !== 'estimate' && x !== 'sunburnt-space-co')) {
       const c = byId.get(id);
       expect(c.location_precision, id).toBe('CITY');
       expect(c.lat ?? null, id).toBeNull();

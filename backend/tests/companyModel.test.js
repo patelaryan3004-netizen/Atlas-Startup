@@ -131,7 +131,7 @@ describe('toCanonical', () => {
       'location_verified_at', 'location_confidence', 'founded_year', 'stage', 'company_status', 'hiring_status', 'hiring_verified_at', 'website_status', 'employee_range',
       'funding_total', 'last_funding_date', 'last_funding_round', 'verification_status', 'confidence_score',
       'created_at', 'updated_at', 'last_verified_at', 'founder_ids', 'investor_ids', 'source_ids', 'organisation_type',
-      'cover', 'cover_source_url', 'cover_retrieved_at',
+      'cover', 'cover_source_url', 'cover_retrieved_at', 'show_on_map', 'maturity', 'maturity_check',
     ]);
   });
 

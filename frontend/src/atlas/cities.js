@@ -81,7 +81,7 @@ const SLOTS = [
 ];
 const STEP = 27;
 const hit = (a, b) => a.l < b.r && b.l < a.r && a.t < b.b && b.t < a.b;
-export const labelWidth = (city, count) => Math.round(city.length * 7.6 + String(count).length * 7.6 + 40);
+export const labelWidth = (city) => Math.round(city.length * 7.6 + 30);
 
 export function layoutBadges(at, size, { prefer = {} } = {}) {
   const anchors = at.map((a) => ({ l: a.x - 7, r: a.x + 7, t: a.y - 7, b: a.y + 7 }));

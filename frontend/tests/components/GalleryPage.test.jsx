@@ -16,8 +16,8 @@ const props = (overrides = {}) => ({
   filters: EMPTY,
   onFilterChange: vi.fn(),
   cities: CITIES,
-  sectors: ['AI', 'Fintech', 'Unknown'],
-  stages: ['Seed', 'Series A', 'Unknown'],
+  sectors: [{ value: 'AI & Data', count: 31 }, { value: 'Fintech', count: 12 }], // the display sectors with a result (sectorOptions.js)
+  stages: ['Seed', 'Series A', 'Unknown'], // (the server offers the funding rounds only; the bar still leaves out "Unknown")
   entity: 'all',
   onEntityChange: vi.fn(),
   filtersOpen: false,
@@ -35,6 +35,14 @@ describe('the gallery page: its heading, its switch to the map and its bar', () 
     expect(screen.getByRole('main')).toContainElement(screen.getByText('the gallery'));
   });
 
+  it('says "Back to map" in the switch for a list that was opened from the map ("View list"), and asks for the map the same way', async () => {
+    const p = mount(props({ fromMap: true }));
+    const group = screen.getByRole('group', { name: 'How the startups are shown' });
+    expect(within(group).queryByRole('button', { name: 'Map' })).not.toBeInTheDocument();
+    await userEvent.click(within(group).getByRole('button', { name: 'Back to map' }));
+    expect(p.onView).toHaveBeenCalledWith('map');
+  });
+
   it('has a Map | Gallery switch that says where the visitor is, and asks for the map when it is pressed', async () => {
     const p = mount();
     const group = screen.getByRole('group', { name: 'How the startups are shown' });
@@ -50,7 +58,7 @@ describe('the gallery page: its heading, its switch to the map and its bar', () 
     expect(p.onFilterChange).toHaveBeenLastCalledWith({ search: 'p' });
   });
 
-  it('offers the cities (the busiest first as given), the industries and the stages on record, and not "Unknown", and sets the same filters the map does', async () => {
+  it('offers the cities (the busiest first as given), the sectors that have a result, and the stages on record, and not "Unknown", and sets the same filters the map does', async () => {
     const p = mount();
     await userEvent.click(screen.getByRole('button', { name: 'All cities' }));
     const cities = within(screen.getByRole('group', { name: 'City' }));
@@ -58,10 +66,10 @@ describe('the gallery page: its heading, its switch to the map and its bar', () 
     await userEvent.click(cities.getByRole('checkbox', { name: /Perth/ }));
     expect(p.onFilterChange).toHaveBeenLastCalledWith({ city: 'Perth' });
 
-    await userEvent.click(screen.getByRole('button', { name: 'All industries' }));
-    const industries = within(screen.getByRole('group', { name: 'Industry' }));
-    expect(industries.getAllByRole('checkbox').map((c) => c.parentElement.textContent)).toEqual(['AI', 'Fintech']);
-    await userEvent.click(industries.getByRole('checkbox', { name: 'Fintech' }));
+    await userEvent.click(screen.getByRole('button', { name: 'All sectors' }));
+    const sectors = within(screen.getByRole('group', { name: 'Sector' }));
+    expect(sectors.getAllByRole('checkbox').map((c) => c.parentElement.textContent)).toEqual(['AI & Data31', 'Fintech12']);
+    await userEvent.click(sectors.getByRole('checkbox', { name: /Fintech/ }));
     expect(p.onFilterChange).toHaveBeenLastCalledWith({ sector: 'Fintech' });
 
     await userEvent.click(screen.getByRole('button', { name: 'All stages' }));

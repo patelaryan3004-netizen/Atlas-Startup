@@ -1,11 +1,13 @@
 // Where the map page's views change, in map zoom, and where the national view looks. Kept apart from the drawing (atlasLayer.js, geo.js: the coastline is a
 // file of its own) so the map can ask them without carrying the country's outline until the drawing is wanted.
 //
-// Below ATLAS_ZOOM the drawn country shows with its city badges and the street map is off. The street map's tiles start to load a little before they show
-// (TILES_LOAD_ZOOM), and the clusters and the pins come in from PINS_ZOOM, so for a stretch of zoom the badges, the clusters and the streets are all fading
-// into one another and the visitor never sees one jump to the next.
+// Below ATLAS_ZOOM the drawn country shows with its city names and the street map is off. The street map's tiles start to load a little before they show
+// (TILES_LOAD_ZOOM). The city names stay over the street map until the pins come in (PINS_ZOOM, a city's own scale): there are no clusters, no counts and no rings between the
+// two, so what is in between is the street map and the names of the cities, and then a company's own logo.
 export const ATLAS_ZOOM = 6.5;
-export const PINS_ZOOM = 5.75;
+export const PINS_ZOOM = 8;
+// A company's pin is brought into view at least this close (a street map's neighbourhood), so its logo stands on its own.
+export const PIN_FOCUS_ZOOM = 12;
 export const TILES_LOAD_ZOOM = 5.5;
 export const SMALL_ZOOM = 3.7; // under this (a phone's country) the state names are left off
 

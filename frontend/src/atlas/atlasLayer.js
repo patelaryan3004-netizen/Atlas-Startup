@@ -72,7 +72,7 @@ export function createAtlas(map, { onPickCity } = {}) {
 
   const place = () => {
     const size = map.getSize();
-    const at = badges.map((b) => { const p = map.latLngToContainerPoint([b.lat, b.lng]); return { city: b.city, x: p.x, y: p.y, w: labelWidth(b.city, b.count) }; });
+    const at = badges.map((b) => { const p = map.latLngToContainerPoint([b.lat, b.lng]); return { city: b.city, x: p.x, y: p.y, w: labelWidth(b.city) }; });
     for (const spot of layoutBadges(at, size, { prefer })) {
       const entry = drawn.get(spot.city);
       if (!entry) continue;
@@ -100,13 +100,10 @@ export function createAtlas(map, { onPickCity } = {}) {
       const chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'atlas-chip';
-      chip.setAttribute('aria-label', `${b.city}, ${b.count} ${b.count === 1 ? 'organisation' : 'organisations'} on the map. Zoom to ${b.city}.`);
+      chip.setAttribute('aria-label', `Zoom to ${b.city}`);
       const name = document.createElement('b');
       name.textContent = b.city;
-      const count = document.createElement('span');
-      count.className = 'atlas-n';
-      count.textContent = String(b.count);
-      chip.append(name, count);
+      chip.append(name); // (the city's name alone: no number, no ring)
       el.append(anchor, chip);
       chip.addEventListener('click', (event) => { event.stopPropagation(); onPickCity?.(b.city); });
       L.DomEvent.disableClickPropagation(el);

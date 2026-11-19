@@ -8052,6 +8052,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "carma.address.carma-com-au-2",
+    "company_id": "carma",
+    "field": "address",
+    "value": "Suite 5.03, 219-241 Cleveland Street, Strawberry Hills NSW 2016",
+    "source_id": "carma-com-au-2",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"PostalAddress in the page's structured data (schema.org): Suite 5.03, 219-241 Cleveland Street, Strawberry Hills, NSW, 2016\" Read 2026-11-17."
+  },
+  {
     "id": "carma.description.carma-com-au",
     "company_id": "carma",
     "field": "description",
@@ -10329,6 +10340,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "corametix.address.corametix-com-2",
+    "company_id": "corametix",
+    "field": "address",
+    "value": "Unit 3/4 Gould Street, Osborne Park WA 6017",
+    "source_id": "corametix-com-2",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Footer: Unit 3/4 Gould St, Osborne Park WA 6017, © CoraMetix Pty Ltd\" Read 2026-11-17."
+  },
+  {
     "id": "corametix.address.corametix-com.2",
     "company_id": "corametix",
     "field": "address",
@@ -11284,6 +11306,17 @@
     "verified_at": "2026-10-31T01:31:53.147Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "darwinium.address.www-darwinium-com-contact-us",
+    "company_id": "darwinium",
+    "field": "address",
+    "value": "903/50 Clarence Street, Sydney NSW 2000",
+    "source_id": "www-darwinium-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Darwinium Australia: 903/50 Clarence St, Sydney NSW 2000\" Read 2026-11-17."
   },
   {
     "id": "darwinium.description.www-darwinium-com",
@@ -16962,6 +16995,17 @@
     "note": "The website Startmate lists for the company."
   },
   {
+    "id": "flyone.address.flyone-com-au-2",
+    "company_id": "flyone",
+    "field": "address",
+    "value": "3 Baron Way, Jandakot Airport, Jandakot WA 6140",
+    "source_id": "flyone-com-au-2",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Australia Head Office: 3 Baron Way, Jandakot Airport, Jandakot, Western Australia 6140\" Read 2026-11-17."
+  },
+  {
     "id": "flyone.address.flyone-com-au-investors-pvacy-policy",
     "company_id": "flyone",
     "field": "address",
@@ -19657,6 +19701,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "harrison-ai.address.harrison-ai-contact",
+    "company_id": "harrison-ai",
+    "field": "address",
+    "value": "Level P, 24 Campbell Street, Sydney NSW 2000",
+    "source_id": "harrison-ai-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Locations. Sydney, Harrison-AI Medical Pty Ltd, Level P, 24 Campbell Street, Sydney, NSW, 2000, Australia\" Read 2026-11-17."
+  },
+  {
     "id": "harrison-ai.address.harrison-ai-privacy-notice",
     "company_id": "harrison-ai",
     "field": "address",
@@ -19710,6 +19765,17 @@
     "verified_at": "2026-10-05T15:03:54.291Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "harvest-b.address.www-harvestb-io",
+    "company_id": "harvest-b",
+    "field": "address",
+    "value": "Level 1, 83-85 Foveaux Street, Surry Hills NSW 2010",
+    "source_id": "www-harvestb-io",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"PostalAddress in the page's structured data (schema.org): Level 1, 83-85 Foveaux Street, Surry Hills, NSW, 2010; its privacy policy gives the same building\" Read 2026-11-17."
   },
   {
     "id": "harvest-b.website.www-harvestb-io",
@@ -21074,6 +21140,17 @@
     "verified_at": "2026-10-21T04:43:27.000Z",
     "status": "active",
     "note": "The website Startmate lists."
+  },
+  {
+    "id": "hyprfire.address.hyprfire-com-contact-us",
+    "company_id": "hyprfire",
+    "field": "address",
+    "value": "Level 32, 152 St George's Terrace, Perth WA 6000",
+    "source_id": "hyprfire-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Perth: Lv 32, 152 St George's Terrace, Perth 6000\" Read 2026-11-17."
   },
   {
     "id": "hyprfire.address.www-hyprfire-com-contact-us",
@@ -24024,6 +24101,17 @@
     "note": "The site itself."
   },
   {
+    "id": "kinde.address.kinde-com",
+    "company_id": "kinde",
+    "field": "address",
+    "value": "Suite 2 Level 5, 6/10 O'Connell Street, Sydney NSW 2000",
+    "source_id": "kinde-com",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"PostalAddress in the page's structured data (schema.org): Suite 2 Level 5, 6/10 O'Connell St, Sydney, NSW, 2000\" Read 2026-11-17."
+  },
+  {
     "id": "kinde.description.www-kinde-com",
     "company_id": "kinde",
     "field": "description",
@@ -24165,6 +24253,17 @@
     "verified_at": "2026-10-05T15:08:23.241Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "kite-magnetics.address.kitemagnetics-com-contact",
+    "company_id": "kite-magnetics",
+    "field": "address",
+    "value": "8/45-57 Normanby Road, Notting Hill VIC 3168",
+    "source_id": "kitemagnetics-com-contact",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Australian Head Office: Kite Magnetics 8/45-57 Normanby Rd Notting Hill, Victoria 3168 Australia\" Read 2026-11-17."
   },
   {
     "id": "kite-magnetics.description.kitemagnetics-com",
@@ -29247,6 +29346,17 @@
     "verified_at": "2026-11-05T01:33:53.635Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "nomad-atomics.address.nomadatomics-com-contact-us",
+    "company_id": "nomad-atomics",
+    "field": "address",
+    "value": "33 Elizabeth Street, Richmond VIC 3121",
+    "source_id": "nomadatomics-com-contact-us",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Headquarters: Nomad Atomics Australia, Address: 33 Elizabeth Street, Richmond, Victoria 3121 Australia\" Read 2026-11-17."
   },
   {
     "id": "nomad-atomics.investors.blackbird.www-blackbird-vc-portfolio-nomad-atomics",
@@ -36432,6 +36542,17 @@
     "note": "Australian address on the page."
   },
   {
+    "id": "samsara-eco.address.samsaraeco-com",
+    "company_id": "samsara-eco",
+    "field": "address",
+    "value": "19 Wolseley Place, Jerrabomberra NSW 2619",
+    "source_id": "samsaraeco-com",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"PostalAddress in the page's structured data (schema.org): 19 Wolseley Place, Jerrabomberra, NSW, 2619\" Read 2026-11-17."
+  },
+  {
     "id": "samsara-eco.description.samsara-eco-website",
     "company_id": "samsara-eco",
     "field": "description",
@@ -40038,6 +40159,17 @@
     "verified_at": "2026-10-21T04:47:39.000Z",
     "status": "active",
     "note": "The street address on the company's own page."
+  },
+  {
+    "id": "sunburnt-space-co.address.sunburntspace-com-au-2",
+    "company_id": "sunburnt-space-co",
+    "field": "address",
+    "value": "Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114",
+    "source_id": "sunburntspace-com-au-2",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"Office: Unit 12, 7-9 Rhodes Street, West Ryde NSW 2114, Australia\" Read 2026-11-17."
   },
   {
     "id": "sunburnt-space-co.city.sunburntspace-com-au",
@@ -44040,6 +44172,17 @@
     "verified_at": "2026-11-05T02:32:58.324Z",
     "status": "active",
     "note": "The site itself."
+  },
+  {
+    "id": "veintech.address.veintech-com-au",
+    "company_id": "veintech",
+    "field": "address",
+    "value": "Unit 3 / 4 Gould Street, Osborne Park WA 6017",
+    "source_id": "veintech-com-au",
+    "confidence": "high",
+    "verified_at": "2026-11-17T02:36:42.098Z",
+    "status": "active",
+    "note": "Its own website states this as where the company is: \"PERTH, AUSTRALIA: Unit 3 / 4 Gould Street, Osborne Park WA 6017\" Read 2026-11-17."
   },
   {
     "id": "veintech.address.www-veintech-com-au",

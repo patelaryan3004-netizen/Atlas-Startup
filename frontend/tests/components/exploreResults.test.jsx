@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 vi.mock('../../src/api.js', () => ({ fetchStartupPage: vi.fn(), fetchSuggestions: vi.fn(), fetchStartup: vi.fn(() => Promise.reject(new Error('offline'))) }));
 
-import { fetchStartupPage, fetchSuggestions } from '../../src/api.js';
+import { fetchStartupPage, fetchSuggestions, fetchStartup } from '../../src/api.js';
 import ExploreHero from '../../src/components/explore/ExploreHero.jsx';
 import ResultsColumn from '../../src/components/explore/ResultsColumn.jsx';
 import PreviewCard from '../../src/components/explore/PreviewCard.jsx';
@@ -205,57 +205,65 @@ describe('the results beside the map', () => {
 });
 
 describe('the preview beside the open mark', () => {
-  const COMPANY = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', sector: 'AI', hiring: true, website: 'https://acme.ai', location: { precision: 'SUBURB', place: 'Richmond, VIC', quality: 'Location: suburb-level' } };
+  const COMPANY = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', suburb: 'Richmond', sector: 'AI', sectorGroup: 'AI & Data', hiring: true, website: 'https://acme.ai', location: { precision: 'SUBURB', place: 'Richmond, VIC', quality: 'Location: suburb-level' } };
   const FIRM = { kind: 'vc', slug: 'blackbird', id: 'blackbird@Melbourne', name: 'Blackbird', city: 'Melbourne', website: 'https://www.blackbird.vc', location: { precision: 'EXACT', place: '15 Dover St, Cremorne VIC 3121', quality: 'Office address from its own website' } };
   const setup = (pin, over = {}) => {
-    const props = { pin, saved: false, onToggleSaved: vi.fn(), onOpen: vi.fn(), onClose: vi.fn(), ...over };
+    const props = { pin, onOpen: vi.fn(), onClose: vi.fn(), ...over };
     return { props, ...render(<PreviewCard {...props} />) };
   };
 
-  it('is the logo, the name, what it is, whether it is hiring, where it is and how well that is known, in a region named for the company', () => {
+  it('is the logo and the name, and its sector and place (the suburb and the city), in a region named for the company: and none of how well the place is known, hiring or the street', () => {
     setup(COMPANY);
     const card = screen.getByRole('region', { name: 'Acme AI' });
     expect(within(card).getByText('Acme AI')).toBeInTheDocument();
-    expect(within(card).getByText('AI')).toBeInTheDocument();
-    expect(within(card).getByText('Hiring')).toBeInTheDocument();
-    expect(within(card).getByText('Richmond, VIC')).toBeInTheDocument();
-    expect(within(card).getByText('Location: suburb-level')).toBeInTheDocument();
+    expect(within(card).getByText('AI & Data · Richmond, Melbourne')).toBeInTheDocument();
+    expect(within(card).queryByText('Hiring')).not.toBeInTheDocument();
+    expect(within(card).queryByText('Location: suburb-level')).not.toBeInTheDocument();
     expect(card.querySelector('img')).toHaveAttribute('src', expect.stringContaining('acme.ai'));
   });
 
-  it('opens the company from "Explore company", saves it, and closes from its button and with Escape', async () => {
+  it('adds one plain sentence once the company\'s record arrives, and nothing else of what the record says', async () => {
+    fetchStartup.mockResolvedValueOnce({ slug: 'acme', name: 'Acme AI', blurb: 'Makes things for people. It has 40 staff.', website: 'https://acme.ai', stage: 'Seed', verified: true, last_verified_at: '2026-11-01T00:00:00Z', hiringState: 'hiring', sources: [{ url: 'https://acme.ai/about', label: 'About' }] });
+    setup(COMPANY);
+    expect(await screen.findByText('Makes things for people.')).toBeInTheDocument();
+    const card = screen.getByRole('region', { name: 'Acme AI' });
+    expect(card).not.toHaveTextContent(/40 staff|Seed|Verified|Source|acme\.ai\/|hiring/i);
+    expect(within(card).queryByRole('link')).not.toBeInTheDocument(); // no website, no sources
+  });
+
+  it('has one way on, "View company", and closes from its button and with Escape: no save, no report', async () => {
     const { props } = setup(COMPANY);
-    await userEvent.click(screen.getByRole('button', { name: /Explore company/ }));
+    const card = screen.getByRole('region', { name: 'Acme AI' });
+    expect(within(card).getAllByRole('button').map((b) => b.getAttribute('aria-label') || b.textContent.trim())).toEqual(['Close the preview', 'View company']);
+    await userEvent.click(screen.getByRole('button', { name: 'View company' }));
     expect(props.onOpen).toHaveBeenCalledTimes(1);
-    await userEvent.click(screen.getByRole('button', { name: 'Save Acme AI' }));
-    expect(props.onToggleSaved).toHaveBeenCalledTimes(1);
     await userEvent.click(screen.getByRole('button', { name: 'Close the preview' }));
     await userEvent.keyboard('{Escape}');
     expect(props.onClose).toHaveBeenCalledTimes(2);
   });
 
-  it('is an investor card for an investor: the yellow VC, "Venture capital", the address its own page gives, and a way to its profile', async () => {
+  it('is an investor card for an investor: the yellow VC, "Venture capital" and its city (not the address), and a way to its profile', async () => {
+    fetchStartup.mockClear();
     const { props } = setup(FIRM);
     const card = screen.getByRole('region', { name: 'Blackbird' });
     expect(within(card).getByText('VC')).toBeInTheDocument();
-    expect(within(card).getByText('Venture capital')).toBeInTheDocument();
+    expect(within(card).getByText('Venture capital · Melbourne')).toBeInTheDocument();
     expect(within(card).queryByText('Hiring')).toBeNull(); // an investor is never said to be hiring
-    expect(within(card).getByText('15 Dover St, Cremorne VIC 3121')).toBeInTheDocument();
-    expect(within(card).getByText('Office address from its own website')).toBeInTheDocument();
+    expect(card).not.toHaveTextContent(/Dover St|Office address/); // the address and how well the place is known are on its own page
+    expect(fetchStartup).not.toHaveBeenCalled(); // an investor is not a company
     expect(card.querySelector('img')).toHaveAttribute('src', expect.stringContaining('blackbird.vc'));
     await userEvent.click(within(card).getByRole('button', { name: /View investor profile/ }));
     expect(props.onOpen).toHaveBeenCalledTimes(1);
   });
 
-  it('says a city is only a city: the investor placed at a city says it has no address on file', () => {
+  it('says nothing about how well an investor\'s place is known: a city is a city, and the page has the rest', () => {
     setup({ ...FIRM, location: { precision: 'CITY', place: 'Melbourne, VIC', quality: 'City-level: its headquarters city, no address on file' } });
-    expect(screen.getByText('City-level: its headquarters city, no address on file')).toBeInTheDocument();
+    expect(screen.queryByText(/City-level|no address on file/)).not.toBeInTheDocument();
   });
 
-  it('shows it as saved, and writes the name as text', () => {
+  it('writes the name as text', () => {
     const evil = '<img src=x onerror=alert(1)>';
-    const { container } = setup({ ...COMPANY, name: evil }, { saved: true });
-    expect(screen.getByRole('button', { name: `Remove ${evil} from saved` })).toHaveAttribute('aria-pressed', 'true');
+    const { container } = setup({ ...COMPANY, name: evil });
     expect(container.querySelector('.pv-name img')).toBeNull();
     expect(screen.getByRole('region', { name: evil })).toBeInTheDocument();
   });

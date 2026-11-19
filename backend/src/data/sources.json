@@ -17413,5 +17413,113 @@
     "publisher": "blog.pageuppeople.com",
     "retrieved_at": "2026-11-14T19:55:17.724Z",
     "note": ""
+  },
+  {
+    "id": "carma-com-au-2",
+    "kind": "company_website",
+    "url": "https://carma.com.au",
+    "title": "Carma: home page (its structured data)",
+    "publisher": "carma.com.au",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "corametix-com-2",
+    "kind": "company_website",
+    "url": "https://corametix.com",
+    "title": "CoraMetix: home page (its footer)",
+    "publisher": "corametix.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "www-darwinium-com-contact-us",
+    "kind": "company_website",
+    "url": "https://www.darwinium.com/contact-us",
+    "title": "Darwinium: contact page",
+    "publisher": "darwinium.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "flyone-com-au-2",
+    "kind": "company_website",
+    "url": "https://flyone.com.au",
+    "title": "FlyOnE: home page",
+    "publisher": "flyone.com.au",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "harrison-ai-contact",
+    "kind": "company_website",
+    "url": "https://harrison.ai/contact/",
+    "title": "Harrison.ai: contact page",
+    "publisher": "harrison.ai",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "hyprfire-com-contact-us",
+    "kind": "company_website",
+    "url": "https://hyprfire.com/contact-us",
+    "title": "Hyprfire: contact page",
+    "publisher": "hyprfire.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "kinde-com",
+    "kind": "company_website",
+    "url": "https://kinde.com/",
+    "title": "Kinde: home page (its structured data)",
+    "publisher": "kinde.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "kitemagnetics-com-contact",
+    "kind": "company_website",
+    "url": "https://kitemagnetics.com/contact",
+    "title": "Kite Magnetics: contact page",
+    "publisher": "kitemagnetics.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "nomadatomics-com-contact-us",
+    "kind": "company_website",
+    "url": "https://nomadatomics.com/contact-us",
+    "title": "Nomad Atomics: contact page",
+    "publisher": "nomadatomics.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "samsaraeco-com",
+    "kind": "company_website",
+    "url": "https://samsaraeco.com/",
+    "title": "Samsara Eco: home page (its structured data)",
+    "publisher": "samsaraeco.com",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "sunburntspace-com-au-2",
+    "kind": "company_website",
+    "url": "https://sunburntspace.com.au",
+    "title": "Sunburnt Space Co: home page",
+    "publisher": "sunburntspace.com.au",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
+  },
+  {
+    "id": "veintech-com-au",
+    "kind": "company_website",
+    "url": "https://veintech.com.au/",
+    "title": "VeinTech: home page",
+    "publisher": "veintech.com.au",
+    "retrieved_at": "2026-11-17T02:36:42.098Z",
+    "note": ""
   }
 ]

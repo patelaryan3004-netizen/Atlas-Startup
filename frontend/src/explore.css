@@ -133,6 +133,8 @@
 .pv-name{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;min-width:0;font-size:1.0625rem;font-weight:600;line-height:1.25;letter-spacing:-.01em;}
 .pv-name > span:first-child{overflow-wrap:anywhere;}
 .pv-sub{color:var(--text-2);font-size:var(--t-small);}
+.pv-facts{margin:8px 0 0;color:var(--text-2);font-size:var(--t-small);line-height:1.4;}
+.xp-sub{margin:6px 0 0;color:var(--text-2);font-size:var(--t-body);line-height:1.35;}
 .pv .bm{width:40px;height:40px;margin-right:-6px;}
 .pv-close{display:inline-flex;flex:none;align-items:center;justify-content:center;width:32px;height:32px;margin-right:-8px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--text-2);cursor:pointer;}
 .pv-close:hover{background:var(--bg-subtle);color:var(--text);}
@@ -239,6 +241,17 @@
 .custom-leaflet-marker{background:transparent;border:none;}
 .custom-pin-badge{position:relative;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 .custom-pin-badge:hover{z-index:1000;}
+/* a company with no room for its logo at this zoom: a small plain dot (no number, no ring) that opens the same card */
+.pin-dot-icon{display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.pin-dot{width:12px;height:12px;border-radius:50%;background:var(--green);border:2px solid #fff;box-shadow:0 0 0 1px rgb(var(--ink-rgb) / .28);transition:transform .15s var(--ease);}
+.pin-dot-icon:hover .pin-dot{transform:scale(1.4);}
+.pin-dot-vc{background:var(--butter);}
+.pin-dot-icon:hover{z-index:1000 !important;}
+/* a logo that appears as the map comes closer grows into place (and nothing moves for a visitor who asked for less motion) */
+@media (prefers-reduced-motion:no-preference){
+  .xp-atlas #map .pin-tile .pin-face,.xp-atlas #map .pin-dot{animation:pin-in .24s var(--ease) backwards;}
+}
+@keyframes pin-in{from{opacity:0;transform:scale(.55);}to{opacity:1;transform:none;}}
 .pin-face{position:relative;display:block;box-sizing:border-box;transition:transform .15s var(--ease),box-shadow .15s var(--ease);}
 .pin-tile .pin-face{width:40px;height:40px;border-radius:var(--r-md);overflow:hidden;background:var(--bg);border:1px solid rgb(var(--ink-rgb) / .12);box-shadow:0 1px 2px rgb(var(--ink-rgb) / .12),0 6px 16px -4px rgb(var(--ink-rgb) / .3);}
 .custom-pin-badge:hover .pin-face{transform:scale(1.08);}
@@ -473,19 +486,16 @@
 .mt-count{flex:0 1 auto;min-width:0;margin:0 0 0 auto;color:var(--text-2);font-size:var(--t-small);line-height:1.3;text-align:right;}
 .mt-list{display:inline-flex;align-items:center;gap:8px;flex:none;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:var(--r-md);color:var(--text);font:500 var(--t-body)/1 var(--font);text-decoration:none;}
 .mt-list:hover{background:var(--bg-subtle);}
+/* the type of organisation, a select dressed like the bar's other buttons */
+.mt-type{position:relative;display:block;flex:none;min-width:0;}
+.mt-type select{width:100%;height:44px;padding:0 34px 0 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg);color:var(--text);font:inherit;font-size:var(--t-small);appearance:none;cursor:pointer;}
+.mt-type-chev{position:absolute;right:10px;top:50%;margin-top:-9px;color:var(--text-2);pointer-events:none;}
 .mt .seg-item{padding:0 14px;}
 .mt-list:focus-visible,.mt-search input:focus-visible{outline:var(--focus);outline-offset:2px;}
 .mt .xt-menu .xt-btn{border-color:var(--border);}
-.panel-entity{display:none;} /* the switch is in the bar on a wide screen and with the map's other tools in the filter panel on a narrower one */
-@media (max-width:1499px){
-  .mt-list span{display:none;}
-  .mt-list{width:44px;justify-content:center;padding:0;}
-}
 @media (max-width:1199px){
   .mt{gap:10px;padding:10px var(--space-3);}
   .mt .xt-locbtn{min-width:148px;}
-  .mt-entity{display:none;}
-  .panel-entity{display:block;margin-bottom:var(--space-2);}
 }
 @media (max-width:899px){
   .xp-mappage .xw{height:auto;min-height:0;}
@@ -494,7 +504,19 @@
   .mt .xt-locbtn{min-width:0;width:100%;}
   .mt-search{flex:1 1 0;min-width:0;max-width:none;}
   .mt-row2{flex:0 0 100%;gap:8px;}
-  .mt-entity,.mt-list,.mt-count{display:none;} /* the phone's sheet says how many are on the map */
+  .mt-count{display:none;} /* the phone's sheet says how many are on the map */
+  .mt-row2 > .xt-menu{flex:1 1 0;min-width:0;}
+  .mt-row2 > .xt-menu > .xt-btn{width:100%;justify-content:center;overflow:hidden;}
+  .mt-row2 > .xt-menu .xt-chev{display:none;} /* (the sector's word and its count are the whole button: the chevron has no room) */
+  .mt-type{flex:1 1 0;min-width:0;}
+  .mt-type select{padding:0 22px 0 10px;font-size:.8125rem;}
+  .mt-row2 > .xt-menu > .xt-btn,.mt-list{font-size:.8125rem;}
+  .mt-type-chev{right:6px;}
+  .mt-row2 > .xt-menu > .xt-btn{padding:0 8px 0 12px;}
+  .mt-list{gap:6px;padding:0 12px;}
+  .mt-row2 .xt-btn-word{display:none;} /* "More filters" is the sliders alone on a phone (its name is on the button) */
+  .mt-row2 .xt-filters{flex:none;width:44px;justify-content:center;padding:0;position:relative;}
+  .mt-row2 .xt-filters .xt-badge{position:absolute;top:-6px;right:-6px;}
   .mt .xt-pop{left:0;}
   .mt .xt-citypop{width:min(300px,calc(100vw - 32px));}
 }

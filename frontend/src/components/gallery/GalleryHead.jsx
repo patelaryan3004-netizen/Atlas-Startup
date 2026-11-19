@@ -11,7 +11,7 @@ function Sunburst() {
   );
 }
 
-export default function GalleryHead({ onView }) {
+export default function GalleryHead({ onView, fromMap = false }) {
   return (
     <header className="gl-head">
       <div className="gl-head-copy">
@@ -19,7 +19,7 @@ export default function GalleryHead({ onView }) {
         <h1 className="gl-title">Startup <em>gallery.</em></h1>
         <p className="gl-lede">Australian startups, by what they make. Choose a city or an industry, or take the same search to the map.</p>
       </div>
-      <ViewToggle value="gallery" onChange={onView} />
+      <ViewToggle value="gallery" onChange={onView} mapLabel={fromMap ? 'Back to map' : 'Map'} />
     </header>
   );
 }

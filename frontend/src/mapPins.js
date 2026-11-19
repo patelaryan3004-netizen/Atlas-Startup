@@ -48,7 +48,11 @@ export const isVc = (tuple) => tuple[12] === KIND_VC;
 // the map's index is given are these: [id, name, lat, lng, '', city, 0, '', 'CITY', place, 0, null, 'vcgroup', pins].
 export const KIND_VC_GROUP = 'vcgroup';
 export const isVcGroup = (tuple) => tuple[12] === KIND_VC_GROUP;
-export function vcMarks(pins) {
+// ...on the map page (where every company with a place is its own logo) the investors are too, and `grouped: false` says so: each firm at a verified street address (precision EXACT) is its own
+// mark, a logo like a startup's. A firm known only to its city has no mark: a city is not a place a logo can stand (it would be at the city's reference point, or at some point made up round it), so
+// it is in the list beside the map (the city's directory) and on its own page, and nowhere on the map.
+export function vcMarks(pins, { grouped = true } = {}) {
+  if (!grouped) return pins.filter((pin) => pin.precision === 'EXACT').map(vcTuple);
   const byPoint = new Map();
   for (const pin of pins) {
     const key = `${pin.lat},${pin.lng}`;
@@ -65,19 +69,48 @@ export function vcMarks(pins) {
   return marks;
 }
 
+// Firms at one verified street address (the same building) stand on one spot, of which only one logo could be seen. So the marks of such a spot are spread, in a fixed order (by the investor's
+// address, the first stays on the spot): on a small spiral (the golden angle, so no two are close) SPREAD_EXACT_M metres a step, a few paces, so each firm has its logo once the map is close
+// (pinIndex.js). Only verified addresses are spread, and only by that: a firm known only to its city is not moved, because it is not drawn (vcMarks). Returns the pins with their new places, in the
+// order given; a spot with one mark is left as it is.
+export const SPREAD_EXACT_M = 30;
+const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+const METRES_PER_DEGREE = 111320;
+export function spreadVcPins(pins) {
+  const byPoint = new Map();
+  for (const pin of pins) {
+    const key = `${pin.lat},${pin.lng}`;
+    if (byPoint.has(key)) byPoint.get(key).push(pin); else byPoint.set(key, [pin]);
+  }
+  const moved = new Map();
+  for (const group of byPoint.values()) {
+    if (group.length < 2 || !group.every((p) => p.precision === 'EXACT')) continue;
+    const step = SPREAD_EXACT_M;
+    const order = [...group].sort((a, b) => String(a.id ?? a.slug).localeCompare(String(b.id ?? b.slug)));
+    order.forEach((pin, k) => {
+      if (k === 0) return;
+      const r = step * Math.sqrt(k);
+      const angle = k * GOLDEN_ANGLE;
+      moved.set(pin, { ...pin, lat: pin.lat + (r * Math.sin(angle)) / METRES_PER_DEGREE, lng: pin.lng + (r * Math.cos(angle)) / (METRES_PER_DEGREE * Math.cos((pin.lat * Math.PI) / 180)) });
+    });
+  }
+  return pins.map((pin) => moved.get(pin) ?? pin);
+}
+
 // A pin's tuple as the object the rest of the page reads. The tuple is
 // [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked]; a tuple from a server that does not
 // yet say how well the place is known stops after the domain, and the company then carries no `location`. An investor's (vcTuple) is
 // { kind: 'vc', slug, id, ... } with the same `location`, worded for a city.
 export function pinPayload(tuple) {
   const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked] = tuple;
+  // (a company's tuple goes on: the logo, the big city, then its display sector and its suburb; an investor's has its own, after the kind)
   if (isVc(tuple)) {
     return {
       kind: KIND_VC, slug: tuple[13], id: slug, name, lat, lng, city, sector, role: tuple[14], verified: true, website: domain ? `https://${domain}` : '',
       location: { precision: precision === 'EXACT' ? 'EXACT' : 'CITY', place: place || city, quality: vcQuality(tuple[14], precision) },
     };
   }
-  const company = { slug, name, lat, lng, sector, city, hiring: hiring === 1 || hiring === true, verified: true, website: domain ? `https://${domain}` : '' };
+  const company = { slug, name, lat, lng, sector, city, hiring: hiring === 1 || hiring === true, verified: true, website: domain ? `https://${domain}` : '', sectorGroup: tuple[13] ?? null, suburb: tuple[14] ?? null };
   if (!precision) return company;
   return { ...company, location_precision: precision, location: { precision, place: place || city, quality: locationQuality(precision, checked === 1 || checked === true) } };
 }
@@ -180,7 +213,10 @@ export function vcFirms(pins) {
   const firms = new Map();
   for (const pin of pins) {
     const firm = firms.get(pin.slug);
-    if (firm) firm.places.push(pin.city); else firms.set(pin.slug, { slug: pin.slug, name: pin.name, domain: pin.domain, stages: pin.stages ?? [], sectors: pin.sectors ?? [], places: [pin.city], pin });
+    if (firm) {
+      firm.places.push(pin.city);
+      if (firm.pin.precision !== 'EXACT' && pin.precision === 'EXACT') firm.pin = pin; // the mark a row picks: a verified office (the one that is on the map) before a city
+    } else firms.set(pin.slug, { slug: pin.slug, name: pin.name, domain: pin.domain, stages: pin.stages ?? [], sectors: pin.sectors ?? [], places: [pin.city], pin });
   }
   return [...firms.values()].sort((a, b) => a.name.localeCompare(b.name));
 }

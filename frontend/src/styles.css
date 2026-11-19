@@ -955,7 +955,8 @@ html{ scrollbar-color:#c9cec9 var(--paper); accent-color:var(--accent); caret-co
 .pin-popup a.leaflet-popup-close-button{color:var(--muted);top:6px;right:6px;}
 .pin-popup a.leaflet-popup-close-button:hover{color:var(--ink);}
 .pin-pop-name{margin:0 18px 4px 0;font-size:17px;font-weight:600;line-height:1.25;letter-spacing:-.01em;}
-.pin-pop-blurb{margin:0 0 8px;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.pin-pop-blurb{margin:0 0 8px;color:var(--muted);}
+.pin-pop-facts{margin:0 0 8px;color:var(--muted);font-size:var(--t-small);}
 .pin-pop-status{margin:0 0 10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
 .pin-pop-fresh{margin:-4px 0 10px;font-size:var(--t-small);color:var(--muted);}
 .pin-pop-fresh-stale{font-style:italic;opacity:.8;}

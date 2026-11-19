@@ -22,6 +22,8 @@ export const FIRST_VIEWS = [
   () => fetchCounts(LANDING_LISTS.map((list) => list.filters)), // the landing page's lists
   () => fetchStartupPage({}, { limit: LIST_PAGE, offset: 0, sort: 'name' }), // the list of startups (the table's order)
   () => fetchStartupPage({}, { limit: LIST_PAGE, offset: 0, sort: 'pictures' }), // and the gallery's: the companies with a cover picture first
+  () => fetchSummary({ onMap: 'yes' }), // the map page's counts: only the companies the map shows (the owner's curated list leaves some off it)
+  () => fetchStartupPage({ onMap: 'yes' }, { limit: LIST_PAGE, offset: 0, sort: 'name' }), // and the rows beside its map
   () => fetchStartupPage({ hiring: 'yes' }, { limit: JOBS_PAGE, offset: 0, sort: 'name', facets: 'sector,city,stage' }), // the jobs board
 ];
 

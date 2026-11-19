@@ -1,0 +1,7365 @@
+{
+ "source": "Still-Early-startups-curated.xlsx (the owner, 17 Nov 2026): Startup, Current, Recommended, Change, Stage, Note",
+ "rows": [
+  {
+   "startup": "+U Work Collective",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "1Breadcrumb",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "1receipt",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "2cloudnine",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "3P Learning",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "6clicks",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": ":Different",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Abyss Solutions",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Accelo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ActivePipe",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ActiveViam",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Adacel",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Adora",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Adslot",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Advanced Navigation",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Adveritas",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Advice RegTech",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Adviser Ratings",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "AdviseWell",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Aelo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Aerofiler",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Affinda",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Agora Livestock",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Agovor",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Agpay",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "AgriDigital",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Agscent",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "AI-Media",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "AIBUILD",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Aiculus",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Aigentsphere",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Aircall",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "AirRobe",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Collapsed",
+   "note": null
+  },
+  {
+   "startup": "Airtasker",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Airwallex",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "AiSpanner",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "AlayaCare",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "ALBON",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Alloy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Alloy Robotics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Allume Energy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Alts",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Amazing Gut",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "AmazingCo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Amber Electric",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Amdocs",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Amentum Scientific",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "AMLab",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Ampd Energy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Andisor",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Andromeda Robotics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Ansarada",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Ansight",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Antares Aerospace",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ANTSA",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Aona AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Apate AI",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "APG Pay",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Apollo Secure",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Appbot",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Appen",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Appian",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Applied EV",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Apromore",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Aravax",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Archa",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Archer Materials",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Archistar",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Arkeus",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Arludo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Arlula",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Ascend Labs",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Askable",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Asseti",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Assignar",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "AssureQA",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Athena",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Atmo Biosciences",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Atomi",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Atomo Diagnostics",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Atrium",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Atticus",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Audience Republic",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Augment Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Auric",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "AUS BIOS LABS",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "AutoGrab",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Avarni",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Avicena Systems",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Avolution",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Azaneo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "b2care",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Bae Juice",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Bamboo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Banjo Loans",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Baraja",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Bare",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Battery Pollution Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Beamtree",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Bellroy",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Beonic",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "BetterFleet",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "BGL Corporate Solutions",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Big Ant Studios",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Bigger Energizer",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "BioScout",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Biotome",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Biteable",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "BiVACOR",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Biza.io",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Black Swan Biotech",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Black.ai",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Blinq",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Block Earner",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Bloom AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "BlueNexus",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Blunge",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Blys",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Bobbleware",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Bonjoro",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Bookipi",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Borne",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "BrandViz.AI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Breaker Industries",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "BREED Australia",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Brevity Care Software",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "BrickX",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Bridgit",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Brieff",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Brighte",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Brightspace",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Brumby (formerly GrazeMate)",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Brunswick Aces",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Bugcrowd",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Build Club",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Buildkite",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "BuildPass",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Bygen",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "C2 Robotics",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cable Energy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Cake Equity",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": "Requested by you"
+  },
+  {
+   "startup": "CalcTree",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CampaignAgent",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Canibuild",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Canva",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Capability X",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Cape",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Capital.com",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Carbar",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Carbonix",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "CarClarity",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Care GP",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "CareMonitor",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CareNeighbour",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "CareTrust",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cario",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Carma",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Cars Like",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cartherics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Caruso",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Cascade",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "cascayd",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Ceres Tag",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Certa Therapeutics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CheckGen",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ChemCloud",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Chironix",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Chirp",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cipher Sports Technology Group",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Circular Sourcing",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Civica",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Clausifai",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Clear Dynamics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CliniScribe AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Cloudfloat",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Cluey Learning",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "CLUTCH Glue",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Co-Linic AI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Coassemble",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Coates Group",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cochlear",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Coco",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cogniss",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cogstate",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "CoinJar",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "CoLabs Australia",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Collective Shift",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "collective_100",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Collibra",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "COLLYBUS",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Compass Education",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Complii FinTech Solutions",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "ConnexAI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Conry Tech",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Constantinople",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Contactile",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Coposit",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cor (Cor AI)",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CoraMetix",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "coreplus",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Cortical Dynamics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Cortical Labs",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Cortisonic",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CoTreat",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Covidence",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Coviu",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Coworking Hub Ryde",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "CreativeCubes.Co Carlton",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "CredsVault",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CrossCourtAI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "CruxML",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Culture Amp",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Curium",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Curvecrete",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Cuttable",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "CyberCX",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Cytophenix",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Darwinium",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Data Zoo",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "DataFarming",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "DataMesh Group",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Datarock",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Dayforce",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Dayworkbook",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "DDLoop",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "DeCarice",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "DeciphrAI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Deeligence",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Deneb Space",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Deputy",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Derive",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Design.com",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Designer Journeys",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Detail Earth",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "DetectedX",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Deteqt",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Develpr",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Dexora Technology",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "DHI-AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Diag-Nose.io",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Digital Agriculture Services",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Dimple",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Diraq",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "DisplaySweet",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Doshii",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Dovetail",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Dr Glitter",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Draftable",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Drawboard",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Driva",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Driven",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "DroneShield",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Duck Creek Technologies",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Duohub",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Earlywork",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Earthodic",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Eastern Innovation",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "EatClub",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "eBest",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Eclipse Trading",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Edible Cutlery",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Edrolo",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Edsemble",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Edstart",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Effi",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Eftsure",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Eidosmedia",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "EIZ Technology",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Elcom",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ElectraLith",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Elenium",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Elevio",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Elezar",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ELMO Software",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Elumina eLearning",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Emesent",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Employment Hero",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "EMVision",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "ENA Respiratory",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Enboarder",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Energetica",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Enervaro",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Engine House",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Enviz",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "EnyGy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Enzide Technologies",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Epiminder",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "equidi",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Equiem",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Equitise",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Esper Satellite Imagery",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "EstiMate",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Etherstack",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "etrainu",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Eucalyptus",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Eudaemon Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Eugene",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Everbility",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Everlab",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Everpure",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Evnex",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Exergenics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "ExoFlare",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Expert360",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Extraordinary Money",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ezyCollect",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fabra",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Facet Amtech",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Factor House",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Fair Supply",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Fairgo.ai",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Farmbot",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Farmwall",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fastbrick",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Fastlane",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Ferguson's Treatos",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fetch",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Fiable",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "FieldSense Robotics",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "First AML",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Fishburners",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fiskil",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Flash Payments",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Fleet Space Technologies",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fleetyr",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Flexport",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Flippa",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "FlowGo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fluency",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "FlyOnE",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Focus Bear",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Foremind",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Forward",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "FOUNDIT",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Fourday",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Frank Green",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "FrankieOne",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "FreightExchange",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Frntlne",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Frontier Software",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Future Super",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Futurerent",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Gelion Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Gene S",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Genomical",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Gentrack",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "GeoMoby",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Geosnapshot",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Get It Fast",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Gilmour Space Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "GlamCorner",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Global Health",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Gloss Guide",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "GlowBack",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Go1",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Gobbill",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "GoFIGR",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Goterra",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "GovConnex",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Governa AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Gradability",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "GreaseBoss",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "GreenSync",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Gresham Technologies",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Grow Inc",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Guardhouse",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Guroo Academy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "GXE",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "H3D",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Hampr",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Hansen Technologies",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Happy HR",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Harrison.ai",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Growth",
+   "note": "Requested by you"
+  },
+  {
+   "startup": "Harvest B",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Hatch",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "HB11 Energy",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "HealthBank",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "HealthEngine",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Healthily",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Heaps Normal",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Heidi Health",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Helfie AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Hello Clever",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "HelpPay",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "HEO",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "HEO Robotics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Hex",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "HighRadius",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Hindsyt",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Hireup",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Hola Health",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Home-in",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Hometime",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Hone (HoneAg)",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "HotDoc",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Hullbot",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Human.health",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Humanetix",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "HungryHungry",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Huntsman Security",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Hurtec",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "HydGene Renewables",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Hyperion Systems",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Hyperlocalise",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": "Requested by you"
+  },
+  {
+   "startup": "Hyprfire",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "i-screen",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "icetana AI",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Ideally",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "IDmeta",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Ignition",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "iHarvest Coworking Sunshine",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Iluminr",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Immutable",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "InDebted",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Independent Reserve",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Index",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "InEight",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Innowell",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Inspection Express",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Inspire9",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Instant",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Integral Ad Science",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "IntelligenceBank",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Intellischool",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "InterEarth",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "InterSession",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Inventia Life Sciences",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Invest Inya Farmer",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "InvestorHub",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "InvestSMART",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "InvestStream",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "iPartners",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "ipSCAPE",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "IREN",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Isaacus",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Ivo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Jade Software",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Janison",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Jaunt Motors",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "JAVLN",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Jayride",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "JET Charge",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Jetabroad",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "JigSpace",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Josef",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Joyn",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "July",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "June",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Jupiter Ionics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "JurisTechne",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "JustFund",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Juxtabyte",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kanopi",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Kantoko",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Karbon",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Kasada",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Keeyu",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Kernl",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kimia (Kimia.ai)",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kinde",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kinoxis",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Kismet",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Kit",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Kite Magnetics",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kite Therapy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "KnowBe4",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Koala",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Kobble",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kolmeo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Kwetta",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "LAB Group",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Landchecker",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Landid",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Launch Pad",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "LAVO",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Lawpath",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Leakster",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Learnosity",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Legal Ready",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Lenexa Medical",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Leonardo AI",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Lessn",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Lexer",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "LIGR",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Like Family",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Linkby",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Linktree",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Liquid Instruments",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "LivedCX",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Livewire",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Lixa",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Locate Technologies",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "LOKE",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Lombard",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Loopit",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "LoopLearn",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Lorikeet",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Lucid Software",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Lumary",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "LUMOS",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Lyngo AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Lyrebird Health",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "MachShip",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "MadeComfy",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Magentus",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "MagnaTerra Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Maileroo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "MAKO",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Manhattan Associates",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Mark My Words",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Marketplacer",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Marloo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Marmalade Payments",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Marqo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mary Technology",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mass Dynamics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mastt",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mathspace",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Matrak",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Maxme",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "me&u",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "MedAdvisor",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "MediRecords",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Medtech Global",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Melbourne Connect",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Melbourne Innovation Centre",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Memphasys",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Mentorloop",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Menuzen",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mercando",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "MerchantSpring",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Mercu",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "milliBeam",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mimecast",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "MiMOR",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Mindset Health",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Minikai",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Misti",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "MLAI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Mod.io",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Modano",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "MOGOPLUS",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Moodle",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "MoreGoodDays",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Morse Micro",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Movus",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Mozo",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "MVSI OnBoard",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "mx51",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "mynd",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "MYOB",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "MyPass Global",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Myriota",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "NanoCube Health",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Nanoveu",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Navbit",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Nbryo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Neara",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Nearmap",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Nebula Health",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Neo Intelligence",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Neo-Bionica",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Netcraft",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "NetNada",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Neurala Biosciences",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Neuralindex.ai",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Newsie",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "NextAero",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "NEXTDC",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "NexusMD",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Nintex",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Nomad Atomics",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Nosto",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Novalith",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Novatti Group",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "NSW Decarbonisation Innovation Hub",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Number 8 Bio",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Nura",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Nutromics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "O3",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Ocean Hex",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "OCIUS Technology",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Octopus Deploy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Octopusbot",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "OFX",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Omneo",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Omni Biotech",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Omniscient Neurotechnology",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "On The House",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Oncoparse",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "OncoRes Medical",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "OneMRI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "OnMarket",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "OnSet Health",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Onvol",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Open",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "OpenSolar",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Operata",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Optalert",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Oran Park Smart Work Hub",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Orkestra",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Otivo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Oto Medicines",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Our Community House",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Outcoach",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "OWNA",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "OwnHome",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": "Requested by you"
+  },
+  {
+   "startup": "PageUp",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Pairtree",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Panteya",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Parachute",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Pathzero",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Pay.com.au",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Payapps",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Payble",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Paydock",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Pebl Payments",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PentaCue AI",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Pentana Solutions",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Personr",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Perx Health",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Pet Circle",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "PEXA",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Phocas",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Photon Foundry",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Piksort",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Pin Payments",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Pivot Professional Learning",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PlanCare",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PlaySide Studios",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Plerion",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Point of Rental Software",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "PointData",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Pointerra",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Polarbear AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PolyActiva",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Porous Lane",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Portable PPB",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Power Ledger",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "PowerPlus Energy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PowerTec",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Practera",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Praemium",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "PredictHQ",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "PredicTx Health",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "preezie",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Presien",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Pretect Devices",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PREVE",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Pro Medicus",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "ProductCloud",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Programa",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Promosync",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Pronto Software",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "PropCode",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Propeller Aero",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "PropertyMate",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Prophet",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Propic",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Prospa",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Prospection",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Prota Therapeutics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Protecht",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Psyke",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "PT Blink",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "PULS3",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Puralink",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Pyn",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Q-CTRL",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Qlik",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Qsic",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Qualys",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Quantum Brilliance",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Quarter",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Quest Payment Systems",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Qwilr",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Rainstick",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Raiz Invest",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Ramco Systems",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Rapid7",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "RapidAIM",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "RayGen",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Reach & Match",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Reach Alternative Investments",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "React Melbourne",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Ready Team One",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "ReadyTeacher",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "ReadyTech",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "ReciMe",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "RecordPoint",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "RedOwl",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Reejig",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Referoo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "ReFresh",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Relectrify",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Relevance AI",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Relume",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Ren",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Renewtrak",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "ResetData",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Resseptor",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Restoke",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Restoplus",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Reswitch",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "RMS",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Roborigger",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Rohlok",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Rokt",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "ROLLER",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Rosterfy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Rubens Technologies",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Safety Champion Software",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "SafetyCulture",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Safewill",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Saluda Medical",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Samsara Eco",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Samsung Electronics",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Sanders Place",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Sapia.ai",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Sapyen",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Savic Motorcycles",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Saviynt",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "SavvyWise",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Scratch",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Scriibi",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SCX.ai",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SeaStock",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Secure Code Warrior",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SecurePII",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SecurityBreak",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SEEK",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Seer Medical",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "SeeStone",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Send Payments",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Sendle",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Senetas",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SenSen",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Sentrient",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Servicely",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Shaype",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Sherlok",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Sherpa (4You Innovation)",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "ShiftCare",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Shippit",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Shopfront",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "SignOnSite",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "SimConverse",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Simpatico",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Simplafy",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Simpro",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Sitemate",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Sked Social",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SKUTOPIA",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SkyCiv",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SleevesUp Workspace",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Slyp",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Smart Parking",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Smileyscope",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Snap Send Solve",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Snapforms",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Snug",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Socialsuite",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Solara Health",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SomnoMed",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Sonder (employee care)",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Sortd",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Sorted Services",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SOTI",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "SourseAI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SpaceDraft",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SpacetoCo",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SPEC Toolbox",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SPEE3D",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "SpendConsole",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Spriggy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Springboards",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SS&C Technologies",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Starboard",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Start My Tomorrow (TMRW)",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Stile Education",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Stone & Chalk",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Strength by Numbers",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Strong Compute",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "StrongRoom AI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Studiosity",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Style Arcade",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SubTrux",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SUMM",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Sunburnt Space Co",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": "Requested by you"
+  },
+  {
+   "startup": "SunDrive Solar",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "SunWiz",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SuperAPI",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Superstat",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Supportly",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "SUSE",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Susquehanna International Group",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "SwarmFarm Robotics",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Switchboard",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Syenta",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Synchron",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Syncio",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Syncrowin",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Synodic Medical",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Tablo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Talk2View",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Tally Group",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Tanggram",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Tank Stream Labs",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Telecare",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Telix Pharmaceuticals",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Tender Relief",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Tendertrace",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Tendl",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Termina",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "TernaryNet",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Tetratherix",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "The Cluster",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "The Commons",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "The Startup Network",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "The Volte",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Thinxtra",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Three Springs Technology",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "tikpay",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Tiliter",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Tiny Bright Things",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Tixel",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Total Synergy",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Touchstone Life Care",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Tower Systems",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Trace",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Trade Ledger",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Traild",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Trend Micro",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "TRIBE",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Truescope",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "TrueState",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Truuth",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "TRUXE",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Truyu",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Tutero",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Typsy",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "uBind",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Ultradata",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Uluu",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Understanding Zoe",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "United Co.",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Unloan",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "uPaged",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "upcover",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "UpGuard",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "UPowr",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "v2food",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Valiant Finance",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "VAPAR",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Varicon",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Vaxxas",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "VeinTech",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Veltora",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Ventora Medical",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Veridooh",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Vero",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Vervoe",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Vexev",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Veyor",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "VGW",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Vinomofo",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Vinyl",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Virtetic",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Visibuild",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Visory",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "VitalTrace",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Vitavo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Vitruvian Form",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Vivi",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Vocus",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  },
+  {
+   "startup": "Voral",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Vouch",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Vow",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Vudoo",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Vulnetix",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Vyro",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Wable",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Waterman Workspaces",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "WebBeds Group",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "WeBuild Construction Software",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "WeGuide",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Wellio",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "WeMoney",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "WeTeachMe",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Wevolt",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Whispir",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Listed",
+   "note": null
+  },
+  {
+   "startup": "Who Gives a Crap",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Willed",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Willow",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "WiseTech Global",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Workflow86",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "WorkPro",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "WOTSO",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Community / coworking",
+   "note": null
+  },
+  {
+   "startup": "Wrkr",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "X-Centric Sciences",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Xakia",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Xero",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "XMO",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": "Check",
+   "stage": "Unverified",
+   "note": "Ambiguous name or unclear status, verify before keeping"
+  },
+  {
+   "startup": "Xplor Education",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Yarno",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Yellow Canary",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Yellowbox",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "YieldX",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "YouLi",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Your Grocer",
+   "current": "Not pin",
+   "recommended": "Not pin",
+   "change": null,
+   "stage": null,
+   "note": null
+  },
+  {
+   "startup": "Zed Technologies",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Zeller",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Late-stage / mature",
+   "note": null
+  },
+  {
+   "startup": "Zemble",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Zendir",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Zero Latency",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Zerocap",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Zetifi",
+   "current": "Not pin",
+   "recommended": "Pin",
+   "change": "Add pin",
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Zitcha",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Early",
+   "note": null
+  },
+  {
+   "startup": "Zoomo",
+   "current": "Pin",
+   "recommended": "Pin",
+   "change": null,
+   "stage": "Growth",
+   "note": null
+  },
+  {
+   "startup": "Zscaler",
+   "current": "Pin",
+   "recommended": "Not pin",
+   "change": "Unpin",
+   "stage": "Global corp",
+   "note": null
+  }
+ ]
+}

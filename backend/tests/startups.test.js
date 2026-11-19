@@ -155,7 +155,9 @@ describe('GET /api/startups', () => {
   it('filters by sector', async () => {
     const res = await request(app).get('/api/startups?limit=200&sector=Fintech');
     expect(res.status).toBe(200);
-    expect(res.body.results.every((s) => s.sector === 'Fintech')).toBe(true);
+    // "Fintech" is the display sector (models/sectors.js): the source labels Fintech, Insurtech, WealthTech and Open banking are in it
+    expect(res.body.results.every((s) => s.sectorGroup === 'Fintech')).toBe(true);
+    expect(res.body.results.some((s) => s.sector === 'Fintech')).toBe(true);
     expect(res.body.count).toBeGreaterThan(0);
   });
 
@@ -227,7 +229,7 @@ describe('GET /api/startups', () => {
   it('combines multiple filters', async () => {
     const res = await request(app).get('/api/startups?limit=200&sector=Fintech&city=Sydney');
     expect(res.status).toBe(200);
-    expect(res.body.results.every((s) => s.sector === 'Fintech' && (s.city === 'Sydney' || metroOf(startups.find((x) => x.name === s.name)) === 'Sydney'))).toBe(true);
+    expect(res.body.results.every((s) => s.sectorGroup === 'Fintech' && (s.city === 'Sydney' || metroOf(startups.find((x) => x.name === s.name)) === 'Sydney'))).toBe(true);
     expect(res.body.count).toBeGreaterThan(0);
   });
 

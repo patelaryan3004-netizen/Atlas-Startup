@@ -1,18 +1,31 @@
 import { describe, it, expect, vi } from 'vitest';
 import { companyPopup, institutionPopup } from '../src/mapPopups.js';
 
-// [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo]
-const tuple = (over = []) => ['acme', 'Acme', -33.87, 151.21, 'AI', 'Sydney', 0, 'acme.example', 'EXACT', '1 George Street, Sydney', 1, null, ...over].slice(0, 12);
+// [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo, metro, sectorGroup, suburb]
+const tuple = (over = {}) => {
+  const base = ['acme', 'Acme', -33.87, 151.21, 'HealthTech', 'Sydney', 0, 'acme.example', 'EXACT', '1 George Street, Surry Hills, Sydney', 1, null, 'Sydney', 'Health & Biotech', 'Surry Hills'];
+  for (const [i, v] of Object.entries(over)) base[i] = v;
+  return base;
+};
 const text = (el, selector) => el.querySelector(selector).textContent;
 
 describe('a company\'s card', () => {
-  it('has the name, one call to action, and "More" folded away', () => {
-    const { element } = companyPopup(tuple(), { onOpen: vi.fn() });
+  it('is the name, one plain sentence, the sector and the suburb and city, and one way on: nothing else', () => {
+    const card = companyPopup(tuple(), { onOpen: vi.fn() });
+    card.fill({ blurb: 'Makes clinical software. It is used in 200 hospitals.', stage: 'Seed', website: 'https://acme.example', last_verified_at: '2026-11-01T00:00:00Z', hiring: true });
+    const { element } = card;
     expect(text(element, '.pin-pop-name')).toBe('Acme');
     expect(element.querySelector('h3')).not.toBeNull();
+    expect(text(element, '.pin-pop-blurb')).toBe('Makes clinical software.'); // the first sentence
+    expect(text(element, '.pin-pop-facts')).toBe('Health & Biotech · Surry Hills, Sydney'); // the display sector, never the street
     expect(element.querySelectorAll('.pin-pop-cta')).toHaveLength(1);
-    expect(element.querySelector('details.pin-pop-more').open).toBe(false);
-    expect(text(element, '.pin-pop-more summary')).toBe('More');
+    expect(text(element, '.pin-pop-cta')).toBe('View company');
+    // none of what is on the company's own page
+    expect(element.querySelector('details')).toBeNull();
+    expect(element.querySelector('a')).toBeNull(); // no website link, no source link
+    expect(element.querySelector('.pin-pop-status,.pin-pop-fresh,.pin-pop-report,.pin-pop-site,.pin-pop-more')).toBeNull();
+    expect(element.textContent).not.toMatch(/verified|checked|source|office address|suburb-level|precision|hiring|Seed|report/i);
+    expect(element.textContent).not.toContain('George Street');
   });
 
   it('puts the one call to action to work', () => {
@@ -22,144 +35,53 @@ describe('a company\'s card', () => {
     expect(onOpen).toHaveBeenCalledTimes(1);
   });
 
-  it('says only what the pin knows before the record arrives: no line, no hiring claim unless the pin says hiring', () => {
+  it('says only what the pin knows before the record arrives, and leaves out what it does not know', () => {
     const quiet = companyPopup(tuple(), { onOpen: vi.fn() }).element;
-    expect(quiet.querySelector('.pin-pop-blurb').hidden).toBe(true);
-    expect(quiet.querySelector('.pin-pop-status').hidden).toBe(true);
-    const hiring = companyPopup(tuple().map((v, i) => (i === 6 ? 1 : v)), { onOpen: vi.fn() }).element;
-    expect(hiring.querySelector('.pin-pop-status').hidden).toBe(false);
-    expect(text(hiring, '.hiring-badge')).toBe('● Hiring now');
+    expect(quiet.querySelector('.pin-pop-blurb').hidden).toBe(true); // no sentence until the record gives one
+    expect(text(quiet, '.pin-pop-facts')).toBe('Health & Biotech · Surry Hills, Sydney');
+    // no sector, no suburb: only the city; no city either: nothing is written
+    const noSector = companyPopup(tuple({ 4: 'Unknown', 13: null, 14: null }), { onOpen: vi.fn() }).element;
+    expect(text(noSector, '.pin-pop-facts')).toBe('Sydney');
+    const nothing = companyPopup(tuple({ 4: '', 5: '', 13: null, 14: null }), { onOpen: vi.fn() }).element;
+    expect(nothing.querySelector('.pin-pop-facts').hidden).toBe(true);
   });
 
-  describe('the small "Report: role closed" link', () => {
-    const hiringTuple = () => tuple().map((v, i) => (i === 6 ? 1 : v));
-    const link = (el) => el.querySelector('.pin-pop-report');
-
-    it('is there, and works, for a company the pin says is hiring; it is not a second call to action', () => {
-      const onReport = vi.fn();
-      const { element } = companyPopup(hiringTuple(), { onOpen: vi.fn(), onReport });
-      expect(link(element).hidden).toBe(false);
-      expect(link(element).textContent).toBe('Report: role closed');
-      expect(link(element).type).toBe('button');
-      expect(element.querySelectorAll('.pin-pop-cta')).toHaveLength(1);
-      link(element).click();
-      expect(onReport).toHaveBeenCalledTimes(1);
-    });
-
-    it('is hidden for a company the pin does not say is hiring, and absent when the page gave no way to report', () => {
-      expect(link(companyPopup(tuple(), { onOpen: vi.fn(), onReport: vi.fn() }).element).hidden).toBe(true);
-      expect(link(companyPopup(hiringTuple(), { onOpen: vi.fn() }).element).hidden).toBe(true);
-    });
-
-    it('follows what the full record says: shown for hiring now and a dated "hiring", hidden for no roles listed or unverified', () => {
-      const shown = (pin, record) => { const card = companyPopup(pin, { onOpen: vi.fn(), onReport: vi.fn() }); card.fill(record); return !link(card.element).hidden; };
-      expect(shown(tuple(), { hiringState: 'hiring' })).toBe(true);
-      expect(shown(tuple(), { hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' })).toBe(true);
-      expect(shown(hiringTuple(), { hiringState: 'none' })).toBe(false);
-      expect(shown(hiringTuple(), { hiringState: 'unverified' })).toBe(false);
-    });
+  it('says the sector the source gave where the server sent no display sector (an older answer), and never "Unknown"', () => {
+    const older = companyPopup(['a', 'A', 0, 0, 'Fintech', 'Perth', 0, ''], { onOpen: vi.fn() }).element;
+    expect(text(older, '.pin-pop-facts')).toBe('Fintech · Perth');
+    const unknown = companyPopup(['b', 'B', 0, 0, 'Unknown', 'Perth', 0, ''], { onOpen: vi.fn() }).element;
+    expect(text(unknown, '.pin-pop-facts')).toBe('Perth');
   });
 
-  it('keeps sector, place and how well the place is known under "More", and leaves out what it does not know', () => {
-    const { element } = companyPopup(tuple(), { onOpen: vi.fn() });
-    const rows = [...element.querySelectorAll('.pin-pop-rows div')].map((r) => [r.querySelector('dt').textContent, r.querySelector('dd').textContent]);
-    expect(rows).toEqual([['Sector', 'AI'], ['Place', '1 George Street, Sydney'], ['Location', 'Verified office']]);
-    const bare = companyPopup(['b', 'B', 0, 0, 'Unknown', '', 0, ''], { onOpen: vi.fn() }).element;
-    expect(bare.querySelectorAll('.pin-pop-rows div')).toHaveLength(0); // never "Unknown", never an empty row
+  it('says a suburb that is the city once', () => {
+    const card = companyPopup(tuple({ 5: 'Yatala', 14: 'Yatala', 13: 'Deep Tech & Space' }), { onOpen: vi.fn() });
+    expect(text(card.element, '.pin-pop-facts')).toBe('Deep Tech & Space · Yatala');
   });
 
-  it('fills in the line, the stage, when it was checked and the website when the record arrives', () => {
+  it('takes the sentence, and a sector or suburb the pin lacked, from the record when it arrives', () => {
+    const card = companyPopup(tuple({ 13: null, 14: null }), { onOpen: vi.fn() });
+    card.fill({ blurb: 'Link-in-bio pages for creators', sectorGroup: 'Consumer & Commerce', suburb: 'Collingwood' });
+    expect(text(card.element, '.pin-pop-blurb')).toBe('Link-in-bio pages for creators');
+    expect(card.element.querySelector('.pin-pop-blurb').hidden).toBe(false);
+    expect(text(card.element, '.pin-pop-facts')).toBe('Consumer & Commerce · Collingwood, Sydney'); // (the city is the pin's own)
+  });
+
+  it('cuts a long first sentence at a word, with an ellipsis, and never invents one', () => {
     const card = companyPopup(tuple(), { onOpen: vi.fn() });
-    card.fill({ blurb: 'Makes things.', stage: 'Seed', hiringState: 'hiring', last_verified_at: new Date().toISOString(), website: 'https://acme.example', website_status: null });
-    const el = card.element;
-    expect(text(el, '.pin-pop-blurb')).toBe('Makes things.');
-    expect(el.querySelector('.pin-pop-blurb').hidden).toBe(false);
-    expect(text(el, '.hiring-badge')).toBe('● Hiring now');
-    expect(el.querySelector('.hiring-badge').className).toBe('hiring-badge');
-    const rows = [...el.querySelectorAll('.pin-pop-rows div')].map((r) => r.querySelector('dt').textContent);
-    expect(rows).toEqual(['Sector', 'Stage', 'Place', 'Location', 'Website']); // when it was checked is said above, not under "More"
-    expect(text(el, '.pin-pop-fresh')).toBe('Verified today');
-    const site = el.querySelector('.pin-pop-site');
-    expect(site.getAttribute('href')).toBe('https://acme.example');
-    expect(site.target).toBe('_blank');
-    expect(site.rel).toBe('noopener noreferrer');
-    expect(site.textContent).toBe('acme.example');
-  });
-
-  it('says what the record says about hiring, in the same words as everywhere: dated, none, or unverified, never "not hiring"', () => {
-    const say = (record) => { const card = companyPopup(tuple(), { onOpen: vi.fn() }); card.fill(record); return card.element.querySelector('.hiring-badge'); };
-    const checked = say({ hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' });
-    expect(checked.textContent).toBe('Hiring (checked 5 Oct)');
-    expect(checked.className).toContain('hiring-badge-off');
-    expect(say({ hiringState: 'none', hiring_checked_at: '2026-10-13T04:29:43.000Z' }).textContent).toBe('No open roles listed (13 Oct)');
-    expect(say({ hiringState: 'unverified' }).textContent).toBe('Roles unverified');
-    expect(say({}).textContent).toBe('Roles unverified');
-  });
-
-  describe('what it says about how far to trust the company', () => {
-    const daysAgo = (n) => new Date(Date.now() - n * 86400000).toISOString();
-    const filled = (record) => { const card = companyPopup(tuple(), { onOpen: vi.fn() }); card.fill(record); return card.element; };
-
-    it('says nothing about it until the record arrives, and nothing at all for a company with no check date', () => {
-      const card = companyPopup(tuple(), { onOpen: vi.fn() }).element;
-      expect(card.querySelector('.pin-pop-fresh').hidden).toBe(true);
-      expect(card.querySelector('.badge-unverified').hidden).toBe(true);
-      expect(card.querySelector('.concept-label').hidden).toBe(true);
-      expect(filled({ verified: true }).querySelector('.pin-pop-fresh').hidden).toBe(true); // no placeholder, no "N/A"
-      expect(filled({ verified: true, last_verified_at: 'not a date' }).querySelector('.pin-pop-fresh').hidden).toBe(true);
-    });
-
-    it('says when it was last checked, in words, where it can be seen without opening "More"', () => {
-      const el = filled({ verified: true, last_verified_at: daysAgo(3) });
-      const note = el.querySelector('.pin-pop-fresh');
-      expect(note.hidden).toBe(false);
-      expect(note.textContent).toBe('Verified 3 days ago');
-      expect(note.className).toBe('pin-pop-fresh');
-      expect(el.querySelector('.pin-pop-more').contains(note)).toBe(false);
-    });
-
-    it('says "Needs re-check", muted, once the check is over 60 days old, and not "Verified 61 days ago"', () => {
-      const old = filled({ verified: true, last_verified_at: daysAgo(61) }).querySelector('.pin-pop-fresh');
-      expect(old.textContent).toBe('Needs re-check');
-      expect(old.className).toContain('pin-pop-fresh-stale');
-      expect(filled({ verified: true, last_verified_at: daysAgo(60) }).querySelector('.pin-pop-fresh').textContent).toBe('Verified 8 weeks ago');
-    });
-
-    it('marks a company nobody has verified as "Unverified": only a record that says so, never one that says nothing', () => {
-      expect(filled({ verified: false }).querySelector('.badge-unverified').hidden).toBe(false);
-      expect(filled({ verified: false }).querySelector('.badge-unverified').textContent).toBe('Unverified');
-      expect(filled({ verified: true }).querySelector('.badge-unverified').hidden).toBe(true);
-      expect(filled({}).querySelector('.badge-unverified').hidden).toBe(true);
-    });
-
-    it('labels a company that opted in to task-gated applications a muted "Concept preview", and no other one', () => {
-      const label = filled({ taskGate: { optedIn: true } }).querySelector('.concept-label');
-      expect(label.hidden).toBe(false);
-      expect(label.textContent).toBe('Concept preview');
-      expect(filled({ taskGate: { optedIn: false } }).querySelector('.concept-label').hidden).toBe(true);
-      expect(filled({ taskGate: { enabled: true } }).querySelector('.concept-label').hidden).toBe(true); // a flag with no opt-in is not a label
-      expect(filled({}).querySelector('.concept-label').hidden).toBe(true);
-    });
-
-    it('never offers a task: no "Start task", no "Task-gated" badge', () => {
-      const el = filled({ verified: false, taskGate: { optedIn: true }, last_verified_at: daysAgo(2) });
-      expect(el.textContent).not.toMatch(/start task/i);
-      expect(el.textContent).not.toMatch(/task-gated/i);
-      expect(el.querySelectorAll('.pin-pop-cta')).toHaveLength(1);
-    });
-  });
-
-  it('says a website that no longer answers is unavailable, and does not link it', () => {
-    const card = companyPopup(tuple(), { onOpen: vi.fn() });
-    card.fill({ website: 'https://zoomo.co', website_status: 'unavailable' });
-    expect(card.element.querySelector('.pin-pop-site')).toBeNull();
-    expect(card.element.querySelector('.pin-pop-more').textContent).toContain('Website unavailable');
+    card.fill({ blurb: `${'Builds software that helps clinics book, bill and follow up with patients across Australia and New Zealand '.repeat(4)}end.` });
+    const line = text(card.element, '.pin-pop-blurb');
+    expect(line.length).toBeLessThanOrEqual(170);
+    expect(line.endsWith('…')).toBe(true);
+    expect(line).not.toMatch(/\s…$/);
+    const empty = companyPopup(tuple(), { onOpen: vi.fn() });
+    empty.fill({ blurb: '   ' });
+    expect(empty.element.querySelector('.pin-pop-blurb').hidden).toBe(true);
   });
 
   it('writes a hostile name and line as text only', () => {
     const evil = '<img src=x onerror=alert(1)>';
     const card = companyPopup(['e', evil, 0, 0, 'AI', 'Sydney', 0, ''], { onOpen: vi.fn() });
-    card.fill({ blurb: evil, stage: evil, hiringState: 'unverified' });
+    card.fill({ blurb: evil });
     expect(card.element.querySelector('img')).toBeNull();
     expect(text(card.element, '.pin-pop-name')).toBe(evil);
     expect(text(card.element, '.pin-pop-blurb')).toBe(evil);

@@ -71,17 +71,17 @@ describe('how many are on the map', () => {
     expect(countText({ companies: 70, vcs: 8, entity: 'vcs' })).toBe('8 investors');
     expect(countText({ companies: undefined, vcs: 0, entity: 'all' })).toBe(''); // not known yet: the bar says it is counting
     expect(countText({ companies: 1234, vcs: 0, entity: 'all' })).toBe('1,234 companies');
-    // a company with no place on record is counted, and said not to be on the map
-    expect(countText({ companies: 300, unplaced: 45, vcs: 0, entity: 'all' })).toBe('300 companies (45 not on the map)');
-    expect(countText({ companies: 17, unplaced: 2, vcs: 1, entity: 'all' })).toBe('17 companies (2 not on the map) and 1 investor');
-    expect(countText({ companies: 5, unplaced: 0, vcs: 0, entity: 'startups' })).toBe('5 companies');
+    // one count: no second figure for the ones with no street pin (they are companies of the city, in the list; the map does not make a number of what it does not draw)
+    expect(countText({ companies: 300, unplaced: 45, vcs: 0, entity: 'all' })).toBe('300 companies');
+    expect(countText({ companies: 17, unplaced: 2, vcs: 1, entity: 'all' })).toBe('17 companies and 1 investor');
+    expect(countText({ companies: 5, vcs: 0, entity: 'startups' })).toBe('5 companies');
   });
 });
 
 describe('the bar over the map', () => {
   const cities = MAP_CITIES.map((city, i) => ({ city, count: i === 0 ? 121 : null }));
   const props = (over = {}) => ({
-    filters: { ...EMPTY_FILTERS }, onFilterChange: vi.fn(), cities, sectors: ['AI', 'Fintech', 'Unknown'], stages: ['Seed', 'Unknown', 'Series A'],
+    filters: { ...EMPTY_FILTERS }, onFilterChange: vi.fn(), cities, sectors: [{ value: 'AI & Data', count: 5 }, { value: 'Fintech', count: 12 }],
     companies: 266, vcs: 0, entity: 'all', onEntityChange: vi.fn(), filtersOpen: false, onToggleFilters: vi.fn(), filtersRef: { current: null }, listHref: '/discover', onList: vi.fn(), ...over,
   });
 
@@ -115,29 +115,34 @@ describe('the bar over the map', () => {
     expect(p.onFilterChange).toHaveBeenLastCalledWith({ search: '' });
   });
 
-  it('offers the sectors and only the stages on record: a company with no stage has none, so Unknown is not a stage to pick', async () => {
+  it('offers the sectors it is given (the display sectors that have a result), each with how many, and has no stage menu: the stage is under More filters', async () => {
     const p = props();
     render(<MapToolbar {...p} />);
-    await userEvent.click(screen.getByRole('button', { name: 'Stage' }));
-    const stages = within(screen.getByRole('group', { name: 'Stage' })).getAllByRole('checkbox').map((c) => c.parentElement.textContent);
-    expect(stages).toEqual(['Seed', 'Series A']);
-    await userEvent.click(within(screen.getByRole('group', { name: 'Stage' })).getByRole('checkbox', { name: 'Seed' }));
-    expect(p.onFilterChange).toHaveBeenCalledWith({ stage: 'Seed' });
+    expect(screen.queryByRole('button', { name: /^Stage/ })).not.toBeInTheDocument();
     await userEvent.click(screen.getByRole('button', { name: 'Sector' }));
-    expect(within(screen.getByRole('group', { name: 'Sector' })).getAllByRole('checkbox').map((c) => c.parentElement.textContent)).toEqual(['AI', 'Fintech']);
+    expect(within(screen.getByRole('group', { name: 'Sector' })).getAllByRole('checkbox').map((c) => c.parentElement.textContent)).toEqual(['AI & Data5', 'Fintech12']);
+    await userEvent.click(within(screen.getByRole('group', { name: 'Sector' })).getByRole('checkbox', { name: /Fintech/ }));
+    expect(p.onFilterChange).toHaveBeenCalledWith({ sector: 'Fintech' });
   });
 
-  it('says how many are on the map where a screen reader will hear it change, and links to the same companies as a list', () => {
+  it('says how many are on the map where a screen reader will hear it change, and links to the same companies as a list: "View list"', () => {
     render(<MapToolbar {...props({ companies: 17, vcs: 1 })} />);
     expect(screen.getByRole('status')).toHaveTextContent('17 companies and 1 investor');
-    expect(screen.getByRole('link', { name: 'See these as a gallery' })).toHaveAttribute('href', '/discover');
+    expect(screen.getByRole('link', { name: 'View list' })).toHaveAttribute('href', '/discover');
   });
 
-  it('says it is counting until the count arrives, and switches what the map shows', async () => {
+  it('counts the stage and the other filters on "More filters"', () => {
+    render(<MapToolbar {...props({ filters: { ...EMPTY_FILTERS, stage: 'Seed', hiring: 'yes', sector: 'Fintech', city: 'Perth', search: 'x' } })} />);
+    expect(screen.getByRole('button', { name: 'More filters' })).toHaveTextContent('2'); // the stage and hiring: not the city, the sector or the search, which have controls of their own
+  });
+
+  it('says it is counting until the count arrives, and picks the type of organisation from one select', async () => {
     const p = props({ companies: undefined });
     render(<MapToolbar {...p} />);
     expect(screen.getByRole('status')).toHaveTextContent('Counting…');
-    await userEvent.click(screen.getByRole('button', { name: 'Startups' }));
+    const select = screen.getByRole('combobox', { name: 'What kind of organisation' });
+    expect([...select.options].map((o) => o.textContent)).toEqual(['All types', 'Startups', 'Companies', 'Investors', 'Spaces']);
+    await userEvent.selectOptions(select, 'startups');
     expect(p.onEntityChange).toHaveBeenCalledWith('startups');
   });
 });
@@ -189,47 +194,38 @@ describe('where a company\'s facts came from', () => {
 
 describe('the card beside a mark', () => {
   beforeEach(() => { vi.clearAllMocks(); });
-  const pin = { slug: 'canva', name: 'Canva', city: 'Sydney', sector: 'Design', website: 'https://canva.com', hiring: false, location: { place: 'Sydney', quality: 'City-level: approximate' } };
+  const pin = { slug: 'canva', name: 'Canva', city: 'Sydney', suburb: 'Surry Hills', sector: 'Design', website: 'https://canva.com', hiring: false, location: { place: 'Sydney', quality: 'City-level: approximate' } };
 
-  it('opens with what the mark knows, then adds the description, the official website and the sources as the record arrives', async () => {
+  it('opens with what the mark knows, then adds one sentence as the record arrives: never the website or the sources', async () => {
     let arrive;
     fetchStartup.mockReturnValue(new Promise((resolve) => { arrive = resolve; }));
-    render(<PreviewCard pin={pin} onOpen={() => {}} onClose={() => {}} onToggleSaved={() => {}} />);
+    render(<PreviewCard pin={pin} onOpen={() => {}} onClose={() => {}} />);
     expect(screen.getByText('Canva')).toBeInTheDocument();
-    expect(screen.getByText('City-level: approximate')).toBeInTheDocument(); // a city, said to be approximate
+    expect(screen.getByText('Design · Surry Hills, Sydney')).toBeInTheDocument(); // the sector the source gave, where the pin has no display sector, and where it is
+    expect(screen.queryByText('City-level: approximate')).not.toBeInTheDocument(); // how well the place is known is on the company's page
     expect(screen.queryByText(/Source/)).not.toBeInTheDocument();
     arrive({ slug: 'canva', name: 'Canva', blurb: 'Online design and publishing', sector: 'Design', sectorFull: 'Design software', website: 'https://www.canva.com', website_status: null, sources: [{ url: 'https://www.canva.com/about', kind: 'company_website', checked_at: '2026-10-21T01:00:00Z' }] });
     expect(await screen.findByText('Online design and publishing')).toBeInTheDocument();
-    expect(screen.getByText('Design software')).toBeInTheDocument();
-    expect(screen.getAllByRole('link').find((a) => a.getAttribute('href') === 'https://www.canva.com')).toHaveTextContent('canva.com'); // the official website
-    expect(screen.getByRole('link', { name: /its own site/ })).toHaveAttribute('href', 'https://www.canva.com/about');
+    expect(screen.queryByText('Design software')).not.toBeInTheDocument(); // the sector is the one name, not the long text
+    expect(screen.queryByRole('link')).not.toBeInTheDocument(); // no official website, no source: they are on the company's own page
+    expect(screen.queryByText(/its own site|canva\.com/)).not.toBeInTheDocument();
   });
 
-  it('keeps what the mark knew when the record cannot be had, and shows no website that is known to be gone', async () => {
+  it('keeps what the mark knew when the record cannot be had, and links nothing', async () => {
     fetchStartup.mockRejectedValue(new Error('offline'));
-    const { unmount } = render(<PreviewCard pin={pin} onOpen={() => {}} onClose={() => {}} onToggleSaved={() => {}} />);
+    const { unmount } = render(<PreviewCard pin={pin} onOpen={() => {}} onClose={() => {}} />);
     await waitFor(() => expect(fetchStartup).toHaveBeenCalled());
     expect(screen.getByText('Canva')).toBeInTheDocument();
     expect(screen.queryByText(/Source/)).not.toBeInTheDocument();
     unmount();
     fetchStartup.mockResolvedValue({ slug: 'canva', name: 'Canva', blurb: 'x', website: 'https://gone.example', website_status: 'unavailable', sources: [] });
-    render(<PreviewCard pin={pin} onOpen={() => {}} onClose={() => {}} onToggleSaved={() => {}} />);
+    render(<PreviewCard pin={pin} onOpen={() => {}} onClose={() => {}} />);
     await screen.findByText('x');
-    expect(screen.queryByRole('link', { name: /gone\.example/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
   it('does not ask for a record for an investor', () => {
-    render(<PreviewCard pin={{ kind: 'vc', slug: 'blackbird', name: 'Blackbird', website: 'https://blackbird.vc' }} onOpen={() => {}} onClose={() => {}} onToggleSaved={() => {}} />);
+    render(<PreviewCard pin={{ kind: 'vc', slug: 'blackbird', name: 'Blackbird', website: 'https://blackbird.vc' }} onOpen={() => {}} onClose={() => {}} />);
     expect(fetchStartup).not.toHaveBeenCalled();
-  });
-});
-
-describe('the stage menu on the map page', () => {
-  it('says what the stages are: as the directory lists them, never filled in from a guess', async () => {
-    render(<MapToolbar filters={{ ...EMPTY_FILTERS }} onFilterChange={() => {}} cities={[]} sectors={['AI']} stages={['Seed']} companies={1} vcs={0} entity="all" onEntityChange={() => {}} filtersOpen={false} onToggleFilters={() => {}} filtersRef={{ current: null }} listHref="/discover" onList={() => {}} />);
-    await userEvent.click(screen.getByRole('button', { name: 'Stage' }));
-    expect(within(screen.getByRole('group', { name: 'Stage' })).getByText(/As the directory lists them/)).toBeInTheDocument();
-    await userEvent.click(screen.getByRole('button', { name: 'Sector' }));
-    expect(within(screen.getByRole('group', { name: 'Sector' })).queryByText(/As the directory lists them/)).not.toBeInTheDocument();
   });
 });

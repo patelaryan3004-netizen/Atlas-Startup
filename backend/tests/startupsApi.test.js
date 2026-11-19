@@ -1,7 +1,8 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import request from 'supertest';
 import { fixture, removeTempDirs } from './helpers/catalog.js';
-import { CARD_FIELDS, MARKER_FIELDS } from '../src/catalog/catalog.js';
+import { CARD_FIELDS, MARKER_FIELDS, FUNDING_STAGES } from '../src/catalog/catalog.js';
+import { SECTOR_OPTIONS, sectorGroupOf } from '../src/models/sectors.js';
 import { INTERNAL_FIELDS } from '../src/models/company.js';
 import { metroOf } from '../src/geo/metro.js';
 
@@ -124,9 +125,12 @@ describe('what the page needs besides a page', () => {
     const res = await request(f.app).get('/api/startups/meta');
     expect(res.body).toEqual({
       sectors: uniqueSorted(f.rows.map((r) => r.sector)), cities: uniqueSorted(f.rows.map((r) => r.city)),
-      investors: uniqueSorted(f.rows.flatMap((r) => r.investors)), stages: uniqueSorted(f.rows.map((r) => r.stage)),
+      // the display sectors that have a company, in the list's order, with how many (models/sectors.js)
+      sectorGroups: SECTOR_OPTIONS.map((value) => ({ value, count: f.rows.filter((r) => sectorGroupOf(r.sector) === value).length })).filter(({ count }) => count > 0),
+      // the funding rounds some company is at, earliest first: not what became of a company, nor how far along it is
+      investors: uniqueSorted(f.rows.flatMap((r) => r.investors)), stages: FUNDING_STAGES.filter((stage) => f.rows.some((r) => r.stage === stage)),
       // the options for the optional facts: none, while no page gives one
-      remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], hasFresh: false,
+      remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], maturities: [], hasFresh: false,
     });
   });
 
@@ -184,7 +188,7 @@ describe('questions that cannot be answered', () => {
   it.each([
     ['limit=0', /limit must be a whole number from 1 to 200/], ['limit=201', /limit must be/], ['limit=abc', /limit must be/], ['limit=1.5', /limit must be/],
     ['offset=-1', /offset must be/], ['sort=price', /sort must be one of file, name, hiring, location, industry/], ['view=huge', /view must be card or full/],
-    ['facets=color', /facets must be from sector, city, stage, investor/], ['limit=5&facets=sector,color', /facets must be from/],
+    ['facets=color', /facets must be from sector, sectorGroup, city, stage, investor/], ['limit=5&facets=sector,color', /facets must be from/],
   ])('say what is wrong, with a 400 that is not kept: %s', async (query, message) => {
     const f = await fixture(40);
     const before = f.app.locals.respond.stats().entries;

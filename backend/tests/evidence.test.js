@@ -478,7 +478,7 @@ describe('public projection', () => {
   it('pins the list of internal fields, so exposing one is a deliberate change', () => {
     expect([...INTERNAL_FIELDS].sort()).toEqual([
       'confidence_score', 'cover_retrieved_at', 'cover_source_url', 'created_at', 'location_confidence', 'location_source', 'location_source_url',
-      'location_verified_at', 'source_ids', 'updated_at',
+      'location_verified_at', 'maturity_check', 'show_on_map', 'source_ids', 'updated_at',
     ]);
   });
 });

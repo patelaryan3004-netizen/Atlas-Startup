@@ -22,7 +22,7 @@ import { showPeople } from './flags.js';
 const decode = (part) => { try { return decodeURIComponent(part); } catch (e) { return part; } };
 
 // What at / means "the startups" and not Home: any of the filters, the view or what is shown.
-const EXPLORE_KEYS = ['search', 'sector', 'city', 'investor', 'stage', 'hiring', 'taskGate', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'cohort', 'fresh', 'view', 'show', 'selected'];
+const EXPLORE_KEYS = ['search', 'sector', 'city', 'investor', 'stage', 'maturity', 'hiring', 'taskGate', 'events', 'precision', 'state', 'remote', 'tech', 'team', 'cohort', 'fresh', 'view', 'show', 'selected'];
 
 export function readAppRoute({ pathname = window.location.pathname, search = window.location.search } = {}) {
   if (readInvestorsRoute({ pathname, search })) return { kind: 'investors' };
@@ -89,7 +89,8 @@ export const SHOW_WORDS = ['startups', 'companies', 'vcs', 'spaces'];
 // has no query.
 export function exploreSearch(filters, viewMode, entity = 'all', selected = null) {
   const params = new URLSearchParams();
-  // (orgType is what `show` says, as a filter for the API: it is not written twice)
+  // (orgType is what `show` says, as a filter for the API: it is not written twice. onMap, "only what the map shows", is written for the list opened from the map, so its
+  // address says what the list is; the map page asks for it by itself and appUrl leaves it out of the map's address)
   for (const [key, value] of Object.entries(filters)) if (value && key !== 'orgType') params.set(key, value);
   if (viewMode === 'map') params.set('view', 'map');
   if (SHOW_WORDS.includes(entity)) params.set('show', entity);
@@ -102,6 +103,6 @@ export function exploreSearch(filters, viewMode, entity = 'all', selected = null
 // the filter); the others stand alone.
 export function appUrl(route, { filters = {}, viewMode = 'list', entity = 'all', selected = null } = {}) {
   const path = appPath(route);
-  if (route.kind === 'map') return `${path}${exploreSearch(filters, 'list', entity, selected)}`; // the map page is the map: its address needs no view word
+  if (route.kind === 'map') return `${path}${exploreSearch({ ...filters, onMap: '' }, 'list', entity, selected)}`; // the map page is the map: its address needs no view word, and the map is only what it shows
   return route.kind === 'explore' || route.kind === 'startup' ? `${path}${exploreSearch(filters, viewMode, entity)}` : path;
 }

@@ -1,29 +1,20 @@
 import { useEffect, useRef } from 'react';
 import CheckMenu from './CheckMenu.jsx';
-import { ENTITIES } from './ExploreToolbar.jsx';
+import { ENTITIES, placeLabel } from './ExploreToolbar.jsx';
 import { SearchIcon, CloseIcon, SlidersIcon, GridIcon, ChevronDown } from './icons.jsx';
 import { linkProps } from '../brand/nav.js';
+import { splitValues } from '../MultiSelect.jsx';
 
-// The head of the map page's directory panel (the "Startup atlas" panel): a kicker, the heading, one line of what it is for, the search, the two selects (what
-// kind of organisation, which sector), the stage and the rest of the filters, and how many there are. Everything in it is the page's existing filters: the type
-// is the layer the map shows (All, Startups, Companies, Investors, Spaces), the sector, the stage and the search are the same filters the toolbar had, and "More" opens
-// the filter panel. Nothing here is a second set of filters.
-
-// The mark beside the kicker: a small sunburst.
-function Sunburst() {
-  return (
-    <svg className="at-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true" focusable="false">
-      <circle cx="12" cy="12" r="3.2" />
-      <path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1" />
-    </svg>
-  );
-}
+// The head of the map page's directory panel: the heading and ONE row of controls (a row that wraps on a narrow panel): the search, the city, the sector, the type of organisation and
+// "View list". The stage and the rest of the filters are one press away under "More filters". Everything in it is the page's existing filters: the city is the `city`
+// filter, the sector the display sector (the twelve the map and Discover share), the type the layer the map shows (All, Startups, Companies, Investors, Spaces), "View list" is Discover's
+// list of exactly this map. Nothing here is a second set of filters.
 
 const TYPE_LABEL = { all: 'All types', startups: 'Startups', companies: 'Companies', vcs: 'Investors', spaces: 'Spaces' };
 
 export default function AtlasHead({
-  filters, onFilterChange, sectors = [], stages = [], entity, onEntityChange, filtersOpen, onToggleFilters, filtersRef, filterCount = 0, listHref, onList,
-  count, pinned, children,
+  filters, onFilterChange, sectors = [], cities = [], entity, onEntityChange, filtersOpen, onToggleFilters, filtersRef, filterCount = 0, listHref, onList,
+  count, children,
 }) {
   const search = useRef(null);
   // "/" jumps to the search, as the box says, unless the visitor is already typing somewhere.
@@ -38,13 +29,13 @@ export default function AtlasHead({
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, []);
-  const sectorOptions = sectors.filter((s) => s && s !== 'Unknown').map((value) => ({ value }));
-  const stageOptions = stages.filter((s) => s && s !== 'Unknown').map((value) => ({ value }));
+  const chosenCities = splitValues(filters.city);
+  // One city is a city of the menu; several (an address can name them) is read as they are, so the select says so and does not pretend to be one of the ten.
+  const cityValue = chosenCities.length > 1 || (chosenCities.length === 1 && !cities.some((c) => c.city === chosenCities[0])) ? filters.city : chosenCities[0] ?? '';
+  const sectorOptions = sectors.filter((s) => s && s.value && s.value !== 'Unknown');
   return (
     <div className="at-head">
-      <p className="at-kicker"><Sunburst /><span>Still Early field guide</span></p>
       <h1 className="at-title">Startup <em>atlas</em>.</h1>
-      <p className="at-lede">Discover who&rsquo;s building around you.</p>
 
       <label className="at-search">
         <SearchIcon size={20} className="at-search-icon" />
@@ -64,17 +55,26 @@ export default function AtlasHead({
 
       <div className="at-selects">
         <label className="at-select">
+          <span className="at-sr">City</span>
+          <select aria-label="City" value={cityValue} onChange={(event) => onFilterChange({ city: event.target.value })}>
+            <option value="">All Australia</option>
+            {cityValue && !cities.some((c) => c.city === cityValue) && <option value={cityValue}>{placeLabel(chosenCities)}</option>}
+            {cities.map(({ city }) => <option key={city} value={city}>{city}</option>)}
+          </select>
+          <ChevronDown size={18} className="at-select-chev" />
+        </label>
+        <CheckMenu label="Sector" allLabel="All sectors" options={sectorOptions} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} noun="sectors" />
+        <label className="at-select">
           <span className="at-sr">What kind of organisation</span>
           <select aria-label="What kind of organisation" value={entity} onChange={(event) => onEntityChange(event.target.value)}>
             {ENTITIES.map(([id]) => <option key={id} value={id}>{TYPE_LABEL[id]}</option>)}
           </select>
           <ChevronDown size={18} className="at-select-chev" />
         </label>
-        <CheckMenu label="Sector" allLabel="All sectors" options={sectorOptions} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} noun="sectors" />
+        <a className="at-list" {...linkProps(listHref, onList)}><GridIcon size={18} /><span>View list</span></a>
       </div>
 
       <div className="at-tools">
-        <CheckMenu label="Stage" allLabel="All stages" options={stageOptions} value={filters.stage} onChange={(stage) => onFilterChange({ stage })} noun="stages" note="As the directory lists them: no stage is filled in from a guess, and a company with none on record is not in this list." />
         <button
           ref={filtersRef}
           type="button"
@@ -85,15 +85,10 @@ export default function AtlasHead({
           onClick={onToggleFilters}
         >
           <SlidersIcon size={18} />
-          <span className="xt-btn-text"><span className="xt-btn-word">More</span>{filterCount ? <span className="xt-badge">{filterCount}</span> : null}</span>
+          <span className="xt-btn-text"><span className="xt-btn-word">More filters</span>{filterCount ? <span className="xt-badge">{filterCount}</span> : null}</span>
         </button>
-        <a className="at-list" aria-label="See these as a gallery" {...linkProps(listHref, onList)}><GridIcon size={18} /><span>Gallery</span></a>
+        <p className="at-count" role="status" aria-live="polite">{count}</p>
       </div>
-
-      <p className="at-count" role="status" aria-live="polite">
-        <span className="at-count-main">{count}</span>
-        {pinned ? <span className="at-count-sub">{pinned}</span> : null}
-      </p>
       {children}
     </div>
   );

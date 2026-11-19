@@ -89,7 +89,7 @@ describe('where the map goes for a city', () => {
 
 describe('keeping the badges apart', () => {
   const size = { x: 1000, y: 800 };
-  const at = (city, x, y, count = 10) => ({ city, x, y, w: labelWidth(city, count) });
+  const at = (city, x, y, count = 10) => ({ city, x, y, w: labelWidth(city) });
   const overlap = (a, b) => a.l < b.r && b.l < a.r && a.t < b.b && b.t < a.b;
   const box = (spot, anchor) => {
     const l = spot.side === 'right' ? anchor.x + 10 : anchor.x - 10 - anchor.w;
@@ -142,8 +142,8 @@ describe('the drawn country', () => {
     expect(new Set(wa.map((p) => p[1]))).toEqual(new Set([129])); // WA's eastern border is the 129th meridian
   });
 
-  it('fades from the drawn country to the street map in order: tiles load, pins come in, then the drawn country goes', () => {
-    expect(TILES_LOAD_ZOOM).toBeLessThan(PINS_ZOOM);
-    expect(PINS_ZOOM).toBeLessThan(ATLAS_ZOOM);
+  it('goes from the drawn country to the street map to the pins in order: tiles load, the drawn country goes, then (at a city\'s scale) the cities\' names give way to the pins', () => {
+    expect(TILES_LOAD_ZOOM).toBeLessThan(ATLAS_ZOOM);
+    expect(ATLAS_ZOOM).toBeLessThan(PINS_ZOOM); // there are no clusters between the two: the street map and the names of the cities
   });
 });

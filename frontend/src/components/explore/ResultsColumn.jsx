@@ -169,9 +169,9 @@ export default function ResultsColumn({
           </ul>
         )}
 
-        {rows.length > 0 && !inArea && (
+        {rows.length > 0 && !inArea && !atlasPanel && (
           <button type="button" className="xc-all" onClick={onViewAll}>
-            {mapPanel || atlasPanel ? 'See all as a gallery' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
+            {mapPanel ? 'See all as a gallery' : total > 0 ? `View all ${total} results` : 'View all results'} <ArrowRight size={18} />
           </button>
         )}
 
@@ -182,7 +182,6 @@ export default function ResultsColumn({
           <Shapes />
         </a>}
       </div>
-      {atlasPanel && atlas.note && <p className="at-foot">{atlas.note}</p>}
     </section>
   );
 }
