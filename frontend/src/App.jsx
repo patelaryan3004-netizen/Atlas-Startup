@@ -27,6 +27,7 @@ import { showPeople } from './flags.js';
 import { hiringLabel, roleClosedMessage } from './freshness.js';
 import { PALETTE } from './sectorPalette.js';
 import { useSectorOptions } from './sectorOptions.js';
+import { ATLAS_ZOOM } from './atlas/zoomModes.js';
 import ListBanner from './components/ListBanner.jsx';
 import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
@@ -847,6 +848,8 @@ export default function App() {
   // The map page ("Startup atlas") on a wide screen: the directory panel beside the map, always there, and the heading, the selects and the counts in it. On a phone
   // the map comes first with the same bar as before and the directory one tap away in the sheet.
   const atlasWide = isMapPage && wideMap;
+  // National: no city is picked and the map has not been zoomed in (the badge over the map says "National overview" then, and the city's figure once one is picked).
+  const national = splitValues(filters.city).length === 0 && (mapView?.zoom ?? 0) <= ATLAS_ZOOM;
   const filterCount = Object.entries(filters).filter(([key, value]) => value && !['search', 'city', 'sector', 'onMap'].includes(key)).length; // (the stage is under "More filters" now, so it counts there)
   const previewCard = wideMap && preview ? (
     <Lazy><PreviewCard
@@ -1023,8 +1026,8 @@ export default function App() {
 
             {viewMode === 'map' && !desktop && chips && <div className="chips-float">{chips}</div>}
             {atlasWide && areaOffer && !area && <button type="button" className="xr-area" onClick={() => { setArea(areaOffer); setAreaOffer(null); }}>Search this area</button>}
-            {atlasWide && viewMode === 'map' && (
-              <Lazy><AtlasOverlay /></Lazy>
+            {isMapPage && viewMode === 'map' && (
+              <Lazy><AtlasOverlay filters={filters} onFilterChange={applyFilters} cities={mapCityOptions} national={national} pinned={shown === 'vcs' ? undefined : markers.length} /></Lazy>
             )}
             {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
               <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>

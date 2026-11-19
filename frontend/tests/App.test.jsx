@@ -1862,6 +1862,66 @@ describe('App', () => {
       expect(await screen.findByTestId('map-view')).toBeInTheDocument();
     });
 
+    describe('the badge over the map page\'s map (the edition, the city and its figure, at the upper left)', () => {
+      const badgeOf = async () => { await waitFor(() => expect(document.querySelector('.at-over')).not.toBeNull()); return within(document.querySelector('.at-over')); };
+      const pickFromBadge = async (name) => {
+        const badge = await badgeOf();
+        await userEvent.click(badge.getByRole('button', { name: /^City: / }));
+        await userEvent.click(within(screen.getByRole('group', { name: 'Choose a city' })).getByRole('button', { name }));
+      };
+
+      it('says "National overview" under Australia, then the city and how many of its organisations have a pin, and follows each switch of city made from it', async () => {
+        window.history.pushState({}, '', '/map');
+        render(<App />);
+        let badge = await badgeOf();
+        expect(badge.getByText('The Australian edition')).toBeInTheDocument();
+        expect(badge.getByRole('button', { name: 'City: Australia' })).toHaveTextContent('Australia');
+        expect(badge.getByText('National overview')).toBeInTheDocument();
+        expect(document.querySelector('.at-over')).not.toHaveClass('at-over-card'); // bare over the sea
+        await pickFromBadge(/Sydney/);
+        await waitFor(() => expect(screen.getByTestId('map-view').dataset.scope).toBe('Sydney'));
+        badge = await badgeOf();
+        await waitFor(() => expect(badge.getByRole('button', { name: 'City: Sydney' })).toHaveTextContent('Sydney'));
+        expect(badge.getByText('2 organisations with a pin on the map')).toBeInTheDocument();
+        expect(badge.queryByText('National overview')).not.toBeInTheDocument();
+        expect(document.querySelector('.at-over')).toHaveClass('at-over-card'); // a card of the night over the street map
+        fetchMarkers.mockResolvedValue({ total: 1, count: 1, pinned: 1, items: [pin('zeller', 'Zeller')] });
+        await pickFromBadge(/Melbourne/);
+        await waitFor(() => expect(screen.getByTestId('map-view').dataset.scope).toBe('Melbourne'));
+        await waitFor(() => expect(within(document.querySelector('.at-over')).getByRole('button', { name: 'City: Melbourne' })).toHaveTextContent('Melbourne'));
+        await waitFor(() => expect(within(document.querySelector('.at-over')).getByText('1 organisation with a pin on the map')).toBeInTheDocument());
+        expect(window.location.search).toBe('?city=Melbourne');
+      });
+
+      it('follows the city picked anywhere else on the page too (the panel\'s select, the map\'s names, a link), and goes back to Australia with it', async () => {
+        window.history.pushState({}, '', '/map?city=Sydney');
+        render(<App />);
+        const badge = await badgeOf();
+        expect(badge.getByRole('button', { name: 'City: Sydney' })).toHaveTextContent('Sydney');
+        await userEvent.selectOptions(screen.getByRole('combobox', { name: 'City' }), 'Melbourne'); // the panel's own select
+        await waitFor(() => expect(within(document.querySelector('.at-over')).getByRole('button', { name: 'City: Melbourne' })).toBeInTheDocument());
+        await userEvent.selectOptions(screen.getByRole('combobox', { name: 'City' }), '');
+        await waitFor(() => expect(within(document.querySelector('.at-over')).getByText('National overview')).toBeInTheDocument());
+      });
+
+      it('is there on a phone as well (smaller, by the styles), with the city menu in it, and is not on the page that is not the map page', async () => {
+        phone();
+        window.history.pushState({}, '', '/map');
+        const { unmount } = render(<App />);
+        const badge = await badgeOf();
+        expect(badge.getByText('National overview')).toBeInTheDocument();
+        await userEvent.click(badge.getByRole('button', { name: 'City: Australia' }));
+        await userEvent.click(within(screen.getAllByRole('group', { name: 'Choose a city' }).at(-1)).getByRole('button', { name: /Perth/ }));
+        await waitFor(() => expect(screen.getByTestId('map-view').dataset.scope).toBe('Perth'));
+        expect(await within(document.querySelector('.at-over')).findByText('2 organisations with a pin on the map')).toBeInTheDocument();
+        unmount();
+        window.history.pushState({}, '', '/discover');
+        render(<App />);
+        await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' });
+        expect(document.querySelector('.at-over')).toBeNull();
+      });
+    });
+
     it('brings the map back where it was, exactly, from the list: the centre and zoom it was left at, with the city and every filter still on', async () => {
       window.history.pushState({}, '', '/map?sector=Fintech&city=Sydney');
       render(<App />);

@@ -52,9 +52,15 @@ curated list; the rule is now in the code and tested.)
 * **A city:** pins are drawn from zoom 8 (a city's scale); between the country and that the map is the street map with the cities' names. There are no clusters, stacks or groups; the pins are *spaced*
   instead (the final pass, below).
 * **A company known only to its city** has no pin and no ring: it is in the filtered list (and in the count), never drawn. (Melbourne: 176 companies, 168 pins, 8 city-only; Melbourne + Fintech: 12 / 11 / 1.)
-* **One row of controls** in the directory panel: Search · City · Sector · Type · View list, then "More filters" (the stage, Early / Growth and everything else) and the one count. The kicker, the line under
-  the heading, the "with a pin" sub-line, the pins footnote, the Stage menu, the Early / Growth buttons, the city card and "National overview" over the map, the "Choose a city to explore" pill and the
-  panel's second "See all as a gallery" button are gone. The compass stays. On a phone the same controls are two lines in the bar.
+* **One row of controls** in the directory panel: Search · City · Sector · Type · View list, then "More filters" (the stage, Early / Growth and everything else) and the one count. The panel's kicker, the line under
+  the heading, the "with a pin" sub-line, the pins footnote, the Stage menu, the Early / Growth buttons, the "Choose a city to explore" pill and the panel's second "See all as a gallery" button are
+  gone. The compass stays. On a phone the same controls are two lines in the bar.
+* **The badge over the map** (the floating city information at the map's upper left, the first thing the cleanup took away) is back, as it was, from the version in git history before the polish (28a2b70,
+  `AtlasOverlay.jsx` and the `.at-over` styles of `atlas.css`): "The Australian edition" in the gold kicker, the place in Instrument Serif at 62 px as a heading that opens the cities, and under it
+  "National overview" over the sea of the national view or, once a city is picked, "N organisations with a pin on the map" on a card of the night over the street map. It is at the same place (26 px
+  from the left of the map, 22 px from its top), the compass in the other corner, and it follows the city however that is picked (its own menu, the panel's select, the cities' names on the map, a link):
+  the figure is the number of companies with a pin under the filters, so a sector or a search changes it. On a phone (where it was not shown before) it is the same kicker, name and line, in the same
+  type and colours, smaller (a 30 to 38 px name) at the top left of the map, with its city list kept above the sheet; the compass is left off there and the chips that say what is filtered sit under it.
 
 ### Overlapping logos: spacing by zoom, revealed as the map comes closer
 
