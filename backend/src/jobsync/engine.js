@@ -32,19 +32,20 @@ function fromPosting(p, source, at, id) {
     remote: /\bremote\b/i.test(`${p.labels.join(' ')} ${p.workplaceType ?? ''}`) ? true : null, posted_at: p.posted_at ?? null, apply_url: p.apply_url, status: 'open',
     source_id: source.id, retrieved_at: at,
     provider: source.provider, external_id: p.external_id, canonical_url: p.canonical_url, first_seen_at: at, last_confirmed_at: at, absent_reads: 0, status_changed_at: at,
-    locations: p.labels, workplace_type: p.workplaceType ?? null, team: p.team ?? null,
+    locations: p.labels, workplace_type: p.workplaceType ?? null, team: p.team ?? null, salary: p.salary ?? null, experience_level: p.experience ?? null,
   };
 }
 
 // What the employer says now replaces what we held (the employer is the authority on its own role); what it does not say stays unsaid, except a posted date it once gave.
 function refresh(row, p, source, at) {
-  const reopened = row.status !== 'open';
+  // A role hidden because another board lists the same role (dedupe.js) stays hidden while that one is open: it is not "listed again".
+  const reopened = row.status !== 'open' && !row.duplicate_of;
   const firstSeen = row.first_seen_at ?? row.retrieved_at ?? at; // a legacy row's first read is the earliest day we have for it
   Object.assign(row, {
     title: p.title, location: p.labels.join(' / ') || null, employment_type: p.employment ?? null,
     remote: /\bremote\b/i.test(`${p.labels.join(' ')} ${p.workplaceType ?? ''}`) ? true : null, apply_url: p.apply_url,
     source_id: source.id, retrieved_at: at, provider: source.provider, external_id: p.external_id, canonical_url: p.canonical_url,
-    last_confirmed_at: at, absent_reads: 0, locations: p.labels, workplace_type: p.workplaceType ?? null, team: p.team ?? null,
+    last_confirmed_at: at, absent_reads: 0, locations: p.labels, workplace_type: p.workplaceType ?? null, team: p.team ?? null, salary: p.salary ?? null, experience_level: p.experience ?? null,
   });
   if (p.posted_at) row.posted_at = p.posted_at;
   row.first_seen_at = firstSeen;

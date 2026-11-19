@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import {
   EMPTY, readFilters, writeFilters, sectorLabel, matches, filterRoles, placeCounts, placeBreakdown, companyIndex, sortRoles, filterOptions, confirmedWords, whereWords, rowMeta, standing, feedStamp,
-  loadSnapshot, normaliseRole, initialsOf, activeSecondary, isStart,
+  loadSnapshot, normaliseRole, initialsOf, activeSecondary, isStart, salaryText, roundOf,
 } from '../src/jobsBoard.js';
 import { deskRole, deskBoard } from './network/helpers.js';
 
@@ -142,9 +142,10 @@ describe('the words', () => {
     expect(standing(deskRole({ lifecycle: 'closed' }), NOW).label).toBe('Closed by the employer');
   });
 
-  it('does not call the board current when the hourly check has not run, and does not pretend when it never has', () => {
+  it('does not call the board current when the twice-daily refresh has not run, and does not pretend when it never has', () => {
     expect(feedStamp(deskBoard([]), at('2026-11-13T03:00:00Z'))).toMatchObject({ tone: 'ok', text: expect.stringMatching(/Employer boards last read 13 Nov 2026/) });
-    expect(feedStamp(deskBoard([]), at('2026-11-14T03:00:00Z'))).toMatchObject({ tone: 'late', text: expect.stringMatching(/hourly check has not run since/) });
+    expect(feedStamp(deskBoard([]), at('2026-11-14T14:00:00Z')).tone).toBe('ok'); // a day and ten hours after the last refresh is the schedule, not lateness
+    expect(feedStamp(deskBoard([]), at('2026-11-15T03:00:00Z'))).toMatchObject({ tone: 'late', text: expect.stringMatching(/twice-daily refresh has not run since/) });
     expect(feedStamp(deskBoard([], { sync: { last_success_at: null } }), NOW)).toMatchObject({ tone: 'none' });
     // a saved copy never reads as live, whatever its age: it says it is a copy and when the employers' boards were checked for it
     expect(feedStamp(deskBoard([]), NOW, 'snapshot')).toMatchObject({ tone: 'saved', text: expect.stringMatching(/^Saved copy · checked 13 Nov 2026/) });
@@ -175,5 +176,22 @@ describe('the saved copy of the board', () => {
     expect(r).toMatchObject({ lifecycle: 'closed', last_confirmed_at: '2026-10-27T01:00:00Z' });
     expect(r.work.places).toEqual([{ label: 'Sydney, NSW', au: true, city: null }]);
     expect(normaliseRole(null)).toBeNull();
+  });
+});
+
+describe('what the employer states about pay and the company about its round', () => {
+  it('writes a stated range out, shows an employer\'s own wording as worded, and says nothing when nothing is stated', () => {
+    expect(salaryText(null)).toBe('');
+    expect(salaryText({ min: 120000, max: 160000, currency: 'AUD', period: 'year', text: '$120K – $160K' })).toBe('A$120,000 to A$160,000 a year');
+    expect(salaryText({ min: 90000, max: 90000, currency: 'AUD', period: 'year' })).toBe('A$90,000 a year');
+    expect(salaryText({ min: 55, max: null, currency: 'AUD', period: 'hour' })).toBe('From A$55 an hour');
+    expect(salaryText({ min: null, max: 140000, currency: 'USD', period: null })).toBe('Up to US$140,000');
+    expect(salaryText({ min: null, max: null, currency: null, period: null, text: '$120K – $160K' })).toBe('$120K – $160K');
+    expect(salaryText('Competitive')).toBe('Competitive'); // a role stored before pay was kept as a structure
+  });
+
+  it('tells a funding round from what became of a company', () => {
+    expect(['Seed', 'Series B+', 'Pre-seed', 'Series E'].map(roundOf)).toEqual(['Seed', 'Series B+', 'Pre-seed', 'Series E']);
+    expect(['Unknown', '', null, 'Acquired', 'Defunct (in liquidation)', 'Unicorn', 'Growth'].map(roundOf)).toEqual(['', '', '', '', '', '', '']);
   });
 });

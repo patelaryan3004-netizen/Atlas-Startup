@@ -200,9 +200,31 @@ export function feedStamp(board, now = Date.now(), source = 'live') {
   }
   if (!last) return { text: 'No employer board has been read yet', tone: 'none' };
   const hours = (now - Date.parse(last)) / 3600000;
-  if (hours > 6) return { text: `Employer boards last read ${stamp(last)}. The hourly check has not run since.`, tone: 'late' };
+  // The refresh runs twice a day (8:10 am and 8:10 pm Melbourne time) and the site is redeployed when something a visitor can see changed, or once a day: a gap of up to a day and a half is the
+  // schedule, so "late" is more than forty hours.
+  if (hours > 40) return { text: `Employer boards last read ${stamp(last)}. The twice-daily refresh has not run since.`, tone: 'late' };
   return { text: `Employer boards last read ${stamp(last)}`, tone: 'ok' };
 }
+
+const CURRENCY = { AUD: 'A$', USD: 'US$', NZD: 'NZ$', GBP: '£', EUR: '€', CAD: 'CA$', SGD: 'S$' };
+const PERIOD = { year: 'a year', month: 'a month', week: 'a week', day: 'a day', hour: 'an hour' };
+
+// The pay an employer's listing states, in words: only what it states. A structured range ({ min, max, currency, period, text }) is written out; a bare statement the employer worded
+// itself ("$120K – $160K") is shown as worded; an older stored string is shown as it is. Nothing is converted, estimated or filled in.
+export function salaryText(salary) {
+  if (!salary) return '';
+  if (typeof salary === 'string') return salary.trim();
+  const { min, max, currency, period, text } = salary;
+  const money = (n) => `${CURRENCY[currency] ?? (currency ? `${currency} ` : '')}${Number(n).toLocaleString('en-AU', { maximumFractionDigits: 2 })}`;
+  const when = PERIOD[period] ? ` ${PERIOD[period]}` : '';
+  if (Number.isFinite(min) && Number.isFinite(max)) return `${min === max ? money(min) : `${money(min)} to ${money(max)}`}${when}`;
+  if (Number.isFinite(min)) return `From ${money(min)}${when}`;
+  if (Number.isFinite(max)) return `Up to ${money(max)}${when}`;
+  return typeof text === 'string' ? text.trim() : '';
+}
+
+// The funding stage a visitor may be told: a round. "Unknown", an empty stage, or what became of a company (acquired, defunct) is not one.
+export const roundOf = (stage) => (/^(?:Pre-seed|Seed|Series [A-E]\+?)$/.test(String(stage ?? '').trim()) ? String(stage).trim() : '');
 
 // ---------- the board's data ----------
 

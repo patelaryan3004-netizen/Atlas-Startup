@@ -1,31 +1,33 @@
-# The hourly job-board sync: reads every approved employer job board that is due and keeps jobs.json in line with what the employers list. See docs/jobs-sync.md.
+# The twice-a-day refresh of the hiring desk: 8:10 am and 8:10 pm Melbourne time. See docs/jobs-sync.md.
 #
 # STATUS: NOT INSTALLED, AND NOT ENABLED. This copy lives in docs/ because GitHub refuses a push that adds a workflow file unless the credential has the "workflow" scope, and the one
 # used for this repository has only gist, read:org and repo. To install it: create .github/workflows/jobs-sync.yml in GitHub's web editor and paste this in (or push it with a credential
 # that has the scope: `gh auth refresh -s workflow`). Once installed it still does nothing until the repository VARIABLE JOBSYNC_ENABLED is "true" (Settings > Secrets and variables >
 # Actions > Variables). Turn it off the same way. It has never run on GitHub.
 #
-# It is the ONLY schedule for this job: the scheduler's other six jobs (docs/scheduler.md, docs/scheduled-refresh.workflow.yml) do not include `jobsync` unless it is named, so the two
-# workflows never read the same boards. Each board is read at most about once an hour whichever way it is started: the state file says when it may be read again.
+# THE TIME. GitHub's schedule takes an IANA time zone (`timezone:` beside `cron:`, documented under on.schedule in the workflow syntax reference), so "10 8,20 * * *" with
+# Australia/Melbourne is 8:10 am and 8:10 pm Melbourne time all year, and follows daylight saving (neither time falls in the skipped hour). GitHub can start a scheduled run late when it is
+# busy; the refresh does not depend on the minute it starts.
 #
-# What it does with what it reads: the state lives in git (Render's free disk is erased on every deploy, so a database file there would not last). A run commits backend/src/data only when
-# something a visitor could see changed (a role added, hidden, archived, edited, a board failing or recovering) or the data is a day old. A commit that changed roles redeploys the API
-# (Render deploys main), which is how a new role reaches the site; a heartbeat-only commit is marked [skip render]. An hour in which nothing moved makes no commit at all.
-name: Job board sync (hourly)
+# WHERE THE DATA LIVES. Render's free disk is erased on every deploy, so a database there would not last. The data files are in git (backend/src/data). A refresh COMMITS only when it found
+# something worth keeping (docs/jobs-sync.md says what), and the commit REDEPLOYS the API only when a visitor can see a difference, or once a day so the "last read" stamp is true; every other
+# refresh leaves the repository alone. Nothing here is a paid service: GitHub Actions minutes are free on a public repository, and the refresh makes no call to any language-model service.
+name: Job board refresh (twice daily, Melbourne time)
 
 on:
   schedule:
-    - cron: '9 * * * *' # once an hour, off the hour so it does not queue with everyone else's
+    - cron: '10 8,20 * * *'
+      timezone: 'Australia/Melbourne'
   workflow_dispatch:
     inputs:
       force:
-        description: 'Read every board now, even those read within the hour'
+        description: 'Read every board now, even those read within the last hour'
         required: false
         default: 'false'
         type: choice
         options: ['false', 'true']
 
-# One run at a time, and never cut one short half way through writing.
+# One refresh at a time, and never cut one short half way through writing.
 concurrency:
   group: jobsync
   cancel-in-progress: false
@@ -34,15 +36,15 @@ permissions:
   contents: write
 
 jobs:
-  sync:
+  refresh:
     if: ${{ vars.JOBSYNC_ENABLED == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 50 # the rule "commit at least once a day" reads the last commit that touched the data
+          fetch-depth: 200 # the one-a-day heartbeat reads the date of the last commit that touched the health record
 
       - uses: actions/setup-node@v4
         with:
@@ -54,43 +56,52 @@ jobs:
         working-directory: backend
         run: npm ci
 
-      - name: Read the employer boards that are due
+      - name: Name this refresh
+        id: slot
+        working-directory: backend
+        run: node scripts/jobsync.mjs slot --force
+
+      - name: Refresh
         working-directory: backend
         env:
+          SLOT: ${{ steps.slot.outputs.slot }}
           FORCE: ${{ inputs.force }}
         run: |
-          args=(tick --job jobsync --by github-actions --trigger ci --max-minutes 8)
+          args=(tick --job jobsync --by github-actions --trigger ci --slot "$SLOT" --max-minutes 25)
           if [ "$FORCE" = "true" ]; then args+=(--force); fi
           node scripts/scheduler.js "${args[@]}"
 
-      - name: Did anything a visitor could see change?
+      - name: Is it worth a commit, and a redeploy?
         id: changed
         working-directory: backend
         run: node scripts/jobsync.mjs meaningful
 
-      - name: Leave the data alone when only dates moved
+      - name: Leave the repository alone when nothing is worth keeping
         if: steps.changed.outputs.commit != 'yes'
         run: git checkout -- backend/src/data
 
-      - name: Commit what changed
+      - name: Commit what the refresh wrote
         if: steps.changed.outputs.commit == 'yes'
         env:
           REASON: ${{ steps.changed.outputs.reason }}
           DEPLOY: ${{ steps.changed.outputs.deploy }}
+          SLOT: ${{ steps.slot.outputs.slot }}
         run: |
           git config user.name 'AU Startup Map job sync'
           git config user.email 'actions@users.noreply.github.com'
-          # Only what a sync is for: the roles, the board state, the catalogue, the run log, the audit entry of the run, and startups.json (whose derived "hiring checked" dates follow the
-          # roles; the data-integrity test fails on main if they are left behind). A tick also seeds refresh_state.json (the other scheduler jobs' bookkeeping, thousands of lines) as a side
-          # effect: that is not part of a job sync and is left out on purpose.
-          git add backend/src/data/jobs.json backend/src/data/job_sync_state.json backend/src/data/job_sources.json backend/src/data/job_runs.json backend/src/data/audit_trail.json backend/src/data/startups.json
+          # Only what a refresh is for: the roles, the boards and their state, the ledgers (coverage, venture boards, leads, health), the run log, the audit entry of the run, the sources
+          # that approve a board, and startups.json (whose derived "hiring checked" dates follow the roles; the data-integrity test fails on main if they are left behind). A tick also seeds
+          # refresh_state.json (the other scheduler jobs' bookkeeping) as a side effect: that is not part of this and is left out on purpose.
+          git add backend/src/data/jobs.json backend/src/data/job_sync_state.json backend/src/data/job_sources.json backend/src/data/job_runs.json backend/src/data/audit_trail.json \
+                  backend/src/data/job_coverage.json backend/src/data/job_vc_boards.json backend/src/data/job_leads.json backend/src/data/job_health.json backend/src/data/sources.json backend/src/data/startups.json
           if git diff --cached --quiet; then echo 'Nothing to commit.'; exit 0; fi
-          message="data: job board sync ($REASON)"
+          message="data: job board refresh $SLOT ($REASON)"
+          # Render deploys main on every push: a commit that changes nothing a visitor can see says so, and is not deployed.
           if [ "$DEPLOY" != "yes" ]; then message="$message [skip render]"; fi
           git commit -m "$message"
           for attempt in 1 2 3; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
             echo "push failed (attempt $attempt); trying again"; sleep $((attempt * 5))
           done
-          echo 'Could not push: someone changed the same files meanwhile. The next run reads again.'
+          echo 'Could not push: someone changed the same files meanwhile. The next refresh reads again.'
           exit 1

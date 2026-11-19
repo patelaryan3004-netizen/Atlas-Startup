@@ -1,0 +1,77 @@
+[
+  {
+    "id": "lead-zofiq",
+    "kind": "unknown_company",
+    "name": "Zofiq",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "antler",
+        "url": "https://boards.greenhouse.io/connectwise/jobs/4756297005",
+        "title": "Regional Sales Manager",
+        "at": "2026-11-19T14:17:46.694Z"
+      }
+    ],
+    "first_seen_at": "2026-11-19T14:17:46.694Z",
+    "last_seen_at": "2026-11-19T16:39:11.321Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-fortiro",
+    "kind": "unknown_company",
+    "name": "Fortiro",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "oif",
+        "url": "https://careers.fortiro.com/jobs/8758156-senior-fullstack-software-engineer-java-react",
+        "title": "Senior Fullstack Software Engineer (Java, React)",
+        "at": "2026-11-19T14:17:56.011Z"
+      },
+      {
+        "firm": "oif",
+        "url": "https://careers.fortiro.com/jobs/8752012-fraud-intelligence-lead",
+        "title": "Fraud Intelligence Lead",
+        "at": "2026-11-19T14:17:56.011Z"
+      },
+      {
+        "firm": "oif",
+        "url": "https://careers.fortiro.com/jobs/8612269-devops-engineer",
+        "title": "DevOps Engineer",
+        "at": "2026-11-19T14:17:56.011Z"
+      },
+      {
+        "firm": "oif",
+        "url": "https://careers.fortiro.com/jobs/8693771-technical-product-manager-ai-strategy-emerging-capabilities",
+        "title": "Technical Product Manager | AI Strategy & Emerging Capabilities",
+        "at": "2026-11-19T14:17:56.011Z"
+      },
+      {
+        "firm": "oif",
+        "url": "https://careers.fortiro.com/jobs/8370312-account-executive-mid-market",
+        "title": "Account Executive, Mid-Market",
+        "at": "2026-11-19T14:17:56.011Z"
+      }
+    ],
+    "first_seen_at": "2026-11-19T14:17:56.011Z",
+    "last_seen_at": "2026-11-19T16:39:18.806Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-google",
+    "kind": "unknown_company",
+    "name": "Google",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "accel",
+        "url": "https://www.google.com/about/careers/applications/jobs/results/103734307461178054-customer-engineering-manager-iii-google-cloud?page=131",
+        "title": "Customer Engineering Manager III, Google Cloud",
+        "at": "2026-11-19T14:18:35.311Z"
+      }
+    ],
+    "first_seen_at": "2026-11-19T14:18:35.311Z",
+    "last_seen_at": "2026-11-19T16:40:17.726Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  }
+]

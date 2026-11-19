@@ -62,12 +62,15 @@ export const deskRole = (over = {}) => ({
   apply_url: 'https://jobs.lever.co/Zeller/abc', source_kind: 'careers_page', last_checked_at: '2026-11-13T02:00:00Z', days_since_checked: 0, stale: false, status: 'open',
   work: { places: [{ label: 'Melbourne, Victoria, Australia', au: true, city: 'Melbourne' }], cities: ['Melbourne'], remote_au: false, remote_evidence: null, arrangement: 'hybrid' },
   team: 'Sales', first_seen_at: '2026-11-13T02:00:00Z', last_confirmed_at: '2026-11-13T02:00:00Z', posted_at: '2026-11-10T00:00:00Z', lifecycle: 'open', confirmation: 'confirmed',
-  provider: 'lever', provider_name: 'Lever', source_health: null, ...over,
+  provider: 'lever', provider_name: 'Lever', source_health: null, experience_level: null, vc_firms: [], ...over,
 });
 
 export const deskBoard = (roles, over = {}) => ({
   schema: 1, generated_at: '2026-11-13T02:05:00Z', roles, lapsed: [],
   totals: { roles: roles.length, companies: new Set(roles.map((r) => r.company.name)).size, places: {}, remote_au: 0, stale_hidden: 0 },
-  facets: {}, sync: { last_success_at: '2026-11-13T02:00:00Z', oldest_success_at: '2026-11-13T02:00:00Z', last_attempt_at: '2026-11-13T02:00:00Z', boards: { approved: 3, polled: 3, never_read: 0, failing: 0 }, covered: [{ company: 'Zeller', slug: 'zeller', provider: 'lever', last_success_at: '2026-11-13T02:00:00Z', last_attempt_at: '2026-11-13T02:00:00Z', failing: false, error: null, roles: 2 }], unsupported: [{ company: 'Acme', provider: 'ashby' }], review: [{ company: 'Deputy', provider: 'lever', why: 'named, not confirmed' }], interval_minutes: 60 },
+  facets: {}, sync: { last_success_at: '2026-11-13T02:00:00Z', oldest_success_at: '2026-11-13T02:00:00Z', last_attempt_at: '2026-11-13T02:00:00Z', boards: { approved: 3, polled: 3, never_read: 0, failing: 0 }, covered: [{ company: 'Zeller', slug: 'zeller', provider: 'lever', last_success_at: '2026-11-13T02:00:00Z', last_attempt_at: '2026-11-13T02:00:00Z', failing: false, error: null, roles: 2 }], unsupported: [{ company: 'Acme', provider: 'ashby' }], review: [{ company: 'Deputy', provider: 'lever', why: 'named, not confirmed' }], interval_minutes: 720, schedule: 'twice daily, 8:10 am and 8:10 pm Melbourne time',
+    directory: { companies: 920, looked_at: 917, with_board: 55, no_website: 38, for_review: 824, by_outcome: { board: 55 }, reasons: [{ outcome: 'careers_page_only', why: 'a careers page with no job-board link in a plain page read', companies: 319 }], unsupported_providers: [{ provider: 'teamtailor', companies: 6 }] },
+    vc_boards: [{ name: 'Blackbird', platform: 'getro', access: 'public_sample', note: '', own_vacancies: '', checked_at: '2026-11-13T02:00:00Z' }, { name: 'Sequoia Capital', platform: 'consider', access: 'no_public_feed', note: '', own_vacancies: '', checked_at: '2026-11-13T02:00:00Z' }],
+    last_refresh: { at: '2026-11-13T02:00:00Z', slot: '2026-11-13 AM', boards_ok: 3, boards_failed: 0, new_roles: 4, closed_roles: 1, duplicates_removed: 1, open_roles: 12 }, leads_waiting: 2 },
   ...over,
 });

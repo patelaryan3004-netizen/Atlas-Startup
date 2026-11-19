@@ -6,7 +6,8 @@
 //             status      acquired, closed or renamed, from the homepage
 //             enrichment  description, address, founders, investors and founded year, from the company's own pages
 //             quality     what is stale, in conflict or failing; brings the right things forward to be looked at again
-//             jobsync     (asked for by name, hourly) every approved employer job board that is due, read whole, into jobs.json: see docs/jobs-sync.md
+//             jobsync     (asked for by name, twice a day) the hiring desk's refresh: venture boards, board discovery, every approved employer board that is due read whole into jobs.json,
+//                         duplicates, the health record: see docs/jobs-sync.md
 //
 // The order of a tick:  1 note that the jobs started, and learn from any task that finished since last time
 //                       2 read the feeds (discovery, funding)
@@ -36,7 +37,9 @@ import { coolingHosts, reconcileFromQueue, recordHostCooldowns, stampCheck } fro
 import { eligibleUnless, facetsForJobs, planSiteReads } from './plan.js';
 import { runFeedJobs } from './jobs/feeds.js';
 import { runQuality, qualitySummary } from './jobs/quality.js';
-import { runJobSync, planJobSync } from './jobs/jobsync.js';
+import { planJobSync } from './jobs/jobsync.js';
+import { runJobRefresh } from '../jobsync/refresh.js';
+import { jobSyncFetcher } from '../jobsync/fetcher.js';
 
 export { JOBS };
 export const SITE_JOBS = ['hiring', 'status', 'enrichment'];
@@ -128,9 +131,13 @@ export async function tick({
     // ---- 2b. the employers' job boards, on their own clock (one hour), read whole, with a budget of their own
     await phase(['jobsync'], 'reading the employer job boards', async () => {
       if (!selected.includes('jobsync')) return;
-      const jobsBase = fetcher ?? createFetcher({ userAgent: env.JOBSYNC_USER_AGENT || userAgent.replace('scheduled refresh', 'job board sync'), coolDownHosts: begun.cooling, maxBytes: 4000000, minDelayMs: 1500 });
-      const jobsBudget = createBudget({ maxRequests: limits.maxRequests ?? 120, maxMinutes: limits.maxMinutes ?? 10, now });
-      const r = await runJobSync({ ...ctx, fetcher: jobsBudget.wrap(jobsBase) }, { budget: jobsBudget, limit: limits.maxBoards, only: limits.boards });
+      const jobsBase = fetcher ?? jobSyncFetcher({ userAgent: env.JOBSYNC_USER_AGENT || userAgent.replace('scheduled refresh', 'job board sync'), coolDownHosts: begun.cooling });
+      // A whole refresh (venture boards, board discovery, every due employer board): up to 1,500 requests and 20 minutes, paced per host by the fetcher. When a limit is reached it stops
+      // starting work and what was left stays due for the next refresh.
+      const jobsBudget = createBudget({ maxRequests: limits.maxRequests ?? 1500, maxMinutes: limits.maxMinutes ?? 20, now });
+      const r = await runJobRefresh({ ...ctx, fetcher: jobsBudget.wrap(jobsBase) }, {
+        budget: jobsBudget, limit: limits.maxBoards, only: limits.boards, steps: limits.steps, discoveryLimit: limits.discoveryLimit, discoveryConcurrency: limits.concurrency ? limits.concurrency * 2 : 4, trigger, slot: limits.slot ?? null,
+      });
       if (r.failed > 0 && r.processed === 0) r.error = `every board that was read failed (${r.failed}): the roles were left as they were`;
       Object.assign(results.jobsync, r);
       out(`jobsync: ${r.summary}`);

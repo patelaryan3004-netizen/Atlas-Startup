@@ -188,7 +188,7 @@ describe('a feed that does not answer properly', () => {
   });
 
   it('has no reader for a provider it does not know, and says so', async () => {
-    await expect(reader({}).read(source({ provider: 'ashby' }))).rejects.toBeInstanceOf(SyncError);
+    await expect(reader({}).read(source({ provider: 'smartrecruiters' }))).rejects.toBeInstanceOf(SyncError); // its postings API says Disallow: / to every robot: not read
   });
 });
 
@@ -297,7 +297,7 @@ describe('which boards are approved', () => {
   const ds = () => dataset([co('Acme Robotics', { website: 'https://acme.com.au' }), co('Deputy', { website: 'https://www.deputy.com' })], {
     sources: [
       { id: 'acme-robotics-greenhouse-jobs', kind: 'company_website', url: 'https://boards.greenhouse.io/acme', title: 'Greenhouse job board', publisher: 'acme.com.au', retrieved_at: ISO, note: 'linked from the careers page' },
-      { id: 'acme-robotics-ashby-jobs', kind: 'company_website', url: 'https://jobs.ashbyhq.com/acme', title: 'Ashby job board', publisher: 'acme.com.au', retrieved_at: ISO, note: '' },
+      { id: 'acme-robotics-smartrecruiters-jobs', kind: 'company_website', url: 'https://jobs.smartrecruiters.com/acme', title: 'SmartRecruiters job board', publisher: 'acme.com.au', retrieved_at: ISO, note: '' },
       { id: 'ghost-lever-jobs', kind: 'company_website', url: 'https://jobs.lever.co/ghost', title: 'x', publisher: 'ghost.example', retrieved_at: ISO, note: '' },
     ],
   });
@@ -311,11 +311,11 @@ describe('which boards are approved', () => {
 
   it('approves only boards a company in the directory\'s own page links to, and queues the ones that were only named', () => {
     const rows = buildCatalogue(ds(), { review: [{ company_id: 'deputy', provider: 'lever', token: 'deputy', reason: 'named by the pilot; the careers page has not been read' }, { company_id: 'nobody', provider: 'lever', token: 'x', reason: 'x' }] });
-    expect(rows.map((r) => [r.id, r.status])).toEqual([['acme-robotics-ashby-jobs', 'approved'], ['acme-robotics-greenhouse-jobs', 'approved'], ['deputy-lever-review', 'review']]);
+    expect(rows.map((r) => [r.id, r.status])).toEqual([['acme-robotics-greenhouse-jobs', 'approved'], ['acme-robotics-smartrecruiters-jobs', 'approved'], ['deputy-lever-review', 'review']]);
     const merged = dataset(ds().companies, { sources: ds().sources, job_sources: rows });
     const c = coverage(merged);
     expect(c).toMatchObject({ approved: 2, polled: 1, companies_polled: 1 });
-    expect(c.unsupported).toEqual([{ id: 'acme-robotics-ashby-jobs', company_id: 'acme-robotics', provider: 'ashby' }]);
+    expect(c.unsupported).toEqual([{ id: 'acme-robotics-smartrecruiters-jobs', company_id: 'acme-robotics', provider: 'smartrecruiters' }]);
     expect(c.review.map((r) => r.company_id)).toEqual(['deputy']);
   });
 });
@@ -334,7 +334,8 @@ async function setup({ jobs = [], jobSources = null } = {}) {
   const fetcher = () => createFetcher({ fetchImpl: w.fetchImpl, resolveHost: async () => ['93.184.216.34'], sleep: async () => {}, now });
   return {
     dir, state, w, clock, now,
-    run: (over = {}) => tick({ dir, now, fetcher: fetcher(), sources: [], by: 'tester', jobs: ['jobsync'], trigger: 'ci', ...over }),
+    // These tests are about reading boards: the venture-board and discovery steps of a full refresh have their own tests (jobsyncRefresh.test.js).
+    run: (over = {}) => tick({ dir, now, fetcher: fetcher(), sources: [], by: 'tester', jobs: ['jobsync'], trigger: 'ci', limits: { steps: ['boards'] }, ...over }),
     forward: (ms) => { clock.now += ms; },
     data: () => readDataDir(dir),
   };
@@ -495,7 +496,7 @@ describe('the hourly sync, run by the scheduler', () => {
 
 // ---------- what a run changed that a visitor could see ----------
 
-import { compareJobs, compareHealth, worthCommitting } from '../src/jobsync/changes.js';
+import { compareJobs, compareHealth, compareLedgers, worthCommitting } from '../src/jobsync/changes.js';
 
 describe('did the run change anything a visitor could see?', () => {
   const row = (id, over = {}) => ({ id, title: 'T', status: 'open', locations: ['Melbourne'], last_confirmed_at: '2026-11-01T00:00:00Z', retrieved_at: '2026-11-01T00:00:00Z', ...over });
@@ -506,17 +507,29 @@ describe('did the run change anything a visitor could see?', () => {
     expect(compareJobs(before, after)).toEqual({ added: 1, removed: 1, status: 1, edited: 1, redated: 1 });
   });
 
-  it('does not make a commit for an hour in which every board was read and nothing moved, until the data is a day old', () => {
+  it('does not make a commit for a refresh in which every board was read and nothing moved, until the last commit is a day old: then one, that redeploys so the stamp is true', () => {
     const quiet = compareJobs([row('a')], [row('a', { last_confirmed_at: '2026-11-01T05:00:00Z' })]);
     expect(worthCommitting({ jobs: quiet, health: 0, ageHours: 3 })).toMatchObject({ commit: false });
-    expect(worthCommitting({ jobs: quiet, health: 0, ageHours: 24 })).toMatchObject({ commit: true, deploy: false });
+    expect(worthCommitting({ jobs: quiet, health: 0, ageHours: 11 })).toMatchObject({ commit: false });
+    expect(worthCommitting({ jobs: quiet, health: 0, ageHours: 21 })).toMatchObject({ commit: true, deploy: true });
     expect(worthCommitting({ jobs: compareJobs([], [row('a')]), health: 0, ageHours: 1 })).toMatchObject({ commit: true, deploy: true });
   });
 
-  it('counts a board going failing or healthy, and not one that stays as it was', () => {
-    const ok = { source_id: 's', consecutive_failures: 0 };
+  it('counts a board going failing or healthy, a failing board failing once more, and a first empty answer: they must reach the next refresh; and not a board that stays as it was', () => {
+    const ok = { source_id: 's', consecutive_failures: 0, empty_reads: 0 };
     expect(compareHealth([ok], [{ ...ok, consecutive_failures: 1 }])).toBe(1);
-    expect(compareHealth([{ ...ok, consecutive_failures: 1 }], [{ ...ok, consecutive_failures: 4 }])).toBe(0);
+    expect(compareHealth([{ ...ok, consecutive_failures: 1 }], [{ ...ok, consecutive_failures: 2 }])).toBe(1); // "three in a row" can only be reached if the count is kept
     expect(compareHealth([{ ...ok, consecutive_failures: 2 }], [ok])).toBe(1);
+    expect(compareHealth([ok], [{ ...ok, empty_reads: 1 }])).toBe(1); // the second empty answer is what closes a board's roles
+    expect(compareHealth([ok], [{ ...ok, last_success_at: '2026-11-01T05:00:00Z' }])).toBe(0);
+  });
+
+  it('counts a board approved or put in review, a company whose outcome changed, a lead and a venture board that changed: and not dates', () => {
+    const before = { job_sources: [{ id: 'a', status: 'review', token: 't' }], job_coverage: [{ company_id: 'c', outcome: 'no_careers_found', boards: [], checked_at: '2026-11-01' }], job_leads: [], job_vc_boards: [{ id: 'v', platform: 'getro', access: 'public_sample', board_url: 'https://x.example/jobs' }] };
+    expect(compareLedgers(before, { ...before, job_coverage: [{ company_id: 'c', outcome: 'no_careers_found', boards: [], checked_at: '2026-11-08' }] })).toBe(0);
+    expect(compareLedgers(before, { ...before, job_sources: [{ id: 'a', status: 'approved', token: 't' }] })).toBe(1);
+    expect(compareLedgers(before, { ...before, job_coverage: [{ company_id: 'c', outcome: 'board', boards: [], checked_at: 'x' }, { company_id: 'd', outcome: 'no_website', boards: [] }] })).toBe(2);
+    expect(compareLedgers(before, { ...before, job_leads: [{ id: 'lead-x' }], job_vc_boards: [{ id: 'v', platform: 'getro', access: 'no_public_feed', board_url: 'https://x.example/jobs' }] })).toBe(2);
+    expect(worthCommitting({ jobs: compareJobs([], []), health: 0, ledger: 2, ageHours: 1 })).toMatchObject({ commit: true, deploy: false });
   });
 });

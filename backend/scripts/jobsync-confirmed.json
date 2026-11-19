@@ -1,0 +1,36 @@
+[
+  {
+    "company_id": "rokt",
+    "provider": "workable",
+    "token": "157387",
+    "page": "https://www.rokt.com/company/careers",
+    "how": "Read in a browser on 2026-11-20: the careers page draws its job list by script (Workable's embed, whr_embed(157387)), so a plain page read shows no board. The jobs it lists are the ones Workable's public feed for account 157387 returns.",
+    "evidence": "jobs",
+    "shown": ["https://apply.workable.com/j/361B100E01", "https://apply.workable.com/j/6D9BD8CE22"]
+  },
+  {
+    "company_id": "phocas",
+    "provider": "rippling",
+    "token": "phocas",
+    "page": "https://www.phocassoftware.com/careers",
+    "how": "Read in a browser on 2026-11-20: the careers page embeds Rippling's job board (ats.rippling.com/embed/phocas/jobs) by script, so a plain page read shows no board.",
+    "evidence": "link"
+  },
+  {
+    "company_id": "go1",
+    "provider": "greenhouse",
+    "token": "go1au",
+    "page": "https://www.go1.com/careers",
+    "how": "Read in a browser on 2026-11-20: the careers page lists its jobs by script, each linking to Greenhouse; the Australian ones are on the board go1au (the others are on go1us and go1vn, which are not approved: only the Australian board is read).",
+    "evidence": "jobs",
+    "shown": ["https://job-boards.greenhouse.io/go1au/jobs/4727660005", "https://job-boards.greenhouse.io/go1au/jobs/4752997005"]
+  },
+  {
+    "company_id": "pet-circle",
+    "provider": "teamtailor",
+    "token": "petcircle-1744336448",
+    "page": "https://www.petcircle.com.au/careers",
+    "how": "Read in a browser on 2026-11-20: the careers page links to its Teamtailor board (petcircle-1744336448.teamtailor.com) from script-drawn markup, so a plain page read does not see the link.",
+    "evidence": "link"
+  }
+]

@@ -263,23 +263,75 @@ describe('Opportunities: the hiring desk', () => {
     expect(screen.queryByText('Role m1')).not.toBeInTheDocument();
   });
 
-  it('says how current the board is, from the sync\'s last whole read: and says so when the hourly check has not run', async () => {
+  it('says how current the board is, from the sync\'s last whole read: and says so when the twice-daily refresh has not run', async () => {
     await openDesk();
     expect(screen.getByText(/Employer boards last read 13 Nov 2026/)).toBeInTheDocument();
     cleanup();
     api.fetchJobBoard.mockResolvedValue(deskBoard(roles(), { sync: { ...deskBoard([]).sync, last_success_at: '2026-11-11T02:00:00Z' } }));
     render(<JobsBoard chrome={{ go: {} }} />);
-    expect(await screen.findByText(/The hourly check has not run since/)).toBeInTheDocument();
+    expect(await screen.findByText(/The twice-daily refresh has not run since/)).toBeInTheDocument();
   });
 
-  it('lists what the board reads, what it cannot yet and what waits for a person, and says a new role appears after the next successful check', async () => {
+  it('lists what the board reads, what it cannot yet and what waits for a person, and says a new role appears after the next successful refresh', async () => {
     await openDesk();
     await userEvent.click(screen.getByRole('button', { name: /See feed coverage/ }));
     const d = within(await screen.findByRole('dialog', { name: 'Feed coverage' }));
-    expect(d.getByText(/after the next successful check, not the moment the employer posts it/)).toBeInTheDocument();
+    expect(d.getByText(/twice a day, at 8:10 am and 8:10 pm Melbourne time/)).toBeInTheDocument();
+    expect(d.getByText(/after the next successful refresh, not the moment the employer posts it/)).toBeInTheDocument();
     expect(d.getByText('Zeller')).toBeInTheDocument();
     expect(d.getByText(/ashby: no reader yet/)).toBeInTheDocument();
     expect(d.getByText(/not confirmed from the company.s own site/)).toBeInTheDocument();
+  });
+
+  it('says how much of the directory has been looked at, why the rest is not read, how the last refresh went, and what each venture firm\'s board allows', async () => {
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /See feed coverage/ }));
+    const d = within(await screen.findByRole('dialog', { name: 'Feed coverage' }));
+    expect(d.getByText(/55 of 917 have one the refresh reads/)).toBeInTheDocument();
+    expect(d.getByText('a careers page with no job-board link in a plain page read')).toBeInTheDocument();
+    expect(d.getByText('319 companies')).toBeInTheDocument();
+    expect(d.getByText('teamtailor')).toBeInTheDocument();
+    expect(d.getByText(/3 boards read, 0 could not be read, 4 new roles, 1 no longer listed, 1 duplicate shown once/)).toBeInTheDocument();
+    expect(d.getByText('Blackbird').nextSibling).toHaveTextContent(/Getro · its public page shows a sample only/);
+    expect(d.getByText('Sequoia Capital').nextSibling).toHaveTextContent(/Consider · no job list we may read/);
+    expect(d.getByText(/2 Australian companies named on those boards are not in the directory/)).toBeInTheDocument();
+  });
+
+  it('links the employer to its own page: a company to its startup page, a venture firm that is hiring to its investor page', async () => {
+    api.fetchJobBoard.mockResolvedValue(deskBoard([
+      melb('m1'),
+      melb('m2', { title: 'General Counsel', company: { name: 'Investible', slug: 'investible', kind: 'investor', city: 'Melbourne', sector: 'Venture capital', stage: '', website: 'https://www.investible.com' } }),
+    ]));
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /^Role m1,/ }));
+    let d = within(await screen.findByRole('dialog', { name: 'Role m1' }));
+    expect(d.getByRole('link', { name: 'Zeller' })).toHaveAttribute('href', '/startup/zeller');
+    await userEvent.click(d.getByRole('button', { name: 'Close' }));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    await userEvent.click(screen.getByRole('button', { name: /^General Counsel,/ }));
+    d = within(await screen.findByRole('dialog', { name: 'General Counsel' }));
+    expect(d.getByRole('link', { name: 'Investible' })).toHaveAttribute('href', '/investors/investible');
+    expect(d.queryByText('Funding stage')).not.toBeInTheDocument();
+  });
+
+  it('shows what the employer\'s listing states (pay, experience) and what the directory knows (round, backers), and nothing it does not', async () => {
+    api.fetchJobBoard.mockResolvedValue(deskBoard([
+      melb('m1', { salary: { min: 120000, max: 160000, currency: 'AUD', period: 'year', text: '$120K – $160K' }, experience_level: 'Mid-Senior Level', vc_firms: ['Blackbird', 'AirTree'] }),
+      melb('m2'),
+    ]));
+    await openDesk();
+    await userEvent.click(screen.getByRole('button', { name: /^Role m1,/ }));
+    let d = within(await screen.findByRole('dialog', { name: 'Role m1' }));
+    expect(d.getByText('Salary the employer states').nextSibling).toHaveTextContent('A$120,000 to A$160,000 a year');
+    expect(d.getByText('Experience the employer states').nextSibling).toHaveTextContent('Mid-Senior Level');
+    expect(d.getByText('Funding stage').nextSibling).toHaveTextContent('Series C');
+    expect(d.getByText('Backed by').nextSibling).toHaveTextContent('Blackbird, AirTree');
+    expect(d.getByRole('link', { name: /Apply at Zeller/ })).toHaveAttribute('href', 'https://jobs.lever.co/Zeller/abc');
+    await userEvent.click(d.getByRole('button', { name: 'Close' }));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    await userEvent.click(screen.getByRole('button', { name: /^Role m2,/ }));
+    d = within(await screen.findByRole('dialog', { name: 'Role m2' }));
+    for (const label of ['Salary the employer states', 'Experience the employer states', 'Backed by']) expect(d.queryByText(label)).not.toBeInTheDocument();
   });
 
   it('suggests a role: the form asks for the employer\'s own link, says a person checks it first, and sends what was typed', async () => {

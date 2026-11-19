@@ -16,8 +16,10 @@
   sector. `?sector=Unknown` still works and is called **"Sector not supplied"**. The old `?city=Sydney` and `?remote=yes` addresses still open the board on that place. The address follows the filters and the open role.
 - **Saved** shows the roles saved on this device (or in the account). A saved role the employer has taken down stays, with its true status ("No longer listed by the employer", "Closed by the employer", "Not rechecked since …") and no apply link.
 - **Suggest a role** is the existing form and queue, unchanged.
-- The stamp under the heading says when the employers' boards were last read **whole**, from the sync's own records; if that was more than six hours ago it says the hourly check has not run since. "See feed coverage" lists the boards that are
-  read, those that are approved but unreadable yet, and those waiting for a person to confirm: it is not every company, and says so.
+- The stamp under the heading says when the employers' boards were last read **whole**, from the sync's own records; if that was more than forty hours ago it says the twice-daily refresh has not run since (the refresh is at 8:10 am and 8:10 pm Melbourne time and the site is redeployed when something changed or once a day, so up
+  to twelve hours is the schedule). "See feed coverage" says how much of the directory has been looked at for a job board and why the rest is not read, how the last refresh went, which boards are read, which are approved but unreadable, which wait
+  for a person to confirm, and what each venture firm's job board allows: it is not every company, and says so.
+- A role's detail adds what the employer's own listing states (pay, the experience it asks for) and what the directory knows (the company's funding round, its backers), each only when there is something to say.
 
 ## Where the numbers come from
 

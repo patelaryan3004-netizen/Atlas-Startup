@@ -14,8 +14,8 @@ export const EMPLOYMENT_LABELS = { full_time: 'Full-time', part_time: 'Part-time
 export const LEVELS = ['intern', 'graduate', 'junior', 'mid', 'senior', 'lead', 'head'];
 export const LEVEL_LABELS = { intern: 'Intern', graduate: 'Graduate', junior: 'Junior', mid: 'Mid-level', senior: 'Senior', lead: 'Lead or principal', head: 'Head or director' };
 export const STALE_DAYS = 14; // the site's own window for "hiring now" (backend/src/app.js HIRING_WINDOW_DAYS): a role not confirmed for this long leaves the default board
-// A role the hourly sync has confirmed within this long is "confirmed"; older, up to STALE_DAYS, it says it could not be rechecked (the sync is hourly: this allows a day of trouble).
-export const CONFIRMED_HOURS = 36;
+// A role the sync has confirmed within this long is "confirmed"; older, up to STALE_DAYS, it says it could not be rechecked (the sync is twice a day and the site is redeployed at least once a day: this allows a missed refresh).
+export const CONFIRMED_HOURS = 48;
 
 // What the listing's own words say about the kind of employment, into our few kinds. Anything else (an unknown word, a placeholder) is "not stated".
 export function employmentOf(text) {
@@ -67,16 +67,16 @@ const BOARDS = [
 ];
 const boardOf = (url) => { try { const host = new URL(url).hostname; return BOARDS.find(([re]) => re.test(host))?.[1] ?? null; } catch (e) { return null; } };
 const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return null; } };
-const PROVIDER_NAMES = { greenhouse: 'Greenhouse', lever: 'Lever', workable: 'Workable', ashby: 'Ashby', recruitee: 'Recruitee', smartrecruiters: 'SmartRecruiters' };
+const PROVIDER_NAMES = { greenhouse: 'Greenhouse', lever: 'Lever', workable: 'Workable', ashby: 'Ashby', recruitee: 'Recruitee', smartrecruiters: 'SmartRecruiters', breezy: 'Breezy', pinpoint: 'Pinpoint', bamboohr: 'BambooHR', teamtailor: 'Teamtailor', rippling: 'Rippling' };
 
 const dayOf = (iso) => String(iso ?? '').slice(0, 10);
 export const daysSince = (iso, now) => Math.floor((now - Date.parse(iso)) / 86400000);
 
 // The sentence that says why a role is listed. It states facts, never praise.
-function whyListed(company, apply, checked) {
+function whyListed(company, apply, checked, kind = 'company') {
   const board = boardOf(apply);
   const where = board ? `${company}'s own careers page on ${board}` : `${company}'s own careers page (${hostOf(apply) ?? 'its website'})`;
-  return `Listed on ${where}, last read ${checked}. ${company} is in the Still Early directory.`;
+  return `Listed on ${where}, last read ${checked}. ${company} is in the Still Early ${kind === 'investor' ? 'investor directory' : 'directory'}.`;
 }
 
 // Is the role confirmed, in need of a recheck, or too old for the default board? From the last whole read that listed it, never from anything else.
@@ -102,10 +102,14 @@ export function presentJob(job, card, now = Date.now(), health = null) {
   const where = whereOf(job);
   return {
     id: job.id, title: job.title,
-    company: { name: company, slug: card?.slug ?? null, city: card?.city ?? '', sector: card?.sector ?? '', stage: card?.stage ?? '', website: card?.website ?? '' },
+    company: { name: company, slug: card?.slug ?? null, city: card?.city ?? '', sector: card?.sector ?? '', stage: card?.stage ?? '', website: card?.website ?? '', logo: card?.logo ?? null, kind: card?.kind ?? 'company' },
+    // The venture firms the directory records as backers of the company (investments the directory holds, each with its source): never inferred from where a role was found.
+    vc_firms: Array.isArray(card?.investors) ? card.investors.filter((n) => typeof n === 'string' && n.trim()).slice(0, 8) : [],
     location: job.location ?? '', region: regionFromWhere(where), remote: job.remote === true ? true : null,
     employment_type: employmentOf(job.employment_type), level: levelOf(job.title), salary: job.salary ?? null,
-    why_listed: job.why ?? whyListed(company, apply, checked), apply_url: apply, source_kind: job.source ?? 'careers_page',
+    // What the employer's own listing states about the experience wanted (SmartRecruiters-style "Mid-Senior Level", Recruitee's "mid level"): kept apart from `level`, which is only what the TITLE says.
+    experience_level: typeof job.experience_level === 'string' && job.experience_level.trim() ? job.experience_level.trim() : null,
+    why_listed: job.why ?? whyListed(company, apply, checked, card?.kind), apply_url: apply, source_kind: job.source ?? 'careers_page',
     last_checked_at: lastConfirmed, days_since_checked: age, stale: age != null ? age > STALE_DAYS : true,
     status: job.status, posted_at: job.posted_at ?? null,
     // What the hiring desk is built on: the work places the employer advertised, the three dates apart, and what the sync last said about the role's board.

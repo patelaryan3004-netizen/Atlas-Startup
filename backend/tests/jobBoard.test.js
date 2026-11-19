@@ -95,7 +95,7 @@ describe('the whole board', () => {
   const sync = {
     sources: [
       { id: 'zeller-lever-jobs', company_id: 'zeller', provider: 'lever', status: 'approved', basis: 'x' }, { id: 'bellroy-greenhouse-jobs', company_id: 'bellroy', provider: 'greenhouse', status: 'approved', basis: 'x' },
-      { id: 'acme-ashby-jobs', company_id: 'zeller', provider: 'ashby', status: 'approved', basis: 'x' }, { id: 'deputy-lever-review', company_id: 'zeller', provider: 'lever', status: 'review', basis: 'named, not confirmed' },
+      { id: 'acme-smartrecruiters-jobs', company_id: 'zeller', provider: 'smartrecruiters', status: 'approved', basis: 'x' }, { id: 'deputy-lever-review', company_id: 'zeller', provider: 'lever', status: 'review', basis: 'named, not confirmed' },
     ],
     state: [
       { source_id: 'zeller-lever-jobs', last_success_at: hoursAgo(1), last_attempt_at: hoursAgo(1), consecutive_failures: 0, last_error: null },
@@ -124,9 +124,9 @@ describe('the whole board', () => {
   });
 
   it('says how current it is from the sync\'s own records, what is failing, and what it cannot read or has not confirmed', () => {
-    expect(board.sync).toMatchObject({ last_success_at: hoursAgo(1), interval_minutes: 60, boards: { approved: 3, polled: 2, failing: 1, never_read: 0 } });
+    expect(board.sync).toMatchObject({ last_success_at: hoursAgo(1), interval_minutes: 720, boards: { approved: 3, polled: 2, failing: 1, never_read: 0 } });
     expect(board.sync.covered.map((c) => [c.company, c.provider, c.failing, c.roles])).toEqual([['Bellroy', 'greenhouse', true, 1], ['Zeller', 'lever', false, 3]]);
-    expect(board.sync.unsupported).toEqual([{ company: 'Zeller', provider: 'ashby' }]);
+    expect(board.sync.unsupported).toEqual([{ company: 'Zeller', provider: 'smartrecruiters', reason: expect.stringMatching(/Disallow/) }]);
     expect(board.sync.review).toEqual([{ company: 'Zeller', provider: 'lever', why: 'named, not confirmed' }]);
   });
 
