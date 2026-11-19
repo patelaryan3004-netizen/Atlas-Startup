@@ -11,14 +11,12 @@ import { useSavedCount } from './savedStore.js';
 import ExploreHero from './components/explore/ExploreHero.jsx';
 import ResultsColumn from './components/explore/ResultsColumn.jsx';
 import ExploreToolbar, { placeLabel } from './components/explore/ExploreToolbar.jsx';
-import MapToolbar, { ENTITY_OPTIONS } from './components/explore/MapToolbar.jsx';
-import { Segmented } from './components/brand/parts.jsx';
+import MapToolbar from './components/explore/MapToolbar.jsx';
 import { MAP_CITIES } from './cityViews.js';
-import { ATLAS_ZOOM } from './atlas/zoomModes.js';
 import AllAustralia from './components/explore/AllAustralia.jsx';
 import ResultsSheet from './components/explore/ResultsSheet.jsx';
 import { getPersonProfile } from './people.js';
-import { areaFilters, pinPayload, scopeText, vcTuple, vcFirms } from './mapPins.js';
+import { areaFilters, pinPayload, scopeText, vcTuple, vcFirms, spreadVcPins } from './mapPins.js';
 import { useSavedInvestors } from './hooks/useSavedInvestors.js';
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
 import { readAppRoute, appUrl, appPath } from './appRoute.js';
@@ -28,6 +26,7 @@ import { curatedLists } from './curatedLists.js';
 import { showPeople } from './flags.js';
 import { hiringLabel, roleClosedMessage } from './freshness.js';
 import { PALETTE } from './sectorPalette.js';
+import { useSectorOptions } from './sectorOptions.js';
 import ListBanner from './components/ListBanner.jsx';
 import ActiveFilters, { activeChips } from './components/ActiveFilters.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
@@ -97,8 +96,10 @@ function useWhenIdle() {
 // map ("Sydney, 42 startups with city-level locations") opens as a list by setting them.
 // remote (a remote policy), tech (tools it builds with, several), team (a bucket of team size), cohort (an accelerator intake, such as
 // "startmate-w26") and fresh ("week": new this week) filter by the optional facts a page may give a company.
-const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '' };
-const EMPTY_META = { sectors: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], maturities: [], hasFresh: false };
+// (`onMap` is "only the companies the map shows" (the owner's curated list leaves some off it, and a company that has closed is never on it). The map page asks for it by itself; the list opened
+// from the map carries it in its address, so "View list" is the list of what the map was showing, and its chip takes it off.)
+const EMPTY_FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '', onMap: '' };
+const EMPTY_META = { sectors: [], sectorGroups: [], cities: [], investors: [], stages: [], remotePolicies: [], techStack: [], teamSizes: [], cohorts: [], maturities: [], hasFresh: false };
 const NEWS_VISIBLE_KEY = 'auStartupNewsVisible';
 const SEARCH_DEBOUNCE_MS = 250;
 // The phone's sheet holds a panel at most 58% of the screen tall (explore.css .xs-detail) and no more than 520px: a pin picked on the map is brought clear of
@@ -120,7 +121,7 @@ function loadResultsOpen() {
   try { return localStorage.getItem(RESULTS_KEY) !== '0'; } catch (e) { return true; }
 }
 // A pin's tuple as the result row of a company reads it (mapPins.js MARKER_FIELDS: slug, name, lat, lng, sector, city, hiring, domain...).
-const markerStartup = (m) => ({ slug: m[0], name: m[1], sector: m[4], city: m[5], website: m[7] ? `https://${m[7]}` : '' });
+const markerStartup = (m) => ({ slug: m[0], name: m[1], sector: m[4], sectorGroup: m[13] ?? null, city: m[5], website: m[7] ? `https://${m[7]}` : '' });
 
 function loadNewsVisible() {
   try {
@@ -226,7 +227,8 @@ export default function App() {
   const orgType = ORG_TYPE_OF[shown] ?? '';
   // On the map page (and a company opened over it) the companies are only those the map shows: the owner's curated list leaves some off it (show_on_map), and the counts and the rows beside the
   // map say the same as the map. Everywhere else, the gallery included, every company is listed. (`onMap` is the API's word for it and is never written in an address.)
-  const applied = useMemo(() => ({ ...appliedFilters, ...(orgType ? { orgType } : {}), ...(mapBase ? { onMap: 'yes' } : {}) }), [appliedFilters, orgType, mapBase]);
+  const onMapOnly = mapBase || filters.onMap === 'yes';
+  const applied = useMemo(() => ({ ...appliedFilters, ...(orgType ? { orgType } : {}), ...(onMapOnly ? { onMap: 'yes' } : { onMap: '' }) }), [appliedFilters, orgType, onMapOnly]);
   // What the snapshot already holds is what the first paint has (peek.js): the filters' options, the counts and, on the map, the pins. An
   // address with filters asks something the snapshot does not hold, so those start empty and the API answers, as before.
   // The map is one way to look at startups, not the first: a visit starts on the list, and the map is asked for (?view=map).
@@ -236,6 +238,9 @@ export default function App() {
   const [summary, setSummary] = useState(first.summary);
   const [stats, setStats] = useState(first.stats);
   const [mapStats, setMapStats] = useState(() => peek.summary({ onMap: 'yes' })); // the same counts for the companies the map shows only: the map page's city menu says what its map says
+  // The sectors every sector menu offers (the map's, Discover's, the filter panel's): the twelve display sectors that have a company for the city and the type chosen. With neither chosen the
+  // counts are ones the page already has (the whole directory's, or the map's).
+  const sectorOptions = useSectorOptions({ city: filters.city, orgType, onMap: onMapOnly ? 'yes' : '' }, (onMapOnly ? mapStats?.sectors : meta.sectorGroups) ?? []);
   const [markers, setMarkers] = useState(first.pins?.items ?? []);
   const [areas, setAreas] = useState(first.pins?.areas ?? []);
   const [nationalPins, setNationalPins] = useState(null); // the pins under every filter but the city: what the national view counts its badges from (MapView)
@@ -278,7 +283,7 @@ export default function App() {
   // A page that is opened from another is a step of its own in the history (marked, so closing it can go Back and land where the
   // visitor was); one opened from a link is not, and closing it puts the map at the root.
   const ui = useRef({});
-  ui.current = { applied, viewMode, route, entity: shown };
+  ui.current = { applied, viewMode, route, entity: shown, mapBase };
   const goTo = useCallback((next, { replace = false } = {}) => {
     const url = appUrl(next, ui.current);
     try {
@@ -320,13 +325,16 @@ export default function App() {
   useEffect(() => {
     try {
       if (route.kind === 'explore' || route.kind === 'startup' || route.kind === 'map') {
-        const url = appUrl(route, { filters: applied, viewMode, entity: shown, selected: route.kind === 'map' && preview?.kind !== 'vc' ? preview?.slug ?? null : null });
+        const url = appUrl(route, { filters: mapBase ? { ...applied, onMap: '' } : applied, viewMode, entity: shown, selected: route.kind === 'map' && preview?.kind !== 'vc' ? preview?.slug ?? null : null });
         if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
       } else if (route.kind !== 'investors' && window.location.pathname !== appPath(route)) {
         window.history.replaceState(window.history.state, '', appPath(route));
       }
     } catch (e) { /* ignore */ }
-  }, [route, applied, viewMode, shown, preview?.slug, preview?.kind]);
+  }, [route, applied, viewMode, shown, preview?.slug, preview?.kind, mapBase]);
+
+  // The map is only what it shows: a list that was scoped to the map stops being when the map is the page again.
+  useEffect(() => { if (route.kind === 'map' && filters.onMap) setFilters((now) => (now.onMap ? { ...now, onMap: '' } : now)); }, [route.kind, filters.onMap]);
 
   // A /startup/<slug> address (a link, or Forward) opens that company; one the directory does not have says so.
   useEffect(() => {
@@ -623,14 +631,23 @@ export default function App() {
   const [area, setArea] = useState(null); // the box the results are of (south, west, north, east), or null: the whole city
   const [areaOffer, setAreaOffer] = useState(null); // the box the map is looking at after the visitor moved it
   useEffect(() => { setArea(null); setAreaOffer(null); }, [applied, shown, viewMode]);
-  const onMapMoved = useCallback((view) => { setMapView(view); if (view.byUser && view.bounds) setAreaOffer(view.bounds); }, []);
+  // Where the map page's map is looking, kept for when it comes back: from a company's page (the map stays under it) or from the list ("Back to map" makes a new map). It is the camera for the
+  // city it was looking at: a map that comes back with another city picked goes to that city instead.
+  const lastMapView = useRef(null);
+  const onMapMoved = useCallback((view) => {
+    setMapView(view);
+    if (view.byUser && view.bounds) setAreaOffer(view.bounds);
+    if (ui.current.mapBase && Number.isFinite(view.lat) && Number.isFinite(view.lng) && Number.isFinite(view.zoom)) lastMapView.current = { lat: view.lat, lng: view.lng, zoom: view.zoom, city: ui.current.applied.city ?? '' };
+  }, []);
+  // A place the map was sent to (a company picked from the list) is for that map: it is not asked for again by the map that comes back.
+  useEffect(() => { if (!mapBase) setFocus(null); }, [mapBase]);
   const areaRows = useMemo(() => (area ? markers.filter((m) => m[2] >= area.south && m[2] <= area.north && m[3] >= area.west && m[3] <= area.east).map(markerStartup).sort((a, b) => a.name.localeCompare(b.name)) : null), [area, markers]);
 
   // A company picked from the sheet's list: the pin it has on the map when it has one (the map then goes to it), else just what the list knows.
   const pickFromSheet = (startup) => {
     const tuple = markers.find((m) => m[0] === startup.slug);
     selectPin(tuple ? pinPayload(tuple) : {
-      slug: startup.slug, name: startup.name, city: startup.city, sector: startup.sector, verified: true, website: startup.website || '',
+      slug: startup.slug, name: startup.name, city: startup.city, sector: startup.sector, sectorGroup: startup.sectorGroup ?? null, verified: true, website: startup.website || '',
       hiring: hiringLabel(startup).state === 'hiring',
     });
   };
@@ -641,6 +658,9 @@ export default function App() {
     if (tuple) selectPin(pinPayload(tuple)); else openStartup(startup);
     showWorkspace();
   };
+  // An investor picked in the rows beside the map (or the phone's sheet): its mark when it has one (a verified street address: the map goes to it and its card opens there), else its own page, as for
+  // a company known only to its city: a city is not a place to fly to or to hang a card on.
+  const pickVc = (pin) => { if (pin.precision === 'EXACT') selectPin(pinPayload(vcTuple(pin))); else openInvestors({ kind: 'investor', slug: pin.slug }); };
   // A company named on a VC's panel: its pin when it has one (the map goes to it), else its page.
   const openCompanyFromVc = (company) => {
     const tuple = markers.find((m) => m[0] === company.slug);
@@ -664,16 +684,15 @@ export default function App() {
       key={preview.slug}
       pin={preview}
       variant={variant}
-      saved={tracked.has(preview.name)}
-      onToggleSaved={() => toggleTracked(preview.name)}
       onOpen={openFromPreview}
       onClose={clearPin}
-      onReport={() => reportRoleClosed(preview.name)}
-      onSuggest={() => { setEditingMessage(''); setEditingCompany(preview.name); }}
     /></Lazy>
   ));
   // The VCs the map draws, one row each, for the phone's sheet and the list.
-  const vcRows = useMemo(() => vcFirms(vcData.items), [vcData.items]);
+  // On the map page each investor at a verified street address is its own logo (a firm known only to its city has none: it is in the rows beside the map). Firms in one building are spread a few
+  // paces (mapPins.js spreadVcPins), and every place that names an investor's mark (the map, its card, the rows beside it) says the same spot; the list of VCs (VcList) has them as they are.
+  const mapVcPins = useMemo(() => (mapBase ? spreadVcPins(vcData.items) : vcData.items), [vcData.items, mapBase]);
+  const vcRows = useMemo(() => vcFirms(mapVcPins), [mapVcPins]);
   const where = placeLabel(splitValues(filters.city));
   const sheetMode = preview ? 'detail' : sheetOpen ? 'open' : 'peek';
 
@@ -821,20 +840,20 @@ export default function App() {
   // of the older Discover map, ?view=map, is still drawn as it was.)
   const galleryPage = !isMapPage && viewMode === 'list';
   const showMap = () => { setViewMode('map'); goTo({ kind: 'map' }); };
+  // "View list": Discover's list of exactly what the map is showing (the same city, sector, type, stage and search). "Back to map" there returns to this map with the same filters (they are one
+  // state, and the map's own address carries them).
+  const mapListHref = appUrl({ kind: 'explore' }, { filters: { ...applied, onMap: 'yes' }, viewMode: 'list', entity: shown });
+  const viewList = () => { setFilters((now) => ({ ...now, onMap: 'yes' })); setViewMode('list'); goTo({ kind: 'explore' }); };
   // The map page ("Startup atlas") on a wide screen: the directory panel beside the map, always there, and the heading, the selects and the counts in it. On a phone
-  // the map comes first with the same bar as before and the directory one tap away in the sheet. National: no city is picked and the map has not been zoomed in.
+  // the map comes first with the same bar as before and the directory one tap away in the sheet.
   const atlasWide = isMapPage && wideMap;
-  const national = splitValues(filters.city).length === 0 && (mapView?.zoom ?? 0) <= ATLAS_ZOOM;
-  const filterCount = Object.entries(filters).filter(([key, value]) => value && !['search', 'city', 'sector', 'stage'].includes(key)).length;
+  const filterCount = Object.entries(filters).filter(([key, value]) => value && !['search', 'city', 'sector', 'onMap'].includes(key)).length; // (the stage is under "More filters" now, so it counts there)
   const previewCard = wideMap && preview ? (
     <Lazy><PreviewCard
       key={preview.id ?? preview.slug}
       pin={preview}
-      saved={preview.kind === 'vc' ? savedVcs.isSaved(preview.slug) : tracked.has(preview.name)}
-      onToggleSaved={() => (preview.kind === 'vc' ? savedVcs.toggle(preview.slug) : toggleTracked(preview.name))}
       onOpen={() => (preview.kind === 'vc' ? (clearPin(), openInvestors({ kind: 'investor', slug: preview.slug })) : openFromPreview())}
       onClose={clearPin}
-      onReport={() => reportRoleClosed(preview.name)}
     /></Lazy>
   ) : null;
 
@@ -850,10 +869,11 @@ export default function App() {
           <Lazy fallback={<GalleryWait />}>
             <GalleryPage
               onView={(id) => { if (id === 'map') showMap(); }}
+              fromMap={filters.onMap === 'yes'}
               filters={filters}
               onFilterChange={applyFilters}
               cities={cityOptions}
-              sectors={meta.sectors}
+              sectors={sectorOptions}
               stages={meta.stages}
               entity={shown}
               onEntityChange={setShown}
@@ -871,6 +891,8 @@ export default function App() {
             onChange={setFilters}
             onReset={() => setFilters(EMPTY_FILTERS)}
             meta={meta}
+            sectorOptions={sectorOptions}
+            inBar={['city', 'sector']}
             resultCount={resultCount}
             summary={summary}
             open={filtersOpen}
@@ -887,18 +909,16 @@ export default function App() {
             filters={filters}
             onFilterChange={applyFilters}
             cities={mapCityOptions}
-            sectors={meta.sectors}
-            stages={meta.stages}
+            sectors={sectorOptions}
             companies={summary?.count}
-            unplaced={summary?.byPrecision?.UNKNOWN ?? 0}
             vcs={vcOn ? vcRows.length : 0}
             entity={shown}
             onEntityChange={setShown}
             filtersOpen={filtersOpen}
             onToggleFilters={() => setFiltersOpen((open) => !open)}
             filtersRef={filtersButton}
-            listHref={appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown })}
-            onList={() => { setViewMode('list'); goTo({ kind: 'explore' }); }}
+            listHref={mapListHref}
+            onList={viewList}
           />
         )) : (
           <ExploreToolbar
@@ -933,18 +953,15 @@ export default function App() {
               atlas={isMapPage ? {
                 filters,
                 onFilterChange: applyFilters,
-                sectors: meta.sectors,
-                stages: meta.stages,
+                sectors: sectorOptions,
                 onEntityChange: setShown,
                 filtersOpen,
                 onToggleFilters: () => setFiltersOpen((open) => !open),
                 filtersRef: filtersButton,
                 filterCount,
-                listHref: appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown }),
-                onList: () => { setViewMode('list'); goTo({ kind: 'explore' }); },
-                maturities: meta.maturities ?? [],
-                pinned: shown !== 'vcs' && markers.length > 0 ? `${markers.length.toLocaleString('en-AU')} with a pin on the map` : '',
-                note: 'Pins mark published office and suburb locations. An organisation known only to its city is listed here, counted, and never pinned.',
+                listHref: mapListHref,
+                onList: viewList,
+                cities: mapCityOptions,
               } : null}
               search={filters.search}
               onSearch={(search) => applyFilters({ search })}
@@ -957,7 +974,7 @@ export default function App() {
               filters={applied}
               selected={preview}
               onPick={pickFromColumn}
-              onPickVc={(pin) => { selectPin(pinPayload(vcTuple(pin))); showWorkspace(); }}
+              onPickVc={(pin) => { pickVc(pin); showWorkspace(); }}
               vcFirms={vcOn ? vcRows : []}
               isTracked={isTracked}
               onToggleTracked={toggleTracked}
@@ -982,7 +999,7 @@ export default function App() {
                   onViewArea={viewArea}
                   selectedName={preview?.name ?? selectedStartup?.name}
                   trackedNames={tracked}
-                  vcPins={vcData.items}
+                  vcPins={mapVcPins}
                   showVcs={vcOn}
                   institutionPins={institutionPins}
                   showCompanies={shown !== 'vcs'}
@@ -996,6 +1013,7 @@ export default function App() {
                   previewCard={previewCard}
                   previewKey={preview ? String(preview.id ?? preview.slug) : ''}
                   atlas={isMapPage}
+                  restoreView={isMapPage && lastMapView.current && lastMapView.current.city === (applied.city ?? '') ? lastMapView.current : null}
                   nationalMarkers={nationalPins ?? markers}
                   onPickCity={(city) => applyFilters({ city })}
                   onShowAustralia={showAustralia}
@@ -1006,9 +1024,8 @@ export default function App() {
             {viewMode === 'map' && !desktop && chips && <div className="chips-float">{chips}</div>}
             {atlasWide && areaOffer && !area && <button type="button" className="xr-area" onClick={() => { setArea(areaOffer); setAreaOffer(null); }}>Search this area</button>}
             {atlasWide && viewMode === 'map' && (
-              <Lazy><AtlasOverlay filters={filters} onFilterChange={applyFilters} cities={mapCityOptions} national={national} pinned={shown === 'vcs' ? undefined : markers.length} /></Lazy>
+              <Lazy><AtlasOverlay /></Lazy>
             )}
-            {atlasWide && viewMode === 'map' && national && <p className="at-hint"><span className="at-hint-dot" aria-hidden="true" />Choose a city to explore</p>}
             {viewMode === 'map' && shown === 'vcs' && vcData.ready && vcData.items.length === 0 && (
               <p className="xm-empty" role="status">No venture capital firm with a city on file matches{vcData.unplaced > 0 ? `. ${vcData.unplaced} more match but have no city we can place.` : '.'}</p>
             )}
@@ -1027,9 +1044,7 @@ export default function App() {
                 detail={preview ? previewPanel('sheet') : null}
                 entity={shown}
                 vcFirms={vcRows}
-                onPickVc={(pin) => selectPin(pinPayload(vcTuple(pin)))}
-                galleryHref={appUrl({ kind: 'explore' }, { filters: applied, viewMode: 'list', entity: shown })}
-                onGallery={() => { setViewMode('list'); goTo({ kind: 'explore' }); }}
+                onPickVc={pickVc}
                 isTracked={isTracked}
                 onToggleTracked={toggleTracked}
                 isSavedVc={savedVcs.isSaved}
@@ -1045,6 +1060,8 @@ export default function App() {
             onChange={setFilters}
             onReset={() => setFilters(EMPTY_FILTERS)}
             meta={meta}
+            sectorOptions={sectorOptions}
+            inBar={isMapPage ? ['city', 'sector'] : []}
             resultCount={resultCount}
             summary={summary}
             open={filtersOpen}
@@ -1052,13 +1069,12 @@ export default function App() {
             toggleRef={filtersButton}
             mapTools={viewMode === 'map' ? (
               <>
-                {isMapPage && <div className="panel-entity"><Segmented className="xt-entity" label="What the map shows" options={ENTITY_OPTIONS} value={shown} onChange={setShown} /></div>}
                 <MapLayers
                   institutionCount={institutionPins.length}
                   showInstitutions={layers.institutions}
                   onToggleInstitutions={() => toggleLayer('institutions')}
                 />
-                <MapKey showInstitutions={institutionPins.length > 0} />
+                <MapKey showInstitutions={institutionPins.length > 0} places={!isMapPage} />
               </>
             ) : null}
           />

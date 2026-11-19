@@ -11,12 +11,12 @@ import { useMediaQuery } from '../../hooks/useMediaQuery.js';
 // Filters button are drawn, and the button opens the sheet the filters already have.
 // `filterCount` is the filters that are on besides the four here, for the badge on "More".
 const TYPE_LABEL = { all: 'All types', startups: 'Startups', companies: 'Companies', vcs: 'Investors', spaces: 'Spaces' };
-const NOT_COUNTED = ['search', 'city', 'sector', 'stage'];
+const NOT_COUNTED = ['search', 'city', 'sector', 'stage', 'onMap']; // (onMap has its own chip)
 
 export default function GalleryToolbar({ filters, onFilterChange, cities, sectors, stages, entity, onEntityChange, filtersOpen, onToggleFilters, filtersRef, onClear }) {
   const cityOptions = cities.map(({ city, count }) => ({ value: city, count }));
-  const sectorOptions = sectors.filter((s) => s && s !== 'Unknown').map((value) => ({ value }));
-  const stageOptions = stages.filter((s) => s && s !== 'Unknown').map((value) => ({ value }));
+  const sectorOptions = sectors.filter((s) => s && s.value && s.value !== 'Unknown'); // [{ value, count }]: the display sectors that have a company here (sectorOptions.js)
+  const stageOptions = stages.filter((s) => s && s !== 'Unknown').map((value) => ({ value })); // the funding stages (the server leaves the others out)
   const others = Object.entries(filters).filter(([key, value]) => value && !NOT_COUNTED.includes(key)).length;
   const all = Object.entries(filters).filter(([, value]) => value).length + (entity !== 'all' ? 1 : 0);
   // On a phone the city, the industry and the stage are in the sheet this button opens, so it counts them; beside them (a wide screen) it counts only the rest.
@@ -30,8 +30,8 @@ export default function GalleryToolbar({ filters, onFilterChange, cities, sector
 
       <div className="gl-selects">
         <CheckMenu label="City" allLabel="All cities" options={cityOptions} value={filters.city} onChange={(city) => onFilterChange({ city })} noun="cities" />
-        <CheckMenu label="Industry" allLabel="All industries" options={sectorOptions} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} noun="industries" />
-        <CheckMenu label="Stage" allLabel="All stages" options={stageOptions} value={filters.stage} onChange={(stage) => onFilterChange({ stage })} noun="stages" note="As the directory lists them: a stage is shown only where one is on file." />
+        <CheckMenu label="Sector" allLabel="All sectors" options={sectorOptions} value={filters.sector} onChange={(sector) => onFilterChange({ sector })} noun="sectors" />
+        <CheckMenu label="Stage" allLabel="All stages" options={stageOptions} value={filters.stage} onChange={(stage) => onFilterChange({ stage })} noun="stages" note="Funding rounds, as the directory lists them: a stage is shown only where one is on file." />
         <label className="gl-type">
           <span className="sr-only">What kind of organisation</span>
           <select aria-label="What kind of organisation" value={entity} onChange={(event) => onEntityChange(event.target.value)}>

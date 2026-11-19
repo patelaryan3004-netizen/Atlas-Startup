@@ -6,6 +6,35 @@ import { clusterSize, CLUSTER_MEDIUM, CLUSTER_LARGE } from '../../src/mapPins.js
 const key = () => screen.getByRole('region', { name: 'Map key' });
 
 describe('MapKey', () => {
+  it('has no numbered rings and no dashed city ring in the key of the map page, which draws neither (places={false})', () => {
+    render(<MapKey places={false} />);
+    expect(screen.getByText('A startup')).toBeInTheDocument(); // the logo pins are still explained
+    expect(screen.queryByText('Places')).not.toBeInTheDocument();
+    expect(screen.queryByText(/numbered ring|dashed ring|known only to a city/i)).not.toBeInTheDocument();
+    expect(key().querySelector('.marker-cluster-inner, .mk-ring, .mk-sizes')).toBeNull();
+  });
+
+  it('explains the small dots and the investors drawn one by one in the key of the map page, and the older map\'s key does not mention dots', () => {
+    const { unmount } = render(<MapKey places={false} />);
+    expect(screen.getByText(/A small dot: there is no room for its logo/)).toBeInTheDocument();
+    expect(screen.getByText(/A small yellow dot: a firm with no room for its logo/)).toBeInTheDocument();
+    expect(screen.getByText(/A firm known only to its city has no mark: it is in the list beside the map/)).toBeInTheDocument();
+    expect(key().querySelector('.pin-dot-vc')).not.toBeNull();
+    expect(screen.queryByText(/dashed edge: only the firm/)).not.toBeInTheDocument(); // the map page draws no city-level firm
+    expect(screen.queryByText(/spread a little/)).not.toBeInTheDocument();
+    unmount();
+    render(<MapKey />);
+    expect(screen.queryByText(/A small dot|small yellow dot|known only to its city has no mark/)).not.toBeInTheDocument();
+    expect(screen.getByText(/drawn at the city.s centre and is not an office/)).toBeInTheDocument(); // the older map still draws a city's firms at its centre
+  });
+
+  it('keeps the investors\' offices in the key of the map page when they are drawn', () => {
+    render(<MapKey places={false} showInstitutions />);
+    expect(screen.getByText('Places')).toBeInTheDocument();
+    expect(screen.getByText(/an investor.s office/i)).toBeInTheDocument();
+    expect(screen.queryByText(/numbered ring|dashed ring/i)).not.toBeInTheDocument();
+  });
+
   it('is a labelled section in the page, with no button of its own: it sits in the filter panel\'s Map tab', () => {
     render(<MapKey />);
     expect(key()).toBeInTheDocument();

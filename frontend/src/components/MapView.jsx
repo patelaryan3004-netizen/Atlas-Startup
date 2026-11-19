@@ -5,11 +5,12 @@ import { fetchStartup } from '../api.js';
 import { logoUrl, isRealLogo } from '../logo.js';
 import { TILE_URL, TILE_OPTIONS, quietClass } from '../mapTiles.js';
 import { companyPopup, institutionPopup } from '../mapPopups.js';
-import { createPinIndex } from '../pinIndex.js';
+import { createPinIndex, createPlainPinIndex } from '../pinIndex.js';
+import { cardSector, cardPlace } from '../popupText.js';
 import { cityView } from '../cityViews.js';
 import { cityBadges, cityBounds } from '../atlas/cities.js';
 import { ATLAS_ZOOM, PINS_ZOOM, TILES_LOAD_ZOOM, SMALL_ZOOM, NATIONAL_BOUNDS, nationalPadding, cityPadding, CITY_FIT_MAX_ZOOM } from '../atlas/zoomModes.js';
-import { paddedWindow, pinPayload, vcTuple, vcMarks, isVc, isVcGroup, clusterSize, CLUSTER_PX, locationQuality, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM, AREA_CHIP_ZOOM } from '../mapPins.js';
+import { paddedWindow, pinPayload, vcTuple, vcMarks, isVc, isVcGroup, clusterSize, CLUSTER_PX, areaLabel, areaMember, labelsVisible, chooseLabels, CLUSTER_MAX_ZOOM, AREA_CHIP_ZOOM } from '../mapPins.js';
 
 // A pin's logo, over the plain initial-letter badge rendered underneath this <img>. It is the company's OWN picture (its `logo` address) when the
 // record has one, and otherwise the picture its website's address gives (logo.js: the one source every card on the site uses). It appears only
@@ -76,6 +77,14 @@ function pinElement(tuple, { selected, tracked }) {
   return root;
 }
 
+// A company (or an investor: a yellow dot, as the VC badge is) that has no room for its logo at this zoom is a small plain dot at its place: no number, no ring, no letter. It opens the same card as the logo does, and the company is
+// in the directory beside the map whether or not it has a logo here (the map page's index, pinIndex.js createPlainPinIndex).
+function dotElement(investor = false) {
+  const dot = document.createElement('span');
+  dot.className = investor ? 'pin-dot pin-dot-vc' : 'pin-dot';
+  return dot;
+}
+
 // A firm's office: a rounded square with the accent as its outline and the firm's initial in it, so it is never taken for a company.
 function institutionElement(pin) {
   const root = document.createElement('div');
@@ -102,7 +111,7 @@ const clusterIcon = (count) => {
 // Name, where, and how well that is known: "Example Startup / 123 Example Street, Melbourne / Verified office". A pin from
 // a server that does not say how well a place is known gets what it always got: the name, the sector and the city.
 function tooltipContent(tuple) {
-  const [, name, , , sector, city, , , precision, place, checked] = tuple;
+  const [, name, , , sector, city, , , precision, place] = tuple;
   const box = document.createElement('div');
   const strong = document.createElement('b');
   strong.textContent = name;
@@ -126,17 +135,16 @@ function tooltipContent(tuple) {
     box.append(strong, what, quality);
     return box;
   }
-  if (!precision) {
-    box.append(strong, document.createElement('br'), document.createTextNode(`${sector} · ${city}`));
-    return box;
+  // A company: its name, and its sector and place (the suburb and the city). Never a street address, and never how well the place is known (that is on its own page).
+  const line = [cardSector({ sectorGroup: tuple[13], sector }), cardPlace({ suburb: tuple[14], city })].filter(Boolean).join(' · ');
+  if (line) {
+    const where = document.createElement('div');
+    where.className = 'tip-place';
+    where.textContent = line;
+    box.append(strong, where);
+  } else {
+    box.append(strong);
   }
-  const where = document.createElement('div');
-  where.className = 'tip-place';
-  where.textContent = place || city;
-  const quality = document.createElement('div');
-  quality.className = `tip-quality tip-${precision.toLowerCase()}`;
-  quality.textContent = locationQuality(precision, checked === 1 || checked === true);
-  box.append(strong, where, quality);
   return box;
 }
 
@@ -347,12 +355,13 @@ const mapboxUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{
 // atlas: the map page's national view (src/atlas): the country drawn on the navy sea with a badge for each city that has published pins, which gives way to the
 // street map, the clusters and the single pins as the visitor zooms. The badges are counted from `nationalMarkers`, the pins under the filters other than the city
 // (the map's own `markers` are narrowed to the city once one is picked), and onPickCity(city) says a badge was pressed. onShowAustralia() is the fit button's.
+// restoreView: { lat, lng, zoom } the map page's last view, when it comes back from a company's page or the list: the map opens there, exactly, and not at the city or the country.
 // Without `atlas` the map is what it always was.
 export default function MapView({
   markers = NO_MARKERS, areas = NO_AREAS, onSelectStartup, onViewArea, selectedName, trackedNames, vcPins = NO_VCS, showVcs = false,
   institutionPins = NO_INSTITUTIONS, showCompanies = true, showInstitutions = true, onOpenInternal, onReportRoleClosed,
   onSelectPin, onClearPin, scope = '', focus = null, onViewChange, previewAt = null, previewCard = null, previewKey = '',
-  atlas = false, nationalMarkers = NO_MARKERS, onPickCity, onShowAustralia,
+  atlas = false, nationalMarkers = NO_MARKERS, onPickCity, onShowAustralia, restoreView = null,
 }) {
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
@@ -366,7 +375,7 @@ export default function MapView({
   const clustersRef = useRef(new Map()); // for each cluster on the map: where it is (a name is kept clear of it)
   const frameRef = useRef(0);
   // What the index holds: the companies' pins and the investors' marks, whichever layers are on. A cluster counts both.
-  const items = useMemo(() => [...(showCompanies ? markers : NO_MARKERS), ...(showVcs ? vcMarks(vcPins) : NO_MARKERS)], [markers, vcPins, showCompanies, showVcs]);
+  const items = useMemo(() => [...(showCompanies ? markers : NO_MARKERS), ...(showVcs ? vcMarks(vcPins, { grouped: !atlas }) : NO_MARKERS)], [markers, vcPins, showCompanies, showVcs, atlas]);
   // The city badges of the national view: the distinct organisations with a published pin in each city, under the active filters (src/atlas/cities.js). The
   // investors are counted only when they are all the map shows: their marks stand at a city's reference point, so beside the companies' pins they would be a
   // count of another kind.
@@ -375,6 +384,7 @@ export default function MapView({
   const latest = useRef({});
   latest.current = { markers: items, areas, badges, onSelectStartup, onViewArea, selectedName, trackedNames, showCompanies, onOpenInternal, onReportRoleClosed, onSelectPin, onClearPin, onViewChange, onPickCity, onShowAustralia };
   const scopeRef = useRef(scope);
+  const restoreRef = useRef(restoreView); // where the map was when it was left: read once, when the map is made
   const wantsFit = useRef(Boolean(scope)); // the map opened on a city: it goes there once the pins are in
   const homeRef = useRef(HOME);
 
@@ -467,7 +477,8 @@ export default function MapView({
     // The open company's mark; or the group of investors that holds the open investor, so the one that is open is always in sight.
     const isOpen = (tuple) => (isVcGroup(tuple) ? tuple[13].some((p) => p.name === selected) : tuple[1] === selected);
     const zoom = map.getZoom();
-    const features = index.view(paddedWindow(map.getBounds()), zoom);
+    // (the map page's index also says which pins have room for a logo at this zoom; the open company and the ones the visitor saved always have one)
+    const features = index.view(paddedWindow(map.getBounds()), zoom, { keep: (i) => isOpen(tuples[i]) || Boolean(tracked?.has(tuples[i][1])) });
     const keep = new Set();
     const todo = [];
 
@@ -475,6 +486,7 @@ export default function MapView({
       let key;
       if (f.type === 'cluster') key = `c:${f.id}:${f.count}`;
       else if (f.type === 'stack') key = `s:${f.lat},${f.lng}:${f.members.length}`;
+      else if (f.type === 'dot') key = `d:${tuples[f.i][0]}`;
       else {
         const t = tuples[f.i];
         key = `p:${t[0]}:${isOpen(t) ? 1 : 0}:${tracked?.has(t[1]) ? 1 : 0}`;
@@ -507,6 +519,11 @@ export default function MapView({
         });
         clustersRef.current.set(key, { lat: f.lat, lng: f.lng });
         named(marker, `${f.count} places close together. Press to open them.`);
+      } else if (f.type === 'dot') {
+        const t = tuples[f.i];
+        marker = L.marker([f.lat, f.lng], { icon: L.divIcon({ className: 'pin-dot-icon', html: dotElement(isVc(t)), iconSize: [18, 18], iconAnchor: [9, 9] }), keyboard: false, zIndexOffset: -1000 });
+        marker.bindTooltip(tooltipContent(t), { direction: 'top', offset: [0, -8], sticky: true });
+        marker.on('click', () => { marker.closeTooltip?.(); pickPin(t, f.lat, f.lng); });
       } else if (f.type === 'stack') {
         marker = L.marker([f.lat, f.lng], { icon: clusterIcon(f.members.length) });
         marker.on('click', () => openStack(f.members, f.lat, f.lng));
@@ -551,9 +568,12 @@ export default function MapView({
       maxBoundsViscosity: 1.0,
     }).setView(narrow ? HOME_NARROW.center : HOME.center, narrow ? HOME_NARROW.zoom : HOME.zoom);
     homeRef.current = narrow ? HOME_NARROW : HOME;
+    // A map that is coming back (from a company's page, or from the list) opens exactly where it was: the same centre and zoom, with nothing to fit to or fly to.
+    const back = restoreRef.current;
     // A map opened on one of the map page's cities (/map?city=Hobart) starts there, with or without companies to fit to.
     const opening = cityView(scopeRef.current);
-    if (opening) { map.setView([opening.lat, opening.lng], opening.zoom); wantsFit.current = false; }
+    if (atlas && back && Number.isFinite(back.lat) && Number.isFinite(back.lng) && Number.isFinite(back.zoom)) { map.setView([back.lat, back.lng], back.zoom, { animate: false }); wantsFit.current = false; }
+    else if (opening) { map.setView([opening.lat, opening.lng], opening.zoom); wantsFit.current = false; }
     else if (atlas) map.fitBounds(NATIONAL_BOUNDS, { ...nationalPadding(narrow), animate: false });
     let tiles;
     if (mapboxToken) {
@@ -584,6 +604,7 @@ export default function MapView({
         const el = mapElRef.current;
         if (!el) return;
         el.classList.toggle('atlas-on', z < ATLAS_ZOOM);
+        el.classList.toggle('names-on', z < PINS_ZOOM);
         el.classList.toggle('pins-on', z >= PINS_ZOOM);
         el.classList.toggle('atlas-small', z < SMALL_ZOOM);
         map.options.zoomSnap = z >= TILES_LOAD_ZOOM ? 1 : 0.25; // the street map is drawn at whole zoom levels; the country at quarter ones
@@ -646,7 +667,7 @@ export default function MapView({
     const layer = areaLayerRef.current;
     if (!map || !layer) return;
     layer.clearLayers();
-    if (!showCompanies) return;
+    if (!showCompanies || atlas) return; // (the map page draws no group: a company known only to its city is in the list, counted, and has no pin and no ring)
     for (const area of areas) {
       const label = areaLabel(area);
       const marker = L.marker([area.lat, area.lng], {
@@ -662,7 +683,7 @@ export default function MapView({
       });
       marker.addTo(layer);
     }
-  }, [areas, showCompanies]);
+  }, [areas, showCompanies, atlas]);
 
   // The map moves to the pins of a city: fitted to them, with room for what floats over the map. Without a city it goes back to Australia.
   const fitToPins = useCallback(() => {
@@ -694,7 +715,7 @@ export default function MapView({
 
   // New pins (a filter changed, or a layer was switched): start from nothing, because a cluster's number belongs to the index that made it.
   useEffect(() => {
-    indexRef.current = createPinIndex(items);
+    indexRef.current = atlas ? createPlainPinIndex(items) : createPinIndex(items);
     layerRef.current?.clearLayers();
     shownRef.current = new Map();
     for (const key of [...labelsRef.current.keys()]) if (!key.startsWith('i:')) labelsRef.current.delete(key);

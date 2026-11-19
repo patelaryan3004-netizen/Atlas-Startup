@@ -5,6 +5,7 @@ import FilterPanel from '../../src/components/FilterPanel.jsx';
 
 const meta = {
   sectors: ['AI', 'Fintech'],
+  sectorGroups: [{ value: 'AI & Data', count: 3 }, { value: 'Fintech', count: 4 }], // the display sectors the sector box offers (the server's list of twelve)
   cities: ['Melbourne', 'Sydney'],
   investors: ['AirTree', 'Blackbird'],
   stages: ['Seed', 'Series A'],
@@ -59,10 +60,30 @@ describe('FilterPanel', () => {
   it('opens on the Filters tab by default, offering every option of the filters from the meta', async () => {
     setup();
     await open();
-    expect(screen.getByRole('checkbox', { name: 'AI' })).toBeInTheDocument(); // sector and city take several values: boxes to tick
+    expect(screen.getByRole('checkbox', { name: 'AI & Data' })).toBeInTheDocument(); // sector and city take several values: boxes to tick (the sector's are the display sectors, not the source labels)
+    expect(screen.queryByRole('checkbox', { name: 'AI' })).not.toBeInTheDocument();
     expect(screen.getByRole('checkbox', { name: 'Sydney' })).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Blackbird' })).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Series A' })).toBeInTheDocument();
+  });
+
+  it('leaves out the city and the sector where the page\'s own bar has them (inBar): the panel is "More filters" and no control is on the page twice', async () => {
+    render(<FilterPanel filters={emptyFilters} onChange={() => {}} onReset={() => {}} meta={meta} inBar={['city', 'sector']} resultCount={3} summary={summaryOf()} />);
+    await open();
+    expect(screen.queryByRole('group', { name: 'City' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('group', { name: 'Sector' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Sector', { selector: '.fsection-label' })).not.toBeInTheDocument();
+    expect(screen.getByLabelText('Stage')).toBeInTheDocument(); // the stage and the rest stay
+    expect(screen.getByLabelText('State')).toBeInTheDocument();
+  });
+
+  it('offers the sectors the page gives it (the ones with a result for the city and the type) before the directory\'s whole list', async () => {
+    const onChange = vi.fn();
+    render(<FilterPanel filters={emptyFilters} onChange={onChange} onReset={() => {}} meta={meta} sectorOptions={[{ value: 'Fintech', count: 12 }]} resultCount={3} summary={summaryOf()} />);
+    await open();
+    const group = screen.getByRole('group', { name: 'Sector' });
+    await userEvent.click(group.querySelector('summary'));
+    expect(within(group).getAllByRole('checkbox').map((c) => c.parentElement.textContent.trim())).toEqual(['Fintech']);
   });
 
   describe('the filters for the facts a page gives a company', () => {

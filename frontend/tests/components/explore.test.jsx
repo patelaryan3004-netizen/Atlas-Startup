@@ -184,55 +184,61 @@ describe('the list of VCs', () => {
   });
 });
 
-describe('the company\'s panel', () => {
-  const PIN = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', sector: 'AI', hiring: false, website: 'https://acme.ai', location: { quality: 'Location: suburb-level' } };
-  const RECORD = { slug: 'acme', name: 'Acme AI', sector: 'AI', sectorFull: 'AI infrastructure', blurb: 'Makes things for people.', website: 'https://acme.ai', verified: true, last_verified_at: new Date().toISOString(), hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z' };
+describe('the company\'s panel (the card in the phone\'s sheet)', () => {
+  const PIN = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', suburb: 'Collingwood', sector: 'AI', sectorGroup: 'AI & Data', hiring: true, website: 'https://acme.ai', location: { place: '1 Example St, Collingwood, Melbourne', quality: 'Office address on file' } };
+  const RECORD = {
+    slug: 'acme', name: 'Acme AI', sector: 'AI', sectorGroup: 'AI & Data', sectorFull: 'AI infrastructure', blurb: 'Makes things for people. It was founded in 2019 and has 40 staff.', website: 'https://acme.ai', verified: true,
+    last_verified_at: new Date().toISOString(), hiringState: 'hiring', open_roles: 3, hiring_source: { url: 'https://boards.acme.ai/jobs', checked_at: '2026-10-05T03:59:04.292Z' }, stage: 'Seed', founders: ['Ada Lovelace'],
+    programs: [{ id: 'startmate-w26', label: 'Startmate · Winter 2026', accelerator: 'Startmate', source_url: 'https://startmate.com/w26' }],
+  };
   const setup = (over = {}) => {
-    const props = { pin: PIN, saved: false, onToggleSaved: vi.fn(), onOpen: vi.fn(), onClose: vi.fn(), onReport: vi.fn(), ...over };
+    const props = { pin: PIN, onOpen: vi.fn(), onClose: vi.fn(), ...over };
     return { props, ...render(<StartupPanel {...props} />) };
   };
   beforeEach(() => { fetchStartup.mockReset(); fetchStartup.mockResolvedValue(RECORD); });
 
-  it('opens at once with what the pin knows: the name, where, the sector and how well the place is known', () => {
+  it('opens at once with what the pin knows: the name, and its sector and place (the suburb and the city: no street, no word on how well the place is known)', () => {
     fetchStartup.mockImplementation(() => new Promise(() => {}));
     setup();
     const card = screen.getByRole('region', { name: 'Acme AI' });
     expect(within(card).getByRole('heading', { name: 'Acme AI' })).toBeInTheDocument();
-    expect(within(card).getByText('Melbourne')).toBeInTheDocument();
-    expect(within(card).getByText('AI')).toBeInTheDocument();
-    expect(within(card).getByText('Location: suburb-level')).toBeInTheDocument();
-    expect(within(card).queryByText(/Roles unverified|Hiring/)).not.toBeInTheDocument(); // nothing is said of hiring for a company nobody has read
-    expect(card.querySelector('.xp-blurb')).toBeNull();
+    expect(within(card).getByText('AI & Data · Collingwood, Melbourne')).toBeInTheDocument();
+    expect(card).not.toHaveTextContent(/Example St|Office address|suburb-level|Verified/);
+    expect(card.querySelector('.xp-blurb')).toBeNull(); // no sentence until the record gives one
   });
 
-  it('fills in from the record: its one line, the sector in full, when it was checked, and what hiring says', async () => {
+  it('adds one plain sentence when the record arrives: the first, and nothing else the record says', async () => {
     setup();
     expect(await screen.findByText('Makes things for people.')).toBeInTheDocument();
     expect(fetchStartup).toHaveBeenCalledWith('acme', expect.objectContaining({ signal: expect.any(AbortSignal) }));
-    expect(screen.getByText('AI infrastructure')).toBeInTheDocument();
-    expect(screen.getByText('Hiring (checked 5 Oct)')).toBeInTheDocument();
-    expect(screen.getByText('Verified today')).toBeInTheDocument();
+    const card = screen.getByRole('region', { name: 'Acme AI' });
+    expect(card).not.toHaveTextContent(/founded in 2019/); // one sentence
+    // what is on the company's own page is not here: the website, the stage, the founders, the accelerator, the open roles, the dates, the sources, hiring, saving, reporting
+    expect(card).not.toHaveTextContent(/Seed|Ada Lovelace|Startmate|open role|Verified|checked|Source|hiring|Hiring|Unverified|Concept|Startup\b/);
+    expect(within(card).queryByRole('link')).not.toBeInTheDocument();
+    expect(within(card).queryByRole('tab')).not.toBeInTheDocument();
+    expect(within(card).queryByRole('button', { name: /Save|Report|Suggest/ })).not.toBeInTheDocument();
   });
 
-  it('says a company is hiring now when the pin does, before the record arrives', () => {
-    fetchStartup.mockImplementation(() => new Promise(() => {}));
-    setup({ pin: { ...PIN, hiring: true } });
-    expect(screen.getByText('● Hiring now')).toBeInTheDocument();
+  it('has the one way on, "View company", and closes from its own button and with Escape', async () => {
+    const { props } = setup();
+    await screen.findByText('Makes things for people.');
+    const card = screen.getByRole('region', { name: 'Acme AI' });
+    expect(within(card).getAllByRole('button').map((b) => b.getAttribute('aria-label') || b.textContent.trim())).toEqual(['Close this panel', 'View company']);
+    await userEvent.click(screen.getByRole('button', { name: /View company/ }));
+    expect(props.onOpen).toHaveBeenCalledTimes(1);
+    await userEvent.click(screen.getByRole('button', { name: 'Close this panel' }));
+    await userEvent.keyboard('{Escape}');
+    expect(props.onClose).toHaveBeenCalledTimes(2);
   });
 
-  it('says a company is unverified when the record does', async () => {
-    fetchStartup.mockResolvedValue({ ...RECORD, verified: false, hiringState: 'unverified' });
-    setup();
-    expect(await screen.findByText('Unverified')).toBeInTheDocument();
-    expect(screen.getByText('Roles unverified')).toBeInTheDocument();
-  });
-
-  it('keeps what the pin knew when the record cannot be fetched', async () => {
+  it('leaves out what it does not know, and keeps what the pin knew when the record cannot be fetched', async () => {
     fetchStartup.mockRejectedValue(new Error('down'));
-    setup();
+    setup({ pin: { slug: 'x', name: 'Nameless', city: 'Perth', sector: 'Unknown', website: '' } });
     await waitFor(() => expect(fetchStartup).toHaveBeenCalled());
-    expect(screen.getByRole('heading', { name: 'Acme AI' })).toBeInTheDocument();
-    expect(screen.queryByText(/Roles unverified/)).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Nameless' })).toBeInTheDocument();
+    expect(screen.getByText('Perth')).toBeInTheDocument(); // the city alone: "Unknown" is not a sector
+    expect(screen.getByRole('button', { name: /View company/ })).toBeInTheDocument();
   });
 
   it('asks for another company\'s record, and drops the old one, when the pin changes', async () => {
@@ -242,40 +248,6 @@ describe('the company\'s panel', () => {
     rerender(<StartupPanel {...props} pin={{ ...PIN, slug: 'beta', name: 'Beta' }} />);
     expect(screen.queryByText('Makes things for people.')).not.toBeInTheDocument();
     expect(await screen.findByText('Another one.')).toBeInTheDocument();
-  });
-
-  it('has the two things to do with a company: open it, and save it (kept in this browser)', async () => {
-    const { props, rerender } = setup();
-    await screen.findByText('Makes things for people.'); // the record has arrived: what the main button is depends on it
-    await userEvent.click(screen.getByRole('button', { name: /View company/ }));
-    expect(props.onOpen).toHaveBeenCalledTimes(1);
-    const save = screen.getByRole('button', { name: 'Save Acme AI' });
-    expect(save).toHaveAttribute('aria-pressed', 'false');
-    await userEvent.click(save);
-    expect(props.onToggleSaved).toHaveBeenCalledTimes(1);
-    rerender(<StartupPanel {...props} saved />);
-    expect(screen.getByRole('button', { name: 'Remove Acme AI from saved' })).toHaveAttribute('aria-pressed', 'true');
-  });
-
-  it('closes from its own button and with Escape', async () => {
-    const { props } = setup();
-    await userEvent.click(screen.getByRole('button', { name: 'Close this panel' }));
-    await userEvent.keyboard('{Escape}');
-    expect(props.onClose).toHaveBeenCalledTimes(2);
-  });
-
-  it('offers "Report: role closed" only for a company that is hiring or was checked as hiring, and only when the page can take it', async () => {
-    const { props } = setup();
-    await screen.findByText('Hiring (checked 5 Oct)');
-    await userEvent.click(screen.getByRole('button', { name: 'Report: role closed' }));
-    expect(props.onReport).toHaveBeenCalledTimes(1);
-  });
-
-  it('has no report link without a page to take it, nor for a company with no roles listed', async () => {
-    fetchStartup.mockResolvedValue({ ...RECORD, hiringState: 'none' });
-    setup({ onReport: undefined });
-    await screen.findByText(/No open roles listed/);
-    expect(screen.queryByRole('button', { name: 'Report: role closed' })).not.toBeInTheDocument();
   });
 
   it('is the same card in the phone\'s sheet, with a smaller picture', () => {
@@ -300,73 +272,6 @@ describe('the company\'s panel', () => {
     const { container } = setup({ pin: { ...PIN, name: evil } });
     expect(screen.getByRole('heading', { name: evil })).toBeInTheDocument();
     expect(container.querySelector('.xp-name img')).toBeNull();
-  });
-});
-
-describe('the company\'s panel: its tabs, its jobs and its way in', () => {
-  const PIN = { slug: 'acme', name: 'Acme AI', city: 'Melbourne', sector: 'AI', hiring: true, website: 'https://acme.ai', location: { place: '1 Example St, Melbourne', quality: 'Office address on file' } };
-  const RECORD = {
-    slug: 'acme', name: 'Acme AI', sector: 'AI', blurb: 'Makes things for people.', website: 'https://acme.ai', verified: true, last_verified_at: new Date().toISOString(), hiringState: 'hiring',
-    open_roles: 3, hiring_source: { url: 'https://boards.acme.ai/jobs', checked_at: '2026-10-05T03:59:04.292Z' }, stage: 'Seed',
-  };
-  const setup = (over = {}) => {
-    const props = { pin: PIN, saved: false, onToggleSaved: vi.fn(), onOpen: vi.fn(), onClose: vi.fn(), onReport: vi.fn(), ...over };
-    return { props, ...render(<StartupPanel {...props} />) };
-  };
-  beforeEach(() => { fetchStartup.mockReset(); fetchStartup.mockResolvedValue(RECORD); });
-
-  it('says what it is with tags (a startup, its sector), its one line, where it is and how well that is known', async () => {
-    setup();
-    const panel = screen.getByRole('region', { name: 'Acme AI' });
-    expect(within(panel).getByText('Startup')).toBeInTheDocument();
-    expect(within(panel).getByText('AI')).toBeInTheDocument();
-    expect(within(panel).getByText('1 Example St, Melbourne')).toBeInTheDocument();
-    expect(within(panel).getByText('Office address on file')).toBeInTheDocument();
-    expect(await within(panel).findByText('Makes things for people.')).toBeInTheDocument();
-  });
-
-  it('opens on its overview: the website as a link that opens in a new tab, and the stage', async () => {
-    setup();
-    const link = screen.getByRole('link', { name: /acme\.ai/ });
-    expect(link).toHaveAttribute('href', 'https://acme.ai');
-    expect(link).toHaveAttribute('target', '_blank');
-    expect(link.getAttribute('rel')).toContain('noopener');
-    expect(await screen.findByText('Seed')).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: 'Overview' })).toHaveAttribute('aria-selected', 'true');
-  });
-
-  it('has a Jobs tab with what a page says of its open roles, how many, and the way to them', async () => {
-    setup();
-    await userEvent.click(screen.getByRole('tab', { name: /^Jobs/ }));
-    const jobs = screen.getByRole('tabpanel');
-    expect(await within(jobs).findByText(/3 open roles/)).toBeInTheDocument();
-    expect(within(jobs).getByRole('link', { name: 'boards.acme.ai' })).toHaveAttribute('href', 'https://boards.acme.ai/jobs');
-    expect(within(jobs).getByRole('link', { name: /View open roles/ })).toHaveAttribute('target', '_blank');
-    expect(screen.getByRole('tab', { name: /^Jobs/ })).toHaveAttribute('aria-selected', 'true');
-  });
-
-  it('makes viewing the open roles its main action when the company is hiring, and keeps View company beside Save', async () => {
-    const { props } = setup();
-    await screen.findByText('Makes things for people.');
-    const roles = screen.getAllByRole('link', { name: /View open roles/ });
-    expect(roles[roles.length - 1]).toHaveAttribute('href', 'https://boards.acme.ai/jobs');
-    await userEvent.click(screen.getByRole('button', { name: 'View company' }));
-    expect(props.onOpen).toHaveBeenCalledTimes(1);
-  });
-
-  it('makes View company its main action, and sends nobody to a job page, when the company is not hiring', async () => {
-    fetchStartup.mockResolvedValue({ ...RECORD, hiringState: 'none', hiring_source: undefined });
-    setup({ pin: { ...PIN, hiring: false } });
-    await screen.findByText(/No open roles listed/);
-    expect(screen.queryByRole('link', { name: /View open roles|Apply now/ })).not.toBeInTheDocument();
-    expect(screen.getAllByRole('button', { name: /View company/ })).toHaveLength(1);
-  });
-
-  it('says on the Jobs tab that nothing has been read, rather than that nobody is hiring, for a company nobody has read', async () => {
-    fetchStartup.mockResolvedValue({ ...RECORD, hiringState: 'unverified', hiring_source: undefined });
-    setup({ pin: { ...PIN, hiring: false } });
-    await userEvent.click(screen.getByRole('tab', { name: /^Jobs/ }));
-    expect(await screen.findByText(/No open roles have been read for this company/)).toBeInTheDocument();
   });
 });
 

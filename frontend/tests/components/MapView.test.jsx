@@ -254,18 +254,15 @@ describe('MapView', () => {
       return { popup, card: popup.setContent.mock.calls[0][0] };
     };
 
-    it('is a small card, not the whole company: its name, whether it is hiring, one way in, and the rest under "More"', () => {
+    it('is a small card, not the whole company: its name, its sector and place, and one way in: nothing about hiring, sources or how well the place is known', () => {
       const { popup, card } = open();
       expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ className: 'pin-popup' }));
       expect(popup.setLatLng).toHaveBeenCalledWith([-33.87, 151.21]);
       expect(popup.openOn).toHaveBeenCalledWith(mapInstance);
       expect(card.querySelector('.pin-pop-name').textContent).toBe('Acme AI');
-      expect(card.querySelector('.hiring-badge').textContent).toBe('● Hiring now');
+      expect(card.querySelector('.pin-pop-facts').textContent).toBe('AI · Sydney');
       expect([...card.querySelectorAll('button.pin-pop-cta')].map((b) => b.textContent)).toEqual(['View company']); // one call to action
-      const more = card.querySelector('details.pin-pop-more');
-      expect(more.querySelector('summary').textContent).toBe('More');
-      expect(more.open).toBe(false); // folded until asked for
-      expect(more.textContent).toContain('AI'); // the sector is in there
+      expect(card.querySelector('details,.hiring-badge,.pin-pop-status,.pin-pop-report,a')).toBeNull();
     });
 
     it('opens the company, with what the pin knows, from its one call to action, and shuts the card', () => {
@@ -277,7 +274,7 @@ describe('MapView', () => {
       expect(onSelectStartup).toHaveBeenCalledWith(expect.objectContaining({ slug: 'acme-ai', name: 'Acme AI', hiring: true, website: 'https://acme.ai', location_precision: 'EXACT' }));
     });
 
-    it('asks the server for the company\'s record and fills in its one line, its hiring state and the rest when it arrives', async () => {
+    it('asks the server for the company\'s record and fills in its one sentence when it arrives, and nothing else of the record', async () => {
       fetchStartup.mockResolvedValue({ slug: 'acme-ai', name: 'Acme AI', blurb: 'Makes things for people.', stage: 'Seed', hiringState: 'checked', hiring_checked_at: '2026-10-05T03:59:04.292Z', last_verified_at: new Date().toISOString(), website: 'https://acme.ai' });
       const { card } = open({ hiring: 0 });
       expect(fetchStartup).toHaveBeenCalledWith('acme-ai');
@@ -286,25 +283,18 @@ describe('MapView', () => {
       await Promise.resolve();
       expect(card.querySelector('.pin-pop-blurb').textContent).toBe('Makes things for people.');
       expect(card.querySelector('.pin-pop-blurb').hidden).toBe(false);
-      expect(card.querySelector('.hiring-badge').textContent).toBe('Hiring (checked 5 Oct)');
-      expect(card.querySelector('.hiring-badge').className).toContain('hiring-badge-off');
-      const more = card.querySelector('.pin-pop-more').textContent;
-      expect(more).toContain('Seed');
-      expect(more).toContain('acme.ai');
+      expect(card.textContent).not.toMatch(/Seed|acme\.ai|checked|Hiring/);
+      expect(card.querySelector('a')).toBeNull(); // no website, no source
     });
 
-    it('asks the map to keep the card clear of the search box again when it grows: when the record arrives, and when "More" is unfolded', async () => {
+    it('asks the map to keep the card clear of the search box again when it grows, when the record arrives', async () => {
       fetchStartup.mockResolvedValue({ slug: 'acme-ai', name: 'Acme AI', blurb: 'Makes things for people.', stage: 'Seed' });
-      const { popup, card } = open({ hiring: 0 });
+      const { popup } = open({ hiring: 0 });
       expect(popup.update).not.toHaveBeenCalled();
       expect(L.popup).toHaveBeenCalledWith(expect.objectContaining({ autoPanPaddingTopLeft: [24, 64], autoPanPaddingBottomRight: [24, 96] }));
       await Promise.resolve();
       await Promise.resolve();
       expect(popup.update).toHaveBeenCalledTimes(1); // the record
-      document.body.append(card);
-      card.querySelector('.pin-pop-more').dispatchEvent(new Event('toggle')); // does not bubble: caught on the way down
-      expect(popup.update).toHaveBeenCalledTimes(2);
-      card.remove();
     });
 
     it('says what the pin knows and nothing it does not when the record cannot be fetched', async () => {
@@ -313,8 +303,8 @@ describe('MapView', () => {
       await Promise.resolve();
       await Promise.resolve();
       expect(card.querySelector('.pin-pop-name').textContent).toBe('Acme AI');
-      expect(card.querySelector('.pin-pop-blurb').hidden).toBe(true);
-      expect(card.querySelector('.pin-pop-status').hidden).toBe(true); // it is not said to be hiring, or not, of a company nobody has read
+      expect(card.querySelector('.pin-pop-blurb').hidden).toBe(true); // no sentence is made up
+      expect(card.querySelector('.pin-pop-facts').textContent).toBe('AI · Sydney');
     });
 
     it('does not fail when the card is opened and nobody is listening (the landing page map)', () => {
@@ -671,17 +661,18 @@ describe('MapView', () => {
       expect(office.classList.contains('pin-approx')).toBe(false);
     });
 
-    it('says in the tooltip the name, where, and how well that is known', () => {
-      render(<MapView markers={[pin('a', 'Example Startup', -37.81, 144.96, { precision: 'EXACT', place: '123 Example Street, Melbourne', checked: 1 })]} onSelectStartup={noop} />);
+    it('says in the tooltip the name, its sector and its suburb and city: never the street, never how well the place is known', () => {
+      const tuple = [...pin('a', 'Example Startup', -37.81, 144.96, { precision: 'EXACT', place: '123 Example Street, Collingwood, Melbourne', checked: 1, logo: null, city: 'Melbourne' }), 'Melbourne', 'Health & Biotech', 'Collingwood'];
+      render(<MapView markers={[tuple]} onSelectStartup={noop} />);
       const [content] = lastMarker().bindTooltip.mock.calls[0];
-      expect([...content.children].map((c) => c.textContent)).toEqual(['Example Startup', '123 Example Street, Melbourne', 'Verified office']);
-      expect(content.querySelector('.tip-quality').className).toContain('tip-exact');
+      expect([...content.children].map((c) => c.textContent)).toEqual(['Example Startup', 'Health & Biotech · Collingwood, Melbourne']);
+      expect(content.textContent).not.toMatch(/Example Street|Verified|address on file|suburb-level/);
     });
 
-    it('does not call an address that was only on file verified, and calls a suburb suburb-level', () => {
+    it('says the same of an address that was only on file and of a suburb: the page has how well a place is known', () => {
       render(<MapView markers={[pin('a', 'A', -33.87, 151.21, { precision: 'EXACT', place: '1 George Street, Sydney', checked: 0 }), pin('b', 'B', -37.81, 144.96, { precision: 'SUBURB', place: 'Richmond, Melbourne' })]} onSelectStartup={noop} />);
-      const words = L.marker.mock.results.map((r) => r.value.bindTooltip.mock.calls[0][0].querySelector('.tip-quality').textContent);
-      expect(words).toEqual(['Office address on file', 'Location: suburb-level']);
+      const words = L.marker.mock.results.map((r) => r.value.bindTooltip.mock.calls[0][0].textContent);
+      expect(words).toEqual(['AAI · Sydney', 'BAI · Sydney']);
     });
 
     it('builds the tooltip as text, whatever the company or the place is called', () => {
@@ -692,12 +683,12 @@ describe('MapView', () => {
       expect(content.textContent).toContain(evil);
     });
 
-    it('opens a company from its card with how well its place is known already in hand, and says it on the card', () => {
+    it('opens a company from its card with how well its place is known already in hand (the company\'s own page says it: the card does not)', () => {
       const onSelectStartup = vi.fn();
       render(<MapView markers={[pin('acme', 'Acme', -33.88, 151.21, { precision: 'SUBURB', place: 'Surry Hills, Sydney' })]} onSelectStartup={onSelectStartup} />);
       lastMarker().on.mock.calls[0][1]();
       const card = L.popup.mock.results.at(-1).value.setContent.mock.calls[0][0];
-      expect(card.querySelector('.pin-pop-more').textContent).toContain('Location: suburb-level');
+      expect(card.textContent).not.toContain('suburb-level');
       card.querySelector('.pin-pop-cta').click();
       expect(onSelectStartup).toHaveBeenCalledWith(expect.objectContaining({ slug: 'acme', location_precision: 'SUBURB', location: { precision: 'SUBURB', place: 'Surry Hills, Sydney', quality: 'Location: suburb-level' } }));
     });

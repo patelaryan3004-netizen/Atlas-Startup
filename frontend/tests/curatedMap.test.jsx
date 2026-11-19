@@ -8,45 +8,24 @@ import { markersUrl, startupPageUrl, summaryUrl } from '../src/apiUrls.js';
 import { readAppRoute, exploreSearch, appUrl } from '../src/appRoute.js';
 
 // The owner's curated list: the map shows only the companies it says (onMap), and can be narrowed to Early or Growth ones (maturity).
-const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '' };
+const FILTERS = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '', onMap: '' };
 const MATURITIES = [{ value: 'Early', count: 344 }, { value: 'Growth', count: 58 }, { value: 'Unverified', count: 24 }];
 
 const head = (props = {}) => {
   const handlers = { onFilterChange: vi.fn(), onEntityChange: vi.fn(), onToggleFilters: vi.fn(), onList: vi.fn() };
   render(
-    <AtlasHead filters={FILTERS} sectors={['Fintech']} stages={['Seed']} entity="all" filtersOpen={false} filterCount={0} listHref="/discover" count="426 organisations" maturities={MATURITIES} {...handlers} {...props} />,
+    <AtlasHead filters={FILTERS} sectors={[{ value: 'Fintech', count: 12 }]} cities={[]} entity="all" filtersOpen={false} filterCount={0} listHref="/discover" count="426 organisations" {...handlers} {...props} />,
   );
   return handlers;
 };
 
 describe('the map page\'s Early / Growth filter', () => {
-  it('has a button for Early and one for Growth (not for Unverified), neither pressed to begin with', () => {
+  it('is not in the head of the directory panel any more (one row of controls: the search, the city, the sector, the type and "View list"): it is under "More filters", as the section below', () => {
     head();
-    const group = screen.getByRole('group', { name: 'Company maturity: early or growth' });
-    expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual(['Early', 'Growth']);
-    for (const b of within(group).getAllByRole('button')) expect(b).toHaveAttribute('aria-pressed', 'false');
-  });
-
-  it('turns each on and off, and both together are "Early,Growth", through the one maturity filter', async () => {
-    const { onFilterChange } = head();
-    await userEvent.click(screen.getByRole('button', { name: 'Early' }));
-    expect(onFilterChange).toHaveBeenLastCalledWith({ maturity: 'Early' });
-    onFilterChange.mockClear();
-    head({ filters: { ...FILTERS, maturity: 'Early' }, onFilterChange });
-    const buttons = screen.getAllByRole('button', { name: 'Early' });
-    expect(buttons[buttons.length - 1]).toHaveAttribute('aria-pressed', 'true');
-    await userEvent.click(screen.getAllByRole('button', { name: 'Growth' }).pop());
-    expect(onFilterChange).toHaveBeenLastCalledWith({ maturity: 'Early,Growth' });
-    await userEvent.click(screen.getAllByRole('button', { name: 'Early' }).pop());
-    expect(onFilterChange).toHaveBeenLastCalledWith({ maturity: '' });
-  });
-
-  it('is not drawn when the directory has no maturities (before the curated list is applied), or only ones the map does not filter by', () => {
-    const { unmount } = render(<AtlasHead filters={FILTERS} sectors={[]} stages={[]} entity="all" filtersOpen={false} filterCount={0} listHref="/discover" count="1" onFilterChange={() => {}} onEntityChange={() => {}} onToggleFilters={() => {}} onList={() => {}} />);
     expect(screen.queryByRole('group', { name: /Company maturity/ })).not.toBeInTheDocument();
-    unmount();
-    head({ maturities: [{ value: 'Unverified', count: 24 }] });
-    expect(screen.queryByRole('group', { name: /Company maturity/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Early' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Growth' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /More filters/ })).toBeInTheDocument();
   });
 });
 
@@ -88,8 +67,10 @@ describe('the chip for it, and the addresses', () => {
     expect(startupPageUrl({ onMap: 'yes' }, { limit: 48, offset: 0, sort: 'name' })).toContain('onMap=yes');
   });
 
-  it('writes the maturity in an address, and never onMap, and an address with a maturity opens Discover', () => {
-    expect(exploreSearch({ ...FILTERS, maturity: 'Early', onMap: 'yes', city: 'Perth' }, 'list')).toBe('?city=Perth&maturity=Early');
+  it('writes the maturity in an address; onMap only in the address of a list (\"View list\" is the list of what the map shows), never in the map\'s own; and an address with a maturity opens Discover', () => {
+    expect(exploreSearch({ ...FILTERS, maturity: 'Early', onMap: 'yes', city: 'Perth' }, 'list')).toBe('?city=Perth&maturity=Early&onMap=yes');
+    expect(exploreSearch({ ...FILTERS, maturity: 'Early', city: 'Perth' }, 'list')).toBe('?city=Perth&maturity=Early');
+    expect(appUrl({ kind: 'explore' }, { filters: { ...FILTERS, city: 'Perth', onMap: 'yes' }, viewMode: 'list' })).toBe('/discover?city=Perth&onMap=yes');
     expect(appUrl({ kind: 'map' }, { filters: { ...FILTERS, maturity: 'Growth', onMap: 'yes' } })).toBe('/map?maturity=Growth');
     expect(readAppRoute({ pathname: '/', search: '?maturity=Early' })).toEqual({ kind: 'explore' });
   });

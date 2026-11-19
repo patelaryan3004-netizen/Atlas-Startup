@@ -23,11 +23,12 @@ vi.mock('../src/api.js', () => ({
 }));
 
 vi.mock('../src/components/MapView.jsx', () => ({
-  default: ({ markers, areas = [], onSelectStartup, onSelectPin, onClearPin, onViewArea, institutionPins = [], showCompanies, showInstitutions, showVcs, vcPins = [], scope, focus, selectedName, onViewChange, onOpenInternal, onReportRoleClosed, previewAt, previewCard }) => (
+  default: ({ markers, areas = [], onSelectStartup, onSelectPin, onClearPin, onViewArea, institutionPins = [], showCompanies, showInstitutions, showVcs, vcPins = [], scope, focus, selectedName, onViewChange, onOpenInternal, onReportRoleClosed, previewAt, previewCard, restoreView }) => (
     <div
       data-testid="map-view"
       data-count={markers.length}
       data-vcs={vcPins.length}
+      data-vc-points={JSON.stringify(vcPins.map((p) => [p.id, p.lat, p.lng]))}
       data-show-vcs={String(showVcs)}
       data-areas={areas.map((a) => `${a.label}:${a.count}`).join(',')}
       data-scope={scope}
@@ -37,6 +38,7 @@ vi.mock('../src/components/MapView.jsx', () => ({
       data-show-companies={String(showCompanies)}
       data-show-institutions={String(showInstitutions)}
       data-preview-at={previewAt ? JSON.stringify(previewAt) : ''}
+      data-restore={restoreView ? JSON.stringify(restoreView) : ''}
     >
       <button onClick={() => onOpenInternal('/investors/blackbird')}>trigger-open-firm</button>
       <button onClick={() => onReportRoleClosed('Canva')}>trigger-report-role-closed</button>
@@ -125,12 +127,13 @@ import App from '../src/App.jsx';
 
 const meta = {
   sectors: ['Fintech', 'AI'],
+  sectorGroups: [{ value: 'AI & Data', count: 3 }, { value: 'Fintech', count: 4 }], // the display sectors every sector menu offers
   cities: ['Sydney'],
   investors: ['Blackbird'],
   stages: ['Seed'],
 };
 
-const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '' };
+const EMPTY = { search: '', sector: '', city: '', investor: '', stage: '', hiring: '', taskGate: '', events: '', precision: '', state: '', remote: '', tech: '', team: '', cohort: '', fresh: '', maturity: '', onMap: '' };
 const card = (name, overrides = {}) => ({
   name, slug: name.toLowerCase().replace(/\s+/g, '-'), sector: 'AI', sectorFull: 'AI', city: 'Sydney', stage: 'Seed', hiring: true, verified: true, ...overrides,
 });
@@ -879,12 +882,12 @@ describe('App', () => {
     it('writes the filters and the view into the address, so any view can be shared', async () => {
       render(<App />);
       await openFilters();
-      await tick('Sector', 'AI');
-      await waitFor(() => expect(at()).toBe('/discover?sector=AI&view=map'));
+      await tick('Sector', 'Fintech');
+      await waitFor(() => expect(at()).toBe('/discover?sector=Fintech&view=map'));
       await userEvent.click(screen.getByRole('button', { name: 'Gallery' }));
-      await waitFor(() => expect(at()).toBe('/discover?sector=AI'));
+      await waitFor(() => expect(at()).toBe('/discover?sector=Fintech'));
       await userEvent.click(await screen.findByRole('button', { name: 'Map' })); // the gallery's Map is the map page: the same filters, at its own address
-      await waitFor(() => expect(at()).toBe('/map?sector=AI'));
+      await waitFor(() => expect(at()).toBe('/map?sector=Fintech'));
     });
 
     it('opens a company at /startup/<slug> over the map, and Back closes it', async () => {
@@ -1127,8 +1130,8 @@ describe('App', () => {
       window.history.pushState({}, '', '/lists/au-fintech');
       render(<App />);
       await screen.findByRole('region', { name: 'List: Australian Fintech Startups' });
-      await openFilters();
-      await tick('City', 'Sydney');
+      await userEvent.click(screen.getByRole('button', { name: 'All cities' })); // the gallery's bar has the city (the filters drawer no longer repeats it)
+      await userEvent.click(within(screen.getByRole('group', { name: 'City' })).getByRole('checkbox', { name: /Sydney/ }));
       await waitFor(() => expect(screen.queryByRole('region', { name: /^List:/ })).not.toBeInTheDocument());
       await waitFor(() => expect(at()).toBe('/discover?sector=Fintech&city=Sydney'));
     });
@@ -1249,10 +1252,9 @@ describe('App', () => {
         expect(screen.getByTestId('preview-slot')).toContainElement(card); // MapView draws it beside the mark
         expect(JSON.parse(screen.getByTestId('map-view').dataset.previewAt)).toEqual({ lat: -33.8, lng: 151.2 });
         expect(within(card).getByText('Canva')).toBeInTheDocument();
-        expect(within(card).getByText('AI')).toBeInTheDocument();
-        expect(within(card).getByText('Sydney')).toBeInTheDocument();
-        expect(within(card).getByText('Verified office')).toBeInTheDocument(); // how well its place is known, from the pin
-        expect(within(card).getByText('Hiring')).toBeInTheDocument(); // the pin says so
+        expect(within(card).getByText('AI · Sydney')).toBeInTheDocument(); // its sector and its place, and the logo and the name above them
+        expect(within(card).queryByText('Verified office')).not.toBeInTheDocument(); // how well its place is known is on its own page
+        expect(within(card).queryByText('Hiring')).not.toBeInTheDocument();
         expect(screen.getByTestId('map-view').dataset.selected).toBe('Canva'); // its mark is drawn as the open one
         await waitFor(() => expect(container.querySelector('.xc-list [aria-current="true"]')).toHaveTextContent('Canva')); // and its row beside the map
         // a preview opens as the pin (above) and adds what the record says (its description, its website, its sources) as it arrives; it is never waited for
@@ -1264,23 +1266,23 @@ describe('App', () => {
       it('opens the company from the preview, and puts the preview away', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
-        await userEvent.click(within(await cardOf()).getByRole('button', { name: /Explore company/ }));
+        await userEvent.click(within(await cardOf()).getByRole('button', { name: 'View company' }));
         expect(await screen.findByTestId('startup-detail-panel')).toHaveTextContent('Canva');
         expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument();
         expect(window.location.pathname).toBe('/startup/canva');
       });
 
-      it('saves the company in this browser from the preview, and shows that it is saved there and in its row', async () => {
+      it('has no save button of its own (saving is from the company\'s row beside the map and from its page), and the row saves the company in this browser', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
-        const save = within(await cardOf()).getByRole('button', { name: 'Save Canva' });
+        const card = await cardOf();
+        expect(within(card).queryByRole('button', { name: /Save Canva|saved/ })).not.toBeInTheDocument();
+        const save = await screen.findByRole('button', { name: 'Save Canva' }); // its row in the results
         expect(save).toHaveAttribute('aria-pressed', 'false');
         await userEvent.click(save);
-        const card = screen.getByRole('region', { name: 'Canva' });
-        expect(within(card).getByRole('button', { name: 'Remove Canva from saved' })).toHaveAttribute('aria-pressed', 'true');
+        expect(screen.getByRole('button', { name: 'Remove Canva from saved' })).toHaveAttribute('aria-pressed', 'true');
         expect(JSON.parse(localStorage.getItem('auStartupTracked'))).toEqual(['Canva']);
-        await waitFor(() => expect(screen.getAllByRole('button', { name: 'Remove Canva from saved' })).toHaveLength(2)); // its row beside the map says so too
-        await userEvent.click(within(card).getByRole('button', { name: 'Remove Canva from saved' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Remove Canva from saved' }));
         expect(JSON.parse(localStorage.getItem('auStartupTracked'))).toEqual([]);
       });
 
@@ -1322,21 +1324,23 @@ describe('App', () => {
         expect(screen.queryByRole('region', { name: 'Canva' })).not.toBeInTheDocument();
       });
 
-      it('offers "Report: role closed" for a company the pin says is hiring, which opens the edit form with the sentence started, and not for one that is not', async () => {
+      it('has no "Report: role closed", for a company that is hiring or not: the card says one thing about the company and one way on (the report is on its page)', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin-quiet'));
         const quiet = await screen.findByRole('region', { name: 'Zeller' });
         expect(within(quiet).queryByRole('button', { name: 'Report: role closed' })).not.toBeInTheDocument();
         await userEvent.click(screen.getByText('trigger-clear-pin'));
         await userEvent.click(screen.getByText('trigger-pin'));
-        await userEvent.click(within(await cardOf()).getByRole('button', { name: 'Report: role closed' }));
-        expect(await screen.findByLabelText(/What.s wrong/)).toHaveValue('Role closed: Canva is no longer hiring. ');
+        const card = await cardOf();
+        expect(within(card).queryByRole('button', { name: 'Report: role closed' })).not.toBeInTheDocument();
+        expect(within(card).getAllByRole('button').map((b) => b.getAttribute('aria-label') || b.textContent.trim())).toEqual(['Close the preview', 'View company']);
+        expect(within(card).queryByRole('link')).not.toBeInTheDocument(); // no website, no source
       });
 
-      it('does not say a company is not hiring when nobody has read its page: a Hiring label only when the pin says so, and nothing for the rest', async () => {
+      it('says nothing about hiring, for the company the pin says is hiring or any other (that is on the company\'s page)', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText('trigger-pin'));
-        expect(within(await cardOf()).getByText('Hiring')).toBeInTheDocument(); // the pin said it is hiring
+        expect(within(await cardOf()).queryByText(/hiring/i)).not.toBeInTheDocument();
         await userEvent.click(screen.getByText('trigger-clear-pin'));
         await userEvent.click(screen.getByText('trigger-pin-quiet'));
         const quiet = await screen.findByRole('region', { name: 'Zeller' });
@@ -1491,6 +1495,64 @@ describe('App', () => {
       expect(window.location.search).toBe('?view=map'); // both is no parameter, and the map is asked for
     });
 
+    it('moves no investor on the map page except the firms of one building, a few paces apart, so each has its logo: a firm known only to its city stays on the city\'s point, and the older map keeps its numbered mark', async () => {
+      const building = { lat: -33.8636, lng: 151.2049, city: 'Sydney', precision: 'EXACT', place: '1 George Street, Sydney', role: 'office' };
+      const city = { lat: -33.8688, lng: 151.2093, city: 'Sydney', precision: 'CITY' };
+      const firms = [
+        { ...VC_ITEM, ...building, id: 'airtree@Sydney', slug: 'airtree', name: 'AirTree' }, { ...VC_ITEM, ...building, id: 'blackbird@Sydney', slug: 'blackbird', name: 'Blackbird' },
+        { ...VC_ITEM, ...city, id: 'carthona@Sydney', slug: 'carthona', name: 'Carthona Capital' }, { ...VC_ITEM, ...city, id: 'antler@Sydney', slug: 'antler', name: 'Antler' },
+      ];
+      withVcs(firms);
+      window.history.pushState({}, '', '/map');
+      const { unmount } = render(<App />);
+      await waitFor(() => expect(map()).toHaveAttribute('data-vcs', '4'));
+      const points = Object.fromEntries(JSON.parse(map().dataset.vcPoints).map(([id, lat, lng]) => [id, [lat, lng]]));
+      expect(points['airtree@Sydney']).toEqual([-33.8636, 151.2049]); // the first of the building stays
+      expect(points['blackbird@Sydney']).not.toEqual([-33.8636, 151.2049]); // the other is a few paces off
+      expect(Math.hypot((points['blackbird@Sydney'][0] + 33.8636) * 111320, (points['blackbird@Sydney'][1] - 151.2049) * 111320 * Math.cos((33.8636 * Math.PI) / 180))).toBeLessThan(40);
+      expect(points['carthona@Sydney']).toEqual([-33.8688, 151.2093]); // known only to its city: not moved...
+      expect(points['antler@Sydney']).toEqual([-33.8688, 151.2093]); // ...nor is any other
+      // all four are in the rows beside the map, the two without a street address too
+      for (const name of ['AirTree', 'Blackbird', 'Carthona Capital', 'Antler']) expect(await screen.findByRole('button', { name: new RegExp(`^${name}`) })).toBeInTheDocument();
+      unmount();
+      window.history.pushState({}, '', '/discover?view=map');
+      render(<App />);
+      await waitFor(() => expect(map()).toHaveAttribute('data-vcs', '4'));
+      const older = JSON.parse(map().dataset.vcPoints);
+      expect(older.map(([, lat, lng]) => `${lat},${lng}`)).toEqual(firms.map((f) => `${f.lat},${f.lng}`)); // as they were
+    });
+
+    it('picks an investor from the rows beside the map as it always did when it has a mark (a verified street address): its card, and the map goes to it', async () => {
+      withVcs([{ ...VC_ITEM, precision: 'EXACT', place: '1 George Street, Sydney', role: 'office' }]);
+      window.history.pushState({}, '', '/map');
+      render(<App />);
+      await userEvent.click(await screen.findByRole('button', { name: /^OIF Ventures/ }));
+      expect(await screen.findByRole('region', { name: 'OIF Ventures' })).toBeInTheDocument();
+      expect(JSON.parse(map().dataset.focus)).toMatchObject({ lat: -33.87, lng: 151.21 });
+      expect(screen.queryByTestId('investors-view')).not.toBeInTheDocument();
+    });
+
+    it('opens the page of an investor known only to its city when its row is picked: it has no mark to light, and the map is not sent to a city\'s point or given a card there', async () => {
+      withVcs([VC_ITEM]); // a city, no street address
+      window.history.pushState({}, '', '/map');
+      render(<App />);
+      await userEvent.click(await screen.findByRole('button', { name: /^OIF Ventures/ }));
+      const view = await screen.findByTestId('investors-view');
+      expect(JSON.parse(view.dataset.route)).toEqual({ kind: 'investor', slug: 'oif' });
+      expect(screen.queryByRole('region', { name: 'OIF Ventures' })).not.toBeInTheDocument();
+    });
+
+    it('picks the verified office of a firm that also has a city-level mark: its row names both places and opens the office\'s card', async () => {
+      withVcs([{ ...VC_ITEM, id: 'oif@Perth', city: 'Perth', lat: -31.95, lng: 115.86, precision: 'CITY' }, { ...VC_ITEM, precision: 'EXACT', place: '1 George Street, Sydney', role: 'office' }]);
+      window.history.pushState({}, '', '/map');
+      render(<App />);
+      const row = await screen.findByRole('button', { name: /^OIF Ventures/ });
+      expect(row).toHaveTextContent('Perth, Sydney');
+      await userEvent.click(row);
+      expect(await screen.findByRole('region', { name: 'OIF Ventures' })).toBeInTheDocument();
+      expect(JSON.parse(map().dataset.focus)).toMatchObject({ lat: -33.87, lng: 151.21 }); // Sydney's office, not Perth's city point
+    });
+
     it('passes the search, sector, stage and city to the investors, and not the filters that are about startups', async () => {
       withVcs();
       window.history.pushState({}, '', '/discover?search=fin&sector=AI&stage=Seed&city=Sydney&show=vcs&remote=remote&view=map');
@@ -1599,10 +1661,9 @@ describe('App', () => {
         await userEvent.click(await screen.findByText(VC_PIN));
         const card = await screen.findByRole('region', { name: 'OIF Ventures' });
         expect(screen.getByTestId('preview-slot')).toContainElement(card);
-        expect(within(card).getByText('Venture capital')).toBeInTheDocument();
+        expect(within(card).getByText('Venture capital · Sydney')).toBeInTheDocument();
         expect(within(card).getByText('VC')).toBeInTheDocument(); // the badge
-        expect(within(card).getByText('Sydney, NSW')).toBeInTheDocument();
-        expect(within(card).getByText('City-level: its headquarters city, no address on file')).toBeInTheDocument();
+        expect(within(card).queryByText(/City-level|address on file/)).not.toBeInTheDocument(); // how well its place is known is on its own page
         expect(fetchStartup).not.toHaveBeenCalled(); // an investor is not a company
         expect(map().dataset.selected).toBe('OIF Ventures'); // its mark is drawn as the open one
         expect(container.querySelector('.xc-list [aria-current="true"]')).toHaveTextContent('OIF Ventures'); // and its row beside the map
@@ -1612,14 +1673,15 @@ describe('App', () => {
         expect(focus.inset).toBeUndefined();
       });
 
-      it('saves the investor in this browser, in the same list as the investors\' page', async () => {
+      it('saves the investor in this browser, in the same list as the investors\' page, from its row beside the map', async () => {
         render(<App />);
         await userEvent.click(await screen.findByText(VC_PIN));
         const panel = await screen.findByRole('region', { name: 'OIF Ventures' });
-        await userEvent.click(within(panel).getByRole('button', { name: 'Save OIF Ventures' }));
+        expect(within(panel).queryByRole('button', { name: /Save OIF Ventures/ })).not.toBeInTheDocument();
+        await userEvent.click(await screen.findByRole('button', { name: 'Save OIF Ventures' }));
         expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual(['oif']);
-        expect(within(panel).getByRole('button', { name: 'Remove OIF Ventures from saved' })).toHaveAttribute('aria-pressed', 'true');
-        await userEvent.click(within(panel).getByRole('button', { name: 'Remove OIF Ventures from saved' }));
+        expect(screen.getByRole('button', { name: 'Remove OIF Ventures from saved' })).toHaveAttribute('aria-pressed', 'true');
+        await userEvent.click(screen.getByRole('button', { name: 'Remove OIF Ventures from saved' }));
         expect(JSON.parse(localStorage.getItem('auStartupSavedInvestors'))).toEqual([]);
       });
 
@@ -1724,7 +1786,7 @@ describe('App', () => {
       const sheet = () => screen.getByRole('region', { name: 'Startups on the map' });
 
       it('counts the startups and the VCs in the sheet\'s bar, and lists the firms after the startups', async () => {
-        withVcs([VC_ITEM, { ...VC_ITEM, id: 'oif@Melbourne', city: 'Melbourne', lat: -37.8, lng: 144.9 }]);
+        withVcs([{ ...VC_ITEM, precision: 'EXACT', place: '1 George Street, Sydney', role: 'office' }, { ...VC_ITEM, id: 'oif@Melbourne', city: 'Melbourne', lat: -37.8, lng: 144.9 }]);
         render(<App />);
         await waitFor(() => expect(within(sheet()).getByText(/2 companies · 1 VC/)).toBeInTheDocument());
         await userEvent.click(within(sheet()).getByRole('button', { name: /companies/ }));
@@ -1786,10 +1848,65 @@ describe('App', () => {
       expect(await screen.findByTestId('map-view')).toBeInTheDocument();
       await waitFor(() => expect(fetchMarkers).toHaveBeenCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney', onMap: 'yes' }, expect.anything())); // (the map page also asks for every city's pins, to count its badges)
 
-      await userEvent.click(screen.getByRole('link', { name: 'See these as a gallery' }));
+      // "View list": the list of exactly what the map is showing, with every filter it has and its scope (only the companies the map shows) in the address and as a chip
+      await userEvent.click(screen.getByRole('link', { name: 'View list' }));
       expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
-      expect(window.location.pathname + window.location.search).toBe('/discover?sector=AI&city=Sydney');
+      expect(window.location.pathname + window.location.search).toBe('/discover?sector=AI&city=Sydney&onMap=yes');
       expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      await waitFor(() => expect(fetchStartupPage).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'AI', city: 'Sydney', onMap: 'yes' }, expect.anything()));
+      expect(screen.getByRole('button', { name: 'Remove filter: Scope On the map' })).toBeInTheDocument();
+
+      // and "Back to map" is the map as it was: the same city and sector, and no scope in its address (the map is only what it shows)
+      await userEvent.click(screen.getByRole('button', { name: 'Back to map' }));
+      await waitFor(() => expect(window.location.pathname + window.location.search).toBe('/map?sector=AI&city=Sydney'));
+      expect(await screen.findByTestId('map-view')).toBeInTheDocument();
+    });
+
+    it('brings the map back where it was, exactly, from the list: the centre and zoom it was left at, with the city and every filter still on', async () => {
+      window.history.pushState({}, '', '/map?sector=Fintech&city=Sydney');
+      render(<App />);
+      const first = await screen.findByTestId('map-view');
+      expect(first.dataset.restore).toBe(''); // a map that has never been left opens as a link says
+      await userEvent.click(screen.getByText('trigger-move')); // the map moves: centre -33.8, 151.2, zoom 9
+      await userEvent.click(screen.getByRole('link', { name: 'View list' }));
+      expect(await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' })).toBeInTheDocument();
+      expect(screen.queryByTestId('map-view')).not.toBeInTheDocument();
+      await userEvent.click(screen.getByRole('button', { name: 'Back to map' }));
+      const back = await screen.findByTestId('map-view');
+      expect(JSON.parse(back.dataset.restore)).toEqual({ lat: -33.8, lng: 151.2, zoom: 9, city: 'Sydney' });
+      expect(back.dataset.scope).toBe('Sydney');
+      expect(window.location.pathname + window.location.search).toBe('/map?sector=Fintech&city=Sydney');
+      // and the browser's Back from the list does the same
+      await userEvent.click(screen.getByRole('link', { name: 'View list' }));
+      await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' });
+      window.history.back();
+      await waitFor(() => expect(screen.getByTestId('map-view').dataset.restore).toBe('{"lat":-33.8,"lng":151.2,"zoom":9,"city":"Sydney"}'));
+    });
+
+    it('does not send the map that comes back to a company that was picked before: that was for the map that has gone', async () => {
+      window.history.pushState({}, '', '/map?city=Sydney');
+      render(<App />);
+      await userEvent.click(await screen.findByText('trigger-pin'));
+      expect(JSON.parse(screen.getByTestId('map-view').dataset.focus)).toMatchObject({ lat: -33.8, lng: 151.2 }); // picked: the map is sent to it
+      await userEvent.click(screen.getByRole('link', { name: 'View list' }));
+      await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' });
+      await userEvent.click(screen.getByRole('button', { name: 'Back to map' }));
+      expect((await screen.findByTestId('map-view')).dataset.focus).toBe('');
+    });
+
+    it('does not take the map back to where it was when the city is another one: the list changed it, so the map goes where the filters now say', async () => {
+      window.history.pushState({}, '', '/map?city=Sydney');
+      render(<App />);
+      await screen.findByTestId('map-view');
+      await userEvent.click(screen.getByText('trigger-move'));
+      await userEvent.click(screen.getByRole('link', { name: 'View list' }));
+      await screen.findByRole('heading', { level: 1, name: 'Startup gallery.' });
+      await userEvent.click(screen.getByRole('button', { name: 'Sydney' }));
+      await userEvent.click(within(screen.getByRole('group', { name: 'City' })).getByRole('checkbox', { name: /Sydney/ })); // takes Sydney off: all of Australia
+      await userEvent.click(screen.getByRole('button', { name: 'Back to map' }));
+      const back = await screen.findByTestId('map-view');
+      expect(back.dataset.scope).toBe('');
+      expect(back.dataset.restore).toBe(''); // the camera was Sydney's: this is the whole country's
     });
 
     it('opens a company from the gallery over the gallery, and Back closes it with the filters still on', async () => {
@@ -1835,9 +1952,9 @@ describe('App', () => {
       render(<App />);
       await openFilters();
       await tick('Sector', 'Fintech');
-      await userEvent.click(within(screen.getByRole('group', { name: 'Sector' })).getByRole('checkbox', { name: 'AI' }));
-      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'Fintech,AI' }, expect.anything()));
-      await waitFor(() => expect(window.location.search).toBe('?sector=Fintech%2CAI&view=map'));
+      await userEvent.click(within(screen.getByRole('group', { name: 'Sector' })).getByRole('checkbox', { name: 'AI & Data' }));
+      await waitFor(() => expect(fetchMarkers).toHaveBeenLastCalledWith({ ...EMPTY, sector: 'Fintech,AI & Data' }, expect.anything()));
+      await waitFor(() => expect(window.location.search).toBe('?sector=Fintech%2CAI+%26+Data&view=map'));
     });
   });
 });

@@ -22,7 +22,8 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { buildProvenance } from './provenance.js';
-import { toPublic, deriveState, FACT_FIELDS, REMOTE_POLICIES, TEAM_BUCKETS, teamBucketOf, MATURITIES } from '../models/company.js';
+import { toPublic, deriveState, FACT_FIELDS, REMOTE_POLICIES, TEAM_BUCKETS, teamBucketOf, MATURITIES, lifecycleOf } from '../models/company.js';
+import { sectorGroupOf, SECTOR_OPTIONS } from '../models/sectors.js';
 import { valuesEqual } from '../models/evidence.js';
 import { COHORTS, COHORT_IDS, cohortTerms, programOf } from '../models/cohorts.js';
 import { describeLocation, PRECISIONS } from '../models/location.js';
@@ -42,7 +43,13 @@ export const stageRank = (stage) => {
   const at = STAGE_ORDER.indexOf(stage);
   return at === -1 ? STAGE_ORDER.length + 1 : at;
 };
-export const FACETS = ['sector', 'city', 'stage', 'investor'];
+// The stages a visitor may filter by: funding rounds only, earliest first. The data also has "Acquired", "Subsidiary", "Unicorn", "Defunct (...)", "Early", "Growth", "Other Equity" and "Unknown" in its stage
+// field; those say what became of a company or how far along it is, not which round it raised, so they are not offered (a link that names one still filters). The records are not changed.
+export const FUNDING_STAGES = ['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series B+', 'Series C', 'Series C+', 'Series D', 'Series D+', 'Series E'];
+// A company that has closed: its record says defunct (company_status, or a stage of "Defunct (in administration)" / "Defunct (in liquidation)") or the curated list calls it collapsed.
+// It is never drawn on the map or counted in what the map shows; its record and its own page stay.
+export const isInactive = (c) => lifecycleOf(c) === 'defunct' || c.maturity === 'Collapsed';
+export const FACETS = ['sector', 'sectorGroup', 'city', 'stage', 'investor'];
 // A name with everything but letters and digits taken out ("Harrison.ai" is "harrisonai", "Own Home" is "ownhome"): a search is also matched against a company's name in this form, so it is
 // not put off by the space or the dot a visitor types or leaves out. Under five characters it says too little to match on (it would find a word that only runs across two names).
 const TIGHT_MIN = 5;
@@ -51,7 +58,7 @@ export const tight = (text) => String(text ?? '').toLowerCase().normalize('NFKD'
 // that no page backs (toPublic).
 // team_size, remote_policy, tech_stack, last_funding_date, last_role_seen_at and cohorts are the optional facts (company.js): present on a card
 // only where a public page backs them. `programs` is the cohorts as a visitor reads them, each with the page that says so (cohorts.js programOf).
-export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events',
+export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorGroup', 'sectorFull', 'city', 'stage', 'hiring', 'hiringState', 'hiring_checked_at', 'rolesUnverified', 'hiring_source_url', 'website_status', 'verified', 'website', 'blurb', 'taskGate', 'last_verified_at', 'events',
   'team_size', 'remote_policy', 'tech_stack', 'last_funding_date', 'last_role_seen_at', 'cohorts', 'programs', 'organisation_type', 'cover', 'maturity'];
 // A pin's tuple. The first eight are what it always was; a reader that knows only those still works. precision is how
 // well the place is known (EXACT or SUBURB: only those are pins), place the line that says where, and checked whether
@@ -61,7 +68,9 @@ export const CARD_FIELDS = ['name', 'slug', 'sector', 'sectorFull', 'city', 'sta
 // `metro` is the big city the company is in, by the same assignment the city filter uses (geo/metro.js, from its postcode): one of the ten, or null for a company
 // that belongs to none of them (a regional town). The map page's national view counts its city badges from it, so a badge is exactly the pins that opening
 // that city shows. (The filter also takes a company whose own `city` is one of the ten, whatever its metro: both count, see `keep`.)
-export const MARKER_FIELDS = ['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo', 'metro'];
+// `sectorGroup` is the display sector (models/sectors.js: one of twelve, or Other, or null for a company with no sector) the map's popup and menus use; `sector` stays what the source said.
+// `suburb` is the suburb its address is in (or null): a pin's card says "Suburb, City", never the street.
+export const MARKER_FIELDS = ['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo', 'metro', 'sectorGroup', 'suburb'];
 // How many companies an area names, so a click can list them without another request. The rest are one filter away.
 export const AREA_SAMPLE = 12;
 
@@ -173,6 +182,7 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   for (const r of records) {
     const found = provenance.get(r.id);
     const { state, checkedAt } = hiringStateOf(r, found, now(), windowMs);
+    r.sectorGroup = sectorGroupOf(r.sector);
     r.hiring = state === 'hiring';
     r.hiringState = state;
     r.hiring_checked_at = checkedAt;
@@ -229,7 +239,7 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
   // Where each company is on the map: a pin (a point), a group at its city or state (an area), or nowhere (unknown). A company the owner's curated list leaves off the map (show_on_map false)
   // is none of these: it is still in the list, the gallery and the search, but nothing is drawn for it and it is in no map count.
   const precisions = records.map(precisionOf);
-  const shown = source.map((c) => c.show_on_map !== false);
+  const shown = source.map((c) => c.show_on_map !== false && !isInactive(c));
   const areaInfo = new Map();
   const areaKey = records.map((r, i) => {
     const precision = precisions[i];
@@ -263,7 +273,8 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     version, count, loadedAt: Date.now(), records, orders, precisions, areaKey, areaInfo, provenance, flags, buckets, metros,
     idx: {
       // a company is found under its own city and under the big city its postcode puts it in (a suburb's company is in the city too)
-      sector: postings(records, (r) => [r.sector]), city: postings(records, (r) => new Set([r.city, metroOf(r)].filter(Boolean))), stage: postings(records, (r) => [r.stage]),
+      // a company is found under the label its source gave and under its display sector (a link written with either keeps working)
+      sector: postings(records, (r) => new Set([r.sector, r.sectorGroup].filter(Boolean))), city: postings(records, (r) => new Set([r.city, metroOf(r)].filter(Boolean))), stage: postings(records, (r) => [r.stage]),
       investor: postings(records, (r) => new Set(r.investors || [])),
       remote: postings(records, (r) => (r.remote_policy ? [r.remote_policy] : [])),
       tech: postings(records, (r) => new Set(r.tech_stack ?? [])),
@@ -284,8 +295,11 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     founders: new Map([...founders].map(([k, rows]) => [k, Uint32Array.from(rows)])),
     people: [...founders.keys()].map((name) => ({ name, lower: name.toLowerCase(), company: records[founders.get(name)[0]].name })),
     meta: {
-      sectors: uniqueSorted(records.map((r) => r.sector)), cities: uniqueSorted(records.map((r) => r.city)),
-      investors: uniqueSorted(records.flatMap((r) => r.investors || [])), stages: uniqueSorted(records.map((r) => r.stage)),
+      sectors: uniqueSorted(records.map((r) => r.sector)),
+      // The display sectors (models/sectors.js) some company has, with how many, in the taxonomy's order: what the sector menus offer when nothing narrows them.
+      sectorGroups: SECTOR_OPTIONS.map((value) => ({ value, count: records.filter((r) => r.sectorGroup === value).length })).filter(({ count }) => count > 0),
+      cities: uniqueSorted(records.map((r) => r.city)),
+      investors: uniqueSorted(records.flatMap((r) => r.investors || [])), stages: FUNDING_STAGES.filter((stage) => records.some((r) => r.stage === stage)),
       // The options of the filters for the optional facts, from the data and only the ones some company has: none until a page gives one.
       remotePolicies: REMOTE_POLICIES.filter((p) => records.some((r) => r.remote_policy === p)),
       techStack: [...techCounts].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 60).map(([name]) => name),
@@ -301,7 +315,7 @@ export function buildSnapshot(raw, version, { lap = () => {}, provenance = new M
     markers: records.map((r, i) => (shown[i] && r.verified && isPoint(precisions[i]) && Number.isFinite(r.lat) && Number.isFinite(r.lng)
       ? [r.slug ?? r.id, r.name, r.lat, r.lng, r.sector, r.city, r.hiring ? 1 : 0, domainOf(r.website), precisions[i],
         describeLocation({ location_precision: precisions[i], city: r.city, state: r.state, address: r.address, suburb: r.suburb }).place ?? '', r.location_verified ? 1 : 0,
-        ownLogo(r.logo), metros[i] ?? null] : null)),
+        ownLogo(r.logo), metros[i] ?? null, r.sectorGroup ?? null, r.suburb ?? null] : null)),
   };
   lap('indexes, cards, markers');
   return snap;
@@ -449,7 +463,7 @@ export function select(snap, f) {
   const keep = (i) => {
     const r = records[i];
     if (q && !snap.search[i].includes(q) && !(qt && snap.nameTight[i].includes(qt))) return false;
-    if (sectors && !sectors.has(r.sector)) return false;
+    if (sectors && !sectors.has(r.sector) && !(r.sectorGroup && sectors.has(r.sectorGroup))) return false;
     if (cities && !cities.has(r.city) && !cities.has(snap.metros[i])) return false;
     if (precisions && !precisions.has(snap.precisions[i])) return false;
     if (states && !states.has(r.state)) return false;
@@ -507,7 +521,8 @@ export function facets(snap, matched, names, { top = 100 } = {}) {
       const values = name === 'investor' ? r.investors || [] : [r[name]];
       for (const v of values) if (v) counts.set(v, (counts.get(v) ?? 0) + 1);
     }
-    const rows = [...counts].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
+    // The display sectors keep the taxonomy's order (the order a menu lists them in), not the biggest first.
+    const rows = [...counts].sort(name === 'sectorGroup' ? (a, b) => SECTOR_OPTIONS.indexOf(a[0]) - SECTOR_OPTIONS.indexOf(b[0]) : (a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
     out[name] = { distinct: rows.length, values: rows.slice(0, top).map(([value, count]) => ({ value, count })) };
   }
   return out;
@@ -520,6 +535,7 @@ export function summary(snap, matched) {
   const notable = [];
   const vouched = [];
   const byPrecision = Object.fromEntries(PRECISIONS.map((p) => [p, 0]));
+  const bySector = new Map(); // the display sectors of the matches, for a menu that offers only the sectors that have a result
   let pinned = 0;
   let hiring = 0;
   let hiringChecked = 0; // roles read earlier, or not by a source we confirm: said with the date, not counted as hiring now
@@ -529,6 +545,7 @@ export function summary(snap, matched) {
   for (const i of matched) {
     const r = snap.records[i];
     byPrecision[snap.precisions[i]] += 1;
+    if (r.sectorGroup) bySector.set(r.sectorGroup, (bySector.get(r.sectorGroup) ?? 0) + 1);
     if (r.verified) pinned += 1;
     if (r.hiring) { hiring += 1; openRoles += r.open_roles ?? 0; }
     if (r.hiringState === 'checked') hiringChecked += 1;
@@ -546,6 +563,7 @@ export function summary(snap, matched) {
   vouched.sort((a, b) => snap.records[b].vouches.length - snap.records[a].vouches.length || a - b);
   return {
     // pinned: companies with a confirmed location (the list's count); onMap: those drawn as a pin of their own
+    sectors: SECTOR_OPTIONS.filter((value) => bySector.has(value)).map((value) => ({ value, count: bySector.get(value) })),
     count: matched.length, pinned, onMap: byPrecision.EXACT + byPrecision.SUBURB, byPrecision, unverified: matched.length - pinned, hiring, hiringChecked, openRoles, taskGated, cities: cities.size, founders: founders.size,
     // The most recent check of any company in the result (null when none was ever checked): the site's "Updated" date.
     lastVerifiedAt: lastVerifiedAt ? new Date(lastVerifiedAt).toISOString() : null,
@@ -628,7 +646,8 @@ export function suggest(snap, text, { limit = 5 } = {}) {
   const within = (list) => list.filter((v) => v.toLowerCase().includes(q)).slice(0, limit);
   return {
     companies: companies.map((i) => ({ name: snap.records[i].name, slug: snap.records[i].slug ?? snap.records[i].id, city: snap.records[i].city, sector: snap.records[i].sector })),
-    people, investors: within(snap.meta.investors), industries: within(snap.meta.sectors), locations: within(snap.meta.cities),
+    // (the industries a search suggests are the display sectors the sector menus offer: one list on the map and on Discover; a company's own label is still found by its name and its words)
+    people, investors: within(snap.meta.investors), industries: within(snap.meta.sectorGroups.map((o) => o.value)), locations: within(snap.meta.cities),
     // The accelerator cohorts a company is in whose name or alias the text matches ("startmate", "w26"), to filter by.
     cohorts: snap.meta.cohorts.filter((c) => cohortTerms(c.id).some((t) => t.includes(q))).slice(0, limit).map(({ id, label, count }) => ({ id, label, count })),
   };

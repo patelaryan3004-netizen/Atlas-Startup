@@ -1,9 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
   paddedWindow, pinPayload, clusterSize, locationQuality, areaLabel, areaFilters, areaMember, scopeText, CLUSTER_MAX_ZOOM, AREA_CHIP_ZOOM,
-  labelsVisible, labelWidth, chooseLabels, LABEL_ZOOM, LABEL_ZOOM_NARROW, MAX_LABELS, vcTuple, vcMarks, vcFirms, vcQuality, isVc, isVcGroup,
+  labelsVisible, labelWidth, chooseLabels, LABEL_ZOOM, LABEL_ZOOM_NARROW, MAX_LABELS, vcTuple, vcMarks, vcFirms, vcQuality, isVc, isVcGroup, spreadVcPins, SPREAD_EXACT_M,
 } from '../src/mapPins.js';
-import { createPinIndex } from '../src/pinIndex.js';
+import { createPinIndex, createPlainPinIndex, pinSpacing, PIN_TILE, DOT_UNDER, DOT_APART } from '../src/pinIndex.js';
+import { PINS_ZOOM, PIN_FOCUS_ZOOM } from '../src/atlas/zoomModes.js';
 
 // [slug, name, lat, lng, sector, city, hiring, domain]
 const pin = (slug, lat, lng, extra = {}) => [slug, extra.name ?? slug.toUpperCase(), lat, lng, extra.sector ?? 'AI', extra.city ?? 'Sydney', extra.hiring ?? 0, extra.domain ?? ''];
@@ -12,6 +13,210 @@ const AUSTRALIA = { west: 110, south: -45, east: 156, north: -9 };
 const SYDNEY = [-33.8688, 151.2093];
 const NEAR_SYDNEY = [-33.8679, 151.2093]; // about 100 metres north
 const MELBOURNE = [-37.8136, 144.9631];
+
+describe('the pins of the map page: spaced by zoom, no grouping and no count', () => {
+  // A point `dx` pixels east and `dy` pixels south of (lat, lng) at a zoom (the map's own projection: 256-pixel tiles).
+  const at = (lat, lng, dx, dy, zoom) => {
+    const size = 256 * 2 ** zoom;
+    const worldY = (la) => (0.5 - Math.log((1 + Math.sin((la * Math.PI) / 180)) / (1 - Math.sin((la * Math.PI) / 180))) / (4 * Math.PI)) * size;
+    const y = worldY(lat) + dy;
+    const la = (Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / size))) * 180) / Math.PI;
+    return [la, lng + (dx * 360) / size];
+  };
+  const classify = (tuples, zoom, options) => {
+    const out = { pin: [], dot: [] };
+    for (const f of createPlainPinIndex(tuples).view(AUSTRALIA, zoom, options)) out[f.type].push(tuples[f.i][0]);
+    return { tiles: out.pin.sort(), dots: out.dot.sort() };
+  };
+  const Z = 12;
+  const centre = [-33.87, 151.2];
+  const near = (slug, dx, dy, extra) => pin(slug, ...at(centre[0], centre[1], dx, dy, Z), extra);
+
+  it('draws nothing nearer the whole country than a city\'s scale: the map is the street map and the names of the cities', () => {
+    const tuples = [pin('a', ...SYDNEY), pin('m', ...MELBOURNE)];
+    expect(createPlainPinIndex(tuples).view(AUSTRALIA, PINS_ZOOM - 0.25)).toEqual([]);
+    expect(createPlainPinIndex(tuples).view(AUSTRALIA, 4)).toEqual([]);
+    expect(createPlainPinIndex(tuples).view(AUSTRALIA, PINS_ZOOM).map((f) => f.type)).toEqual(['pin', 'pin']); // two cities: each has room
+  });
+
+  it('is wide while the map is far away and narrows as it comes closer, never below the width of a logo', () => {
+    expect(pinSpacing(8)).toBe(pinSpacing(9));
+    expect(pinSpacing(9)).toBe(PIN_TILE + 18);
+    expect(pinSpacing(14)).toBe(PIN_TILE + 4);
+    expect(pinSpacing(18)).toBe(PIN_TILE + 4);
+    for (let z = 9; z < 14; z += 1) expect(pinSpacing(z + 1)).toBeLessThan(pinSpacing(z));
+    expect(Math.min(...[8, 10, 12, 14, 16].map(pinSpacing))).toBeGreaterThan(PIN_TILE);
+  });
+
+  it('gives a logo to the company that has room, and to no other that is closer than the spacing: the other is a plain dot beside it, or nothing', () => {
+    const tuples = [near('a', 0, 0), near('b', 20, 0), near('c', 46, 0), near('d', 60, 0), near('e', 400, 0)];
+    const { tiles, dots } = classify(tuples, Z);
+    expect(pinSpacing(Z)).toBeGreaterThan(46); // 49.6 here: 46 px is too near for a second logo
+    const slugs = new Set([...tiles, ...dots]);
+    expect(tiles).toContain('e'); // alone: a logo
+    // among a, b, c, d: logos are at least the spacing apart, and nothing is both
+    const px = { a: 0, b: 20, c: 46, d: 60 };
+    for (const x of tiles.filter((s) => s !== 'e')) for (const y of tiles.filter((s) => s !== 'e' && s !== x)) expect(Math.abs(px[x] - px[y])).toBeGreaterThanOrEqual(pinSpacing(Z));
+    expect(tiles.filter((s) => s !== 'e').length).toBeGreaterThanOrEqual(1);
+    expect(tiles.filter((s) => dots.includes(s))).toEqual([]);
+    // a pin under a logo (20 px from its centre, inside the 24 that it covers) is not drawn at all: it would be hidden
+    if (tiles.includes('a')) expect(slugs.has('b')).toBe(false);
+  });
+
+  it('draws a dot only where it can be seen: beside a logo (not under it) and not on top of another dot', () => {
+    const tuples = [near('a', 0, 0, { hiring: 1 }), near('b', 5, 0), near('c', 36, 0), near('d', 38, 3)];
+    const { tiles, dots } = classify(tuples, Z);
+    expect(tiles).toEqual(['a']); // the one hiring has the room
+    expect(dots).toHaveLength(1); // c and d are 2 px apart: one dot; b is under the logo: none
+    expect(['c', 'd']).toContain(dots[0]);
+    expect(createPlainPinIndex(tuples).view(AUSTRALIA, Z).filter((f) => f.type === 'dot').every((f) => f.i !== 1)).toBe(true);
+  });
+
+  it('gives the room first to a company that is hiring, then to an investor, then to a company with a picture of its own, then the rest by a fixed order: the investor leans ahead of the startups, a little', () => {
+    const company = near('company', 0, 0);
+    const hiring = near('hiring', 10, 0, { hiring: 1 });
+    const logo = near('logo', 20, 0, { domain: 'logo.test' }); // a website to take its logo from
+    expect(classify([company, hiring], Z).tiles).toEqual(['hiring']);
+    expect(classify([company, logo], Z).tiles).toEqual(['logo']);
+    expect(classify([hiring, logo], Z).tiles).toEqual(['hiring']);
+    const firm = (domain) => [`vc:1`, 'Firm', ...at(centre[0], centre[1], 25, 0, Z), '', 'Sydney', 0, domain, 'CITY', '', 0, null, 'vc', 'firm', 'headquarters'];
+    expect(classify([hiring, firm('firm.test')], Z).tiles).toEqual(['hiring']); // the same order as for a startup: hiring first...
+    expect(classify([company, firm('firm.test')], Z).tiles).toEqual(['vc:1']);
+    expect(classify([logo, firm('')], Z).tiles).toEqual(['vc:1']); // ...an investor goes before a startup that has a picture of its own, and so before the rest (a lean, not first: a startup that is hiring goes before it)
+    expect(classify([company, firm('')], Z).tiles).toEqual(['vc:1']);
+    expect(classify([company, firm('firm.test')], Z).dots).toEqual(['company']); // the one that lost is a dot beside the firm's logo (25 px away: clear of it)
+    // the same two, in either order of the file, give the same answer (a fixed order, not the file's)
+    const a = near('a', 0, 0);
+    const b = near('b', 10, 0);
+    expect(classify([a, b], Z).tiles).toEqual(classify([b, a], Z).tiles);
+  });
+
+  it('always gives a logo to the ones it is told to keep (the open company, the saved ones), without taking a logo from another', () => {
+    const tuples = [near('a', 0, 0, { hiring: 1 }), near('b', 10, 0), near('far', 300, 0)];
+    expect(classify(tuples, Z).tiles).toEqual(['a', 'far']);
+    expect(classify(tuples, Z, { keep: (i) => tuples[i][0] === 'b' }).tiles).toEqual(['a', 'b', 'far']);
+    expect(classify(tuples, Z).tiles).toEqual(['a', 'far']); // (and the answer for the others did not change)
+  });
+
+  it('is the same for a pin however the window is moved: the spacing is worked out over every pin, not over what is in view', () => {
+    const tuples = [near('a', 0, 0), near('b', 20, 0), near('c', 46, 0), near('d', 90, 0), near('e', 134, 0)];
+    const index = createPlainPinIndex(tuples);
+    const all = index.view(AUSTRALIA, Z).map((f) => [tuples[f.i][0], f.type]);
+    const lat = centre[0];
+    const narrow = { west: centre[1] - 0.0001, east: centre[1] + 0.0001, south: lat - 0.001, north: lat + 0.001 }; // only a is in this window
+    expect(index.view(narrow, Z).map((f) => [tuples[f.i][0], f.type])).toEqual(all.filter(([s]) => s === 'a'));
+  });
+
+  it('shows more logos at each zoom as the map comes closer, and at street scale every company that is not on top of another has its own', () => {
+    // a grid of companies 80 px apart at zoom 14, with a second one a few pixels from each
+    const tuples = [];
+    for (let gx = 0; gx < 6; gx += 1) for (let gy = 0; gy < 6; gy += 1) { tuples.push(pin(`g${gx}-${gy}`, ...at(-33.87, 151.2, gx * 80, gy * 80, 14))); tuples.push(pin(`h${gx}-${gy}`, ...at(-33.87, 151.2, gx * 80 + 5, gy * 80 + 2, 14))); }
+    const counts = [8, 9, 10, 11, 12, 13, 14, 15, 16].map((z) => classify(tuples, z).tiles.length);
+    for (let n = 1; n < counts.length; n += 1) expect(counts[n]).toBeGreaterThanOrEqual(counts[n - 1]);
+    expect(counts[0]).toBeLessThan(counts[counts.length - 1]);
+    expect(counts.at(-1)).toBe(36); // 36 places, each with one logo (its neighbour 5 px away is under it)
+    expect(classify(tuples, 14).dots).toEqual([]); // and no dot beside a logo that has its twin under it
+  });
+
+  it('keeps logos clear of one another by at least the spacing, and dots clear of logos and of each other, for any spread of companies', () => {
+    let seed = 7;
+    const rand = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    const tuples = Array.from({ length: 300 }, (_, n) => pin(`r${n}`, -33.9 + rand() * 0.12, 151.1 + rand() * 0.15));
+    for (const z of [9, 11, 13, 15]) {
+      const px = (lat, lng) => at(lat, lng, 0, 0, z).length && [((lng + 180) / 360) * 256 * 2 ** z, (0.5 - Math.log((1 + Math.sin((lat * Math.PI) / 180)) / (1 - Math.sin((lat * Math.PI) / 180))) / (4 * Math.PI)) * 256 * 2 ** z];
+      const features = createPlainPinIndex(tuples).view(AUSTRALIA, z);
+      const place = (f) => px(tuples[f.i][2], tuples[f.i][3]);
+      const tiles = features.filter((f) => f.type === 'pin').map(place);
+      const dots = features.filter((f) => f.type === 'dot').map(place);
+      const dist = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1]);
+      for (let i = 0; i < tiles.length; i += 1) for (let j = i + 1; j < tiles.length; j += 1) expect(dist(tiles[i], tiles[j])).toBeGreaterThanOrEqual(pinSpacing(z) - 1e-6);
+      for (const d of dots) for (const t of tiles) expect(dist(d, t)).toBeGreaterThanOrEqual(DOT_UNDER - 1e-6);
+      for (let i = 0; i < dots.length; i += 1) for (let j = i + 1; j < dots.length; j += 1) expect(dist(dots[i], dots[j])).toBeGreaterThanOrEqual(DOT_APART - 1e-6);
+      expect(tiles.length + dots.length).toBeLessThanOrEqual(tuples.length);
+    }
+  });
+
+  it('draws only what is in the window', () => {
+    const tuples = [pin('a', ...SYDNEY), pin('m', ...MELBOURNE)];
+    const sydney = { west: 150, south: -35, east: 152, north: -33 };
+    expect(createPlainPinIndex(tuples).view(sydney, 12).map((f) => tuples[f.i][0])).toEqual(['a']);
+  });
+
+  it('says a pin is on its own where pins are drawn, and otherwise how close the map goes to bring it into view', () => {
+    const index = createPlainPinIndex([pin('a', ...SYDNEY)]);
+    expect(index.aloneZoom(0, 10)).toBe(10); // already drawn: the map stays where it is
+    expect(index.aloneZoom(0, 4)).toBe(PIN_FOCUS_ZOOM);
+    expect(PIN_FOCUS_ZOOM).toBeGreaterThanOrEqual(PINS_ZOOM);
+    expect(index.leaves()).toEqual([]);
+  });
+});
+
+describe('the investors of the map page: a logo for each at a verified street address, none for one known only to its city', () => {
+  const pin = (id, over = {}) => ({ id, slug: id.split('@')[0], name: id, lat: -33.8688, lng: 151.2093, city: 'Sydney', precision: 'EXACT', place: '1 George Street, Sydney', role: 'office', domain: `${id.split('@')[0]}.vc`, logo: null, sectors: [], ...over });
+  const city = (id, over = {}) => pin(id, { precision: 'CITY', place: 'Sydney, NSW', role: 'headquarters', ...over });
+  const metres = (a, b) => Math.hypot((a.lat - b.lat) * 111320, (a.lng - b.lng) * 111320 * Math.cos((a.lat * Math.PI) / 180));
+
+  it('makes a mark for each investor at a verified street address with \'grouped: false\', and none for one known only to its city, which stays a numbered mark per spot without it (the older map)', () => {
+    const pins = [pin('a@Sydney', { lat: -33.87, lng: 151.2 }), city('b@Sydney'), city('c@Sydney'), pin('d@Perth', { lat: -31.95, lng: 115.86, city: 'Perth' })];
+    expect(vcMarks(pins, { grouped: false }).map((t) => [t[0], isVc(t), isVcGroup(t), t[8]])).toEqual([['a@Sydney', true, false, 'EXACT'], ['d@Perth', true, false, 'EXACT']]);
+    expect(vcMarks([city('b@Sydney'), city('c@Sydney')], { grouped: false })).toEqual([]); // a city is not a place a logo can stand
+    const grouped = vcMarks(pins);
+    expect(grouped.map((t) => [isVc(t), isVcGroup(t)])).toEqual([[true, false], [false, true], [true, false]]); // the older map: as it was, the two in Sydney one numbered mark
+  });
+
+  it('moves no firm known only to its city: it is not drawn, so nothing is made up for it', () => {
+    const pins = Array.from({ length: 8 }, (_, n) => city(`f${n}@Sydney`));
+    const out = spreadVcPins(pins);
+    expect(out).toEqual(pins);
+    expect(out.every((p, i) => p === pins[i])).toBe(true); // not even copied
+    expect(out.every((p) => p.lat === -33.8688 && p.lng === 151.2093)).toBe(true); // all on the city's reference point, as the record has them
+  });
+
+  it('leaves a firm at a verified address where it is, and keeps the first of the firms in one building on the building', () => {
+    const pins = [pin('only@Perth', { lat: -31.95, lng: 115.86 }), pin('a@Sydney'), pin('b@Sydney'), pin('c@Sydney')];
+    const out = spreadVcPins(pins);
+    expect(out[0]).toBe(pins[0]); // not even copied
+    expect(out[1]).toBe(pins[1]); // the first by address stays on the spot
+    expect(out.map((p) => p.id)).toEqual(pins.map((p) => p.id)); // same order, same investors
+    expect(out[2]).not.toBe(pins[2]);
+  });
+
+  it('spreads the firms of one building a few paces (SPREAD_EXACT_M a step), never two on one place, and not a firm of a city that happens to be on the same point', () => {
+    const pins = [pin('a@Sydney'), pin('b@Sydney'), pin('c@Sydney'), pin('d@Sydney')];
+    const out = spreadVcPins(pins);
+    expect(new Set(out.map((p) => `${p.lat},${p.lng}`)).size).toBe(4);
+    for (let i = 1; i < 4; i += 1) expect(metres(out[i], pins[i])).toBeLessThanOrEqual(SPREAD_EXACT_M * Math.sqrt(3) + 0.5);
+    expect(out.every((p, i) => p.precision === 'EXACT' && p.id === pins[i].id)).toBe(true);
+    // a firm known only to its city, on the same point as a firm in a building, leaves that spot alone
+    const mixed = spreadVcPins([pin('a@Sydney'), city('b@Sydney')]);
+    expect(mixed[1].lat).toBe(-33.8688);
+  });
+
+  it('gives the same places however the pins come in the list', () => {
+    const pins = ['d', 'a', 'c', 'b'].map((x) => pin(`${x}@Sydney`));
+    const forward = new Map(spreadVcPins(pins).map((p) => [p.id, [p.lat, p.lng]]));
+    const backward = new Map(spreadVcPins([...pins].reverse()).map((p) => [p.id, [p.lat, p.lng]]));
+    expect(forward).toEqual(backward);
+  });
+
+  it('shows the investors of one building as logos once the map is close, one then each, by the same reveal as the companies', () => {
+    const pins = spreadVcPins(Array.from({ length: 4 }, (_, n) => pin(`f${n}@Sydney`)));
+    const tuples = vcMarks(pins, { grouped: false });
+    const logos = (z) => createPlainPinIndex(tuples).view(AUSTRALIA, z).filter((f) => f.type === 'pin').length;
+    expect(logos(9)).toBe(1); // far away they are one logo on one place
+    const counts = [9, 12, 14, 16, 18].map(logos);
+    for (let n = 1; n < counts.length; n += 1) expect(counts[n]).toBeGreaterThanOrEqual(counts[n - 1]);
+    expect(logos(18)).toBe(4); // and each is its own once there is room
+  });
+
+  it('keeps a firm known only to its city in the rows beside the map: one row for a firm, with the mark of a verified office as the one the row picks, else its city mark', () => {
+    const rows = vcFirms([city('blackbird@Brisbane', { city: 'Brisbane' }), pin('blackbird@Sydney'), city('blackbird@Perth', { city: 'Perth' }), city('antler@Sydney')]);
+    expect(rows.map((r) => r.slug)).toEqual(['antler', 'blackbird']);
+    expect(rows.find((r) => r.slug === 'blackbird').pin.id).toBe('blackbird@Sydney'); // its verified office, which is on the map
+    expect(rows.find((r) => r.slug === 'blackbird').places).toEqual(['Brisbane', 'Sydney', 'Perth']);
+    expect(rows.find((r) => r.slug === 'antler').pin.precision).toBe('CITY'); // no mark: the row opens its page
+  });
+});
 
 describe('grouping pins for what the map shows', () => {
   const tuples = [pin('a', ...SYDNEY), pin('b', ...NEAR_SYDNEY), pin('m', ...MELBOURNE)];
@@ -117,7 +322,7 @@ describe('grouping pins for what the map shows', () => {
 describe('what a pin looks like', () => {
   it('turns a tuple into the company the page reads, with a website from the domain', () => {
     expect(pinPayload(pin('canva', -33.88, 151.21, { name: 'Canva', sector: 'SaaS', city: 'Sydney', hiring: 1, domain: 'canva.com' })))
-      .toEqual({ slug: 'canva', name: 'Canva', lat: -33.88, lng: 151.21, sector: 'SaaS', city: 'Sydney', hiring: true, verified: true, website: 'https://canva.com' });
+      .toEqual({ slug: 'canva', name: 'Canva', lat: -33.88, lng: 151.21, sector: 'SaaS', city: 'Sydney', hiring: true, verified: true, website: 'https://canva.com', sectorGroup: null, suburb: null });
     expect(pinPayload(pin('a', 1, 2))).toMatchObject({ hiring: false, website: '' });
   });
 
@@ -233,10 +438,16 @@ describe('how well a place is known', () => {
   it('goes with a company opened from its pin, so the panel can say it before the full record arrives', () => {
     const tuple = ['acme', 'Acme', -33.88, 151.21, 'AI', 'Sydney', 0, 'acme.test', 'EXACT', '110 Kippax Street, Surry Hills, Sydney', 1];
     expect(pinPayload(tuple)).toEqual({
-      slug: 'acme', name: 'Acme', lat: -33.88, lng: 151.21, sector: 'AI', city: 'Sydney', hiring: false, verified: true, website: 'https://acme.test',
+      slug: 'acme', name: 'Acme', lat: -33.88, lng: 151.21, sector: 'AI', city: 'Sydney', hiring: false, verified: true, website: 'https://acme.test', sectorGroup: null, suburb: null,
       location_precision: 'EXACT', location: { precision: 'EXACT', place: '110 Kippax Street, Surry Hills, Sydney', quality: 'Verified office' },
     });
     expect(pinPayload(['a', 'A', 1, 2, 'AI', 'Perth', 0, '', 'SUBURB', '', 0]).location).toEqual({ precision: 'SUBURB', place: 'Perth', quality: 'Location: suburb-level' }); // no place: the city
+  });
+
+  it('carries the display sector and the suburb a pin has after the fields it always had, and nothing made up where it has none', () => {
+    const tuple = ['acme', 'Acme', -33.88, 151.21, 'HealthTech', 'Sydney', 0, 'acme.test', 'EXACT', '110 Kippax Street, Surry Hills, Sydney', 1, null, 'Sydney', 'Health & Biotech', 'Surry Hills'];
+    expect(pinPayload(tuple)).toMatchObject({ sector: 'HealthTech', sectorGroup: 'Health & Biotech', suburb: 'Surry Hills' });
+    expect(pinPayload(tuple.slice(0, 13))).toMatchObject({ sectorGroup: null, suburb: null }); // a server that does not send them yet
   });
 
   it('is left out of a pin from a server that does not say it, rather than guessed', () => {

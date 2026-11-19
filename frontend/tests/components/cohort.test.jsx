@@ -95,23 +95,14 @@ describe('searching for a cohort', () => {
 });
 
 describe('what a company says about its cohort', () => {
-  it('shows the founders and the cohort, with the page that says so, in the map\'s panel', async () => {
-    fetchStartup.mockResolvedValue({ slug: 'acme', name: 'Acme AI', sector: 'AI', blurb: 'Makes things.', website: 'https://acme.ai', founders: ['Ada Lovelace', 'Alan Turing'], programs: [PROGRAM], stage: 'Unknown', verified: true });
-    render(<StartupPanel pin={{ slug: 'acme', name: 'Acme AI', city: 'Sydney', sector: 'AI', hiring: false, website: 'https://acme.ai' }} onToggleSaved={() => {}} onOpen={() => {}} onClose={() => {}} />);
-    expect(await screen.findByText('Ada Lovelace, Alan Turing')).toBeInTheDocument();
-    expect(screen.getByText('Founders')).toBeInTheDocument();
-    const row = screen.getByText('Accelerator').closest('div');
-    expect(within(row).getByText(/Startmate · Winter 2026/)).toBeInTheDocument();
-    expect(within(row).getByRole('link', { name: 'Startmate page' })).toHaveAttribute('href', PROGRAM.source_url);
-    expect(screen.queryByText('Stage')).toBeNull(); // "Unknown" is not shown
-  });
-
-  it('shows no accelerator row for a company that is in none', async () => {
-    fetchStartup.mockResolvedValue({ slug: 'acme', name: 'Acme AI', blurb: 'Makes things.', website: 'https://acme.ai', stage: 'Seed', verified: true });
-    render(<StartupPanel pin={{ slug: 'acme', name: 'Acme AI', city: 'Sydney', hiring: false, website: 'https://acme.ai' }} onToggleSaved={() => {}} onOpen={() => {}} onClose={() => {}} />);
-    await screen.findByText('Seed');
-    expect(screen.queryByText('Accelerator')).toBeNull();
+  it('leaves the founders and the cohort to the company\'s own page: the map\'s card says one sentence, the sector and the place, and has one way on', async () => {
+    fetchStartup.mockResolvedValue({ slug: 'acme', name: 'Acme AI', sector: 'AI', blurb: 'Makes things.', website: 'https://acme.ai', founders: ['Ada Lovelace', 'Alan Turing'], programs: [PROGRAM], stage: 'Seed', verified: true });
+    render(<StartupPanel pin={{ slug: 'acme', name: 'Acme AI', city: 'Sydney', sector: 'AI', hiring: false, website: 'https://acme.ai' }} onOpen={() => {}} onClose={() => {}} />);
+    expect(await screen.findByText('Makes things.')).toBeInTheDocument();
     expect(screen.queryByText('Founders')).toBeNull();
+    expect(screen.queryByText('Accelerator')).toBeNull();
+    expect(screen.queryByText(/Ada Lovelace|Startmate/)).toBeNull();
+    expect(screen.queryByText('Stage')).toBeNull();
   });
 
   it('shows the cohort in the company\'s page, with the page it comes from and the day it was read', async () => {

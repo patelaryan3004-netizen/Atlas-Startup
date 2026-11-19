@@ -197,7 +197,7 @@ describe('facets, summary, markers', () => {
     const pinned = f.rows.filter((r) => ['EXACT', 'SUBURB'].includes(r.location_precision));
     expect(items).toHaveLength(pinned.length);
     expect(pinned.length).toBeLessThan(f.rows.filter((r) => r.verified).length); // some are known only to their city
-    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo', 'metro']);
+    expect(MARKER_FIELDS).toEqual(['slug', 'name', 'lat', 'lng', 'sector', 'city', 'hiring', 'domain', 'precision', 'place', 'checked', 'logo', 'metro', 'sectorGroup', 'suburb']);
     expect(items[0]).toHaveLength(MARKER_FIELDS.length);
     const first = pinned[0];
     const [slug, name, lat, lng, sector, city, hiring, domain, precision, place, checked, logo, metro] = items[0];

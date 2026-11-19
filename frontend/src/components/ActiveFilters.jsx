@@ -25,6 +25,8 @@ export function activeChips(filters, cohorts = []) {
   add('cohort', 'Accelerator', splitValues(filters.cohort), (v) => cohorts.find((c) => c.id === v)?.label ?? v);
   add('events', 'Events', filters.events ? [filters.events] : [], () => 'Events this week');
   add('fresh', 'New', filters.fresh ? [filters.fresh] : [], () => 'New this week');
+  // the list opened from the map is the list of what the map showed; this takes it back to every company
+  add('onMap', 'Scope', filters.onMap === 'yes' ? ['yes'] : [], () => 'On the map');
   add('search', 'Search', filters.search?.trim() ? [filters.search.trim()] : [], (v) => `“${v}”`);
   return chips;
 }

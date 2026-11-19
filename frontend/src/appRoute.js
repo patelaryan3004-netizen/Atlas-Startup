@@ -89,8 +89,9 @@ export const SHOW_WORDS = ['startups', 'companies', 'vcs', 'spaces'];
 // has no query.
 export function exploreSearch(filters, viewMode, entity = 'all', selected = null) {
   const params = new URLSearchParams();
-  // (orgType is what `show` says, as a filter for the API: it is not written twice; onMap is the map page's own question to the API, which its address already says)
-  for (const [key, value] of Object.entries(filters)) if (value && key !== 'orgType' && key !== 'onMap') params.set(key, value);
+  // (orgType is what `show` says, as a filter for the API: it is not written twice. onMap, "only what the map shows", is written for the list opened from the map, so its
+  // address says what the list is; the map page asks for it by itself and appUrl leaves it out of the map's address)
+  for (const [key, value] of Object.entries(filters)) if (value && key !== 'orgType') params.set(key, value);
   if (viewMode === 'map') params.set('view', 'map');
   if (SHOW_WORDS.includes(entity)) params.set('show', entity);
   if (selected) params.set('selected', selected); // the company open on the map, so a link opens it
@@ -102,6 +103,6 @@ export function exploreSearch(filters, viewMode, entity = 'all', selected = null
 // the filter); the others stand alone.
 export function appUrl(route, { filters = {}, viewMode = 'list', entity = 'all', selected = null } = {}) {
   const path = appPath(route);
-  if (route.kind === 'map') return `${path}${exploreSearch(filters, 'list', entity, selected)}`; // the map page is the map: its address needs no view word
+  if (route.kind === 'map') return `${path}${exploreSearch({ ...filters, onMap: '' }, 'list', entity, selected)}`; // the map page is the map: its address needs no view word, and the map is only what it shows
   return route.kind === 'explore' || route.kind === 'startup' ? `${path}${exploreSearch(filters, viewMode, entity)}` : path;
 }
