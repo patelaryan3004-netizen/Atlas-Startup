@@ -149,13 +149,52 @@ describe('the check menu as a select', () => {
   });
 });
 
-describe('what is drawn over the map', () => {
-  it('is the compass and nothing else: no kicker, no city heading, no line that says what the picture is', () => {
-    const { container } = render(<AtlasOverlay />);
+describe('what is written over the map', () => {
+  const cities = [{ city: 'Sydney', count: 347 }, { city: 'Perth', count: 67 }];
+
+  it('says Australia and "National overview" while no city is picked', () => {
+    render(<AtlasOverlay filters={FILTERS} onFilterChange={() => {}} cities={cities} national pinned={492} />);
+    expect(screen.getByText('The Australian edition')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /City: Australia/ })).toHaveTextContent('Australia');
+    expect(screen.getByText('National overview')).toBeInTheDocument();
+  });
+
+  it('says the city and how many of its organisations have a pin once one is picked', () => {
+    render(<AtlasOverlay filters={{ ...FILTERS, city: 'Perth' }} onFilterChange={() => {}} cities={cities} national={false} pinned={32} />);
+    expect(screen.getByRole('button', { name: /City: Perth/ })).toHaveTextContent('Perth');
+    expect(screen.getByText('32 organisations with a pin on the map')).toBeInTheDocument();
+    expect(screen.queryByText('National overview')).not.toBeInTheDocument();
+  });
+
+  it('says "1 organisation", and nothing under a city when it is not told how many (the investors only)', () => {
+    const { rerender } = render(<AtlasOverlay filters={{ ...FILTERS, city: 'Perth' }} onFilterChange={() => {}} cities={cities} national={false} pinned={1} />);
+    expect(screen.getByText('1 organisation with a pin on the map')).toBeInTheDocument();
+    rerender(<AtlasOverlay filters={{ ...FILTERS, city: 'Perth' }} onFilterChange={() => {}} cities={cities} national={false} pinned={undefined} />);
+    expect(document.querySelector('.at-over-line').textContent).toBe('');
+  });
+
+  it('is a card of the night over the street map and bare over the sea of the national view', () => {
+    const { container, rerender } = render(<AtlasOverlay filters={FILTERS} onFilterChange={() => {}} cities={cities} national pinned={492} />);
+    expect(container.querySelector('.at-over')).not.toHaveClass('at-over-card');
+    rerender(<AtlasOverlay filters={{ ...FILTERS, city: 'Perth' }} onFilterChange={() => {}} cities={cities} national={false} pinned={32} />);
+    expect(container.querySelector('.at-over')).toHaveClass('at-over-card');
+  });
+
+  it('opens the cities from its heading and picks one as the city filter', async () => {
+    const onFilterChange = vi.fn();
+    render(<AtlasOverlay filters={FILTERS} onFilterChange={onFilterChange} cities={cities} national pinned={492} />);
+    await userEvent.click(screen.getByRole('button', { name: /City: Australia/ }));
+    await userEvent.click(within(screen.getByRole('group', { name: 'Choose a city' })).getByRole('button', { name: /Perth/ }));
+    expect(onFilterChange).toHaveBeenCalledWith({ city: 'Perth' });
+  });
+
+  it('picks the city that is already picked to go back to all of Australia, and has the compass in the other corner', async () => {
+    const onFilterChange = vi.fn();
+    const { container } = render(<AtlasOverlay filters={{ ...FILTERS, city: 'Perth' }} onFilterChange={onFilterChange} cities={cities} national={false} pinned={32} />);
+    await userEvent.click(screen.getByRole('button', { name: /City: Perth/ }));
+    await userEvent.click(within(screen.getByRole('group', { name: 'Choose a city' })).getByRole('button', { name: /Perth/ }));
+    expect(onFilterChange).toHaveBeenCalledWith({ city: '' });
     expect(container.querySelector('.at-compass')).not.toBeNull();
-    expect(container.textContent).toBe('N'); // the compass's own letter
-    expect(screen.queryByText(/The Australian edition|National overview|with a pin on the map/)).not.toBeInTheDocument();
-    expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 });
 

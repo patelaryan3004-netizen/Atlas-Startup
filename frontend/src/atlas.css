@@ -182,7 +182,27 @@
 .atlas-badge[data-lead][data-side="right"]::after{left:0;}
 .atlas-badge[data-lead][data-side="left"]::after{right:0;}
 
-/* ---------- over the map: the compass, and the way back to all of Australia ---------- */
+/* ---------- over the map: the edition, the place, the compass, the way back ---------- */
+.at-over{position:absolute;z-index:520;top:22px;left:26px;display:flex;flex-direction:column;gap:6px;pointer-events:none;max-width:calc(100% - 140px);}
+.at-over > *{pointer-events:auto;}
+.at-over{padding:0;border-radius:16px;background:transparent;transition:background-color .35s var(--ease),padding .35s var(--ease);}
+/* on the street map, with no sea behind it, the heading sits on a card of the night */
+.at-over-card{padding:14px 20px 12px 16px;background:rgb(7 24 34 / .94);box-shadow:0 10px 26px -10px rgb(7 24 34 / .6);}
+.at-over-kicker{margin:0;color:var(--at-gold-hi);font:600 .6875rem/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;pointer-events:none;}
+.at-over .xt-loc{position:relative;}
+.at-over .xt-locbtn{
+  min-width:0;height:auto;padding:0;gap:12px;border:0;border-radius:8px;background:none;color:#faf6ea;
+}
+.at-over .xt-locbtn:hover,.at-over .xt-locbtn[aria-expanded="true"]{background:none;border-color:transparent;}
+.at-over .xt-pin{display:none;}
+.at-over .xt-here{flex:none;overflow:visible;font:400 clamp(2.7rem,4.4vw,3.9rem)/1.02 var(--font-serif);letter-spacing:-.02em;}
+.at-over .xt-chev{width:26px;height:26px;margin-top:6px;color:var(--at-gold-hi);}
+.at-over .xt-locbtn:focus-visible{outline:2px solid var(--at-gold-hi);outline-offset:6px;}
+.at-over .xt-pop{background:var(--at-paper);border-color:var(--at-line);color:var(--at-ink);}
+.at-over .xt-opt{color:var(--at-ink);}
+.at-over .xt-opt:hover{background:rgb(21 34 43 / .06);}
+.at-over .xt-opt-on,.at-over .xt-tick{color:var(--at-gold-ink);}
+.at-over-line{margin:0;color:rgb(250 246 234 / .72);font-size:.875rem;line-height:1.3;pointer-events:none;}
 .at-compass{position:absolute;z-index:520;top:62px;right:26px;pointer-events:none;}
 .at-compass-disc{fill:rgb(7 24 34 / .9);}
 .at-compass-needle{fill:#faf6ea;}
@@ -223,6 +243,20 @@
   .xp-atlas .leaflet-control-zoom{right:12px;}
   .atlas-chip{height:28px;padding:0 10px;font-size:.75rem;}
   .atlas-tick{display:none;}
+}
+/* the badge on a phone: the same kicker, city and line in the same type and colours, smaller, at the top left of the map; the compass is left off (the map is under a thumb), and the chips that
+   say what is filtered (explore.css .chips-float, also at the top left) sit under the badge */
+@media (max-width:899px){
+  .at-over{top:12px;left:12px;gap:4px;max-width:calc(100% - 118px);}
+  .at-over-card{padding:10px 14px 9px 12px;border-radius:14px;}
+  .at-over-kicker{font-size:.5625rem;letter-spacing:.2em;}
+  .at-over .xt-locbtn{gap:8px;}
+  .at-over .xt-here{font-size:clamp(1.9rem,9vw,2.4rem);}
+  .at-over .xt-chev{width:20px;height:20px;margin-top:4px;}
+  .at-over-line{font-size:.75rem;}
+  .at-over .xt-pop{max-width:calc(100vw - 32px);max-height:min(440px,calc(100vh - 430px));} /* (the list scrolls, and does not run under the sheet at the bottom) */
+  .at-compass{display:none;}
+  .xp-atlas .xm .chips-float{top:124px;}
 }
 @media (prefers-reduced-motion:reduce){
   .xp-atlas #map .leaflet-atlas-ground-pane,.xp-atlas #map .leaflet-atlas-names-pane,.xp-atlas #map .leaflet-atlas-badges-pane,.xp-atlas #map .atlas-ticks,
