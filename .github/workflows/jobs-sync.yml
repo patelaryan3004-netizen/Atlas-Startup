@@ -100,7 +100,7 @@ jobs:
           if [ "$DEPLOY" != "yes" ]; then message="$message [skip render]"; fi
           git commit -m "$message"
           for attempt in 1 2 3; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git checkout -- . && git pull --rebase origin main && git push origin HEAD:main && exit 0
             echo "push failed (attempt $attempt); trying again"; sleep $((attempt * 5))
           done
           echo 'Could not push: someone changed the same files meanwhile. The next refresh reads again.'
