@@ -122,6 +122,10 @@ export function createFetcher({
   // so a 403 closes the site, as it always did; on only for the fetcher that asks the server holding a company's published preview picture (scripts/covers/collect.mjs). It never applies to
   // a 401, a 429 or a 5xx, nor to a robots.txt that is there and says no, and it opens nothing else: the page's own site is asked by a fetcher that has it off.
   forbiddenRobotsMeansNoRules = false,
+  // Hosts of a provider's DOCUMENTED public API whose /robots.txt answers 401 or 403 instead of a file (RFC 9309 reads an answer in the 4xx range as "no rules"; this project otherwise reads it as
+  // "closed"). Empty by default, one host at a time, and only for the host of the API itself: the job sync lists api.ashbyhq.com (Ashby's public job-posting API, built for exactly this). It
+  // never applies to a company's own site, to a robots.txt that is there and says no (SmartRecruiters' API says Disallow: / and is not read), or to a 429 or a 5xx.
+  noRulesWhenRobotsForbiddenHosts = [],
   resolveHost = defaultResolveHost,
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   now = () => Date.now(),
@@ -192,6 +196,7 @@ export function createFetcher({
       }
       if (res.status === 200) entry = { robots: parseRobots(await readCapped(res, 500000, url)) };
       else if (res.status === 403 && forbiddenRobotsMeansNoRules) entry = { robots: parseRobots('') };
+      else if ((res.status === 401 || res.status === 403) && noRulesWhenRobotsForbiddenHosts.includes(new URL(origin).hostname)) entry = { robots: parseRobots('') };
       else if (res.status === 401 || res.status === 403) entry = { deny: 'robots.txt is access-controlled' };
       else if (res.status === 429 || res.status >= 500) {
         if (res.status === 429) { coolingDown.add(new URL(origin).hostname); noteWait(new URL(origin).hostname, res); }
@@ -206,7 +211,7 @@ export function createFetcher({
     return entry;
   }
 
-  async function finish(res, original, finalUrl, allow, binary = false) {
+  async function finish(res, original, finalUrl, allow, binary = false, limit = maxBytes) {
     const host = new URL(finalUrl).hostname;
     if (res.status === 401 || res.status === 403) refuse('access_controlled', `HTTP ${res.status}: access-controlled, so not retried or worked around`, finalUrl);
     if (res.status === 429 || res.status === 503) { coolingDown.add(host); noteWait(host, res); refuse('rate_limited', `HTTP ${res.status}: ${host} asked us to slow down`, finalUrl); }
@@ -217,10 +222,10 @@ export function createFetcher({
     const type = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
     if (!allow.some((a) => type === a)) refuse('unsupported_content', `unexpected content type "${type || 'unknown'}"`, finalUrl);
     const declared = Number(res.headers.get('content-length'));
-    if (declared > maxBytes) refuse('too_large', `response is ${declared} bytes, over the ${maxBytes} limit`, finalUrl);
+    if (declared > limit) refuse('too_large', `response is ${declared} bytes, over the ${limit} limit`, finalUrl);
     let text;
     try {
-      text = await readCapped(res, maxBytes, finalUrl, binary);
+      text = await readCapped(res, limit, finalUrl, binary);
     } catch (err) {
       if (err instanceof FetchPolicyError) { log.refused.push({ url: finalUrl, code: err.code, message: err.message }); throw err; }
       // The connection dropped, or the time ran out, while the body was still arriving: the same kinds of
@@ -233,7 +238,9 @@ export function createFetcher({
   // headers: for a licensed API's key. Sent only to the origin first asked for, never
   // along a redirect to another site, and never as a cookie or a replacement user agent.
   // binary: the body is a picture (or another file that is not text): it comes back as `body`, a Buffer, under the same rules and the same size cap.
-  async function get(url, { accept = 'text/html,application/xhtml+xml;q=0.9', allow = ['text/html', 'application/xhtml+xml'], headers = {}, binary = false } = {}) {
+  // maxBytes: a larger cap for this one request (a provider's feed that carries every job's full description), never larger than 25 MB.
+  async function get(url, { accept = 'text/html,application/xhtml+xml;q=0.9', allow = ['text/html', 'application/xhtml+xml'], headers = {}, binary = false, maxBytes: cap = null } = {}) {
+    const limit = Number.isFinite(cap) && cap > maxBytes ? Math.min(cap, 25000000) : maxBytes;
     let current = url;
     const firstOrigin = (() => { try { return new URL(url).origin; } catch { return null; } })();
     const extra = Object.fromEntries(Object.entries(headers).filter(([k]) => !['cookie', 'user-agent', 'host', 'origin', 'referer'].includes(k.toLowerCase())));
@@ -254,7 +261,7 @@ export function createFetcher({
         current = new URL(location, current).href;
         continue;
       }
-      return finish(res, url, current, allow, binary);
+      return finish(res, url, current, allow, binary, limit);
     }
     return refuse('too_many_redirects', `more than ${maxRedirects} redirects`, url);
   }

@@ -3,8 +3,12 @@
 // someone only NAMED (the pilot handoff's, a suggestion) in a review queue: never polled, never guessed, until the employer's own page confirms them.
 import { PROVIDERS, SUPPORTED } from './adapters.js';
 import { SOURCE_PROVIDERS } from '../models/jobSync.js';
+import { employerMap } from './employers.js';
 
-// "https://boards.greenhouse.io/karbon", "https://jobs.lever.co/Zeller", "https://apply.workable.com/asseti/": the provider and the board's name.
+// A subdomain that is the provider's own (its site, its app, its help), not a company's board.
+export const TENANT_NOT = /^(?:www|app|api|help|support|docs|documentation|careers|career|blog|status|login|go|my|admin|static|cdn|marketing|resources|learn|info|partners|developers|developer|community|trust|security)$/i;
+
+// "https://boards.greenhouse.io/karbon","https://jobs.lever.co/Zeller", "https://apply.workable.com/asseti/": the provider and the board's name.
 export function boardOf(url) {
   let u;
   try { u = new URL(url); } catch (e) { return null; }
@@ -16,6 +20,12 @@ export function boardOf(url) {
   if (host === 'jobs.ashbyhq.com' && first) return { provider: 'ashby', token: first };
   if (/\.recruitee\.com$/.test(host)) return { provider: 'recruitee', token: host.split('.')[0] };
   if (/smartrecruiters\.com$/.test(host) && first) return { provider: 'smartrecruiters', token: first };
+  const tenant = host.split('.')[0];
+  if (/\.breezy\.hr$/.test(host) && !TENANT_NOT.test(tenant)) return { provider: 'breezy', token: tenant };
+  if (/\.pinpointhq\.com$/.test(host) && !TENANT_NOT.test(tenant)) return { provider: 'pinpoint', token: tenant };
+  if (/\.bamboohr\.com$/.test(host) && !TENANT_NOT.test(tenant)) return { provider: 'bamboohr', token: tenant };
+  if (/\.teamtailor\.com$/.test(host) && !TENANT_NOT.test(tenant)) return { provider: 'teamtailor', token: tenant };
+  if (host === 'ats.rippling.com') { const slug = u.pathname.split('/').filter(Boolean).find((p) => !/^(?:[a-z]{2}-[A-Za-z]{2}|embed)$/.test(p)); if (slug && !/^(?:api|static|_next)$/i.test(slug)) return { provider: 'rippling', token: slug }; }
   return null;
 }
 
@@ -24,7 +34,7 @@ const SOURCE_ID = new RegExp(`^(.+)-(${SOURCE_PROVIDERS.join('|')})-jobs$`);
 // The catalogue as it is today, from the dataset: every sources.json row that is a board the company's own page links to, for a company in the directory, plus `review` rows
 // for boards that were named but not confirmed. Rows already in the catalogue keep what a person set (a pause, a note).
 export function buildCatalogue(ds, { review = [], at = new Date().toISOString() } = {}) {
-  const companies = new Map(ds.companies.map((c) => [c.id, c]));
+  const companies = employerMap(ds); // companies, and venture firms as employers of their own vacancies
   const kept = new Map((ds.job_sources ?? []).map((r) => [r.id, r]));
   const rows = [];
   for (const s of ds.sources ?? []) {
@@ -45,9 +55,12 @@ export function buildCatalogue(ds, { review = [], at = new Date().toISOString() 
     const id = `${r.company_id}-${r.provider}-review`;
     if (rows.some((x) => x.company_id === r.company_id && x.provider === r.provider && x.token.toLowerCase() === r.token.toLowerCase())) continue; // already an approved board
     const prior = kept.get(id);
+    // The job postings a venture firm's board showed that link to this board: what the employer's own feed is later asked to confirm (confirm.js). Kept, newest last, five at most.
+    const sighted = [...new Map([...(prior?.sighted ?? []), ...(r.sighted ?? [])].map((x) => [x.url, x])).values()].slice(-5);
     rows.push({
       id, company_id: r.company_id, provider: r.provider, token: r.token, board_url: PROVIDERS[r.provider]?.page(r.token) ?? `https://${r.provider}.example/${r.token}`.replace('.example', '.com'),
       status: prior?.status === 'approved' ? 'approved' : 'review', basis: r.reason, note: prior?.note ?? '', added_at: prior?.added_at ?? at,
+      ...(sighted.length ? { sighted } : {}), ...(prior?.checked_at ? { checked_at: prior.checked_at } : {}),
     });
   }
   return rows.sort((a, b) => a.id.localeCompare(b.id));

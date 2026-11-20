@@ -10,15 +10,17 @@
 //                        { source_id, last_attempt_at, last_success_at, next_attempt_at, consecutive_failures, last_error, empty_reads, last_run_id, last_counts, pages, attempts }
 import { ISO_RE, isStr } from './company.js';
 
+// A venture firm can be the employer of a role: its id is the investor's id with this in front, so it can never be a company's id (jobsync/employers.js).
+export const VC_PREFIX = 'vc-';
 export const SOURCE_STATUSES = ['approved', 'review', 'paused'];
-export const SOURCE_PROVIDERS = ['greenhouse', 'lever', 'workable', 'ashby', 'recruitee', 'smartrecruiters'];
+export const SOURCE_PROVIDERS = ['greenhouse', 'lever', 'workable', 'ashby', 'recruitee', 'smartrecruiters', 'breezy', 'pinpoint', 'bamboohr', 'teamtailor', 'rippling'];
 
 const when = (v) => v == null || ISO_RE.test(v);
 
 export function validateJobSources(ds) {
   const errors = [];
   const bad = (where, msg) => errors.push(`${where}: ${msg}`);
-  const companies = new Set((ds.companies ?? []).map((c) => c.id));
+  const companies = new Set([...(ds.companies ?? []).map((c) => c.id), ...(ds.investors ?? []).map((i) => `${VC_PREFIX}${i.id}`)]);
   const sourceIds = new Set((ds.sources ?? []).map((s) => s.id));
   const seen = new Set();
   for (const r of ds.job_sources ?? []) {
@@ -31,8 +33,10 @@ export function validateJobSources(ds) {
     if (!isStr(r.token) || !/^[A-Za-z0-9][A-Za-z0-9_.-]{1,80}$/.test(r.token)) bad(at, 'token must be the board\'s name');
     if (!/^https:\/\/\S+$/.test(r.board_url ?? '')) bad(at, 'board_url must be https');
     if (!SOURCE_STATUSES.includes(r.status)) bad(at, `invalid status "${r.status}"`);
-    if (r.status === 'approved' && !sourceIds.has(r.id)) bad(at, 'an approved board is one the company\'s own careers page links to: there must be a sources.json row with this id');
+    if (r.status === 'approved' && !sourceIds.has(r.id)) bad(at, 'an approved board is confirmed: the company\'s own careers page links to it, or its own feed lists a job a venture firm\'s board showed (jobsync/confirm.js): there must be a sources.json row with this id');
     if (!isStr(r.basis)) bad(at, 'basis says why the board is trusted, or why it is not yet');
+    for (const s of r.sighted ?? []) if (!/^https:\/\/\S+$/.test(s?.url ?? '')) bad(at, 'a sighted job needs an https url');
+    if (r.checked_at != null && !ISO_RE.test(r.checked_at)) bad(at, 'checked_at must be ISO-8601 UTC or null');
   }
   return errors;
 }

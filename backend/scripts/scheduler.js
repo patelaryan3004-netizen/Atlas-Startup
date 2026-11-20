@@ -10,6 +10,7 @@
 //   npm run scheduler -- learn                                         set the clocks from the queue's history (no network)
 //
 //   limits: --max-sites n (companies read per run, 40)  --max-requests n (300)  --max-minutes n (20)  --concurrency n (2)
+//   jobsync: --steps vc,discover,boards,dedupe,health (all)  --discover-limit n (60)  --board id,id  --slot "2026-11-20 AM"  (its own budget: 1,500 requests, 20 minutes)
 //   jobs:   discovery, funding, hiring, status, enrichment, quality (a plain tick runs these), and jobsync (the hourly employer job-board sync: --job jobsync)
 //
 // Add --data <dir> to work on a copy of the data files. A tick reads other people's websites politely (robots.txt,
@@ -63,6 +64,9 @@ function jobsFrom(flags, positional) {
 const limitsFrom = (flags) => Object.fromEntries(Object.entries({
   maxSites: whole(flags, 'max-sites'), maxRequests: whole(flags, 'max-requests'), maxMinutes: whole(flags, 'max-minutes'), concurrency: whole(flags, 'concurrency'),
   boards: typeof flags.board === 'string' ? flags.board.split(',').map((s) => s.trim()).filter(Boolean) : undefined, // jobsync only: just these catalogue ids
+  steps: typeof flags.steps === 'string' ? flags.steps.split(',').map((s) => s.trim()).filter(Boolean) : undefined, // jobsync only: which of vc, discover, boards, dedupe, health (all by default)
+  discoveryLimit: whole(flags, 'discover-limit'), // jobsync only: companies whose websites are looked at for a job board in one refresh (60)
+  slot: typeof flags.slot === 'string' ? flags.slot : undefined, // jobsync only: the twice-daily slot this run answers ("2026-11-20 AM"), recorded in the health row
 }).filter(([, v]) => v !== undefined));
 
 const ago = (iso, at) => {

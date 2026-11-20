@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { logoUrl, isRealLogo } from '../../logo.js';
-import { initialsOf, tintOf, PLACE_CARDS, confirmedWords, rowMeta, standing, whereWords, ARRANGEMENT_LABELS, TYPE_LABELS, LEVEL_LABELS } from '../../jobsBoard.js';
+import { initialsOf, tintOf, PLACE_CARDS, confirmedWords, rowMeta, standing, whereWords, ARRANGEMENT_LABELS, TYPE_LABELS, LEVEL_LABELS, salaryText, roundOf } from '../../jobsBoard.js';
 import { BookmarkIcon, ExternalIcon, CloseIcon, ChevronRight } from '../explore/icons.jsx';
 import { useDialog } from '../../hooks/useDialog.js';
 import { linkProps } from '../brand/nav.js';
@@ -149,7 +149,7 @@ export function RoleDetail({ role, now, saved, onToggle, onClose }) {
           <CompanyMark name={role.company.name} website={role.company.website} size={56} />
           <div>
             <p className="jd-detail-company">
-              {role.company.slug ? <a {...linkProps(`/startup/${role.company.slug}`)}>{role.company.name}</a> : role.company.name}
+              {role.company.slug ? <a {...linkProps(`${role.company.kind === 'investor' ? '/investors' : '/startup'}/${role.company.slug}`)}>{role.company.name}</a> : role.company.name}
             </p>
             <h2 id={titleId} className="jd-detail-title">{role.title}</h2>
           </div>
@@ -163,8 +163,11 @@ export function RoleDetail({ role, now, saved, onToggle, onClose }) {
           <Fact label="Working arrangement">{role.work.arrangement ? ARRANGEMENT_LABELS[role.work.arrangement] : ''}</Fact>
           <Fact label="Employment">{role.employment_type ? TYPE_LABELS[role.employment_type] : ''}</Fact>
           <Fact label="Level in the title">{role.level ? LEVEL_LABELS[role.level] : ''}</Fact>
+          <Fact label="Experience the employer states">{role.experience_level}</Fact>
           <Fact label="Team">{role.team}</Fact>
-          <Fact label="Salary">{role.salary}</Fact>
+          <Fact label="Salary the employer states">{salaryText(role.salary)}</Fact>
+          <Fact label="Funding stage">{roundOf(role.company.stage)}</Fact>
+          <Fact label="Backed by">{(role.vc_firms ?? []).join(', ')}</Fact>
           <Fact label="Posted by the employer">{fullDay(role.posted_at)}</Fact>
           <Fact label="First listed here">{fullDay(role.first_seen_at)}</Fact>
           <Fact label="Last confirmed">{role.last_confirmed_at ? `${fullDay(role.last_confirmed_at)}${confirmedDay === 'today' ? ' (today)' : ''}` : ''}</Fact>
@@ -189,17 +192,37 @@ export function RoleDetail({ role, now, saved, onToggle, onClose }) {
 }
 
 // What the board reads from and what it cannot: for the person who wants to know whether a company is watched.
+const ACCESS_WORDS = {
+  public_sample: 'its public page shows a sample only: used to find companies, not copied as roles',
+  no_public_feed: 'no job list we may read',
+  login_required: 'every apply goes through its sign-in, so it is not read',
+  no_board: 'no portfolio job board',
+  unread: 'could not be read at the last check',
+};
+const PLATFORM_WORDS = { getro: 'Getro', consider: 'Consider', workatastartup: 'Work at a Startup', none: '', unknown: '' };
+
+const stampOf = (iso) => (iso && !Number.isNaN(Date.parse(iso)) ? new Date(iso).toLocaleString('en-AU', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', hour12: true }) : '');
+
 export function Coverage({ sync, onClose }) {
   const { titleId, overlayProps, panelProps } = useDialog(onClose);
+  const dir = sync?.directory;
+  const last = sync?.last_refresh;
   return (
     <div className="modal-overlay jd-overlay" {...overlayProps}>
       <div className="modal-panel jd-detail" {...panelProps}>
         <button type="button" className="modal-close" aria-label="Close" onClick={onClose}><CloseIcon size={20} /></button>
         <h2 id={titleId} className="jd-detail-title">Feed coverage</h2>
         <p className="jd-why">
-          Still Early reads each employer&rsquo;s own public job board about once an hour, when the check is running. A new role appears after the next successful check, not the moment the employer posts it,
-          and a failed check never closes a role. This is not every company in the directory: only the boards below are read.
+          Still Early refreshes the board twice a day, at 8:10 am and 8:10 pm Melbourne time, by reading each employer&rsquo;s own public job board. A new role appears after the next successful refresh, not the moment
+          the employer posts it, and a failed read never closes a role.
+          {dir ? ` Every company in the directory has been looked at for a job board: ${dir.with_board.toLocaleString('en-AU')} of ${dir.looked_at.toLocaleString('en-AU')} ${dir.with_board === 1 ? 'has' : 'have'} one the refresh reads. The rest are listed below by why, and the board never says it covers them.` : ' This is not every company in the directory: only the boards below are read.'}
         </p>
+        {last && (
+          <p className="jd-why">
+            Last refresh, {stampOf(last.at)}: {last.boards_ok} board{last.boards_ok === 1 ? '' : 's'} read, {last.boards_failed} could not be read, {last.new_roles} new role{last.new_roles === 1 ? '' : 's'}, {last.closed_roles} no longer listed
+            {last.duplicates_removed ? `, ${last.duplicates_removed} duplicate${last.duplicates_removed === 1 ? '' : 's'} shown once` : ''}.
+          </p>
+        )}
         <h3 className="jd-h3">Read {sync?.boards?.polled ?? 0} employer board{sync?.boards?.polled === 1 ? '' : 's'}</h3>
         <ul className="jd-cov">
           {(sync?.covered ?? []).map((b) => (
@@ -209,8 +232,34 @@ export function Coverage({ sync, onClose }) {
             </li>
           ))}
         </ul>
-        {(sync?.unsupported?.length ?? 0) > 0 && (<><h3 className="jd-h3">Approved, but not read yet</h3><ul className="jd-cov">{sync.unsupported.map((b) => <li key={`${b.company}-${b.provider}`}><span>{b.company}</span><span className="jd-cov-meta">{b.provider}: no reader yet</span></li>)}</ul></>)}
+        {(dir?.reasons?.length ?? 0) > 0 && (
+          <>
+            <h3 className="jd-h3">Companies we cannot read yet</h3>
+            <ul className="jd-cov">{dir.reasons.map((r) => <li key={r.outcome}><span>{r.why}</span><span className="jd-cov-meta">{r.companies.toLocaleString('en-AU')} {r.companies === 1 ? 'company' : 'companies'}</span></li>)}</ul>
+          </>
+        )}
+        {(dir?.unsupported_providers?.length ?? 0) > 0 && (
+          <>
+            <h3 className="jd-h3">Job boards on a provider we do not read</h3>
+            <ul className="jd-cov">{dir.unsupported_providers.map((p) => <li key={p.provider}><span>{p.provider}</span><span className="jd-cov-meta">{p.companies} {p.companies === 1 ? 'company' : 'companies'}</span></li>)}</ul>
+          </>
+        )}
+        {(sync?.unsupported?.length ?? 0) > 0 && (<><h3 className="jd-h3">Approved, but not read yet</h3><ul className="jd-cov">{sync.unsupported.map((b) => <li key={`${b.company}-${b.provider}`}><span>{b.company}</span><span className="jd-cov-meta">{b.provider}: {b.reason ?? 'no reader yet'}</span></li>)}</ul></>)}
         {(sync?.review?.length ?? 0) > 0 && (<><h3 className="jd-h3">Waiting for a person to confirm</h3><ul className="jd-cov">{sync.review.map((b) => <li key={`${b.company}-${b.provider}`}><span>{b.company}</span><span className="jd-cov-meta">{b.provider}: the board is not confirmed from the company&rsquo;s own site, so it is not read</span></li>)}</ul></>)}
+        {(sync?.vc_boards?.length ?? 0) > 0 && (
+          <>
+            <h3 className="jd-h3">Venture firms&rsquo; job boards</h3>
+            <ul className="jd-cov">
+              {sync.vc_boards.map((v) => (
+                <li key={v.name}>
+                  <span>{v.name}</span>
+                  <span className="jd-cov-meta">{[PLATFORM_WORDS[v.platform], ACCESS_WORDS[v.access]].filter(Boolean).join(' · ')}</span>
+                </li>
+              ))}
+            </ul>
+            {sync.leads_waiting > 0 && <p className="jd-fine">{sync.leads_waiting} Australian {sync.leads_waiting === 1 ? 'company' : 'companies'} named on those boards {sync.leads_waiting === 1 ? 'is' : 'are'} not in the directory: they wait for a person to approve them before anything is added.</p>}
+          </>
+        )}
       </div>
     </div>
   );

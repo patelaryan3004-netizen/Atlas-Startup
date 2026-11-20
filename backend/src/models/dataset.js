@@ -41,6 +41,8 @@
 //   job_runs.json        one row per run of every scheduled job (jobRuns.js)
 //   job_sources.json     the employers' job boards the hourly sync reads, and why each is trusted (jobSync.js)
 //   job_sync_state.json  when each of those boards was last tried and last read whole, and what it found (jobSync.js)
+//   job_coverage.json, job_vc_boards.json, job_leads.json, job_health.json   the sync's ledgers: which companies were looked at for a job board and what was found, the venture
+//                        firms' job boards and what may be read from them, what is waiting for a person to approve, and the sync's own account of each refresh (jobDiscovery.js)
 //   geocode_cache.json   what a geocoder answered, so an address is never asked twice (geocodeCache.js)
 //
 // Each collection maps one-to-one onto a table, and every id is a stable string,
@@ -62,7 +64,8 @@ import { validateEnrichmentQueue } from './enrichmentQueue.js';
 import { validateImportRuns } from './importRuns.js';
 import { validateRefreshState } from './refreshState.js';
 import { validateJobRuns } from './jobRuns.js';
-import { validateJobSources, validateJobSyncState } from './jobSync.js';
+import { validateJobSources, validateJobSyncState, VC_PREFIX } from './jobSync.js';
+import { validateJobCoverage, validateJobVcBoards, validateJobLeads, validateJobHealth } from './jobDiscovery.js';
 import { validateGeocodeCache } from './geocodeCache.js';
 import { companyLocationProblems, validateLocationRows, hqRowFor, locationEvidenceIndex } from './location.js';
 import { syncConfidence } from './confidence.js';
@@ -99,6 +102,10 @@ export const COLLECTION_FILES = {
   job_runs: 'job_runs.json',
   job_sources: 'job_sources.json',
   job_sync_state: 'job_sync_state.json',
+  job_coverage: 'job_coverage.json',
+  job_vc_boards: 'job_vc_boards.json',
+  job_leads: 'job_leads.json',
+  job_health: 'job_health.json',
   geocode_cache: 'geocode_cache.json',
 };
 
@@ -331,6 +338,7 @@ export function migrateDataset(input) {
     investor_people, funds, investments, investor_people_organisations, fund_portfolio_companies, verification_records,
     audit_trail: input.audit_trail ?? [], enrichment_queue: input.enrichment_queue ?? [], import_runs: input.import_runs ?? [],
     refresh_state: input.refresh_state ?? [], job_runs: input.job_runs ?? [], job_sources: input.job_sources ?? [], job_sync_state: input.job_sync_state ?? [],
+    job_coverage: input.job_coverage ?? [], job_vc_boards: input.job_vc_boards ?? [], job_leads: input.job_leads ?? [], job_health: input.job_health ?? [],
     geocode_cache: input.geocode_cache ?? [],
   };
 }
@@ -512,7 +520,8 @@ export function validateDataset(ds) {
 
   for (const j of ds.jobs) {
     const at = `job "${j.id}"`;
-    if (!companyIds.has(j.company_id)) bad(at, `unknown company_id "${j.company_id}"`);
+    // The employer is a company in the directory, or a venture firm in the investor directory (its id with "vc-" in front: jobsync/employers.js).
+    if (!companyIds.has(j.company_id) && !(String(j.company_id).startsWith(VC_PREFIX) && investors.has(String(j.company_id).slice(VC_PREFIX.length)))) bad(at, `unknown company_id "${j.company_id}"`);
     if (!isStr(j.title)) bad(at, 'title is required');
     if (!JOB_STATUSES.includes(j.status)) bad(at, `invalid status "${j.status}"`);
     if (j.apply_url != null && !URL_RE.test(j.apply_url)) bad(at, 'apply_url must be http(s) or null');
@@ -530,7 +539,7 @@ export function validateDataset(ds) {
   errors.push(
     ...validateEvidence(ds), ...validateIdentifiers(ds), ...validateCandidates(ds),
     ...validateAuditTrail(ds), ...validateEnrichmentQueue(ds), ...validateImportRuns(ds),
-    ...validateRefreshState(ds), ...validateJobRuns(ds), ...validateJobSources(ds), ...validateJobSyncState(ds), ...validateLocationRows(ds), ...validateGeocodeCache(ds),
+    ...validateRefreshState(ds), ...validateJobRuns(ds), ...validateJobSources(ds), ...validateJobSyncState(ds), ...validateJobCoverage(ds), ...validateJobVcBoards(ds), ...validateJobLeads(ds), ...validateJobHealth(ds), ...validateLocationRows(ds), ...validateGeocodeCache(ds),
     ...validateInvestorOrganisations(ds), ...validateInvestorGraph(ds), ...validateVerificationRecords(ds),
   );
   return errors;

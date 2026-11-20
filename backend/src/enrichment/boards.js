@@ -72,7 +72,7 @@ export const PROVIDERS = [
 const OTHER_HOSTS = new Set(['www', 'api', 'app', 'careers', 'jobs', 'apply', 'blog', 'help', 'support', 'status', 'docs', 'static', 'cdn']);
 
 // The boards a set of read pages points at: [{ provider, token }], at most MAX_BOARDS. `pages` are as readSite
-// returns them. A careers page is searched whole (its embeds and scripts name the board); any other page only
+// returns them; a page marked `careers: true` (the job-board discovery pass followed a careers link to it) is searched whole whatever its address. A careers page is searched whole (its embeds and scripts name the board); any other page only
 // for a careers link.
 export function detectBoards(pages) {
   const found = [];
@@ -82,7 +82,7 @@ export function detectBoards(pages) {
   };
   for (const page of pages) {
     let careersPage = false;
-    try { careersPage = CAREERS_PATH.test(new URL(page.finalUrl).pathname); } catch { /* an unparseable URL is not a careers page */ }
+    try { careersPage = page.careers === true || CAREERS_PATH.test(new URL(page.finalUrl).pathname); } catch { /* an unparseable URL is not a careers page */ }
     const sources = careersPage
       ? [page.html]
       : links(page.html, page.finalUrl).filter((l) => CAREERS_TEXT.test(l.text) || CAREERS_PATH.test(safePath(l.href))).map((l) => l.href);

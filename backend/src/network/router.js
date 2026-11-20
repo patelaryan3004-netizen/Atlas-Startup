@@ -17,6 +17,10 @@ import { buildBoard } from './board.js';
 import { createSuggestion, pendingSuggestions, approveSuggestion, rejectSuggestion, withdrawListing } from './suggestions.js';
 import { offsetParams, offsetInfo } from '../http/paging.js';
 import { recordFor } from '../catalog/catalog.js';
+import { vcEmployerId, firmName } from '../jobsync/employers.js';
+
+// An investor has a public page only once a person has published it (catalog/investors.js): until then a venture firm that is hiring is named, but not linked, and not said to be in the directory.
+const PUBLIC_INVESTOR = new Set(['published', 'inactive']);
 
 const safeEqual = (a, b) => { const x = Buffer.from(String(a)); const y = Buffer.from(String(b)); return x.length === y.length && timingSafeEqual(x, y); };
 const bearer = (req) => { const h = req.get('authorization') ?? ''; return h.startsWith('Bearer ') ? h.slice(7).trim() : null; };
@@ -252,7 +256,13 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
   // The directory's card for a company, as a role shows it; and the sync's state row for the board a role came from.
   const jobContext = async () => {
     const snap = await catalog.snapshot();
-    const cardOf = (id) => { const rec = recordFor(snap, id); return rec ? { name: rec.name, slug: rec.slug, city: rec.city ?? '', sector: rec.sector ?? '', stage: rec.stage ?? '', website: rec.website ?? '' } : null; };
+    const firms = new Map(network.investors().map((i) => [vcEmployerId(i.id), i]));
+    const cardOf = (id) => {
+      const firm = firms.get(id);
+      if (firm) return { name: firmName(firm), slug: PUBLIC_INVESTOR.has(firm.verification_status) ? firm.slug : null, published: PUBLIC_INVESTOR.has(firm.verification_status), city: firm.headquarters_city ?? '', sector: 'Venture capital', stage: '', website: firm.website ?? '', logo: firm.logo ?? null, investors: [], kind: 'investor' };
+      const rec = recordFor(snap, id);
+      return rec ? { name: rec.name, slug: rec.slug, city: rec.city ?? '', sector: rec.sector ?? '', stage: rec.stage ?? '', website: rec.website ?? '', logo: rec.logo ?? null, investors: Array.isArray(rec.investors) ? rec.investors : [], kind: 'company' } : null;
+    };
     const sync = network.jobSync();
     const stateOf = new Map(sync.state.map((r) => [r.source_id, r]));
     return { snap, cardOf, sync, healthOf: (j) => stateOf.get(j.source_id) ?? null };
@@ -261,7 +271,7 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
   // The hiring desk's whole board in one answer (jobs/board.js builds it): the page filters and counts it in the browser.
   router.get('/jobs/board', wrap(async (req, res) => {
     const { snap, cardOf, sync } = await jobContext();
-    const names = new Map(snap.records.map((r) => [r.id, { name: r.name, slug: r.slug }]));
+    const names = new Map([...snap.records.map((r) => [r.id, { name: r.name, slug: r.slug }]), ...network.investors().map((i) => [vcEmployerId(i.id), { name: i.name, slug: i.slug }])]);
     res.json(buildBoard({ jobs: network.jobs(), cardOf, extra: (await approved('jobs')).filter((j) => j.status === 'open'), sync, names, now: now() }));
   }));
 

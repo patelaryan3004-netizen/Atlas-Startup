@@ -15,6 +15,13 @@ export const EVENTS_FILE = path.join(HERE, '..', 'data', 'events.json');
 export const JOBS_FILE = path.join(HERE, '..', 'data', 'jobs.json');
 export const JOB_SOURCES_FILE = path.join(HERE, '..', 'data', 'job_sources.json');
 export const JOB_SYNC_FILE = path.join(HERE, '..', 'data', 'job_sync_state.json');
+export const INVESTORS_FILE = path.join(HERE, '..', 'data', 'investors.json');
+export const JOB_LEDGER_FILES = {
+  coverage: path.join(HERE, '..', 'data', 'job_coverage.json'),
+  vc: path.join(HERE, '..', 'data', 'job_vc_boards.json'),
+  health: path.join(HERE, '..', 'data', 'job_health.json'),
+  leads: path.join(HERE, '..', 'data', 'job_leads.json'),
+};
 
 // A JSON file read again only when it has changed.
 function watched(file) {
@@ -29,7 +36,7 @@ function watched(file) {
   };
 }
 
-export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync } = {}) {
+export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync, curatedInvestors } = {}) {
   const off = ['0', 'false', 'no', 'off'].includes(String(env.NETWORK_ENABLED ?? '').trim().toLowerCase());
   let folder = dir ?? env.NETWORK_DATA_DIR ?? null;
   let reason = null;
@@ -44,7 +51,13 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
   // The hourly sync's catalogue of employer boards and where each stands (jobsync/): what the board says about how current it is.
   const jobSources = curatedJobSync ? () => curatedJobSync.sources : watched(jobSourcesFile);
   const jobSyncState = curatedJobSync ? () => curatedJobSync.state : watched(jobSyncFile);
-  const jobSync = () => ({ sources: jobSources(), state: jobSyncState() });
+  // The sync's ledgers beside them (job_coverage, job_vc_boards, job_health, job_leads: models/jobDiscovery.js): which companies were looked at and what was found, the venture boards, how the
+  // last refresh went. Only their totals reach a visitor (network/board.js).
+  const ledgers = Object.fromEntries(Object.entries(JOB_LEDGER_FILES).map(([k, f]) => [k, curatedJobSync?.[k] ? () => curatedJobSync[k] : curatedJobSync ? () => [] : watched(f)]));
+  const jobSync = () => ({ sources: jobSources(), state: jobSyncState(), coverage: ledgers.coverage(), vc: ledgers.vc(), health: ledgers.health(), leads: ledgers.leads() });
+
+  // The investor directory, read as the hiring desk's second kind of employer: a venture firm's own vacancies (jobsync/employers.js).
+  const investors = curatedInvestors ? () => curatedInvestors : watched(INVESTORS_FILE);
 
   let ready = null;
   const open = () => {
@@ -56,5 +69,5 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
     return ready;
   };
 
-  return { available, reason, open, events, jobs, jobSync, now, dir: memory ? null : folder };
+  return { available, reason, open, events, jobs, jobSync, investors, now, dir: memory ? null : folder };
 }

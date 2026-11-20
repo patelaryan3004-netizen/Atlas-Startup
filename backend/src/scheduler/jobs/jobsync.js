@@ -11,9 +11,10 @@
 import { snapshot, transact } from '../../models/store.js';
 import { readSource, SyncError, SUPPORTED } from '../../jobsync/adapters.js';
 import { applyRead } from '../../jobsync/engine.js';
+import { employerMap } from '../../jobsync/employers.js';
 import { stateRow, isDue, noteSuccess, noteFailure, EMPTY_CONFIRM_MS } from '../../jobsync/state.js';
 
-export const DEFAULT_MAX_BOARDS = 60;
+export const DEFAULT_MAX_BOARDS = 400;
 
 const blank = () => ({ due: 0, processed: 0, changed: 0, failed: 0, deferred: 0, requests: 0, summary: '', details: null, error: null });
 const changedBy = (s) => (s.added + s.reopened + s.hidden + s.archived + s.adopted) > 0;
@@ -42,7 +43,7 @@ export async function runJobSync(ctx, { budget, limit = DEFAULT_MAX_BOARDS, only
     return out;
   }
   const requestsAtStart = fetcher.log?.requests?.length ?? 0;
-  const websites = new Map(ds.companies.map((c) => [c.id, c.website ?? '']));
+  const websites = new Map([...employerMap(ds)].map(([id, e]) => [id, e.website ?? '']));
   const totals = { added: 0, updated: 0, reopened: 0, adopted: 0, hidden: 0, archived: 0, duplicates: 0, out_of_scope: 0, listed: 0 };
   let stoppedAt = null;
 
@@ -94,6 +95,7 @@ export async function runJobSync(ctx, { budget, limit = DEFAULT_MAX_BOARDS, only
   if (held) bits.push(`${held} listed nothing and is held for a second read`);
   const moves = [totals.added && `${totals.added} role(s) new`, totals.reopened && `${totals.reopened} listed again`, totals.hidden && `${totals.hidden} hidden`, totals.archived && `${totals.archived} archived`].filter(Boolean);
   out.summary = `${bits.join(', ')}${moves.length ? `; ${moves.join(', ')}` : '; no role changed'}${stoppedAt ? '; stopped early (the run\'s limit), the rest are still due' : ''}`;
-  out.details = { totals, boards: boards.map(({ id, outcome, error, message, listed, added, updated, reopened, adopted, hidden, archived, duplicates, out_of_scope: oos, pages }) => ({ id, outcome, error, message, listed, added, updated, reopened, adopted, hidden, archived, duplicates, out_of_scope: oos, pages })), unsupported: planned.unsupported.map((s) => `${s.company_id} (${s.provider})`), stopped_for: budget?.stoppedFor?.() ?? null };
+  // The run log keeps the boards that changed something or did not answer: a board read whole with nothing new is counted (boards_read), not listed, so a refresh twice a day does not grow the log by a page each time.
+  out.details = { totals, boards_read: out.processed, boards: boards.filter((b) => b.outcome !== 'read' || changedBy(b)).map(({ id, outcome, error, message, listed, added, updated, reopened, adopted, hidden, archived, duplicates, out_of_scope: oos, pages }) => ({ id, outcome, error, message, listed, added, updated, reopened, adopted, hidden, archived, duplicates, out_of_scope: oos, pages })), unsupported: planned.unsupported.map((s) => `${s.company_id} (${s.provider})`), stopped_for: budget?.stoppedFor?.() ?? null };
   return out;
 }

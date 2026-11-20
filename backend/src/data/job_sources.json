@@ -1,5 +1,71 @@
 [
   {
+    "id": "1breadcrumb-ashby-jobs",
+    "company_id": "1breadcrumb",
+    "provider": "ashby",
+    "token": "breadcrumb",
+    "board_url": "https://jobs.ashbyhq.com/breadcrumb",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"1breadcrumb-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:54:27.359Z"
+  },
+  {
+    "id": "activepipe-rippling-jobs",
+    "company_id": "activepipe",
+    "provider": "rippling",
+    "token": "moxiworks-careers",
+    "board_url": "https://ats.rippling.com/moxiworks-careers/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"activepipe-rippling-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:17.395Z"
+  },
+  {
+    "id": "advanced-navigation-rippling-jobs",
+    "company_id": "advanced-navigation",
+    "provider": "rippling",
+    "token": "advanced-navigation",
+    "board_url": "https://ats.rippling.com/advanced-navigation/jobs",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-19: oif's job board showed \"Forward Deployed Engineer\", the company's own rippling feed lists that same job, and the board's name \"advanced-navigation\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-19T16:20:28.716Z"
+  },
+  {
+    "id": "aircall-greenhouse-jobs",
+    "company_id": "aircall",
+    "provider": "greenhouse",
+    "token": "aircallioinc",
+    "board_url": "https://boards.greenhouse.io/aircallioinc",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"aircall-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:54:50.007Z"
+  },
+  {
+    "id": "airwallex-ashby-jobs",
+    "company_id": "airwallex",
+    "provider": "ashby",
+    "token": "airwallex",
+    "board_url": "https://jobs.ashbyhq.com/airwallex",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-19: blackbird's job board showed \"Account Executive, Mid Market, SME & Growth\", the company's own ashby feed lists that same job, and the board's name \"airwallex\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-19T16:23:05.612Z"
+  },
+  {
+    "id": "amazingco-breezy-jobs",
+    "company_id": "amazingco",
+    "provider": "breezy",
+    "token": "amazingco",
+    "board_url": "https://amazingco.breezy.hr/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"amazingco-breezy-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
     "id": "amber-electric-lever-jobs",
     "company_id": "amber-electric",
     "provider": "lever",
@@ -11,6 +77,50 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "andromeda-robotics-workable-jobs",
+    "company_id": "andromeda-robotics",
+    "provider": "workable",
+    "token": "andromeda-robotics",
+    "board_url": "https://apply.workable.com/andromeda-robotics/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"andromeda-robotics-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:55:04.923Z"
+  },
+  {
+    "id": "appen-lever-jobs",
+    "company_id": "appen",
+    "provider": "lever",
+    "token": "appen",
+    "board_url": "https://jobs.lever.co/appen",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"appen-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:55:17.763Z"
+  },
+  {
+    "id": "arkeus-rippling-jobs",
+    "company_id": "arkeus",
+    "provider": "rippling",
+    "token": "arkeuscareer",
+    "board_url": "https://ats.rippling.com/arkeuscareer/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"arkeus-rippling-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
+    "id": "askable-teamtailor-jobs",
+    "company_id": "askable",
+    "provider": "teamtailor",
+    "token": "askable",
+    "board_url": "https://askable.teamtailor.com/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"askable-teamtailor-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
     "id": "asseti-workable-jobs",
     "company_id": "asseti",
     "provider": "workable",
@@ -20,6 +130,28 @@
     "basis": "The company's own careers page links to this board (sources.json \"asseti-workable-jobs\", read 2026-10-13).",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "assignar-breezy-jobs",
+    "company_id": "assignar",
+    "provider": "breezy",
+    "token": "assignar",
+    "board_url": "https://assignar.breezy.hr/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"assignar-breezy-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
+    "id": "athena-bamboohr-jobs",
+    "company_id": "athena",
+    "provider": "bamboohr",
+    "token": "athena",
+    "board_url": "https://athena.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"athena-bamboohr-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:27.369Z"
   },
   {
     "id": "atomi-lever-jobs",
@@ -44,6 +176,17 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "bivacor-ashby-jobs",
+    "company_id": "bivacor",
+    "provider": "ashby",
+    "token": "bivacor-inc",
+    "board_url": "https://jobs.ashbyhq.com/bivacor-inc",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"bivacor-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:55:59.048Z"
+  },
+  {
     "id": "buildkite-greenhouse-jobs",
     "company_id": "buildkite",
     "provider": "greenhouse",
@@ -53,6 +196,105 @@
     "basis": "The company's own careers page links to this board (sources.json \"buildkite-greenhouse-jobs\", read 2026-10-13).",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "carma-pinpoint-jobs",
+    "company_id": "carma",
+    "provider": "pinpoint",
+    "token": "carma",
+    "board_url": "https://carma.pinpointhq.com/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"carma-pinpoint-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:32.938Z"
+  },
+  {
+    "id": "caruso-ashby-jobs",
+    "company_id": "caruso",
+    "provider": "ashby",
+    "token": "caruso",
+    "board_url": "https://jobs.ashbyhq.com/caruso",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"caruso-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:56:40.272Z"
+  },
+  {
+    "id": "civica-workable-jobs",
+    "company_id": "civica",
+    "provider": "workable",
+    "token": "civica-uk-ltd-1",
+    "board_url": "https://apply.workable.com/civica-uk-ltd-1/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"civica-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:56:57.717Z"
+  },
+  {
+    "id": "coates-group-lever-jobs",
+    "company_id": "coates-group",
+    "provider": "lever",
+    "token": "coatesgroup",
+    "board_url": "https://jobs.lever.co/coatesgroup",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"coates-group-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:57:05.140Z"
+  },
+  {
+    "id": "cogstate-greenhouse-jobs",
+    "company_id": "cogstate",
+    "provider": "greenhouse",
+    "token": "cogstateinc",
+    "board_url": "https://boards.greenhouse.io/cogstateinc",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"cogstate-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:57:04.545Z"
+  },
+  {
+    "id": "coinjar-workable-jobs",
+    "company_id": "coinjar",
+    "provider": "workable",
+    "token": "coinjar",
+    "board_url": "https://apply.workable.com/coinjar/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"coinjar-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:57:06.805Z"
+  },
+  {
+    "id": "collibra-greenhouse-jobs",
+    "company_id": "collibra",
+    "provider": "greenhouse",
+    "token": "collibra",
+    "board_url": "https://boards.greenhouse.io/collibra",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"collibra-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:57:14.692Z"
+  },
+  {
+    "id": "compass-education-workable-jobs",
+    "company_id": "compass-education",
+    "provider": "workable",
+    "token": "compass-education",
+    "board_url": "https://apply.workable.com/compass-education/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"compass-education-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:57:13.839Z"
+  },
+  {
+    "id": "covidence-breezy-jobs",
+    "company_id": "covidence",
+    "provider": "breezy",
+    "token": "futureevidence",
+    "board_url": "https://futureevidence.breezy.hr/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"covidence-breezy-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:33.651Z"
   },
   {
     "id": "culture-amp-greenhouse-jobs",
@@ -77,6 +319,28 @@
     "added_at": "2026-11-13T04:28:05.700Z"
   },
   {
+    "id": "dovetail-ashby-jobs",
+    "company_id": "dovetail",
+    "provider": "ashby",
+    "token": "dovetail",
+    "board_url": "https://jobs.ashbyhq.com/dovetail",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"dovetail-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:57:56.374Z"
+  },
+  {
+    "id": "edrolo-breezy-jobs",
+    "company_id": "edrolo",
+    "provider": "breezy",
+    "token": "edrolo",
+    "board_url": "https://edrolo.breezy.hr/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"edrolo-breezy-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:36.287Z"
+  },
+  {
     "id": "emesent-lever-jobs",
     "company_id": "emesent",
     "provider": "lever",
@@ -99,6 +363,94 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "eucalyptus-greenhouse-jobs",
+    "company_id": "eucalyptus",
+    "provider": "greenhouse",
+    "token": "eucalyptus",
+    "board_url": "https://boards.greenhouse.io/eucalyptus",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"eucalyptus-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:54:04.997Z"
+  },
+  {
+    "id": "flexport-greenhouse-jobs",
+    "company_id": "flexport",
+    "provider": "greenhouse",
+    "token": "flexport",
+    "board_url": "https://boards.greenhouse.io/flexport",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"flexport-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:59:09.878Z"
+  },
+  {
+    "id": "gentrack-pinpoint-jobs",
+    "company_id": "gentrack",
+    "provider": "pinpoint",
+    "token": "gentrack",
+    "board_url": "https://gentrack.pinpointhq.com/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"gentrack-pinpoint-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:43.368Z"
+  },
+  {
+    "id": "go1-greenhouse-jobs",
+    "company_id": "go1",
+    "provider": "greenhouse",
+    "token": "go1au",
+    "board_url": "https://boards.greenhouse.io/go1au",
+    "status": "approved",
+    "basis": "Confirmed from the company's own careers page, read in a browser (its jobs are the ones this board lists); see scripts/jobsync-confirmed.json.",
+    "note": "",
+    "added_at": "2026-11-19T16:49:21.347Z"
+  },
+  {
+    "id": "grow-inc-ashby-jobs",
+    "company_id": "grow-inc",
+    "provider": "ashby",
+    "token": "grow-inc",
+    "board_url": "https://jobs.ashbyhq.com/grow-inc",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"grow-inc-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:59:44.777Z"
+  },
+  {
+    "id": "harrison-ai-ashby-jobs",
+    "company_id": "harrison-ai",
+    "provider": "ashby",
+    "token": "Harrison.ai",
+    "board_url": "https://jobs.ashbyhq.com/Harrison.ai",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"harrison-ai-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T13:59:53.936Z"
+  },
+  {
+    "id": "heo-breezy-jobs",
+    "company_id": "heo",
+    "provider": "breezy",
+    "token": "heo",
+    "board_url": "https://heo.breezy.hr/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"heo-breezy-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:42.737Z"
+  },
+  {
+    "id": "highradius-greenhouse-jobs",
+    "company_id": "highradius",
+    "provider": "greenhouse",
+    "token": "highradius",
+    "board_url": "https://boards.greenhouse.io/highradius",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"highradius-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:00:08.003Z"
+  },
+  {
     "id": "immutable-lever-jobs",
     "company_id": "immutable",
     "provider": "lever",
@@ -108,6 +460,28 @@
     "basis": "The company's own careers page links to this board (sources.json \"immutable-lever-jobs\", read 2026-10-13).",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "investorhub-pinpoint-jobs",
+    "company_id": "investorhub",
+    "provider": "pinpoint",
+    "token": "investorhub",
+    "board_url": "https://investorhub.pinpointhq.com/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"investorhub-pinpoint-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:48.039Z"
+  },
+  {
+    "id": "kantoko-ashby-jobs",
+    "company_id": "kantoko",
+    "provider": "ashby",
+    "token": "kantoko",
+    "board_url": "https://jobs.ashbyhq.com/kantoko",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"kantoko-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:01:04.917Z"
   },
   {
     "id": "karbon-greenhouse-jobs",
@@ -132,6 +506,215 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "kolmeo-bamboohr-jobs",
+    "company_id": "kolmeo",
+    "provider": "bamboohr",
+    "token": "kolmeo",
+    "board_url": "https://kolmeo.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"kolmeo-bamboohr-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:49.612Z"
+  },
+  {
+    "id": "lawpath-bamboohr-jobs",
+    "company_id": "lawpath",
+    "provider": "bamboohr",
+    "token": "lawpath",
+    "board_url": "https://lawpath.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"lawpath-bamboohr-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:50.415Z"
+  },
+  {
+    "id": "learnosity-workable-jobs",
+    "company_id": "learnosity",
+    "provider": "workable",
+    "token": "learnosity",
+    "board_url": "https://apply.workable.com/learnosity/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"learnosity-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:01:19.329Z"
+  },
+  {
+    "id": "lucid-software-greenhouse-jobs",
+    "company_id": "lucid-software",
+    "provider": "greenhouse",
+    "token": "lucidsoftware",
+    "board_url": "https://boards.greenhouse.io/lucidsoftware",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"lucid-software-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:01:41.065Z"
+  },
+  {
+    "id": "lumary-lever-jobs",
+    "company_id": "lumary",
+    "provider": "lever",
+    "token": "Lumary",
+    "board_url": "https://jobs.lever.co/Lumary",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"lumary-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:01:47.514Z"
+  },
+  {
+    "id": "lyrebird-health-ashby-jobs",
+    "company_id": "lyrebird-health",
+    "provider": "ashby",
+    "token": "lyrebird-health",
+    "board_url": "https://jobs.ashbyhq.com/lyrebird-health",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"lyrebird-health-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:01:43.590Z"
+  },
+  {
+    "id": "madecomfy-breezy-jobs",
+    "company_id": "madecomfy",
+    "provider": "breezy",
+    "token": "madecomfy",
+    "board_url": "https://madecomfy.breezy.hr/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"madecomfy-breezy-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:55.031Z"
+  },
+  {
+    "id": "marketplacer-bamboohr-jobs",
+    "company_id": "marketplacer",
+    "provider": "bamboohr",
+    "token": "marketplacer",
+    "board_url": "https://marketplacer.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"marketplacer-bamboohr-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:56.985Z"
+  },
+  {
+    "id": "marloo-ashby-jobs",
+    "company_id": "marloo",
+    "provider": "ashby",
+    "token": "marloo",
+    "board_url": "https://jobs.ashbyhq.com/marloo",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"marloo-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:01:55.685Z"
+  },
+  {
+    "id": "merchantspring-workable-jobs",
+    "company_id": "merchantspring",
+    "provider": "workable",
+    "token": "merchant-spring",
+    "board_url": "https://apply.workable.com/merchant-spring/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"merchantspring-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:02:12.975Z"
+  },
+  {
+    "id": "mlai-greenhouse-jobs",
+    "company_id": "mlai",
+    "provider": "greenhouse",
+    "token": "zipcolimited",
+    "board_url": "https://boards.greenhouse.io/zipcolimited",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"mlai-greenhouse-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:02:18.065Z"
+  },
+  {
+    "id": "morse-micro-ashby-jobs",
+    "company_id": "morse-micro",
+    "provider": "ashby",
+    "token": "morse-micro",
+    "board_url": "https://jobs.ashbyhq.com/morse-micro",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"morse-micro-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:02:23.034Z"
+  },
+  {
+    "id": "mypass-global-lever-jobs",
+    "company_id": "mypass-global",
+    "provider": "lever",
+    "token": "mypassglobal",
+    "board_url": "https://jobs.lever.co/mypassglobal",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"mypass-global-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:02:33.518Z"
+  },
+  {
+    "id": "neara-ashby-jobs",
+    "company_id": "neara",
+    "provider": "ashby",
+    "token": "neara",
+    "board_url": "https://jobs.ashbyhq.com/neara",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"neara-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:02:32.717Z"
+  },
+  {
+    "id": "nomad-atomics-workable-jobs",
+    "company_id": "nomad-atomics",
+    "provider": "workable",
+    "token": "nomad-atomics",
+    "board_url": "https://apply.workable.com/nomad-atomics/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"nomad-atomics-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:02:46.037Z"
+  },
+  {
+    "id": "pet-circle-teamtailor-jobs",
+    "company_id": "pet-circle",
+    "provider": "teamtailor",
+    "token": "petcircle-1744336448",
+    "board_url": "https://petcircle-1744336448.teamtailor.com/jobs",
+    "status": "approved",
+    "basis": "Confirmed from the company's own careers page, read in a browser (it links to this board); see scripts/jobsync-confirmed.json.",
+    "note": "",
+    "added_at": "2026-11-19T16:49:21.962Z"
+  },
+  {
+    "id": "phocas-rippling-jobs",
+    "company_id": "phocas",
+    "provider": "rippling",
+    "token": "phocas",
+    "board_url": "https://ats.rippling.com/phocas/jobs",
+    "status": "approved",
+    "basis": "Confirmed from the company's own careers page, read in a browser (it links to this board); see scripts/jobsync-confirmed.json.",
+    "note": "",
+    "added_at": "2026-11-19T16:49:20.747Z"
+  },
+  {
+    "id": "prospection-bamboohr-jobs",
+    "company_id": "prospection",
+    "provider": "bamboohr",
+    "token": "prospection",
+    "board_url": "https://prospection.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"prospection-bamboohr-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:25.445Z"
+  },
+  {
+    "id": "psyke-workable-jobs",
+    "company_id": "psyke",
+    "provider": "workable",
+    "token": "upflowy-1",
+    "board_url": "https://apply.workable.com/upflowy-1/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"psyke-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:04:18.727Z"
+  },
+  {
     "id": "qsic-lever-jobs",
     "company_id": "qsic",
     "provider": "lever",
@@ -141,6 +724,50 @@
     "basis": "The company's own careers page links to this board (sources.json \"qsic-lever-jobs\", read 2026-10-13).",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "quantum-brilliance-bamboohr-jobs",
+    "company_id": "quantum-brilliance",
+    "provider": "bamboohr",
+    "token": "quantumbrilliance",
+    "board_url": "https://quantumbrilliance.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"quantum-brilliance-bamboohr-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
+    "id": "recordpoint-lever-jobs",
+    "company_id": "recordpoint",
+    "provider": "lever",
+    "token": "recordpoint",
+    "board_url": "https://jobs.lever.co/recordpoint",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"recordpoint-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:04:44.439Z"
+  },
+  {
+    "id": "relectrify-workable-jobs",
+    "company_id": "relectrify",
+    "provider": "workable",
+    "token": "relectrify",
+    "board_url": "https://apply.workable.com/relectrify/",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"relectrify-workable-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:04:52.009Z"
+  },
+  {
+    "id": "rokt-workable-jobs",
+    "company_id": "rokt",
+    "provider": "workable",
+    "token": "157387",
+    "board_url": "https://apply.workable.com/157387/",
+    "status": "approved",
+    "basis": "Confirmed from the company's own careers page, read in a browser (its jobs are the ones this board lists); see scripts/jobsync-confirmed.json.",
+    "note": "",
+    "added_at": "2026-11-19T16:49:20.031Z"
   },
   {
     "id": "roller-greenhouse-jobs",
@@ -154,6 +781,72 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "safetyculture-ashby-jobs",
+    "company_id": "safetyculture",
+    "provider": "ashby",
+    "token": "mitti",
+    "board_url": "https://jobs.ashbyhq.com/mitti",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-19: blackbird's job board showed \"Staff Platform Engineer\", the company's own ashby feed lists that same job, and the board's name \"mitti\" is the name of the company's own website (mitti.com).",
+    "note": "",
+    "added_at": "2026-11-19T16:23:08.591Z"
+  },
+  {
+    "id": "safewill-teamtailor-jobs",
+    "company_id": "safewill",
+    "provider": "teamtailor",
+    "token": "safewill",
+    "board_url": "https://safewill.teamtailor.com/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"safewill-teamtailor-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
+    "id": "saluda-medical-bamboohr-jobs",
+    "company_id": "saluda-medical",
+    "provider": "bamboohr",
+    "token": "saludamedical",
+    "board_url": "https://saludamedical.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"saluda-medical-bamboohr-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:14:14.314Z"
+  },
+  {
+    "id": "secure-code-warrior-lever-jobs",
+    "company_id": "secure-code-warrior",
+    "provider": "lever",
+    "token": "securecodewarrior",
+    "board_url": "https://jobs.lever.co/securecodewarrior",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-19: airtree's job board showed \"Channel Manager, North America Midwest (with LATAM Partner Coverage)\", the company's own lever feed lists that same job, and the board's name \"securecodewarrior\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-19T16:23:11.310Z"
+  },
+  {
+    "id": "shippit-bamboohr-jobs",
+    "company_id": "shippit",
+    "provider": "bamboohr",
+    "token": "shippit",
+    "board_url": "https://shippit.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"shippit-bamboohr-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
+    "id": "sitemate-ashby-jobs",
+    "company_id": "sitemate",
+    "provider": "ashby",
+    "token": "Sitemate",
+    "board_url": "https://jobs.ashbyhq.com/Sitemate",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-19: oif's job board showed \"QA Engineer\", the company's own ashby feed lists that same job, and the board's name \"Sitemate\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-19T16:23:12.834Z"
+  },
+  {
     "id": "sonder-greenhouse-jobs",
     "company_id": "sonder",
     "provider": "greenhouse",
@@ -163,6 +856,94 @@
     "basis": "The company's own careers page links to this board (sources.json \"sonder-greenhouse-jobs\", read 2026-10-13).",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "spriggy-bamboohr-jobs",
+    "company_id": "spriggy",
+    "provider": "bamboohr",
+    "token": "spriggy",
+    "board_url": "https://spriggy.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"spriggy-bamboohr-jobs\", read 2026-10-13).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:14.054Z"
+  },
+  {
+    "id": "sundrive-solar-lever-jobs",
+    "company_id": "sundrive-solar",
+    "provider": "lever",
+    "token": "sundrivesolar",
+    "board_url": "https://jobs.lever.co/sundrivesolar",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"sundrive-solar-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:06:33.608Z"
+  },
+  {
+    "id": "syenta-ashby-jobs",
+    "company_id": "syenta",
+    "provider": "ashby",
+    "token": "syenta",
+    "board_url": "https://jobs.ashbyhq.com/syenta",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"syenta-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:06:45.103Z"
+  },
+  {
+    "id": "total-synergy-rippling-jobs",
+    "company_id": "total-synergy",
+    "provider": "rippling",
+    "token": "totalsynergycareers",
+    "board_url": "https://ats.rippling.com/totalsynergycareers/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"total-synergy-rippling-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:14:13.472Z"
+  },
+  {
+    "id": "traild-lever-jobs",
+    "company_id": "traild",
+    "provider": "lever",
+    "token": "traildsoftware",
+    "board_url": "https://jobs.lever.co/traildsoftware",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"traild-lever-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:07:50.925Z"
+  },
+  {
+    "id": "upguard-ashby-jobs",
+    "company_id": "upguard",
+    "provider": "ashby",
+    "token": "upguard",
+    "board_url": "https://jobs.ashbyhq.com/upguard",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"upguard-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:07:40.830Z"
+  },
+  {
+    "id": "varicon-teamtailor-jobs",
+    "company_id": "varicon",
+    "provider": "teamtailor",
+    "token": "varicon-1750116570",
+    "board_url": "https://varicon-1750116570.teamtailor.com/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"varicon-teamtailor-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:14:18.641Z"
+  },
+  {
+    "id": "vc-investible-rippling-jobs",
+    "company_id": "vc-investible",
+    "provider": "rippling",
+    "token": "investible",
+    "board_url": "https://ats.rippling.com/investible/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"vc-investible-rippling-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:28:36.420Z"
   },
   {
     "id": "vgw-greenhouse-jobs",
@@ -187,6 +968,28 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "vow-ashby-jobs",
+    "company_id": "vow",
+    "provider": "ashby",
+    "token": "vow",
+    "board_url": "https://jobs.ashbyhq.com/vow",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"vow-ashby-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T14:08:08.901Z"
+  },
+  {
+    "id": "willow-rippling-jobs",
+    "company_id": "willow",
+    "provider": "rippling",
+    "token": "willow",
+    "board_url": "https://ats.rippling.com/willow/jobs",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"willow-rippling-jobs\", read 2026-11-19).",
+    "note": "",
+    "added_at": "2026-11-19T16:13:15.167Z"
+  },
+  {
     "id": "zeller-lever-jobs",
     "company_id": "zeller",
     "provider": "lever",
@@ -196,5 +999,29 @@
     "basis": "The company's own careers page links to this board (sources.json \"zeller-lever-jobs\", read 2026-10-13).",
     "note": "",
     "added_at": "2026-11-13T02:27:35.633Z"
+  },
+  {
+    "id": "zoomo-workable-review",
+    "company_id": "zoomo",
+    "provider": "workable",
+    "token": "zoomo",
+    "board_url": "https://apply.workable.com/zoomo/",
+    "status": "review",
+    "basis": "Named by AirTree Ventures's job board (Data & Analytics Engineer links to workable board \"zoomo\"). Not yet confirmed from Zoomo's own careers page, so it is never read.",
+    "note": "2026-11-19: The employer's own feed (15 listed) does not list the job the venture board showed (\"Data & Analytics Engineer\"): it may have closed.",
+    "added_at": "2026-11-19T14:16:59.595Z",
+    "sighted": [
+      {
+        "firm": "airtree",
+        "url": "https://apply.workable.com/zoomo/j/BDD97F65D4",
+        "title": "Data & Analytics Engineer"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://apply.workable.com/zoomo/j/40D71469E5",
+        "title": "Software Engineer (Full Stack)"
+      }
+    ],
+    "checked_at": "2026-11-19T16:23:14.626Z"
   }
 ]
