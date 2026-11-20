@@ -69,7 +69,7 @@ export function links(html, baseUrl) {
   const seen = new Set();
   for (const m of String(html ?? '').matchAll(/<a\b[^>]*?\bhref\s*=\s*(?:"([^"]*)"|'([^']*)')[^>]*>([\s\S]*?)<\/a>/gi)) {
     const href = decodeEntities(m[1] ?? m[2]).trim();
-    if (!href || /^(?:mailto|tel|javascript|data):/i.test(href)) continue;
+    if (!href || /^(?:mailto|tel|javascript|data):/i.test(href) || /(?:^|\/)(?:mailto|tel):/i.test(href)) continue; // also "/mailto:info@acme.com.au", a typo on some sites: not a page, and an address must never reach a note
     let url;
     try { url = new URL(href, baseUrl); } catch { continue; }
     if (url.protocol !== 'http:' && url.protocol !== 'https:') continue;

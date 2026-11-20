@@ -28,6 +28,8 @@ So the only route to the complete list of Innovation Bay jobs is a key issued **
 | In the directory, hiring, no board of its own read yet | `job_coverage.hiring_hint_at` is set: its own website is looked at for a job board at the **next refresh**, not at its turn in the week. |
 | In the directory, on the list | A lead made earlier for it is settled (`in_directory`). |
 | Already a pending candidate | Nothing: it is in the review queue. |
+| The same name as a company or candidate we hold, with another website on record (a rebrand, a second domain) | Counted (`same_name`), not queued: a person would only be asked to confirm it. A looser resemblance is still a lead, saying what it resembles. |
+| Innovation Bay itself (it is on its own list) | Skipped. |
 | Not in the directory, Australian, not obviously large (≤ 1,000 people), with a website | A **lead** (`unknown_company`, `needs_review`) holding what its page says. |
 | A venture firm we hold, hiring, whose own careers page is not one of the 15 firms checked | A lead (`investor_hiring`) saying so. |
 | A venture firm we do not hold, Australian | A lead (`unknown_investor`): it goes through the investor directory, not the startup queue. |

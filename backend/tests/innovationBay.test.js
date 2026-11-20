@@ -232,6 +232,16 @@ describe('matching what the network names against the directory', () => {
     expect(work.job_leads[0].profile.employees).toBe(9);
   });
 
+  it("a company we hold under the same name but another website is not queued as new, and the network's own entry is not a lead", () => {
+    const work = base();
+    const s = applyProfiles(work, IB, [
+      prof({ name: 'Acme Robotics', slug: 'acme', domain: 'acmerobotics.ai', websiteUrl: 'https://acmerobotics.ai' }), // ours, listed under another domain
+      prof({ name: 'Innovation Bay', slug: 'innovation-bay', domain: 'innovationbay.com', websiteUrl: 'https://innovationbay.com', industryTags: ['Venture Capital & Private Equity'] }),
+    ], { at: ISO, now: () => NOW });
+    expect(s).toMatchObject({ same_name: 1, self: 1, leads_new: 0, investor_leads: 0 });
+    expect(work.job_leads).toEqual([]);
+  });
+
   it('a company a pending candidate already is, or a lead a person rejected, is not queued again; and a lead settles once the directory holds the company', () => {
     const work = base();
     applyProfiles(work, IB, [prof({ name: 'Zorbly Labs', slug: 'zorbly', domain: 'zorbly.com.au', websiteUrl: 'https://zorbly.com.au' })], { at: ISO, now: () => NOW });

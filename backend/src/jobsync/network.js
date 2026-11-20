@@ -197,12 +197,14 @@ function upsertLead(work, p, net, { kind, id, investor_id = null, note, at }) {
 
 // What the profiles read in this run say about the directory. Writes into `work`: leads, and the hint that a hiring company without a board is worth a look. Returns the counts.
 export function applyProfiles(work, net, profiles, { at, now = Date.now }) {
-  const stats = { read: profiles.length, in_directory: 0, hiring_without_board: 0, hints: 0, already_queued: 0, leads_new: 0, leads_seen: 0, investors_known: 0, investor_leads: 0, outside_australia: 0, ineligible: 0, settled: 0 };
+  const stats = { read: profiles.length, in_directory: 0, hiring_without_board: 0, hints: 0, already_queued: 0, leads_new: 0, leads_seen: 0, investors_known: 0, investor_leads: 0, outside_australia: 0, ineligible: 0, settled: 0, same_name: 0, self: 0 };
   const index = buildIndex(work);
   const investorOf = investorLookup(work);
   const approved = new Set((work.job_sources ?? []).filter((s) => s.status === 'approved').map((s) => s.company_id));
   const checkedFirms = new Set(VC_FIRMS.map((f) => f.investor_id).filter(Boolean));
+  const own = keyOf(net.name);
   for (const p of profiles) {
+    if (keyOf(p.name) === own) { stats.self += 1; continue; } // the network lists itself
     const leadId = `lead-${slugify(p.name).slice(0, 60)}`;
     const r = resolveLead(identityOfLead({ name: p.name, website: p.website }), index);
     const exact = r.outcome === OUTCOMES.EXACT ? r.best : null;
@@ -221,6 +223,9 @@ export function applyProfiles(work, net, profiles, { at, now = Date.now }) {
       continue;
     }
     if (exact?.target.kind === 'candidate') { stats.already_queued += 1; continue; }
+    // The same name as a company or a pending candidate we hold, with another website on record (a rebrand, a second domain, a site we never recorded): in the 415 it is Goterra, Qwilr, Eftsure,
+    // Presien and the like, all already ours, and a person would only be asked to confirm each. Counted, not queued. A looser resemblance ("a very similar name") is still a lead, naming what it resembles.
+    if (!isInvestorProfile(p) && r.best?.signals.some((x) => ['name_exact', 'name_legal', 'name_alias', 'name_former'].includes(x.code))) { stats.same_name += 1; continue; }
 
     if (isInvestorProfile(p)) {
       const firm = investorOf(p);
