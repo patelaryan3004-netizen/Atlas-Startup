@@ -18115,5 +18115,14 @@
     "publisher": "petcircle.com.au",
     "retrieved_at": "2026-11-19T16:49:21.962Z",
     "note": "Read in a browser on 2026-11-20: the careers page links to its Teamtailor board (petcircle-1744336448.teamtailor.com) from script-drawn markup, so a plain page read does not see the link. Careers page: https://www.petcircle.com.au/careers."
+  },
+  {
+    "id": "airtasker-ashby-jobs",
+    "kind": "company_website",
+    "url": "https://jobs.ashbyhq.com/airtasker",
+    "title": "Ashby job board",
+    "publisher": "airtasker.com",
+    "retrieved_at": "2026-11-20T14:31:29.704Z",
+    "note": "The company's Ashby job board, which its careers page links to, read through the board's public feed. Linked from https://www.airtasker.com/us/careers/."
   }
 ]

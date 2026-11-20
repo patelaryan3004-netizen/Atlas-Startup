@@ -13,7 +13,7 @@
       }
     ],
     "first_seen_at": "2026-11-19T14:17:46.694Z",
-    "last_seen_at": "2026-11-19T16:39:11.321Z",
+    "last_seen_at": "2026-11-20T14:30:35.377Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -54,7 +54,7 @@
       }
     ],
     "first_seen_at": "2026-11-19T14:17:56.011Z",
-    "last_seen_at": "2026-11-19T16:39:18.806Z",
+    "last_seen_at": "2026-11-20T14:30:41.963Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -72,6 +72,64 @@
     ],
     "first_seen_at": "2026-11-19T14:18:35.311Z",
     "last_seen_at": "2026-11-19T16:40:17.726Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-sonder",
+    "kind": "unknown_company",
+    "name": "Sonder",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "blackbird",
+        "url": "https://boards.greenhouse.io/sonderaustralia/jobs/8954823002",
+        "title": "Teletriage Nurse - Sydney",
+        "at": "2026-11-20T14:29:44.476Z"
+      },
+      {
+        "firm": "blackbird",
+        "url": "https://boards.greenhouse.io/sonderaustralia/jobs/8955958002",
+        "title": "Head of Mental Health",
+        "at": "2026-11-20T14:29:44.476Z"
+      }
+    ],
+    "first_seen_at": "2026-11-20T14:29:44.476Z",
+    "last_seen_at": "2026-11-20T14:29:44.476Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-firmable",
+    "kind": "unknown_company",
+    "name": "Firmable",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/applied-ai-engineering-lead-at-firmable-4458707008?position=11&pageNum=0&refId=MdVdxUDb90PvmDFT2bXG3Q%3D%3D&trackingId=b01PXHNSGoW45aamXazZUQ%3D%3D",
+        "title": "Applied AI Engineering Lead",
+        "at": "2026-11-20T14:29:52.306Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/senior-engineer-entity-graphs-at-firmable-4458703034?position=10&pageNum=0&refId=MdVdxUDb90PvmDFT2bXG3Q%3D%3D&trackingId=qvDa%2FphMABkFWVLeZiMU7w%3D%3D",
+        "title": "Senior Engineer, Entity Graphs",
+        "at": "2026-11-20T14:29:52.306Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/sales-development-representative-at-firmable-4462735306?position=6&pageNum=0&refId=MdVdxUDb90PvmDFT2bXG3Q%3D%3D&trackingId=2yaLV4OjeIEgUYZKMpDmkQ%3D%3D",
+        "title": "Sales Development Representative",
+        "at": "2026-11-20T14:29:52.306Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/account-executive-at-firmable-4489408232?position=5&pageNum=0&refId=MdVdxUDb90PvmDFT2bXG3Q%3D%3D&trackingId=Bv1mcbNMHJVF12KgLS6RFg%3D%3D",
+        "title": "Account Executive",
+        "at": "2026-11-20T14:29:52.306Z"
+      }
+    ],
+    "first_seen_at": "2026-11-20T14:29:52.306Z",
+    "last_seen_at": "2026-11-20T14:29:52.306Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   }
 ]
