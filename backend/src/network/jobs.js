@@ -64,6 +64,7 @@ export function regionOf(location) {
 const BOARDS = [
   [/greenhouse\.io/, 'Greenhouse'], [/lever\.co/, 'Lever'], [/ashbyhq\.com/, 'Ashby'], [/workable\.com/, 'Workable'], [/recruitee\.com/, 'Recruitee'],
   [/smartrecruiters\.com/, 'SmartRecruiters'], [/bamboohr\.com/, 'BambooHR'], [/teamtailor\.com/, 'Teamtailor'], [/pinpointhq\.com/, 'Pinpoint'],
+  [/rippling\.com/, 'Rippling'], [/breezy\.hr/, 'Breezy'],
 ];
 const boardOf = (url) => { try { const host = new URL(url).hostname; return BOARDS.find(([re]) => re.test(host))?.[1] ?? null; } catch (e) { return null; } };
 const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return null; } };
@@ -73,10 +74,11 @@ const dayOf = (iso) => String(iso ?? '').slice(0, 10);
 export const daysSince = (iso, now) => Math.floor((now - Date.parse(iso)) / 86400000);
 
 // The sentence that says why a role is listed. It states facts, never praise.
-function whyListed(company, apply, checked, kind = 'company') {
+function whyListed(company, apply, checked, kind = 'company', published = true) {
   const board = boardOf(apply);
   const where = board ? `${company}'s own careers page on ${board}` : `${company}'s own careers page (${hostOf(apply) ?? 'its website'})`;
-  return `Listed on ${where}, last read ${checked}. ${company} is in the Still Early ${kind === 'investor' ? 'investor directory' : 'directory'}.`;
+  const note = kind === 'investor' ? (published ? ` ${company} is in the Still Early investor directory.` : '') : ` ${company} is in the Still Early directory.`;
+  return `Listed on ${where}, last read ${checked}.${note}`;
 }
 
 // Is the role confirmed, in need of a recheck, or too old for the default board? From the last whole read that listed it, never from anything else.
@@ -109,7 +111,7 @@ export function presentJob(job, card, now = Date.now(), health = null) {
     employment_type: employmentOf(job.employment_type), level: levelOf(job.title), salary: job.salary ?? null,
     // What the employer's own listing states about the experience wanted (SmartRecruiters-style "Mid-Senior Level", Recruitee's "mid level"): kept apart from `level`, which is only what the TITLE says.
     experience_level: typeof job.experience_level === 'string' && job.experience_level.trim() ? job.experience_level.trim() : null,
-    why_listed: job.why ?? whyListed(company, apply, checked, card?.kind), apply_url: apply, source_kind: job.source ?? 'careers_page',
+    why_listed: job.why ?? whyListed(company, apply, checked, card?.kind, card?.published !== false), apply_url: apply, source_kind: job.source ?? 'careers_page',
     last_checked_at: lastConfirmed, days_since_checked: age, stale: age != null ? age > STALE_DAYS : true,
     status: job.status, posted_at: job.posted_at ?? null,
     // What the hiring desk is built on: the work places the employer advertised, the three dates apart, and what the sync last said about the role's board.

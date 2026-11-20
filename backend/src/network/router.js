@@ -17,7 +17,10 @@ import { buildBoard } from './board.js';
 import { createSuggestion, pendingSuggestions, approveSuggestion, rejectSuggestion, withdrawListing } from './suggestions.js';
 import { offsetParams, offsetInfo } from '../http/paging.js';
 import { recordFor } from '../catalog/catalog.js';
-import { vcEmployerId } from '../jobsync/employers.js';
+import { vcEmployerId, firmName } from '../jobsync/employers.js';
+
+// An investor has a public page only once a person has published it (catalog/investors.js): until then a venture firm that is hiring is named, but not linked, and not said to be in the directory.
+const PUBLIC_INVESTOR = new Set(['published', 'inactive']);
 
 const safeEqual = (a, b) => { const x = Buffer.from(String(a)); const y = Buffer.from(String(b)); return x.length === y.length && timingSafeEqual(x, y); };
 const bearer = (req) => { const h = req.get('authorization') ?? ''; return h.startsWith('Bearer ') ? h.slice(7).trim() : null; };
@@ -256,7 +259,7 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
     const firms = new Map(network.investors().map((i) => [vcEmployerId(i.id), i]));
     const cardOf = (id) => {
       const firm = firms.get(id);
-      if (firm) return { name: firm.name, slug: firm.slug, city: firm.headquarters_city ?? '', sector: 'Venture capital', stage: '', website: firm.website ?? '', logo: firm.logo ?? null, investors: [], kind: 'investor' };
+      if (firm) return { name: firmName(firm), slug: PUBLIC_INVESTOR.has(firm.verification_status) ? firm.slug : null, published: PUBLIC_INVESTOR.has(firm.verification_status), city: firm.headquarters_city ?? '', sector: 'Venture capital', stage: '', website: firm.website ?? '', logo: firm.logo ?? null, investors: [], kind: 'investor' };
       const rec = recordFor(snap, id);
       return rec ? { name: rec.name, slug: rec.slug, city: rec.city ?? '', sector: rec.sector ?? '', stage: rec.stage ?? '', website: rec.website ?? '', logo: rec.logo ?? null, investors: Array.isArray(rec.investors) ? rec.investors : [], kind: 'company' } : null;
     };

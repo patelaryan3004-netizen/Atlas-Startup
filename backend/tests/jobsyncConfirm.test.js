@@ -141,9 +141,17 @@ describe('a venture firm\'s own vacancies', () => {
   it('shows it on the desk as the firm\'s: its own page, the investor directory in why it is listed, the employer\'s own apply link', async () => {
     const f = await fixture(3);
     const rows = [{ id: 'vc-investible-rippling-u-1', company_id: 'vc-investible', title: 'General Counsel (part-time)', location: 'Melbourne, Australia', locations: ['Melbourne, Australia'], employment_type: null, remote: null, posted_at: null, apply_url: 'https://ats.rippling.com/investible/jobs/u-1', status: 'open', source_id: 'vc-investible-rippling-jobs', retrieved_at: new Date(NOW).toISOString(), provider: 'rippling', external_id: 'u-1', canonical_url: 'https://ats.rippling.com/investible/jobs/u-1', first_seen_at: new Date(NOW).toISOString(), last_confirmed_at: new Date(NOW).toISOString(), absent_reads: 0 }];
-    const network = createNetwork({ memory: true, now: () => NOW, curatedEvents: [], curatedJobsRows: rows, curatedJobSync: { sources: [], state: [] }, curatedInvestors: [{ id: 'investible', name: 'Investible', slug: 'investible', website: 'https://www.investible.com/', headquarters_city: 'Melbourne' }], limits: { signups: 1000, logins: 8 } });
-    const res = await request(createApp({ catalog: f.catalog, network })).get('/api/jobs/board').expect(200);
-    expect(res.body.roles).toEqual([expect.objectContaining({ title: 'General Counsel (part-time)', apply_url: 'https://ats.rippling.com/investible/jobs/u-1', provider_name: 'Rippling', company: expect.objectContaining({ name: 'Investible', slug: 'investible', kind: 'investor', sector: 'Venture capital' }), why_listed: expect.stringMatching(/Investible is in the Still Early investor directory\./) })]);
+    const board = async (verification_status) => {
+      const network = createNetwork({ memory: true, now: () => NOW, curatedEvents: [], curatedJobsRows: rows, curatedJobSync: { sources: [], state: [] }, curatedInvestors: [{ id: 'investible', name: 'Investible', slug: 'investible', website: 'https://www.investible.com/', headquarters_city: 'Melbourne', verification_status }], limits: { signups: 1000, logins: 8 } });
+      return (await request(createApp({ catalog: f.catalog, network })).get('/api/jobs/board').expect(200)).body;
+    };
+    const published = await board('published');
+    expect(published.roles).toEqual([expect.objectContaining({ title: 'General Counsel (part-time)', apply_url: 'https://ats.rippling.com/investible/jobs/u-1', provider_name: 'Rippling', company: expect.objectContaining({ name: 'Investible', slug: 'investible', kind: 'investor', sector: 'Venture capital' }), why_listed: expect.stringMatching(/Investible is in the Still Early investor directory\./) })]);
+    // A firm a person has not published has no page: it is named, never linked, and not said to be in the directory.
+    const candidate = await board('candidate');
+    expect(candidate.roles[0].company).toMatchObject({ name: 'Investible', slug: null, kind: 'investor' });
+    expect(candidate.roles[0].why_listed).toBe('Listed on Investible\'s own careers page on Rippling, last read 2026-10-05.');
+    expect(candidate.roles[0].apply_url).toBe('https://ats.rippling.com/investible/jobs/u-1');
   });
 });
 
