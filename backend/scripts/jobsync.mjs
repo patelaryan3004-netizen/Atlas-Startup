@@ -6,6 +6,9 @@
 //   npm run jobsync -- read <source-id>      read one board now and show what it WOULD do to the roles; writes nothing
 //   npm run jobsync -- board                 the hiring desk's counts, as the API will serve them
 //   npm run jobsync -- discover [--all|--limit N|--company a,b] [--force] [--plan]   find the job board of companies from their own websites (see src/jobsync/discover.js)
+//   npm run jobsync -- network [--all] [--limit N]   read Innovation Bay now: its board's sample and company list (this half-day's slice, or every company with --all), matched against the directory
+//   npm run jobsync -- leads [--status s] [--kind k]            the companies and venture firms the boards and networks named that the directory does not hold
+//   npm run jobsync -- leads --promote --by "name" [--limit N]  hand the eligible startups to the directory's review queue (candidates.json): the engine reads each one's own website
 //   npm run jobsync -- confirmed [--write]    approve the boards read in a browser (scripts/jobsync-confirmed.json), each only if its own feed confirms the page
 //   npm run jobsync -- verify [--links]      the final check: duplicates, expired roles, Australian eligibility, application links, timestamps
 //   npm run jobsync -- slot [--force] [--now ISO]   is a refresh due now (8:00 am / 8:00 pm Melbourne time, once each)? run=yes|no
@@ -29,6 +32,9 @@ import { decide } from '../src/jobsync/slot.js';
 import { verifyData, verifyLinks } from '../src/jobsync/verify.js';
 import { confirmFromFile } from '../src/jobsync/confirm.js';
 import { employerMap } from '../src/jobsync/employers.js';
+import { runNetwork } from '../src/jobsync/refresh.js';
+import { NETWORKS, NETWORK_READS_PER_RUN, queueable, engineLead, markQueued } from '../src/jobsync/network.js';
+import { main as discovery } from './discovery.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_DIR = path.join(HERE, '..', 'src', 'data');
@@ -51,7 +57,8 @@ const ago = (iso, now) => {
   return m < 90 ? `${Math.max(m, 0)} min ago` : m < 2880 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} d ago`;
 };
 
-export async function main(argv, { out = console.log, now = Date.now } = {}) {
+// `fetcher`: a test's own (the leads --promote path reads company websites); otherwise each command makes the compliant fetcher it needs.
+export async function main(argv, { out = console.log, now = Date.now, fetcher: injected = null } = {}) {
   const { positional: [command = 'status', ...args], flags } = parse(argv);
   const dir = path.resolve(typeof flags.data === 'string' ? flags.data : DEFAULT_DIR);
   const at = new Date(now()).toISOString();
@@ -131,6 +138,38 @@ export async function main(argv, { out = console.log, now = Date.now } = {}) {
       out(JSON.stringify(stats));
       return 0;
     }
+    case 'network': {
+      const fetcher = injected ?? jobSyncFetcher({ minDelayMs: Math.max(...NETWORKS.map((n) => n.delay_ms)), maxBytes: 3000000 });
+      const all = Boolean(flags.all);
+      const limit = flags.limit ? Number(flags.limit) : all ? Infinity : NETWORK_READS_PER_RUN;
+      const stats = await runNetwork({ dir, now, fetcher, networkFetcher: fetcher, lock: { now }, force: true }, null, { all, limit });
+      out(JSON.stringify(stats));
+      return 0;
+    }
+    case 'leads': {
+      const { ds } = await snapshot(dir, { now });
+      if (!flags.promote) {
+        const rows = (ds.job_leads ?? []).filter((l) => (typeof flags.status !== 'string' || l.status === flags.status) && (typeof flags.kind !== 'string' || l.kind === flags.kind));
+        for (const l of rows) out(`${l.status.padEnd(12)} ${l.kind.padEnd(16)} ${l.name.padEnd(34)} ${(l.profile?.locations?.[0] ?? '').padEnd(28)} ${l.profile?.employees ?? '-'} people, ${l.profile?.active_jobs ?? '-'} jobs  ${l.profile?.website ?? ''}`);
+        const by = {}; for (const l of ds.job_leads ?? []) by[`${l.kind}/${l.status}`] = (by[`${l.kind}/${l.status}`] ?? 0) + 1;
+        out(JSON.stringify({ leads: (ds.job_leads ?? []).length, shown: rows.length, by }));
+        return 0;
+      }
+      if (typeof flags.by !== 'string') throw new Error('--by "name" is required: every decision is recorded with a name');
+      const net = NETWORKS.find((n) => n.id === (flags.network ?? 'innovation-bay'));
+      if (!net) throw new Error(`unknown network "${flags.network}"`);
+      const picks = queueable(ds, { limit: flags.limit ? Number(flags.limit) : 25, firm: net.id });
+      out(`${picks.length} lead(s) to hand to the directory's review queue`);
+      if (!picks.length) return 0;
+      if (flags['dry-run']) { for (const l of picks) out(`  ${l.name} (${l.profile.website})`); return 0; }
+      // The directory's own engine: matches each against the directory and the queue again, reads the company's OWN website (robots.txt obeyed, three pages), judges Australian and startup.
+      const source = { id: net.id, kind: 'directory_listing', region: 'AU', license: { basis: 'permitted_page' }, licenseBasis: 'permitted_page', discover: async () => picks.map((l) => engineLead(l, net)) };
+      const code = await discovery(['run', '--by', flags.by, '--source', net.id, '--data', dir], { sources: [source], out, now, ...(injected ? { fetcher: injected } : {}) });
+      let marked;
+      await transact(dir, (work, { at }) => { marked = markQueued(work, net, { at }); return {}; }, { now });
+      out(JSON.stringify(marked));
+      return code;
+    }
     case 'confirmed': {
       // Approve the boards listed in scripts/jobsync-confirmed.json (companies whose careers page draws its jobs by script, read in a browser): each only if its feed answers whole and the
       // page's claim is confirmed by that feed. Dry run unless --write.
@@ -188,7 +227,7 @@ reason=${verdict.reason}
 `);
       return 0;
     }
-    default: throw new Error(`unknown command "${command}": sources, status, read, board, discover, confirmed, slot, verify, meaningful`);
+    default: throw new Error(`unknown command "${command}": sources, status, read, board, discover, network, leads, confirmed, slot, verify, meaningful`);
   }
 }
 

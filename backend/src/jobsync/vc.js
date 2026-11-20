@@ -88,8 +88,13 @@ export function classifyBoard(html, host) {
   return { platform: 'unknown', jobs: [], total: null };
 }
 
+// The network a Getro board's own data says it belongs to (its slug), or null for a page that is not a Getro board. Used to confirm a board is who it is said to be.
+export function networkOf(html) {
+  try { return JSON.parse(String(html).match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)[1]).props.pageProps.network?.slug ?? null; } catch (e) { return null; }
+}
+
 // One Getro job as the sighting the rest works with.
-function sightingOf(j, firm, at) {
+export function sightingOf(j, firm, at) {
   const org = typeof j?.organization?.name === 'string' ? j.organization.name.trim() : '';
   if (!org || typeof j.title !== 'string' || !/^https:\/\//.test(j.url ?? '')) return null;
   return { firm: firm.id, org, title: j.title.trim().slice(0, 160), url: j.url, locations: (j.locations ?? []).filter((l) => typeof l === 'string'), work_mode: j.workMode ?? null, at };
@@ -166,7 +171,7 @@ async function inspectFirm(firm, { fetcher, now = Date.now } = {}, ownBoards = [
     } catch (err) { if (!(err instanceof FetchPolicyError)) throw err; }
   }
   if (hinted) {
-    const net = (() => { try { return JSON.parse(String(page.text).match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)[1]).props.pageProps.network?.slug; } catch (e) { return null; } })();
+    const net = networkOf(page.text);
     if (seen.platform !== 'getro' || net !== firm.network) return { row: { ...row, board_url: null, evidence_url: null, platform: 'none', access: 'no_board', note: `A board at ${firm.hint} was not confirmed as ${firm.name}'s (its own data names network ${net ?? 'none'}), so it is not used.` }, sample: [] };
     row.note = `Not linked from ${firm.name}'s own site; the board's own data names "${firm.network}" as its network. `;
   }
@@ -218,7 +223,7 @@ export function applySample(work, firm, sample, { at, keptReview }) {
     const id = `lead-${slugify(s.org).slice(0, 60)}`;
     let lead = work.job_leads.find((l) => l.id === id);
     if (!lead) {
-      lead = { id, kind: 'unknown_company', name: s.org, status: 'needs_review', seen_on: [], first_seen_at: at, last_seen_at: at, note: 'Named by a venture firm\'s job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it.' };
+      lead = { id, kind: 'unknown_company', name: s.org, status: 'needs_review', seen_on: [], first_seen_at: at, last_seen_at: at, note: `Named by ${firm.label ?? 'a venture firm\'s job board'} with an Australian place; the directory does not hold it. Approve it to add it, or reject it.` };
       work.job_leads.push(lead);
       stats.leads += 1;
     }
