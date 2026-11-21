@@ -18124,5 +18124,32 @@
     "publisher": "airtasker.com",
     "retrieved_at": "2026-11-20T14:31:29.704Z",
     "note": "The company's Ashby job board, which its careers page links to, read through the board's public feed. Linked from https://www.airtasker.com/us/careers/."
+  },
+  {
+    "id": "heidi-health-ashby-jobs",
+    "kind": "aggregator",
+    "url": "https://jobs.ashbyhq.com/heidihealth.com.au",
+    "title": "ashby job board (confirmed through the employer's feed)",
+    "publisher": "blackbird",
+    "retrieved_at": "2026-11-21T16:50:40.067Z",
+    "note": "Named by blackbird's job board; the employer's own ashby feed lists the same job (\"Commercial Lead, DACH\")."
+  },
+  {
+    "id": "beonic-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://beonic.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "beonic.com",
+    "retrieved_at": "2026-11-21T16:50:47.689Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.beonic.com/careers."
+  },
+  {
+    "id": "tally-group-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://tallygroup.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "tallygroup.com.au",
+    "retrieved_at": "2026-11-21T16:51:50.202Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.tally.co/careers."
   }
 ]

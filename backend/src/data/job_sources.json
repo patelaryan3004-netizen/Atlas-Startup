@@ -187,6 +187,17 @@
     "added_at": "2026-11-13T02:27:35.633Z"
   },
   {
+    "id": "beonic-bamboohr-jobs",
+    "company_id": "beonic",
+    "provider": "bamboohr",
+    "token": "beonic",
+    "board_url": "https://beonic.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"beonic-bamboohr-jobs\", read 2026-11-21).",
+    "note": "",
+    "added_at": "2026-11-21T16:50:47.689Z"
+  },
+  {
     "id": "bivacor-ashby-jobs",
     "company_id": "bivacor",
     "provider": "ashby",
@@ -438,6 +449,17 @@
     "basis": "The company's own careers page links to this board (sources.json \"harrison-ai-ashby-jobs\", read 2026-11-19).",
     "note": "",
     "added_at": "2026-11-19T13:59:53.936Z"
+  },
+  {
+    "id": "heidi-health-ashby-jobs",
+    "company_id": "heidi-health",
+    "provider": "ashby",
+    "token": "heidihealth.com.au",
+    "board_url": "https://jobs.ashbyhq.com/heidihealth.com.au",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-21: blackbird's job board showed \"Commercial Lead, DACH\", the company's own ashby feed lists that same job, and the board's name \"heidihealth.com.au\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-21T16:50:40.067Z"
   },
   {
     "id": "heo-breezy-jobs",
@@ -902,6 +924,17 @@
     "added_at": "2026-11-19T14:06:45.103Z"
   },
   {
+    "id": "tally-group-bamboohr-jobs",
+    "company_id": "tally-group",
+    "provider": "bamboohr",
+    "token": "tallygroup",
+    "board_url": "https://tallygroup.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"tally-group-bamboohr-jobs\", read 2026-11-21).",
+    "note": "",
+    "added_at": "2026-11-21T16:51:50.202Z"
+  },
+  {
     "id": "total-synergy-rippling-jobs",
     "company_id": "total-synergy",
     "provider": "rippling",
@@ -1031,6 +1064,16 @@
         "firm": "airtree",
         "url": "https://apply.workable.com/zoomo/j/40D71469E5",
         "title": "Software Engineer (Full Stack)"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://apply.workable.com/zoomo/j/BFF599FA1F",
+        "title": "Bicycle Mechanic"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://apply.workable.com/zoomo/j/C949D7D37A",
+        "title": "Head of Operations"
       }
     ],
     "checked_at": "2026-11-19T16:23:14.626Z"
