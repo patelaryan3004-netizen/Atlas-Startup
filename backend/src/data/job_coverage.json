@@ -158,7 +158,8 @@
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:54:16.048Z"
+    "next_check_at": "2026-12-03T13:54:16.048Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "3p-learning",
@@ -949,7 +950,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.arlula.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:55:20.051Z"
+    "next_check_at": "2026-12-03T13:55:20.051Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "archistar",
@@ -1360,7 +1362,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.beonic.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:55:46.182Z"
+    "next_check_at": "2026-12-03T13:55:46.182Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "bgl-corporate-solutions",
@@ -1459,7 +1462,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://blinq.me/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:55:56.001Z"
+    "next_check_at": "2026-12-03T13:55:56.001Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "bivacor",
@@ -1590,7 +1594,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://bookipi.com/careers/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:56:02.156Z"
+    "next_check_at": "2026-12-03T13:56:02.156Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "blys",
@@ -2227,7 +2232,8 @@
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:56:46.274Z"
+    "next_check_at": "2026-12-03T13:56:46.274Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "civica",
@@ -3157,7 +3163,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.drawboard.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:57:52.695Z"
+    "next_check_at": "2026-12-03T13:57:52.695Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "duohub",
@@ -3440,7 +3447,8 @@
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:12.594Z"
+    "next_check_at": "2026-12-03T13:58:12.594Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "elcom",
@@ -3504,7 +3512,8 @@
     ],
     "source_ids": [],
     "note": "Its job board is on employment-hero, which the sync does not read: Employment Hero boards are not read by the sync.",
-    "next_check_at": null
+    "next_check_at": null,
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "emesent",
@@ -4054,7 +4063,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.fleetspace.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:58:57.323Z"
+    "next_check_at": "2026-12-03T13:58:57.323Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "fluency",
@@ -4631,7 +4641,8 @@
     "boards": [],
     "source_ids": [],
     "note": "The website could not be read (access_controlled: HTTP 403: access-controlled, so not retried or worked around).",
-    "next_check_at": "2026-11-24T13:59:50.255Z"
+    "next_check_at": "2026-11-24T13:59:50.255Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "happy-hr",
@@ -4731,7 +4742,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://heapsnormal.com/%7B%7Bwebbookingurl%7D%7D) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:59:51.813Z"
+    "next_check_at": "2026-12-03T13:59:51.813Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "hex",
@@ -5126,7 +5138,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.indebted.co/resources/better-debt) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:00:24.363Z"
+    "next_check_at": "2026-12-03T14:00:24.363Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "index",
@@ -6051,7 +6064,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.ligrsystems.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:01:19.842Z"
+    "next_check_at": "2026-12-03T14:01:19.842Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "liquid-instruments",
@@ -6892,7 +6906,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://myriota.com/careers-and-culture/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:02:24.400Z"
+    "next_check_at": "2026-12-03T14:02:24.400Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "nbryo",
@@ -8233,7 +8248,8 @@
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://q-ctrl.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:04:13.816Z"
+    "next_check_at": "2026-12-03T14:04:13.816Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "psyke",
@@ -9824,7 +9840,8 @@
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:06:34.052Z"
+    "next_check_at": "2026-12-03T14:06:34.052Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "synchron",
@@ -10228,7 +10245,8 @@
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:07:16.369Z"
+    "next_check_at": "2026-12-03T14:07:16.369Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "trace",
@@ -10502,7 +10520,8 @@
     "boards": [],
     "source_ids": [],
     "note": "The website could not be read (robots_unavailable: fetch failed).",
-    "next_check_at": "2026-11-24T14:07:42.519Z"
+    "next_check_at": "2026-11-24T14:07:42.519Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "upowr",
@@ -10956,7 +10975,8 @@
     "boards": [],
     "source_ids": [],
     "note": "The record has no website, so there is no careers page to read.",
-    "next_check_at": "2027-01-18T14:08:17.352Z"
+    "next_check_at": "2027-01-18T14:08:17.352Z",
+    "hiring_hint_at": "2026-11-20T16:30:02.331Z"
   },
   {
     "company_id": "weteachme",
