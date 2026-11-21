@@ -21,7 +21,8 @@ export default function ProjectsPanel({ limit = 8, helpWanted = '', compact = fa
   const [sharing, setSharing] = useState(false);
   const [reporting, setReporting] = useState(null);
 
-  useEffect(() => { setFilters((f) => ({ ...f, collaboration: helpWanted })); }, [helpWanted]);
+  // A choice on the page changes the kind of help it leads with: the list is asked again only when that really changed (not on the first draw).
+  useEffect(() => { setFilters((f) => (f.collaboration === helpWanted ? f : { ...f, collaboration: helpWanted })); }, [helpWanted]);
 
   const load = useCallback((signal) => {
     setState((s) => ({ ...s, status: 'loading' }));
