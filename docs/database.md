@@ -44,7 +44,7 @@ Porting is not free, and it is not done: the JSON store hands the code *all* the
 
 ### 2. Check it from your computer
 
-Create the file `backend/.env` with an editor (git ignores it; it is not typed into a command, so the password stays out of your shell history):
+Run these in a copy of the project that has this code (until the pull request is merged: a second checkout of its branch, `git worktree add ..\au-founding-neon feature/founding-disk`, then `npm install --prefix backend` once, which adds the `pg` driver), from that folder. Create the file `backend/.env` with an editor (git ignores it; it is not typed into a command, so the password stays out of your shell history):
 
 ```powershell
 notepad backend\.env
