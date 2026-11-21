@@ -10,7 +10,7 @@ import { buildBoard } from '../network/board.js';
 import { employerMap } from './employers.js';
 import { SUPPORTED } from './providers.js';
 import { needsAttention } from './state.js';
-import { HEALTH_KEEP } from '../models/jobDiscovery.js';
+import { HEALTH_KEEP, isStartupLeadWaiting } from '../models/jobDiscovery.js';
 
 export function buildHealthRow(ds, { at, boards = {}, totals = {}, dedupe = {}, discovery = null, vc = null, stoppedFor = null, trigger = 'cli', slot = null }) {
   const approved = (ds.job_sources ?? []).filter((s) => s.status === 'approved');
@@ -33,7 +33,7 @@ export function buildHealthRow(ds, { at, boards = {}, totals = {}, dedupe = {}, 
     companies_eligible: discovery?.eligible ?? null,
     companies_looked_at: coverage.length, companies_with_board: coverage.filter((r) => r.outcome === 'board').length, companies_for_review: coverage.filter((r) => r.review).length,
     vc_boards_checked: vc?.checked ?? 0, vc_boards_readable: (ds.job_vc_boards ?? []).filter((r) => r.access === 'public_sample').length,
-    leads_waiting: (ds.job_leads ?? []).filter((l) => l.status === 'needs_review' && l.kind !== 'investor_hiring').length,
+    leads_waiting: (ds.job_leads ?? []).filter(isStartupLeadWaiting).length,
     stopped_for: stoppedFor, last_success_at: lastSuccess,
   };
 }

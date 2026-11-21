@@ -27,6 +27,10 @@ export const LEAD_KINDS = ['unknown_company', 'unknown_investor', 'investor_hiri
 export const LEAD_STATUSES = ['needs_review', 'queued', 'approved', 'rejected', 'in_directory'];
 export const HEALTH_KEEP = 120;
 
+// A startup the boards and networks named that the directory does not hold and a person has not yet decided on: still a lead (needs_review), or already in the directory's own review queue (queued).
+// Venture firms (unknown_investor, investor_hiring) are not startups, and are not counted: the hiring desk says "companies", and a firm goes through the investor directory.
+export const isStartupLeadWaiting = (lead) => lead.kind === 'unknown_company' && (lead.status === 'needs_review' || lead.status === 'queued');
+
 const when = (v) => v == null || ISO_RE.test(v);
 const isUrl = (v) => v == null || /^https:\/\/\S+$/.test(v);
 

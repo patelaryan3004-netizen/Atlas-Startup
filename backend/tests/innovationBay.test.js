@@ -359,11 +359,12 @@ describe('handing eligible startups to the directory\'s review queue', () => {
     expect(compareLedgers({ job_coverage: [cov] }, { job_coverage: [{ ...cov, hiring_hint_at: ISO }] })).toBe(1);
   });
 
-  it('the hiring desk counts the companies and firms waiting for a person, not the hiring firm the directory already holds, and lists Innovation Bay beside the venture boards', () => {
+  it('the hiring desk counts the startups waiting for a person (not venture firms, not what was rejected or is now ours), and lists Innovation Bay beside the venture boards', () => {
     const lead = (id, kind, status = 'needs_review') => ({ id, kind, status, name: id });
     const vc = [{ id: 'innovation-bay', name: 'Innovation Bay', platform: 'getro', access: 'public_sample', note: 'A Getro network', own_vacancies: '', checked_at: ISO }];
-    const sum = syncSummary({ vc, leads: [lead('a', 'unknown_company'), lead('b', 'unknown_investor'), lead('c', 'investor_hiring'), lead('d', 'unknown_company', 'queued')] });
-    expect(sum.leads_waiting).toBe(2);
+    const leads = [lead('a', 'unknown_company'), lead('b', 'unknown_investor'), lead('c', 'investor_hiring'), lead('d', 'unknown_company', 'queued'), lead('e', 'unknown_company', 'rejected'), lead('f', 'unknown_company', 'in_directory'), lead('g', 'unknown_investor', 'queued')];
+    const sum = syncSummary({ vc, leads });
+    expect(sum.leads_waiting).toBe(2); // a (waiting) and d (in the directory's review queue): both are startups a person has yet to decide on
     expect(sum.vc_boards).toEqual([{ name: 'Innovation Bay', platform: 'getro', access: 'public_sample', note: 'A Getro network', own_vacancies: '', checked_at: ISO }]);
   });
 
