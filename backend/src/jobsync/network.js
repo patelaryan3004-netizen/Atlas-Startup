@@ -22,6 +22,7 @@ import { FetchPolicyError } from '../discovery/http.js';
 import { buildIndex, identityOfLead, resolveLead, OUTCOMES } from '../discovery/resolve.js';
 import { canonicalDomain } from '../models/identity.js';
 import { slugify } from '../models/company.js';
+import { isEligibleLead } from '../models/jobDiscovery.js';
 import { readPlace } from './locations.js';
 import { rotationBucket, blockOf, ROTATION_BLOCKS } from './discover.js';
 import { classifyBoard, networkOf, sightingOf, VC_FIRMS } from './vc.js';
@@ -254,7 +255,7 @@ export function applyProfiles(work, net, profiles, { at, now = Date.now }) {
 
 // The leads `jobsync leads --promote` hands to the directory's review queue: a startup the network names, Australian, eligible, with a website, that nobody has decided on yet.
 export function queueable(work, { limit = Infinity, firm = null } = {}) {
-  return (work.job_leads ?? []).filter((l) => l.kind === 'unknown_company' && l.status === 'needs_review' && l.profile?.website && (!firm || l.seen_on?.some((x) => x.firm === firm))).slice(0, limit);
+  return (work.job_leads ?? []).filter((l) => l.kind === 'unknown_company' && l.status === 'needs_review' && l.profile?.website && isEligibleLead(l) && (!firm || l.seen_on?.some((x) => x.firm === firm))).slice(0, limit);
 }
 
 // A lead as the discovery engine takes it (the same shape the portfolio importer gives it): the engine matches it against the directory and the queue again, reads the company's OWN website
@@ -262,7 +263,7 @@ export function queueable(work, { limit = Infinity, firm = null } = {}) {
 export function engineLead(lead, net) {
   const p = lead.profile;
   return {
-    key: lead.id, name: lead.name, website: p.website, url: p.source_url, title: `${lead.name} | ${net.name} company list`, publisher: net.name, observed_at: p.read_at, retrieved_at: p.read_at,
+    key: lead.id, name: lead.name, website: p.website, url: p.source_url, title: `${lead.name} | ${net.name} ${net.list_title ?? 'company list'}`, publisher: net.name, observed_at: p.read_at, retrieved_at: p.read_at,
     city: null, state: null, founders: [], evidence: [], text: [p.description, ...(p.industries ?? [])].filter(Boolean).join('. '),
   };
 }
@@ -275,7 +276,7 @@ export function markQueued(work, net, { at }) {
     if (!cand) { out.left += 1; continue; }
     if (cand.status === 'matched' && cand.matches?.[0]?.kind === 'company') { lead.status = 'in_directory'; lead.resolved_to = cand.matches[0].id; out.in_directory += 1; }
     else if (cand.status === 'rejected') { lead.status = 'rejected'; lead.note = `${lead.note} The directory's own check rejected it (${cand.id}): see its history there.`; out.rejected += 1; }
-    else { lead.status = 'queued'; lead.candidate_id = cand.id; lead.candidate_status = cand.status; out.queued += 1; }
+    else { lead.status = 'queued'; lead.candidate_id = cand.id; lead.candidate_status = cand.status; if (lead.profile) { lead.profile.australian = cand.australian?.verdict ?? lead.profile.australian; lead.profile.startup = cand.startup?.verdict ?? lead.profile.startup; } out.queued += 1; }
     lead.last_seen_at = at;
   }
   return out;

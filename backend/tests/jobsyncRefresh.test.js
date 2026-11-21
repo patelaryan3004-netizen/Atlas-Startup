@@ -13,6 +13,7 @@ import { discoverCompany, applyDiscovery, dueForDiscovery, rotationBucket, block
 import { runDiscovery } from '../src/jobsync/discoverRun.js';
 import { classifyBoard, checkFirm, applySample, boardCandidates, VC_FIRMS } from '../src/jobsync/vc.js';
 import { NETWORKS } from '../src/jobsync/network.js';
+import { SOURCES as PORTFOLIOS } from '../src/discovery/portfolioSources.js';
 import { dedupeRoles } from '../src/jobsync/dedupe.js';
 import { applyRead } from '../src/jobsync/engine.js';
 import { decide, slotAt, melbourne } from '../src/jobsync/slot.js';
@@ -421,7 +422,7 @@ describe('a whole refresh', () => {
     expect(ds.jobs.filter((j) => j.status === 'open').map((j) => [j.company_id, j.external_id]).sort()).toEqual([['acme-robotics', 'id-1'], ['zeller', '1'], ['zeller', '2']]);
     // Every directory company has a ledger row; the venture firms were all looked at (none of them is reachable in this scripted web, and that is said, not hidden).
     expect(ds.job_coverage.map((r) => r.company_id).sort()).toEqual(['acme-robotics', 'zeller']);
-    expect(ds.job_vc_boards).toHaveLength(VC_FIRMS.length + NETWORKS.length);
+    expect(ds.job_vc_boards).toHaveLength(VC_FIRMS.length + NETWORKS.length + PORTFOLIOS.length); // the portfolio pages have a row each (read weekly), which the public board leaves out
     expect(ds.job_vc_boards.every((r) => r.access === 'unread' && r.note)).toBe(true);
     expect(ds.job_health).toHaveLength(1);
     expect(ds.job_health[0]).toMatchObject({ slot: '2026-11-20 AM', trigger: 'ci', companies_with_sources: 2, boards_ok: 2, boards_failed: 0, open_roles: 3, new_roles: 3, closed_roles: 0, duplicates_removed: 0, last_success_at: new Date(NOW).toISOString() });

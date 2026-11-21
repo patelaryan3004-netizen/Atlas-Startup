@@ -3,6 +3,8 @@
 //   vc        the venture firms' job boards that are due: what platform, what may be read, and (from the page's sample) companies and boards to queue for approval. vc.js
 //   network   a job network's board (Innovation Bay): its sample, and this refresh's slice of its company list matched against the directory: leads for the ones we do not hold, a look at the
 //             websites of the ones we hold that are hiring and have no board read. network.js
+//   portfolio the official portfolio pages of the venture firms and accelerators (Blackbird, AirTree, ...): each read once a week, the companies on it that nothing has seen matched against the
+//             directory: leads for the ones we do not hold. Never stores a role. portfolio.js
 //   confirm   a board a venture firm's board named for a company we hold is asked of the EMPLOYER: approved only if its own feed lists the job that was shown and the board is the company's.
 //             confirm.js
 //   discover  the companies due for a look at their own website for a job board (each company without one, once a week, by rotation; never-looked-at at once): a board found is approved, the
@@ -18,6 +20,7 @@ import { runDiscovery, keptReview, DEFAULT_DISCOVERY_PER_RUN } from './discoverR
 import { checkFirm, applySample, VC_FIRMS } from './vc.js';
 import { NETWORKS, NETWORK_READS_PER_RUN, readNetwork, applyProfiles, coveredBy } from './network.js';
 import { blockOf } from './discover.js';
+import { SOURCES as PORTFOLIOS, PORTFOLIO_READS_PER_RUN, readPortfolio, applyPortfolio, judgeEntries, toJudge, recheckEntries, applyRecheck, savedScanKeys, seenUrls, portfolioDue, portfolioRow, portfolioRowId } from './portfolio.js';
 import { buildCatalogue } from './sources.js';
 import { confirmReviewBoards } from './confirm.js';
 import { PROVIDERS } from './adapters.js';
@@ -27,7 +30,7 @@ import { vcEmployerId } from './employers.js';
 import { dedupeRoles } from './dedupe.js';
 import { buildHealthRow, pushHealth } from './health.js';
 
-export const STEPS = ['vc', 'network', 'confirm', 'discover', 'boards', 'dedupe', 'health'];
+export const STEPS = ['vc', 'network', 'portfolio', 'confirm', 'discover', 'boards', 'dedupe', 'health'];
 
 async function runVc(ctx, budget) {
   const { dir, now = Date.now, fetcher, lock, force = false } = ctx;
@@ -121,6 +124,53 @@ export async function runNetwork(ctx, budget, { all = false, limit = NETWORK_REA
   return stats;
 }
 
+// The official portfolio pages that are due (each once a week): the companies they name that nothing has seen, matched against the directory. portfolio.js
+// `all`: every page now (`jobsync portfolio --all`); `only`: these page ids.
+export async function runPortfolio(ctx, budget, { all = false, only = null, limit = PORTFOLIO_READS_PER_RUN } = {}) {
+  const { dir, now = Date.now, lock, fetcher, force = false } = ctx;
+  const stats = { due: 0, checked: 0, listed: 0, new: 0, read: 0, errors: 0, entries: 0, in_directory: 0, already_queued: 0, same_name: 0, rejected_by_check: 0, new_leads: 0, rechecked: 0, now_australian: 0, unread: [], layout_changed: [], stopped: null };
+  const { ds } = await snapshot(dir, lock);
+  const seen = seenUrls(ds);
+  const rows = new Map((ds.job_vc_boards ?? []).map((r) => [r.id, r]));
+  const due = PORTFOLIOS.filter((p) => (!only || only.includes(p.id)) && (all || force || portfolioDue(rows.get(portfolioRowId(p)), now())));
+  stats.due = due.length;
+  for (const source of due) {
+    if (budget?.shouldStop()) break;
+    const saved = savedScanKeys(source);
+    let res;
+    try { res = await readPortfolio(source, { fetcher, now, known: (k) => saved.has(k) || seen.has(k), limit: Math.max(0, limit - stats.read), shouldStop: () => budget?.shouldStop() ?? false }); } catch (err) { stats.errors += 1; continue; }
+    if (res.status === 'ok') stats.checked += 1;
+    stats.listed += res.listed; stats.new += res.new; stats.read += res.read; stats.errors += res.errors;
+    if (res.status === 'unread') stats.unread.push(source.id);
+    if (res.status === 'layout_changed') stats.layout_changed.push(source.id);
+    stats.stopped = res.stopped ?? stats.stopped;
+    const writeRow = (work, at, leads) => { work.job_vc_boards ??= []; const row = portfolioRow(source, res, { at, now: now(), leads }); const i = work.job_vc_boards.findIndex((r) => r.id === row.id); if (i === -1) work.job_vc_boards.push(row); else work.job_vc_boards[i] = row; };
+    if (!res.entries.length) { await transact(dir, (work, { at }) => { writeRow(work, at, 0); return {}; }, lock); continue; }
+    // The company's own website, read by the directory's engine on a scratch copy (outside the lock: it is slow), then what it said is written in one checked transaction.
+    let verdicts = null;
+    try { const { ds: current } = await snapshot(dir, lock); const todo = toJudge(current, res.entries); if (todo.length) verdicts = await judgeEntries(current, source, todo, { fetcher, now }); } catch (err) { stats.errors += 1; }
+    await transact(dir, (work, { at }) => {
+      const p = applyPortfolio(work, source, res.entries, { at, verdicts });
+      writeRow(work, at, p.leads_new);
+      stats.entries += p.entries; stats.rejected_by_check += p.rejected_by_check; stats.in_directory += p.in_directory; stats.already_queued += p.already_queued; stats.same_name += p.same_name; stats.new_leads += p.leads_new;
+      return {};
+    }, lock);
+    for (const e of res.entries) seen.add(e.key);
+  }
+  // A few portfolio leads whose own site said nothing about where the company is, judged again a month on (portfolio.js).
+  if (!only && !budget?.shouldStop()) {
+    try {
+      const { ds: current } = await snapshot(dir, lock);
+      const again = recheckEntries(current, { now: now() });
+      if (again.length) {
+        const verdicts = await judgeEntries(current, { id: 'portfolio-recheck', publisher: 'a portfolio page', kind: 'vc_portfolio' }, again, { fetcher, now });
+        await transact(dir, (work, { at }) => { const r = applyRecheck(work, again, verdicts, { at }); stats.rechecked += r.rechecked; stats.now_australian += r.now_australian; return {}; }, lock);
+      }
+    } catch (err) { stats.errors += 1; }
+  }
+  return stats;
+}
+
 // `steps`: which of STEPS to run (all by default). `only` (catalogue ids) narrows the boards step to those boards, and skips vc and discover.
 export async function runJobRefresh(ctx, { budget, limit, only = null, steps = STEPS, discoveryLimit = DEFAULT_DISCOVERY_PER_RUN, discoveryConcurrency = 4, trigger = 'cli', slot = null } = {}) {
   const { dir, now = Date.now, lock } = ctx;
@@ -140,6 +190,13 @@ export async function runJobRefresh(ctx, { budget, limit, only = null, steps = S
       network = await runNetwork(ctx, budget); details.network = network;
       if (network.checked) notes.push(`${network.profiles_read} network company page(s) read${network.new_leads ? `, ${network.new_leads} new lead(s)` : ''}${network.hiring_hints ? `, ${network.hiring_hints} hiring company(ies) to look at` : ''}`);
     } catch (err) { details.network = { error: err.message }; notes.push(`job network failed: ${err.message}`); }
+  }
+  let portfolio = null;
+  if (want.has('portfolio') && full) {
+    try {
+      portfolio = await runPortfolio(ctx, budget); details.portfolio = portfolio;
+      if (portfolio.checked) notes.push(`${portfolio.checked} portfolio page(s) read, ${portfolio.read} new compan${portfolio.read === 1 ? 'y' : 'ies'} looked at${portfolio.new_leads ? `, ${portfolio.new_leads} new lead(s)` : ''}`);
+    } catch (err) { details.portfolio = { error: err.message }; notes.push(`portfolio pages failed: ${err.message}`); }
   }
   let confirmed = null;
   if (want.has('confirm') && full) {
@@ -187,6 +244,7 @@ export async function runJobRefresh(ctx, { budget, limit, only = null, steps = S
   // The counts a run log row carries cover every step, so a refresh that only looked at companies is not "idle".
   if (vc) { out.due += vc.due; out.processed += vc.checked; out.failed += vc.errors; }
   if (network) { out.due += network.due; out.processed += network.checked; out.failed += network.errors; }
+  if (portfolio) { out.due += portfolio.due; out.processed += portfolio.checked; out.failed += portfolio.errors; }
   if (discovery) { out.due += discovery.due; out.processed += discovery.read; out.failed += discovery.errors; out.changed += discovery.boards; out.deferred += discovery.deferred ?? 0; }
   out.changed += dedupe.removed;
   if (notes.length) out.summary = [out.summary, ...notes].filter(Boolean).join('; ');

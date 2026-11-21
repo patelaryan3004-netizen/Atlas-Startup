@@ -12243,6 +12243,122 @@
     "notes": []
   },
   {
+    "id": "cand-airlab-one",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-11-21T06:35:24.467Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-11-21T06:35:39.974Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "Airlab.One",
+    "aliases": [
+      "Airlabone Pty Ltd",
+      "AirLabOne Pty Ltd"
+    ],
+    "website": "https://airlabone.com",
+    "domain": "airlabone.com",
+    "description": null,
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": "37626248208",
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "cicada-residents",
+        "source_kind": "accelerator_profile",
+        "license_basis": "permitted_page",
+        "region": "AU",
+        "key": "lead-airlab-one",
+        "url": "https://www.cicadainnovations.com/incubator/residents",
+        "title": "Airlab.One | Cicada Innovations portfolio",
+        "observed_at": "2026-11-21T06:34:20.546Z"
+      }
+    ],
+    "first_discovered_at": "2026-11-21T06:35:24.467Z",
+    "last_seen_at": "2026-11-21T06:35:24.467Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://airlabone.com",
+        "confidence": "high",
+        "verified_at": "2026-11-21T06:35:39.833Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://airlabone.com/",
+          "title": "AirLabOne – Future of Lab Work",
+          "publisher": "Airlabone Pty Ltd",
+          "retrieved_at": "2026-11-21T06:35:39.833Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "yes",
+      "score": 0.9,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "registry_number",
+          "weight": 0.4,
+          "detail": "a valid ABN or ACN is stated (not checked against the register)"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        },
+        {
+          "code": "au_phone",
+          "weight": 0.15,
+          "detail": "an Australian phone number"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "unknown",
+      "score": 0,
+      "signals": []
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.61,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.9,
+        "startup": 0,
+        "evidence": 1,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
     "id": "cand-airrobe",
     "status": "published",
     "status_history": [
@@ -15739,6 +15855,158 @@
         "text": "Could not read https://alt-leather.com/: could not resolve alt-leather.com"
       }
     ]
+  },
+  {
+    "id": "cand-alta",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-11-21T06:34:33.621Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-11-21T06:34:53.487Z",
+        "by": "engine",
+        "note": "possible duplicate: Meta"
+      }
+    ],
+    "name": "Alta",
+    "aliases": [
+      "Metalntwx Pty Ltd"
+    ],
+    "website": "https://alta.finance",
+    "domain": "alta.finance",
+    "description": "Alta is settlement infrastructure for regulated finance: instant, private payments, FX, treasury, and tokenized assets, with the controls institutions need.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "blackbird-portfolio",
+        "source_kind": "investor_website",
+        "license_basis": "permitted_page",
+        "region": "AU",
+        "key": "lead-alta",
+        "url": "https://www.blackbird.vc/portfolio/alta",
+        "title": "Alta | Blackbird portfolio",
+        "observed_at": "2026-11-21T06:32:31.846Z"
+      }
+    ],
+    "first_discovered_at": "2026-11-21T06:34:33.621Z",
+    "last_seen_at": "2026-11-21T06:34:33.621Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://alta.finance",
+        "confidence": "high",
+        "verified_at": "2026-11-21T06:34:53.294Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alta.finance/",
+          "title": "Alta — Universal tokenized infrastructure for institutions",
+          "publisher": "Alta",
+          "retrieved_at": "2026-11-21T06:34:53.294Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Alta is settlement infrastructure for regulated finance: instant, private payments, FX, treasury, and tokenized assets, with the controls institutions need.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://alta.finance/",
+          "title": "Alta — Universal tokenized infrastructure for institutions",
+          "publisher": "Alta",
+          "retrieved_at": "2026-11-21T06:34:53.294Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "likely",
+      "score": 0.35,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "likely",
+      "score": 0.3,
+      "signals": [
+        {
+          "code": "known_investor",
+          "weight": 0.3,
+          "detail": "Blackbird"
+        }
+      ]
+    },
+    "resolution": "POSSIBLE_MATCH",
+    "matches": [
+      {
+        "kind": "candidate",
+        "id": "cand-meta",
+        "name": "Meta",
+        "outcome": "POSSIBLE_MATCH",
+        "score": 0.34,
+        "signals": [
+          {
+            "code": "name_contained",
+            "weight": 0.2,
+            "detail": "Metalntwx Pty Ltd / Meta"
+          }
+        ],
+        "conflicts": [
+          {
+            "code": "domain_differs",
+            "detail": "alta.finance vs meta.com"
+          }
+        ],
+        "reasons": [
+          "one name contains the other"
+        ]
+      }
+    ],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.45,
+      "label": "low",
+      "breakdown": {
+        "australian": 0.35,
+        "startup": 0.3,
+        "evidence": 0.8,
+        "corroboration": 0,
+        "caps": [
+          "possible duplicate unresolved"
+        ]
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
   },
   {
     "id": "cand-alterratech",
@@ -136095,6 +136363,137 @@
         "australian": 1,
         "startup": 0,
         "evidence": 0.9,
+        "corroboration": 0,
+        "caps": []
+      }
+    },
+    "review": null,
+    "published_company_id": null,
+    "notes": []
+  },
+  {
+    "id": "cand-future-secure-ai",
+    "status": "needs_review",
+    "status_history": [
+      {
+        "status": "candidate",
+        "at": "2026-11-21T06:35:00.524Z",
+        "by": "engine",
+        "note": "discovered"
+      },
+      {
+        "status": "needs_review",
+        "at": "2026-11-21T06:35:19.696Z",
+        "by": "engine",
+        "note": "ready for review"
+      }
+    ],
+    "name": "Future Secure AI",
+    "aliases": [
+      "Future Secure AI Pty Ltd"
+    ],
+    "website": "https://futuresecure.ai",
+    "domain": "futuresecure.ai",
+    "description": "Global leader in Red Zone AI Co-Workers. We design, build, and run AI digital colleagues that execute complex enterprise workflows for measurable ROI.",
+    "city": null,
+    "state": null,
+    "address": null,
+    "founders": [],
+    "external_ids": {
+      "abn": null,
+      "acn": null
+    },
+    "discoveries": [
+      {
+        "source_id": "squarepeg-portfolio",
+        "source_kind": "investor_website",
+        "license_basis": "permitted_page",
+        "region": "AU",
+        "key": "lead-future-secure-ai",
+        "url": "https://www.squarepeg.vc/portfolio/future-secure-ai",
+        "title": "Future Secure AI | Square Peg portfolio",
+        "observed_at": "2026-11-21T06:33:15.004Z"
+      }
+    ],
+    "first_discovered_at": "2026-11-21T06:35:00.524Z",
+    "last_seen_at": "2026-11-21T06:35:00.524Z",
+    "evidence": [
+      {
+        "field": "website",
+        "value": "https://futuresecure.ai",
+        "confidence": "high",
+        "verified_at": "2026-11-21T06:35:19.573Z",
+        "note": "The site itself.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.futuresecure.ai/",
+          "title": "Future Secure AI",
+          "publisher": "futuresecure.ai",
+          "retrieved_at": "2026-11-21T06:35:19.573Z",
+          "note": "Read by the discovery engine."
+        }
+      },
+      {
+        "field": "description",
+        "value": "Global leader in Red Zone AI Co-Workers. We design, build, and run AI digital colleagues that execute complex enterprise workflows for measurable ROI.",
+        "confidence": "medium",
+        "verified_at": null,
+        "note": "The page's own description.",
+        "source": {
+          "kind": "company_website",
+          "url": "https://www.futuresecure.ai/",
+          "title": "Future Secure AI",
+          "publisher": "futuresecure.ai",
+          "retrieved_at": "2026-11-21T06:35:19.573Z",
+          "note": "Read by the discovery engine."
+        }
+      }
+    ],
+    "australian": {
+      "verdict": "likely",
+      "score": 0.35,
+      "signals": [
+        {
+          "code": "au_source",
+          "weight": 0.15,
+          "detail": "found by a source that covers Australia"
+        },
+        {
+          "code": "pty_ltd",
+          "weight": 0.2,
+          "detail": "an Australian company form"
+        }
+      ]
+    },
+    "startup": {
+      "verdict": "likely",
+      "score": 0.45,
+      "signals": [
+        {
+          "code": "known_investor",
+          "weight": 0.3,
+          "detail": "Square Peg"
+        },
+        {
+          "code": "startup_words",
+          "weight": 0.15,
+          "detail": "AI"
+        }
+      ]
+    },
+    "resolution": "NEW_COMPANY",
+    "matches": [],
+    "decisions": {
+      "not_same_as": [],
+      "same_as": null
+    },
+    "confidence": {
+      "score": 0.5,
+      "label": "medium",
+      "breakdown": {
+        "australian": 0.35,
+        "startup": 0.45,
+        "evidence": 0.8,
         "corroboration": 0,
         "caps": []
       }

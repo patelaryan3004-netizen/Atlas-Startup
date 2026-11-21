@@ -87833,5 +87833,50 @@
     "summary": "jobsync: 91 board(s) read whole; 4 archived; 7 venture board(s) checked; 62 company website(s) looked at, 0 new job board(s) found",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261121063453504-1",
+    "at": "2026-11-21T06:34:53.504Z",
+    "actor": "claude-portfolio-discovery",
+    "role": "cli",
+    "via": "cli",
+    "action": "import.run",
+    "target": {
+      "type": "import_run",
+      "id": "run-20261121063453500"
+    },
+    "summary": "Ran discovery: 1 new candidate(s), 0 attached, 0 seen before",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261121063519701-1",
+    "at": "2026-11-21T06:35:19.701Z",
+    "actor": "claude-portfolio-discovery",
+    "role": "cli",
+    "via": "cli",
+    "action": "import.run",
+    "target": {
+      "type": "import_run",
+      "id": "run-20261121063519698"
+    },
+    "summary": "Ran discovery: 1 new candidate(s), 0 attached, 0 seen before",
+    "reason": null,
+    "changes": []
+  },
+  {
+    "id": "aud-20261121063539977-1",
+    "at": "2026-11-21T06:35:39.977Z",
+    "actor": "claude-portfolio-discovery",
+    "role": "cli",
+    "via": "cli",
+    "action": "import.run",
+    "target": {
+      "type": "import_run",
+      "id": "run-20261121063539975"
+    },
+    "summary": "Ran discovery: 1 new candidate(s), 0 attached, 0 seen before",
+    "reason": null,
+    "changes": []
   }
 ]

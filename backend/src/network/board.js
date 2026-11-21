@@ -37,7 +37,7 @@ export function syncSummary({ sources = [], state = [], names = new Map(), roleC
     schedule: 'twice daily, 8:10 am and 8:10 pm Melbourne time',
     // How much of the directory has been looked at for a job board, and what could not be read: totals and names only.
     directory: coverageSummary(coverage, names),
-    vc_boards: vc.map((r) => ({ name: r.name, platform: r.platform, access: r.access, note: r.note ?? '', own_vacancies: r.own_vacancies ?? '', checked_at: r.checked_at ?? null })),
+    vc_boards: vc.filter((r) => r.platform !== 'portfolio_page').map((r) => ({ name: r.name, platform: r.platform, access: r.access, note: r.note ?? '', own_vacancies: r.own_vacancies ?? '', checked_at: r.checked_at ?? null })),
     last_refresh: lastRefresh(health),
     // Startups named on those boards that the directory does not hold and a person has not decided on (models/jobDiscovery.js): not venture firms, not what was rejected or is now ours.
     leads_waiting: leads.filter(isStartupLeadWaiting).length,

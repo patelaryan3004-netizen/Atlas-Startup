@@ -7,8 +7,9 @@
 //   npm run jobsync -- board                 the hiring desk's counts, as the API will serve them
 //   npm run jobsync -- discover [--all|--limit N|--company a,b] [--force] [--plan]   find the job board of companies from their own websites (see src/jobsync/discover.js)
 //   npm run jobsync -- network [--all] [--limit N]   read Innovation Bay now: its board's sample and company list (this half-day's slice, or every company with --all), matched against the directory
+//   npm run jobsync -- portfolio [--all] [--source id] [--limit N]   read the official portfolio pages now (each is read once a week by the refresh): new companies become leads
 //   npm run jobsync -- leads [--status s] [--kind k]            the companies and venture firms the boards and networks named that the directory does not hold
-//   npm run jobsync -- leads --promote --by "name" [--limit N]  hand the eligible startups to the directory's review queue (candidates.json): the engine reads each one's own website
+//   npm run jobsync -- leads --promote --by "name" [--limit N] [--source id]  hand the eligible startups to the directory's review queue (candidates.json): the engine reads each one's own website
 //   npm run jobsync -- confirmed [--write]    approve the boards read in a browser (scripts/jobsync-confirmed.json), each only if its own feed confirms the page
 //   npm run jobsync -- verify [--links]      the final check: duplicates, expired roles, Australian eligibility, application links, timestamps
 //   npm run jobsync -- slot [--force] [--now ISO]   is a refresh due now (8:00 am / 8:00 pm Melbourne time, once each)? run=yes|no
@@ -32,8 +33,10 @@ import { decide } from '../src/jobsync/slot.js';
 import { verifyData, verifyLinks } from '../src/jobsync/verify.js';
 import { confirmFromFile } from '../src/jobsync/confirm.js';
 import { employerMap } from '../src/jobsync/employers.js';
-import { runNetwork } from '../src/jobsync/refresh.js';
+import { runNetwork, runPortfolio } from '../src/jobsync/refresh.js';
 import { NETWORKS, NETWORK_READS_PER_RUN, queueable, engineLead, markQueued } from '../src/jobsync/network.js';
+import { discoverySources } from '../src/jobsync/discoverySources.js';
+import { PORTFOLIO_READS_PER_RUN, SOURCES as PORTFOLIOS } from '../src/jobsync/portfolio.js';
 import { main as discovery } from './discovery.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -146,6 +149,13 @@ export async function main(argv, { out = console.log, now = Date.now, fetcher: i
       out(JSON.stringify(stats));
       return 0;
     }
+    case 'portfolio': {
+      const fetcher = injected ?? jobSyncFetcher({ minDelayMs: 1500, maxBytes: 6000000 });
+      const only = typeof flags.source === 'string' ? flags.source.split(',') : null;
+      const stats = await runPortfolio({ dir, now, fetcher, lock: { now }, force: true }, null, { all: Boolean(flags.all) || Boolean(only), only, limit: flags.limit ? Number(flags.limit) : flags.all ? Infinity : PORTFOLIO_READS_PER_RUN });
+      out(JSON.stringify(stats));
+      return 0;
+    }
     case 'leads': {
       const { ds } = await snapshot(dir, { now });
       if (!flags.promote) {
@@ -156,18 +166,27 @@ export async function main(argv, { out = console.log, now = Date.now, fetcher: i
         return 0;
       }
       if (typeof flags.by !== 'string') throw new Error('--by "name" is required: every decision is recorded with a name');
-      const net = NETWORKS.find((n) => n.id === (flags.network ?? 'innovation-bay'));
-      if (!net) throw new Error(`unknown network "${flags.network}"`);
-      const picks = queueable(ds, { limit: flags.limit ? Number(flags.limit) : 25, firm: net.id });
-      out(`${picks.length} lead(s) to hand to the directory's review queue`);
-      if (!picks.length) return 0;
-      if (flags['dry-run']) { for (const l of picks) out(`  ${l.name} (${l.profile.website})`); return 0; }
-      // The directory's own engine: matches each against the directory and the queue again, reads the company's OWN website (robots.txt obeyed, three pages), judges Australian and startup.
-      const source = { id: net.id, kind: 'directory_listing', region: 'AU', license: { basis: 'permitted_page' }, licenseBasis: 'permitted_page', discover: async () => picks.map((l) => engineLead(l, net)) };
-      const code = await discovery(['run', '--by', flags.by, '--source', net.id, '--data', dir], { sources: [source], out, now, ...(injected ? { fetcher: injected } : {}) });
-      let marked;
-      await transact(dir, (work, { at }) => { marked = markQueued(work, net, { at }); return {}; }, { now });
-      out(JSON.stringify(marked));
+      const wanted = typeof flags.source === 'string' ? flags.source.split(',') : null;
+      const sources = discoverySources().filter((x) => !wanted || wanted.includes(x.id));
+      if (!sources.length) throw new Error(`unknown source "${flags.source}" (${discoverySources().map((x) => x.id).join(', ')})`);
+      let room = flags.limit ? Number(flags.limit) : 25;
+      let code = 0;
+      for (const src of sources) {
+        const { ds: now0 } = await snapshot(dir, { now });
+        const picks = queueable(now0, { limit: room, firm: src.id });
+        if (!picks.length) continue;
+        out(`${src.name}: ${picks.length} lead(s) to hand to the directory's review queue`);
+        room -= picks.length;
+        if (flags['dry-run']) { for (const l of picks) out(`  ${l.name} (${l.profile.website})`); continue; }
+        // The directory's own engine: matches each against the directory and the queue again, reads the company's OWN website (robots.txt obeyed, three pages), judges Australian and startup.
+        const source = { id: src.id, kind: src.evidence_kind, region: 'AU', license: { basis: 'permitted_page' }, licenseBasis: 'permitted_page', discover: async () => picks.map((l) => engineLead(l, src)) };
+        code = (await discovery(['run', '--by', flags.by, '--source', src.id, '--data', dir], { sources: [source], out, now, ...(injected ? { fetcher: injected } : {}) })) || code;
+        let marked;
+        await transact(dir, (work, { at }) => { marked = markQueued(work, src, { at }); return {}; }, { now });
+        out(JSON.stringify({ source: src.id, ...marked }));
+        if (room <= 0) break;
+      }
+      if (room === (flags.limit ? Number(flags.limit) : 25)) out("0 lead(s) to hand to the directory's review queue");
       return code;
     }
     case 'confirmed': {
@@ -227,7 +246,7 @@ reason=${verdict.reason}
 `);
       return 0;
     }
-    default: throw new Error(`unknown command "${command}": sources, status, read, board, discover, network, leads, confirmed, slot, verify, meaningful`);
+    default: throw new Error(`unknown command "${command}": sources, status, read, board, discover, network, portfolio, leads, confirmed, slot, verify, meaningful`);
   }
 }
 

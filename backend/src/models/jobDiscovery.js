@@ -17,8 +17,9 @@ import { SOURCE_PROVIDERS } from './jobSync.js';
 export const COVERAGE_OUTCOMES = ['board', 'unsupported_provider', 'careers_page_only', 'no_careers_found', 'unreadable', 'board_unreadable', 'no_website'];
 // Outcomes that need a person, or a reader that does not exist yet.
 export const REVIEW_OUTCOMES = new Set(['unsupported_provider', 'careers_page_only', 'no_careers_found', 'unreadable', 'board_unreadable']);
-export const VC_PLATFORMS = ['getro', 'consider', 'workatastartup', 'greenhouse', 'lever', 'ashby', 'rippling', 'own_site', 'none', 'unknown'];
-export const VC_ACCESS = ['public_sample', 'no_public_feed', 'login_required', 'no_board', 'unread'];
+// portfolio_page / public_list: an official portfolio page (jobsync/portfolio.js) read weekly for the companies it names; the public board leaves these rows out.
+export const VC_PLATFORMS = ['getro', 'consider', 'workatastartup', 'greenhouse', 'lever', 'ashby', 'rippling', 'own_site', 'portfolio_page', 'none', 'unknown'];
+export const VC_ACCESS = ['public_sample', 'public_list', 'no_public_feed', 'login_required', 'no_board', 'unread'];
 // unknown_company   a company a job board or a network's company list names, in Australia, that the directory does not hold
 // unknown_investor  the same, for a venture firm (the investor directory has its own approval)
 // investor_hiring   a venture firm the directory DOES hold, which a network says has open roles, but whose own careers page is not among the firms the sync checks (investor_id)
@@ -29,7 +30,10 @@ export const HEALTH_KEEP = 120;
 
 // A startup the boards and networks named that the directory does not hold and a person has not yet decided on: still a lead (needs_review), or already in the directory's own review queue (queued).
 // Venture firms (unknown_investor, investor_hiring) are not startups, and are not counted: the hiring desk says "companies", and a firm goes through the investor directory.
-export const isStartupLeadWaiting = (lead) => lead.kind === 'unknown_company' && (lead.status === 'needs_review' || lead.status === 'queued');
+// A lead from a portfolio page (profile.origin 'portfolio') says nothing about where the company is: it is eligible (counted, and queued for approval) once the directory's engine has judged its own
+// website Australian (yes or likely). A lead from a network's company list has an Australian place on its profile already.
+export const isEligibleLead = (lead) => lead.profile?.origin !== 'portfolio' || ['yes', 'likely'].includes(lead.profile?.australian);
+export const isStartupLeadWaiting = (lead) => lead.kind === 'unknown_company' && (lead.status === 'needs_review' || lead.status === 'queued') && isEligibleLead(lead);
 
 const when = (v) => v == null || ISO_RE.test(v);
 const isUrl = (v) => v == null || /^https:\/\/\S+$/.test(v);
