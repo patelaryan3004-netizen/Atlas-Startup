@@ -53,6 +53,8 @@ npm run jobsync -- leads --promote --by "your name" --limit 25    # hand the eli
 
 The directory's own engine then does what it always does for a candidate: matches it against the directory and the queue again, reads the company's **own** website (robots.txt obeyed, three pages), judges whether it is Australian and a startup, and leaves it waiting for a person. The lead becomes `queued` (with the candidate's id), `in_directory` (the engine found it was already ours) or `rejected` (the engine had explicit evidence against it). Approving it in the admin is still a person's act.
 
+The hiring desk's coverage dialog says how many startups wait for a person (`leads_waiting`): the leads still waiting plus those already in the review queue, **not** the venture-firm leads (they go through the investor directory), and not what was rejected or is now in the directory.
+
 To have the refresh queue them by itself, the workflow would have to commit `backend/src/data/candidates.json`, `evidence.json` and `identifiers.json` too (one line in `.github/workflows/jobs-sync.yml`, which only the owner can edit). That is deliberately not done: a refresh that wrote candidates the workflow then threw away would mark leads queued that were not.
 
 ## Commands

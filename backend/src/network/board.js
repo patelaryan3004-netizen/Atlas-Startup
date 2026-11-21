@@ -3,6 +3,7 @@
 import { curatedJobs, jobFacets, inPlace, REMOTE_AU, LIFECYCLE_STATES } from './jobs.js';
 import { SUPPORTED, UNSUPPORTED_REASONS } from '../jobsync/providers.js';
 import { CITIES } from '../jobsync/locations.js';
+import { isStartupLeadWaiting } from '../models/jobDiscovery.js';
 
 const PAGE_LIMIT = 600; // a board of a few hundred roles is one small answer; a bigger one would be paged
 const LAPSED_LIMIT = 400;
@@ -38,8 +39,8 @@ export function syncSummary({ sources = [], state = [], names = new Map(), roleC
     directory: coverageSummary(coverage, names),
     vc_boards: vc.map((r) => ({ name: r.name, platform: r.platform, access: r.access, note: r.note ?? '', own_vacancies: r.own_vacancies ?? '', checked_at: r.checked_at ?? null })),
     last_refresh: lastRefresh(health),
-    // Companies and firms the directory does not hold (an investor_hiring lead is about a firm it DOES hold, and is not counted here).
-    leads_waiting: leads.filter((l) => l.status === 'needs_review' && l.kind !== 'investor_hiring').length,
+    // Startups named on those boards that the directory does not hold and a person has not decided on (models/jobDiscovery.js): not venture firms, not what was rejected or is now ours.
+    leads_waiting: leads.filter(isStartupLeadWaiting).length,
   };
 }
 
