@@ -38,6 +38,7 @@
     { "source": "/events", "destination": "/app.html" },
     { "source": "/opportunities", "destination": "/app.html" },
     { "source": "/home", "destination": "/app.html" },
+    { "source": "/community", "destination": "/app.html" },
     { "source": "/discover", "destination": "/app.html" },
     { "source": "/discover/:path*", "destination": "/app.html" },
     { "source": "/me", "destination": "/app.html" },

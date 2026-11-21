@@ -19,7 +19,7 @@ import { getPersonProfile } from './people.js';
 import { areaFilters, pinPayload, scopeText, vcTuple, vcFirms, spreadVcPins } from './mapPins.js';
 import { useSavedInvestors } from './hooks/useSavedInvestors.js';
 import { readRoute as readInvestorsRoute } from './components/investors/route.js';
-import { readAppRoute, appUrl, appPath } from './appRoute.js';
+import { readAppRoute, appUrl, appPath, settledAddress } from './appRoute.js';
 import { usePageMeta } from './hooks/usePageMeta.js';
 import { startupDescription, startupJsonLd } from './seo.js';
 import { curatedLists } from './curatedLists.js';
@@ -328,8 +328,9 @@ export default function App() {
       if (route.kind === 'explore' || route.kind === 'startup' || route.kind === 'map') {
         const url = appUrl(route, { filters: mapBase ? { ...applied, onMap: '' } : applied, viewMode, entity: shown, selected: route.kind === 'map' && preview?.kind !== 'vc' ? preview?.slug ?? null : null });
         if (url !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(window.history.state, '', url);
-      } else if (route.kind !== 'investors' && window.location.pathname !== appPath(route)) {
-        window.history.replaceState(window.history.state, '', appPath(route));
+      } else if (route.kind !== 'investors') {
+        const settled = settledAddress(route);
+        if (settled) window.history.replaceState(window.history.state, '', settled);
       }
     } catch (e) { /* ignore */ }
   }, [route, applied, viewMode, shown, preview?.slug, preview?.kind, mapBase]);

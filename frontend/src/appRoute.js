@@ -81,6 +81,15 @@ export function appPath(route) {
   }
 }
 
+// The address a page with a simple address of its own should show (every page but the company pages and the investors), or null when it already shows it.
+// /community is the Community's other address: it moves to /home with the visitor's choice (?for=) and section (?section=) kept, so a shared link still
+// opens what it was made for. The other pages keep no query.
+export function settledAddress(route, { pathname = window.location.pathname, search = window.location.search, hash = window.location.hash } = {}) {
+  const path = appPath(route);
+  if (pathname === path) return null;
+  return route.kind === 'home' && /^\/community\/?$/.test(pathname) ? `${path}${search}${hash}` : path;
+}
+
 // What the map and the list show besides everything: startups, companies, investors (vcs) or spaces. No word is everything.
 export const SHOW_WORDS = ['startups', 'companies', 'vcs', 'spaces'];
 
