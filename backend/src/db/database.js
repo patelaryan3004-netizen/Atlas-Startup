@@ -28,6 +28,16 @@ export function checkDatabaseUrl(url) {
   return { ok: true, host: u.hostname };
 }
 
+// Neon's own addresses say sslmode=require. node-postgres reads that today as "check who answers" (verify-full) and has announced that its next major version will read it as libpq does (encrypt,
+// but do not check who answers), so a later upgrade could weaken the connection without a word. Say what is meant: any TLS mode except verify-full is written as verify-full (Neon's certificates are
+// publicly trusted). The developer's own computer is left alone. Returns the address to connect with; it is never logged.
+export function strictTls(url) {
+  const u = new URL(String(url));
+  if (LOCAL.has(u.hostname) || u.searchParams.get('sslmode') === 'verify-full') return String(url);
+  u.searchParams.set('sslmode', 'verify-full');
+  return u.toString();
+}
+
 const isDropped = (err) => RETRY_CODES.has(err?.code) || /Connection terminated|connection (was )?(closed|reset)/i.test(err?.message ?? '');
 
 // Opens the database named by `url` (default: DATABASE_URL). Returns null when there is none. A connection is made on the first query, not here.
@@ -39,7 +49,7 @@ export function openDatabase({ url = process.env.DATABASE_URL, max = 3, log = co
   if (!check.ok) return { problem: check.reason };
 
   const pool = new Pool({
-    connectionString: address,
+    connectionString: strictTls(address),
     max,
     idleTimeoutMillis: 10000, // let idle connections go long before Neon suspends an idle database (five minutes)
     connectionTimeoutMillis: 10000,

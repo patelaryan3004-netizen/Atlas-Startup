@@ -15,7 +15,7 @@ import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import pg from 'pg';
 import { createApp } from '../src/app.js';
 import { createNetwork } from '../src/network/index.js';
-import { openDatabase, checkDatabaseUrl } from '../src/db/database.js';
+import { openDatabase, checkDatabaseUrl, strictTls } from '../src/db/database.js';
 import { migrate, checksum, MIGRATIONS_DIR } from '../src/db/migrate.js';
 import { importFounding, rowsOf, cleanRow } from '../src/db/foundingImport.js';
 import { makeId } from '../src/network/validate.js';
@@ -175,6 +175,20 @@ describe('the database address', () => {
     expect(openDatabase({})).toBeNull(); // the test setup blanks DATABASE_URL
   });
 
+  it('always checks who answers (verify-full), whatever TLS mode the address names, so a driver upgrade cannot quietly weaken it; the password and other settings are untouched', () => {
+    const neon = 'postgresql://neondb_owner:p%40ss%2Fw0rd@ep-cool-123.ap-southeast-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
+    const strict = new URL(strictTls(neon));
+    expect(strict.searchParams.get('sslmode')).toBe('verify-full');
+    expect(strict.searchParams.get('channel_binding')).toBe('require');
+    expect(strict.password).toBe('p%40ss%2Fw0rd'); // still as it was given
+    expect(strict.hostname).toBe('ep-cool-123.ap-southeast-2.aws.neon.tech');
+    expect(new URL(strictTls(neon.replace('sslmode=require', 'sslmode=verify-ca'))).searchParams.get('sslmode')).toBe('verify-full');
+    const already = 'postgresql://u:p@ep-x.aws.neon.tech/neondb?sslmode=verify-full';
+    expect(strictTls(already)).toBe(already);
+    const local = 'postgresql://postgres:postgres@127.0.0.1:5432/postgres';
+    expect(strictTls(local)).toBe(local); // the developer's own computer has no TLS to check
+  });
+
   it('survives Neon dropping idle connections: an idle-connection error is caught, and a query whose connection was dropped runs once more', async () => {
     const logged = [];
     class FakePool {
@@ -262,7 +276,9 @@ describe('earlier registrations are brought in, and the schema for what comes ne
     cleanup.push(() => db.close());
     await migrate(db, { log: quiet });
     const original = await readFile(path.join(MIGRATIONS_DIR, '0001_founding_members.sql'), 'utf8');
-    expect(checksum(original)).toBe(checksum(original.replaceAll('\n', '\r\n'))); // a Windows checkout does not read as a change
+    const lf = original.replaceAll('\r\n', '\n');
+    expect(checksum(lf)).toBe(checksum(lf.replaceAll('\n', '\r\n'))); // a Windows checkout does not read as a change
+    expect(checksum(original)).toBe(checksum(lf));
     const edited = await newDir();
     await (await import('node:fs/promises')).writeFile(path.join(edited, '0001_founding_members.sql'), `${original}\n-- edited later\ncreate table sneaky (id int);\n`);
     await expect(migrate(db, { dir: edited, log: quiet })).rejects.toThrow(/changed after it ran/);
