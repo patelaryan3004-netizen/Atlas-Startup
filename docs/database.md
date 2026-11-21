@@ -68,14 +68,13 @@ The first must print the path (it is ignored). `db:status` must say "Connected" 
 
 ### 3. Save the registrations that already exist (before the deploy)
 
-They are on Render's free disk, which the deploy erases. Read them with your admin key without typing it into the command line:
+They are on Render's free disk, which a deploy, a restart, or the free service going to sleep after 15 idle minutes all erase, so there are few or none. Read them with your admin key (the `ADMIN_KEY` variable on the Render service, shown in its Environment tab) using the script, which asks for the key in a hidden prompt so it never appears in a command line:
 
 ```powershell
-$s = Read-Host "Admin key" -AsSecureString
-$k = [System.Net.NetworkCredential]::new('', $s).Password
-Invoke-RestMethod -Uri https://atlas-startup.onrender.com/api/admin/network/founding -Headers @{ 'x-admin-key' = $k } | ConvertTo-Json -Depth 6 | Set-Content -Encoding utf8 "$env:USERPROFILE\founding-export.json"
-Remove-Variable k, s
+powershell -ExecutionPolicy Bypass -File backend\scripts\export-founding.ps1
 ```
+
+**If the service has no `ADMIN_KEY` at all** (the live site then answers a plain 500), the list cannot be read, and setting one restarts the service, which erases the file. Treat anything signed up so far as lost, skip this step, and ask anyone you know signed up to do it again once the database is live. (`ADMIN_KEY` is needed anyway, to read the list from Postgres: step 4 adds it.)
 
 (The first call can take ~15 seconds while the free server wakes.) The file holds email addresses: it stays in your user folder, **outside the repository**, and you delete it after the import. If the reply says `count: 0`, skip to step 4. Otherwise count first, then import:
 
@@ -88,7 +87,12 @@ The first is a dry run that only counts (rows in the file, duplicates, invalid, 
 
 ### 4. Give Render the address
 
-In the Render dashboard open `au-startup-map-backend`, **Environment**, **Add Environment Variable**: key `DATABASE_URL`, value the address. Save. (Render keeps it encrypted; it is not in the repository, `render.yaml` only names the key, and the frontend never sees it.) The service stays on its **Free** plan. Saving redeploys the *current* code, which ignores it: that is why step 3 comes first.
+In the Render dashboard open the service (`Atlas-Startup`), **Environment**, **Add variable**, and add two:
+
+- `DATABASE_URL`: the direct Neon address (step 1, pooling off).
+- `ADMIN_KEY`, if there is none: a long random secret you make (for example 48 random letters and digits). It lets only you read the founding list and moderate; keep it in a password manager, or read it again from this tab.
+
+Save. (Render keeps them encrypted; neither is in the repository, `render.yaml` only names the key, and the frontend never sees them.) The service stays on its **Free** plan. Saving redeploys the *current* code, which ignores `DATABASE_URL`: that is why step 3 comes first.
 
 ### 5. Merge and deploy (only when you approve)
 
