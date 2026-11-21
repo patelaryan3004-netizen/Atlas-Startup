@@ -54,7 +54,7 @@
       }
     ],
     "first_seen_at": "2026-11-19T14:17:56.011Z",
-    "last_seen_at": "2026-11-20T14:30:41.963Z",
+    "last_seen_at": "2026-11-21T02:09:16.153Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -94,7 +94,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T14:29:44.476Z",
-    "last_seen_at": "2026-11-20T14:29:44.476Z",
+    "last_seen_at": "2026-11-21T02:08:40.476Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -129,7 +129,24 @@
       }
     ],
     "first_seen_at": "2026-11-20T14:29:52.306Z",
-    "last_seen_at": "2026-11-20T14:29:52.306Z",
+    "last_seen_at": "2026-11-21T02:08:46.602Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-gridsight",
+    "kind": "unknown_company",
+    "name": "GRIDSIGHT",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "airtree",
+        "url": "https://ats.rippling.com/gridsight/jobs/9b52f1bd-d753-4394-8db4-925b1fbcce53",
+        "title": "Customer Success Engineer",
+        "at": "2026-11-21T02:08:46.602Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T02:08:46.602Z",
+    "last_seen_at": "2026-11-21T02:08:46.602Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   }
 ]
