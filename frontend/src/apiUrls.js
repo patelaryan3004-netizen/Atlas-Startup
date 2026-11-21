@@ -16,8 +16,9 @@ export function toQuery(params) {
   return s ? `?${s}` : '';
 }
 
-export const startupPageUrl = (filters = {}, { limit = 20, offset = 0, sort = 'name', facets } = {}) => (
-  `${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view: 'card', facets })}`
+// `view`: 'card' (the default: what a list shows) or 'full' (also the founders, the address and the investors: the Community asks for it for the few companies it names founders of).
+export const startupPageUrl = (filters = {}, { limit = 20, offset = 0, sort = 'name', facets, view = 'card' } = {}) => (
+  `${BASE}/startups${toQuery({ ...filters, limit: String(limit), offset: String(offset), sort, view, facets })}`
 );
 // (The pins are only ever the companies the map shows, so `onMap`, which asks the lists and the counts for the same, is not part of this question: the snapshot's pins answer it.)
 export const markersUrl = (filters = {}) => `${BASE}/startups/markers${toQuery(Object.fromEntries(Object.entries(filters).filter(([key]) => key !== 'onMap')))}`;

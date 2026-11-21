@@ -14,6 +14,10 @@ import { listSaved, setSaved, mergeSaved, SAVED_KINDS } from './saved.js';
 import { upcomingEvents, filterEvents, eventFacets, toIcs, EVENT_TYPE_LABELS } from './events.js';
 import { curatedJobs, filterJobs, jobFacets, LIFECYCLE_STATES } from './jobs.js';
 import { buildBoard } from './board.js';
+import { listProjects, getProject, createProject, editProject, deleteProject, setInterest, interestedIn, publicProject } from './projects.js';
+import { recommendMembers, recommendProjects } from './matching.js';
+import { requestIntroduction, decideIntroduction, withdrawIntroduction, introductionsFor, waitingFor } from './introductions.js';
+import { INTENTS, SKILLS, INTERESTS, COLLABORATION, STAGES } from './taxonomy.js';
 import { createSuggestion, pendingSuggestions, approveSuggestion, rejectSuggestion, withdrawListing } from './suggestions.js';
 import { offsetParams, offsetInfo } from '../http/paging.js';
 import { recordFor } from '../catalog/catalog.js';
@@ -52,7 +56,11 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
 
   // ---------- status ----------
 
-  router.get('/network/status', (req, res) => res.json({ available: network.available, reason: network.reason, topics: TOPICS.map((t) => ({ id: t, label: TOPIC_LABELS[t] })), filters: Object.keys(FILTERS), limits: { post: MAX_POST, reply: MAX_REPLY } }));
+  router.get('/network/status', (req, res) => res.json({ available: network.available, reason: network.reason, topics: TOPICS.map((t) => ({ id: t, label: TOPIC_LABELS[t] })), filters: Object.keys(FILTERS), limits: { post: MAX_POST, reply: MAX_REPLY },
+    // what a founding-member registration is: a waiting list that needs no account, kept where `durable` says (founding.js)
+    founding: { open: true, durable: network.founding.durable },
+    // the closed lists the profile, the projects and the registration form pick from (taxonomy.js)
+    taxonomy: { intents: INTENTS.map((i) => ({ id: i.id, label: i.label })), skills: SKILLS, interests: INTERESTS, collaboration: COLLABORATION, stages: STAGES } }));
 
   // ---------- accounts ----------
 
@@ -109,6 +117,12 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
       draft.saved = draft.saved.filter((s) => s.member_id !== id && !(s.kind === 'member' && s.key === id) && !(s.kind === 'post' && mine.has(s.key)));
       draft.reports = draft.reports.filter((r) => r.reporter_id !== id || r.status !== 'open').map((r) => (r.status === 'open' && mine.has(r.target_id) ? { ...r, status: 'closed', resolution: 'The author left.' } : r));
       draft.suggestions.forEach((s) => { if (s.member_id === id) s.member_id = null; });
+      // Their projects, the interest they gave and received, and every introduction they were part of (a contact they shared goes with them).
+      const projects = new Set(draft.projects.filter((p) => p.author_id === id).map((p) => p.id));
+      draft.projects = draft.projects.filter((p) => p.author_id !== id);
+      draft.interests = draft.interests.filter((i) => i.member_id !== id && !projects.has(i.project_id));
+      draft.introductions = draft.introductions.filter((i) => i.from !== id && i.to !== id);
+      draft.reports = draft.reports.filter((r) => !(r.target_kind === 'project' && projects.has(r.target_id)));
     });
     res.status(204).end();
   }));
@@ -128,6 +142,99 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
     if (!m || (m.suspended && req.member?.id !== m.id)) throw notFound('That member is not here.');
     const posts = listPosts(data, { filter: 'all', limit: 10, viewerId: req.member?.id ?? null, authorId: m.id });
     res.json({ member: publicMember(m), posts: posts.results, saved: Boolean(req.member && data.saved.some((s) => s.member_id === req.member.id && s.kind === 'member' && s.key === m.id)) });
+  }));
+
+  // ---------- projects and "I'm interested" ----------
+
+  router.get('/projects', optional, wrap(async (req, res) => {
+    const { limit, offset } = offsetParams(req.query, { max: 50, fallback: 20 });
+    const { store } = await ctx();
+    res.json(listProjects(store.read(), {
+      search: text(req.query.search), stage: text(req.query.stage), collaboration: text(req.query.collaboration), skill: text(req.query.skill), city: text(req.query.city),
+      remote: text(req.query.remote), status: req.query.status === undefined ? 'open' : text(req.query.status), limit, offset, viewer: req.member ?? null,
+    }));
+  }));
+
+  router.get('/projects/:id', optional, wrap(async (req, res) => {
+    const { store } = await ctx();
+    res.json({ project: getProject(store.read(), req.params.id, req.member ?? null) });
+  }));
+
+  router.post('/projects', ...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    const id = await store.change((draft) => createProject(draft, draft.members.find((m) => m.id === req.member.id), req.body, now()).id);
+    res.status(201).json({ project: getProject(store.read(), id, req.member) });
+  }));
+
+  router.patch('/projects/:id', ...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    await store.change((draft) => editProject(draft, draft.members.find((m) => m.id === req.member.id), req.params.id, req.body, now()));
+    res.json({ project: getProject(store.read(), req.params.id, req.member) });
+  }));
+
+  router.delete('/projects/:id', ...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    await store.change((draft) => deleteProject(draft, draft.members.find((m) => m.id === req.member.id), req.params.id));
+    res.status(204).end();
+  }));
+
+  const interest = (on) => [...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    const out = await store.change((draft) => setInterest(draft, draft.members.find((m) => m.id === req.member.id), req.params.id, on, now()));
+    res.json(out);
+  })];
+  router.put('/projects/:id/interest', ...interest(true));
+  router.delete('/projects/:id/interest', ...interest(false));
+
+  router.get('/projects/:id/interested', required, wrap(async (req, res) => {
+    const { store } = await ctx();
+    res.json({ results: interestedIn(store.read(), req.member, req.params.id, publicMember) });
+  }));
+
+  router.post('/projects/:id/report', ...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    res.status(201).json(await store.change((draft) => createReport(draft, draft.members.find((m) => m.id === req.member.id), 'project', req.params.id, req.body ?? {}, now())));
+  }));
+
+  // ---------- people to meet, and projects that might suit you ----------
+
+  router.get('/matches', required, wrap(async (req, res) => {
+    const { store } = await ctx();
+    const data = store.read();
+    const me = data.members.find((m) => m.id === req.member.id);
+    res.json({ people: recommendMembers(data, me, { limit: 6, toPublic: publicMember }), projects: recommendProjects(data, me, { limit: 6, toProject: (p) => publicProject(data, p, me) }) });
+  }));
+
+  // ---------- introductions: both agree before anything private is shared ----------
+
+  router.get('/introductions', required, wrap(async (req, res) => {
+    const { store } = await ctx();
+    const data = store.read();
+    res.json({ results: introductionsFor(data, data.members.find((m) => m.id === req.member.id), publicMember), waiting: waitingFor(data, req.member) });
+  }));
+
+  router.post('/introductions', ...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    const id = await store.change((draft) => requestIntroduction(draft, draft.members.find((m) => m.id === req.member.id), req.body ?? {}, now()).id);
+    const data = store.read();
+    res.status(201).json({ introduction: introductionsFor(data, data.members.find((m) => m.id === req.member.id), publicMember).find((i) => i.id === id) });
+  }));
+
+  const answer = (fn) => [...write, wrap(async (req, res) => {
+    const { store } = await ctx();
+    await store.change((draft) => fn(draft, draft.members.find((m) => m.id === req.member.id), req.params.id, now()));
+    const data = store.read();
+    res.json({ introduction: introductionsFor(data, data.members.find((m) => m.id === req.member.id), publicMember).find((i) => i.id === req.params.id) });
+  })];
+  router.post('/introductions/:id/accept', ...answer((d, m, id, t) => decideIntroduction(d, m, id, true, t)));
+  router.post('/introductions/:id/decline', ...answer((d, m, id, t) => decideIntroduction(d, m, id, false, t)));
+  router.post('/introductions/:id/withdraw', ...answer((d, m, id, t) => withdrawIntroduction(d, m, id, t)));
+
+  // ---------- the founding-member list: no account, works while the community is closed ----------
+
+  router.post('/founding-members', wrap(async (req, res) => {
+    const out = await network.founding.add(req.body, { ip: req.ip });
+    res.status(201).json({ ...out, durable: network.founding.durable });
   }));
 
   // ---------- the feed ----------
@@ -377,6 +484,11 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
     if (err?.code === 'network_unavailable') return res.status(503).json({ error: err.message, code: 'network_unavailable' });
     return next(err);
   });
+
+  router.get('/admin/network/founding', admin, wrap(async (req, res) => {
+    const rows = await network.founding.list();
+    res.json({ durable: network.founding.durable, count: rows.length, results: rows });
+  }));
 
   return router;
 }

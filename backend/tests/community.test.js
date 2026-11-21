@@ -1,513 +1,386 @@
-import { describe, it, expect, afterEach } from 'vitest';
+// The community's member features (src/network): richer profiles, projects with "I'm interested", deterministic matching with reasons, introductions that need both people's consent, and the
+// founding-member list that works while the community itself is closed.
+import { describe, it, expect, afterEach, beforeEach } from 'vitest';
 import request from 'supertest';
-import { readFileSync } from 'node:fs';
-import { writeFile } from 'node:fs/promises';
+import { mkdtemp, rm, readFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { createApp, peopleShown } from '../src/app.js';
-import { createCommunityCatalog, buildCommunity, STARTER_LISTS } from '../src/catalog/community.js';
-import { checkSeed, personProblems, institutionProblems, listProblems, publicPerson, WHY_MAX } from '../src/models/community.js';
-import { fixture, tempDir, removeTempDirs } from './helpers/catalog.js';
+import { createApp } from '../src/app.js';
+import { createNetwork } from '../src/network/index.js';
+import { matchPair, recommendMembers, recommendProjects, MIN_SCORE } from '../src/network/matching.js';
+import { INTENTS, SKILLS, INTERESTS } from '../src/network/taxonomy.js';
+import { fixture, removeTempDirs } from './helpers/catalog.js';
 
-afterEach(removeTempDirs);
+const NOW = Date.parse('2026-11-21T02:00:00Z');
+const KEY = 'test-admin-key';
+const made = [];
+afterEach(async () => { await removeTempDirs(); while (made.length) await rm(made.pop(), { recursive: true, force: true }); });
+let saved;
+beforeEach(() => { saved = process.env.ADMIN_KEY; process.env.ADMIN_KEY = KEY; });
+afterEach(() => { if (saved === undefined) delete process.env.ADMIN_KEY; else process.env.ADMIN_KEY = saved; });
+const admin = { 'x-admin-key': KEY };
 
-const STARTER_IDS = STARTER_LISTS.map((l) => l.id);
-const SEED_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data', 'people_seed.json');
-
-const person = (over = {}) => ({
-  id: 'ada-example', name: 'Ada Example', type: 'person', roleType: 'founder', title: 'Co-founder', orgName: 'Example Co', orgType: 'company', city: 'Sydney',
-  whyFollow: 'Built a thing people use.', links: { website: 'https://ada.example', linkedin: null, x: null }, sources: [{ label: 'Example Co team page', url: 'https://example.example/team' }],
-  verifiedAt: '2026-10-01', vouches: [], ...over,
-});
-const institution = (over = {}) => ({
-  id: 'example-capital', name: 'Example Capital', type: 'institution', city: 'Melbourne', stageFocus: 'Seed', sectors: ['Software'], website: 'https://capital.example',
-  sources: [{ label: 'Their site', url: 'https://capital.example/about' }], verifiedAt: '2026-10-01', ...over,
-});
-const list = (over = {}) => ({ id: 'founders-to-follow', title: 'Founders to follow', description: 'Worth watching.', curator: null, type: 'people', itemIds: ['ada-example'], ...over });
-
-describe('what an entry must be', () => {
-  it('accepts a complete person, institution and list', () => {
-    expect(personProblems(person())).toEqual([]);
-    expect(institutionProblems(institution())).toEqual([]);
-    expect(listProblems(list())).toEqual([]);
-  });
-
-  it('refuses a person with a bad id, a missing name, the wrong type, or a role it does not know', () => {
-    const found = (over) => personProblems(person(over)).join('\n');
-    expect(found({ id: 'Ada Example' })).toMatch(/id must be/);
-    expect(found({ name: '  ' })).toMatch(/name is needed/);
-    expect(found({ type: 'company' })).toMatch(/type must be "person"/);
-    expect(found({ roleType: 'celebrity' })).toMatch(/roleType must be one of founder, operator, investor/);
-    expect(found({ orgType: 'charity' })).toMatch(/orgType/);
-  });
-
-  it(`holds "why follow" to ${WHY_MAX} characters`, () => {
-    expect(personProblems(person({ whyFollow: 'x'.repeat(WHY_MAX) }))).toEqual([]);
-    expect(personProblems(person({ whyFollow: 'x'.repeat(WHY_MAX + 1) })).join('\n')).toMatch(/140 characters or fewer/);
-  });
-
-  it('takes links only as web addresses, and only the three it knows', () => {
-    expect(personProblems(person({ links: { website: 'javascript:alert(1)' } })).join('\n')).toMatch(/links.website must be an http\(s\) address/);
-    expect(personProblems(person({ links: { linkedin: 'linkedin.com/in/ada' } })).join('\n')).toMatch(/links.linkedin must be an http\(s\) address/);
-    expect(personProblems(person({ links: { facebook: 'https://facebook.example' } })).join('\n')).toMatch(/links.facebook is not one of/);
-    expect(personProblems(person({ links: { website: null, linkedin: 'https://au.linkedin.com/in/ada', x: 'https://x.com/ada' } }))).toEqual([]);
-  });
-
-  it('shows a check only with a page behind it: a verification date needs a source', () => {
-    expect(personProblems(person({ sources: [] })).join('\n')).toMatch(/verifiedAt needs at least one source/);
-    expect(personProblems(person({ sources: [], verifiedAt: null }))).toEqual([]);
-    expect(personProblems(person({ verifiedAt: 'last week' })).join('\n')).toMatch(/verifiedAt must be a date/);
-    expect(personProblems(person({ sources: [{ label: '', url: 'https://x.example' }] })).join('\n')).toMatch(/needs a label/);
-    expect(personProblems(person({ sources: [{ label: 'x', url: 'ftp://x.example' }] })).join('\n')).toMatch(/needs an http\(s\) address/);
-  });
-
-  it('needs every vouch to say whether the person agreed to it', () => {
-    expect(personProblems(person({ vouches: [{ name: 'Sam', role: 'Investor', note: 'Great.', consented: true }] }))).toEqual([]);
-    expect(personProblems(person({ vouches: [{ name: 'Sam', note: 'Great.' }] })).join('\n')).toMatch(/consented must be true or false/);
-    expect(personProblems(person({ vouches: [{ name: '', consented: true }] })).join('\n')).toMatch(/needs a name/);
-  });
-
-  it('holds an institution and a list to their own rules', () => {
-    expect(institutionProblems(institution({ type: 'person' })).join('\n')).toMatch(/type must be "institution"/);
-    expect(institutionProblems(institution({ website: 'capital.example' })).join('\n')).toMatch(/website must be an http\(s\) address/);
-    expect(institutionProblems(institution({ sources: [], verifiedAt: '2026-10-01' })).join('\n')).toMatch(/needs at least one source/);
-    expect(listProblems(list({ type: 'robots' })).join('\n')).toMatch(/type must be one of people, institutions, companies/);
-    expect(listProblems(list({ itemIds: 'ada' })).join('\n')).toMatch(/itemIds must be a list/);
-    expect(listProblems(list({ title: '' })).join('\n')).toMatch(/title is needed/);
-  });
-});
-
-describe('what a visitor is shown of an entry', () => {
-  it('shows only the vouches that were agreed to, and none of the fields a card does not use', () => {
-    const shown = publicPerson(person({
-      email: 'ada@secret.example', ownerNote: 'do not publish',
-      vouches: [{ name: 'Yes', role: 'Investor', note: 'Backed them.', consented: true }, { name: 'No', role: 'Rival', note: 'Said no.', consented: false }],
-    }));
-    expect(shown.vouches).toEqual([{ name: 'Yes', role: 'Investor', note: 'Backed them.' }]);
-    expect(JSON.stringify(shown)).not.toMatch(/secret|do not publish|Said no|"consented"/);
-    expect(Object.keys(shown).sort()).toEqual(['city', 'id', 'links', 'name', 'orgName', 'orgType', 'roleType', 'sources', 'title', 'type', 'verifiedAt', 'vouches', 'whyFollow']);
-  });
-
-  it('drops a link that is not a web address and leaves out one that is empty', () => {
-    expect(publicPerson(person({ links: { website: 'https://ada.example', linkedin: null, x: 'not a link' } })).links).toEqual({ website: 'https://ada.example' });
-  });
-});
-
-describe('checking the seed', () => {
-  const seed = (over = {}) => ({ people: [person()], institutions: [institution()], lists: [list()], ...over });
-
-  it('keeps the entries that meet the rules and names each one that does not, repairing nothing', () => {
-    const checked = checkSeed(seed({ people: [person(), person({ id: 'bad', roleType: 'celebrity' })] }));
-    expect(checked.people.map((p) => p.id)).toEqual(['ada-example']);
-    expect(checked.problems.join('\n')).toMatch(/person "bad": roleType/);
-  });
-
-  it('serves a placeholder only outside production', () => {
-    const rows = seed({ people: [person(), person({ id: 'placeholder-founder', placeholder: true })] });
-    expect(checkSeed(rows, { production: false }).people.map((p) => p.id)).toEqual(['ada-example', 'placeholder-founder']);
-    expect(checkSeed(rows, { production: true }).people.map((p) => p.id)).toEqual(['ada-example']);
-    expect(checkSeed(rows).people.find((p) => p.id === 'placeholder-founder').placeholder).toBe(true);
-  });
-
-  it('keeps the first of two entries with one id, and says so', () => {
-    const checked = checkSeed(seed({ people: [person(), person({ name: 'Another Ada' })] }));
-    expect(checked.people.map((p) => p.name)).toEqual(['Ada Example']);
-    expect(checked.problems.join('\n')).toMatch(/used more than once/);
-  });
-
-  it('treats a seed that is not there, or is not what it should be, as empty', () => {
-    expect(checkSeed(undefined)).toMatchObject({ people: [], institutions: [], lists: [], problems: [] });
-    expect(checkSeed({ people: 'nobody', lists: {} })).toMatchObject({ people: [], lists: [] });
-  });
-});
-
-// The owner's reviewed seed (real people, and a "hold" list of those never to show) is kept out of the public repository: what is committed is
-// the file with three placeholders. On a computer that has the reviewed file the checks below run on it; on one that does not, they have nothing to
-// check and skip, and the committed file is checked by the last test of this block.
-const SHIPPED = JSON.parse(readFileSync(SEED_FILE, 'utf8'));
-const hasOwnersSeed = Array.isArray(SHIPPED.hold) && SHIPPED.people.some((p) => !p.placeholder);
-
-describe.skipIf(!hasOwnersSeed)('the seed file that ships', () => {
-  const shipped = SHIPPED;
-  // The names in "hold", one by one: an entry there reads "Name (Org)", or several names with commas, or ends in "others".
-  const heldNames = (shipped.hold ?? []).flatMap((h) => h.name.split(',')).map((n) => n.replace(/\(.*?\)/g, '').trim()).filter((n) => n && !/^others$/i.test(n));
-
-  it('meets every rule, so a slip in an edit fails here and not on the live site', () => {
-    const checked = checkSeed(shipped, { production: true });
-    expect(checked.problems).toEqual([]);
-    expect(checked.people.length).toBe(shipped.people.length);
-  });
-
-  it('is the owner\'s reviewed file: people only, each with a source and a date, and none marked as a placeholder', () => {
-    expect(shipped._readme).toMatch(/NOT approved for publishing/);
-    expect(shipped.people.length).toBeGreaterThan(0);
-    expect(shipped.people.every((p) => p.type === 'person' && p.sources.length > 0 && /^\d{4}-\d{2}-\d{2}$/.test(p.verifiedAt))).toBe(true);
-    expect(shipped.people.some((p) => p.placeholder === true || /PLACEHOLDER/.test(p.name))).toBe(false);
-    expect(new Set(shipped.people.map((p) => p.roleType))).toEqual(new Set(['founder', 'operator', 'investor']));
-    expect(shipped.institutions).toBeUndefined(); // the firms come from institutions_seed.json and from the investor directory
-  });
-
-  it('never serves an entry that is on hold: not one of the held names is among the people, whatever the confidence', () => {
-    expect(shipped.hold.length).toBeGreaterThan(0);
-    expect(heldNames.length).toBeGreaterThan(3);
-    const people = buildCommunity({ seed: shipped, production: true }).people.map((p) => p.name.toLowerCase());
-    for (const name of heldNames) expect(people, name).not.toContain(name.toLowerCase());
-    expect(JSON.stringify(buildCommunity({ seed: shipped, production: true }))).not.toMatch(/Vullinghs|"hold"|"gaps"|"issue"/);
-  });
-
-  it('serves every person in it in production (the placeholders are gone), with the pages behind them', () => {
-    const community = buildCommunity({ seed: shipped, production: true });
-    expect(community.people).toHaveLength(shipped.people.length);
-    expect(community.people.every((p) => p.sources.length > 0 && !p.placeholder)).toBe(true);
-    expect(community.counts).toMatchObject({ founders: 12, operators: 7, investors: 9, institutions: 0 });
-  });
-
-  it('has the four starter lists the owner named, made from the people in it, in the order they were typed', () => {
-    const community = buildCommunity({ seed: shipped, production: true });
-    // no firm is in the file, so "Investors (firms)" has no one to show
-    expect(community.lists.map((l) => l.title)).toEqual(['Founders to follow', 'Operators to learn from', 'Investors (people)']);
-    const founders = community.lists.find((l) => l.id === 'founders-to-follow');
-    expect(founders.itemIds).toEqual(shipped.people.filter((p) => p.roleType === 'founder').map((p) => p.id));
-    expect(founders).toMatchObject({ type: 'people', curator: 'Still Early' });
-  });
-});
-
-describe('the seed file as committed', () => {
-  it.skipIf(hasOwnersSeed)('is valid, and serves nobody in production: its entries are placeholders', () => {
-    expect(checkSeed(SHIPPED).problems).toEqual([]);
-    expect(SHIPPED.people.length).toBeGreaterThan(0);
-    expect(SHIPPED.people.every((p) => p.placeholder === true)).toBe(true);
-    expect(buildCommunity({ seed: SHIPPED, production: true }).people).toEqual([]);
-  });
-});
-
-describe('the four starter lists', () => {
-  it('gather the people by role and the firms, each in the order typed, and show a firm list only with a firm in it', () => {
-    const seed = { people: [person({ id: 'z-founder', name: 'Zed' }), person({ id: 'a-founder', name: 'Abe' }), person({ id: 'op', name: 'Ola', roleType: 'operator' }), person({ id: 'inv', name: 'Ivy', roleType: 'investor' })] };
-    const c = buildCommunity({ seed, production: true });
-    expect(c.lists.map((l) => [l.id, l.itemIds])).toEqual([['founders-to-follow', ['z-founder', 'a-founder']], ['operators-to-learn-from', ['op']], ['investors-people', ['inv']]]);
-    const withFirms = buildCommunity({ seed, investors: investors(), production: true });
-    expect(withFirms.lists.at(-1)).toMatchObject({ id: 'investors-firms', type: 'institutions', title: 'Investors (firms)', itemIds: ['investor-blackbird', 'investor-skip'] });
-  });
-
-  it('give way to a list of the same id in the seed file, which keeps its own members', () => {
-    const seed = { people: [person(), person({ id: 'bea', name: 'Bea' })], lists: [list({ itemIds: ['bea'] })] };
-    const c = buildCommunity({ seed, production: true });
-    expect(c.lists.filter((l) => l.id === 'founders-to-follow')).toHaveLength(1);
-    expect(c.lists.find((l) => l.id === 'founders-to-follow').itemIds).toEqual(['bea']);
-  });
-
-  it('show nobody who is a placeholder in production, and no list when no one is on it', () => {
-    const seed = { people: [person({ id: 'placeholder-founder', name: 'PLACEHOLDER', placeholder: true })] };
-    expect(buildCommunity({ seed, production: true }).lists).toEqual([]);
-    expect(buildCommunity({ seed: {}, production: true }).lists).toEqual([]);
-  });
-});
-
-describe('the firms of institutions_seed.json', () => {
-  const firms = { institutions: [
-    { id: 'example-vc', name: 'Example VC', website: 'https://vc.example', offices: [{ label: 'Sydney', address: 'Level 2, 12 Example Street, Sydney NSW 2000', city: 'Sydney', state: 'NSW' }] },
-    { id: 'no-office', name: 'No Office Capital', website: 'https://nooffice.example', offices: [] },
-    { id: 'held-vc', name: 'Held VC', placeholder: true, offices: [] },
-  ], hold: [{ name: 'Another Held VC', issue: 'unresolved' }] };
-
-  it('are listed under Institutions: the one with offices and the one with none (which has no pin), and not the ones on hold', () => {
-    const c = buildCommunity({ seed: {}, institutionSeed: firms, production: true });
-    expect(c.institutions.map((i) => i.name)).toEqual(['Example VC', 'No Office Capital']);
-    expect(c.institutions[0]).toMatchObject({ id: 'example-vc', city: 'Sydney', website: 'https://vc.example', sources: [], verifiedAt: null });
-    expect(c.institutions[1].city).toBeNull();
-    expect(JSON.stringify(c)).not.toMatch(/Held VC|Another Held/);
-    expect(c.institutionPins.pins).toEqual([]); // nothing is drawn until an address has been geocoded
-  });
-
-  it('are on "Investors (firms)", and a firm already published in the investor directory stays as that (with its pages) and is not listed twice', () => {
-    const c = buildCommunity({ seed: {}, institutionSeed: { institutions: [...firms.institutions, { id: 'bb', name: 'blackbird ', offices: [] }] }, investors: investors(), production: true });
-    expect(c.institutions.map((i) => i.id).sort()).toEqual(['example-vc', 'investor-blackbird', 'investor-skip', 'no-office']);
-    expect(c.institutions.find((i) => i.id === 'investor-blackbird').href).toBe('/investors/blackbird');
-    expect(c.lists.find((l) => l.id === 'investors-firms').itemIds).toHaveLength(4);
-    expect(c.counts.institutions).toBe(4);
-  });
-});
-
-describe('the switch that keeps the people off the live site (SHOW_PEOPLE)', () => {
-  const over = async (showPeople) => {
-    // a seed full of invented people: 12 founders, 7 operators and 9 investors, the shape of the owner's file
-    const shipped = { people: [...many(12), ...many(7, 'operator'), ...many(9, 'investor')] };
-    const f = await fixture(5);
-    const dir = await tempDir();
-    const file = path.join(dir, 'people_seed.json');
-    await writeFile(file, JSON.stringify(shipped));
-    const investorCatalog = { snapshot: async () => investors() };
-    const communityCatalog = createCommunityCatalog({ file, investorCatalog, production: true, reloadMs: 0 });
-    return { app: createApp({ catalog: f.catalog, investorCatalog, communityCatalog, showPeople }), rows: f.rows };
-  };
-
-  it('is off unless the machine says so: "not found" for the people, the firms, their pins and the lists, with the seed full of people', async () => {
-    const { app } = await over(false);
-    for (const url of ['/api/people', '/api/people?role=founder', '/api/institutions', '/api/institutions/pins', '/api/lists', '/api/lists/founders-to-follow']) {
-      const res = await request(app).get(url);
-      expect(res.status, url).toBe(404);
-      expect(res.body).toEqual({ error: 'Not found' });
-      expect(JSON.stringify(res.body)).not.toMatch(/Perkins|Canva|Blackbird/);
-    }
-  });
-
-  it('is off by default: nothing in the environment, nothing served', () => {
-    expect(peopleShown({})).toBe(false);
-    expect(peopleShown({ SHOW_PEOPLE: '' })).toBe(false);
-    expect(peopleShown({ SHOW_PEOPLE: '0' })).toBe(false);
-    expect(peopleShown({ SHOW_PEOPLE: 'no' })).toBe(false);
-    for (const on of ['1', 'true', 'TRUE', ' yes ', 'on']) expect(peopleShown({ SHOW_PEOPLE: on }), on).toBe(true);
-  });
-
-  it('serves everything once it is on', async () => {
-    const { app } = await over(true);
-    const res = await request(app).get('/api/people?role=founder');
-    expect(res.status).toBe(200);
-    expect(res.body.total).toBe(12);
-    expect((await request(app).get('/api/lists')).body.results.map((l) => l.id)).toEqual(['founders-to-follow', 'operators-to-learn-from', 'investors-people', 'investors-firms']);
-  });
-
-  it('leaves the companies, and a founder\'s own page, as they are with it off: only the new people pages are held back', async () => {
-    const { app, rows } = await over(false);
-    expect((await request(app).get('/api/startups?limit=1&view=card')).status).toBe(200);
-    const founder = rows.find((r) => r.founders?.length)?.founders[0];
-    expect((await request(app).get(`/api/people/${encodeURIComponent(founder)}`)).status).toBe(200);
-    expect((await request(app).get('/api/health')).status).toBe(200);
-  });
-});
-
-// A stand-in for the investor directory: two published firms and one published person, each with the pages behind them.
-const investors = () => ({
-  version: 'inv1',
-  cards: [
-    { slug: 'blackbird', name: 'Blackbird', website: 'https://blackbird.example', stages: ['Seed', 'Series A'], sectors: ['Software'], location: { city: 'Sydney', label: 'Sydney, NSW' }, verified_at: '2026-10-08T01:00:00.000Z' },
-    { slug: 'skip', name: 'Skip Capital', website: null, stages: [], sectors: [], location: { city: null }, verified_at: null },
-  ],
-  profiles: new Map([['blackbird', { sources: [{ title: 'Blackbird: portfolio', url: 'https://blackbird.example/portfolio' }] }], ['skip', { sources: [] }]]),
-  personProfiles: new Map([['sam-rivera', { name: 'Sam Rivera', current_title: 'Partner', organisation: { name: 'Blackbird' }, location: 'Sydney', personal_website: null, linkedin_url: null,
-    sources: [{ title: 'Blackbird: team', url: 'https://blackbird.example/team' }], last_verified_at: '2026-10-08T01:00:00.000Z' }]]),
-});
-
-describe('joined to the investor directory', () => {
-  it('shows each published investor as an institution, and each published investor person as a person, with their pages', () => {
-    const c = buildCommunity({ seed: { people: [], institutions: [], lists: [] }, investors: investors() });
-    expect(c.institutions.map((i) => i.id)).toEqual(['investor-blackbird', 'investor-skip']);
-    expect(c.institutions[0]).toMatchObject({ name: 'Blackbird', city: 'Sydney', stageFocus: 'Seed, Series A', href: '/investors/blackbird', verifiedAt: '2026-10-08T01:00:00.000Z', sources: [{ label: 'Blackbird: portfolio', url: 'https://blackbird.example/portfolio' }] });
-    expect(c.people).toHaveLength(1);
-    expect(c.people[0]).toMatchObject({ id: 'investor-person-sam-rivera', roleType: 'investor', title: 'Partner', orgName: 'Blackbird', orgType: 'firm', href: '/investors/people/sam-rivera', whyFollow: null });
-    expect(c.counts).toEqual({ founders: 0, operators: 0, investors: 1, institutions: 2 });
-  });
-
-  it('says nothing was verified for an investor that has no page behind it, and leaves out what it does not know', () => {
-    const skip = buildCommunity({ seed: {}, investors: investors() }).institutions.find((i) => i.id === 'investor-skip');
-    expect(skip).toMatchObject({ verifiedAt: null, city: null, stageFocus: null, website: null, sectors: [], sources: [] });
-  });
-
-  it('lists a firm once: an entry in the seed with the same name wins', () => {
-    const seed = { institutions: [institution({ id: 'blackbird-seed', name: 'blackbird  ' })] };
-    const c = buildCommunity({ seed, investors: investors() });
-    expect(c.institutions.map((i) => i.id).sort()).toEqual(['blackbird-seed', 'investor-skip']);
-  });
-
-  it('keeps a list to the entries it can name, in the list\'s own order, and says what it could not', () => {
-    const seed = { institutions: [], lists: [list({ id: 'firms', type: 'institutions', itemIds: ['investor-skip', 'investor-nobody', 'investor-blackbird'] }), list({ id: 'empty', type: 'people', itemIds: ['ghost'] })] };
-    const c = buildCommunity({ seed, investors: investors() });
-    // (the starter lists made from the directory are also there: see the starter lists below)
-    expect(c.lists.filter((l) => !STARTER_IDS.includes(l.id)).map((l) => [l.id, l.itemIds])).toEqual([['firms', ['investor-skip', 'investor-blackbird']]]);
-    expect(c.problems.join('\n')).toMatch(/list "firms" names "investor-nobody"/);
-  });
-});
-
-// The API, over a temporary seed.
-async function appOver(seed, { production = false, n = 20 } = {}) {
-  const f = await fixture(n);
-  const dir = await tempDir();
-  const file = path.join(dir, 'people_seed.json');
-  await writeFile(file, JSON.stringify(typeof seed === 'function' ? seed(f.rows) : seed));
-  const investorCatalog = { snapshot: async () => investors() };
-  const communityCatalog = createCommunityCatalog({ file, investorCatalog, production, reloadMs: 0 });
-  const app = createApp({ catalog: f.catalog, investorCatalog, communityCatalog, showPeople: true });
-  return { app, rows: f.rows, file, communityCatalog };
+async function setup({ env, dir, clock = { now: NOW } } = {}) {
+  const f = await fixture(3);
+  const foundingDir = await mkdtemp(path.join(os.tmpdir(), 'au-founding-'));
+  made.push(foundingDir);
+  const network = createNetwork({ memory: !env && !dir, dir, now: () => clock.now, env, foundingDir, curatedEvents: [], curatedJobsRows: [], limits: { signups: 1000, logins: 50 } });
+  return { app: createApp({ catalog: f.catalog, network }), network, foundingDir, clock };
 }
-const many = (n, role = 'founder') => Array.from({ length: n }, (_, i) => person({ id: `person-${role}-${String(i).padStart(2, '0')}`, name: `Person ${role} ${String(i).padStart(2, '0')}`, roleType: role }));
 
-describe('GET /api/people', () => {
-  it('gives 20 at a time with where the next page starts, and how many there are in every tab', async () => {
-    const { app } = await appOver({ people: [...many(45), ...many(3, 'operator')] });
-    const first = await request(app).get('/api/people?role=founder');
-    expect(first.status).toBe(200);
-    expect(first.body).toMatchObject({ counts: { founders: 45, operators: 3, investors: 1, institutions: 2 }, total: 45, count: 45, offset: 0, limit: 20, hasMore: true, nextOffset: 20 });
-    expect(first.body.results).toHaveLength(20);
-    const seen = [];
-    let offset = 0;
-    for (;;) {
-      const res = await request(app).get(`/api/people?role=founder&offset=${offset}`);
-      seen.push(...res.body.results.map((p) => p.id));
-      if (res.body.nextOffset === null) break;
-      offset = res.body.nextOffset;
+let counter = 0;
+async function member(app, name = 'Ada Example', over = {}) {
+  counter += 1;
+  const res = await request(app).post('/api/auth/signup').send({ name, email: `person${counter}@example.com`, password: 'a-long-enough-password', listed: true, ...over });
+  expect(res.status, JSON.stringify(res.body)).toBe(201);
+  const email = `person${counter}@example.com`;
+  return { token: res.body.token, id: res.body.member.id, email, auth: { Authorization: `Bearer ${res.body.token}` } };
+}
+// A new session for a member whose first one has run out (they last thirty days).
+const relogin = async (app, who) => { const r = await request(app).post('/api/auth/signin').send({ email: who.email, password: 'a-long-enough-password' }); who.auth = { Authorization: `Bearer ${r.body.token}` }; };
+const profile = (app, who, body) => request(app).patch('/api/account').set(who.auth).send(body);
+const project = (over = {}) => ({
+  name: 'Open tide data', summary: 'A shared dataset of coastal conditions for Australian marine startups to build on.', problem: 'Marine founders each rebuild the same data pipeline.',
+  stage: 'prototype', skills_needed: ['engineering', 'data'], collaboration: ['contributor'], interests: ['Climate & Energy'], city: 'Melbourne', remote: true, ...over,
+});
+
+describe('what a member can say about themselves', () => {
+  it('keeps skills, interests, what they are looking for, previous projects, links and a private contact, all from closed lists', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    const res = await profile(app, ada, {
+      city: 'Melbourne', remote: true, skills: ['engineering', 'design'], interests: ['Fintech'], looking_for: ['cofounder', 'feedback'],
+      past: [{ title: 'Ledgerly', url: 'https://example.org/ledgerly', note: 'Built the first version' }], contact: 'ada@example.org',
+      links: { website: 'https://ada.example.org', professional_profile: 'https://www.linkedin.com/in/ada', github: 'https://github.com/ada', portfolio: 'https://ada.example.org/work' },
+    });
+    expect(res.status, JSON.stringify(res.body)).toBe(200);
+    expect(res.body.member).toMatchObject({ skills: ['engineering', 'design'], interests: ['Fintech'], looking_for: ['cofounder', 'feedback'], remote: true, contact: 'ada@example.org' });
+    expect(res.body.member.links).toMatchObject({ github: 'https://github.com/ada', portfolio: 'https://ada.example.org/work' });
+    // what anyone sees: all of it but the contact and the email
+    const pub = await request(app).get(`/api/members/${ada.id}`);
+    expect(pub.body.member).toMatchObject({ skills: ['engineering', 'design'], looking_for: ['cofounder', 'feedback'], past: [{ title: 'Ledgerly' }] });
+    expect(JSON.stringify(pub.body)).not.toMatch(/ada@example\.org|person\d+@example\.com/);
+  });
+
+  it('refuses what is not on the lists, too many of them, and a contact that is neither an email nor an https link', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    for (const body of [{ skills: ['wizardry'] }, { interests: ['Underwater basket weaving'] }, { looking_for: ['get rich'] }, { skills: SKILLS.map((s) => s.id).slice(0, 9) }, { looking_for: INTENTS.map((i) => i.id).slice(0, 5) },
+      { contact: 'call me maybe' }, { contact: 'http://insecure.example.org' }, { remote: 'yes' }, { past: Array.from({ length: 6 }, (_, i) => ({ title: `P${i}` })) }]) {
+      const res = await profile(app, ada, body);
+      expect(res.status, JSON.stringify(body)).toBe(400);
     }
-    expect(seen).toHaveLength(45);
-    expect(new Set(seen).size).toBe(45);
+    expect((await profile(app, ada, { contact: 'https://example.org/ada' })).status).toBe(200);
   });
 
-  it('narrows to a role and by a word, and refuses a role it does not know', async () => {
-    const { app } = await appOver({ people: [person(), person({ id: 'op-one', name: 'Olive Operator', roleType: 'operator', title: 'COO', orgName: 'Widgets', city: 'Perth' })] });
-    expect((await request(app).get('/api/people?role=operator')).body.results.map((p) => p.id)).toEqual(['op-one']);
-    expect((await request(app).get('/api/people?role=founder&search=ada')).body).toMatchObject({ total: 1, count: 1 });
-    expect((await request(app).get('/api/people?role=founder&search=perth')).body).toMatchObject({ total: 1, count: 0, results: [] });
-    expect((await request(app).get('/api/people?search=widgets')).body.results.map((p) => p.id)).toEqual(['op-one']);
-    const bad = await request(app).get('/api/people?role=celebrity');
-    expect(bad.status).toBe(400);
-    expect(bad.body.error).toMatch(/role must be one of/);
-  });
-
-  it('shows only the vouches that were agreed to, and none of what is not the card\'s', async () => {
-    const { app } = await appOver({ people: [person({
-      email: 'ada@secret.example', vouches: [{ name: 'Yes', role: 'Investor', note: 'Backed them.', consented: true }, { name: 'No', note: 'Said no.', consented: false }],
-    })] });
-    const body = (await request(app).get('/api/people?role=founder')).body;
-    expect(body.results[0].vouches).toEqual([{ name: 'Yes', role: 'Investor', note: 'Backed them.' }]);
-    expect(JSON.stringify(body)).not.toMatch(/secret|Said no/);
-  });
-
-  it('serves no placeholder in production, and serves one anywhere else with its mark', async () => {
-    const seed = { people: [person({ id: 'placeholder-founder', name: 'PLACEHOLDER Founder', placeholder: true })], lists: [list({ itemIds: ['placeholder-founder'] })] };
-    const live = await appOver(seed, { production: true });
-    expect((await request(live.app).get('/api/people?role=founder')).body).toMatchObject({ results: [], counts: { founders: 0 } });
-    // no list names the placeholder (the lists left are the ones made from the investor directory)
-    expect((await request(live.app).get('/api/lists')).body.results.map((l) => l.id)).toEqual(['investors-people', 'investors-firms']);
-    expect((await request(live.app).get('/api/lists/investors-people')).body.results.map((p) => p.id)).toEqual(['investor-person-sam-rivera']);
-    const dev = await appOver(seed, { production: false });
-    expect((await request(dev.app).get('/api/people?role=founder')).body.results).toMatchObject([{ id: 'placeholder-founder', placeholder: true }]);
-  });
-
-  it('is empty, not broken, with no seed file and no investors to show', async () => {
-    const f = await fixture(5);
-    const dir = await tempDir();
-    const communityCatalog = createCommunityCatalog({ file: path.join(dir, 'missing.json'), production: true, reloadMs: 0 });
-    const app = createApp({ catalog: f.catalog, investorCatalog: { snapshot: async () => ({ version: 'x', cards: [], profiles: new Map(), personProfiles: new Map() }) }, communityCatalog, showPeople: true });
-    expect((await request(app).get('/api/people')).body).toMatchObject({ total: 0, count: 0, results: [], counts: { founders: 0, operators: 0, investors: 0, institutions: 0 } });
-    expect((await request(app).get('/api/lists')).body).toEqual({ results: [] });
-  });
-
-  it('does not take the place of GET /api/people/:name, which is a founder\'s companies', async () => {
-    const { app, rows } = await appOver({ people: many(2) });
-    const founder = rows.find((r) => r.founders?.length)?.founders[0];
-    const res = await request(app).get(`/api/people/${encodeURIComponent(founder)}`);
-    expect(res.status).toBe(200);
-    expect(res.body).toMatchObject({ name: founder, companies: expect.any(Array) });
+  it('serves the lists a page picks from, with the status', async () => {
+    const { app } = await setup();
+    const res = await request(app).get('/api/network/status');
+    expect(res.body.taxonomy.intents.map((i) => i.id)).toEqual(['build-with', 'cofounder', 'contribute', 'job', 'meet', 'feedback', 'talent', 'explore']);
+    expect(res.body.taxonomy.skills).toHaveLength(SKILLS.length);
+    expect(res.body.taxonomy.interests).toEqual(INTERESTS);
+    expect(INTERESTS).toHaveLength(12);
+    expect(res.body.founding).toEqual({ open: true, durable: false });
   });
 });
 
-describe('GET /api/institutions', () => {
-  it('lists the firms the owner added and the investors published in the Command Center, once each, by name', async () => {
-    const { app } = await appOver({ institutions: [institution()] });
-    const body = (await request(app).get('/api/institutions')).body;
-    expect(body.results.map((i) => i.name)).toEqual(['Blackbird', 'Example Capital', 'Skip Capital']);
-    expect(body).toMatchObject({ total: 3, count: 3, limit: 20, hasMore: false, nextOffset: null });
-    expect(body.results.find((i) => i.name === 'Blackbird').href).toBe('/investors/blackbird');
-    expect((await request(app).get('/api/institutions?search=melbourne')).body.results.map((i) => i.name)).toEqual(['Example Capital']);
-  });
-});
-
-describe('curated lists', () => {
-  const seed = () => ({
-    people: [person(), person({ id: 'bea', name: 'Bea Builder' })],
-    lists: [
-      list({ itemIds: ['bea', 'ada-example'] }),
-      list({ id: 'firms', title: 'Firms', type: 'institutions', itemIds: ['investor-skip', 'investor-blackbird'] }),
-      list({ id: 'companies-pick', title: 'Companies', type: 'companies', itemIds: ['no-such-company'] }),
-      list({ id: 'nobody', title: 'Nobody', type: 'people', itemIds: [] }),
-    ],
+describe('projects and "I\'m interested"', () => {
+  it('shares a project with what it is, the problem, its stage, skills, kind of help and place; newest first; filtered', async () => {
+    const { app, clock } = await setup();
+    const ada = await member(app);
+    const first = await request(app).post('/api/projects').set(ada.auth).send(project());
+    expect(first.status, JSON.stringify(first.body)).toBe(201);
+    expect(first.body.project).toMatchObject({ name: 'Open tide data', stage: 'prototype', skills_needed: ['engineering', 'data'], collaboration: ['contributor'], city: 'Melbourne', remote: true, open: true, mine: true, interested_count: 0, owner: { name: 'Ada Example' } });
+    clock.now += 60000;
+    await request(app).post('/api/projects').set(ada.auth).send(project({ name: 'Studio finder', summary: 'A directory of shared studio space for makers in Sydney.', stage: 'idea', skills_needed: ['design'], collaboration: ['cofounder'], city: 'Sydney', remote: false, interests: [] }));
+    const list = await request(app).get('/api/projects');
+    expect(list.body.results.map((p) => p.name)).toEqual(['Studio finder', 'Open tide data']);
+    expect((await request(app).get('/api/projects?stage=idea')).body.results.map((p) => p.name)).toEqual(['Studio finder']);
+    expect((await request(app).get('/api/projects?skill=data')).body.results.map((p) => p.name)).toEqual(['Open tide data']);
+    expect((await request(app).get('/api/projects?collaboration=cofounder&city=Sydney')).body.results).toHaveLength(1);
+    expect((await request(app).get('/api/projects?remote=yes')).body.results.map((p) => p.name)).toEqual(['Open tide data']);
+    expect((await request(app).get('/api/projects?search=studio')).body.results).toHaveLength(1);
   });
 
-  it('shows the lists that have someone on them, with how many', async () => {
-    const { app } = await appOver(seed());
-    expect((await request(app).get('/api/lists')).body.results).toEqual([
-      { id: 'founders-to-follow', title: 'Founders to follow', description: 'Worth watching.', curator: null, type: 'people', count: 2 },
-      { id: 'firms', title: 'Firms', description: 'Worth watching.', curator: null, type: 'institutions', count: 2 },
-      // the starter lists made from the investor directory (no operator is listed, so no list of operators)
-      { id: 'investors-people', title: 'Investors (people)', description: expect.any(String), curator: 'Still Early', type: 'people', count: 1 },
-      { id: 'investors-firms', title: 'Investors (firms)', description: expect.any(String), curator: 'Still Early', type: 'institutions', count: 2 },
-    ]); // the list of companies names one the directory does not have, and the last has no one
-  });
-
-  it('gives a list in its own order, a page at a time', async () => {
-    const { app } = await appOver(seed());
-    const res = await request(app).get('/api/lists/founders-to-follow');
-    expect(res.body.list).toMatchObject({ id: 'founders-to-follow', title: 'Founders to follow', type: 'people', count: 2 });
-    expect(res.body.results.map((p) => p.id)).toEqual(['bea', 'ada-example']);
-    expect((await request(app).get('/api/lists/firms?limit=1')).body).toMatchObject({ hasMore: true, nextOffset: 1, results: [{ id: 'investor-skip' }] });
-  });
-
-  it('resolves a list of companies against the directory, in the order of the list, and leaves out one that is not there', async () => {
-    const { app, rows } = await appOver((companies) => ({ lists: [list({ id: 'picks', title: 'Picks', type: 'companies', itemIds: [companies[2].slug, 'ghost', companies[0].slug] })] }));
-    expect((await request(app).get('/api/lists')).body.results.filter((l) => !STARTER_IDS.includes(l.id))).toEqual([{ id: 'picks', title: 'Picks', description: 'Worth watching.', curator: null, type: 'companies', count: 2 }]);
-    const res = await request(app).get('/api/lists/picks');
-    expect(res.body.results.map((c) => c.name)).toEqual([rows[2].name, rows[0].name]);
-    expect(res.body.results[0]).toHaveProperty('slug', rows[2].slug); // a card, as the company list shows it
-    expect(res.body.list).toMatchObject({ type: 'companies', count: 2 });
-  });
-
-  it('does not show a list of companies that names none the directory has', async () => {
-    const { app } = await appOver({ lists: [list({ id: 'picks', title: 'Picks', type: 'companies', itemIds: ['ghost'] })] });
-    expect((await request(app).get('/api/lists')).body.results.filter((l) => !STARTER_IDS.includes(l.id))).toEqual([]);
-    expect((await request(app).get('/api/lists/picks')).status).toBe(404);
-  });
-
-  it('opens the people or institutions of a list through the same questions as the tabs, and refuses a list of the other kind', async () => {
-    const { app } = await appOver(seed());
-    expect((await request(app).get('/api/people?list=founders-to-follow')).body.results.map((p) => p.id)).toEqual(['bea', 'ada-example']);
-    expect((await request(app).get('/api/institutions?list=firms')).body.results.map((i) => i.id)).toEqual(['investor-skip', 'investor-blackbird']);
-    expect((await request(app).get('/api/people?list=firms')).status).toBe(400);
-    expect((await request(app).get('/api/people?list=nope')).status).toBe(404);
-    expect((await request(app).get('/api/lists/nope')).status).toBe(404);
-    expect((await request(app).get('/api/lists/nobody')).status).toBe(404); // a list with no one is not a list
-  });
-
-  it('does not mix the answer for a list with the answer for the tab: the two are different questions', async () => {
-    const { app } = await appOver(seed());
-    const tab = await request(app).get('/api/people?role=founder');
-    const onList = await request(app).get('/api/people?role=founder&list=founders-to-follow');
-    expect(tab.body.results.map((p) => p.id)).toEqual(['ada-example', 'bea']); // by name
-    expect(onList.body.results.map((p) => p.id)).toEqual(['bea', 'ada-example']); // by the list
-  });
-});
-
-describe('a bad entry in the file', () => {
-  it('leaves out the entry that does not meet the rules and serves the rest', async () => {
-    const { app, communityCatalog } = await appOver({ people: [person(), person({ id: 'bad one', name: 'Bad' }), person({ id: 'long', whyFollow: 'x'.repeat(200) })] });
-    expect((await request(app).get('/api/people?role=founder')).body.results.map((p) => p.id)).toEqual(['ada-example']);
-    const snap = await communityCatalog.snapshot();
-    expect(snap.problems.join('\n')).toMatch(/person "bad one"/);
-    expect(snap.problems.join('\n')).toMatch(/person "long": whyFollow/);
-  });
-
-  it('serves the rest, and says so in its problems, when the file is not JSON', async () => {
-    const { app, file, communityCatalog } = await appOver({ people: [person()] });
-    await writeFile(file, '{ not json');
-    await communityCatalog.refresh();
-    expect((await request(app).get('/api/people')).body.results.filter((p) => p.roleType !== 'investor')).toEqual([]);
-    expect((await communityCatalog.snapshot()).problems.join('\n')).toMatch(/could not be read/);
-  });
-});
-
-describe('what a page of the answer asks of the question', () => {
-  it('refuses a page size of 0 or over 100, and an offset that is not a whole number', async () => {
-    const { app } = await appOver({ people: many(3) });
-    for (const q of ['limit=0', 'limit=101', 'offset=-1', 'offset=1.5']) {
-      const res = await request(app).get(`/api/people?${q}`);
-      expect(res.status, q).toBe(400);
+  it('refuses a project with no place, no kind of help, a bad stage or a skill off the list, and a sixth open one', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    for (const body of [project({ city: '', remote: false }), project({ collaboration: [] }), project({ stage: 'unicorn' }), project({ skills_needed: ['wizardry'] }), project({ summary: 'too short' }), project({ name: 'ab' })]) {
+      expect((await request(app).post('/api/projects').set(ada.auth).send(body)).status, JSON.stringify(body).slice(0, 60)).toBe(400);
     }
-    expect((await request(app).get('/api/people?limit=100')).status).toBe(200);
+    for (let i = 0; i < 5; i += 1) expect((await request(app).post('/api/projects').set(ada.auth).send(project({ name: `Project ${i + 1} name` }))).status).toBe(201);
+    const sixth = await request(app).post('/api/projects').set(ada.auth).send(project({ name: 'Project six' }));
+    expect(sixth.status).toBe(400);
+    expect(sixth.body.error).toMatch(/5 open projects/);
+    expect((await request(app).post('/api/projects').send(project())).status).toBe(401);
   });
 
-  it('is answered once per question: the role and the list are part of the question', async () => {
-    const { app } = await appOver({ people: [person(), person({ id: 'op', name: 'Op', roleType: 'operator' })] });
-    const a = await request(app).get('/api/people?role=founder');
-    const b = await request(app).get('/api/people?role=operator');
-    expect(a.body.results.map((p) => p.id)).toEqual(['ada-example']);
-    expect(b.body.results.map((p) => p.id)).toEqual(['op']);
+  it('records interest once per member, never on your own project, tells only the owner who, and shares no contact', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    const bo = await member(app, 'Bo Example');
+    const cy = await member(app, 'Cy Example');
+    await profile(app, bo, { contact: 'bo@example.org', city: 'Melbourne' });
+    const created = await request(app).post('/api/projects').set(ada.auth).send(project());
+    const id = created.body.project.id;
+    expect((await request(app).put(`/api/projects/${id}/interest`).set(ada.auth)).status).toBe(400); // your own
+    const on = await request(app).put(`/api/projects/${id}/interest`).set(bo.auth);
+    expect(on.body).toEqual({ interested: true, interested_count: 1 });
+    expect((await request(app).put(`/api/projects/${id}/interest`).set(bo.auth)).body.interested_count).toBe(1); // once
+    await request(app).put(`/api/projects/${id}/interest`).set(cy.auth);
+    const seenByBo = await request(app).get(`/api/projects/${id}`).set(bo.auth);
+    expect(seenByBo.body.project).toMatchObject({ interested: true, interested_count: 2, mine: false });
+    expect((await request(app).get(`/api/projects/${id}/interested`).set(bo.auth)).status).toBe(403);
+    const who = await request(app).get(`/api/projects/${id}/interested`).set(ada.auth);
+    expect(who.body.results.map((r) => r.member.name).sort()).toEqual(['Bo Example', 'Cy Example']);
+    expect(JSON.stringify(who.body)).not.toMatch(/bo@example\.org|person\d+@example\.com|"contact"/);
+    expect((await request(app).delete(`/api/projects/${id}/interest`).set(bo.auth)).body).toEqual({ interested: false, interested_count: 1 });
+    expect((await request(app).put(`/api/projects/${id}/interest`)).status).toBe(401);
+  });
+
+  it('lets only its owner edit, close or delete it; a closed project takes no interest; a deleted one is gone', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    const bo = await member(app, 'Bo Example');
+    const id = (await request(app).post('/api/projects').set(ada.auth).send(project())).body.project.id;
+    expect((await request(app).patch(`/api/projects/${id}`).set(bo.auth).send({ name: 'Mine now' })).status).toBe(403);
+    expect((await request(app).patch(`/api/projects/${id}`).set(ada.auth).send({ stage: 'building' })).body.project.stage).toBe('building');
+    expect((await request(app).patch(`/api/projects/${id}`).set(ada.auth).send({ open: false })).body.project.open).toBe(false);
+    expect((await request(app).put(`/api/projects/${id}/interest`).set(bo.auth)).status).toBe(404);
+    expect((await request(app).get('/api/projects')).body.results).toHaveLength(0); // closed ones are not in the default list
+    expect((await request(app).get('/api/projects?status=closed')).body.results).toHaveLength(1);
+    expect((await request(app).delete(`/api/projects/${id}`).set(ada.auth)).status).toBe(204);
+    expect((await request(app).get(`/api/projects/${id}`)).status).toBe(404);
+  });
+
+  it('can be reported like a post: three different people hide it, and a moderator decides', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    const id = (await request(app).post('/api/projects').set(ada.auth).send(project())).body.project.id;
+    const others = [await member(app, 'Bo Example'), await member(app, 'Cy Example'), await member(app, 'Di Example')];
+    expect((await request(app).post(`/api/projects/${id}/report`).set(ada.auth).send({ reason: 'spam' })).status).toBe(400); // not your own
+    for (const o of others) expect((await request(app).post(`/api/projects/${id}/report`).set(o.auth).send({ reason: 'misleading', note: 'Not what it says' })).status).toBe(201);
+    expect((await request(app).get(`/api/projects/${id}`)).status).toBe(404); // hidden until a moderator looks
+    const reports = await request(app).get('/api/admin/network/reports').set(admin);
+    expect(reports.body.results.find((r) => r.target_kind === 'project')).toMatchObject({ target_id: id, body: expect.stringContaining('Open tide data') });
+    await request(app).post(`/api/admin/network/reports/project/${id}`).set(admin).send({ action: 'restore' });
+    expect((await request(app).get(`/api/projects/${id}`)).status).toBe(200);
+  });
+});
+
+describe('matching: deterministic, with the reason in words', () => {
+  const m = (over) => ({ id: 'x', looking_for: [], skills: [], interests: [], open_to: [], city: '', remote: false, ...over });
+
+  it('scores goals, skills, interests, place and ways of working, and says why in short sentences', () => {
+    const a = m({ looking_for: ['cofounder'], skills: ['engineering'], interests: ['Fintech', 'AI & Data'], open_to: ['feedback'], city: 'Melbourne' });
+    const b = m({ looking_for: ['cofounder'], skills: ['design', 'engineering'], interests: ['Fintech'], open_to: ['feedback', 'work'], city: 'Melbourne' });
+    const r = matchPair(a, b);
+    expect(r.reasons).toEqual([
+      'You both want to find a co-founder.', 'They bring design, which you do not list.', 'You bring engineering, which they do not list.'.replace('You bring engineering, which they do not list.', 'You both care about Fintech.'), 'You are both in Melbourne.', 'You are both open to giving and getting feedback.',
+    ].filter((x) => x));
+    expect(r.score).toBe(3 + 2 + 2 + 2 + 1);
+    expect(r.substance).toBe(true);
+  });
+
+  it('pairs complementary goals in a sentence of their own', () => {
+    expect(matchPair(m({ looking_for: ['job'] }), m({ looking_for: ['talent'] })).reasons[0]).toBe('You want to find a startup job; they want to find talent for their team.');
+    expect(matchPair(m({ looking_for: ['cofounder'] }), m({ looking_for: ['cofounder'] })).reasons[0]).toBe('You both want to find a co-founder.');
+    expect(matchPair(m({ looking_for: ['talent'] }), m({ looking_for: ['talent'] })).reasons).toEqual([]); // two people both hiring do not fit each other
+  });
+
+  it('never matches on a shared city or interest alone, and needs a minimum score', () => {
+    const r = matchPair(m({ city: 'Sydney', interests: ['Fintech', 'Education'], open_to: ['work', 'feedback'] }), m({ city: 'Sydney', interests: ['Fintech', 'Education'], open_to: ['work', 'feedback'] }));
+    expect(r.score).toBeGreaterThanOrEqual(MIN_SCORE);
+    expect(r.substance).toBe(false);
+  });
+
+  it('suggests only listed members, never yourself, a suspended member, or someone you already have an introduction with; best first, three reasons at most', async () => {
+    const { app, network } = await setup();
+    const ada = await member(app);
+    await profile(app, ada, { looking_for: ['cofounder'], skills: ['engineering'], city: 'Melbourne', interests: ['Fintech'], contact: 'ada@example.org' });
+    const people = [];
+    for (const [name, over] of [['Strong Match', { looking_for: ['cofounder'], skills: ['design', 'product'], city: 'Melbourne', interests: ['Fintech'] }], ['Weak Match', { looking_for: ['cofounder'] }], ['No Match', { city: 'Perth' }], ['Hidden Member', { looking_for: ['cofounder'], skills: ['sales'] }]]) {
+      const w = await member(app, name, { listed: name !== 'Hidden Member' });
+      await profile(app, w, { ...over, contact: `${name.split(' ')[0].toLowerCase()}@example.org` });
+      people.push(w);
+    }
+    const res = await request(app).get('/api/matches').set(ada.auth);
+    expect(res.status, JSON.stringify(res.body)).toBe(200);
+    expect(res.body.people.map((r) => r.member.name)).toEqual(['Strong Match', 'Weak Match']);
+    expect(res.body.people[0].why.length).toBeLessThanOrEqual(3);
+    expect(res.body.people[0].why[0]).toBe('You both want to find a co-founder.');
+    expect(JSON.stringify(res.body)).not.toMatch(/@example\.org/); // no contact in a suggestion
+    // the same answer twice
+    expect((await request(app).get('/api/matches').set(ada.auth)).body).toEqual(res.body);
+    // once asked, no longer suggested
+    await request(app).post('/api/introductions').set(ada.auth).send({ to: people[0].id, note: 'Hi, I would like to talk about building together.', why: res.body.people[0].why });
+    expect((await request(app).get('/api/matches').set(ada.auth)).body.people.map((r) => r.member.name)).toEqual(['Weak Match']);
+    // a suspended member is not suggested
+    await network.open().then(({ store }) => store.change((d) => { d.members.find((x) => x.id === people[1].id).suspended = true; }));
+    expect((await request(app).get('/api/matches').set(ada.auth)).body.people).toEqual([]);
+    expect((await request(app).get('/api/matches')).status).toBe(401);
+  });
+
+  it('suggests projects that need what you bring or ask for what you want, and says why', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    const bo = await member(app, 'Bo Example');
+    await profile(app, bo, { skills: ['engineering', 'data'], looking_for: ['contribute'], city: 'Melbourne', interests: ['Climate & Energy'] });
+    const p = (await request(app).post('/api/projects').set(ada.auth).send(project())).body.project;
+    await request(app).post('/api/projects').set(ada.auth).send(project({ name: 'Unrelated thing', skills_needed: ['legal'], collaboration: ['advisor'], interests: [], city: 'Perth', remote: false }));
+    const res = await request(app).get('/api/matches').set(bo.auth);
+    expect(res.body.projects.map((r) => r.project.id)).toEqual([p.id]);
+    expect(res.body.projects[0].why).toEqual(['It needs engineering and data & analytics, which you bring.', 'It is looking for contributors, and you want to contribute to a startup.', 'It is in Climate & Energy, which you care about.']);
+    // once you say you are interested it is no longer suggested
+    await request(app).put(`/api/projects/${p.id}/interest`).set(bo.auth);
+    expect((await request(app).get('/api/matches').set(bo.auth)).body.projects).toEqual([]);
+  });
+});
+
+describe('introductions need both people\'s consent', () => {
+  async function pair(app) {
+    const ada = await member(app);
+    const bo = await member(app, 'Bo Example');
+    await profile(app, ada, { contact: 'ada@example.org' });
+    await profile(app, bo, { contact: 'https://example.org/bo' });
+    return { ada, bo };
+  }
+  const ask = (app, who, to, body = {}) => request(app).post('/api/introductions').set(who.auth).send({ to, note: 'Hello, I would like to talk about what you are building.', why: ['You both want to find a co-founder.'], ...body });
+
+  it('needs your own contact first; shows the other person who is asking and why, and neither contact until both agree', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    const bo = await member(app, 'Bo Example');
+    expect((await ask(app, ada, bo.id)).body.error).toMatch(/Add how people can reach you/);
+    await profile(app, ada, { contact: 'ada@example.org' });
+    const sent = await ask(app, ada, bo.id);
+    expect(sent.status, JSON.stringify(sent.body)).toBe(201);
+    expect(sent.body.introduction).toMatchObject({ direction: 'sent', status: 'requested', why: ['You both want to find a co-founder.'], member: { name: 'Bo Example' } });
+    expect(sent.body.introduction.contact).toBeUndefined();
+    const inbox = await request(app).get('/api/introductions').set(bo.auth);
+    expect(inbox.body.waiting).toBe(1);
+    expect(inbox.body.results[0]).toMatchObject({ direction: 'received', status: 'requested', member: { name: 'Ada Example' }, note: expect.stringContaining('Hello') });
+    expect(JSON.stringify(inbox.body)).not.toMatch(/ada@example\.org|person\d+@example\.com/);
+    // Bo has no contact set: cannot accept yet
+    const early = await request(app).post(`/api/introductions/${sent.body.introduction.id}/accept`).set(bo.auth);
+    expect(early.status).toBe(400);
+    expect(early.body.error).toMatch(/before you accept/);
+  });
+
+  it('shows each the other\'s contact only after the person asked accepts; only they can answer; the asker can withdraw before', async () => {
+    const { app } = await setup();
+    const { ada, bo } = await pair(app);
+    const id = (await ask(app, ada, bo.id)).body.introduction.id;
+    expect((await request(app).post(`/api/introductions/${id}/accept`).set(ada.auth)).status).toBe(403); // not the one asked
+    const accepted = await request(app).post(`/api/introductions/${id}/accept`).set(bo.auth);
+    expect(accepted.body.introduction).toMatchObject({ status: 'accepted', direction: 'received', contact: 'ada@example.org' });
+    const mine = await request(app).get('/api/introductions').set(ada.auth);
+    expect(mine.body.results[0]).toMatchObject({ status: 'accepted', direction: 'sent', contact: 'https://example.org/bo' });
+    expect((await request(app).post(`/api/introductions/${id}/decline`).set(bo.auth)).status).toBe(400); // already answered
+    // a withdrawn one shows no contact
+    const w = await setup();
+    const p2 = await pair(w.app);
+    const id2 = (await ask(w.app, p2.ada, p2.bo.id)).body.introduction.id;
+    expect((await request(w.app).post(`/api/introductions/${id2}/withdraw`).set(p2.bo.auth)).status).toBe(403);
+    expect((await request(w.app).post(`/api/introductions/${id2}/withdraw`).set(p2.ada.auth)).body.introduction.status).toBe('withdrawn');
+    expect((await request(w.app).post(`/api/introductions/${id2}/accept`).set(p2.bo.auth)).status).toBe(400);
+  });
+
+  it('answers a decline with nothing shared, and no new request for thirty days; one live introduction per pair', async () => {
+    const { app, clock } = await setup();
+    const { ada, bo } = await pair(app);
+    const id = (await ask(app, ada, bo.id)).body.introduction.id;
+    expect((await ask(app, bo, ada.id)).status).toBe(400); // already one between you, whichever way
+    const declined = await request(app).post(`/api/introductions/${id}/decline`).set(bo.auth);
+    expect(declined.body.introduction.status).toBe('declined');
+    expect(declined.body.introduction.contact).toBeUndefined();
+    expect((await request(app).get('/api/introductions').set(ada.auth)).body.results[0].contact).toBeUndefined();
+    const again = await ask(app, ada, bo.id);
+    expect(again.status).toBe(400);
+    expect(again.body.error).toMatch(/declined/);
+    clock.now += 31 * 86400000;
+    await relogin(app, ada);
+    expect((await ask(app, ada, bo.id)).status).toBe(201);
+  });
+
+  it('asks only members who are listed, never yourself, and no more than eight at once; all of it needs an account', async () => {
+    const { app } = await setup();
+    const ada = await member(app);
+    await profile(app, ada, { contact: 'ada@example.org' });
+    const hidden = await member(app, 'Not Listed', { listed: false });
+    expect((await ask(app, ada, hidden.id)).status).toBe(404);
+    expect((await ask(app, ada, ada.id)).status).toBe(400);
+    for (let i = 0; i < 8; i += 1) { const x = await member(app, `Person ${i}`); expect((await ask(app, ada, x.id)).status).toBe(201); }
+    const ninth = await member(app, 'Person nine');
+    const res = await ask(app, ada, ninth.id);
+    expect(res.status).toBe(400);
+    expect(res.body.error).toMatch(/8 requests waiting/);
+    expect((await request(app).get('/api/introductions')).status).toBe(401);
+    expect((await request(app).post('/api/introductions').send({ to: ninth.id, note: 'Hello there, friend.' })).status).toBe(401);
+  });
+});
+
+describe('leaving', () => {
+  it('takes a member\'s projects, the interest they gave and received, and every introduction with them, including the contact they shared', async () => {
+    const { app, network } = await setup();
+    const ada = await member(app);
+    const bo = await member(app, 'Bo Example');
+    await profile(app, ada, { contact: 'ada@example.org' });
+    await profile(app, bo, { contact: 'bo@example.org' });
+    const id = (await request(app).post('/api/projects').set(ada.auth).send(project())).body.project.id;
+    await request(app).put(`/api/projects/${id}/interest`).set(bo.auth);
+    const intro = (await request(app).post('/api/introductions').set(ada.auth).send({ to: bo.id, note: 'Hello, I would like to talk about this project.' })).body.introduction.id;
+    await request(app).post(`/api/introductions/${intro}/accept`).set(bo.auth);
+    const gone = await request(app).delete('/api/account').set(ada.auth).send({ password: 'a-long-enough-password' });
+    expect(gone.status).toBe(204);
+    const data = (await network.open()).store.read();
+    expect(data.projects).toEqual([]);
+    expect(data.interests).toEqual([]);
+    expect(data.introductions).toEqual([]);
+    expect((await request(app).get('/api/introductions').set(bo.auth)).body.results).toEqual([]);
+    expect(JSON.stringify(data)).not.toMatch(/ada@example\.org/);
+  });
+});
+
+describe('the founding-member list', () => {
+  const entry = (over = {}) => ({ name: 'Ada Example', email: 'ada@example.org', city: 'Melbourne', intents: ['cofounder', 'feedback'], skills: ['engineering'], building: 'A ledger for sole traders', looking_for: 'A designer', link: 'https://example.org/ada', consent: true, ...over });
+
+  it('takes a registration while the community is closed, with no account, and says where it is kept and whether that lasts', async () => {
+    const { app, foundingDir } = await setup({ env: { RENDER: 'true' } });
+    expect((await request(app).get('/api/network/status')).body).toMatchObject({ available: false, founding: { open: true, durable: false } });
+    expect((await request(app).post('/api/auth/signup').send({ name: 'Ada', email: 'a@example.org', password: 'a-long-enough-password' })).status).toBe(503); // posting and accounts stay closed
+    expect((await request(app).get('/api/projects')).status).toBe(503);
+    const res = await request(app).post('/api/founding-members').send(entry());
+    expect(res.status, JSON.stringify(res.body)).toBe(201);
+    expect(res.body).toEqual({ saved: true, durable: false });
+    const file = JSON.parse(await readFile(path.join(foundingDir, 'founding_members.json'), 'utf8'));
+    expect(file).toHaveLength(1);
+    expect(file[0]).toMatchObject({ name: 'Ada Example', email: 'ada@example.org', intents: ['cofounder', 'feedback'], skills: ['engineering'] });
+  });
+
+  it('is a list the owner reads with the admin key, never public; the same email is one person; the list says it lasts only where the folder does', async () => {
+    const { app } = await setup({ env: { RENDER: 'true' } });
+    await request(app).post('/api/founding-members').send(entry());
+    await request(app).post('/api/founding-members').send(entry({ name: 'Ada E.', city: 'Sydney' }));
+    await request(app).post('/api/founding-members').send(entry({ email: 'bo@example.org', name: 'Bo Example' }));
+    expect((await request(app).get('/api/admin/network/founding')).status).toBeGreaterThanOrEqual(401);
+    const list = await request(app).get('/api/admin/network/founding').set(admin);
+    expect(list.body).toMatchObject({ durable: false, count: 2 });
+    expect(list.body.results.find((r) => r.email === 'ada@example.org')).toMatchObject({ name: 'Ada E.', city: 'Sydney' });
+    expect(JSON.stringify(await request(app).get('/api/network/status').then((r) => r.body))).not.toMatch(/example\.org/);
+    const { app: open } = await setup({ dir: await mkdtemp(path.join(os.tmpdir(), 'au-net-')) });
+    expect((await request(open).post('/api/founding-members').send(entry())).body.durable).toBe(true);
+  });
+
+  it('needs consent, a real email, a name and only listed intents and skills; a field only a script fills in is dropped; and slows one connection down', async () => {
+    const { app, foundingDir } = await setup({ env: { RENDER: 'true' } });
+    for (const body of [entry({ consent: false }), entry({ consent: undefined }), entry({ email: 'not an email' }), entry({ name: '' }), entry({ intents: ['world domination'] }), entry({ skills: ['wizardry'] }), entry({ link: 'http://insecure.example.org' })]) {
+      expect((await request(app).post('/api/founding-members').send(body)).status, JSON.stringify(body).slice(0, 80)).toBe(400);
+    }
+    const bot = await request(app).post('/api/founding-members').send(entry({ company_website: 'https://spam.example' }));
+    expect(bot.status).toBe(201);
+    await expect(readFile(path.join(foundingDir, 'founding_members.json'), 'utf8')).rejects.toThrow(); // nothing kept
+    for (let i = 0; i < 5; i += 1) expect((await request(app).post('/api/founding-members').send(entry({ email: `p${i}@example.org` }))).status).toBe(201);
+    expect((await request(app).post('/api/founding-members').send(entry({ email: 'p9@example.org' }))).status).toBe(429);
   });
 });

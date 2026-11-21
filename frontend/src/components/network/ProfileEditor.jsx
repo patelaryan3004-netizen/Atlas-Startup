@@ -7,13 +7,15 @@ import { openAuth } from '../../authUi.js';
 import { usePageMeta } from '../../hooks/usePageMeta.js';
 import { OPEN_TO_LABELS } from './MemberProfile.jsx';
 import MemberAvatar from './MemberAvatar.jsx';
+import { IntroInbox } from '../community/Introductions.jsx';
+import { INTENTS } from '../community/intents.js';
 
 const blankProject = () => ({ title: '', url: '', note: '' });
 
 // Your profile, at /me: a name, a role and a city, a short introduction, what you are building, where to see your work, what you are open to, and whether
 // you want to be listed in Discover. Short on purpose. There is no photo (the site has nowhere to keep one) and no badge: this is what you say about yourself.
 export default function ProfileEditor({ chrome = {}, onViewPublic }) {
-  const { status, member, open } = useSession();
+  const { status, member, open, taxonomy } = useSession();
   usePageMeta({ title: 'Your profile · Still Early', path: '/me' });
   useEffect(() => { ensureStatus(); }, []);
 
@@ -26,12 +28,16 @@ export default function ProfileEditor({ chrome = {}, onViewPublic }) {
       setForm({
         name: member.name, role: member.role, city: member.city, intro: member.intro, listed: member.listed, open_to: member.open_to,
         building: member.building.length ? member.building : [blankProject()], website: member.links.website, professional_profile: member.links.professional_profile,
+        github: member.links.github ?? '', portfolio: member.links.portfolio ?? '', looking_for: member.looking_for ?? [], skills: member.skills ?? [], interests: member.interests ?? [],
+        remote: Boolean(member.remote), contact: member.contact ?? '', past: member.past?.length ? member.past : [blankProject()],
       });
     }
   }, [member, form]);
 
   const set = (key, value) => setForm((f) => ({ ...f, [key]: value }));
   const setProject = (i, key, value) => setForm((f) => ({ ...f, building: f.building.map((p, at) => (at === i ? { ...p, [key]: value } : p)) }));
+  const setPast = (i, key, value) => setForm((f) => ({ ...f, past: f.past.map((p, at) => (at === i ? { ...p, [key]: value } : p)) }));
+  const toggle = (key, id, max) => setForm((f) => ({ ...f, [key]: f[key].includes(id) ? f[key].filter((x) => x !== id) : f[key].length < max ? [...f[key], id] : f[key] }));
 
   const save = async (event) => {
     event.preventDefault();
@@ -41,7 +47,9 @@ export default function ProfileEditor({ chrome = {}, onViewPublic }) {
       const { member: next } = await updateProfile({
         name: form.name, role: form.role, city: form.city, intro: form.intro, listed: form.listed, open_to: form.open_to,
         building: form.building.filter((p) => p.title.trim() || p.url.trim() || p.note.trim()),
-        links: { website: form.website, professional_profile: form.professional_profile },
+        links: { website: form.website, professional_profile: form.professional_profile, github: form.github, portfolio: form.portfolio },
+        looking_for: form.looking_for, skills: form.skills, interests: form.interests, remote: form.remote, contact: form.contact,
+        past: form.past.filter((p) => p.title.trim() || p.url.trim() || p.note.trim()),
       });
       setMember(next);
       setForm(null);
@@ -101,6 +109,20 @@ export default function ProfileEditor({ chrome = {}, onViewPublic }) {
                 ))}
               </fieldset>
 
+              <fieldset className="pe-open">
+                <legend>What are you looking for? <span className="hint">Up to four. This is what matches use.</span></legend>
+                <div className="cm-chips">{INTENTS.map((i) => <button key={i.id} type="button" className="cm-chip" aria-pressed={form.looking_for.includes(i.id)} onClick={() => toggle('looking_for', i.id, 4)}>{i.label}</button>)}</div>
+              </fieldset>
+              <fieldset className="pe-open">
+                <legend>What can you bring? <span className="hint">Up to eight.</span></legend>
+                <div className="cm-chips">{(taxonomy?.skills ?? []).map((s) => <button key={s.id} type="button" className="cm-chip" aria-pressed={form.skills.includes(s.id)} onClick={() => toggle('skills', s.id, 8)}>{s.label}</button>)}</div>
+              </fieldset>
+              <fieldset className="pe-open">
+                <legend>Sectors you care about <span className="hint">Up to six.</span></legend>
+                <div className="cm-chips">{(taxonomy?.interests ?? []).map((s) => <button key={s} type="button" className="cm-chip" aria-pressed={form.interests.includes(s)} onClick={() => toggle('interests', s, 6)}>{s}</button>)}</div>
+              </fieldset>
+              <label className="auth-check pe-listed"><input type="checkbox" checked={form.remote} onChange={(e) => set('remote', e.target.checked)} /><span>I am open to working remotely.</span></label>
+
               <fieldset className="pe-projects">
                 <legend>What you are building or have worked on</legend>
                 {form.building.map((p, i) => (
@@ -114,9 +136,32 @@ export default function ProfileEditor({ chrome = {}, onViewPublic }) {
                 {form.building.length < 5 && <button type="button" className="btn btn-secondary btn-sm" onClick={() => set('building', [...form.building, blankProject()])}>Add another</button>}
               </fieldset>
 
+              <fieldset className="pe-projects">
+                <legend>Previous projects and contributions</legend>
+                {form.past.map((p, i) => (
+                  <div key={i} className="pe-project">
+                    <div className="fgroup"><label htmlFor={`peQ${i}t`}>Project or contribution {i + 1}</label><input id={`peQ${i}t`} value={p.title} onChange={(e) => setPast(i, 'title', e.target.value)} maxLength={80} placeholder="Open-source library, a startup you worked at, a talk" /></div>
+                    <div className="fgroup"><label htmlFor={`peQ${i}u`}>Link</label><input id={`peQ${i}u`} value={p.url} onChange={(e) => setPast(i, 'url', e.target.value)} maxLength={300} placeholder="https://" inputMode="url" /></div>
+                    <div className="fgroup"><label htmlFor={`peQ${i}n`}>Your part in it</label><input id={`peQ${i}n`} value={p.note} onChange={(e) => setPast(i, 'note', e.target.value)} maxLength={200} /></div>
+                    {form.past.length > 1 && <button type="button" className="btn btn-quiet btn-sm" onClick={() => set('past', form.past.filter((_, at) => at !== i))}>Remove</button>}
+                  </div>
+                ))}
+                {form.past.length < 5 && <button type="button" className="btn btn-secondary btn-sm" onClick={() => set('past', [...form.past, blankProject()])}>Add another previous project</button>}
+              </fieldset>
+
               <div className="pe-grid">
                 <div className="fgroup"><label htmlFor="peWeb">Website</label><input id="peWeb" value={form.website} onChange={(e) => set('website', e.target.value)} maxLength={300} placeholder="https://" inputMode="url" /></div>
                 <div className="fgroup"><label htmlFor="peLi">Professional profile</label><input id="peLi" value={form.professional_profile} onChange={(e) => set('professional_profile', e.target.value)} maxLength={300} placeholder="https://" inputMode="url" /></div>
+              </div>
+
+              <div className="pe-grid">
+                <div className="fgroup"><label htmlFor="peGh">GitHub</label><input id="peGh" value={form.github} onChange={(e) => set('github', e.target.value)} maxLength={300} placeholder="https://github.com/…" inputMode="url" /></div>
+                <div className="fgroup"><label htmlFor="pePf">Portfolio</label><input id="pePf" value={form.portfolio} onChange={(e) => set('portfolio', e.target.value)} maxLength={300} placeholder="https://" inputMode="url" /></div>
+              </div>
+              <div className="fgroup">
+                <label htmlFor="peContact">Contact for introductions</label>
+                <input id="peContact" value={form.contact} onChange={(e) => set('contact', e.target.value)} maxLength={120} placeholder="An email address or a link" />
+                <div className="hint">Private. It is shown only to someone you both agree to be introduced to, and only after they accept. Your email is never shown.</div>
               </div>
 
               <label className="auth-check pe-listed">
@@ -130,6 +175,8 @@ export default function ProfileEditor({ chrome = {}, onViewPublic }) {
                 {message.text && <span className={message.kind === 'error' ? 'form-error' : 'pe-saved'} role={message.kind === 'error' ? 'alert' : 'status'}>{message.text}</span>}
               </div>
             </form>
+
+            <IntroInbox />
 
             <AccountSection />
           </>

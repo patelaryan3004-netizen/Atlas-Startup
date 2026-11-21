@@ -104,7 +104,8 @@ export function createAuth({ store, now = Date.now, limits = {} }) {
         const at = new Date(now()).toISOString();
         const member = {
           id: makeId('m', now()), name: cleanName, email: address, password_hash: passwordHash, email_verified: false,
-          role: '', city: '', intro: '', building: [], links: { website: '', professional_profile: '' }, open_to: [], listed: Boolean(listed),
+          role: '', city: '', intro: '', building: [], links: { website: '', professional_profile: '', github: '', portfolio: '' }, open_to: [], listed: Boolean(listed),
+          skills: [], interests: [], looking_for: [], past: [], remote: false, contact: '',
           suspended: false, created_at: at, updated_at: at,
         };
         draft.members.push(member);

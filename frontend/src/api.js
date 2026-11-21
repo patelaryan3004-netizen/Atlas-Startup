@@ -32,8 +32,8 @@ async function getJson(url, { signal, failure, onSnapshot }) {
 
 // One page of companies as cards, in the order asked for (name, hiring, location, industry, stage, verified). Resolves to
 // { total, count, results, offset, limit, hasMore, nextOffset, facets? }; `facets` is a list like 'sector,city,stage'.
-export function fetchStartupPage(filters = {}, { limit = 20, offset = 0, sort = 'name', facets, signal, onSnapshot } = {}) {
-  return getJson(startupPageUrl(filters, { limit, offset, sort, facets }), { signal, failure: 'Failed to fetch startups', onSnapshot });
+export function fetchStartupPage(filters = {}, { limit = 20, offset = 0, sort = 'name', facets, view, signal, onSnapshot } = {}) {
+  return getJson(startupPageUrl(filters, { limit, offset, sort, facets, view }), { signal, failure: 'Failed to fetch startups', onSnapshot });
 }
 
 // The address of a list as a spreadsheet: the same filters and sort as the list, every company they pick (not a page), as a CSV the
