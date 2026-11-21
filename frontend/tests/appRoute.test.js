@@ -1,9 +1,24 @@
 import { describe, it, expect } from 'vitest';
-import { readAppRoute, appPath, appUrl, exploreSearch } from '../src/appRoute.js';
+import { readAppRoute, appPath, appUrl, exploreSearch, settledAddress } from '../src/appRoute.js';
 
 const at = (pathname, search = '') => ({ pathname, search });
 
 describe('the address of each page', () => {
+  it('moves /community to /home and keeps the visitor\'s choice and section, so a shared link opens what it was made for', () => {
+    const home = { kind: 'home' };
+    expect(readAppRoute(at('/community'))).toEqual(home);
+    expect(settledAddress(home, { pathname: '/community', search: '?for=cofounder&section=projects', hash: '' })).toBe('/home?for=cofounder&section=projects');
+    expect(settledAddress(home, { pathname: '/community/', search: '?for=cofounder', hash: '#top' })).toBe('/home?for=cofounder#top');
+    expect(settledAddress(home, { pathname: '/community', search: '', hash: '' })).toBe('/home');
+  });
+
+  it('writes nothing when a page is already at its address, and keeps no query for any other address that moves', () => {
+    expect(settledAddress({ kind: 'home' }, { pathname: '/home', search: '?for=cofounder', hash: '' })).toBeNull();
+    expect(settledAddress({ kind: 'home' }, { pathname: '/', search: '?utm_source=x', hash: '' })).toBe('/home');
+    expect(settledAddress({ kind: 'jobs' }, { pathname: '/opportunities', search: '?q=x', hash: '' })).toBe('/jobs');
+    expect(settledAddress({ kind: 'jobs' }, { pathname: '/jobs', search: '?q=x', hash: '' })).toBeNull();
+  });
+
   it('reads the page from the address', () => {
     expect(readAppRoute(at('/'))).toEqual({ kind: 'home' });
     expect(readAppRoute(at('/home'))).toEqual({ kind: 'home' });
