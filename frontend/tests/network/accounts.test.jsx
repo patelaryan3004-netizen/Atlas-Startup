@@ -178,7 +178,9 @@ describe('your profile', () => {
     expect(api.updateProfile.mock.calls[0][0]).toEqual({
       name: 'Ada Example', role: 'Founder, building a scheduling tool', city: 'Sydney', intro: 'I make small tools.', listed: false, open_to: ['feedback', 'work'],
       building: [{ title: 'Clinic Slots', url: 'https://example.com/slots', note: 'Booking for clinics' }], // the empty second project is not sent
-      links: { website: 'https://example.com/ada', professional_profile: '' },
+      links: { website: 'https://example.com/ada', professional_profile: '', github: '', portfolio: '' },
+      // what the Community's matching reads, kept with the profile: nothing chosen, so nothing sent but the empty lists
+      looking_for: [], skills: [], interests: [], remote: false, contact: '', past: [],
     });
     expect(await screen.findByText('Saved.')).toBeInTheDocument();
     expect(getSession().member.city).toBe('Sydney'); // the header and every page now say it

@@ -151,7 +151,7 @@ export function setLike(draft, member, postId, liked) {
 
 // ---------- reports and moderation ----------
 
-const targetOf = (draft, kind, id) => (kind === 'post' ? draft.posts : draft.replies).find((x) => x.id === id);
+const targetOf = (draft, kind, id) => (kind === 'post' ? draft.posts : kind === 'project' ? draft.projects : draft.replies).find((x) => x.id === id);
 
 function dismissReportsFor(draft, kind, id, resolution) {
   for (const r of draft.reports) if (r.target_kind === kind && r.target_id === id && r.status === 'open') { r.status = 'closed'; r.resolution = resolution; r.resolved_at = new Date().toISOString(); }
@@ -159,7 +159,7 @@ function dismissReportsFor(draft, kind, id, resolution) {
 
 // Someone reports a post or a reply. One person reports a thing once. Enough different people hide it until a moderator has looked.
 export function createReport(draft, member, kind, id, { reason, note }, now = Date.now()) {
-  if (!['post', 'reply'].includes(kind)) throw bad('Only posts and replies can be reported.');
+  if (!['post', 'reply', 'project'].includes(kind)) throw bad('Only posts, replies and projects can be reported.');
   const target = targetOf(draft, kind, id);
   if (!target || !['visible', 'hidden'].includes(target.status)) throw notFound('That is not there.');
   if (target.author_id === member.id) throw bad('You cannot report your own words. You can delete them instead.');
@@ -185,11 +185,11 @@ export function openReports(data) {
   const rows = [];
   for (const [key, reports] of groups) {
     const [kind, id] = key.split(':');
-    const target = (kind === 'post' ? data.posts : data.replies).find((x) => x.id === id);
+    const target = (kind === 'post' ? data.posts : kind === 'project' ? data.projects ?? [] : data.replies).find((x) => x.id === id);
     if (!target) continue;
     const author = data.members.find((m) => m.id === target.author_id);
     rows.push({
-      target_kind: kind, target_id: id, status: target.status, body: target.body, created_at: target.created_at, post_id: target.post_id ?? target.id,
+      target_kind: kind, target_id: id, status: target.status, body: kind === 'project' ? `${target.name}: ${target.summary}` : target.body, created_at: target.created_at, post_id: target.post_id ?? target.id,
       author: author ? { id: author.id, name: author.name, suspended: author.suspended } : null,
       reports: reports.map((r) => ({ id: r.id, reason: r.reason, note: r.note, created_at: r.created_at })),
       first_reported_at: reports.map((r) => r.created_at).sort()[0],
@@ -213,6 +213,7 @@ export function moderate(draft, kind, id, action, { actor = 'admin', note = '' }
   } else if (action === 'remove' || action === 'suspend_author') {
     target.status = 'removed';
     target.body = '';
+    if (kind === 'project') { target.summary = ''; target.problem = ''; }
     if (kind === 'post') for (const r of draft.replies.filter((x) => x.post_id === id && x.status !== 'deleted')) { r.status = 'removed'; r.body = ''; }
     if (action === 'suspend_author') {
       const author = draft.members.find((m) => m.id === target.author_id);

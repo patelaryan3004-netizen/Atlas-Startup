@@ -4,12 +4,17 @@ import { vi } from 'vitest';
 const NAMES = [
   'fetchNetworkStatus', 'signUp', 'signIn', 'signOutRequest', 'fetchMe', 'updateProfile', 'changePassword', 'deleteAccount', 'fetchMembers', 'fetchMember', 'fetchFeed', 'fetchThread',
   'createPost', 'editPost', 'deletePost', 'createReply', 'editReply', 'deleteReply', 'setLike', 'reportItem', 'fetchSaved', 'setSaved', 'mergeSaved', 'fetchEvents', 'fetchJobs', 'fetchJobBoard', 'submitSuggestion',
+  'fetchProjects', 'fetchProject', 'createProject', 'editProject', 'deleteProject', 'setInterest', 'fetchInterested', 'reportProject', 'fetchMatches', 'fetchIntroductions', 'requestIntroduction', 'answerIntroduction', 'submitFounding', 'adminFounding',
   'adminSummary', 'adminReports', 'adminDecideReport', 'adminSuggestions', 'adminApprove', 'adminReject', 'adminMembers', 'adminSuspend',
 ];
 
 // The module's replacement: every call a vi.fn(), the token kept in a variable, and the same error class the real one throws.
 export function apiMock() {
   const mock = Object.fromEntries(NAMES.map((n) => [n, vi.fn()]));
+  // What the Community's panels ask for on their own: quiet answers, so a page that is not about them does not fail on them.
+  mock.fetchIntroductions.mockResolvedValue({ results: [], waiting: 0 });
+  mock.fetchMatches.mockResolvedValue({ people: [], projects: [] });
+  mock.fetchProjects.mockResolvedValue({ results: [], total: 0, offset: 0, limit: 20, hasMore: false });
   let token = null;
   class ApiError extends Error {
     constructor(message, status, code) { super(message); this.status = status; this.code = code; }
@@ -19,7 +24,8 @@ export function apiMock() {
 
 export const member = (over = {}) => ({
   id: 'm_ada', name: 'Ada Example', initials: 'AE', email: 'ada@example.com', email_verified: false, role: 'Founder, building a scheduling tool', city: 'Melbourne', intro: 'I make small tools.',
-  building: [{ title: 'Clinic Slots', url: 'https://example.com/slots', note: 'Booking for clinics' }], links: { website: 'https://example.com/ada', professional_profile: '' },
+  building: [{ title: 'Clinic Slots', url: 'https://example.com/slots', note: 'Booking for clinics' }], links: { website: 'https://example.com/ada', professional_profile: '', github: '', portfolio: '' },
+  skills: [], interests: [], looking_for: [], past: [], remote: false, contact: '',
   open_to: ['feedback'], listed: true, suspended: false, joined_at: '2026-10', ...over,
 });
 

@@ -4,10 +4,12 @@
 //   member  the signed-in member (their own view, with their email), or null
 //   open    whether the members' side of the site is open at all (null until the server has said): it is not where the server has no disk that
 //           survives a restart, and the pages then say so instead of taking sign-ups they could not keep
+//   taxonomy  the closed lists a profile, a project and the founding-member form pick from (the server's, so the page and the server never disagree), or null until it has said
+//   founding  { open, durable }: whether the founding-member list takes registrations, and whether where it is kept survives a restart
 import { useSyncExternalStore } from 'react';
 import { fetchMe, fetchNetworkStatus, getToken, setToken, signIn as signInRequest, signUp as signUpRequest, signOutRequest, ApiError } from './networkApi.js';
 
-let state = { status: getToken() ? 'loading' : 'out', member: null, open: null, reason: '' };
+let state = { status: getToken() ? 'loading' : 'out', member: null, open: null, reason: '', taxonomy: null, founding: null };
 const listeners = new Set();
 const emit = () => listeners.forEach((fn) => fn());
 const set = (next) => { state = { ...state, ...next }; emit(); };
@@ -30,7 +32,7 @@ export function ensureStatus() {
   if (askedStatus) return;
   askedStatus = true;
   if (typeof fetch !== 'function') return;
-  fetchNetworkStatus().then((s) => set({ open: Boolean(s.available), reason: s.reason ?? '' }), () => { askedStatus = false; });
+  fetchNetworkStatus().then((s) => set({ open: Boolean(s.available), reason: s.reason ?? '', taxonomy: s.taxonomy ?? null, founding: s.founding ?? null }), () => { askedStatus = false; });
 }
 
 export const getSession = () => state;
@@ -68,6 +70,6 @@ export function useSession() {
 export function resetSession() {
   started = false;
   askedStatus = false;
-  state = { status: getToken() ? 'loading' : 'out', member: null, open: null, reason: '' };
+  state = { status: getToken() ? 'loading' : 'out', member: null, open: null, reason: '', taxonomy: null, founding: null };
   emit();
 }

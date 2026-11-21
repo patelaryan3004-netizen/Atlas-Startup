@@ -67,7 +67,7 @@ export const createReply = (postId, body) => call(`/feed/${enc(postId)}/replies`
 export const editReply = (id, body) => call(`/replies/${enc(id)}`, { method: 'PATCH', body: { body } });
 export const deleteReply = (id) => call(`/replies/${enc(id)}`, { method: 'DELETE' });
 export const setLike = (postId, liked) => call(`/feed/${enc(postId)}/like`, { method: liked ? 'PUT' : 'DELETE' });
-export const reportItem = (kind, id, fields) => call(`/${kind === 'reply' ? 'replies' : 'feed'}/${enc(id)}/report`, { method: 'POST', body: fields });
+export const reportItem = (kind, id, fields) => call(`/${kind === 'reply' ? 'replies' : kind === 'project' ? 'projects' : 'feed'}/${enc(id)}/report`, { method: 'POST', body: fields });
 
 // ---------- saved ----------
 export const fetchSaved = () => call('/account/saved');
@@ -83,6 +83,24 @@ export const calendarUrl = (id) => `${BASE}/events/${enc(id)}/calendar.ics`;
 export const submitSuggestion = (kind, fields, email) => call('/suggestions', { method: 'POST', body: { kind, fields, email } });
 
 // ---------- moderators (the admin key is typed in and kept in memory only) ----------
+// ---------- projects, matches, introductions, the founding list ----------
+
+export const fetchProjects = (params, opts) => call(`/projects${query(params)}`, opts);
+export const fetchProject = (id, opts) => call(`/projects/${enc(id)}`, opts);
+export const createProject = (fields) => call('/projects', { method: 'POST', body: fields });
+export const editProject = (id, fields) => call(`/projects/${enc(id)}`, { method: 'PATCH', body: fields });
+export const deleteProject = (id) => call(`/projects/${enc(id)}`, { method: 'DELETE' });
+export const setInterest = (id, on) => call(`/projects/${enc(id)}/interest`, { method: on ? 'PUT' : 'DELETE' });
+export const fetchInterested = (id) => call(`/projects/${enc(id)}/interested`);
+export const reportProject = (id, fields) => call(`/projects/${enc(id)}/report`, { method: 'POST', body: fields });
+export const fetchMatches = (opts) => call('/matches', opts);
+export const fetchIntroductions = (opts) => call('/introductions', opts);
+export const requestIntroduction = (fields) => call('/introductions', { method: 'POST', body: fields });
+export const answerIntroduction = (id, action) => call(`/introductions/${enc(id)}/${action}`, { method: 'POST' });
+// Needs no account, and works while the members' side is closed: a waiting list, not a sign-up.
+export const submitFounding = (fields) => call('/founding-members', { method: 'POST', body: fields, token: null });
+export const adminFounding = (adminKey) => call('/admin/network/founding', { adminKey, token: null });
+
 export const adminSummary = (adminKey) => call('/admin/network/summary', { adminKey, token: null });
 export const adminReports = (adminKey) => call('/admin/network/reports', { adminKey, token: null });
 export const adminDecideReport = (adminKey, kind, id, action, note) => call(`/admin/network/reports/${enc(kind)}/${enc(id)}`, { method: 'POST', body: { action, note }, adminKey, token: null });

@@ -5,7 +5,11 @@ import userEvent from '@testing-library/user-event';
 vi.mock('../../src/networkApi.js', async () => (await import('./helpers.js')).apiMock());
 
 import * as api from '../../src/networkApi.js';
-import HomeFeed from '../../src/components/network/HomeFeed.jsx';
+import FeedPanel from '../../src/components/community/FeedPanel.jsx';
+import AuthHost from '../../src/components/network/AuthHost.jsx';
+
+// The sign-in dialog is drawn once, by the page header, and opened from anywhere: the feed is shown with it here.
+const Page = () => (<><FeedPanel /><AuthHost /></>);
 import { signIn, resetSession } from '../../src/session.js';
 import { resetSaved } from '../../src/savedStore.js';
 import { closeAuth } from '../../src/authUi.js';
@@ -37,19 +41,16 @@ beforeEach(() => {
 afterEach(() => { closeAuth(); });
 
 describe('Home, for someone who is not signed in', () => {
-  it('names itself and says what it is for, and asks the server for the first page of the feed in all four filters\' default', async () => {
+  it('asks the server for the first page of the feed in its default filter and shows it (the page around it, and its heading and title, are the Community\'s)', async () => {
     api.fetchFeed.mockResolvedValue(feed([post()]));
-    render(<HomeFeed chrome={{ go: {} }} />);
-    expect(await screen.findByRole('heading', { level: 1, name: /What are you working on\?/ })).toBeInTheDocument();
-    expect(screen.getByText(/text-first space for Australia/)).toBeInTheDocument();
+    render(<Page />);
     await screen.findByText('What if every city had a monthly prototype night?');
     expect(api.fetchFeed).toHaveBeenCalledWith({ filter: 'all', limit: 20 }, expect.objectContaining({ signal: expect.any(AbortSignal) }));
-    expect(document.title).toBe('Community · Still Early');
   });
 
   it('shows each post with its author, role and place, how long ago, its topic, and a link to the author\'s profile', async () => {
     api.fetchFeed.mockResolvedValue(feed([post({ topic: 'question', topic_label: 'Question' })]));
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     const card = within(await screen.findByRole('article', { name: 'Post by Cal Demo' }));
     expect(card.getByRole('link', { name: 'Cal Demo' })).toHaveAttribute('href', '/members/m_cal');
     expect(card.getByText(/Operator · Sydney/)).toBeInTheDocument();
@@ -58,7 +59,7 @@ describe('Home, for someone who is not signed in', () => {
   });
 
   it('has the four filters, and asks the server for the one chosen', async () => {
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await screen.findByText('Nothing has been shared yet.');
     const filters = within(screen.getByRole('group', { name: 'Show' }));
     expect(filters.getAllByRole('button').map((b) => b.textContent)).toEqual(['All', 'Ideas', 'Building', 'Questions']);
@@ -69,14 +70,14 @@ describe('Home, for someone who is not signed in', () => {
   });
 
   it('says honestly that nothing has been shared, rather than showing anything made up', async () => {
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     expect(await screen.findByText('Nothing has been shared yet.')).toBeInTheDocument();
     expect(screen.queryByRole('article')).not.toBeInTheDocument();
   });
 
   it('asks a visitor to join before they post, like, reply, bookmark or report, and posts nothing', async () => {
     api.fetchFeed.mockResolvedValue(feed([post()]));
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await screen.findByRole('article', { name: 'Post by Cal Demo' });
     expect(screen.queryByRole('textbox', { name: 'Your post' })).not.toBeInTheDocument();
     await userEvent.click(screen.getByRole('button', { name: 'Join to post' }));
@@ -90,7 +91,7 @@ describe('Home, for someone who is not signed in', () => {
 
   it('says the community is not open yet, and shows no feed, where the server has nowhere to keep one', async () => {
     api.fetchNetworkStatus.mockResolvedValue({ available: false, reason: 'The community is not open yet: it needs a disk that survives restarts (NETWORK_DATA_DIR), and this server has none.' });
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     expect(await screen.findByText('The community is not open yet.')).toBeInTheDocument();
     expect(screen.getByText(/needs a disk that survives restarts/)).toBeInTheDocument();
     expect(api.fetchFeed).not.toHaveBeenCalled();
@@ -99,7 +100,7 @@ describe('Home, for someone who is not signed in', () => {
 
   it('says it could not load the feed, with the reason, and tries again on request', async () => {
     api.fetchFeed.mockRejectedValueOnce(Object.assign(new Error('Could not reach the server.'), { status: 0 }));
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     expect(await screen.findByRole('alert')).toHaveTextContent('Could not load the feed. Could not reach the server.');
     api.fetchFeed.mockResolvedValue(feed([post()]));
     await userEvent.click(screen.getByRole('button', { name: 'Try again' }));
@@ -108,7 +109,7 @@ describe('Home, for someone who is not signed in', () => {
 
   it('pages: "Show older posts" asks for the page after the last one seen', async () => {
     api.fetchFeed.mockResolvedValueOnce(feed([post({ id: 'p_2', body: 'Newer' })], { hasMore: true, next: 'p_2' }));
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await screen.findByText('Newer');
     api.fetchFeed.mockResolvedValueOnce(feed([post({ id: 'p_1', body: 'Older' })]));
     await userEvent.click(screen.getByRole('button', { name: 'Show older posts' }));
@@ -123,7 +124,7 @@ describe('Home, signed in', () => {
     api.fetchFeed.mockResolvedValue(feed([post()]));
     api.createPost.mockResolvedValue({ post: post({ id: 'p_new', body: 'Shipped the first version.', topic: 'win', topic_label: 'Small win', mine: true, like_count: 0, reply_count: 0, author: { id: ADA.id, name: ADA.name, role: ADA.role, city: ADA.city } }) });
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     const box = await screen.findByRole('textbox', { name: 'Your post' });
     expect(screen.getByRole('button', { name: 'Post' })).toBeDisabled();
     await userEvent.click(screen.getByRole('button', { name: 'Small win' }));
@@ -139,7 +140,7 @@ describe('Home, signed in', () => {
   it('shows the server\'s reason when a post is refused, and keeps the words', async () => {
     api.createPost.mockRejectedValue(Object.assign(new Error('Your post can hold at most 2 links.'), { status: 400 }));
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.type(await screen.findByRole('textbox', { name: 'Your post' }), 'a b c');
     await userEvent.click(screen.getByRole('button', { name: 'Post' }));
     expect(await screen.findByRole('alert')).toHaveTextContent('Your post can hold at most 2 links.');
@@ -149,7 +150,7 @@ describe('Home, signed in', () => {
   it('does not show a new post under a filter it does not belong to', async () => {
     api.createPost.mockResolvedValue({ post: post({ id: 'p_new', topic: 'question', topic_label: 'Question', body: 'A question for the ideas filter?', mine: true }) });
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.click(within(await screen.findByRole('group', { name: 'Show' })).getByRole('button', { name: 'Ideas' }));
     await userEvent.click(screen.getByRole('button', { name: 'Question' }));
     await userEvent.type(screen.getByRole('textbox', { name: 'Your post' }), 'A question for the ideas filter?');
@@ -162,7 +163,7 @@ describe('Home, signed in', () => {
     api.fetchFeed.mockResolvedValue(feed([post({ like_count: 2 })]));
     api.setLike.mockResolvedValueOnce({ liked: true, like_count: 3 });
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     const like = await screen.findByRole('button', { name: 'Like, 2 likes' });
     await userEvent.click(like);
     expect(api.setLike).toHaveBeenCalledWith('p_1', true);
@@ -177,7 +178,7 @@ describe('Home, signed in', () => {
     api.fetchThread.mockResolvedValue({ post: post(), replies: [reply()] });
     api.createReply.mockResolvedValue({ reply: reply({ id: 'r_2', body: 'Happy to host one.', mine: true, author: { id: ADA.id, name: ADA.name, role: ADA.role, city: ADA.city } }) });
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.click(await screen.findByRole('button', { name: 'Show replies, 1' }));
     expect(await screen.findByText('Count me in.')).toBeInTheDocument();
     await userEvent.type(screen.getByRole('textbox', { name: 'Write a reply' }), 'Happy to host one.');
@@ -191,7 +192,7 @@ describe('Home, signed in', () => {
     api.fetchFeed.mockResolvedValue(feed([post({ mine: true, author: { id: ADA.id, name: ADA.name, role: '', city: '' } })]));
     api.editPost.mockResolvedValue({ post: post({ mine: true, body: 'A sharper version.', topic: 'feedback', topic_label: 'Feedback', edited_at: new Date().toISOString(), author: { id: ADA.id, name: ADA.name, role: '', city: '' } }) });
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.click(await screen.findByRole('button', { name: 'More actions for this post' }));
     expect(screen.queryByRole('menuitem', { name: 'Report' })).not.toBeInTheDocument(); // your own words are edited or deleted, not reported
     await userEvent.click(screen.getByRole('menuitem', { name: 'Edit' }));
@@ -209,7 +210,7 @@ describe('Home, signed in', () => {
     api.fetchFeed.mockResolvedValue(feed([post({ mine: true, author: { id: ADA.id, name: ADA.name, role: '', city: '' } })]));
     api.deletePost.mockResolvedValue(null);
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.click(await screen.findByRole('button', { name: 'More actions for this post' }));
     await userEvent.click(screen.getByRole('menuitem', { name: 'Delete' }));
     expect(screen.getByRole('alertdialog', { name: 'Delete this post?' })).toBeInTheDocument();
@@ -226,7 +227,7 @@ describe('Home, signed in', () => {
     api.fetchFeed.mockResolvedValue(feed([post()]));
     api.reportItem.mockResolvedValue({ reported: true });
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.click(await screen.findByRole('button', { name: 'More actions for this post' }));
     expect(screen.queryByRole('menuitem', { name: 'Edit' })).not.toBeInTheDocument();
     await userEvent.click(screen.getByRole('menuitem', { name: 'Report' }));
@@ -241,7 +242,7 @@ describe('Home, signed in', () => {
   it('bookmarks a post to the account, and un-bookmarks it', async () => {
     api.fetchFeed.mockResolvedValue(feed([post()]));
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await userEvent.click(await screen.findByRole('button', { name: 'Bookmark this post' }));
     expect(api.setSaved).toHaveBeenCalledWith('post', 'p_1', true);
     expect(await screen.findByRole('button', { name: 'Remove bookmark' })).toHaveAttribute('aria-pressed', 'true');
@@ -252,13 +253,13 @@ describe('Home, signed in', () => {
   it('shows a post a moderator has hidden only to its author, with the notice, and no way to edit it', async () => {
     api.fetchFeed.mockResolvedValue(feed([post({ mine: true, status: 'hidden', author: { id: ADA.id, name: ADA.name, role: '', city: '' } })]));
     await signedIn();
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     expect(await screen.findByText(/hidden while a moderator looks at it/)).toBeInTheDocument();
   });
 
   it('asks for the feed again when the person signs in, because it reads differently for them', async () => {
     api.fetchFeed.mockResolvedValue(feed([post()]));
-    render(<HomeFeed chrome={{ go: {} }} />);
+    render(<Page />);
     await screen.findByRole('article', { name: 'Post by Cal Demo' });
     const before = api.fetchFeed.mock.calls.length;
     await signedIn();

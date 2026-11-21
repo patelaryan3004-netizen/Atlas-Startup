@@ -13,6 +13,7 @@ import path from 'node:path';
 const FILE = 'network.json';
 const emptyData = () => ({
   version: 1, members: [], sessions: [], posts: [], replies: [], likes: [], saved: [], reports: [], suggestions: [], events: [], jobs: [], audit: [],
+  projects: [], interests: [], introductions: [],
 });
 
 export async function openStore({ dir }) {

@@ -8,6 +8,7 @@ import { readFileSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { openStore, memoryStore } from './store.js';
 import { createAuth } from './auth.js';
+import { createFounding } from './founding.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const DEFAULT_DIR = path.join(HERE, '..', '..', '.network');
@@ -36,7 +37,7 @@ function watched(file) {
   };
 }
 
-export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync, curatedInvestors } = {}) {
+export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync, curatedInvestors, foundingDir } = {}) {
   const off = ['0', 'false', 'no', 'off'].includes(String(env.NETWORK_ENABLED ?? '').trim().toLowerCase());
   let folder = dir ?? env.NETWORK_DATA_DIR ?? null;
   let reason = null;
@@ -59,6 +60,9 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
   // The investor directory, read as the hiring desk's second kind of employer: a venture firm's own vacancies (jobsync/employers.js).
   const investors = curatedInvestors ? () => curatedInvestors : watched(INVESTORS_FILE);
 
+  // The founding-member list needs no store: it is a small file in the network folder, kept where the server can write (and lasting only where the community itself could be open).
+  const founding = createFounding({ dir: foundingDir ?? folder ?? DEFAULT_DIR, durable: available && !memory, now });
+
   let ready = null;
   const open = () => {
     if (!available) return Promise.reject(Object.assign(new Error(reason), { status: 503, code: 'network_unavailable' }));
@@ -69,5 +73,5 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
     return ready;
   };
 
-  return { available, reason, open, events, jobs, jobSync, investors, now, dir: memory ? null : folder };
+  return { available, reason, open, events, jobs, jobSync, investors, founding, now, dir: memory ? null : folder };
 }

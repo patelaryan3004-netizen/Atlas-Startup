@@ -30,7 +30,7 @@ export function readAppRoute({ pathname = window.location.pathname, search = win
   if (first === 'startup' && second) return { kind: 'startup', slug: second };
   if (first === 'jobs' || first === 'opportunities') return { kind: 'jobs' };
   if (first === 'events') return { kind: 'events' };
-  if (first === 'home') return { kind: 'home' };
+  if (first === 'home' || first === 'community') return { kind: 'home' }; // /community is the same page as /home (the Community)
   if (first === 'map') return { kind: 'map' };
   if (first === 'discover') return second === 'people' ? { kind: 'discoverPeople' } : { kind: 'explore' };
   if (first === 'me') return { kind: 'me' };
