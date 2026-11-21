@@ -11,6 +11,7 @@ It describes its own timing honestly: **a role appears after the next successful
 |---|---|---|
 | **vc** | Checks the venture firms' job boards that are due: which exist, what platform, what may be read. Names companies and boards to queue. Reads a firm's **own** vacancies when its own careers page links to a feed the sync reads. | `vc.js` |
 | **network** | Reads a job network's board (Innovation Bay): its 20-job sample, and this refresh's slice of its company list (each company once a week, a page every 10 s), matched against the directory: leads for the startups we do not hold, a look at the website of a company we hold that is hiring and has no board read. Never stores a role. See [innovation-bay.md](innovation-bay.md). | `network.js` |
+| **portfolio** | Reads the official portfolio pages of nine venture firms and accelerators once a week, takes the companies on them that nothing has seen, reads each one's own website with the directory's engine (on a scratch copy), and makes a lead of each Australian-looking startup we do not hold. Never stores a role. See [company-discovery.md](company-discovery.md). | `portfolio.js` |
 | **confirm** | A board a venture firm's board named for a company we hold is asked of the **employer**: approved only if its own feed lists the job that was shown and the board is the company's. | `confirm.js` |
 | **discover** | Looks at the own website of the companies due (each company without a board once a week, by rotation; never-looked-at at once) for a job board. A board its page links to, whose feed answers with a whole list, is approved and read at once. Everything else is written down for review. | `discover.js`, `discoverRun.js` |
 | **boards** | Reads every approved employer board that is due, **whole**, and brings `jobs.json` in line with what each employer lists: new roles, changed roles, roles gone. | `scheduler/jobs/jobsync.js`, `engine.js`, `adapters.js` |
@@ -166,10 +167,11 @@ compliant fetcher: a 404 or 410 is a violation, a refusal by robots or a login i
 ```bash
 cd backend
 npm run scheduler -- tick --job jobsync                       # one whole refresh now (add --force to read boards read within the hour; --data <dir> for a copy)
-npm run scheduler -- tick --job jobsync --steps boards        # only some steps: vc, network, confirm, discover, boards, dedupe, health
+npm run scheduler -- tick --job jobsync --steps boards        # only some steps: vc, network, portfolio, confirm, discover, boards, dedupe, health
 npm run scheduler -- tick --job jobsync --board a,b           # just these catalogue boards (a board in review is never read, even when named)
 npm run jobsync -- discover --all --concurrency 6             # look at every company's own website for a board now (--company a,b; --plan to see what is due; --force)
 npm run jobsync -- network [--all]                              # read Innovation Bay now (docs/innovation-bay.md); --all = every company on its list
+npm run jobsync -- portfolio [--all] [--source id]              # read the official portfolio pages now (the refresh reads each once a week)
 npm run jobsync -- leads [--promote --by "name"]                # the companies the boards and networks named that the directory does not hold; --promote hands the eligible startups to the review queue
 npm run jobsync -- confirmed [--write]                        # approve the boards read in a browser (scripts/jobsync-confirmed.json), each only if its own feed confirms the page
 npm run jobsync -- verify [--links]                           # the final check

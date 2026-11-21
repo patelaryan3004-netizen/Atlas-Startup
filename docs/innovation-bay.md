@@ -1,6 +1,6 @@
 # Innovation Bay as a job discovery source
 
-Innovation Bay's job board (`jobs.innovationbay.com`) is read as a place to **find employers and vacancies to check**, never as a place roles are copied from. The vacancies on the hiring desk still come from each employer's own feed, so a role is shown once and every application link is the employer's own. Code: `backend/src/jobsync/network.js`; the step is `network` in `refresh.js`; it runs inside the existing twice-daily refresh (8:10 am and 8:10 pm Melbourne time).
+Innovation Bay's job board (`jobs.innovationbay.com`) is read as a place to **find employers and vacancies to check**, never as a place roles are copied from. The vacancies on the hiring desk still come from each employer's own feed, so a role is shown once and every application link is the employer's own. See also [company-discovery.md](company-discovery.md) for the other discovery source (the official portfolio pages) and the whole picture. Code: `backend/src/jobsync/network.js`; the step is `network` in `refresh.js`; it runs inside the existing twice-daily refresh (8:10 am and 8:10 pm Melbourne time).
 
 ## Is there an authorised feed? No (checked 2026-11-21)
 
@@ -13,7 +13,7 @@ Innovation Bay's job board (`jobs.innovationbay.com`) is read as a place to **fi
 | `api.getro.com` | Getro's API. `robots.txt`: `User-agent: * / Disallow: /`. Getro's own help article ("Ways to Use the Getro API") says it is read-only access to **your** job board, with a key the board's owner takes from its Getro account (API docs at developers.getro.com, whose `robots.txt` answers access-controlled, so the fetcher did not read it). | **Not used.** No key exists for us, and the host asks clients not to read it. |
 | An RSS / XML / JSON job export | None found on Innovation Bay's or Getro's public pages or help centre. | None. |
 
-So the only route to the complete list of Innovation Bay jobs is a key issued **by Innovation Bay** from its Getro account. That is theirs to give; nothing here asks for it, bypasses a refusal, or pays for one. If the owner wants it, the message to send is at the end of this page. Even with a key, the roles would be confirmed through each employer's own feed before they were shown (below), so the key would add coverage, not change the rule.
+So the complete list of Innovation Bay's jobs is behind a key that only Innovation Bay can issue, and the owner's decision is that **no key is bought or requested**. The company list and the portfolio pages (see [company-discovery.md](company-discovery.md)) do the discovering instead, and every role comes from the employer's own feed.
 
 ## What a refresh does with it
 
@@ -69,7 +69,3 @@ npm run jobsync -- leads --promote --by "name" [--limit 25] [--dry-run]
 ## What it costs and what it will not do
 
 No subscription, no key, no language model: HTTP reads of public pages at the site's own pace, and arithmetic. If the site's `robots.txt` starts refusing, or it answers 401/403/429, reading stops for that run, says so in the board's note (`job_vc_boards.json`, shown in the hiring desk's coverage dialog), and tries again at the next. It does not use `api.getro.com`, any login, any cookie, or anything the site did not serve to an ordinary visitor.
-
-## A message to Innovation Bay, if you want the complete list
-
-> Hi, we run Still Early (stillearly-au.vercel.app), a free directory of Australian startups, with a hiring desk that links every role to the employer's own application page. Would Innovation Bay be willing to share a read-only Getro API key for its job board, or a feed of its jobs? We would use it to find employers and to check each role against the employer's own careers page, and link back to jobs.innovationbay.com. Happy to follow any terms you set.

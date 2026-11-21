@@ -8,7 +8,7 @@ Everything is in `backend/scripts/portfolio/`:
 
 | File | What it is |
 |---|---|
-| `sources.mjs` | the portfolio pages read, and how each lists its companies (one parser per page layout) |
+| `sources.mjs` | re-exports `src/discovery/portfolioSources.js`: the portfolio pages read, and how each lists its companies (one parser per page layout). The twice-daily refresh reads the same pages once a week for companies that are new to them (see company-discovery.md) |
 | `scan.mjs` | reads those pages and writes `scans/<source>.json`: each company's name, its own website, the page's description, the page's address and the day it was read |
 | `scans/*.json` | what each page said, kept as the record of the read (committed) |
 | `import.mjs` | `plan`, `run`, `reread`, `propose`, `publish`, `report`: takes the scans through the engine |
