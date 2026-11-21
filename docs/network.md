@@ -54,6 +54,17 @@ Open `/moderation`, type the key. The key is held in the page's memory only and 
 
 The server keeps the community in one JSON file. Render's free plan erases its disk on every restart, so an account or post made there would silently vanish. For that reason the community is **closed** on Render until `NETWORK_DATA_DIR` points at a disk that survives restarts (Render Starter with a persistent disk, or a mounted volume) — the API answers `503 network_unavailable`, the pages say the community is not open yet, and the curated events and jobs still show. On a developer's machine it opens by itself (folder `backend/.network`). `NETWORK_ENABLED=0` closes it by hand. Also set `ADMIN_KEY` for moderation. A database would be the better long-term store; the file store is fine for the first few thousand people.
 
+### A disk for the founding list only
+
+The founding-member list (`POST /api/founding-members`, read with the admin key at `GET /api/admin/network/founding`) can last without opening the community: set `FOUNDING_DATA_DIR` to a folder on a disk that survives restarts and leave `NETWORK_DATA_DIR` unset. The members' side then stays closed (`available: false`) while `/api/network/status` reports `founding: { open: true, durable: true }` and the sign-up page stops warning that a restart can lose the list. (Setting `NETWORK_DATA_DIR` instead opens the whole community and makes the list durable with it.) On Render:
+
+1. A disk needs a paid instance: in the service's Settings, change the instance type from Free to a paid one (Starter). This adds a monthly charge; check the price shown in the dashboard before confirming.
+2. Settings, Disks, Add disk: name `data`, mount path `/var/data`, size 1 GB (a disk can grow, not shrink). Only what is written under the mount path survives a restart or deploy; the rest of the filesystem is still erased.
+3. Environment: add `FOUNDING_DATA_DIR=/var/data/founding`, and `ADMIN_KEY` if it is not set (without it the list cannot be read).
+4. Deploy, then check that `/api/network/status` shows `available: false` and `founding.durable: true`.
+
+With a disk, Render stops the old instance before starting the new one, so each deploy is a few seconds of downtime, and the service can run only one instance; Render keeps a snapshot of the disk daily for seven days. The list is not in git: back it up by reading it with the admin key.
+
 ## Not built, and why
 
 Email checking and password reset (no mail service). Profile photos (no file storage). Following (no one to follow yet). Groups, chat, trending (not wanted). Salary and experience on roles (not in the data). Introductions or any "member" status for directory people: Discover shows members and directory records separately and says directory people have not joined.

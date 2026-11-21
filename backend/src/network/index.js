@@ -60,8 +60,10 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
   // The investor directory, read as the hiring desk's second kind of employer: a venture firm's own vacancies (jobsync/employers.js).
   const investors = curatedInvestors ? () => curatedInvestors : watched(INVESTORS_FILE);
 
-  // The founding-member list needs no store: it is a small file in the network folder, kept where the server can write (and lasting only where the community itself could be open).
-  const founding = createFounding({ dir: foundingDir ?? folder ?? DEFAULT_DIR, durable: available && !memory, now });
+  // The founding-member list needs no store: it is a small file, kept where the server can write. Its folder is the one a test names, else FOUNDING_DATA_DIR (a disk that survives a restart: the
+  // owner sets it so the waiting list lasts while the community itself stays closed), else the network folder. It lasts where one of those disks is, or where the community itself could be open.
+  const foundingDisk = !foundingDir && !memory ? String(env.FOUNDING_DATA_DIR ?? '').trim() : '';
+  const founding = createFounding({ dir: foundingDir ?? (foundingDisk || folder || DEFAULT_DIR), durable: foundingDisk ? true : available && !memory, now });
 
   let ready = null;
   const open = () => {

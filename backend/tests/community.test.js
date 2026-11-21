@@ -372,6 +372,28 @@ describe('the founding-member list', () => {
     expect((await request(open).post('/api/founding-members').send(entry())).body.durable).toBe(true);
   });
 
+  it('lasts on a disk of its own while the community stays closed: FOUNDING_DATA_DIR is where the file is kept and makes the list durable, and the member side is still closed', async () => {
+    const disk = await mkdtemp(path.join(os.tmpdir(), 'au-found-disk-'));
+    made.push(disk);
+    const f = await fixture(3);
+    const network = createNetwork({ env: { RENDER: 'true', FOUNDING_DATA_DIR: disk }, curatedEvents: [], curatedJobsRows: [] });
+    const app = createApp({ catalog: f.catalog, network });
+    expect((await request(app).get('/api/network/status')).body).toMatchObject({ available: false, founding: { open: true, durable: true } });
+    expect((await request(app).post('/api/auth/signup').send({ name: 'Ada', email: 'a@example.org', password: 'a-long-enough-password' })).status).toBe(503); // accounts stay closed
+    const res = await request(app).post('/api/founding-members').send(entry());
+    expect(res.status, JSON.stringify(res.body)).toBe(201);
+    expect(res.body).toEqual({ saved: true, durable: true });
+    expect(JSON.parse(await readFile(path.join(disk, 'founding_members.json'), 'utf8'))).toHaveLength(1);
+    expect((await request(app).get('/api/admin/network/founding').set(admin)).body).toMatchObject({ durable: true, count: 1 });
+  });
+
+  it('does nothing with a blank FOUNDING_DATA_DIR, and ignores it for an in-memory community: the list is then durable only where the community could be open', async () => {
+    const blank = createNetwork({ env: { RENDER: 'true', FOUNDING_DATA_DIR: '  ' }, curatedEvents: [], curatedJobsRows: [] });
+    expect(blank.founding.durable).toBe(false);
+    const memory = createNetwork({ memory: true, env: { FOUNDING_DATA_DIR: '/var/data/founding' }, curatedEvents: [], curatedJobsRows: [] });
+    expect(memory.founding.durable).toBe(false);
+  });
+
   it('needs consent, a real email, a name and only listed intents and skills; a field only a script fills in is dropped; and slows one connection down', async () => {
     const { app, foundingDir } = await setup({ env: { RENDER: 'true' } });
     for (const body of [entry({ consent: false }), entry({ consent: undefined }), entry({ email: 'not an email' }), entry({ name: '' }), entry({ intents: ['world domination'] }), entry({ skills: ['wizardry'] }), entry({ link: 'http://insecure.example.org' })]) {
