@@ -476,6 +476,12 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
     res.json({ done: true });
   }));
 
+  // The founding-member list for the owner. It is above the error handler below, so a fault in it (the database is down) is answered as 503 and not as a crash.
+  router.get('/admin/network/founding', admin, wrap(async (req, res) => {
+    const rows = await network.founding.list();
+    res.json({ durable: network.founding.durable, store: network.founding.store, database_problem: network.databaseProblem ?? null, count: rows.length, results: rows });
+  }));
+
   // ---------- errors ----------
 
   // eslint-disable-next-line no-unused-vars
@@ -484,11 +490,6 @@ export function createNetworkRouter({ network, catalog, now = network.now }) {
     if (err?.code === 'network_unavailable') return res.status(503).json({ error: err.message, code: 'network_unavailable' });
     return next(err);
   });
-
-  router.get('/admin/network/founding', admin, wrap(async (req, res) => {
-    const rows = await network.founding.list();
-    res.json({ durable: network.founding.durable, count: rows.length, results: rows });
-  }));
 
   return router;
 }

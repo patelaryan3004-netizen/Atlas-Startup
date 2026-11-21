@@ -6,6 +6,8 @@ export default defineConfig({
     // Many tests run the real store, worker or scheduler against real files in a temp folder; a few take a few seconds
     // on a busy machine, and a slow run must not read as a failure.
     testTimeout: 30000,
+    // A test never reaches a real database: a DATABASE_URL in the developer's shell (for the owner's db:status and founding:import commands) is blanked for every test, which use their own throwaway Postgres.
+    env: { DATABASE_URL: '' },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],

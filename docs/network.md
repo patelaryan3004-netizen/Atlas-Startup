@@ -54,6 +54,8 @@ Open `/moderation`, type the key. The key is held in the page's memory only and 
 
 The server keeps the community in one JSON file. Render's free plan erases its disk on every restart, so an account or post made there would silently vanish. For that reason the community is **closed** on Render until `NETWORK_DATA_DIR` points at a disk that survives restarts (Render Starter with a persistent disk, or a mounted volume) — the API answers `503 network_unavailable`, the pages say the community is not open yet, and the curated events and jobs still show. On a developer's machine it opens by itself (folder `backend/.network`). `NETWORK_ENABLED=0` closes it by hand. Also set `ADMIN_KEY` for moderation. A database would be the better long-term store; the file store is fine for the first few thousand people.
 
+**The founding-member list does not need that disk.** With `DATABASE_URL` set (a free Neon Postgres database) it is kept in Postgres and survives restarts while the rest of the community stays closed: see [database.md](database.md), which also holds the planned tables for moving the community itself off the JSON file.
+
 ## Not built, and why
 
 Email checking and password reset (no mail service). Profile photos (no file storage). Following (no one to follow yet). Groups, chat, trending (not wanted). Salary and experience on roles (not in the data). Introductions or any "member" status for directory people: Discover shows members and directory records separately and says directory people have not joined.

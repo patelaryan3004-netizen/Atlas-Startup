@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { openStore, memoryStore } from './store.js';
 import { createAuth } from './auth.js';
 import { createFounding } from './founding.js';
+import { openDatabase } from '../db/database.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const DEFAULT_DIR = path.join(HERE, '..', '..', '.network');
@@ -37,7 +38,7 @@ function watched(file) {
   };
 }
 
-export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync, curatedInvestors, foundingDir } = {}) {
+export function createNetwork({ dir, memory = false, env = process.env, now = Date.now, limits, eventsFile = EVENTS_FILE, curatedEvents, jobsFile = JOBS_FILE, curatedJobsRows, jobSourcesFile = JOB_SOURCES_FILE, jobSyncFile = JOB_SYNC_FILE, curatedJobSync, curatedInvestors, foundingDir, db, log = console } = {}) {
   const off = ['0', 'false', 'no', 'off'].includes(String(env.NETWORK_ENABLED ?? '').trim().toLowerCase());
   let folder = dir ?? env.NETWORK_DATA_DIR ?? null;
   let reason = null;
@@ -60,8 +61,15 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
   // The investor directory, read as the hiring desk's second kind of employer: a venture firm's own vacancies (jobsync/employers.js).
   const investors = curatedInvestors ? () => curatedInvestors : watched(INVESTORS_FILE);
 
-  // The founding-member list needs no store: it is a small file in the network folder, kept where the server can write (and lasting only where the community itself could be open).
-  const founding = createFounding({ dir: foundingDir ?? folder ?? DEFAULT_DIR, durable: available && !memory, now });
+  // The database, when the machine names one (DATABASE_URL: Neon's free Postgres, see docs/database.md): what must survive a restart is kept there. A test passes its own (or null); an in-memory community
+  // never opens one. An address that cannot be used is not fatal: the server runs, says why in its log and to the owner (`databaseProblem`), and the list stays on its file and says it does not last.
+  const opened = db !== undefined ? db : memory ? null : openDatabase({ url: env.DATABASE_URL, log });
+  const databaseProblem = opened?.problem ?? null;
+  const database = opened && !opened.problem ? opened : null;
+  if (databaseProblem) log.error?.(`[db] DATABASE_URL is ignored: ${databaseProblem}`);
+
+  // The founding-member list needs no account and no store of the community's: Postgres when there is a database (it lasts), else a small file in the network folder (it lasts only where that disk does).
+  const founding = createFounding({ dir: foundingDir ?? folder ?? DEFAULT_DIR, db: database, durable: available && !memory, now, log });
 
   let ready = null;
   const open = () => {
@@ -73,5 +81,5 @@ export function createNetwork({ dir, memory = false, env = process.env, now = Da
     return ready;
   };
 
-  return { available, reason, open, events, jobs, jobSync, investors, founding, now, dir: memory ? null : folder };
+  return { available, reason, open, events, jobs, jobSync, investors, founding, database, databaseProblem, now, dir: memory ? null : folder };
 }
