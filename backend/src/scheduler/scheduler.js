@@ -40,6 +40,7 @@ import { runQuality, qualitySummary } from './jobs/quality.js';
 import { planJobSync } from './jobs/jobsync.js';
 import { runJobRefresh } from '../jobsync/refresh.js';
 import { jobSyncFetcher } from '../jobsync/fetcher.js';
+import { NETWORKS } from '../jobsync/network.js';
 
 export { JOBS };
 export const SITE_JOBS = ['hiring', 'status', 'enrichment'];
@@ -134,8 +135,10 @@ export async function tick({
       const jobsBase = fetcher ?? jobSyncFetcher({ userAgent: env.JOBSYNC_USER_AGENT || userAgent.replace('scheduled refresh', 'job board sync'), coolDownHosts: begun.cooling });
       // A whole refresh (venture boards, board discovery, every due employer board): up to 1,500 requests and 20 minutes, paced per host by the fetcher. When a limit is reached it stops
       // starting work and what was left stays due for the next refresh.
+      // A job network's site is asked at its own pace (network.js: 10 s between two requests, the delay its robots.txt asks of the crawlers it names), by a fetcher of its own.
+      const networkBase = fetcher ?? jobSyncFetcher({ userAgent: env.JOBSYNC_USER_AGENT || userAgent.replace('scheduled refresh', 'job board sync'), coolDownHosts: begun.cooling, minDelayMs: Math.max(...NETWORKS.map((n) => n.delay_ms)) });
       const jobsBudget = createBudget({ maxRequests: limits.maxRequests ?? 1500, maxMinutes: limits.maxMinutes ?? 20, now });
-      const r = await runJobRefresh({ ...ctx, fetcher: jobsBudget.wrap(jobsBase) }, {
+      const r = await runJobRefresh({ ...ctx, fetcher: jobsBudget.wrap(jobsBase), networkFetcher: jobsBudget.wrap(networkBase) }, {
         budget: jobsBudget, limit: limits.maxBoards, only: limits.boards, steps: limits.steps, discoveryLimit: limits.discoveryLimit, discoveryConcurrency: limits.concurrency ? limits.concurrency * 2 : 4, trigger, slot: limits.slot ?? null,
       });
       if (r.failed > 0 && r.processed === 0) r.error = `every board that was read failed (${r.failed}): the roles were left as they were`;

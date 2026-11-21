@@ -42,7 +42,7 @@ export function compareHealth(before = [], after = []) {
   return changed;
 }
 
-// The ledgers, as one number: boards approved or put in review (or taken out), companies whose outcome changed, new leads, venture boards whose platform or access changed.
+// The ledgers, as one number: boards approved or put in review (or taken out), companies whose outcome changed or that a network said are hiring, new leads and leads that moved on, venture boards whose platform or access changed.
 export function compareLedgers(before = {}, after = {}) {
   let n = 0;
   const idsOf = (rows, pick = (r) => r.id) => new Map((rows ?? []).map((r) => [pick(r), r]));
@@ -51,9 +51,9 @@ export function compareLedgers(before = {}, after = {}) {
   const now = idsOf(after.job_sources);
   for (const id of sources.keys()) if (!now.has(id)) n += 1;
   const coverage = idsOf(before.job_coverage, (r) => r.company_id);
-  for (const r of after.job_coverage ?? []) { const old = coverage.get(r.company_id); if (!old || old.outcome !== r.outcome || (old.boards ?? []).length !== (r.boards ?? []).length) n += 1; }
+  for (const r of after.job_coverage ?? []) { const old = coverage.get(r.company_id); if (!old || old.outcome !== r.outcome || (old.boards ?? []).length !== (r.boards ?? []).length || old.hiring_hint_at !== r.hiring_hint_at) n += 1; }
   const leads = idsOf(before.job_leads);
-  for (const r of after.job_leads ?? []) if (!leads.has(r.id)) n += 1;
+  for (const r of after.job_leads ?? []) { const old = leads.get(r.id); if (!old || old.status !== r.status) n += 1; }
   const vc = idsOf(before.job_vc_boards);
   for (const r of after.job_vc_boards ?? []) { const old = vc.get(r.id); if (!old || old.platform !== r.platform || old.access !== r.access || old.board_url !== r.board_url) n += 1; }
   return n;

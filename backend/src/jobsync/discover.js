@@ -280,6 +280,7 @@ export function reconcileCoverage(work, { at }) {
 // Who is looked at in this refresh. `isInactive` is the catalogue's own rule (a closed company is not looked at).
 //   - a company never looked at: at once;
 //   - a company with an approved board: not again, unless that board has failed three times in a row (then its page is read again to see whether the link moved);
+//   - a company a job network has said is hiring since it was last looked at (job_coverage.hiring_hint_at): at once;
 //   - every other company: when this half-day block is the company's own (rotationBucket), so once a week, unless it was looked at in the last six hours (a second run in the same block asks nothing).
 // `force` takes every eligible company. The never-looked-at come first, then the longest ago.
 export function dueForDiscovery(ds, { now, limit, force = false, isInactive }) {
@@ -296,6 +297,8 @@ export function dueForDiscovery(ds, { now, limit, force = false, isInactive }) {
     const r = byCompany.get(c.id);
     if (!r) return true; // never looked at: now
     if (approved.has(c.id) && !failing.has(c.id)) return false;
+    // A job network said the company is hiring (network.js) after it was last looked at, and it has no board of its own read: look now, not at its turn in the week.
+    if (r.hiring_hint_at && (!r.checked_at || Date.parse(r.hiring_hint_at) > Date.parse(r.checked_at))) return true;
     if (rotationBucket(c.id) !== block % ROTATION_BLOCKS) return false;
     return !r.checked_at || now - Date.parse(r.checked_at) > 6 * 3600000;
   });

@@ -370,6 +370,11 @@ describe('html', () => {
     expect(jsonLd('<p>none</p>')).toEqual([]);
   });
 
+  it('does not follow a mailto: or tel: written as a path (a typo on some company sites), so no address reaches a note', () => {
+    const html = '<a href="/mailto:info@acme.com.au">Email us</a><a href="/contact/tel:+61390001111">Call</a><a href="/contact">Contact</a>';
+    expect(links(html, 'https://acme.example/')).toEqual([{ href: 'https://acme.example/contact', text: 'Contact' }]);
+  });
+
   it('resolves links against the page, drops fragments, mailto and duplicates', () => {
     const html = '<a href="/about">About us</a><a href="/about#team">again</a><a href="mailto:x@y.z">mail</a><a href="https://other.example/p">Other</a><a href="javascript:void(0)">js</a>';
     expect(links(html, 'https://acme.example/')).toEqual([

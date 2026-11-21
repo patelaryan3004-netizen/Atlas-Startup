@@ -12,6 +12,7 @@ import { SUPPORTED, UNSUPPORTED_REASONS } from '../src/jobsync/providers.js';
 import { discoverCompany, applyDiscovery, dueForDiscovery, rotationBucket, blockOf, BLOCK_MS } from '../src/jobsync/discover.js';
 import { runDiscovery } from '../src/jobsync/discoverRun.js';
 import { classifyBoard, checkFirm, applySample, boardCandidates, VC_FIRMS } from '../src/jobsync/vc.js';
+import { NETWORKS } from '../src/jobsync/network.js';
 import { dedupeRoles } from '../src/jobsync/dedupe.js';
 import { applyRead } from '../src/jobsync/engine.js';
 import { decide, slotAt, melbourne } from '../src/jobsync/slot.js';
@@ -420,7 +421,7 @@ describe('a whole refresh', () => {
     expect(ds.jobs.filter((j) => j.status === 'open').map((j) => [j.company_id, j.external_id]).sort()).toEqual([['acme-robotics', 'id-1'], ['zeller', '1'], ['zeller', '2']]);
     // Every directory company has a ledger row; the venture firms were all looked at (none of them is reachable in this scripted web, and that is said, not hidden).
     expect(ds.job_coverage.map((r) => r.company_id).sort()).toEqual(['acme-robotics', 'zeller']);
-    expect(ds.job_vc_boards).toHaveLength(VC_FIRMS.length);
+    expect(ds.job_vc_boards).toHaveLength(VC_FIRMS.length + NETWORKS.length);
     expect(ds.job_vc_boards.every((r) => r.access === 'unread' && r.note)).toBe(true);
     expect(ds.job_health).toHaveLength(1);
     expect(ds.job_health[0]).toMatchObject({ slot: '2026-11-20 AM', trigger: 'ci', companies_with_sources: 2, boards_ok: 2, boards_failed: 0, open_roles: 3, new_roles: 3, closed_roles: 0, duplicates_removed: 0, last_success_at: new Date(NOW).toISOString() });
@@ -477,7 +478,7 @@ describe('from an employer\'s feed to the page\'s answer to the official applica
     expect(res.body.roles.find((r) => r.title === 'Designer').work.cities).toEqual(['Sydney']);
     expect(res.body.sync).toMatchObject({ interval_minutes: 720, schedule: expect.stringMatching(/8:10 am and 8:10 pm Melbourne/), last_refresh: expect.objectContaining({ slot: '2026-11-20 AM', boards_ok: 2 }) });
     expect(res.body.sync.directory).toMatchObject({ looked_at: 2, with_board: 2, for_review: 0 });
-    expect(res.body.sync.vc_boards).toHaveLength(VC_FIRMS.length);
+    expect(res.body.sync.vc_boards).toHaveLength(VC_FIRMS.length + NETWORKS.length);
   });
 
   it('carries what the feed states and the directory knows, and nothing it does not: pay, stated experience, stage, backers', async () => {

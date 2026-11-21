@@ -1,6 +1,8 @@
 // One refresh of the hiring desk's data: everything the twice-a-day schedule does, in this order, each step bounded and none able to undo another's work.
 //
 //   vc        the venture firms' job boards that are due: what platform, what may be read, and (from the page's sample) companies and boards to queue for approval. vc.js
+//   network   a job network's board (Innovation Bay): its sample, and this refresh's slice of its company list matched against the directory: leads for the ones we do not hold, a look at the
+//             websites of the ones we hold that are hiring and have no board read. network.js
 //   confirm   a board a venture firm's board named for a company we hold is asked of the EMPLOYER: approved only if its own feed lists the job that was shown and the board is the company's.
 //             confirm.js
 //   discover  the companies due for a look at their own website for a job board (each company without one, once a week, by rotation; never-looked-at at once): a board found is approved, the
@@ -14,6 +16,8 @@ import { snapshot, transact } from '../models/store.js';
 import { runJobSync } from '../scheduler/jobs/jobsync.js';
 import { runDiscovery, keptReview, DEFAULT_DISCOVERY_PER_RUN } from './discoverRun.js';
 import { checkFirm, applySample, VC_FIRMS } from './vc.js';
+import { NETWORKS, NETWORK_READS_PER_RUN, readNetwork, applyProfiles, coveredBy } from './network.js';
+import { blockOf } from './discover.js';
 import { buildCatalogue } from './sources.js';
 import { confirmReviewBoards } from './confirm.js';
 import { PROVIDERS } from './adapters.js';
@@ -23,7 +27,7 @@ import { vcEmployerId } from './employers.js';
 import { dedupeRoles } from './dedupe.js';
 import { buildHealthRow, pushHealth } from './health.js';
 
-export const STEPS = ['vc', 'confirm', 'discover', 'boards', 'dedupe', 'health'];
+export const STEPS = ['vc', 'network', 'confirm', 'discover', 'boards', 'dedupe', 'health'];
 
 async function runVc(ctx, budget) {
   const { dir, now = Date.now, fetcher, lock, force = false } = ctx;
@@ -78,6 +82,45 @@ async function runVc(ctx, budget) {
   return stats;
 }
 
+// The job networks (Innovation Bay) that are due: their board's sample, and this refresh's slice of their company list, matched against the directory. network.js
+// `all`: every company on the list this time, not just this half-day's slice (a first fill, or a catch-up: `jobsync network --all`), up to `limit` pages.
+export async function runNetwork(ctx, budget, { all = false, limit = NETWORK_READS_PER_RUN } = {}) {
+  const { dir, now = Date.now, lock, force = false } = ctx;
+  const fetcher = ctx.networkFetcher ?? ctx.fetcher;
+  const stats = { due: 0, checked: 0, sighted: 0, known: 0, review_boards: 0, leads: 0, profiles_read: 0, in_directory: 0, hiring_hints: 0, already_queued: 0, new_leads: 0, investor_leads: 0, settled: 0, errors: 0, stopped: null };
+  const { ds } = await snapshot(dir, lock);
+  const byId = new Map((ds.job_vc_boards ?? []).map((r) => [r.id, r]));
+  const due = NETWORKS.filter((n) => force || !byId.get(n.id)?.next_check_at || Date.parse(byId.get(n.id).next_check_at) <= now());
+  stats.due = due.length;
+  for (const net of due) {
+    if (budget?.shouldStop()) break;
+    const before = byId.get(net.id);
+    // A second refresh in the same half-day block (a manual run after a scheduled one) reads the board but not the company list again.
+    const wantProfiles = all || !before?.profiles_block || before.profiles_block !== blockOf(now());
+    let res;
+    try { res = await readNetwork(net, { fetcher, now, covered: coveredBy(ds), profiles: wantProfiles || all, force: all, limit, shouldStop: () => budget?.shouldStop() ?? false }); } catch (err) { stats.errors += 1; continue; }
+    await transact(dir, (work, { at }) => {
+      work.job_vc_boards ??= [];
+      const row = { ...res.row };
+      if (!wantProfiles && before?.profiles_block) row.profiles_block = before.profiles_block;
+      const i = work.job_vc_boards.findIndex((r) => r.id === net.id);
+      if (i === -1) work.job_vc_boards.push(row); else work.job_vc_boards[i] = row;
+      if (res.sample.length) {
+        const { stats: s, reviews } = applySample(work, { id: net.id, name: net.name, label: net.label }, res.sample, { at, keptReview: keptReview(work) });
+        work.job_sources = buildCatalogue(work, { review: reviews, at });
+        for (const k of ['sighted', 'known', 'review_boards', 'leads']) stats[k] += s[k];
+      }
+      const p = applyProfiles(work, net, res.profiles, { at, now });
+      stats.profiles_read += p.read; stats.in_directory += p.in_directory; stats.hiring_hints += p.hints; stats.already_queued += p.already_queued;
+      stats.new_leads += p.leads_new; stats.investor_leads += p.investor_leads; stats.settled += p.settled;
+      return {};
+    }, lock);
+    stats.checked += 1;
+    stats.stopped = res.stats.stopped ?? stats.stopped;
+  }
+  return stats;
+}
+
 // `steps`: which of STEPS to run (all by default). `only` (catalogue ids) narrows the boards step to those boards, and skips vc and discover.
 export async function runJobRefresh(ctx, { budget, limit, only = null, steps = STEPS, discoveryLimit = DEFAULT_DISCOVERY_PER_RUN, discoveryConcurrency = 4, trigger = 'cli', slot = null } = {}) {
   const { dir, now = Date.now, lock } = ctx;
@@ -90,6 +133,13 @@ export async function runJobRefresh(ctx, { budget, limit, only = null, steps = S
 
   if (want.has('vc') && full) {
     try { vc = await runVc(ctx, budget); details.vc = vc; if (vc.checked) notes.push(`${vc.checked} venture board(s) checked`); } catch (err) { details.vc = { error: err.message }; notes.push(`venture boards failed: ${err.message}`); }
+  }
+  let network = null;
+  if (want.has('network') && full) {
+    try {
+      network = await runNetwork(ctx, budget); details.network = network;
+      if (network.checked) notes.push(`${network.profiles_read} network company page(s) read${network.new_leads ? `, ${network.new_leads} new lead(s)` : ''}${network.hiring_hints ? `, ${network.hiring_hints} hiring company(ies) to look at` : ''}`);
+    } catch (err) { details.network = { error: err.message }; notes.push(`job network failed: ${err.message}`); }
   }
   let confirmed = null;
   if (want.has('confirm') && full) {
@@ -136,6 +186,7 @@ export async function runJobRefresh(ctx, { budget, limit, only = null, steps = S
 
   // The counts a run log row carries cover every step, so a refresh that only looked at companies is not "idle".
   if (vc) { out.due += vc.due; out.processed += vc.checked; out.failed += vc.errors; }
+  if (network) { out.due += network.due; out.processed += network.checked; out.failed += network.errors; }
   if (discovery) { out.due += discovery.due; out.processed += discovery.read; out.failed += discovery.errors; out.changed += discovery.boards; out.deferred += discovery.deferred ?? 0; }
   out.changed += dedupe.removed;
   if (notes.length) out.summary = [out.summary, ...notes].filter(Boolean).join('; ');

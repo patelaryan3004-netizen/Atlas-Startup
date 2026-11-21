@@ -4593,5 +4593,117 @@
       }
     ],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261120164316236",
+    "started_at": "2026-11-20T16:33:53.296Z",
+    "finished_at": "2026-11-20T16:43:16.236Z",
+    "trigger": "cli",
+    "by": "claude-innovation-bay",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "innovation-bay",
+        "leads": 117,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 117,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 492
+    },
+    "refused": [
+      {
+        "url": "https://lovetodream.com.au/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://longtailux.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://longtailux.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://megaphone.spotify.com/",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /"
+      },
+      {
+        "url": "https://withsempo.com/",
+        "code": "too_many_redirects",
+        "message": "more than 3 redirects"
+      },
+      {
+        "url": "https://sherlockloans.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://bitwiseag.com/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is access-controlled"
+      },
+      {
+        "url": "https://clinicalgenomics.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://clinicalgenomics.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://www.scaleupmediafund.com/",
+        "code": "too_large",
+        "message": "response is larger than 1500000 bytes"
+      },
+      {
+        "url": "https://chinproperty.com.au/",
+        "code": "robots_unavailable",
+        "message": "robots.txt is unavailable (HTTP 500)"
+      },
+      {
+        "url": "https://celotti.com.au/terms",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://app.cartoncloud.com/privacy-policy",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /privacy-policy"
+      },
+      {
+        "url": "https://app.cartoncloud.com/terms-of-service",
+        "code": "robots_disallow",
+        "message": "robots.txt disallows /terms-of-service"
+      },
+      {
+        "url": "https://www.gotradie.com.au/",
+        "code": "http_error",
+        "message": "HTTP 404"
+      },
+      {
+        "url": "https://bardee.com/robots.txt",
+        "code": "network_error",
+        "message": "fetch failed"
+      },
+      {
+        "url": "https://bardee.com/",
+        "code": "robots_unavailable",
+        "message": "fetch failed"
+      }
+    ],
+    "acknowledged": []
   }
 ]

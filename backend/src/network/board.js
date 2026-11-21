@@ -38,7 +38,8 @@ export function syncSummary({ sources = [], state = [], names = new Map(), roleC
     directory: coverageSummary(coverage, names),
     vc_boards: vc.map((r) => ({ name: r.name, platform: r.platform, access: r.access, note: r.note ?? '', own_vacancies: r.own_vacancies ?? '', checked_at: r.checked_at ?? null })),
     last_refresh: lastRefresh(health),
-    leads_waiting: leads.filter((l) => l.status === 'needs_review').length,
+    // Companies and firms the directory does not hold (an investor_hiring lead is about a firm it DOES hold, and is not counted here).
+    leads_waiting: leads.filter((l) => l.status === 'needs_review' && l.kind !== 'investor_hiring').length,
   };
 }
 

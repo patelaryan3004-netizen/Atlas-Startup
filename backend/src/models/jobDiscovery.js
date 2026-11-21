@@ -6,9 +6,10 @@
 //                       { company_id, checked_at, outcome, review, careers_url, boards[{ provider, token, host, url, supported, source_id }], source_ids[], note, next_check_at }
 //   job_vc_boards.json  one row per venture firm whose job board was checked: where it is, what platform it runs, and what we may read from it (a firm that runs a board we cannot
 //                       read says so, with the reason). { id, investor_id, name, board_url, platform, access, evidence_url, checked_at, own_vacancies, note, next_check_at }
-//   job_leads.json     companies the venture firms' boards named that the directory does not hold. A lead is never read as a source and never shown: it waits here for a person to
-//                       approve it, and the directory is never added to by the sync. (A job board named for a company we DO hold is a 'review' row of job_sources.json instead.)
-//                       { id, kind: unknown_company, name, status, seen_on[{ firm, url, title, at }], first_seen_at, last_seen_at, note }
+//   job_leads.json     companies the venture firms' boards and Innovation Bay's company list named that the directory does not hold. A lead is never read as a source and never shown: it
+//                       waits here for a person to approve it, and the directory is never added to by the sync. (A job board named for a company we DO hold is a 'review' row of
+//                       job_sources.json instead.) `jobsync leads --promote` hands the eligible ones to the directory's own review queue (candidates.json).
+//                       { id, kind, name, status, seen_on[{ firm, url, title, at }], first_seen_at, last_seen_at, note, profile? (what the network's company page says) }
 //   job_health.json     one row per refresh: the sync's own account of itself (boards read, failed, roles open, new, closed, duplicates), newest last, trimmed to the last 120 rows.
 import { ISO_RE, isStr } from './company.js';
 import { SOURCE_PROVIDERS } from './jobSync.js';
@@ -18,8 +19,12 @@ export const COVERAGE_OUTCOMES = ['board', 'unsupported_provider', 'careers_page
 export const REVIEW_OUTCOMES = new Set(['unsupported_provider', 'careers_page_only', 'no_careers_found', 'unreadable', 'board_unreadable']);
 export const VC_PLATFORMS = ['getro', 'consider', 'workatastartup', 'greenhouse', 'lever', 'ashby', 'rippling', 'own_site', 'none', 'unknown'];
 export const VC_ACCESS = ['public_sample', 'no_public_feed', 'login_required', 'no_board', 'unread'];
-export const LEAD_KINDS = ['unknown_company'];
-export const LEAD_STATUSES = ['needs_review', 'approved', 'rejected'];
+// unknown_company   a company a job board or a network's company list names, in Australia, that the directory does not hold
+// unknown_investor  the same, for a venture firm (the investor directory has its own approval)
+// investor_hiring   a venture firm the directory DOES hold, which a network says has open roles, but whose own careers page is not among the firms the sync checks (investor_id)
+export const LEAD_KINDS = ['unknown_company', 'unknown_investor', 'investor_hiring'];
+// needs_review   waiting for a person   queued   handed to the directory's own approval queue (candidates.json; candidate_id)   in_directory   the directory holds it now (resolved_to)
+export const LEAD_STATUSES = ['needs_review', 'queued', 'approved', 'rejected', 'in_directory'];
 export const HEALTH_KEEP = 120;
 
 const when = (v) => v == null || ISO_RE.test(v);
@@ -36,7 +41,7 @@ export function validateJobCoverage(ds) {
     if (seen.has(r.company_id)) errors.push(`${at}: duplicate row`);
     seen.add(r.company_id);
     if (!COVERAGE_OUTCOMES.includes(r.outcome)) errors.push(`${at}: invalid outcome "${r.outcome}"`);
-    if (!when(r.checked_at) || !when(r.next_check_at)) errors.push(`${at}: checked_at and next_check_at must be ISO-8601 UTC or null`);
+    if (!when(r.checked_at) || !when(r.next_check_at) || !when(r.hiring_hint_at)) errors.push(`${at}: checked_at, next_check_at and hiring_hint_at must be ISO-8601 UTC or null`);
     if (!isUrl(r.careers_url)) errors.push(`${at}: careers_url must be https or null`);
     if (typeof r.review !== 'boolean') errors.push(`${at}: review must be true or false`);
     for (const b of r.boards ?? []) {
@@ -70,6 +75,7 @@ export function validateJobVcBoards(ds) {
 export function validateJobLeads(ds) {
   const errors = [];
   const companies = new Set((ds.companies ?? []).map((c) => c.id));
+  const investors = new Set((ds.investors ?? []).map((i) => i.id));
   const seen = new Set();
   for (const r of ds.job_leads ?? []) {
     const at = `job lead "${r.id}"`;
@@ -79,6 +85,9 @@ export function validateJobLeads(ds) {
     if (!LEAD_KINDS.includes(r.kind)) errors.push(`${at}: invalid kind "${r.kind}"`);
     if (!LEAD_STATUSES.includes(r.status)) errors.push(`${at}: invalid status "${r.status}"`);
     if (r.kind === 'unknown_company' && companies.has(r.company_id)) errors.push(`${at}: a company in the directory is not an unknown company`);
+    if (r.kind === 'investor_hiring' && !investors.has(r.investor_id)) errors.push(`${at}: investor_hiring needs the investor_id of a firm in the directory`);
+    if (r.status === 'in_directory' && !companies.has(r.resolved_to) && !investors.has(r.resolved_to)) errors.push(`${at}: in_directory needs resolved_to, the id of the company or investor now in the directory`);
+    if (r.status === 'queued' && !isStr(r.candidate_id)) errors.push(`${at}: queued needs candidate_id, the candidate that now waits in the directory's review queue`);
     if (!when(r.first_seen_at) || !when(r.last_seen_at)) errors.push(`${at}: first_seen_at and last_seen_at must be ISO-8601 UTC or null`);
   }
   return errors;

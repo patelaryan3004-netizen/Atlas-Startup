@@ -193,5 +193,19 @@
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
     "note": "A Consider board: its job list is drawn by script from the platform's API and the page serves no list we may use (at most a list of titles with no company, place or link). Not read.",
     "next_check_at": "2026-11-27T14:31:15.723Z"
+  },
+  {
+    "id": "innovation-bay",
+    "investor_id": null,
+    "name": "Innovation Bay",
+    "board_url": "https://jobs.innovationbay.com/jobs",
+    "platform": "getro",
+    "access": "public_sample",
+    "evidence_url": "https://jobs.innovationbay.com/jobs",
+    "checked_at": "2026-11-20T15:23:59.794Z",
+    "own_vacancies": "",
+    "note": "A Getro network: its page serves the newest 20 of 9172 jobs, worldwide and not filtered by place, so it is a sample and never a source of roles. The rest are in Getro's API, which needs a key that Getro issues to the board's owner, and whose robots.txt refuses every other client: no feed is used. Its company list names 415 companies; 379 company pages read in this refresh, each company once a week.",
+    "next_check_at": "2026-11-21T02:23:59.794Z",
+    "profiles_block": 41555
   }
 ]
