@@ -4705,5 +4705,83 @@
       }
     ],
     "acknowledged": []
+  },
+  {
+    "id": "run-20261121063453500",
+    "started_at": "2026-11-21T06:34:33.573Z",
+    "finished_at": "2026-11-21T06:34:53.500Z",
+    "trigger": "cli",
+    "by": "claude-portfolio-discovery",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "blackbird-portfolio",
+        "leads": 1,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 1,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 6
+    },
+    "refused": [],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261121063519698",
+    "started_at": "2026-11-21T06:35:00.356Z",
+    "finished_at": "2026-11-21T06:35:19.698Z",
+    "trigger": "cli",
+    "by": "claude-portfolio-discovery",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "squarepeg-portfolio",
+        "leads": 1,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 1,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 12
+    },
+    "refused": [],
+    "acknowledged": []
+  },
+  {
+    "id": "run-20261121063539975",
+    "started_at": "2026-11-21T06:35:24.391Z",
+    "finished_at": "2026-11-21T06:35:39.975Z",
+    "trigger": "cli",
+    "by": "claude-portfolio-discovery",
+    "dry_run": false,
+    "status": "ok",
+    "sources": [
+      {
+        "id": "cicada-residents",
+        "leads": 1,
+        "error": null
+      }
+    ],
+    "totals": {
+      "new": 1,
+      "attached": 0,
+      "seen": 0,
+      "skipped": 0,
+      "applied": 0,
+      "requests": 4
+    },
+    "refused": [],
+    "acknowledged": []
   }
 ]

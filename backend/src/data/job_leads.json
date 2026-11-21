@@ -6526,5 +6526,358 @@
     },
     "candidate_id": "cand-bardee",
     "candidate_status": "needs_review"
+  },
+  {
+    "id": "lead-alta",
+    "kind": "unknown_company",
+    "name": "Alta",
+    "status": "queued",
+    "seen_on": [
+      {
+        "firm": "blackbird-portfolio",
+        "url": "https://www.blackbird.vc/portfolio/alta",
+        "title": "Alta | Blackbird portfolio",
+        "at": "2026-11-21T06:32:31.846Z"
+      },
+      {
+        "firm": "squarepeg-portfolio",
+        "url": "https://www.squarepeg.vc/portfolio/alta",
+        "title": "Alta | Square Peg portfolio",
+        "at": "2026-11-21T06:33:15.004Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:32:31.846Z",
+    "last_seen_at": "2026-11-21T06:34:55.682Z",
+    "note": "Named by Blackbird's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://alta.finance/",
+      "domain": "alta.finance",
+      "description": "Alta is optimising the global financial system using frontier blockchain technology to simplify operations, reduce cash buffers, and maximise yield.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.blackbird.vc/portfolio/alta",
+      "read_at": "2026-11-21T06:32:31.846Z",
+      "origin": "portfolio",
+      "australian": "likely",
+      "startup": "likely",
+      "resembles": "Meta"
+    },
+    "candidate_id": "cand-alta",
+    "candidate_status": "needs_review"
+  },
+  {
+    "id": "lead-atopile",
+    "kind": "unknown_company",
+    "name": "atopile",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "blackbird-portfolio",
+        "url": "https://www.blackbird.vc/portfolio/atopile",
+        "title": "atopile | Blackbird portfolio",
+        "at": "2026-11-21T06:32:31.846Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:32:31.846Z",
+    "last_seen_at": "2026-11-21T06:32:31.846Z",
+    "note": "Named by Blackbird's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://atopile.com/",
+      "domain": "atopile.com",
+      "description": "atopile is building the hardware engineering platform for hardware hyperscalers, using ato to capture engineering constraints, starting with PCB design.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.blackbird.vc/portfolio/atopile",
+      "read_at": "2026-11-21T06:32:31.846Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "likely"
+    }
+  },
+  {
+    "id": "lead-morgan",
+    "kind": "unknown_company",
+    "name": "Morgan",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "blackbird-portfolio",
+        "url": "https://www.blackbird.vc/portfolio/morgan",
+        "title": "Morgan | Blackbird portfolio",
+        "at": "2026-11-21T06:32:31.846Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:32:31.846Z",
+    "last_seen_at": "2026-11-21T06:32:31.846Z",
+    "note": "Named by Blackbird's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://www.morgan.so/",
+      "domain": "morgan.so",
+      "description": "Morgan is transforming the insolvency and restructuring industry by compressing months worth of work into minutes with its AI powered OS.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.blackbird.vc/portfolio/morgan",
+      "read_at": "2026-11-21T06:32:31.846Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "likely"
+    }
+  },
+  {
+    "id": "lead-sterling",
+    "kind": "unknown_company",
+    "name": "Sterling",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "blackbird-portfolio",
+        "url": "https://www.blackbird.vc/portfolio/sterling",
+        "title": "Sterling | Blackbird portfolio",
+        "at": "2026-11-21T06:32:31.846Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:32:31.846Z",
+    "last_seen_at": "2026-11-21T06:32:31.846Z",
+    "note": "Named by Blackbird's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://histerling.com/",
+      "domain": "histerling.com",
+      "description": "Sterling believes finance teams deserve better tools. They are taking on the challenge of manual processes, crufty moments, and giving finance teams their time back to shift their energy from BAU to innovation and forward momentum.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.blackbird.vc/portfolio/sterling",
+      "read_at": "2026-11-21T06:32:31.846Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "likely"
+    }
+  },
+  {
+    "id": "lead-tilt",
+    "kind": "unknown_company",
+    "name": "Tilt",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "blackbird-portfolio",
+        "url": "https://www.blackbird.vc/portfolio/tilt",
+        "title": "Tilt | Blackbird portfolio",
+        "at": "2026-11-21T06:32:31.846Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:32:31.846Z",
+    "last_seen_at": "2026-11-21T06:32:31.846Z",
+    "note": "Named by Blackbird's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://tilt.com/",
+      "domain": "tilt.com",
+      "description": "Tilt is a better way to access money, helping more people get cash and credit by looking at real-time income and spending, not just credit scores, to see their potential.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.blackbird.vc/portfolio/tilt",
+      "read_at": "2026-11-21T06:32:31.846Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "likely"
+    }
+  },
+  {
+    "id": "lead-everful",
+    "kind": "unknown_company",
+    "name": "Everful",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "squarepeg-portfolio",
+        "url": "https://www.squarepeg.vc/portfolio/everful",
+        "title": "Everful | Square Peg portfolio",
+        "at": "2026-11-21T06:33:15.004Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:33:15.004Z",
+    "last_seen_at": "2026-11-21T06:33:15.004Z",
+    "note": "Named by Square Peg's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://www.everfulwholesale.com/",
+      "domain": "everfulwholesale.com",
+      "description": "Everful helps small independent retailers around the world buy quality goods at low prices, directly from factories. It handles sourcing, factory checks, quality control and shipping, using AI agents to coordinate orders across more than 30,000 factories.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.squarepeg.vc/portfolio/everful",
+      "read_at": "2026-11-21T06:33:15.004Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "yes"
+    }
+  },
+  {
+    "id": "lead-future-secure-ai",
+    "kind": "unknown_company",
+    "name": "Future Secure AI",
+    "status": "queued",
+    "seen_on": [
+      {
+        "firm": "squarepeg-portfolio",
+        "url": "https://www.squarepeg.vc/portfolio/future-secure-ai",
+        "title": "Future Secure AI | Square Peg portfolio",
+        "at": "2026-11-21T06:33:15.004Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:33:15.004Z",
+    "last_seen_at": "2026-11-21T06:35:21.044Z",
+    "note": "Named by Square Peg's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://futuresecure.ai/",
+      "domain": "futuresecure.ai",
+      "description": "Future Secure AI is reimagining how enterprises work. Its AI Co-Workers join existing teams and take on complex work, from closing the books to supporting customers. Each is built around the business it serves, working within its systems and with people overseeing the work. AI built to be part of ev",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.squarepeg.vc/portfolio/future-secure-ai",
+      "read_at": "2026-11-21T06:33:15.004Z",
+      "origin": "portfolio",
+      "australian": "likely",
+      "startup": "likely"
+    },
+    "candidate_id": "cand-future-secure-ai",
+    "candidate_status": "needs_review"
+  },
+  {
+    "id": "lead-helsing",
+    "kind": "unknown_company",
+    "name": "Helsing",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "investible-portfolio",
+        "url": "https://www.investible.com/company/helsing",
+        "title": "Helsing | Investible portfolio",
+        "at": "2026-11-21T06:33:49.131Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:33:49.131Z",
+    "last_seen_at": "2026-11-21T06:33:49.131Z",
+    "note": "Named by Investible's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://helsing.ai/",
+      "domain": "helsing.ai",
+      "description": "Startup founded by Torsten Reil, Gundbert Scherf, Niklas Köhler in Germany.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.investible.com/company/helsing",
+      "read_at": "2026-11-21T06:33:49.131Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "likely"
+    }
+  },
+  {
+    "id": "lead-kinsyn",
+    "kind": "unknown_company",
+    "name": "KINSYN",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "investible-portfolio",
+        "url": "https://www.investible.com/company/kinsyn",
+        "title": "KINSYN | Investible portfolio",
+        "at": "2026-11-21T06:33:49.131Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:33:49.131Z",
+    "last_seen_at": "2026-11-21T06:33:49.131Z",
+    "note": "Named by Investible's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://kinsyn.com/",
+      "domain": "kinsyn.com",
+      "description": "Startup founded by Chris Hemsworth, JRNYS in US.",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.investible.com/company/kinsyn",
+      "read_at": "2026-11-21T06:33:49.131Z",
+      "origin": "portfolio",
+      "australian": "unknown",
+      "startup": "likely"
+    }
+  },
+  {
+    "id": "lead-airlab-one",
+    "kind": "unknown_company",
+    "name": "Airlab.One",
+    "status": "queued",
+    "seen_on": [
+      {
+        "firm": "cicada-residents",
+        "url": "https://www.cicadainnovations.com/incubator/residents",
+        "title": "Airlab.One | Cicada Innovations portfolio",
+        "at": "2026-11-21T06:34:20.546Z"
+      }
+    ],
+    "first_seen_at": "2026-11-21T06:34:20.546Z",
+    "last_seen_at": "2026-11-21T06:35:41.889Z",
+    "note": "Named by Cicada Innovations's official portfolio page; the directory does not hold it. The page does not say where it is: whether it is Australian and a startup is judged from its own website when it is queued (jobsync leads --promote).",
+    "profile": {
+      "website": "https://airlabone.com/",
+      "domain": "airlabone.com",
+      "description": "One Hardware. Sovereign Autonomy. Virtual Control for Mission-Critical Physical Systems Across Healthcare, Defence & Space",
+      "locations": [],
+      "employees": null,
+      "founded": null,
+      "stage": null,
+      "org_type": null,
+      "industries": [],
+      "active_jobs": null,
+      "source_url": "https://www.cicadainnovations.com/incubator/residents",
+      "read_at": "2026-11-21T06:34:20.546Z",
+      "origin": "portfolio",
+      "australian": "yes",
+      "startup": "unknown"
+    },
+    "candidate_id": "cand-airlab-one",
+    "candidate_status": "needs_review"
   }
 ]
