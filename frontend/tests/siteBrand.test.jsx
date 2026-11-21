@@ -131,7 +131,7 @@ describe('the header on each page', () => {
   const needs = (file, ...parts) => { const text = read(file); for (const part of parts) expect(text, `${file}: ${part}`).toContain(part); };
 
   it('is the one shared header on every page that has one: the community, opportunities, news, people, collections, investors, Discover, the landing page and the plain pages', () => {
-    needs('components/network/HomeFeed.jsx', '<SiteHeader active="home"');
+    needs('components/community/CommunityPage.jsx', '<SiteHeader active="home"');
     needs('components/network/DiscoverPeople.jsx', '<SiteHeader active="discover"');
     needs('components/network/JobsBoard.jsx', '<SiteHeader active="opportunities"');
     needs('components/network/EventsBoard.jsx', '<SiteHeader active="opportunities"');
