@@ -70,4 +70,12 @@ describe('the old address', () => {
     for (const page of ['/map', '/investors', '/about', '/lists', '/jobs', '/news', '/startup/:path*', '/investors/:path*']) expect(sources, page).toContain(page);
     expect(config.headers.map((h) => h.source)).toEqual(['/assets/(.*)', '/img/(.*)', '/data/(.*)']);
   });
+
+  it('opens the app at both addresses of the Community: /home and its alias /community (src/appRoute.js), so a typed or reloaded link is not a 404', () => {
+    for (const page of ['/home', '/community']) {
+      const rule = config.rewrites.find((r) => r.source === page);
+      expect(rule, page).toBeDefined();
+      expect(rule.destination, page).toBe('/app.html');
+    }
+  });
 });
