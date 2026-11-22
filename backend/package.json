@@ -18,13 +18,19 @@
     "investors": "node scripts/investors.js",
     "admin": "node scripts/admin.js",
     "snapshot": "node scripts/snapshot.mjs",
-    "jobsync": "node scripts/jobsync.mjs"
+    "jobsync": "node scripts/jobsync.mjs",
+    "db:status": "node scripts/db.mjs status",
+    "db:migrate": "node scripts/db.mjs migrate",
+    "founding:import": "node scripts/db.mjs founding-import"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.17",
+    "@electric-sql/pglite-socket": "^0.2.20",
     "@vitest/coverage-v8": "^2.1.8",
     "supertest": "^7.0.0",
     "vitest": "^2.1.8"

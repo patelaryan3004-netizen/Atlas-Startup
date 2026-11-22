@@ -23,3 +23,6 @@ backend/.admin/
 # Python's compiled files (backend/scripts/enrich)
 __pycache__/
 *.pyc
+
+# The owner's private copy of the founding-member list (it holds email addresses; docs/database.md)
+founding-export*.json
