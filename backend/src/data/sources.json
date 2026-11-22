@@ -18160,5 +18160,14 @@
     "publisher": "activeviam.com",
     "retrieved_at": "2026-11-22T01:12:03.971Z",
     "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.activeviam.com/careers."
+  },
+  {
+    "id": "jade-software-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://jadeworld.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "jadeworld.com",
+    "retrieved_at": "2026-11-22T17:12:15.435Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.jadeworld.com/careers-at-jade."
   }
 ]
