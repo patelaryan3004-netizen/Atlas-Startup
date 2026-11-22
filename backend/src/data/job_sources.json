@@ -22,6 +22,17 @@
     "added_at": "2026-11-19T16:13:17.395Z"
   },
   {
+    "id": "activeviam-bamboohr-jobs",
+    "company_id": "activeviam",
+    "provider": "bamboohr",
+    "token": "activeviam",
+    "board_url": "https://activeviam.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"activeviam-bamboohr-jobs\", read 2026-11-22).",
+    "note": "",
+    "added_at": "2026-11-22T01:12:03.971Z"
+  },
+  {
     "id": "advanced-navigation-rippling-jobs",
     "company_id": "advanced-navigation",
     "provider": "rippling",

@@ -18151,5 +18151,14 @@
     "publisher": "tallygroup.com.au",
     "retrieved_at": "2026-11-21T16:51:50.202Z",
     "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.tally.co/careers."
+  },
+  {
+    "id": "activeviam-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://activeviam.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "activeviam.com",
+    "retrieved_at": "2026-11-22T01:12:03.971Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.activeviam.com/careers."
   }
 ]
