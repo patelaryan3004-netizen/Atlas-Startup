@@ -7,10 +7,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.blackbird.vc/jobs",
-    "checked_at": "2026-11-22T17:04:50.713Z",
+    "checked_at": "2026-11-23T21:15:43.471Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 1626 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-23T04:04:56.958Z"
+    "note": "A Getro board: its page serves the newest 20 of 1616 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-24T08:15:47.636Z"
   },
   {
     "id": "airtree",
@@ -20,10 +20,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.airtree.vc/jobs",
-    "checked_at": "2026-11-22T17:04:57.617Z",
+    "checked_at": "2026-11-23T21:15:48.175Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 1532 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-23T04:05:03.233Z"
+    "note": "A Getro board: its page serves the newest 20 of 1519 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-24T08:15:53.783Z"
   },
   {
     "id": "square-peg",
@@ -33,10 +33,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://www.squarepeg.vc/our-story",
-    "checked_at": "2026-11-22T17:05:03.847Z",
+    "checked_at": "2026-11-23T21:15:54.336Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 1234 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-23T04:05:10.354Z"
+    "note": "A Getro board: its page serves the newest 20 of 1226 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-24T08:16:01.291Z"
   },
   {
     "id": "main-sequence",
@@ -72,10 +72,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://www.startmate.com/",
-    "checked_at": "2026-11-22T17:05:11.004Z",
+    "checked_at": "2026-11-23T21:16:01.767Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
     "note": "Not linked from Startmate's own site; the board's own data names \"startmate\" as its network. A Getro board whose page lists no jobs at present (the board says 0).",
-    "next_check_at": "2026-11-23T04:05:21.771Z"
+    "next_check_at": "2026-11-24T08:16:05.874Z"
   },
   {
     "id": "antler",
@@ -85,10 +85,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://careers.antler.co/jobs",
-    "checked_at": "2026-11-22T17:05:22.421Z",
+    "checked_at": "2026-11-23T21:16:06.304Z",
     "own_vacancies": "Its own vacancies are on antler.applytojob.com, which the sync does not read.",
-    "note": "A Getro board: its page serves the newest 20 of 973 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-23T04:05:34.367Z"
+    "note": "A Getro board: its page serves the newest 20 of 970 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-24T08:16:18.722Z"
   },
   {
     "id": "oif",
@@ -98,10 +98,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://oifvc.getro.com/jobs",
-    "checked_at": "2026-11-22T17:05:34.978Z",
+    "checked_at": "2026-11-23T21:16:19.186Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 127 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-23T04:05:39.869Z"
+    "note": "A Getro board: its page serves the newest 20 of 128 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-24T08:16:24.709Z"
   },
   {
     "id": "evp",
@@ -163,10 +163,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.accel.com/companies/100ms-2",
-    "checked_at": "2026-11-22T17:05:40.451Z",
+    "checked_at": "2026-11-23T21:16:25.162Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 49199 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-23T04:05:50.836Z"
+    "note": "A Getro board: its page serves the newest 20 of 49013 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-24T08:16:36.336Z"
   },
   {
     "id": "lightspeed",
@@ -202,11 +202,11 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.innovationbay.com/jobs",
-    "checked_at": "2026-11-22T17:05:51.578Z",
+    "checked_at": "2026-11-23T21:16:36.924Z",
     "own_vacancies": "",
-    "note": "A Getro network: its page serves the newest 20 of 9177 jobs, worldwide and not filtered by place, so it is a sample and never a source of roles. The rest are in Getro's API, which needs a key that Getro issues to the board's owner, and whose robots.txt refuses every other client: no feed is used. Its company list names 415 companies; 34 company pages read in this refresh, each company once a week.",
-    "next_check_at": "2026-11-23T04:05:51.578Z",
-    "profiles_block": 41559
+    "note": "A Getro network: its page serves the newest 20 of 9148 jobs, worldwide and not filtered by place, so it is a sample and never a source of roles. The rest are in Getro's API, which needs a key that Getro issues to the board's owner, and whose robots.txt refuses every other client: no feed is used. Its company list names 415 companies; 36 company pages read in this refresh, each company once a week.",
+    "next_check_at": "2026-11-24T08:16:36.924Z",
+    "profiles_block": 41561
   },
   {
     "id": "portfolio-blackbird-portfolio",
