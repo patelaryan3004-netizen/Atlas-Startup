@@ -11,6 +11,17 @@
     "added_at": "2026-11-19T13:54:27.359Z"
   },
   {
+    "id": "3p-learning-bamboohr-jobs",
+    "company_id": "3p-learning",
+    "provider": "bamboohr",
+    "token": "3p",
+    "board_url": "https://3p.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"3p-learning-bamboohr-jobs\", read 2026-11-24).",
+    "note": "",
+    "added_at": "2026-11-24T20:11:24.859Z"
+  },
+  {
     "id": "activepipe-rippling-jobs",
     "company_id": "activepipe",
     "provider": "rippling",
@@ -517,6 +528,17 @@
     "added_at": "2026-11-19T16:13:48.039Z"
   },
   {
+    "id": "ivo-ashby-jobs",
+    "company_id": "ivo",
+    "provider": "ashby",
+    "token": "ivo-inc",
+    "board_url": "https://jobs.ashbyhq.com/ivo-inc",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-24: blackbird's job board showed \"Account Manager (NY)\", the company's own ashby feed lists that same job, and the board's name \"ivo-inc\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-24T20:11:16.880Z"
+  },
+  {
     "id": "jade-software-bamboohr-jobs",
     "company_id": "jade-software",
     "provider": "bamboohr",
@@ -592,6 +614,17 @@
     "basis": "The company's own careers page links to this board (sources.json \"learnosity-workable-jobs\", read 2026-11-19).",
     "note": "",
     "added_at": "2026-11-19T14:01:19.329Z"
+  },
+  {
+    "id": "lorikeet-ashby-jobs",
+    "company_id": "lorikeet",
+    "provider": "ashby",
+    "token": "Lorikeet",
+    "board_url": "https://jobs.ashbyhq.com/Lorikeet",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-24: blackbird's job board showed \"Senior Account Executive (EMEA)\", the company's own ashby feed lists that same job, and the board's name \"Lorikeet\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-24T20:11:18.396Z"
   },
   {
     "id": "lucid-software-greenhouse-jobs",

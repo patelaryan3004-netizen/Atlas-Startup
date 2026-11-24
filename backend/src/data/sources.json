@@ -18169,5 +18169,32 @@
     "publisher": "jadeworld.com",
     "retrieved_at": "2026-11-22T17:12:15.435Z",
     "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.jadeworld.com/careers-at-jade."
+  },
+  {
+    "id": "ivo-ashby-jobs",
+    "kind": "aggregator",
+    "url": "https://jobs.ashbyhq.com/ivo-inc",
+    "title": "ashby job board (confirmed through the employer's feed)",
+    "publisher": "blackbird",
+    "retrieved_at": "2026-11-24T20:11:16.880Z",
+    "note": "Named by blackbird's job board; the employer's own ashby feed lists the same job (\"Account Manager (NY)\")."
+  },
+  {
+    "id": "lorikeet-ashby-jobs",
+    "kind": "aggregator",
+    "url": "https://jobs.ashbyhq.com/Lorikeet",
+    "title": "ashby job board (confirmed through the employer's feed)",
+    "publisher": "blackbird",
+    "retrieved_at": "2026-11-24T20:11:18.396Z",
+    "note": "Named by blackbird's job board; the employer's own ashby feed lists the same job (\"Senior Account Executive (EMEA)\")."
+  },
+  {
+    "id": "3p-learning-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://3p.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "3plearning.com",
+    "retrieved_at": "2026-11-24T20:11:24.859Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.3plearning.com/careers/jobs/."
   }
 ]

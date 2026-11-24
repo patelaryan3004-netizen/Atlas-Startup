@@ -54,7 +54,7 @@
       }
     ],
     "first_seen_at": "2026-11-19T14:17:56.011Z",
-    "last_seen_at": "2026-11-23T21:16:24.912Z",
+    "last_seen_at": "2026-11-24T20:08:02.889Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -105,37 +105,37 @@
     "seen_on": [
       {
         "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/sales-development-representative-at-firmable-4462735306?position=7&pageNum=0&refId=xscsmw8RCtMN47O7JOtxRw%3D%3D&trackingId=vyLOTIGh9E7LIj%2B5pYB1nw%3D%3D",
-        "title": "Sales Development Representative",
-        "at": "2026-11-23T21:15:54.048Z"
-      },
-      {
-        "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/account-executive-at-firmable-4489408232?position=6&pageNum=0&refId=xscsmw8RCtMN47O7JOtxRw%3D%3D&trackingId=%2BGGIgodfTcLSKWwRefAPjA%3D%3D",
-        "title": "Account Executive",
-        "at": "2026-11-23T21:15:54.048Z"
-      },
-      {
-        "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/senior-engineer-entity-graphs-at-firmable-4458703034?position=11&pageNum=0&refId=xscsmw8RCtMN47O7JOtxRw%3D%3D&trackingId=4O9WQdVaEbEw1AaQKhQYvg%3D%3D",
+        "url": "https://au.linkedin.com/jobs/view/senior-engineer-entity-graphs-at-firmable-4458703034?position=11&pageNum=0&refId=fMnMIspDhS46FBVnTmEWQQ%3D%3D&trackingId=vPkKkF0274Y2LsxBxh1x2Q%3D%3D",
         "title": "Senior Engineer, Entity Graphs",
-        "at": "2026-11-23T21:15:54.048Z"
+        "at": "2026-11-24T20:07:27.917Z"
       },
       {
         "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/applied-ai-engineering-lead-at-firmable-4458707008?position=12&pageNum=0&refId=xscsmw8RCtMN47O7JOtxRw%3D%3D&trackingId=hPOmbqerdY2ADXRLcOzIpQ%3D%3D",
+        "url": "https://au.linkedin.com/jobs/view/applied-ai-engineering-lead-at-firmable-4458707008?position=12&pageNum=0&refId=fMnMIspDhS46FBVnTmEWQQ%3D%3D&trackingId=Efscseugg%2BvuSVaxyiFP8w%3D%3D",
         "title": "Applied AI Engineering Lead",
-        "at": "2026-11-23T21:15:54.048Z"
+        "at": "2026-11-24T20:07:27.917Z"
       },
       {
         "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/data-it-support-analyst-at-firmable-4489407272?position=2&pageNum=0&refId=xscsmw8RCtMN47O7JOtxRw%3D%3D&trackingId=ZKOhrfbL9JTonEEEjCf6zA%3D%3D",
+        "url": "https://au.linkedin.com/jobs/view/data-it-support-analyst-at-firmable-4489407272?position=2&pageNum=0&refId=fMnMIspDhS46FBVnTmEWQQ%3D%3D&trackingId=dGSO15ArCee4dhkch9y2xQ%3D%3D",
         "title": "Data & IT Support Analyst",
-        "at": "2026-11-23T21:15:54.048Z"
+        "at": "2026-11-24T20:07:27.917Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/sales-development-representative-at-firmable-4462735306?position=7&pageNum=0&refId=fMnMIspDhS46FBVnTmEWQQ%3D%3D&trackingId=cFQ%2Bf8HWJ2AmD51fzoRLYg%3D%3D",
+        "title": "Sales Development Representative",
+        "at": "2026-11-24T20:07:27.917Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/account-executive-at-firmable-4489408232?position=6&pageNum=0&refId=fMnMIspDhS46FBVnTmEWQQ%3D%3D&trackingId=MBVbXAWE%2BmiNP4gOfT74Zg%3D%3D",
+        "title": "Account Executive",
+        "at": "2026-11-24T20:07:27.917Z"
       }
     ],
     "first_seen_at": "2026-11-20T14:29:52.306Z",
-    "last_seen_at": "2026-11-23T21:15:54.048Z",
+    "last_seen_at": "2026-11-24T20:07:27.917Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -3196,7 +3196,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:30:02.331Z",
+    "last_seen_at": "2026-11-24T20:11:15.163Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://jelix.vc",
@@ -3217,7 +3217,7 @@
       ],
       "active_jobs": 0,
       "source_url": "https://jobs.innovationbay.com/companies/jelix-ventures-2",
-      "read_at": "2026-11-20T16:02:13.036Z"
+      "read_at": "2026-11-24T20:09:53.228Z"
     }
   },
   {
@@ -3764,7 +3764,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:30:02.331Z",
+    "last_seen_at": "2026-11-24T20:11:15.163Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://aliumcap.com",
@@ -3785,7 +3785,7 @@
       ],
       "active_jobs": 0,
       "source_url": "https://jobs.innovationbay.com/companies/alium-capital-2",
-      "read_at": "2026-11-20T16:07:17.479Z"
+      "read_at": "2026-11-24T20:10:15.398Z"
     }
   },
   {
@@ -4913,7 +4913,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:30:02.331Z",
+    "last_seen_at": "2026-11-24T20:11:15.163Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://aura.co",
@@ -4938,9 +4938,9 @@
         "Funding Platform",
         "Venture Capital"
       ],
-      "active_jobs": 1,
+      "active_jobs": 0,
       "source_url": "https://jobs.innovationbay.com/companies/aura-group-2-da4baa37-928e-4957-9079-2e90b4165749",
-      "read_at": "2026-11-20T16:16:17.266Z"
+      "read_at": "2026-11-24T20:10:45.684Z"
     }
   },
   {
@@ -6488,7 +6488,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:30:02.331Z",
+    "last_seen_at": "2026-11-24T20:11:15.163Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://liquidise.com",
@@ -6514,7 +6514,7 @@
       ],
       "active_jobs": 0,
       "source_url": "https://jobs.innovationbay.com/companies/liquidise-2",
-      "read_at": "2026-11-20T16:28:39.773Z"
+      "read_at": "2026-11-24T20:11:14.857Z"
     }
   },
   {
