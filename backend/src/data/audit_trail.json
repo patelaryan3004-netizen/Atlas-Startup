@@ -87983,5 +87983,20 @@
     "summary": "jobsync: 99 board(s) read whole; 5 role(s) new, 12 hidden, 12 archived; 61 company website(s) looked at, 0 new job board(s) found",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261125191754521-1",
+    "at": "2026-11-25T19:17:54.521Z",
+    "actor": "github-actions",
+    "role": "system",
+    "via": "worker",
+    "action": "scheduler.run",
+    "target": {
+      "type": "job_run",
+      "id": "jr-20261125191017639-jobsync"
+    },
+    "summary": "jobsync: 99 board(s) read whole; 8 role(s) new, 1 listed again, 2 hidden, 11 archived; 7 venture board(s) checked; 22 network company page(s) read, 1 hiring company(ies) to look at; 2 venture-named board(s) confirmed through the employer; 58 company website(s) looked at, 1 new jo",
+    "reason": null,
+    "changes": []
   }
 ]

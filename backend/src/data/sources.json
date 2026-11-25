@@ -18196,5 +18196,32 @@
     "publisher": "3plearning.com",
     "retrieved_at": "2026-11-24T20:11:24.859Z",
     "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.3plearning.com/careers/jobs/."
+  },
+  {
+    "id": "blinq-lever-jobs",
+    "kind": "aggregator",
+    "url": "https://jobs.lever.co/blinq",
+    "title": "lever job board (confirmed through the employer's feed)",
+    "publisher": "blackbird",
+    "retrieved_at": "2026-11-25T19:15:13.567Z",
+    "note": "Named by blackbird's job board; the employer's own lever feed lists the same job (\"Business Operations Lead\")."
+  },
+  {
+    "id": "q-ctrl-lever-jobs",
+    "kind": "aggregator",
+    "url": "https://jobs.lever.co/q-ctrl",
+    "title": "lever job board (confirmed through the employer's feed)",
+    "publisher": "square-peg",
+    "retrieved_at": "2026-11-25T19:15:15.186Z",
+    "note": "Named by square-peg's job board; the employer's own lever feed lists the same job (\"Product Manager, Quantum Sensing\")."
+  },
+  {
+    "id": "eidosmedia-bamboohr-jobs",
+    "kind": "company_website",
+    "url": "https://eidosmedia.bamboohr.com/careers",
+    "title": "BambooHR job board",
+    "publisher": "eidosmedia.com",
+    "retrieved_at": "2026-11-25T19:15:43.279Z",
+    "note": "The company's BambooHR job board, which its careers page links to, read through the board's public feed. Linked from https://www.eidosmedia.com/careers/."
   }
 ]

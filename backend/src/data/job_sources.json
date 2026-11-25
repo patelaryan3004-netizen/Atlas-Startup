@@ -231,6 +231,17 @@
     "added_at": "2026-11-19T13:55:59.048Z"
   },
   {
+    "id": "blinq-lever-jobs",
+    "company_id": "blinq",
+    "provider": "lever",
+    "token": "blinq",
+    "board_url": "https://jobs.lever.co/blinq",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-25: blackbird's job board showed \"Business Operations Lead\", the company's own lever feed lists that same job, and the board's name \"blinq\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-25T19:15:13.567Z"
+  },
+  {
     "id": "buildkite-greenhouse-jobs",
     "company_id": "buildkite",
     "provider": "greenhouse",
@@ -383,6 +394,17 @@
     "basis": "The company's own careers page links to this board (sources.json \"edrolo-breezy-jobs\", read 2026-11-19).",
     "note": "",
     "added_at": "2026-11-19T16:13:36.287Z"
+  },
+  {
+    "id": "eidosmedia-bamboohr-jobs",
+    "company_id": "eidosmedia",
+    "provider": "bamboohr",
+    "token": "eidosmedia",
+    "board_url": "https://eidosmedia.bamboohr.com/careers",
+    "status": "approved",
+    "basis": "The company's own careers page links to this board (sources.json \"eidosmedia-bamboohr-jobs\", read 2026-11-25).",
+    "note": "",
+    "added_at": "2026-11-25T19:15:43.279Z"
   },
   {
     "id": "emesent-lever-jobs",
@@ -801,6 +823,17 @@
     "basis": "The company's own careers page links to this board (sources.json \"psyke-workable-jobs\", read 2026-11-19).",
     "note": "",
     "added_at": "2026-11-19T14:04:18.727Z"
+  },
+  {
+    "id": "q-ctrl-lever-jobs",
+    "company_id": "q-ctrl",
+    "provider": "lever",
+    "token": "q-ctrl",
+    "board_url": "https://jobs.lever.co/q-ctrl",
+    "status": "approved",
+    "basis": "Confirmed through the employer on 2026-11-25: square-peg's job board showed \"Product Manager, Quantum Sensing\", the company's own lever feed lists that same job, and the board's name \"q-ctrl\" is the company's name.",
+    "note": "",
+    "added_at": "2026-11-25T19:15:15.186Z"
   },
   {
     "id": "qsic-lever-jobs",
