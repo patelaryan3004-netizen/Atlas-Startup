@@ -4928,10 +4928,16 @@
         "url": "https://jobs.innovationbay.com/companies/aura-group-2-da4baa37-928e-4957-9079-2e90b4165749",
         "title": "Aura Group | Innovation Bay company list",
         "at": "2026-11-20T16:30:02.331Z"
+      },
+      {
+        "firm": "innovation-bay",
+        "url": "https://au.linkedin.com/jobs/view/investment-operations-analyst-at-aura-group-4495261048",
+        "title": "Investment Operations Analyst",
+        "at": "2026-11-26T19:04:18.304Z"
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-24T20:11:15.163Z",
+    "last_seen_at": "2026-11-26T19:04:18.304Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://aura.co",
@@ -6995,5 +7001,42 @@
     "first_seen_at": "2026-11-25T19:10:22.416Z",
     "last_seen_at": "2026-11-25T19:10:22.416Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-bodyguide",
+    "kind": "unknown_company",
+    "name": "BodyGuide",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "innovation-bay",
+        "url": "https://jobs.innovationbay.com/companies/bodyguide",
+        "title": "BodyGuide | Innovation Bay company list",
+        "at": "2026-11-26T19:04:18.304Z"
+      }
+    ],
+    "first_seen_at": "2026-11-26T19:04:18.304Z",
+    "last_seen_at": "2026-11-26T19:04:18.304Z",
+    "note": "Named by Innovation Bay's job board company list with an Australian place; the directory does not hold it. Approve it to add it, or reject it.",
+    "profile": {
+      "website": "http://bodyguideapp.com",
+      "domain": "bodyguideapp.com",
+      "description": "Bodyguide is a digital platform that helps people prevent and resolve aches, pains, and tension. Promoting self-care through personalized education and exercise programs, Bodyguide helps people learn, move, and soothe their bodies. If extra support is required, our telehealth integrations mean that ",
+      "locations": [
+        "Mornington VIC 3931, Australia",
+        "Melbourne, VIC, Australia"
+      ],
+      "employees": 8,
+      "founded": "2019",
+      "stage": "pre_seed",
+      "org_type": "private",
+      "industries": [
+        "Health",
+        "Health, Wellness and Fitness"
+      ],
+      "active_jobs": 0,
+      "source_url": "https://jobs.innovationbay.com/companies/bodyguide",
+      "read_at": "2026-11-26T19:00:17.471Z"
+    }
   }
 ]

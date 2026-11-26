@@ -1140,7 +1140,7 @@
     "board_url": "https://apply.workable.com/zoomo/",
     "status": "review",
     "basis": "Named by AirTree Ventures's job board (Data & Analytics Engineer links to workable board \"zoomo\"). Not yet confirmed from Zoomo's own careers page, so it is never read.",
-    "note": "2026-11-19: The employer's own feed (15 listed) does not list the job the venture board showed (\"Data & Analytics Engineer\"): it may have closed.",
+    "note": "2026-11-26: The employer's own feed (16 listed) does not list the job the venture board showed (\"Data & Analytics Engineer\"): it may have closed.",
     "added_at": "2026-11-19T14:16:59.595Z",
     "sighted": [
       {
@@ -1162,8 +1162,13 @@
         "firm": "airtree",
         "url": "https://apply.workable.com/zoomo/j/C949D7D37A",
         "title": "Head of Operations"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://apply.workable.com/zoomo/j/1FCE00D9C1",
+        "title": "Mecánico de bicicletas"
       }
     ],
-    "checked_at": "2026-11-19T16:23:14.626Z"
+    "checked_at": "2026-11-26T19:04:20.232Z"
   }
 ]

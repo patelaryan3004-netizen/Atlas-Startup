@@ -7,10 +7,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.blackbird.vc/jobs",
-    "checked_at": "2026-11-25T19:10:18.109Z",
+    "checked_at": "2026-11-26T18:57:58.232Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 1607 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-26T06:10:22.200Z"
+    "note": "A Getro board: its page serves the newest 20 of 1643 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-27T05:58:02.412Z"
   },
   {
     "id": "airtree",
@@ -20,10 +20,10 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.airtree.vc/jobs",
-    "checked_at": "2026-11-25T19:10:22.730Z",
+    "checked_at": "2026-11-26T18:58:02.959Z",
     "own_vacancies": "No vacancy list was found on the firm's own pages (a page that lists roles only as text has no feed).",
-    "note": "A Getro board: its page serves the newest 20 of 1502 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
-    "next_check_at": "2026-11-26T06:10:29.445Z"
+    "note": "A Getro board: its page serves the newest 20 of 1519 jobs, worldwide and not filtered by place. The rest need Getro's search API, which its robots.txt asks to arrange with Getro, so it is not read. Used to name companies, never as a source of roles.",
+    "next_check_at": "2026-11-27T05:58:09.552Z"
   },
   {
     "id": "square-peg",
@@ -202,11 +202,11 @@
     "platform": "getro",
     "access": "public_sample",
     "evidence_url": "https://jobs.innovationbay.com/jobs",
-    "checked_at": "2026-11-25T19:11:10.970Z",
+    "checked_at": "2026-11-26T18:58:17.534Z",
     "own_vacancies": "",
-    "note": "A Getro network: its page serves the newest 20 of 9115 jobs, worldwide and not filtered by place, so it is a sample and never a source of roles. The rest are in Getro's API, which needs a key that Getro issues to the board's owner, and whose robots.txt refuses every other client: no feed is used. Its company list names 415 companies; 22 company pages read in this refresh, each company once a week.",
-    "next_check_at": "2026-11-26T06:11:10.970Z",
-    "profiles_block": 41565
+    "note": "A Getro network: its page serves the newest 20 of 9095 jobs, worldwide and not filtered by place, so it is a sample and never a source of roles. The rest are in Getro's API, which needs a key that Getro issues to the board's owner, and whose robots.txt refuses every other client: no feed is used. Its company list names 415 companies; 30 company pages read in this refresh, each company once a week.",
+    "next_check_at": "2026-11-27T05:58:17.534Z",
+    "profiles_block": 41567
   },
   {
     "id": "portfolio-blackbird-portfolio",
