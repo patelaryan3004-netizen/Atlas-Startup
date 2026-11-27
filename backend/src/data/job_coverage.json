@@ -922,14 +922,14 @@
   },
   {
     "company_id": "applied-ev",
-    "checked_at": "2026-11-19T13:55:12.430Z",
+    "checked_at": "2026-11-27T03:36:58.767Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:55:12.430Z"
+    "next_check_at": null
   },
   {
     "company_id": "archer-materials",
@@ -977,14 +977,14 @@
   },
   {
     "company_id": "archistar",
-    "checked_at": "2026-11-19T13:55:17.452Z",
-    "outcome": "careers_page_only",
+    "checked_at": "2026-11-27T03:36:58.768Z",
+    "outcome": "unreadable",
     "review": true,
-    "careers_url": "https://www.archistar.ai/careers",
+    "careers_url": null,
     "boards": [],
     "source_ids": [],
-    "note": "It has a careers page (https://www.archistar.ai/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:55:17.452Z"
+    "note": "The website could not be read (robots_unavailable: robots.txt is access-controlled).",
+    "next_check_at": null
   },
   {
     "company_id": "askable",
@@ -1011,14 +1011,14 @@
   },
   {
     "company_id": "aravax",
-    "checked_at": "2026-11-19T13:55:14.605Z",
+    "checked_at": "2026-11-27T03:36:58.768Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.aravax.com.au/about-aravax/careers/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.aravax.com.au/about-aravax/careers/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:55:14.605Z"
+    "next_check_at": null
   },
   {
     "company_id": "assignar",
@@ -1257,14 +1257,14 @@
   },
   {
     "company_id": "baraja",
-    "checked_at": "2026-11-19T13:55:42.582Z",
+    "checked_at": "2026-11-27T03:37:05.851Z",
     "outcome": "no_website",
     "review": false,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "The record has no website, so there is no careers page to read.",
-    "next_check_at": "2027-01-18T13:55:42.582Z"
+    "next_check_at": null
   },
   {
     "company_id": "b2care",
@@ -1279,14 +1279,14 @@
   },
   {
     "company_id": "atomo-diagnostics",
-    "checked_at": "2026-11-19T13:55:26.860Z",
+    "checked_at": "2026-11-27T03:36:58.768Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.atomodiagnostics.com/why-atomo/careers/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.atomodiagnostics.com/why-atomo/careers/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:55:26.860Z"
+    "next_check_at": null
   },
   {
     "company_id": "bamboo",
@@ -1312,14 +1312,14 @@
   },
   {
     "company_id": "bae-juice",
-    "checked_at": "2026-11-19T13:55:39.625Z",
+    "checked_at": "2026-11-27T03:37:00.277Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:55:39.625Z"
+    "next_check_at": null
   },
   {
     "company_id": "beamtree",
@@ -1477,14 +1477,14 @@
   },
   {
     "company_id": "biotome",
-    "checked_at": "2026-11-19T13:55:50.787Z",
+    "checked_at": "2026-11-27T03:37:06.222Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:55:50.787Z"
+    "next_check_at": null
   },
   {
     "company_id": "blinq",
@@ -1665,25 +1665,25 @@
   },
   {
     "company_id": "brevity-care-software",
-    "checked_at": "2026-11-19T13:56:06.159Z",
+    "checked_at": "2026-11-27T03:37:10.199Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:56:06.159Z"
+    "next_check_at": null
   },
   {
     "company_id": "breed-australia",
-    "checked_at": "2026-11-19T13:56:04.924Z",
+    "checked_at": "2026-11-27T03:37:06.590Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:56:04.924Z"
+    "next_check_at": null
   },
   {
     "company_id": "brandviz-ai",
@@ -1762,7 +1762,7 @@
   },
   {
     "company_id": "brighte",
-    "checked_at": "2026-11-19T16:13:23.026Z",
+    "checked_at": "2026-11-27T03:38:01.594Z",
     "outcome": "unsupported_provider",
     "review": true,
     "careers_url": "https://brighte.com.au/careers",
@@ -1771,7 +1771,7 @@
         "provider": "employment-hero",
         "token": null,
         "host": "jobs.employmenthero.com",
-        "url": "https://jobs.employmenthero.com/jobs/24a340c3-a5f8-45ee-99b8-58620dc9fde6?attribution_source=careerpage-api",
+        "url": "https://jobs.employmenthero.com/jobs/e7aaf511-b6c4-4662-88b2-dbf13b75cf72?attribution_source=careerpage-api",
         "supported": false,
         "reason": "Employment Hero boards are not read by the sync"
       }
@@ -1959,14 +1959,14 @@
   },
   {
     "company_id": "cape",
-    "checked_at": "2026-11-19T13:56:24.034Z",
+    "checked_at": "2026-11-27T03:37:10.966Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.getcape.io/about/careers",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.getcape.io/about/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:56:24.034Z"
+    "next_check_at": null
   },
   {
     "company_id": "capability-x",
@@ -2126,14 +2126,14 @@
   },
   {
     "company_id": "cars-like",
-    "checked_at": "2026-11-19T13:56:32.680Z",
+    "checked_at": "2026-11-27T03:37:12.987Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:56:32.680Z"
+    "next_check_at": null
   },
   {
     "company_id": "ceres-tag",
@@ -2438,14 +2438,14 @@
   },
   {
     "company_id": "colabs-australia",
-    "checked_at": "2026-11-19T13:57:01.651Z",
+    "checked_at": "2026-11-27T03:37:14.643Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:57:01.651Z"
+    "next_check_at": null
   },
   {
     "company_id": "cochlear",
@@ -2493,14 +2493,14 @@
   },
   {
     "company_id": "collybus",
-    "checked_at": "2026-11-19T13:57:05.530Z",
+    "checked_at": "2026-11-27T03:37:15.389Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:57:05.530Z"
+    "next_check_at": null
   },
   {
     "company_id": "connexai",
@@ -2989,14 +2989,14 @@
   },
   {
     "company_id": "deneb-space",
-    "checked_at": "2026-11-19T13:57:35.567Z",
+    "checked_at": "2026-11-27T03:37:15.768Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:57:35.567Z"
+    "next_check_at": null
   },
   {
     "company_id": "derive",
@@ -3033,14 +3033,14 @@
   },
   {
     "company_id": "designer-journeys",
-    "checked_at": "2026-11-19T13:57:38.151Z",
-    "outcome": "no_careers_found",
+    "checked_at": "2026-11-27T03:37:18.011Z",
+    "outcome": "unreadable",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
-    "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:57:38.151Z"
+    "note": "The website could not be read (robots_unavailable: fetch failed).",
+    "next_check_at": null
   },
   {
     "company_id": "deteqt",
@@ -3132,14 +3132,14 @@
   },
   {
     "company_id": "dimple",
-    "checked_at": "2026-11-19T13:57:47.749Z",
+    "checked_at": "2026-11-27T03:37:18.804Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:57:47.749Z"
+    "next_check_at": null
   },
   {
     "company_id": "diraq",
@@ -3385,14 +3385,14 @@
   },
   {
     "company_id": "edsemble",
-    "checked_at": "2026-11-19T13:58:04.438Z",
+    "checked_at": "2026-11-27T03:37:20.031Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:04.438Z"
+    "next_check_at": null
   },
   {
     "company_id": "eclipse-trading",
@@ -3407,14 +3407,14 @@
   },
   {
     "company_id": "electralith",
-    "checked_at": "2026-11-19T13:58:11.333Z",
+    "checked_at": "2026-11-27T03:37:23.009Z",
     "outcome": "no_website",
     "review": false,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "The record has no website, so there is no careers page to read.",
-    "next_check_at": "2027-01-18T13:58:11.333Z"
+    "next_check_at": null
   },
   {
     "company_id": "effi",
@@ -3429,14 +3429,14 @@
   },
   {
     "company_id": "eiz-technology",
-    "checked_at": "2026-11-19T13:58:09.863Z",
+    "checked_at": "2026-11-27T03:37:20.439Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:09.863Z"
+    "next_check_at": null
   },
   {
     "company_id": "elmo-software",
@@ -3592,14 +3592,14 @@
   },
   {
     "company_id": "ena-respiratory",
-    "checked_at": "2026-11-19T13:58:21.314Z",
+    "checked_at": "2026-11-27T03:37:23.371Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:21.314Z"
+    "next_check_at": null
   },
   {
     "company_id": "emvision",
@@ -3780,14 +3780,14 @@
   },
   {
     "company_id": "eudaemon-technologies",
-    "checked_at": "2026-11-19T13:58:33.763Z",
+    "checked_at": "2026-11-27T03:37:24.400Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:33.763Z"
+    "next_check_at": null
   },
   {
     "company_id": "eugene",
@@ -3813,14 +3813,14 @@
   },
   {
     "company_id": "everbility",
-    "checked_at": "2026-11-19T13:58:36.345Z",
+    "checked_at": "2026-11-27T03:37:24.807Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:36.345Z"
+    "next_check_at": null
   },
   {
     "company_id": "expert360",
@@ -4075,14 +4075,14 @@
   },
   {
     "company_id": "fishburners",
-    "checked_at": "2026-11-19T13:58:54.572Z",
+    "checked_at": "2026-11-27T03:37:27.974Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T13:58:54.572Z"
+    "next_check_at": null
   },
   {
     "company_id": "fiskil",
@@ -4363,14 +4363,14 @@
   },
   {
     "company_id": "gloss-guide",
-    "checked_at": "2026-11-19T13:59:22.469Z",
+    "checked_at": "2026-11-27T03:37:29.373Z",
     "outcome": "unreadable",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "The website could not be read (dns_failed: could not resolve glossguide.com.au).",
-    "next_check_at": "2026-11-24T13:59:22.469Z"
+    "next_check_at": null
   },
   {
     "company_id": "gene-s",
@@ -4508,14 +4508,14 @@
   },
   {
     "company_id": "govconnex",
-    "checked_at": "2026-11-19T13:59:31.195Z",
+    "checked_at": "2026-11-27T03:37:29.790Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.govconnex.com/au/careers",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.govconnex.com/au/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T13:59:31.195Z"
+    "next_check_at": null
   },
   {
     "company_id": "governa-ai",
@@ -5216,14 +5216,14 @@
   },
   {
     "company_id": "inspection-express",
-    "checked_at": "2026-11-19T14:00:28.194Z",
+    "checked_at": "2026-11-27T03:37:30.338Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:00:28.194Z"
+    "next_check_at": null
   },
   {
     "company_id": "independent-reserve",
@@ -5249,7 +5249,7 @@
   },
   {
     "company_id": "integral-ad-science",
-    "checked_at": "2026-11-19T16:13:37.317Z",
+    "checked_at": "2026-11-27T03:38:05.769Z",
     "outcome": "unsupported_provider",
     "review": true,
     "careers_url": "https://integralads.com/about-ias/careers/",
@@ -5269,18 +5269,18 @@
   },
   {
     "company_id": "inspire9",
-    "checked_at": "2026-11-19T14:00:30.534Z",
+    "checked_at": "2026-11-27T03:37:31.707Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.inspire9.com/events-melbourne/careers-in-a-changing-market-and-building-better-teams-hybrid-event",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.inspire9.com/events-melbourne/careers-in-a-changing-market-and-building-better-teams-hybrid-event) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:00:30.534Z"
+    "next_check_at": null
   },
   {
     "company_id": "intelligencebank",
-    "checked_at": "2026-11-19T16:13:40.025Z",
+    "checked_at": "2026-11-27T03:38:06.328Z",
     "outcome": "unsupported_provider",
     "review": true,
     "careers_url": "https://intelligencebank.com/careers/",
@@ -5300,14 +5300,14 @@
   },
   {
     "company_id": "instant",
-    "checked_at": "2026-11-19T14:00:31.125Z",
+    "checked_at": "2026-11-27T03:37:33.983Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://instant.one/careers",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://instant.one/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:00:31.125Z"
+    "next_check_at": null
   },
   {
     "company_id": "interearth",
@@ -5353,14 +5353,14 @@
   },
   {
     "company_id": "invest-inya-farmer",
-    "checked_at": "2026-11-19T14:00:37.648Z",
+    "checked_at": "2026-11-27T03:37:34.769Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://iif.today/join",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://iif.today/join) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:00:37.648Z"
+    "next_check_at": null
   },
   {
     "company_id": "investorhub",
@@ -5663,14 +5663,14 @@
   },
   {
     "company_id": "keeyu",
-    "checked_at": "2026-11-19T14:00:58.672Z",
+    "checked_at": "2026-11-27T03:37:35.147Z",
     "outcome": "no_website",
     "review": false,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "The record has no website, so there is no careers page to read.",
-    "next_check_at": "2027-01-18T14:00:58.672Z"
+    "next_check_at": null
   },
   {
     "company_id": "juxtabyte",
@@ -5777,14 +5777,14 @@
   },
   {
     "company_id": "kite-therapy",
-    "checked_at": "2026-11-19T14:01:04.602Z",
+    "checked_at": "2026-11-27T03:37:35.550Z",
     "outcome": "no_website",
     "review": false,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "The record has no website, so there is no careers page to read.",
-    "next_check_at": "2027-01-18T14:01:04.602Z"
+    "next_check_at": null
   },
   {
     "company_id": "justfund",
@@ -6521,14 +6521,14 @@
   },
   {
     "company_id": "mastt",
-    "checked_at": "2026-11-19T14:01:51.278Z",
+    "checked_at": "2026-11-27T03:37:35.926Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.mastt.com/careers",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.mastt.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:01:51.278Z"
+    "next_check_at": null
   },
   {
     "company_id": "marmalade-payments",
@@ -6686,14 +6686,14 @@
   },
   {
     "company_id": "memphasys",
-    "checked_at": "2026-11-19T14:02:00.829Z",
+    "checked_at": "2026-11-27T03:37:38.384Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:02:00.829Z"
+    "next_check_at": null
   },
   {
     "company_id": "merchantspring",
@@ -6798,14 +6798,14 @@
   },
   {
     "company_id": "mimecast",
-    "checked_at": "2026-11-19T14:02:08.649Z",
+    "checked_at": "2026-11-27T03:37:38.748Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:02:08.649Z"
+    "next_check_at": null
   },
   {
     "company_id": "mindset-health",
@@ -6887,14 +6887,14 @@
   },
   {
     "company_id": "moregooddays",
-    "checked_at": "2026-11-19T14:02:17.757Z",
+    "checked_at": "2026-11-27T03:37:39.787Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:02:17.757Z"
+    "next_check_at": null
   },
   {
     "company_id": "movus",
@@ -6909,14 +6909,14 @@
   },
   {
     "company_id": "mvsi-onboard",
-    "checked_at": "2026-11-19T14:02:20.636Z",
+    "checked_at": "2026-11-27T03:37:40.835Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.mvsi-onboard.com/careers",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.mvsi-onboard.com/careers) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:02:20.636Z"
+    "next_check_at": null
   },
   {
     "company_id": "mx51",
@@ -6975,14 +6975,14 @@
   },
   {
     "company_id": "myob",
-    "checked_at": "2026-11-19T14:02:22.737Z",
+    "checked_at": "2026-11-27T03:37:43.549Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.myob.com/au/features/job-management-software",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.myob.com/au/features/job-management-software) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:02:22.737Z"
+    "next_check_at": null
   },
   {
     "company_id": "navbit",
@@ -7517,14 +7517,14 @@
   },
   {
     "company_id": "optalert",
-    "checked_at": "2026-11-19T14:03:07.018Z",
+    "checked_at": "2026-11-27T03:37:43.919Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.optalert.com/careers/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.optalert.com/careers/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:03:07.018Z"
+    "next_check_at": null
   },
   {
     "company_id": "oran-park-smart-work-hub",
@@ -7614,14 +7614,14 @@
   },
   {
     "company_id": "owna",
-    "checked_at": "2026-11-19T14:03:14.723Z",
+    "checked_at": "2026-11-27T03:37:44.315Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://owna.com.au/careers/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://owna.com.au/careers/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:03:14.723Z"
+    "next_check_at": null
   },
   {
     "company_id": "pathzero",
@@ -8003,14 +8003,14 @@
   },
   {
     "company_id": "point-of-rental-software",
-    "checked_at": "2026-11-19T14:03:38.712Z",
+    "checked_at": "2026-11-27T03:37:44.961Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.point-of-rental.com/company/careers/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.point-of-rental.com/company/careers/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:03:38.712Z"
+    "next_check_at": null
   },
   {
     "company_id": "preezie",
@@ -8554,14 +8554,14 @@
   },
   {
     "company_id": "redowl",
-    "checked_at": "2026-11-19T14:04:33.613Z",
+    "checked_at": "2026-11-27T03:37:49.832Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:04:33.613Z"
+    "next_check_at": null
   },
   {
     "company_id": "rapid7",
@@ -8765,14 +8765,14 @@
   },
   {
     "company_id": "rohlok",
-    "checked_at": "2026-11-19T14:04:51.122Z",
+    "checked_at": "2026-11-27T03:37:51.025Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:04:51.122Z"
+    "next_check_at": null
   },
   {
     "company_id": "roborigger",
@@ -8942,14 +8942,14 @@
   },
   {
     "company_id": "sapia-ai",
-    "checked_at": "2026-11-19T14:05:03.801Z",
+    "checked_at": "2026-11-27T03:37:51.513Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://sapia.ai/platform/jas/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://sapia.ai/platform/jas/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:05:03.801Z"
+    "next_check_at": null
   },
   {
     "company_id": "sapyen",
@@ -9019,14 +9019,14 @@
   },
   {
     "company_id": "scx-ai",
-    "checked_at": "2026-11-19T14:05:12.079Z",
-    "outcome": "no_careers_found",
+    "checked_at": "2026-11-27T03:37:52.801Z",
+    "outcome": "unreadable",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
-    "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:05:12.079Z"
+    "note": "The website could not be read (access_controlled: HTTP 403: access-controlled, so not retried or worked around).",
+    "next_check_at": null
   },
   {
     "company_id": "renewtrak",
@@ -9087,14 +9087,14 @@
   },
   {
     "company_id": "securitybreak",
-    "checked_at": "2026-11-19T14:05:17.045Z",
+    "checked_at": "2026-11-27T03:37:53.518Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:05:17.045Z"
+    "next_check_at": null
   },
   {
     "company_id": "send-payments",
@@ -9208,14 +9208,14 @@
   },
   {
     "company_id": "sherpa",
-    "checked_at": "2026-11-19T14:05:30.152Z",
+    "checked_at": "2026-11-27T03:37:55.022Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.sherpa.net.au/careers?hsLang=en-au",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.sherpa.net.au/careers?hsLang=en-au) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:05:30.152Z"
+    "next_check_at": null
   },
   {
     "company_id": "shippit",
@@ -9278,14 +9278,14 @@
   },
   {
     "company_id": "signonsite",
-    "checked_at": "2026-11-19T14:05:35.512Z",
+    "checked_at": "2026-11-27T03:37:55.480Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:05:35.512Z"
+    "next_check_at": null
   },
   {
     "company_id": "simpro",
@@ -9322,14 +9322,14 @@
   },
   {
     "company_id": "skyciv",
-    "checked_at": "2026-11-19T14:05:44.213Z",
+    "checked_at": "2026-11-27T03:37:56.091Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://skyciv.com/careers-at-skyciv/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://skyciv.com/careers-at-skyciv/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:05:44.213Z"
+    "next_check_at": null
   },
   {
     "company_id": "skutopia",
@@ -9440,14 +9440,14 @@
   },
   {
     "company_id": "snug",
-    "checked_at": "2026-11-19T14:05:53.164Z",
+    "checked_at": "2026-11-27T03:37:58.144Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
     "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
-    "next_check_at": "2026-12-03T14:05:53.164Z"
+    "next_check_at": null
   },
   {
     "company_id": "somnomed",
@@ -9537,7 +9537,7 @@
   },
   {
     "company_id": "spacetoco",
-    "checked_at": "2026-11-19T16:14:06.754Z",
+    "checked_at": "2026-11-27T03:38:06.691Z",
     "outcome": "unsupported_provider",
     "review": true,
     "careers_url": "https://blog.spacetoco.com/co-create",
@@ -9625,14 +9625,14 @@
   },
   {
     "company_id": "start-my-tomorrow",
-    "checked_at": "2026-11-19T14:06:13.534Z",
+    "checked_at": "2026-11-27T03:37:58.530Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.startmytomorrow.com/join-now",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.startmytomorrow.com/join-now) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:06:13.534Z"
+    "next_check_at": null
   },
   {
     "company_id": "strong-compute",
@@ -10434,14 +10434,14 @@
   },
   {
     "company_id": "tutero",
-    "checked_at": "2026-11-19T14:07:22.110Z",
+    "checked_at": "2026-11-27T03:38:00.050Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.tutero.com/au/info/join-tutero-now",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://www.tutero.com/au/info/join-tutero-now) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:07:22.110Z"
+    "next_check_at": null
   },
   {
     "company_id": "truuth",
@@ -10732,14 +10732,14 @@
   },
   {
     "company_id": "vervoe",
-    "checked_at": "2026-11-19T14:07:47.049Z",
+    "checked_at": "2026-11-27T03:38:00.830Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://vervoe.com/job-simulation/",
     "boards": [],
     "source_ids": [],
     "note": "It has a careers page (https://vervoe.com/job-simulation/) but nothing on the pages read links to a job board we recognise (a board drawn by script is not visible to a plain page read).",
-    "next_check_at": "2026-12-03T14:07:47.049Z"
+    "next_check_at": null
   },
   {
     "company_id": "ventora-medical",

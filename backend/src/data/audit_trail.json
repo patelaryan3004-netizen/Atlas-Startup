@@ -88028,5 +88028,20 @@
     "summary": "jobsync: 102 board(s) read whole; 3 role(s) new, 1 hidden, 6 archived; venture boards failed: nothing was written: 1 problem(s)\n  - job source \"rokt-workable-review\": token must be the board's name; 30 network company page(s) read, 1 new lead(s), 1 hiring company(ies) to look at;",
     "reason": null,
     "changes": []
+  },
+  {
+    "id": "aud-20261127033930367-1",
+    "at": "2026-11-27T03:39:30.367Z",
+    "actor": "github-actions",
+    "role": "system",
+    "via": "worker",
+    "action": "scheduler.run",
+    "target": {
+      "type": "job_run",
+      "id": "jr-20261127033649343-jobsync"
+    },
+    "summary": "jobsync: 102 board(s) read whole; 5 role(s) new, 4 hidden, 1 archived; venture boards failed: nothing was written: 1 problem(s)\n  - job source \"rokt-workable-review\": token must be the board's name; 56 company website(s) looked at, 0 new job board(s) found",
+    "reason": null,
+    "changes": []
   }
 ]
