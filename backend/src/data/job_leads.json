@@ -54,7 +54,7 @@
       }
     ],
     "first_seen_at": "2026-11-19T14:17:56.011Z",
-    "last_seen_at": "2026-11-25T19:11:01.745Z",
+    "last_seen_at": "2026-11-27T18:54:40.793Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -105,37 +105,37 @@
     "seen_on": [
       {
         "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/applied-ai-engineering-lead-at-firmable-4458707008?position=12&pageNum=0&refId=vEMX5OUBuzOlqstgPW8dwA%3D%3D&trackingId=d4TVUT%2BpiW5HJt47OlFgkw%3D%3D",
-        "title": "Applied AI Engineering Lead",
-        "at": "2026-11-25T19:10:29.706Z"
-      },
-      {
-        "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/senior-engineer-entity-graphs-at-firmable-4458703034?position=11&pageNum=0&refId=vEMX5OUBuzOlqstgPW8dwA%3D%3D&trackingId=oiM3CoML6gs8ymO9XuYecA%3D%3D",
-        "title": "Senior Engineer, Entity Graphs",
-        "at": "2026-11-25T19:10:29.706Z"
-      },
-      {
-        "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/data-it-support-analyst-at-firmable-4489407272?position=2&pageNum=0&refId=vEMX5OUBuzOlqstgPW8dwA%3D%3D&trackingId=6PM6LCUVm0z5%2FHxaHAeimQ%3D%3D",
-        "title": "Data & IT Support Analyst",
-        "at": "2026-11-25T19:10:29.706Z"
-      },
-      {
-        "firm": "airtree",
-        "url": "https://au.linkedin.com/jobs/view/sales-development-representative-at-firmable-4462735306?position=7&pageNum=0&refId=vEMX5OUBuzOlqstgPW8dwA%3D%3D&trackingId=HrlJa8RCxvOxn3D66V3HHg%3D%3D",
-        "title": "Sales Development Representative",
-        "at": "2026-11-25T19:10:29.706Z"
-      },
-      {
-        "firm": "airtree",
         "url": "https://au.linkedin.com/jobs/view/account-executive-at-firmable-4489408232?position=6&pageNum=0&refId=vEMX5OUBuzOlqstgPW8dwA%3D%3D&trackingId=Q0s8YIeAvV6yMwxi%2FyHjvQ%3D%3D",
         "title": "Account Executive",
         "at": "2026-11-25T19:10:29.706Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/senior-engineer-entity-graphs-at-firmable-4458703034?position=10&pageNum=0&refId=YIEH5r5HtAB78YCBuZoa4g%3D%3D&trackingId=8JchUm%2BUibaABhSagwwZ8w%3D%3D",
+        "title": "Senior Engineer, Entity Graphs",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/account-executive-at-firmable-4489408232?position=6&pageNum=0&refId=YIEH5r5HtAB78YCBuZoa4g%3D%3D&trackingId=Sx0OADLbOQKA%2FRHrVAG77A%3D%3D",
+        "title": "Account Executive",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/data-it-support-analyst-at-firmable-4489407272?position=2&pageNum=0&refId=YIEH5r5HtAB78YCBuZoa4g%3D%3D&trackingId=Hatb7eIN%2BF7qh1YjGtesyA%3D%3D",
+        "title": "Data & IT Support Analyst",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://au.linkedin.com/jobs/view/sales-development-representative-at-firmable-4462735306?position=7&pageNum=0&refId=YIEH5r5HtAB78YCBuZoa4g%3D%3D&trackingId=oOu8XPhCnfXbAXnfqz7JMg%3D%3D",
+        "title": "Sales Development Representative",
+        "at": "2026-11-27T18:53:57.842Z"
       }
     ],
     "first_seen_at": "2026-11-20T14:29:52.306Z",
-    "last_seen_at": "2026-11-25T19:10:29.706Z",
+    "last_seen_at": "2026-11-27T18:53:57.842Z",
     "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   },
   {
@@ -338,10 +338,22 @@
         "url": "https://jobs.innovationbay.com/companies/oneflare",
         "title": "Oneflare | Innovation Bay company list",
         "at": "2026-11-20T16:30:02.331Z"
+      },
+      {
+        "firm": "innovation-bay",
+        "url": "https://jobs.ashbyhq.com/airtasker/ff52b5aa-aec5-4574-8518-f5f999b83783",
+        "title": "Senior Data Analyst",
+        "at": "2026-11-27T18:59:23.454Z"
+      },
+      {
+        "firm": "innovation-bay",
+        "url": "https://jobs.ashbyhq.com/airtasker/07c5ff93-0d23-42ba-a0c3-c0c02923e399",
+        "title": "Senior Data Analyst",
+        "at": "2026-11-27T18:59:23.454Z"
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:43:17.508Z",
+    "last_seen_at": "2026-11-27T18:59:23.454Z",
     "note": "Named by Innovation Bay's job board company list with an Australian place; the directory does not hold it. Approve it to add it, or reject it.",
     "profile": {
       "website": "http://oneflare.com.au",
@@ -2526,7 +2538,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:30:02.331Z",
+    "last_seen_at": "2026-11-27T18:59:23.454Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://intervalley.vc",
@@ -2548,7 +2560,7 @@
       ],
       "active_jobs": 0,
       "source_url": "https://jobs.innovationbay.com/companies/intervalley-ventures",
-      "read_at": "2026-11-20T15:57:14.850Z"
+      "read_at": "2026-11-27T18:56:42.611Z"
     }
   },
   {
@@ -5129,7 +5141,7 @@
       }
     ],
     "first_seen_at": "2026-11-20T16:30:02.331Z",
-    "last_seen_at": "2026-11-20T16:30:02.331Z",
+    "last_seen_at": "2026-11-27T18:59:23.454Z",
     "note": "Named by Innovation Bay's job board: a venture firm with an Australian place that the investor directory does not hold. Approve it through the investor directory, or reject it.",
     "profile": {
       "website": "http://blacknova.vc",
@@ -5147,7 +5159,7 @@
       ],
       "active_jobs": 0,
       "source_url": "https://jobs.innovationbay.com/companies/black-nova-venture-capital-2",
-      "read_at": "2026-11-20T16:17:47.139Z"
+      "read_at": "2026-11-27T18:58:32.910Z"
     }
   },
   {
@@ -7038,5 +7050,63 @@
       "source_url": "https://jobs.innovationbay.com/companies/bodyguide",
       "read_at": "2026-11-26T19:00:17.471Z"
     }
+  },
+  {
+    "id": "lead-kronus",
+    "kind": "unknown_company",
+    "name": "Kronus",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "airtree",
+        "url": "https://jobs.ashbyhq.com/kronus/ff163426-1a5d-42fd-870a-d1cbb7c016d8",
+        "title": "Verification Engineer (Formal Methods)",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://jobs.ashbyhq.com/kronus/6a0d05bb-a1fc-4b6f-80ea-a2326cb70c22",
+        "title": "Test Engineer (Embedded Systems)",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://jobs.ashbyhq.com/kronus/d77a5cfe-3833-420a-af41-a70c0ea1a086",
+        "title": "Product Engineer",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://jobs.ashbyhq.com/kronus/cbcfb916-7add-4abc-bbc9-125f772f46c6",
+        "title": "Compiler & Programming Language Engineer",
+        "at": "2026-11-27T18:53:57.842Z"
+      },
+      {
+        "firm": "airtree",
+        "url": "https://jobs.ashbyhq.com/kronus/f60fde57-7da5-4d61-b5c9-01d9f27999f4",
+        "title": "AI & Agent Systems Engineer",
+        "at": "2026-11-27T18:53:57.842Z"
+      }
+    ],
+    "first_seen_at": "2026-11-27T18:53:57.842Z",
+    "last_seen_at": "2026-11-27T18:53:57.842Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
+  },
+  {
+    "id": "lead-legora",
+    "kind": "unknown_company",
+    "name": "Legora",
+    "status": "needs_review",
+    "seen_on": [
+      {
+        "firm": "airtree",
+        "url": "https://jobs.ashbyhq.com/legora/d1ace02b-12d8-4c3e-b0d5-abf90a3906e8",
+        "title": "Account Manager, Strategic Accounts (APAC)",
+        "at": "2026-11-27T18:53:57.842Z"
+      }
+    ],
+    "first_seen_at": "2026-11-27T18:53:57.842Z",
+    "last_seen_at": "2026-11-27T18:53:57.842Z",
+    "note": "Named by a venture firm's job board with an Australian place; the directory does not hold it. Approve it to add it, or reject it."
   }
 ]

@@ -341,6 +341,25 @@
     "added_at": "2026-11-19T13:57:13.839Z"
   },
   {
+    "id": "constantinople-lever-review",
+    "company_id": "constantinople",
+    "provider": "lever",
+    "token": "cxnpl",
+    "board_url": "https://jobs.lever.co/cxnpl",
+    "status": "review",
+    "basis": "Named by AirTree Ventures's job board (Service Delivery Manager, Lending Operations links to lever board \"cxnpl\"). Not yet confirmed from Constantinople's own careers page or through its own feed, so it is not read.",
+    "note": "2026-11-27: The employer's feed lists the job, but the board's name \"cxnpl\" is not the company's name and not its website's.",
+    "added_at": "2026-11-27T18:53:57.842Z",
+    "sighted": [
+      {
+        "firm": "airtree",
+        "url": "https://jobs.lever.co/cxnpl/b1f1323d-b8c9-4164-82a1-06e47270055e",
+        "title": "Service Delivery Manager, Lending Operations"
+      }
+    ],
+    "checked_at": "2026-11-27T18:59:25.848Z"
+  },
+  {
     "id": "covidence-breezy-jobs",
     "company_id": "covidence",
     "provider": "breezy",
