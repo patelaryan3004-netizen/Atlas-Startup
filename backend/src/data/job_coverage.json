@@ -140,7 +140,7 @@
   },
   {
     "company_id": "1receipt",
-    "checked_at": "2026-11-21T02:09:27.855Z",
+    "checked_at": "2026-11-28T03:15:30.757Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -320,7 +320,7 @@
   },
   {
     "company_id": "adora",
-    "checked_at": "2026-11-21T02:09:27.855Z",
+    "checked_at": "2026-11-28T03:15:30.760Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -955,7 +955,7 @@
   },
   {
     "company_id": "ascend-labs",
-    "checked_at": "2026-11-21T02:09:27.855Z",
+    "checked_at": "2026-11-28T03:15:30.761Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://ascendlabs.com.au/old-home",
@@ -1202,7 +1202,7 @@
   },
   {
     "company_id": "atmo-biosciences",
-    "checked_at": "2026-11-21T02:09:27.855Z",
+    "checked_at": "2026-11-28T03:15:30.761Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -1224,7 +1224,7 @@
   },
   {
     "company_id": "avarni",
-    "checked_at": "2026-11-21T02:09:30.449Z",
+    "checked_at": "2026-11-28T03:15:33.177Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -1588,7 +1588,7 @@
   },
   {
     "company_id": "bonjoro",
-    "checked_at": "2026-11-21T02:09:31.777Z",
+    "checked_at": "2026-11-28T03:15:35.119Z",
     "outcome": "unreadable",
     "review": true,
     "careers_url": null,
@@ -1837,18 +1837,18 @@
   },
   {
     "company_id": "c2-robotics",
-    "checked_at": "2026-11-21T02:09:34.234Z",
-    "outcome": "unreadable",
+    "checked_at": "2026-11-28T03:15:37.182Z",
+    "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
     "boards": [],
     "source_ids": [],
-    "note": "The website could not be read (robots_unavailable: fetch failed).",
+    "note": "No careers page or job-board link was found on the homepage or the pages it links to.",
     "next_check_at": null
   },
   {
     "company_id": "bugcrowd",
-    "checked_at": "2026-11-21T02:09:33.353Z",
+    "checked_at": "2026-11-28T03:15:36.714Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.bugcrowd.com/about/careers",
@@ -1904,7 +1904,7 @@
   },
   {
     "company_id": "campaignagent",
-    "checked_at": "2026-11-21T02:09:34.711Z",
+    "checked_at": "2026-11-28T03:15:37.692Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -1915,7 +1915,7 @@
   },
   {
     "company_id": "canibuild",
-    "checked_at": "2026-11-21T02:09:35.154Z",
+    "checked_at": "2026-11-28T03:15:38.472Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://canibuild.com/en-us/careers/",
@@ -1937,7 +1937,7 @@
   },
   {
     "company_id": "carbar",
-    "checked_at": "2026-11-21T02:09:38.886Z",
+    "checked_at": "2026-11-28T03:15:42.264Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.carbar.com.au/about-us/careers",
@@ -2192,7 +2192,7 @@
   },
   {
     "company_id": "certa-therapeutics",
-    "checked_at": "2026-11-21T02:09:39.461Z",
+    "checked_at": "2026-11-28T03:15:42.968Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -2247,7 +2247,7 @@
   },
   {
     "company_id": "cloudfloat",
-    "checked_at": "2026-11-21T02:09:39.953Z",
+    "checked_at": "2026-11-28T03:15:43.486Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -2605,7 +2605,7 @@
   },
   {
     "company_id": "cortisonic",
-    "checked_at": "2026-11-21T02:09:41.711Z",
+    "checked_at": "2026-11-28T03:15:44.883Z",
     "outcome": "no_website",
     "review": false,
     "careers_url": null,
@@ -3199,7 +3199,7 @@
   },
   {
     "company_id": "duohub",
-    "checked_at": "2026-11-21T02:09:42.196Z",
+    "checked_at": "2026-11-28T03:15:45.390Z",
     "outcome": "unreadable",
     "review": true,
     "careers_url": null,
@@ -3296,7 +3296,7 @@
   },
   {
     "company_id": "earthodic",
-    "checked_at": "2026-11-21T02:09:42.718Z",
+    "checked_at": "2026-11-28T03:15:45.997Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.earthodic.com/were-hiring-a-technical-lead-in-the-us/",
@@ -3329,7 +3329,7 @@
   },
   {
     "company_id": "edstart",
-    "checked_at": "2026-11-21T02:09:43.635Z",
+    "checked_at": "2026-11-28T03:15:46.502Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://edstart.com.au/careers",
@@ -3636,7 +3636,7 @@
   },
   {
     "company_id": "energetica",
-    "checked_at": "2026-11-21T02:09:45.195Z",
+    "checked_at": "2026-11-28T03:15:47.323Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -3791,7 +3791,7 @@
   },
   {
     "company_id": "eugene",
-    "checked_at": "2026-11-21T02:09:45.678Z",
+    "checked_at": "2026-11-28T03:15:48.054Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -3824,7 +3824,7 @@
   },
   {
     "company_id": "expert360",
-    "checked_at": "2026-11-21T02:09:46.953Z",
+    "checked_at": "2026-11-28T03:15:50.691Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://expert360.com/company/careers",
@@ -3890,7 +3890,7 @@
   },
   {
     "company_id": "exergenics",
-    "checked_at": "2026-11-21T02:09:46.478Z",
+    "checked_at": "2026-11-28T03:15:49.400Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -4031,7 +4031,7 @@
   },
   {
     "company_id": "fiable",
-    "checked_at": "2026-11-21T02:09:49.029Z",
+    "checked_at": "2026-11-28T03:15:52.863Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -4053,7 +4053,7 @@
   },
   {
     "company_id": "first-aml",
-    "checked_at": "2026-11-21T02:09:50.954Z",
+    "checked_at": "2026-11-28T03:15:53.385Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.firstaml.com/about/company/work-with-us/",
@@ -4174,7 +4174,7 @@
   },
   {
     "company_id": "focus-bear",
-    "checked_at": "2026-11-21T02:09:51.396Z",
+    "checked_at": "2026-11-28T03:15:53.885Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.focusbear.io/careers",
@@ -4230,7 +4230,7 @@
   },
   {
     "company_id": "forward",
-    "checked_at": "2026-11-21T02:09:53.361Z",
+    "checked_at": "2026-11-28T03:15:55.269Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.useforward.co/careers",
@@ -4318,7 +4318,7 @@
   },
   {
     "company_id": "future-super",
-    "checked_at": "2026-11-21T02:09:53.789Z",
+    "checked_at": "2026-11-28T03:15:56.416Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.futuresuper.com.au/join-now",
@@ -4385,7 +4385,7 @@
   },
   {
     "company_id": "genomical",
-    "checked_at": "2026-11-21T02:09:54.280Z",
+    "checked_at": "2026-11-28T03:15:57.818Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -4451,7 +4451,7 @@
   },
   {
     "company_id": "gilmour-space-technologies",
-    "checked_at": "2026-11-21T02:09:54.731Z",
+    "checked_at": "2026-11-28T03:15:59.240Z",
     "outcome": "unreadable",
     "review": true,
     "careers_url": null,
@@ -4907,7 +4907,7 @@
   },
   {
     "company_id": "hotdoc",
-    "checked_at": "2026-11-21T02:09:57.745Z",
+    "checked_at": "2026-11-28T03:16:00.366Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -4941,7 +4941,7 @@
   },
   {
     "company_id": "home-in",
-    "checked_at": "2026-11-21T02:09:55.405Z",
+    "checked_at": "2026-11-28T03:15:59.730Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.home-in.com.au/careers",
@@ -5732,7 +5732,7 @@
   },
   {
     "company_id": "kinde",
-    "checked_at": "2026-11-21T02:09:58.274Z",
+    "checked_at": "2026-11-28T03:16:00.860Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.kinde.com/careers/",
@@ -6033,7 +6033,7 @@
   },
   {
     "company_id": "leakster",
-    "checked_at": "2026-11-21T02:09:58.751Z",
+    "checked_at": "2026-11-28T03:16:03.009Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -6088,7 +6088,7 @@
   },
   {
     "company_id": "lessn",
-    "checked_at": "2026-11-21T02:10:01.003Z",
+    "checked_at": "2026-11-28T03:16:03.663Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -6244,7 +6244,7 @@
   },
   {
     "company_id": "livedcx",
-    "checked_at": "2026-11-21T02:10:01.456Z",
+    "checked_at": "2026-11-28T03:16:04.174Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.livedcx.ai/careers",
@@ -7186,7 +7186,7 @@
   },
   {
     "company_id": "novalith",
-    "checked_at": "2026-11-21T02:10:36.663Z",
+    "checked_at": "2026-11-28T03:16:38.511Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://novalith.com.au/careers",
@@ -7253,7 +7253,7 @@
   },
   {
     "company_id": "number-8-bio",
-    "checked_at": "2026-11-21T02:10:01.923Z",
+    "checked_at": "2026-11-28T03:16:06.704Z",
     "outcome": "unreadable",
     "review": true,
     "careers_url": null,
@@ -7506,7 +7506,7 @@
   },
   {
     "company_id": "onmarket",
-    "checked_at": "2026-11-21T02:10:02.567Z",
+    "checked_at": "2026-11-28T03:16:07.331Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.onmarket.com.au/join/?defaultScreen=join",
@@ -7561,7 +7561,7 @@
   },
   {
     "company_id": "orkestra",
-    "checked_at": "2026-11-21T02:10:39.303Z",
+    "checked_at": "2026-11-28T03:16:40.649Z",
     "outcome": "unsupported_provider",
     "review": true,
     "careers_url": null,
@@ -7581,7 +7581,7 @@
   },
   {
     "company_id": "our-community-house",
-    "checked_at": "2026-11-21T02:10:03.026Z",
+    "checked_at": "2026-11-28T03:16:07.819Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -7680,7 +7680,7 @@
   },
   {
     "company_id": "ownhome",
-    "checked_at": "2026-11-21T02:10:06.240Z",
+    "checked_at": "2026-11-28T03:16:08.336Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://jobs.ownhome.com/",
@@ -8198,7 +8198,7 @@
   },
   {
     "company_id": "propic",
-    "checked_at": "2026-11-21T02:10:06.708Z",
+    "checked_at": "2026-11-28T03:16:09.104Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -8263,7 +8263,7 @@
   },
   {
     "company_id": "puls3",
-    "checked_at": "2026-11-21T02:10:07.159Z",
+    "checked_at": "2026-11-28T03:16:09.927Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -8576,7 +8576,7 @@
   },
   {
     "company_id": "reach-and-match",
-    "checked_at": "2026-11-21T02:10:07.792Z",
+    "checked_at": "2026-11-28T03:16:12.209Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -8676,7 +8676,7 @@
   },
   {
     "company_id": "resseptor",
-    "checked_at": "2026-11-21T02:10:12.728Z",
+    "checked_at": "2026-11-28T03:16:14.637Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -8687,7 +8687,7 @@
   },
   {
     "company_id": "ren",
-    "checked_at": "2026-11-21T02:10:11.303Z",
+    "checked_at": "2026-11-28T03:16:13.705Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -9153,7 +9153,7 @@
   },
   {
     "company_id": "senetas",
-    "checked_at": "2026-11-21T02:10:15.080Z",
+    "checked_at": "2026-11-28T03:16:16.996Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -9267,7 +9267,7 @@
   },
   {
     "company_id": "simpatico",
-    "checked_at": "2026-11-21T02:10:15.529Z",
+    "checked_at": "2026-11-28T03:16:18.182Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -9300,7 +9300,7 @@
   },
   {
     "company_id": "simplafy",
-    "checked_at": "2026-11-21T02:10:16.466Z",
+    "checked_at": "2026-11-28T03:16:22.576Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -9429,7 +9429,7 @@
   },
   {
     "company_id": "socialsuite",
-    "checked_at": "2026-11-21T02:10:20.146Z",
+    "checked_at": "2026-11-28T03:16:23.073Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.socialsuitehq.com/careers",
@@ -9614,7 +9614,7 @@
   },
   {
     "company_id": "ss-and-c-technologies",
-    "checked_at": "2026-11-21T02:10:20.991Z",
+    "checked_at": "2026-11-28T03:16:25.198Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.ssctech.com/careers/why-ssc",
@@ -9847,7 +9847,7 @@
   },
   {
     "company_id": "susquehanna-international-group",
-    "checked_at": "2026-11-21T02:10:22.915Z",
+    "checked_at": "2026-11-28T03:16:26.643Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://sig.com/careers/",
@@ -10062,7 +10062,7 @@
   },
   {
     "company_id": "telix-pharmaceuticals",
-    "checked_at": "2026-11-21T02:10:24.822Z",
+    "checked_at": "2026-11-28T03:16:27.478Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://telixpharma.com/careers/",
@@ -10128,7 +10128,7 @@
   },
   {
     "company_id": "tendertrace",
-    "checked_at": "2026-11-21T02:10:26.978Z",
+    "checked_at": "2026-11-28T03:16:29.615Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -10216,7 +10216,7 @@
   },
   {
     "company_id": "tiny-bright-things",
-    "checked_at": "2026-11-21T02:10:28.256Z",
+    "checked_at": "2026-11-28T03:16:31.588Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -10315,7 +10315,7 @@
   },
   {
     "company_id": "trace",
-    "checked_at": "2026-11-21T02:10:28.879Z",
+    "checked_at": "2026-11-28T03:16:32.076Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.our-trace.com/we-are-hiring",
@@ -10326,7 +10326,7 @@
   },
   {
     "company_id": "truestate",
-    "checked_at": "2026-11-21T02:10:31.817Z",
+    "checked_at": "2026-11-28T03:16:34.740Z",
     "outcome": "no_website",
     "review": false,
     "careers_url": null,
@@ -10379,7 +10379,7 @@
   },
   {
     "company_id": "strongroom-ai",
-    "checked_at": "2026-11-21T02:10:21.745Z",
+    "checked_at": "2026-11-28T03:16:25.738Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -10489,7 +10489,7 @@
   },
   {
     "company_id": "uluu",
-    "checked_at": "2026-11-21T02:10:32.263Z",
+    "checked_at": "2026-11-28T03:16:35.220Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.uluu.com.au/careers",
@@ -10855,7 +10855,7 @@
   },
   {
     "company_id": "vitruvian-form",
-    "checked_at": "2026-11-21T02:10:32.880Z",
+    "checked_at": "2026-11-28T03:16:35.708Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -10899,7 +10899,7 @@
   },
   {
     "company_id": "vudoo",
-    "checked_at": "2026-11-21T02:10:34.522Z",
+    "checked_at": "2026-11-28T03:16:36.203Z",
     "outcome": "no_careers_found",
     "review": true,
     "careers_url": null,
@@ -11285,7 +11285,7 @@
   },
   {
     "company_id": "yellow-canary",
-    "checked_at": "2026-11-21T02:10:35.021Z",
+    "checked_at": "2026-11-28T03:16:37.537Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.yellowcanary.com.au/careers/careers",
@@ -11373,7 +11373,7 @@
   },
   {
     "company_id": "zitcha",
-    "checked_at": "2026-11-21T02:10:38.743Z",
+    "checked_at": "2026-11-28T03:16:39.885Z",
     "outcome": "careers_page_only",
     "review": true,
     "careers_url": "https://www.zitcha.com/careers",
